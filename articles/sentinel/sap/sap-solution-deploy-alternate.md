@@ -14,7 +14,7 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 
 We typically recommend using the default process, as described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). 
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your SAP BASIS teams.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is intended for your **SAP BASIS** teams.
 
 ## Prerequisites
 
@@ -210,65 +210,6 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 The Microsoft Sentinel for SAP data connector is configured in the **systemconfig.json** file, which you cloned to your SAP data connector machine as part of the [deployment procedure](#perform-an-expert--custom-installation). Use the content in this section to manually configure data connector settings.
 
 For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md), or [Systemconfig.ini file reference](reference-systemconfig.md) for legacy systems.
-
-<!--do we need this if we have the references?
-The following code shows a sample **systemconfig.json** file: 
-
-```python
-[Secrets Source]
-secrets = '<DOCKER_RUNTIME/AZURE_KEY_VAULT/DOCKER_SECRETS/DOCKER_FIXED>'
-keyvault = '<SET_YOUR_AZURE_KEYVAULT>'
-intprefix = '<SET_YOUR_PREFIX>'
-
-[ABAP Central Instance]
-##############################################################
-# Define the following values according to your server configuration.
-ashost = <SET_YOUR_APPLICATION_SERVER_HOST>
-mshost = <SET_YOUR_MESSAGE_SERVER_HOST> - #In case different then App
-##############################################################
-group = <SET_YOUR_LOGON_GROUP>
-msserv = <SET_YOUR_MS_SERVICE> - #Required only if the message server service is not defined as sapms<SYSID> in /etc/services
-sysnr = <SET_YOUR_SYS_NUMBER>
-user = <SET_YOUR_USER>
-##############################################################
-# Enter your password OR your X509 SNC parameters
-passwd = <SET_YOUR_PASSWORD>
-snc_partnername = <SET_YOUR_SNC_PARTNER_NAME>
-snc_lib = <SET_YOUR_SNC_LIBRARY_PATH>
-x509cert = <SET_YOUR_X509_CERTIFICATE>
-##############################################################
-sysid = <SET_YOUR_SYSTEM_ID>
-client = <SET_YOUR_CLIENT>
-
-[Azure Credentials]
-loganalyticswsid = <SET_YOUR_LOG_ANALYTICS_WORKSPACE_ID>
-publickey = <SET_YOUR_PUBLIC_KEY>
-
-[File Extraction ABAP]
-osuser = <SET_YOUR_SAPADM_LIKE_USER>
-##############################################################
-# Enter your password OR your X509 SNC parameters
-ospasswd = <SET_YOUR_SAPADM_PASS>
-x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
-##############################################################
-appserver = <SET_YOUR_SAPCTRL_SERVER IP OR FQDN>
-instance = <SET_YOUR_SAP_INSTANCE NUMBER, example 10>
-abapseverity = <SET_ABAP_SEVERITY 0 = All logs ; 1 = Warning ; 2 = Error>
-abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use abaptz = GMT+12>
-
-[File Extraction JAVA]
-javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
-##############################################################
-# Enter your password OR your X509 SNC parameters
-javaospasswd = <SET_YOUR_JAVAADM_PASS>
-javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
-##############################################################
-javaappserver = <SET_YOUR_JAVA_SAPCTRL_SERVER IP ADDRESS OR FQDN>
-javainstance = <SET_YOUR_JAVA_SAP_INSTANCE for example 10>
-javaseverity = <SET_JAVA_SEVERITY  0 = All logs ; 1 = Warning ; 2 = Error>
-javatz = <SET_JAVA_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST use javatz = GMT+12>
-```
--->
 
 ### Define the SAP logs that are sent to Microsoft Sentinel
 

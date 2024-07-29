@@ -14,7 +14,7 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
-Content in this article is relevant for the following teams: :::image type="icon" source="media/deployment-steps/security.png" border="false"::: Security | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: Infrastructure | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: SAP BASIS
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Security | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: Infrastructure | :::image type="icon" source="media/deployment-steps/expert.png" | Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
 
 ## Azure prerequisites
 
@@ -25,7 +25,7 @@ Typically, Azure prerequisites are managed by your :::image type="icon" source="
 | **Access to Microsoft Sentinel** | Make a note of your Microsoft Sentinel *workspace ID* and *primary key*.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
 | **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see the [Microsoft Sentinel content hub catalog](../sentinel-solutions-catalog.md). |Required |
 | **Permissions to create an Azure key vault or access an existing one** | Use Azure Key Vault to store secrets required to connect to your SAP system (recommended when this is a required prerequisite). For more information, see [Assign key vault access permissions](deploy-data-connector-agent-container.md#assign-key-vault-access-permissions). |Required if you plan to store the SAP system credentials in Azure Key Vault. <br><br>Optional if you plan to store them in a configuration file. For more information, see [Create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).|
-| **Permissions to assign a privileged role to the SAP data connector agent** | Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role. To grant this role, you need **Owner** permissions on the resource group where your Microsoft Sentinel workspace resides. <br><br>For more information, see [Deploy the data connector agent](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent). | Required. <br> If you don't have **Owner** permissions on the resource group, the relevant step can also be performed by another user who does have the relevant permissions, separately after the agent is fully deployed.|
+| **Permissions to assign a privileged role to the SAP data connector agent** | Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role. To grant this role, you need **Owner** permissions on the resource group where your Microsoft Sentinel workspace resides. <br><br>For more information, see [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent). | Required. <br> If you don't have **Owner** permissions on the resource group, the relevant step can also be performed by another user who does have the relevant permissions, separately after the agent is fully deployed.|
 
 ## System prerequisites
 
@@ -62,7 +62,10 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 | --- | --- |
 | Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
 
-Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
+Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see:
+
+- [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations)
+- [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/e8eb38f94cb138e10000000a114084/frameset.htm)
 
 ### Requirements for retrieving additional information from SAP (optional)
 
@@ -82,10 +85,10 @@ If you choose to retrieve additional information with the [NPLK900202 optional C
 | --- | --- |
 | - 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
 
-This process is described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
- 
+For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm).
  
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md)
+> [Install the Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md)
+

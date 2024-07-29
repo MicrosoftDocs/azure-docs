@@ -18,7 +18,7 @@ To get the latest features, either [turn on automatic updates](#automatically-up
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP BASIS teams.
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -184,7 +184,7 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
   
 1. Upload role definitions from the [/MSFTSEN/SENTINEL_RESPONDER](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
 
-1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Deploy SAP change requests and configure authorization](preparing-sap.md).
+1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
   Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
 

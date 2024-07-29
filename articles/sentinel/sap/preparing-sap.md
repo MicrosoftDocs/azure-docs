@@ -17,9 +17,9 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your SAP BASIS team.
+:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your **SAP BASIS** team.
 
-[!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 ## Configure the Microsoft Sentinel role
 
-To allow the SAP data connector to connect to your SAP system, you must create a SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
+To allow the SAP data connector to connect to your SAP system, you must create a SAP system role specifically for this purpose. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
 
-The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
+The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* change request (CR) on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
 | SAP BASIS versions | Sample CR |
 | --- | --- |
@@ -39,45 +39,23 @@ The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack
 > Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](#required-abap-authorizations). The examples in this procedure use the **/MSFTSEN/SENTINEL_RESPONDER** name.
 >
 
-**To configure the role**:
+When configuring the role, we recommend that you:
 
-1. In your SAP system, upload role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file in GitHub.
+- Generate an active role profile for Microsoft Sentinel by running the **PFCG** transaction.
+- Use `/MSFTSEN/SENTINEL_RESPONDER` as the role name.
 
-    This creates the **/MSFTSEN/SENTINEL_RESPONDER** role, which includes all the authorizations required to retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
-
-1. Generate an active role profile for Microsoft Sentinel to use by running the **PFCG** transaction. In the **SAP Easy Access** screen, enter `PFCG` in the field in the upper left corner of the screen and then press **ENTER**.
-
-1. In the **Role Maintenance** window, enter the `/MSFTSEN/SENTINEL_RESPONDER` role name in the **Role** field and select the **Change** button.
-
-1. In the **Change Roles** window that appears, select **Authorizations** > **Change Authorization Data**.
-
-1. In the **Information** popup, read the message and select the green checkmark to confirm.
-
-1. In the **Change Role: Authorizations** window, select **Generate**, and then note that the **Status** field has changed from **Unchanged** to **generated**.
-
-1. Select **Back** to return to the **Change Roles** window, and note there that the **Authorizations** tab displays a green box.
-
-1. Select **Save** to save your changes.
+For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/e8eb38f94cb138e10000000a114084/frameset.htm).
 
 ### Create a user
 
 The Microsoft Sentinel solution for SAP applications requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
 
-In the examples shown here, we use the role name **/MSFTSEN/SENTINEL_RESPONDER**.
+When creating your user:
 
-1. Run the **SU01** transaction:
+- Make sure to create a system user.
+- Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the user.
 
-    In the **SAP Easy Access** screen, enter `SU01` in the field in the upper left corner of the screen and press **ENTER**.
-
-1. In the **User Maintenance: Initial Screen** screen, enter the name of the new user in the **User** field and select **Create Technical User** from the button bar.
-
-1. In the **Maintain Users** screen, select **System** from the **User Type** drop-down list. Create and enter a complex password in the **New Password** and **Repeat Password** fields, then select the **Roles** tab.
-
-1. In the **Roles** tab, in the **Role Assignments** section, enter the full name of the role - `/MSFTSEN/SENTINEL_RESPONDER` in our example - and press **Enter**.
-
-    After pressing **Enter**, verify that the right-hand side of the **Role Assignments** section populates with data, such as **Change Start Date**.
-
-1. Select the **Profiles** tab, verify that a profile for the role appears under **Assigned Authorization Profiles**, and select **Save**.
+For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2c158dc83732454cb8830b3010e2c322/6c25624a03114f48a4c7a60105752cd4.html)
 
 ### Required ABAP authorizations
 
@@ -90,7 +68,7 @@ The required authorizations are listed here by their purpose. You only need the 
 >
 > Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system to create the **/MSFTSEN/SENTINEL_CONNECTOR** role, or load the role authorizations from the [**/MSFTSEN/SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file.
 
-If needed, you can [remove the user role and the optional CR installed on your ABAP system](preparing-sap.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system).
+If needed, you can [Remove the user role and any optional CR installed on your ABAP system](#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system).
 
 :::row:::
     :::column:::
@@ -301,118 +279,7 @@ The following table describes the optional CRs available to deploy:
 |**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations). |
 |**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
-For more information, see:
-
-<!--Naomi to get links in SAP docs-->
-
-<!-- remove this
-### Prerequisites for deploying CRs
-
-1. Make sure you've copied the details of the **SAP system version**, **System ID (SID)**, **System number**, **Client number**, **IP address**, **administrative username**, and **password** before beginning the deployment process. For the following example, the following details are assumed:
-
-    - **SAP system version:** `SAP ABAP Platform 1909 Developer edition`
-    - **SID:** `A4H`
-    - **System number:** `00`
-    - **Client number:** `001`
-    - **IP address:** `192.168.136.4`
-    - **Administrator user:** `a4hadm`, however, the SSH connection to the SAP system is established with `root` user credentials.
-
-1. Make sure you know which [CR you want to deploy](#deploy-optional-crs).
-
-
-### Set up the files
-
-1. Sign in to the SAP system using SSH.
-
-1. Transfer the CR files to the SAP system or download the files directly onto the SAP system from the SSH prompt. Use the following commands:
-
-    - **To download NPLK900271**
-
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL
-        ```
-
-        Alternatively, [load these authorizations directly from a file](#configure-the-microsoft-sentinel-role).
-  
-    - **To download NPLK900202**
-
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
-        ```
-
-    - **To download NPLK900201**
-
-        ```bash
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
-        wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
-        ```
-
-    Each CR consists of two files, one beginning with K and one with R.
-
-1. Change the ownership of the files to the *`<sid>` adm* user and the *sapsys* group. In the following sample code, substitute your SAP system ID for `<sid>`.
-
-    ```bash
-    chown <sid>adm:sapsys *.NPL
-    ```
-
-    For example:
-
-    ```bash
-    chown a4hadm:sapsys *.NPL
-    ```
-
-1. Copy the cofiles, which begin with *K* to the `/usr/sap/trans/cofiles` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
-
-    ```bash
-    cp -p K*.NPL /usr/sap/trans/cofiles/
-    ```
-
-1. Copy the data files, which begin with R, to the `/usr/sap/trans/data` folder. Preserve the permissions while copying, using the `cp` command with the `-p` switch.
-
-    ```bash
-    cp -p R*.NPL /usr/sap/trans/data/
-    ```
-
-### Import the CRs
-
-This procedure provides a sample set of steps for how to import the Microsoft Sentinel solution CRs to your SAP system. Your SAP system may have different options and buttons. In such cases, refer to the SAP system documentation for exact instructions.
-
-1. Launch the **SAP Logon** application and sign in to the SAP GUI console.
-
-1. Run the **STMS_IMPORT** transaction. For exampel, to do this, in the **SAP Easy Access** screen, search for `STMS_IMPORT` and then press **ENTER**.
-
-1. In the **Import Queue** window that appears, select **More > Extras > Other Requests > Add**.
-
-1. In the **Add Transport Requests to Import Queue** pop-up that appears, select the **Transp. Request** field.
-
-1. The **Transport requests** window appears, listing the CRs available for deployment. Select a CR to import and then select the green checkmark button.
-
-1. Back in the **Add Transport Request to Import Queue** window, select **Continue** or press **ENTER**.
-
-1. In the **Add Transport Request** confirmation dialog, select **Yes**.
-
-1. If you plan to deploy more CRs, repeat the previous steps in this procedure for the remaining CRs.
-
-1. When you're done deploying all your CRs, in the **Import Queue** window, select the relevant Transport Request, and then select **F9** or **Select/Deselect Request** icon.
-
-    If you have remaining Transport Requests to add to the deployment, repeat this step as needed.
-
-1. Select the **Import Requests** button, and then in the **Start Import** window, select the **Target Client** field.
-
-1. The **Input Help..** dialog appears. Select the number of the client you want to deploy the CRs to, then select the green checkmark to confirm.
-
-1. Back in the **Start Import** window, select the **Options** tab, mark the **Ignore Invalid Component Version** checkbox, and then select the green checkmark to confirm.
-
-1. In the **Start import** confirmation dialog, select **Yes** to confirm the import.
-
-1. Back in the **Import Queue** window, select **Refresh**, wait until the import operation completes and the import queue shows as empty.
-
-1. To review the import status, in the **Import Queue** window select **More > Go To > Import History**.
-
-1. If you deployed the *NPLK900202* CR, it's expected to display a **Warning**. Select the entry with the warning to verify that the warnings displayed are of type  `"Table \<tablename\>` was activated."
--->
+For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094). <!--we want a better link here-->
 
 ## Verify that the PAHI table is updated at regular intervals
 
@@ -424,45 +291,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 > [!TIP]
 > For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
 
-If the PAHI table is updated regularly, the SAP_COLLECTOR_FOR_PERFMONITOR job is scheduled and runs hourly. If the SAP_COLLECTOR_FOR_PERFMONITOR job doesn't exist, make sure to configure it as needed. For more information, see <!--naomi to find links-->
-
-<!--removing this--
-**To verify that the PAHI table is updated regularly**:
-
-1. Check whether the `SAP_COLLECTOR_FOR_PERFMONITOR` job, based on the RSCOLL00 program, is scheduled and running hourly, by the DDIC user in the 000 client.
-
-1. Check whether the `RSHOSTPH`, `RSSTATPH` and `RSDB_PAR` report names are maintained in the TCOLL table:
-
-    - `RSHOSTPH` report: Reads the operating system kernel parameters and stores this data in the PAHI table.
-    - `RSSTATPH` report: Reads the SAP profile parameters and stores this data in the PAHI table.
-    - `RSDB_PAR` report: Reads the database parameters and stores them in the PAHI table.
-
-If the job exists and is configured correctly, no further steps are needed.
-
-
-### Configure the SAP_COLLECTOR_FOR_PERFMONITOR job if it doesn't already exist
-
-The screenshots shown in this procedure are examples, and your SAP system may look different.
-
-1. Sign in to your SAP system in the 000 client and run the `SM36` transaction.
-
-1. In the **Job Name** field, enter *SAP_COLLECTOR_FOR_PERFMONITOR*.
-
-1. Select **Step**, enter the following details, and then save the configuration.
-
-    - **User**: Enter *DDIC*.
-    - **ABAP Program Name**: Enter *RSCOLL00*.
-
-1. Press **F3** to return to the previous screen, and then select **Start Condition** to define the start condition.
-
-1. Select **Immediate** and then select the **Periodic job** checkbox.
-
-1. Select **Period values** and then select **Hourly**.
-
-1. Select **Save** both inside the dialog, and then select **Save** at the bottom.
-
-1. To release the job, select **Save** at the top.
--->
+If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. For more information, see [SAP documentation](https://help.sap.com/doc/saphelp_ewm900/9.0/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm).
 
 ## Configure your system to use SNC for secure connections
 
@@ -472,51 +301,18 @@ However, you might need to make the connection on an encrypted channel or use cl
 
 In a production environment, we strongly recommend that your consult with SAP admnistrators to create a deployment plan for configuring SNC.
 
-<!-- removing this
-> [!NOTE]
-> This section describes a sample case for configuring SNC. In a production environment, we strongly recommended that you consult with SAP administrators to create a deployment plan.
+For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_NETWEAVER_731/a42446bded624585958a36a71903a4a7/c3d2281db19ec347a2365fba6ab3b22b.html?q=SNC). <!--not sure this is the right link for us - it's Java only?-->
 
-1. Make sure that you have the following prerequisites:
-
-    - The [SAP Cryptographic Library](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/86921b29cac044d68d30e7b125846860.html).
-    - Network connectivity. SNC uses port 48*xx* (where *xx* is the SAP instance number) to connect to the SAP server.
-    - Your SAP server configured to support SNC authentication. <!--for more information, see xref-->
-<!--    - A self-signed or enterprise certificate authority (CA)-issued certificate for user authentication.
-
-1. Export your SAP server certificate in a **Base64** format, and then import it to your SAP system. Make sure that you're importing the correct certificate for your system, including the public keys. <!--which system are we importing to?-->
-
-<!--    We recommend using a certificate issued by an enterprise CA. In such cases, if both the root and subordinate CA servers are used, import both the certificates. If you're using a self-signed certificate instead, import the self-signed, user certificate.
-
-1. Associate the certificate with a SAP system user account. When doing this, configure the user's **SNC Name** as the user's certificate subject name prefixed with **p:**. For example: **p: CN=SentinelUser,DC=Contoso,DC=com**.
-
-1. Grant the user with rights to authenticate using the certificate you imported. When doing so, make sure that the options for **Entry for RFC activated** and **Entry for certificate activated** are selected.
-
-1. Map your SAP service provider to external user IDs using the following values: <!--this is only ABAP. But should we be making this generic to support Java in the future?-->
-
-<!--    - Define the external ID as **CN=Sentinel**, **C=US**.
-    - Define the sequence number as **000**.
-    - Define the user as **SENTINEL**.
-
-1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where the container will be created.
-
-1. Transfer the client certificate, including both private and public keys to the system where the container will be created. <!--i thought we only needed public keys?-->
-
-<!--    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
-
-1. Transfer the server certificate, including the public key only to the system where the SAP data connector agent container will be created. The server certificate must be in Base64 *.crt* format. <!--did we just do this by exporting and importing?-->
-
-<!--1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
-
-If you're configuring your system to use SNC connections, make sure to use the relevant procedure when configuring your SAP data connector agent container.
--->
+If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent. If you're configuring your system to use SNC connections, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). make sure to use the relevant procedure when configuring your SAP data connector agent container.
 
 ## Remove the user role and any optional CR installed on your ABAP system
 
 If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
 
-To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see <!--naomi to find link in sap docs for importing CRs-->
+To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm).
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect your SAP system by deploying your data connector agent](deploy-data-connector-agent-container.md)
+> [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md)
+

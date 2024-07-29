@@ -1,5 +1,5 @@
 ---
-title: Connect your SAP system by deploying your data connector agent | Microsoft Sentinel
+title: Connect your SAP system by deploying your data connector agent container | Microsoft Sentinel
 description: This article describes how to connect your SAP system to Microsoft Sentinel by deploying the container that that hosts the SAP data connector agent.
 author: batamig
 ms.author: bagol
@@ -13,7 +13,7 @@ ms.collection: usx-security
 #customerIntent: As an security, infrastructure, or SAP BASIS team member, I want to deploy the container that hosts the Microsoft Sentinel SAP data connector agent, so that I can ingest SAP data into Microsoft Sentinel.
 ---
 
-# Connect your SAP system by deploying your data connector agent
+# Connect your SAP system by deploying your data connector agent container
 
 For the Microsoft Sentinel solution for SAP applications to operate correctly, you must first get your SAP data into Microsoft Sentinel. To accomplish this, you need to deploy the solution's SAP data connector agent.
 
@@ -35,8 +35,6 @@ Before you deploy the data connector agent:
 
 - Make sure that your system is fully [prepared for the deployment](preparing-sap.md). If you're deploying the data connector agent to communicate with Microsoft Sentinel over SNC, make sure that you completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
 
-The procedures in this step require coordination between your security, infrastructure, and SAP BASIS teams.
-
 ## Watch a demo video
 
 Watch a video demononstration of the deployment process described in this article.
@@ -52,13 +50,15 @@ We recommend that you store your SAP and authentication secrets in an Azure key 
 |**Container on an Azure VM**     |  We recommend using an Azure system-assigned managed identity to access Azure Key Vault. <br><br>If a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal, or, as a last resort, a configuration file.  |
 |**A container on an on-premises VM**, or **a VM in a third-party cloud environment**     |   Authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal.    |
 
-If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy and configure the SAP data connector agent container with a configuration file](sap-solution-deploy-alternate.md). <!--fix xref-->
+If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy a data connector agent container using a configuration file](sap-solution-deploy-alternate.md#deploy-a-data-connector-agent-container-using-a-configuration-file).
 
 For more information, see:
 
 - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
 - [What are manged identies for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
+
+Your virtual machine is typically created by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** teams. Configuring access to credentials and managing key vaults is typically done by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** teams.
 
 ## [Managed identity](#tab/managed-identity)
 
@@ -217,7 +217,7 @@ This procedure describes how to create a key vault to store your agent configura
 
 ## Deploy the data connector agent
 
-Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems.
+Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. We recommend that your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team perform the procedures in this section with help from the :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: **SAP BASIS** team.
 
 1. **Sign in to the newly created VM** on which you are installing the agent, as a user with sudo privileges.
 
@@ -295,7 +295,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
     > [!NOTE]
-    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the **Command line** tab instead. <!--fix this link-->
+    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [**Command line** tab](deploy-data-connector-agent-container?tabs=command-line) instead.
     >
 
 1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
@@ -306,7 +306,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
-1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--what configuration area?-->
+1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--validate this-->
 
     - Under **Select an agent**, select the agent you created earlier.
     - Under **System identifier**, select the server type and provide the server details.
@@ -339,9 +339,9 @@ For more information, see [Monitor the health and role of your SAP systems](../m
 
 This procedure describes how to create a new agent and connect it to your SAP system via the command line, authenticating with a managed identity or a Microsoft Entra ID registered application.
 
-If you're using a configuration file to store your credentials, see [Deploy and configure the SAP data connector agent container with a configuration file](sap-solution-deploy-alternate.md) instead. <!--fix xref-->
+If you're using a configuration file to store your credentials, see [Deploy a data connector agent container using a configuration file](sap-solution-deploy-alternate.md#deploy-a-data-connector-agent-container-using-a-configuration-file).
 
-1. To start creating your new agent, download and run the deployment kickstart script.
+1. To start creating your new agent, download and run the deployment kickstart script:
 
     - **For a managed identity**, use one of the following command options:
 
@@ -454,7 +454,7 @@ If you're using a configuration file to store your credentials, see [Deploy and 
 
 Use the following procedure to configure the Microsoft Sentinel SAP data connector agent container to use SNC for secure commuinications with your SAP system.
 
-**Prerequisites**: Make sure that you've completed [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections) before you start this procedure.
+**Prerequisites**: Make sure that your SAP system is configured to use SNC for secure connections before you start this procedure. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_NETWEAVER_731/a42446bded624585958a36a71903a4a7/c3d2281db19ec347a2365fba6ab3b22b.html?q=SNC). <!--not sure this is the right link for us - it's Java only?-->
 
 **To configure the container for secure communication with SNC**:
 
@@ -493,6 +493,18 @@ We recommend periodically checking on your data connector agent's health and con
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
 
+1. To confirm your connection, go to the **Microsoft Sentinel for SAP** data connector page and check the connection status. For example:
+
+    :::image type="content" source="./media/deploy-sap-security-content/sap-data-connector.png" alt-text="Screenshot that shows the Microsoft Sentinel for SAP data connector page." lightbox="media/deploy-sap-security-content/sap-data-connector.png":::
+
+1. Select **Logs > Custom logs** to view the logs streaming in from the SAP system. For example:
+
+    :::image type="content" source="./media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
+
+    SAP logs won't be displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
+
+    For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
+
 ## Stop log ingestion and disable the connector
 
 To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, sign into your data connector agent machine and run:
@@ -519,7 +531,7 @@ docker start sapcon-[SID]
 
 Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
 > [!div class="nextstepaction"]
-> [Deploy the solution content from the content hub](deploy-sap-security-content.md)
+> [Enable SAP detections and threat protection](deployment-solution-configuration.md)
 
 ## Related content
 

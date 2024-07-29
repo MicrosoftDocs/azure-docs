@@ -86,6 +86,6 @@ For more information, see [Available watchlists](sap-solution-security-content.m
 
 For more information, see:
 
-- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md)
 - [Automatic attack disruption for SAP (Preview)](deployment-attack-disrupt.md)
 - [Monitor the health of your SAP system](../monitor-sap-system-health.md)
+- [Update Microsoft Sentinel's SAP data connector agent](update-sap-data-connector.md)
