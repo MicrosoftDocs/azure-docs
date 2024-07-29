@@ -85,3 +85,4 @@ Keep in mind these current limitations:
 
 - [Get tips for writing effective prompts](write-effective-prompts.md) to use with Microsoft Copilot in Azure.
 - Learn about [managing access to Copilot in Azure](manage-access.md) in your organization.
+- Explore the [Microsoft Copilot in Azure video series](/shows/microsoft-copilot-in-azure/).

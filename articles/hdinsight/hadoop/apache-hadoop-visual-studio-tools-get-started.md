@@ -323,4 +323,4 @@ In this article, you learned how to use the Data Lake Tools for Visual Studio pa
 * [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)
 * [Create Apache Hadoop cluster - Template](apache-hadoop-linux-tutorial-get-started.md)
 * [Submit Apache Hadoop jobs in HDInsight](submit-apache-hadoop-jobs-programmatically.md)
-* [Analyze Twitter data using Apache Hive and Apache Hadoop on HDInsight](../hdinsight-analyze-twitter-data-linux.md)
+* [Analyze X data using Apache Hive and Apache Hadoop on HDInsight](../hdinsight-analyze-twitter-data-linux.md)
