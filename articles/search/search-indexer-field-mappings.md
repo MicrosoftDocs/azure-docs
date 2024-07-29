@@ -10,8 +10,8 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 06/25/2024
+ms.topic: how-to
+ms.date: 07/29/2024
 ---
 
 # Field mappings and transformations using Azure AI Search indexers
@@ -24,7 +24,9 @@ Field mappings can also be used for light-weight data conversions, such as encod
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (between fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and fields in a [search index](search-what-is-an-index.md)). If you're importing skill-enriched content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
++ Physical data structures on both sides of the data stream (between fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and fields in a [search index](search-what-is-an-index.md)).
+
+  If you're importing skill-generated content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
 + Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
@@ -45,17 +47,37 @@ Field mappings apply to:
 
 ## Define a field mapping
 
-Field mappings are added to the `fieldMappings` array of an indexer definition. A field mapping consists of three parts.
+This section explains how to set up field mappings.
 
-```json
-"fieldMappings": [
-  {
-    "sourceFieldName": "_city",
-    "targetFieldName": "city",
-    "mappingFunction": null
-  }
-]
-```
+### [**REST APIs**](#tab/rest)
+
+1. Use [Create Indexer](/rest/api/searchservice/indexers/create) or [Create or Update Indexer](/rest/api/searchservice/indexers/create-or-update) or an equivalent method in an Azure SDK. Here's an example of an indexer definition.
+
+   ```json
+   {
+      "name": "myindexer",
+      "description": null,
+      "dataSourceName": "mydatasource",
+      "targetIndexName": "myindex",
+      "schedule": { },
+      "parameters": { },
+      "fieldMappings": [],
+      "disabled": false,
+      "encryptionKey": { }
+    }
+    ```
+
+1. Fill out the `fieldMappings` array to specify the mappings. A field mapping consists of three parts.
+
+    ```json
+    "fieldMappings": [
+      {
+        "sourceFieldName": "_city",
+        "targetFieldName": "city",
+        "mappingFunction": null
+      }
+    ]
+    ```
 
 | Property | Description |
 |----------|-------------|
@@ -70,13 +92,9 @@ Azure AI Search uses case-insensitive comparison to resolve the field and functi
 > [!NOTE]
 > If no field mappings are present, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping overrides the default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
 
-You can use the REST API or an Azure SDK to define field mappings.
+#### Example: Name or type discrepancy
 
-### [**REST APIs**](#tab/rest)
-
-Use [Create Indexer (REST)](/rest/api/searchservice/indexers/create) or [Update Indexer (REST)](/rest/api/searchservice/indexers/create-or-update), any API version.
-
-This example handles a field name discrepancy.
+An explicit field mapping establishes a data path for cases where name and type aren't identical.
 
 ```JSON
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
@@ -89,6 +107,8 @@ api-key: [admin key]
 }
 ```
 
+#### Example: One-to-many or forked data paths
+
 This example maps a single source field to multiple target fields ("one-to-many" mappings). You can "fork" a field, copying the same source field content to two different index fields that will be analyzed or attributed differently in the index.
 
 ```JSON
@@ -98,6 +118,8 @@ This example maps a single source field to multiple target fields ("one-to-many"
     { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
+
+You can use a similar approach for [skills-generated content](cognitive-search-output-field-mapping.md).
 
 ### [**.NET SDK (C#)**](#tab/csharp)
 
@@ -136,11 +158,11 @@ A field mapping function transforms the contents of a field before it's stored i
 + [urlEncode](#urlEncodeFunction)
 + [urlDecode](#urlDecodeFunction)
 
-Note that these functions are exclusively supported for parent indexes at this time. They are not compatible with chunked index mapping, therefore, these functions can't be used for [index projections](index-projections-concept-intro.md).
+Note that these functions are exclusively supported for parent indexes at this time. They aren't compatible with chunked index mapping, therefore, these functions can't be used for [index projections](index-projections-concept-intro.md).
 
 <a name="base64EncodeFunction"></a>
 
-### base64Encode function
+### base64Encode function and examples
 
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
@@ -301,7 +323,7 @@ For example, if the input string is `["red", "white", "blue"]`, then the target 
 
 #### Example - populate collection from relational data
 
-Azure SQL Database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure AI Search. To populate string collection fields, you can pre-process your source data as a JSON string array and then use the `jsonArrayToStringCollection` mapping function.
+Azure SQL Database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure AI Search. To populate string collection fields, you can preprocess your source data as a JSON string array and then use the `jsonArrayToStringCollection` mapping function.
 
 ```JSON
 "fieldMappings" : [
