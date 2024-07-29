@@ -16,9 +16,9 @@ This article describes how to troubleshoot a failed server hardware validation. 
 ## Prerequisites
 
 1. Collect the following information:
-  - Subscription ID
-  - Cluster name
-  - Resource group
+   - Subscription ID
+   - Cluster name
+   - Resource group
 2. Request access to the Cluster's Log Analytics Workspace (LAW).
 3. Access to BMC webui and/or jumpbox that allows running of racadm utility.
 
