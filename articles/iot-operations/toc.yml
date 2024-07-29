@@ -69,7 +69,7 @@ items:
         href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
-    - name: Connect to cloud services
+    - name: Process and send data to cloud
       items:
       - name: What are dataflows?
         href: connect-to-cloud/overview-dataflow.md
