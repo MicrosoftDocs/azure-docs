@@ -4971,6 +4971,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
+          "redirect_url":"/azure/operational-excellence/relocation-container-registry",
+          "redirect_document_id":false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal.md",
             "redirect_document_id": false
