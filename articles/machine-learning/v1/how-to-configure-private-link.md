@@ -10,7 +10,7 @@ ms.custom: UpdateFrequency5, devx-track-azurecli, sdkv1
 ms.author: larryfr
 author: Blackmist
 ms.reviewer: meerakurup
-ms.date: 08/29/2022
+ms.date: 07/26/2024
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace with SDK and CLI v1

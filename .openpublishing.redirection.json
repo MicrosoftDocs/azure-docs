@@ -78,6 +78,7 @@
     {
       "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-integrate-maps.md",
@@ -4403,6 +4404,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-create-first-csharp.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/twilio-dotnet-how-to-use-for-voice-sms.md",
             "redirect_url": "https://www.twilio.com/docs/usage/tutorials/serverless-webhooks-azure-functions-and-csharp",
             "redirect_document_id": false
@@ -4868,6 +4874,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-resource-manager/management/control-plane-metrics.md",
+             "redirect_url": "/azure/azure-resource-manager/management/monitor-resource-manager",
+             "redirect_document_id": false
+        },
+	{
            "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
             "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
             "redirect_document_id": false
@@ -4897,6 +4908,11 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/organizations/tutorial-clearpass.md",
             "redirect_url": "/azure/defender-for-iot/organizations/integrate-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/manage-move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-app-service",
             "redirect_document_id": false
         },
         {
@@ -4944,6 +4960,6 @@
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
         }
-
+        
     ]
 }

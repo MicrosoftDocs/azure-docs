@@ -68,6 +68,6 @@ For other assistance, follow these links:
 
 * [How to manage an Azure support request](../../azure-portal/supportability/how-to-manage-azure-support-request.md)
 * [Azure support ticket REST API](/rest/api/support)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
+* Engage with us on [X](https://x.com/azuresupport)
 * Get help from your peers in the [Microsoft question and answer](/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)
