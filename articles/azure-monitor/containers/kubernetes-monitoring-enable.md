@@ -188,7 +188,7 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
     - Parameter file: [https://aka.ms/azureprometheus-enable-bicep-template-parameters](https://aka.ms/azureprometheus-enable-arm-template-parameters)
     - DCRA module: [https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId)
     - Profile module: [https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId)
-    - Azure Managed Grafana Role Assignment module: [https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/nested_grafana_amw_role_assignment.bicep](https://github.com/Azure/prometheus-collector/blob/main/AddonBicepTemplate/nested_grafana_amw_role_assignment.bicep)
+    - Azure Managed Grafana Role Assignment module: [https://aka.ms/nested_grafana_amw_role_assignment](https://aka.ms/nested_grafana_amw_role_assignment)
 
     **Arc-Enabled cluster ARM**
 
