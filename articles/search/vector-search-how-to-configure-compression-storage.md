@@ -12,15 +12,13 @@ ms.date: 08/05/2024
 
 # Reduce vector size through quantization, narrow data types, and storage options
 
-This article describes vector quantization and other techniques for compressing vector indexes in Azure AI Search.
+This article explains how to use vector quantization and other techniques for reducing vector size in Azure AI Search. The search index specifies vector field definitions, including properties for stored and narrow data types. Quantization is also specified in the index and assigned to vector field through its vector profile. 
 
-These features are generally available in [2024-07-01 REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-07-01&preserve-view=true) and in the Azure SDK packages targeting that version.
-
-[An example](#example-vector-compression-techniques) shows the variations in vector size for each of the approaches described in this article.
+These features are generally available in [2024-07-01 REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-07-01&preserve-view=true) and in the Azure SDK packages targeting that version. [An example](#example-vector-compression-techniques) at the end of this article shows the variations in vector size for each of the approaches described in this article.
 
 ## Evaluate the options
 
-As a first step, review the three approaches for reducing the amount of storage used by vector fields. These approaches aren't mutually exclusive and can be combined for further reductions in vector size.
+As a first step, review the three approaches for reducing the amount of storage used by vector fields. These approaches aren't mutually exclusive and can be combined for [maximum reduction in vector size](#example-vector-compression-techniques).
 
 We recommend built-in quantization because it compresses vector size in memory *and* on disk with minimal effort, and that tends to provide the most benefit in most scenarios. In contrast, narrow types (except for float16) require a special effort into making them, and `stored` saves on disk storage, which isn't as expensive as memory.
 
@@ -36,9 +34,9 @@ After the index is defined, you can load and index documents as a separate step.
 
 ## Option 1: Configure quantization
 
-Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements. To offset the effects of a smaller index, you can add oversampling and reranking over uncompressed vectors.
+Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements for float16 and float32 embeddings. To offset the effects of a smaller index, you can add oversampling and reranking over uncompressed vectors.
 
-Quantization applies to vector fields containing float32 or float16 source data.
+Quantization applies to vector fields receiving floats. In the examples in this article, the field's data type is `"Collection(Edm.Single)"` for incoming float32 embeddings, but integrated quantization will reduce the footprint of that data in memory and on disk to either INT8 or binary formats.
 
 - Scalar quantization converts floats into narrow data types, such as INT8.
 
@@ -58,7 +56,7 @@ To use built-in quantization, follow these steps:
 
 ### Add "compressions" to a search index
 
-The following example shows an index definition with a fields collection that includes a vector field and a `vectorSearch.compressions` section.
+The following example shows a partial index definition with a fields collection that includes a vector field, and a `vectorSearch.compressions` section. 
 
 This example includes both `scalarQuantization` or `binaryQuantization`. You can specify as many compression configurations as you need, and then assign the ones you want to a vector profile.
 
@@ -106,13 +104,34 @@ POST https://[servicename].search.windows.net/indexes?api-version=2024-07-01
 
 - `quantizedDataType` is optional and applies to scalar quantization only. If you add it, it must be set to `int8`. This is the only primitive data type supported for scalar quantization at this time. Default is `int8`.
 
-### Add a compression setting to a vector profile
+### Add the HNSW algorithm
 
-To use a new quantization configuration, you must create a *new* vector profile. Creation of a new vector profile is necessary for building compressed indexes in memory.
+Make sure your index has the Hierarchical Navigable Small Worlds (HNSW) algorithm. Built-in quantization isn't supported with exhaustive KNN.
 
-Within the profile, you must use the Hierarchical Navigable Small Worlds (HNSW) algorithm. Built-in quantization isn't supported with exhaustive KNN.
+   ```json
+   "vectorSearch": {
+       "profiles": [ ],
+       "algorithms": [
+         {
+             "name": "use-hnsw",
+             "kind": "hnsw",
+             "hnswParameters": {
+                 "m": 4,
+                 "efConstruction": 400,
+                 "efSearch": 500,
+                 "metric": "cosine"
+             }
+         }
+       ],
+        "compressions": [ <see previous section>] 
+   }
+   ```
 
-1. In the index definition, create a new vector profile and add a compression property. Here are two profiles, one for each quantization approach.
+### Create and assign a new vector profile
+
+To use a new quantization configuration, you must create a *new* vector profile. Creation of a new vector profile is necessary for building compressed indexes in memory. Your new profile uses HNSW.
+
+1. In the same index definition, create a new vector profile and add a compression property and an algorithm. Here are two profiles, one for each quantization approach.
 
    ```json
    "vectorSearch": {
@@ -129,7 +148,9 @@ Within the profile, you must use the Hierarchical Navigable Small Worlds (HNSW) 
              "algorithm": "use-hnsw",
              "vectorizer": null
           }
-        ]
+        ],
+        "algorithms": [  <see previous section> ],
+        "compressions": [ <see previous section> ] 
    }
    ```
 
@@ -271,163 +292,6 @@ Vector Size: 1.2242MB
 ```
 
 Search APIs report storage and vector size at the index level, so indexes and not fields must be the basis of comparison. Use the [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) or an equivalent API in the Azure SDKs to obtain vector size.
-
-Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
-
-- "contentVector" provides a narrow data type example, recasting the original float32 values to float16, expressed as `Collection(Edm.Half)` in the search index.
-- "contentVector" also has `stored` set to false. Extra embeddings used in a query response aren't stored. When `stored` is false, `retrievable` must also be false.
-- "summaryVector" provides an example of vector compression. Vector compression is defined in the index, referenced in a profile, and then assigned to a vector field. Compressed vector fields must use HNSW navigation.
-
-```json
-### Create a new index
-POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
-    Content-Type: application/json
-    api-key: {{apiKey}}
-
-{
-    "name": "demo-index",
-    "fields": [
-        {
-            "name": "id", 
-            "type": "Edm.String",
-            "searchable": false, 
-            "filterable": true, 
-            "retrievable": true, 
-            "sortable": false, 
-            "facetable": false,
-            "key": true
-        },
-        {
-            "name": "title", 
-            "type": "Edm.String",
-            "searchable": true, 
-            "filterable": false, 
-            "retrievable": true, 
-            "sortable": true, 
-            "facetable": false
-        },
-        {
-            "name": "content", 
-            "type": "Edm.String",
-            "searchable": true, 
-            "filterable": false, 
-            "retrievable": true, 
-            "sortable": true, 
-            "facetable": false
-        },
-        {
-            "name": "summary", 
-            "type": "Edm.String",
-            "searchable": true, 
-            "filterable": false, 
-            "retrievable": true, 
-            "sortable": true, 
-            "facetable": false
-        },
-        {
-            "name": "titleVector", 
-            "type": "Edm.String",
-            "searchable": true,
-            "retrievable": false,
-            "dimensions": 1536,
-            "stored": true,
-            "vectorSearchProfile": "vector-profile-eknn"
-        },
-        {
-            "name": "contentVector",
-            "type": "Collection(Edm.Half)",
-            "searchable": true,
-            "retrievable": false,
-            "dimensions": 1536,
-            "stored": false,
-            "vectorSearchProfile": "vector-profile-hnsw-cosine"
-        },
-        {
-            "name": "summaryVectorCompressed",
-            "type": "Collection(Edm.Single)",
-            "searchable": true,
-            "retrievable": false,
-            "dimensions": 1536,
-            "stored": false,
-            "vectorSearchProfile": "vector-profile-hnsw-scalar"
-        }
-    ],
-"vectorSearch": {
-    "compressions": [
-        {
-            "name": "use-scalar",
-            "kind": "scalarQuantization",
-            "rerankWithOriginalVectors": true,
-            "defaultOversampling": 10.0,
-            "scalarQuantizationParameters": {
-                "quantizedDataType": "int8"
-                }
-        },
-        {
-            "name": "use-binary",
-            "kind": "binaryQuantization",
-            "rerankWithOriginalVectors": true,
-            "defaultOversampling": 10.0
-        }
-    ],
-    "algorithms": [
-        {
-            "name": "vector-config-hnsw-cosine",
-            "kind": "hnsw",
-            "hnswParameters": 
-            {
-                "m": 4,
-                "efConstruction": 400,
-                "efSearch": 500,
-                "metric": "cosine"
-            }
-        },
-        {
-            "name": "vector-config-hnsw-euclidean",
-            "kind": "hnsw",
-            "hnswParameters": 
-            {
-                "m": 4,
-                "metric": "euclidean"
-            }
-        },
-        {
-            "name": "vector-config-eknn",
-            "kind": "exhaustiveKnn",
-            "exhaustiveKnnParameters": 
-            {
-                "metric": "cosine"
-            }
-        }
-    ],
-    "profiles": [
-        {
-            "name": "vector-profile-hnsw",
-            "compression": null,
-            "algorithm": "vector-config-hnsw-cosine",
-            "vectorizer": null
-        },        {
-            "name": "vector-profile-eknn",
-            "compression": null,
-            "algorithm": "vector-config-eknn",
-            "vectorizer": null
-        },
-        {
-            "name": "vector-profile-hnsw-scalar",
-            "compression": "use-scalar",
-            "algorithm": "vector-config-hnsw-cosine",
-            "vectorizer": null
-        },
-        {
-            "name": "vector-profile-hnsw-binary",
-            "compression": "use-binary",
-            "algorithm": "vector-config-hnsw-euclidean",
-            "vectorizer": null
-        }
-    ]
-  }
-}
-```
 
 ## Query a quantized vector field using oversampling
 

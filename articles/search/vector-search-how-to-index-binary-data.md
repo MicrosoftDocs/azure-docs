@@ -16,8 +16,6 @@ ms.date: 08/05/2024
 
 Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3). 
 
-You can also convert floats to binary data using built-in quantization and index the conversion as binary data. Binary quantization is a process used to convert data into binary form, which is necessary for handling packed binary data types.
-
 There are three steps to configuring an index for binary vectors:
 
 > [!div class="checklist"]
@@ -28,6 +26,9 @@ There are three steps to configuring an index for binary vectors:
 This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step, but you could also add a binary field to an index in the Azure portal.
 
 Binary data types are generally available starting with API version 2024-07-01 and are assigned to fields using the [Create Index](/rest/api/searchservice/indexes/create) or [Create Or Update Index](/rest/api/searchservice/indexes/create-or-update) APIs.
+
+> [!TIP]
+> If you're investigating binary vector support for its smaller footprint, you might also consider the vector quantization and storage reduction features in Azure AI Search. Inputs are float32 or float16 embeddings. Output is stored data in a much smaller format. For more information, see [Reduce vector size through quantization, narrow data types, and storage options](vector-search-how-to-configure-compression-storage.md).
 
 ## Prerequisites
 
