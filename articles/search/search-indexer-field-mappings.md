@@ -24,16 +24,13 @@ Field mappings can also be used for light-weight data conversions, such as encod
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data stream (between fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and fields in a [search index](search-what-is-an-index.md)).
++ Physical data structures on both sides of the data path (source fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and target fields in a [search index](search-what-is-an-index.md)).
 
-  If you're importing skill-generated content that resides in memory, use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
+  Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
-+ Search indexes only. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
++ Search indexes only. To populate a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
 + Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
-
-> [!NOTE]
-> If you're working with complex data (nested or hierarchical structures), and you'd like to mirror that data structure in your search index, your search index must match the source structure exactly (same field names, levels, and types) so that the default mappings will work. Optionally, you might want just a few nodes in the complex structure. To get individual nodes, you can flatten incoming data into a string collection (see  [outputFieldMappings](cognitive-search-output-field-mapping.md#flatten-complex-structures-into-a-string-collection) for this workaround).
 
 ## Supported scenarios
 
@@ -44,6 +41,13 @@ Field mappings apply to:
 | One-to-many data paths | You can populate multiple fields in the index with content from the same source field. For example, you might want to apply different analyzers to each field to support different use cases in your client app.|
 | Encoding and decoding | You can apply [mapping functions](#mappingFunctions) to support Base64 encoding or decoding of data during indexing. |
 | Split strings or recast arrays into collections | You can apply [mapping functions](#mappingFunctions) to split a string that includes a delimiter, or to send a JSON array to a search field of type `Collection(Edm.String)`.
+
+> [!NOTE]
+> If no field mappings are present, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping overrides the default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field automatically.
+
+Complex fields aren't supported in a field mapping. Your source structure (nested or hierarchical structures) must exactly match the complex type in the index so that the default mappings work. For more information, see [Tutorial: Index nested JSON blobs](search-semi-structured-data.md) for an example. If you get an error similar to `"Field mapping specifies target field 'Address/city' that doesn't exist in the index"`, it's because target field mappings can't be a complex type. 
+
+Optionally, you might want just a few nodes in the complex structure. To get individual nodes, you can flatten incoming data into a string collection (see [outputFieldMappings](cognitive-search-output-field-mapping.md#flatten-complex-structures-into-a-string-collection) for this workaround).
 
 ## Define a field mapping
 
@@ -79,22 +83,17 @@ This section explains how to set up field mappings.
     ]
     ```
 
-| Property | Description |
-|----------|-------------|
-| sourceFieldName | Required. Represents a field in your data source. |
-| targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
-| mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
-
-If you get an error similar to `"Field mapping specifies target field 'Address/city' that doesn't exist in the index"`, it's because target field mappings can't be a complex type. The workaround is to create an index schema that's identical to the raw content for field names and data types. See [Tutorial: Index nested JSON blobs](search-semi-structured-data.md) for an example.
-
-Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case.  
-
-> [!NOTE]
-> If no field mappings are present, indexers assume data source fields should be mapped to index fields with the same name. Adding a field mapping overrides the default field mappings for the source and target field. Some indexers, such as the [blob storage indexer](search-howto-indexing-azure-blob-storage.md), add default field mappings for the index key field.
+    | Property | Description |
+    |----------|-------------|
+    | sourceFieldName | Required. Represents a field in your data source. |
+    | targetFieldName | Optional. Represents a field in your search index. If omitted, the value of `sourceFieldName` is assumed for the target. Target fields must be top-level simple fields or collections. It can't be a complex type or collection. If you're handling a data type issue, a field's data type is specified in the index definition. The field mapping just needs to have the field's name.|
+    | mappingFunction | Optional. Consists of [predefined functions](#mappingFunctions) that transform data.  |
 
 #### Example: Name or type discrepancy
 
 An explicit field mapping establishes a data path for cases where name and type aren't identical.
+
+Azure AI Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index can't have fields that differ only by case. 
 
 ```JSON
 PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
@@ -162,7 +161,7 @@ Note that these functions are exclusively supported for parent indexes at this t
 
 <a name="base64EncodeFunction"></a>
 
-### base64Encode function and examples
+### base64Encode function
 
 Performs *URL-safe* Base64 encoding of the input string. Assumes that the input is UTF-8 encoded.
 
