@@ -3,7 +3,7 @@ title: What's happening to Azure Database for MySQL single server?
 description: The Azure Database for MySQL - Single Server service is being deprecated.
 author: adig
 ms.author: adig
-ms.reviewer: talawren, magha
+ms.reviewer: talawren, maghan
 ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: single-server
