@@ -12,7 +12,7 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost of using Azure Blob Storage
 
-This article helps you estimate the cost to store blobs, and to upload, download, and copy them between containers. 
+This article helps you estimate the cost to store, upload, download, and copy blobs between containers. 
 
 All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
@@ -46,7 +46,7 @@ To calculate the point at which reserved capacity begins to make sense, divide t
 
 To learn more about reserved capacity, see [Optimize costs for Blob Storage with reserved capacity](storage-blob-reserved-capacity.md).
 
-For general information about storage costs, see [Data storage and index meters](storage-plan-manage-costs.md#data-storage-and-index-meters).
+For general information about storage costs, see [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
 
 ## The cost to transfer data
 
@@ -70,21 +70,11 @@ See [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-downlo
 
 If you copy a blob to another container in the same account, then you're billed the cost of a single _write_ operation that is based on the destination tier. If the destination container is in another account, then you're also billed the cost of data retrieval and the cost of a read operation that is based on the source tier. If the destination account is in another region, then the cost of network egress is added to your bill. 
 
-The following table summarizes the cost to copy a blob to another container. 
-
-| Destination account | Costs |
-|---|---|
-| Same account | - A read operation that's based on the destination tier |
-| Different account | - A read operation that's based on the destination tier<br>- A read operation that's based on the source tier<br>- A data retrieval charge |
-| Different account in another region | - A read operation that's based on the destination tier<br>- A read operation that's based on the source tier<br>- A data retrieval charge<br>- network egress | 
-
 See [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
 
-## The cost to rename
+## The cost to rename a blob
 
 The cost to rename blobs depends on the file structure of your account and the number of blobs that you're renaming.
-
-### The cost to rename blobs
 
 If the account has a flat namespace, there is no dedicated operation to rename a blob. Instead, your client tool will copy the blob to a new blob, and then delete the source blob. Delete operations are free. Therefore, when you rename a blob, you're billed for the cost of single _write_ operation. If the account has a hierarchical namespace, then there is a dedicated operation to rename a blob and it is billed as an _iterative write_ operation. 
 
@@ -101,7 +91,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 Based on these calculations, the cost to rename 1000 blobs in the hot tier differs by **70** cents.
 
-### The cost to rename a directory
+## The cost to rename a directory
 
 If the account has a flat namespace, then blobs are organized into _virtual directories_ that mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character. Because a virtual directory is a part of the blob name, it doesn't actually exist as an independent object. There is no way to rename a virtual directory without renaming all of the blobs that contain that virtual directory in the name. To effectively rename each blob, client applications have to copy a blob and then delete the source blob. If the account has a hierarchical namespace, directories are not virtual. They are concrete, independent objects that you can operate on directly. Therefore, renaming a blob is far more efficient because client applications can rename a blob in a single operation. 
 
@@ -118,16 +108,7 @@ Based on these calculations, the cost to rename 1000 directories in the hot tier
 
 ## Example: Upload, download, and change access tiers
 
-In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. The following table calculates the number of write operations required to upload those blobs.
-
-| Calculation                                                      | Value       |
-|------------------------------------------------------------------|-------------|
-| Number of MiB in 5 GiB                                           | 5,120       |
-| Write operations to upload each block  (5,120 MiB / 8-MiB block) | 640         |
-| Wite operation to assemble blocks into a blob                    | 1           |
-| **Total write operations (1,000 * 641)**                         | **641,000** |
-
-Each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
+In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. Each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
 
 In March, client workloads read 10% of the data had been moved into the cool access tier. The lifecycle management policy is configured to move those blobs back to the hot access tier to reduce the cost of future operations for frequently accessed files. 
 
@@ -137,7 +118,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 | Cost factor                                                                                           | January         | February        | March           | April           |
 |-------------------------------------------------------------------------------------------------------|-----------------|-----------------|-----------------|-----------------|
-| **Cost to write 1000 blobs to the hot tier**                                                          | **$3.53**       | **$3.53**       | **$3.53**       | **$3.53**       |
+| **Cost to write 1000 blobs to the hot tier**<sup>1                                                    | **$3.53**       | **$3.53**       | **$3.53**       | **$3.53**       |
 | Number of blobs in the hot tier                                                                       | 1000            | 2000            | 2100            | 2155            |
 | Number of blobs to move to the cool tier                                                              | 0               | 1000            | 1050            | 1078            |
 | **Cost to set blobs to the cool tier (billed as a write operation)**                                  | **$0.00000000** | **$0.01000000** | **$0.01050000** | **$0.01077500** |
@@ -155,6 +136,8 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Number of blobs read from the hot tier                                                                | 500             | 550             | 578             | 593             |
 | **Cost to read blobs from the hot tier**                                                              | **$0.00022000** | **$0.00024200** | **$0.00025410** | **$0.00026076** |
 | **Monthly total**                                                                                     | **$107.53**     | **$169.69**     | **$178.00**     | **$182.57**     |
+
+<sup>1</sup>The number of operations required to complete each monthly upload is **641,000**. The formula is ((1000 blobs * 5 GB) / 8-MiB block) + 1 write operation to assemble blocks into a blob.<br />
 
 > [!NOTE]
 > These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
