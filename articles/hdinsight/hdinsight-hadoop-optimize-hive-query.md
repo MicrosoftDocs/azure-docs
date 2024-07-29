@@ -199,4 +199,4 @@ In this article, you have learned several common Hive query optimization methods
 
 * [Optimize Apache Hive](./optimize-hive-ambari.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
+* [Analyze X data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
