@@ -16,7 +16,7 @@ ms.custom: template-how-to-pattern
 The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
 > [!IMPORTANT]
-> Only Gen2 VM images with security type “Standard” support NVMe, as described in [the FAQ for NVMe](https://learn.microsoft.com/en-us/azure/virtual-machines/enable-nvme-faqs#will-generation-1-vms-be-supported-with-nvme-disks-). Older operating systems cannot support NVMe due to OS driver limitations. If an older version of the OS is not included in the list below, it means that NVMe support is not present for that OS. Future operating systems will most likely be supported unless otherwise noted.
+> Only Gen2 VM images with security type "Standard" support NVMe. For more information, see [FAQ for NVMe](https://learn.microsoft.com/en-us/azure/virtual-machines/enable-nvme-faqs#will-generation-1-vms-be-supported-with-nvme-disks-). Older operating systems cannot support NVMe due to OS driver limitations. If an older version of the OS is not included in the list below, it means that NVMe support is not present for that OS.
 
 For specifics about which virtual machine (VM) generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 
