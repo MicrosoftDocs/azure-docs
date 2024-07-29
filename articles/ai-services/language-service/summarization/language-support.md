@@ -58,6 +58,7 @@ Conversation summarization supports the following languages:
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
 | Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
+|Chinese-Traditional	|`zh-hant`||
 | English               | `en`          |                     |
 | French                | `fr`          |                     |
 | German                | `de`          |                     |
@@ -68,6 +69,17 @@ Conversation summarization supports the following languages:
 | Polish                | `pl`          |                     |
 | Portuguese  | `pt`          | `pt-br` also accepted  |
 | Spanish               | `es`          |                     |
+|Dutch|	`nl`||	
+|Swedish|	`sv`||	
+|Danish|	`da`||	
+|Finnish|	`fi`||	
+|Russian|	`ru`||	
+|Norwegian|	`no`||	
+|Turkish|	`tr`||	
+|Arabic|	`ar`||	
+|Czech|	`cs`||	
+|Hungarian|	`hu`||	
+|Thai|	`th`||	
 
 ## Custom summarization
 
