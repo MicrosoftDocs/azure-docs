@@ -112,7 +112,7 @@
     href: monitor-cache.md
   - name: Monitor using insights
     href: cache-insights-overview.md
-  - name: Monitor using diagnostic logs
+  - name: Monitor using diagnostic settings
     href: cache-monitor-diagnostic-settings.md
 - name: Scaling and performance
   items:
