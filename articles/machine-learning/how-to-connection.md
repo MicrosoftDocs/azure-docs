@@ -440,7 +440,7 @@ The following example creates a Python feed connection. A Personal Access Token 
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration
 
 
 name = "my_pfeed_conn"
@@ -507,7 +507,7 @@ The following example creates an Azure Container Registry connection. A managed 
 
 ```python
 from azure.ai.ml.entities import WorkspaceConnection
-from azure.ai.ml.entities import UsernamePasswordConfiguration, PatTokenConfiguration  
+from azure.ai.ml.entities import UsernamePasswordConfiguration, ManagedIdentityConfiguration
 
 
 name = "my_acr_conn"
