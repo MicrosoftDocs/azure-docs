@@ -65,7 +65,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 ## Mix resource class assignments with classifiers
 
-System classifiers created on your behalf provide an easy path to migrate to workload classification. Using resource class role mappings with classification precedence, can lead to misclassification as you start to create new classifiers with importance.
+System classifiers created on your behalf provide an easy path to migrate to workload classification. Using resource class role mappings with classification precedence can lead to misclassification as you start to create new classifiers with importance.
 
 Consider the following scenario:
 

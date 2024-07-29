@@ -16,7 +16,7 @@ ms.custom:
 
 Guidance for using resource classes to manage memory and concurrency for Synapse SQL pool queries in Azure Synapse. 
 
-## What are resource classes
+## What are resource classes?
 
 The performance capacity of a query is determined by the user's resource class. Resource classes are pre-determined resource limits in Synapse SQL pool that govern compute resources and concurrency for query execution. Resource classes can help you configure resources for your queries by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query. There's a trade-off between memory and concurrency.
 

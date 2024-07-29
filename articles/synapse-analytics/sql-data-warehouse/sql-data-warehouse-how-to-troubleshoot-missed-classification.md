@@ -113,7 +113,7 @@ Consider following scenario:
 
 1. A database user, DBAUser, is assigned to largerc resource class role using `sp_addrolemember` procedure.
 1. DBAUser has created a new workload group and classifier using workload management.
-1. A newly-created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
+1. A newly created workload classifier maps database role DBARole to mediumrc resource class with high importance. 
 1. DBAUser is a made a member of the DBARole database role.
 1. When DBAUser runs a query, the query is expected to run on mediumrc based on workload classifier. Instead it will be assigned to largerc, as **user** mapping takes precedence over **role membership** mapping to a classifier.
 
@@ -135,13 +135,11 @@ EXEC sp_droprolemember '[Resource Class]', membername;
 
 ### Some administrative users are always mapped to smallrc workload group
 
-Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users might still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these user will still run on smallrc resource class, even though the user is mapped to a different resource class or workload group. 
+Consider a scenario for the Azure Synapse Workspace SQL Admin login, the Azure Synapse Microsoft Entra admin (user or group member), or a database owner. These users might still have a workload classifier or have been added to a resource class role other than smallrc. All queries executed by these users will still run on smallrc resource class, even though the users are mapped to a different resource class or workload group. 
 
 **Recommendation**: These administrative users can't change their default workload group. For more information, see [workload management with resource classes](resource-classes-for-workload-management.md#default-resource-class). It is recommended that critical or performance-sensitive workloads not run as one of these administrative users in the dedicated SQL pool.
 
-The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal:
-
-:::image type="content" source="media/sql-data-warehouse-how-to-troubleshoot-missed-classification/identify-sql-admin.png" alt-text="Screenshot from the Azure portal of identifying the service admin by looking at the Workspace SQL Admin Login field.":::
+The Azure Synapse Workspace SQL Admin login and the Azure Synapse Microsoft Entra admin (user or group member) are specified in the Azure portal, on the **Overview** page of the dedicated SQL pool.
 
 Similarly, the database owner (dbo) and **db_owner** database roles are not allowed to change their default resource class. If a user is either the database owner or added under **db_owner** database role, all queries executed by the user go to smallrc by default. These roles can't be added to a resource class other than smallrc. However, if a user who is part of this role would like to classify their queries to a different workload group, they can use `MEMBERNAME` option in [workload classifier definition](sql-data-warehouse-workload-classification.md).
 
