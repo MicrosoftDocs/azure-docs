@@ -93,7 +93,9 @@ Based on these calculations, the cost to rename 1000 blobs in the hot tier diffe
 
 ## The cost to rename a directory
 
-If the account has a flat namespace, then blobs are organized into _virtual directories_ that mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character. Because a virtual directory is a part of the blob name, it doesn't actually exist as an independent object. There is no way to rename a virtual directory without renaming all of the blobs that contain that virtual directory in the name. To effectively rename each blob, client applications have to copy a blob and then delete the source blob. If the account has a hierarchical namespace, directories are not virtual. They are concrete, independent objects that you can operate on directly. Therefore, renaming a blob is far more efficient because client applications can rename a blob in a single operation. 
+If the account has a flat namespace, then blobs are organized into _virtual directories_ that mimic a folder structure. A virtual directory forms part of the name of the blob and is indicated by the delimiter character. Because a virtual directory is a part of the blob name, it doesn't actually exist as an independent object. There is no way to rename a virtual directory without renaming all of the blobs that contain that virtual directory in the name. To effectively rename each blob, client applications have to copy a blob and then delete the source blob. 
+
+If the account has a hierarchical namespace, directories are not virtual. They are concrete, independent objects that you can operate on directly. Therefore, renaming a blob is far more efficient because client applications can rename a blob in a single operation. 
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to rename 1000 directories that each contain 1000 blobs.
 
@@ -108,24 +110,33 @@ Based on these calculations, the cost to rename 1000 directories in the hot tier
 
 ## Example: Upload, download, and change access tiers
 
-In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. Each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
+The example in this section shows four months of spending based uploads, downloads, and the impact of moving objects between access tiers. 
+
+> [!NOTE]
+> These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
+
+### Parameters
+
+Each month, 1000 files are uploaded to the hot access tier. Each file is 5 GB in size. During each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
 
 In March, client workloads read 10% of the data had been moved into the cool access tier. The lifecycle management policy is configured to move those blobs back to the hot access tier to reduce the cost of future operations for frequently accessed files. 
 
 20 days into April, client workloads once again read 10% of cool storage data, but those blobs were in cold storage for less than 30 days. Because the lifecycle management policy is configured to move those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
+
+### Calculations
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates four months of spending.
 
 | Cost factor                                                                                           | January         | February        | March           | April           |
 |-------------------------------------------------------------------------------------------------------|-----------------|-----------------|-----------------|-----------------|
 | **Cost to write 1000 blobs to the hot tier**<sup>1                                                    | **$3.53**       | **$3.53**       | **$3.53**       | **$3.53**       |
-| Number of blobs in the hot tier                                                                       | 1000            | 2000            | 2100            | 2155            |
+| Number of blobs in the hot tier after monthly ingest                                                                       | 1000            | 2000            | 2100            | 2155            |
 | Number of blobs to move to the cool tier                                                              | 0               | 1000            | 1050            | 1078            |
 | **Cost to set blobs to the cool tier (billed as a write operation)**                                  | **$0.00000000** | **$0.01000000** | **$0.01050000** | **$0.01077500** |
 | Number of blobs in the cool tier                                                                      | 0               | 1000            | 1050            | 1078            |
 | Total size of blobs in the cool tier (GB)                                                             | 0               | 5000            | 5250            | 5388            |
-| Number of blobs read from the cool tier then set to the hot tier                                      | 0               | 100             | 105             | 108             |
-| **Cost to read blobs from the cool tier and then set their tier to hot (2 read operations per blob)** | **$0.00000000** | **$0.00020000** | **$0.00021000** | **$0.00021550** |
+| Number of blobs read from the cool tier then moved back to the hot tier                                      | 0               | 100             | 105             | 108             |
+| **Cost to read blobs from the cool tier and then to move them to the hot tier (2 read operations per blob)** | **$0.00000000** | **$0.00020000** | **$0.00021000** | **$0.00021550** |
 | Number of blobs that remain in the cool tier                                                          | 0               | 900             | 945             | 970             |
 | Total size of blobs that remain in the cool tier (GB)                                                 | 0               | 4500            | 4725            | 4849            |
 | **Cost to store blobs in the cool tier**                                                              | **$0.00**       | **$51.75**      | **$54.34**      | **$55.76**      |
@@ -138,9 +149,6 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Monthly total**                                                                                     | **$107.53**     | **$169.69**     | **$178.00**     | **$182.57**     |
 
 <sup>1</sup>The number of operations required to complete each monthly upload is **641,000**. The formula is ((1000 blobs * 5 GB) / 8-MiB block) + 1 write operation to assemble blocks into a blob.<br />
-
-> [!NOTE]
-> These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
 
 ## Sample prices
 
