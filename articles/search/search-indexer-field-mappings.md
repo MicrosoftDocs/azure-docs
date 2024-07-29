@@ -18,21 +18,25 @@ ms.date: 07/29/2024
 
 ![Indexer Stages](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexer stages")
 
+This article explains how to set explicit field mappings that establish the data path between source fields in a supported data source and target fields in a search index.
+
+## When to set a field mapping
+
 When an [Azure AI Search indexer](search-indexer-overview.md) loads a search index, it determines the data path using source-to-destination field mappings. Implicit field mappings are internal and occur when field names and data types are compatible between the source and destination. If inputs and outputs don't match, you can define explicit *field mappings* to set up the data path, as described in this article. 
 
 Field mappings can also be used for light-weight data conversions, such as encoding or decoding, through [mapping functions](#mappingFunctions). If more processing is required, consider [Azure Data Factory](../data-factory/index.yml) to bridge the gap.
 
 Field mappings apply to:
 
-+ Physical data structures on both sides of the data path (source fields in a [supported data source](search-indexer-overview.md#supported-data-sources) and target fields in a [search index](search-what-is-an-index.md)).
-
-  Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
++ Physical data structures on both sides of the data path. Logical data structures created by skills reside only in memory. Use [outputFieldMappings](cognitive-search-output-field-mapping.md) to map in-memory nodes to output fields in a search index.
 
 + Search indexes only. To populate a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
 + Top-level search fields only, where the `targetFieldName` is either a simple field or a collection. A target field can't be a complex type.
 
 ## Supported scenarios
+
+Make sure you're using a [supported data source](search-indexer-overview.md#supported-data-sources) for indexer-driving indexing.
 
 | Use-case | Description |
 |----------|-------------|
@@ -51,7 +55,7 @@ Optionally, you might want just a few nodes in the complex structure. To get ind
 
 ## Define a field mapping
 
-This section explains how to set up field mappings.
+This section explains the steps for setting up field mappings.
 
 ### [**REST APIs**](#tab/rest)
 
