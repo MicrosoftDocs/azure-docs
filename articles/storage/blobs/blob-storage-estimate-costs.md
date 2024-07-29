@@ -116,9 +116,9 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 Based on these calculations, the cost to rename 1000 directories in the hot tier that each contain 1000 blobs differs by almost **$5.00**. For directories in the cold tier, the difference is over **$17**.
 
-## Example: Upload, download, and set access tiers
+## Example: Upload, download, and change access tiers
 
-In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. The following table calculates the number of write operations required to upload the blobs.
+In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. The following table calculates the number of write operations required to upload those blobs.
 
 | Calculation                                                      | Value       |
 |------------------------------------------------------------------|-------------|
@@ -127,9 +127,11 @@ In this example, 1000 files are uploaded to the hot access tier at the beginning
 | Wite operation to assemble blocks into a blob                    | 1           |
 | **Total write operations (1,000 * 641)**                         | **641,000** |
 
-Each month, 50% of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other 50% to cool access tier to save on storage costs. 
+Each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
 
-In **March** client workloads read 10% of the data had been moved into the cool access tier. The lifecycle management policy is configured to move those blobs back to the hot access tier to reduce the cost of future operations for frequently accessed files. In the month of **April**, client workloads once again read 10% of cool storage data, but those blobs were in cold storage for less than 30 days. Because the policy moves those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. To simplify the model, we'll assume that these files were moved back into the hot tier only 20 days after they were placed into the cool tier. As a result, the early deletion penalty is the cost of storage in the cold tier for 10 days (30-20).
+In March, client workloads read 10% of the data had been moved into the cool access tier. The lifecycle management policy is configured to move those blobs back to the hot access tier to reduce the cost of future operations for frequently accessed files. 
+
+20 days into April, client workloads once again read 10% of cool storage data, but those blobs were in cold storage for less than 30 days. Because the lifecycle management policy is configured to move those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates four months of spending.
 
