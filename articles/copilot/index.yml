@@ -68,7 +68,7 @@ conceptualContent:
               text: Build infrastructure and deploy workloads
             - url: ./use-guided-deployments.md
               itemType: get-started
-              text: Create resources with guided deployments
+              text: Create resources with interactive deployments
             - url: ./work-aks-clusters.md
               itemType: get-started
               text: Work with AKS clusters efficiently

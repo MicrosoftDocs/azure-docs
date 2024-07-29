@@ -55,7 +55,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
-|[Apptus](https://apttus.com)|
+|[Apptus](https://conga.com/)|
 |[ArcherPoint, Inc.](https://www.archerpoint.com)|
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
@@ -391,7 +391,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Sieena, Inc.](https://siennatech.com/)|
 |[Simeon Networks](https://simeonnetworks.com)|
 |[SimpleHelix](https://simplehelix.com/)|
-|[Simons Advisors, LLC](https://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[SKY Terra Technologies LLC](https://www.skyterratech.com)|

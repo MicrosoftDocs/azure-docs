@@ -233,7 +233,7 @@ Update the `Device` class and mapping section to match your own schema:
         public DateTime Timestamp { get; set; }
 ```
 
-You can now test the wiring between the local function and the database by debugging (F5 in Visual Studio Code). The SQL database needs to be reachable from your machine. [SSMS](/sql/ssms/sql-server-management-studio-ssms) can be used to check connectivity. Then a tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in replace / update mode). Here's a sample payload corresponding to the schema used in this sample:
+You can now test the wiring between the local function and the database by debugging (F5 in Visual Studio Code). The SQL database needs to be reachable from your machine. [SSMS](/sql/ssms/sql-server-management-studio-ssms) can be used to check connectivity. Then, send POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in replace / update mode). Here's a sample payload corresponding to the schema used in this sample:
 
 ```JSON
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
@@ -359,7 +359,7 @@ Update the `sqltext` command building section to match your own schema (notice h
     $"WHEN NOT MATCHED BY TARGET THEN INSERT (DeviceId, Value, TimeStamp) VALUES (DeviceId, Value, Timestamp);";
 ```
 
-You can now test the wiring between the local function and the database by debugging (F5 in VS Code). The SQL database needs to be reachable from your machine. [SSMS](/sql/ssms/sql-server-management-studio-ssms) can be used to check connectivity. Then a tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in accumulate / merge mode). Here's a sample payload corresponding to the schema used in this sample:
+You can now test the wiring between the local function and the database by debugging (F5 in VS Code). The SQL database needs to be reachable from your machine. [SSMS](/sql/ssms/sql-server-management-studio-ssms) can be used to check connectivity. Then, issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in accumulate / merge mode). Here's a sample payload corresponding to the schema used in this sample:
 
 ```JSON
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
