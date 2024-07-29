@@ -147,6 +147,16 @@ authentication:
     certificateSecretName: <your x509 secret name>
 ```
 
+> [!IMPORTANT]
+> When using X.509 authentication with Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
+> 
+> - **Enable MQTT** checked
+> - **Enable alternative client authentication name sources** checked
+>   - Select **Certificate Subject Name** the dropdown.
+> - Set **Maximum client sessions per authentication name** to **3** or more
+> 
+> The alternative client authentication and max client sessions options allows dataflows to use client certificate subject name for authentication instead of MQTT CONNECT Username. This is important so that dataflows can spawn multiple instances and still be able to connect. To learn more, see [Event Grid MQTT client certificate authentication](../../event-grid/mqtt-client-certificate-authentication.md) [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
+
 System-assigned managed identity:
 
 ```yaml
