@@ -114,6 +114,8 @@
     href: cache-insights-overview.md
   - name: Monitor using diagnostic settings
     href: cache-monitor-diagnostic-settings.md
+  - name: List of Redis metrics
+    href: monitor-cache-reference.md#metrics
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache
