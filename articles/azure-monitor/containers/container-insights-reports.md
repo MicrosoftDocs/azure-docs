@@ -2,12 +2,17 @@
 title: Reports in Container insights
 description: This article describes reports that are available to analyze data collected by Container insights.
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 07/26/2024
 ms.reviewer: aul
 ---
 
 # Reports in Container insights
 Reports in Container insights are recommended out-of-the-box for [Azure workbooks](../visualize/workbooks-overview.md). This article describes the different workbooks that are available and how to access them.
+
+> [!NOTE]
+> The **Reports** tab will not be available if you enable the [Prometheus experience for Container insights](./container-insights-experience-v2.md). You can still access the workbooks from the **Workbooks** page for the cluster.
+>
+> :::image type="content" source="media/container-insights-reports/workbooks-page.png" alt-text="Screenshot of workbook option for a cluster." lightbox="media/container-insights-reports/workbooks-page.png":::
 
 ## View workbooks
 On the **Azure Monitor** menu in the Azure portal, select **Containers**. In the **Monitoring** section, select **Insights**, choose a particular cluster, and then select the **Reports** tab. You can also view them from the [workbook gallery](../visualize/workbooks-overview.md#the-gallery) in Azure Monitor.
