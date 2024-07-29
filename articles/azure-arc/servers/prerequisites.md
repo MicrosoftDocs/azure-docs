@@ -29,14 +29,14 @@ Take extra care when using Azure Arc on systems that are:
 * Restored from backup as a second instance of the server
 * Used to create a "golden image" from which other virtual machines are created
 
-If two agents use the same configuration, you will encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after it has been cloned, restored from backup, or created from a golden image.
+If two agents use the same configuration, you'll encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after its cloned, restored from backup, or created from a golden image.
 
 > [!NOTE]
 > For additional information on using Azure Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
+Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent doesn't run on x86 (32-bit) or ARM-based architectures.
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
@@ -54,7 +54,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
-The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+The Azure Connected Machine agent isn't tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
 
 > [!NOTE]
 > [Azure Connected Machine agent version 1.44](agent-release-notes.md#version-144---july-2024) is the last version to officially support Debian 10, Ubuntu 16.04, and Azure Linux (CBL-Mariner) 1.0.
