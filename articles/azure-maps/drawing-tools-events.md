@@ -103,7 +103,6 @@ Check out more code samples:
 [Code sample page]: https://samples.azuremaps.com/
 [Create a measuring tool sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Create%20a%20measuring%20tool/Create%20a%20measuring%20tool.html
 [Create a measuring tool]: https://samples.azuremaps.com/drawing-tools-module/create-a-measuring-tool
-[Draw and search polygon area sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Draw%20and%20search%20polygon%20area/Draw%20and%20search%20polygon%20area.html
 [Draw and search polygon area]: https://samples.azuremaps.com/drawing-tools-module/draw-and-search-polygon-area
 [Drawing tools events sample code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Drawing%20Tools%20Module/Drawing%20tools%20events/Drawing%20tools%20events.html
 [Drawing tools events]: https://samples.azuremaps.com/drawing-tools-module/drawing-tools-events

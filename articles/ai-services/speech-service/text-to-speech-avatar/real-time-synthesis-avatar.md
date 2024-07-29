@@ -1,5 +1,5 @@
 ---
-title: Real-time synthesis for text to speech avatar (preview) - Speech service
+title: Real-time synthesis for text to speech avatar - Speech service
 titleSuffix: Azure AI services
 description: Learn how to use text to speech avatar with real-time synthesis.
 manager: nitinme
@@ -11,11 +11,9 @@ ms.author: eur
 author: eric-urban
 ---
 
-# How to do real-time synthesis for text to speech avatar (preview)
+# How to do real-time synthesis for text to speech avatar
 
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
-
-In this how-to guide, you learn how to use text to speech avatar (preview) with real-time synthesis. The synthetic avatar video will be generated in almost real time after the system receives the text input.
+In this how-to guide, you learn how to use text to speech avatar with real-time synthesis. The synthetic avatar video will be generated in almost real time after the system receives the text input.
 
 ## Prerequisites
 

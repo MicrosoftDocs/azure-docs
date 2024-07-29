@@ -47,7 +47,7 @@ Once `eraser-controller-manager` is deployed, the following steps will be taken 
 
 * It immediately starts the cleanup process and creates `eraser-aks-xxxxx` worker pods for each node.
 * There are three containers in each worker pod:
-  * A **collector**, which collects unused images
+  * A **collector**, which collects unused images.
   * A **trivy-scanner**, which leverages [trivy](https://github.com/aquasecurity/trivy) to scan image vulnerabilities.
   * A **remover**, which removes unused images with vulnerabilities.
 * After the cleanup process completes, the worker pod is deleted and the next scheduled cleanup happens according to the `--image-cleaner-interval-hours` you define.

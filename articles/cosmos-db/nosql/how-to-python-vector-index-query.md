@@ -97,9 +97,11 @@ vector_embedding_policy = {
             "distanceFunction": "cosine", 
             "dimensions": 10 
         } 
-    ] 
+    ]    
 } 
 ``` 
+
+
 
 ## Creating a vector index in the indexing policy 
 Once the vector embedding paths are decided, vector indexes need to be added to the indexing policy. For this example, the indexing policy would look something like this: 
@@ -113,7 +115,10 @@ indexing_policy = {
     ], 
     "excludedPaths": [ 
         { 
-            "path": "/\"_etag\"/?" 
+            "path": "/\"_etag\"/?",
+            "path": "/coverImageVector/*",
+            "path": "/contentVector/*"
+            
         } 
     ], 
     "vectorIndexes": [ 
@@ -126,6 +131,10 @@ indexing_policy = {
     ] 
 } 
 ``` 
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
+
 
 > [!IMPORTANT]
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.

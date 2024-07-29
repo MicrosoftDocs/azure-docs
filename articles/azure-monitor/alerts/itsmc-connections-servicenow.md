@@ -26,7 +26,7 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Washington, Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 

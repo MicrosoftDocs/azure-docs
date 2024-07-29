@@ -215,7 +215,7 @@ az keyvault key restore --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 Use `az keyvault key import` command to import a key (only RSA and EC) from a file. The certificate file must have private key and must use PEM encoding (as defined in RFCs [1421](https://tools.ietf.org/html/rfc1421), [1422](https://tools.ietf.org/html/rfc1422), [1423](https://tools.ietf.org/html/rfc1423), [1424](https://tools.ietf.org/html/rfc1424)).
 
 ```azurecli-interactive
-az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.key --password 'mypassword'
+az keyvault key import --hsm-name ContosoHSM --name myrsakey --pem-file mycert.key --pem-password 'mypassword'
 
 ## OR
 # Note the key name (myaeskey) in the URI

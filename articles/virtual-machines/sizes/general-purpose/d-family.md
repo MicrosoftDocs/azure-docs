@@ -21,38 +21,38 @@ ms.author: mattmcinnes
 
 ## Series in family
 
-### Dpsv6-series
+### Dpsv6 and Dplsv6-series
+#### [Dpsv6-series](#tab/dpsv6)
 [!INCLUDE [dpsv6-series-summary](./includes/dpsv6-series-summary.md)]
 
 [View the full Dpsv6-series page](./dpsv6-series.md).
 
 [!INCLUDE [dpsv6-series-specs](./includes/dpsv6-series-specs.md)]
 
-
-### Dplsv6-series
+#### [Dplsv6-series](#tab/dplsv6)
 [!INCLUDE [dplsv6-series-summary](./includes/dplsv6-series-summary.md)]
 
 [View the full Dplsv6-series page](./dplsv6-series.md).
 
 [!INCLUDE [dplsv6-series-specs](./includes/dplsv6-series-specs.md)]
 
-
-### Dpdsv6-series
+---
+### Dpdsv6 and Dpldsv6-series
+#### [Dpdsv6-series](#tab/dpdsv6)
 [!INCLUDE [dpdsv6-series-summary](./includes/dpdsv6-series-summary.md)]
 
 [View the full Dpdsv6-series page](./dpdsv6-series.md).
 
 [!INCLUDE [dpdsv6-series-specs](./includes/dpdsv6-series-specs.md)]
 
-
-### Dpldsv6-series
+#### [Dpldsv6-series](#tab/dpldsv6)
 [!INCLUDE [dpldsv6-series-summary](./includes/dpldsv6-series-summary.md)]
 
 [View the full Dpldsv6-series page](./dpldsv6-series.md).
 
 [!INCLUDE [dpldsv6-series-specs](./includes/dpldsv6-series-specs.md)]
 
-
+---
 ### Dasv6 and Dadsv6-series
 [!INCLUDE [dasv6-dadsv6-series-summary](./includes/dasv6-dadsv6-series-summary.md)]
 
@@ -110,12 +110,21 @@ ms.author: mattmcinnes
 
 
 ### Dlsv5 and Dldsv5-series
-[!INCLUDE [dlsv5-dldsv5-series-summary](./includes/dlsv5-dldsv5-series-summary.md)]
+#### [Dlsv5-series](#tab/dlsv5)
+[!INCLUDE [dlsv5-series-summary](./includes/dlsv5-series-summary.md)]
 
-[View the full Dlsv5 and Dldsv5-series page](../../dlsv5-dldsv5-series.md).
+[View the full Dlsv5-series page](./dlsv5-series.md).
 
-[!INCLUDE [dlsv5-dldsv5-series-specs](./includes/dlsv5-dldsv5-series-specs.md)]
+[!INCLUDE [dlsv5-series-specs](./includes/dlsv5-series-specs.md)]
 
+#### [Dldsv5-series](#tab/dldsv5)
+[!INCLUDE [dldsv5-series-summary](./includes/dldsv5-series-summary.md)]
+
+[View the full Dldsv5-series page](./dldsv5-series.md).
+
+[!INCLUDE [dldsv5-series-specs](./includes/dldsv5-series-specs.md)]
+
+---
 ### Dv4 and Dsv4-series
 [!INCLUDE [dv4-dsv4-series-summary](./includes/dv4-dsv4-series-summary.md)]
 

@@ -1,19 +1,19 @@
 ---
-title: Create pre and post events using a webhook with Automation runbooks.
+title: Create pre and post events (preview) using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 12/07/2023
+ms.date: 07/24/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
 #Customer intent: As an IT admin, I want  create pre and post events using a webhook with Automation runbooks.
 ---
 
-# Tutorial: Create pre and post events using a webhook with Automation
+# Tutorial: Create pre and post events (preview) using a webhook with Automation
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
-Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a VM. With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shutdown the VM
+Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a VM. With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shut down the VM.
 
 This tutorial explains how to create pre and post events to start and stop a VM in a schedule patch workflow using a webhook.
 
@@ -369,5 +369,8 @@ Invoke-AzRestMethod `
 
     
 ## Next steps
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn more on the [overview of pre and post events in Azure Update Manager](pre-post-scripts-overview.md).
+- Learn more on [how to create pre and post events](pre-post-events-schedule-maintenance-configuration.md)
+- To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
+- Learn more on [how Create pre and post events using Azure Functions](tutorial-using-functions.md).
  
