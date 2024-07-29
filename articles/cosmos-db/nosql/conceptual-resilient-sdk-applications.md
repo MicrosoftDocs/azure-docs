@@ -110,6 +110,12 @@ From the client perspective, any retries will affect the end to end latency of a
 
 Azure Cosmos DB SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dotnet-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4.md#capture-the-diagnostics).
 
+## How can I mitigate retry latency?
+
+Retry policies in Azure Cosmos DB are influenced by the [preferred regions](tutorial-global-distribution.md#connecting-to-a-preferred-region-using-the-api-for-nosql) specified in your configuration. By default, the SDK will always attempt to connect to the first region in the list of preferred regions, or to the primary [hub region](../multi-region-writes.md#hub-region) if no list is supplied. This prioritization can help minimize latency by primarily connecting to the nearest or most optimal data center.
+
+However, this prioritization also means that requests which are going to result in failure will also be tried in the preferred region first. If a failover is preferred in that scenario, this is typically handled at the infrastructure (traffic manager) layer rather than at the SDK level. Proper setup and configuration of your infrastructure can ensure that traffic is rerouted efficiently during regional outages, thereby mitigating the latency that comes with cross-region retries. For more detailed information on setting up infrastructure-level failover, you can refer to [Azure Traffic Manager documentation](../../traffic-manager/index.yml). Furthermore, some SDKs support implementing similar failover policies directly at the SDK level. For example, see [high availability for Java SDK](performance-tips-java-sdk-v4.md#high-availability).
+
 ## What about regional outages?
 
 The Azure Cosmos DB SDKs cover regional availability and can perform retries on another account regions. Refer to the [multiregional environments retry scenarios and configurations](troubleshoot-sdk-availability.md) article to understand which scenarios involve other regions.
