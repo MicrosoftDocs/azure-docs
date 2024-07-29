@@ -24,6 +24,19 @@ Rolling upgrade policy is the safest way to apply updates to instances in a Virt
 
 Rolling upgrade policy is best suited for production workloads.
 
+## Prerequisites 
+
+Before configuring a rolling upgrade policy on a Virtual Machine Scale Set with Flexible Orchestration or enabling MaxSurge on either Flexible or Uniform Orchestration deployments, register the feature providers to your subscription.
+
+## Feature Registration
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName VMSSFlexRollingUpgrade -ProviderNameSpace Microsoft.Compute
+
+Register-AzProviderFeature -FeatureName MaxSurgeRollingUpgrade -ProviderNamespace Microsoft.Compute
+```
+
+
 ## Requirements
 
 - When using a rolling upgrade policy on Virtual Machine Scale Sets with Flexible Orchestration, the scale set must also use the [Application Health Extension](virtual-machine-scale-sets-health-extension.md) to monitor application health.
