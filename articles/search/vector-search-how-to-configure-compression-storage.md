@@ -16,6 +16,8 @@ This article describes vector quantization and other techniques for compressing 
 
 These features are generally available in [2024-07-01 REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-07-01&preserve-view=true) and in the Azure SDK packages targeting that version.
 
+[An example](#example-vector-compression-techniques) shows the variations in vector size for each of the approaches described in this article.
+
 ## Evaluate the options
 
 As a first step, review the three approaches for reducing the amount of storage used by vector fields. These approaches aren't mutually exclusive and can be combined for further reductions in vector size.
@@ -34,7 +36,7 @@ After the index is defined, you can load and index documents as a separate step.
 
 ## Option 1: Configure quantization
 
-Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements. To offset the effects of a smaller index, built-in quantization adds reranking and oversampling.
+Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements. To offset the effects of a smaller index, you can add oversampling and reranking over uncompressed vectors.
 
 Quantization applies to vector fields containing float32 or float16 source data.
 
@@ -203,7 +205,7 @@ An easy way to reduce vector size is to store embeddings in a smaller data forma
 
 The `stored` property is a boolean on a vector field definition that determines whether storage is allocated for retrievable vector field content. The `stored` property is true by default. If you don't need vector content in a query response, you can save up to 50 percent storage per field by setting `stored` to false.
 
-When evaluating whether to set this property, consider whether you need vectors in the response. Because vectors aren't human readable, they're typically omitted in a query response that's rendered on a search page. However, if you're using vectors in downstream process that consumes vector content, you should keep `stored` set to true and choose a different technique for minimizing vector size.
+When evaluating whether to set this property, consider whether you need vectors in the response. Because vectors aren't human readable, they can be omitted in a query response that's rendered on a search page. Keep them, however, if you're using vectors in downstream process that consumes vector content.
 
 Remember that the `stored` attribution is irreversible. It's set during index creation on vector fields when physical data structures are created. If you want retrievable vector content later, you must drop and rebuild the index, or create and load a new field that has the new attribution.
 
@@ -239,7 +241,36 @@ The following example shows the fields collection of a search index. Set `stored
 
 - Defaults are `stored` set to true and `retrievable` set to false. In a default configuration, a retrievable copy is stored, but it's not automatically returned in results. When `stored` is true, you can toggle `retrievable` between true and false at any time without having to rebuild an index. When `stored` is false, `retrievable` must be false and can't be changed.
 
-## Example index with vectorCompression, data types, and stored property
+## Example: vector compression techniques
+
+Here's Python code that demonstrates quantization, narrow data types, and use of the stored property: [Code sample: Vector quantization and storage options using Python](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/vector-quantization-and-storage/README.md). 
+
+This code creates and compares storage and vector index size for each option:
+
+```bash
+****************************************
+Index Name: compressiontest-baseline
+Storage Size: 21.3613MB
+Vector Size: 4.8277MB
+****************************************
+Index Name: compressiontest-compression
+Storage Size: 17.7604MB
+Vector Size: 1.2242MB
+****************************************
+Index Name: compressiontest-narrow
+Storage Size: 16.5567MB
+Vector Size: 2.4254MB
+****************************************
+Index Name: compressiontest-no-stored
+Storage Size: 10.9224MB
+Vector Size: 4.8277MB
+****************************************
+Index Name: compressiontest-all-options
+Storage Size: 4.9192MB
+Vector Size: 1.2242MB
+```
+
+Search APIs report storage and vector size at the index level, so indexes and not fields must be the basis of comparison. Use the [GET Index Statistics](/rest/api/searchservice/indexes/get-statistics) or an equivalent API in the Azure SDKs to obtain vector size.
 
 Here's a composite example of a search index that specifies narrow data types, reduced storage, and vector compression. 
 
@@ -400,9 +431,9 @@ POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
 
 ## Query a quantized vector field using oversampling
 
-The query syntax in this example applies to vector fields using built-in scalar quantization. By default, vector fields that use scalar quantization also use `rerankWithOriginalVectors` and `defaultOversampling` to mitigate the effects of a smaller vector index. Those settings are [specified in the search index](#add-compressions-to-a-search-index).
+Query syntax for a compressed or quantized vector field is the same as for non-compressed vector fields, unless you want to override parameters associated with oversampling or reranking with original vectors.
 
-On the query, you can override the oversampling default value. For example, if `defaultOversampling` is 10.0, you can change it to something else in the query request.
+Recall that the [vector compression definition](#add-compressions-to-a-search-index) in the index has settings for `rerankWithOriginalVectors` and `defaultOversampling` to mitigate the effects of a smaller vector index. You can override the default values to vary the behavior at query time. For example, if `defaultOversampling` is 10.0, you can change it to something else in the query request.
 
 You can set the oversampling parameter even if the index doesn't explicitly have a `rerankWithOriginalVectors` or `defaultOversampling` definition. Providing `oversampling` at query time overrides the index settings for that query and executes the query with an effective `rerankWithOriginalVectors` as true.
 
