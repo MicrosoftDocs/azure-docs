@@ -5,7 +5,7 @@ ms.author: nlarin
 author: niklarin
 ms.service: cosmos-db
 ms.subservice: postgresql
-ms.custom: ignite-2022, devx-track-python
+ms.custom: devx-track-python
 ms.topic: quickstart
 recommendations: false
 ms.date: 06/05/2023

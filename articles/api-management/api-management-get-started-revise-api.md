@@ -3,7 +3,6 @@ title: Tutorial - Use revisions in API Management to make non-breaking API chang
 titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make non-breaking changes using revisions in API Management.
 services: api-management
-documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
@@ -14,6 +13,9 @@ ms.author: danlep
 ---
 
 # Tutorial: Use revisions to make non-breaking API changes safely
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 When your API is ready to go and is used by developers, you eventually need to make changes to that API and at the same time not disrupt callers of your API. It's also useful to let developers know about the changes you made.
 
 In Azure API Management, use *revisions* to make non-breaking API changes so you can model and test changes safely. When ready, you can make a revision current and replace your current API.
@@ -88,7 +90,7 @@ In this tutorial, you learn how to:
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Use this procedure to create and update a release.
 

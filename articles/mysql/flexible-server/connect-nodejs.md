@@ -4,11 +4,15 @@ description: This quickstart provides several Node.js code samples you can use t
 author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
-ms.date: 06/19/2023
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-api, devx-track-linux
+ms.custom:
+  - mvc
+  - devx-track-js
+  - mode-api
+  - linux-related-content
 ms.devlang: javascript
 ---
 
@@ -27,12 +31,12 @@ This quickstart uses the resources created in either of these guides as a starti
 - [Create an Azure Database for MySQL flexible server instance using Azure portal](./quickstart-create-server-portal.md)
 - [Create an Azure Database for MySQL flexible server instance using Azure CLI](./quickstart-create-server-cli.md)
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./how-to-manage-firewall-portal.md) or [Azure CLI](./how-to-manage-firewall-cli.md)
 
 ## Install Node.js and the MySQL connector
 
-Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql2](https://www.npmjs.com/package/mysql2) package and its dependencies into your project folder. 
+Depending on your platform, follow the instructions in the appropriate section to install [Node.js](https://nodejs.org). Use npm to install the [mysql2](https://www.npmjs.com/package/mysql2) package and its dependencies into your project folder.
 
 ### [Windows](#tab/windows)
 
@@ -74,18 +78,18 @@ Depending on your platform, follow the instructions in the appropriate section t
 
 1. Verify the installation by checking npm list output text. The version number may vary as new patches are released.
 
-### [Linux (RHEL/CentOS)](#tab/rhel)
+### [Linux (RHEL)](#tab/rhel)
 
 1. Run the following commands to install **Node.js** and **npm** the package manager for Node.js.
 
-    **RHEL/CentOS 7.x**
+    **RHEL 7.x**
 
     ```bash
     sudo yum install -y rh-nodejs8
     scl enable rh-nodejs8 bash
    ```
 
-    **RHEL/CentOS 8.x**
+    **RHEL 8.x**
 
    ```bash
     sudo yum install -y nodejs
@@ -398,4 +402,4 @@ az group delete \
 - [Encrypted connectivity using Transport Layer Security (TLS 1.2) in Azure Database for MySQL flexible server](./how-to-connect-tls-ssl.md).
 - Learn more about [Networking in Azure Database for MySQL flexible server](./concepts-networking.md).
 - [Create and manage Azure Database for MySQL flexible server firewall rules using the Azure portal](./how-to-manage-firewall-portal.md).
-- [Create and manage an Azure Database for MySQL flexible server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md). 
+- [Create and manage an Azure Database for MySQL flexible server virtual network using Azure portal](./how-to-manage-virtual-network-portal.md).

@@ -8,7 +8,6 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/21/2023
-ms.custom: ignite-2022
 ---
 
 # Modify periodic backup interval and retention period in Azure Cosmos DB

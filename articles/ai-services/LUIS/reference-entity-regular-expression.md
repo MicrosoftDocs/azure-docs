@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: reference
-ms.date: 05/05/2021
+ms.date: 01/19/2024
 ---
 # Regular expression entity
 

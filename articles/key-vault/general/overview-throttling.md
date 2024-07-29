@@ -3,11 +3,10 @@ title: Azure Key Vault throttling guidance
 description: Key Vault throttling limits the number of concurrent calls to prevent overuse of resources.
 services: key-vault
 author: msmbaldwin
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/11/2023
+ms.date: 02/20/2024
 ms.author: mbaldwin
 
 ---

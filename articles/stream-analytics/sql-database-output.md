@@ -1,8 +1,8 @@
 ---
 title: Azure SQL Database output from Azure Stream Analytics
 description: This article describes Azure SQL Database as output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/21/2022
@@ -10,9 +10,9 @@ ms.date: 07/21/2022
 
 # Azure SQL Database output from Azure Stream Analytics
 
-You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Azure Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. The Azure portal experience for Stream Analytics allows you to [test your streaming query and also detect if there are any mismatches between the schema](sql-db-table.md) of the results produced by your job and the schema of the target table in your SQL database. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article. While you can also specify [Azure Synapse Analytics SQL pool](/azure/sql-data-warehouse/) as an output via the SQL Database output option, it is recommended to use the dedicated [Azure Synapse Analytics output connector](azure-synapse-analytics-output.md) for best performance.
+You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Azure Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. The Azure portal experience for Stream Analytics allows you to [test your streaming query and also detect if there are any mismatches between the schema](sql-db-table.md) of the results produced by your job and the schema of the target table in your SQL database. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article. While you can also specify [Azure Synapse Analytics SQL pool](../synapse-analytics/overview-what-is.md) as an output via the SQL Database output option, it's recommended to use the dedicated [Azure Synapse Analytics output connector](azure-synapse-analytics-output.md) for best performance.
 
-You can also use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as an output. You have to [configure public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+You can also use [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) as an output. You have to [configure public endpoint in SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the following settings.
 
 ## Output configuration
 
@@ -22,8 +22,8 @@ The following table lists the property names and their description for creating 
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The logical SQL server name or managed instance name. For SQL Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
-| Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
+| Server name | The logical SQL server name or managed instance name. For SQL Managed Instance, it's required to specify the port 3342. For example, `sampleserver.public.database.windows.net,3342`. |
+| Username | The username that has write access to the database. Stream Analytics supports three authentication mode: SQL server authentication, system assigned managed identity and use assigned managed identity |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
@@ -45,7 +45,7 @@ You can configure the max message size by using **Max batch count**. The default
 
 ## Limitation
 
-Self-signed SSL certifacte is not supported when trying to connect ASA jobs to SQL on VM.
+Self-signed Secured Sockets Layer (SSL) certificate isn't supported when trying to connect Azure Stream Analytics jobs to SQL on VM.
 
 ## Next steps
 

@@ -84,7 +84,7 @@ For demonstration purposes, this sample uses a publicly accessible endpoint by d
 With additional configuration, this sample supports connecting to an **Microsoft Entra ID** (Microsoft Entra ID) protected endpoint so that user login is required for the app to fetch an Azure Communication Services access token. See steps below:
 
 1. Enable Microsoft Entra authentication in your app.  
-   - [Register your app under Microsoft Entra ID (using iOS / macOS platform settings)](../../../active-directory/develop/tutorial-v2-ios.md) 
+   - [Register your app under Microsoft Entra ID (using iOS / macOS platform settings)](/entra/identity-platform/tutorial-v2-ios) 
 	- [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
 2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Application (client) ID`, `Directory (tenant) ID`, `Application ID URI`
 

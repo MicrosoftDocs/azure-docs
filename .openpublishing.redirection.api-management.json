@@ -76,6 +76,10 @@
         "redirect_document_id": false
       }, 
     {
+        "source_path_from_root": "/articles/api-management/api-management-howto-developer-portal.md",
+        "redirect_url": "/azure/api-management/developer-portal-overview",
+        "redirect_document_id": false
+    },    {
         "source_path_from_root": "/articles/api-management/authorizations-overview.md",
         "redirect_url": "/azure/api-management/credentials-overview",
         "redirect_document_id": false

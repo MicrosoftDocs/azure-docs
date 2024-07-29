@@ -2,8 +2,12 @@
 title: Access a private Azure Kubernetes Service (AKS) cluster
 description: Learn how to access a private Azure Kubernetes Service (AKS) cluster using the Azure CLI or Azure portal.
 ms.topic: article
+ms.subservice: aks-security
 ms.custom: devx-track-azurecli
 ms.date: 09/15/2023
+author: schaffererin
+ms.author: schaffererin
+
 ---
 
 # Access a private Azure Kubernetes Service (AKS) cluster
@@ -134,3 +138,4 @@ In this article, you learned how to access a private cluster and run commands on
 <!-- links - internal -->
 
 [command-invoke-troubleshoot]: /troubleshoot/azure/azure-kubernetes/resolve-az-aks-command-invoke-failures
+

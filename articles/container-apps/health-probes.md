@@ -4,7 +4,6 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -164,6 +163,9 @@ The optional `failureThreshold` setting defines the number of attempts Container
 ## Default configuration
 
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
+
+> [!NOTE]
+> Default probes are currently not applied on workload profile environments when using the Consumption plan. This behavior may change in the future.
 
 | Probe type | Default values |
 | -- | -- |

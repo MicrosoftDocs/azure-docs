@@ -7,7 +7,7 @@ ms.editor: schaffererin
 ms.service: microsoft-linux
 ms.topic: how-to
 ms.date: 06/30/2023
-ms.custom: template-how-to-pattern
+ms.custom: template-how-to-pattern, linux-related-content
 ---
 
 # Installing certificates on the Azure Linux Container host for AKS

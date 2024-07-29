@@ -5,19 +5,16 @@ author: narmeens
 ms.author: narsam
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.custom: seodec18
 ---
 
 # Azure Time Series Insights Explorer
 
 [!INCLUDE [retirement](../../includes/tsi-retirement.md)]
 
-This article describes the various features and options available within the Azure Time Series Insights Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
+This article describes the various features and options available within the Azure Time Series Insights Gen2 Demo environment.
 
 ## Prerequisites
 
@@ -180,7 +177,7 @@ Select the new **Share** icon to share a URL link with your team.
 
 * Displays your current Azure Time Series Insights Gen2 sign-in account information.
 * Use it to switch between the available themes.
-* Use it to view the Gen2 [Demo environment](https://insights.timeseries.azure.com/preview/demo).
+* Use it to view the Gen2 Demo environment.
 
 ### Theme selection
 

@@ -1,12 +1,11 @@
 ---
 title: TCP/IP performance tuning for Azure VMs
-description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs. 
+description: Learn various common TCP/IP performance tuning techniques and their relationship to Azure VMs.
 services: virtual-network
 author: asudbring
 manager: paragk
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: allensu
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank

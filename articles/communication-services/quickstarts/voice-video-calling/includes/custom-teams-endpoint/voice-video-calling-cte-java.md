@@ -8,8 +8,6 @@ ms.author: jesseo
 
 Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for Java.
 
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
-
 ## Sample Code
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/videoCallingQuickstart).
@@ -315,6 +313,58 @@ private void startCall() {
 }
 ```
 
+## Answer a Call
+
+Accepting a call can be done using the teams call agent using only a reference to the current context.
+
+```java
+public void acceptACall(TeamsIncomingCall teamsIncomingCall){
+	teamsIncomingCall.accept(this);
+}
+```
+
+## Join a Teams Call
+
+A user can join an existing call by passing a link.
+
+```java
+/**
+ * Join a call using a teams meeting link.
+ */
+public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
+	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+	TeamsCall call = teamsCallAgent.join(this, link);
+}
+```
+
+## Join a Teams Call with options
+
+We can also join an existing call with preset options, such as being muted.
+
+```java
+/**
+ * Join a call using a teams meeting link while muted.
+ */
+public TeamsCall joinTeamsCall(TeamsCallAgent teamsCallAgent){
+	TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+	OutgoingAudioOptions audioOptions = new OutgoingAudioOptions().setMuted(true);
+	JoinTeamsCallOptions options = new JoinTeamsCallOptions().setAudioOptions(audioOptions);
+	TeamsCall call = teamsCallAgent.join(this, link, options);
+}
+```
+
+## Setup Incoming Call Listener
+
+To be able to detect incoming calls and other actions not done by this user, listeners must be setup.
+
+```java
+private TeamsIncomingCall teamsincomingCall;
+teamsCallAgent.addOnIncomingCallListener(this::handleIncomingCall);
+
+private void handleIncomingCall(TeamsIncomingCall incomingCall) {
+	this.teamsincomingCall = incomingCall;
+}
+```
 
 ## Launch the app and call the echo bot
 

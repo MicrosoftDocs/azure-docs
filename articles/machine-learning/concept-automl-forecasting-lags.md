@@ -3,13 +3,13 @@ title: Lagged features for time series forecasting in AutoML
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning's AutoML forms lag based features for time series forecasting
 services: machine-learning
-author: ericwrightatwork
-ms.author: vlbejan
-ms.reviewer: ssalgado 
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: vlbejan
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: conceptual
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv1, event-tier1-build-2022
+ms.custom: automl, sdkv1
 ms.date: 12/15/2022
 show_latex: true
 ---

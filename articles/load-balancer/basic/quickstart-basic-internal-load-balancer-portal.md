@@ -6,7 +6,8 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 04/10/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.author: mbender
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
@@ -37,7 +38,7 @@ An Azure Bastion host is created to securely manage the virtual machines and ins
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -237,7 +238,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability set | Select the existing **myAvailabiltySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create test virtual machine
 

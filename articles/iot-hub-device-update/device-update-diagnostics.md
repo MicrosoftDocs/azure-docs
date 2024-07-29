@@ -1,8 +1,8 @@
 ---
 title: Understand Device Update for Azure IoT Hub diagnostic features
 description: Understand what diagnostic features Device Update for IoT Hub has, including deployment error codes in UX and remote log collection.
-author: chrisjlin
-ms.author: lichris
+author: vimeht
+ms.author: vimeht
 ms.date: 9/2/2022
 ms.topic: concept-article
 ms.service: iot-hub-device-update

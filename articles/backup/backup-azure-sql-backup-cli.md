@@ -25,7 +25,7 @@ In this article, you'll learn how to:
 
 See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure VM.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a Recovery Services vault
 

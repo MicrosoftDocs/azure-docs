@@ -3,14 +3,14 @@ title: Set up Python development environment
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning Python development environments in Jupyter Notebooks, Visual Studio Code, Azure Databricks, and Data Science Virtual Machines.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: Blackmist
+ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: larryfr, mattmcinnes
-ms.date: 04/25/2023
+ms.reviewer: roastala
+ms.date: 04/08/2024
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1, devx-track-azurecli, event-tier1-build-2022, ignite-2022, py-fresh-zinc
+ms.custom: devx-track-python, devx-track-azurecli, py-fresh-zinc
 ---
 
 # Set up a Python development environment for Azure Machine Learning
@@ -69,17 +69,17 @@ Create a workspace configuration file in one of the following methods:
     [!INCLUDE [sdk v2](includes/machine-learning-sdk-v2.md)]
 
     ```python
-        #import required libraries
-        from azure.ai.ml import MLClient
-        from azure.identity import DefaultAzureCredential
+    #import required libraries
+    from azure.ai.ml import MLClient
+    from azure.identity import DefaultAzureCredential
 
-        #Enter details of your Azure Machine Learning workspace
-        subscription_id = '<SUBSCRIPTION_ID>'
-        resource_group = '<RESOURCE_GROUP>'
-        workspace = '<AZUREML_WORKSPACE_NAME>'
-      
-        #connect to the workspace
-        ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
+    #Enter details of your Azure Machine Learning workspace
+    subscription_id = '<SUBSCRIPTION_ID>'
+    resource_group = '<RESOURCE_GROUP>'
+    workspace = '<AZUREML_WORKSPACE_NAME>'
+    
+    #connect to the workspace
+    ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
 
 ## Local computer or remote VM environment
@@ -120,8 +120,8 @@ When running a local Jupyter Notebook server, it's recommended that you create a
 
 1. Launch the Jupyter Notebook server
 
-    > [!TIP]
-    For example notebooks, see the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository. SDK examples are located under [/sdk/python](https://github.com/Azure/azureml-examples/tree/main/sdk/python). For example, the [Configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) example.
+> [!TIP]
+> For example notebooks, see the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository. SDK examples are located under [/sdk/python](https://github.com/Azure/azureml-examples/tree/main/sdk/python). For example, the [Configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) example.
 
 ### Visual Studio Code
 

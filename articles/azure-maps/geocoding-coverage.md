@@ -295,6 +295,6 @@ Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
 > [Azure Maps Search service]
 
-[Search service]: /rest/api/maps/search
-[Azure Maps Search service]: /rest/api/maps/search
-[Get Search Address]: /rest/api/maps/search/get-search-address
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Azure Maps Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0&preserve-view=true

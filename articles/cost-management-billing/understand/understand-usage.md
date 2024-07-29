@@ -3,11 +3,10 @@ title: Understand your detailed usage and charges
 description: Learn how to read and understand your detailed usage and charges file. View a list of terms and descriptions used in the file.
 author: bandersmsft
 ms.reviewer: micflan
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/04/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -59,7 +58,7 @@ Note that Azure doesn't log most user actions. Instead, Microsoft logs resource 
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

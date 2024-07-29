@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate client certificate
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `validate-client-certificate` policy to enforce that a certificate presented by a client to an API Management instance matches specified validation rules and claims such as subject or issuer for one or more certificate identities.
 
@@ -35,7 +37,7 @@ For more information about custom CA certificates and certificate authorities, s
     validate-not-after="true | false" 
     ignore-error="true | false">
     <identities>
-        <identity 
+        <identity
             thumbprint="certificate thumbprint"
             serial-number="certificate serial number"
             common-name="certificate common name"
@@ -43,7 +45,7 @@ For more information about custom CA certificates and certificate authorities, s
             dns-name="certificate DNS name"
             issuer-subject="certificate issuer"
             issuer-thumbprint="certificate issuer thumbprint"
-            issuer-certificate-id="certificate identifier" />
+            issuer-certificate-id="certificate identifier"/>
     </identities>
 </validate-client-certificate> 
 ```
@@ -81,7 +83,7 @@ For more information about custom CA certificates and certificate authorities, s
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -104,6 +106,6 @@ The following example validates a client certificate to match the policy's defau
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

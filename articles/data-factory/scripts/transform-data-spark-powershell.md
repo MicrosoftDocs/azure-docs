@@ -1,13 +1,13 @@
 ---
 title: Transform data in cloud using PowerShell
-description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster." 
+description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster."
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
 ---
 
@@ -15,7 +15,7 @@ ms.date: 01/05/2024
 
 This sample PowerShell script creates a pipeline that transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

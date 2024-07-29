@@ -4,8 +4,13 @@ titleSuffix: Microsoft Sentinel
 description: This article explains how to generate alerts and incidents with threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
-ms.date: 8/30/2022
+ms.date: 3/14/2024
 ms.author: austinmc
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent: As a SOC analyst, I want to connect the threat intelligence available to analytics rules so I can generate alerts and incidents.
 ---
 
 # Use threat indicators in analytics rules
@@ -63,19 +68,22 @@ Below is an example of how to enable and configure a rule to generate security a
 
     You can leave the default settings or change them to meet your requirements, and you can define incident-generation settings on the **Incident settings** tab. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md). When you are finished, select the **Automated response** tab.
 
-1. Configure any automation you’d like to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel is done using combinations of **automation rules** and **playbooks** powered by Azure Logic Apps. To learn more, see this [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When finished, select the **Next: Review >** button to continue.
+1. Configure any automation you'd like to trigger when a security alert is generated from this analytics rule. Automation in Microsoft Sentinel is done using combinations of **automation rules** and **playbooks** powered by Azure Logic Apps. To learn more, see this [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](./tutorial-respond-threats-playbook.md). When finished, select the **Next: Review >** button to continue.
 
 1. When you see the message that the rule validation has passed, select the **Create** button and you are finished.
 
-You can find your enabled rules in the **Active rules** tab of the **Analytics** section of Microsoft Sentinel. You can edit, enable, disable, duplicate, or delete the active rule from there. The new rule runs immediately upon activation, and from then on will run on its defined schedule.
+## Review your rules
+
+Find your enabled rules in the **Active rules** tab of the **Analytics** section of Microsoft Sentinel. Edit, enable, disable, duplicate, or delete the active rule from there. The new rule runs immediately upon activation, and then runs on its defined schedule.
 
 According to the default settings, each time the rule runs on its schedule, any results found will generate a security alert. Security alerts in Microsoft Sentinel can be viewed in the **Logs** section of Microsoft Sentinel, in the **SecurityAlert** table under the **Microsoft Sentinel** group.
 
 In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents, which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
-Since analytic rules constrain lookups beyond 14 days, Microsoft Sentinel refreshes indicators every 12 days to make sure they are available for matching purposes through the analytic rules. 
+> [!NOTE]
+> Since analytic rules constrain lookups beyond 14 days, Microsoft Sentinel refreshes indicators every 12 days to make sure they are available for matching purposes through the analytic rules. 
 
-## Next steps
+## Related content
 
 In this article, you learned how to use threat intelligence indicators to detect threats. For more about threat intelligence in Microsoft Sentinel, see the following articles:
 

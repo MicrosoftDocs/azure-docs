@@ -5,10 +5,9 @@ services: payment-hsm
 author: msmbaldwin
 
 ms.service: payment-hsm
-ms.workload: security
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: article
-ms.date: 01/25/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -28,7 +27,7 @@ First, find the resource ID on the virtual network you wish to tag with the Azur
 az network vnet show -g "myResourceGroup" -n "myVNet"
 ```
 
-The resource ID will be in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
+The resource ID is in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
 
 Now, use the Azure CLI [az tags create](/cli/azure/tag#az-tag-create) command to add the `fastpathenabled` tag to the virtual network:
 
@@ -36,7 +35,7 @@ Now, use the Azure CLI [az tags create](/cli/azure/tag#az-tag-create) command to
 az tag create --resource-id "<resource-id>" --tags "fastpathenabled=True"
 ```
 
-Afterward, if you run [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) again, you will see this output:
+Afterward, if you run [az network vnet show](/cli/azure/network/vnet#az-network-vnet-show) again, you see this output:
 
 ```json
   "tags": {
@@ -52,7 +51,7 @@ First, find the resource ID on the virtual network you wish to tag with the Azur
 Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVNet" 
 ```
 
-The resource ID will be in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
+The resource ID is in the format "/subscriptions/`<subscription-id>`/resourceGroups/`<resource-group-name>`/providers/Microsoft.Network/virtualNetworks/`<vnet-name>`".
 
 Now, use the Azure PowerShell [Update-AzTag](/powershell/module/az.resources/update-aztag) cmdlet to add the `fastpathenabled` tag to the virtual network:
 
@@ -60,7 +59,7 @@ Now, use the Azure PowerShell [Update-AzTag](/powershell/module/az.resources/upd
 Update-AzTag -ResourceId "<resource-id>" -Tag -Tag @{`fastpathenabled`="True"} -Operation Merge
 ```
 
-Afterward, if you run [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) again, you will see this output:
+Afterward, if you run [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) again, you see this output:
 
 ```bash
 Tags                   :
@@ -75,7 +74,7 @@ Tags                   :
 
 # [Azure CLI](#tab/azure-cli)
 
-To peer the payment HSM virtual network with the VM virtual network, use the Azure CLI [az network peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) command to peer the payment HSM VNet to VM VNet and vice versa::
+To peer the payment HSM virtual network with the VM virtual network, use the Azure CLI [az network peering create](/cli/azure/network/vnet/peering#az-network-vnet-peering-create) command to peer the payment HSM virtual network to the VM virtual network and vice versa:
 
 ```azurecli-interactive
 # Peer payment HSM VNet to VM VNet
@@ -94,7 +93,7 @@ $myvnet = Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVNe
 $myvmvnet = Get-AzVirtualNetwork -ResourceGroupName "myResourceGroup" -Name "myVMVNet" 
 ```
 
-Then use the Azure PowerShell [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) cmdlet to peer the payment HSM VNet to VM VNet and vice versa:
+Then use the Azure PowerShell [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering) cmdlet to peer the payment HSM virtual network to the VM virtual network and vice versa:
 
 ```azurecli-powershell
 # Peer payment HSM VNet to VM VNet

@@ -2,14 +2,14 @@
 title: Distributed GPU training guide (SDK v1)
 titleSuffix: Azure Machine Learning
 description: Learn the best practices for performing distributed training with Azure Machine Learning SDK (v1) supported frameworks, such as MPI, Horovod, DeepSpeed, PyTorch, PyTorch Lightning, Hugging Face Transformers, TensorFlow, and InfiniBand.
-author: rtanase
-ms.author: ratanase
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: ratanase
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 10/21/2021
-ms.custom: UpdateFrequency5, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, sdkv1
 ---
 
 # Distributed GPU training guide (SDK v1)

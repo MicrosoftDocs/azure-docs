@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure SQL Database to availability zone s
 author: rsetlem
 ms.service: sql
 ms.topic: conceptual
-ms.date: 06/29/2023
+ms.date: 03/25/2024
 ms.author: anaharris 
 ms.custom: references_regions, subject-reliability
 ---
@@ -193,6 +193,47 @@ To create a geo-replica of the database:
 1. Update the server name in the connection strings for the application to reflect the new zone redundant database.
 
 1. To clean up, consider removing the original non-zone redundant database from the geo replica relationship. You can choose to delete it.  
+
+
+## Disable zone-redundancy
+
+To disable zone-redundancy for a single database or an elastic pool, you can use the portal or ARM API. 
+
+To disable zone-redundancy for Hyperscale service tier, you can reverse the steps documented in [Redeployment (Hyperscale)](#redeployment-hyperscale).
+
+# [Elastic pool](#tab/pool)
+
+**To disable zone-redundancy with Azure portal:**
+
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the elastic pool that you no longer want to be zone-redundant.
+
+1. Select **Settings**, and then select **Configure**. 
+
+1. Select **No** for **Would you like to make this elastic pool zone redundant?**.
+
+1. Select **Save**.
+
+
+**To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/elastic-pools/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+
+# [Single database](#tab/single)
+
+
+**To disable zone-redundancy with Azure portal:**
+
+1. Go to the  [Azure portal](https://portal.azure.com) to find and select the database that you no longer want to be zone-redundant.
+
+1. Select **Settings**, and then select **Configure**. 
+
+1. Select **No** for **Would you like to make this database zone redundant?**
+
+1. Select **Save**.
+
+
+**To disable zone-redundancy with ARM,** see [Databases - Create Or Update in ARM](/rest/api/sql/2022-05-01-preview/databases/create-or-update?tabs=HTTP) and use the `properties.zoneRedundant` property.
+
+ 
+---
 
 
 ## Next steps

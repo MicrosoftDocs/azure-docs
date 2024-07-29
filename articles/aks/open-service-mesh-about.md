@@ -79,3 +79,4 @@ After enabling the OSM add-on using the [Azure CLI][osm-azure-cli] or a [Bicep t
 [osm-nginx]: https://release-v1-2.docs.openservicemesh.io/docs/demos/ingress_k8s_nginx
 [app-routing]: app-routing.md
 [istio-about]: istio-about.md
+

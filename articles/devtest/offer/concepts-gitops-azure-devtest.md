@@ -3,8 +3,8 @@ title: GitOps & Azure Dev/Test offer
 description: Use GitOps in association with Azure Dev/Test
 ms.author: amast
 author: rigel512
-ms.prod: visual-studio-family
-ms.technology: vs-subscriptions
+ms.service: visual-studio-family
+ms.subservice: subscriptions
 ms.topic: how-to 
 ms.date: 10/18/2023
 ms.custom: devtestoffer

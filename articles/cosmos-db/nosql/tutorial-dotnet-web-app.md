@@ -9,9 +9,9 @@ ms.reviewer: esarroyo
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
-ms.date: 12/02/2022
+ms.date: 04/09/2024
 ms.devlang: csharp
-ms.custom: devx-track-dotnet, ignite-2022, cosmos-dev-refresh, cosmos-dev-dotnet-path
+ms.custom: devx-track-dotnet, cosmos-dev-refresh, cosmos-dev-dotnet-path
 ---
 
 # Tutorial: Develop an ASP.NET web application with Azure Cosmos DB for NoSQL
@@ -50,7 +50,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     :::image type="content" source="media/tutorial-dotnet-web-app/resource-menu-keys.png" lightbox="media/tutorial-dotnet-web-app/resource-menu-keys.png" alt-text="Screenshot of an API for NoSQL account page. The Keys option is highlighted in the resource menu.":::
 
-1. On the **Keys** page, observe and record the value of the **URI**, **PRIMARY KEY**, and **PRIMARY CONNECTION STRING*** fields. These values will be used throughout the tutorial.
+1. On the **Keys** page, observe and record the value of the **PRIMARY CONNECTION STRING*** field. This value will be used throughout the tutorial.
 
     :::image type="content" source="media/tutorial-dotnet-web-app/page-keys.png" alt-text="Screenshot of the Keys page with the URI, Primary Key, and Primary Connection String fields highlighted.":::
 
@@ -68,14 +68,14 @@ First, you'll create a database and container in the existing API for NoSQL acco
     | --- | --- |
     | **Database id** | `cosmicworks` |
     | **Database throughput type** | **Manual** |
-    | **Database throughput amount** | `4000` |
+    | **Database throughput amount** | `1000` |
     | **Container id** | `products` |
-    | **Partition key** | `/categoryId` |
+    | **Partition key** | `/category/name` |
 
     :::image type="content" source="media/tutorial-dotnet-web-app/dialog-new-container.png" alt-text="Screenshot of the New Container dialog in the Data Explorer with various values in each field.":::
 
     > [!IMPORTANT]
-    > In this tutorial, we will first scale the database up to 4,000 RU/s in shared throughput to maximize performance for the data migration. Once the data migration is complete, we will scale down to 400 RU/s of provisioned throughput.
+    > In this tutorial, we will first scale the database up to 1,000 RU/s in shared throughput to maximize performance for the data migration. Once the data migration is complete, we will scale down to 400 RU/s of provisioned throughput.
 
 1. Select **OK** to create the database and container.
 
@@ -84,36 +84,41 @@ First, you'll create a database and container in the existing API for NoSQL acco
     > [!TIP]
     > You can optionally use the Azure Cloud Shell here.
 
-1. Install a **pre-release**version of the `cosmicworks` dotnet tool from NuGet.
+1. Install **v2** of the `cosmicworks` dotnet tool from NuGet.
 
     ```bash
-    dotnet tool install --global cosmicworks  --prerelease
+    dotnet tool install --global cosmicworks  --version 2.*
     ```
 
 1. Use the `cosmicworks` tool to populate your API for NoSQL account with sample product data using the **URI** and **PRIMARY KEY** values you recorded earlier in this lab. Those recorded values will be used for the `endpoint` and `key` parameters respectively.
 
     ```bash
     cosmicworks \
-        --datasets product \
-        --endpoint <uri> \
-        --key <primary-key>
+        --number-of-products 1759 \
+        --number-of-employees 0 \
+        --disable-hierarchical-partition-keys \
+        --connection-string <nosql-connection-string>
     ```
 
-1. Observe the output from the command line tool. It should add more than 200 items to the container. The example output included is truncated for brevity.
+1. Observe the output from the command line tool. It should add 1759 items to the container. The example output included is truncated for brevity.
 
     ```output
+    ── Parsing connection string ────────────────────────────────────────────────────────────────
+    ╭─Connection string──────────────────────────────────────────────────────────────────────────╮
+    │ AccountEndpoint=https://<account-name>.documents.azure.com:443/;AccountKey=<account-key>;  │
+    ╰────────────────────────────────────────────────────────────────────────────────────────────╯
+    ── Populating data ──────────────────────────────────────────────────────────────────────────
+    ╭─Products configuration─────────────────────────────────────────────────────────────────────╮
+    │ Database   cosmicworks                                                                     │
+    │ Container  products                                                                        │
+    │ Count      1,759                                                                           │
+    ╰────────────────────────────────────────────────────────────────────────────────────────────╯
     ...
-    Revision:       v4
-    Datasets:
-            product
-    
-    Database:       [cosmicworks]   Status: Created
-    Container:      [products]      Status: Ready
-    
-    product Items Count:    295
-    Entity: [9363838B-2D13-48E8-986D-C9625BE5AB26]  Container:products      Status: RanToCompletion
-    ...
-    Container:      [product]       Status: Populated
+    [SEED]  00000000-0000-0000-0000-000000005951 | Road-650 Black, 60 - Bikes
+    [SEED]  00000000-0000-0000-0000-000000005950 | Mountain-100 Silver, 42 - Bikes
+    [SEED]  00000000-0000-0000-0000-000000005949 | Men's Bib-Shorts, L - Clothing
+    [SEED]  00000000-0000-0000-0000-000000005948 | ML Mountain Front Wheel - Components
+    [SEED]  00000000-0000-0000-0000-000000005947 | Mountain-500 Silver, 42 - Bikes
     ```
 
 1. Return to the **Data Explorer** page for your account.
@@ -122,7 +127,7 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     :::image type="content" source="media/tutorial-dotnet-web-app/section-data-database-scale.png" alt-text="Screenshot of the Scale option within the database node.":::
 
-1. Reduce the throughput from **4,000** down to **400**.
+1. Reduce the throughput from **1,000** down to **400**.
 
     :::image type="content" source="media/tutorial-dotnet-web-app/section-scale-throughput.png" alt-text="Screenshot of the throughput settings for the database reduced down to 400 RU/s.":::
 
@@ -173,29 +178,33 @@ First, you'll create a database and container in the existing API for NoSQL acco
 
     ```sql
     SELECT
-      p.name,
-      p.categoryName,
-      p.tags
+        p.name,
+        p.category.name AS category,
+        p.category.subCategory.name AS subcategory,
+        p.tags
     FROM products p
-    JOIN t IN p.tags
-    WHERE t.name = "Tag-32"
+    JOIN tag IN p.tags
+    WHERE STRINGEQUALS(tag, "yellow", true)
     ```
 
 1. The results should be a smaller array of items filtered to only contain items that include at least one tag with a **name** value of `Tag-32`. Again, a subset of the output is included here for brevity.
 
     ```output
-    ...
-    {
-    "name": "ML Mountain Frame - Black, 44",
-    "categoryName": "Components, Mountain Frames",
-    "tags": [
-        {
-        "id": "18AC309F-F81C-4234-A752-5DDD2BEAEE83",
-        "name": "Tag-32"
-        }
+    [
+      ...
+      {
+        "name": "HL Touring Frame - Yellow, 60",
+        "category": "Components",
+        "subcategory": "Touring Frames",
+        "tags": [
+          "Components",
+          "Touring Frames",
+          "Yellow",
+          "60"
+        ]
+      },
+      ...
     ]
-    },
-    ...
     ```
 
 ## Create ASP.NET web application
@@ -263,9 +272,9 @@ Now, you'll create a new ASP.NET web application using a sample project template
 
         return new List<Product>()
         {
-            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", categoryId: "3E4CEACD-D007-46EB-82D7-31F6141752B2", categoryName: "Components, Road Frames", sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
-           ...
-            new Product(id: "d5928182-0307-4bf9-8624-316b9720c58c", categoryId: "AA5A82D4-914C-4132-8C08-E7B75DCE3428", categoryName: "Components, Cranksets", sku: "CS-6583", name: """ML Crankset""", description: """The product called "ML Crankset".""", price: 256.49000000000001m)
+            new Product(id: "baaa4d2d-5ebe-45fb-9a5c-d06876f408e0", category: new Category(name: "Components, Road Frames"), sku: "FR-R72R-60", name: """ML Road Frame - Red, 60""", description: """The product called "ML Road Frame - Red, 60".""", price: 594.83000000000004m),
+            new Product(id: "bd43543e-024c-4cda-a852-e29202310214", category: new Category(name: "Components, Forks"), sku: "FK-5136", name: """ML Fork""", description: """The product called "ML Fork".""", price: 175.49000000000001m),
+            ...
         };
     }
     ```
@@ -277,17 +286,22 @@ Now, you'll create a new ASP.NET web application using a sample project template
     { }
     ```
 
-1. Finally, navigate to and open the **Models/Product.cs** file. Observe the record type defined in this file. This type will be used in queries throughout this tutorial.
+1. Finally, navigate to and open the **Models/Product.cs** and **Models/Category.cs** files. Observe the record types defined in each file. These types will be used in queries throughout this tutorial.
 
     ```csharp
     public record Product(
         string id,
-        string categoryId,
-        string categoryName,
+        Category category,
         string sku,
         string name,
         string description,
         decimal price
+    );
+    ```
+
+    ```csharp
+    public record Category(
+        string name
     );
     ```
 
@@ -429,26 +443,24 @@ Next, you'll add the Azure SDK for .NET to this sample project and use the libra
         string sql = """
         SELECT
             p.id,
-            p.categoryId,
-            p.categoryName,
-            p.sku,
             p.name,
+            p.category,
+            p.sku,
             p.description,
-            p.price,
-            p.tags
+            p.price
         FROM products p
-        JOIN t IN p.tags
-        WHERE t.name = @tagFilter
+        JOIN tag IN p.tags
+        WHERE STRINGEQUALS(tag, @tagFilter, true)
         """;
         ```
 
-    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value `Tag-75` to the `@tagFilter` parameter.
+    1. Create a new `QueryDefinition` variable named `query` passing in the `sql` string as the only query parameter. Also, use the `WithParameter` fluid method to apply the value `red` to the `@tagFilter` parameter.
 
         ```csharp
         var query = new QueryDefinition(
             query: sql
         )
-            .WithParameter("@tagFilter", "Tag-75");
+            .WithParameter("@tagFilter", "red");
         ```
 
     1. Use the `GetItemQueryIterator<>` generic method and the `query` variable to create an iterator that gets data from Azure Cosmos DB. Store the iterator in a variable named `feed`. Wrap this entire expression in a using statement to dispose the iterator later.

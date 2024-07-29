@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: ASP.NET app with Azure SQL Database' 
+title: 'Tutorial: ASP.NET app with Azure SQL Database'
 description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Database
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 01/27/2022
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, AppServiceConnectivity
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, AppServiceConnectivity
 author: cephalin
 ms.author: cephalin
 ---
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -92,7 +92,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 #### Create a resource group
 
-[!INCLUDE [resource-group](../../includes/resource-group.md)]
+[!INCLUDE [resource-group](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
 1. Next to **Resource Group**, click **New**.
 

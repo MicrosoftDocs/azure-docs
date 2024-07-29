@@ -34,7 +34,7 @@ Billing tags are applied in the Azure portal. The required permissions are:
 
 **Billing profile tags**
 
-1. Go to [https://portal.azure.com.](https://portal.azure.com.)
+1. Go to [https://portal.azure.com.](https://portal.azure.com).
 1. Search for and select **Cost Management + Billing**.
 1. Select the billing profile where you want to set the tags.
 1. On the left menu, select **Properties** under **Settings** and then select **Add or Update tags**.  
@@ -54,6 +54,6 @@ Billing tags are applied in the Azure portal. The required permissions are:
 
 When you enable the **Tag inheritance** setting at the billing profile level, tags from billing profile and invoices sections are applied to usage records for all child resources. For more information about tag inheritance, see [Group and allocate costs using tag inheritance](enable-tag-inheritance.md).
 
-## Next steps
+## Related content
 
 - Learn how to [Group and allocate costs using tag inheritance](enable-tag-inheritance.md).

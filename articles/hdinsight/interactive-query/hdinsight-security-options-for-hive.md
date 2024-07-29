@@ -4,14 +4,14 @@ description: Security options for Hive in Standard and ESP clusters.
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2023
+ms.date: 03/15/2024
 ---
 
 # Security options for Hive in Azure HDInsight
 
 This document describes the recommended security options for Hive in HDInsight. These options can be configured through Ambari.
 
-:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`" border="true":::
+:::image type="content" source="./media/hdinsight-security-options-for-hive/security-options-hive.png " alt-text="`Security Options for Hive`." border="true":::
 
 ## HiveServer2 authentication
 

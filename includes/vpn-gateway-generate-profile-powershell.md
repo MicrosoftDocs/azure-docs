@@ -3,7 +3,7 @@
  ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
  ms.topic: include
- ms.date: 12/01/2022
+ ms.date: 03/22/2024
  ms.author: cherylmc
 ---
 
@@ -14,3 +14,5 @@ $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW
 
 $profile.VPNProfileSASUrl
 ```
+
+Copy the URL to your browser to download the zip file.

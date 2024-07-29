@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Troubleshoot connectivity between Azure Synapse Analytics Synapse Studio and storage

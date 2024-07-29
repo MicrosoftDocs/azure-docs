@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with Twilio Verify API, I want a walkthrough on how to integrate a sample online payment app with Twilio Verify API, so that I can comply with PSD2 transaction requirements through dynamic linking and strong customer authentication.
+
 ---
 
 # Integrating Twilio Verify App with Azure Active Directory B2C

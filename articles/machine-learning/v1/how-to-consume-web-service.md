@@ -1,17 +1,18 @@
 ---
 title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
-description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. 
+description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-ms.author: aashishb
-author: aashishb
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: aashishb
 ms.date: 11/16/2022
 ms.topic: how-to
-ms.devlang: csharp, golang, java, python
-ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022, devx-track-extended-java
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, python
+ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1, devx-track-extended-java
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
@@ -20,7 +21,7 @@ ms.custom: UpdateFrequency5, devx-track-python, devx-track-csharp, cliv1, sdkv1,
 
 Deploying an Azure Machine Learning model as a web service creates a REST API endpoint. You can send data to this endpoint and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy a model to your local environment, Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
+You create a web service when you deploy a model to your local environment, Azure Container Instances, or Azure Kubernetes Service. You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -104,7 +105,7 @@ The following table shows what these URIs look like:
 
 ### Secured web service
 
-If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer (SSL)*, which was the predecessor of TLS.
 
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.

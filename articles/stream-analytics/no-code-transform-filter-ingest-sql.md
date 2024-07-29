@@ -4,7 +4,6 @@ description: Learn how to use the Azure Stream Analytics no-code editor to trans
 author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 06/13/2023
 ---

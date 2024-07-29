@@ -2,8 +2,8 @@
 
 title: Create Azure Arc data controller | Direct connect mode
 description: Explains how to create the data controller in direct connect mode. 
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
@@ -21,7 +21,7 @@ This article describes how to create the Azure Arc data controller in direct con
 
 Before you begin, verify that you have completed the prerequisites in [Deploy data controller - direct connect mode - prerequisites](create-data-controller-direct-prerequisites.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Deploy Arc data controller
 

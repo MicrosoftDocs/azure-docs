@@ -4,7 +4,7 @@ description: Learn how to mount an NFS volume for Windows or Linux virtual machi
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 09/07/2022
 ---
@@ -56,7 +56,7 @@ For more information about how NFS operates in Azure NetApp Files, see [Understa
 1. Review the [Linux NFS mount options best practices](performance-linux-mount-options.md).
 2. Select the **Volumes** pane and then the NFS volume that you want to mount.
 3. To mount the NFS volume using a Linux client, select **Mount instructions** from the selected volume. Follow the displayed instructions to mount the volume. 
-  :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png" alt-text="Screenshot of Mount instructions." lightbox="../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png":::
+  :::image type="content" source="./media/azure-netapp-files-mount-unmount-volumes-for-virtual-machines/azure-netapp-files-mount-instructions-nfs.png" alt-text="Screenshot of Mount instructions." lightbox="./media/azure-netapp-files-mount-unmount-volumes-for-virtual-machines/azure-netapp-files-mount-instructions-nfs.png":::
       * Ensure that you use the `vers` option in the `mount` command to specify the NFS protocol version that corresponds to the volume you want to mount. 
   For example, if the NFS version is NFSv4.1: 
   `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT` 

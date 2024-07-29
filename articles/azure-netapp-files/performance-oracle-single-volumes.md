@@ -1,16 +1,9 @@
 ---
 title: Oracle database performance on Azure NetApp Files single volume | Microsoft Docs
-description: Describes performance test results of a Azure NetApp Files single volume on Oracle database. 
+description: Describes performance test results of a Azure NetApp Files single volume on Oracle database.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/04/2022
 ms.author: anfdocs
@@ -29,7 +22,7 @@ This article addresses the following topics about Oracle in the cloud. These top
 
 The following diagram illustrates the environment used for testing. For consistency and simplicity, Ansible playbooks were used to deploy all elements of the test bed.
 
-![Oracle testing environment](../media/azure-netapp-files/performance-oracle-test-environment.png)  
+![Oracle testing environment](./media/performance-oracle-single-volumes/performance-oracle-test-environment.png)  
 
 ### Virtual machine configuration
 
@@ -101,7 +94,7 @@ A PDB was created for the SLOB database.
 
 The following diagram shows the tablespace named PERFIO with 600 GB in size (20 data files, 30 GB each) created to host four SLOB user schemas. Each user schema was 125 GB in size.
 
-![Oracle database](../media/azure-netapp-files/performance-oracle-tablespace.png)  
+![Oracle database](./media/performance-oracle-single-volumes/performance-oracle-tablespace.png)  
 
 ## Performance metrics
 
@@ -126,21 +119,21 @@ This scenario was running on an Azure VM Standard_D32s_v3 (Intel E5-2673 v4 @ 2.
 
 As shown in the following diagram, the Oracle DNFS client delivered up to 2.8x more throughput than the regular Linux kNFS Client:  
 
-![Linux kNFS Client compared with Oracle Direct NFS](../media/azure-netapp-files/performance-oracle-kfns-compared-dnfs.png)  
+![Linux kNFS Client compared with Oracle Direct NFS](./media/performance-oracle-single-volumes/performance-oracle-kfns-compared-dnfs.png)  
 
 The following diagram shows the latency curve for the read operations. In this context, the bottleneck for the kNFS client is the single NFS TCP socket connection established between the client and the NFS server (the Azure NetApp Files volume).  
 
-![Linux kNFS Client compared with Oracle Direct NFS latency curve](../media/azure-netapp-files/performance-oracle-latency-curve.png)  
+![Linux kNFS Client compared with Oracle Direct NFS latency curve](./media/performance-oracle-single-volumes/performance-oracle-latency-curve.png)  
 
 The DNFS client was able to push more IO requests/sec due to its ability to create hundreds of TCP socket connections, therefore taking advantage of the parallelism. As described in [Azure NetApp Files configuration](#anf_config), each additional TiB of capacity allocated allows for an additional 128MiB/s of bandwidth. DNFS topped out at 1 GiB/s of throughput, which is the limit imposed by the 8-TiB capacity selection. Given more capacity, more throughput would have been driven.
 
 Throughput is only one of the considerations. Another consideration is latency, which has the primary impact on user experience. As the following diagram shows, latency increases can be expected far more rapidly with kNFS than with DNFS. 
 
-![Linux kNFS Client compared with Oracle Direct NFS read latency](../media/azure-netapp-files/performance-oracle-read-latency.png)  
+![Linux kNFS Client compared with Oracle Direct NFS read latency](./media/performance-oracle-single-volumes/performance-oracle-read-latency.png)  
 
 Histograms provide excellent insight into database latencies. The following diagram provides a complete view from the perspective of the recorded "db file sequential read", while using DNFS at the highest concurrency data point (32 threads/schema). As shown in the following diagram, 47% of all read operations were honored between 512 microseconds and 1000 microseconds, while 90% of all read operations were served at a latency below 2 ms.
 
-![Linux kNFS Client compared with Oracle Direct NFS histograms](../media/azure-netapp-files/performance-oracle-histogram-read-latency.png)  
+![Linux kNFS Client compared with Oracle Direct NFS histograms](./media/performance-oracle-single-volumes/performance-oracle-histogram-read-latency.png)  
 
 In conclusion, it's clear that DNFS is a must-have when it comes to improving the performance of an Oracle database instance on NFS.
 
@@ -154,17 +147,17 @@ DNFS is capable of consuming far more bandwidth than what is provided by an 8-TB
 
 The following diagram shows a configuration for an 80% select and 20% update workload, and with a database buffer hit ratio of 8%. SLOB was able to drive a single volume to 200,000 NFS I/O requests per second. Considering that each operation is 8-KiB size, the system under test was able to deliver ~200,000 IO requests/sec or 1600 MiB/s.
  
-![Oracle DNFS throughput](../media/azure-netapp-files/performance-oracle-dnfs-throughput.png)  
+![Oracle DNFS throughput](./media/performance-oracle-single-volumes/performance-oracle-dnfs-throughput.png)  
 
 The following read latency curve diagram shows that, as the read throughput increases, the latency increases smoothly below the 1-ms line, and it hits the knee of the curve at ~165,000 average read IO requests/sec at the average read latency of ~1.3 ms.  This value is an incredible latency value for an I/O rate unachievable with almost any other technology in the Azure Cloud. 
 
-![Oracle DNFS latency curve](../media/azure-netapp-files/performance-oracle-dnfs-latency-curve.png)  
+![Oracle DNFS latency curve](./media/shared/performance-oracle-dnfs-latency-curve.png)  
 
 #### Sequential I/O  
 
 As shown in the following diagram, not all I/O is random in nature, considering an RMAN backup or a full table scan, for example, as workloads requiring as much bandwidth as they can get.  Using the same configuration as described previously but with the volume resized to 32 TiB, the following diagram shows that a single Oracle DB instance can drive upwards of 3,900 MB/s of throughput, very close to the Azure NetApp Files volume's performance quota of 32 TB (128 MB/s * 32 = 4096 MB/s).
 
-![Oracle DNFS I/O](../media/azure-netapp-files/performance-oracle-dnfs-io.png)  
+![Oracle DNFS I/O](./media/performance-oracle-single-volumes/performance-oracle-dnfs-io.png)  
 
 In summary, Azure NetApp Files helps you take your Oracle databases to the cloud. It delivers on performance when the database demands it. You can dynamically and non-disruptively resize your volume quota at any time.
 

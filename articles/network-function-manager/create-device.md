@@ -6,7 +6,7 @@ ms.service: network-function-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: mode-other
 ---
 # Quickstart: Create a Network Function Manager device resource
 

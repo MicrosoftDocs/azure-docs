@@ -1,12 +1,12 @@
 ---
 title: Reference - Python Client-side SDK for Azure Web PubSub
 description: This reference describes the Python client-side SDK for Azure Web PubSub service.
-author: kevinguo-ed
-ms.author: kevinguo
+author: vicancy
+ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-python
-ms.topic: conceptual 
-ms.date: 07/17/2023
+ms.topic: reference 
+ms.date: 01/23/2024
 ---
 
 # Azure Web PubSub client library for Python
@@ -27,7 +27,7 @@ As shown in the diagram, your clients establish WebSocket connections with your 
 ## Getting started
 
 ### Prerequisites
-- [Python 3.7+](https://www.python.org/downloads/)
+- [Python 3.8+](https://www.python.org/downloads/)
 - An Azure subscription
 - A Web PubSub resource
 

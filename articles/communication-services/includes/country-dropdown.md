@@ -9,11 +9,15 @@ ms.custom: references_regions
 > **Use the drop-down menu to check phone number availability for other countries**
 > [!div class="op_single_selector"]
 >
+> - [Argentina](../concepts/numbers/phone-number-management-for-argentina.md)
 > - [Australia](../concepts/numbers/phone-number-management-for-australia.md)
 > - [Austria](../concepts/numbers/phone-number-management-for-austria.md)
 > - [Belgium](../concepts/numbers/phone-number-management-for-belgium.md)
+> - [Brazil](../concepts/numbers/phone-number-management-for-brazil.md)
 > - [Canada](../concepts/numbers/phone-number-management-for-canada.md)
+> - [Chile](../concepts/numbers/phone-number-management-for-chile.md)
 > - [China](../concepts/numbers/phone-number-management-for-china.md)
+> - [Colombia](../concepts/numbers/phone-number-management-for-colombia.md)
 > - [Denmark](../concepts/numbers/phone-number-management-for-denmark.md)
 > - [Estonia](../concepts/numbers/phone-number-management-for-estonia.md)
 > - [Finland](../concepts/numbers/phone-number-management-for-finland.md)
@@ -30,6 +34,7 @@ ms.custom: references_regions
 > - [Lithuania](../concepts/numbers/phone-number-management-for-lithuania.md)
 > - [Luxembourg](../concepts/numbers/phone-number-management-for-luxembourg.md)
 > - [Malaysia](../concepts/numbers/phone-number-management-for-malaysia.md)
+> - [Mexico](../concepts/numbers/phone-number-management-for-mexico.md)
 > - [Netherlands](../concepts/numbers/phone-number-management-for-netherlands.md)
 > - [New Zealand](../concepts/numbers/phone-number-management-for-new-zealand.md)
 > - [Norway](../concepts/numbers/phone-number-management-for-norway.md)
@@ -39,6 +44,8 @@ ms.custom: references_regions
 > - [Saudi Arabia](../concepts/numbers/phone-number-management-for-saudi-arabia.md)
 > - [Singapore](../concepts/numbers/phone-number-management-for-singapore.md)
 > - [Slovakia](../concepts/numbers/phone-number-management-for-slovakia.md)
+> - [Slovenia](../concepts/numbers/phone-number-management-for-slovenia.md)
+> - [South Africa](../concepts/numbers/phone-number-management-for-south-africa.md)
 > - [South Korea](../concepts/numbers/phone-number-management-for-south-korea.md)
 > - [Spain](../concepts/numbers/phone-number-management-for-spain.md)
 > - [Sweden](../concepts/numbers/phone-number-management-for-sweden.md)

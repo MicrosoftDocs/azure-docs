@@ -86,7 +86,7 @@ While the OT network sensor automatically learns the subnets in your network, we
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
     | **Remove subnet** | Select to remove any subnets that aren't related to your IoT/OT network scope.| 
 
-    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT activity or protocols. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
+    In the subnet grid, subnets marked as **ICS subnet** are recognized as OT networks. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
 
 1. When you're done, select **Save** to save your updates.
 
@@ -99,7 +99,7 @@ While the OT network sensor automatically learns the subnets in your network, we
 If you have an OT subnet that isn't being marked automatically as an ICS subnet by the sensor, edit the device type for any of the devices in the relevant subnet to an ICS or IoT device type. The subnet will then be automatically marked by the sensor as an ICS subnet.
 
 > [!NOTE]
-> To manually change the subnet to be marked as ICS, the device type must be changed in device inventory in the OT sensor, and not from the Azure portal.
+> To manually change the subnet to be marked as ICS, change the device type in the device inventory in the OT sensor. In the Azure portal, subnets in the subnet list are marked as ICS by default in the [sensor settings](configure-sensor-settings-portal.md#local-subnets).
 
 **To change the device type to manually update the subnet**:
 
@@ -158,6 +158,41 @@ VLAN's support is based on 802.1q (up to VLAN ID 4094).
 1. Select **+ Add VLAN** to customize another VLAN, and **Save** when you're done.
 
 1. **For Cisco switches**: Add the `monitor session 1 destination interface XX/XX encapsulation dot1q` command to the SPAN port configuration, where *XX/XX* is the name and number of the port.
+
+## Define DNS servers
+
+Enhance device data enrichment by configuring multiple DNS servers to carryout reverse lookups and resolve host names or FQDNs associated with the IP addresses detected in network subnets. For example, if a sensor discovers an IP address, it might query multiple DNS servers to resolve the host name. You need the DNS server address, server port and the subnet addresses.
+
+**To define the DNS server lookup**:
+
+1. On your OT sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+
+1. Use the **Schedule Reverse Lookup** options to define your scan as in fixed intervals, per hour, or at a specific time.
+
+    If you select **By specific times**, use a 24-hour clock, such as **14:30** for **2:30 PM**. Select the **+** button on the side to add additional, specific times that you want the lookup to run.
+
+1. Select **Add DNS Server**, and then populate your fields as needed to define the following fields:
+
+    - **DNS server address**, which is the DNS server IP address
+    - **DNS server port**
+    - **Number of labels**, which is the number of domain labels you want to display. To get this value, resolve the network IP address to device FQDNs. You can enter up to 30 characters in this field.
+    - **Subnets**, which is the subnets that you want the DNS server to query
+
+1. Toggle on the **Enabled** option at the top to start the reverse lookup query as scheduled, and then select **Save** to finish the configuration.
+
+For more information, see [Configure reverse DNS lookup](configure-reverse-dns-lookup.md).
+
+### Test the DNS configuration
+
+Use a test device to verify that the reverse DNS lookup settings you'd defined work as expected.
+
+1. On your sensor console, select **System settings** > **Network monitoring** and under **Active Discovery**, select **Reverse DNS Lookup**.
+
+1. Make sure that the **Enabled** toggle is selected.
+
+1. Select **Test**.
+
+1. In the **DNS reverse lookup test for server** dialog, enter an address in the **Lookup Address** and then select **Test**.
 
 ## Configure DHCP address ranges
 

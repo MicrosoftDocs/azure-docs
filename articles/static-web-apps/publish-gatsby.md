@@ -5,7 +5,7 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 01/10/2024
 ms.author: aapowell
 ms.custom:
 ---
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > - Setup an Azure Static Web Apps site
 > - Deploy the Gatsby app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -4,10 +4,10 @@ description: In this quickstart, you learn how to use Azure CLI to create and en
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machines
-ms.subservice: disks
+ms.subservice: security
 ms.collection: windows
 ms.topic: quickstart
-ms.date: 01/04/2023
+ms.date: 02/20/2024
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -17,9 +17,9 @@ ms.custom: devx-track-azurecli, mode-api
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to create and encrypt a Windows Server 2016 virtual machine (VM).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.30 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 

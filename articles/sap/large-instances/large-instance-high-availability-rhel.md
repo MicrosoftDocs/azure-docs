@@ -5,6 +5,7 @@ author: jaawasth
 ms.author: jaawasth
 ms.service: sap-on-azure
 ms.subservice: sap-large-instances
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 04/19/2021
 ---

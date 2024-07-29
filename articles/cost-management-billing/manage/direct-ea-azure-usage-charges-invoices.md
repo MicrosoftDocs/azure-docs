@@ -3,7 +3,7 @@ title: View your Azure usage summary details and download reports for EA enrollm
 description: This article explains how enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2024
+ms.date: 06/24/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -14,9 +14,6 @@ ms.reviewer: sapnakeshari
 
 This article explains how partner administrators of indirect enrollments and enterprise administrators of direct and indirect Enterprise Agreement (EA) enrollments can view a summary of their usage data, Azure Prepayment consumed, and charges associated with other usage in the Azure portal. Charges are presented at the summary level across all accounts and subscriptions of the enrollment.
 
-> [!NOTE]
->On February 15, 2024, the Azure Enterprise portal is retiring for EA enrollments in the Azure Government cloud. The Azure Enterprise portal is already retired for EA enrollments in the  commercial cloud. Customers and Partners should use Cost Management + Billing in the Azure portal to manage their enrollments. For more information about enrollment management in the Azure portal, see [Get started with EA billing in the Azure portal](ea-direct-portal-get-started.md).
->
 Check out the [EA admin manage consumption and invoices](https://www.youtube.com/watch?v=bO8V9eLfQHY) video. It's part of the [Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm) series of videos.
 
 >[!VIDEO https://www.youtube.com/embed/bO8V9eLfQHY]
@@ -28,6 +25,8 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 ## Review usage charges
 
 To view detailed usage for specific accounts, download the usage detail report. Usage files can be large. If you prefer, you can use the exports feature to get the same data exported to an Azure Storage account. For more information, see [Export usage details to a storage account](../costs/tutorial-export-acm-data.md).
+
+Enterprise Administrators and partner administrators can view historical data usage for terminated enrollments just as they do for active ones using the following information.
 
 As an enterprise administrator:
 
@@ -162,6 +161,9 @@ Enterprise administrators and partner administrators use the Download Usage + Ch
 - **Marketplace Store Charge** - The Marketplace Store Charge CSV file contains the usage-based Marketplace charges breakdown by day for the specified billing period.
 - **Price sheet** - The Price Sheet CSV file contains the applicable rate for each meter for the given Enrollment and Billing Period.
 - **Balance and Summary** - The Balance and Summary CSV file contains a monthly summary of information for balances, new purchases, Marketplace service charges, adjustments, and overage charges.
+
+>[!NOTE]
+> The download URI for all the CSV files is valid for one hour. Ensure that you download the file before it expires. Otherwise, you'll have to retry the download.
 
 1. Select the **Download** symbol next to the month's report.  
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/download-usage-charges-csv.png" alt-text="Screenshot showing the Download option." :::

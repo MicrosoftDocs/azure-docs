@@ -3,13 +3,13 @@ title: Set up AutoML for time-series forecasting
 titleSuffix: Azure Machine Learning
 description: Set up Azure Machine Learning automated ML to train time-series forecasting models with the Azure Machine Learning CLI and Python SDK
 services: machine-learning
-author: EricWrightAtWork 
-ms.author: erwright
-ms.reviewer: ssalgado 
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: erwright
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: contperf-fy21q1, automl, FY21Q4-aml-seo-hack, sdkv2, event-tier1-build-2022, build-2023, devx-track-python, devx-track-azurecli
+ms.custom: automl, sdkv2, build-2023, devx-track-python, devx-track-azurecli
 ms.date: 08/01/2023
 show_latex: true
 ---
@@ -52,7 +52,7 @@ AutoML forecasting jobs require that your training data is represented as an **M
 
 # [Python SDK](#tab/python)
 
-You can create an MLTable using the [mltable Python SDK](/python/api/mltable) as in the following example:
+You can create an MLTable using the [mltable Python SDK](/python/api/mltable/mltable) as in the following example:
 
 ```python
 import mltable
@@ -1303,7 +1303,7 @@ az ml job create --file automl-mm-forecasting-pipeline.yml -w <Workspace> -g <Re
 
 After the job finishes, the evaluation metrics can be downloaded locally using the same procedure as in the [single training run pipeline](#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
 
-Also see the [demand forecasting with many models notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-many-models-in-pipeline/automl-forecasting-demand-many-models-in-pipeline.ipynb) for a more detailed example.
+Also see the [demand forecasting with many models notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecast_pipeline/aml-demand-forecast-mm-pipeline/aml-demand-forecast-mm-pipeline.ipynb) for a more detailed example.
 
 > [!NOTE]
 > The many models training and inference components conditionally partition your data according to the `partition_column_names` setting so that each partition is in its own file. This process can be very slow or fail when data is very large. In this case, we recommend partitioning your data manually before running many models training or inference.  
@@ -1578,21 +1578,21 @@ az ml job create --file automl-hts-forecasting-pipeline.yml -w <Workspace> -g <R
 
 After the job finishes, the evaluation metrics can be downloaded locally using the same procedure as in the [single training run pipeline](#orchestrating-training-inference-and-evaluation-with-components-and-pipelines). 
 
-Also see the [demand forecasting with hierarchical time series notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components/automl-forecasting-demand-hierarchical-timeseries-in-pipeline/automl-forecasting-demand-hierarchical-timeseries-in-pipeline.ipynb) for a more detailed example.
+Also see the [demand forecasting with hierarchical time series notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/pipelines/1k_demand_forecast_pipeline/aml-demand-forecast-hts-pipeline/aml-demand-forecast-hts.ipynb) for a more detailed example.
 
 > [!NOTE]
 > The HTS training and inference components conditionally partition your data according to the `hierarchy_column_names` setting so that each partition is in its own file. This process can be very slow or fail when data is very large. In this case, we recommend partitioning your data manually before running HTS training or inference. 
 
 ## Forecasting at scale: distributed DNN training
 
-* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training). 
+* To learn how distributed training works for forecasting tasks, see our [forecasting at scale article](concept-automl-forecasting-at-scale.md#distributed-dnn-training-preview). 
 * See our [setup distributed training for tabular data](how-to-configure-auto-train.md#automl-at-scale-distributed-training) article section for code samples. 
 
 ## Example notebooks
 
 See the [forecasting sample notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs) for detailed code examples of advanced forecasting configuration including:
 
-* [Demand forecasting pipeline examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1k_demand_forecasting_with_pipeline_components)
+* [Demand forecasting pipeline examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/pipelines/1k_demand_forecast_pipeline)
 * [Deep learning models](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-github-dau/auto-ml-forecasting-github-dau.ipynb)
 * [Holiday detection and featurization](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-bike-share/auto-ml-forecasting-bike-share.ipynb)
 * [Manual configuration for lags and rolling window aggregation features](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/automl-standalone-jobs/automl-forecasting-task-energy-demand/automl-forecasting-task-energy-demand-advanced.ipynb)

@@ -7,8 +7,8 @@ ms.subservice: orchestration
 ms.custom: synapse
 ms.date: 01/05/2024
 ms.topic: conceptual
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ---
 

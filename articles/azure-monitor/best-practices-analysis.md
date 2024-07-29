@@ -20,7 +20,7 @@ This table describes Azure Monitor features that provide analysis of collected d
 |---------|---------|--------|
 |Overview page|Most Azure services have an **Overview** page in the Azure portal that includes a **Monitor** section with charts that show recent critical metrics. This information is intended for owners of individual services to quickly assess the performance of the resource. |This page is based on platform metrics that are collected automatically. No configuration is required.         |
 |[Metrics Explorer](essentials/metrics-getting-started.md)|You can use Metrics Explorer to interactively work with metric data and create metric alerts. You need minimal training to use Metrics Explorer, but you must be familiar with the metrics you want to analyze. |- Once data collection is configured, no other configuration is required.<br>- Platform metrics for Azure resources are automatically available.<br>- Guest metrics for virtual machines are available after an Azure Monitor agent is deployed to the virtual machine.<br>- Application metrics are available after Application Insights is configured.         |
-|[Log Analytics](logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log query alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. Then if you're familiar with the query language, you can build queries for others in your organization.        |
+|[Log Analytics](logs/log-analytics-overview.md)|With Log Analytics, you can create log queries to interactively work with log data and create log search alerts.| Some training is required for you to become familiar with the query language, although you can use prebuilt queries for common requirements. You can also add [query packs](logs/query-packs.md) with queries that are unique to your organization. Then if you're familiar with the query language, you can build queries for others in your organization.        |
 
 ## Built-in visualization tools
 
@@ -101,7 +101,7 @@ The [out-of-the-box Grafana Azure alerts dashboard](https://grafana.com/grafana/
 
 
 ## Other options
-Some Azure Monitor partners provide visualization functionality. For a list of partners that Microsoft has evaluated, see [Azure Monitor partner integrations](./partners.md). An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions might have an extra cost.
+Some Azure Monitor partners provide visualization functionality. An Azure Monitor partner might provide out-of-the-box visualizations to save you time, although these solutions might have an extra cost.
 
 You can also build your own custom websites and applications using metric and log data in Azure Monitor using the REST API. The REST API gives you flexibility in UI, visualization, interactivity, and features.
 

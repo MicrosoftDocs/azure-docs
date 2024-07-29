@@ -6,10 +6,9 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.workload: identity
 ms.date: 07/18/2023
 ms.author: rolyon
-ms.custom: contperf-fy21q2, mode-other
+ms.custom: mode-other
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 ---
 
@@ -78,4 +77,4 @@ Follow these steps to check your access to the previously selected Azure resourc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)
+> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)

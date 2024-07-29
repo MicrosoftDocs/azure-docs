@@ -7,7 +7,7 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 07/25/2024
 ---
 # Change feed modes in Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Latest version mode is a persistent record of changes made to items from creates
 
 ## All versions and deletes change feed mode (preview)
 
-All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](#get-started).
+All versions and deletes mode (preview) is a persistent record of all changes to items from create, update, and delete operations. You get a record of each change to items in the order that it occurred, including intermediate changes to an item between change feed reads. For example, if an item is created and then updated before you read the change feed, both the create and the update versions of the item appear in the change feed. To read from the change feed in all versions and deletes mode, you must have [continuous backups](../continuous-backup-restore-introduction.md) configured for your Azure Cosmos DB account. Turning on continuous backups creates the all versions and deletes change feed. You can only read changes that occurred within the continuous backup period when using this change feed mode. This mode is only compatible with Azure Cosmos DB for NoSQL accounts. Learn more about how to [sign up for the preview](?tabs=all-versions-and-deletes#get-started).
 
 ## Change feed use cases
 
@@ -121,7 +121,7 @@ During the preview, the following methods to read the change feed are available 
 | **Method to read change feed** | **.NET** | **Java** | **Python** | **Node.js** |
 | --- | --- | --- | --- | --- |
 | [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.32.0-preview) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
-| [Change feed processor](change-feed-processor.md) | No | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.42.0) | No | No |
+| [Change feed processor](change-feed-processor.md) | [>= 3.40.0-preview.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.40.0-preview.0) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.42.0) | No | No |
 | Azure Functions trigger | No | No | No | No |
 
 > [!NOTE]
@@ -152,7 +152,7 @@ The response object is an array of items that represent each change. The array l
          },  
         "metadata": {
             "lsn": <A number that represents the batch ID. Many items can have the same lsn.>, 
-            "changeType": <The type of change, either 'create', 'replace', or 'delete'.>, 
+            "operationType": <The type of change, either 'create', 'replace', or 'delete'.>, 
             "previousImageLSN" : <A number that represents the batch ID of the change prior to this one.>, 
             "timeToLiveExpired" : <For delete changes, it will be 'true' if it was deleted due to a TTL expiration and 'false' if it wasn't.>, 
             "crts": <A number that represents the Conflict Resolved Timestamp. It has the same format as _ts.> 

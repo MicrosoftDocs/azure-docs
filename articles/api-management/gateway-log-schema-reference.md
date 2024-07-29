@@ -1,16 +1,18 @@
 ---
-title: Reference - Azure API Management resource log
-description: Schema reference for the Azure API Management GatewayLogs resource log
+title: Reference - Azure API Management gateway log
+description: Schema reference for the Azure API Management GatewayLogs log. Entries include properties that are logged for each API request. 
 services: api-management
 author: dlepow
 
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/14/2020
+ms.date: 05/14/2024
 ms.author: danlep
 ---
-# Reference: API Management resource log schema
+# Reference: Gateway log schema
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article provides a schema reference for the Azure API Management GatewayLogs resource log. Log entries also include fields in the [top-level common schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema).
 
@@ -68,4 +70,4 @@ The following properties are logged for each API request.
 
 * For information about monitoring APIs in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
 * Learn more about [Common and service-specific schema for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md)
-
+* [DeveloperPortalAuditLogs schema reference](developer-portal-audit-log-schema-reference.md)

@@ -20,8 +20,8 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   |-                     | -                    | -      | Public Preview\* |
-| Local   |-                     | -                    | Public Preview      | Public Preview\* |
+| Toll-Free   |-                     | -                    | -      | General Availability\* |
+| Local   |-                     | -                    | General Availability      | General Availability\* |
 | Alphanumeric Sender ID\**       | General Availability                   | -                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -46,6 +46,8 @@ More details on eligible subscription types are as follows:
 | :---------- |
 | Australia |
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
+
 ## Azure subscription billing locations where Australia alphanumeric sender IDs are available
 | Country/Region |
 | :---------- |
@@ -66,6 +68,8 @@ More details on eligible subscription types are as follows:
 | Switzerland |
 | United Kingdom |
 | United States |
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Find information about other countries/regions
 

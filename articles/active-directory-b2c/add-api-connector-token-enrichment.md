@@ -1,19 +1,17 @@
 ---
 title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
-ms.custom: 
 ms.topic: how-to
-
 ms.date: 01/17/2023
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+# Customer intent: I want to enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
+
 ---
 
 # Enrich tokens with claims from external sources using API connectors

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 06/27/2023 
+ms.date: 07/23/2023
 ms.custom: devx-track-azurepowershell, template-tutorial, engagement-fy23
 ROBOTS: NOINDEX
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
@@ -31,7 +31,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - An Azure subscription.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md).
-        - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 
@@ -58,15 +57,15 @@ New-AzResourceGroup @rg
 
 ### Create cross-region load balancer resources
 
-In this section, you'll create the resources needed for the cross-region load balancer.
+In this section, you create the resources needed for the cross-region load balancer.
 
 A global standard sku public IP is used for the frontend of the cross-region load balancer.
 
 * Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create the public IP address.
 
-* Create a front-end IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
+* Create a frontend IP configuration with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig).
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
+* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig).
 
 * Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig).
 
@@ -91,7 +90,7 @@ $fe = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @fe
 
-## Create back-end address pool ##
+## Create backend address pool ##
 $be = @{
     Name = 'myBackEndPool-CR'
 }
@@ -124,7 +123,7 @@ $lb = New-AzLoadBalancer @lbp`
 
 ## Configure backend pool
 
-In this section, you'll add two regional standard load balancers to the backend pool of the cross-region load balancer.
+In this section, you add two regional standard load balancers to the backend pool of the cross-region load balancer.
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell](quickstart-load-balancer-standard-public-powershell.md)**.
@@ -150,14 +149,14 @@ $region2 = @{
 }
 $R2 = Get-AzLoadBalancer @region2
 
-## Place the region one load balancer front-end configuration in a variable ##
+## Place the region one load balancer frontend configuration in a variable ##
 $region1fe = @{
     Name = 'MyFrontEnd-R1'
     LoadBalancer = $R1
 }
 $R1FE = Get-AzLoadBalancerFrontendIpConfig @region1fe
 
-## Place the region two load balancer front-end configuration in a variable ##
+## Place the region two load balancer frontend configuration in a variable ##
 $region2fe = @{
     Name = 'MyFrontEnd-R2'
     LoadBalancer = $R2
@@ -191,7 +190,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 ## Test the load balancer
 
-In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
+In this section, you test the cross-region load balancer. You connect to the public IP address in a web browser.  You stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
 1. Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to get the public IP address of the load balancer:
 

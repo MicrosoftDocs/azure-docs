@@ -2,16 +2,11 @@
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/29/2023
 ms.author: terrylan
 
@@ -110,7 +105,7 @@ Microsoft Azure provides various cloud-based computing services that include a w
 
 ### Isolated Virtual Machine Sizes
 
-[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+[!INCLUDE [virtual-machines-common-isolation](~/reusable-content/ce-skilling/azure/includes/virtual-machines-common-isolation.md)]
 
 ### Dedicated hosts
 

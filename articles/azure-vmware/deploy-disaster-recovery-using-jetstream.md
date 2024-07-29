@@ -3,7 +3,7 @@ title: Deploy disaster recovery using JetStream DR
 description: Learn how to implement JetStream DR for your Azure VMware Solution private cloud and on-premises VMware workloads. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/11/2023
+ms.date: 3/22/2024
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -140,13 +140,13 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
   - [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
   - [Disaster Recovery with Azure NetApp Files, JetStream DR, and Azure VMware Solution](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/)
   
-For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/pre-installation-guidelines/).
+For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installation Guide](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/preinstallation.html).
 
 ## Install JetStream DR on Azure VMware Solution  
  
 You can follow these steps for both supported scenarios. 
  
-1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/installing-jetstream-dr-software/).  
+1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://openjournalsystems.com/ojs-2-user-guide/installation/).  
 
 1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
     
@@ -173,7 +173,7 @@ You can follow these steps for both supported scenarios.
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Invoke-PreflightJetDRInstall-Exec1**. Used to verify if the cmdlet ran successfully. |
    | **Timeout**  | The period after which a cmdlet exits if taking too long to finish.  |
 
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
    
 
 ## Install the JetStream DR MSA
@@ -203,7 +203,7 @@ Azure VMware Solution supports the installation of JetStream using either static
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithStaticIP-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run.  |
 
 
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
 
 
 ### DHCP-based IP address
@@ -226,7 +226,7 @@ This step also installs JetStream vSphere Installation Bundle (VIB) on the clust
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Install-JetDRWithDHCP-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run. |
  
  
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
  
  
 ## Add JetStream DR to new Azure VMware Solution clusters  
@@ -243,7 +243,7 @@ This step also installs JetStream vSphere Installation Bundle (VIB) on the clust
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Enable-JetDRForCluster-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run.  |
   
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
  
  
  
@@ -260,7 +260,7 @@ Once JetStream DR MSA and JetStream VIB are installed on the Azure VMware Soluti
 
 1. [Add an external storage site](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/add-a-storage-site/).  
 
-1. [Deploy a JetStream DRVA appliance](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/deploy-a-dr-virtual-appliance/). 
+1. [Deploy a JetStream DRVA appliance](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/deploydrva.html). 
 
 1. Create a JetStream replication log store volume using one of the datastores available to the Azure VMware Solution cluster. 
 
@@ -289,7 +289,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Disable-JetDRForCluster-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run.  |
 
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
 
 
  
@@ -306,7 +306,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Invoke-PreflightJetDRUninstall-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run.|
 
-1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
 
 1. After the preflight cmdlet completes successfully, select **Uninstall-JetDR**, provide the required values or change the default values, and select **Run**.
 
@@ -317,7 +317,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
    | **MSIp** | IP address of the JetStream MSA VM.   |
    | **Specify name for execution**  | Alphanumeric name of the execution, for example, **Uninstall-JetDR-Exec1**.   Used to verify if the cmdlet ran successfully and should be unique for each run.|
 
- 1. [View the status of the execution](concepts-run-command.md#view-the-status-of-an-execution).
+ 1. [View the status of the execution](using-run-command.md#view-the-status-of-an-execution).
 
 
 ## Support  

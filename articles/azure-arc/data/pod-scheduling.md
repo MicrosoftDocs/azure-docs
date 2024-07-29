@@ -4,8 +4,8 @@ description: Describes how pods are scheduled for Azure Arc-enabled data service
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 07/07/2023
 ms.topic: how-to

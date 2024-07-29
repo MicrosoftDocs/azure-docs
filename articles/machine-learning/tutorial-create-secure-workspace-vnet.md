@@ -5,12 +5,12 @@ description: Create an Azure Machine Learning workspace and required Azure servi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/22/2023
 ms.topic: how-to
-ms.custom: subject-rbac-steps, cliv2, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: subject-rbac-steps, cliv2, build-2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 # Tutorial: How to create a secure workspace with an Azure Virtual Network
@@ -96,8 +96,8 @@ To create a virtual network, use the following steps:
 
     1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.16.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the __172.16.0.0/16 value__.
     
-        > [!IMPORTANT]
-        > We do not recommend using the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
+        > [!WARNING]
+        > Do not use the 172.17.0.0/16 IP address range for your VNet. This is the default subnet range used by the Docker bridge network, and will result in errors if used for your VNet. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
 
     1. Select the __Default__ subnet and then select __Remove subnet__.
     
@@ -316,11 +316,11 @@ Azure Machine Learning studio is a web-based application that lets you easily ma
     1. Select __Access control (IAM)__ from the left side.
     1. Select __+ Add__, and then __Add role assignment (Preview)__.
 
-        ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+        ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
     1. On the __Role__ tab, select the __Reader__.
 
-        ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+        ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
     1. On the __Members__ tab, select __User, group, or service principal__ in the __Assign access to__ area and then select __+ Select members__. In the __Select members__ dialog, enter the name as your Azure Machine Learning workspace. Select the service principal for the workspace, and then use the __Select__ button.
 

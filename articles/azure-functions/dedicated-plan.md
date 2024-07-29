@@ -1,7 +1,9 @@
 ---
-title: Azure Functions Dedicated hosting 
+title: Azure Functions Dedicated hosting
 description: Learn about the benefits of running Azure Functions on a dedicated App Service hosting plan.
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 ms.date: 01/26/2023
 ---
 
@@ -12,7 +14,7 @@ This article is about hosting your function app with dedicated resources in an A
 An App Service plan defines a set of dedicated compute resources for an app to run. These dedicated compute resources are analogous to the [_server farm_](https://wikipedia.org/wiki/Server_farm) in conventional hosting. One or more function apps can be configured to run on the same computing resources (App Service plan) as other App Service apps, such as web apps. The dedicated App Service plans supported for function app hosting include Basic, Standard, Premium, and Isolated SKUs. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
 > [!IMPORTANT]
-> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md), where you are billed based on function executions.  
+> Free and Shared tier App Service plans aren't supported by Azure Functions. For a lower-cost option hosting your function executions, you should instead consider the [Consumption plan](consumption-plan.md) or the [Flex Consumption plan](./flex-consumption-plan.md), where you are billed based on function executions.  
 
 Consider a dedicated App Service plan in the following situations:
 

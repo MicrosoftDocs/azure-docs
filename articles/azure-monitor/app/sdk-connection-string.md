@@ -2,7 +2,7 @@
 title: Connection strings in Application Insights | Microsoft Docs
 description: This article shows how to use connection strings.
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 02/29/2024
 ms.custom: devx-track-csharp
 ms.reviewer: cogoodson
 ---
@@ -13,11 +13,13 @@ This article shows how to use connection strings.
 
 ## Overview
 
+[!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
+
 Connection strings define where to send telemetry data.
 
 Key-value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights service or product.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Scenario overview
 
@@ -25,7 +27,7 @@ Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](./ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Can I monitor an intranet web server?](../ip-addresses.md#can-i-monitor-an-intranet-web-server). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
 - Sovereign or hybrid cloud environments:
 

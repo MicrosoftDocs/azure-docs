@@ -1,6 +1,7 @@
 ---
 author: cephalin
 ms.service: app-service
+ms.custom: linux-related-content
 ms.topic: include
 ms.date: 10/24/2018
 ms.author: cephalin

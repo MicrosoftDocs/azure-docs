@@ -8,7 +8,7 @@ ms.subservice: nat
 ms.topic: how-to
 ms.date: 07/21/2023
 ms.author: allensu
-ms.custom: subject-armqs, devx-track-bicep, devx-track-linux
+ms.custom: subject-armqs, devx-track-bicep, linux-related-content
 # Customer intent: I want to create a NAT gateway using Bicep so that I can provide outbound connectivity for my virtual machines.
 ---
 
@@ -16,9 +16,9 @@ ms.custom: subject-armqs, devx-track-bicep, devx-track-linux
 
 Get started with Azure NAT Gateway using Bicep. This Bicep file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
 
-:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart.":::
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

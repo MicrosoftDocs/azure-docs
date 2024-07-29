@@ -2,7 +2,7 @@
 title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using the Azure CLI.
 ms.date: 03/30/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
 
@@ -13,7 +13,7 @@ This article shows you how to deploy, upgrade, update, and uninstall VM extensio
 > [!NOTE]
 > Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
 
-[!INCLUDE [Azure CLI Prepare your environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Azure CLI Prepare your environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Install the Azure CLI extension
 

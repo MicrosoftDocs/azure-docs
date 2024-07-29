@@ -8,7 +8,7 @@ ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 03/28/2023
-ms.custom: devx-track-js, ignite-2022
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to build a Node.js web application to access and manage API for NoSQL account resources in Azure Cosmos DB, so that customers can better use the service.
 ---
 
@@ -55,7 +55,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 Start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new Node.js application](#create-new-app).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../includes/cosmos-db-keys.md)]
 

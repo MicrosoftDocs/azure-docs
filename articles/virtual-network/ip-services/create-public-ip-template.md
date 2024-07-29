@@ -16,6 +16,9 @@ ms.custom: mode-other
 
 This article shows how to create a public IP address resource within a Resource Manager template.
 
+:::image type="content" source="./media/create-public-ip-portal/public-ip-example-resources.png" alt-text="Diagram of an example use of a public IP address. A public IP address is assigned to a load balancer.":::
+
+
 For more information on resources this public IP can be associated to and the difference between the basic and standard SKUs, see [Public IP addresses](public-ip-addresses.md). 
 
 ## Prerequisites

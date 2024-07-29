@@ -7,7 +7,7 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 01/19/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -29,7 +29,7 @@ Use [Bing Spell Check](../../cognitive-services/bing-spell-check/overview.md) to
 
 ### Prior to V3 runtime
 
-LUIS uses [Bing Spell Check API V7](../../cognitive-services/bing-spell-check/overview.md) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356).
+LUIS uses [Bing Spell Check API V7](../../cognitive-services/bing-spell-check/overview.md) to correct spelling errors in the utterance. LUIS needs the key associated with that service. Create the key, then add the key as a querystring parameter at the [endpoint](/rest/api/luis/operation-groups).
 
 The endpoint requires two params for spelling corrections to work:
 
@@ -82,13 +82,13 @@ When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev
 
 ### V3 prediction API to alter timezone
 
-In V3, the `datetimeReference` determines the timezone offset. Learn more about [V3 predictions](luis-migration-api-v3.md#v3-post-body).
+In V3, the `datetimeReference` determines the timezone offset.
 
 ### V2 prediction API to alter timezone
 The timezone is corrected by adding the user's timezone to the endpoint using the `timezoneOffset` parameter based on the API version. The value of the parameter should be the positive or negative number, in minutes, to alter the time.
 
 #### V2 prediction daylight savings example
-If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the querystring parameter with a +/- value in minutes for the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) query.
+If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the querystring parameter with a +/- value in minutes for the [endpoint](/rest/api/luis/operation-groups) query.
 
 Add 60 minutes:
 

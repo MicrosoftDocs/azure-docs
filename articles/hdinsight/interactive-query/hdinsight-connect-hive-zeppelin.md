@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use Apache Zeppelin to run Apa
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, mode-other
-ms.date: 04/25/2023
+ms.date: 05/22/2024
 #Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---
 
@@ -24,7 +24,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
 
 2. Enter your cluster login username and password. From the Zeppelin page, you can either create a new note or open existing notes. **HiveSample** contains some sample Hive queries.  
 
-    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin" border="true":::
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="HDInsight Interactive Query zeppelin." border="true":::
 
 3. Select **Create new note**.
 
@@ -42,13 +42,13 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     show tables
     ```
 
-    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin runs query" border="true":::
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="HDInsight Interactive Query zeppelin runs query." border="true":::
 
-    The **%jdbc(hive)** statement in the first line tells the notebook to use the Hive JDBC interpreter.
+    The `%jdbc(hive)` statement in the first line tells the notebook to use the Hive JDBC interpreter.
 
     The query shall return one Hive table called **hivesampletable**.
 
-    The following are two additional Hive queries that you can run against **hivesampletable**:
+    The following are two more Hive queries that you can run against **hivesampletable**:
 
     ```hive
     %jdbc(hive)
@@ -61,11 +61,11 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     limit ${total_count=10}
     ```
 
-    Comparing to the traditional Hive, the query results come back must faster.
+    Compared to the traditional Hive, the query results come back much faster.
 
-### Additional examples
+### More examples
 
-1. Create a table. Execute the code below in the Zeppelin Notebook:
+1. Create a table. Execute the code in the Zeppelin Notebook:
 
     ```hql
     %jdbc(hive)
@@ -82,7 +82,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     STORED AS TEXTFILE;
     ```
 
-1. Load data into the new table. Execute the code below in the Zeppelin Notebook:
+1. Load data into the new table. Execute the code in the Zeppelin Notebook:
 
     ```hql
     %jdbc(hive)
@@ -91,7 +91,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     INTO TABLE log4jLogs;
     ```
 
-1. Insert a single record. Execute the code below in the Zeppelin Notebook:
+1. Insert a single record. Execute the code in the Zeppelin Notebook:
 
     ```hql
     %jdbc(hive)
@@ -99,7 +99,7 @@ An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-ha
     VALUES ('A', 'B', 'C', 'D', 'E', 'F', 'G');
     ```
 
-Review the [Hive language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) for additional syntax.
+Review the [Hive language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) for more syntax.
 
 ## Clean up resources
 

@@ -4,11 +4,11 @@ description: Deploys Azure Disk Encryption for Linux to a virtual machine using 
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: disks
+ms.custom: linux-related-content
 author: ejarvi
 ms.author: ejarvi
 ms.date: 03/19/2020
 ms.collection: linux
-
 ---
 # Azure Disk Encryption for Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 

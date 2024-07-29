@@ -1,16 +1,19 @@
 ---
-title: Update the Azure Linux Agent from GitHub 
+title: Update the Azure Linux Agent from GitHub
 description: Learn how to update Azure Linux Agent for your Linux VM in Azure
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 02/03/2023
 ---
 # How to update the Azure Linux Agent on a VM
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 To update your [Azure Linux Agent](https://github.com/Azure/WALinuxAgent) on a Linux VM in Azure, you must already have:
 
@@ -374,7 +377,7 @@ Open [the release of Azure Linux Agent in GitHub](https://github.com/Azure/WALin
 For version 2.2.x or later, type:
 
 ```bash
-wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.x.zip 
+wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.x.zip
 unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
@@ -383,7 +386,7 @@ The following line uses version 2.2.14 as an example:
 
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/refs/tags/v2.2.14.zip
-unzip v2.2.14.zip  
+unzip v2.2.14.zip
 cd WALinuxAgent-2.2.14
 ```
 

@@ -6,7 +6,6 @@ author: TheovanKraay
 ms.author: thvankra
 ms.subservice: apache-cassandra
 ms.devlang: java
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 07/17/2021
 ---
@@ -135,8 +134,6 @@ To learn more about Spring and Azure, continue to the Spring on Azure documentat
 
 For more information about using Azure with Java, see the [Azure for Java Developers] and the [Working with Azure DevOps and Java].
 
-<!-- URL List -->
-
 [Azure for Java Developers]: ../index.yml
 [free Azure account]: https://azure.microsoft.com/pricing/free-trial/
 [Working with Azure DevOps and Java]: /azure/devops/
@@ -145,8 +142,6 @@ For more information about using Azure with Java, see the [Azure for Java Develo
 [Spring Data]: https://spring.io/projects/spring-data
 [Spring Initializr]: https://start.spring.io/
 [Spring Framework]: https://spring.io/
-
-<!-- IMG List -->
 
 [COSMOSDB01]: media/access-data-spring-data-app/create-cosmos-db-01.png
 [COSMOSDB02]: media/access-data-spring-data-app/create-cosmos-db-02.png

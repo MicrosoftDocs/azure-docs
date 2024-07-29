@@ -8,7 +8,8 @@ ms.author: shsagir
 ms.reviewer: tzgitlin
 ms.service: synapse-analytics
 ms.subservice: data-explorer
-ms.devlang: csharp, golang, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, golang, java, javascript, python
 ms.custom: mode-other
 ---
 

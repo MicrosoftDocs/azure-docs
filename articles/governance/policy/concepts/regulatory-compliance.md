@@ -1,16 +1,17 @@
 ---
 title: Regulatory Compliance in initiative definitions
 description: Describes how to use an initiative definition to group policies by regulatory domain such as Access Control, Configuration Management, and others.
-ms.date: 08/17/2021
+ms.date: 03/21/2024
 ms.topic: conceptual
 ---
+
 # Regulatory Compliance in Azure Policy
 
 Regulatory Compliance in Azure Policy provides built-in initiative definitions to view a list of the
 **controls** and **compliance domains** based on responsibility (_Customer_, _Microsoft_, _Shared_).
 For Microsoft-responsible controls, we provide additional details of our audit results based on
 third-party attestation and our implementation details to achieve that compliance.
-Microsoft-responsible controls are of `type` [static](./definition-structure.md#type).
+Microsoft-responsible controls are of `policyType` [static](./definition-structure.md#policy-type).
 
 > [!NOTE]
 > Regulatory Compliance is a Preview feature. For updated built-ins, the initiatives
@@ -59,8 +60,7 @@ compliance** tab provides a granular view of each resource that's evaluated by a
 the currently viewed **control**.
 
 > [!NOTE]
-> An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#type)
-> policy definition `type`.
+> An evaluation type of **Microsoft managed** is for a [static](./definition-structure.md#policy-type) policy definition `policyType`.
 
 :::image type="content" source="../media/regulatory-compliance/regulatory-compliance-policies.png" alt-text="Screenshot of the Regulatory Compliance details for the Boundary Protection control of the NIST SP 800-53 R4 built-in definition.":::
 

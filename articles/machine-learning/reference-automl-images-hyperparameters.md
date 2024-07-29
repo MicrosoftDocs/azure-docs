@@ -5,11 +5,10 @@ description: Learn which hyperparameters are available for computer vision tasks
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.custom: ignite-2022
 ms.topic: reference
-ms.reviewer: ssalgado
-author: swatig007
-ms.author: swatig
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 01/18/2022
 ---
 

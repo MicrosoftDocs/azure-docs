@@ -3,9 +3,12 @@ title: How to bring a Linux custom image from an Azure virtual machine.
 description: Describes how to bring a Linux custom image from an Azure virtual machine.
 ms.date: 07/27/2021
 ms.topic: how-to
+ms.custom: linux-related-content
 ---
 
 # Bring a Linux custom image from an Azure virtual machine
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 The steps in this article show how to import a custom image that starts from an [Azure virtual machine (VM)](https://azure.microsoft.com/services/virtual-machines/). With this approach, you set up an image on an Azure VM and import the image into a compute gallery so that it can be used within Azure Lab Services. Before you use this approach for creating a custom image, read [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md) to decide the best approach for your scenario.
 

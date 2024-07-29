@@ -1,12 +1,12 @@
 ---
 title: Pronunciation with Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure AI services
-description: Learn about Speech Synthesis Markup Language (SSML) elements to improve pronunciation.
+description: Learn about Speech Synthesis Markup Language (SSML) elements and improve pronunciation.
 author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 1/22/2024
 ms.author: eur
 ---
 
@@ -14,13 +14,13 @@ ms.author: eur
 
 You can use Speech Synthesis Markup Language (SSML) with text to speech to specify how the speech is pronounced. For example, you can use SSML with phonemes and a custom lexicon to improve pronunciation. You can also use SSML to define how a word or mathematical expression is pronounced.
 
-Refer to the sections below for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
+Refer to the following sections for details about how to use SSML elements to improve pronunciation. For more information about SSML syntax, see [SSML document structure and events](speech-synthesis-markup-structure.md).
 
 ## phoneme element
 
 The `phoneme` element is used for phonetic pronunciation in SSML documents. Always provide human-readable speech as a fallback.
 
-Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. This is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
+Phonetic alphabets are composed of phones, which are made up of letters, numbers, or characters, sometimes in combination. Each phone describes a unique sound of speech. The phonetic alphabet is in contrast to the Latin alphabet, where any letter might represent multiple spoken sounds. Consider the different `en-US` pronunciations of the letter "c" in the words "candy" and "cease" or the different pronunciations of the letter combination "th" in the words "thing" and "those."
 
 > [!NOTE]
 > For a list of locales that support phonemes, see footnotes in the [language support](language-support.md?tabs=tts) table.
@@ -30,7 +30,7 @@ Usage of the `phoneme` element's attributes are described in the following table
 | Attribute | Description | Required or optional |
 | ---------- | ---------- | ---------- |
 | `alphabet` | The phonetic alphabet to use when you synthesize the pronunciation of the string in the `ph` attribute. The string that specifies the alphabet must be specified in lowercase letters. The following options are the possible alphabets that you can specify:<ul><li>`ipa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`sapi` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash; See [Universal Phone Set](https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm)</li><li>`x-sampa` &ndash; See [SSML phonetic alphabets](speech-ssml-phonetic-sets.md#map-x-sampa-to-ipa)</li></ul><br>The alphabet applies only to the `phoneme` in the element. | Optional |
-| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text to speech rejects the entire SSML document and produces none of the speech output specified in the document.<br/><br/>For `ipa`, to stress one syllable by placing stress symbol before this syllable, you need to mark all syllables for the word. Or else, the syllable before this stress symbol will be stressed. For `sapi`, if you want to stress one syllable, you need to place the stress symbol after this syllable, whether or not all syllables of the word are marked.| Required |
+| `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, text to speech rejects the entire SSML document and produces none of the speech output specified in the document.<br/><br/>For `ipa`, to stress one syllable by placing stress symbol before this syllable, you need to mark all syllables for the word. Or else, the syllable before this stress symbol is stressed. For `sapi`, if you want to stress one syllable, you need to place the stress symbol after this syllable, whether or not all syllables of the word are marked.| Required |
 
 ### phoneme examples
 
@@ -38,21 +38,21 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="tə.ˈmeɪ.toʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="ipa" ph="təmeɪˈtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <phoneme alphabet="sapi" ph="iy eh n y uw eh s"> en-US </phoneme>
     </voice>
 </speak>
@@ -60,7 +60,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -68,7 +68,7 @@ The supported values for attributes of the `phoneme` element were [described pre
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-     <voice name="en-US-JennyNeural">
+     <voice name="en-US-AvaNeural">
         <phoneme alphabet='x-sampa' ph='he."lou'>hello</phoneme>
     </voice>
 </speak>
@@ -93,13 +93,13 @@ Usage of the `lexicon` element's attributes are described in the following table
 
 The supported values for attributes of the `lexicon` element were [described previously](#custom-lexicon).
 
-After you've published your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. 
+After you publish your custom lexicon, you can reference it from your SSML. The following SSML example references a custom lexicon that was uploaded to `https://www.example.com/customlexicon.xml`. We support lexicon URLs from Azure Blob Storage, Advanced Media Services (AMS) Storage, and GitHub. However, note that other public URLs may not be compatible.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
           xmlns:mstts="http://www.w3.org/2001/mstts"
           xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaNeural">
         <lexicon uri="https://www.example.com/customlexicon.xml"/>
         BTW, we will be there probably at 8:00 tomorrow morning.
         Could you help leave a message to Robert Benigni for me?
@@ -116,13 +116,13 @@ To define how multiple entities are read, you can define them in a custom lexico
 
 Here are some limitations of the custom lexicon file:
 
-- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails.
-- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text to speech when it's first loaded. The lexicon with the same URI won't be reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
+- **File size**: The custom lexicon file size is limited to a maximum of 100 KB. If the file size exceeds the 100-KB limit, the synthesis request fails. You can split your lexicon into multiple lexicons and include them in SSML if the file size exceeds 100 KB.
+- **Lexicon cache refresh**: The custom lexicon is cached with the URI as the key on text to speech when it's first loaded. The lexicon with the same URI isn't reloaded within 15 minutes, so the custom lexicon change needs to wait 15 minutes at the most to take effect.
 
 The supported elements and attributes of a custom lexicon XML file are described in the [Pronunciation Lexicon Specification (PLS) Version 1.0](https://www.w3.org/TR/pronunciation-lexicon/). Here are some examples of the supported elements and attributes:
 
-- The `lexicon` element contains at least one `lexeme` element. Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it won't work. The `lexicon` element also has an `alphabet` attribute to indicate the alphabet used in the lexicon. The possible values are `ipa` and `x-microsoft-sapi`.
-- Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello", it won't work for the `lexeme` "hello".
+- The `lexicon` element contains at least one `lexeme` element. Lexicon contains the necessary `xml:lang` attribute to indicate which locale it should be applied for. One custom lexicon is limited to one locale by design, so if you apply it for a different locale, it doesn't work. The `lexicon` element also has an `alphabet` attribute to indicate the alphabet used in the lexicon. The possible values are `ipa` and `x-microsoft-sapi`.
+- Each `lexeme` element contains at least one `grapheme` element and one or more `grapheme`, `alias`, and `phoneme` elements. The `lexeme` element is case sensitive in the custom lexicon. For example, if you only provide a phoneme for the `lexeme` "Hello", it doesn't work for the `lexeme` "hello".
 - The `grapheme` element contains text that describes the [orthography](https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography). 
 - The `alias` elements are used to indicate the pronunciation of an acronym or an abbreviated term. 
 - The `phoneme` element provides text that describes how the `lexeme` is pronounced. The syllable boundary is '.' in the IPA alphabet. The `phoneme` element can't contain white space when you use the IPA alphabet.
@@ -147,8 +147,8 @@ The following XML example (not SSML) would be contained in a custom lexicon `.xm
         <alias>By the way</alias>
     </lexeme>
     <lexeme>
-        <grapheme> Benigni </grapheme>
-        <phoneme> bɛˈniːnji</phoneme>
+        <grapheme>Benigni</grapheme>
+        <phoneme>bɛˈniːnji</phoneme>
     </lexeme>
     <lexeme>
         <grapheme>😀</grapheme>
@@ -224,7 +224,11 @@ Usage of the `say-as` element's attributes are described in the following table.
 | `format`| Provides additional information about the precise formatting of the element's text for content types that might have ambiguous formats. SSML defines formats for content types that use them. See the following table. | Optional             |
 | `detail` | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
-The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in the table below.
+The following content types are supported for the `interpret-as` and `format` attributes. Include the `format` attribute only if `format` column isn't empty in this table.
+
+> [!NOTE]
+> The `characters` and `spell-out` values for the `interpret-as` attribute are supported for all [text to speech locales](language-support.md?tabs=tts).
+> Other `interpret-as` attribute values are supported for all locales of the following languages: Arabic, Catalan, Chinese, Danish, Dutch, English, French, Finnish, German, Hindi, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, and Swedish.
 
 | interpret-as   | format   | Interpretation |
 | ---------- | ---------- | ---------- |
@@ -249,7 +253,7 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <p>
         Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
         on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
@@ -276,7 +280,7 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-JennyNeural">
+    <voice name="en-US-AvaMultilingualNeural">
         <sub alias="World Wide Web Consortium">W3C</sub>
     </voice>
 </speak>
@@ -287,23 +291,42 @@ The speech synthesis engine speaks the following example as "World Wide Web Cons
 The Mathematical Markup Language (MathML) is an XML-compliant markup language that describes mathematical content and structure. The Speech service can use the MathML as input text to properly pronounce mathematical notations in the output audio.
 
 > [!NOTE]
-> The MathML elements (tags) are currently supported by all neural voices in the `en-US` and `en-AU` locales.
+> The MathML elements (tags) are currently supported in the following locales: `de-DE`, `en-AU`, `en-GB`, `en-US`, `es-ES`, `es-MX`, `fr-CA`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`.
 
 All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. 
 
 Take note of these MathML elements and attributes:
 - The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional.
 - The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they're ignored.
-- If an element isn't recognized, it will be ignored, and the child elements within it will still be processed.
+- If an element isn't recognized, it's ignored, and the child elements within it are still processed.
 
-The MathML entities aren't supported by XML syntax, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error will occur.
+The XML syntax doesn't support the MathML entities, so you must use the corresponding [unicode characters](https://www.w3.org/2003/entities/2007/htmlmathml.json) to represent the entities, for example, the entity `&copy;` should be represented by its unicode characters `&#x00A9;`, otherwise an error occurs.
 
 ### MathML examples
 
 The text to speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'><voice name='en-US-JennyNeural'><math xmlns='http://www.w3.org/1998/Math/MathML'><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
+<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts' xml:lang='en-US'>
+    <voice name='en-US-JennyNeural'>
+        <math xmlns='http://www.w3.org/1998/Math/MathML'>
+            <msup>
+                <mi>a</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>+</mo>
+            <msup>
+                <mi>b</mi>
+                <mn>2</mn>
+            </msup>
+            <mo>=</mo>
+            <msup>
+                <mi>c</mi>
+                <mn>2</mn>
+            </msup>
+        </math>
+    </voice>
+</speak>
 ```
 
 ## Next steps

@@ -64,6 +64,7 @@ After a developer team lead is assigned the DevCenter Project Admin role, they c
 
 - Create dev box pools and add appropriate dev box definitions.
 - Control costs by using auto-stop schedules.
+- Use a configuration script that invokes setup tasks from a catalog attached to the dev center. The setup tasks execute during the creation of a dev box to install and customize software specific to the project.
 
 ### Developer scenarios
 
@@ -72,6 +73,8 @@ An organization that has globally distributed development teams can configure De
 Dev Box supports developers who are working on multiple projects. Developers can create and use separate dev boxes for separate workloads, projects, or tasks. Developers can create multiple dev boxes from a predefined pool whenever they need them, and then delete those dev boxes when they're done.
 
 Organizations can even define dev boxes for various roles on a team. You might configure standard dev boxes with admin rights to give full-time developers greater control, while applying more restricted permissions for contractors.
+
+Dev boxes use [Dsv5-series virtual machines](/azure/virtual-machines/dv5-dsv5-series#dsv5-series), which have sufficient vCPUs and memory to meet the requirements associated with most general-purpose workloads. For storage, dev boxes use [Azure Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds), which deliver high-performance and low-latency disk support.
 
 ## Components shared with Azure Deployment Environments
 

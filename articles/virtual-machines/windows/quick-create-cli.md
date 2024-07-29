@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 **Applies to:** :heavy_check_mark: Windows VMs
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2019. To see your VM in action, you then RDP to the VM and install the IIS web server.
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a virtual machine (VM) in Azure that runs Windows Server 2022. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -72,7 +72,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 Take a note your own `publicIpAddress` in the output when you create your VM. This IP address is used to access the VM later in this article.
 
-Cost information isn't presented during the virtual machine creation process for CLI like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../plan-to-manage-costs.md).
+Cost information isn't presented during the virtual machine creation process for CLI like it is for the [Azure portal](quick-create-portal.md). If you want to learn more about how cost works for virtual machines, see the [Cost optimization Overview page](../cost-optimization-plan-to-manage-costs.md).
 
 ## Install web server
 

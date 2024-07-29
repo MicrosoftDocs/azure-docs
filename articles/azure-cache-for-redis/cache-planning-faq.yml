@@ -13,7 +13,7 @@ summary: |
 
 sections:
   - name: Ignored
-    questions:          
+    questions:
       - question: |
           Azure Cache for Redis performance
         answer: |

@@ -1,16 +1,9 @@
 ---
 title: Understand NFSv4.x access control lists in Azure NetApp Files
-description: Learn about using NFSv4.x access control lists in Azure NetApp Files.  
+description: Learn about using NFSv4.x access control lists in Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2023
 ms.author: anfdocs
@@ -20,7 +13,7 @@ ms.author: anfdocs
 
 The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](/windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
-:::image type="content" source="../media/azure-netapp-files/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="../media/azure-netapp-files/access-control-entity-to-client-diagram.png":::
+:::image type="content" source="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png":::
 
 Each NFSv4.x ACL is created with the format of `type:flags:principal:permissions`.
 
@@ -182,11 +175,9 @@ Inherit flags are a way to more easily manage your NFSv4.x ACLs, sparing you fro
 
 ### Administrative flags
 
-Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success or failure access attempts for actions to be performed. For instance, if it's desired to audit failed access attempts to a specific file, then an administrative flag of “F” can be used to control that behavior.
+Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success (`S`) or failure (`F`) access attempts for actions to be performed. 
 
-This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
-
-Azure NetApp Files only supports setting administrative flags for Audit ACEs. File access logging isn't currently supported. Alarm ACEs aren't supported in Azure NetApp Files.
+Azure NetApp Files supports _setting_ administrative flags for Audit ACEs, however the ACEs do not function. In addition, Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals
 
@@ -224,7 +215,7 @@ When a local user or group ACL is set, any user or group that corresponds to the
 
 The credentials passed from client to server can be seen via a packet capture as seen below.
 
-:::image type="content" source="../media/azure-netapp-files/client-server-credentials.png" alt-text="Image depicting sample packet capture with credentials." lightbox="../media/azure-netapp-files/client-server-credentials.png":::
+:::image type="content" source="./media/nfs-access-control-lists/client-server-credentials.png" alt-text="Image depicting sample packet capture with credentials." lightbox="./media/nfs-access-control-lists/client-server-credentials.png":::
 
 **Caveats:**
 
@@ -242,7 +233,7 @@ Azure NetApp Files defaults the NFSv4.x ID domain to the DNS domain settings for
 When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors similar to:
  
 ```bash
-August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
+August 19 13:14:29 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
 ```
 
 The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.
@@ -406,7 +397,7 @@ chown: changing ownership of ‘testdir’: Operation not permitted
 
 The export policy rule on the volume can be modified to change this behavior. In the **Export policy** menu for the volume, modify **Chown mode** to "unrestricted."
 
-:::image type="content" source="../media/azure-netapp-files/export-policy-unrestricted.png" alt-text="Screenshot of export policy menu changing chown mode to unrestricted." lightbox="../media/azure-netapp-files/export-policy-unrestricted.png":::
+:::image type="content" source="./media/nfs-access-control-lists/export-policy-unrestricted.png" alt-text="Screenshot of export policy menu changing chown mode to unrestricted." lightbox="./media/nfs-access-control-lists/export-policy-unrestricted.png":::
 
 Once modified, ownership can be changed by users other than root if they have appropriate access rights. This requires the “Take Ownership” NFSv4.x ACL permission (designated by the letter “o”). Ownership can also be changed if the user changing ownership currently owns the file or folder.
 
@@ -476,7 +467,7 @@ Root access with NFSv4.x ACLs can't be limited unless [root is squashed](network
 
 To configure root squashing, navigate to the **Export policy** menu on the volume then change “Root access” to “off” for the policy rule.
 
-:::image type="content" source="../media/azure-netapp-files/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access off." lightbox="../media/azure-netapp-files/export-policy-root-access.png":::
+:::image type="content" source="./media/nfs-access-control-lists/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access off." lightbox="./media/nfs-access-control-lists/export-policy-root-access.png":::
 
 The effect of disabling root access root squashes to anonymous user `nfsnobody:65534`. Root access is then unable to change ownership.
 

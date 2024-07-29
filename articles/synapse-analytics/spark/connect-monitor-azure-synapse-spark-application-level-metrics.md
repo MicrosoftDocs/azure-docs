@@ -1,10 +1,9 @@
 ---
 title:  Collect Apache Spark applications metrics using APIs
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
-services: synapse-analytics 
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the maximum of the values in the expression.
   
 ## Syntax
   
-```sql
+```nosql
 MAX(<scalar_expr>)  
 ```  
   
@@ -42,7 +43,7 @@ This example uses a container with multiple items that each have a `/price` nume
 
 For this example, the `MAX` function is used in a query that includes the numeric field that was mentioned.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/max/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/max/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/max/result.json":::
 

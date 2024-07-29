@@ -2,14 +2,14 @@
 title: Deploy Azure Machine Learning extension on Kubernetes cluster
 description: Learn about the Azure Machine Learning extension, available configuration settings and different deployment scenarios, and verify and managed Azure Machine Learning extension
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 08/31/2022
+ms.date: 01/19/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022, devx-track-azurecli
+ms.custom: build-spring-2022, cliv2, sdkv2, devx-track-azurecli
 ---
 
 # Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster
@@ -28,9 +28,9 @@ In this article, you can learn:
 
 ## Prerequisites
 
-* An AKS cluster running in Azure. If you have not previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-service-provider).
+* An AKS cluster running in Azure. If you haven't previously used cluster extensions, you need to [register the KubernetesConfiguration service provider](../aks/dapr.md#register-the-kubernetesconfiguration-resource-provider).
 * Or an Arc Kubernetes cluster is up and running. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
-  * If the cluster is an Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
+  * If the cluster is an Azure RedHat OpenShift (ARO) Service cluster or OpenShift Container Platform (OCP) cluster, you must satisfy other prerequisite steps as documented in the [Reference for configuring Kubernetes cluster](./reference-kubernetes.md#prerequisites-for-aro-or-ocp-clusters) article.
 * For production purposes, the Kubernetes cluster must have a minimum of **4 vCPU cores and 14-GB memory**. For more information on resource detail and cluster size recommendations, see [Recommended resource planning](./reference-kubernetes.md).
 * Cluster running behind an **outbound proxy server** or **firewall** needs extra [network configurations](./how-to-access-azureml-behind-firewall.md#scenario-use-kubernetes-compute).
 * Install or upgrade Azure CLI to version 2.24.0 or higher.
@@ -43,9 +43,9 @@ In this article, you can learn:
     -  When your AKS cluster used service principal is converted to use Managed Identity, before installing the extension, all node pools need to be deleted and recreated, rather than updated directly.
 - [Disabling local accounts](../aks/manage-local-accounts-managed-azure-ad.md#disable-local-accounts) for AKS is **not supported**  by Azure Machine Learning. When the AKS Cluster is deployed, local accounts are enabled by default.
 - If your AKS cluster has an [Authorized IP range enabled to access the API server](../aks/api-server-authorized-ip-ranges.md), enable the Azure Machine Learning control plane IP ranges for the AKS cluster. The Azure Machine Learning control plane is deployed across paired regions. Without access to the API server, the machine learning pods can't be deployed. Use the [IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=56519) for both the [paired regions](../availability-zones/cross-region-replication-azure.md) when enabling the IP ranges in an AKS cluster.
-- Azure Machine Learning does not support attaching an AKS cluster cross subscription. If you have an AKS cluster in a different subscription, you must first [connect it to Azure-Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) and specify in the same subscription as your Azure Machine Learning workspace.
-- Azure Machine Learning does not guarantee support for all preview stage features in AKS. For example, [Microsoft Entra pod identity](../aks/use-azure-ad-pod-identity.md) is not supported.
-- If you've previously followed the steps from [Azure Machine Learning AKS v1 document](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true#delete-azureml-fe-related-resources) before you continue the next step.
+- Azure Machine Learning doesn't support attaching an AKS cluster cross subscription. If you have an AKS cluster in a different subscription, you must first [connect it to Azure-Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) and specify in the same subscription as your Azure Machine Learning workspace.
+- Azure Machine Learning doesn't guarantee support for all preview stage features in AKS. For example, [Microsoft Entra pod identity](../aks/use-azure-ad-pod-identity.md) isn't supported.
+- If you've followed the steps from [Azure Machine Learning AKS v1 document](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true) to create or attach your AKS as inference cluster, use the following link to [clean up the legacy azureml-fe related resources](./v1/how-to-create-attach-kubernetes.md?view=azureml-api-1&preserve-view=true#delete-azureml-fe-related-resources) before you continue the next step.
 
 
 ## Review Azure Machine Learning extension configuration settings
@@ -61,19 +61,19 @@ You can use Azure Machine Learning CLI command `k8s-extension create` to deploy 
    | `internalLoadBalancerProvider` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. Set to `azure` to allow the inference router using internal load balancer.  | N/A| Optional |  Optional |
    |`sslSecret`| The name of the Kubernetes secret in the `azureml` namespace. This config is used to store `cert.pem` (PEM-encoded TLS/SSL cert) and `key.pem` (PEM-encoded TLS/SSL key), which are required for inference HTTPS endpoint support when ``allowInsecureConnections`` is set to `False`. For a sample YAML definition of `sslSecret`, see [Configure sslSecret](./how-to-secure-kubernetes-online-endpoint.md). Use this config or a combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
    |`sslCname` |An TLS/SSL CNAME is used by inference HTTPS endpoint. **Required** if `allowInsecureConnections=False`  |  N/A | Optional | Optional|
-   | `inferenceRouterHA` |`True` or `False`, default `True`. By default, Azure Machine Learning extension will deploy three inference router replicas for high availability, which requires at least three worker nodes in a cluster. Set to `False` if your cluster has fewer than three worker nodes, in this case only one inference router service is deployed. | N/A| Optional |  Optional |
+   | `inferenceRouterHA` |`True` or `False`, default `True`. By default, Azure Machine Learning extension deploys three inference router replicas for high availability, which requires at least three worker nodes in a cluster. Set to `False` if your cluster has fewer than three worker nodes, in this case only one inference router service is deployed. | N/A| Optional |  Optional |
    |`nodeSelector` | By default, the deployed kubernetes resources and your machine learning workloads are randomly deployed to one or more nodes of the cluster, and DaemonSet resources are deployed to ALL nodes. If you want to restrict the extension deployment and your training/inference workloads to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
    |`installNvidiaDevicePlugin`  | `True` or `False`, default `False`. [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on NVIDIA GPU hardware. By default, Azure Machine Learning extension deployment won't install NVIDIA Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to `True`, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
-   |`installPromOp`|`True` or `False`, default `True`. Azure Machine Learning extension needs prometheus operator to manage prometheus. Set to `False` to reuse the existing prometheus operator. For more information about reusing the existing  prometheus operator, refer to [reusing the prometheus operator](./how-to-troubleshoot-kubernetes-extension.md#prometheus-operator)| Optional| Optional |  Optional |
-   |`installVolcano`| `True` or `False`, default `True`. Azure Machine Learning extension needs volcano scheduler to schedule the job. Set to `False` to reuse existing volcano scheduler. For more information about reusing the existing volcano scheduler, refer to [reusing volcano scheduler](./how-to-troubleshoot-kubernetes-extension.md#volcano-scheduler)   | Optional| N/A |  Optional |
-   |`installDcgmExporter`  |`True` or `False`, default `False`. Dcgm-exporter can expose GPU metrics for Azure Machine Learning workloads, which can be monitored in Azure portal. Set `installDcgmExporter`  to `True` to install dcgm-exporter. But if you want to utilize your own dcgm-exporter, refer to [DCGM exporter](./how-to-troubleshoot-kubernetes-extension.md#dcgm-exporter) |Optional |Optional |Optional |
+   |`installPromOp`|`True` or `False`, default `True`. Azure Machine Learning extension needs prometheus operator to manage prometheus. Set to `False` to reuse the existing prometheus operator. For more information about reusing the existing  prometheus operator, see [reusing the prometheus operator](./how-to-troubleshoot-kubernetes-extension.md#prometheus-operator)| Optional| Optional |  Optional |
+   |`installVolcano`| `True` or `False`, default `True`. Azure Machine Learning extension needs volcano scheduler to schedule the job. Set to `False` to reuse existing volcano scheduler. For more information about reusing the existing volcano scheduler, see [reusing volcano scheduler](./how-to-troubleshoot-kubernetes-extension.md#volcano-scheduler)   | Optional| N/A |  Optional |
+   |`installDcgmExporter`  |`True` or `False`, default `False`. Dcgm-exporter can expose GPU metrics for Azure Machine Learning workloads, which can be monitored in Azure portal. Set `installDcgmExporter`  to `True` to install dcgm-exporter. But if you want to utilize your own dcgm-exporter, see [DCGM exporter](./how-to-troubleshoot-kubernetes-extension.md#dcgm-exporter) |Optional |Optional |Optional |
 
 
    |Configuration Protected Setting Key Name  |Description  |Training |Inference |Training and Inference
    |--|--|--|--|--|
    | `sslCertPemFile`, `sslKeyPemFile` |Path to TLS/SSL certificate and key file (PEM-encoded), required for Azure Machine Learning extension deployment with inference HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. **Note** PEM file with pass phrase protected isn't supported | N/A| Optional |  Optional |
 
-As you can see from above configuration settings table, the combinations of different configuration settings allow you to deploy Azure Machine Learning extension for different ML workload scenarios:
+As you can see from the configuration settings table, the combinations of different configuration settings allow you to deploy Azure Machine Learning extension for different ML workload scenarios:
 
   * For training job and batch inference workload, specify `enableTraining=True`
   * For inference workload only, specify `enableInference=True`
@@ -111,13 +111,13 @@ We list four typical extension deployment scenarios for reference. To deploy ext
    ```
 
 - **Enable an AKS cluster in Azure for production training and inference workload**
-   For Azure Machine Learning extension deployment on AKS, make sure to specify `managedClusters` value for `--cluster-type` parameter. Assuming your cluster has more than three nodes, and you'll use an Azure public load balancer and HTTPS for inference workload support. Run the following Azure CLI command to deploy Azure Machine Learning extension:
+   For Azure Machine Learning extension deployment on AKS, make sure to specify `managedClusters` value for `--cluster-type` parameter. Assuming your cluster has more than three nodes, and you use an Azure public load balancer and HTTPS for inference workload support. Run the following Azure CLI command to deploy Azure Machine Learning extension:
    ```azurecli
    az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=LoadBalancer sslCname=<ssl cname> --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type managedClusters --cluster-name <your-AKS-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```
 - **Enable an [Arc Kubernetes](../azure-arc/kubernetes/overview.md) cluster anywhere for production training and inference workload using NVIDIA GPUs**
 
-   For Azure Machine Learning extension deployment on [Arc Kubernetes](../azure-arc/kubernetes/overview.md) cluster, make sure to specify `connectedClusters` value for `--cluster-type` parameter. Assuming your cluster has more than three nodes, you'll use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy Azure Machine Learning extension:
+   For Azure Machine Learning extension deployment on [Arc Kubernetes](../azure-arc/kubernetes/overview.md) cluster, make sure to specify `connectedClusters` value for `--cluster-type` parameter. Assuming your cluster has more than three nodes, you use a NodePort service type and HTTPS for inference workload support, run following Azure CLI command to deploy Azure Machine Learning extension:
    ```azurecli
    az k8s-extension create --name <extension-name> --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True enableInference=True inferenceRouterServiceType=NodePort sslCname=<ssl cname> installNvidiaDevicePlugin=True installDcgmExporter=True --config-protected sslCertPemFile=<file-path-to-cert-PEM> sslKeyPemFile=<file-path-to-cert-KEY> --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
    ```

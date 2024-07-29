@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/02/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate GraphQL request
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-graphql-request` policy validates the GraphQL request and authorizes access to specific query paths in a GraphQL API. An invalid query is a "request error". Authorization is only done for valid requests. 
 
@@ -69,7 +71,7 @@ Available actions are described in the following table.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
   
@@ -130,6 +132,6 @@ This example applies the following validation and authorization rules to a Graph
 
 ## Related policies
 
-* [Validation policies](api-management-policies.md#validation-policies)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

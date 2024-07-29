@@ -4,11 +4,13 @@ description: Learn how to set up and manage data encryption for Azure Database f
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli, devx-track-arm-template
 ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-arm-template
 ---
 
 # Data encryption for Azure Database for MySQL - Flexible Server with Azure CLI
@@ -19,7 +21,7 @@ This tutorial shows you how to set up and manage data encryption for Azure Datab
 
 In this tutorial, you learn how to:
 
-- Create a Azure Database for MySQL flexible server instance with data encryption
+- Create an Azure Database for MySQL flexible server instance with data encryption
 - Update an existing Azure Database for MySQL flexible server instance with data encryption
 - Using an Azure Resource Manager template to enable data encryption
 
@@ -46,7 +48,7 @@ az login
 az account set --subscription \<subscription id\>
 ```
 
-- In Azure Key Vault, create a key vault and a key. The key vault must have the following properties to use as a customer-managed key:
+- In Azure Key Vault, create a key vault or managed HSM and a key. The key vault or managed HSM must have the following properties to use as a customer-managed key:
 
 [Soft delete](../../key-vault/general/soft-delete-overview.md):
 

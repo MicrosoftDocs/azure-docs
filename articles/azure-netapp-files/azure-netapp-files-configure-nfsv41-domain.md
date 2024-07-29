@@ -1,15 +1,8 @@
 ---
 title: Configure NFSv4.1 ID domain for Azure NetApp Files | Microsoft Docs
 description: Learn how to configure NFSv4.1 ID domain for using NFSv4.1 with Azure NetApp Files.
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 07/12/2023
 ms.author: anfdocs
@@ -28,7 +21,7 @@ The root user mapping can illustrate what happens if there is a mismatch between
 
 In the following directory listing example, the user `root` mounts a volume on a Linux client that uses its default configuration `localdomain` for the ID authentication domain, which is different from Azure NetApp Files’ default configuration of `defaultv4iddomain.com`.
 
-:::image type="content" source="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png" alt-text="Screenshot of file directory output." lightbox="../media/azure-netapp-files/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
+:::image type="content" source="./media/azure-netapp-files-configure-nfsv41-domain/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png" alt-text="Screenshot of file directory output." lightbox="./media/azure-netapp-files-configure-nfsv41-domain/azure-netapp-files-nfsv41-default-behavior-user-group-mapping.png":::
 
 In the listing of the files in the directory, `file1` shows as being mapped to `nobody`, when it should be owned by the root user. 
 
@@ -72,7 +65,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select **Configure**.
 1. To use the default domain `defaultv4iddomain.com`, select the box next to **Use Default NFSv4 ID Domain**. To use another domain, uncheck the text box and provide the name of the NFSv4.1 ID domain.
 
-    :::image type="content" source="../media/azure-netapp-files/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="../media/azure-netapp-files/nfsv4-id-domain.png":::
+    :::image type="content" source="./media/azure-netapp-files-configure-nfsv41-domain/nfsv4-id-domain.png" alt-text="Screenshot with field to set NFSv4 domain." lightbox="./media/azure-netapp-files-configure-nfsv41-domain/nfsv4-id-domain.png":::
 
 1. Select **Save**.
 
@@ -136,7 +129,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 The following example shows the resulting user/group change: 
 
-![Screenshot that shows an example of the resulting user/group change.](../media/azure-netapp-files/azure-netapp-files-nfsv41-resulting-config.png)
+![Screenshot that shows an example of the resulting user/group change.](./media/azure-netapp-files-configure-nfsv41-domain/azure-netapp-files-nfsv41-resulting-config.png)
 
 As the example shows, the user/group has now changed from `nobody` to `root`.
 
@@ -146,11 +139,11 @@ Azure NetApp Files supports local users and groups (created locally on the NFS c
 
 In the following example, `Host1` has three user accounts (`testuser01`, `testuser02`, `testuser03`): 
 
-![Screenshot that shows that Host1 has three existing test user accounts.](../media/azure-netapp-files/azure-netapp-files-nfsv41-host1-users.png)
+![Screenshot that shows that Host1 has three existing test user accounts.](./media/azure-netapp-files-configure-nfsv41-domain/azure-netapp-files-nfsv41-host1-users.png)
 
 On `Host2`, no corresponding user accounts exist, but the same volume is mounted on both hosts:
 
-![Resulting configuration for NFSv4.1](../media/azure-netapp-files/azure-netapp-files-nfsv41-host2-users.png)
+![Resulting configuration for NFSv4.1](./media/azure-netapp-files-configure-nfsv41-domain/azure-netapp-files-nfsv41-host2-users.png)
 
 To resolve this issue, either create the missing accounts on the NFS client or configure your NFS clients to use the LDAP server that Azure NetApp Files is using for centrally managed UNIX identities. 
 

@@ -42,6 +42,8 @@ The following example shows a [C# function](../articles/azure-functions/dotnet-i
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](./functions-in-process-model-retirement-note.md)]
+
 The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
 ```csharp

@@ -9,6 +9,7 @@ author: TomArcherMsft
 ms.author: tarcher
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure DNS zone and record using Terraform

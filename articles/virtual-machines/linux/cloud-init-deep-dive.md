@@ -1,14 +1,14 @@
 ---
-title: Understanding cloud-init 
+title: Understanding cloud-init
 description: Deep dive for understanding provisioning an Azure VM using cloud-init.
-author: mattmcinnes 
+author: mattmcinnes
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: mattmcinnes
 ms.reviewer: cynthn
 ms.subservice: cloud-init
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ---
 
 # Diving deeper into cloud-init

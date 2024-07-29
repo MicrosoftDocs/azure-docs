@@ -1,24 +1,23 @@
 ---
-title: Create an Azure Elastic SAN Preview
-description: Learn how to deploy an Azure Elastic SAN Preview with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Create an Azure Elastic SAN
+description: Learn how to deploy an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 02/13/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Deploy an Elastic SAN Preview
+# Deploy an Elastic SAN
 
-This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out this optional survey [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp). 
+This article explains how to deploy and configure an elastic storage area network (SAN). If you're interested in Azure Elastic SAN, or have any feedback you'd like to provide, fill out [this](https://aka.ms/ElasticSANPreviewSignup) optional survey.
 
 ## Prerequisites
 
 - If you're using Azure PowerShell, install the [latest Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - If you're using Azure CLI, install the [latest version](/cli/azure/install-azure-cli).
 - Once you've installed the latest version, run `az extension add -n elastic-san` to install the extension for Elastic SAN.
-There are no extra registration steps required.
 
 ## Limitations
 
@@ -40,7 +39,7 @@ There are no extra registration steps required.
 
 1. Select **Next : Volume groups**.
 
-    :::image type="content" source="media/elastic-san-create/elastic-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-create-flow.png":::
+    :::image type="content" source="media/elastic-san-create/elastic-san-create-flow.png" alt-text="Screenshot of creation flow." lightbox="media/elastic-san-create/elastic-san-create-flow.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -53,9 +52,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN will use locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses **locally-redundant** storage.
+The following command creates an Elastic SAN that uses **locally redundant** storage.
 
 ```azurepowershell
 # Define some variables.
@@ -98,9 +97,9 @@ Use one of these sets of sample code to create an Elastic SAN that uses locally 
 | `<ElasticSanVolumeGroupName>`    | The name of the Elastic SAN Volume Group to be created. |
 | `<VolumeName>`                   | The name of the Elastic SAN Volume to be created. |
 | `<Location>`                     | The region where the new resources will be created. |
-| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally-redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
+| `<Zone>`                         | The availability zone where the Elastic SAN will be created.<br> *Specify the same availability zone as the zone that will host your workload.*<br>*Use only if the Elastic SAN uses locally redundant storage.*<br> *Must be a zone supported in the target location such as `1`, `2`, or `3`.*  |
 
-The following command creates an Elastic SAN that uses **locally-redundant** storage.
+The following command creates an Elastic SAN that uses **locally redundant** storage.
 
 ```azurecli
 # Define some variables.
@@ -205,4 +204,4 @@ az elastic-san volume create --elastic-san-name $EsanName -g $RgName -v $EsanVgN
 
 ## Next steps
 
-Now that you've deployed an Elastic SAN, Connect to Elastic SAN (preview) volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.
+Now that you've deployed an Elastic SAN, Connect to Elastic SAN volumes from either [Windows](elastic-san-connect-windows.md) or [Linux](elastic-san-connect-linux.md) clients.

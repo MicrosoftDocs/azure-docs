@@ -4,7 +4,7 @@ description: Guidance and recommendations for configuring data collection in Azu
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/31/2023
+ms.date: 07/26/2024
 ms.reviewer: bwren
 
 ---
@@ -42,7 +42,7 @@ The following table shows the configuration steps required to collect all availa
 
 ### Collect tenant and subscription logs
 
-The [Microsoft Entra logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically. When you send them to a Log Analytics workspace, you can analyze these events with other log data by using log queries in Log Analytics. You can also create log query alerts, which are the only way to alert on Microsoft Entra logs and provide more complex logic than activity log alerts.
+The [Microsoft Entra logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [activity log](essentials/platform-logs-overview.md) for your subscription are collected automatically. When you send them to a Log Analytics workspace, you can analyze these events with other log data by using log queries in Log Analytics. You can also create log search alerts, which are the only way to alert on Microsoft Entra logs and provide more complex logic than activity log alerts.
 
 There's no cost for sending the activity log to a workspace, but there's a data ingestion and retention charge for Microsoft Entra logs.
 
@@ -66,7 +66,7 @@ Insights provide a specialized monitoring experience for a particular service. T
 
 There's no cost for insights, but you might be charged for any data they collect.
 
-See [What is monitored by Azure Monitor?](monitor-reference.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
+See [Azure Monitor Insights overview](insights/insights-overview.md) for a list of available insights and solutions in Azure Monitor. See the documentation for each for any unique configuration or pricing information.
 
 > [!IMPORTANT]
 > The following insights are much more complex than others and have more guidance for their configuration:
@@ -94,7 +94,7 @@ Application Insights is the feature of Azure Monitor for monitoring your cloud n
 You can create a resource in Application Insights for each application that you're going to monitor or a single application resource for multiple applications. Whether to use separate or a single application resource for multiple applications is a fundamental decision of your monitoring strategy. Separate resources can save costs and prevent mixing data from different applications, but a single resource can simplify your monitoring by keeping all relevant telemetry together. See [How many Application Insights resources should I deploy](app/create-workspace-resource.md#how-many-application-insights-resources-should-i-deploy) for criteria to help you make this design decision. 
 
 When you create the application resource, you must select whether to use classic or workspace based. See [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource) to create a classic application.
-See [Workspace-based Application Insights resources](app/create-workspace-resource.md) to create a workspace-based application. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separately from your Log Analytics workspace as described in [Data structure](logs/log-analytics-workspace-overview.md#data-structure).
+See [Workspace-based Application Insights resources](app/create-workspace-resource.md) to create a workspace-based application. Log data collected by Application Insights is stored in Azure Monitor Logs for a workspace-based application. Log data for classic applications is stored separately from your Log Analytics workspace.
 
 ### Configure codeless or code-based monitoring
 

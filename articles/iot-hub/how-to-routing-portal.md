@@ -34,7 +34,7 @@ To create an IoT hub route, you need an IoT hub that you created by using Azure 
 
 Be sure to have the following hub resource to use when you create your IoT hub route:
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ### Endpoint service
 
@@ -68,7 +68,7 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    | Parameter | Value |
    | --------- | ----- |
-   | **Endpoint type** | Select **Cosmos DB (preview)**. |
+   | **Endpoint type** | Select **Cosmos DB**. |
    | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Storage endpoint. |
    | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
    | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |

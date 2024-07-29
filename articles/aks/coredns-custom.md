@@ -49,7 +49,7 @@ You can customize CoreDNS with AKS to perform on-the-fly DNS name rewrites.
          log
          errors
          rewrite stop {
-           name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+           name regex (.*)\.<domain to be rewritten>\.com {1}.default.svc.cluster.local
            answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
          }
          forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
@@ -295,3 +295,4 @@ To learn more about core network concepts, see [Network concepts for application
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
 [aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
+

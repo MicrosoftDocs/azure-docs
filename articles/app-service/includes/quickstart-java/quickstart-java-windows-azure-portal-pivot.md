@@ -237,9 +237,9 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
     ```java
     @RequestMapping("/")
-	String sayHello() {
-		return "Hello Azure!";
-	}
+    String sayHello() {
+        return "Hello Azure!";
+    }
     ```
 
 1. From the **Source Control** pane, select the **Stage Changes** button to stage the change.

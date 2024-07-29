@@ -27,7 +27,7 @@ In this article, you'll learn how to start collecting Airflow Logs for your Micr
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Azure Data Manager for Energy instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Azure Data Manager for Energy instance comes inbuilt with an Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics workspace

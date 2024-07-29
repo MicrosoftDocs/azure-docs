@@ -2,12 +2,10 @@
 title: Azure Notification Hubs Samples
 description: A list of available Azure Notification Hubs samples.
 services: notification-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: sethm

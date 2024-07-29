@@ -2,18 +2,16 @@
 title: Set up sign-up and sign-in with a PingOne account
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with PingOne accounts in your applications using Azure Active Directory B2C.
-
 author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: how-to
 ms.date: 12/2/2021
-ms.custom: 
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating PingOne with Azure Active Directory B2C, I want to set up sign-up and sign-in with a PingOne account, so that users can authenticate using their PingOne credentials.
 ---
 
 # Set up sign-up and sign-in with a PingOne account using Azure Active Directory B2C

@@ -1,0 +1,194 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/backup/backup-afs.md",
+            "redirect_url": "/azure/backup/backup-azure-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-arm-vms.md",
+            "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-backup-ibiza-faq.md",
+            "redirect_url": "/azure/backup/backup-azure-backup-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-backup-server-import-export-.md",
+            "redirect_url": "/azure/backup/backup-azure-backup-server-import-export",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-configure-reports.md",
+            "redirect_url": "/azure/backup/configure-reports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-dpm-introduction-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-dpm-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-log-analytics-data-model.md",
+            "redirect_url": "/azure/backup/backup-azure-diagnostics-mode-data-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-log-analytics-new-data-model.md",
+            "redirect_url": "/azure/backup/backup-azure-reports-data-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-manage-vms-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-manage-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-manage-windows-server-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-manage-windows-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-microsoft-azure-backup-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-microsoft-azure-backup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-monitor-vms.md",
+            "redirect_url": "/azure/backup/backup-azure-monitoring-built-in-monitor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-restore-vms.md",
+            "redirect_url": "/azure/backup/backup-azure-arm-restore-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-restore-windows-server-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-restore-windows-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-upgrade-backup-to-recovery-services.md",
+            "redirect_url": "/azure/backup/backup-create-rs-vault",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-vms-classic-automation.md",
+            "redirect_url": "/azure/backup/backup-azure-vms-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-vms-first-look.md",
+            "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-vms-prepare.md",
+            "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-vms-troubleshoot-classic.md",
+            "redirect_url": "/azure/backup/backup-azure-vms-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-azure-vms.md",
+            "redirect_url": "/azure/backup/backup-azure-arm-vms",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-center-community.md",
+            "redirect_url": "/azure/backup/backup-center-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-client-automation-classic.md",
+            "redirect_url": "/azure/backup/backup-client-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-configure-vault-classic.md",
+            "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-configure-vault.md",
+            "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-create-rs-vault.md",
+            "redirect_url": "/azure/backup/backup-create-recovery-services-vault",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-dpm-automation-classic.md",
+            "redirect_url": "/azure/backup/backup-dpm-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-introduction-to-azure-backup.md",
+            "redirect_url": "/azure/backup/backup-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-mabs-upgrade-to-v2.md",
+            "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-security-attributes.md",
+            "redirect_url": "/azure/backup/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-security-controls.md",
+            "redirect_url": "/azure/backup/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-sql-server-azure-vms.md",
+            "redirect_url": "/azure/backup/backup-azure-sql-database",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-try-azure-backup-in-10-mins.md",
+            "redirect_url": "/azure/backup/backup-windows-with-mars-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/backup-upgrade-backup-vault.md",
+            "redirect_url": "/azure/backup/backup-azure-backup-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/policy-samples.md",
+            "redirect_url": "/azure/backup/policy-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/sap-hana-db-about.md",
+            "redirect_url": "/azure/backup/sap-hana-database-about",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/sap-hana-db-manage.md",
+            "redirect_url": "/azure/backup/sap-hana-database-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/sap-hana-db-restore.md",
+            "redirect_url": "/azure/backup/sap-hana-database-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/backup/tutorial-backup-azure-files.md",
+            "redirect_url": "/azure/backup/backup-afs",
+            "redirect_document_id": false
+        }
+    ]
+}

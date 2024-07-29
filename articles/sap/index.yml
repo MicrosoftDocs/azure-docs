@@ -141,7 +141,9 @@ landingContent:
           - text: How to configure M365 Exchange Online for SAP
             url: ./workloads/exchange-online-integration-sap-email-outbound.md
           - text: How to expose SAP Process Orchestration on Azure securely
-            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+            url: ./workloads/expose-sap-process-orchestration-on-azure.md
+          - text: How to configure SAP printing with Microsoft Universal Print
+            url: ./workloads/universal-print-sap-frontend.md
       - linkListType: quickstart
         links:
           - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click

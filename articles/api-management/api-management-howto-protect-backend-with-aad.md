@@ -1,5 +1,5 @@
 ---
-title: Protect API in API Management using OAuth 2.0 and Microsoft Entra ID 
+title: Protect API in API Management using OAuth 2.0 and Microsoft Entra ID
 titleSuffix: Azure API Management
 description: Learn how to secure user access to an API in Azure API Management with OAuth 2.0 user authorization and Microsoft Entra ID.
 services: api-management
@@ -8,10 +8,11 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/27/2022
 ms.author: danlep
-ms.custom: contperf-fy21q1
 ---
 
 # Protect an API in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID 
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 In this article, you'll learn high level steps to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Microsoft Entra ID](../active-directory/develop/active-directory-v2-protocols.md).
 

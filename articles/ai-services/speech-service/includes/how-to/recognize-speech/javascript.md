@@ -91,7 +91,7 @@ function fromStream() {
 fromStream();
 ```
 
-Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header hasn't been skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
+Using a push stream as input assumes that the audio data is a raw pulse-code modulation (PCM) data that skips any headers. The API still works in certain cases if the header wasn't skipped. For the best results, consider implementing logic to read off the headers so that `fs` begins at the *start of the audio data*.
 
 ## Handle errors
 
@@ -194,13 +194,13 @@ The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-sp
 
 ## Language identification
 
-You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
+You can use [language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text) with speech to text recognition when you need to identify the language in an audio source and then transcribe it to text.
 
-For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript#speech-to-text).
+For a complete code sample, see [Language identification](../../../language-identification.md?pivots=programming-language-javascript#use-speech-to-text).
 
 ## Use a custom endpoint
 
-With [Custom Speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
+With [custom speech](../../../custom-speech-overview.md), you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. The following example shows how to set a custom endpoint.
 
 ```javascript
 var speechConfig = SpeechSDK.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");

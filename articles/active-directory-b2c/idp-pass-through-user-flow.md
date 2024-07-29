@@ -9,11 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/16/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C with my application, I want to pass the access token from an identity provider to my application, so that I can retrieve information about the user and enable seamless sign-up and sign-in experiences.
+
 ---
 
 # Pass an identity provider access token to your application in Azure Active Directory B2C

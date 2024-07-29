@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
-ms.date: 11/15/2023
+ms.date: 03/29/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -95,6 +95,12 @@ Follow these steps to view your protected items:
     - Retention in secondary
 
     :::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/protected-items-retention-table.png" alt-text="Screenshot shows the protected items in the retention table." lightbox="./media/tutorial-view-protected-items-and-perform-actions/protected-items-retention-table.png":::
+
+You can also query information on protection for your resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. 
+
+To get started with querying information on protection for your resources using ARG, you can use the sample query provided, by selecting **Open query**.
+
+:::image type="content" source="./media/tutorial-view-protected-items-and-perform-actions/query-protection-details.png" alt-text="Screenshot shows how to get sample query to view protected resource details." lightbox="./media/tutorial-view-protected-items-and-perform-actions/query-protection-details.png":::
 
 ## View Protected item details
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: azure-ai-content-safety
 ms.custom: build-2023
 ms.topic: overview
-ms.date: 04/07/2023
+ms.date: 02/27/2024
 ms.author: pafarley
 ---
 
@@ -16,16 +16,43 @@ ms.author: pafarley
 
 Learn what's new in the service. These items might be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## July 2024
+
+### Custom categories (standard) API
+
+The custom categories API lets you create and train your own custom content categories and scan text for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
+
+## May 2024
+
+
+### Custom categories (rapid) API
+
+The custom categories (rapid) API lets you quickly define emerging harmful content patterns and scan text and images for matches. See [Custom categories](./concepts/custom-categories.md) to learn more.
+
+## March 2024
+
+### Prompt Shields public preview
+
+Previously known as **Jailbreak risk detection**, this updated feature detects User Prompt injection attacks, in which users deliberately exploit system vulnerabilities to elicit unauthorized behavior from large language model. Prompt Shields analyzes both direct user prompt attacks and indirect attacks that are embedded in input documents or images. See [Prompt Shields](./concepts/jailbreak-detection.md) to learn more.
+
+### Groundedness detection public preview
+
+The Groundedness detection API detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. Ungroundedness refers to instances where the LLMs produce information that is non-factual or inaccurate from what was present in the source materials. See [Groundedness detection](./concepts/groundedness.md) to learn more.
+
+
 ## January 2024
 
 ### Content Safety SDK GA
 
 The Azure AI Content Safety service is now generally available through the following client library SDKs:
 
-- **C#**: [Package](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [API reference](/dotnet/api/overview/azure/ai.contentsafety-readme?view=azure-dotnet) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0)
-- **Python**: [Package](https://pypi.org/project/azure-ai-contentsafety/) | [API reference](/python/api/overview/azure/ai-contentsafety-readme?view=azure-python) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0)
-- **Java**: [Package](https://oss.sonatype.org/#nexus-search;quick~contentsafety) | [API reference](/java/api/overview/azure/ai-contentsafety-readme?view=azure-java-stable) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0)
-- **JavaScript**: [Package](https://www.npmjs.com/package/@azure-rest/ai-content-safety?activeTab=readme) | [API reference](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0)
+- **C#**: [Package](https://www.nuget.org/packages/Azure.AI.ContentSafety) | [API reference](/dotnet/api/overview/azure/ai.contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/dotnet/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **Python**: [Package](https://pypi.org/project/azure-ai-contentsafety/) | [API reference](/python/api/overview/azure/ai-contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/python/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **Java**: [Package](https://oss.sonatype.org/#nexus-search;quick~contentsafety) | [API reference](/java/api/overview/azure/ai-contentsafety-readme) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/java/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+- **JavaScript**: [Package](https://www.npmjs.com/package/@azure-rest/ai-content-safety?activeTab=readme) | [API reference](https://www.npmjs.com/package/@azure-rest/ai-content-safety/v/1.0.0) | [Samples](https://github.com/Azure-Samples/AzureAIContentSafety/tree/main/js/1.0.0) | Quickstarts: [Text](./quickstart-text.md), [Image](./quickstart-image.md)
+
+> [!IMPORTANT]
+> The public preview versions of the Azure AI Content Safety SDKs will be deprecated by March 31, 2024. Please update your applications to use the GA versions.
 
 ## November 2023
 
@@ -36,7 +63,7 @@ The new Jailbreak risk detection and Protected material detection APIs let you m
 - Jailbreak risk detection scans text for the risk of a [jailbreak attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md)
 - Protected material text detection scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)
 
-Jailbreak risk and Protected material detection are available in the East US and West Europe Azure regions.
+Jailbreak risk and Protected material detection are only available in select regions. See [Region availability](/azure/ai-services/content-safety/overview#region-availability).
 
 ## October 2023
 

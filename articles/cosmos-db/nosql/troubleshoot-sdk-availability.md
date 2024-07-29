@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.date: 03/10/2023
 ms.author: maquaran
 ms.subservice: nosql
-ms.custom: ignite-2022
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
 ---

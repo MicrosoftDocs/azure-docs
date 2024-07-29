@@ -1,17 +1,14 @@
 ---
 title: High availability for SAP HANA on Azure VMs on SLES
 description: Learn how to set up and use high availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server.
-services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.date: 10/03/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 06/18/2024
 ms.author: radeltch
-
 ---
 # High availability for SAP HANA on Azure VMs on SUSE Linux Enterprise Server
 
@@ -30,8 +27,12 @@ ms.author: radeltch
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
 [401162]:https://launchpad.support.sap.com/#/notes/401162
+[2235581]:https://launchpad.support.sap.com/#/notes/2235581
+[2684254]:https://launchpad.support.sap.com/#/notes/2684254
 
-[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
+[sles-for-sap-bp]:https://documentation.suse.com/sbp-supported.html
+[sles-for-sap-bp12]:https://documentation.suse.com/sbp/sap-12/
+[sles-for-sap-bp15]:https://documentation.suse.com/sbp/sap-15/
 
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 
@@ -46,14 +47,14 @@ This article describes how to deploy and configure the VMs, install the cluster 
 Before you begin, read the following SAP Notes and papers:
 
 - SAP Note [1928533]. The note includes:
-
   - The list of Azure VM sizes that are supported for the deployment of SAP software.
   - Important capacity information for Azure VM sizes.
   - The supported SAP software, operating system (OS), and database combinations.
   - The required SAP kernel versions for Windows and Linux on Microsoft Azure.
 - SAP Note [2015553] lists the prerequisites for SAP-supported SAP software deployments in Azure.
-- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server (SLES) for SAP Applications.
-- SAP Note [1944799] has SAP HANA guidelines for SLES for SAP Applications.
+- SAP Note [2205917] has recommended OS settings for SUSE Linux Enterprise Server 12 (SLES 12) for SAP Applications.
+-  SAP Note [2684254] has recommended OS settings for SUSE Linux Enterprise Server 15 (SLES 15) for SAP Applications.
+- SAP Note [2235581] has SAP HANA supported Operating systems
 - SAP Note [2178632] has detailed information about all the monitoring metrics that are reported for SAP in Azure.
 - SAP Note [2191498] has the required SAP host agent version for Linux in Azure.
 - SAP Note [2243692] has information about SAP licensing for Linux in Azure.
@@ -65,10 +66,9 @@ Before you begin, read the following SAP Notes and papers:
 - [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide] guide.
 - [Azure Virtual Machines deployment for SAP on Linux][deployment-guide] guide.
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide] guide.
-- [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]:
-
-  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications 12 SP1). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
-  - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications 12 SP1).
+- [SUSE Linux Enterprise Server for SAP Applications 15 best practices guides][sles-for-sap-bp15] and [SUSE Linux Enterprise Server for SAP Applications 12 best practices guides][sles-for-sap-bp12]:
+  - Setting up an SAP HANA SR Performance Optimized Infrastructure (SLES for SAP Applications). The guide contains all the required information to set up SAP HANA system replication for on-premises development. Use this guide as a baseline.
+  - Setting up an SAP HANA SR Cost Optimized Infrastructure (SLES for SAP Applications).
 
 ## Plan for SAP HANA high availability
 
@@ -83,7 +83,7 @@ The preceding figure shows an *example* load balancer that has these configurati
 - Front-end IP address: 10.0.0.13 for HN1-db
 - Probe port: 62503
 
-## Deploy for Linux
+## Prepare the infrastructure
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications. An image for SUSE Linux Enterprise Server for SAP Applications 12 or 15 is available in Azure Marketplace. You can use the image to deploy new VMs.
 
@@ -91,55 +91,38 @@ The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for 
 
 This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
-Deploy virtual machines for SAP HANA. Choose a suitable SLES image that is supported for HANA system. You can deploy VM in any one of the availability options - scale set, availability zone or availability set.
+Deploy virtual machines for SAP HANA. Choose a suitable SLES image that is supported for HANA system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
 
 > [!IMPORTANT]
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. If you are creating a new load balancer, follow below steps -
+### Configure Azure load balancer
 
-1. Set up a standard load balancer.
-   1. Create a front-end IP pool:
-      1. Open the load balancer, select **frontend IP pool**, and then select **Add**.
-      2. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      3. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-      4. Select **OK**.
-      5. After the new front-end IP pool is created, note the pool IP address.
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
 
-   2. Create a single back-end pool:
-      1. In the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **hana-backend**).
-      3. For **Backend Pool Configuration**, select **NIC**.
-      4. Select **Add a virtual machine**.
-      5. Select the VMs that are in the HANA cluster.
-      6. Select **Add**.
-      7. Select **Save**.
+#### [Azure Portal](#tab/lb-portal)
 
-   3. Create a health probe:
-      1. In the load balancer, select **health probes**, and then select **Add**.
-      2. Enter the name of the new health probe (for example, **hana-hp**).
-      3. For **Protocol**, select **TCP** and select port **625\<instance number\>**. Keep **Interval** set to **5**.
-      4. Select **OK**.
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
-   4. Create the load-balancing rules:
-      1. In the load balancer, select **load balancing rules**, and then select **Add**.
-      2. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      3. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
-      4. Increase the idle timeout to 30 minutes.
-      5. Select **HA Ports**.
-      6. Enable **Floating IP**.
-      7. Select **OK**.
+#### [Azure CLI](#tab/lb-azurecli)
 
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
-> [!IMPORTANT]
-> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
+#### [PowerShell](#tab/lb-powershell)
+
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
+
+---
+
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].  
 
 > [!NOTE]
 > When VMs that don't have public IP addresses are placed in the back-end pool of an internal (no public IP address) standard instance of Azure Load Balancer, the default configuration is no outbound internet connectivity. You can take extra steps to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs by using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
-> Don't enable TCP timestamps on Azure VMs that are placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) or SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+>
+> - Don't enable TCP timestamps on Azure VMs that are placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) or SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> - To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ## Create a Pacemaker cluster
 
@@ -293,7 +276,7 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
    To install SAP HANA system replication, review chapter 4 in the [SAP HANA SR Performance Optimized Scenario](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/) guide.
 
-1. **[A]** Run the **hdblcm** program from the HANA DVD.
+1. **[A]** Run the **hdblcm** program from the HANA installation media.
 
    When you're prompted, enter the following values:
 
@@ -789,7 +772,7 @@ You can migrate the SAP HANA master node by running the following command:
 crm resource move msl_SAPHana_<HANA SID>_HDB<instance number> hn1-db-1 force
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this sequence of commands migrates the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`.
 
 When the migration is finished, the `crm_mon -r` output looks like this example:
 
@@ -811,7 +794,7 @@ Failed Actions:
     last-rc-change='Mon Aug 13 11:31:37 2018', queued=0ms, exec=2095ms
 ```
 
-The SAP HANA resource on `hn1-db-0` fails to start as secondary. In this case, configure the HANA instance as secondary by running this command:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running this command:
 
 ```bash
 su - <hana sid>adm
@@ -880,7 +863,7 @@ Execute firewall rule to block the communication on one of the nodes.
 
 When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes will try to simultaneously fence each other, resulting in fence race.
 
-When configuring a fencing device, it's recommended to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay will be selected for fencing. 
+When configuring a fencing device, it's recommended to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay will be selected for fencing.
 
 Additionally, to ensure that the node running the HANA master takes priority and wins the fence race in a split brain scenario, it's recommended to set  [`priority-fencing-delay`](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing) property in the cluster configuration. By enabling priority-fencing-delay property, the cluster can introduce an additional delay in the fencing action specifically on the node hosting HANA master resource, allowing the node to win the fence race.
 

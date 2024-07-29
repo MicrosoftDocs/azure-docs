@@ -101,8 +101,7 @@ Ensure you provide the remote user the VMware VRM administrator and VMware SRM a
 
 
 > [!NOTE]
-> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.5.0.3.
-
+> The current version of VMware Site Recovery Manager (SRM) in Azure VMware Solution is 8.7.0.3.
 1. From the **Disaster Recovery Solution** drop-down, select **VMware Site Recovery Manager (SRM) – vSphere Replication**. 
 
    :::image type="content" source="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png" alt-text="Screenshot showing the Disaster recovery tab under Add-ons with VMware Site Recovery Manager (SRM) - vSphere replication selected." border="true" lightbox="media/VMware-srm-vsphere-replication/disaster-recovery-solution-srm-add-on.png":::
@@ -306,7 +305,7 @@ VMware and Microsoft support teams engage each other as needed to troubleshoot V
 - [Operational Limits of vSphere Replication 8.3](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-E114BAB8-F423-45D4-B029-91A5D551AC47.html)
 - [Calculate bandwidth for vSphere Replication](https://docs.vmware.com/en/vSphere-Replication/8.3/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 - [SRM installation and configuration](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-B3A49FFF-E3B9-45E3-AD35-093D896596A0.html)
-- [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/8.2/com.vmware.vsphere.replication-admin.doc/GUID-35C0A355-C57B-430B-876E-9D2E6BE4DDBA.html)
+- [vSphere Replication administration](https://docs.vmware.com/en/vSphere-Replication/index.html)
 - [Prerequisites and Best Practices for SRM installation](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)
 - [Network ports for SRM](https://docs.vmware.com/en/Site-Recovery-Manager/8.3/com.vmware.srm.install_config.doc/GUID-499D3C83-B8FD-4D4C-AE3D-19F518A13C98.html)
 - [Network ports for vSphere Replication](https://kb.vmware.com/s/article/2087769)

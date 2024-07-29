@@ -6,7 +6,7 @@ ms.reviewer: mcville
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/29/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -22,7 +22,7 @@ The steps that a partner takes are documented at [Transfer a customer's Azure su
 
 Access to existing users, groups, or service principals that were assigned using Azure role-based access control (Azure RBAC) isn't affected during the transition. [Azure RBAC](../../role-based-access-control/overview.md) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. Your new partner isn't given any Azure RBAC access to your resources by the subscription transfer. Your previous partner keeps their Azure RBAC access.
 
-Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's Azure RBAC access, see [Remove Azure role assignments](../../role-based-access-control/role-assignments-remove.md).
+Consequently, it's important that you remove Azure RBAC access for the old partner and add access for the new partner. For more information about giving your new partner access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) For more information about removing your previous partner's Azure RBAC access, see [Remove Azure role assignments](../../role-based-access-control/role-assignments-remove.yml).
 
 Additionally, your new partner doesn't automatically get Admin on Behalf Of (AOBO) access to your subscriptions. AOBO is necessary for your partner to manage the Azure subscriptions on your behalf. For more information about Azure privileges, see [Obtain permissions to manage a customer's service or subscription](/partner-center/customers-revoke-admin-privileges).
 
@@ -36,7 +36,7 @@ After you receive confirmation that a transfer request was submitted, you can us
 
 You can also seek help, report misconduct, or suspicious activity using any of the options at the [Microsoft Legal](https://www.microsoft.com/legal/) web site. The option to report a concern is under Compliance & ethics.
 
-## Next steps
+## Related content
 
 - To give your new partner Azure RBAC access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Obtain permissions to manage a customers service or subscription](/partner-center/customers-revoke-admin-privileges).

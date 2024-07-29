@@ -2,7 +2,7 @@
  title: include file
  description: include file
  services: cosmos-db
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).

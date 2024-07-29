@@ -1,11 +1,12 @@
 ---
 title: IT Service Management integration
 description: This article provides an overview of the ways you can integrate with an IT Service Management product.
+ms.author: abbyweisberg
+ms.reviewer: nolavime
 ms.topic: conceptual
 ms.date: 06/19/2023
-ms.custom: nolavime
-
 ---
+
 # IT Service Management integration
 
 :::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
@@ -14,7 +15,7 @@ This article describes how you can integrate Azure Monitor with supported IT Ser
 
 Azure services like Log Analytics and Azure Monitor provide tools to detect, analyze, and troubleshoot problems with your Azure and non-Azure resources. But the work items related to an issue typically reside in an ITSM product or service.
 
-Azure Monitor provides a bidirectional connection between Azure and ITSM tools to help you resolve issues faster. You can create work items in your ITSM tool based on your Azure metric alerts, activity log alerts, and Log Analytics alerts.
+Azure Monitor provides a bidirectional connection between Azure and ITSM tools to help you resolve issues faster. You can create work items in your ITSM tool based on your Azure metric alerts, activity log alerts, and log search alerts.
 
 Azure Monitor supports connections with the following ITSM tools:
 
@@ -37,7 +38,7 @@ Depending on your integration, start connecting to your ITSM tool with these ste
 
     > [!NOTE]
     > As of September 2022, we are starting the 3-year process of deprecating support for using ITSM actions to send alerts and events to ServiceNow. For information about legal terms and the privacy policy, see the [Microsoft privacy statement](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
-    > As of October 2023, we are not supporting UI creation of connector for using ITSM actions to send alerts and events to ServiceNow. Until full deprecation the action creation should be by [API](https://learn.microsoft.com/rest/api/monitor/action-groups/create-or-update?view=rest-monitor-2021-09-01&tabs=HTTP).
+    > As of October 2023, we are not supporting UI creation of connector for using ITSM actions to send alerts and events to ServiceNow. Until full deprecation the action creation should be by [API](/rest/api/monitor/action-groups/create-or-update?tabs=HTTP).
 
     1. Connect to your ITSM. For more information, see the [ServiceNow connection instructions](./itsmc-connections-servicenow.md).
     1. (Optional) Set up the IP ranges. To list the ITSM IP addresses to allow ITSM connections from partner ITSM tools, list the whole public IP range of an Azure region where the Log Analytics workspace belongs. For more information, see the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56519). For regions EUS/WEU/WUS2/US South Central, the customer can list the ActionGroup network tag only.

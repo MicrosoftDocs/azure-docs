@@ -1,11 +1,11 @@
 ---
 #services: cognitive-services
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.author: aahi
+ms.author: jboback
 ---
 
 1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
@@ -24,4 +24,3 @@ You can select the model name for more details about its performance.
      
     > [!NOTE] 
     > If you don't see any of the intents you have in your model displayed here, it is because they weren't in any of the utterances that were used for the test set.
-    

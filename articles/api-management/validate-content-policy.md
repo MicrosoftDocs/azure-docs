@@ -6,11 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/05/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Validate content
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `validate-content` policy validates the size or content of a request or response body against one or more [supported schemas](#schemas-for-content-validation).
 
 The following table shows the schema formats and request or response content types that the policy supports. Content type values are case insensitive. 
@@ -40,11 +43,11 @@ The policy validates the following content in the request or response against th
 ## Policy statement
 
 ```xml
-<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
+<validate-content unspecified-content-type-action="ignore | prevent | detect" max-size="size in bytes" size-exceeded-action="ignore | prevent | detect" errors-variable-name="variable name">
     <content-type-map any-content-type-value="content type string" missing-content-type-value="content type string">
         <type from | when="content type string" to="content type string" />
     </content-type-map>
-    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
+    <content type="content type string" validate-as="json | xml | soap" schema-id="schema id" schema-ref="#/local/reference/path" action="ignore | prevent | detect" allow-additional-properties="true | false" />
 </validate-content>
 ```
 
@@ -94,7 +97,7 @@ The policy validates the following content in the request or response against th
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 
@@ -161,6 +164,6 @@ In the following example, API Management interprets any request as a request wit
 
 ## Related policies
 
-* [API Management validation policies](validation-policies.md)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

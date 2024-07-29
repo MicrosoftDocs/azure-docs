@@ -1,16 +1,13 @@
 ---
 title: Azure role assignment condition format and syntax - Azure ABAC
 description: Get an overview of the format and syntax of Azure role assignment conditions for Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.author: rolyon
-
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
@@ -250,7 +247,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | [Environment](#environment-attributes) | Attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Environment](#environment-attributes) | Attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br> | `@Environment` |
 > | [Principal](#principal-attributes) | Attribute is a custom security attribute assigned to the principal, such as a user or enterprise application (service principal). | `@Principal` |
 > | [Request](#request-attributes) | Attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Attribute is a property of the resource, such as a container name. | `@Resource` |
@@ -264,10 +261,6 @@ For a complete list of the storage attributes you can use in conditions, see:
 
 Environment attributes are associated with the circumstances under which the access request is made, such as the date and time of day or the network environment. The network environment might be whether access is over a specific private endpoint or a virtual network subnet, or perhaps over any private link.
 
-> [!IMPORTANT]
-> Environment attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 The following table lists the supported environment attributes for conditions.
 
 | Display name | Description | Attribute | Type |
@@ -279,7 +272,7 @@ The following table lists the supported environment attributes for conditions.
 
 <sup>1</sup> For copy operations, the `Is private link`, `Private endpoint`, and `Subnet` attributes only apply to the destination, such a storage account, not the source. For more information about the copy operations this applies to, select each attribute in the table to see more details.<br />
 <sup>2</sup> You can only use the `Private endpoint` attribute if you currently have at least one private endpoint configured in your subscription.<br />
-<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet configured in your subscription.<br />
+<sup>3</sup> You can only use the `Subnet` attribute if you currently have at least one virtual network subnet using [service endpoints](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) configured in your subscription.<br />
 
 #### Principal attributes
 

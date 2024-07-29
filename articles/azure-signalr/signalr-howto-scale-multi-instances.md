@@ -31,7 +31,7 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### Add multiple endpoints from code
 
-A `ServicEndpoint` class describes the properties of an Azure SignalR Service endpoint.
+A `ServiceEndpoint` class describes the properties of an Azure SignalR Service endpoint.
 You can configure multiple instance endpoints when using Azure SignalR Service SDK through:
 ```cs
 services.AddSignalR()

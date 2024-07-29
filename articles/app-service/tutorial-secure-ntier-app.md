@@ -53,11 +53,11 @@ What you'll learn:
 
 The tutorial uses two sample Node.js apps that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 To complete this tutorial:
 
-[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/articles/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
 
 ## 1. Create two instances of a web app
 
@@ -267,7 +267,7 @@ Now that the back-end SCM site is publicly accessible, you need to lock it down 
 
 ## 7. Use a service principal for GitHub Actions deployment
 
-Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Deploy to App Service](deploy-github-actions.md?tabs=userlevel#deploy-to-app-service).
+Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#3-add-the-workflow-file-to-your-github-repository).
 
 1. Open one of your forked GitHub repositories and go to the `<repo-name>/.github/workflows/` directory.
 
@@ -402,7 +402,7 @@ This command may take a few minutes to run.
 
 #### Is there an alternative to deployment using a service principal?
 
-Since in this tutorial you've [disabled basic auth](#5-lock-down-ftp-and-scm-access), you can't authenticate with the back end SCM site with a username and password, and neither can you with a publish profile. Instead of a service principal, you can also use [OpenID Connect](deploy-github-actions.md?tabs=openid#deploy-to-app-service).
+Since in this tutorial you've [disabled basic auth](#5-lock-down-ftp-and-scm-access), you can't authenticate with the back end SCM site with a username and password, and neither can you with a publish profile. Instead of a service principal, you can also use [OpenID Connect](deploy-github-actions.md?tabs=openid).
 
 #### What happens when I configure GitHub Actions deployment in App Service?
 

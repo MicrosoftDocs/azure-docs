@@ -1,41 +1,42 @@
 ---
-title: Create a policy assignment with Bicep file
-description: In this quickstart, you use a Bicep file to create an Azure policy assignment that identifies non-compliant resources.
-ms.date: 01/08/2024
+title: "Quickstart: Create policy assignment using Bicep file"
+description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using a Bicep file.
+ms.date: 02/26/2024
 ms.topic: quickstart
-ms.custom: subject-bicepqs, devx-track-bicep
+ms.custom: subject-bicepqs, devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a policy assignment to identify non-compliant resources by using a Bicep file
 
-In this quickstart, you use a Bicep file to create a policy assignment that validates resource's compliance with an Azure policy. The policy is assigned to a resource group scope and audits if virtual machines use managed disks. Virtual machines deployed in the resource group that don't use managed disks are _non-compliant_ with the policy assignment.
+In this quickstart, you use a Bicep file to create a policy assignment that validates resource's compliance with an Azure policy. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
-> [!NOTE]
-> Azure Policy is a free service. For more information, go to [Overview of Azure Policy](./overview.md).
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Bicep](../../azure-resource-manager/bicep/install.md).
-- [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
+- [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
-- `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription.
+- `Microsoft.PolicyInsights` must be [registered](../../azure-resource-manager/management/resource-providers-and-types.md) in your Azure subscription. To register a resource provider, you must have permission to register resource providers. That permission is included in the Contributor and Owner roles.
+- A resource group with at least one virtual machine that doesn't use managed disks.
 
 ## Review the Bicep file
 
-The Bicep file creates a policy assignment for a resource group scope and assigns the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json). For a list of available built-in policies, see [Azure Policy samples](./samples/index.md).
+The Bicep file creates a policy assignment for a resource group scope and assigns the built-in policy definition [Audit VMs that do not use managed disks](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json).
 
 Create the following Bicep file as _policy-assignment.bicep_.
 
 1. Open Visual Studio Code and select **File** > **New Text File**.
 1. Copy and paste the Bicep file into Visual Studio Code.
-1. Select **File** > **Save** and use the filename _policy-policy-assignment.bicep_.
+1. Select **File** > **Save** and use the filename _policy-assignment.bicep_.
 
 ```bicep
 param policyAssignmentName string = 'audit-vm-managed-disks'
 param policyDefinitionID string = '/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d'
+param policyDisplayName string = 'Audit VM managed disks'
 
 resource assignment 'Microsoft.Authorization/policyAssignments@2023-04-01' = {
   name: policyAssignmentName
@@ -43,7 +44,7 @@ resource assignment 'Microsoft.Authorization/policyAssignments@2023-04-01' = {
   properties: {
     policyDefinitionId: policyDefinitionID
     description: 'Policy assignment to resource group scope created with Bicep file'
-    displayName: 'audit-vm-managed-disks'
+    displayName: policyDisplayName
     nonComplianceMessages: [
       {
         message: 'Virtual machines should use managed disks'
@@ -56,6 +57,12 @@ output assignmentId string = assignment.id
 ```
 
 The resource type defined in the Bicep file is [Microsoft.Authorization/policyAssignments](/azure/templates/microsoft.authorization/policyassignments).
+
+The Bicep file uses three parameters to deploy the policy assignment:
+
+- `policyAssignmentName` creates the policy assignment named _audit-vm-managed-disks_.
+- `policyDefinitionID` uses the ID of the built-in policy definition. For reference, the commands to get the ID are in the section to deploy the template.
+- `policyDisplayName` creates a display name that's visible in Azure portal.
 
 For more information about Bicep files:
 
@@ -91,111 +98,254 @@ az account set --subscription <subscriptionID>
 
 ---
 
-The following commands create a resource group and deploy the policy definition.
+You can verify if `Microsoft.PolicyInsights` is registered. If it isn't, you can run a command to register the resource provider.
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzResourceGroup -Name "PolicyGroup" -Location "westus"
+Get-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights' |
+   Select-Object -Property ResourceTypes, RegistrationState
 
-New-AzResourceGroupDeployment `
-  -Name PolicyDeployment `
-  -ResourceGroupName PolicyGroup `
-  -TemplateFile policy-assignment.bicep
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+```
+
+For more information, go to [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) and [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az provider show \
+  --namespace Microsoft.PolicyInsights \
+  --query "{Provider:namespace,State:registrationState}" \
+  --output table
+
+az provider register --namespace Microsoft.PolicyInsights
+```
+
+The Azure CLI commands use a backslash (`\`) for line continuation to improve readability. For more information, go to [az provider](/cli/azure/provider).
+
+---
+
+The following commands display the `policyDefinitionID` parameter's value:
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+(Get-AzPolicyDefinition |
+  Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }).ResourceId
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az group create --name "PolicyGroup" --location "westus"
-
-az deployment group create \
-  --name PolicyDeployment \
-  --resource-group PolicyGroup \
-  --template-file policy-assignment.bicep
+az policy definition list \
+  --query "[?displayName=='Audit VMs that do not use managed disks']".id \
+  --output tsv
 ```
 
 ---
 
-The Bicep file outputs the policy `assignmentId`. You create a variable for the policy assignment ID in the commands that validate the deployment.
-
-## Validate the deployment
-
-After the policy assignment is deployed, virtual machines that are deployed to the _PolicyGroup_ resource group are audited for compliance with the managed disk policy.
-
-1. Sign in to [Azure portal](https://portal.azure.com)
-1. Go to **Policy** and select **Compliance** on the left side of the page.
-1. Search for the _audit-vm-managed-disks_ policy assignment.
-
-The **Compliance state** for a new policy assignment is shown as **Not started** because it takes a few minutes to become active.
-
-:::image type="content" source="./media/assign-policy-bicep/policy-compliance.png" alt-text="Screenshot of compliance details on the Policy Compliance page.":::
-
-For more information, go to [How compliance works](./concepts/compliance-states.md).
-
-You can also get the compliance state with Azure PowerShell or Azure CLI.
+The following commands deploy the policy definition to your resource group. Replace `<resourceGroupName>` with your resource group name:
 
 # [PowerShell](#tab/azure-powershell)
-```azurepowershell
-# Verifies policy assignment was deployed
-$rg = Get-AzResourceGroup -Name "PolicyGroup"
-Get-AzPolicyAssignment -Name "audit-vm-managed-disks" -Scope $rg.ResourceId
 
-# Shows the number of non-compliant resources and policies
-$policyid = (Get-AzPolicyAssignment -Name "audit-vm-managed-disks" -Scope $rg.ResourceId)
-Get-AzPolicyStateSummary -ResourceId $policyid.ResourceId
+```azurepowershell
+$rg = Get-AzResourceGroup -Name '<resourceGroupName>'
+
+$deployparms = @{
+Name = 'PolicyDeployment'
+ResourceGroupName = $rg.ResourceGroupName
+TemplateFile = 'policy-assignment.bicep'
+}
+
+New-AzResourceGroupDeployment @deployparms
 ```
 
-The `$rg` variable stores the resource group's properties and `Get-AzPolicyAssignment` shows your policy assignment. The `$policyid` variable stores the policy assignment's resource ID, and `Get-AzPolicyStateSummary` shows the number of non-compliant resources and policies.
+The `$rg` variable stores properties for the resource group. The `$deployparms` variable uses [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to create parameter values and improve readability. The `New-AzResourceGroupDeployment` command uses the parameter values defined in the `$deployparms` variable.
+
+- `Name` is the deployment name displayed in the output and in Azure for the resource group's deployments.
+- `ResourceGroupName` uses the `$rg.ResourceGroupName` property to get the name of your resource group where the policy is assigned.
+- `TemplateFile` specifies the Bicep file's name and location on your local computer.
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-# Verifies policy assignment was deployed
-rg=$(az group show --resource-group PolicyGroup --query id --output tsv)
-az policy assignment show --name "audit-vm-managed-disks" --scope $rg
+rgname=$(az group show --resource-group <resourceGroupName> --query name --output tsv)
 
-# Shows the number of non-compliant resources and policies
-policyid=$(az policy assignment show --name "audit-vm-managed-disks" --scope $rg --query id --output tsv)
-az policy state summarize --resource $policyid
+az deployment group create \
+  --name PolicyDeployment \
+  --resource-group $rgname \
+  --template-file policy-assignment.bicep
 ```
 
-The `$rg` variable stores the resource group's properties and `az policy assignment show` displays your policy assignment. The `$policyid` variable stores the policy assignment's resource ID and `az policy state summarize` shows the number of non-compliant resources and policies.
+The `rgname` variable uses an expression to get your resource group's name used in the deployment command.
+
+- `name` is the deployment name displayed in the output and in Azure for the resource group's deployments.
+- `resource-group` is the name of your resource group where the policy is assigned.
+- `template-file` specifies the Bicep file's name and location on your local computer.
+
+---
+
+You can verify the policy assignment's deployment with the following command:
+
+# [PowerShell](#tab/azure-powershell)
+
+The command uses the `$rg.ResourceId` property to get the resource group's ID.
+
+```azurepowershell
+Get-AzPolicyAssignment -Name 'audit-vm-managed-disks' -Scope $rg.ResourceId
+```
+
+```output
+Name               : audit-vm-managed-disks
+ResourceId         : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks
+ResourceName       : audit-vm-managed-disks
+ResourceGroupName  : {resourceGroupName}
+ResourceType       : Microsoft.Authorization/policyAssignments
+SubscriptionId     : {subscriptionId}
+PolicyAssignmentId : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks
+Properties         : Microsoft.Azure.Commands.ResourceManager.Cmdlets.Implementation.Policy.PsPolicyAssignmentProperties
+```
+
+For more information, go to [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+
+# [Azure CLI](#tab/azure-cli)
+
+The `rgid` variable uses an expression to get the resource group's ID used to show the policy assignment.
+
+```azurecli
+rgid=$(az group show --resource-group $rgname --query id --output tsv)
+
+az policy assignment show --name "audit-vm-managed-disks" --scope $rgid
+```
+
+The output is verbose but resembles the following example:
+
+```output
+"description": "Policy assignment to resource group scope created with Bicep file",
+"displayName": "Audit VM managed disks",
+"enforcementMode": "Default",
+"id": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks",
+"identity": null,
+"location": null,
+"metadata": {
+  "createdBy": "11111111-1111-1111-1111-111111111111",
+  "createdOn": "2024-02-20T20:57:09.574944Z",
+  "updatedBy": null,
+  "updatedOn": null
+},
+"name": "audit-vm-managed-disks",
+"nonComplianceMessages": [
+  {
+    "message": "Virtual machines should use managed disks",
+    "policyDefinitionReferenceId": null
+  }
+]
+```
+
+For more information, go to [az policy assignment](/cli/azure/policy/assignment).
+
+---
+
+## Identify non-compliant resources
+
+After the policy assignment is deployed, virtual machines that are deployed to the resource group are audited for compliance with the managed disk policy.
+
+The compliance state for a new policy assignment takes a few minutes to become active and provide results about the policy's state.
+
+# [PowerShell](#tab/azure-powershell)
+```azurepowershell
+$complianceparms = @{
+ResourceGroupName = $rg.ResourceGroupName
+PolicyAssignmentName = 'audit-vm-managed-disks'
+Filter = 'IsCompliant eq false'
+}
+
+Get-AzPolicyState @complianceparms
+```
+
+The `$complianceparms` variable creates parameter values used in the `Get-AzPolicyState` command.
+
+- `ResourceGroupName` gets the resource group name from the `$rg.ResourceGroupName` property.
+- `PolicyAssignmentName` specifies the name used when the policy assignment was created.
+- `Filter` uses an expression to find resources that aren't compliant with the policy assignment.
+
+Your results resemble the following example and `ComplianceState` shows `NonCompliant`:
+
+```output
+Timestamp                : 2/20/2024 18:55:45
+ResourceId               : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmId}
+PolicyAssignmentId       : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.authorization/policyassignments/audit-vm-managed-disks
+PolicyDefinitionId       : /providers/microsoft.authorization/policydefinitions/06a78e20-9358-41c9-923c-fb736d382a4d
+IsCompliant              : False
+SubscriptionId           : {subscriptionId}
+ResourceType             : Microsoft.Compute/virtualMachines
+ResourceLocation         : {location}
+ResourceGroup            : {resourceGroupName}
+ResourceTags             : tbd
+PolicyAssignmentName     : audit-vm-managed-disks
+PolicyAssignmentOwner    : tbd
+PolicyAssignmentScope    : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}
+PolicyDefinitionName     : 06a78e20-9358-41c9-923c-fb736d382a4d
+PolicyDefinitionAction   : audit
+PolicyDefinitionCategory : tbd
+ManagementGroupIds       : {managementGroupId}
+ComplianceState          : NonCompliant
+AdditionalProperties     : {[complianceReasonCode, ]}
+```
+
+For more information, go to [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+policyid=$(az policy assignment show \
+  --name "audit-vm-managed-disks" \
+  --scope $rgid \
+  --query id \
+  --output tsv)
+
+az policy state list --resource $policyid --filter "(isCompliant eq false)"
+```
+
+The `policyid` variable uses an expression to get the policy assignment's ID. The `filter` parameter limits the output to non-compliant resources.
+
+The `az policy state list` output is verbose, but for this article the `complianceState` shows `NonCompliant`.
+
+```output
+"complianceState": "NonCompliant",
+"components": null,
+"effectiveParameters": "",
+"isCompliant": false,
+```
+
+For more information, go to [az policy state](/cli/azure/policy/state).
 
 ---
 
 ## Clean up resources
 
-To remove the assignment from Azure, follow these steps:
-
-1. Select **Compliance** in the left side of the Azure Policy page.
-1. Locate the _audit-vm-managed-disks_ policy assignment.
-1. Right-click the _audit-vm-managed-disks_ policy assignment and select **Delete
-   assignment**.
-
-   :::image type="content" source="./media/assign-policy-bicep/delete-assignment.png" alt-text="Screenshot of the context menu to delete an assignment from the Policy Compliance page.":::
-
-1. Delete the resource group _PolicyGroup_. Go to the Azure resource group and select **Delete resource group**.
-1. Delete the _policy-assignment.bicep_ file.
-
-You can also delete the policy assignment and resource group with Azure PowerShell or Azure CLI.
-
 # [PowerShell](#tab/azure-powershell)
-```azurepowershell
-Remove-AzPolicyAssignment -Id $policyid.ResourceId
-Remove-AzResourceGroup -Name "PolicyGroup"
 
-# Sign out of Azure
+```azurepowershell
+Remove-AzPolicyAssignment -Name 'audit-vm-managed-disks' -Scope $rg.ResourceId
+```
+
+To sign out of your Azure PowerShell session:
+
+```azurepowershell
 Disconnect-AzAccount
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-az policy assignment delete --name "audit-vm-managed-disks" --scope $rg
-az group delete --name PolicyGroup
+az policy assignment delete --name "audit-vm-managed-disks" --scope $rgid
+```
 
-# Sign out of Azure
+To sign out of your Azure CLI session:
+
+```azurecli
 az logout
 ```
 
@@ -203,10 +353,9 @@ az logout
 
 ## Next steps
 
-In this quickstart, you assigned a built-in policy definition to a resource group scope and reviewed its compliance report. The policy definition audits if the virtual machine resources in the resource group are compliant and identifies resources that aren't compliant.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more about assigning policies to validate that new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [Creating and managing policies](./tutorials/create-and-manage.md)
+> [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

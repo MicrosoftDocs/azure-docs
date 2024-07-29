@@ -61,7 +61,7 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### Remove elevated access for the Global Administrator account
 
-After you've assigned the Monitoring Reader role at root scope to the desired account, be sure to [remove the elevated access](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) for the Global Administrator account, as this level of access will no longer be needed.
+After you've assigned the Monitoring Reader role at root scope to the desired account, be sure to [remove the elevated access](../../role-based-access-control/elevate-access-global-admin.md) for the Global Administrator account, as this level of access will no longer be needed.
 
 ## View delegation changes in the Azure portal
 
@@ -160,7 +160,7 @@ if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/registe
 if ($showOperations.operationName.value -eq "Microsoft.Resources/tenants/unregister/action") {
     $unregisterOutputs = $showOperations | Where-Object -FilterScript { $_.eventName.value -eq "EndRequest" -and $_.resourceType.value -and $_.operationName.value -eq "Microsoft.Resources/tenants/unregister/action" }
     foreach ($unregisterOutput in $unregisterOutputs) {
-        $eventDescription = $registerOutput.description | ConvertFrom-Json;
+        $eventDescription = $unregisterOutput.description | ConvertFrom-Json;
     $unregisterOutputdata = [pscustomobject]@{
         Event                    = "An Azure customer has unregistered delegated resources from your Azure tenant";
         DelegatedResourceId      = $eventDescription.delegationResourceId;

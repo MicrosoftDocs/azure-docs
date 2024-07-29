@@ -1,9 +1,9 @@
 ---
-title: Restore VMs by using the Azure portal
+title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
-ms.reviewer: geg
+ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 09/05/2023
+ms.date: 07/02/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -22,7 +22,7 @@ Azure Backup provides several ways to restore a VM.
 **Restore disk** | Restores a VM disk, which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br> The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> The disks are copied to the Resource Group you specify.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
 **Replace existing** | You can restore a disk, and use it to replace a disk on the existing VM.<br/><br/> The current VM must exist. If it's been deleted, this option can't be used.<br/><br/> Azure Backup takes a snapshot of the existing VM before replacing the disk. The snapshot is copied to the vault and retained in accordance with the retention policy.　<br/><br/> When you choose a Vault-Standard recovery point, a VHD file with the content of the chosen recovery point is also created in the staging location you specify. Existing disks connected to the VM are replaced with the selected restore point. <br/><br/> After the replace disk operation, the original disk is retained in the resource group. You can choose to manually delete the original disks if they aren't needed. <br/><br/>Replace existing is supported for unencrypted managed VMs, including VMs [created using custom images](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/). It's unsupported for classic VMs, unmanaged VMs, and [generalized VMs](../virtual-machines/windows/upload-generalized-managed.md).<br/><br/> If the restore point has more or less disks than the current VM, then the number of disks in the restore point will only reflect the VM configuration.<br><br> Replace existing is also supported for VMs with linked resources, like [user-assigned managed-identity](../active-directory/managed-identities-azure-resources/overview.md) or [Key Vault](../key-vault/general/overview.md).
 **Cross Region (secondary region)** | Cross Region restore can be used to restore Azure VMs in the secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).<br><br> You can restore all the Azure VMs for the selected recovery point if the backup is done in the secondary region.<br><br> During the backup, snapshots aren't replicated to the secondary region. Only the data stored in the vault is replicated. So secondary region restores are only [vault tier](about-azure-vm-restore.md#concepts) restores. The restore time for the secondary region will be almost the same as the vault tier restore time for the primary region.  <br><br> This feature is available for the options below:<br><br> - [Create a VM](#create-a-vm) <br> - [Restore Disks](#restore-disks) <br><br> We don't currently support the [Replace existing disks](#replace-existing-disks) option.<br><br> Permissions<br> The restore operation on secondary region can be performed by Backup Admins and App admins.
-**Cross Subscription Restore** | Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points.  <br><br> Allowed only if the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-preview) is enabled for your Recovery Services vault.  <br><br>  Works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm).   <br><br>   You can trigger Cross Subscription Restore for managed virtual machines only. <br><br> Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for [snapshots tier](backup-azure-vms-introduction.md#snapshot-creation) recovery points. <br><br>  It's unsupported for [unmanaged VMs](#restoring-unmanaged-vms-and-disks-as-managed) and [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-using-ade).
+**Cross Subscription Restore** | Allows you to restore Azure Virtual Machines or disks to a different subscription within the same tenant as the source subscription (as per the Azure RBAC capabilities) from restore points.  <br><br> Allowed only if the [Cross Subscription Restore property](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm) is enabled for your Recovery Services vault.  <br><br>  Works with [Cross Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) and [Cross Zonal Restore](backup-azure-arm-restore-vms.md#create-a-vm).   <br><br>   You can trigger Cross Subscription Restore for managed virtual machines only. <br><br> Cross Subscription Restore is supported for [Restore with Managed System Identities (MSI)](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities). <br><br> It's unsupported for [snapshots tier](backup-azure-vms-introduction.md#snapshot-creation) recovery points. <br><br>  It's unsupported for [unmanaged VMs](#restoring-unmanaged-vms-and-disks-as-managed) and [ADE encrypted VMs](backup-azure-vms-encryption.md#encryption-support-using-ade).
 **Cross Zonal Restore** |	Allows you to restore Azure Virtual Machines or disks pinned to any zone to different available zones (as per the Azure RBAC capabilities) from restore points. Note that when you select a zone to restore, it selects the [logical zone](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) (and not the physical zone) as per the Azure subscription you will use to restore to.           <br><br> You can trigger Cross Zonal Restore for managed virtual machines only. <br><br> Cross Zonal Restore is supported for [Restore with Managed System Identities (MSI)](#restore-vms-with-managed-identities). <br><br> Cross Zonal Restore supports restore of an Azure zone pinned/non-zone pinned VM from a vault with Zonal-redundant storage (ZRS) enabled. Learn [how to set Storage Redundancy](backup-create-rs-vault.md#set-storage-redundancy). <br><br> It's supported to restore an Azure zone pinned VM only from a [vault with Cross Region Restore (CRR)](backup-create-rs-vault.md#set-storage-redundancy) (if the secondary region supports zones) or Zone Redundant Storage (ZRS) enabled. <br><br> Cross Zonal Restore is supported from [secondary regions](#restore-in-secondary-region). <br><br> It's unsupported from [snapshots](backup-azure-vms-introduction.md#snapshot-creation) restore point. <br><br> It's unsupported for [Encrypted Azure VMs](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 >[!Tip]
@@ -128,7 +128,7 @@ As one of the [restore options](#restore-options), you can create a VM quickly w
 As one of the [restore options](#restore-options), you can create a disk from a restore point. Then with the disk, you can do one of the following actions:
 
 - Use the template that's generated during the restore operation to customize settings, and trigger VM deployment. You edit the default template settings, and submit the template for VM deployment.
-- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
+- [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.yml) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**. 
@@ -191,6 +191,24 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
+## Assign network access settings during restore
+
+Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the disk access preferences at the time of initiating the restore.
+
+>[!Note]
+>This feature is generally available for backed-up VMs that use private endpoint-enabled disks. 
+
+To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration), choose one of the following options:
+
+- **Use the same network configurations as the source disk(s)**: This option allows the restored disks to use the disk access and network configurations same as that of the source disks.
+- **Enable public access from all networks**: This option allows the restored disk to be publicly accessible from all networks. 
+- **Disable public access and enable private access (using disk access)**: This option allows you to disable the public access and assign disk access to the restored disks for private access.
+
+ :::image type="content" source="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png" alt-text="Screenshot shows the access configuration options for restored disks." lightbox="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png":::
+
+>[!Note]
+>The option to choose the network configuration of the restored disks the same as that of the source disks or specify the access from specific networks only is currently not available from Azure PowerShell/ Azure CLI.
+
 ## Cross Region Restore
 
 As one of the [restore options](#restore-options), Cross Region Restore (CRR) allows you to restore Azure VMs in a secondary region, which is an Azure paired region.
@@ -220,7 +238,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 The secondary region restore user experience will be similar to the primary region restore user experience. When configuring details in the Restore Configuration pane to configure your restore, you'll be prompted to provide only secondary region parameters.
 
-Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
+Currently, secondary region [RPO](azure-backup-glossary.md#recovery-point-objective-rpo) is _36 hours_. This is because the RPO in the primary region is _24 hours_ and can take up to _12 hours_ to replicate the backup data from the primary to the secondary region.
 
 ![Choose VM to restore](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -263,7 +281,7 @@ In summary, the **Availability Zone** will only appear when
 
     ![Backup jobs filtered](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
-## Cross Subscription Restore (preview)
+## Cross Subscription Restore for Azure VM
 
 Azure Backup now allows you to perform Cross Subscription Restore (CSR), which helps you to restore Azure VMs in a subscription that is different from the default one. Default subscription contains the recovery points.
 
@@ -320,22 +338,23 @@ If you choose to select system-assigned or user-assigned managed identities, che
 
 ```json
 "permissions": [
-            {
-                "actions": [
-                    "Microsoft.Authorization/*/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-                ],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
-                ],
-                "notDataActions": []
-            }
+  {
+    "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+    ],
+    "notActions": [],
+    "dataActions": [
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+      "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action"
+    ],
+    "notDataActions": []
+  }
+]
 ```
 
 Or, add the role assignment on the staging location (Storage Account) to have [Storage account Backup Contributor](./blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts) and [Storage Blob data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) for the successful restore operation.
@@ -384,7 +403,7 @@ There are a few things to note after restoring a VM:
   - Manually install VM agent if Azure Agent is found to be unresponsive by following this [link](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Enable Serial Console access on VM to allow command-line access to VM
 
-  ```cmd
+    ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5

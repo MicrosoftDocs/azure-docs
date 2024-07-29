@@ -9,7 +9,6 @@ ms.topic: include
 author: PatrickFarley
 ms.author: pafarley
 ms.date: 08/24/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for JavaScript.
@@ -19,15 +18,11 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Ja
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule)
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
@@ -61,7 +56,7 @@ const { OpenAIClient, AzureKeyCredential } = require("@azure/openai");
 
 // You will need to set these environment variables or edit the following values
 const endpoint = process.env["AZURE_OPENAI_ENDPOINT"] ;
-const azureApiKey = process.env["AZURE_OPENAI_KEY"] ;
+const azureApiKey = process.env["AZURE_OPENAI_API_KEY"] ;
 
 // The prompt to generate images from
 const prompt = "a monkey eating a banana";
@@ -116,5 +111,5 @@ If you want to clean up and remove an Azure OpenAI resource, you can delete the 
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

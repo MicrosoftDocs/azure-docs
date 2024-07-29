@@ -2,10 +2,10 @@
 title: Back up an Azure VM from the VM settings
 description: In this article, learn how to back up either a singular Azure VM or multiple Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 06/24/2023
+ms.date: 06/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.custom: engagement-fy23
+ms.custom: engagement-fy24
 ---
 # Back up an Azure VM from the VM settings
 
@@ -33,7 +33,7 @@ To back up Azure VMs, Azure Backup installs an extension on the VM agent running
 Follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Select **All services** and in the Filter, type **Virtual machines**, and then select **Virtual machines**.
+2. In the **Search**, type **Virtual machines**, and then select **Virtual machines**.
 3. From the list of VMs, select the VM you want to back up.
 4. On the VM menu, select **Backup**.
 5. In **Recovery Services vault**, do the following:
@@ -42,24 +42,26 @@ Follow these steps:
 
         ![Screenshot shows how to enable backup wizard.](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. In **Choose backup policy**, do one of the following:
+6.Select **Policy subtype** as **Enhanced** or **Standard** based on your requirement.
 
-   - Leave the default policy. This backs up the VM once a day at the time specified, and retains backups in the vault for 30 days.
+7. Under **Choose backup policy**, do one of the following:
+
+   - Leave the default policy. For **Standard** policy, this backs up the VM once a day at the time specified, and retains backups in the vault for 30 days. For **Enhanced** policy, this backs up a VM every four hours at the time specified and retains daily backup point for 30 days.
    - Select an existing backup policy if you have one.
    - Create a new policy, and define the policy settings.  
 
       ![Screenshot shows how to select a backup policy.](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. Select **Enable Backup**. This associates the backup policy with the VM.
+8. Select **Enable Backup**. This associates the backup policy with the VM.
 
     ![Screenshot shows the selection of Enable Backup.](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
-8. You can track the configuration progress in the portal notifications.
-9. After the job completes, in the VM menu, select **Backup**. The page shows backup status for the VM, information about recovery points, jobs running, and alerts issued.
+9. You can track the configuration progress in the portal notifications.
+10. After the job completes, in the VM menu, select **Backup**. The page shows backup status for the VM, information about recovery points, jobs running, and alerts issued.
 
    ![Screenshot shows the backup status.](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. After enabling backup, an initial backup run. You can start the initial backup immediately, or wait until it starts in accordance with the backup schedule.
+11. After enabling backup, an initial backup run. You can start the initial backup immediately, or wait until it starts in accordance with the backup schedule.
     - Until the initial backup completes, the **Last backup status** shows as **Warning (Initial backup pending)**.
     - To see when the next scheduled backup will run, select the backup policy name.
 

@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/23/2021
 ms.author: anithaa
-ms.custom: synapse-cosmos-db, ignite-2022
+ms.custom: synapse-cosmos-db
 ---
 
 # Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts

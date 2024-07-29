@@ -71,19 +71,33 @@
       maintainContext: true
 - name: Scale
   items:
+  - name: Autoscale
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-autoscale-overview.md
+    - name: Configure autoscale
+      href: virtual-machine-scale-sets-autoscale-portal.md
+    - name: Predictive autoscale
+      href: ../azure-monitor/autoscale/autoscale-predictive.md
+      maintainContext: true
+    - name: Autoscale using guest metrics
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Troubleshoot autoscale
+      href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scaling Profile
     href: virtual-machine-scale-sets-scaling-profile.md
-  - name: Autoscale
-    href: virtual-machine-scale-sets-autoscale-overview.md
-  - name: Configure autoscale
-    href: virtual-machine-scale-sets-autoscale-portal.md
-  - name: Predictive autoscale
-    href: ../azure-monitor/autoscale/autoscale-predictive.md
-    maintainContext: true
-  - name: Troubleshoot autoscale
-    href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
+  - name: Standby pools (Preview)
+    items: 
+    - name: Overview
+      href: standby-pools-overview.md
+    - name: Create a standby pool
+      href: standby-pools-create.md
+    - name: Update or delete a standby pool
+      href: standby-pools-update-delete.md
+    - name: Frequently asked questions
+      href: standby-pools-faq.md
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
   - name: Attach VMs to a scale set
@@ -99,6 +113,8 @@
   - name: vCPU quotas
     href: ../virtual-machines/linux/quotas.md
     maintainContext: true
+  - name: Availability Zones
+    href: virtual-machine-scale-sets-use-availability-zones.md
   - name: Capacity reservations
     href: ../virtual-machines/capacity-reservation-overview.md
   - name: Automatic instance repairs
@@ -123,22 +139,32 @@
       href: azure-hybrid-benefit-linux.md
 - name: Management
   items: 
-  - name: Manage Upgrade Policies
-    href: virtual-machine-scale-sets-upgrade-policy.md
+  - name: Modify a scale set
+    href: virtual-machine-scale-sets-upgrade-scale-set.md
+  - name: Upgrade Policies
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-upgrade-policy.md
+    - name: Setting the upgrade policy
+      href: virtual-machine-scale-sets-set-upgrade-policy.md
+    - name: Changing the upgrade policy
+      href: virtual-machine-scale-sets-change-upgrade-policy.md
+    - name: Configure rolling upgrade policy
+      href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
+    - name: Performing manual upgrades
+      href: virtual-machine-scale-sets-perform-manual-upgrades.md
+    - name: Reimage a virtual machine
+      href: virtual-machine-scale-sets-reimage-virtual-machine.md
   - name: Common management tasks
     items:
     - name: Use the Azure CLI
       href: virtual-machine-scale-sets-manage-cli.md
     - name: Use Azure PowerShell
       href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Modify a scale set
-      href: virtual-machine-scale-sets-upgrade-scale-set.md
     - name: Using DSC and scale sets
       href: virtual-machine-scale-sets-dsc.md
     - name: Scale set templates
       href: virtual-machine-scale-sets-mvss-start.md
-    - name: Autoscale using guest metrics
-      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
     - name: Deploy your application
       href: virtual-machine-scale-sets-deploy-app.md
     - name: Custom image templates
@@ -252,7 +278,7 @@
     - name: Linux
       href: ../virtual-machines/linux/scheduled-events.md
       maintainContext: true
-      displayname: Scheduled events
+      displayName: Scheduled events
     - name: Windows
       items:
       - name: Scheduled events

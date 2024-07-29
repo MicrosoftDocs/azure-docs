@@ -2,8 +2,12 @@
 title: Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
 description: Learn about and deploy Pod Sandboxing (preview), also referred to as Kernel Isolation, on an Azure Kubernetes Service (AKS) cluster.
 ms.topic: article
-ms.custom: devx-track-azurecli, build-2023, devx-track-linux
+ms.subservice: aks-security
+ms.custom: devx-track-azurecli, build-2023
 ms.date: 06/07/2023
+author: tamram
+ms.author: tamram
+
 ---
 
 # Pod Sandboxing (preview) with Azure Kubernetes Service (AKS)
@@ -20,13 +24,13 @@ This article helps you understand this new feature, and how to implement it.
 
 - Register the `KataVMIsolationPreview` feature in your Azure subscription.
 
-- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher.
+- AKS supports Pod Sandboxing (preview) on version 1.24.0 and higher with all AKS network plugins.
 
 - To manage a Kubernetes cluster, use the Kubernetes command-line client [kubectl][kubectl]. Azure Cloud Shell comes with `kubectl`. You can install kubectl locally using the [az aks install-cli][az-aks-install-cmd] command.
 
 ### Install the aks-preview Azure CLI extension
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 To install the aks-preview extension, run the following command:
 
@@ -103,7 +107,14 @@ Perform the following steps to deploy an Azure Linux AKS cluster using the Azure
    The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
     ```azurecli-interactive
-    az aks create --name myAKSCluster --resource-group myResourceGroup --os-sku AzureLinux --workload-runtime KataMshvVmIsolation --node-vm-size Standard_D4s_v3 --node-count 1
+    az aks create 
+        --name myAKSCluster \
+        --resource-group myResourceGroup \
+        --os-sku AzureLinux \
+        --workload-runtime KataMshvVmIsolation \
+        --node-vm-size Standard_D4s_v3 \
+        --node-count 1 \
+        --generate-ssh-keys
     ```
 
 2. Run the following command to get access credentials for the Kubernetes cluster. Use the [az aks get-credentials][aks-get-credentials] command and replace the values for the cluster name and the resource group name.
@@ -283,7 +294,7 @@ Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with y
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kata-network-limitations]: https://github.com/kata-containers/kata-containers/blob/main/docs/Limitations.md#host-network
 [cloud-hypervisor]: https://www.cloudhypervisor.org
-[kata-container]: https://katacontainers.io 
+[kata-container]: https://katacontainers.io
 
 <!-- INTERNAL LINKS -->
 [install-azure-cli]: /cli/azure
@@ -309,3 +320,4 @@ Learn more about [Azure Dedicated hosts][azure-dedicated-hosts] for nodes with y
 [az-aks-update]: /cli/azure/aks#az-aks-update
 [azurelinux-cluster-config]: cluster-configuration.md#azure-linux-container-host-for-aks
 [register-the-katavmisolationpreview-feature-flag]: #register-the-katavmisolationpreview-feature-flag
+

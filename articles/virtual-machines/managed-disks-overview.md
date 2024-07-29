@@ -4,9 +4,8 @@ description: Overview of Azure managed disks, which handle the storage accounts 
 author: roygara
 ms.service: azure-disk-storage
 ms.topic: conceptual
-ms.date: 10/12/2023
+ms.date: 06/07/2024
 ms.author: rogarana
-ms.custom: contperf-fy21q1
 ---
 # Introduction to Azure managed disks
 
@@ -16,7 +15,7 @@ Azure managed disks are block-level storage volumes that are managed by Azure an
 
 The available types of disks are ultra disks, premium solid-state drives (SSD), standard SSDs, and standard hard disk drives (HDD). For information about each individual disk type, see [Select a disk type for IaaS VMs](disks-types.md).
 
-Alternatively, you could use an Azure Elastic SAN Preview as your VM's storage. An Elastic SAN allows you to consolidate the storage for all your workloads into a single storage backend and can be more cost effective if you've a sizeable amount of large scale IO-intensive workloads and top tier databases. To learn more, see [What is Azure Elastic SAN? Preview](../storage/elastic-san/elastic-san-introduction.md)
+Alternatively, you could use an Azure Elastic SAN as your VM's storage. An Elastic SAN allows you to consolidate the storage for all your workloads into a single storage backend and can be more cost effective if you've a sizeable amount of large scale IO-intensive workloads and top tier databases. To learn more, see [What is Azure Elastic SAN?](../storage/elastic-san/elastic-san-introduction.md)
 
 ## Benefits of managed disks
 
@@ -44,7 +43,7 @@ To protect against regional disasters, [Azure Backup](../backup/backup-overview.
 
 #### Azure Disk Backup
 
-Azure Backup offers Azure Disk Backup (preview) as a  native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. For details on Azure Disk Backup, see [Overview of Azure Disk Backup](../backup/disk-backup-overview.md).
+Azure Backup offers Azure Disk Backup as a native, cloud-based backup solution that protects your data in managed disks. It's a simple, secure, and cost-effective solution that enables you to configure protection for managed disks in a few steps. Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. For details on Azure Disk Backup, see [Overview of Azure Disk Backup](../backup/disk-backup-overview.md).
 
 ### Granular access control
 
@@ -62,7 +61,7 @@ To learn how to transfer your vhd to Azure, see the [CLI](linux/disks-upload-vhd
 
 Private Link support for managed disks can be used to import or export a managed disk internal to your network. Private Links allow you to generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots that you can use to export the data to other regions for regional expansion, disaster recovery, and forensic analysis. You can also use the SAS URI to directly upload a VHD to an empty disk from on-premises. Now you can leverage [Private Links](../private-link/private-link-overview.md) to restrict the export and import of managed disks so that it can only occur within your Azure virtual network. Private Links allows you to ensure your data only travels within the secure Microsoft backbone network.
 
-To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](linux/disks-export-import-private-links-cli.md) or [Portal](disks-enable-private-links-for-import-export-portal.md) articles.
+To learn how to enable Private Links for importing or exporting a managed disk, see the [CLI](linux/disks-export-import-private-links-cli.md) or [Portal](disks-enable-private-links-for-import-export-portal.yml) articles.
 
 ### Encryption
 
@@ -81,19 +80,31 @@ Azure Disk Encryption allows you to encrypt the OS and Data disks used by an Iaa
 
 ## Disk roles
 
-There are three main disk roles in Azure: the data disk, the OS disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
+There are three main disk roles in Azure: the OS disk, the data disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
 
 ![Disk roles in action](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### OS disk
+
+Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume. Generally, you should only store your OS information on the OS disk, and store all applications, and data on data disks. However, if cost is a concern, you can use the OS disk instead of creating a data disk.
+
+This disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach [data disks](#data-disk) and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
+
+On Azure Windows VMs, C: is your OS disk and is persistent storage, unless you're using [Ephemeral OS disks](ephemeral-os-disks.md).
 
 ### Data disk
 
 A data disk is a managed disk that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
-### OS disk
+Generally, you should use the data disk to store your applications and data, instead of storing them on OS disks. Using data disks to store applications and data offers the following benefits over using the OS disk:
 
-Every virtual machine has one attached operating system disk. That OS disk has a pre-installed OS, which was selected when the VM was created. This disk contains the boot volume.
+- Improved Backup and Disaster Recovery
+- More flexibility and scalability
+- Performance isolation
+- Easier maintenance
+- Improved security and access control
 
-This disk has a maximum capacity of 4,095 GiB. However, many operating systems are partitioned with [master boot record (MBR)](https://wikipedia.org/wiki/Master_boot_record) by default. MBR limits the usable size to 2 TiB. If you need more than 2 TiB, create and attach [data disks](#data-disk) and use them for data storage. If you need to store data on the OS disk and require the additional space, [convert it to GUID Partition Table](/windows-server/storage/disk-management/change-an-mbr-disk-into-a-gpt-disk) (GPT). To learn about the differences between MBR and GPT on Windows deployments, see [Windows and GPT FAQ](/windows-hardware/manufacture/desktop/windows-and-gpt-faq).
+For more details on these benefits, see [Why should I use the data disk to store applications and data instead of the OS disk?](faq-for-disks.yml#why-should-i-use-the-data-disk-to-store-applications-and-data-instead-of-the-os-disk-).
 
 ### Temporary disk
 
@@ -115,7 +126,7 @@ Managed disks also support creating a managed custom image. You can create an im
 
 For information on creating images, see the following articles:
 
-- [How to capture a managed image of a generalized VM in Azure](windows/capture-image-resource.md)
+- [How to capture a managed image of a generalized VM in Azure](windows/capture-image-resource.yml)
 - [How to generalize and capture a Linux virtual machine using the Azure CLI](linux/capture-image.md)
 
 #### Images versus snapshots
@@ -132,11 +143,11 @@ The following diagram depicts real-time allocation of bandwidth and IOPS for dis
 
 ![Diagram of a three level provisioning system showing bandwidth and IOPS allocation.](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
 
-The first IO path is the uncached managed disk path. This path is taken if you are using a managed disk and set the host caching to none. An IO using this path will execute based on disk-level provisioning and then VM network-level provisioning for IOPs and throughput.   
+The first IO path is the uncached managed disk path. This path is taken if you are using a managed disk and set the host caching to none. An IO using this path will execute based on disk-level provisioning and then VM network-level provisioning for IOPs and throughput. 
 
-The second IO Path is the cached managed disk path. Cached managed disk IO uses an SSD close to the VM, which has its own IOPs and throughput provisioned, and is labeled SSD-level provisioning in the diagram. When a cached managed disk initiates a read, the request first checks to see if the data is in the server SSD. If the data isn't present, this created a cached miss and the IO then executes based on SSD-level provisioning, disk-level provisioning and then VM network-level provisioning for IOPs and throughput. When the server SSD initiates reads on cached IO that are present on the server SSD, it creates a cache hit and the IO will then execute based on the SSD-level provisioning. Writes initiated by a cached managed disk always follow the path of a cached-miss, and need to go through SSD-level, disk-level, and VM network-level provisioning.  
+The second IO Path is the cached managed disk path. Cached managed disk IO uses an SSD close to the VM, which has its own IOPs and throughput provisioned, and is labeled SSD-level provisioning in the diagram. When a cached managed disk initiates a read, the request first checks to see if the data is in the server SSD. If the data isn't present, this created a cached miss and the IO then executes based on SSD-level provisioning, disk-level provisioning and then VM network-level provisioning for IOPs and throughput. When the server SSD initiates reads on cached IO that are present on the server SSD, it creates a cache hit and the IO will then execute based on the SSD-level provisioning. Writes initiated by a cached managed disk always follow the path of a cached-miss, and need to go through SSD-level, disk-level, and VM network-level provisioning.
 
-Finally, the third path is for the local/temp disk. This is available only on VMs that support local/temp disks. An IO using this path will execute based on SSD-Level Provisioning for IOPs and throughput.   
+Finally, the third path is for the local/temp disk. This is available only on VMs that support local/temp disks. An IO using this path will execute based on SSD-Level Provisioning for IOPs and throughput. 
 
 As an example of these limitations, a Standard_D2s_v3 VM is prevented from achieving the 5,000 IOPS potential of a P30 disk, whether it is cached or not, because of limits at the SSD and network levels:
 

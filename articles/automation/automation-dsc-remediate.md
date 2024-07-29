@@ -4,6 +4,7 @@ description: This article tells how to reapply configurations on demand to serve
 services: automation
 ms.service: automation
 ms.subservice: dsc
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 07/17/2019
 ---

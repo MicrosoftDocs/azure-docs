@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: ignite-2022, devx-track-python
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 09/26/2023
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.

@@ -26,8 +26,8 @@ In the CLI, you can pass your custom data as a file, as the following example sh
 ```azurecli
 az vm create \
   --resource-group myResourceGroup \
-  --name centos74 \
-  --image OpenLogic:CentOS-CI:7-CI:latest \
+  --name myVM \
+  --image Ubuntu2204 \
   --custom-data cloud-init.txt \
   --generate-ssh-keys
 ```

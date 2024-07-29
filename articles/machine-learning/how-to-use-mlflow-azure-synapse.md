@@ -3,14 +3,14 @@ title: MLflow Tracking for Azure Synapse Analytics experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Synapse Analytics workspace.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: mopeakande
+ms.reviewer: fasantia
 ms.date: 07/06/2022
 ms.topic: how-to
-ms.custom: sdkv2, event-tier1-build-2022
+ms.custom: sdkv2
 ---
 
 # Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning

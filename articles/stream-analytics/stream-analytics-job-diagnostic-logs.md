@@ -3,7 +3,6 @@ title: Troubleshoot Azure Stream Analytics using resource logs
 description: This article describes how to analyze resource logs in Azure Stream Analytics.
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
 ---
 # Troubleshoot Azure Stream Analytics by using resource logs
@@ -23,7 +22,7 @@ Stream Analytics offers two types of logs:
 > [!NOTE]
 > You can use services like Azure Storage, Azure Event Hubs, and Azure Monitor logs to analyze nonconforming data. You are charged based on the pricing model for those services.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Debugging using activity logs
 
@@ -73,9 +72,7 @@ Turning on resource logs and sending them to Azure Monitor logs is highly recomm
 
 [!INCLUDE [resource-logs](./includes/resource-logs.md)]
 
-## Resource logs schema
-
-[!INCLUDE [resource-logs-schema](./includes/resource-logs-schema.md)]
+All logs are stored in JSON format. To learn about the schema for resource logs, see [Resource logs schema](monitor-azure-stream-analytics-reference.md#resource-logs-schema).
 
 ## Next steps
 

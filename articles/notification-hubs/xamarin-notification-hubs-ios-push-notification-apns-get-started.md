@@ -3,12 +3,10 @@ title: Send push notifications to Xamarin using Azure Notification Hubs | Micros
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to a Xamarin.iOS application.
 services: notification-hubs
 keywords: ios push notifications,push messages,push notifications,push message
-documentationcenter: xamarin
 author: sethmanheim
 manager: femila
 
 ms.service: notification-hubs
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: csharp
 ms.topic: tutorial

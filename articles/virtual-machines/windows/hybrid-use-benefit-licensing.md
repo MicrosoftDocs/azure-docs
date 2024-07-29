@@ -1,21 +1,26 @@
 ---
-title: Explore Azure Hybrid Benefit for Windows VMs 
+title: Explore Azure Hybrid Benefit for Windows VMs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure.
 ms.service: virtual-machines
 ms.subservice: billing
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 4/18/2023
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.date: 05/14/2024
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
-
 ---
 # Explore Azure Hybrid Benefit for Windows VMs
 
-For customers with Software Assurance or subscription licenses, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses to get Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+ Azure Hybrid Benefit for Windows Server allows you to use your on-premises core licenses for Windows Server licenses to get Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. 
 
-You'll need a minimum of 8 core licenses (Datacenter or Standard edition) per virtual machine. You may also run instances larger than 8 cores by allocating licenses equal to the core-size of the instance. For example, 12 core licenses are required for a 12-core instance, however 8 core licenses are still required if you run a 4-core instance. For customers with processor licenses, each two core processor license is equivalent to 16 core licenses.
+To qualify for Azure Hybrid Benefit for Windows Server, you need on-premises core licenses for Windows Server from an applicable program with active Software Assurance or qualifying subscription licenses. Software Assurance and qualifying subscription licenses are only available as part of certain commercial licensing agreements. To learn more about commercial licensing, see [Microsoft Licensing Resources](https://www.microsoft.com/licensing/default). To learn more about Windows Server core licenses, see [Windows Server product licensing](https://www.microsoft.com/licensing/product-licensing/windows-server).
+
+You need a minimum of 8 core licenses (Datacenter or Standard edition) per VM. For example, 8 core licenses are still required if you run a 4-core instance. You may also run instances larger than 8 cores by allocating licenses equal to the core size of the instance. For example, 12 core licenses are required for a 12-core instance. For customers with processor licenses, each processor license is equivalent to 16 core licenses.
+
+> [!IMPORTANT]
+> - Workloads using Azure Hybrid Benefit can run only during the Software Assurance or subscription license term. When the Software Assurance or subscription license term approaches expiration, you must either renew your agreement with either Software Assurance or a subscription license, disable the hybrid benefit functionality, or deprovision those workloads that are using Azure Hybrid Benefit.
+>
+> - The Microsoft Product Terms for your program take precedent over this article. For more information, see [Microsoft Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure) and select your program to show the terms.
 
 Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
 
@@ -112,7 +117,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 Once you've deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
 ### Portal
-From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Configuration" tab.
+From portal VM blade, you can view the toggle for Azure Hybrid Benefit for Windows Server by selecting "Operating system" tab.
 
 ### PowerShell
 The following example shows the license type for a single VM

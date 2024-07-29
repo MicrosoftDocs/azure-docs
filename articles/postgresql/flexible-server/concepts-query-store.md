@@ -1,18 +1,19 @@
 ---
-title: Query Store - Azure Database for PostgreSQL - Flexible Server
+title: Query Store
 description: This article describes the Query Store feature in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.date: 12/30/2023
+ms.reviewer: maghan
+ms.date: 07/25/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
-# Monitor Performance with Query Store
+# Monitor performance with Query Store
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
+The Query Store feature in Azure Database for PostgreSQL flexible server provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL flexible server instance.
 
 > [!IMPORTANT]  
 > Do not modify the **azure_sys** database or its schema. Doing so will prevent Query Store and related performance features from functioning correctly.
@@ -26,7 +27,7 @@ Query Store is available in all regions with no additional charges. It is an opt
 
 ### Enable Query Store in Azure portal
 
-1. Sign in to the Azure portal and select your Azure Database for PostgreSQL server.
+1. Sign in to the Azure portal and select your Azure Database for PostgreSQL flexible server instance.
 1. Select **Server parameters** in the **Settings** section of the menu.
 1. Search for the `pg_qs.query_capture_mode` parameter.
 1. Set the value to `TOP` or `ALL`, depending on whether you want to track top-level queries or also nested queries (those executed inside a function or procedure), and click on **Save**.
@@ -54,7 +55,7 @@ To minimize space usage, the runtime execution statistics in the runtime stats s
 
 ## Access Query Store information
 
-Query Store data is stored in the azure_sys database on your Postgres server.
+Query Store data is stored in the azure_sys database on your Azure Database for PostgreSQL flexible server instance.
 The following query returns information about queries in Query Store:
 
 ```sql
@@ -80,7 +81,8 @@ Here are some examples of how you can gain more insights into your workload usin
 
 ## Configuration options
 
-When Query Store is enabled, it saves data in aggregation windows of length determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window, it stores the 500 distinct queries per window.
+When Query Store is enabled, it saves data in aggregation windows of length determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window, it stores up to 500 distinct (with distinct userid, dbid, and queryid) queries per window. If during an interval the number of distinct queries reaches 500, the 5% with lower usage are deallocated to make room for more.
+
 The following options are available for configuring Query Store parameters:
 
 | **Parameter** | **Description** | **Default** | **Range** |
@@ -91,8 +93,6 @@ The following options are available for configuring Query Store parameters:
 | pg_qs.max_plan_size | Sets the maximum number of bytes that will be saved for query plan text for pg_qs; longer plans will be truncated. | 7500 | 100 - 10k |
 | pg_qs.max_query_text_length | Sets the maximum query length that can be saved; longer queries will be truncated. | 6000 | 100 - 10K |
 | pg_qs.retention_period_in_days | Sets the retention period window in days for pg_qs - after this time data will be deleted. | 7 | 1 - 30 |
-| pg_qs.index_generation_interval (*) | Sets the query_store index auto generation interval in minutes for pg_qs. | 720 | 15 - 10080 |
-| pg_qs.index_recommendations | Enables or disables index recommendations. pg_qs.query_capture_mode must also be 'TOP' or 'ALL'. | off | off, recommend |
 | pg_qs.track_utility | Sets whether utility commands are tracked by pg_qs. | on | on, off |
 
 (*) Static server parameter which requires a server restart for a change in its value to take effect. 
@@ -108,7 +108,7 @@ The following options apply specifically to wait statistics:
 > [!NOTE]  
 > **pg_qs.query_capture_mode** supersedes **pgms_wait_sampling.query_capture_mode**. If pg_qs.query_capture_mode is NONE, the pgms_wait_sampling.query_capture_mode setting has no effect.
 
-Use the [Azure portal](howto-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
+Use the [Azure portal](how-to-configure-server-parameters-using-portal.md) to get or set a different value for a parameter.
 
 ## Views and functions
 
@@ -116,7 +116,7 @@ View and manage Query Store using the following views and functions. Anyone in t
 
 Queries are normalized by looking at their structure and ignoring anything not semantically significant, like literals, constants, aliases, or differences in casing.
 
-If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they are identified with the same query_id. If two queries only differ in the literal values used in them, they are also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_storeqs_reset) was executed.
+If two queries are semantically identical, even if they use different aliases for the same referenced columns and tables, they're identified with the same query_id. If two queries only differ in the literal values used in them, they're also identified with the same query_id. For all queries identified with the same query_id, their sql_query_text will be that of the query that executed first since Query Store started recording activity, or since the last time the persisted data was discarded because the function [query_store.qs_reset](#query_storeqs_reset) was executed.
 
 ### How query normalization works
 
@@ -221,10 +221,6 @@ This view returns all the data that has already been persisted in the supporting
 | query_type | text | | Type of operation represented by the query. Possible values are `unknown`, `select`, `update`, `insert`, `delete`, `merge`, `utility`, `nothing`, `undefined`. |
 
 
-> [!NOTE]  
-> If you have pg_qs enabled and collecting data on an instance of PostgreSQL running a major version <= 14, and perform an [in-place major version upgrade](./concepts-major-version-upgrade.md) to any version >= 15, know that the values returned in the query_type column of query_store.qs_view for any newly created time windows can be considered correct. However, for all the time windows which were created when the version of the engine was <= 14, where it reports `merge` it corresponds to `utility`, and when it reports `nothing` it corresponds to `utility`. The reason for that inconsistency has to do with the way [MERGE statement was implemented in PostgreSQL](https://github.com/postgres/postgres/commit/7103ebb7aae8ab8076b7e85f335ceb8fe799097c), which, instead of appending a new item to the existing ones in the CmdType enum, interleaved an item for MERGE between DELETE and UTILITY.
-
-
 #### query_store.query_texts_view
 
 This view returns query text data in Query Store. There's one row for each distinct query_sql_text.
@@ -279,10 +275,11 @@ This function discards all statistics gathered so far by Query Store. It discard
 
 This function discards all statistics gathered in-memory by Query Store (that is, the data in memory that hasn't been flushed yet to the on disk tables supporting persistence of collected data for Query Store). This function can only be executed by the server admin role (**azure_pg_admin**).
 
-
 ## Limitations and known issues
+[!INCLUDE [Note Query store and Azure storage compability](includes/note-query-store-azure-storage-compability.md)]
 
-- If a PostgreSQL server has the parameter `default_transaction_read_only` set to `on`, Query Store won't capture any data.
+### Read-only mode
+When an Azure Database for PostgreSQL - Flexible Server instance is in read-only mode, such as when the `default_transaction_read_only` parameter is set to `on`, or if read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store does not capture any data.
 
 ## Related content
 

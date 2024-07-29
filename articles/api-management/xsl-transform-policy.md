@@ -6,11 +6,13 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 01/02/2024
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Transform XML using an XSLT
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `xsl-transform` policy applies an XSL transformation to XML in the request or response body.
 
@@ -40,7 +42,7 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
@@ -100,6 +102,6 @@ The `xsl-transform` policy applies an XSL transformation to XML in the request o
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

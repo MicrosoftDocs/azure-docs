@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: reference
-ms.date: 05/02/2023
+ms.date: 1/21/2024
 ms.author: eur
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -20,8 +20,8 @@ Before you use the Speech to text REST API for short audio, consider the followi
 
 * Requests that use the REST API for short audio and transmit audio directly can contain no more than 60 seconds of audio. The input [audio formats](#audio-formats) are more limited compared to the [Speech SDK](speech-sdk.md).
 * The REST API for short audio returns only final results. It doesn't provide partial results.
-* [Speech translation](speech-translation.md) is not supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
-* [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md) are not supported via REST API for short audio. You should always use the [Speech to text REST API](rest-speech-to-text.md) for batch transcription and Custom Speech.
+* [Speech translation](speech-translation.md) isn't supported via REST API for short audio. You need to use [Speech SDK](speech-sdk.md).
+* [Batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md) aren't supported via REST API for short audio. You should always use the [Speech to text REST API](rest-speech-to-text.md) for batch transcription and custom speech.
 
 Before you use the Speech to text REST API for short audio, understand that you need to complete a token exchange as part of authentication to access the service. For more information, see [Authentication](#authentication).
 
@@ -61,7 +61,7 @@ This table lists required and optional headers for speech to text requests:
 | `Pronunciation-Assessment` | Specifies the parameters for showing pronunciation scores in recognition results. These scores assess the pronunciation quality of speech input, with indicators like accuracy, fluency, and completeness. <br><br>This parameter is a Base64-encoded JSON that contains multiple detailed parameters. To learn how to build this header, see [Pronunciation assessment parameters](#pronunciation-assessment-parameters). | Optional |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Use this header only if you're chunking audio data. | Optional |
-| `Expect` | If you're using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if you're sending chunked audio data. |
+| `Expect` | If you're using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits more data.| Required if you're sending chunked audio data. |
 | `Accept` | If provided, it must be `application/json`. The Speech service provides results in JSON. Some request frameworks provide an incompatible default value. It's good practice to always include `Accept`. | Optional, but recommended. |
 
 ## Query parameters
@@ -84,11 +84,11 @@ This table lists required and optional parameters for pronunciation assessment:
 
 | Parameter | Description | Required or optional |
 |-----------|-------------|---------------------|
-| `ReferenceText` | The text that the pronunciation will be evaluated against. | Required |
+| `ReferenceText` | The text that the pronunciation is evaluated against. | Required |
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | `Granularity` | The evaluation granularity. Accepted values are:<br><br> `Phoneme`, which shows the score on the full-text, word, and phoneme levels.<br>`Word`, which shows the score on the full-text and word levels. <br>`FullText`, which shows the score on the full-text level only.<br><br> The default setting is `Phoneme`. | Optional |
 | `Dimension` | Defines the output criteria. Accepted values are:<br><br> `Basic`, which shows the accuracy score only. <br>`Comprehensive`, which shows scores on more dimensions (for example, fluency score and completeness score on the full-text level, and error type on the word level).<br><br> To see definitions of different score dimensions and word error types, see [Response properties](#response-properties). The default setting is `Basic`. | Optional |
-| `EnableMiscue` | Enables miscue calculation. With this parameter enabled, the pronounced words will be compared to the reference text. They'll be marked with omission or insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
+| `EnableMiscue` | Enables miscue calculation. With this parameter enabled, the pronounced words are compared to the reference text. They are marked with omission or insertion based on the comparison. Accepted values are `False` and `True`. The default setting is `False`. | Optional |
 | `ScenarioId` | A GUID that indicates a customized point system. | Optional |
 
 Here's example JSON that contains the pronunciation assessment parameters:
@@ -117,7 +117,7 @@ We strongly recommend streaming ([chunked transfer](#chunked-transfer)) uploadin
 
 ## Sample request
 
-The following sample includes the host name and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended but not required.
+The following sample includes the host name and required headers. It's important to note that the service also expects audio data, which isn't included in this sample. As mentioned earlier, chunking is recommended but not required.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -141,7 +141,7 @@ The HTTP status code for each response indicates success or common errors.
 
 | HTTP status code | Description | Possible reasons |
 |------------------|-------------|-----------------|
-| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (This code is used with chunked transfer.) |
+| 100 | Continue | The initial request is accepted. Proceed with sending the rest of the data. (This code is used with chunked transfer.) |
 | 200 | OK | The request was successful. The response body is a JSON object. |
 | 400 | Bad request | The language code wasn't provided, the language isn't supported, or the audio file is invalid (for example). |
 | 401 | Unauthorized | A resource key or an authorization token is invalid in the specified region, or an endpoint is invalid. |
@@ -245,12 +245,12 @@ The `RecognitionStatus` field might contain these values:
 | `NoMatch` | Speech was detected in the audio stream, but no words from the target language were matched. This status usually means that the recognition language is different from the language that the user is speaking. |
 | `InitialSilenceTimeout` | The start of the audio stream contained only silence, and the service timed out while waiting for speech. |
 | `BabbleTimeout` | The start of the audio stream contained only noise, and the service timed out while waiting for speech. |
-| `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
+| `Error` | The recognition service encountered an internal error and couldn't continue. Try again if possible. |
 
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes additional forms of recognized results.
+The `detailed` format includes more forms of recognized results.
 When you're using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
 The object in the `NBest` list can include:
@@ -270,7 +270,7 @@ The object in the `NBest` list can include:
 
 ## Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it's transmitted. The REST API for short audio does not provide partial or interim results.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it's transmitted. The REST API for short audio doesn't provide partial or interim results.
 
 The following code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an `HttpWebRequest` object that's connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 

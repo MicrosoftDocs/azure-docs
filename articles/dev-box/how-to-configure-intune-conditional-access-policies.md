@@ -9,7 +9,7 @@ ms.author: rosemalcolm
 ms.date: 12/20/2023
 ms.topic: how-to
 
-#customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
+# Customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
 
 ---
 
@@ -27,7 +27,8 @@ Conditional access is the protection of regulated content in a system by requiri
 
 ## Prerequisites
 
-None
+- Microsoft Intune subscription.
+- Permission to add and manage groups in Microsoft Intune.
 
 ## Create a dynamic device group 
 
@@ -94,7 +95,8 @@ After creating your device group and validated your dev box devices are members,
    | --- | --- | --- |
    | Windows 365 | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when retrieving the list of resources for the user and when users initiate actions on their dev box like Restart. |
    | Azure Virtual Desktop | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the Gateway during the connection and when the client sends diagnostic information to the service. <br>Might also appear as Windows Virtual Desktop. |
-   | Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. <br>Only needed when you configure single sign-on in a provisioning policy.  |  
+   | Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. <br>Only needed when you configure single sign-on in a provisioning policy.  |
+   | Microsoft Developer Portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to manage the Dev box portal. |
 
 1. You should match your conditional access policies between these apps, which ensures that the policy applies to the developer portal, the connection to the Gateway, and the dev box for a consistent experience. If you want to exclude apps, you must also choose all of these apps. 
 

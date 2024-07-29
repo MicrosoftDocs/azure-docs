@@ -99,7 +99,7 @@ The following table includes only some example use cases, so please share your f
 
 - Workflow size
 
-  You might experience different performance levels in the workflow assistant, based on factors such as the number of workflow operations or complexity. The assistant is trained on workflows with different complexity levels but still has limited scope and might not be able to handle very large workflows. These limitations are primarily related to token constraints in the queries sent to Azure Open AI Service. The Azure Logic Apps team is committed to continuous improvement and enhancing these limitations through iterative updates.
+  You might experience different performance levels in the workflow assistant, based on factors such as the number of workflow operations or complexity. The assistant is trained on workflows with different complexity levels but still has limited scope and might not be able to handle very large workflows. These limitations are primarily related to token constraints in the queries sent to Azure OpenAI Service. The Azure Logic Apps team is committed to continuous improvement and enhancing these limitations through iterative updates.
 
 <a name="provide-feedback"></a>
 
@@ -146,9 +146,9 @@ In the chat pane, under the workflow assistant's response, choose an option:
 
 **Q**: How does the workflow assistant use my query to generate responses?
 
-**A**: The workflow is powered by [Azure Open AI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt), which use Azure Logic Apps documentation from reputable sources along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
+**A**: The workflow is powered by [Azure OpenAI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt), which use Azure Logic Apps documentation from reputable sources along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
 
-When you enter your question in the assistant's chat box, the Azure Logic Apps backend performs preprocessing and forwards the results to a large language model in Azure Open AI Service. This model generates responses based on the current context in the form of the workflow definition's JSON code and your prompt. 
+When you enter your question in the assistant's chat box, the Azure Logic Apps backend performs preprocessing and forwards the results to a large language model in Azure OpenAI Service. This model generates responses based on the current context in the form of the workflow definition's JSON code and your prompt. 
 
 **Q**: What data does the workflow assistant collect?
 
@@ -172,7 +172,7 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
-**A**: [Azure Open AI Service](../ai-services/openai/overview.md) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
+**A**: [Azure OpenAI Service](../ai-services/openai/overview.md) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
 
 [ChatGPT](https://openai.com/blog/chatgpt) is built by [Open AI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
 

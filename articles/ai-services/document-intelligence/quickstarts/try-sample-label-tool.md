@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Label forms, train a model, and analyze forms using the Sample Labeling tool - Document Intelligence (formerly Form Recognizer)"
 titleSuffix: Azure AI services
-description: In this quickstart, you'll learn to use the Document Intelligence Sample Labeling tool to manually label documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
+description: In this quickstart, learn to use the Document Intelligence Sample Labeling tool to manually label documents. Then train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 03/28/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-2.1.0'
 ---
@@ -39,7 +39,7 @@ The Azure AI Document Intelligence Sample Labeling tool is an open source tool t
 
 ## Prerequisites
 
-You'll need the following to get started:
+You need the following to get started:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -56,7 +56,7 @@ You'll need the following to get started:
 
 ## Analyze using a Prebuilt model
 
-Document Intelligence offers several prebuilt models to choose from. Each model has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Document Intelligence service:
+Document Intelligence offers several prebuilt models to choose from. Each model has its own set of supported fields. The model to use for the `Analyze` operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Document Intelligence service:
 
 * [**Invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**Receipt**](../concept-receipt.md): extracts text and key information from receipts.
@@ -88,16 +88,16 @@ Document Intelligence offers several prebuilt models to choose from. Each model 
 
     :::image type="content" source="../media/fott-select-form-type.png" alt-text="Screenshot of the 'select-form-type' dropdown menu.":::
 
-1. Select **Run analysis**. The Document Intelligence Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
+1. Select **Run analysis**. The Document Intelligence Sample Labeling tool calls the Analyze Prebuilt API and analyze the document.
 
-1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted, and tables detected.
 
     :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Document Intelligence invoice model":::
 
 1. Download the JSON output file to view the detailed results.
 
     * The "readResults" node contains every line of text with its respective bounding box placement on the page.
-    * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
+    * The "selectionMarks" node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
     * The "pageResults" section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
     * The "documentResults" field contains key/value pairs information and line items information for the most relevant parts of the document.
 
@@ -117,11 +117,11 @@ Azure the Document Intelligence Layout API extracts text, tables, selection mark
 
 1. In the **Source** field, select **URL** from the dropdown menu, paste the following URL `https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/layout-page-001.jpg`, and select the **Fetch** button.
 
-1. Select **Run Layout**. The Document Intelligence Sample Labeling tool will call the Analyze Layout API and analyze the document.
+1. Select **Run Layout**. The Document Intelligence Sample Labeling tool calls the `Analyze Layout API` and analyzes the document.
 
-    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot of Layout dropdown menu.":::
+    :::image type="content" source="../media/fott-layout.png" alt-text="Screenshot of layout dropdown menu.":::
 
-1. View the results - see the highlighted text extracted, selection marks detected and tables detected.
+1. View the results - see the highlighted text extracted, selection marks detected, and tables detected.
 
     :::image type="content" source="../media/label-tool/layout-3.jpg" alt-text="Connection settings for Document Intelligence tool.":::
 
@@ -132,7 +132,7 @@ Azure the Document Intelligence Layout API extracts text, tables, selection mark
 
 ## Train a custom form model
 
-Train a custom model to analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You'll need at least five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+Train a custom model to analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You need at least five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
 ### Prerequisites for training a custom form model
 
@@ -142,7 +142,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 * Configure CORS
 
-    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you'll need access to the CORS tab of your storage account.
+    [CORS (Cross Origin Resource Sharing)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) needs to be configured on your Azure storage account for it to be accessible from the Document Intelligence Studio. To configure CORS in the Azure portal, you need access to the CORS tab of your storage account.
 
     1. Select the CORS tab for the storage account.
 
@@ -163,7 +163,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
     1. Set the **Max Age** to 120 seconds or any acceptable value.
 
-    1. Select the save button at the top of the page to save the changes.
+    1. Select the save button at the top of the page and save the changes.
 
 ### Use the Sample Labeling tool
 
@@ -183,7 +183,7 @@ Configure the **Project Settings** fields with the following values:
 
 1. **Display Name**. Name your project.
 
-1. **Security Token**. Each project will auto-generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+1. **Security Token**. Each project autogenerates a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 
 1. **Source connection**. The Sample Labeling tool connects to a source (your original uploaded forms) and a target (created labels and output data). Connections can be set up and shared across projects. They use an extensible provider model, so you can easily add new source/target providers.
 
@@ -199,7 +199,7 @@ Configure the **Project Settings** fields with the following values:
 
        :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS location.":::
 
-1. **Folder Path** (optional).  If your source forms are located within a folder in the blob container, specify the folder name.
+1. **Folder Path** (optional). If your source forms are located within a folder in the blob container, specify the folder name.
 
 1. **Document Intelligence Service Uri** - Your Document Intelligence endpoint URL.
 
@@ -223,15 +223,15 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 ##### Identify text and tables
 
-Select **Run Layout on unvisited documents** on the left pane to get the text and table layout information for each document. The labeling tool will draw bounding boxes around each text element.
+Select **Run Layout on unvisited documents** on the left pane to get the text and table layout information for each document. The labeling tool draws bounding boxes around each text element.
 
-The labeling tool will also show which tables have been automatically extracted. Select the table/grid icon on the left hand of the document to see the extracted table. Because the table content is automatically extracted, we won't label the table content, but rather rely on the automated extraction.
+The labeling tool also shows which tables were automatically extracted. Select the table/grid icon on the left hand of the document and see the extracted table. Because the table content is automatically extracted, we don't label the table content, but rather rely on the automated extraction.
 
   :::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in Sample Labeling tool.":::
 
 ##### Apply labels to text
 
-Next, you'll create tags (labels) and apply them to the text elements that you want the model to analyze. Note the Sample Label data set includes already labeled fields; we'll add another field.
+Next, you create tags (labels) and apply them to the text elements that you want the model to analyze. Note the Sample Label data set includes already labeled fields; we add another field.
 
 Use the tags editor pane to create a new tag you'd like to identify:
 
@@ -263,9 +263,9 @@ Use the tags editor pane to create a new tag you'd like to identify:
 
 #### Train a custom model
 
-Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
+Choose the Train icon on the left pane and open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./get-started-sdks-rest-api.md?pivots=programming-language-rest-api) or [client library](./get-started-sdks-rest-api.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you need it if you want to do prediction calls through the [REST API](./get-started-sdks-rest-api.md?pivots=programming-language-rest-api) or [client library](./get-started-sdks-rest-api.md).
 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling more forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).
@@ -274,15 +274,15 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
 #### Analyze a custom form
 
-1. Select the **Analyze** icon from the navigation bar to test your model.
+1. Select the **`Analyze`** icon from the navigation bar and test your model.
 
 1. Select source **Local file** and  browse for a file to select from the sample dataset that you unzipped in the test folder.
 
-1. Choose the **Run analysis** button to get key/value pairs, text and tables predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+1. Choose the **Run analysis** button to get key/value pairs, text, and tables predictions for the form. The tool applies tags in bounding boxes and reports the confidence of each tag.
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-That's it! You've learned how to use the Document Intelligence sample tool for Document Intelligence prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data.
+That's it! You learned how to use the Document Intelligence sample tool for Document Intelligence prebuilt, layout, and custom models. You also learned to analyze a custom form with manually labeled data.
 
 ## Next steps
 

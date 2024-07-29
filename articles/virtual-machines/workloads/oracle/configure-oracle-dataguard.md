@@ -1,10 +1,9 @@
 ---
-title: Implement Oracle Data Guard on a Linux-based Azure virtual machine 
+title: Implement Oracle Data Guard on a Linux-based Azure virtual machine
 description: Quickly get Oracle Data Guard up and running in your Azure environment.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
-ms.custom: devx-track-azurecli, devx-track-linux
+ms.service: oracle-on-azure
+ms.custom: devx-track-azurecli, linux-related-content
 ms.collection: linux
 ms.topic: article
 ms.date: 03/23/2023
@@ -69,12 +68,12 @@ Create a resource group by using the [az group create](/cli/azure/group) command
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location $LOCATION 
+  --location $LOCATION
 ```
 
 ### Create a virtual network with two subnets
 
-Create a virtual network where you'll connect all compute services. One subnet will host Azure Bastion, an Azure service that helps protect your databases from public access. The second subnet will host the two Oracle database VMs.  
+Create a virtual network where you'll connect all compute services. One subnet will host Azure Bastion, an Azure service that helps protect your databases from public access. The second subnet will host the two Oracle database VMs.
 
 Also, create a network security group that all services will reference to determine what ports are publicly exposed. Only port 443 will be exposed. The Azure Bastion service will open this port automatically when you create that service instance.
 
@@ -83,7 +82,7 @@ az network vnet create \
   --resource-group $RESOURCE_GROUP \
   --location $LOCATION \
   --name $VNET_NAME \
-  --address-prefix "10.0.0.0/16" 
+  --address-prefix "10.0.0.0/16"
 az network vnet subnet create \
   --resource-group $RESOURCE_GROUP \
   --name AzureBastionSubnet \
@@ -434,7 +433,7 @@ Enter the username and password, and then select the **Connect** button.
 
 ```bash
 sudo systemctl stop firewalld
-sudo systemctl disable firewalld    
+sudo systemctl disable firewalld
 ```
 
 ### Configure the environment for OracleVM1

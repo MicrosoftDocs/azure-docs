@@ -8,12 +8,12 @@ ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
 ms.date: 06/23/2022
-ms.custom: devx-track-js, ignite-2022, devguide-js, cosmos-db-dev-journey
+ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey
 ---
 
 # Manage a collection in Azure Cosmos DB for MongoDB using JavaScript
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Manage your MongoDB collection stored in Azure Cosmos DB with the native MongoDB client driver.
 

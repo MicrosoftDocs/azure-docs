@@ -5,12 +5,12 @@ description: Learn how to get explanations for how your machine learning model d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.author: mithigpe
-author: minthigpen
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mithigpe
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, responsible-ml, mktng-kw-nov2021, sdkv1
 ---
 
 # Use the Python interpretability package to explain ML models & predictions (preview)

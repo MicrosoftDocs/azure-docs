@@ -1,8 +1,8 @@
 ---
-title: Azure Business Continuity center support matrix
+title: Azure Business Continuity Center support matrix
 description: Provides a summary of support settings and limitations for the Azure Business Continuity center service.
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 01/29/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -11,18 +11,15 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Support matrix for Azure Business Continuity center (preview)
+# Support matrix for Azure Business Continuity Center (preview)
 
 This article describes supportable scenarios and limitations.
 
-You can use [Azure Business Continuity center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that ABC center supports for each workload type.
+You can use [Azure Business Continuity Center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that ABC center supports for each workload type.
 
 ## Supported regions
 
-Azure Business Continuity center currently supports the following region: West Central US.
-
->[!Note]
->To manage Azure resources using Azure Business Continuity center in other regions, write to us at [ABCRegionExpansion@microsoft.com](mailto:ABCRegionExpansion@microsoft.com).
+Azure Business Continuity Center supports all Azure regions.
 
 ## Supported solutions and datasources
 
@@ -67,11 +64,11 @@ Action | Restore. | Only for Azure Backup supported datasources given in the abo
 
 ## Unsupported scenarios
 
-This table lists the solutions and scenarios that are unsupported in Azure Business Continuity center for each workload type:
+This table lists the solutions and scenarios that are unsupported in Azure Business Continuity Center for each workload type:
 
 | Category | Scenario |
 | --- | --- |
-| Monitor | Azure Site Recovery replication and failover health are not yet available in Azure Business Continuity center. You can continue to access these views via the individual vault pane. |
+| Monitor | Azure Site Recovery replication and failover health are not yet available in Azure Business Continuity Center. You can continue to access these views via the individual vault pane. |
 | Monitor | Metrics view is not yet supported for Azure Database for Azure Backup protected items of Azure Disks, Azure Database for PostgreSQL and for Azure Site Recovery protected items. |
 | Govern | Protectable resources view currently only shows Azure resources. It doesn't show hosted items in Azure resources like SQL databases in Azure Virtual machines, SAP HANA databases in Azure Virtual machines, Blobs and files in Azure Storage accounts. |
 | Actions | Undelete action is not available for Azure Backup protected items of Azure Virtual machine, SQL in Azure Virtual machine, SAP in Azure Virtual machine, and Files (Azure Storage account). |
@@ -85,4 +82,4 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 
 ## Next steps
 
-- [About Azure Business Continuity center (preview)](business-continuity-center-overview.md).
+- [About Azure Business Continuity Center (preview)](business-continuity-center-overview.md).

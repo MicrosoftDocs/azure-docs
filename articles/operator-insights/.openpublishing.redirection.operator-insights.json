@@ -1,0 +1,49 @@
+{
+  "redirections": [
+    {
+        "source_path_from_root": "/articles/operator-insights/how-to-install-mcc-edr-agent.md",
+        "redirect_url": "/azure/operator-insights/set-up-ingestion-agent",
+        "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/operator-insights/how-to-manage-mcc-edr-agent.md",
+      "redirect_url": "/azure/operator-insights/change-ingestion-agent-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/operator-insights/troubleshoot-mcc-edr-agent.md",
+      "redirect_url": "/azure/operator-insights/monitor-troubleshoot-ingestion-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/operator-insights/mcc-edr-agent-configuration.md",
+      "redirect_url": "/azure/operator-insights/ingestion-agent-configuration-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/operator-insights/sftp-agent-overview.md",
+      "redirect_url": "/azure/operator-insights/ingestion-agent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/operator-insights/how-to-install-sftp-agent.md",
+      "redirect_url": "/azure/operator-insights/set-up-ingestion-agent",
+      "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/operator-insights/how-to-manage-sftp-agent.md",
+    "redirect_url": "/azure/operator-insights/change-ingestion-agent-configuration",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/operator-insights/troubleshoot-sftp-agent.md",
+    "redirect_url": "/azure/operator-insights/monitor-troubleshoot-ingestion-agent",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/operator-insights/sftp-agent-configuration.md",
+    "redirect_url": "/azure/operator-insights/ingestion-agent-configuration-reference",
+    "redirect_document_id": false
+  }
+  ]
+}

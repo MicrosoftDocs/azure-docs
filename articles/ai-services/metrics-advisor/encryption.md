@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-metrics-advisor
 ms.custom: applied-ai-non-critical-metrics-advisor
 ms.topic: how-to
-ms.date: 07/02/2021
+ms.date: 01/19/2024
 ms.author: mbullwin
 #Customer intent: As a user of the Metrics Advisor service, I want to learn how encryption at rest works.
 ---
@@ -24,7 +24,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
 ## Steps to create a Metrics Advisor with BYOS
 
-### Step 1. Create an Azure Database for PostgreSQL and set admin
+### Step 1: Create an Azure Database for PostgreSQL and set admin
 
 - Create an Azure Database for PostgreSQL
 
@@ -43,7 +43,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
     After successfully creating your Azure Database for PostgreSQL. Go to the resource page of the newly created Azure PG resource. Select 'Active Directory admin' tab and set yourself as the Admin.
 
 
-### Step 2. Create a Metrics Advisor resource and enable Managed Identity
+### Step 2: Create a Metrics Advisor resource and enable Managed Identity
 
 - Create a Metrics Advisor resource in the Azure portal
 
@@ -60,7 +60,7 @@ Metrics Advisor supports CMK and double encryption by using BYOS (bring your own
 
     Go to Microsoft Entra ID, and select 'Enterprise applications'. Change 'Application type' to **'Managed Identity'**, copy resource name of Metrics Advisor, and search. Then you're able to view the 'Application ID' from the query result, copy it.
 
-### Step 3. Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
+### Step 3: Grant Metrics Advisor access permission to your Azure Database for PostgreSQL
 
 - Grant **'Owner'** role for the Managed Identity on your Azure Database for PostgreSQL
 

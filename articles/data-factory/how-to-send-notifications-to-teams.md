@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.custom: synapse
 ms.topic: how-to
 ms.subservice: tutorials
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Send notifications to a Microsoft Teams channel from an Azure Data Factory or Synapse Analytics pipeline
@@ -134,7 +134,7 @@ Before you can send notifications to Teams from your pipelines, you must create 
                     },
                     {
                         "name": "Pipline Name:",
-                        "value": "@{pipeline().parameters.name}"
+                        "value": "@{pipeline().Pipeline}"
                     },
                     {
                         "name": "Pipeline Status:",

@@ -3,9 +3,7 @@ title: 'Tutorial: Scala Maven app for Spark & IntelliJ - Azure HDInsight'
 description: Tutorial - Create a Spark application written in Scala with Apache Maven as the build system. And an existing Maven archetype for Scala provided by IntelliJ IDEA.
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: contperf-fy21q1
-ms.date: 04/24/2023
-
+ms.date: 05/09/2024
 # Customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a Scala Maven application for Spark in HDInsight using IntelliJ.
 ---
 
@@ -43,15 +41,15 @@ Do the following steps to install the Scala plugin:
 
 1. On the welcome screen, navigate to **Configure** > **Plugins** to open the **Plugins** window.
 
-   ![Screenshot showing IntelliJ Welcome Screen.](media/apache-spark-create-standalone-application/spark-1.png)
+   :::image type="content" border="true" source="media/apache-spark-create-standalone-application/spark-1.png" alt-text="Screenshot showing IntelliJ Welcome Screen.":::
 
 1. Select **Install** for Azure Toolkit for IntelliJ.
 
-   ![Screenshot showing IntelliJ Azure Tool Kit.](media/apache-spark-create-standalone-application/spark-2.png)
+   :::image type="content" border="true" source="media/apache-spark-create-standalone-application/spark-2.png" alt-text="Screenshot showing IntelliJ Azure Tool Kit.":::
 
 1. Select **Install** for the Scala plugin that is featured in the new window.  
 
-   ![Screenshot showing IntelliJ Scala Plugin.](media/apache-spark-create-standalone-application/spark-3.png)
+   :::image type="content" border="true" source="media/apache-spark-create-standalone-application/spark-3.png" alt-text="Screenshot showing IntelliJ Scala Plugin.":::
 
 1. After the plugin installs successfully, you must restart the IDE.
 
@@ -68,7 +66,7 @@ Do the following steps to install the Scala plugin:
    * **Maven** for Scala project-creation wizard support.
    * **SBT** for managing the dependencies and building for the Scala project.
 
-   ![Screenshot showing create application.](media/apache-spark-create-standalone-application/spark-4.png)
+   :::image type="content" border="true" source="media/apache-spark-create-standalone-application/spark-4.png" alt-text="Screenshot showing create application.":::
 
 1. Select **Next**.
 
@@ -81,7 +79,7 @@ Do the following steps to install the Scala plugin:
    |Project SDK| This field will be blank on your first use of IDEA.  Select **New...** and navigate to your JDK.|
    |Spark Version|The creation wizard integrates the proper version for Spark SDK and Scala SDK. If the Spark cluster version is earlier than 2.0, select **Spark 1.x**. Otherwise, select **Spark2.x**. This example uses **Spark 2.3.0 (Scala 2.11.8)**.|
 
-    :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-scala-new-project.png" alt-text="IntelliJ IDEA Selecting the Spark SDK" border="true":::
+    :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-scala-new-project.png" alt-text="IntelliJ IDEA Selecting the Spark SDK." border="true":::
 
 1. Select **Finish**.
 
@@ -127,7 +125,7 @@ Do the following steps to install the Scala plugin:
 1. Select **Apply**, and then select **OK**.  You'll then be returned to the project window.
 
     ```
-    :::image type="content" source="./media/apache-spark-create-standalone-application/configure-maven-download.png" alt-text="Configure Maven for automatic downloads" border="true":::
+    :::image type="content" source="./media/apache-spark-create-standalone-application/configure-maven-download.png" alt-text="Configure Maven for automatic downloads." border="true":::
     ```
 
 1. From the left pane, navigate to **src** > **main** > **scala** > **com.microsoft.spark.example**, and then double-click **App** to open App.scala.
@@ -188,27 +186,27 @@ Do the following steps to install the Scala plugin:
 
     1. From the **Project Structure** window, navigate to **Artifacts** > **the plus symbol +** > **JAR** > **From modules with dependencies...**.
 
-        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png" alt-text="`IntelliJ IDEA project structure add jar`" border="true":::
+        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar1.png" alt-text="`IntelliJ IDEA project structure add jar`." border="true":::
 
     1. In the **Create JAR from Modules** window, select the folder icon in the **Main Class** text box.
 
     1. In the **Select Main Class** window, select the class that appears by default and then select **OK**.
 
-        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png" alt-text="`IntelliJ IDEA project structure select class`" border="true":::
+        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar2.png" alt-text="`IntelliJ IDEA project structure select class`." border="true":::
 
     1. In the **Create JAR from Modules** window, ensure the **extract to the target JAR** option is selected, and then select **OK**.  This setting creates a single JAR with all dependencies.
 
-        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png" alt-text="IntelliJ IDEA project structure jar from module" border="true":::
+        :::image type="content" source="./media/apache-spark-create-standalone-application/hdinsight-create-jar3.png" alt-text="IntelliJ IDEA project structure jar from module." border="true":::
 
     1. The **Output Layout** tab lists all the jars that are included as part of the Maven project. You can select and delete the ones on which the Scala application has no direct dependency. For the application, you're creating here, you can remove all but the last one (**SparkSimpleApp compile output**). Select the jars to delete and then select the negative symbol **-**.
 
-        :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png" alt-text="`IntelliJ IDEA project structure delete output`" border="true":::
+        :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-delete-output-jars.png" alt-text="`IntelliJ IDEA project structure delete output`." border="true":::
 
         Ensure sure the **Include in project build** checkbox is selected. This option ensures that the jar is created every time the project is built or updated. Select **Apply** and then **OK**.
 
     1. To create the jar, navigate to **Build** > **Build Artifacts** > **Build**. The project will compile in about 30 seconds.  The output jar is created under **\out\artifacts**.
 
-        :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png" alt-text="IntelliJ IDEA project artifact output" border="true":::
+        :::image type="content" source="./media/apache-spark-create-standalone-application/hdi-artifact-output-jar.png" alt-text="IntelliJ IDEA project artifact output." border="true":::
 
 ## Run the application on the Apache Spark cluster
 
@@ -239,4 +237,3 @@ If you're not going to continue to use this application, delete the cluster that
 In this article, you learned how to create an Apache Spark scala application. Advance to the next article to learn how to run this application on an HDInsight Spark cluster using Livy.
 > [!div class="nextstepaction"]
 > [Run jobs remotely on an Apache Spark cluster using Apache Livy](./apache-spark-livy-rest-interface.md)
-

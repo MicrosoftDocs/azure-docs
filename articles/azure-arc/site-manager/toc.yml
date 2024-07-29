@@ -1,0 +1,37 @@
+- name: Azure Arc site manager
+  href: index.yml
+- name: Get started
+  items:
+  - name: About Azure Arc site manager
+    href: overview.md
+  - name: Quickstart
+    href: quickstart.md
+- name: How-to guides 
+  items:
+  - name: Create, use, delete, and modify an Arc site
+    href: how-to-crud-site.md
+  - name: View connectivity status
+    href: how-to-view-connectivity-status.md
+  - name: View update status
+    href: how-to-view-update-status.md
+  - name: Configure Azure Monitor alerts
+    href: how-to-configure-monitor-site.md
+  - name: View alerts
+    href: how-to-view-alerts.md
+- name: FAQ
+  items:
+  - name: FAQ
+    href: faq.md
+- name: Fix common issues
+
+  items:
+  - name: Known Issues
+    href: known-issues.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+- name: Reference
+  items:
+  - name: Azure Arc
+    href: ../overview.md
+  - name: Azure Monitor
+    href: ../../azure-monitor/overview.md

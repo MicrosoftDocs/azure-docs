@@ -3,9 +3,10 @@ title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 03/06/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.date: 01/15/2024
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -19,18 +20,7 @@ For information on setup and configuration details, see the [overview](functions
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
-
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 ::: zone-end
 
 ## Example
@@ -38,6 +28,8 @@ This article supports both programming models.
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -49,11 +41,45 @@ This example shows a [C# function](dotnet-isolated-process-guide.md) that receiv
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
+&nbsp;
+<hr/>
+
+This example uses an HTTP trigger with an `OutputType` object to both send an HTTP response and write the output message. 
+
+```csharp
+[Function("HttpSendMsg")]
+public async Task<OutputType> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext context)
+{
+   _logger.LogInformation($"C# HTTP trigger function processed a request for {context.InvocationId}.");
+
+   HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
+   await response.WriteStringAsync("HTTP response: Message sent");
+            
+   return new OutputType()
+   {
+       OutputEvent = "MyMessage",
+       HttpResponse = response
+   };
+}
+```
+
+This code defines the multiple output type `OutputType`, which includes the Service Bus output binding definition on `OutputEvent`:
+
+```csharp
+ public class OutputType
+{
+   [ServiceBusOutput("TopicOrQueueName", Connection = "ServiceBusConnection")]
+   public string OutputEvent { get; set; }
+
+   public HttpResponseData HttpResponse { get; set; }
+}
+```
+
 # [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
-```cs
+```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
 public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
@@ -62,6 +88,28 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
+&nbsp;
+<hr/>
+
+Instead of using the return statement to send the message, this HTTP trigger function returns an HTTP response that is different from the output message.
+
+```csharp
+[FunctionName("HttpTrigger1")]
+public static async Task<IActionResult> Run(
+[HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, 
+[ServiceBus("TopicOrQueueName", Connection = "ServiceBusConnection")] IAsyncCollector<string> message, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    await message.AddAsync("MyMessage");
+    await message.AddAsync("MyMessage2");
+
+    string responseMessage = "This HTTP triggered sent a message to Service Bus.";
+
+    return new OkObjectResult(responseMessage);
+}
+```
+
 ---
 
 ::: zone-end

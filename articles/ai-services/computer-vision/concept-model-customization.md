@@ -8,13 +8,15 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 02/06/2023
+ms.date: 01/19/2024
 ms.author: pafarley
 ---
 
 # Model customization (version 4.0 preview)
 
 Model customization lets you train a specialized Image Analysis model for your own use case. Custom models can do either image classification (tags apply to the whole image) or object detection (tags apply to specific areas of the image). Once your custom model is created and trained, it belongs to your Vision resource, and you can call it using the [Analyze Image API](./how-to/call-analyze-image-40.md).
+
+Implement model customization quickly and easily by following a quickstart:
 
 > [!div class="nextstepaction"]
 > [Vision Studio quickstart](./how-to/model-customization.md?tabs=studio)
@@ -78,8 +80,8 @@ The following table describes the limits on the scale of your custom model proje
 | Max # training images               | 1,000,000                       | 200,000                         |
 | Max # evaluation images             | 100,000                        | 100,000                         |
 | Min # training images per category  | 2                               | 2                               |
-| Max # tags per image                | multiclass: 1                   | NA                              |
-| Max # regions per image             | NA                              | 1,000                           |
+| Max # tags per image                | 1                               | N/A                            |
+| Max # regions per image             | N/A                              | 1,000                           |
 | Max # categories                    | 2,500                           | 1,000                           |
 | Min # categories                    | 2                               | 1                               |
 | Max image size (Training)           | 20 MB                            | 20 MB                            |

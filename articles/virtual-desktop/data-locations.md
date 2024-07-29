@@ -6,7 +6,6 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 06/22/2022
 ms.author: helohr
-manager: femila
 ---
 # Data locations for Azure Virtual Desktop
 

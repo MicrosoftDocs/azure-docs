@@ -6,11 +6,14 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 06/24/2024
 ms.custom: engagement-fy24
 ---
 
 # Assessment overview (migrate to Azure VMs)
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 
@@ -132,7 +135,7 @@ Here's what's included in an Azure VM assessment:
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
 **VM uptime** | The duration in days per month and hours per day for Azure VMs that won't run continuously. Cost estimates are based on that duration.<br><br> The default values are 31 days per month and 24 hours per day.
-**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting has the default value "Yes," Azure prices for operating systems other than Windows are considered for Windows VMs.
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) to use your existing OS licenses. If the setting is enabled, Azure prices for selected operating systems are not considered for VM costing.
 **EA subscription** | Specifies that an Enterprise Agreement (EA) subscription is used for cost estimation. Takes into account the discount applicable to the subscription. <br><br> Leave the settings for reserved instances, discount (%) and VM uptime properties with their default settings.
 **Security** | Specifies whether you want to assess readiness and cost for security tooling on Azure. If the setting has the default value **Yes, with Microsoft Defender for Cloud**, it will assess security readiness and costs for your Azure VM with Microsoft Defender for Cloud.   
 
@@ -202,7 +205,6 @@ Assessments also determine readiness of the recommended target for Microsoft Def
    - SUSE Linux Enterprise Server 12, 15+
    - Debian 9, 10, 11
    - Oracle Linux 7.2+, 8
-   - CentOS Linux 7.2+
    - Amazon Linux 2
 - For other Operating Systems, the server is marked as **Ready with Conditions**.
 If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.

@@ -3,7 +3,7 @@ title: Optimize Apache Pig with Apache Ambari in Azure HDInsight
 description: Use the Apache Ambari web UI to configure and optimize Apache Pig.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 01/31/2023
+ms.date: 02/12/2024
 ---
 
 # Optimize Apache Pig with Apache Ambari in Azure HDInsight
@@ -18,7 +18,7 @@ Apache Pig properties can be  modified from the Ambari web UI to tune Pig querie
 
 1. Select **Save** on the top-right side of the window to save the new value. Some properties may require a service restart.
 
-    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="Advanced Apache pig properties" border="true":::
+    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="Advanced Apache pig properties." border="true":::
 
 > [!NOTE]  
 > Any session-level settings override property values in the `pig.properties` file.

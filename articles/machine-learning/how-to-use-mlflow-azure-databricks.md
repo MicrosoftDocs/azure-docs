@@ -3,14 +3,14 @@ title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
+author: msakande
+ms.author: mopeakande
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: mopeakande
+ms.reviewer: fasantia
 ms.date: 07/01/2022
 ms.topic: how-to
-ms.custom: sdkv2, event-tier1-build-2022, ignite-2022
+ms.custom: sdkv2
 ---
 
 # Track Azure Databricks ML experiments with MLflow and Azure Machine Learning

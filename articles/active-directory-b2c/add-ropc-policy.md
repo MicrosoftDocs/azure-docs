@@ -9,13 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/16/2023
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer integrating Azure AD B2C into my application, I want to set up the resource owner password credentials flow, so that my application can exchange valid credentials for tokens and authenticate users.
+
 ---
 
 # Set up a resource owner password credentials flow in Azure Active Directory B2C
@@ -43,7 +43,7 @@ The following flows aren't supported:
 When using the ROPC flow, consider the following limitations:
 
 - ROPC doesn’t work when there's any interruption to the authentication flow that needs user interaction. For example, when a password expires or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
-- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, Twitter, AD-FS, or Facebook.
+- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, X, AD-FS, or Facebook.
 - [Session Management](session-behavior.md), including [keep me signed-in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi), isn't applicable.
 
 

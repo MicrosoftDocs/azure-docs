@@ -3,6 +3,9 @@ title: Automatically repair Azure Kubernetes Service (AKS) nodes
 description: Learn about node auto-repair functionality and how AKS fixes broken worker nodes.
 ms.topic: conceptual
 ms.date: 05/30/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Azure Kubernetes Service (AKS) node auto-repair
@@ -69,3 +72,4 @@ Use [availability zones][availability-zones] to increase high availability with 
 [vm-updates]: ../virtual-machines/maintenance-and-updates.md
 [scheduled-events]: ../virtual-machines/linux/scheduled-events.md
 [spot-node-pools]: spot-node-pool.md
+

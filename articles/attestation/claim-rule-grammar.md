@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 
 
@@ -20,13 +20,13 @@ A claim is a set of properties grouped together to provide relevant information.
 
 - **type**: A string value that represents type of the claim.
 - **value**: A Boolean, integer, or string value that represents value of the claim.
-- **valueType**: The data type of  the information stored in the value property. Supported types are String, Integer, and Boolean. If not defined, the default value will be "String".
-- **issuer**: Information regarding the issuer of the claim. The issuer will be one of the following types:
-  - **AttestationService**: Certain claims are made available to the policy author by Azure Attestation, which can be used by the attestation policy author to craft the appropriate policy.
+- **valueType**: The data type of the information stored in the value property. Supported types are String, Integer, and Boolean. If not defined, the default value is "String".
+- **issuer**: Information regarding the issuer of the claim. The issuer is one of the following types.
+  - **AttestationService**: Certain claims are made available to the policy author by Azure Attestation, which the attestation policy author can use to craft the appropriate policy.
   - **AttestationPolicy**: The policy (as defined by the administrator) itself can add claims to the incoming evidence during processing. The issuer in this case is set to "AttestationPolicy".
-  - **CustomClaim**: The attestor (client) can also add additional claims to the attestation evidence. The issuer in this case is set to "CustomClaim".
+  - **CustomClaim**: The attestor (client) can also add more claims to the attestation evidence. The issuer in this case is set to "CustomClaim".
 
-If not defined. the default value will be "CustomClaim".
+If not defined, the default value is "CustomClaim".
 
 ## Claim Rule
 
@@ -38,8 +38,7 @@ Conditions list => Action (Claim)
 
 Azure Attestation evaluation of a claim rule involves following steps:
 
-- If conditions list is not present, execute the action with specified claim 
-- Otherwise, evaluate the conditions from the conditions list.
+- If conditions list is not present, execute the action with specified claim. Otherwise, evaluate the conditions from the conditions list.
 - If the conditions list evaluates to false, stop. Otherwise, proceed.
 
 The conditions in a claim rule are used to determine whether the action needs to be executed. Conditions list is a sequence of conditions that are separated by "&&" operator.
@@ -84,15 +83,15 @@ Evaluation of conditions list:
 - A condition represents filtering criteria on the set of claims. The condition itself is said to evaluate to true if there is at least one claim is found that satisfies the condition.
 - A claim is said to satisfy the filtering criterion represented by the condition if each of its properties satisfies the corresponding claim property conditions present in the condition.  
 
-The set of actions that are allowed in a policy are described below.
+The set of actions that are allowed in a policy:
 
 | Action Verb | Description | Policy sections to which these apply |
 |--|--|--|
-| permit() | The incoming claim set can be used to compute **issuancerules**. Does not take any claim as a parameter | **authorizationrules** |
+| permit() | The incoming claim set can be used to compute **issuancerules**. Does not take any claim as a parameter. | **authorizationrules** |
 | deny() | The incoming claim set should not be used to compute **issuancerules** Does not take any claim as a parameter | **authorizationrules** |
-| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set will be available for the subsequent claim rules. |**authorizationrules**, **issuancerules** |
-| issue(claim) | Adds the claim to the incoming and outgoing claims set | **issuancerules** |
-| issueproperty(claim) | Adds the claim to the incoming and property claims set | **issuancerules**
+| add(claim) | Adds the claim to the incoming claims set. Any claim added to the incoming claims set is available for the subsequent claim rules. |**authorizationrules**, **issuancerules** |
+| issue(claim) | Adds the claim to the incoming and outgoing claims set. | **issuancerules** |
+| issueproperty(claim) | Adds the claim to the incoming and property claims set. | **issuancerules** |
 
 ## Next steps
 

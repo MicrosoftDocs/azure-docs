@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
@@ -56,11 +56,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Chart**:
 
-:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ## Try & restore 
 
@@ -108,6 +108,7 @@ az vmss create \
     --resource-group myResourceGroup \
     --name myScaleSet \
     --image Ubuntu2204 \
+    --orchestration-mode Flexible \
     --single-placement-group false \
     --admin-username azureuser \
     --generate-ssh-keys \
@@ -130,6 +131,7 @@ Just add '-Priority Spot', and supply a `-max-price` to the [New-AzVmssConfig](/
 $vmssConfig = New-AzVmssConfig `
     -Location "East US 2" `
     -SkuCapacity 2 `
+    -OrchestrationMode "Flexible" `
     -SkuName "Standard_DS2" `
     -Priority "Spot" `
     -max-price -1 `

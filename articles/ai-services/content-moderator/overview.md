@@ -7,11 +7,9 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-moderator
 ms.topic: overview
-ms.date: 11/06/2021
+ms.date: 01/18/2024
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, Azure Content Moderator, online moderator, content filtering software, content moderation service, content moderation
-
 #Customer intent: As a developer of content management software, I want to find out whether Azure Content Moderator is the right solution for my moderation needs.
 ---
 
@@ -26,7 +24,7 @@ You may want to build content filtering software into your app to comply with re
 This documentation contains the following article types:  
 
 * [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
+* [**How-to guides**](video-moderation-api.md) contain instructions for using the service in more specific or customized ways.  
 * [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
 
 For a more structured approach, follow a Training module for Content Moderator.
@@ -61,9 +59,9 @@ The following table describes the different types of moderation APIs.
 | API group | Description |
 | ------ | ----------- |
 |[**Text moderation**](text-moderation-api.md)| Scans text for offensive content, sexually explicit or suggestive content, profanity, and personal data.|
-|[**Custom term lists**](try-terms-list-api.md)| Scans text against a custom list of terms along with the built-in terms. Use custom lists to block or allow content according to your own content policies.|  
+|[**Custom term lists**](term-lists-quickstart-dotnet.md)| Scans text against a custom list of terms along with the built-in terms. Use custom lists to block or allow content according to your own content policies.|  
 |[**Image moderation**](image-moderation-api.md)| Scans images for adult or racy content, detects text in images with the Optical Character Recognition (OCR) capability, and detects faces.|
-|[**Custom image lists**](try-image-list-api.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|
+|[**Custom image lists**](image-lists-quickstart-dotnet.md)| Scans images against a custom list of images. Use custom image lists to filter out instances of commonly recurring content that you don't want to classify again.|
 |[**Video moderation**](video-moderation-api.md)| Scans videos for adult or racy content and returns time markers for said content.|
 
 ## Data privacy and security

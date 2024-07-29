@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 12/16/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -23,7 +23,7 @@ Virtual Machine Scale Sets use disks to store the VM instance's operating system
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 
 ## Default Azure disks
@@ -72,6 +72,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "East US"
 New-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -Location "EastUS" `
+  -OrchestrationMode "Flexible" `
   -VMScaleSetName "myScaleSet" `
   -VirtualNetworkName "myVnet" `
   -SubnetName "mySubnet" `

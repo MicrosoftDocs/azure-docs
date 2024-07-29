@@ -1,14 +1,13 @@
 ---
-title: 'Conditional expressions for Azure CDN - Edgio Premium rules engine'
+title: Conditional expressions for Azure CDN - Edgio Premium rules engine
 description: Reference documentation for Azure CDN from Edgio Premium rules engine match conditions and features.
 services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 02/27/2023
+ms.date: 03/20/2024
 ms.author: duau
-
 ---
 
 # Azure CDN from Edgio Premium rules engine conditional expressions

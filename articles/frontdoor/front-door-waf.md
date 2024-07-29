@@ -1,17 +1,18 @@
 ---
-title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)' 
+title: 'Tutorial: Scale and protect a web app by using Azure Front Door and Azure Web Application Firewall (WAF)'
 description: This tutorial shows you how to use Azure Web Application Firewall with the Azure Front Door service.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: tutorial
-ms.workload: infrastructure-services
 ms.custom: devx-track-azurecli
 ms.date: 12/28/2023
 ms.author: duau
 ---
 
 # Tutorial: Quickly scale and protect a web application by using Azure Front Door and Azure Web Application Firewall (WAF)
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Many web applications experience a rapid increase of traffic over time. These web applications are also experiencing a surge in malicious traffic, including denial-of-service attacks. There's an effective way to both scale out your application for traffic surges and protect yourself from attacks: configure Azure Front Door with Azure WAF as an acceleration, caching, and security layer in front of your web app. This article provides guidance on how to get Azure Front Door with Azure WAF configured for any web app that runs inside or outside of Azure. 
 
@@ -25,7 +26,7 @@ In this tutorial, you learn how to:
 > - Associate a WAF policy with Front Door.
 > - Configure a custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

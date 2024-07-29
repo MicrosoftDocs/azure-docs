@@ -3,7 +3,7 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/17/2023
+ms.date: 04/21/2024
 ms.topic: conceptual 
 ---
 
@@ -49,6 +49,9 @@ The Hybrid Runbook Worker feature supports the following operating systems:
 * Windows 10 Enterprise (including multi-session) and Pro
 * Windows 8 Enterprise and Pro
 * Windows 7 SP1
+
+> [!NOTE]
+> Hybrid Worker would follow support timelines of the OS vendor.
 
 ### Minimum requirements
 

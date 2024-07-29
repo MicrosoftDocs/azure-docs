@@ -5,10 +5,10 @@ description: Use Azure Pipelines for flexible MLOps automation
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: larryfr
-ms.date: 06/06/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: kritifaujdar
+ms.date: 06/12/2024
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy
 ---
@@ -45,9 +45,9 @@ https://github.com/azure/azureml-examples
 
 ## Step 2: Sign in to Azure Pipelines
 
-[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
+[!INCLUDE [include](~/reusable-content/devops-pipelines/sign-in-azure-pipelines.md)]
 
-[!INCLUDE [include](~/articles/reusable-content/devops-pipelines/create-project.md)]
+[!INCLUDE [include](~/reusable-content/devops-pipelines/create-project.md)]
 
 ## Step 3: Create a service connection
 
@@ -59,7 +59,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
-1. Choose **+ New service connection** and select **Azure Resource Manager**.
+1. Choose **Create service connection** and select **Azure Resource Manager**.
 
 1. Select the default authentication method, **Service principal (automatic)**.
 
@@ -71,7 +71,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
-1. Choose **+ New service connection** and select **Generic**.
+1. Choose **Create service connection** and select **Generic**.
 
 1. Use ```https://management.azure.com``` and provide a service connection name. Don't provide any authentication related information.
 
@@ -82,7 +82,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 ## Step 4: Create a pipeline
 
-1. Go to **Pipelines**, and then select **New pipeline**.
+1. Go to **Pipelines**, and then select **create pipeline**.
 
 1. Do the steps of the wizard by first selecting **GitHub** as the location of your source code.
 
@@ -124,7 +124,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -174,7 +173,6 @@ jobs:
   pool:
     vmImage: ubuntu-latest
   steps:
-  - checkout: none
   - task: UsePythonVersion@0
     displayName: Use Python >=3.8
     inputs:
@@ -243,7 +241,7 @@ The task has four inputs: `Service Connection`, `Azure Resource Group Name`, `Az
   dependsOn: SubmitAzureMLJob
   variables: 
     # We are saving the name of azureMl job submitted in previous step to a variable and it will be used as an inut to the AzureML Job Wait task
-    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.AZUREML_JOB_NAME'] ] 
+    azureml_job_name_from_submit_job: $[ dependencies.SubmitAzureMLJob.outputs['submit_azureml_job_task.JOB_NAME'] ] 
   steps:
   - task: AzureMLJobWaitTask@1
     inputs:

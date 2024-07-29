@@ -2,6 +2,7 @@
 author: cephalin
 ms.service: app-service
 ms.devlang: java
+ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 02/21/2023
 ms.author: cephalin

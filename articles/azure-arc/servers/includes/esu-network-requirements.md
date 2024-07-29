@@ -1,10 +1,15 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 11/01/2023
+ms.date: 06/04/2024
 ---
 
-If you are using Azure Arc-enabled servers only for the purpose of Extended Security Updates for Windows Server 2012, you can enable the following subset of endpoints:
+If you're using Azure Arc-enabled servers only for Extended Security Updates for either or both of the following products:
+
+- Windows Server 2012
+- SQL Server 2012
+
+You can enable the following subset of endpoints:
 
 #### [Azure Cloud](#tab/azure-cloud)
 
@@ -17,7 +22,9 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
-|`microsoft.com/pkiops/certs`| Certificate download for ESUs | ESUs enabled by Azure Arc | Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | Always for automatic updates, or temporarily if downloading certificates manually. | Public |
+|`*.<region>.arcdataservices.com`| Azure Arc data processing service and service telemetry.| SQL Server ESUs | Public|
+|`*.blob.core.windows.net` | Download Sql Server Extension package | SQL Server ESUs | Not required if using Private Link |
 
 #### [Azure Government](#tab/azure-government)
 
@@ -29,7 +36,8 @@ If you are using Azure Arc-enabled servers only for the purpose of Extended Secu
 |`management.usgovcloudapi.net`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |
-|`microsoft.com/pkiops/certs`| Certificate download for ESUs | ESUs enabled by Azure Arc | Public |
+|`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | Always for automatic updates, or temporarily if downloading certificates manually. | Public |
+|`*.blob.core.usgovcloudapi.net` | Download Sql Server Extension package | SQL Server ESUs | Not required if using Private Link |
 
 #### [Microsoft Azure operated by 21Vianet](#tab/azure-china)
 

@@ -6,8 +6,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 12/27/2022
-ms.custom: template-tutorial
+ms.date: 06/27/2024
+ms.custom: template-tutorial, references_regions
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
 
@@ -30,7 +30,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - An Azure subscription.
 - Two **standard** sku Azure Load Balancers with backend pools deployed in two different Azure regions.
     - For information on creating a regional standard load balancer and virtual machines for backend pools, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
-        - Append the name of the load balancers, virtual machines, and other resources in each region with a **-R1** and **-R2**. 
 
 ## Sign in to Azure portal
 
@@ -38,7 +37,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create cross-region load balancer
 
-In this section, you'll create a 
+In this section, you create a 
 
 * Cross-region load balancer
 * Frontend with a global public IP address
@@ -59,8 +58,8 @@ In this section, you'll create a
     | Subscription               | Select your subscription.    |    
     | Resource group         | Select **Create new** and enter **CreateCRLBTutorial-rg** in the text box. |
     | **Instance details** |   |
-    | Name                   | Enter **myLoadBalancer-CR**                                   |
-    | Region         | Select **(US) West US**.                                        |
+    | Name                   | Enter **myLoadBalancer-cr**                                   |
+    | Region         | Select **(US) East US**.                                        |
     | Type          | Select **Public**.                                        |
     | SKU           | Leave the default of **Standard**. |
     | Tier           | Select **Global** |
@@ -75,9 +74,9 @@ In this section, you'll create a
 
 7. Select **IPv4** or **IPv6** for **IP version**.
 
-8. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **OK**.
+8. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **Save** for the Add Public IP Address Dialog.
 
-9. Select **Add**.
+9. Select **Save**.
 
 10. Select **Next: Backend pools** at the bottom of the page.
 
@@ -117,13 +116,13 @@ In this section, you'll create a
 21. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
-    > Cross region load-balancer can only be deployed in the following home regions: **East US 2, West US, West Europe, Southeast Asia, Central US, North Europe, East Asia**. For more information, see **https://aka.ms/homeregionforglb**.
+    > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
 
 ## Test the load balancer
 
-In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
+In this section, you test the cross-region load balancer. You connect to the public IP address in a web browser.  You stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. Find the public IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP-CR**.
+1. Find the public IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP-cr**.
 
 2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 

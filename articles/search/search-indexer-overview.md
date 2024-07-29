@@ -19,7 +19,7 @@ An *indexer* in Azure AI Search is a crawler that extracts textual data from clo
 
 Indexers also drive [skillset execution and AI enrichment](cognitive-search-concept-intro.md), where you can configure skills to integrate extra processing of content en route to an index. A few examples are OCR over image files, text split skill for data chunking, text translation for multiple languages.
 
-Indexers target[supported data sources](#supported-data-sources). An indexer configuration specifies a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have more configuration properties specific to that content type.
+Indexers target [supported data sources](#supported-data-sources). An indexer configuration specifies a data source (origin) and a search index (destination). Several sources, such as Azure Blob Storage, have more configuration properties specific to that content type.
 
 You can run indexers on demand or on a recurring data refresh schedule that runs as often as every five minutes. More frequent updates require a ['push model'](search-what-is-data-import.md) that simultaneously updates data in both Azure AI Search and your external data source.
 

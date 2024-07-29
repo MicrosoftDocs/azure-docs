@@ -4,7 +4,7 @@ description: Prevent your Azure Cosmos DB for Apache Cassandra operations from h
 author: dileepraotv-github
 ms.service: cosmos-db
 ms.subservice: apache-cassandra
-ms.custom: ignite-2022, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: turao

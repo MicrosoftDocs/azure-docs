@@ -111,6 +111,7 @@ You can additionally optimize the DNS Time to Live (TTL) value for the Traffic M
 The TTL experienced by the client also does not increase if the number of DNS resolvers between the client and the authoritative DNS server increases. DNS resolvers ‘count down’ the TTL and only pass on a TTL value that reflects the elapsed time since the record was cached. This ensures that the DNS record gets refreshed at the client after the TTL, irrespective of the number of DNS Resolvers in the chain.
 
 ## Next steps
+
 - Learn more about Traffic Manager [routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 - Learn more about [nested Traffic Manager profiles](../traffic-manager/traffic-manager-nested-profiles.md).
 - Learn more about [endpoint monitoring](../traffic-manager/traffic-manager-monitoring.md).

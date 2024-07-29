@@ -102,6 +102,6 @@ try
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Smtp failed the the exception: {ex.Message}.");
+    Console.WriteLine($"Smtp send failed with the exception: {ex.Message}.");
 }
 ```

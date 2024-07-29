@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 12/19/2023
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Service configuration
@@ -17,7 +16,7 @@ Each version of QnA Maker uses a different set of Azure resources (services). Th
 
 ## App Service
 
-QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](/rest/api/cognitiveservices/qnamaker4.0/runtime/generateanswer).
+QnA Maker uses the App Service to provide the query runtime used by the [generateAnswer API](/rest/api/qnamaker/runtime/generate-answer).
 
 These settings are available in the Azure portal, for the App Service. The settings are available by selecting **Settings**, then **Configuration**.
 

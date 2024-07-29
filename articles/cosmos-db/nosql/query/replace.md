@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Replaces all occurrences of a specified string value with another string value.
 
 ## Syntax
 
-```sql
+```nosql
 REPLACE(<string_expr_1>, <string_expr_2>, <string_expr_3>)  
 ```
 
@@ -40,7 +41,7 @@ Returns a string expression.
 
 The following example shows how to use this function to replace static values.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/replace/query.sql" highlight="2":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/replace/query.sql" highlight="2":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/replace/result.json":::
 

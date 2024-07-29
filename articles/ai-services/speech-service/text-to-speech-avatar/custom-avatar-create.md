@@ -1,19 +1,17 @@
 ---
 title: How to create a custom text to speech avatar - Speech service
 titleSuffix: Azure AI services
-description: Learn how to create a custom text to speech avatar
-author: sally-baolian
+description: Learn how to create a custom text to speech avatar.
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 11/15/2023
-ms.author: v-baolianzou
-keywords: custom text to speech avatar 
+ms.date: 2/24/2024
+ms.reviewer: v-baolianzou
+ms.author: eur
+author: eric-urban
 ---
 
-# How to create a custom text to speech avatar (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# How to create a custom text to speech avatar
 
 Getting started with a custom text to speech avatar is a straightforward process. All it takes are a few of video files. If you'd like to train a [custom neural voice](../custom-neural-voice.md) for the same actor, you can do so separately.
 

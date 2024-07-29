@@ -7,10 +7,14 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 06/21/2022
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C into my application, I want to understand the authentication protocols supported by Azure AD B2C, so that I can choose the appropriate protocol for my application and ensure secure authentication and authorization for my users.
+
 ---
 
 # Azure AD B2C: Authentication protocols

@@ -7,7 +7,6 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: jushiman
 ms.custom: devx-track-azurecli

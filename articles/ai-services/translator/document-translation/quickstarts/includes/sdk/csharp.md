@@ -5,7 +5,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 06/19/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -47,16 +47,16 @@ Build succeeded.
 Within the application directory, install the Document Translation client library for .NET:
 
 ```console
-dotnet add package Azure.AI.Translation.Document --version 1.0.0
+dotnet add package Azure.AI.Translation.Document --version 2.0.0-beta
 ```
 
-### Translate a document or batch files
+## Translate documents asynchronously
 
 1. For this project, you need a **source document** uploaded to your **source container**. You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.pdf) for this quickstart. The source language is English.
 
 1. From the project directory, open the **Program.cs** file in your preferred editor or IDE. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../how-to-guides/use-rest-api-programmatically.md#retrieve-your-key-and-custom-domain-endpoint).
 
     ```csharp
     private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -73,24 +73,24 @@ dotnet add package Azure.AI.Translation.Document --version 1.0.0
       * **targetUri** The URL for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
+        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers**, and follow these steps to retrieve your source documents and target container `URLS`.
 
           |Source|Target|
           |------|-------|
           |1. Select the checkbox next to the source container|1. Select the checkbox next to the target container.|
-          | 2. From the main window area, select a file or document(s) for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
+          | 2. From the main window area, select a file or documents for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
           | 3. The source URL is located at the top of the Properties list.|3. The target URL is located at the top of the Properties list.|
 
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
-      * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
+      * **targetUri** The SAS URI, with a SAS token appended as a query string, for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
-
-## Code sample
 
   > [!IMPORTANT]
   > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
+
+## Asynchronous translation code sample
 
 **Enter the following code sample into your application's Program.cs file:**
 
@@ -153,7 +153,7 @@ class Program {
 
 ## Run your application
 
-Once you've added the code sample to your application, run your application from the project directory by typing the following command in your terminal:
+Once you add the code sample to your application, run your application from the project directory by typing the following command in your terminal:
 
 ```csharp
   dotnet run
@@ -162,6 +162,49 @@ Once you've added the code sample to your application, run your application from
 Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/c-sharp-output-document.png" alt-text="Screenshot of the Visual Studio Code output in the terminal window. ":::
+
+## Synchronous translation code sample
+
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
+
+```csharp
+
+
+using Azure;
+using Azure.AI.Translation.Document;
+using System;
+using System.Threading;
+using System.Text;
+
+class Program {
+
+  string endpoint = "{your-document-translation-endpoint}";
+  string apiKey = "{your-api-key}";
+  SingleDocumentTranslationClient client = new SingleDocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+  try
+  {
+    string filePath = @"C:\{folder}\document.txt"
+    using Stream fileStream = File.OpenRead(filePath);
+
+    // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+    DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
+
+    // DocumentTranslate (string targetLanguage, Azure.AI.Translation.Document.DocumentTranslateContent documentTranslateContent, string sourceLanguage = default, string category = default, bool? allowFallback = default, System.Threading.CancellationToken cancellationToken = default);
+    var response = client.DocumentTranslate("de", content);
+
+    Console.WriteLine($"Request string for translation: {requestString}");
+    Console.WriteLine($"Response string after translation: {responseString}");
+  }
+    catch (RequestFailedException exception) {
+    Console.WriteLine($"Error Code: {exception.ErrorCode}");
+    Console.WriteLine($"Message: {exception.Message}");
+  }
+}
+
+```
 
 ### [Visual Studio](#tab/vs)
 
@@ -182,13 +225,13 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
      :::image type="content" source="../../../../media/quickstarts/create-project.png" alt-text="Screenshot of Visual Studio 2022 create new project page.":::
 
-1. In the **Configure your new project** dialog window, enter `document-translation-sdk` in the Project name box. Then choose **Next**.
+1. In the **Configure your new project** dialog window, enter `asynchronous-sdk` in the Project name box. Then choose **Next**.
 
-    :::image type="content" source="../../../../media/quickstarts/configure-new-project-document.png" alt-text="Screenshot of Visual Studio 2022 configure new project set-up window.":::
+    :::image type="content" source="../../../../media/quickstarts/configure-new-project-document.png" alt-text="Screenshot of Visual Studio 2022 configure new project configuration window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information set-up window.":::
+    :::image type="content" source="../../../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio 2022 additional information configuration window.":::
 
 ## Install the client library with NuGet
 
@@ -216,7 +259,7 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
 
 1. Delete the pre-existing code, including the line `Console.WriteLine("Hello World!")`.
 
-1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../quickstarts/document-translation-rest-api.md#retrieve-your-key-and-document-translation-endpoint).
+1. In the application's **Program.cs** , create variables for your key and custom endpoint. For more information, *see* [Retrieve your key and custom domain endpoint](../../../how-to-guides/use-rest-api-programmatically.md#retrieve-your-key-and-custom-domain-endpoint).
 
   ```csharp
   private static readonly string endpoint = "<your-document-translation-endpoint>";
@@ -233,21 +276,21 @@ For this quickstart, we use the latest version of [Visual Studio](https://visual
       * **targetUri** The URL for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers** and follow these steps to retrieve your source document(s) and target container URLS.
+        To find your source and target URLs, navigate to your storage account in the Azure portal. In the left sidebar, under  **Data storage** , select **Containers**, and follow these steps to retrieve your source documents and target container `URLS`.
 
           |Source|Target|
           |------|-------|
           |1. Select the checkbox next to the source container|1. Select the checkbox next to the target container.|
-          | 2. From the main window area, select a file or document(s) for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
+          | 2. From the main window area, select a file or documents for translation.| 2. Select the ellipses located at the right, then choose **Properties**.|
           | 3. The source URL is located at the top of the Properties list.|3. The target URL is located at the top of the Properties list.|
 
     * For [**Shared Access Signature (SAS) authorization**](../../../how-to-guides/create-sas-tokens.md) create these variables
 
       * **sourceUri**. The SAS URI, with a SAS token appended as a query string, for the source container containing documents to be translated.
-      * **targetUri** The SAS URI, with a SAS token appended as a query string,for the target container to which the translated documents are written.
+      * **targetUri** The SAS URI, with a SAS token appended as a query string, for the target container to which the translated documents are written.
       * **targetLanguageCode**. The language code for the translated documents. You can find language codes on our [Language support](../../../../language-support.md) page.
 
-## Code sample
+## Asynchronous translation code sample
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../../key-vault/general/overview.md). For more information, *see* Azure AI services [security](../../../../../../ai-services/security-features.md).
@@ -310,7 +353,7 @@ class Program {
 
 ## Run your application
 
-Once you've added the code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
+Once you add the code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
   :::image type="content" source="../../../../media/quickstarts/run-application-document.png" alt-text="Screenshot: run your Visual Studio program.":::
 
@@ -318,6 +361,49 @@ Here's a snippet of the expected output:
 
   :::image type="content" source="../../../../media/quickstarts/c-sharp-output-document.png" alt-text="Screenshot of the Visual Studio Code output in the terminal window. ":::
 
+## Synchronous translation code sample
+
+You can download our [document translation sample document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/Translator/document-translation-sample.docx) for this quickstart. The source language is English.
+
+```csharp
+
+
+using Azure;
+using Azure.AI.Translation.Document;
+using System;
+using System.Threading;
+using System.Text;
+
+class Program {
+
+  string endpoint = "{your-document-translation-endpoint}";
+  string apiKey = "{your-api-key}";
+  SingleDocumentTranslationClient client = new SingleDocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+  try
+  {
+    string filePath = @"C:\{folder}\document-translation-sample.docx"
+    using Stream fileStream = File.OpenRead(filePath);
+
+    // MultipartFormFileData (string name, System.IO.Stream content, string contentType);
+    var sourceDocument = new MultipartFormFileData(Path.GetFileName(filePath), fileStream, "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+    DocumentTranslateContent content = new DocumentTranslateContent(sourceDocument);
+
+    // DocumentTranslate (string targetLanguage, Azure.AI.Translation.Document.DocumentTranslateContent documentTranslateContent, string sourceLanguage = default, string category = default, bool? allowFallback = default, System.Threading.CancellationToken cancellationToken = default);
+    var response = client.DocumentTranslate("de", content);
+
+    Console.WriteLine($"Request string for translation: {requestString}");
+    Console.WriteLine($"Response string after translation: {responseString}");
+  }
+    catch (RequestFailedException exception) {
+    Console.WriteLine($"Error Code: {exception.ErrorCode}");
+    Console.WriteLine($"Message: {exception.Message}");
+  }
+}
+
+```
+
 ---
 
-That's it! You've created a program to translate documents in a storage container using the .NET client library.
+That's it! You just created a program to translate documents in a storage container using the .NET client library.

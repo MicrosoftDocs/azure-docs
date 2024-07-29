@@ -1,16 +1,10 @@
 ---
 title: Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
-description: Describes best practices about session slots and slot table entries for Azure NetApp Files NFS protocol.  
+description: Describes best practices about session slots and slot table entries for Azure NetApp Files NFS protocol.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 08/02/2021
 ms.author: anfdocs
@@ -38,7 +32,7 @@ A concurrency level as low as 155 is sufficient to achieve 155,000 Oracle DB NFS
 * Considering a latency of 0.5 ms, a concurrency of 55 is needed to achieve 110,000 IOPS.
 * Considering a latency of 1 ms, a concurrency of 155 is needed to achieve 155,000 IOPS.
 
-![Oracle DNFS latency curve](../media/azure-netapp-files/performance-oracle-dnfs-latency-curve.png)  
+![Oracle DNFS latency curve](./media/shared/performance-oracle-dnfs-latency-curve.png)  
 
 See [Oracle database performance on Azure NetApp Files single volumes](performance-oracle-single-volumes.md) for details.
 
@@ -240,7 +234,7 @@ Use the following `tcpdump` command to capture the mount command:
 
 Using Wireshark, the packets of interest are as follows:
 
-![Screenshot that shows packets of interest.](../media/azure-netapp-files/performance-packets-interest.png)  
+![Screenshot that shows packets of interest.](./media/performance-linux-concurrency-session-slots/performance-packets-interest.png)  
 
 Within these two packets, look at the `max_reqs` field within the middle section of the trace file.
 
@@ -252,11 +246,11 @@ Within these two packets, look at the `max_reqs` field within the middle section
 
 Packet 12 (client maximum requests) shows that the client had a `max_session_slots` value of 64.  In the next section, notice that the server supports a concurrency of 180 for the session.  The session ends up negotiating the lower of the two provided values.
 
-![Screenshot that shows max session slots for Packet 12.](../media/azure-netapp-files/performance-max-session-packet-12.png)  
+![Screenshot that shows max session slots for Packet 12.](./media/performance-linux-concurrency-session-slots/performance-max-session-packet-12.png)  
 
 The following example shows Packet 14 (server maximum requests):
 
-![Screenshot that shows max session slots for Packet 14.](../media/azure-netapp-files/performance-max-session-packet-14.png) 
+![Screenshot that shows max session slots for Packet 14.](./media/performance-linux-concurrency-session-slots/performance-max-session-packet-14.png) 
 
 ## Next steps  
 

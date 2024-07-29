@@ -18,7 +18,7 @@
 - name: How-to guides
   items:
   - name: Migrate to Microsoft Purview
-    href: data-catalog-migration-to-azure-purview.md
+    href: data-catalog-migration-to-microsoft-purview.md
   - name: Register data sources
     href: data-catalog-how-to-register.md
   - name: Discover data sources

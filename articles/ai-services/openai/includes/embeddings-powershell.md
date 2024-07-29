@@ -10,11 +10,6 @@ ms.author: mbullwin
 ## Prerequisites
 
 * An Azure subscription - [Create one for free][01]
-* Access granted to Azure OpenAI in the desired Azure subscription.
-
-  Currently, access to this service is granted only by application. You can apply for access to
-  Azure OpenAI by completing the form at [https://aka.ms/oai/access][02]. Open an issue on this
-  repo to contact us if you have an issue.
 * An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed.
 
   This model is currently only available in [certain regions][03].  If you don't have a resource
@@ -45,7 +40,7 @@ setx AZURE_OPENAI_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE"
 # [PowerShell](#tab/powershell)
 
 ```powershell-interactive
-$Env:AZURE_OPENAI_KEY = '<YOUR_KEY_VALUE>'
+$Env:AZURE_OPENAI_API_KEY = '<YOUR_KEY_VALUE>'
 $Env:AZURE_OPENAI_ENDPOINT = '<YOUR_ENDPOINT>'
 $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT = '<YOUR_DEPLOYMENT_NAME>'
 ```
@@ -53,7 +48,7 @@ $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT = '<YOUR_DEPLOYMENT_NAME>'
 # [Bash](#tab/bash)
 
 ```Bash
-echo export AZURE_OPENAI_KEY="<YOUR_KEY_VALUE>" >> /etc/environment
+echo export AZURE_OPENAI_API_KEY="<YOUR_KEY_VALUE>" >> /etc/environment
 echo export AZURE_OPENAI_ENDPOINT="<YOUR_ENDPOINT>" >> /etc/environment
 echo export AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT="<YOUR_DEPLOYMENT_NAME>" >> /etc/environment
 source /etc/environment
@@ -195,9 +190,9 @@ the token count is more than the prompt limit for the model.
 ```powershell-interactive
 # Azure OpenAI metadata variables
 $openai = @{
-    api_key     = $Env:AZURE_OPENAI_KEY 
+    api_key     = $Env:AZURE_OPENAI_API_KEY 
     api_base    = $Env:AZURE_OPENAI_ENDPOINT # should look like 'https://<YOUR_RESOURCE_NAME>.openai.azure.com/'
-    api_version = '2023-05-15' # may change in the future
+    api_version = '2024-02-01' # may change in the future
     name        = $Env:AZURE_OPENAI_EMBEDDINGS_DEPLOYMENT # custom name you chose for your deployment
 }
 
@@ -403,7 +398,7 @@ the entire datatable). As a learning exercise, try creating a PowerShell script 
 
 <!-- Reference link definitions -->
 [01]: https://azure.microsoft.com/free/cognitive-services?azure-portal=true
-[02]: https://aka.ms/oai/access
+
 [03]: ../concepts/models.md#model-summary-table-and-region-availability
 [04]: ../how-to/create-resource.md
 [05]: https://aka.ms/install-powershell

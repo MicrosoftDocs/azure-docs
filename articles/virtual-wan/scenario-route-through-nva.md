@@ -68,7 +68,7 @@ With that, the static routes that we need in the Default table to send traffic t
 | VNet 2       | Default     | 10.2.0.0/16 -> eastusconn |
 | VNet 4       | Default     | 10.4.0.0/16 -> weconn     |
 
-Now virtual WAN knows which connection to send the packets to, but the connection needs to know what to do when receiving those packets: This is where the connection route tables are used. Here we'll use the shorter prefixes (/24 instead of the longer /16), to make sure that these routes have preference over routes that are imported from the NVA VNets (VNet 2 and VNet 4):
+Now, these static routes will be advertised to your on-premises branches, and the Virtual WAN hub will know which VNet connection to forward traffic to. However, the VNet connection needs to know what to do when receiving this traffic: This is where the connection route tables are used. Here we'll use the shorter prefixes (/24 instead of the longer /16), to make sure that these routes have preference over routes that are imported from the NVA VNets (VNet 2 and VNet 4):
 
 | Description | Connection | Static route            |
 | ----------- | ---------- | ----------------------- |
@@ -114,7 +114,7 @@ Virtual WAN  doesn't support a scenario where VNets 5,6 connect to virtual hub a
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Example":::
    
    > [!NOTE]
-   > To simplify the routing and to reduce the changes in the Virtual WAN hub route tables, we recommend the new BGP peering with Virtual WAN hub (preview). For more information, see the following articles: 
+   > To simplify the routing and to reduce the changes in the Virtual WAN hub route tables, we recommend the new BGP peering with Virtual WAN hub. For more information, see the following articles: 
    >* [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md) 
    >* [How to create BGP peering with virtual hub - Azure portal](create-bgp-peering-hub-portal.md)
    >

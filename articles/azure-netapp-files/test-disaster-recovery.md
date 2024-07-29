@@ -1,16 +1,9 @@
 ---
 title: Test disaster recovery for Azure NetApp Files | Microsoft Docs
-description: Enhance your disaster recovery preparedness with this test plan for cross-region replication.  
+description: Enhance your disaster recovery preparedness with this test plan for cross-region replication.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 09/26/2023
 ms.author: anfdocs

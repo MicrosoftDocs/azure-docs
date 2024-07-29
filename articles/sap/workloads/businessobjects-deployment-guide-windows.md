@@ -2,13 +2,11 @@
 title: SAP BusinessObjects BI platform deployment on Azure for Windows | Microsoft Docs
 description: Deploy and configure the SAP BusinessObjects BI platform on Azure for Windows.
 services: virtual-machines-windows,virtual-network,storage,azure-netapp-files,azure-files,azure-sql
-documentationcenter: saponazure
 author: dennispadia
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 06/16/2023
 ms.author: depadia
 ---
@@ -145,8 +143,8 @@ The SAP BusinessObjects BI application requires a partition on which its binarie
 
 In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD disk that you attached during the VM provisioning:
 
-1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](../../virtual-machines/windows/attach-managed-disk-portal.md#add-a-data-disk) to attach a new managed data disk.
-1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](../../virtual-machines/windows/attach-managed-disk-portal.md#initialize-a-new-data-disk).
+1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#add-a-data-disk) to attach a new managed data disk.
+1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#initialize-a-new-data-disk).
 
 ### Mount Azure Premium Files
 

@@ -75,7 +75,7 @@ Create a sample table and seed it with sample data to match the tutorial.
 
 1. On the left-hand navigation window, select **Query editor**.
 
-1. Sign in to the server with your Active Directory account or the server's user name and password.
+1. Sign in to the server with your Entra ID account or the server's user name and password.
 
 1. Run the following script to create a new table named `MyTestPersonTable`.
 

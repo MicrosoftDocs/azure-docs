@@ -2,7 +2,6 @@
 title: Physical security of Azure datacenters - Microsoft Azure | Microsoft Docs
 description: The article describes what Microsoft does to secure the Azure datacenters, including physical infrastructure, security, and compliance offerings.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,9 +9,7 @@ ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/13/2023
+ms.date: 03/27/2024
 ms.author: terrylan
 
 ---

@@ -5,12 +5,12 @@ description: Triggered pipelines allow you to automate routine, time-consuming t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 08/12/2022
 ms.topic: how-to
-ms.custom: UpdateFrequency5, devx-track-python, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, devx-track-python, sdkv1
 #Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
 ---
 

@@ -8,38 +8,39 @@ ms.author: lajanuar
 author: laujan
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 07/18/2023
+ms.date: 02/09/2024
 ---
 
 # Get supported glossary formats
 
 Reference</br>
-Service: **Azure AI Document Translation**</br>
-API Version: **v1.1**</br>
+Feature: **Azure AI Translator → Document Translation**</br>
+API Version: **2024-05-01**</br>
+HTTP method: **GET**
 
-The Get supported glossary formats method returns a list of glossary formats supported by the Document Translation service. The list includes the common file extension used.
+This method returns a list of glossary formats supported by the Document Translation feature. The list includes the common file extensions.
 
 ## Request URL
 
-Send a `GET` request to:
-```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.1/glossaries/formats
-```
-
-Learn how to find your [custom domain name](../quickstarts/document-translation-rest-api.md).
-
 > [!IMPORTANT]
 >
-> * **All API requests to the Document Translation service require a custom domain endpoint**.
-> * You can't use the endpoint found on your Azure portal resource _Keys and Endpoint_ page nor the global translator endpoint—`api.cognitive.microsofttranslator.com`—to make HTTP requests to Document Translation.
+> **All API requests to the Document Translation feature require a custom domain endpoint that is located on your resource overview page in the Azure portal**.
+
+```bash
+curl -i -X GET "{document-translation-endpoint}/translator/document/formats?api-version={date}&type=glossary"
+```
 
 ## Request headers
 
 Request headers are:
 
-|Headers|Description|
-|--- |--- |
-|Ocp-Apim-Subscription-Key|Required request header|
+|Headers|Description|Condition|
+|--- |--- |---|
+|**Ocp-Apim-Subscription-Key**|Your Translator service API key from the Azure portal.|Required|
+|**Ocp-Apim-Subscription-Region**|The region where your resource was created. |&bullet; ***Required*** when using a regional (geographic) resource like **West US**.</br>&bullet.|
+|**Content-Type**|The content type of the payload. The accepted value is **application/json** or **charset=UTF-8**.|&bullet; **Required**|
+
+
 
 ## Response status codes
 
@@ -49,7 +50,7 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |200|OK. Returns the list of supported glossary file formats.|
 |500|Internal Server Error.|
-|Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
+|Other Status Codes|&bullet; Too many requests<br>&bullet; Server temporary unavailable|
 
 
 ## Get supported glossary formats response
@@ -73,9 +74,9 @@ Base type for list return in the Get supported glossary formats API.
 
 |Name|Type|Description|
 |--- |--- |--- |
-|code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
+|code|string|Enums containing high-level error codes. Possible values:<br/>&bullet; InternalServerError<br>&bullet; InvalidArgument<br>&bullet; InvalidRequest<br>&bullet; RequestRateTooHigh<br>&bullet; ResourceNotFound<br>&bullet; ServiceUnavailable<br>&bullet; Unauthorized|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(it can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Azure AI services API Guidelines. This error message contains required properties ErrorCode, message, and optional properties target, details(key value pair), inner error(it can be nested).|
 |innerError.code|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
 |innerError.target|string|Gets the source of the error. For example, it would be `documents` or `document id` if there was invalid document.|
@@ -129,7 +130,8 @@ The following JSON object is an example of a successful response.
 ```
 
 ### Example error response
-the following JSON object is an example of an error response. The schema for other error codes is the same.
+
+The following JSON object is an example of an error response. The schema for other error codes is the same.
 
 Status code: 500
 
@@ -151,4 +153,4 @@ Status code: 500
 Follow our quickstart to learn more about using Document Translation and the client library.
 
 > [!div class="nextstepaction"]
-> [Get started with Document Translation](../quickstarts/document-translation-rest-api.md)
+> [Get started with Document Translation](../how-to-guides/use-rest-api-programmatically.md)

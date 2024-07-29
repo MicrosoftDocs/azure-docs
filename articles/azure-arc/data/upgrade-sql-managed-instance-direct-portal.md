@@ -4,9 +4,8 @@ description: Article describes how to upgrade Azure SQL Managed Instance directl
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-ms.custom: event-tier1-build-2022
-author: dnethi
-ms.author: dinethi
+author: AbdullahMSFT
+ms.author: amamun
 ms.reviewer: mikeray
 ms.date: 10/11/2022
 ms.topic: how-to

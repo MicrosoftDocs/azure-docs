@@ -1,13 +1,13 @@
 ---
-title: Create and provision an IoT Edge for Linux on Windows device by using a TPM - Azure IoT Edge | Microsoft Docs 
+title: Create and provision an IoT Edge for Linux on Windows device by using a TPM
 description: Use a simulated TPM on a Linux on Windows device to test the Azure device provisioning service for Azure IoT Edge.
 author: PatAltimore
-manager: lizross
 ms.author: patricka
 ms.reviewer: fcabrera
-ms.date: 02/09/2022
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ---
 
@@ -128,7 +128,7 @@ Simulated TPM samples:
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
    
-   If you have enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
+   If you enrolled the device using a custom **Registration Id**, you must specify that registration ID as well when provisioning:
    
    ```powershell
    Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE" -registrationId "REGISTRATION_ID_HERE"

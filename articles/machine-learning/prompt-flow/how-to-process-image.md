@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
-ms.author: jinzhong
-author: zhongj
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: jinzhong
 ms.date: 12/18/2023
 ---
 
@@ -51,9 +51,9 @@ If the Image object from Python node is set as the flow output, you can preview 
 
 ## Use GPT-4V tool
 
-OpenAI GPT-4V is a built-in tool in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images.
+Azure OpenAI GPT-4 Turbo with Vision tool and OpenAI GPT-4V are built-in tools in prompt flow that can use OpenAI GPT-4V model to answer questions based on input images. You can find the tool by selecting **More tool** in the flow authoring page.
 
-Add the [OpenAI GPT-4V tool](./tools-reference/openai-gpt-4v-tool.md) to the flow. Make sure you have an OpenAI connection, with the availability of GPT-4V models.
+Add the [Azure OpenAI GPT-4 Turbo with Vision tool](./tools-reference/azure-open-ai-gpt-4v-tool.md) to the flow. Make sure you have an Azure OpenAI connection, with the availability of GPT-4 vision-preview models.
 
 :::image type="content" source="./media/how-to-process-image/gpt-4v-tool.png" alt-text="Screenshot of GPT-4V tool." lightbox = "./media/how-to-process-image/gpt-4v-tool.png":::
 
@@ -82,10 +82,9 @@ Assume you want to build a chatbot that can answer any questions about the image
     In this example, `{{question}}` refers to the chat input, which is a list of texts and images.
 1. (Optional) You can add any custom logic to the flow to process the GPT-4V output. For example, you can add content safety tool to detect if the answer contains any inappropriate content, and return a final answer to the user.
     :::image type="content" source="./media/how-to-process-image/chat-flow-postprocess.png" alt-text="Screenshot of processing gpt-4v output with content safety tool." lightbox = "./media/how-to-process-image/chat-flow-postprocess.png":::
-1. Now you can **test the chatbot**.  Open the chat window, and input any questions with images. The chatbot will answer the questions based on the image and text inputs.
+1. Now you can **test the chatbot**.  Open the chat window, and input any questions with images. The chatbot will answer the questions based on the image and text inputs. The chat input value is automatically backfilled from the input in the chat window. You can find the texts with images in the chat box which is translated into a list of texts and images.
     :::image type="content" source="./media/how-to-process-image/chatbot-test.png" alt-text="Screenshot of chatbot interaction with images." lightbox = "./media/how-to-process-image/chatbot-test.png":::
-   The chat input value is automatically backfilled from the input in the chat window. You can find the texts with images in the chat box which is translated into a list of texts and images.
-    :::image type="content" source="./media/how-to-process-image/chat-input-value.png" alt-text="Screenshot of chat input value backfilled from the input in chat window." lightbox = "./media/how-to-process-image/chat-input-value.png":::
+
 > [!NOTE]
 > To enable your chatbot to respond with rich text and images, make the chat output `list` type. The list should consist of strings (for text) and prompt flow Image objects (for images) in custom order. 
 >   :::image type="content" source="./media/how-to-process-image/chatbot-image-output.png" alt-text="Screenshot of chatbot responding with rich text and images." lightbox = "./media/how-to-process-image/chatbot-image-output.png":::
@@ -120,6 +119,10 @@ If the batch run outputs contain images, you can check the **flow_outputs datase
 ## Consume online endpoint with image data
 
 You can [deploy a flow to an online endpoint for real-time inference](./how-to-deploy-for-real-time-inference.md).
+
+Currently the **Test** tab in the deployment detail page does not support image inputs or outputs. It will be supported soon. 
+
+For now, you can test the endpoint by sending request including image inputs.
 
 To consume the online endpoint with image input, you should represent the image by using the format `{"data:<mime type>;<representation>": "<value>"}`. In this case, `<representation>` can either be `url` or `base64`.
 

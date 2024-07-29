@@ -3,7 +3,6 @@ title: Data-driven debugging in Azure Stream Analytics
 description: This article describes how to troubleshoot your Azure Stream Analytics job by using the job diagram and metrics in the Azure portal.
 
 ms.service: stream-analytics
-ms.custom: ignite-2022
 ms.topic: how-to
 ms.date: 10/12/2022
 ---
@@ -73,7 +72,7 @@ If the preceding query step is an input processor, use the input metrics to help
 
 
 ## Get help
-For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/topics/azure-stream-analytics.html). 
+For additional assistance, try our [Microsoft Q&A question page for  Azure Stream Analytics](/answers/tags/179/azure-stream-analytics). 
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)

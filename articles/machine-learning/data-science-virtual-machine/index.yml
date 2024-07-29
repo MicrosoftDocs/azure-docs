@@ -11,9 +11,8 @@ metadata:
     with data science & machine learning tools.  
   ms.service: data-science-vm
   ms.topic: landing-page
-  ms.collection: collection
-  author: gvashishtha
-  ms.author: gopalv
+  author: fbsolo-ms1 
+  ms.author: franksolomon 
   ms.date: 09/13/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new

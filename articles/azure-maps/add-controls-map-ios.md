@@ -14,6 +14,12 @@ services: azure-maps
 
 This article shows you how to add UI controls to the map.
 
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
+
 ## Add zoom control
 
 A zoom control adds buttons for zooming the map in and out. The following code sample creates an instance of the `ZoomControl` class and adds it to a map.

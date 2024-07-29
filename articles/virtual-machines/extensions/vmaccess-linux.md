@@ -8,7 +8,7 @@ ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
 ms.date: 04/12/2023
-ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: GGAL-freshness822, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ---
 
 # VMAccess Extension for Linux
@@ -27,7 +27,6 @@ This article describes how to run the VMAccess Extension from the Azure CLI and 
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
 | Alma Linux |	9.x+ |	9.x+ |
-| CentOS |	7.x+,  8.x+ |	7.x+ |
 | Debian |	10+ |	11.x+ |
 | Flatcar Linux |	3374.2.x+ |	3374.2.x+ |
 | Azure Linux | 2.x | 2.x |

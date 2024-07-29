@@ -81,7 +81,7 @@ Azure WAF detection mode is used for testing and validating the policy. Detectio
 ## Restrict APIM access through the Azure Front Door only
 
 Requests routed through the Front Door include headers specific to your Front Door configuration. You can configure the 
-[API Management policy reference](../../api-management/api-management-policies.md#access-restriction-policies) as an inbound APIM policy to filter incoming requests based on the unique value of the X-Azure-FDID HTTP request header that is sent to API Management. This header value is the Azure Front Door ID, which is available on the AFD Overview page.
+[check-header policy](../../api-management/api-management-policies.md#authentication-and-authorization) as an inbound APIM policy to filter incoming requests based on the unique value of the X-Azure-FDID HTTP request header that is sent to API Management. This header value is the Azure Front Door ID, which is available on the AFD Overview page.
 
  
 1. Copy the Front Door ID from the AFD overview page.

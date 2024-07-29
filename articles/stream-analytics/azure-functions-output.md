@@ -1,8 +1,8 @@
 ---
 title: Azure Functions output from Azure Stream Analytics
 description: This article describes Azure functions as output for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/28/2021

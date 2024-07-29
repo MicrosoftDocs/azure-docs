@@ -5,12 +5,12 @@ description: Learn to deploy your AutoML model as a web service that's automatic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2, ignite-2022, devx-track-python
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, sdkv2, devx-track-python
 ms.devlang: azurecli
 ---
 

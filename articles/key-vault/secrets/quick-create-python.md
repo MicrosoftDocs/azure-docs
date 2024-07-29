@@ -25,7 +25,6 @@ Get started with the Azure Key Vault secret client library for Python. Follow th
 
 This quickstart assumes you're running [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell) in a Linux terminal window.
 
-
 ## Set up your local environment
 This quickstart is using Azure Identity library with Azure CLI or Azure PowerShell to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](/python/api/overview/azure/identity-readme).
 
@@ -82,29 +81,15 @@ This quickstart is using Azure Identity library with Azure CLI or Azure PowerShe
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-python-qs-rg-kv-creation.md)]
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../../../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permission to your user account.
-
-### [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az keyvault set-policy --name <your-unique-keyvault-name> --upn user@domain.com --secret-permissions delete get list set
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets delete,get,list,set
-```
-
----
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Create the sample code
 

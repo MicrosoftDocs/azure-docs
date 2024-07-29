@@ -6,7 +6,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 07/26/2022
+ms.date: 01/19/2024
 ---
 
 # Use Apprentice mode to train Personalizer without affecting your existing application

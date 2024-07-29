@@ -122,7 +122,7 @@ az hpc-cache nfs-storage-target update --cache-name mycache \
 The usage model influences how the cache retains data. Read [Understand cache usage models](cache-usage-models.md) to learn more.
 
 > [!NOTE]
-> You can't change between **Read heavy, infrequent writes** and other usage models. Read [Understand cache usage models](cache-usage-models.md#change-usage-models) for details.
+> Changing usage models causes a service disruption to clients. Read [Choose the right usage model](cache-usage-models.md#choose-the-right-usage-model-for-your-workflow) for details.
 
 To change the usage model for an NFS storage target, use one of these methods.
 

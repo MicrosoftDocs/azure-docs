@@ -4,7 +4,6 @@ description: Create a VM using a specialized image version in an Azure Compute G
 author: sandeepraichura
 ms.service: virtual-machines
 ms.subservice: gallery
-ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/15/2023
 ms.author: saraic
@@ -550,4 +549,3 @@ az vm create\
 
 - [Create an Azure Compute Gallery](create-gallery.md)
 - [Create an image in an Azure Compute Gallery](image-version.md)
-

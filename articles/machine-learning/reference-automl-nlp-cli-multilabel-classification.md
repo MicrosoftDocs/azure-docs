@@ -4,14 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) automated ML NLP text classification multilabel job YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: 
 ms.topic: reference
-ms.custom: cliv2, event-tier1-ignite-2022
+ms.custom: cliv2
 
-ms.author: xiaoxiaoli
-author: xiaoxiaoli
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 12/22/2022
-ms.reviewer: ssalgado
+ms.reviewer: xiaoxiaoli
 ---
 
 # CLI (v2) Automated ML text classification multilabel job YAML schema

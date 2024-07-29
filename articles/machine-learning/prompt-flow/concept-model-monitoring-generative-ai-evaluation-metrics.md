@@ -3,8 +3,8 @@ title: Monitoring evaluation metrics descriptions and use cases (preview)
 titleSuffix: Azure Machine Learning
 description: Understand the metrics used when monitoring the performance of generative AI models deployed to production on Azure Machine Learning.
 services: machine-learning
-author: buchananwp
-ms.author: wibuchan
+author: ZikeiWong
+ms.author: ziqiwang
 ms.service: machine-learning
 ms.subservice: mlops
 ms.reviewer: scottpolly
@@ -22,7 +22,7 @@ ms.custom:
 In this article, you learn about the metrics used when monitoring and evaluating generative AI models in Azure Machine Learning, and the recommended practices for using generative AI model monitoring.
 
 > [!IMPORTANT]
-> Monitoring is currently in public preview. is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Monitoring is currently in public preview. This preview is provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Model monitoring tracks model performance in production and aims to understand it from both data science and operational perspectives. To implement monitoring, Azure Machine Learning uses monitoring signals acquired through data analysis on streamed data.  Each monitoring signal has one or more metrics. You can set thresholds for these metrics in order to receive alerts via Azure Machine Learning or Azure Monitor about model or data anomalies.

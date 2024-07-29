@@ -1,10 +1,12 @@
 ---
 title: Smart Detection notification change - Azure Application Insights
 description: Change to the default notification recipients from Smart Detection. Smart Detection lets you monitor application traces with Azure Application Insights for unusual patterns in trace telemetry.
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 02/14/2021
+ms.date: 04/01/2024
 ms.reviewer: yagil
 ---
+
 # Smart Detection e-mail notification change
 
 >[!NOTE]
@@ -30,7 +32,7 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 To ensure that email notifications from Smart Detection are sent to relevant users, those users must be assigned to the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) or [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles of the subscription.
 
-To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
+To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
 
 > [!NOTE]
 > Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change. These recipients will continue receiving the email notifications.

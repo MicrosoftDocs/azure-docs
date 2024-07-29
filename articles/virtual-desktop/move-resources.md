@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 05/13/2022
 ms.author: helohr
-manager: femila
 ---
 # Move Azure Virtual Desktop resource between regions
 

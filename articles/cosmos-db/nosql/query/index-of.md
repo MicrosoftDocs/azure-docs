@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -20,7 +21,7 @@ Returns the starting index of the first occurrence of a substring expression wit
 
 ## Syntax
 
-```sql
+```nosql
 INDEX_OF(<string_expr_1>, <string_expr_2> [, <numeric_expr>])
 ```
 
@@ -40,7 +41,7 @@ Returns a numeric expression.
 
 The following example returns the index of various substrings inside the larger string **"AdventureWorks"**.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/index-of/query.sql" highlight="2-10":::  
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/index-of/query.sql" highlight="2-10":::  
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/index-of/result.json":::
 

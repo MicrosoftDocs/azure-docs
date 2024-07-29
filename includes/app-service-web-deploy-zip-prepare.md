@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 ## Create a project ZIP package
 
->[IMPORTANT]
+>[!IMPORTANT]
 > When creating the ZIP package for deployment, don't include the root directory, but only the files and directories in it. If you download a GitHub repository as a ZIP file, you cannot deploy that file as-is to App Service. GitHub adds additional nested directories at the top level, which do not work with App Service.
 >
 

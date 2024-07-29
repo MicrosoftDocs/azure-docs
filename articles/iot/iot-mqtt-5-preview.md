@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub MQTT 5 support (preview)
-description: Learn about MQTT 5 support in IoT Hub
+description: Learn about MQTT 5 support in IoT Hub.
 services: iot
 ms.service: iot
 ms.custom:
@@ -8,10 +8,10 @@ ms.custom:
 author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 04/08/2024
 ---
 
-# IoT Hub MQTT 5 support (preview)
+# IoT Hub MQTT 5 support (deprecated)
 
 **Version:** 2.0
 **api-version:** 2020-10-01-preview
@@ -19,12 +19,12 @@ ms.date: 04/24/2023
 This document defines IoT Hub data plane API over MQTT version 5.0 protocol. See [API Reference](iot-mqtt-5-preview-reference.md) for complete definitions in this API.
 
 > [!NOTE]
-> IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
+> MQTT 5 support in IoT Hub is deprecated and IoT Hub has limited feature support for MQTT. If your solution needs MQTT v3.1.1 or v5 support, we recommend [MQTT support in Azure Event Grid](../event-grid/mqtt-overview.md). For more information, see [Compare MQTT support in IoT Hub and Event Grid](../iot/iot-mqtt-connect-to-iot-hub.md#compare-mqtt-support-in-iot-hub-and-event-grid).
 
 ## Prerequisites
 
-- [Enable preview mode](../iot-hub/iot-hub-preview-mode.md) on a brand new IoT hub to try MQTT 5.
-- Prior knowledge of [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html) is required.
+- Create a brand new IoT hub with preview mode enabled. MQTT 5 is only available in preview mode, and you can't switch an existing IoT hub to preview mode. For more information, see [Enable preview mode](../iot-hub/iot-hub-preview-mode.md)
+- Prior knowledge of [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html).
 
 ## Level of support and limitations
 
@@ -41,8 +41,7 @@ IoT Hub support for MQTT 5 is in preview and limited in following ways (communic
 - `Topic Alias Maximum` is `10`.
 - `Response Information` isn't supported; `CONNACK` doesn't return `Response Information` property even if `CONNECT` contains `Request Response Information` property.
 - `Receive Maximum` (maximum number of allowed outstanding unacknowledged `PUBLISH` packets (in client-server direction) with `QoS: 1`) is `16`.
-- Single client can have no more than `50` subscriptions.
-  When the limit's reached, `SUBACK` returns `0x97` (Quota exceeded) reason code for subscriptions.
+- Single client can have no more than `50` subscriptions. If a client reaches the subscription limit, `SUBACK` returns `0x97` (Quota exceeded) reason code for subscriptions.
 
 ## Connection lifecycle
 
@@ -112,7 +111,7 @@ Username/password authentication used in previous API versions isn't supported.
 
 #### SAS
 
-With SAS-based authentication, a client must provide the signature of the connection context. The signature proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub.  Or it must be based on one of two shared access keys of a [shared access policy](../iot-hub/iot-hub-dev-guide-sas.md).
+With SAS-based authentication, a client must provide the signature of the connection context. The signature proves authenticity of the MQTT connection. The signature must be based on one of two authentication keys in the client's configuration in IoT Hub. Or it must be based on one of two shared access keys of a [shared access policy](../iot-hub/iot-hub-dev-guide-sas.md).
 
 String to sign must be formed as follows:
 
@@ -160,17 +159,17 @@ If reauthentication succeeds, IoT Hub sends `AUTH` packet with `Reason Code: 0x0
 
 ### Disconnection
 
-Server can disconnect client for a few reasons:
+Server can disconnect client for a few reasons, including:
 
-- client is misbehaving in a way that is impossible to respond to with negative acknowledgment (or response) directly,
-- server is failing to keep state of the connection up to date,
-- client with the same identity has connected.
+- client misbehaves in a way that is impossible to respond to with negative acknowledgment (or response) directly,
+- server fails to keep state of the connection up to date,
+- another client connects with the same identity.
 
 Server may disconnect with any reason code defined in MQTT 5.0 specification. Notable mentions:
 
-- `135` (Not authorized) when reauthentication fails, current SAS token expires or device's credentials change
+- `135` (Not authorized) when reauthentication fails, current SAS token expires, or device's credentials change.
 - `142` (Session taken over) when new connection with the same client identity has been opened.
-- `159` (Connection rate exceeded) when connection rate for the IoT hub exceeds  
+- `159` (Connection rate exceeded) when connection rate for the IoT hub exceeds the limit.
 - `131` (Implementation-specific error) is used for any custom errors defined in this API. `status` and `reason` properties are used to communicate further details about the cause for disconnection (see [Response](#response) for details).
 
 ## Operations
@@ -224,7 +223,7 @@ For example, Send Telemetry is Client-to-Server operation of "Message with ackno
 
 #### Message-acknowledgement interactions
 
-Message with optional Acknowledgment (MessageAck) interaction is expressed as an exchange of `PUBLISH` and `PUBACK` packets in MQTT. Acknowledgment is optional and sender may choose to not request it by sending `PUBLISH` packet with `QoS: 0`.
+Message with optional Acknowledgment (MessageAck) interaction is expressed as an exchange of `PUBLISH` and `PUBACK` packets in MQTT. Acknowledgment is optional and sender can choose to not request it by sending `PUBLISH` packet with `QoS: 0`.
 
 > [!NOTE]
 > If properties in `PUBACK` packet must be truncated due to `Maximum Packet Size` declared by the client, IoT Hub will retain as many User properties as it can fit within the given limit. User properties listed first have higher chance to be sent than those listed later; `Reason String` property has the least priority.
@@ -318,7 +317,7 @@ Interactions can result in different outcomes: `Success`, `Bad Request`, `Not Fo
 Outcomes are distinguished from each other by `status` user property. `Reason Code` in `PUBACK` packets (for MessageAck interactions) matches `status` in meaning where possible.
 
 > [!NOTE]
-> If client specifies `Request Problem Information: 0` in CONNECT packet, no user properties will be sent on `PUBACK` packets to comply with MQTT 5 specification, including `status` property. In this case, client can still rely on `Reason Code` to determine whether acknowledge is positive or negative. 
+> If client specifies `Request Problem Information: 0` in CONNECT packet, no user properties will be sent on `PUBACK` packets to comply with MQTT 5 specification, including `status` property. In this case, client can still rely on `Reason Code` to determine whether acknowledge is positive or negative.
 
 Every interaction has a default (or success). It has `Reason Code` of `0` and `status` property of "not set". Otherwise:
 
@@ -363,7 +362,7 @@ When needed, IoT Hub sets the following user properties:
 
 > [!NOTE]
 > If client sets `Maximum Packet Size` property in CONNECT packet to a very small value, not all user properties may fit and would not appear in the packet.
-> 
+>
 > `reason` is meant only for people and should not be used in client logic. This API allows for messages to be changed at any point without warning or change of version.
 >
 > If client sends `RequestProblemInformation: 0` in CONNECT packet, user properties won't be included in acknowledgements per [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901053).
@@ -583,6 +582,7 @@ Response:
     status: 0100
     reason: "`Correlation Data` property is missing"
 ```
+
 ## Next steps
 
 - To review the MQTT 5 preview API reference, see [IoT Hub data plane MQTT 5 API reference (preview)](iot-mqtt-5-preview-reference.md).

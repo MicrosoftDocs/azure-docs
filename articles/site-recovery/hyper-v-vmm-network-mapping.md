@@ -3,7 +3,7 @@ title: About Hyper-V (with VMM) network mapping with Site Recovery
 description: Describes how to set up network mapping for disaster recovery of Hyper-V VMs (managed in VMM clouds) to Azure, with Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 01/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -28,21 +28,6 @@ Network mapping works as follows:
 - New VMs added to the source VM network are connected to the mapped Azure network when replication occurs.
 - If the target network has multiple subnets, and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine connects to that target subnet after failover.
 - If there’s no target subnet with a matching name, the virtual machine connects to the first subnet in the network.
-
-## Prepare network mapping for replication to a secondary site
-
-When you're replicating to a secondary site, network mapping maps between VM networks on a source VMM server, and VM networks on a target VMM server. Mapping does the following:
-
-- **Network connection**—Connects VMs to appropriate networks after failover. The replica VM will be connected to the target network that's mapped to the source network.
-- **Optimal VM placement**—Optimally places the replica VMs on Hyper-V host servers. Replica VMs are placed on hosts that can access the mapped VM networks.
-- **No network mapping**—If you don’t configure network mapping, replica VMs won’t be connected to any VM networks after failover.
-
-Network mapping works as follows:
-
-- Network mapping can be configured between VM networks on two VMM servers, or on a single VMM server if two sites are managed by the same server.
-- When mapping is configured correctly and replication is enabled, a VM at the primary location will be connected to a network, and its replica at the target location will be connected to its mapped network.
-- When you select a target VM network during network mapping in Site Recovery, the VMM source clouds that use the source VM network will be displayed, along with the available target VM networks on the target clouds that are used for protection.
-- If the target network has multiple subnets and one of those subnets has the same name as the subnet on which the source virtual machine is located, then the replica VM will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the VM will be connected to the first subnet in the network.
 
 ## Example
 

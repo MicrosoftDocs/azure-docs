@@ -8,7 +8,7 @@
  ms.date: 07/02/2021
  ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
    
 1. From the Azure portal menu or the **Home page**, select **Create a resource**.
@@ -67,6 +67,6 @@ ms.custom: include file, ignite-2022
 
 1. Review the account settings, and then select **Create**. It takes a few minutes to create the account. Wait for the portal page to display **Your deployment is complete**.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="The Azure portal Notifications pane":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/azure-cosmos-db-account-created.png" alt-text="The Azure portal Notifications pane":::
 
 1. Select **Go to resource** to go to the Azure Cosmos DB account page. 

@@ -7,9 +7,9 @@ ms.author: aahi
 author: aahill
 manager: nitinme
 ms.topic: how-to
-ms.date: 03/26/2021
+ms.date: 01/19/2024
 ms.custom: mode-other
-#Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
+#Customer intent: As a developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
 # How to query the prediction runtime with user text
@@ -174,6 +174,5 @@ In order to query a public app, you need:
 
 ## Next steps
 
-* [V3 prediction endpoint](luis-migration-api-v3.md)
 * [Custom subdomains](../cognitive-services-custom-subdomains.md)
 * [Use the client libraries or REST API](client-libraries-rest-api.md)

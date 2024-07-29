@@ -7,7 +7,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: how-to
-ms.date: 11/03/2023
+ms.date: 01/16/2024
 ---
 
 # Migrate IoT Hub resources to a new TLS certificate root
@@ -23,9 +23,9 @@ You should start planning now for the effects of migrating your IoT hubs to the 
 
 ## Timeline
 
-The IoT Hub team began migrating IoT hubs in February, 2023 and the migration is complete except for hubs that have already been approved for a later migration. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
+The IoT Hub migration is complete except for hubs that have already been approved for an extension. If your IoT hub is found to be using the Baltimore certificate without an agreement in place with the product team, your hub will be migrated without any further notice.
 
-After all IoT hubs have migrated, DPS will perform its migration between January 15 and February 15, 2024.
+After all IoT hubs have migrated, DPS will perform its migration between January 15 and September 30, 2024.
 
 For each IoT hub with an extension agreement in place, you can expect the following:
 
@@ -35,7 +35,7 @@ For each IoT hub with an extension agreement in place, you can expect the follow
 
 ### Request an extension
 
-As of August, 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
+As of August 2023 the extension request process is closed for IoT Hub and IoT Central. If your IoT hub is found to be using the Baltimore certificate without an extension agreement in place with the product team, your hub will be migrated without any further notice.
 
 ## Required steps
 
@@ -44,6 +44,8 @@ To prepare for the migration, take the following steps:
 1. Keep the Baltimore CyberTrust Root in your devices' trusted root store. Add the DigiCert Global Root G2 and the Microsoft RSA Root Certificate Authority 2017 certificates to your devices. You can download all of these certificates from the [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
    It's important to have all three certificates on your devices until the IoT Hub and DPS migrations are complete. Keeping the Baltimore CyberTrust Root ensures that your devices will stay connected until the migration, and adding the DigiCert Global Root G2 ensures that your devices will seamlessly switch over and reconnect after the migration. The Microsoft RSA Root Certificate Authority 2017 helps prevent future disruptions in case the DigiCert Global Root G2 is retired unexpectedly.
+
+   For more information about IoT Hub's recommended certificate practices, see [TLS support](./iot-hub-tls-support.md).
 
 2. Make sure that you aren't pinning any intermediate or leaf certificates, and are using the public roots to perform TLS server validation.
 
@@ -59,9 +61,9 @@ To know whether an IoT hub has been migrated or not, check the active certificat
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your IoT hub.
 
-1. Select **Certificates** in the **Security settings** section of the navigation menu.
+1. Select **Export template** in the **Automation** section of the navigation menu.
 
-1. If the **Certificate root** is listed as Baltimore CyberTrust, then the hub has not been migrated yet. If it is listed as DigiCert Global G2, then the migration is complete.
+1. Wait for the template to generate, then navigate to the **resources.properties.features** property in the JSON template. If **RootCertificateV2** is listed as a feature, then your hub has been migrated to DigiCert Global G2.
 
 # [Azure CLI](#tab/cli)
 
@@ -102,7 +104,7 @@ Yes, IoT Central uses both IoT Hub and DPS in the backend. The TLS migration wil
 
 You can migrate your application from the Baltimore CyberTrust Root to the DigiCert Global G2 Root on your own schedule. We recommend the following process:
 
-1. **Keep the Baltimore CyberTrust Root on your device until the transition period is completed on 15 February 2024** (necessary to prevent connection interruption). 
+1. **Keep the Baltimore CyberTrust Root on your device until the transition period is completed on September 30, 2024** (necessary to prevent connection interruption). 
 2. **In addition** to the Baltimore Root, ensure the DigiCert Global G2 Root is added to your trusted root store.
 3. Make sure you aren’t pinning any intermediate or leaf certificates and are using the public roots to perform TLS server validation.
 4. In your IoT Central application you can find the Root Certification settings under **Settings** > **Application** > **Baltimore Cybertrust Migration**.  
@@ -120,13 +122,13 @@ Also, as part of the migration, your IoT hub might get a new IP address. If your
 
 ### When can I remove the Baltimore Cybertrust Root from my devices?
 
-You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on February 15, 2024.
+You can remove the Baltimore root certificate once all stages of the migration are complete. If you only use IoT Hub, then you can remove the old root certificate after the IoT Hub migration is scheduled to complete on October 15, 2023. If you use Device Provisioning Service or IoT Central, then you need to keep both root certificates on your device until the DPS migration is scheduled to complete on September 30, 2024.
 
 ## Troubleshoot
 
 If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
 
-* [Connection and retry patterns with device SDKs](../iot-develop/concepts-manage-device-reconnections.md#connection-and-retry).
+* [Connection and retry patterns with device SDKs](../iot/concepts-manage-device-reconnections.md#connection-and-retry).
 * [Understand and resolve Azure IoT Hub error codes](troubleshoot-error-codes.md).
 
 If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect event, as demonstrated in the following screenshot:

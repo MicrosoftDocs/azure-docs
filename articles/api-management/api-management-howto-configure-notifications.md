@@ -14,13 +14,13 @@ ms.custom: engagement-fy23
 
 # How to configure notifications and notification templates in Azure API Management
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+
 API Management provides the ability to configure email notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This article shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
 
 ## Prerequisites
 
 If you don't have an API Management service instance, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

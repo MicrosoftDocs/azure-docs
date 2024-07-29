@@ -3,7 +3,7 @@ title: Delete sites
 titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to delete sites in your private mobile network. 
 author: James-Green-Microsoft
-ms.author: jamesgreen
+ms.author: jagre
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 11/02/2022

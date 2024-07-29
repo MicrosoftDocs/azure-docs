@@ -7,7 +7,7 @@ ms.service: app-service
 ms.topic: "include"
 ms.date: 07/10/2019
 ms.author: cephalin
-ms.custom: "include file, devx-track-azurecli"
+ms.custom: include file, devx-track-azurecli, linux-related-content
 ---
 
 Create a [web app](../articles/app-service/overview.md#app-service-on-linux) in the `myAppServicePlan` App Service plan. 

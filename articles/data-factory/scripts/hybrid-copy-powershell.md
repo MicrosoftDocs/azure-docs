@@ -6,7 +6,7 @@ ms.subservice: data-movement
 ms.topic: article
 ms.author: jianleishen
 author: jianleishen
-ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
 ---
 
@@ -14,7 +14,7 @@ ms.date: 01/05/2024
 
 This sample PowerShell script creates a pipeline in Azure Data Factory that copies data from a SQL Server database to an Azure Blob Storage.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 

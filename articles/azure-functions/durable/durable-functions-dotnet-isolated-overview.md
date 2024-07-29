@@ -16,7 +16,7 @@ This article is an overview of Durable Functions in the [.NET isolated worker](.
 
 ## Why use Durable Functions in the .NET isolated worker?
 
-Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [here](../dotnet-isolated-process-guide.md#why-net-functions-isolated-worker-process). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
+Using this model lets you get all the great benefits that come with the Azure Functions .NET isolated worker process. For more information, see [Benefits of the isolated worker model](../dotnet-isolated-process-guide.md#benefits-of-the-isolated-worker-model). Additionally, this new SDK includes some new [features](#feature-improvements-over-in-process-durable-functions).
 
 ### Feature improvements over in-process Durable Functions
 
@@ -61,7 +61,7 @@ public class MyActivity : TaskActivity<string, string>
 {
     private readonly ILogger logger;
 
-    public MyActivity(ILogger<SayHelloTyped> logger) // activites have access to DI.
+    public MyActivity(ILogger<MyActivity> logger) // activites have access to DI.
     {
         this.logger = logger;
     }
@@ -160,6 +160,7 @@ This table isn't an exhaustive list of changes.
 | `IDurableEntityContext.SignalEntity` | `TaskEntityContext.SignalEntity` |
 | `IDurableEntityContext.StartNewOrchestration` | `TaskEntityContext.ScheduleNewOrchestration` |
 | `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed. |
+| `IDurableOrchestrationClient.GetStatusAsync` | `DurableTaskClient.GetInstanceAsync` |
 
 #### Behavioral changes
 

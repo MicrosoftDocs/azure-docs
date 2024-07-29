@@ -2,19 +2,19 @@
 title: Create and manage instance types for efficient utilization of compute resources
 description: Learn about what instance types are, how to create and manage them, and what the benefits of using them are.
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/09/2022
+ms.date: 01/09/2024
 ms.topic: how-to
-ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
+ms.custom: build-spring-2022, cliv2, sdkv2
 ---
 
 # Create and manage instance types for efficient utilization of compute resources
 
-Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads. For an Azure virtual machine, an example of an instance type is `STANDARD_D2_V3`.
+Instance types are an Azure Machine Learning concept that allows targeting certain types of compute nodes for training and inference workloads. For example, in an Azure virtual machine, an instance type is `STANDARD_D2_V3`. This article teaches you how to create and manage instance types for your computation requirements. 
 
 In Kubernetes clusters, instance types are represented in a custom resource definition (CRD) that's installed with the Azure Machine Learning extension. Two elements in the Azure Machine Learning extension represent the instance types:
 
@@ -85,7 +85,7 @@ The preceding code creates an instance type with the labeled behavior:
 - Pods are assigned resource requests of `700m` for CPU and `1500Mi` for memory.
 - Pods are assigned resource limits of `1` for CPU, `2Gi` for memory, and `1` for NVIDIA GPU.
 
-Creation of custom instance types must meet the following parameters and definition rules, or it will fail:
+Creation of custom instance types must meet the following parameters and definition rules, or it fails:
 
 | Parameter | Required or optional | Description |
 | --- | --- | --- |
@@ -297,13 +297,13 @@ blue_deployment = KubernetesOnlineDeployment(
 
 ---
 
-If you use the `resources` section, a valid resource definition needs to meet the following rules. An invalid resource definition will cause the model deployment to fail.
+If you use the `resources` section, a valid resource definition needs to meet the following rules. An invalid resource definition causes the model deployment to fail.
 
 | Parameter | Required or optional | Description |
 | --- | --- | --- |
 | `requests:`<br>`cpu:`| Required | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it in full numbers. For example, `"1"` is equivalent to `1000m`.|
 | `requests:`<br>`memory:` | Required | String values, which can't be zero or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1024 MiB. <br>Memory can't be less than 1 MB.|
-| `limits:`<br>`cpu:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example `100m`. You can also specify it in full numbers. For example, `"1"` is equivalent to `1000m`. |
+| `limits:`<br>`cpu:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the CPU in millicores; for example, `100m`. You can also specify it in full numbers. For example, `"1"` is equivalent to `1000m`. |
 | `limits:`<br>`memory:` | Optional <br>(required only when you need GPU) | String values, which can't be zero or empty. <br>You can specify the memory as a full number + suffix; for example, `1024Mi` for 1,024 MiB.|
 | `limits:`<br>`nvidia.com/gpu:` | Optional <br>(required only when you need GPU) | Integer values, which can't be empty and can be specified only in the `limits` section. <br>For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus/#using-device-plugins). <br>If you require CPU only, you can omit the entire `limits` section.|
 

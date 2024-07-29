@@ -5,11 +5,11 @@ description: Learn about the latest updates to Azure Machine Learning CLI (v2)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: event-tier1-build-2022 engagement-fy23
+ms.custom: engagement-fy23
 ms.topic: reference
-ms.author: hancwang
-author: luigiw
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: hancwang
 ms.date: 11/08/2022
 ---
 

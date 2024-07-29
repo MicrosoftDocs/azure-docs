@@ -2,8 +2,10 @@
 title: Configure custom Azure Policies on Event Grid resources to enhance you security posture
 description: This article helps you define custom Azure policies to enforce security controls.
 ms.topic: how-to
-author: jfggdl
-ms.author: jafernan
+ms.custom:
+  - build-2024
+author: robece
+ms.author: robece
 ms.date: 06/24/2021
 ---
 

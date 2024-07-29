@@ -4,7 +4,7 @@ description: Learn how to instrument an Azure Batch .NET application using the A
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 04/13/2021
+ms.date: 06/13/2024
 ---
 
 # Monitor and debug an Azure Batch .NET application with Application Insights

@@ -5,7 +5,8 @@ services: chaos-studio
 author: prasha-microsoft 
 ms.topic: tutorial
 ms.date: 11/12/2021
-ms.author: prashabora
+ms.author: abbyweisberg
+ms.reviewer: prashabora
 ms.service: chaos-studio
 ms.custom: template-tutorial
 ---

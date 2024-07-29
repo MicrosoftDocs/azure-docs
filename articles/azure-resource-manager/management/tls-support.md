@@ -3,8 +3,9 @@ title: TLS version supported by Azure Resource Manager
 description: Describes the deprecation of TLS versions prior to 1.2 in Azure Resource Manager
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/05/2023
+ms.date: 01/27/2024
 ---
+
 # Migrating to TLS 1.2 for Azure Resource Manager
 
 Transport Layer Security (TLS) is a security protocol that establishes encryption channels over computer networks. TLS 1.2 is the current industry standard and is supported by Azure Resource Manager. For backwards compatibility, Azure Resource Manager also supports earlier versions, such as TLS 1.0 and 1.1, but that support is ending.
@@ -26,9 +27,7 @@ Azure Resource Manager is the deployment and management service for Azure. You u
 We recommend the following steps as you prepare to migrate your clients to TLS 1.2: 
 
 * Update your operating system to the latest version.
-* Update your development libraries and frameworks to their latest versions.
-
-   For example, Python 3.6 and 3.7 support TLS 1.2.
+* Update your development libraries and frameworks to their latest versions. For example, Python 3.8 supports TLS 1.2.
 
 * Fix hardcoded instances of security protocols older than TLS 1.2.
 * Notify your customers and partners of your product or service's migration to TLS 1.2.

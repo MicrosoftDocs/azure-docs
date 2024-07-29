@@ -1,14 +1,69 @@
 ---
-title: Abort an Azure Kubernetes Service (AKS) long running operation 
+title: Abort an AKS long-running operation 
 description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level.
 ms.topic: article
-ms.date: 3/23/2023
+ms.date: 06/12/2024
+author: tamram
+ms.author: tamram
 
+ms.subservice: aks-nodes
+ms.custom: devx-track-azurecli
 ---
 
 # Terminate a long running operation on an Azure Kubernetes Service (AKS) cluster
 
-Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. While it's important to allow those processes to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
+Sometimes deployment or other processes running within pods on nodes in a cluster can run for periods of time longer than expected due to various reasons. You can get insight into the progress of any ongoing operation, such as create, upgrade, and scale, using any preview API version after `2024-01-02-preview` using the following az rest command:
+
+```azurecli-interactive
+export ResourceID="<cluster-resource-id>"
+az rest --method get --url "https://management.azure.com$ResourceID/operations/latest?api-version=2024-01-02-preview"
+```
+
+This command provides you with a percentage that indicates how close the operation is to completion. You can use this method to get these insights for up to 50 of the latest operations on your cluster. The "percentComplete" attribute denotes the extent of completion for the ongoing operation, as shown in the following example:
+
+```bash
+"id": "/subscriptions/<subscription-id>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/contoso/operations/<operation-id>",
+  "name": "<operation-id>",
+  "percentComplete": 10,
+  "startTime": "2024-04-08T18:21:31Z",
+  "status": "InProgress"
+```
+
+There is also a cli command equivalent for the above that shows the status of the most recent operation in the cluster.
+
+```azurecli-interactive
+az aks operation show-latest \
+    --resource-group myResourceGroup \
+    --name myCluster
+```
+
+The following is an example output:
+
+```bash
+{
+  "endTime": null,
+  "error": null,
+  "id": "/subscriptions/<subscription-id>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/contoso/operations/<operation-id>",
+  "name": "<operation-id>",
+  "operations": null,
+  "percentComplete": 1.0,
+  "resourceGroup": "myResourceGroup",
+  "resourceId": null,
+  "startTime": "2024-06-12T18:16:21+00:00",
+  "status": "InProgress"
+}
+```
+
+You can also run this command using the operation ID available from the above output.  The `Id` parameter denotes the operation ID to use. For example:
+
+```azurecli-interactive
+az aks operation show \
+    --resource-group myResourceGroup \
+    --name myCluster \
+    --operation-id "<operation-id>"
+```
+
+While it's important to allow operations to gracefully terminate when they're no longer needed, there are circumstances where you need to release control of node pools and clusters with long running operations using an *abort* command.
 
 AKS support for aborting long running operations is now generally available. This feature allows you to take back control and run another operation seamlessly. This design is supported using the [Azure REST API](/rest/api/azure/) or the [Azure CLI](/cli/azure/).
 
@@ -29,14 +84,20 @@ The abort operation supports the following scenarios:
 You can use the [az aks nodepool](/cli/azure/aks/nodepool) command with the `operation-abort` argument to abort an operation on a node pool or a managed cluster.
 
 The following example terminates an operation on a node pool on a specified cluster.
+
 ```azurecli-interactive
-az aks nodepool operation-abort --resource-group myResourceGroup --cluster-name myAKSCluster --name myNodePool 
+az aks nodepool operation-abort \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name myNodePool 
 ```
 
 The following example terminates an operation on a specified cluster.
 
 ```azurecli-interactive
-az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
+az aks operation-abort \
+    --name myAKSCluster \
+    --resource-group myResourceGroup
 ```
 
 In the response, an HTTP status code of 204 is returned.

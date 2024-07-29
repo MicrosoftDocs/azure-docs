@@ -1,14 +1,14 @@
 ---
 title: Best practices for disaster recovery with Azure File Sync
-description: Learn about best practices for disaster recovery with Azure File Sync, including high availability, data protection, and data redundancy.
+description: Learn about best practices for disaster recovery with Azure File Sync, including high availability, data protection/backup, and data redundancy.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/18/2023
+ms.date: 06/04/2024
 ms.author: kendownie
 ---
 
-# Best practices for disaster recovery with Azure File Sync
+# Disaster recovery best practices with Azure File Sync
 
 For Azure File Sync, there are three main areas to consider for disaster recovery: high availability, data protection/backup, and data redundancy. This article covers each area and helps you decide what configuration to use for your own disaster recovery solution.
 
@@ -31,11 +31,11 @@ There are two different strategies you can use to achieve high availability for 
 
 For a failover cluster, you don't need to take any special steps to use Azure File Sync. For a standby server, you should make the following configurations:
 
-Have a secondary server with different server endpoints that sync to the same sync group as your primary server but don't enable end-user access to the server. This allows all files to sync from the primary server to the standby server. You can consider enabling namespace-only tiering so that only the namespace is downloaded initially. If your primary server fails, you can use DFS-N to quickly reconfigure end-user access to your standby server.
+Have a secondary server with different server endpoints that sync to the same sync group as your primary server, but don't enable end-user access to the server. This allows all files to sync from the primary server to the standby server. You can consider enabling namespace-only tiering so that only the namespace is downloaded initially. If your primary server fails, you can use DFS-N to quickly reconfigure end-user access to your standby server.
 
 ## Data protection/backup
 
-Protecting your actual data is a key component of a disaster recovery solution. There are two main ways to do this with your Azure file shares: you can either back up your data in the cloud or on-premises. We highly recommend you back up your data in the cloud because your cloud endpoint will contain a full copy of your data, while server endpoints might only contain a subset of your data.
+Protecting your data is a key component of a disaster recovery solution. There are two main ways to do this with your Azure file shares: you can either back up your data in the cloud or on-premises. We highly recommend you back up your data in the cloud because your cloud endpoint will contain a full copy of your data, while server endpoints might only contain a subset of your data.
 
 ### Back up your data in the cloud
 
@@ -49,13 +49,13 @@ For more information, see [About Azure file share backup](../../backup/azure-fil
 
 ### Back up your data on-premises
 
-If you enable cloud tiering, don't implement an on-premises backup solution. With cloud tiering enabled, only a subset of your data will be stored locally on your server, the rest of your data is stored in your cloud endpoint. Depending on what backup solution you use for a local backup, tiered files will either be:
+If you enable cloud tiering, don't implement an on-premises backup solution. With cloud tiering enabled, only a subset of your data will be stored locally on your server, and the rest of your data is stored in your cloud endpoint. Depending on what backup solution you use for a local backup, tiered files will either be:
 
 - skipped and not backed up (due to their `FILE_ATTRIBUTE_RECALL_ONDATA_ACCESS` attribute), or
-- they will be backed up only as a tiered file and might not be accessible upon restore due to changes in the live share, or
-- they will be recalled to your disk, which will result in high egress charges.
+- backed up only as a tiered file and might not be accessible upon restore due to changes in the live share, or
+- recalled to your disk, which will result in high egress charges.
 
-If you decide to use an on-premises backup solution, you should perform backups on a server in the sync group with cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will sync to all endpoints in the sync group and existing files will be replaced with the version restored from backup. Volume-level restores won't replace newer file versions in the cloud endpoint or other server endpoints.
+If you decide to use an on-premises backup solution, you should perform backups on a server in the sync group with cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will sync to all endpoints in the sync group, and existing files will be replaced with the version restored from backup. Volume-level restores won't replace newer file versions in the cloud endpoint or other server endpoints.
 
 [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
@@ -64,9 +64,9 @@ If you decide to use an on-premises backup solution, you should perform backups 
 To ensure a robust disaster recovery solution, add some form of data redundancy to your infrastructure. There are four redundancy offerings for Azure Files: [Locally-redundant storage (LRS)](../files/files-redundancy.md#locally-redundant-storage), [zone-redundant storage (ZRS)](../files/files-redundancy.md#zone-redundant-storage), [geo-redundant storage (GRS)](../files/files-redundancy.md#geo-redundant-storage), and [geo-zone-redundant storage (GZRS)](../files/files-redundancy.md#geo-zone-redundant-storage).
 
 - [Locally-redundant storage (LRS)](../files/files-redundancy.md#locally-redundant-storage): With LRS, every file is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable.
-- [Zone-redundant storage (ZRS)](../files/files-redundancy.md#zone-redundant-storage): With ZRS, three copies of each file stored, however these copies are physically isolated in three distinct storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write to storage is not accepted until it is written to the storage clusters in all three availability zones.
-- [Geo-redundant storage (GRS)](../files/files-redundancy.md#geo-redundant-storage): With GRS, you have two regions, a primary and secondary region. Files are stored three times within an Azure storage cluster in the primary region. Writes are asynchronously replicated to a Microsoft-defined secondary region. GRS provides six copies of your data spread between two Azure regions.
-- [Geo-zone-redundant storage (GZRS)](../files/files-redundancy.md#geo-zone-redundant-storage): You can think of GZRS as if it were like ZRS but with geo-redundancy. With GZRS, files are stored three times across three distinct storage clusters in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region.
+- [Zone-redundant storage (ZRS)](../files/files-redundancy.md#zone-redundant-storage): With ZRS, three copies of each file stored, however these copies are physically isolated in three distinct storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write to storage isn't accepted until it's written to the storage clusters in all three availability zones.
+- [Geo-redundant storage (GRS)](../files/files-redundancy.md#geo-redundant-storage): With GRS, you have two regions: a primary and secondary region. Files are stored three times within an Azure storage cluster in the primary region. Writes are asynchronously replicated to a Microsoft-defined secondary region. GRS provides six copies of your data spread between two Azure regions.
+- [Geo-zone-redundant storage (GZRS)](../files/files-redundancy.md#geo-zone-redundant-storage): Think of GZRS as ZRS but with geo-redundancy. With GZRS, files are stored three times across three distinct storage clusters in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region.
 
 For a robust disaster recovery solution, most customers should consider ZRS. ZRS adds the least amount of extra cost for its added data redundancy benefits and is also the most seamless in the event of an outage. If your organization's policy or regulatory requirements require geo-redundancy for your data, consider either GRS or GZRS.
 
@@ -77,10 +77,10 @@ If your storage account is configured with either GRS or GZRS replication, Micro
 Although you can manually request a failover of your Storage Sync Service to your GRS or GZRS paired region, we don't recommend doing this outside of large-scale regional outages because the process isn't seamless and might incur extra cost. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 
 > [!WARNING]
-> You must contact support to request your Storage Sync Service be failed over if you are initiating this process manually. Attempting to create a new Storage Sync Service using the same server endpoints in the secondary region might result in extra data staying in your storage account because the previous installation of Azure File Sync won't be cleaned up.
+> You must contact support to request your Storage Sync Service be failed over if you're initiating this process manually. Attempting to create a new Storage Sync Service using the same server endpoints in the secondary region might result in extra data staying in your storage account because the previous installation of Azure File Sync won't be cleaned up.
 
 Once a failover occurs, server endpoints will switch over to sync with the cloud endpoint in the secondary region automatically. However, the server endpoints must reconcile with the cloud endpoints. This might result in file conflicts, as the data in the secondary region might not be caught up to the primary.
 
-## Next steps
+## Next step
 
 [Learn about Azure file share backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/file-sync/toc.json)

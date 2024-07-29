@@ -1,12 +1,12 @@
 ---
-title: Enable Azure AD B2C custom domains
+title: Enable custom domains in Azure Active Directory B2C
 titleSuffix: Azure AD B2C
-description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C.
+description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C, so that my users have a seamless experience. 
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.date: 03/01/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -15,7 +15,7 @@ zone_pivot_groups: b2c-policy-type
 #Customer intent: As a developer, I want to use my own domain name for the sign-in and sign-up experience, so that my users have a seamless experience.
 ---
 
-# Enable custom domains for Azure Active Directory B2C
+# Enable custom domains in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -52,8 +52,12 @@ When using custom domains, consider the following:
 
 - You can set up multiple custom domains. For the maximum number of supported custom domains, see [Microsoft Entra service limits and restrictions](/entra/identity/users/directory-service-limits-restrictions) for Azure AD B2C and [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-classic-limits) for Azure Front Door.
 - Azure Front Door is a separate Azure service, so extra charges will be incurred. For more information, see [Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor).
-- After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com* (unless you're using a custom policy and you [block access](#optional-block-access-to-the-default-domain-name).
-- If you have multiple applications, migrate them all to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
+- If you've multiple applications, migrate all of them to the custom domain because the browser stores the Azure AD B2C session under the domain name currently being used.
+- After you configure custom domains, users will still be able to access the Azure AD B2C default domain name *&lt;tenant-name&gt;.b2clogin.com*. You need to block access to the default domain so that attackers can't use it to access your apps or run distributed denial-of-service (DDoS) attacks. [Submit a support ticket](find-help-open-support-ticket.md) to request for the  blocking of access to the default domain.
+
+> [!WARNING]
+> Don't request blocking of the default domain until your custom domain works properly.
+
 
 ## Prerequisites
 
@@ -181,7 +185,7 @@ To create a CNAME record for your custom domain:
     1.  Find the page for managing DNS records by consulting the provider's documentation or searching for areas of the web site labeled **Domain Name**, **DNS**, or **Name Server Management**.
 
     1. Create a new TXT DNS record and complete the fields as shown below:
-        1. Name: `_dnsauth.contoso.com`, but you need to enter just `_dnsauth`.
+        1. Name: `_dnsauth.login.contoso.com`, but you need to enter just `_dnsauth`.
         1. Type: `TXT`
         1. Value: Something like `75abc123t48y2qrtsz2bvk......`.
     
@@ -267,8 +271,8 @@ In the following redirect URI:
 https://<custom-domain-name>/<tenant-name>/oauth2/authresp
 ``` 
 
-- Replace **&lt;custom-domain-name&gt;** with your custom domain name.
-- Replace **&lt;tenant-name&gt;** with the name of your tenant, or your tenant ID.
+- Replace &lt;`custom-domain-name`&gt; with your custom domain name.
+- Replace &lt;`tenant-name`&gt; with the name of your tenant, or your tenant ID.
 
 The following example shows a valid OAuth redirect URI:
 
@@ -295,9 +299,9 @@ The custom domain integration applies to authentication endpoints that use Azure
 - <code>https://\<custom-domain\>/<tenant-name\>/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
 
 Replace:
-- **custom-domain** with your custom domain
-- **tenant-name** with your tenant name or tenant ID
-- **policy-name** with your policy name.
+- &lt;`custom-domain`&gt; with your custom domain
+- &lt;`tenant-name`&gt; with your tenant name or tenant ID
+- &lt;`policy-name`&gt; with your policy name.
 
 The [SAML service provider](./saml-service-provider.md) metadata may look like the following sample: 
 
@@ -326,14 +330,6 @@ The token issuer name (iss) claim changes based on the custom domain being used.
 https://<domain-name>/11111111-1111-1111-1111-111111111111/v2.0/
 ```
 ::: zone pivot="b2c-custom-policy"
-
-## (Optional) Block access to the default domain name
-
-After you add the custom domain and configure your application, users will still be able to access the &lt;tenant-name&gt;.b2clogin.com domain. If you want to prevent access, you can configure the policy to check the authorization request "host name" against an allowed list of domains. The host name is the domain name that appears in the URL. The host name is available through `{Context:HostName}` [claim resolvers](claim-resolver-overview.md). Then you can present a custom error message. 
-
-1. Get the example of a conditional access policy that checks the host name from [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/check-host-name).
-1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
-1. Upload the policy files in the following order: `B2C_1A_TrustFrameworkExtensions_HostName.xml` and then `B2C_1A_signup_signin_HostName.xml`.
 
 ::: zone-end
 

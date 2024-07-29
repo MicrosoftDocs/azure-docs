@@ -7,28 +7,28 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 01/20/2024
 ms.author: pafarley
 ---
 
 
-# Where to place the camera?
+# Spatial Analysis camera placement
 
-This article provides camera placement recommendations for Spatial Analysis (public preview). It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
+This article provides camera placement recommendations for Spatial Analysis (public preview) scenarios. It includes general guidelines as well as specific recommendations for height, angle, and camera-to-focal-point-distance for all the included operations. 
 
 > [!NOTE]
-> This guide is designed for the Axis M3045-V camera. This camera will use resolution 1920x1080, 106 degree horizontal field of view, 59 degree vertical field of view and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance will need to be adjusted for use with other cameras. 
+> This guide is designed for the Axis M3045-V camera. This camera has a 1920x1080 resolution, 106 degree horizontal field of view, 59 degree vertical field of view, and a fixed 2.8mm focal length. The principles below will apply to all cameras, but specific guidelines around camera height and camera-to-focal-point distance need to be adjusted for use with other cameras. 
 
 ## General guidelines
 
 Consider the following general guidelines when positioning cameras for Spatial Analysis:
 
-* **Lighting height.** Place cameras below lighting fixtures so the fixtures don't block the cameras.
-* **Obstructions.** To avoid obstructing camera views, take note of obstructions such as poles, signage, shelving, walls, and existing LP cameras.
-* **Environmental backlighting.** Outdoor backlighting affects camera image quality. To avoid severe backlighting conditions, avoid directing cameras at external-facing windows and glass doors.
-* **Local privacy rules and regulations.** Local regulations may restrict what cameras can capture. Make sure that you understand local rules and regulations before placing cameras.
-* **Building structure.** HVAC, sprinklers, and existing wiring may limit hard mounting of cameras.
-* **Cable management.** Make sure you can route an ethernet cable from planned camera mounting locations to the Power Over Internet (PoE) switch.
+* **Lighting height**" Place cameras below lighting fixtures so the fixtures don't block the cameras.
+* **Obstructions**: To avoid obstructing camera views, take note of obstructions such as poles, signage, shelving, walls, and existing LP cameras.
+* **Environmental backlighting**: Outdoor backlighting affects camera image quality. To avoid severe backlighting conditions, avoid directing cameras at external-facing windows and glass doors.
+* **Local privacy rules and regulations**: Local regulations may restrict what cameras can capture. Make sure that you understand local rules and regulations before placing cameras.
+* **Building structure**: HVAC, sprinklers, and existing wiring may limit hard mounting of cameras.
+* **Cable management**: Make sure you can route an ethernet cable from planned camera mounting locations to the Power Over Internet (PoE) switch.
 
 ## Height, focal-point distance, and angle
 
@@ -45,11 +45,11 @@ The following illustration shows the elevation view for person walking direction
 
 ![Elevation and plan view](./media/spatial-analysis/person-walking-direction-diagram.png)
 
-## Camera height
+### Camera height
 
 Generally, cameras should be mounted 12-14 feet from the ground. For Face mask detection, we recommend cameras to be mounted 8-12 feet from the ground. When planning your camera mounting in this range, consider obstructions (for example: shelving, hanging lights, hanging signage, and displays) that might affect the camera view, and then adjust the height as necessary.
 
-## Camera-to-focal-point distance
+### Camera-to-focal-point distance
 
 _Camera-to-focal-point distance_ is the linear distance from the focal point (or center of the camera image) to the camera measured on the ground.
 
@@ -80,7 +80,7 @@ The following illustration simulates camera views from the closest and farthest 
 | -------------------------------------------- | --------------------------------------------- |  
 | ![Closest camera-to-focal-point distance](./media/spatial-analysis/focal-point-closest.png) | ![Farthest camera-to-focal-point distance](./media/spatial-analysis/focal-point-farthest.png) |  
 
-## Camera angle mounting ranges
+### Camera angle mounting ranges
 
 This section describes acceptable camera angle mounting ranges. These mounting ranges show the acceptable range for optimal placement.
 
@@ -148,7 +148,7 @@ The following illustrations simulate the view from a camera placed in the ideal 
 
 ##### Organic queues
 
-Organic queue lines form organically. This style of queue is acceptable if queues don't form beyond 2-3 people and the line forms within the zone definition. If the queue length is typically more than 2-3 people, we recommend using a retractable belt barrier to help guide the queue direction and ensure the line forms within the zone definition.
+Organic queues are lines that form organically. This style of queue is acceptable if queues don't form beyond 2-3 people and the line forms within the zone definition. If the queue length is typically more than 2-3 people, we recommend using a retractable belt barrier to help guide the queue direction and ensure the line forms within the zone definition.
 
 ## Next steps
 

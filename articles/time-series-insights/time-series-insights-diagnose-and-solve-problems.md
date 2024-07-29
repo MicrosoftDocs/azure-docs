@@ -2,15 +2,12 @@
 title: 'Diagnose, troubleshoot, and solve issues - Azure Time Series Insights'
 description: This article describes how to diagnose, troubleshoot, and solve common issues in your Azure Time Series Insights environment.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 09/29/2020
-ms.custom: seodec18
 ---
 
 # Diagnose and solve issues in your Azure Time Series Insights Gen1 environment
@@ -30,7 +27,7 @@ This article describes issues that you might encounter in your Azure Time Series
 
 ## Problem: No data is shown
 
-If no data is appearing in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com), consider these common causes.
+If no data is appearing in the Azure Time Series Insights explorer, consider these common causes.
 
 ### Cause A: Event source data isn't in JSON format
 
@@ -96,7 +93,7 @@ If you connect an existing event source, it's likely that your IoT hub or event 
 
 To fix the lag:
 
-1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You're charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the [Azure Time Series Insights explorer](https://insights.timeseries.azure.com).
+1. Increase the SKU capacity to the maximum allowed value (10, in this case). After you increase capacity, the ingress process starts to catch up much more quickly. You're charged for the increased capacity. To visualize how quickly you're catching up, you can view the availability chart in the Azure Time Series Insights explorer.
 
 2. When the lag is caught up, decrease the SKU capacity to your normal ingress rate.
 

@@ -14,9 +14,9 @@ ms.custom: devx-track-bicep, subject-bicepqs, mode-arm
 
 # Quickstart: Configure Azure Network Watcher NSG flow logs using a Bicep file
 
-In this quickstart, you learn how to enable [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) using a Bicep file
+In this quickstart, you learn how to enable [NSG flow logs](nsg-flow-logs-overview.md) using a Bicep file.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

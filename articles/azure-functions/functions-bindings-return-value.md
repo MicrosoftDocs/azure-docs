@@ -2,7 +2,8 @@
 title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
 ms.topic: reference
-ms.devlang: csharp, fsharp, java, javascript, powershell, python
+ms.devlang: csharp
+# ms.devlang: csharp, fsharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 07/25/2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -28,6 +29,7 @@ See [Output bindings in the .NET worker guide](./dotnet-isolated-process-guide.m
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 In a C# class library, apply the output binding attribute to the method return value. In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 

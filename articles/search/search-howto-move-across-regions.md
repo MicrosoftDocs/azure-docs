@@ -1,7 +1,7 @@
 ---
-title: How to move your service resource across regions
+title: Move a search service across regions
 titleSuffix: Azure AI Search
-description: This article will show you how to move your Azure AI Search resources from one region to another in the Azure cloud.
+description: Learn how to move your Azure AI Search resources from one region to another in the Azure cloud.
 
 manager: nitinme
 author: HeidiSteen
@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.custom:
   - subject-moving-resources
   - ignite-2023
-ms.date: 01/30/2023
+ms.date: 01/11/2024
 ---
 
 # Move your Azure AI Search service to another Azure region
 
-Occasionally, customers ask about moving a search service to another region. Currently, there is no built-in mechanism or tooling to help with that task, but this article can help you understand the manual steps for recreating indexes and other objects on a new search service in a different region.
+Occasionally, customers ask about moving a search service to another region. Currently, there's no built-in mechanism or tooling to help with that task, but this article can help you understand the manual steps for recreating indexes and other objects on a new search service in a different region.
 
 > [!NOTE]
 > In the Azure portal, all services have an **Export template** command. In the case of Azure AI Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
@@ -31,17 +31,17 @@ Occasionally, customers ask about moving a search service to another region. Cur
 
 1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure AI Search.
 
-   Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Azure AI services is a dependency in AI enrichment. Both Azure AI services and your search service are required to be in the same region if you are using AI enrichment.
+   Azure Storage is used for logging, creating a knowledge store, and is a commonly used external data source for AI enrichment and indexing. Azure AI services are used to power built-in skills during AI enrichment. Both Azure AI services and your search service are required to be in the same region if you're using AI enrichment.
 
 1. Create an inventory of all objects on the service so that you know what to move: indexes, synonym maps, indexers, data sources, skillsets. If you enabled logging, create and archive any reports you might need for a historical record.
 
-1. Check pricing and availability in the new region to ensure availability of Azure AI Search plus any related services in the new region. The majority of features are available in all regions, but some preview features have restricted availability.
+1. Check pricing and availability in the new region to ensure availability of Azure AI Search plus any related services in the new region. Most features are available in all regions, but some preview features have restricted availability.
 
-1. Create a service in the new region and republish from source code any existing indexes, synonym maps, indexers, data sources, and skillsets. Remember that service names must be unique so you cannot reuse the existing name. Check each skillset to see if connections to Azure AI services are still valid in terms of the same-region requirement. Also, if knowledge stores are created, check the connection strings for Azure Storage if you are using a different service.
+1. Create a service in the new region and republish from source code any existing indexes, synonym maps, indexers, data sources, and skillsets. Remember that service names must be unique so you can't reuse the existing name. Check each skillset to see if connections to Azure AI services are still valid in terms of the same-region requirement. Also, if knowledge stores are created, check the connection strings for Azure Storage if you're using a different service.
 
 1. Reload indexes and knowledge stores, if applicable. You'll either use application code to push JSON data into an index, or rerun indexers to pull documents in from external sources. 
 
-1. Enable logging, and if you are using them, re-create security roles.
+1. Enable logging, and if you're using them, re-create security roles.
 
 1. Update client applications and test suites to use the new service name and API keys, and test all applications.
 

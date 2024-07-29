@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Deprecated] Forcepoint CSG via Legacy Agent connector for Microsoft Sentinel

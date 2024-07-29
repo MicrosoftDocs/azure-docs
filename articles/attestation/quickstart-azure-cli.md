@@ -5,7 +5,7 @@ services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: quickstart
-ms.date: 11/14/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli

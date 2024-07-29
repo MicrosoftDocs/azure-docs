@@ -13,7 +13,6 @@ This article lists the PowerShell commands that can be used with SQL vulnerabili
 
 Make a local copy of the script located on [Express configuration PowerShell wrapper module](express-configuration-sql-commands.md), and save the file with the following file name `SqlVulnerabilityAssessmentCommands.psm1`, which can be referenced with the following commands:
 
-
 - [Set SQL vulnerability assessment baseline](#set-sql-vulnerability-assessment-baseline)
 - [Get SQL vulnerability assessment baseline](#get-sql-vulnerability-assessment-baseline)
 - [Set SQL vulnerability assessment baseline rule](#set-sql-vulnerability-assessment-baseline-rule)
@@ -202,7 +201,7 @@ Content    : {"properties":{"ruleId":"VA2062","status":"NonFinding","errorMessag
              . Database-level firewall rules grant access to the specific database based on the originating IP address
              of each request.\n\nDatabase-level firewall rules for master and user databases can only be created and ma
              naged through Transact-SQL (unlike server-level firewall rules which can also be created and managed using
-              the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/en-us/azure/sql-
+              the Azure portal or PowerShell). For more details please see: https://docs.microsoft.com/azure/sql-
              database/sql-database-firewall-configure\n\nThis check verifies that each database-level firewall rule doe
              s not grant access to more than 255 IP addresses.","rationale":"Often, administrators add rules that grant
               excessive access as part of a troubleshooting process - to eliminate the firewall as the source of a prob
@@ -251,8 +250,8 @@ Content    : {"value":[
                  WHERE db_name(database_id) = db_name()\n                    AND is_encrypted = 0\n                )\n
                         THEN 1\n        ELSE 0\n        END AS [Violation]","expectedResult":[["0"]],"columnNames":["Vi
              olation"]},"benchmarkReferences":[{"benchmark":"FedRAMP","reference":null}]}},"id":"/subscriptions/f000000
-			 00-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/
-			 vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1219/scanResults/VA1219","name":"VA1219","
+    00-1111-2222-3333-444444444444/resourceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/
+    vulnerabilityaseessmenttest/databases/db/sqlVulnerabilityAssessments/Default/scans/VA1219/scanResults/VA1219","name":"VA1219","
              type":"Microsoft.Sql/servers/databases/sqlVulnerabilityAssessments/scans/scanResults"},{"prope
              rties":{"ruleId":"VA1223","status":"NonFinding","errorMessage":null,"isTrimmed":false,"queryResults":[],"r
              emediation":{"description":"Create new certificates, re-encrypt the data/sign-data using the new key, and
@@ -309,7 +308,7 @@ StatusCode : 200
 Method     : GET
 Content    : {"value":[{"properties":{"scanId":"f64d81a1-9d7b-4516-a623-a1bfc845ed7e","triggerType":"OnDemand","state":
              "Passed","startTime":"2023-04-17T12:52:41.4142209Z","endTime":"2023-04-17T12:52:41.5235755Z","server":
-			 "vulnerabilityaseessmenttest","database":"db","sqlVersion":"16.0.5100","highSeverityFailedRulesCount":0,"mediumSeverityFail
+    "vulnerabilityaseessmenttest","database":"db","sqlVersion":"16.0.5100","highSeverityFailedRulesCount":0,"mediumSeverityFail
              edRulesCount":0,"lowSeverityFailedRulesCount":0,"totalPassedRulesCount":24,"totalFailedRulesCount":0,"tota
              lRulesCount":24,"isBaselineApplied":true},"id":"/subscriptions/00000000-1111-2222-3333-444444444444/resour
              ceGroups/vulnerabilityaseessmenttestRg/providers/Microsoft.Sql/servers/vulnerabilityaseessmenttest/databases/db/vulnerabilityAss

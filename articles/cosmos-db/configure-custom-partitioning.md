@@ -6,7 +6,6 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/24/2023
 ms.author: rosouz
-ms.custom: ignite-fall-2021, ignite-2022
 ---
 
 # Configure custom partitioning to partition analytical store data

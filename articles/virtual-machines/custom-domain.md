@@ -1,11 +1,10 @@
 ---
-title: Create and use a custom domain 
+title: Create and use a custom domain
 description: Connect a custom domain to a virtual machine in Azure.
 author: jasonmesser7
 ms.service: virtual-machines
 ms.subservice: networking
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/23/2023
 ms.author: jamesserra
 ms.reviewer: cynthn
@@ -70,4 +69,3 @@ After the record is created it usually takes about an hour for DNS propagate, bu
  
 ## Next steps
 [Overview of TLS termination and end to end TLS with Application Gateway](../application-gateway/ssl-overview.md).
-

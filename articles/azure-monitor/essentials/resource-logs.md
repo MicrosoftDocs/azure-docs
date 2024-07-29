@@ -1,13 +1,13 @@
 ---
-title: Azure resource logs 
-description: Learn how to stream Azure resource logs to a Log Analytics workspace in Azure Monitor.
+title: Send Azure resource log data 
+description: Learn how to send Azure resource logs to a Log Analytics workspace, event hub, or Azure Storage in Azure Monitor.
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 08/08/2023
 ms.reviewer: lualderm
 ---
 
-# Azure resource logs
+# Send Azure resource log data
 
 Azure resource logs are [platform logs](../essentials/platform-logs-overview.md) that provide insight into operations that were performed within an Azure resource. The content of resource logs varies by the Azure service and resource type. Resource logs aren't collected by default. This article describes the [diagnostic setting](diagnostic-settings.md) required for each Azure resource to send its resource logs to different destinations. 
 
@@ -18,7 +18,7 @@ Azure resource logs are [platform logs](../essentials/platform-logs-overview.md)
 - Correlate resource log data with other monitoring data collected by Azure Monitor.
 - Consolidate log entries from multiple Azure resources, subscriptions, and tenants into one location for analysis together.
 - Use log queries to perform complex analysis and gain deep insights on log data.
-- Use log alerts with complex alerting logic.
+- Use log search alerts with complex alerting logic.
 
 [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send resource logs to a Log Analytics workspace. This data is stored in tables as described in [Structure of Azure Monitor Logs](../logs/data-platform-logs.md). The tables used by resource logs depend on what type of collection the resource is using:
 
@@ -36,7 +36,7 @@ In this mode, individual tables in the selected workspace are created for each c
 
 All Azure services will eventually migrate to the resource-specific mode.
 
-The preceding example creates three tables:
+The example below creates three tables:
 
 - Table `Service1AuditLogs`
 
@@ -172,7 +172,7 @@ The following sample output data is from Azure Event Hubs for a resource log:
 Send resource logs to Azure Storage to retain them for archiving. After you've created the diagnostic setting, a storage container is created in the storage account as soon as an event occurs in one of the enabled log categories.
 
 > [!NOTE]
-> An alternate strategy for archiving is to send the resource log to a Log Analytics workspace with an [archive policy](../logs/data-retention-archive.md).
+> An alternate to archiving is to send the resource log to a table in your Log Analytics workspace with [low-cost, long-term retention](../logs/data-retention-configure.md).
 
 The blobs within the container use the following naming convention:
 

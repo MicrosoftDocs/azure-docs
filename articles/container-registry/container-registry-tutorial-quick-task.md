@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.service: container-registry
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.custom: mvc, devx-track-azurecli
 # Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
@@ -61,7 +61,7 @@ cd acr-build-helloworld-node
 
 The commands in this tutorial series are formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Build in Azure with ACR Tasks
 
@@ -313,5 +313,5 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->
-[quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
+[quick-build-01-fork]: ~/reusable-content/ce-skilling/azure/media/container-registry/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png

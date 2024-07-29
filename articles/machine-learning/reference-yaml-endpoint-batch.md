@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, event-tier1-build-2022
-ms.reviewer: mopeakande 
-author: santiagxf 
-ms.author: fasantia
+ms.custom: cliv2
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 10/21/2021
 ---
 

@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022
 ---
@@ -104,7 +104,6 @@ The following is a template snippet for the Service Fabric Linux extension:
          "durabilityLevel": "Silver",
          "enableParallelJobs": true,
          "nicPrefixOverride": "[variables('subnet0Prefix')]",
-         "dataPath": "D:\\\\SvcFab",
          "certificate": {
            "commonNames": [
              "[parameters('certificateCommonName')]"

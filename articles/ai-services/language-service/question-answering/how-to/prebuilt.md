@@ -1,7 +1,7 @@
 ---
-title: Prebuilt API - question answering
+title: Prebuilt API - custom question answering
 titleSuffix: Azure AI services
-description: Use the question answering Prebuilt API to ask and receive answers to questions without having to create a project. 
+description: Use the custom question answering Prebuilt API to ask and receive answers to questions without having to create a project. 
 ms.service: azure-ai-language
 author: jboback
 ms.author: jboback
@@ -11,7 +11,7 @@ ms.date: 12/19/2023
 
 # Prebuilt API
 
-The question answering **prebuilt API** provides you the capability to answer questions based on a passage of text without having to create projects, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about question answering.
+The custom question answering **prebuilt API** provides you the capability to answer questions based on a passage of text without having to create projects, maintain question and answer pairs, or incurring costs for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about custom question answering.
 
 Given a user query and a block of text/passage the API will return an answer and precise answer (if available).
 

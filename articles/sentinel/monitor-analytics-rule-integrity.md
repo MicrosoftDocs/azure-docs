@@ -99,7 +99,7 @@ Here are some sample queries to help you get started:
     | where Status != "Success"
     ``` 
 
-- Find rules that have been "[auto-disabled](detect-threats-custom.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
+- Find rules that have been "[auto-disabled](troubleshoot-analytics-rules.md#issue-a-scheduled-rule-failed-to-execute-or-appears-with-auto-disabled-added-to-the-name)":
 
     ```kusto
     _SentinelHealth()

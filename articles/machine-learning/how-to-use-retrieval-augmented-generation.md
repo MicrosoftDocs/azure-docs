@@ -3,12 +3,12 @@ title: Get started with RAG using a prompt flow sample (preview)
 titleSuffix: Azure Machine Learning
 description: Set up a prompt flow using the samples gallery.
 services: machine-learning
-ms.author: balapv
-author: balapv
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: balapv
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/30/2023
+ms.date: 06/26/2024
 ms.topic: how-to
 ms.custom: prompt
 ---
@@ -24,7 +24,7 @@ In this tutorial, you'll learn how to use RAG by creating a prompt flow. A promp
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* Access to Azure Open AI. 
+* Access to Azure OpenAI. 
 
 * Enable prompt flow in your Azure Machine Learning workspace
 
@@ -35,11 +35,9 @@ In your Azure Machine Learning workspace, you can enable prompt flow by turn-on 
 
 1.  Select **Prompt flow** on the left menu.
 
-:::image type="content" source="./media/how-to-use-retrieval-augmented-generation/prompt.png" alt-text="Screenshot showing prompt flow location.":::
-
 2.  Select **Create**.
 
-3. In the **Create from gallery** section, select **View Detail** on the Bring your own data Q&A sample.
+3. In the **Explore gallery** menu, select **View Detail** on the _Q&A on Your Data_ sample.
 
 :::image type="content" source="./media/how-to-use-retrieval-augmented-generation/view-detail.png" alt-text="Screenshot showing view details button on the prompt flow sample.":::
 

@@ -16,31 +16,35 @@ Azure Monitor Application Insights, a feature of [Azure Monitor](..\overview.md)
 Application Insights provides many experiences to enhance the performance, reliability, and quality of your applications.
 
 ### Investigate
-- [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
-- [Application map](app-map.md): A visual overview of application architecture and components' interactions.
-- [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
-- [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
-- [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
-- Performance view: Review application performance metrics and potential bottlenecks.
-- Failures view: Identify and analyze failures in your application to minimize downtime.
+
+* [Application dashboard](overview-dashboard.md): An at-a-glance assessment of your application's health and performance.
+* [Application map](app-map.md): A visual overview of application architecture and components' interactions.
+* [Live metrics](live-stream.md): A real-time analytics dashboard for insight into application activity and performance.
+* [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search): Trace and diagnose transactions to identify issues and optimize performance.
+* [Availability view](availability-overview.md): Proactively monitor and test the availability and responsiveness of application endpoints.
+* [Failures view](failures-and-performance-views.md?tabs=failures-view): Identify and analyze failures in your application to minimize downtime.
+* [Performance view](failures-and-performance-views.md?tabs=performance-view): Review application performance metrics and potential bottlenecks.
 
 ### Monitoring
-- [Alerts](../alerts/alerts-overview.md): Monitor a wide range of aspects of your application and trigger various actions.
-- [Metrics](../essentials/metrics-getting-started.md): Dive deep into metrics data to understand usage patterns and trends.
-- [Diagnostic settings](../essentials/diagnostic-settings.md): Configure streaming export of platform logs and metrics to the destination of your choice. 
-- [Logs](../logs/log-analytics-overview.md): Retrieve, consolidate, and analyze all data collected into Azure Monitoring Logs.
-- [Workbooks](../visualize/workbooks-overview.md): Create interactive reports and dashboards that visualize application monitoring data.
+
+* [Alerts](../alerts/alerts-overview.md): Monitor a wide range of aspects of your application and trigger various actions.
+* [Metrics](../essentials/metrics-getting-started.md): Dive deep into metrics data to understand usage patterns and trends.
+* [Diagnostic settings](../essentials/diagnostic-settings.md): Configure streaming export of platform logs and metrics to the destination of your choice. 
+* [Logs](../logs/log-analytics-overview.md): Retrieve, consolidate, and analyze all data collected into Azure Monitoring Logs.
+* [Workbooks](../visualize/workbooks-overview.md): Create interactive reports and dashboards that visualize application monitoring data.
 
 ### Usage
-- [Users, sessions, and events](usage-segmentation.md): Determine when, where, and how users interact with your web app.
-- [Funnels](usage-funnels.md): Analyze conversion rates to identify where users progress or drop off in the funnel.
-- [Flows](usage-flows.md): Visualize user paths on your site to identify high engagement areas and exit points.
-- [Cohorts](usage-cohorts.md): Group users by shared characteristics to simplify trend identification, segmentation, and performance troubleshooting.
+
+* [Users, sessions, and events](usage.md#users-sessions-and-events---analyze-telemetry-from-three-perspectives): Determine when, where, and how users interact with your web app.
+* [Funnels](usage.md#funnels---discover-how-customers-use-your-application): Analyze conversion rates to identify where users progress or drop off in the funnel.
+* [Flows](usage.md#user-flows---analyze-user-navigation-patterns): Visualize user paths on your site to identify high engagement areas and exit points.
+* [Cohorts](usage.md#cohorts---analyze-a-specific-set-of-users-sessions-events-or-operations): Group users by shared characteristics to simplify trend identification, segmentation, and performance troubleshooting.
 
 ### Code analysis
-- [Profiler](../profiler/profiler-overview.md): Capture, identify, and view performance traces for your application.
-- [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
-- [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
+
+* [Profiler](../profiler/profiler-overview.md): Capture, identify, and view performance traces for your application.
+* [Code optimizations](../insights/code-optimizations.md): Harness AI to create better and more efficient applications.
+* [Snapshot debugger](../snapshot-debugger/snapshot-debugger.md): Automatically collect debug snapshots when exceptions occur in .NET application
 
 ## Logic model
 
@@ -49,7 +53,7 @@ The logic model diagram visualizes components of Application Insights and how th
 :::image type="content" source="media/app-insights-overview/app-insights-overview-blowout.svg" alt-text="Diagram that shows the path of data as it flows through the layers of the Application Insights service." lightbox="media/app-insights-overview/app-insights-overview-blowout.svg":::
 
 > [!Note]
-> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](./ip-addresses.md).
+> Firewall settings must be adjusted for data to reach ingestion endpoints. For more information, see [IP addresses used by Azure Monitor](../ip-addresses.md).
 
 ---------------------------
 ## Supported languages
@@ -66,7 +70,7 @@ For detailed information about instrumenting applications to enable Application 
 #### OpenTelemetry Distro
 
 * [ASP.NET Core](opentelemetry-enable.md?tabs=aspnetcore)
-* [ASP.NET](opentelemetry-enable.md?tabs=net)
+* [.NET](opentelemetry-enable.md?tabs=net)
 * [Java](opentelemetry-enable.md?tabs=java)
 * [Node.js](opentelemetry-enable.md?tabs=nodejs)
 * [Python](opentelemetry-enable.md?tabs=python)
@@ -94,13 +98,13 @@ This section lists all supported platforms and frameworks.
 * [Azure Virtual Machines and Azure Virtual Machine Scale Sets](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Spring Apps](../../spring-apps/how-to-application-insights.md)
+* [Azure Spring Apps](../../spring-apps/enterprise/how-to-application-insights.md)
 * [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
 
 #### Logging frameworks
 * [`ILogger`](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#logs)
+* [`Log4J`, Logback, or java.util.logging](./opentelemetry-add-modify.md?tabs=java#send-custom-telemetry-using-the-application-insights-classic-api)
 * [LogStash plug-in](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
@@ -215,6 +219,24 @@ Application Insights doesn't handle sensitive data by default, as long as you do
 
 For archived information on this topic, see [Data collection, retention, and storage in Application Insights](/previous-versions/azure/azure-monitor/app/data-retention-privacy).
 
+### What is the Application Insights pricing model?
+
+Application Insights is billed through the Log Analytics workspace into which its log data ingested. 
+The default Pay-as-you-go Log Analytics pricing tier includes 5 GB per month of free data allowance per billing account. 
+Learn more about [Azure Monitor logs pricing options](https://azure.microsoft.com/pricing/details/monitor/).
+          
+### Are there data transfer charges between an Azure web app and Application Insights?
+
+* If your Azure web app is hosted in a datacenter where there's an Application Insights collection endpoint, there's no charge.
+* If there's no collection endpoint in your host datacenter, your app's telemetry incurs [Azure outgoing charges](https://azure.microsoft.com/pricing/details/bandwidth/).
+          
+This answer depends on the distribution of our endpoints, *not* on where your Application Insights resource is hosted.
+
+### Do I incur network costs if my Application Insights resource is monitoring an Azure resource (that is, telemetry producer) in a different region?
+
+Yes, you may incur more network costs, which vary depending on the region the telemetry is coming from and where it's going. 
+Refer to [Azure bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) for details.
+
 ## Help and support
 
 ### Azure technical support
@@ -247,4 +269,4 @@ Review dedicated [troubleshooting articles](/troubleshoot/azure/azure-monitor/we
 - [Live metrics](live-stream.md)
 - [Transaction search](transaction-search-and-diagnostics.md?tabs=transaction-search)
 - [Availability overview](availability-overview.md)
-- [Users, sessions, and events](usage-segmentation.md)
+- [Users, sessions, and events](usage.md)

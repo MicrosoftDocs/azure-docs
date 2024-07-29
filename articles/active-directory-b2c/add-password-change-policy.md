@@ -8,12 +8,15 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.custom: 
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to set up a password change flow using custom policies, so that users can change their passwords without email verification, improving the user experience and security.
+
 ---
 
 # Set up password change by using custom policies in Azure Active Directory B2C

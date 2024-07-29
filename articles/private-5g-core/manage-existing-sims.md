@@ -117,6 +117,10 @@ To assign static IP addresses to SIMs:
     - If you assigned a static IP address to a single SIM, you'll be taken to that SIM resource. Check the **SIM policy** field in the **Management** section and the list under the **Static IP Configuration** section to confirm that the correct SIM policy and static IP address have been assigned successfully.
     - If you assigned static IP addresses to multiple SIMs, you'll be taken to the resource group containing your private mobile network. Select the **Mobile Network** resource, and then select **SIMs** in the resource menu. Check the **SIM policy** column in the SIMs list to confirm the correct SIM policy has been assigned to your chosen SIMs. You can then select an individual SIM and check the **Static IP Configuration** section to confirm that the correct static IP address has been assigned to that SIM.
 
+## Enable SUPI concealment
+
+See [Enable SUPI concealment](supi-concealment.md).
+
 ## Delete SIMs
 
 Deleting a SIM will remove it from your private mobile network.

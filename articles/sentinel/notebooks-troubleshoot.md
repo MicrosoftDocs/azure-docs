@@ -4,7 +4,7 @@ description: Troubleshoot errors for Jupyter notebooks in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: troubleshooting
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 04/04/2022
 ---
 

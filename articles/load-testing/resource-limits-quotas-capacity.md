@@ -5,8 +5,8 @@ description: 'Service limits used for capacity planning and configuring high-sca
 services: load-testing
 ms.service: load-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 09/21/2022
 ---
 
@@ -44,7 +44,7 @@ The following limits apply on a per-region, per-subscription basis.
 | Test runs per test | 5000 | |
 | File uploads per test | 1000 | |
 | App Components per test or test run | 100 | |
-| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 10 | |
+| [Test criteria](./how-to-define-test-criteria.md#load-test-fail-criteria) per test | 50 | |
 
 <sup>2</sup> If you aren't already at the maximum limit, you can request an increase. We aren't currently able to approve increase requests past our maximum limitations stated above. To request an increase for your default limit, contact Azure Support. Default limits vary by offer category type.
 

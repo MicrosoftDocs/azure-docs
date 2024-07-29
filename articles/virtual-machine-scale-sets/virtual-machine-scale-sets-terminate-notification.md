@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: conceptual 
 ms.service: virtual-machine-scale-sets
 ms.subservice: terminate-notification
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: avverma, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -84,6 +84,7 @@ This sample script walks through the creation of a scale set and associated reso
 New-AzVmssConfig `
   -Location "VMSSLocation" `
   -SkuCapacity 2 `
+  -OrchestrationMode "Flexible" `
   -SkuName "Standard_DS2" `
   -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 10

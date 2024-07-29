@@ -1,11 +1,11 @@
 ---
-author: aahill
+author: jboback
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: include
 ms.date: 12/19/2023
-ms.custom: devx-track-java, ignite-fall-2021
-ms.author: aahi
+ms.custom: devx-track-java
+ms.author: jboback
 ---
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Additional samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) 
@@ -15,7 +15,7 @@ Use this quickstart to create a sentiment analysis application with the client l
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) with version 8 or above
+* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) with version 8 or above
 
 
 

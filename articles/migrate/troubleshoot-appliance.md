@@ -6,12 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 09/23/2021
-ms.custom: engagement-fy23
+ms.date: 03/18/2024
+ms.custom: engagement-fy24
 ---
 
 
 # Troubleshoot the Azure Migrate appliance
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
@@ -211,7 +214,7 @@ The validation of a physical server fails on the appliance with the error messag
 
 ### Remediation
 
-**Linux servers:**
+#### [Linux servers](#tab/linux)
 
 Connect to the target server that's failing validation. Run the following commands to see if it returns the BIOS GUID of the server:
 
@@ -224,7 +227,11 @@ You can also run the commands from the command prompt on the appliance server by
 ssh <username>@<servername>
 ````
 
-**Windows servers:**
+Few Linux machines like Oracle/CentOS have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
+- Defaults    !visiblepw 
+- Defaults    !requiretty 
+
+#### [Windows servers](#tab/windows)
 
 Run the following code in PowerShell from the appliance server for the target server that's failing validation to see if it returns the BIOS GUID of the server:
 
@@ -254,6 +261,8 @@ $HostIntance | fl *
 ````
 
 When you run the preceding code, you need to provide the hostname of the target server. It can be IP address/FQDN/hostname. After that, you're prompted to provide the credentials to connect to the server.
+
+---
 
 ## "No suitable authentication method found" error occurs for the server during validation
 

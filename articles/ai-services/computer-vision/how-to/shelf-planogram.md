@@ -7,11 +7,11 @@ manager: nitinme
 ms.service: azure-ai-vision
 ms.custom: build-2023
 ms.topic: how-to
-ms.date: 05/02/2023
+ms.date: 02/12/2024
 ms.author: pafarley
 ---
 
-# Shelf Planogram Compliance (preview)
+# Shelf planogram compliance (preview)
 
 A planogram is a diagram that indicates the correct placement of retail products on shelves. The Planogram Compliance API lets you compare analysis results from a photo to the store's planogram input. It returns an account of all the positions in the planogram, and whether a product was found in each position.
 
@@ -22,7 +22,7 @@ A planogram is a diagram that indicates the correct placement of retail products
 
 ## Prerequisites
 * You must have already set up and run basic [Product Understanding analysis](./shelf-analyze.md) with the Product Understanding API.
-* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Postman, Swagger, or the REST Client extension for VS Code.
+* [cURL](https://curl.haxx.se/) installed. Or, you can use a different REST platform, like Swagger or the [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for VS Code.
 
 ## Prepare a planogram schema
 
@@ -70,7 +70,7 @@ The X and Y coordinates are relative to a top-left origin, and the width and hei
 
 Quantities in the planogram schema are in nonspecific units. They can correspond to inches, centimeters, or any other unit of measurement. The matching algorithm calculates the relationship between the photo analysis units (pixels) and the planogram units.
 
-### Planogram API Model
+### Planogram API model
 
 Describes the planogram for planogram matching operations.
 
@@ -82,7 +82,7 @@ Describes the planogram for planogram matching operations.
 | `fixtures` | [FixtureApiModel](#fixture-api-model) | List of fixtures in the planogram. | Yes |
 | `positions` | [PositionApiModel](#position-api-model)| List of positions in the planogram. | Yes |
 
-### Product API Model
+### Product API model
 
 Describes a product in the planogram.
 
@@ -93,7 +93,7 @@ Describes a product in the planogram.
 | `w` | double | Width of the product. | Yes |
 | `h` | double | Height of the fixture. | Yes |
 
-### Fixture API Model
+### Fixture API model
 
 Describes a fixture (shelf or similar hardware) in a planogram.
 
@@ -105,7 +105,7 @@ Describes a fixture (shelf or similar hardware) in a planogram.
 | `x` | double | Left offset from the origin, in units of in inches or centimeters. | Yes |
 | `y` | double | Top offset from the origin, in units of inches or centimeters. | Yes |
 
-### Position API Model
+### Position API model
 
 Describes a product's position in a planogram.
 
@@ -250,7 +250,7 @@ This is the text you'll use in your API request body.
 1. Copy the following `curl` command into a text editor.
 
     ```bash
-    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
+    curl.exe -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "<endpoint>/computervision/planogramcompliance:match?api-version=2023-04-01-preview" -d "<body>"
     ```
 1. Make the following changes in the command where needed:
     1. Replace the value of `<subscriptionKey>` with your Vision resource key.
@@ -288,7 +288,7 @@ A successful response is returned in JSON, showing the products (or gaps) detect
 }
 ```
 
-### Planogram Matching Position API Model
+### Planogram matching position API model
 
 Paired planogram position ID and corresponding detected object from product understanding result.
 
@@ -300,3 +300,4 @@ Paired planogram position ID and corresponding detected object from product unde
 ## Next steps
 
 * [Image Analysis overview](../overview-image-analysis.md)
+* [API reference](/rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview)

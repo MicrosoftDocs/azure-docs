@@ -9,7 +9,6 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai) | [Artifact (Maven)](https://central.sonatype.com/artifact/com.azure/azure-ai-openai/1.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)
@@ -17,8 +16,7 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
+
 * The current version of the [Java Development Kit (JDK)](https://www.microsoft.com/openjdk)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
 - An Azure OpenAI Service resource with the `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
@@ -109,7 +107,7 @@ dependencies {
     public class GetCompletionsSample {
     
         public static void main(String[] args) {
-            String azureOpenaiKey = System.getenv("AZURE_OPENAI_KEY");;
+            String azureOpenaiKey = System.getenv("AZURE_OPENAI_API_KEY");;
             String endpoint = System.getenv("AZURE_OPENAI_ENDPOINT");;
             String deploymentOrModelId = "gpt-35-turbo-instruct";
     

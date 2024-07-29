@@ -180,7 +180,7 @@ An Apache Spark cluster on HDInsight on AKS. For instructions, see [Create an 
              
    From pyspark.sql import SparkSession
    Spark = SparkSession.builder.master('yarn').appName('SparkSampleCode').getOrCreate()
-   // Initialize spark context
+   # Initialize spark context
    data1 = [22,40,10,50,70]
    s1 = pd.Series(data1)   #One-dimensional ndarray with axis labels (including time series).
           

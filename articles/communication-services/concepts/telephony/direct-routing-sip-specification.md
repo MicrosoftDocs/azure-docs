@@ -144,6 +144,20 @@ Use of an IP address isn't supported in either Record-Route or Contact. The only
 
 - If the FQDN doesn't match the value of the Common or Subject Alternative Name in the presented certificate, the call fails.
 
+## Call context headers
+
+Call context headers are currently available only for Call Automation SDK. Call Automation SDK supports User-To-User header and up to five custom SIP headers. Those headers are supported in INVITE and REFER methods.
+
+### User-To-User header
+
+SIP User-To-User (UUI) header is an industry standard to pass contextual information during a call setup process. The maximum length of a UUI header key is 64 chars. The maximum length of UUI header value is 256 chars. The UUI header value might consist of alphanumeric characters and a few selected symbols, including `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+
+### Custom header
+
+Azure Communication Services also supports up to five custom SIP headers. Custom SIP header key must start with a mandatory `X-MS-Custom-` prefix. The maximum length of a SIP header key is 64 chars, including the `X-MS-Custom-` prefix. The SIP header key might consist of alphanumeric characters and a few selected symbols, including `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of the SIP header value is 256 characters. The SIP header value might consist of alphanumeric characters and a few selected symbols, including `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+
+For implementation details refer to [How to pass contextual data between calls](../../how-tos/call-automation/custom-context.md).
+
 ## Inbound call: SIP dialog description
 
 Here are the details of how SIP Proxy processes inbound calls.
@@ -198,7 +212,7 @@ An Azure Communication Services identity might be used in multiple endpoints (ap
 
 ## Replaces option
 
-The SBC must support Invite with Replaces.
+The SBC must support INVITE with Replaces.
 
 ## Size of SDP considerations
 

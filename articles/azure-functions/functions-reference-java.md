@@ -1,10 +1,10 @@
 ---
-title: Java developer reference for Azure Functions 
+title: Java developer reference for Azure Functions
 description: Understand how to develop functions with Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.devlang: java
-ms.custom: devx-track-java, ignite-2022, devx-track-extended-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
 # Azure Functions Java developer guide
@@ -93,7 +93,7 @@ FunctionsProject
 
 You can use a shared [host.json](functions-host-json.md) file to configure the function app. Each function has its own code file (.java) and binding configuration file (function.json).
 
-You can put more than one function in a project. Avoid putting your functions into separate jars. The `FunctionApp` in the target directory is what gets deployed to your function app in Azure.
+You can have more than one function in a project. However, don't put your functions into separate jars. Using multiple jars in a single function app isn't supported. The `FunctionApp` in the target directory is what gets deployed to your function app in Azure.
 
 ## Triggers and annotations
 
@@ -150,7 +150,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
-| 4.x |17 <br/>11 <br/>8 |17 <br/>11 <br/>8 |
+| 4.x | 17 <br/>11 <br/>8 | 21 (Preview) <br/>17 <br/>11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -158,14 +158,14 @@ Unless you specify a Java version for your deployment, the Maven archetype defau
 
 ### Specify the deployment version
 
-You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8` or `11`. 
+You can control the version of Java targeted by the Maven archetype by using the `-DjavaVersion` parameter. The value of this parameter can be either `8`, `11`, `17` or `21`. 
 
 The Maven archetype generates a pom.xml that targets the specified Java version. The following elements in pom.xml indicate the Java version to use:
 
-| Element |  Java 8 value | Java 11 value | Java 17 value | Description |
-| ---- | ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | 17 | Version of Java used by the maven-compiler-plugin. |
-| **`JavaVersion`** | 8 | 11 | 17 | Java version hosted by the function app in Azure. |
+| Element |  Java 8 value | Java 11 value | Java 17 value | Java 21 value (Preview, Linux) | Description |
+| ---- | ---- | ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | 17 | 21 | Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | 17 | 21 | Java version hosted by the function app in Azure. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
@@ -192,7 +192,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), 11 (MSFT) and 17(MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. 
+Microsoft and [Adoptium](https://adoptium.net/) builds of OpenJDK are provided and supported on Functions for Java 8 (Adoptium), Java 11, 17 and 21 (MSFT). These binaries are provided as a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure. They contain all the components for building and running Java SE applications. 
 
 For local development or testing, you can download the [Microsoft build of OpenJDK](/java/openjdk/download) or [Adoptium Temurin](https://adoptium.net/?variant=openjdk8&jvmVariant=hotspot) binaries for free. [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 

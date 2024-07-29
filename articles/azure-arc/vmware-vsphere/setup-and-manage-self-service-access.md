@@ -5,8 +5,8 @@ ms.topic: how-to
 ms.date: 11/06/2023
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 
 # Customer intent: As a VI admin, I want to manage access to my vCenter resources in Azure so that I can keep environments secure

@@ -2,17 +2,16 @@
 title: High availability of SAP HANA on Azure VMs on RHEL | Microsoft Docs
 description: Establish high availability of SAP HANA on Azure virtual machines (VMs).
 services: virtual-machines-linux
-documentationcenter: 
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure
-ms.custom: devx-track-python
-ms.date: 11/21/2023
+ms.custom: devx-track-python, devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
+
 # High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux
 
 [dbms-guide]:dbms-guide-general.md
@@ -83,7 +82,7 @@ The SAP HANA System Replication setup uses a dedicated virtual hostname and virt
 * Front-end IP address: 10.0.0.13 for hn1-db
 * Probe port: 62503
 
-## Deploy for Linux
+## Prepare the infrastructure
 
 Azure Marketplace contains images qualified for SAP HANA with the High Availability add-on, which you can use to deploy new VMs by using various versions of Red Hat.
 
@@ -91,61 +90,37 @@ Azure Marketplace contains images qualified for SAP HANA with the High Availabil
 
 This document assumes that you've already deployed a resource group, an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), and a subnet.
 
-Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: scale set, availability zone, or availability set.
+Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: virtual machine scale set, availability zone, or availability set.
 
 > [!IMPORTANT]
 >
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types that you plan to use in your deployment. You can look up SAP HANA-certified VM types and their OS releases in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120). Make sure that you look at the details of the VM type to get the complete list of SAP HANA-supported OS releases for the specific VM type.
 
-During VM configuration, you can create or select an existing load balancer in the networking section. If you're creating a new load balancer, follow these steps:
+### Configure Azure load balancer
 
-   1. Create a front-end IP pool:
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
 
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      1. Set **Assignment** to **Static** and enter the IP address (for example, **10.0.0.13**).
-      1. Select **OK**.
-      1. After the new front-end IP pool is created, note the pool IP address.
+#### [Azure portal](#tab/lb-portal)
 
-   1. Create a single back-end pool:
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **NIC** for **Backend Pool Configuration**.
-      1. Select **Add a virtual machine**.
-      1. Select the VMs of the HANA cluster.
-      1. Select **Add**.
-      1. Select **Save**.
+#### [Azure CLI](#tab/lb-azurecli)
 
-   1. Create a health probe:
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to **5**.
-      1. Select **OK**.
+#### [PowerShell](#tab/lb-powershell)
 
-   1. Create the load-balancing rules:
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend**, and **hana-hp**).
-      1. Increase the idle timeout to **30 minutes**.
-      1. Select **HA Ports**.
-      1. Increase the idle timeout to **30 minutes**.
-      1. Make sure to enable **Floating IP**.
-      1. Select **OK**.
+---
 
-For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
+For more information about the required ports for SAP HANA, read the chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) in the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or SAP Note [2388694][2388694].  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) instance of Standard Azure Load Balancer, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For more information on how to achieve outbound connectivity, see [Public endpoint connectivity for VMs using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 > [!IMPORTANT]
-> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter **net.ipv4.tcp_timestamps** to **0**. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> See also SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps could cause the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For more information, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) and SAP Note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## Install SAP HANA
 
@@ -303,22 +278,9 @@ The steps in this section use the following prefixes:
    Create firewall rules to allow HANA System Replication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example to allow HANA 2.0 System Replication and client traffic to database SYSTEMDB, HN1, and NW1.
 
    ```bash
-   sudo firewall-cmd --zone=public --add-port=40302/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40302/tcp
-   sudo firewall-cmd --zone=public --add-port=40301/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40301/tcp
-   sudo firewall-cmd --zone=public --add-port=40307/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40307/tcp
-   sudo firewall-cmd --zone=public --add-port=40303/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40303/tcp
-   sudo firewall-cmd --zone=public --add-port=40340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=40340/tcp
-   sudo firewall-cmd --zone=public --add-port=30340/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30340/tcp
-   sudo firewall-cmd --zone=public --add-port=30341/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30341/tcp
-   sudo firewall-cmd --zone=public --add-port=30342/tcp --permanent
-   sudo firewall-cmd --zone=public --add-port=30342/tcp
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp --permanent
+    sudo firewall-cmd --zone=public --add-port={40302,40301,40307,40303,40340,30340,30341,30342}/tcp
+
    ```
 
 1. **[1]** Create the tenant database.
@@ -796,7 +758,7 @@ pcs resource move SAPHana_HN1_03-master
 pcs resource move SAPHana_HN1_03-clone --master
 ```
 
-If you set `AUTOMATED_REGISTER="false"`, this command should migrate the SAP HANA master node and the group that contains the virtual IP address to `hn1-db-1`.
+The cluster would migrate the SAP HANA master node and the group containing virtual IP address to `hn1-db-1`. 
 
 After the migration is done, the `sudo pcs status` output looks like:
 
@@ -811,7 +773,7 @@ Resource Group: g_ip_HN1_03
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-The SAP HANA resource on `hn1-db-0` is stopped. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
+With `AUTOMATED_REGISTER="false"`, the cluster would not restart the failed HANA database or register it against the new primary on `hn1-db-0`. In this case, configure the HANA instance as secondary by running these commands, as **hn1adm**:
 
 ```bash
 sapcontrol -nr 03 -function StopWait 600 10

@@ -3,12 +3,11 @@ title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: overview
-ms.date: 04/18/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 ---
 
@@ -38,7 +37,7 @@ Where:
 |-|-|  
 | `vault-name` or `hsm-name` | The name for a key vault or a Managed HSM pool in the Microsoft Azure Key Vault service.<br /><br />Vault names and Managed HSM pool names are selected by the user and are globally unique.<br /><br />Vault name and Managed HSM pool name must be a 3-24 character string, containing only 0-9, a-z, A-Z, and not consecutive -.|  
 | `object-type` | The type of the object, "keys",  "secrets", or "certificates".|  
-| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.|  
+| `object-name` | An `object-name` is a user provided name for and must be unique within a key vault. The name must be a 1-127 character string, containing only 0-9, a-z, A-Z, and -.|  
 | `object-version `| An `object-version` is a system-generated, 32 character string identifier that is optionally used to address a unique version of an object. |  
 
 ## DNS suffixes for object identifiers

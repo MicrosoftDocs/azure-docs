@@ -2,17 +2,14 @@
 title: Restrict data exfiltration to Azure Storage - Azure PowerShell
 description: In this article, you learn how to limit and restrict virtual network data exfiltration to Azure Storage resources with virtual network service endpoint policies using Azure PowerShell.
 services: virtual-network
-documentationcenter: virtual-network
 author: asudbring
 manager: narayan
-tags: azure-resource-manager
-# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.service: virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
+# Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ---
 
 # Manage data exfiltration to Azure Storage accounts with Virtual network service endpoint policies using Azure PowerShell
@@ -28,11 +25,11 @@ In this article, you learn how to:
 * Confirm access to the allowed storage account from the subnet.
 * Confirm access is denied to the non-allowed storage account from the subnet.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 

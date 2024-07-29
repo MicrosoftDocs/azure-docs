@@ -5,7 +5,6 @@ services: virtual-machines
 author: ananyagarg
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: ananyagarg

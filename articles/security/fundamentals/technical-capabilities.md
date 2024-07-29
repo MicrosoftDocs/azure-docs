@@ -5,12 +5,10 @@ description: Introduction to security services in Azure that help you protect yo
 services: security
 author: TerryLanfear
 manager: rkarlin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---

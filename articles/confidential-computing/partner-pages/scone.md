@@ -5,7 +5,6 @@ services: virtual-machines
 author: ananyagarg
 ms.service: virtual-machines
 ms.subservice: confidential-computing
-ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: ananyagarg
@@ -41,4 +40,3 @@ This is the easiest way to get started with SCONE, now available on  [Azure Mark
 - Learn more about [Scontain](https://scontain.com/).
 
 - Check out the [Azure confidential computing webinar series](https://vshow.on24.com/vshow/Azure_Confidential/exhibits/Home) for more such partners.
-

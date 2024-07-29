@@ -3,10 +3,9 @@ title: View tax documents for your Azure invoice
 description: Learn how to view and download tax receipts for your billing profile.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 04/05/2023
+ms.date: 03/21/2024
 ms.subservice: billing
 ms.author: banders
 ---
@@ -28,7 +27,7 @@ You can download tax documents for your Azure invoice if you have access to invo
 ## Check billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## Next steps
+## Related content
 
 - [View and download your Microsoft Azure invoice](download-azure-invoice.md)
 - [View and download your Microsoft Azure usage and charges](download-azure-daily-usage.md)

@@ -5,7 +5,6 @@ author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/29/2022
 ms.author: daknappe
-manager: femila
 ms.custom: subject-rbac-steps
 ---
 
@@ -114,11 +113,8 @@ To use Active Directory accounts for the share permissions of your file share, y
    Join-AzStorageAccount `
        -ResourceGroupName $ResourceGroupName `
        -StorageAccountName $StorageAccountName `
-       -DomainAccountType "ComputerAccount" `
-       -EncryptionType "AES256"
+       -DomainAccountType "ComputerAccount"
    ```
-
-   You can also specify the encryption algorithm used for Kerberos authentication in the previous command to `RC4` if you need to. Using AES256 is recommended.
 
 1. To verify the storage account has joined your domain, run the commands below and review the output, replacing the values for `$resourceGroupName` and `$storageAccountName` with your values:
 
@@ -172,7 +168,7 @@ To get the Storage account access key:
 
 1. From the Azure portal, search for and select **storage account** in the search bar.
 
-1. From the list of storage accounts, select the account that you enabled Microsoft Entra Domain Services and assigned the RBAC role for in the previous sections.
+1. From the list of storage accounts, select the account that you enabled Active Directory Domain Services or Microsoft Entra Domain Services as the identity source and assigned the RBAC role for in the previous sections.
 
 1. Under **Security + networking**, select **Access keys**, then show and copy the key from **key1**.
 
@@ -187,7 +183,7 @@ To set the correct NTFS permissions on the folder:
      ```
 
     - Replace `<desired-drive-letter>` with a drive letter of your choice (for example, `y:`).
-    - Replace all instances of `<storage-account-name>` with the name of the storage account you specified earlier.
+    - Replace both instances of `<storage-account-name>` with the name of the storage account you specified earlier.
     - Replace `<share-name>` with the name of the share you created earlier.
     - Replace `<storage-account-key>` with the storage account key from Azure.
 
@@ -263,4 +259,4 @@ Administrators can check the profile folder has been created by following the st
 
 ## Next steps
 
-You can find more detailed information about concepts related to FSlogix Profile Container for Azure Files in [FSLogix Profile Container for Azure Files](fslogix-containers-azure-files.md).
+You can find more detailed information about concepts related to FSlogix profile container in [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).

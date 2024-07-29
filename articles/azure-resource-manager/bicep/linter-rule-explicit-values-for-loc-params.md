@@ -1,9 +1,9 @@
 ---
 title: Linter rule - use explicit values for module location parameters
-description: Linter rule - use explicit values for module location parameters
-ms.topic: conceptual
+description: Linter rule - use explicit values for module location parameters.
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/27/2023
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use explicit values for module location parameters
@@ -24,7 +24,7 @@ A parameter that defaults to a resource group's or deployment's location is conv
 
 ### Examples
 
-The following example fails this test. Module `m1`'s parameter `location` isn't assigned an explicit value, so it will default to `resourceGroup().location`, as specified in *module1.bicep*. But using the resource group location may not be the intended behavior, since other resources in *main.bicep* might be created in a different location than the resource group's location.
+The following example fails this test. Module `m1`'s parameter `location` isn't assigned an explicit value, so it defaults to `resourceGroup().location`, as specified in *module1.bicep*. But using the resource group location may not be the intended behavior, since other resources in *main.bicep* might be created in a different location than the resource group's location.
 
 *main.bicep*:
 
@@ -35,7 +35,7 @@ module m1 'module1.bicep' = {
  name: 'm1'
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'
@@ -50,7 +50,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'stg'
   location: location
   kind: 'StorageV2'
@@ -74,7 +74,7 @@ module m1 'module1.bicep' = {
   }
 }
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2024-03-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'

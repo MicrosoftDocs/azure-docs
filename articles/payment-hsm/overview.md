@@ -1,17 +1,13 @@
-﻿---
+---
 title: What is Azure Payment HSM?
 description: Learn how Azure Payment HSM is an Azure service that provides cryptographic key operations for real-time, critical payment transactions
 services: payment-hsm
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: payment-hsm
-ms.workload: security
 ms.topic: overview
-ms.date: 01/20/2022
+ms.date: 01/30/2024
 ms.author: mbaldwin
-
-
 ---
 # What is Azure Payment HSM?
 
@@ -19,12 +15,22 @@ Azure Payment HSM is a "BareMetal" service delivered using [Thales payShield 10K
 
 Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
-Payment HSM devices are a variation of [Dedicated HSM](../dedicated-hsm/index.yml) devices, with more advanced cryptographic modules and features; for example, a payment HSM never decrypts the PIN value in transit.
-
 The Azure Payment HSM solution uses hardware from [Thales](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-10k) as a vendor. Customers have [full control and exclusive access](overview.md#customer-managed-hsm-in-azure) to the Payment HSM.
 
 > [!IMPORTANT]
-> Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/services/payment-hsm/) and [Getting started with Azure Payment HSM](getting-started.md#support).
+> Azure Payment HSM a highly specialized service. We highly recommend that you review the [Azure Payment HSM pricing page](https://azure.microsoft.com/pricing/details/payment-hsm/#pricing) and [Getting started with Azure Payment HSM](getting-started.md).
+
+## Azure payment HSM high-level architecture
+
+After a payment HSM is provisioned, the HSM device is connected directly to a customer's virtual network, with full remote HSM management capabilities, through Thales payShield Manager and the payShield Trusted Management Device (TMD).
+
+Two host network interfaces and one management network interface are created at HSM provision.
+
+:::image type="content" source="./media/high-level-architecture.png" lightbox="./media/high-level-architecture.png" alt-text="An architecture diagram, showing a provisioned Payment HSM and the network interfaces.":::
+
+With the Azure Payment HSM provisioning service, customers have native access to two host network interfaces and one management interface on the payment HSM. This screenshot displays the Azure Payment HSM resources within a resource group.
+
+:::image type="content" source="./media/portal-view-payment-hsms.png" lightbox="./media/portal-view-payment-hsms.png" alt-text="A screenshot illustrating that the owner of a payment HSM has access to two host network interfaces and one management interface.":::
 
 ## Why use Azure Payment HSM?
 
@@ -100,17 +106,6 @@ Benefits for new payment participants:
 - Avoids introduction of on-premises HSM infrastructure
 - Lowers upfront investment via the Azure subscription model
 - Offers access to latest certified hardware and software on-demand
-
-## Supported SKUs
-
-Azure Payment HSM supports the following SKUs:
-
-- payShield10K_LMK1_CPS60
-- payShield10K_LMK1_CPS250
-- payShield10K_LMK1_CPS2500
-- payShield10K_LMK2_CPS60
-- payShield10K_LMK2_CPS250
-- payShield10K_LMK2_CPS2500
 
 ## Glossary
 

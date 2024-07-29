@@ -24,7 +24,7 @@ You'll learn how to:
 > * Create and side-load a HoloLens application
 > * Detect an object and visualize its model
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -5,8 +5,7 @@ ms.topic: conceptual
 manager: nitinme
 ms.author: jboback
 author: jboback
-ms.date: 12/19/2023
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Query the knowledge base for answers

@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 04/22/2022
+ms.date: 03/26/2024
 ms.author: danlep
 ---
 
@@ -12,6 +12,6 @@ Dynamic IP (DIP) addresses will be assigned to each underlying virtual machine i
 
 If IP restriction lists secure resources within the VNet or peered VNets, we recommend specifying the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
 
-Learn more about the [recommended subnet size](../articles/api-management/virtual-network-concepts.md#subnet-size).
+Learn more about the [recommended subnet size](../articles/api-management/virtual-network-injection-resources.md#subnet-size).
 
 

@@ -1,17 +1,10 @@
 ---
 title: Monitor the capacity of an Azure NetApp Files volume | Microsoft Docs
-description: Describes ways to monitor the capacity utilization of an Azure NetApp Files volume.  
+description: Describes ways to monitor the capacity utilization of an Azure NetApp Files volume.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 ms.topic: how-to
 ms.date: 09/30/2022
 ms.author: anfdocs
@@ -30,11 +23,11 @@ You can use Windows clients to check the used and available capacity of a volume
 
 * Go to File Explorer, right-click the mapped drive, and select **Properties** to display capacity.  
 
-    [ ![Screenshot that shows Explorer drive properties and volume properties.](../media/azure-netapp-files/monitor-explorer-drive-properties.png) ](../media/azure-netapp-files/monitor-explorer-drive-properties.png#lightbox)
+    [ ![Screenshot that shows Explorer drive properties and volume properties.](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png) ](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png#lightbox)
 
 * Use the `dir` command at the command prompt: 
 
-    ![Screenshot that shows using the dir command to display capacity.](../media/azure-netapp-files/monitor-volume-properties-dir-command.png) 
+    ![Screenshot that shows using the dir command to display capacity.](./media/monitor-volume-capacity/monitor-volume-properties-dir-command.png) 
 
 The *available space* is accurate using File Explorer or the `dir` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
 
@@ -46,7 +39,7 @@ The `-h` option shows the size, including used and available space in human read
 
 The following snapshot shows volume capacity reporting in Linux:
 
-![Screenshot that shows volume capacity reporting in Linux.](../media/azure-netapp-files/monitor-volume-properties-linux-command.png) 
+![Screenshot that shows volume capacity reporting in Linux.](./media/monitor-volume-capacity/monitor-volume-properties-linux-command.png) 
 
 The *available space* is accurate using the `df` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
 

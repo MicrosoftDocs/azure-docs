@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 01/10/2024
 ---
 
 # Create variables to store and manage values in Azure Logic Apps

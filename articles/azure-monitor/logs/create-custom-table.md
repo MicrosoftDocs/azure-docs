@@ -7,7 +7,7 @@ ms.reviewer: adi.biran
 ms.service: azure-monitor
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to 
-ms.date: 10/23/2023
+ms.date: 01/28/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to manage table schemas and be able create a table with a custom schema to store logs from an Azure or non-Azure data source.
 ---
 
@@ -50,17 +50,17 @@ To create a custom table, you need:
 
 ## Create a custom table
 
-Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace.
+Azure tables have predefined schemas. To store log data in a different schema, use data collection rules to define how to collect, transform, and send the data to a custom table in your Log Analytics workspace. To create a custom table with the Auxiliary plan, see [Set up a table with the Auxiliary plan (Preview)](create-custom-table-auxiliary.md).
 
 > [!IMPORTANT]
 > Custom tables have a suffix of **_CL**; for example, *tablename_CL*. The Azure portal adds the **_CL** suffix to the table name automatically. When you create a custom table using a different method, you need to add the **_CL** suffix yourself. The *tablename_CL* in the [DataFlows Streams](../essentials/data-collection-rule-structure.md#dataflows) properties in your data collection rules must match the *tablename_CL* name in the Log Analytics workspace.
 
-> [!NOTE]
-> For information about creating a custom table for logs you ingest with the deprecated Log Analytics agent, also known as MMA or OMS, see [Collect text logs with the Log Analytics agent](../agents/data-sources-custom-logs.md#define-a-custom-log-table).
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
 
 # [Portal](#tab/azure-portal-1)
 
-To create a custom table in the Azure portal:
+To create a custom table using the Azure portal:
 
 1. From the **Log Analytics workspaces** menu, select **Tables**.  
 
@@ -151,11 +151,10 @@ Use the [Tables - Update PATCH API](/rest/api/loganalytics/tables/update) to cre
 
 ## Delete a table
 
-You can delete any table in your Log Analytics workspace that's not an [Azure table](../logs/manage-logs-tables.md#table-type-and-schema). 
+There are several types of tables in Azure Monitor Logs. You can delete any table that's not an Azure table, but what happens to the data when you delete the table is different for each type of table. 
 
-> [!NOTE]
-> - Deleting a restored table doesn't delete the data in the source table.
-> - Azure tables that are part of a solution can be removed from workspace when [deleting the solution](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete). The data remains in workspace for the duration of the retention policy defined for the tables. If the [solution is re-created](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-create) in the workspace, these tables become visible again.
+For more information, see [What happens to data when you delete a table in a Log Analytics workspace](../logs/data-retention-configure.md#what-happens-to-data-when-you-delete-a-table-in-a-log-analytics-workspace).
+
 
 # [Portal](#tab/azure-portal-2)
 

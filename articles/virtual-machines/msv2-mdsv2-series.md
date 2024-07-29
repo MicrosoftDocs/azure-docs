@@ -16,7 +16,7 @@ ms.author: ayshak
 The Msv2 and Mdsv2 Medium Memory VM Series features Intel® Xeon® Platinum 8280 (Cascade Lake) processor with an all core base frequency of 2.7 GHz and 4.0 GHz single core turbo frequency. With these VMs, customers achieve increased flexibility with local disk and diskless options. Customers also have access to a set of new isolated VM sizes with more CPU and memory that go up to 192 vCPU with 4 TiB of memory. 
 
 > [!NOTE]
-> Msv2 and Mdsv2 Medium Memory VMs are generation 2 only. For more information on generation 2 virtual machines, see [Support for generation 2 VMs on Azure](./generation-2.md).
+> Msv2 and Mdsv2 Medium Memory VMs are generation 2 only. For more information on generation 2 virtual machines, see [Support for generation 2 VMs on Azure](./generation-2.md). Standard_M192is_v2, Standard_M192ims_v2, Standard_M192ids_v2, and Standard_M192idms_v2 will be retired on March 31, 2027.
 
 
 

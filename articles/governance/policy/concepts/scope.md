@@ -25,8 +25,8 @@ the definition location to target for assignment. The [resources covered by Azur
 
 If the definition location is a:
 
-- **Subscription** - Only resources within that subscription can be assigned the policy definition.
-- **Management group** - Only resources within child management groups and child subscriptions can
+- **Subscription** - The subscription where policy is defined and resources within that subscription can be assigned the policy definition.
+- **Management group** - The management group where the policy is defined and resources within child management groups and child subscriptions can
   be assigned the policy definition. If you plan to apply the policy definition to several
   subscriptions, the location must be a management group that contains each subscription.
 
@@ -41,7 +41,7 @@ resource for Azure Policy to evaluate and which resources count toward complianc
 map to the following concepts:
 
 - Inclusion - A resource hierarchy or individual resource should be evaluated for compliance by the
-  definition. The `properties.scope` property on an assignment object determines what to include and
+  definition. The scope of where the assignment object lives on determines what to include and
   evaluate for compliance. For more information, see
   [Assignment definition](./assignment-structure.md).
 

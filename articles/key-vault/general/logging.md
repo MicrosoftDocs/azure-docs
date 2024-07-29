@@ -3,12 +3,11 @@ title: Azure Key Vault logging | Microsoft Docs
 description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 01/20/2023
+ms.date: 01/30/2024
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---

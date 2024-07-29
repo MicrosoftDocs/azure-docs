@@ -9,7 +9,7 @@ ms.author: kewear
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 01/04/2024
-# As a BizTalk Server customer, I want to better understand why I should migrate to Azure Integration Services in the cloud from on-premises BizTalk Server.
+# Customer intent: As a BizTalk Server customer, I want to better understand why I should migrate to Azure Integration Services in the cloud from on-premises BizTalk Server.
 ---
 
 # Why migrate from BizTalk Server to Azure Integration Services?

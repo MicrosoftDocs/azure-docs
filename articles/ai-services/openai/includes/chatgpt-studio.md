@@ -7,15 +7,11 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 03/01/2023
-keywords: 
 ---
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). Open an issue on this repo to contact us if you have an issue.
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
 > [!div class="nextstepaction"]
@@ -26,7 +22,7 @@ keywords:
 
 ## Go to Azure OpenAI Studio
 
-Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
+Navigate to Azure OpenAI Studio at [https://oai.azure.com/](https://oai.azure.com/) and sign-in with credentials that have access to your Azure OpenAI resource. During or after the sign-in workflow, select the appropriate directory, Azure subscription, and Azure OpenAI resource.
 
 From the Azure OpenAI Studio landing page, select **Chat playground**.
 
@@ -90,7 +86,7 @@ import os
 import openai
 openai.api_type = "azure"
 openai.api_base = "https://docs-test-001.openai.azure.com/"
-openai.api_version = "2023-05-15"
+openai.api_version = "2024-02-01"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 response = openai.ChatCompletion.create(
@@ -119,7 +115,7 @@ The [GPT-35-Turbo & GPT-4 how-to guide](../how-to/chatgpt.md) provides an in-dep
 
 ## Clean up resources
 
-Once you're done testing out the Chat playground, if you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+Once you're done testing out the Chat playground, if you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)

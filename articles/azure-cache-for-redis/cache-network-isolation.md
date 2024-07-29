@@ -32,7 +32,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
    > Enterprise/Enterprise Flash tier does not support `publicNetworkAccess` flag.
 
 - Any external cache dependencies don't affect the VNet's NSG rules.
-- Persisting to any storage accounts protected with firewall rules is supported when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#how-to-export-if-i-have-firewall-enabled-on-my-storage-account)
+- Persisting to any storage accounts protected with firewall rules is supported on the Premium tier when using managed identity to connect to Storage account, see more [Import and Export data in Azure Cache for Redis](cache-how-to-import-export-data.md#what-if-i-have-firewall-enabled-on-my-storage-account)
 
 ### Limitations of Private Link
 

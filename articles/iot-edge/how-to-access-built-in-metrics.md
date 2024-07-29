@@ -1,25 +1,25 @@
 ---
-title: Access built-in metrics - Azure IoT Edge
+title: Access built-in metrics in Azure IoT Edge
 description: Remote access to built-in metrics from the IoT Edge runtime components
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/25/2021
+ms.date: 04/08/2024
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge 
 services: iot-edge
 ---
 
-# Access built-in metrics
+# Access built-in metrics in Azure IoT Edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The IoT Edge runtime components, IoT Edge hub and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
+The IoT Edge runtime components, IoT Edge hub, and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
-You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector) which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
+You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.metrics-collector), which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
-As of release 1.0.10, metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
+Metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
 
 Access metrics from the host by exposing and mapping the metrics port from the module's `createOptions`. The example below maps the default metrics port to port 9601 on the host:
 
@@ -45,7 +45,7 @@ Choose different and unique host port numbers if you are mapping both the edgeHu
 > [!NOTE]
 > The environment variable `httpSettings__enabled` should not be set to `false` for built-in metrics to be available for collection.
 >
-> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
+> Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Available metrics
 
@@ -55,7 +55,7 @@ Metrics contain tags to help identify the nature of the metric being collected. 
 |-|-|
 | iothub | The hub the device is talking to |
 | edge_device | The ID of the current device |
-| instance_number | A GUID representing the current runtime. On restart, all metrics will be reset. This GUID makes it easier to reconcile restarts. |
+| instance_number | A GUID representing the current runtime. On restart, all metrics are reset. This GUID makes it easier to reconcile restarts. |
 
 In the Prometheus exposition format, there are four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
 
@@ -69,7 +69,7 @@ The **edgeHub** module produces the following metrics:
 | `edgehub_messages_received_total` | `route_output` (output that sent message)<br> `id` | Type: counter<br> Total number of messages received from clients |
 | `edgehub_messages_sent_total` | `from` (message source)<br> `to` (message destination)<br>`from_route_output`<br> `to_route_input` (message destination input)<br> `priority` (message priority to destination) | Type: counter<br> Total number of messages sent to clients or upstream<br> `to_route_input` is empty when `to` is $upstream |
 | `edgehub_reported_properties_total` | `target`(update target)<br> `id` | Type: counter<br> Total reported property updates calls |
-| `edgehub_message_size_bytes` | `id`<br> | Type: summary<br> Message size from clients<br> Values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes); for `summary` type, corresponding `_count` and `_sum` counters will be emitted. |
+| `edgehub_message_size_bytes` | `id`<br> | Type: summary<br> Message size from clients<br> Values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes); for `summary` type, corresponding `_count` and `_sum` counters are emitted. |
 | `edgehub_gettwin_duration_seconds` | `source` <br> `id` | Type: summary<br> Time taken for get twin operations |
 | `edgehub_message_send_duration_seconds` | `from`<br> `to`<br> `from_route_output`<br> `to_route_input` | Type: summary<br> Time taken to send a message |
 | `edgehub_message_process_duration_seconds` | `from` <br> `to` <br> `priority` | Type: summary<br> Time taken to process a message from the queue |
@@ -92,7 +92,7 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_total_time_expected_running_seconds` | `module_name` | Type: gauge<br> The amount of time the module was specified in the deployment |
 | `edgeAgent_module_start_total` | `module_name`, `module_version` | Type: counter<br> Number of times edgeAgent asked docker to start the module |
 | `edgeAgent_module_stop_total` | `module_name`, `module_version` | Type: counter<br> Number of times edgeAgent asked docker to stop the module |
-| `edgeAgent_command_latency_seconds` | `command` | Type: gauge<br> How long it took docker to execute the given command. Possible commands are: create, update, remove, start, stop, restart |
+| `edgeAgent_command_latency_seconds` | `command` | Type: gauge<br> How long it took docker to execute the given command. Possible commands are: create, update, remove, start, stop, and restart |
 | `edgeAgent_iothub_syncs_total` | | Type: counter<br> Number of times edgeAgent attempted to sync its twin with iotHub, both successful and unsuccessful. This number includes both Agent requesting a twin and Hub notifying of a twin update |
 | `edgeAgent_unsuccessful_iothub_syncs_total` | | Type: counter<br> Number of times edgeAgent failed to sync its twin with iotHub. |
 | `edgeAgent_deployment_time_seconds` | | Type: counter<br> The amount of time it took to complete a new deployment after receiving a change. |

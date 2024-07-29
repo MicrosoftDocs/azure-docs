@@ -8,7 +8,7 @@ author: akashdubey-ms
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 01/09/2023
+ms.date: 01/11/2024
 ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
 ---
@@ -41,7 +41,7 @@ To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 
 
 # [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To upgrade a general-purpose v1 account to a general-purpose v2 account using PowerShell, first update PowerShell to use the latest version of the **Az.Storage** module. See [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell) for information about installing PowerShell.
 
@@ -111,18 +111,6 @@ To estimate the cost of storing and accessing blob data in a general-purpose v2 
 
 To decide on the best access tier for your needs, it can be helpful to determine your blob data capacity, and how that data is being used. This can be best done by looking at the monitoring metrics for your account.
 
-To estimate the cost of storing and accessing blob data in a general-purpose v2 storage account in a particular tier, evaluate your existing usage pattern or approximate your expected usage pattern. In general, you want to know:
-
-- Your Blob storage consumption, in gigabytes, including:
-  - How much data is being stored in the storage account?
-  - How does the data volume change on a monthly basis; does new data constantly replace old data?
-
-- The primary access pattern for your Blob storage data, including:
-  - How much data is being read from and written to the storage account?
-  - How many read operations versus write operations occur on the data in the storage account?
-
-To decide on the best access tier for your needs, it can be helpful to determine your blob data capacity, and how that data is being used. This can be best done by looking at the monitoring metrics for your account.
-
 ### Monitoring existing storage accounts
 
 To monitor your existing storage accounts and gather this data, you can make use of storage metrics in Azure Monitor. Azure Monitor stores metrics that include aggregated transaction statistics and capacity data about requests to the storage service. Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal as well as data that is ingested. For more information, see any of these articles:
@@ -134,9 +122,9 @@ To monitor your existing storage accounts and gather this data, you can make use
 
 In order to estimate the data access costs for Blob storage accounts, you need to break down the transactions into two groups.
 
-- The amount of data retrieved from the storage account can be estimated by looking at the sum of the *'Ingress'* metric for primarily the *'GetBlob'* and *'CopyBlob'* operations.
+- The amount of data retrieved from the storage account can be estimated by looking at the sum of the *'Egress'* metric for primarily the *'GetBlob'* and *'CopyBlob'* operations.
 
-- The amount of data written to the storage account can be estimated by looking at the sum of *'Egress'* metrics for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
+- The amount of data written to the storage account can be estimated by looking at the sum of *'Ingress'* metrics for primarily the *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* and *'AppendBlock'* operations.
 
 To determine the price of each operation against the blob storage service, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md).
 

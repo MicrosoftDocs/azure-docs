@@ -9,7 +9,7 @@ ms.author: zhanxia
 author: xiaoharper
 ms.date: 11/04/2022
 ms.topic: troubleshooting
-ms.custom: UpdateFrequency5, troubleshooting, contperf-fy21q2, sdkv1, event-tier1-build-2022
+ms.custom: UpdateFrequency5, troubleshooting, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
 ---
 
@@ -353,6 +353,6 @@ model_download_step = PythonScriptStep(
 
 * For a complete example showing automated machine learning in ML pipelines, see [Use automated ML in an Azure Machine Learning pipeline in Python](how-to-use-automlstep-in-pipelines.md).
 
-* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package.
+* See the SDK reference for help with the [azureml-pipelines-core](/python/api/azureml-pipeline-core/azureml.pipeline.core) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package.
 
 * See the list of [designer exceptions and error codes](../algorithm-module-reference/designer-error-codes.md).

@@ -5,7 +5,6 @@ services: virtual-machines-linux
 author: ningk
 manager: rogardle
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 02/28/2023
 ms.author: ningk
 ms.reviewer: azmetadata, mattmcinnes

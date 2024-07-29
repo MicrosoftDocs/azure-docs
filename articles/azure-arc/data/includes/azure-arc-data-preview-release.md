@@ -5,19 +5,17 @@ ms.service: azure-arc
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 12/12/2023
+ms.date: 06/11/2024
 ---
-
 At this time, a test or preview build is not available for the next release.
- 
-<!--
 
-Dec 2023 preview release is now available.
+<!---
+July, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.26.0_2023-12-12`|
+|Container images tag |`v1.31.0_2024-07-09`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -34,17 +32,11 @@ Dec 2023 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.8 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.26.0|
+|`arcdata` Azure CLI extension version|1.5.16 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.31.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
-|SQL Database version | 957 |
+|SQL Database version | 970 |
 
-### Release notes
-
-#### Arc-enabled SQL Server
-
-Arc SQL Server | Show the Data Processing Service (DPS) connectivity status in the Azure portal | GA
-
-Arc SQL Server | Monitoring | Add IOPS, Queue Latency Storage IO charts in Performance Dashboard in Azure portal
-
+Release Notes:
+- Arc SQL Server | Automatically start billing for ESU on servers that are enabled for ESU and host SQL Server 2014 instances when SQL Server 2014 ESU program starts
 -->

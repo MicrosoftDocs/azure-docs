@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-author: manashgoswami 
-ms.author: magoswam
-ms.reviewer: ssalgado 
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.date: 08/08/2023
-ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, ignite-2022, build-2023
+ms.custom: automl, build-2023
 #Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
@@ -292,5 +292,5 @@ In this automated machine learning tutorial, you used Azure Machine Learning's a
 
 
 >[!NOTE]
-> This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
+> This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/datasets/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
 > [Moro et al., 2014] S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22-31, June 2014.

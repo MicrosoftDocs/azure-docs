@@ -8,7 +8,8 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: nosql
 ms.topic: reference
-ms.date: 09/21/2023
+ms.devlang: nosql
+ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
@@ -23,7 +24,7 @@ Returns the total area of a GeoJSON **Polygon** or **MultiPolygon** expression.
 
 ## Syntax
 
-```sql
+```nosql
 ST_AREA(<spatial_expr>)
 ```
 
@@ -41,7 +42,7 @@ Returns a numeric expression that enumerates the total area of a set of points.
 
 The following example shows how to return the area of a polygon.
 
-:::code language="sql" source="~/cosmos-db-nosql-query-samples/scripts/st-area/query.sql" highlight="2-11":::
+:::code language="nosql" source="~/cosmos-db-nosql-query-samples/scripts/st-area/query.sql" highlight="2-11":::
 
 :::code language="json" source="~/cosmos-db-nosql-query-samples/scripts/st-area/result.json":::
 

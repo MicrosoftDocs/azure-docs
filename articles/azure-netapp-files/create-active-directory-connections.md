@@ -4,8 +4,6 @@ description: This article shows you how to create and manage Active Directory co
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/07/2023
@@ -19,15 +17,16 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 > [!IMPORTANT]
 > You must follow guidelines described in [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md) for Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services used with Azure NetApp Files. 
-> In addition, before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
+>
+> Before creating the AD connection, review [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md) to understand the impact of making changes to the AD connection configuration options after the AD connection has been created. Changes to the AD connection configuration options are disruptive to client access and some options cannot be changed at all.
 
-* An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are deployed.
+* An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are to be deployed.
 
-* You can configure only one Active Directory (AD) connection per subscription per region. 
+* By default, Azure NetApp Files allows only one Active Directory (AD) connection per subscription. 
 
-    Azure NetApp Files doesn’t support multiple AD connections in a single region, even if the AD connections are created in different NetApp accounts. However, you can have multiple AD connections in a single subscription if the AD connections are in different regions. If you need multiple AD connections in a single region, you can use separate subscriptions to do so. 
+    You can [create one Active Directory connection per NetApp account](#multi-ad). 
 
-    The AD connection is visible only through the NetApp account it's created in. However, you can enable the Shared AD feature to allow NetApp accounts that are under the same subscription and same region to use the same AD connection. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad). 
+    Before enrolling in this feature, check the [Active Directory type](#netapp-accounts-and-active-directory-type) field in your account page.
 
 * The Azure NetApp Files AD connection admin account must have the following properties: 
     * It must be an AD DS domain user account in the same domain where the Azure NetApp Files computer accounts are created. 
@@ -48,7 +47,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >[!NOTE]
     >When you modify the setting to enable AES on the AD connection admin account, it is a best practice to use a user account that has write permission to the AD object that is not the Azure NetApp Files AD admin. You can do so with another domain admin account or by delegating control to an account. For more information, see [Delegating Administration by Using OU Objects](/windows-server/identity/ad-ds/plan/delegating-administration-by-using-ou-objects). 
 
-    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
+    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the Windows client negotiates the highest level of encryption supported by your AD DS. For example, if both AES-128 and AES-256 are supported, and the client supports AES-256, then AES-256 will be used.
 
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
@@ -78,11 +77,21 @@ Several features of Azure NetApp Files require that you have an Active Directory
     
     Query timeouts can occur in large LDAP environments with many user and group objects, over slow WAN connections, and if an LDAP server is over-utilized with requests. Azure NetApp Files timeout setting for LDAP queries is set to 10 seconds. Consider leveraging the user and group DN features on the Active Directory Connection for the LDAP server to filter searches if you are experiencing LDAP query timeout issues.
 
+## NetApp accounts and Active Directory type
+
+You can use the NetApp account overview page to confirm the Active Directory account type. There are three values for AD type:
+
+* **NA**: Existing NetApp account which supports only one AD configuration per subscription and region. The AD configuration is not shared with other NetApp accounts in the subscription.
+* **Multi AD**: NetApp account supports one AD configuration in each NetApp account in the subscription. This allows for more than one AD connection per subscription when using multiple NetApp accounts.
+* **Shared AD**: NetApp account supports only one AD configuration per subscription and region, but the configuration is shared across NetApp accounts in the subscription and region.
+
+For more information about the relationship between NetApp accounts and subscriptions, see [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md).
+
 ## Create an Active Directory connection
 
-1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
+1. From your NetApp account, select **Active Directory connections** then **Join**.
 
-    ![Screenshot showing the Active Directory connections menu. The join button is highlighted.](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
+    ![Screenshot showing the Active Directory connections menu. The join button is highlighted.](./media/create-active-directory-connections/azure-netapp-files-active-directory-connections.png)
 
     >[!NOTE]
     >Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. 
@@ -98,11 +107,12 @@ Several features of Azure NetApp Files require that you have an Active Directory
         >[!NOTE]
         >It is recommended that you configure a Secondary DNS server. See [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md). Ensure that your DNS server configuration meets the requirements for Azure NetApp Files. Otherwise, Azure NetApp Files service operations, SMB authentication, Kerberos, or LDAP operations might fail.
 
-        If you use Microsoft Entra Domain Services, you should use the IP addresses of the Microsoft Entra Domain Services domain controllers for Primary DNS and Secondary DNS respectively. 
+        If you use Microsoft Entra Domain Services, use the IP addresses of the Microsoft Entra Domain Services domain controllers for Primary DNS and Secondary DNS respectively. 
+
     * **AD DNS Domain Name (required)**  
-       This is the fully qualified domain name of the AD DS that will be used with Azure NetApp Files (for example, `contoso.com`).
+       This is the fully qualified domain name of the AD DS used with Azure NetApp Files (for example, `contoso.com`).
     * **AD Site Name (required)**  
-        This is the AD DS site name that will be used by Azure NetApp Files for domain controller discovery.  
+        This is the AD DS site name that Azure NetApp Files USES for domain controller discovery.  
         
         The default site name for both AD DS and Microsoft Entra Domain Services is `Default-First-Site-Name`. Follow the [naming conventions for site names](/troubleshoot/windows-server/identity/naming-conventions-for-computer-domain-site-ou#site-names) if you want to rename the site name.
 
@@ -126,12 +136,12 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
         If you're using Azure NetApp Files with Microsoft Entra Domain Services, the organizational unit path is `OU=AADDC Computers`
 
-        :::image type="content" source="../media/azure-netapp-files/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
+        :::image type="content" source="./media/create-active-directory-connections/azure-netapp-files-join-active-directory.png" alt-text="Screenshot of the Join Active Directory input fields.":::
 
     * <a name="aes-encryption"></a>**AES Encryption**    
         This option enables AES encryption authentication support for the admin account of the AD connection. 
 
-        ![Screenshot of the AES description field. The field is a checkbox.](../media/azure-netapp-files/active-directory-aes-encryption.png) 
+        ![Screenshot of the AES description field. The field is a checkbox.](./media/create-active-directory-connections/active-directory-aes-encryption.png) 
         
         See [Requirements for Active Directory connections](#requirements-for-active-directory-connections) for requirements.
 
@@ -144,10 +154,10 @@ Several features of Azure NetApp Files require that you have an Active Directory
         >[!NOTE]
         >DNS PTR records for the AD DS computer account(s) must be created in the AD DS **Organizational Unit** specified in the Azure NetApp Files AD connection for LDAP Signing to work.
 
-        ![Screenshot of the LDAP signing checkbox.](../media/azure-netapp-files/active-directory-ldap-signing.png) 
+        ![Screenshot of the LDAP signing checkbox.](./media/create-active-directory-connections/active-directory-ldap-signing.png) 
 
     * **Allow local NFS users with LDAP**
-        This option enables local NFS client users to access to NFS volumes. Setting this option disables extended groups for NFS volumes. It also limits the number of groups to 16. For more information, see [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). 
+        This option enables local NFS client users to access to NFS volumes. Setting this option disables extended groups for NFS volumes, which limits the number of supported groups for a user to 16. When enabled, groups beyond the 16 group limit aren't honored in access permissions. For more information, see [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume). 
 
     * **LDAP over TLS**   
 
@@ -166,13 +176,13 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**  
 
-        The **LDAP search scope** option optimizes Azure NetApp Files storage LDAP queries for use with large AD DS topologies and LDAP with extended groups or Unix security style with an Azure NetApp Files dual-protocol volume. 
+        The [**LDAP search scope**](/windows/win32/ad/search-scope) option optimizes Azure NetApp Files storage LDAP queries for use with large AD DS topologies and LDAP with extended groups or Unix security style with an Azure NetApp Files dual-protocol volume. 
         
-        The **User DN** and **Group DN** options allow you to set the search base in AD DS LDAP.  
+        The **User DN** and **Group DN** options allow you to set the search base in AD DS LDAP. These options limit the search areas for LDAP queries, reducing the search time and helping to reduce LDAP query timeouts. 
          
         The **Group Membership Filter** option allows you to create a custom search filter for users who are members of specific AD DS groups. 
 
-        ![Screenshot of the LDAP search scope field, showing a checked box.](../media/azure-netapp-files/ldap-search-scope-checked.png)
+        ![Screenshot of the LDAP search scope field, showing a checked box.](./media/create-active-directory-connections/ldap-search-scope-checked.png)
 
         See [Configure AD DS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
@@ -203,7 +213,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * <a name="backup-policy-users"></a> **Backup policy users**
         This option grants addition security privileges to AD DS domain users or groups that require elevated backup privileges to support backup, restore, and migration workflows in Azure NetApp Files. The specified AD DS user accounts or groups will have elevated NTFS permissions at the file or folder level.
 
-        ![Screenshot of the Backup policy users field showing an empty text input field.](../media/azure-netapp-files/active-directory-backup-policy-users.png) 
+        ![Screenshot of the Backup policy users field showing an empty text input field.](./media/create-active-directory-connections/active-directory-backup-policy-users.png) 
 
         The following privileges apply when you use the **Backup policy users**  setting:
 
@@ -216,7 +226,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
      * **Security privilege users**   <!-- SMB CA share feature -->   
         This option grants security privilege (`SeSecurityPrivilege`) to AD DS domain users or groups that require elevated privileges to access Azure NetApp Files volumes. The specified AD DS users or groups will be allowed to perform certain actions on SMB shares that require security privilege not assigned by default to domain users.
 
-        ![Screenshot showing the Security privilege users box of Active Directory connections window.](../media/azure-netapp-files/security-privilege-users.png) 
+        ![Screenshot showing the Security privilege users box of Active Directory connections window.](./media/create-active-directory-connections/security-privilege-users.png) 
 
         The following privilege applies when you use the **Security privilege users** setting:
 
@@ -227,7 +237,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
         This feature is used for installing SQL Server in certain scenarios where a non-administrator AD DS domain account must temporarily be granted elevated security privilege.
 
         >[!NOTE]
-        > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It is only supported for workloads using Citrix App Laying, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
+        > Using the Security privilege users feature relies on the [SMB Continuous Availability Shares feature](azure-netapp-files-create-volumes-smb.md#continuous-availability). SMB Continuous Availability is **not** supported on custom applications. It is only supported for workloads using Citrix App Layering, [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md), and Microsoft SQL Server (not Linux SQL Server).
 
         > [!IMPORTANT]
         > Using the **Security privilege users** feature requires that you submit a waitlist request through the **[Azure NetApp Files SMB Continuous Availability Shares Public Preview waitlist submission page](https://aka.ms/anfsmbcasharespreviewsignup)**. Wait for an official confirmation email from the Azure NetApp Files team before using this feature.  
@@ -242,7 +252,10 @@ Several features of Azure NetApp Files require that you have an Active Directory
       >[!NOTE]
       >The domain admins are automatically added to the Administrators privilege users group.
 
-        ![Screenshot that shows the Administrators box of Active Directory connections window.](../media/azure-netapp-files/active-directory-administrators.png) 
+        ![Screenshot that shows the Administrators box of Active Directory connections window.](./media/create-active-directory-connections/active-directory-administrators.png) 
+
+        >[!NOTE]
+        >This privilege is useful for data migrations. 
 
         The following privileges apply when you use the **Administrators privilege users** setting:
 
@@ -257,7 +270,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     * Credentials, including your **username** and **password**
 
-        ![Screenshot that shows Active Directory credentials fields showing username, password and confirm password fields.](../media/azure-netapp-files/active-directory-credentials.png)
+        ![Screenshot that shows Active Directory credentials fields showing username, password and confirm password fields.](./media/create-active-directory-connections/active-directory-credentials.png)
 
         >[!IMPORTANT]
         >Although Active Directory supports 256-character passwords, Active Directory passwords with Azure NetApp Files **cannot** exceed 64 characters. 
@@ -266,18 +279,27 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     The Active Directory connection you created appears.
 
-    ![Screenshot of the Active Directory connections menu showing a successfully created connection.](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+    ![Screenshot of the Active Directory connections menu showing a successfully created connection.](./media/create-active-directory-connections/azure-netapp-files-active-directory-connections-created.png)
 
-## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to an AD connection  
+## <a name="multi-ad"></a> Create one Active Directory connection per NetApp account (preview)
 
-The Shared AD feature enables all NetApp accounts to share an Active Directory (AD) connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection will be visible in all NetApp accounts that are under the same subscription and same region.   
+With this feature, each NetApp account within an Azure subscription can have its own AD connection. Once configured, the AD connection of the NetApp account is used when you create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). That means, Azure NetApp Files supports more than one AD connection per Azure subscription when multiple NetApp accounts are used.
 
-This feature is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
+>[!NOTE]
+>If a subscription has both this and the [Shared Active Directory](#shared_ad) feature enabled, its existing accounts still share the AD configuration. Any new NetApp accounts created on the subscription can use their own AD configurations. You can confirm your configuration in your account overview page in the [AD type](#netapp-accounts-and-active-directory-type) field. 
+
+### Considerations
+
+* The scope of each AD configuration is limited to its parent NetApp account. 
+
+### Register the feature
+
+The feature to create one AD connection per NetApp account is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. 
 
 1. Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
     ```
 
 2. Check the status of the feature registration: 
@@ -286,9 +308,18 @@ This feature is currently in preview. You need to register the feature before us
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSharedAD
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMultipleActiveDirectory
     ```
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+## <a name="shared_ad"></a>Map multiple NetApp accounts in the same subscription and region to one AD connection (preview)
+
+The Shared AD feature enables all NetApp accounts to share an AD connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection is visible in all NetApp accounts that are under the same subscription and same region.
+
+With the introduction of the feature to [create an AD connection per NetApp account](#multi-ad), new feature registration for the Shared AD feature are not accepted.
+
+>[!NOTE]
+>You can register to use one AD connection per NetApp account if you're already enrolled in the preview for Shared AD. If you currently meet the maximum of 10 NetApp accounts per Azure region per subscription, you must initiate a [support request](azure-netapp-files-resource-limits.md#request-limit-increase) to increase the limit. You can confirm your configuration in your account overview page in the [AD type](#netapp-accounts-and-active-directory-type) field. 
 
 ## <a name="reset-active-directory"></a> Reset Active Directory computer account password
 
@@ -311,11 +342,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ### Steps
 
 1. Navigate to the volume **Overview** menu. Select **Reset Active Directory Account**.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-overview.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-overview.png" alt-text="Azure Volume Overview interface with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-overview.png":::
 Alternately, navigate to the **Volumes** menu. Identify the volume for which you want to reset the Active Directory account and select the three dots (`...`) at the end of the row. Select **Reset Active Directory Account**.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="../media/azure-netapp-files/active-directory-reset-list.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-list.png" alt-text="Azure volume list with the Reset Active Directory Account button highlighted." lightbox="./media/create-active-directory-connections/active-directory-reset-list.png":::
 2. A warning message that explains the implications of this action will pop up. Type **yes** in the text box to proceed.
-:::image type="content" source="../media/azure-netapp-files/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="../media/azure-netapp-files/active-directory-reset-confirm.png":::
+:::image type="content" source="./media/create-active-directory-connections/active-directory-reset-confirm.png" alt-text="Reset Active Directory Account warning message that reads: Warning! This action will reset the active directory account for the volume. This action is intended for users to regain access to volumes at their disposal and can cause data to be unreachable if executed when not needed." lightbox="./media/create-active-directory-connections/active-directory-reset-confirm.png":::
 
 ## Next steps  
 

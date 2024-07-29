@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 02/27/2024
 ms.author: pafarley
 ROBOTS: NOINDEX
 ms.custom: cogserv-non-critical-vision
@@ -73,45 +73,45 @@ The v3.0 API also introduces the following improvements you can optionally use:
 In 2.X, the output format is as follows: 
     
 ```json
+{
     {
+    "status": "Succeeded",
+    "recognitionResults": [
         {
-                "status": "Succeeded",
-                "recognitionResults": [
-                    {
-                    "page": 1,
-                    "language": "en",
-                    "clockwiseOrientation": 349.59,
-                    "width": 2661,
-                    "height": 1901,
-                    "unit": "pixel",
-                    "lines": [
-                        {
-                        "boundingBox": [
-                            67,
-                            646,
-                            2582,
-                            713,
-                            2580,
-                            876,
-                            67,
-                            821
-                        ],
-                        "text": "The quick brown fox jumps",
-                        "words": [
-                            {
-                            "boundingBox": [
-                                143,
-                                650,
-                                435,
-                                661,
-                                436,
-                                823,
-                                144,
-                                824
-                            ],
-                            "text": "The",
-                            },
-            // The rest of result is omitted for brevity 
+        "page": 1,
+        "language": "en",
+        "clockwiseOrientation": 349.59,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
+        "lines": [
+            {
+            "boundingBox": [
+                67,
+                646,
+                2582,
+                713,
+                2580,
+                876,
+                67,
+                821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
+                {
+                "boundingBox": [
+                    143,
+                    650,
+                    435,
+                    661,
+                    436,
+                    823,
+                    144,
+                    824
+                ],
+                "text": "The",
+                },
+        // The rest of result is omitted for brevity 
             
 }
 ```
@@ -119,55 +119,55 @@ In 2.X, the output format is as follows:
 In v3.0, it has been adjusted:
     
 ```json
+{
     {
+    "status": "succeeded",
+    "createdDateTime": "2020-05-28T05:13:21Z",
+    "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+    "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
         {
-            "status": "succeeded",
-            "createdDateTime": "2020-05-28T05:13:21Z",
-            "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
-            "analyzeResult": {
-            "version": "3.0.0",
-            "readResults": [
+        "page": 1,
+        "language": "en",
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
+        "lines": [
+            {
+            "boundingBox": [
+                67,
+                646,
+                2582,
+                713,
+                2580,
+                876,
+                67,
+                821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
                 {
-                "page": 1,
-                "language": "en",
-                "angle": 0.8551,
-                "width": 2661,
-                "height": 1901,
-                "unit": "pixel",
-                "lines": [
-                    {
-                    "boundingBox": [
-                        67,
-                        646,
-                        2582,
-                        713,
-                        2580,
-                        876,
-                        67,
-                        821
-                    ],
-                    "text": "The quick brown fox jumps",
-                    "words": [
-                        {
-                        "boundingBox": [
-                            143,
-                            650,
-                            435,
-                            661,
-                            436,
-                            823,
-                            144,
-                            824
-                        ],
-                        "text": "The",
-                        "confidence": 0.958
-                        },
-        // The rest of result is omitted for brevity 
-        
-    }
+                "boundingBox": [
+                    143,
+                    650,
+                    435,
+                    661,
+                    436,
+                    823,
+                    144,
+                    824
+                ],
+                "text": "The",
+                "confidence": 0.958
+                },
+// The rest of result is omitted for brevity 
+    
+}
 ```
 
-## Service only
+## Cloud service only
 
 ### `Recognize Text`
 `Recognize Text` is a *preview* operation that is being *deprecated in all versions of Azure AI Vision API*. You must migrate from `Recognize Text` to `Read` (v3.0) or `Batch Read File` (v2.0, v2.1). v3.0 of `Read` includes newer, better models for text recognition and other features, so it's recommended. To upgrade from `Recognize Text` to `Read`:
@@ -215,91 +215,91 @@ The v3.0 API also introduces the following improvements you can optionally use. 
 In 2.X, the output format is as follows: 
     
 ```json
+{
     {
+    "status": "Succeeded",
+    "recognitionResult": [
         {
-                "status": "Succeeded",
-                "recognitionResult": [
-                    {
-                    "lines": [
-                        {
-                        "boundingBox": [
-                            67,
-                            646,
-                            2582,
-                            713,
-                            2580,
-                            876,
-                            67,
-                            821
-                        ],
-                        "text": "The quick brown fox jumps",
-                        "words": [
-                            {
-                            "boundingBox": [
-                                143,
-                                650,
-                                435,
-                                661,
-                                436,
-                                823,
-                                144,
-                                824
-                            ],
-                            "text": "The",
-                            },
-            // The rest of result is omitted for brevity 
-            
-    }
+        "lines": [
+            {
+            "boundingBox": [
+                67,
+                646,
+                2582,
+                713,
+                2580,
+                876,
+                67,
+                821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
+                {
+                "boundingBox": [
+                    143,
+                    650,
+                    435,
+                    661,
+                    436,
+                    823,
+                    144,
+                    824
+                ],
+                "text": "The",
+                },
+// The rest of result is omitted for brevity 
+        
+}
 ```
     
 In v3.x, it has been adjusted:
     
 ```json
+{
     {
+    "status": "succeeded",
+    "createdDateTime": "2020-05-28T05:13:21Z",
+    "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
+    "analyzeResult": {
+    "version": "3.0.0",
+    "readResults": [
         {
-            "status": "succeeded",
-            "createdDateTime": "2020-05-28T05:13:21Z",
-            "lastUpdatedDateTime": "2020-05-28T05:13:22Z",
-            "analyzeResult": {
-            "version": "3.0.0",
-            "readResults": [
+        "page": 1,
+        "angle": 0.8551,
+        "width": 2661,
+        "height": 1901,
+        "unit": "pixel",
+        "lines": [
+            {
+            "boundingBox": [
+                67,
+                646,
+                2582,
+                713,
+                2580,
+                876,
+                67,
+                821
+            ],
+            "text": "The quick brown fox jumps",
+            "words": [
                 {
-                "page": 1,
-                "angle": 0.8551,
-                "width": 2661,
-                "height": 1901,
-                "unit": "pixel",
-                "lines": [
-                    {
-                    "boundingBox": [
-                        67,
-                        646,
-                        2582,
-                        713,
-                        2580,
-                        876,
-                        67,
-                        821
-                    ],
-                    "text": "The quick brown fox jumps",
-                    "words": [
-                        {
-                        "boundingBox": [
-                            143,
-                            650,
-                            435,
-                            661,
-                            436,
-                            823,
-                            144,
-                            824
-                        ],
-                        "text": "The",
-                        "confidence": 0.958
-                        },
-        // The rest of result is omitted for brevity 
-        
-    }
+                "boundingBox": [
+                    143,
+                    650,
+                    435,
+                    661,
+                    436,
+                    823,
+                    144,
+                    824
+                ],
+                "text": "The",
+                "confidence": 0.958
+                },
+// The rest of result is omitted for brevity 
+    
+}
 ```
 
 ## Container only

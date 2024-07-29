@@ -2,6 +2,7 @@
 title: Download the OSM client Library
 description: Download and configure the Open Service Mesh (OSM) client library
 ms.topic: article
+ms.custom: linux-related-content
 ms.date: 12/26/2023
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
@@ -44,7 +45,7 @@ This article will discuss how to download the OSM client library to be used to o
 ::: zone-end
 
 > [!WARNING]
-> Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
+> Do not attempt to install OSM from the binary using `osm install`. This will result in an installation of OSM that is not integrated as an add-on for AKS.
 
 ## Configure OSM CLI variables with an OSM_CONFIG file
 

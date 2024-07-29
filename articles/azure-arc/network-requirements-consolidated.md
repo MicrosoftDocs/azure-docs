@@ -1,7 +1,7 @@
 ---
 title: Azure Arc network requirements
 description: A consolidated list of network requirements for Azure Arc features and Azure Arc-enabled services. Lists endpoints, ports, and protocols.
-ms.date: 11/15/2023
+ms.date: 06/25/2024
 ms.topic: reference
 ---
 
@@ -19,7 +19,6 @@ Connectivity to the Arc Kubernetes-based endpoints is required for all Kubernete
 - Azure Arc-enabled App services
 - Azure Arc-enabled Machine Learning
 - Azure Arc-enabled data services (direct connectivity mode only)
-
 [!INCLUDE [network-requirements](kubernetes/includes/network-requirements.md)]
 
 For more information, see [Azure Arc-enabled Kubernetes network requirements](kubernetes/network-requirements.md).
@@ -37,9 +36,9 @@ For more information, see [Connectivity modes and requirements](data/connectivit
 Connectivity to Arc-enabled server endpoints is required for:
 
 - SQL Server enabled by Azure Arc
-- Azure Arc-enabled VMware vSphere (preview) <sup>*</sup>
-- Azure Arc-enabled System Center Virtual Machine Manager (preview) <sup>*</sup>
-- Azure Arc-enabled Azure Stack (HCI) (preview) <sup>*</sup>
+- Azure Arc-enabled VMware vSphere <sup>*</sup>
+- Azure Arc-enabled System Center Virtual Machine Manager <sup>*</sup>
+- Azure Arc-enabled Azure Stack (HCI) <sup>*</sup>
 
    <sup>*</sup>Only required for guest management enabled.
 
@@ -53,11 +52,19 @@ For more information, see [Connected Machine agent network requirements](servers
 
 ## Azure Arc resource bridge
 
-This section describes additional networking requirements specific to deploying Azure Arc resource bridge in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere (preview) and Azure Arc-enabled System Center Virtual Machine Manager (preview).
+This section describes additional networking requirements specific to deploying Azure Arc resource bridge in your enterprise. These requirements also apply to Azure Arc-enabled VMware vSphere and Azure Arc-enabled System Center Virtual Machine Manager.
 
 [!INCLUDE [network-requirements](resource-bridge/includes/network-requirements.md)]
 
 For more information, see [Azure Arc resource bridge network requirements](resource-bridge/network-requirements.md).
+
+## Azure Arc-enabled VMware vSphere
+
+Azure Arc-enabled VMware vSphere also requires:
+
+[!INCLUDE [network-requirements](vmware-vsphere/includes/network-requirements.md)]
+
+For more information, see [Support matrix for Azure Arc-enabled VMware vSphere](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
 
 ## Azure Arc-enabled System Center Virtual Machine Manager
 
@@ -67,17 +74,7 @@ Azure Arc-enabled System Center Virtual Machine Manager (SCVMM) also requires:
 | --- | --- | --- | --- | --- |
 | SCVMM management Server | 443 | URL of the SCVMM management server | Appliance VM IP and control plane endpoint need outbound connection. | Used by the SCVMM server to communicate with the Appliance VM and the control plane. |
 
-For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager (preview)](system-center-virtual-machine-manager/overview.md).
-
-## Azure Arc-enabled VMware vSphere
-
-Azure Arc-enabled VMware vSphere also requires:
-
-| **Service** | **Port** | **URL** | **Direction** | **Notes**|
-| --- | --- | --- | --- | --- |
-| vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
-
-For more information, see [Support matrix for Azure Arc-enabled VMware vSphere](vmware-vsphere/support-matrix-for-arc-enabled-vmware-vsphere.md).
+For more information, see [Overview of Arc-enabled System Center Virtual Machine Manager](system-center-virtual-machine-manager/overview.md).
 
 ## Additional endpoints
 

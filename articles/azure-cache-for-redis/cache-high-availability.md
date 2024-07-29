@@ -111,7 +111,7 @@ Zone-redundant Premium tier caches are available in the following regions:
 | South Central US | West Europe | | | East Asia |
 | US Gov Virginia | Sweden Central | | | China North 3 |
 | West US 2 | Switzerland North | | | |
-| West US 3 | | | | |
+| West US 3 | Poland Central | | | |
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 
@@ -120,9 +120,11 @@ Zone-redundant Enterprise and Enterprise Flash tier caches are available in the 
 | Canada Central* | North Europe | | | Australia East |
 | Central US* | UK South | | | Central India |
 | East US | West Europe | | | Southeast Asia |
-| East US 2 | | | | |
-| South Central US | | | | |
+| East US 2 | | | | Japan East* |
+| South Central US | | | | East Asia* |
 | West US 2 | | | | |
+| West US 3 | | | | |
+| Brazil South | | | | |
 
 \* Enterprise Flash tier not available in this region.
 

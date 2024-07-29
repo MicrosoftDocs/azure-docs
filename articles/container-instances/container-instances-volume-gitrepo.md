@@ -7,7 +7,7 @@ author: tomvcassidy
 ms.service: container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
-ms.date: 06/17/2022
+ms.date: 04/24/2024
 ---
 
 # Mount a gitRepo volume in Azure Container Instances
@@ -19,7 +19,7 @@ Learn how to mount a *gitRepo* volume to clone a Git repository into your contai
 
 ## gitRepo volume
 
-The *gitRepo* volume mounts a directory and clones the specified Git repository into it at container startup. By using a *gitRepo* volume in your container instances, you can avoid adding the code for doing so in your applications.
+The *gitRepo* volume mounts a directory and clones the specified Git repository into it during container creation. By using a *gitRepo* volume in your container instances, you can avoid adding the code for doing so in your applications.
 
 When you mount a *gitRepo* volume, you can set three properties to configure the volume:
 
@@ -67,8 +67,81 @@ To mount a gitRepo volume when you deploy container instances with an [Azure Res
 
 For example, the following Resource Manager template creates a container group consisting of a single container. The container clones two GitHub repositories specified by the *gitRepo* volume blocks. The second volume includes additional properties specifying a directory to clone to, and the commit hash of a specific revision to clone.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/resourcemanager-templates/container-instances/aci-deploy-volume-gitrepo.json)]
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-03-01",
+      "name": "volume-demo-gitrepo",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                }
+              ],
+              "volumeMounts": [
+                {
+                  "name": "gitrepo1",
+                  "mountPath": "/mnt/repo1"
+                },
+                {
+                  "name": "gitrepo2",
+                  "mountPath": "/mnt/repo2"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            }
+          ]
+        },
+        "volumes": [
+          {
+            "name": "gitrepo1",
+            "gitRepo": {
+              "repository": "https://github.com/Azure-Samples/aci-helloworld"
+            }
+          },
+          {
+            "name": "gitrepo2",
+            "gitRepo": {
+              "directory": "my-custom-clone-directory",
+              "repository": "https://github.com/Azure-Samples/aci-helloworld",
+              "revision": "d5ccfcedc0d81f7ca5e3dbe6e5a7705b579101f1"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
 
 The resulting directory structure of the two cloned repos defined in the preceding template is:
 

@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, vmss-flex, devx-track-azurepowershell
 ---
@@ -37,7 +37,8 @@ Now create a Virtual Machine Scale Set with [New-AzVmss](/powershell/module/az.c
 ```azurepowershell-interactive
 New-AzVmss `
     -ResourceGroup "myVMSSResourceGroup" `
-    -Name "myScaleSet" ` 
+    -Name "myScaleSet" `
+    -OrchestrationMode "Flexible" `
     -Location "East US" `
     -InstanceCount "2" `
     -ImageName "Win2019Datacenter"

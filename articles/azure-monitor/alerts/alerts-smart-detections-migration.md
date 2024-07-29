@@ -1,8 +1,10 @@
 ---
 title: Upgrade Azure Monitor Application Insights smart detection to alerts (preview) | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights smart detection to alert rules.
+ms.author: abbyweisberg
+ms.reviewer: yagil
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 04/01/2024
 ---
 
 # Migrate Azure Monitor Application Insights smart detection to alerts (preview)

@@ -22,8 +22,6 @@ Tenable now supports a One-Click deployment of Nessus Agents via Microsoft's Azu
 
 Azure VM running any of the following:
 
-* CentOS 7 (x86_64)
-
 * Debian 11 (x86_64)
 
 * Oracle Linux 7 and 8 (x86_64)
@@ -81,7 +79,7 @@ Lines 5-6 in the PowerShell example are equivalent to Step 6 in the UI procedure
 
 ### Nessus Linking Key
 
-The most important field is the Nessus Linking Key (**nessusLinkingKey**, required). It is always required. This document explains where to find it: [Retrieve the Tenable Nessus Agent Linking Key (Tenable Nessus Agent 10.4)](https://docs.tenable.com/nessusagent/Content/RetrieveLinkingKey.htm). In the PowerShell interface, specify nessusLinkingKey under `-ProtectedSettings` so that it will be encrypted by Azure. All other fields are passed unencrypted through -Settings.
+The most important field is the Nessus Linking Key (**nessusLinkingKey**, required). It is always required. This document explains where to find it: [Retrieve the Tenable Nessus Agent Linking Key (Tenable Nessus Agent 10.4)](https://docs.tenable.com/nessus/Content/RetrieveLinkingKey.htm). In the PowerShell interface, specify nessusLinkingKey under `-ProtectedSettings` so that it will be encrypted by Azure. All other fields are passed unencrypted through -Settings.
 
 You can choose whether to link with Nessus Manager or Tenable.io. In the command-line interface, this is done by setting `nessusManagerApp` (**nessusManagerApp**, required) to `cloud`, or to `local`. Those are the only two choices.
 

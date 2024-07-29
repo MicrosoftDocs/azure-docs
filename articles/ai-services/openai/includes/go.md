@@ -9,7 +9,6 @@ ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/30/2023
-keywords: 
 ---
 
 [Source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/ai/azopenai) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai)| [Samples](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#pkg-examples)
@@ -17,8 +16,6 @@ keywords:
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - [Go 1.21.0](https://go.dev/dl/) or higher installed locally.
 - An Azure OpenAI Service resource with the `gpt-35-turbo-instuct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -45,7 +42,7 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
 	modelDeploymentID := "gpt-35-turbo-instruct"
 
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")

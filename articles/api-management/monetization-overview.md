@@ -10,6 +10,8 @@ ms.service: api-management
 
 # Monetization with Azure API Management
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Modern web APIs underpin the digital economy. They provide a company's intellectual property (IP) to third parties and generate revenue by:
 
 - Packaging IP in the form of data, algorithms, or processes.

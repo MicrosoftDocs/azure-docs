@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: egress lockdown, aro cluster, aro, networking, azure, openshift, red hat
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/28/2022
 #Customer intent: I need to understand how egress lockdown provides access to URLs and endpoints that a Red Hat OpenShift cluster needs to function efficiently.
 ---
@@ -45,6 +45,11 @@ Depending on whether egress lockdown is enabled or disabled, you'll see one of t
 
 - `Egress Lockdown Feature Enabled`
 - `Egress Lockdown Feature Disabled`
+
+## Relation to storage lockdown
+
+Storage lockdown is another feature of Azure Red Hat OpenShift that enhances cluster security. Storage Accounts created with the cluster are configured to restrict any public access. Exceptions are added for the Azure Red Hat OpenShift Resource Provisioner subnets as well as the subnet of egress lockdown gateway.
+Cluster components that utilize this storage, for example, OpenShift Image Registry, rely on egress lockdown functionality instead of accessing the storage accounts directly.
 
 ## Next steps
 

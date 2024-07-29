@@ -2,7 +2,6 @@
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
 author: cachai2
-ms.assetid: 
 ms.topic: reference
 ms.date: 11/15/2021
 ms.author: cachai
@@ -41,6 +40,8 @@ Functions execute in an isolated C# worker process. To learn more, see [Guide fo
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Rabbitmq).
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 

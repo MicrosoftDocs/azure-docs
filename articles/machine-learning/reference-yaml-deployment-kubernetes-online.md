@@ -5,13 +5,13 @@ description: Reference documentation for the CLI (v2) Azure Arc-enabled Kubernet
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.custom: event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ms.topic: reference
 
-author: Bozhong68
-ms.author: bozhlin
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 08/31/2022
-ms.reviewer: ssalgado
+ms.reviewer: bozhlin
 ---
 
 # CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema

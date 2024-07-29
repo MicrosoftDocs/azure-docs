@@ -2,9 +2,10 @@
 title: Supported resources for metric alerts in Azure Monitor
 description: Reference on support metrics and logs for metric alerts in Azure Monitor
 services: monitoring
+ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 11/22/2023
-ms.reviwer: harelbr
+ms.reviewer: harelbr
 ---
 
 # Supported resources for Azure Monitor metric alerts 
@@ -42,8 +43,6 @@ Here's the full list of Azure Monitor metric sources supported by metric alerts:
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Yes | No | [Azure Files storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsfileservices) |
 |Microsoft.ClassicStorage/storageAccounts/queueServices | Yes | No | [Azure Queue Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountsqueueservices) |
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Yes | No | [Azure Table Storage accounts (classic)](../essentials/metrics-supported.md#microsoftclassicstoragestorageaccountstableservices) |
-|Microsoft.CloudTest/hostedpools | Yes | No | [1ES Hosted Pools](../essentials/metrics-supported.md#microsoftcloudtesthostedpools) |
-|Microsoft.CloudTest/pools | Yes | No | [CloudTest Pools](../essentials/metrics-supported.md#microsoftcloudtestpools) |
 |Microsoft.CognitiveServices/accounts | Yes | No | [Azure AI services](../essentials/metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/cloudServices | Yes | No |  [Azure Cloud Services](../essentials/metrics-supported.md#microsoftcomputecloudservices) |
 |Microsoft.Compute/cloudServices/roles | Yes | No |  [Azure Cloud Services roles](../essentials/metrics-supported.md#microsoftcomputecloudservicesroles) |
@@ -129,7 +128,6 @@ Here's the full list of Azure Monitor metric sources supported by metric alerts:
 |Microsoft.Synapse/workspaces/bigDataPools | Yes | No | [Azure Synapse Analytics Apache Spark pools](../essentials/metrics-supported.md#microsoftsynapseworkspacesbigdatapools) |
 |Microsoft.Synapse/workspaces/sqlPools | Yes | No | [Azure Synapse Analytics SQL pools](../essentials/metrics-supported.md#microsoftsynapseworkspacessqlpools) |
 |Microsoft.VMWareCloudSimple/virtualMachines | Yes | No | [CloudSimple virtual machines](../essentials/metrics-supported.md) |
-|Microsoft.Web/containerApps | Yes | No | Azure Container Apps |
 |Microsoft.Web/hostingEnvironments/multiRolePools | Yes | No | [Azure App Service environment multi-role pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)|
 |Microsoft.Web/hostingEnvironments/workerPools | Yes | No | [Azure App Service environment worker pools](../essentials/metrics-supported.md#microsoftwebhostingenvironmentsworkerpools)|
 |Microsoft.Web/serverfarms | Yes | No | [Azure App Service plans](../essentials/metrics-supported.md#microsoftwebserverfarms)|

@@ -7,7 +7,6 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
 ms.date: 08/28/2023
-keywords: 
 ---
 
 Use this guide to get started generating images with the Azure OpenAI SDK for Go.
@@ -17,15 +16,11 @@ Use this guide to get started generating images with the Azure OpenAI SDK for Go
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to DALL-E in the desired Azure subscription
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Existing Azure OpenAI customers need to re-enter the form to get access to DALL-E. Open an issue on this repo to contact us if you have an issue.
 * [Go 1.8+](https://go.dev/doc/install)
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access). If you need assistance, open an issue on this repo to contact Microsoft.
 
-## Set up
+## Setup
 
 [!INCLUDE [get-key-endpoint](get-key-endpoint.md)]
 
@@ -70,7 +65,7 @@ import (
 )
 
 func main() {
-	azureOpenAIKey := os.Getenv("AZURE_OPENAI_KEY")
+	azureOpenAIKey := os.Getenv("AZURE_OPENAI_API_KEY")
 
 	// Ex: "https://<your-azure-openai-host>.openai.azure.com"
 	azureOpenAIEndpoint := os.Getenv("AZURE_OPENAI_ENDPOINT")
@@ -136,12 +131,12 @@ Image URL: https://dalleproduse.blob.core.windows.net/private/images/d7b28a5c-ca
 
 ## Clean up resources
 
-If you want to clean up and remove an OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
 - [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
 
-* [Azure OpenAI Overview](../overview.md)
+* Explore the image generation APIs in more depth with the [DALL-E how-to guide](../how-to/dall-e.md).
 * For more examples check out the [Azure OpenAI Samples GitHub repository](https://github.com/Azure/openai-samples).

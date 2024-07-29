@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: reference
-ms.date: 12/19/2023
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # QnA Maker knowledge base limits and boundaries
@@ -127,7 +126,7 @@ These represent the limits when Prebuilt API is used to *Generate response* or c
 > Support for unstructured file/content and is available only in question answering.
 
 ## Alterations limits
-[Alterations](/rest/api/cognitiveservices/qnamaker/alterations/replace) do not allow these special characters: ',', '?', ':', ';', '\"', '\'', '(', ')', '{', '}', '[', ']', '-', '+', '.', '/', '!', '*', '-', '_', '@', '#'
+[Alterations](/rest/api/qnamaker/alterations/replace) do not allow these special characters: ',', '?', ':', ';', '\"', '\'', '(', ')', '{', '}', '[', ']', '-', '+', '.', '/', '!', '*', '-', '_', '@', '#'
 
 ## Next steps
 

@@ -98,6 +98,6 @@ Review the glossary of common technical terms associated with Azure Maps and loc
 > [Azure Maps glossary]
 
 [GeoJSON spec]: https://tools.ietf.org/html/rfc7946
-[Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Geofence GeoJSON format]: geofence-geojson.md
 [Azure Maps glossary]: glossary.md

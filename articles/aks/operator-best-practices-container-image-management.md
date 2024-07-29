@@ -3,6 +3,9 @@ title: Operator best practices - Container image management in Azure Kubernetes 
 description: Learn the cluster operator best practices for how to manage and secure container images in Azure Kubernetes Service (AKS).
 ms.topic: conceptual
 ms.date: 06/27/2023
+author: nickomang
+ms.author: nickoman
+
 ---
 
 # Best practices for container image management and security in Azure Kubernetes Service (AKS)
@@ -68,3 +71,4 @@ This article focused on how to secure your containers. To implement some of thes
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
 [security-center-containers]: ../security-center/container-security.md
 [security-center-acr]: ../security-center/defender-for-container-registries-introduction.md
+

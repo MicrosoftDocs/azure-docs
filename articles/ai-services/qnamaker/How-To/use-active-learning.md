@@ -7,8 +7,7 @@ ms.author: jboback
 author: jboback
 ms.subservice: azure-ai-qna-maker
 ms.topic: how-to
-ms.date: 12/19/2023
-ms.custom: ignite-fall-2021
+ms.date: 01/19/2024
 ---
 
 # Active learning
@@ -123,7 +122,7 @@ QnA Maker needs explicit feedback about which of the answers was the best answer
 * Business logic, such as determining an acceptable score range.
 * A combination of both user feedback and business logic.
 
-Use the [Train API](/rest/api/cognitiveservices/qnamaker4.0/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
+Use the [Train API](/rest/api/qnamaker/runtime/train) to send the correct answer to QnA Maker, after the user selects it.
 
 ## Upgrade runtime version to use active learning
 

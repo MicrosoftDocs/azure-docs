@@ -3,12 +3,12 @@ title: What is a private endpoint?
 titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: asudbring
+author: abell
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/13/2023
-ms.author: allensu
-ms.custom: references_regions, template-concept, ignite-2022
+ms.author: abell
+ms.custom: references_regions, template-concept
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 
@@ -69,9 +69,11 @@ A private-link resource is the destination target of a specified private endpoin
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
+| Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
+| Azure Attestation Service | Microsoft.Attestation/attestationProviders | standard |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
@@ -81,12 +83,14 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
+| Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
+| Azure Database for PostgreSQL - Flexible server | Microsoft.DBforPostgreSQL/flexibleServers | postgresqlServer |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |

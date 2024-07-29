@@ -2,7 +2,7 @@
 title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
 ms.topic: conceptual
-ms.custom: devx-track-csharp, ignite-2022
+ms.custom: devx-track-csharp
 ms.date: 08/15/2023
 ---
 # Azure Functions C# script (.csx) developer reference
@@ -574,16 +574,11 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 ```
 
 `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is an input or output type that's
-supported by that binding type. `T` can't be an `out` parameter type (such as `out JObject`). For example, the
-Mobile Apps table output binding supports
-[six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
-but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs)
-or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
+supported by that binding type. `T` can't be an `out` parameter type (such as `out JObject`). For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T`.
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
-with blob path that's defined at run time, then writes a string to the blob.
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md) with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs
 using Microsoft.Azure.WebJobs;

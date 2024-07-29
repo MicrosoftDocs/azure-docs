@@ -4,11 +4,10 @@ description: Tutorial for how to use Pandas in a PySpark notebook to read/write 
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 11/02/2021
 author: juluczni
 ms.author: juluczni
-ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Use Pandas to read/write Azure Data Lake Storage Gen2 data in serverless Apache Spark pool in Synapse Analytics

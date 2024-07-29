@@ -11,6 +11,8 @@ ms.author: danlep
 
 # Configure common credential providers in credential manager
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 In this article, you learn about configuring identity providers for managed [connections](credentials-overview.md) in your API Management instance. Settings for the following common providers are shown:
 
 * Microsoft Entra provider

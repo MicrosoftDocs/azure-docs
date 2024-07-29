@@ -35,7 +35,7 @@ Where we used this helper function to read the value of an environment variable:
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, a local image file name, or by copying the image into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#input-requirements) for supported image formats.
 
 ### Image URL
 
@@ -69,7 +69,7 @@ Start by creating a new [ImageSourceBuffer](/cpp/cognitive-services/vision/input
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
-Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+Visual features 'Captions' and 'DenseCaptions' are only supported in certain Azure regions: see [Region availability](../../overview-image-analysis.md#region-availability).
 
 > [!NOTE]
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API users the term **Read** for detecting text in the image, whereas the SDK uses the term **Text** for the same operation.
@@ -105,7 +105,7 @@ Call the [SetLanguage](/cpp/cognitive-services/vision/imageanalysis-imageanalysi
 
 ### Select gender neutral captions
 
-If you're extracting captions or dense captions, you can ask for gender neutral captions. Gender neutral captions is optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
+If you're extracting captions or dense captions (using **VisualFeatures.Caption** or **VisualFeatures.DenseCaptions**), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**. 
 
 Gender neutral caption option only applies when you're using the standard model.
 
@@ -116,7 +116,7 @@ Call the [SetGenderNeutralCaption](/cpp/cognitive-services/vision/imageanalysis-
 
 ### Select smart cropping aspect ratios
 
-An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when the **smartCrop** option (REST API) or **CropSuggestions** (SDK) was selected as part the visual feature list. If you select smartCrop/CropSuggestions but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
+An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when **VisualFeatures.SmartCrops** was selected as part the visual feature list. If you select **VisualFeatures.SmartCrops** but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
 Smart cropping aspect rations only applies when you're using the standard model.
 

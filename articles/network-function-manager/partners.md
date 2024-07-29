@@ -6,7 +6,6 @@ ms.service: network-function-manager
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: tobiaw
-ms.custom: ignite-fall-2021
 ---
 # Network Function Manager partners
 

@@ -4,17 +4,17 @@ description: Rebuild Studio (classic) datasets in Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
-ms.custom: UpdateFrequency5, event-tier1-build-2022, ignite-2022
+ms.custom: UpdateFrequency5
 ms.topic: how-to
-ms.reviewer: larryfr
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: Blackmist
+ms.author: larryfr
 ms.date: 09/28/2022
 ---
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to migrate a Studio (classic) dataset to Azure Machine Learning. For more information on migrating from Studio (classic), see [the migration overview article](migrate-overview.md).
 

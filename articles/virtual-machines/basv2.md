@@ -27,7 +27,7 @@ Basv2-series virtual machines offer a balance of compute, memory, and network re
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
-| Size               | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/M8ps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
+| Size               | vCPU | RAM | Base CPU Performance of VM (%) | Initial Credits (#) | Credits banked/hour | Max Banked Credits (#) | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps | Max Data Disks | Max Network Bandwidth (Gbps) | Max NICs |
 |--------------------|------|-----|--------------------------------|---------------------|---------------------|------------------------|-----------------------------------------|-----------------------------------------------|----------------|------------------------------|----------|
 | Standard_B2ats_v2  | 2    | 1   | 20%                            | 60                  | 24                  | 576                    | 3750/85                                 | 10,000/960                                    | 4              | 6.25                         | 2        |
 | Standard_B2als_v2  | 2    | 4   | 30%                            | 60                  | 36                  | 864                    | 3750/85                                 | 10,000/960                                    | 4              | 6.25                         | 2        |

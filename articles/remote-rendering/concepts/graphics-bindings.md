@@ -48,7 +48,7 @@ StartupRemoteRendering(managerInit); // static function in namespace Microsoft::
 
 ```
 The call above must be called before any other Remote Rendering APIs are accessed.
-Similarly, the corresponding de-init function `RemoteManagerStatic.ShutdownRemoteRendering();` should be called after all other Remote Rendering objects are already destoyed.
+Similarly, the corresponding de-init function `RemoteManagerStatic.ShutdownRemoteRendering();` should be called after all other Remote Rendering objects are already destroyed.
 For WMR `StartupRemoteRendering` also needs to be called before any holographic API is called. For OpenXR the same applies for any OpenXR related APIs.
 
 ## <span id="access">Accessing graphics binding

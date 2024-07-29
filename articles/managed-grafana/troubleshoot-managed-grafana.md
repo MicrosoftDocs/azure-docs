@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
 ms.service: managed-grafana
-ms.date: 09/13/2022
+ms.date: 04/12/2024
 ---
 
 # Troubleshoot issues for Azure Managed Grafana
@@ -155,7 +155,7 @@ Every Grafana instance comes pre-configured with an Azure Monitor data source. W
       1. In the left menu, under **Settings**, select **Identity**.
       1. Select **Status**: **On** and select **Save**
 
-      :::image type="content" source="media/troubleshoot/troubleshoot-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity." lightbox="media/troubleshoot/troubleshoot-managed-identity-expanded.png":::
+      :::image type="content" source="media/troubleshoot/troubleshoot-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity.":::
 
    1. Check if the managed identity has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it manually from the Azure portal:
       1. Open your Managed Grafana instance in the Azure portal.

@@ -2,6 +2,7 @@
 title: Install & deploy Linux C agent
 description: Learn how to install and deploy the Defender for IoT C-based security agent on Linux
 ms.topic: conceptual
+ms.custom: linux-related-content
 ms.date: 03/28/2022
 ---
 
@@ -26,17 +27,17 @@ For other platforms and agent flavors, see [Choose the right security agent](how
 
 To install and deploy the security agent, use the following workflow:
 
-1. Download the most recent version to your machine from [GitHub](https://aka.ms/iot-security-github-c).
+1. Download the most recent version to your machine from GitHub.
 
-1. Extract the contents of the package and navigate to the _/src/installation_ folder.
+2. Extract the contents of the package and navigate to the _/src/installation_ folder.
 
-1. Add running permissions to the **InstallSecurityAgent script** by running the following command:
+3. Add running permissions to the **InstallSecurityAgent script** by running the following command:
 
    ```
    chmod +x InstallSecurityAgent.sh
    ```
 
-1. Next, run:
+4. Next, run:
 
    ```
    ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i

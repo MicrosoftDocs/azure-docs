@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -26,6 +26,9 @@ The Copy activity is executed on an [integration runtime](concepts-integration-r
 * When you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.
 
 An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+
+> [!NOTE]
+> You cannot use more than one self-hosted integration runtime within the same Copy activity. The source and sink for the activity must be connected with the same self-hosted integration runtime.
 
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
@@ -169,6 +172,11 @@ For other scenarios than binary file copy, copy activity rerun starts from the b
 ## Preserve metadata along with data
 
 While copying data from source to sink, in scenarios like data lake migration, you can also choose to preserve the metadata and ACLs along with data using copy activity. See [Preserve metadata](copy-activity-preserve-metadata.md) for details.
+
+## Add metadata tags to file based sink
+When the sink is Azure Storage based (Azure data lake storage or Azure Blob Storage), we can opt to add some metadata to the files. These metadata will be appearing as part of the file properties as Key-Value pairs. 
+For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions and variables. 
+In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, as well as custom values as a metadata to the sink file. 
 
 ## Schema and data type mapping
 

@@ -1,8 +1,9 @@
 ---
 author: eric-urban
 ms.service: azure-ai-speech
+ms.custom: linux-related-content
 ms.topic: include
-ms.date: 09/05/2023
+ms.date: 02/02/2024
 ms.author: eur
 ---
 
@@ -12,19 +13,20 @@ The Speech SDK for Python is compatible with Windows, Linux, and macOS.
 
 On Windows, you must use the 64-bit target architecture. Windows 10 or later is required.
 
-You must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+Install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, and 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
 
 > [!IMPORTANT]
 > Make sure that packages of the same target architecture are installed. For example, if you install the x64 redistributable package, install the x64 Python package.
 
 # [Linux](#tab/linux)
 
-The Speech SDK for Python only supports the following distributions on the x64 and ARM64 architectures:
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-- Ubuntu 18.04/20.04/22.04
-- Debian 10/11
-- Red Hat Enterprise Linux (RHEL) 8
-- CentOS 8
+The Speech SDK for Python supports the following distributions on the x64 and ARM64 architectures:
+
+- Ubuntu 20.04/22.04
+- Debian 11/12
 
 [!INCLUDE [Linux distributions](linux-distributions.md)]
 

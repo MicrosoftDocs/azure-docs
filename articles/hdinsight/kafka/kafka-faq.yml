@@ -4,7 +4,7 @@ metadata:
   description: Get answers to common questions about Apache Kafka on Azure HDInsight, a managed Hadoop cloud service.
   ms.service: hdinsight
   ms.topic: faq
-  ms.date: 12/21/2022
+  ms.date: 01/10/2024
 title: Frequently asked questions about Apache Kafka in Azure HDInsight
 summary: This article addresses some common questions about using Apache Kafka on Azure HDInsight.
 
@@ -57,7 +57,7 @@ sections:
         answer: |
           For Kafka clients to communicate with Kafka brokers, they must be able to reach the brokers over the network. For HDInsight clusters, the Virtual Network (VNet) is the security boundary. Hence, the easiest way to connect clients to your HDInsight cluster is to create clients within the same VNet as the cluster. Other scenarios include:
           
-          * Connecting clients in a different Azure VNet – Peer the cluster VNet and the client VNet and configure the cluster for [IP Advertising](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). When using IP advertising, Kafka clients must use Broker IP addresses to connect with the brokers, instead of Fully Qualified Domain Names (FQDNs).
+          * To connect clients in a different Azure VNet – Peer the cluster VNet and the client VNet and configure the cluster for [IP Advertising](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). When using IP advertising, Kafka clients must use Broker IP addresses to connect with the brokers, instead of Fully Qualified Domain Names (FQDNs).
           
           * Connecting on-premises clients – Using a VPN network and setting up custom DNS servers as described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
           
@@ -71,7 +71,7 @@ sections:
       - question: |
           Can a Kafka cluster work with Databricks? 
         answer: |
-          Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You will need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](./apache-kafka-get-started.md#getkafkainfo).
+          Yes, Kafka clusters can work with Databricks so long as they are in the same VNet. To use a Kafka cluster with Databricks, create a VNet with an HDInsight Kafka cluster in it, then specify that VNet when you create your Databricks workspace and use VNet injection. For more information, see [Deploy Azure Databricks in your Azure Virtual Network (VNet Injection)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). You need to provide the bootstrap broker names of the Kafka cluster when creating the Databricks workspace. For information on retrieving the Kafka broker names, see [Get the Apache Zookeeper and Broker host information](./apache-kafka-get-started.md#getkafkainfo).
           
       - question: |
           How can I have maximum data durability?
@@ -81,7 +81,7 @@ sections:
           * use a minimum replication factor of 3 in most regions
           * use a minimum replication factor of 4 in regions with only two fault domains
           * disable unclean leader elections
-          * set **min.insync.replicas** to 2 or more - this changes the number of replicas which must be completely in sync with the leader before a write can proceed
+          * set **min.insync.replicas** to 2 or more - this changes the number of replicas, which must be completely in sync with the leader before a write can proceed
           * set the **acks** property to **all** - this property requires all replicas to acknowledge all messages
           
           Configuring Kafka for higher data consistency affects the availability of brokers to produce requests.

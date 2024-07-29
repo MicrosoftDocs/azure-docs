@@ -16,7 +16,7 @@ This article describes how to configure Microsoft Sentinel for using Azure Funct
 > [!NOTE]
 > - Once ingested in to Microsoft Sentinel, data is stored in the geographic location of the workspace in which you're running Microsoft Sentinel.
 >
->     For long term retention, you may also want to store data in Azure Data Explorer. For more information, see [Integrate Azure Data Explorer](store-logs-in-azure-data-explorer.md).
+>     For long-term retention, you may also want to store data in archive log types such as *Basic logs*. For more information, see [Data retention and archive in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md).
 >
 > - Using Azure Functions to ingest data into Microsoft Sentinel may result in additional data ingestion costs. For more information, see the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page.
 

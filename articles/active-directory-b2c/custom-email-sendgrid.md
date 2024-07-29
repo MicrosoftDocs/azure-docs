@@ -9,10 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to send customized email to users that sign up for my applications using a third-party email provider like SendGrid, so that I can use my own email template and address and support localization and custom one-time password settings.
+
 ---
 
 # Custom email verification with SendGrid
@@ -538,9 +542,9 @@ The Localization element allows you to support multiple locales or languages in 
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
     <!-- Claims-->
-    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="VerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="VerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="VerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <!-- Email validation error messages-->
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>

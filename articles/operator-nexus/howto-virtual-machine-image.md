@@ -197,6 +197,9 @@ echo "VNF image $ACR_URL/$CONTAINER_IMAGE_NAME:$CONTAINER_IMAGE_TAG created succ
 
 After executing the script, you'll have a VM image tailored for your Virtual Network Function (VNF). You can use this image to deploy your VNF.
 
+> [!NOTE]
+> To ensure that the VNF image can be pulled correctly, ensure the ACR URL is in the egress allow list of the cloud services network that you will use with your Operator Nexus virtual machine.
+
 ## Example usage
 
 1. Set the required environment variables.

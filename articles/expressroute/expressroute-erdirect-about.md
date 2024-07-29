@@ -5,10 +5,9 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.custom:
-  - ignite-2022
   - ignite-2023
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 03/28/2024
 ms.author: duau
 ---
 
@@ -65,7 +64,7 @@ Each peering location has access to the Microsoft global network and can access 
 
 The functionality in most scenarios is equivalent to circuits that use an ExpressRoute service provider to operate. To support further granularity and new capabilities offered using ExpressRoute Direct, there are certain key capabilities that exist only with ExpressRoute Direct circuits.
 
-You can enable or disable rate limiting (preview) for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).
+You can enable or disable rate limiting for ExpressRoute Direct circuits at the circuit level. For more information, see [Rate limiting for ExpressRoute Direct circuits](rate-limit.md).
 
 ## Circuit SKUs
 
@@ -86,6 +85,7 @@ ExpressRoute Direct supports large data ingestion scenarios into services such a
 * Microsoft Enterprise Edge Router (MSEE) Interfaces:
     * Dual 10 Gigabit or 100-Gigabit Ethernet ports only across router pair
     * Single Mode LR Fiber connectivity
+      * MSEE supports QSFP-100G-LR-4 for 100Gbps (Use compatible optics on your devices) 
     * IPv4 and IPv6
     * IP MTU 1500 bytes
 
@@ -126,4 +126,4 @@ For details on how ExpressRoute Direct is billed, see [ExpressRoute FAQ](express
 ## Next steps
 
 - Learn how to [configure ExpressRoute Direct](expressroute-howto-erdirect.md).
-- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits (Preview)](rate-limit.md).
+- Learn how to [Enable Rate limiting for ExpressRoute Direct circuits](rate-limit.md).

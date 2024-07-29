@@ -3,7 +3,7 @@ title: Use workflows to integrate Azure IoT Central
 description: How to configure rules and actions that integrate your IoT Central application with other cloud services by using Power Automate or Azure Logic Apps.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 02/02/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -19,7 +19,7 @@ The Azure IoT Central V3 connector for Power Automate and Azure Logic Apps lets 
 
 - When a rule fires in your Azure IoT Central app, it can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions in other cloud services, such as Microsoft 365 or a third-party service.
 - An event in another cloud service, such as Microsoft 365, can trigger a workflow in Power Automate or Azure Logic Apps. These workflows can run actions or retrieve data from your IoT Central application.
-- Azure IoT Central V3 connector aligns with the generally available [1.0 REST API](/rest/api/iotcentral/) surface. All of the connector actions support the [DTDLv2 format](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) and support for DTDLv1 based models is being deprecated. For the latest information and details of recent updates, see the [Release notes](/connectors/azureiotcentral/#release-notes) for the current connector version.
+- Azure IoT Central V3 connector aligns with the generally available [1.0 REST API](/rest/api/iotcentral/) surface. All of the connector actions support the [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md) format. For the latest information and details of recent updates, see the [Release notes](/connectors/azureiotcentral/#release-notes) for the current connector version.
 
 ## Prerequisites
 
@@ -39,6 +39,9 @@ To add the **Azure IoT Central V3** connector as a trigger in Power Automate:
 1. In the **When a rule is fired** step, select your IoT Central application and the rule you're using.
 
 To add the **Azure IoT Central V3** connector as a trigger in Azure Logic Apps:
+
+> [!IMPORTANT]
+> Triggers in the IoT Central connector won't work unless the Logic App has a public endpoint. To learn more, see [Considerations for inbound traffic to Logic Apps through private endpoints](../../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md#considerations-for-inbound-traffic-through-private-endpoints).
 
 1. In **Logic Apps Designer**, select the **Blank Logic App** template.
 1. In the designer, search for *IoT Central*, and select the **Azure IoT Central V3** connector.

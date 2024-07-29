@@ -5,42 +5,31 @@ description: Learn how to configure optional configuration settings for the Azur
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/05/2023
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
 # Azure VPN Client - configure optional DNS and routing settings
 
-This article helps you configure optional settings for the Azure VPN Client for VPN Gateway P2S connections. You can configure DNS suffixes, custom DNS servers, custom routes, and VPN client-side forced tunneling.
+This article helps you configure optional settings for the Azure VPN Client for VPN Gateway point-to-site (P2S) connections. You can configure DNS suffixes, custom DNS servers, custom routes, and VPN client-side forced tunneling.
 
 > [!NOTE]
 > The Azure VPN Client is only supported for OpenVPN® protocol connections.
 >
 
-## Before you begin
+## Prerequisites
 
-If you haven't already done so, make sure you complete the following items:
+The steps in this article assume that you have configured your P2S gateway and have downloaded the Azure VPN Client to connecting client computers. For steps, see the following articles:
 
-* Generate and download the VPN client profile configuration files for your P2S deployment. Use the following steps:
-
-  1. In the Azure portal, go to the virtual network gateway.
-  1. Click **Point-to-Site configuration**.
-  1. Click **Download VPN client**.
-  1. Select the client and fill out any information that is requested.
-  1. Click **Download** to generate the .zip file.
-  1. The .zip file will download, typically to your Downloads folder.
-
-* Download and install the Azure VPN Client. For steps, see one of the following articles:
-
-  * [Certificate authentication](point-to-site-vpn-client-cert-windows.md#download-the-azure-vpn-client)
-  * [Microsoft Entra authentication](openvpn-azure-ad-client.md#download)
+* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 
 ## Working with VPN client profile configuration files
 
-The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), do the following:
+The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), use the following steps:
 
 1. Locate the profile configuration file and open it using the editor of your choice.
-1. Using the examples in the sections below, modify the file as necessary, then save your changes.
+1. Using the examples in the following sections, modify the file as necessary, then save your changes.
 1. Import the file to configure the Azure VPN client. You can import the file for the Azure VPN Client using these methods:
 
    * **Azure VPN Client interface**: Open the Azure VPN Client and click **+** and then **Import**. Locate the modified xml file, configure any additional settings in the Azure VPN Client interface (if necessary), then click **Save**.
@@ -50,6 +39,9 @@ The steps in this article require you to modify and import the Azure VPN Client 
 ## DNS
 
 ### Add DNS suffixes
+
+> [!NOTE]
+> At this time, additional DNS suffixes for the Azure VPN Client aren't generated in a format that can be properly used by macOS. The specified values for DNS suffixes don't persist for macOS.
 
 To add DNS suffixes, modify the downloaded profile XML file and add the **\<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** tags.
 
@@ -85,7 +77,7 @@ To add custom DNS servers, modify the downloaded profile XML file and add the **
 ```
 
 > [!NOTE]
-> The OpenVPN Microsoft Entra client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
+> When using Microsoft Entra ID authentication, the Azure VPN Client utilizes DNS Name Resolution Policy Table (NRPT) entries, which means DNS servers will not be listed under the output of `ipconfig /all`. To confirm your in-use DNS settings, please consult [Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy) in PowerShell.
 >
 
 ## Routing
@@ -104,7 +96,7 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
 
 * **Advertise custom routes:** You can advertise custom routes `0.0.0.0/1` and `128.0.0.0/1`. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
 
-* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
+* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
    ```xml
   <azvpnprofile>

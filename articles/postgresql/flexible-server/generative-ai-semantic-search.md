@@ -1,21 +1,23 @@
 ---
-title: Semantic search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
-description: Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
+title: Semantic search with Azure OpenAI
+description: Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI.
 author: mulander
 ms.author: adamwolk
-ms.date: 12/15/2023
+ms.reviewer: maghan
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
-ms.topic: tutorial
 ---
 
-# Semantic Search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI
+# Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL Flexible Server and Azure OpenAI service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
+This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
 
 Building semantic search capability on your data using GenAI and Flexible Server involves the following steps:
 >[!div class="checklist"]
@@ -37,11 +39,11 @@ Building semantic search capability on your data using GenAI and Flexible Server
 
 ## Enable the `azure_ai` and `pgvector` extensions
 
-Before you can enable `azure_ai` and `pgvector` on your Flexible Server, you need to add them to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
+Before you can enable `azure_ai` and `pgvector` on your Azure Database for PostgreSQL flexible server instance, you need to add them to your allowlist as described in [how to use PostgreSQL extensions](./concepts-extensions.md#how-to-use-postgresql-extensions) and check if correctly added by running `SHOW azure.extensions;`.
 
 Then you can install the extension, by connecting to your target database and running the [CREATE EXTENSION](https://www.postgresql.org/docs/current/static/sql-createextension.html) command. You need to repeat the command separately for every database you want the extension to be available in.
 
-```postgresql
+```sql
 CREATE EXTENSION azure_ai;
 CREATE EXTENSION pgvector;
 ```
@@ -50,7 +52,7 @@ CREATE EXTENSION pgvector;
 
 In the Azure AI services under **Resource Management** > **Keys and Endpoints** you can find the endpoint and the keys for your Azure AI resource. Use the endpoint and one of the keys to enable `azure_ai` extension to invoke the model deployment.
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_openai.endpoint','https://<endpoint>.openai.azure.com');
 select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 ```
@@ -66,7 +68,7 @@ select azure_ai.set_setting('azure_openai.subscription_key', '<API Key>');
 
 ### Create the table
 
-```postgresql
+```sql
 CREATE TABLE public.recipes( 
     rid integer NOT NULL, 
     recipe_name text, 
@@ -109,7 +111,7 @@ psql -d <database> -h <host> -U <user> -c "\copy recipes FROM <local recipe data
 
 ### Add a column to store the embeddings
 
-```postgresql
+```sql
 ALTER TABLE recipes ADD COLUMN embedding vector(1536); 
 ```
 
@@ -117,7 +119,7 @@ ALTER TABLE recipes ADD COLUMN embedding vector(1536);
 
 Generate embeddings for your data using the azure_ai extension. In the following, we vectorize a few different fields, concatenated:
 
-```postgresql
+```sql
 WITH ro AS (
     SELECT ro.rid
     FROM
@@ -146,7 +148,7 @@ Repeat the command, until there are no more rows to process.
 
 Create a search function in your database for convenience:
 
-```postgresql
+```sql
 create function
     recipe_search(searchQuery text, numResults int)
 returns table(
@@ -174,7 +176,7 @@ language plpgsql;
 
 Now just invoke the function to search:
 
-```postgresql
+```sql
 select recipeid, recipe_name, score from recipe_search('vegan recipes', 10);
 ```
 
@@ -198,16 +200,16 @@ And explore the results:
 
 ## Next steps
 
-You learned how to perform semantic search with Azure Database for PostgreSQL Flexible Server and Azure OpenAI.
+You learned how to perform semantic search with Azure Database for PostgreSQL flexible server and Azure OpenAI.
 
 > [!div class="nextstepaction"]
 > [Generate vector embeddings with Azure OpenAI](./generative-ai-azure-openai.md)
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Database for PostgreSQL Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
+> [Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services](./generative-ai-azure-cognitive.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about vector similarity search using `pgvector`](./how-to-use-pgvector.md)
 
 > [!div class="nextstepaction"]
-> [Build a Recommendation System with Azure Database for PostgreSQL Flexible Server and Azure OpenAI](./generative-ai-recommendation-system.md)
+> [Build a Recommendation System with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI](./generative-ai-recommendation-system.md)

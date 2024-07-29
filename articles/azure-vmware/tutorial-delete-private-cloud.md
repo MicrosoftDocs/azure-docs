@@ -37,5 +37,5 @@ If you require the VMs and their data later, make sure to back up the data befor
 
 3. Enter the name of the private cloud and select **Yes**.
 
->[!NOTE]
->The deletion process takes a few hours to complete.  
+> [!NOTE]
+> The deletion process takes a few hours to complete.  The Delete icon is at the top of the Azure VMware Solution private cloud and Overview section in the portal. Selecting Delete requires you to add the private cloud name and reason to delete.

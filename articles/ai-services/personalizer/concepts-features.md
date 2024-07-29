@@ -7,7 +7,7 @@ ms.author: jacodel
 ms.manager: nitinme
 ms.service: azure-ai-personalizer
 ms.topic: conceptual
-ms.date: 12/28/2022
+ms.date: 01/19/2024
 ---
 
 # Context and actions

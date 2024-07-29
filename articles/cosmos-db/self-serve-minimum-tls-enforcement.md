@@ -28,10 +28,7 @@ Starting with the [2022-11-15 API version of the Azure Cosmos DB Resource Provid
 - `Tls11` for setting the minimum version to TLS 1.1.
 - `Tls12` for setting the minimum version to TLS 1.2.
 
-The **default value for new and existing accounts is `Tls`**.
-
-> [!IMPORTANT]
-> Staring on April 1st, 2023, the **default value for new accounts will be switched to `Tls12`**.
+The **default value for new accounts is `Tls12`**.
 
 ### Set Minimal TLS Protocol in Azure Cosmos DB using the Portal 
 
@@ -91,11 +88,10 @@ After setting up your account, you can review in the Review + create tab, at the
 To set using Azure CLI, use the command:
 
 ```azurecli-interactive
-subId=$(az account show --query id -o tsv)
 rg="myresourcegroup"
 dbName="mycosmosdbaccount"
 minimalTlsVersion="Tls12"
-az rest --uri "/subscriptions/$subId/resourceGroups/$rg/providers/Microsoft.DocumentDB/databaseAccounts/$dbName?api-version=2022-11-15" --method PATCH  --body "{ 'properties': { 'minimalTlsVersion': '$minimalTlsVersion' } }" --headers "Content-Type=application/json"
+az cosmosdb update -n $dbName -g $rg --minimal-tls-version $minimalTlsVersion
 ```
 
 ### Set via Azure PowerShell

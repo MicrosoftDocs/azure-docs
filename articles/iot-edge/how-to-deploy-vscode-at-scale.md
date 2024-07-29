@@ -1,9 +1,7 @@
 ---
 title: Deploy modules at scale using Visual Studio Code - Azure IoT Edge
 description: Use the IoT extension for Visual Studio Code to create automatic deployments for groups of IoT Edge devices.
-keywords: 
 author: PatAltimore
-
 ms.author: patricka
 ms.date: 1/8/2020
 ms.topic: conceptual
@@ -29,7 +27,7 @@ In this article, you set up Visual Studio Code and the IoT extension. You then l
   If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
 
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+* [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 * [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## Sign in to access your IoT hub
@@ -80,7 +78,7 @@ Here's a basic deployment manifest with one module as an example:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
                 "createOptions": "{}"
               }
             },
@@ -89,19 +87,19 @@ Here's a basic deployment manifest with one module as an example:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.1",
+              "version": "1.5",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
                 "createOptions": "{}"
               }
             }
@@ -110,7 +108,7 @@ Here's a basic deployment manifest with one module as an example:
       },
       "$edgeHub": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "routes": {
             "upstream": "FROM /messages/* INTO $upstream"
           },
@@ -134,7 +132,7 @@ If you need to determine which IoT Edge devices you can currently configure, run
 
 ## Identify devices with target conditions
 
-To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria is matched by a deviceId, tag value, or a reported property value.
+To identify the IoT Edge devices that are to receive the deployment, you must specify a target condition. A target condition is met when specified criteria are matched by a deviceId, tag value, or a reported property value.
 
 You configure tags in the device twin. Here is an example of a device twin that has tags:
 

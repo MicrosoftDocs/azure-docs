@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-resource-manager
   ms.subservice: templates
-  ms.date: 05/22/2023
+  ms.date: 03/20/2024
 
 title: Frequently asked questions about ARM templates
 summary: This article answers frequently asked questions about Azure Resource Manager templates (ARM templates).
@@ -40,7 +40,7 @@ sections:
       - question: |
           I missed your presentation at Microsoft Build 2020. Is the presentation available for viewing?
         answer: |
-            Yes, please [watch it anytime](https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions).
+            Yes, [watch it anytime](https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions).
 
       - question: |
           Where can I get more information about the new features you announced at Build?
@@ -80,7 +80,7 @@ sections:
         answer: |
             We recommend running the [ARM test toolkit](https://github.com/azure/arm-ttk) and the [what-if operation](./deploy-what-if.md) on your templates before deploying them. The test toolkit checks whether your template uses best practices. It provides warnings when it identifies changes that could improve how you've implemented your template.
 
-            The what-if operation shows the changes your template will make to your environment. You can see unintended changes before they're deployed. What-if also returns any errors it can detect during preflight validation. For example, if your template contains a syntactical error, it returns that error. It also returns any errors it can determine about the final state of the deployed resources. For example, if your template deploys a storage account with a name that is already in use, what-if returns that error.
+            The what-if operation shows the changes your template makes to your environment. You can see unintended changes before they're deployed. What-if also returns any errors it can detect during preflight validation. For example, if your template contains a syntactical error, it returns that error. It also returns any errors it can determine about the final state of the deployed resources. For example, if your template deploys a storage account with a name that is already in use, what-if returns that error.
 
       - question: |
           Where can I find information about the properties that are available for each resource type?
@@ -101,7 +101,7 @@ sections:
 
       - question: |
           Is there a plan to support creating templates in YAML?
-        answer:   Currently, there's no plan to support YAML. We believe the new template language will offer a solution that is easier to use than YAML or JSON.
+        answer:   Currently, there's no plan to support YAML. We believe the new template language offers a solution that is easier to use than YAML or JSON.
 
       - question: |
           Can I still write templates in JSON after the new template language has been released?
@@ -116,7 +116,7 @@ sections:
     questions:
       - question: |
           How are template specs and Azure Blueprints related?
-        answer:   Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We'll provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints will remain a user-experience to compose a governed environment in Azure.
+        answer:   Azure Blueprints will use template specs in its implementation by replacing the `blueprint definition` resource with a `template spec` resource. We provide a migration path to convert the blueprint definition into a template spec, but the blueprint definition APIs will still be supported. There are no changes to the `blueprint assignment` resource. Blueprints remain a user-experience to compose a governed environment in Azure.
 
       - question: |
           Do template specs replace linked templates?
@@ -144,7 +144,7 @@ sections:
   - name: Preview changes before deployment
     questions:
       - question: |
-          Can I preview the changes that will happen before deploying a template?
+          Can I preview the changes that happen before deploying a template?
         answer: |
             Yes, use the [what-if feature](./deploy-what-if.md). It evaluates the current state of your environment and compares it to the state that will exist after deployment. You can examine the summarized changes to make sure the template doesn't have any unexpected results.
 

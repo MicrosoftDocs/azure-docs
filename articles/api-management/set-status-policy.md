@@ -6,11 +6,14 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Set status code
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 
 The `set-status` policy sets the HTTP status code to the specified value.
 
@@ -36,7 +39,7 @@ The `set-status` policy sets the HTTP status code to the specified value.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Example
 
@@ -56,9 +59,8 @@ This example shows how to return a 401 response if the authorization token is in
 ```
 
 
-
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

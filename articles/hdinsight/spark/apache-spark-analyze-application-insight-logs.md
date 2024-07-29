@@ -4,7 +4,7 @@ description: Learn how to export Application Insight logs to blob storage, and t
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/09/2023
+ms.date: 06/15/2024
 ---
 
 # Analyze Application Insights telemetry logs with Apache Spark on HDInsight
@@ -31,7 +31,7 @@ The following resources were used in developing and testing this document:
 
 The following diagram illustrates the service architecture of this example:
 
-:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Data flowing from Application Insights to blob storage, then Spark" border="false":::
+:::image type="content" source="./media/apache-spark-analyze-application-insight-logs/application-insights.png" alt-text="Data flowing from Application Insights to blob storage, then Spark." border="false":::
 
 ### Azure Storage
 

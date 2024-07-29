@@ -4,7 +4,7 @@ description: Deploy the Log Analytics agent on Linux virtual machine using a vir
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: extensions
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-content
 ms.author: gabsta
 author: GabstaMSFT
 ms.collection: linux
@@ -31,6 +31,8 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.19.0 | [1.19.0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.19.0-0) |
+| 1.18.1 | [1.18.1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.18.1-0) |
 | 1.17.2 | [1.17.2](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.17.2-0) |
 | 1.17.1 | [1.17.1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.17.1) |
 | 1.16.0 | [1.16.0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.16.0-0) |
