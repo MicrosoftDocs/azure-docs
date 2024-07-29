@@ -20,10 +20,12 @@ To learn more about the ways that you can use Copilot for Azure, see [Capabiliti
 
 ## Skill and prompt library
 
+To get started with Copilot for Azure, try a few prompts from this list. You can change prompts as needed, or create your own based on your current tasks and interests.
+
 | Scenario | Skill description | Example prompt to try |
 |----------|-------------------|-----------------------|
 | Azure App Service | Analyzes performance issues with an app. | "Troubleshoot performance issues with my app." |
-| Azure App Service | Diagnoses high CPU usage issues. | "It seems like there's a High CPU issue with my web app." |
+| Azure App Service | Diagnoses high CPU usage issues. | "It seems like there's a high CPU issue with my web app." |
 | Azure App Service | Enables auto-heal for web apps. | "Enable auto heal on my web app." |
 | Azure App Service | Explains an error related to deployed web apps. | "What does this error mean for my Azure web app?" |
 | Azure App Service | Provides assistance with slow-running app code. | "Why is my web app slow?" |
