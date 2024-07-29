@@ -27,31 +27,33 @@ In the **Collect and deliver** step of the DCR, select **Linux Syslog** from the
 
 The following facilities are supported with the Syslog collector:
 
-| Pri index | Pri Name |
-|:---|:---|
-| 0	| None |
-| 1	| Kern |
-| 2	| user |
-| 3     | mail |
-| 4	| daemon |
-| 5	| auth |
-| 6	| syslog |
-| 7	| lpr |
-| 8	| news |
-| 9	| uucp |
-| 10	| ftp |
-| 11    | ntp |
-| 12    | audit |
-| 13    | alert |
-| 14    | clock	 |
-| 15    | local0 |
-| 16    | local1 |
-| 17    | local2 |
-| 18    | local3 |
-| 19    | local4 |
-| 20    | local5 |
-| 21    | local6 |
-| 22    | local7 |
+| Facility Index | Facility Name | Data Source Name |
+|:---|:---|:---|
+| 	| invld | LOG_NOPRI |
+| 0	| kern | LOG_KERN |
+| 1	| user | LOG_USER |
+| 2	| mail | LOG_MAIL |
+| 3     | daemon | LOG_DAEMON |
+| 4	| auth | LOG_AUTH |
+| 5	| syslog | LOG_SYSLOG |
+| 6	| lpr | LOG_LPR |
+| 7	| news | LOG_NEWS |
+| 8	| uucp | LOG_UUCP |
+| 9	| cron | LOG_CRON |
+| 10	| authpriv | LOG_AUTHPRIV |
+| 11    | ftp | LOG_FTP |
+| 12    | ntp | LOG_NTP |
+| 13    | audit | LOG_AUDIT |
+| 14    | alert	 | LOG_ALERT |
+| 15    | clock | LOG_CLOCK |
+| 16    | local0 | LOG_LOCAL0 |
+| 17    | local1 | LOG_LOCAL1 |
+| 18    | local2 | LOG_LOCAL2 |
+| 19    | local3 | LOG_LOCAL3 |
+| 20    | local4 | LOG_LOCAL4 |
+| 21    | local5 | LOG_LOCAL5 |
+| 22    | local6 | LOG_LOCAL6 |
+| 23    | local7 | LOG_LOCAL7 |
 
 :::image type="content" source="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" lightbox="../../sentinel/media/forward-syslog-monitor-agent/create-rule-data-source.png" alt-text="Screenshot that shows the page to select the data source type and minimum log level.":::
 
@@ -182,31 +184,33 @@ If you edit the Syslog configuration, you must restart the Syslog daemon for the
 
 The following facilities are supported with the Syslog collector:
 
-| Pri index | Pri Name |
-|:---|:---|
-| 0 | None |
-| 1	| Kern |
-| 2	| user |
-| 3 | mail |
-| 4	| daemon |
-| 4	| auth |
-| 5	| syslog |
-| 6	| lpr |
-| 7	| news |
-| 8	| uucp |
-| 9	| ftp |
-| 10 | ntp |
-| 11 | audit |
-| 12 | alert |
-| 13 | mark	 |
-| 14 | local0 |
-| 15 | local1 |
-| 16 | local2 |
-| 17 | local3 |
-| 18 | local4 |
-| 19 | local5 |
-| 20 | local6 |
-| 21 | local7 |
+| Facility Index | Facility Name | Data Source Name |
+|:---|:---|:---|
+| 	| invld | LOG_NOPRI |
+| 0	| kern | LOG_KERN |
+| 1	| user | LOG_USER |
+| 2	| mail | LOG_MAIL |
+| 3     | daemon | LOG_DAEMON |
+| 4	| auth | LOG_AUTH |
+| 5	| syslog | LOG_SYSLOG |
+| 6	| lpr | LOG_LPR |
+| 7	| news | LOG_NEWS |
+| 8	| uucp | LOG_UUCP |
+| 9	| cron | LOG_CRON |
+| 10	| authpriv | LOG_AUTHPRIV |
+| 11    | ftp | LOG_FTP |
+| 12    | ntp | LOG_NTP |
+| 13    | audit | LOG_AUDIT |
+| 14    | alert	 | LOG_ALERT |
+| 15    | clock | LOG_CLOCK |
+| 16    | local0 | LOG_LOCAL0 |
+| 17    | local1 | LOG_LOCAL1 |
+| 18    | local2 | LOG_LOCAL2 |
+| 19    | local3 | LOG_LOCAL3 |
+| 20    | local4 | LOG_LOCAL4 |
+| 21    | local5 | LOG_LOCAL5 |
+| 22    | local6 | LOG_LOCAL6 |
+| 23    | local7 | LOG_LOCAL7 |
 
 ## Syslog record properties
 
