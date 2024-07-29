@@ -21,7 +21,7 @@ This article describes how to deploy the container that hosts the SAP data conne
 
 :::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your security, infrastructure, and  SAP BASIS teams.
+:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -58,7 +58,7 @@ For more information, see:
 - [What are manged identies for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
-Your virtual machine is typically created by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** teams. Configuring access to credentials and managing key vaults is typically done by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** teams.
+Your virtual machine is typically created by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team.
 
 ## [Managed identity](#tab/managed-identity)
 
@@ -295,7 +295,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     :::image type="content" source="media/deploy-data-connector-agent-container/installation-status.png" alt-text="Screenshot of the health statuses of API-based collector agents on the SAP data connector page." lightbox="media/deploy-data-connector-agent-container/installation-status.png":::
 
     > [!NOTE]
-    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [**Command line** tab](deploy-data-connector-agent-container?tabs=command-line) instead.
+    > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [**Command line** tab](deploy-data-connector-agent-container.md?tabs=command-line) instead.
     >
 
 1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.

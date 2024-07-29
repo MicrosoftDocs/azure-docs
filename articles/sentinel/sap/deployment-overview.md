@@ -51,7 +51,7 @@ For more information, see [Microsoft Sentinel solution for SAP applications: sec
 
 ## Deployment flow and personas
 
-Deploying the Microsoft Sentinel solution for SAP applications involves several steps, crossing your security, infrastructure, and SAP BASIS teams. The following image shows the steps in deploying the Microsoft Sentinel solution for SAP applications, with relevant teams indicated:
+Deploying the Microsoft Sentinel solution for SAP applications involves several steps, crossing your **security**, **infrastructure**, and **SAP BASIS** teams. The following image shows the steps in deploying the Microsoft Sentinel solution for SAP applications, with relevant teams indicated:
 
 :::image type="content" source="media/deployment-steps/full-flow.png" alt-text="Diagram showing the full steps in the Microsoft Sentinel solution for SAP applications deployment flow" border="false":::.
 
