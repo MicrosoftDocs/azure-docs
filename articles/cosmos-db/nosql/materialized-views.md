@@ -44,7 +44,7 @@ The benefits of using Azure Cosmos DB Materiliazed Views include, but aren't lim
 - Azure Cosmos DB materialized views for NoSQL API caters to the Global Secondary Index use cases as well. Global Secondary Indexes are also used to maintain secondary data views and help in reducing cross-partition queries.
 
 > [!NOTE]
-> The _id field in the materialized view is auto-populated with _rid from source document. This is done to maintain the one to one relationship between materialized view and source container documents.
+> The "id" field in the materialized view is auto populated with "_rid" from source document. This is done to maintain the one-to-one relationship between materialized view and source container documents.
 
 ## Prerequisites
 
