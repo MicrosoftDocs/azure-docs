@@ -4959,6 +4959,11 @@
             "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
+        },
+        {
+          "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
+          "redirect_url":"/azure/operational-excellence/relocation-container-registry",
+          "redirect_document_id":false
         }
         
     ]
