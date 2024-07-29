@@ -16,7 +16,7 @@ ms.date: 07/26/2024
 
 The script in this article demonstrates how to convert every resource using standard provisioned throughput to autoscale within a subscription.
 
-Many customers start with standard provisioned throughput when developing new applications. However standard throughput is best used in workloads that have sustained throughput requirements. Most workloads are variable. This means autoscale is often less expensive to use. In scanarios where there may be tens or hundreds of resources to migrate, this can be tedius and time consuming. This script is designed to migrate all resources in a single step. 
+Many customers start with standard provisioned throughput when developing new applications. However standard throughput is best used in workloads that have sustained throughput requirements. Most workloads are variable. This means autoscale is often less expensive to use. In scenarios where there may be tens or hundreds of resources to migrate, this can be tedious and time consuming. This script is designed to migrate all resources in a single step. 
 
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -54,8 +54,8 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb mongodb collection throughput show](/cli/azure/cosmosdb#az-cosmosdb-mongodb-collection-throughput-show) | Read the throughput value for the MongoDB collection in an account. |
 | [az cosmosdb mongodb collection throughput migrate](/cli/azure/cosmosdb#az-cosmosdb-mongodb-collection-throughput-migrate) | Migrate the throughput for a collection resource in the MongoDB account. |
 | [az cosmosdb cassandra keyspace list](/cli/azure/cosmosdb#az-cosmosdb-cassandra-keyspace-list) | Lists all Cassandra keyspaces in an account. |
-| [az cosmosdb cassandra keyspace throughput show](/cli/azure/cosmosdb#az-cosmosdb-cassandra-keyspace-throughput-show) | Read the throughput value for the Cassanra keyspace in an account. |
-| [az cosmosdb cassandra keyspace throughput migrate](/cli/azure/cosmosdb#az-cosmosdb-cassandra-keyspace-throughput-migrate) | Migrate the throughput for a Cassanra keyspace in the account. |
+| [az cosmosdb cassandra keyspace throughput show](/cli/azure/cosmosdb#az-cosmosdb-cassandra-keyspace-throughput-show) | Read the throughput value for the Cassandra keyspace in an account. |
+| [az cosmosdb cassandra keyspace throughput migrate](/cli/azure/cosmosdb#az-cosmosdb-cassandra-keyspace-throughput-migrate) | Migrate the throughput for a Cassandra keyspace in the account. |
 | [az cosmosdb cassandra table list](/cli/azure/cosmosdb#az-cosmosdb-cassandra-table-list) | Lists all Cassandra tables in a keyspace. |
 | [az cosmosdb cassandra table throughput show](/cli/azure/cosmosdb#az-cosmosdb-cassandra-table-throughput-show) | Read the throughput value for the Cassandra table in an account. |
 | [az cosmosdb cassandra table throughput migrate](/cli/azure/cosmosdb#az-cosmosdb-cassandra-table-throughput-migrate) | Migrate the throughput for a cassandra table in an account. |

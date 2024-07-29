@@ -113,7 +113,7 @@ If you see that your traffic pattern is variable, but you are over or under prov
 Autoscale bills for the highest RU/s scaled to in an hour. When analyzing the normalized RU consumption over time, it is important to use the highest utilization per hour when calculating the average. 
 
 To calculate the average of the highest utilization across all hours:
-1. Set the **Aggregation** on the Noramlized RU Consumption metric to **Max**.
+1. Set the **Aggregation** on the Normalized RU Consumption metric to **Max**.
 1. Select the **Time granularity** to 1 hour.
 1. Navigate to **Chart options**.
 1. Select the bar chart option. 
@@ -133,7 +133,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 
 ## Migrate standard provisioned throughput to autoscale
 
-Users that want to migrate a large number of resources from standard provisioned throughput to autoscale can use an Azure CLI script that will migrate every throughput resource in an Azure subscription to autoscale. For more details see, [Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md)
+Users that want to migrate a large number of resources from standard provisioned throughput to autoscale can use an Azure CLI script that will migrate every throughput resource in an Azure subscription to autoscale. For more details see, [Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md).
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
