@@ -1,7 +1,7 @@
 ---
 "title":  Different indexing options on Azure Cosmos DB for MongoDB vCore
 "titleSuffix": Azure Cosmos DB for MongoDB vCore
-"description": Basic know-how for efficient usage of indexes on Azure Cosmos DB for MongoDB vCore.
+"description": Basic usage scenarios for creating indexes.
 "author": avijitgupta
 "ms.author": avijitgupta
 "ms.reviewer": gahllevy
@@ -11,7 +11,7 @@
 "ms.date": 07/30/2024
 ---
 
-# Working with indexes in Azure Cosmos DB for MongoDB vcore
+# Working with indexes in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
@@ -121,7 +121,7 @@ We would work on example scenarios with context to the defined sample json.
 
 ### Indexing the root field
 
-Azure Cosmos DB for MongoDB vcore allows indexes on root properties. The example allows searching `sampleColl` by `car_id`.
+Azure Cosmos DB for MongoDB vCore allows indexes on root properties. The example allows searching `sampleColl` by `car_id`.
 
 ```javascript
 CarData> db.sampleColl.createIndex({"car_id":1})
@@ -158,7 +158,7 @@ CarData> db.sampleColl.find({"car_id":"ZA-XWB804"}).explain()
 
 ### Indexing the nested properties
 
-Azure Cosmos DB for MongoDB vcore allows indexing embedded document properties. The example creates an index  on field `registration_datetime` within a nested document `registration`.
+Azure Cosmos DB for MongoDB vCore allows indexing embedded document properties. The example creates an index  on field `registration_datetime` within a nested document `registration`.
 
 ```javascript
 CarData> db.sampleColl.createIndex({"car_info.registration.registration_datetime":1})
@@ -211,7 +211,7 @@ CarData> db.sampleColl.find({"car_info.registration.registration_datetime":
 
 ### Indexing the arrays at root
 
-Azure Cosmos DB for MongoDB vcore allows indexing the root property defined as an array. Let us consider following json sample.
+Azure Cosmos DB for MongoDB vCore allows indexing the root property defined as an array. Let us consider following json sample.
 
 ```json
 {
@@ -276,7 +276,7 @@ Cosmicworks> db.Pokemon.find({"weaknesses":
 
 ### Indexing nested arrays
 
-Azure Cosmos DB for MongoDB vcore allows indexing nested arrays. The example creates an index on `resolutions` field existing within `complains` array.
+Azure Cosmos DB for MongoDB vCore allows indexing nested arrays. The example creates an index on `resolutions` field existing within `complains` array.
 
 ```javascript
 CarData> db.sampleColl.createIndex({"rental_history.complains.resolutions":1})
@@ -318,7 +318,7 @@ CarData> db.sampleColl.find({"rental_history.complains.resolutions":{ $exists: f
 
 ### Indexing specific field in an array
 
-Azure Cosmos DB for MongoDB vcore allows indexing fields within an array. The example creates an index on `date` field within `accidents` array.
+Azure Cosmos DB for MongoDB vCore allows indexing fields within an array. The example creates an index on `date` field within `accidents` array.
 
 ```javascript
 CarData> db.sampleColl.createIndex({"rental_history.accidents.date":1})
@@ -370,7 +370,7 @@ CarData> db.sampleColl.find({"rental_history.accidents.date":
 
 ### Wildcard indexing while excluding nested fields
 
-Azure Cosmos DB for MongoDB vcore supports Wildcard indexes. The example allows us exclude indexing all nested fields within document `car_info`.
+Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us exclude indexing all nested fields within document `car_info`.
 
 ```javascript
 // Excludes all the nested sub-document property 
@@ -410,7 +410,7 @@ CarData> db.sampleColl.find({"car_info.model":"GT Fastback"}).explain()
 
 ### Wildcard indexing while excluding nested objects
 
-Azure Cosmos DB for MongoDB vcore supports Wildcard indexes. The example allows us exclude nested objects from the document.
+Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us exclude nested objects from the document.
 
 ```javascript
 // Wildcard index excluding nested object

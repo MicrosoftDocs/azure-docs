@@ -8,7 +8,7 @@ ms.reviewer: sidandrews
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 6/25/2024
+ms.date: 7/30/2024
 ---
 
 
@@ -16,7 +16,7 @@ ms.date: 6/25/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Workloads which have a unpredictable set of fields in the schema can use wildcard indexes to support queries against arbitrary or unknown fields.
+Workloads which have an unpredictable set of fields in the schema can use wildcard indexes to support queries against arbitrary or unknown fields, for optimized performance.
 
 Wildcard indexing can be helpful in the following scenarios:
 - Queries filtering on any field in the document making indexing all fields through a single command easier than indexing each field individually.
@@ -35,7 +35,7 @@ db.collection.createIndex( { "$**": 1 } )
 
 ## Include or exclude specific fields
 
-Wildcard indexes can also be restricted to specific fields while excluding certain fields from being targeted for indexing. Let's review a sample for following Json.
+Wildcard indexes can also be restricted to specific fields while excluding certain fields from being targeted for indexing. Let's review a sample for the following Json.
 
 ```json
 {
