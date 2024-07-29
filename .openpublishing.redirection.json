@@ -4951,7 +4951,6 @@
             "redirect_document_id": false
         },
         {
-<<<<<<< HEAD
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
             "redirect_document_id": false
@@ -4959,7 +4958,9 @@
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
-=======
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
@@ -4967,7 +4968,6 @@
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
->>>>>>> dfbe00b09073dde6df8268f9a365befd388766b5
             "redirect_document_id": false
         }
         
