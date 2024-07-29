@@ -3,16 +3,29 @@ title: Transport Layer Security (TLS) overview
 description: Learn about Transport Layer Security (TLS) on App Service.
 keywords: app service, azure app service, tls, transport layer security, support, web app, troubleshooting, 
 ms.topic: article
-ms.date: 07/24/2024
+ms.date: 07/29/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: UpdateFrequency3
+ms.collection: ce-skilling-ai-copilot
 ---
 # Azure App Service TLS overview
 
 ## What does TLS do in App Service?
 
 Transport Layer Security (TLS) is a widely adopted security protocol designed to secure connections and communications between servers and clients. App Service allows customers to use TLS/SSL certificates to secure incoming requests to their web apps. App Service currently supports different set of TLS features for customers to secure their web apps. 
+
+> [!TIP]
+>
+> You can also ask Azure Copilot these questions:
+>
+> - *What versions of TLS are supported in App Service?*
+> - *What are the benefits of using TLS 1.3 over previous versions?*
+> - *How can I change the cipher suite order for my App Service Environment?*
+>
+> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
+
+
 
 ## Supported TLS Version on App Service?
 
@@ -53,7 +66,11 @@ For App Service Environments with "FrontEndSSLCipherSuiteOrder" cluster setting,
 
 End-to-end (E2E) TLS encryption is available in Standard App Service plans and higher. Front-end intra-cluster traffic between App Service front-ends and the workers running application workloads can now be encrypted. Below is a simple diagram to help you understand how it works. 
 
-INSERT-IMAGE-HERE
+Follow these steps to enable end-to-end TLS encryption:
+1. Browse to your app in the [Azure Portal](https://portal.azure.com/)
+1. In the left menu, select **configuration**.
+1. Under __End-to-end TLS encryption__, select **on**.
+1. Save the changes.
 
 ## Next steps
 * [Secure a custom DNS name with a TLS/SSL binding](configure-ssl-bindings.md)
