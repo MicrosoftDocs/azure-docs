@@ -14,7 +14,7 @@ ms.custom: include file
 |---|---|---|
 | Processor      | 2 - 96 vCPUs       | Intel Xeon Platinum 8370C (Ice Lake) [x86-64]                                                 |
 | Memory         | 8 - 384 GiB          |                                                    |
-| Local Storage  | 1 Disks     | 75 - 3600 GiB <br>9000 - 450000 IOPS (RR) <br>125 - 4000 MBps (RR)|
+| Local Storage  | 1 Disk     | 75 - 3600 GiB <br>9000 - 450000 IOPS (RR) <br>125 - 4000 MBps (RR)|
 | Remote Storage | 4 - 32 Disks    | 3750 - 80000 IOPS <br>85 - 2600 MBps                     |
 | Network        | 2 - 8 NICs          | 12500 - 35000 Mbps                                            |
 | Accelerators   | None              |                                                     |

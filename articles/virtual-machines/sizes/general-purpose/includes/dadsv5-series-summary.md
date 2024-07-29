@@ -4,7 +4,7 @@ description: Include file containing a summary of the Dadsv5-series size family.
 author: mattmcinnes
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: conceptual
+ms.topic: include
 ms.date: 04/11/2024
 ms.author: mattmcinnes
 ---

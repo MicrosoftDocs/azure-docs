@@ -14,7 +14,7 @@ ms.custom: include file
 |---|---|---|
 | Processor      | 2 - 64 vCPUs       | Ampere Altra [ARM-64]                                                 |
 | Memory         | 4 - 128 GiB          |                                                    |
-| Local Storage  | 1 Disks     | 75 - 2400 GiB <br>9375 - 300000 IOPS (RR) <br>125 - 4000 MBps (RR)|
+| Local Storage  | 1 Disk     | 75 - 2400 GiB <br>9375 - 300000 IOPS (RR) <br>125 - 4000 MBps (RR)|
 | Remote Storage | 4 - 32 Disks    | 3750 - 80000 IOPS <br>85 - 1735 MBps                     |
 | Network        | 2 - 8 NICs          | 12500 - 40000 Mbps                                            |
 | Accelerators   | None              |                                                     |

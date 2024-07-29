@@ -239,25 +239,25 @@
         - name: Dpldsv6 series
           href: ./sizes/general-purpose/dpldsv6-series.md
         - name: Dv5 series
-          href: dv5-dsv5-series.md
+          href: ./sizes/general-purpose/dv5-series.md
         - name: Dsv5 series
-          href: dv5-dsv5-series.md
+          href: ./sizes/general-purpose/dsv5-series.md
         - name: Ddv5 series
-          href: ddv5-ddsv5-series.md
+          href: ./sizes/general-purpose/ddv5-series.md
         - name: Ddsv5 series
-          href: ddv5-ddsv5-series.md
+          href: ./sizes/general-purpose/ddsv5-series.md
         - name: Dasv5 series
           href: dasv5-dadsv5-series.md
         - name: Dadsv5 series
           href: dasv5-dadsv5-series.md
         - name: Dpsv5 series
-          href: dpsv5-dpdsv5-series.md
+          href: ./sizes/general-purpose/dpsv5-series.md
         - name: Dpdsv5 series
-          href: dpsv5-dpdsv5-series.md
+          href: ./sizes/general-purpose/dpdsv5-series.md
         - name: Dplsv5 series
-          href: dplsv5-dpldsv5-series.md
+          href: ./sizes/general-purpose/dplsv5-series.md
         - name: Dpldsv5 series
-          href: dplsv5-dpldsv5-series.md
+          href: ./sizes/general-purpose/dpldsv5-series.md
         - name: Dlsv5 series
           href: ./sizes/general-purpose/dlsv5-series.md
         - name: Dldsv5 series
@@ -1908,7 +1908,7 @@
       items:
       - name: Enable Trusted launch on existing VM
         href: trusted-launch-existing-vm.md
-      - name: Enable Trusted launch on existing VMSS
+      - name: Enable Trusted launch on existing Virtual Machine Scale Sets
         href: trusted-launch-existing-vmss.md
     - name: Boot integrity monitoring
       href: boot-integrity-monitoring-overview.md

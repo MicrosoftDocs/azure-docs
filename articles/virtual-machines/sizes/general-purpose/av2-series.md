@@ -45,7 +45,7 @@ vCPUs (Qty.) and Memory for each size
 | Standard_A8m_v2 | 8 | 64 |
 
 #### VM Basics resources
-- [What are vCPUs (Qty.) (Qty.)](../../../virtual-machines/managed-disks-overview.md)
+- [What are vCPUs  ](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
