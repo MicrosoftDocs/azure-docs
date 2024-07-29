@@ -28,7 +28,7 @@ Continue to the next section if you need to customize these graphs for your part
 
 2. Select the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
-3. Once your Maps account is open, Select the **Metrics** menu on the left.
+3. Once your Maps account is open, select the **Metrics** menu on the left.
 
 4. On the **Metrics** pane, choose one of the following options:
 
@@ -49,7 +49,7 @@ Continue to the next section if you need to customize these graphs for your part
 
     ![Azure Maps usage metrics splitting](media/how-to-view-api-usage/splitting.png)
 
-8. You may also observe multiple metrics on the same graph, by selecting **Add metric** button.
+8. You may also observe multiple metrics on the same graph, by selecting the **Add metric** button.
 
 ## Next steps
 
