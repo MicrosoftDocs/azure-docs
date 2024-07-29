@@ -214,13 +214,21 @@
         - name: Overview
           displayName: D-series, sizes, size, vm size
           href: ./sizes/general-purpose/d-family.md
-        - name: Dsv6 and Ddsv6-series
+        - name: Dsv6 series
           href: dsv6-ddsv6-series.md
-        - name: Dlsv6 and Dldsv6-series
+        - name: Ddsv6 series
+          href: dsv6-ddsv6-series.md
+        - name: Dlsv6 series
           href: dlsv6-dldsv6-series.md
-        - name: Dasv6 and Dadsv6-series
+        - name: Dldsv6 series
+          href: dlsv6-dldsv6-series.md
+        - name: Dasv6 series
           href: dasv6-dadsv6-series.md
-        - name: Dalsv6 and Daldsv6 series
+        - name: Dadsv6 series
+          href: dasv6-dadsv6-series.md
+        - name: Dalsv6 series
+          href: dalsv6-daldsv6-series.md
+        - name: Daldsv6 series
           href: dalsv6-daldsv6-series.md
         - name: Dpsv6 series
           href: ./sizes/general-purpose/dpsv6-series.md
@@ -230,42 +238,70 @@
           href: ./sizes/general-purpose/dplsv6-series.md
         - name: Dpldsv6 series
           href: ./sizes/general-purpose/dpldsv6-series.md
-        - name: Dv5 and Dsv5 series
+        - name: Dv5 series
           href: dv5-dsv5-series.md
-        - name: Ddv5 and Ddsv5 series
+        - name: Dsv5 series
+          href: dv5-dsv5-series.md
+        - name: Ddv5 series
           href: ddv5-ddsv5-series.md
-        - name: Dasv5 and Dadsv5 series
+        - name: Ddsv5 series
+          href: ddv5-ddsv5-series.md
+        - name: Dasv5 series
           href: dasv5-dadsv5-series.md
-        - name: Dpsv5 and Dpdsv5 series
+        - name: Dadsv5 series
+          href: dasv5-dadsv5-series.md
+        - name: Dpsv5 series
           href: dpsv5-dpdsv5-series.md
-        - name: Dplsv5 and Dpldsv5 series
+        - name: Dpdsv5 series
+          href: dpsv5-dpdsv5-series.md
+        - name: Dplsv5 series
+          href: dplsv5-dpldsv5-series.md
+        - name: Dpldsv5 series
           href: dplsv5-dpldsv5-series.md
         - name: Dlsv5 series
           href: ./sizes/general-purpose/dlsv5-series.md
         - name: Dldsv5 series
           href: ./sizes/general-purpose/dldsv5-series.md
-        - name: Dv4 and Dsv4 series
-          href: dv4-dsv4-series.md
-        - name: Dav4 and Dasv4 series
+        - name: Dv4 series
+          href: ./sizes/general-purpose/dv4-series.md
+        - name: Dsv4 series
+          href: ./sizes/general-purpose/dsv4-series.md
+        - name: Dav4 series
           href: dav4-dasv4-series.md
-        - name: Ddv4 and Ddsv4 series
-          href: ddv4-ddsv4-series.md          
-        - name: Dv3 and DSv3 series
-          href: dv3-dsv3-series.md
-        - name: Dv2 and Dsv2 series
-          href: dv2-dsv2-series.md
+        - name: Dasv4 series
+          href: dav4-dasv4-series.md
+        - name: Ddv4 series
+          href: ./sizes/general-purpose/ddv4-series.md   
+        - name: Ddsv4 series
+          href: ./sizes/general-purpose/ddsv4-series.md       
+        - name: Dv3 series
+          href: ./sizes/general-purpose/dv3-series.md
+        - name: Dsv3 series
+          href: ./sizes/general-purpose/dsv3-series.md
+        - name: Dv2 series
+          href: ./sizes/general-purpose/dv2-series.md
+        - name: Dsv2 series
+          href: ./sizes/general-purpose/dsv2-series.md
       - name: DC family (confidential)
         items:
         - name: Overview
           displayName: DC-series, sizes, size, vm size
           href: ./sizes/general-purpose/dc-family.md
-        - name: DCasv5 and DCadsv5 series
+        - name: DCasv5 series
           href: dcasv5-dcadsv5-series.md
-        - name: DCas_cc_v5 and DCads_cc_v5 series
+        - name: DCadsv5 series
+          href: dcasv5-dcadsv5-series.md
+        - name: DCas_cc_v5 series
           href: dcasccv5-dcadsccv5-series.md
-        - name: DCesv5 and DCedsv5 series
+        - name: DCads_cc_v5 series
+          href: dcasccv5-dcadsccv5-series.md
+        - name: DCesv5 series
           href: dcesv5-dcedsv5-series.md  
-        - name: DCsv3 and DCdsv3 series
+        - name: DCedsv5 series
+          href: dcesv5-dcedsv5-series.md 
+        - name: DCsv3 series
+          href: dcv3-series.md
+        - name: DCdsv3 series
           href: dcv3-series.md
         - name: DCsv2 series
           href: dcv2-series.md
