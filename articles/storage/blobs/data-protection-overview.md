@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 07/26/2024
+ms.date: 07/29/2024
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: prishet
@@ -54,6 +54,7 @@ The following table summarizes the Azure Storage data protection options accordi
 
 | Data protection option | Protects an account from deletion | Protects a container from deletion | Protects an object from deletion | Protects an object from overwrites |
 |--|--|--|--|--|
+| Azure Blob vaulted backup<br /><br />Roll-your-own solution for copying data to a second account<sup>7</sup> | No | Yes | Yes | Yes |
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
 | Immutability policy on a blob version | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes<sup>4</sup> |
 | Immutability policy on a container | Yes<sup>5</sup> | Yes | Yes | Yes |
@@ -62,7 +63,7 @@ The following table summarizes the Azure Storage data protection options accordi
 | Blob soft delete | No | No | Yes | Yes |
 | Point-in-time restore<sup>6</sup> | No | No | Yes | Yes |
 | Blob snapshot | No | No | No | Yes |
-| Azure Blob vaulted backup<br /><br />Roll-your-own solution for copying data to a second account<sup>7</sup> | No | Yes | Yes | Yes |
+| Roll-your-own solution for copying data to a second account<sup>7</sup> | No | Yes | Yes | Yes |
 
 <sup>1</sup> An Azure Resource Manager lock doesn't protect a container from deletion.<br />
 <sup>2</sup> Storage account deletion fails if there is at least one container with version-level immutable storage enabled.<br />
