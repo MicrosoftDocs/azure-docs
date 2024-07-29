@@ -9,7 +9,7 @@ ms.date: 07/29/2024
 ms.service: container-registry
 ---
 
-# Relocate an Azure Container Registry  to another region
+# Relocate an Azure Container Registry to another region
 
 This article shows you how to relocate Azure Container Registry resources to another region in the same subscription of the Active Directory tenant. 
 
@@ -65,11 +65,11 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 1. Retrieve any required images from the source registry for import into the target registry. To retrieve the images, run the following command:
 
-```azurecli
-
-Get-AzContainerRegistryRepository -RegistryName registry
-
-```
+    ```azurecli
+    
+    Get-AzContainerRegistryRepository -RegistryName registry
+    
+    ```
 
 1. Use [ACR Tasks](../container-registry/container-registry-tasks-overview.md) to retrieve automation configurations of the source registry for import into the target registry. 
 
@@ -82,7 +82,7 @@ To get started, export a Resource Manager template. This template contains setti
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
 
-    :::image type="content" source="media/relocation/container-registry/export-template.png" alt-text="Export template for container registry":::
+    :::image type="content" source="media/relocation/container-registry/export-template.png" alt-text="Screenshot of export template for container registry":::
 
 1. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
 

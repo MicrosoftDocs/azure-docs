@@ -12,7 +12,7 @@ Azure Private Link provides private connectivity from a virtual network to [Azur
 
 For a successful recreation of your resource in the target region, the VNet and Subnet must be created before the actual recreation occurs.
 
-### Considerations for Azure Private Endpoint DNS Integration
+### Considerations for Azure Private Endpoint DNS integration
 
 It’s important to correctly configure your DNS settings to resolve the private endpoint IP address to the fully qualified domain name (FQDN) of the connection string.
 
