@@ -359,7 +359,7 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 1. Use **Postman** to get the access token:
 
     > [!NOTE]
-    > Postman is a widely used applicatoin among developers for testing remote web APIs. However, there are some security and privacy risks associated with its usage. This article does not endorse the use of Postman for production environments. Please use it at your own risk.
+    > Postman is a used by some developers for testing remote web APIs. However, there are some security and privacy risks associated with its usage. This article does not endorse the use of Postman for production environments. Please use it at your own risk.
 
     1. Navigate to **Authorization** tab on the Postman Website.
     1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
