@@ -32,7 +32,7 @@ The following legacy connectors are deprecated, but new updated versions are ava
 
 ## Connectors to be deprecated on December 31, 2024
 
-The following connectors will be deprecated at the end of December, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following connectors are scheduled for deprecation at the end of December 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [Hive](connector-hive.md)
 - [Jira](connector-jira.md)
@@ -42,28 +42,28 @@ The following connectors will be deprecated at the end of December, 2024, and wi
 
 ## Connectors to be deprecated on March 31, 2025
 
-The following connectors will be deprecated at the end of March, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following connectors are scheduled for deprecation at the end of March 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [Drill](connector-drill.md)
 - [Presto](connector-presto.md)
 
 ## Connectors to be deprecated on November 30, 2024
 
-The following connectors will be deprecated at the end of November, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following connectors are scheduled for deprecation at the end of November 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [Square (Preview)](connector-square.md)
 - [Xero (Preview)](connector-xero.md)
 
 ## Connectors to be deprecated on September 30, 2024
 
-The following connectors will be deprecated at the end of September, 2024, and will not be replaced with updated connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
+The following connectors are scheduled for deprecation at the end of September 2024 and have no updated replacement connectors. You should plan to migrate to alternative solutions for linked services that use these connectors before the deprecation date.
 
 - [HubSpot](connector-hubspot.md)
 - [Vertica](connector-vertica.md)
 
 ## Connectors to be deprecated in the future with an as-yet unspecified date
 
-The following connectors will be deprecated in the future and will not be replaced with updated connectors, but do not yet have a confirmed deprecation date. You should plan to migrate to alternative solutions for linked services that use these connectors as soon as possible.
+The following connectors are scheduled for deprecation in the future and have no updated replacement connectors planned, but also have no confirmed deprecation date yet. You should plan to migrate to alternative solutions for linked services that use these connectors as soon as possible.
 
 - [Amazon Marketplace Web Service (MWS)](connector-amazon-marketplace-web-service.md)
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
