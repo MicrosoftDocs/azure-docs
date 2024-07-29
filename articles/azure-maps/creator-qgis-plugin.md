@@ -82,7 +82,7 @@ Some layers have a drop-down containing multiple layers within it, followed by t
 
 :::image type="content" source="./media/creator-indoor-maps/qgis/layers-example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
 
-This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
+This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. Since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
 
 > [!NOTE]
 > The geometry geometryCollection is not supported by QGIS.
