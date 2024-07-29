@@ -11,7 +11,7 @@
  ms.custom: include file
 ---
 
-To utilize the Azure BYOIP feature, you must perform the following steps prior to the provisioning of your IPv4 address range.
+To utilize the Azure BYOIP feature, you must perform the following steps before the provisioning of your IPv4 address range.
 
 ### Requirements and prefix readiness
 
@@ -22,13 +22,13 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     * [Latin America and Caribbean Network Information Centre (LACNIC)](https://www.lacnic.net/)
     * [African Network Information Centre (AFRINIC)](https://afrinic.net/)
 
-* The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
+* The address range must be no smaller than a /24 for Internet Service Providers to accept.
 
-* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry (RIR) website or via their API. The RIR will require the ROA to be digitally signed with the Resource Public Key Infrastructure (RPKI) of your RIR.
+* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry (RIR) website or via their API. The RIR requires the ROA to be digitally signed with the Resource Public Key Infrastructure (RPKI) of your RIR.
     
     For this ROA:
         
-    * The Origin AS must be listed as 8075 for the Public Cloud.  (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
+    * The Origin AS must be listed as 8075 for the Public Cloud. (If the range will be onboarded to the US Gov Cloud, the Origin AS must be listed as 8070.)
     
     * The validity end date (expiration date) needs to account for the time you intend to have the prefix advertised by Microsoft. Some RIRs don't present validity end date as an option and or choose the date for you.
     
@@ -65,7 +65,7 @@ The following steps show the steps required to prepare sample customer range (1.
 
     Instructions for each registry are below:
   
-    * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the "Comments" of the prefix record.
+    * [ARIN](https://www.arin.net/resources/registry/manage/netmod/) - edit the *Comments* of the prefix record.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
@@ -79,9 +79,9 @@ The following steps show the steps required to prepare sample customer range (1.
  
     :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment":::
     
-3. To create the message that will be passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated in the steps above. Use the format shown below, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
+3. To create the message passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated in the previous steps. Use the format that follows, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
-    Use the following command to create a signed message that will be passed to Microsoft for verification.  
+    Use the following command to create a signed message passed to Microsoft for verification.  
    
     > [!NOTE]
     > If the Validity End date was not included in the original ROA, pick a date that corresponds to the time you intend to have the prefix advertised by Azure.

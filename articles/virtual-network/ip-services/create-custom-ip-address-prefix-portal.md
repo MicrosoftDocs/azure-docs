@@ -51,7 +51,7 @@ The steps in this article detail the process to:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
-- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature.  For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+- Sign in to Azure PowerShell and ensure you've selected the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 - Ensure your `Az.Network` module is 5.1.1 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
 - A customer owned IPv4 range to provision in Azure.
     - A sample customer range (1.2.3.0/24) is used for this example. This range won't be validated by Azure. Replace the example range with yours.
@@ -94,7 +94,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroup**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myCustomIPPrefix**. |
     | Region | Select **West US 2**. |
@@ -157,7 +157,7 @@ When the custom IP prefix is in **Provisioned** state, update the prefix to begi
 
 2. Verify, and wait if necessary, for **myCustomIPPrefix** to be is listed in a **Provisioned** state.
 
-3.  In **Custom IP Prefixes**, select **myCustomIPPrefix**.
+3. In **Custom IP Prefixes**, select **myCustomIPPrefix**.
 
 4. In **Overview** of **myCustomIPPrefix**, select the **Commission** dropdown menu and choose **Globally**.
 
@@ -196,7 +196,7 @@ The following command creates a custom IP prefix in the specified region and res
     --authorization-message $byoipauth \
     --signed-message $byoipauthsigned
 ```
-The range will be pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:   
+The range is pushed to the Azure IP Deployment Pipeline. The deployment process is asynchronous. To determine the status, execute the following command:   
 
  ```azurecli-interactive
   az network custom-ip prefix show \
