@@ -228,7 +228,7 @@ Yes, as long as both caches have the same number of shards.
 
 ### Can I use geo-replication with my caches in a VNet?
 
-We recommend using using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
+We recommend using Azure Private Link over VNet injection in most cases. For more information see, [Migrate from VNet injection caches to Private Link caches](cache-vnet-migration.md).
 
 While it is still technically possible to use VNet injection when geo-replicating your caches, we recommend Azure Private Link.
 
