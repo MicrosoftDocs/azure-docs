@@ -54,7 +54,7 @@ The following table summarizes the Azure Storage data protection options accordi
 
 | Data protection option | Protects an account from deletion | Protects a container from deletion | Protects an object from deletion | Protects an object from overwrites |
 |--|--|--|--|--|
-| Azure Blob vaulted backup<br /><br />Roll-your-own solution for copying data to a second account<sup>7</sup> | No | Yes | Yes | Yes |
+| Azure Blob vaulted backup<br /> | No | Yes | Yes | Yes |
 | Azure Resource Manager lock | Yes | No<sup>1</sup> | No | No |
 | Immutability policy on a blob version | Yes<sup>2</sup> | Yes<sup>3</sup> | Yes | Yes<sup>4</sup> |
 | Immutability policy on a container | Yes<sup>5</sup> | Yes | Yes | Yes |
