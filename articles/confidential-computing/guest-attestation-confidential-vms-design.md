@@ -22,7 +22,7 @@ Azure confidential VMs utilize a vTPM-based design for the guest attestation. Th
 
 The guest attestation process involves two main steps: evidence generation and evidence verification. The Azure confidential VM generates vTPM evidence, which is then verified by a trusted party (e.g., [Microsoft Azure Attestation (MAA)](https://azure.microsoft.com/products/azure-attestation)).
 
-A relaying party, such as [Azure Key Vault Premium](../security/fundamentals/key-management.md) or [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md), can assess the trustworthiness of the Azure confidential VM based on the verification results. If the VM is deemed trustworthy, the relying party can securely provision secrets to the VM, using mechanisms like [Secure Key Release](concept-skr-attestation.md).
+A relying party, such as [Azure Key Vault Premium](../security/fundamentals/key-management.md) or [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md), can assess the trustworthiness of the Azure confidential VM based on the verification results. If the VM is deemed trustworthy, the relying party can securely provision secrets to the VM, using mechanisms like [Secure Key Release](concept-skr-attestation.md).
 
 ### vTPM Evidence
 
