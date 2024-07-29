@@ -34,35 +34,52 @@ The following sample script accomplishes these steps:
     - This step assumes that the workspace with the same name resource group and same values is still available. 
     - If not, recreate the dropped workspace with the same workspace name, resource group name, region, and all the same values from prior dropped workspace. 
     
-1. Construct the resource ID of the sql pool you wish to recover. The format requires `Microsoft.Sql`. This includes the date and time when the server was dropped.
+1. Construct a string the resource ID of the sql pool you wish to recover. The format requires `Microsoft.Sql`. This includes the date and time when the server was dropped.
 
 1. Restore the database from the dropped workspace. Restore to the target workspace with the source SQL pool.
 
 1. Verify the status of the recovered database as 'online'.
     
     ```powershell
-    $SubscriptionID="<YourSubscriptionID>"
-    $ResourceGroupName="<YourResourceGroupName>"
-    $WorkspaceName="<YourWorkspaceNameWithoutURLSuffixSeeNote>"  # Without sql.azuresynapse.net
-    $DatabaseName="<YourDatabaseName>"
-    $TargetResourceGroupName="<YourTargetResourceGroupName>" 
-    $TargetWorkspaceName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
-    $TargetDatabaseName="<YourDatabaseName>"
+    $SubscriptionID = "<YourSubscriptionID>"
+    $ResourceGroupName = "<YourResourceGroupName>"
+    $WorkspaceName = "<YourWorkspaceNameWithoutURLSuffixSeeNote>"  # Without sql.azuresynapse.net
+    $DatabaseName = "<YourDatabaseName>"
+    $TargetResourceGroupName = "<YourTargetResourceGroupName>"
+    $TargetWorkspaceName = "<YourtargetServerNameWithoutURLSuffixSeeNote>"
+    $TargetDatabaseName = "<YourDatabaseName>"
     
     Connect-AzAccount
     Set-AzContext -SubscriptionID $SubscriptionID
     
-    # Get the exact date and time the workspace SQL pool was dropped. 
+    # Get the exact date and time the workspace SQL pool was dropped.
     # This assumes that the workspace with the same name resource group and same values is still available.
-    # If not, recreate the dropped workspace with the same workspace name, resource group name, region, and all the same values from prior dropped workspace. 
+    # If not, recreate the dropped workspace with the same workspace name, resource group name, region, 
+    # and all the same values from prior dropped workspace.
     # There should only be one selection to select from.
-    $DroppedDateTime = Get-AzSynapseDroppedSqlPool -ResourceGroupName $ResourceGroupName -WorkspaceName $WorkspaceName -Name $DatabaseName | Select-Object -ExpandProperty DeletionDate
-  
-    # Construct the resource ID of the sql pool you wish to recover. The format requires Microsoft.Sql. This includes the approximate date time the server was dropped.
-    $SourceDatabaseID = "/subscriptions/"+$SubscriptionID+"/resourceGroups/"+$ResourceGroupName+"/providers/Microsoft.Sql/servers/"+$WorkspaceName+"/databases/"+$DatabaseName
+    $paramsGetDroppedSqlPool = @{
+        ResourceGroupName = $ResourceGroupName
+        WorkspaceName     = $WorkspaceName
+        Name              = $DatabaseName
+    }
+    $DroppedDateTime = Get-AzSynapseDroppedSqlPool @paramsGetDroppedSqlPool `
+        | Select-Object -ExpandProperty DeletionDate
     
+    # Construct a string of the resource ID of the sql pool you wish to recover.
+    # The format requires Microsoft.Sql. This includes the approximate date time the server was dropped.
+    $SourceDatabaseID = "/subscriptions/$SubscriptionID/resourceGroups/$ResourceGroupName/providers/" `
+                    + "Microsoft.Sql/servers/$WorkspaceName/databases/$DatabaseName"    
+
     # Restore to the target workspace with the source SQL pool.
-    $RestoredDatabase = Restore-AzSynapseSqlPool -FromDroppedSqlPool -DeletionDate $DroppedDateTime -TargetSqlPoolName $TargetDatabaseName -ResourceGroupName $TargetResourceGroupName -WorkspaceName $TargetWorkspaceName -ResourceId $SourceDatabaseID
+    $paramsRestoreSqlPool = @{
+        FromDroppedSqlPool  = $true
+        DeletionDate        = $DroppedDateTime
+        TargetSqlPoolName   = $TargetDatabaseName
+        ResourceGroupName   = $TargetResourceGroupName
+        WorkspaceName       = $TargetWorkspaceName
+        ResourceId          = $SourceDatabaseID
+    }
+    $RestoredDatabase = Restore-AzSynapseSqlPool @paramsRestoreSqlPool
     
     # Verify the status of restored database
     $RestoredDatabase.status
