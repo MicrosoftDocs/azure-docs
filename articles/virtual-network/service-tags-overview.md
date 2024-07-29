@@ -5,7 +5,7 @@ description: Learn about service tags. Service tags help minimize the complexity
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/10/2024
 ms.author: allensu
 ---

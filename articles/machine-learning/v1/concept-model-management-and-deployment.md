@@ -98,7 +98,7 @@ For more information on ONNX with Azure Machine Learning, see the [Create and ac
 
 ### Use models
 
-Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, GPU, or field-programmable gate arrays (FPGA) for inferencing. You can also use models from Power BI.
+Trained machine learning models are deployed as web services in the cloud or locally. Deployments use CPU, or GPU for inferencing. You can also use models from Power BI.
 
 When using a model as a web service, you provide the following items:
 

@@ -12,9 +12,13 @@ ms.author: eur
 
 # How to create human-labeled transcriptions
 
-Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced. This guide can help you create high-quality transcriptions. 
+Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to evaluate model accuracy and to improve recognition accuracy, especially when words are deleted or incorrectly replaced. This guide can help you create high-quality transcriptions. 
 
-A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service uses up to 20 hours of audio for training. This guide has sections for US English, Mandarin Chinese, and German locales.
+A representative sample of transcription data is recommended to evaluate model accuracy. The data should cover various speakers and utterances that are representative of what users say to the application. For test data, the maximum duration of each individual audio file is 2 hours.
+
+A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 100 hours of audio data. The Speech service uses up to 100 hours of audio for training (up to 20 hours for older models that don't charge for training). Each individual audio file shouldn't be longer than 40 seconds (up to 30 seconds for Whisper customization).
+
+This guide has sections for US English, Mandarin Chinese, and German locales.
 
 The transcriptions for all WAV files are contained in a single plain-text file (.txt or .tsv). Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
 
@@ -38,7 +42,7 @@ Here are a few examples:
 
 | Characters to avoid | Substitution | Notes |
 | ------------------- | ------------ | ----- |
-| “Hello world” | "Hello world" | The opening and closing quotations marks are substituted with appropriate ASCII characters. |
+| "Hello world" | "Hello world" | The opening and closing quotations marks are substituted with appropriate ASCII characters. |
 | John’s day | John's day | The apostrophe is substituted with the appropriate ASCII character. |
 | It was good—no, it was great! | it was good--no, it was great! | The em dash is substituted with two hyphens. |
 
@@ -48,7 +52,7 @@ Text normalization is the transformation of words into a consistent format used 
 
 - Write out abbreviations in words.
 - Write out nonstandard numeric strings in words (such as accounting terms).
-- Non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
+- Nonalphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 - Abbreviations that are pronounced as words shouldn't be edited (such as "radar", "laser", "RAM", or "NATO").
 - Write out abbreviations that are pronounced as separate letters with each letter separated by a space.
 - If you use audio, transcribe numbers as words that match the audio (for example, "101" could be pronounced as "one oh one" or "one hundred and one").

@@ -80,11 +80,14 @@ Kubernetes AI Toolchain Operator (KAITO) is an open-source operator that automat
 
 For more information, see [Deploy an AI model on AKS with the AI toolchain operator][ai-toolchain-operator]. To get started with a range of supported small and large language models for your inference workflows, see the [KAITO model GitHub repository][kaito-repo].
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Next steps
 
 To learn more about containerized AI and machine learning workloads on AKS, see the following articles:
 
 * [Use KAITO to forecast energy usage with intelligent apps][forecast-energy-usage]
+* [Concepts - Fine-tuning language models][fine-tune-language-models]
 * [Build and deploy data and machine learning pipelines with Flyte on AKS][flyte-aks]
 
 <!-- LINKS -->
@@ -92,3 +95,4 @@ To learn more about containerized AI and machine learning workloads on AKS, see 
 [forecast-energy-usage]: https://azure.github.io/Cloud-Native/60DaysOfIA/forecasting-energy-usage-with-intelligent-apps-1/
 [flyte-aks]: ./use-flyte.md
 [kaito-repo]: https://github.com/Azure/kaito/tree/main/presets
+[fine-tune-language-models]: ./concepts-fine-tune-language-models.md

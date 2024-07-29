@@ -81,7 +81,7 @@ Basic logs have a reduced price and are charged at a flat rate per GB. They have
 - Eight-day retention
 - No support for scheduled alerts
 
-Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/basic-logs-configure.md).
+Basic logs are best suited for use in playbook automation, ad-hoc querying, investigations, and search. For more information, see [Configure Basic Logs in Azure Monitor](../azure-monitor/logs/logs-table-plans.md).
 
 ### Simplified pricing tiers
 
@@ -199,8 +199,8 @@ Any other services you use might have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-archive.md#configure-retention-and-archive-at-the-table-level). 
-- Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md). Archived logs are in public preview.
+- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-configure.md#configure-table-level-retention). 
+- Enable long-term retention for your data and have access to historical logs by enabling archived logs. Data archive is a low-cost retention layer for archival storage. It's charged based on the volume of data stored and scanned. Learn how to [configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md). Archived logs are in public preview.
 
 The 90 day retention doesn't apply to basic logs. If you want to extend data retention for basic logs beyond eight days, store that data in archived logs for up to seven years.
 

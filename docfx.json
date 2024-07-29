@@ -1195,10 +1195,20 @@
         "articles/ai-services/**/*.yml": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.md": "ce-skilling-ai-copilot",
         "articles/ai-studio/**/*.yml": "ce-skilling-ai-copilot",
+        "articles/copilot/*.md": "ce-skilling-ai-copilot",
+        "articles/copilot/*.yml": "ce-skilling-ai-copilot",
         "articles/search/**/*.md": "ce-skilling-ai-copilot",
         "articles/search/**/*.yml": "ce-skilling-ai-copilot",
         "articles/machine-learning/*.md": "ce-skilling-ai-copilot",
-        "articles/machine-learning/*.yml": "ce-skilling-ai-copilot"
+        "articles/machine-learning/.yml": "ce-skilling-ai-copilot",
+        "articles/machine-learning/component-reference/*.md": "ce-skilling-ai-copilot",
+        "articles/machine-learning/component-reference/*.yml": "ce-skilling-ai-copilot",
+        "articles/machine-learning/component-reference-v2/*.md": "ce-skilling-ai-copilot",
+        "articles/machine-learning/component-reference-v2/*.yml": "ce-skilling-ai-copilot",
+        "articles/machine-learning/prompt-flow/*.md": "ce-skilling-ai-copilot",
+        "articles/machine-learning/prompt-flow/*.yml": "ce-skilling-ai-copilot",
+        "articles/machine-learning/v1/*.md": "ce-skilling-ai-copilot",
+        "articles/machine-learning/v1/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "advisor",

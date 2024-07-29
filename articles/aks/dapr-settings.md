@@ -374,7 +374,9 @@ The Dapr extension requires the following outbound URLs on `https://:443` to fun
 
 ## Next Steps
 
-Once you successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
+- [Walk through the tutorial for deploying Dapr Workflow via the extension][dapr-workflow]
+- [Determine if you need to migrate from Dapr open source to the Dapr extension][dapr-migration].
+
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
@@ -389,7 +391,7 @@ Once you successfully provisioned Dapr in your AKS cluster, try deploying a [sam
 [dapr-migration]: ./dapr-migration.md
 [dapr-settings]: ./dapr-settings.md
 [aks-azurelinux]: ./cluster-configuration.md#azure-linux-container-host-for-aks
-
+[dapr-workflow]: ./dapr-workflow.md
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production

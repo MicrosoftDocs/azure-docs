@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2, update-code6
+ms.custom: cliv2, update-code7
 
 author: Blackmist
 ms.author: larryfr

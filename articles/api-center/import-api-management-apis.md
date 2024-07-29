@@ -22,7 +22,7 @@ This article shows two options for using the Azure CLI to add APIs to your API c
     * Run [az apic api register](/cli/azure/apic/api#az-apic-api-register) to register a new API in your API center.
     * Run [az apic api definition import-specification](/cli/azure/apic/api/definition#az-apic-api-definition-import-specification) to import the API definition to an existing API.
 
-* **Option 2** - Import APIs directly from API Management to your API center using the [az apic import-from-apim](/cli/azure/apic/az-apic-import-from-apim) command.
+* **Option 2** - Import APIs directly from API Management to your API center using the [az apic import-from-apim](/cli/azure/apic#az-apic-import-from-apim) command.
     
 After importing API definitions or APIs from API Management, you can add metadata and documentation in your API center to help stakeholders discover, understand, and consume the API.
 

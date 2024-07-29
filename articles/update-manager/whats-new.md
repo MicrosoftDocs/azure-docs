@@ -5,12 +5,18 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/05/2024
+ms.date: 07/24/2024
 ---
 
 # What's new in Azure Update Manager
 
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
+
+## July 2024
+
+### Support for Windows IoT Enterprise on Arc enabled IaaS VMs
+
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled IaaS VMs. For more information, see [supported Windows IoT enterprise releases](https://learn.microsoft.com/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 

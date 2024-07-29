@@ -1,7 +1,7 @@
 ---
 title: Create Azure Synapse Link for SQL Server 2022
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
-author: SnehaGunda
+author: whhender
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link

@@ -188,9 +188,7 @@ The cloud staging tasks that run on your Azure-SSIS IR are not be billed separat
 
 ## Enforce TLS 1.2
 
-If you need to access data stores that have been configured to use only the strongest cryptography/most secure network protocol (TLS 1.2), including your Azure Blob Storage for staging, you must enable only TLS 1.2 and disable older SSL/TLS versions at the same time on your self-hosted IR. To do so, you can download and run the *main.cmd* script that we provide in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview blob container. Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview blob container by entering the following SAS URI:
-
-`https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
+If you need to access data stores that have been configured to use only the strongest cryptography/most secure network protocol (TLS 1.2), including your Azure Blob Storage for staging, you must enable only TLS 1.2 and disable older SSL/TLS versions at the same time on your self-hosted IR. To do so, you can download and run the *main.cmd* script from https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/SQLServerIntegrationServices/publicpreview/CustomSetupScript/UserScenarios/TLS%201.2.
 
 ## Current limitations
 

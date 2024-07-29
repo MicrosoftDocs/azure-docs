@@ -71,7 +71,7 @@ For a more detailed overview of reliability principles in Azure, see [Reliabilit
 |Azure Disk Encryption|[Redundancy options for managed disks](../virtual-machines/disks-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)||
 |Azure DNS|[Reliability in Azure DNS](reliability-dns.md)|[Reliability in Azure DNS](reliability-dns.md)|
 |Microsoft Entra Domain Services|| [Create replica set](../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
-|Azure Event Grid|[In-region recovery using availability zones and geo-disaster recovery across regions](../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)| [In-region recovery using availability zones and geo-disaster recovery across regions](../event-grid/availability-zones-disaster-recovery.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json) |
+|Azure Event Grid|[Reliability in Azure Event Grid](./reliability-event-grid.md)| [Reliability in Azure Event Grid](./reliability-event-grid.md) |
 |Azure Firewall|[Deploy an Azure Firewall with Availability Zones using Azure PowerShell](../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)||
 |Azure Firewall Manager|[Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json)|
 |Azure Functions|[Azure Functions](reliability-functions.md)| [Azure Functions](reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) |

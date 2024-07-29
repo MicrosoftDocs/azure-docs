@@ -24,6 +24,8 @@ This article shows you how to use the open-source [kured (KUbernetes REboot Daem
 > [!NOTE]
 > `Kured` is an open-source project in the Cloud Native Computing Foundation. Please direct issues to the [kured GitHub][kured]. Additional support can be found in the #kured channel on [CNCF Slack](https://slack.cncf.io).
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Before you begin
 
 You need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].

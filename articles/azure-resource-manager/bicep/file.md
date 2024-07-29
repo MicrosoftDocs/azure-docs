@@ -221,11 +221,47 @@ Some resources have a parent/child relationship. You can define a child resource
 
 The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that is defined within the storage account. The file service also has a child resource (share) that is defined within it.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+
+  resource service 'fileServices' = {
+    name: 'default'
+
+    resource share 'shares' = {
+      name: 'exampleshare'
+    }
+  }
+}
+```
 
 The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+  name: 'default'
+  parent: storage
+}
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+  name: 'exampleshare'
+  parent: service
+}
+```
 
 For more information, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 

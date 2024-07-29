@@ -70,7 +70,7 @@ In this section you'll, give your Azure AI Search service permission to read dat
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select the appropriate **Reader** role.
 

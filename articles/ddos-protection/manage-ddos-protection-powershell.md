@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.date: 05/29/2024
+ms.date: 07/17/2024
 ms.author: abell
 ms.custom: devx-track-azurepowershell, mode-api
 ---

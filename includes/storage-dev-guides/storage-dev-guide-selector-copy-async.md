@@ -17,3 +17,4 @@ ms.custom: include file
 > - [JavaScript](../../articles/storage/blobs/storage-blob-copy-async-javascript.md)
 > - [TypeScript](../../articles/storage/blobs/storage-blob-copy-async-typescript.md)
 > - [Python](../../articles/storage/blobs/storage-blob-copy-async-python.md)
+> - [Go](../../articles/storage/blobs/storage-blob-copy-async-go.md)

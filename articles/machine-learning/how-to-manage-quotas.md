@@ -183,7 +183,7 @@ For example, consider a subscription with a US East total VM core limit of 30, a
 
 You can't raise limits for virtual machines above the values shown in the following table.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Container Instances
 

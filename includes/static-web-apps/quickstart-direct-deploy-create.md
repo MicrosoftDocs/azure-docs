@@ -46,7 +46,7 @@ You can create a static web app using the Azure portal, [Azure CLI][az2], [Azure
     az staticwebapp create -n swa-demo-site -g swa-tutorial --query "defaultHostname"
     ```
 
-    The `-g` parameter refers to the name of the Azure resource. Make sure you specify the same resource group name as in the previous step. Your static web app is globally distributed, so the location isn't important to how you deploy your app.
+    The `-n` parameter refers to the site name, and the `-g` parameter refers to the name of the Azure resource group. Make sure you specify the same resource group name as in the previous step. Your static web app is globally distributed, so the location isn't important to how you deploy your app.
 
     The command is configured to return the URL of your web app. You can copy the value from your terminal window to your browser to view your deployed web app.
 

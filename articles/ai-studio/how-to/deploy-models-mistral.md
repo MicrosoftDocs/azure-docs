@@ -1,7 +1,7 @@
 ---
 title: How to deploy Mistral family of models with Azure AI Studio
 titleSuffix: Azure AI Studio
-description: Learn how to deploy Mistral Large with Azure AI Studio.
+description: Learn how to deploy Mistral family of models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
@@ -20,8 +20,10 @@ ms.custom: references_regions, build-2024
 In this article, you learn how to use Azure AI Studio to deploy the Mistral family of models as serverless APIs with pay-as-you-go token-based billing.
 Mistral AI offers two categories of models in the [Azure AI Studio](https://ai.azure.com). These models are available in the [model catalog](model-catalog-overview.md):
 
-* __Premium models__: Mistral Large and Mistral Small. These models can be deployed as serverless APIs with pay-as-you-go token-based billing.
-* __Open models__: Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. These models can be deployed to managed computes in your own Azure subscription.
+* __Premium models__: Mistral Large (2402), Mistral Large (2407), and Mistral Small. 
+* __Open models__: Mistral Nemo, Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01. 
+
+All the premium models and Mistral Nemo (an open model) can be deployed as serverless APIs with pay-as-you-go token-based billing. The other open models can be deployed to managed computes in your own Azure subscription.
 
 You can browse the Mistral family of models in the model catalog by filtering on the Mistral collection.
 
@@ -29,14 +31,25 @@ You can browse the Mistral family of models in the model catalog by filtering on
 
 # [Mistral Large](#tab/mistral-large)
 
-Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities.
+Mistral Large is Mistral AI's most advanced Large Language Model (LLM). It can be used on any language-based task, thanks to its state-of-the-art reasoning and knowledge capabilities. There are two variants available for the Mistral Large model version:
 
-Additionally, Mistral Large is:
+- Mistral Large (2402)
+- Mistral Large (2407)
+
+Additionally, some attributes of _Mistral Large (2402)_ include:
 
 * __Specialized in RAG.__ Crucial information isn't lost in the middle of long context windows (up to 32-K tokens).
 * __Strong in coding.__ Code generation, review, and comments. Supports all mainstream coding languages.
 * __Multi-lingual by design.__ Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
 * __Responsible AI compliant.__ Efficient guardrails baked in the model and extra safety layer with the `safe_mode` option.
+
+And attributes of _Mistral Large (2407)_ include:
+
+- **Multi-lingual by design.** Supports dozens of languages, including English, French, German, Spanish, and Italian.
+- **Proficient in coding.** Trained on more than 80 coding languages, including Python, Java, C, C++, JavaScript, and Bash. Also trained on more specific languages such as Swift and Fortran.
+- **Agent-centric.** Possesses agentic capabilities with native function calling and JSON outputting.
+- **Advanced in reasoning.**  Demonstrates state-of-the-art mathematical and reasoning capabilities.
+
 
 # [Mistral Small](#tab/mistral-small)
 
@@ -44,11 +57,25 @@ Mistral Small is Mistral AI's most efficient Large Language Model (LLM). It can 
 
 Mistral Small is:
 
-- **A small model optimized for low latency.** Very efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency. 
+- **A small model optimized for low latency.** Efficient for high volume and low latency workloads. Mistral Small is Mistral's smallest proprietary model, it outperforms Mixtral-8x7B and has lower latency. 
 - **Specialized in RAG.** Crucial information isn't lost in the middle of long context windows (up to 32K tokens).
 - **Strong in coding.** Code generation, review, and comments. Supports all mainstream coding languages.
 - **Multi-lingual by design.** Best-in-class performance in French, German, Spanish, Italian, and English. Dozens of other languages are supported.
 - **Responsible AI compliant.** Efficient guardrails baked in the model, and extra safety layer with the `safe_mode` option.
+
+
+# [Mistral Nemo](#tab/mistral-nemo)
+
+Mistral Nemo is a cutting-edge Language Model (LLM) boasting state-of-the-art reasoning, world knowledge, and coding capabilities within its size category.
+
+Mistral Nemo is a 12B model, making it a powerful drop-in replacement for any system using Mistral 7B, which it supersedes. It supports a context length of 128K, and it accepts only text inputs and generates text outputs.
+
+Additionally, Mistral Nemo is:
+
+- **Jointly developed with Nvidia.** This collaboration has resulted in a powerful 12B model that pushes the boundaries of language understanding and generation.
+- **Multilingual proficient.** Mistral Nemo is equipped with a tokenizer called Tekken, which is designed for multilingual applications. It supports over 100 languages, such as English, French, German, and Spanish. Tekken is more efficient than the Llama 3 tokenizer in compressing text for approximately 85% of all languages, with significant improvements in Malayalam, Hindi, Arabic, and prevalent European languages.
+- **Agent-centric.** Mistral Nemo possesses top-tier agentic capabilities, including native function calling and JSON outputting.
+- **Advanced in reasoning.** Mistral Nemo demonstrates state-of-the-art mathematical and reasoning capabilities within its size category.
 
 ---
 
@@ -56,7 +83,7 @@ Mistral Small is:
 
 Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-**Mistral Large** and **Mistral Small** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
+**Mistral Large (2402)**, **Mistral Large (2407)**, **Mistral Small**, and **Mistral Nemo** can be deployed as a serverless API with pay-as-you-go billing and are offered by Mistral AI through the Microsoft Azure Marketplace. Mistral AI can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
@@ -78,13 +105,13 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ### Create a new deployment
 
-The following steps demonstrate the deployment of Mistral Large, but you can use the same steps to deploy Mistral Small by replacing the model name.
+The following steps demonstrate the deployment of Mistral Large (2402), but you can use the same steps to deploy Mistral Nemo or any of the premium Mistral models by replacing the model name.
 
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
 1. Select **Model catalog** from the left sidebar.
-1. Search for and select **Mistral-large** to open its Details page.
+1. Search for and select the Mistral Large (2402) model to open its Details page.
 
     :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/mistral/mistral-large-deploy-directly-from-catalog.png"::: 
 
@@ -93,7 +120,7 @@ To create a deployment:
 
     1. From the left sidebar of your project, select **Components** > **Deployments**.
     1. Select **+ Create deployment**.
-    1. Search for and select **Mistral-large**. to open the Model's Details page.
+    1. Search for and select the Mistral Large (2402) model to open the Model's Details page.
 
        :::image type="content" source="../media/deploy-monitor/mistral/mistral-large-deploy-starting-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/mistral/mistral-large-deploy-starting-from-project.png"::: 
 
@@ -121,7 +148,7 @@ To learn about billing for the Mistral AI model deployed as a serverless API wit
 
 ### Consume the Mistral family of models as a service
 
-You can consume Mistral family models by using the chat API.
+You can consume Mistral models by using the chat API.
 
 1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 

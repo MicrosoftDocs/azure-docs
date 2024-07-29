@@ -180,7 +180,7 @@ Finally, use this command to test your trained model by uploading a new image fo
 * Replace `{projectId}` with your own project ID.
 * Replace `{publishedName}` with the name you used in the previous step.
 * Add the binary data of your local image to the request body.
-* Optionally use other URL parameters. See the [Classify Image](/rest/api/customvision/prediction/image-classifier/classify-image?view=rest-customvision-prediction-v3.1&tabs=HTTP) API.
+* Optionally use other URL parameters. See the [Classify Image](/rest/api/customvision/training/train-project/train-project) API.
 
 The returned JSON response will list each of the tags that the model applied to your image, along with probability scores for each tag. 
 
@@ -218,4 +218,4 @@ Now you've done every step of the image classification process using the REST AP
 
 * [What is Custom Vision?](../../overview.md)
 * [API reference documentation (training)](/dotnet/api/overview/azure/custom-vision)
-* [API reference documentation (prediction)](/rest/api/customvision/prediction/operation-groups?view=rest-customvision-prediction-v3.1)
+* [API reference documentation (prediction)](/rest/api/customvision/predictions)

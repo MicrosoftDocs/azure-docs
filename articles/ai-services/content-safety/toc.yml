@@ -23,6 +23,8 @@ items:
     href: quickstart-groundedness.md
   - name: Protected material detection (preview)
     href: quickstart-protected-material.md
+  - name: Custom categories
+    href: quickstart-custom-categories.md
   - name: Content Safety Studio
     href: studio-quickstart.md
   - name: Text moderation
@@ -43,6 +45,8 @@ items:
     href: /legal/cognitive-services/content-safety/data-privacy?context=/azure/ai-services/content-safety/context/context
 - name: How-to guides
   items:
+  - name: Use custom categories
+    href: how-to/custom-categories.md
   - name: Use a blocklist
     href: how-to/use-blocklist.md
   - name: Handle harmful content incidents
@@ -63,8 +67,8 @@ items:
     href: concepts/groundedness.md
   - name: Protected material detection
     href: concepts/protected-material.md
-  - name: Custom categories (rapid)
-    href: concepts/custom-categories-rapid.md
+  - name: Custom categories
+    href: concepts/custom-categories.md
   - name: Harm categories
     href: concepts/harm-categories.md
 - name: Reference

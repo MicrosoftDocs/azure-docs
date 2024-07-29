@@ -78,7 +78,7 @@ If you turn on a normalization setting, scores in the  **Test**  pane, batch tes
 
 When you clone a version in the LUIS portal, the version settings are kept in the new cloned version.
 
-Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](/rest/api/cognitiveservices-luis/authoring/versions/update?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true). See the  [Reference](../luis-reference-application-settings.md) documentation for more information.
+Set your app's version settings using the LUIS portal by selecting **Manage**  from the top navigation menu, in the  **Application Settings**  page. You can also use the [Update Version Settings API](/rest/api/luis/settings/update). See the  [Reference](../luis-reference-application-settings.md) documentation for more information.
 
 ## Word forms
 
@@ -108,7 +108,7 @@ If you want to ignore specific words or punctuation in patterns, use a [pattern]
 
 ## Training with all utterances
 
-Training is nondeterministic: utterance prediction can vary slightly across versions or apps. You can remove nondeterministic training by updating the [version settings](/rest/api/cognitiveservices-luis/authoring/settings/update?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) API with the UseAllTrainingData name/value pair to use all training data.
+Training is nondeterministic: utterance prediction can vary slightly across versions or apps. You can remove nondeterministic training by updating the [version settings](/rest/api/luis/settings/update) API with the UseAllTrainingData name/value pair to use all training data.
 
 ## Testing utterances
 

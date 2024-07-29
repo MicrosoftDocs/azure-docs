@@ -41,7 +41,7 @@ sections:
           * Virtual Machine Scale Sets
           * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#security-benefits-for-azure-services)
 
-          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and [multicloud resources](multicloud.yml), including Amazon AWS and Google Cloud.
+          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and multicloud resources, including Amazon AWS and Google Cloud.
           
           
       - question: |
@@ -359,7 +359,7 @@ sections:
 
           :::image type="content" source="media/faq-general/change-region.png" alt-text="Screenshot that shows a change in region.":::
         
-          When configuring permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
+          When you configure permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
           
           :::image type="content" source="media/faq-general/permission-types.png" alt-text="Screenshot that shows selecting permission types.":::
 

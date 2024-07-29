@@ -20,7 +20,7 @@ This article describes the conditions and limitations for using tags. For steps 
 
 ## Tag usage and recommendations
 
-You can apply tags to your Azure resources, resource groups, and subscriptions.
+You can apply tags to your Azure resources, resource groups, and subscriptions, but not to management groups.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
@@ -60,6 +60,12 @@ You can use tags to group your billing data. If you're running multiple VMs for 
 You can retrieve information about tags by downloading the usage file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
+
+## Unique tags pagination 
+
+When calling the [Unique Tags API](/rest/api/resources/tags/list) there is a limit to the size of each API response page that is returned. A tag that has a large set of unique values will require the API to fetch the next page to retrieve the remaining set of values. When this happens the tag key is shown again to indicate that the values are still under this key.  
+
+This can result in some tools, like the Azure portal, to show the tag key twice.  
 
 ## Limitations
 

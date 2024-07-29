@@ -71,7 +71,7 @@ A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
 - **ReadOnly mode** - When the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
 
-- **Default mode** - The ***ReadOnly mode*** is now the default mode for connected registries. This change is likely due to security concerns and customer preferences. Starting with CLI version 2.60.0, the default mode is ReadOnly.
+- **Default mode** - The ***ReadOnly mode*** is now the default mode for connected registries. This change aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
 
 ### Registry hierarchy
 
