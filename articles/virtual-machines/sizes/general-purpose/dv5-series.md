@@ -46,7 +46,7 @@ vCPUs (Qty.) and Memory for each size
 | Standard_D96_v5 | 96 | 384 |
 
 #### VM Basics resources
-- [What are vCPUs (Qty.) (Qty.)](../../../virtual-machines/managed-disks-overview.md)
+- [What are vCPUs](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
 ### [Local Storage](#tab/sizestoragelocal)
