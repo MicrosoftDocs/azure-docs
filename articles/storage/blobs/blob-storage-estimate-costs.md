@@ -39,8 +39,8 @@ To calculate the point at which reserved capacity begins to make sense, divide t
 |------------------------------------------------------|-------------|---------|---------|
 | Monthly price per GB of Data storage (pay-as-you-go) | $0.0208     | $0.0115 | $0.002  |
 | Price for 100 TB of reserved storage                 | $1,747      | $966    | $183    |
-| Break even for 1-year reserved capacity              | 84 TB<sup>1 | 82 TB   | 89 TB   |
-| Break even for 3-year reserved capacity              | 67 TB<sup>1 | 76 TB   | 84 TB   |
+| Break even for 1-year reserved capacity              | 82 TB<sup>1 | 82 TB   | 89 TB   |
+| Break even for 3-year reserved capacity              | 66 TB<sup>1 | 74 TB   | 82 TB   |
 
 <sup>1</sup>The hot tier has multiple pay-as-you-go rates. The price of the first 50TB and the price of the second 50TB are factored into this calculation.<br />
 
@@ -87,7 +87,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | Price of a single write operation to the Blob Service endpoint (price / 10,000)             | $0.0000055  | $0.00001   | $0.000018 |
 | **Cost to rename blob virtual directories (1000 * operation price)**                        | **$0.0055** | **$0.01**  | **$.018** |
 | Price of a single iterative write operation to the Data Lake Storage endpoint (price / 100) | $0.000715   | $0.000715  | $0.000715 |
-| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715**  | **$0.715** | **0.715** |
+| **Cost to rename Data Lake Storage directories (1000 * operation price)**                   | **$0.715**  | **$0.715** | **$0.715** |
 
 Based on these calculations, the cost to rename 1000 blobs in the hot tier differs by **70** cents.
 
@@ -171,7 +171,7 @@ The following table includes sample prices (fictitious) prices for each request 
 
 | Price factor                                                    | Hot     | Cool    | Cold          | Archive |
 |-----------------------------------------------------------------|---------|---------|---------------|---------|
-| Price of write operations (every 4MiB, per 10,000)              | $0.0715 | $0.13   | $0.234        | $0.143  |
+| Price of write operations (every 4MiB, per 10,000)              | $0.07120 | $0.13   | $0.234        | $0.143  |
 | Price of read operations (every 4MiB, per 10,000)               | $0.0057 | $0.013  | $0.13         | $7.15   |
 | Iterative write operations (per 100)                            | $0.0715 | $0.0715 | $0.0715       | $0.0715 |
 | Iterative read operations (per 10,000)                          | $0.0715 | $0.0715 | $0.0845       | $0.0715 |
