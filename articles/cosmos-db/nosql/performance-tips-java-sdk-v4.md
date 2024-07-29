@@ -45,7 +45,7 @@ An app that interacts with a multi-region Azure Cosmos DB account needs to confi
 
 ## High availability
 
-For general guidance on configuring high availability in Azure Cosmos DB, see [High availability in Azure Cosmos DB](https://learn.microsoft.com/azure/reliability/reliability-cosmos-db-nosql). 
+For general guidance on configuring high availability in Azure Cosmos DB, see [High availability in Azure Cosmos DB](../../reliability/reliability-cosmos-db-nosql.md). 
 
 In addition to a good foundational setup in the database platform, there are specific techniques that can be implemented in the Java SDK itself which can help in outage scenarios. Two notable strategies are the threshold-based availability strategy and the partition-level circuit breaker.
 
