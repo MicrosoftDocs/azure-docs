@@ -9,15 +9,9 @@ ms.date: 03/20/2024
 # Authenticate modes for capturing events to destinations in Azure Event Hubs
 Azure Event Hubs allows you to select different authentication modes when capturing events to a destination such as [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice. The authentication mode determines how the capture agent running in Event Hubs authenticate with the capture destination. 
 
-## SAS based authentication 
-The default authentication method is to use Shared Access Signature(SAS) to access the capture destination from Event Hubs service. 
+## Use managed identity
 
-:::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-default.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using default SAS authentication mode":::
-
-With this approach, you can capture data to destinations resources that are in the **same subscription** only. 
-
-## Use managed identity 
-With [managed identity](../active-directory/managed-identities-azure-resources/overview.md), users can seamlessly capture data to a preferred destination by using Microsoft Entra ID based authentication and authorization. 
+[Managed identity](../active-directory/managed-identities-azure-resources/overview.md) is the preferred way to seamlessly access the capture destination from your Event Hub, using Microsoft Entra ID based authentication and authorization.
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture-msi.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using Managed Identity":::
 
