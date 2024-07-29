@@ -71,9 +71,9 @@ Newer services created after April 3, 2024 support [higher quotas for vector ind
 
 Vector search is available in:
 
-+ Azure portal using the [Import and vectorize data wizard](search-get-started-portal-import-vectors.md)
-+ Azure REST APIs, [version 2023-11-01](/rest/api/searchservice/operation-groups)
-+ Azure SDKs for [.NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/12.0.0-beta.2)
++ [Azure portal: Import and vectorize data wizard](search-get-started-portal-import-vectors.md)
++ [Azure REST APIs](/rest/api/searchservice/operation-groups)
++ [Azure SDKs for .NET](https://www.nuget.org/packages/Azure.Search.Documents), [Python](https://pypi.org/project/azure-search-documents), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents)
 + Other Azure offerings such as Azure AI Studio and Azure OpenAI Studio.
 
 > [!NOTE]
@@ -130,11 +130,7 @@ Azure AI Search currently supports the following algorithms:
 
 + Exhaustive K-nearest neighbors (KNN): Calculates the distances between the query vector and all data points. It's computationally intensive, so it works best for smaller datasets. Because the algorithm doesn't require fast random access of data points, this algorithm doesn't consume vector index size quota. However, this algorithm provides the global set of nearest neighbors.
 
-Within an index definition, you can specify one or more algorithms, and then for each vector field specify which algorithm to use:
-
-+ [Create a vector store](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
-
-+ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview APIs, or Azure SDK beta libraries that target either REST API version.
+To use these algorithms, see [Create a vector field](vector-search-how-to-create-index.md) for instructions on specifying the algorithm, vector profiles, and profile assignment.
 
 Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 
