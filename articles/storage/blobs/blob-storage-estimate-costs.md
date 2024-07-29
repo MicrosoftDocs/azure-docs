@@ -110,22 +110,22 @@ Based on these calculations, the cost to rename 1000 directories in the hot tier
 
 ## Example: Upload, download, and change access tiers
 
-The example in this section shows four months of spending based uploads, downloads, and the impact of moving objects between access tiers. 
-
-> [!NOTE]
-> These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
+This example shows four months of spending based uploads, downloads, and the impact of moving objects between tiers. 
 
 ### Parameters
 
-Each month, 1000 files are uploaded to the hot access tier. Each file is 5 GB in size. During each month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
+At the beginning of each month, 1000 files are uploaded to the hot access tier. Each file is 5 GB in size. During the month, half of these files read by client workloads. After 30 days, a [lifecycle management policy](lifecycle-management-overview.md) moves the other half to cool access tier to save on storage costs. 
 
-In March, client workloads read 10% of the data had been moved into the cool access tier. The lifecycle management policy is configured to move those blobs back to the hot access tier to reduce the cost of future operations for frequently accessed files. 
+In March, client applications read 10% of the data that was moved to the cool access tier. A lifecycle management policy is configured to move those blobs back to the hot tier after they're read.
 
-20 days into April, client workloads once again read 10% of cool storage data, but those blobs were in cold storage for less than 30 days. Because the lifecycle management policy is configured to move those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
+20 days into April, clients once again read 10% of cool storage data, but those blobs were in cool storage for less than 30 days. Because the lifecycle management policy moves those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
 
 ### Calculations
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table demonstrates four months of spending.
+
+> [!NOTE]
+> These calculations provide an approximate estimate given sample pricing. If blobs were uploaded in batches, then some portion of the storage costs would be prorated as they would not incur storage costs for the entire month. See [Data storage and index meters](../common/storage-plan-manage-costs.md#data-storage-and-index-meters).
 
 | Cost factor                                                                                           | January         | February        | March           | April           |
 |-------------------------------------------------------------------------------------------------------|-----------------|-----------------|-----------------|-----------------|
@@ -148,7 +148,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 | **Cost to read blobs from the hot tier**                                                              | **$0.00022000** | **$0.00024200** | **$0.00025410** | **$0.00026076** |
 | **Monthly total**                                                                                     | **$107.53**     | **$169.69**     | **$178.00**     | **$182.57**     |
 
-<sup>1</sup>The number of operations required to complete each monthly upload is **641,000**. The formula is ((1000 blobs * 5 GB) / 8-MiB block) + 1 write operation to assemble blocks into a blob.<br />
+<sup>1</sup>The number of operations required to complete each monthly upload is **641,000**. The formula to calculate that number is 1000 blobs * 5 GB / 8-MiB block + the write operation that is required to assemble all of the blocks into a blob.<br />
 
 ## Sample prices
 
