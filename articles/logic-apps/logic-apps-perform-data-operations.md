@@ -115,7 +115,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       The following example shows the finished sample **Compose** action: 
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Consumption workflow with complete Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Consumption workflow and finished example Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -161,7 +161,7 @@ To try the **Compose** action, follow these steps by using the workflow designer
 
       The following example shows the finished sample **Compose** action: 
 
-      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Standard workflow with complete Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
+      :::image type="content" source="media/logic-apps-perform-data-operations/finished-compose-action.png" alt-text="Screenshot shows Standard workflow and finished example Compose action." lightbox="media/logic-apps-perform-data-operations/finished-compose-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -226,7 +226,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    The following screenshot shows the finished example **Create CSV table** action:
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png" alt-text="Screenshot shows Consumption workflow and finished example Create CSV table action." lightbox="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png" alt-text="Screenshot shows Consumption workflow and finished example action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -258,7 +258,7 @@ To try the  **Create CSV table** action, follow these steps by using the workflo
 
    The following screenshot shows the finished example **Create CSV table** action:
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png" alt-text="Screenshot shows Standard workflow and finished example Create CSV table action." lightbox="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png" alt-text="Screenshot shows Standard workflow and finished example action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/finished-create-csv-table-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -293,7 +293,7 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
 1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-1. In the expression editor, enter the following expression but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -303,6 +303,8 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
    * `item()?['Product_ID']`
 
    :::image type="content" source="media/logic-apps-perform-data-operations/csv-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create CSV table, and how to dereference array property named Description." lightbox="media/logic-apps-perform-data-operations/csv-table-expression.png":::
+
+   For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
 1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
 
@@ -394,27 +396,21 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
+
    :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and sample workflow for action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-consumption.png":::
 
-1. In your workflow where you want to create an HTML table, follow one of these steps:
+1. [Follow these general steps to add the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action under the last step, select **New step**.
+1. On the designer, select the **Create HTML table** action, if not already selected. In the **From** box, enter the array or expression to use for creating the table.
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+   For this example, select inside the **From** box, and select the dynamic content list (lightning icon). From that list, select the **myJSONArray** variable:
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **create html table**.
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-create-html-table-action.png" alt-text="Screenshot shows Consumption workflow, action named Create HTML table, and the selected input to use." lightbox="media/logic-apps-perform-data-operations/configure-create-html-table-action.png":::
 
-1. From the actions list, select the action named **Create HTML table**.
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "create html table" entered, and the "Create HTML table" action selected.](./media/logic-apps-perform-data-operations/select-create-html-table-action-consumption.png)
-
-1. In the **From** box, enter the array or expression to use for creating the table.
-
-   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Create HTML table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-html-table-action-consumption.png)
-
-   > [!NOTE]
+   > [!TIP]
    >
    > To create user-friendly tokens for the properties in JSON objects so that you can select 
    > those properties as inputs, use the action named [**Parse JSON**](#parse-json-action) 
@@ -422,7 +418,7 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    The following screenshot shows the finished example **Create HTML table** action:
 
-   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/finished-create-html-table-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-html-table-action.png" alt-text="Screenshot shows Consumption workflow and finished example action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/finished-create-html-table-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -432,31 +428,29 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create a variable where the initial value is an array that has some properties and values in JSON format.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png)
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myJSONArray <br>- **Type**: Array <br>- **Value**: `[ { "Description": "Apples", "Product_ID": 1 }, { "Description": "Oranges", "Product_ID": 2 }]` |
 
-1. In your workflow where you want to create the output, follow one of these steps:
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and sample workflow for action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/sample-start-create-table-action-standard.png":::
 
-   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
+1. [Follow these general steps to add the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
+1. On the designer, select the **Create HTML table** action, if not already selected. In the **From** box, enter the array or expression to use for creating the table.
 
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Create HTML table**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
+   For this example, select inside the **From** box, and select the dynamic content list (lightning icon). From that list, select the **myJSONArray** variable:
 
-1. After the action information box appears, in the **From** box, enter the array or expression to use for creating the table.
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-create-html-table-action.png" alt-text="Screenshot shows Standard workflow, action named Create HTML table, and the selected input to use." lightbox="media/logic-apps-perform-data-operations/configure-create-html-table-action.png":::
 
-   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
-
-   ![Screenshot showing the designer for a Standard workflow, the "Create HTML table" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-create-html-table-action-standard.png)
-
-   > [!NOTE]
+   > [!TIP]
    >
    > To create user-friendly tokens for the properties in JSON objects so that you can select 
    > those properties as inputs, use the action named [**Parse JSON**](#parse-json-action) 
-   > before you use the **Create CSV table** action.
+   > before you use the **Create HTML table** action.
 
    The following screenshot shows the finished example **Create HTML table** action:
 
-   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/finished-create-html-table-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-create-html-table-action.png" alt-text="Screenshot shows Standard workflow and finished example action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/finished-create-html-table-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -465,6 +459,8 @@ To try the **Create HTML table** action, follow these steps by using the workflo
 ### Customize table format
 
 By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
+
+1. If the **Columns** property doesn't appear in the action information box, from the **Advanced parameters** list, select **Columns**.
 
 1. Open the **Columns** list, and select **Custom**.
 
@@ -487,13 +483,9 @@ Oranges,2
 
 In the **Create HTML table** action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
 
-##### [Consumption](#tab/consumption)
+1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-1. For each array property that you want, in the **Value** column, select inside the edit box, which opens the dynamic content list.
-
-1. From that list, select **Expression** to open the expression editor instead.
-
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **OK**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
+1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want. When you're done with each expression, select **Add**.
 
    Syntax: `item()?['<array-property-name>']`
 
@@ -502,38 +494,13 @@ In the **Create HTML table** action, keep the **Header** column empty. On each r
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![Screenshot showing the "Create HTML table" action in a Consumption workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/html-table-expression.png" alt-text="Screenshot shows workflow designer, action named Create HTML table, and how to dereference array property named Description." lightbox="media/logic-apps-perform-data-operations/html-table-expression.png":::
+
+   For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
 
 1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
 
-   ![Screenshot showing the "Create HTML table" action in a Consumption workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-html-expression-consumption.png)
-
-1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
-
-   The **Create HTML table** action now appears similar to the following example:
-
-   ![Screenshot showing the "Create HTML table" action in a Consumption workflow and resolved expressions without headers.](./media/logic-apps-perform-data-operations/resolved-html-expression-consumption.png)
-
-##### [Standard](#tab/standard)
-
-1. For each array property that you want, in the **Value** column, select inside the edit box, and then select the function icon, which opens the expression editor.
-
-1. In the expression editor, enter the following expression, but replace `<array-property-name>` with the array property name for the value that you want, and then select **Add**. For more information, see [**item()** function](workflow-definition-language-functions-reference.md#item).
-
-   Syntax: `item()?['<array-property-name>']`
-
-   Examples:
-
-      * `item()?['Description']`
-      * `item()?['Product_ID']`
-
-   ![Screenshot showing the "Create HTML table" action in a Standard workflow and how to dereference the "Description" array property.](./media/logic-apps-perform-data-operations/html-table-expression-standard.png)
-
-1. Repeat the preceding steps for each array property. When you're done, your action looks similar to the following example:
-
-   ![Screenshot showing the "Create HTML table" action in a Standard workflow and the "item()" function.](./media/logic-apps-perform-data-operations/finished-html-expression-standard.png)
-
----
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-html-expression.png" alt-text="Screenshot shows action named Create HTML table and function named item()." lightbox="media/logic-apps-perform-data-operations/finished-html-expression.png":::
 
 #### Work in code view
 
@@ -582,47 +549,18 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 To confirm whether the **Create HTML table** action creates the expected results, send yourself a notification that includes output from the **Create HTML table** action.
 
-#### [Consumption](#tab/consumption)
-
-1. In your workflow, add an action that can send you the results from the **Create HTML table** action.
-
-   This example continues by using the Office 365 Outlook action named **Send an email**.
-
-1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
-
-   ![Screenshot showing a Consumption workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-consumption.png)
-
-   > [!NOTE]
-   >
-   > * If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Create HTML table** label in the list.
-   >
-   >   ![Screenshot showing a Consumption workflow and the dynamic content list with "See more" selected for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-see-more.png)
-   >
-   > * When you include the HTML table output in an email action, make sure that you set the **Is HTML** property 
-   > to **Yes** in the email action's advanced parameters. That way, the email action correctly formats the HTML table. 
-   > However, if your table is returned with incorrect formatting, see [how to check your table data formatting](#format-table-data).
-
-1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
-
-#### [Standard](#tab/standard)
-
 1. In your workflow, add an action that can send you the results from the **Create HTML table** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
 1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Create HTML table** action, select **Output**.
 
-   ![Screenshot showing a Standard workflow with the "Send an email" action and the "Output" field from the preceding "Create HTML table" action entered in the email body.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the Output field from preceding action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/send-email-create-html-table-action.png":::
 
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Create HTML table** label in the list.
-   >
-   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Create HTML table" action.](./media/logic-apps-perform-data-operations/send-email-create-html-table-action-see-more.png)
+1. Save your workflow, and then manually run your workflow.
 
-1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
+   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
 ---
 
