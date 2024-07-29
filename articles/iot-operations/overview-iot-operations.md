@@ -87,8 +87,8 @@ The northbound cloud connectors let you connect the MQTT broker directly to clou
 
 The data processor pipeline destinations let you connect to cloud services such as:
 
-* [Microsoft Fabric](connect-to-cloud/howto-configure-destination-fabric.md)
-* [Azure Data Explorer](connect-to-cloud/howto-configure-destination-data-explorer.md)
+* [Microsoft Fabric](process-data/howto-configure-destination-fabric.md)
+* [Azure Data Explorer](process-data/howto-configure-destination-data-explorer.md)
 
 ## Visualize and analyze telemetry
 

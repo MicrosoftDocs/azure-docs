@@ -58,11 +58,10 @@ If you already have a policy-based gateway, you aren't required to change your g
 
 ## <a name="active"></a>Active-active VPN gateways
 
-You can create an Azure VPN gateway in an active-active configuration, where both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device.
+Azure VPN gateways can be configured as active-standby or active-active. In an active-active configuration, both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device or devices. Active-active mode gateways are a key part of highly available gateway connectivity design. For more information, see the following articles:
 
-[!INCLUDE [active-active gateways](../../includes/vpn-gateway-active-active-gateway-include.md)]
-
-For information about using active-active gateways in a highly available connectivity scenario, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
+* [About active-active gateways](about-active-active-gateways.md)
+* [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md)
 
 ## <a name="connectiontype"></a>Connection types
 
