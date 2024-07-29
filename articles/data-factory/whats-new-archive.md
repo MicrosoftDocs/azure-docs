@@ -119,10 +119,6 @@ Azure Data Lake Storage Gen2 connector now supports shared access signature auth
 - Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
 - Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
 
-### Monitoring
-
-Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
-
 ### Orchestration
 
 - Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
