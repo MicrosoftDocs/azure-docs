@@ -36,14 +36,14 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
-## Sign in to Azure CLI
+### Sign in to Azure CLI
 
 Sign in to Azure CLI:
 
 ```azurecli-interactive
 az login
 ```
-## Set resource variables
+### Set resource variables
 
 ```azurecli-interactive
 
