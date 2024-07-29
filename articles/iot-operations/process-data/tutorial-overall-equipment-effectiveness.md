@@ -69,7 +69,7 @@ To access the lakehouse from a Data Processor pipeline, you need to enable your 
 
 In this tutorial, you simulate the Redmond and Seattle sites. Each site has two production lines producing baked goods:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/contoso-production-lines.png" alt-text="Diagram that shows the Contoso production lines." border="false" lightbox="media/tutorial-overall-equipment-effectiveness/contoso-production-lines.png":::
+:::image type="content" source="media/contoso-production-lines-equipment.png" alt-text="Diagram that shows the Contoso production lines." border="false" lightbox="media/contoso-production-lines-equipment.png":::
 
 To calculate OEE for Contoso, you need data from three data sources: production line assets, production data, and operator data. The following sections provide detail on each of these.
 
@@ -565,7 +565,7 @@ To create the _oee-process-pipeline_ pipeline:
 
 1. Review your pipeline diagram to make sure all the stages are present and connected. It should look like the following:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the operations experience web UI." lightbox="media/tutorial-overall-equipment-effectiveness/oee-process-pipeline.png":::
+    :::image type="content" source="media/oee-process-pipeline.png" alt-text="Screenshot that shows the oee-process-pipeline in the operations experience web UI." lightbox="media/oee-process-pipeline.png":::
 
 1. To save your pipeline, select **Save**. It may take a few minutes for the pipeline to deploy to your cluster, so make sure it's finished before you proceed.
 
@@ -775,7 +775,7 @@ The next step is to create a Data Processor pipeline that sends the transformed 
 
 In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-bi), go to your lakehouse and select the _OEE_ table. After a few minutes of receiving data from the pipeline, it looks like the following example:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png" alt-text="Screenshot that shows the OEE table in Microsoft Fabric lakehouse." lightbox="media/tutorial-overall-equipment-effectiveness/lakehouse-oee-table.png":::
+:::image type="content" source="media/lakehouse-oee-table.png" alt-text="Screenshot that shows the OEE table in Microsoft Fabric lakehouse." lightbox="media/lakehouse-oee-table.png":::
 
 ## Use Power BI to calculate OEE
 
@@ -783,13 +783,13 @@ In [Microsoft Fabric](https://msit.powerbi.com/groups/me/list?experience=power-b
 
 1. Select **Get data** followed by **Microsoft Fabric**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/power-bi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/power-bi-get-lakehouse-data.png":::
+    :::image type="content" source="media/power-bi-get-lakehouse-data.png" alt-text="Screenshot that shows how to access lakehouse data in Power BI." lightbox="media/power-bi-get-lakehouse-data.png":::
 
 1. Select **Lakehouses** and then select **Connect**.
 
 1. Select your lakehouse, and then **Connect to SQL endpoint**:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/power-bi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/power-bi-connect-sql-endpoint.png":::
+    :::image type="content" source="media/power-bi-connect-sql-endpoint.png" alt-text="Screenshot that shows how to access SQL endpoint in Power BI." lightbox="media/power-bi-connect-sql-endpoint.png":::
 
 1. Check the box next to the **OEE** table and then select **Load**.
 
@@ -816,13 +816,13 @@ Follow these steps to create some measures and use them to build a visualization
 
 1. Select the checkmark to save your measurement:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-measurement.png" alt-text="Screenshot that shows how to save a Power BI measurement.":::
+    :::image type="content" source="media/oee-measurement.png" alt-text="Screenshot that shows how to save a Power BI measurement.":::
 
     The new OEE measurement now appears in the **Data** panel on the right.
 
 1. Select the **Card** icon in the Visualizations panel and select the **OEE** measurement you created. You're now using the most recent asset measurement data to calculate OEE for your production lines.
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/oee-card.png" alt-text="Screenshot that shows a visualization card for OEE in Power BI." lightbox="media/tutorial-overall-equipment-effectiveness/oee-card.png":::
+    :::image type="content" source="media/oee-card.png" alt-text="Screenshot that shows a visualization card for OEE in Power BI." lightbox="media/oee-card.png":::
 
 1. Repeat these steps to create new measurements and their corresponding tiles for _Performance_, _Availability_, and _Quality_. Use the following data analysis expressions:
 
@@ -840,7 +840,7 @@ Follow these steps to create some measures and use them to build a visualization
 
 Your dashboard looks like the following example:
 
-:::image type="content" source="media/tutorial-overall-equipment-effectiveness/example-dashboard.png" alt-text="Screenshot of an example dashboard that displays OEE, performance, quality, and availability measurements." lightbox="media/tutorial-overall-equipment-effectiveness/example-dashboard.png":::
+:::image type="content" source="media/example-dashboard.png" alt-text="Screenshot of an example dashboard that displays OEE, performance, quality, and availability measurements." lightbox="media/example-dashboard.png":::
 
 To create a filter that lets you calculate OEE for each Contoso site and further enhance the visualizations on the dashboard, complete the following steps:
 
@@ -858,7 +858,7 @@ To create a filter that lets you calculate OEE for each Contoso site and further
 
 1. Your dashboard now looks like the following example:
 
-    :::image type="content" source="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard." lightbox="media/tutorial-overall-equipment-effectiveness/dashboard-line-charts.png":::
+    :::image type="content" source="media/dashboard-line-charts.png" alt-text="Screenshot that shows line charts on a Power BI dashboard." lightbox="media/dashboard-line-charts.png":::
 
 1. Save your dashboard.
 
@@ -869,5 +869,3 @@ To share your dashboard with your coworkers, select **Publish** in the top nav
 - [Tutorial: Detect anomalies in real time](tutorial-anomaly-detection.md)
 - [Tutorial: Configure MQTT bridge between the MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../create-edge-apps/tutorial-event-driven-with-dapr.md)
-- [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
-- [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)
