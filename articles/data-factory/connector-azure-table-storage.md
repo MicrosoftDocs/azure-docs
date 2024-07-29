@@ -214,7 +214,7 @@ When you create a shared access signature URI, consider the following points:
 
 ### System-assigned managed identity authentication
 
-A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this managed identity for Azure Table Storage authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Table Storage authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
 
 To use system-assigned managed identity authentication, follow these steps：
 
@@ -231,6 +231,9 @@ These properties are supported for an Azure Table Storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureTableStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
+
+>[!NOTE]
+>System-assigned managed identity authentication is supported only by using the public Azure integration runtime to connect to your Azure Table Storage linked service.
 
 **Example:**
 
