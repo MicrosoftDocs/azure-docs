@@ -12,7 +12,7 @@ ms.custom: subject-cost-optimization
 
 # Estimate the cost of using Azure Blob Storage
 
-This article helps you estimate the cost to store blobs and to upload, download, and copy blobs between Azure Blob Storage containers. 
+This article helps you estimate the cost to store blobs, and to upload, download, and copy them between containers. 
 
 All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
@@ -46,21 +46,23 @@ To calculate the point at which reserved capacity begins to make sense, divide t
 
 To learn more about reserved capacity, see [Optimize costs for Blob Storage with reserved capacity](storage-blob-reserved-capacity.md).
 
+For general information about storage costs, see [Data storage and index meters](storage-plan-manage-costs.md#data-storage-and-index-meters).
+
 ## The cost to transfer data
 
-When you transfer data, you're billed for _write_ and _read_ operations. Some client applications use additional operations to transfer data such as operations to list blobs or get properties. The [AzCopy](../common/storage-use-azcopy-s3.md) utility is optimized for data transfer and can serve as a canonical example on which to base your cost estimates. 
+When you transfer data, you're billed for _write_ and _read_ operations. Some client applications use additional operations to transfer data such as operations to list blobs or get properties. The [AzCopy](../common/storage-use-azcopy-s3.md) utility is optimized to data transfer efficiently and can serve as a canonical example on which to base your cost estimates. 
 
 See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md).
 
 #### The cost to upload
 
-When you upload data, your client divides that data into blocks and uploads each block individually. Each block upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations required to upload a blob depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
+When you upload data, your client divides that data into blocks and uploads each block individually. Each block that is upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations required to upload a blob depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
 See [Estimate the cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
 
 #### The cost to download
 
-The number of operations required to download blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks.   
+The number of operations required to download a blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks.   
 
 See [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
 
@@ -72,9 +74,9 @@ The following table summarizes the cost to copy a blob to another container.
 
 | Destination account | Costs |
 |---|---|
-| Same account | - A read operation based on the destination tier |
-| Different account | - A read operation based on the destination tier<br>- A read operation based on the source tier<br>- A data retrieval charge |
-| Different account in another region | - A read operation based on the destination tier<br>- A read operation based on the source tier<br>- A data retrieval charge<br>- network egress | 
+| Same account | - A read operation that's based on the destination tier |
+| Different account | - A read operation that's based on the destination tier<br>- A read operation that's based on the source tier<br>- A data retrieval charge |
+| Different account in another region | - A read operation that's based on the destination tier<br>- A read operation that's based on the source tier<br>- A data retrieval charge<br>- network egress | 
 
 See [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
 
@@ -114,7 +116,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 Based on these calculations, the cost to rename 1000 directories in the hot tier that each contain 1000 blobs differs by almost **$5.00**. For directories in the cold tier, the difference is over **$17**.
 
-## Example scenario: Uploading, downloading, and moving blobs between tiers
+## Example: Upload, download, and set access tiers
 
 In this example, 1000 files are uploaded to the hot access tier at the beginning of each month. Each file is 5 GB in size. The following table calculates the number of write operations required to upload the blobs.
 
