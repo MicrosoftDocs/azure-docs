@@ -6,7 +6,7 @@ ms.author: hangwan
 ms.service: spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 04/15/2024
+ms.date: 07/29/2024
 ---
 
 # What's new in Azure Spring Apps?
@@ -17,6 +17,22 @@ ms.date: 04/15/2024
 Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
+
+## Q2 2024
+
+The following updates are now available in the Enterprise plan:
+
+- **Richer log of Application Configuration Service**: The Git revision is a crucial piece of information that indicates the recency of configuration files. Currently, the Application Configuration Service logs the Git revision to enhance troubleshooting efficiency. For more information, see [Examine Git revisions of the configuration files](how-to-enterprise-application-configuration-service.md?tabs=Portal%2Cazure-Portal#examine-git-revisions-of-the-configuration-files).
+
+- **Managed OSS Spring Cloud Config Server (preview)**: The open-source version of Spring Cloud Config Server provides a native Spring experience to developers. Now we offer managed Spring Config Server to dynamically retrieve configuration properties from central repositories. For more information, see [Configure a managed Spring Cloud Config Server in Azure Spring App](how-to-config-server.md).
+
+- **Custom actuator endpoint support**: Users may want to use a different port or path for the actuator due to security concerns, but this can result in the Application Live View being unable to connect to the app. This feature enables Application Live View to work with apps that have a non-default port or path for the actuator. For more information, see [Configure customized Spring Boot actuator](how-to-use-application-live-view.md?tabs=Portal#configure-customized-spring-boot-actuator).
+
+- **Allow to disable basic auth of test endpoint of app**: Azure Spring Apps provides basic authentication to protect the test endpoint of an application instance. When a user's app is integrated with their authentication server, this basic authentication becomes unnecessary. If the user has a good understanding of the application's security, this feature allows them to disable the basic authentication provided by the Azure Spring Apps service, making the tests against the application closer to a real-world environment. For more information, see the 2nd tip in [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+
+- **Private storage access for VNET injection**: The private storage access feature allows routing of traffic through a private network for backend storage hosting application assets like JAR files and logs. This enhances security and can potentially improve performance for users. For more information, see [Configure private network access for backend storage in your virtual network (Preview)](how-to-private-network-access-backend-storage.md).
+
+- **Support Job (preview) in Azure Spring Apps**: This feature allows customers to run their ephemeral applications in Azure Spring Apps natively.  It offers batch job management and execution, along with integration with managed components. For more information, see [Job in Azure Spring Apps (Preview)](concept-job.md).
 
 ## Q1 2024
 
