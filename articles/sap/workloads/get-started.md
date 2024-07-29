@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 07/19/2024
+ms.date: 07/29/2024
 ms.author: juergent
 ---
 
