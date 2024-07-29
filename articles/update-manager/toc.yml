@@ -55,7 +55,7 @@ items:
     href: security-awareness-ubuntu-support.md
 - name: Samples
   items:
-  - name: Azure Resource Graph queries
+  - name: Azure Resource Graph queries to access Azure Update Manager operations data
     href: sample-query-logs.md
 - name: How-to guides
   items:
