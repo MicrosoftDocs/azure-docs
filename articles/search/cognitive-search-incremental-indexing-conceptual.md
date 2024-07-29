@@ -187,9 +187,9 @@ Skillsets and data sources can use the generally available version. In addition 
 
 + [Reset Skills (api-version=2024-05-01-preview)](/rest/api/searchservice/skillsets/reset-skills?view=rest-searchservice-2024-05-01-preview&preserve-view=true)
 
-+ [Create or Update Skillset (api-version=2023-11-01)](/rest/api/searchservice/skillsets/create-or-update) (New URI parameter on the request)
++ [Create or Update Skillset (api-version=2024-07-01)](/rest/api/searchservice/skillsets/create-or-update) (New URI parameter on the request)
 
-+ [Create or Update Data Source (api-version=2023-11-01)](/rest/api/searchservice/data-sources/create-or-update), when called with a preview API version, provides a new parameter named "ignoreResetRequirement", which should be set to true when your update action shouldn't invalidate the cache. Use "ignoreResetRequirement" sparingly as it could lead to unintended inconsistency in your data that won't be detected easily.
++ [Create or Update Data Source (api-version=2024-07-01)](/rest/api/searchservice/data-sources/create-or-update), when called with a preview API version, provides a new parameter named "ignoreResetRequirement", which should be set to true when your update action shouldn't invalidate the cache. Use "ignoreResetRequirement" sparingly as it could lead to unintended inconsistency in your data that won't be detected easily.
 
 ## Next steps
 
