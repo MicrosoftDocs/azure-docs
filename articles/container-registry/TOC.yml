@@ -132,6 +132,8 @@
           href: container-registry-retention-policy.md
         - name: Automatically purge tags and manifests (preview)
           href: container-registry-auto-purge.md
+      - name: Relocate to another region
+        href: ../operational-excellence/relocation-container-registry.md?toc=/azure/container-registry/toc.json
       - name: Use ACR webhooks
         href: container-registry-webhook.md
       - name: Move registry to different region
