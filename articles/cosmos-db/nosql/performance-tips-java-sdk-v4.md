@@ -43,6 +43,16 @@ When possible, place any applications calling Azure Cosmos DB in the same region
 An app that interacts with a multi-region Azure Cosmos DB account needs to configure 
 [preferred locations](tutorial-global-distribution.md#preferred-locations) to ensure that requests are going to a collocated region.
 
+**Enable accelerated networking to reduce latency and CPU jitter**
+
+We strongly recommend following the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (select for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (select for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM to maximize the performance by reducing latency and CPU jitter.
+
+Without accelerated networking, IO that transits between your Azure VM and other Azure resources might be routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries. All network policy details are handled in the hardware at the NIC, bypassing the host and virtual switch. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
+
+Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
+
+For more information, see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions.
+
 ## High availability
 
 For general guidance on configuring high availability in Azure Cosmos DB, see [High availability in Azure Cosmos DB](../../reliability/reliability-cosmos-db-nosql.md). 
@@ -140,15 +150,6 @@ Both strategies can be used to enhance availability and performance:
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 
-**Enable accelerated networking to reduce latency and CPU jitter**
-
-We strongly recommend following the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (select for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (select for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM to maximize the performance by reducing latency and CPU jitter.
-
-Without accelerated networking, IO that transits between your Azure VM and other Azure resources might be routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries. All network policy details are handled in the hardware at the NIC, bypassing the host and virtual switch. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
-
-Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
-
-For more information, see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions.
 
 ## Tuning direct and gateway connection configuration
 
