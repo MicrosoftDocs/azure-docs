@@ -28,7 +28,13 @@ You need proper permissions to successfully call the Exports API. We recommend u
 - To learn more, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about the specific permissions needed for the Exports API, see [Understand and work with scopes](../costs/understand-work-scopes.md).
 
-Additionally, you'll need a way to query the API directly. For this tutorial, we recommend using [PostMan](https://www.postman.com/).
+Additionally, you'll need a way to query the API directly. Some popular ways to query the API are:
+
+- [Visual studio](https://learn.microsoft.com/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
 
 ## Get a bearer token for your service principal
 

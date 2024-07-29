@@ -21,7 +21,14 @@ Before you begin, ensure that you're familiar with the following articles:
 
 - [Enterprise agreement roles](understand-ea-roles.md)
 - [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps)
-- [How to call REST APIs with Postman](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+
+You need a way to call REST APIs. Some popular ways to query the API are:
+
+- [Visual studio](https://learn.microsoft.com/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
 
 ## Create and authenticate your service principal
 

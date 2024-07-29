@@ -81,7 +81,15 @@ You should now have two configured webhooks that are each available using the UR
 
 :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-02.png" alt-text="Screenshot showing Webhooks.":::
 
-You're now done with the Azure Automation setup. You can test the webhooks with a simple Postman test to validate that the webhook works. Next, you must create the Logic App for orchestration.
+You're now done with the Azure Automation setup. You can test the webhooks with a simple API test to validate that the webhook works. Some popular ways to query the API are:
+
+- [Visual studio](https://learn.microsoft.com/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
+
+Next, you must create the Logic App for orchestration.
 
 ## Create an Azure Logic App for orchestration
 
@@ -258,22 +266,27 @@ You can create a budget in the Azure portal using the [Budget feature](../costs/
 
 ### Create the Budget
 
-Next, you'll configure **Postman** to create a budget by calling the Azure Consumption REST APIs. Postman is an API Development environment. You'll import environment and collection files into Postman. The collection contains grouped definitions of HTTP requests that call Azure Consumption REST APIs. The environment file contains variables that are used by the collection.
+Next, you create a budget by calling the Azure Consumption REST APIs. You need a way to interact with APIs. Some popular ways to query the API are:
 
-1. Download and open the [Postman REST client](https://www.getpostman.com/) to execute the REST APIs.
-1. In Postman, create a new request.  
-    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-27.png" alt-text="Screenshot showing create a new request in Postman.":::
-1. Save the new request as a collection, so that the new request has nothing on it.  
-    :::image type="content" border="true" source="./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-28.png" alt-text="Screenshot showing save the new request in Postman.":::
+- [Visual studio](https://learn.microsoft.com/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
+
+You import environment and collection files into your API client. The collection contains grouped definitions of HTTP requests that call Azure Consumption REST APIs. The environment file contains variables that are used by the collection.
+
+1. In your API client, create a new request.
+1. Save the new request so that it has nothing in it.
 1. Change the request from a `Get` to a `Put` action.
 1. Modify the following URL by replacing `{subscriptionId}` with the **Subscription ID** that you used in the previous section of this tutorial. Also, modify the URL to include "SampleBudget" as the value for `{budgetName}`:
     `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2018-03-31`
-1. Select the **Headers** tab within Postman.
+1. Select Headers in your API client.
 1. Add a new **Key** named "Authorization".
 1. Set the **Value** to the token that was created using the ArmClient at the end of the last section.
-1. Select **Body** tab within Postman.
-1. Select the **raw** button option.
-1. In the textbox, paste in the below sample budget definition, however you must replace the `subscriptionID`, `resourcegroupname`, and `actiongroupname` parameters with your subscription ID, a unique name for your resource group, and the action group name you created in both the URL and the request body:
+1. Select Body in your API client.
+1. Select the **raw** option in your API client.
+1. In the text area in your API client, paste the following sample budget definition. You must replace the `subscriptionID`, `resourcegroupname`, and `actiongroupname` parameters with your subscription ID, a unique name for your resource group, and the action group name you created in both the URL and the request body:
 
     ```
         {
@@ -308,7 +321,7 @@ Next, you'll configure **Postman** to create a budget by calling the Azure Consu
             }
         }
     ```
-1. Press **Send** to send the request.
+1. Send the request.
 
 You now have all the pieces you need to call the [budgets API](/rest/api/consumption/budgets). The budgets API reference has more details on the specific requests, including:
 
