@@ -3,8 +3,8 @@ title: Relocate Azure Functions app to another region
 description: Learn how to relocate Azure Functions to another region.
 ms.topic: how-to
 ms.service: azure-functions
-author: anaharris
-ms.author: anaharris-ms
+author: anaharris-ms
+ms.author: anaharris
 ms.date: 07/15/2024
 ms.custom: subject-relocation
 #Customer intent: As an Azure service administrator, I want to move my Azure Functions resources to another Azure region.
@@ -67,19 +67,19 @@ If the application uses Durable Functions, and particularly Durable Entities, th
 
 ### Certificates
 
-See [Relocate Azure App Services to another region - Certificates](relocation-app-services.md#certificates)
+See [Relocate Azure App Services to another region - Certificates](relocation-app-service.md#certificates)
 
 ### Configuration
 
-See [Relocate Azure App Services to another region - Configuration](relocation-app-services.md#configuration)
+See [Relocate Azure App Services to another region - Configuration](relocation-app-service.md#configuration)
 
 ### VNet Connectivity / Custom Names / DNS
 
-See [Relocate Azure App Services to another region - VNet Connectivity](relocation-app-services.md#vnet-connectivity-custom-names-dns)
+See [Relocate Azure App Services to another region - VNet Connectivity](relocation-app-service.md#vnet-connectivity-custom-names-dns)
 
 ### Identities
 
-See [Relocate Azure App Services to another region - Identities](relocation-app-services.md#ideentities)
+See [Relocate Azure App Services to another region - Identities](relocation-app-service.md#ideentities)
 
 ## Relocate
 
