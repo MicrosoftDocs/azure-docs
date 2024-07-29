@@ -83,7 +83,6 @@ Alternatively, you can also create a [custom role](../role-based-access-control/
   ]
 }
 ```
-
 ## Deploying the NVA
 
 The following section describes the steps needed to deploy a Network Virtual Appliance into the Virtual WAN hub using Azure Marketplace Managed Application.
@@ -96,7 +95,7 @@ The following section describes the steps needed to deploy a Network Virtual App
 
   :::image type="content" source="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png"alt-text="Screenshot showing how to create NVA/"lightbox="./media/network-virtual-appliance-creation/network-virtual-appliance-create.png":::
 
-3. Choose the NVA vendor. In this example, "fortinet-ngfw" is selected and select  **Create**. At this point, you're redirected to the NVA partner's Azure Marketplace managed application.
+3. Choose the NVA vendor. In this example, "fortinet-ngfw" is selected and select **Create**. At this point, you're redirected to the NVA partner's Azure Marketplace managed application.
 
   :::image type="content" source="./media/network-virtual-appliance-creation/network-virtual-appliance-vendor.png"alt-text="Screenshot showing how to select NVA vendor."lightbox="./media/network-virtual-appliance-creation/network-virtual-appliance-vendor.png":::
 
