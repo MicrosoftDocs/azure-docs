@@ -50,7 +50,6 @@ To request a limit increase, create a support request from the Azure portal. For
 | Concurrent back-end connections<sup>1</sup> per HTTP authority | 2,048 | 2,048 |
 | Maximum cached response size | 2 MiB | 2 MiB |
 | Maximum policy document size  | 256 KiB | 256 KiB |
-| Maximum total request duration | 30 seconds | 30 seconds |
 | Maximum request payload size | 1 GiB | 1 GiB |
 | Maximum buffered payload size | 2 MiB | 2 MiB |
 | Maximum request/response payload size in diagnostic logs | 8,192 bytes | 8,192 bytes | 
