@@ -118,7 +118,7 @@ At the beginning of each month, 1000 files are uploaded to the hot access tier. 
 
 In March, client applications read 10% of the data that is stored in the cool access tier. A lifecycle management policy is configured to move those blobs back to the hot tier after they're read.
 
-20 days into April, clients once again read 10% of the data that is stored in the cool access tier. However, those blobs placed into the cool tier for less than 30 days. Because the lifecycle management policy moves those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
+20 days into April, clients once again read 10% of the data that is stored in the cool access tier. However, those blobs were stored in the cool tier for less than 30 days. Because the lifecycle management policy moves those blobs back to the hot tier before the minimum 30 days has elapsed, an early penalty is assessed. The early deletion penalty is the cost of cool storage for 10 days.
 
 ### Calculations
 
