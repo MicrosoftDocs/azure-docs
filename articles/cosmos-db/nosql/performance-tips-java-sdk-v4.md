@@ -43,6 +43,103 @@ When possible, place any applications calling Azure Cosmos DB in the same region
 An app that interacts with a multi-region Azure Cosmos DB account needs to configure 
 [preferred locations](tutorial-global-distribution.md#preferred-locations) to ensure that requests are going to a collocated region.
 
+## High availability
+
+For general guidance on configuring high availability in Azure Cosmos DB, see [High availability in Azure Cosmos DB](https://learn.microsoft.com/azure/reliability/reliability-cosmos-db-nosql). 
+
+In addition to a good foundational setup in the database platform, there are specific techniques that can be implemented in the Java SDK itself which can help in outage scenarios. Two notable strategies are the threshold-based availability strategy and the partition-level circuit breaker.
+
+These techniques provide advanced mechanisms to address specific latency and availability challenges, going above and beyond the cross-region retry capabilities that are built into the SDK by default. By proactively managing potential issues at the request and partition levels, these strategies can significantly enhance the resilience and performance of your application, particularly under high-load or degraded conditions.
+
+### Threshold-based Availability Strategy
+
+The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance.
+
+**Example Configuration:**
+```java
+int threshold = 500;
+int thresholdStep = 100;
+
+CosmosEndToEndOperationLatencyPolicyConfig config = new CosmosEndToEndOperationLatencyPolicyConfigBuilder(Duration.ofSeconds(3))
+        .availabilityStrategy(new ThresholdBasedAvailabilityStrategy(Duration.ofMillis(threshold), Duration.ofMillis(thresholdStep)))
+        .build();
+
+CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+options.setCosmosEndToEndOperationLatencyPolicyConfig(config);
+
+container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
+```
+
+**How it Works:**
+
+1. **Initial Request:** At time T1, a read request is made to the primary region (e.g., East US). The SDK waits for a response for up to 500 milliseconds (the `threshold` value).
+  
+2. **Second Request:** If there's no response from the primary region within 500 milliseconds, a parallel request is sent to the next preferred region (e.g., East US 2).
+  
+3. **Third Request:** If neither the primary nor the secondary region responds within 600 milliseconds (500ms + 100ms, the `thresholdStep` value), the SDK sends another parallel request to the third preferred region (e.g., West US).
+
+4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
+
+This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur additional cost in terms of request units when cross-region requests are required.
+
+### Partition Level Circuit Breaker
+
+The partition-level circuit breaker enhances tail latency and write availability by tracking and short-circuiting requests to unhealthy physical partitions. It improves performance by avoiding known problematic partitions and redirecting requests to healthier regions.
+
+**Example Configuration:**
+
+To enable partition-level circuit breaker:
+```java
+System.setProperty(
+   "COSMOS.PARTITION_LEVEL_CIRCUIT_BREAKER_CONFIG",
+      "{\"isPartitionLevelCircuitBreakerEnabled\": true, "
+      + "\"circuitBreakerType\": \"CONSECUTIVE_EXCEPTION_COUNT_BASED\","
+      + "\"consecutiveExceptionCountToleratedForReads\": 10,"
+      + "\"consecutiveExceptionCountToleratedForWrites\": 5,"
+      + "}");
+```
+
+To set the background process frequency for checking unavailable regions:
+```java
+System.setProperty("COSMOS.STALE_PARTITION_UNAVAILABILITY_REFRESH_INTERVAL_IN_SECONDS", "60");
+```
+
+To set the duration for which a partition can remain unavailable:
+```java
+System.setProperty("COSMOS.ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS", "30");
+```
+
+**How it Works:**
+
+1. **Tracking Failures:** The SDK tracks terminal failures (e.g., 503s, 500s, timeouts) for individual partitions in specific regions.
+  
+2. **Marking as Unavailable:** If a partition in a region exceeds a configured threshold of failures, it is marked as "Unavailable." Subsequent requests to this partition are short-circuited and redirected to other healthier regions.
+
+3. **Automated Recovery:** A background thread periodically checks unavailable partitions. After a certain duration, these partitions are tentatively marked as "HealthyTentative" and subjected to test requests to validate recovery.
+
+4. **Health Promotion/Demotion:** Based on the success or failure of these test requests, the status of the partition is either promoted back to "Healthy" or demoted once again to "Unavailable."
+
+This mechanism helps to continuously monitor partition health and ensures that requests are served with minimal latency and maximum availability, without being bogged down by problematic partitions.
+
+### Comparison
+
+- **Threshold-based Availability Strategy**: 
+  - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
+  - **Cost**: Incurs extra RU (Request Units) costs due to additional cross-region requests.
+  - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost is acceptable.
+
+- **Partition Level Circuit Breaker**: 
+  - **Benefit**: Improves write availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
+  - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
+  - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
+
+Both strategies can be used to enhance availability and performance:
+
+- The **Threshold-based Availability Strategy** is more suitable for scenarios where minimizing latency for read operations is a priority, even at an additional cost.
+- The **Partition Level Circuit Breaker** is better suited for scenarios where write operations are critical, and avoiding latency spikes and ensuring consistent performance are prioritized without incurring additional costs.
+
+By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
+
 **Enable accelerated networking to reduce latency and CPU jitter**
 
 We strongly recommend following the instructions to enable [Accelerated Networking](../../virtual-network/accelerated-networking-overview.md) in your [Windows (select for instructions)](../../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux (select for instructions)](../../virtual-network/create-vm-accelerated-networking-cli.md) Azure VM to maximize the performance by reducing latency and CPU jitter.
