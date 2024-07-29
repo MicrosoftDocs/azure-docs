@@ -9,7 +9,7 @@ ms.topic: how-to
 author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
-ms.date: 07/24/2024
+ms.date: 07/29/2024
 ms.custom: devplatv2
 
 #customer intent: As a developer, I want to use the Azure Machine Learning REST APIs so that I can deploy models by using online endpoints.
@@ -49,12 +49,12 @@ Create a unique endpoint name by calling the `RANDOM` utility, which adds a rand
 
 To prepare for the deployment, set up your Azure Machine Learning assets and configure your job. You register the assets required for deployment, including the model, code, and environment.
 
-> [!NOTE]
+> [!TIP]
 > The REST API calls in the following procedures use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION` (region), and Azure Machine Learning `$WORKSPACE` as placeholders for some arguments. When you implement the code for your deployment, replace the argument placeholders with your specific deployment values. 
-> 
-> Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). When you implement the code for your deployment, replace instances of the `$TOKEN` placeholder with the service principal token for your deployment. You can retrieve this token with the following command:
->
-> :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
+ 
+Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). When you implement the code for your deployment, replace instances of the `$TOKEN` placeholder with the service principal token for your deployment. You can retrieve this token with the following command:
+
+:::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
 
 The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service.
 
@@ -66,7 +66,7 @@ Set the `API_version` variable to accommodate future versions:
 
 To register the model and code, you need to first upload these items to an Azure Storage account. The details of the Azure Storage account are available in the data store. In this example, you get the default data store and Azure Storage account for your workspace. Query your workspace with a GET request to get a JSON file with the information.
 
-You can use the tool [jq](https://jqlang.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
+You can use the [jq](https://jqlang.github.io/jq/) tool to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
 
@@ -78,8 +78,6 @@ Now that you have the data store, you can upload the scoring script. Use the Azu
 
 > [!TIP]
 > You can use other methods to complete the upload, such as the Azure portal or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-<!-- Reviewer: The 'datastoreId` isn't used in any code cell in this article. Confirm argument/variable/ID name is correct. -->
 
 After you upload your code, you can specify your code with a PUT request and refer to the data store with the `datastoreId` identifier:
 
