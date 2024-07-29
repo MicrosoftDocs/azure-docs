@@ -373,3 +373,11 @@ For example, following ARM template can be used to create an event hub with capt
     }
   ]
 ```
+
+## Related content
+
+Learn more about the feature and how to enable it using the Azure portal and Azure Resource Manager template:
+
+- [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](event-hubs-capture-overview.md)
+- [Use the Azure portal to enable Event Hubs Capture](event-hubs-capture-enable-through-portal.md)
+- [Use an Azure Resource Manager template to enable Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
