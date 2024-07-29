@@ -68,9 +68,9 @@ The following table shows common Deployment Environments activities and the role
 | Grant permission to submit a Microsoft support ticket, including to [request a quota limit increase](how-to-request-quota-increase.md). | Platform engineer | Owner, Contributor, Support Request Contributor | Subscription |
 | Grant permission to create environment types in a project. | Platform engineer | [Custom role](/azure/role-based-access-control/custom-roles-portal): Microsoft.Authorization/roleAssignments/write </br></br> Owner, Contributor, or Project Admin | Subscription </br></br></br> Project|
 | Grant permission to assign roles to other users. | Platform engineer | Owner | Resource group |
-| Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.</br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Platform engineer | Owner, Contributor | Resource group |
+| Grant permission to: </br>- Create / manage dev centers and projects.</br>- Attach / detach catalog to a dev center or project.| Platform engineer | Owner, Contributor | Resource group |
 | Grant permission to enable / disable project catalogs. | Dev Manager | Owner, Contributor | Dev center |
-| Grant permission to create and manage all environments in a project. | Dev Manager | DevCenter Project Admin | Project |
+| Grant permission to create and manage all environments in a project. </br>- Add, sync, remove catalog (project-level catalogs must be enabled on the dev center).</br>- Configure expiry date and time to trigger automatic deletion.</br>- Update & delete environment types.</br>- Delete environments.| Dev Manager | DevCenter Project Admin | Project |
 | View all environments in a project. | Dev Manager | Deployment Environments Reader | Project |
 | Create and manage your own environments in a project. | User | Deployment Environments User | Project |
 | Create and manage catalogs in a GitHub or Azure Repos repository. | Dev Manager | Not governed by RBAC.<br>The user must be assigned permissions through Azure DevOps or GitHub. | Repository |
