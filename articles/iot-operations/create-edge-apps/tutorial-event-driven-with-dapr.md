@@ -118,7 +118,6 @@ To start, create a yaml file that uses the following definitions:
     mq-event-driven-dapr          3/3     Running             0          30s
     ```
 
-
 ## Deploy the simulator
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
