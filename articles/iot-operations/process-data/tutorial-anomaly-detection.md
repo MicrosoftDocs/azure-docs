@@ -82,7 +82,7 @@ To add a table to the `bakery_ops` database to store the anomaly data, go to the
 
 In this tutorial, you simulate the Contoso sites and production lines. Contoso has three types of asset on its production lines: ovens, mixers, and slicers:
 
-:::image type="content" source="media/tutorial-anomaly-detection/contoso-production-lines.png" alt-text="Diagram that shows the Contoso sites, production lines and assets." border="false" lightbox="media/tutorial-anomaly-detection/contoso-production-lines.png":::
+:::image type="content" source="media/contoso-production-lines-anomaly.png" alt-text="Diagram that shows the Contoso sites, production lines and assets." border="false" lightbox="media/contoso-production-lines-anomaly.png":::
 
 The production line assets generate multiple real-time measurements such as humidity, pressure, and temperature. This tutorial uses these simulated measurements to detect anomalies in the manufacturing process.
 
@@ -583,14 +583,14 @@ Now that your Grafana instance is connected to your Azure Data Explorer database
 
 1. To view data on the dashboard, use the **Asset** drop-down list to select an asset and make sure that the **Time range** is set to **Last 30 minutes**.
 
-    :::image type="content" source="media/tutorial-anomaly-detection/grafana-filters.png" alt-text="A screenshot that shows the Grafana dashboard with filters applied.":::
+    :::image type="content" source="media/grafana-filters.png" alt-text="A screenshot that shows the Grafana dashboard with filters applied.":::
 
 > [!NOTE]
 > This dashboard uses the variables feature to create the drop-down list of assets.
 
 The sample dashboard has three sections:
 
-:::image type="content" source="media/tutorial-anomaly-detection/grafana-sections.png" alt-text="A screenshot that shows the three sections of the Grafana dashboard.":::
+:::image type="content" source="media/grafana-sections.png" alt-text="A screenshot that shows the three sections of the Grafana dashboard.":::
 
 The **Asset View** section displays the process variables, anomalies, number of anomalies, and the ratio of anomalies of the selected asset.
 
@@ -623,5 +623,3 @@ This tutorial shows you how to do anomaly detection with the Contoso manufacturi
 - [Tutorial: Calculate overall equipment effectiveness](tutorial-overall-equipment-effectiveness.md)
 - [Tutorial: Configure MQTT bridge between the MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
 - [Build event-driven apps with Dapr](../create-edge-apps/tutorial-event-driven-with-dapr.md)
-- [Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
-- [Build a real-time dashboard in Microsoft Fabric with MQTT data](tutorial-real-time-dashboard-fabric.md)

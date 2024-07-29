@@ -65,8 +65,8 @@ Use the output from the previous command as the `descriptor` in the configuratio
 
 ## Related content
 
-- [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
-- [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
+- [Send data to Azure Data Explorer](../process-data/howto-configure-destination-data-explorer.md)
+- [Send data to Microsoft Fabric](../process-data/howto-configure-destination-fabric.md)
 - [Send data to an HTTP endpoint](howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)
