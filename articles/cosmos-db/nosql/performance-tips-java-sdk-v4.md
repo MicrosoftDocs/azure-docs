@@ -131,7 +131,7 @@ System.setProperty("COSMOS.ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS"
 
 This mechanism helps to continuously monitor partition health and ensures that requests are served with minimal latency and maximum availability, without being bogged down by problematic partitions.
 
-### Comparison
+### Comparing availability optimizations
 
 - **Threshold-based Availability Strategy**: 
   - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
