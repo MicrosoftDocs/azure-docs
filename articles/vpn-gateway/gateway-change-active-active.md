@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 # Change a VPN gateway to active-active
 
-The steps in this article help you change active-standby VPN gateways to active-active. You can also change an active-active gateway to active-standby. For more information about active-active gateways, see [About active-active gateways](vpn-gateway-about-vpn-gateway-settings.md#active) and [About highly-available gateway connections](vpn-gateway-highlyavailable.md).
+The steps in this article help you change active-standby VPN gateways to active-active. You can also change an active-active gateway to active-standby. For more information about active-active gateways, see [About active-active gateways](about-active-active-gateways.md) and [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md).
 
 ## Change active-standby to active-active
 
