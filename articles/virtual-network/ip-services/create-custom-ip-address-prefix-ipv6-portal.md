@@ -24,6 +24,8 @@ The steps in this article detail the process to:
 
 For this article, choose between the Azure portal, Azure CLI, or PowerShell to create a custom IPv6 address prefix.
 
+## Differences between using BYOIPv4 and BYOIPv6
+
 [!INCLUDE [ip-services-ipv4-ipv6-differences](../../../includes/ip-services-ipv4-ipv6-differences.md)]
 
 ## Prerequisites
