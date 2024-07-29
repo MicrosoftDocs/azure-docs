@@ -44,7 +44,10 @@ To deploy a Network Virtual Appliance in a Virtual WAN Hub, the user or service 
 
 These permissions need to be granted to the Azure Marketplace Managed Application to ensure deployments succeed. Additional permissions may be required based on the implementation of the deployment workflow developed by your NVA partner.
 
-## Assigning Permissions to Managed Application
+## Assigning Permissions to Azure Managed Application
+
+>[!NOTE]
+> At this time, assigning additional permisisons to faciliate Azure Managed Application deployments of Network Virtual Appliances in Virtual WAN is not required for all NVA deployments but will be in the future. Reference provider documentation to determine whether or not user-assigned identities are applicable to your enviornment.
 
 Network Virtual Appliances that are deployed via Azure Marketplace Managed Application are deployed in a special resource group in your Azure tenant called the **managed resource group**. When you create a Managed Application in your subscription, a corresponding and separate **managed resource group** is created in your subscription. All Azure resources created by the Managed Application (including the Network Virtual Appliance) are deployed into the **managed resource group**.
 
