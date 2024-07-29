@@ -84,7 +84,7 @@ To grant users permission to manage Azure Deployment Environments within your or
 
 Assign these roles to the *resource group*. The dev center and projects within the resource group inherit these role assignments. Environment types inherit role assignments through projects.
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-administrator-scopes.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-administrator-scopes.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments.":::
 
 ### Owner role
 
@@ -106,11 +106,11 @@ Assign the Contributor role to give a user full control to create or manage dev 
 
 ### Custom role
 
-To create a project-level environment type in Deployment Environments, you must assign the Owner role or the User Access Administrator role, for the subscription that is being mapped in the environment type in the project. Alternatively, to avoid assigning broad permissions at the subscription level, you can create and assign a custom role that applies Write permissions. Apply the cuustom role at the subscription that is being mapped in the environment type in the project.
+To create a project-level environment type in Deployment Environments, you must assign the Owner role or the User Access Administrator role, for the subscription that is being mapped in the environment type in the project. Alternatively, to avoid assigning broad permissions at the subscription level, you can create and assign a custom role that applies Write permissions. Apply the custom role at the subscription that is being mapped in the environment type in the project.
 
 To learn how to Create a custom role with *Microsoft.Authorization/roleAssignments/write* and assign it at subscription level, see: [Create a custom role](/azure/role-based-access-control/custom-roles-portal).
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-custom-scopes.png" alt-text="Diagram that shows the custom role assignment at the subscription for Azure Deployment Environments.":::
 
 In addition to the custom role, the user must be assigned the Owner, Contributor, or Project Admin role on the project where the environment type is created.
 
@@ -118,7 +118,7 @@ In addition to the custom role, the user must be assigned the Owner, Contributor
 
 These roles have more restricted permissions at lower-level scopes than the platform engineer roles. You can assign these roles to developer teams to enable them to perform administrative tasks for their team. 
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Azure Deployment Environments":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-project-scopes.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Azure Deployment Environments.":::
 
 
 ### DevCenter Project Admin role
@@ -135,7 +135,7 @@ The DevCenter Project Admin is the most powerful of the Dev Manager roles. Assig
 
 These roles give developers the permissions they require to view, create, and manage environments.
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-user-scopes.png" alt-text="Diagram that shows the user role assignments at the project for Azure Deployment Environments":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/deployment-environments-user-scopes.png" alt-text="Diagram that shows the user role assignments at the project for Azure Deployment Environments.":::
 
 ### Deployment Environments User
 
@@ -158,7 +158,7 @@ When a developer creates an environment based on an environment type, they're as
 
 The **Access control (IAM)** page in the Azure portal is used to configure Azure role-based access control on Azure Deployment Environments resources. You can use built-in roles for individuals and groups in Active Directory. The following screenshot shows Active Directory integration (Azure RBAC) using access control (IAM) in the Azure portal:
 
-:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/iam-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center":::
+:::image type="icon" source="media/concept-deployment-environments-role-based-access-control/access-control-page.png" alt-text="Screenshot that shows the Access control (IAM) page for a dev center.":::
 
 For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
