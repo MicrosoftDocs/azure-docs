@@ -37,7 +37,7 @@ The following tutorial uses [OpenSSL](https://www.openssl.org/) and the [OpenSSL
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * The latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
@@ -511,8 +511,6 @@ Perform the following steps to:
 
 ## Next steps
 
-You can register your device with your IoT hub for testing the client certificate that you've created for that device. For more information about registering a device, see the [Register a new device in the IoT hub](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub) section in [Create an IoT hub using the Azure portal](iot-hub-create-through-portal.md).
+You can register your device with your IoT hub for testing the client certificate that you've created for that device. For more information about registering a device, see [Create and manage device identities](create-connect-device.md).
 
 If you have multiple related devices to test, you can use the Azure IoT Hub Device Provisioning Service to provision multiple devices in an enrollment group. For more information about using enrollment groups in the Device Provisioning Service, see [Tutorial: Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
-
-For more information about the formats of the certificate files, see [X.509 certificates](reference-x509-certificates.md#certificate-formats).

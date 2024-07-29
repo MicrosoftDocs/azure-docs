@@ -105,7 +105,7 @@ Companies use deep learning to perform text analysis to detect insider trading a
 
 Artificial neural networks are formed by layers of connected nodes. Deep learning models use neural networks that have a large number of layers. 
 
-The following sections explore most popular artificial neural network typologies.
+The following sections explore most popular artificial neural network topologies.
 
 ### Feedforward neural network
 

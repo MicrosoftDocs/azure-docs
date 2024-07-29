@@ -141,6 +141,7 @@ Depending on your subscription type, you might not be able to delete a subscript
 > - The subscription is automatically deleted 90 days after you cancel a subscription.
 > - You can also contact Microsoft Support to help you remove a subscription. However you must make sure that you don't need the subscription anymore because the process only allows seven days to reactivate the subscription.
 > - If you have deleted all resources but the Delete your subscription page shows that you still have active resources, you might have active *hidden resources*. You can't delete a subscription if you have active hidden resources. To delete them, navigate to **Subscriptions** > select the subscription > **Resources**. At the top of the page, select **Manage view** and then select **Show hidden types**. Then, delete the resources.
+> - If you have a disabled Access to Azure Active Directory subscription, the subscription gets automatically deleted after 90 days of cancelling. No action is needed to manually delete it.
 
 ## Reactivate a subscription
 
@@ -188,6 +189,6 @@ Azure now offers free egress for customers leaving Azure when taking out their d
 - Azure might make changes regarding the egress credit policy in the future.
 - If a customer purchases Azure services through a partner, the partner is responsible for the credit request process, transferring data, canceling the applicable subscriptions and credit issuance to the customer.
 
-## Next steps
+## Related content
 
 - If needed, you can reactivate a pay-as-you-go subscription in the [Azure portal](subscription-disabled.md).

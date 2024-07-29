@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -597,6 +597,17 @@ Grants permissions to view VMs
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/GalleryImages/Read | Gets/Lists gallery images resource |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/MarketplaceGalleryImages/Read | Gets/Lists market place gallery images resource |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/read | Reads any Azure Arc licenses |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/read | Reads any Azure Arc patchAssessmentResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchAssessmentResults/softwarePatches/read | Reads any Azure Arc patchAssessmentResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/read | Reads any Azure Arc patchInstallationResults |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/patchInstallationResults/softwarePatches/read | Reads any Azure Arc patchInstallationResults/softwarePatches |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/networkSecurityPerimeterConfigurations/read | Reads any Azure Arc networkSecurityPerimeterConfigurations |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/privateEndpointConnections/read | Read any Azure Arc privateEndpointConnections |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/read | Read any Azure Arc privateLinkScopes |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
@@ -644,6 +655,17 @@ Grants permissions to view VMs
         "Microsoft.AzureStackHCI/StorageContainers/Read",
         "Microsoft.AzureStackHCI/GalleryImages/Read",
         "Microsoft.AzureStackHCI/MarketplaceGalleryImages/Read",
+        "Microsoft.HybridCompute/licenses/read",
+        "Microsoft.HybridCompute/machines/extensions/read",
+        "Microsoft.HybridCompute/machines/licenseProfiles/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/read",
+        "Microsoft.HybridCompute/machines/patchAssessmentResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/read",
+        "Microsoft.HybridCompute/machines/patchInstallationResults/softwarePatches/read",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/privateLinkScopes/networkSecurityPerimeterConfigurations/read",
+        "Microsoft.HybridCompute/privateLinkScopes/privateEndpointConnections/read",
+        "Microsoft.HybridCompute/privateLinkScopes/read",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
         "Microsoft.Insights/AlertRules/Read",

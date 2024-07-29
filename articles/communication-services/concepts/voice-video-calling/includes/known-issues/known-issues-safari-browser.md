@@ -28,7 +28,9 @@ ___
 **Browser version:** Safari 17 and up. <br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
-**Recommended workaround:** Await a forthcoming update or patch from Apple.<br>
+- A fix is available starting from Safari version 17.5 (macOS Sonoma 14.5).<br>
+
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.5) where this issue has been resolved.<br>
 
 ### Incoming and outgoing video blinking issue on macOS Sonoma with Safari versions up to 17.1
 
@@ -38,6 +40,14 @@ ___
 - A fix is available starting from Safari version 17.2.<br>
 
 **Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.2) where this issue has been resolved.
+
+
+### Other call participant unable to start screen share concurrently with macOS Safari user in Azure Communication Services 1:1 video calls
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** In Azure Communication Services 1:1 video calls, when a macOS Safari user shares their screen, another participant using a different browser cannot start screen sharing until the first participant stops their screen share. This limitation is observed across various combinations of browsers and operating systems but is specific to 1:1 calls. The issue does not occur in calls where both participants are using Safari on macOS.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=262791).<br>
+**Recommended workaround:** A temporary workaround is to ensure that only one participant shares their screen at a time in Azure Communication Services 1:1 video calls, when one of the participants is using macOS Safari.<br>
 
 ### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3
 **Browser version:** Safari v16.1, v16.2, v16.3 (macOS Ventura 13.0).<br>
@@ -96,6 +106,12 @@ Bug was fixed with iOS 16.2.<br>
 **Known issue reference:** Related WebKit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=243982) and [here](https://bugs.webkit.org/show_bug.cgi?id=244505).<br>
 **Recommended workaround:** Consider updating to the latest iOS version.<br>
   
+### Video and audio issues on iPhone X, occurring to the user being in a call for more than 30 minutes with the camera turned on
+**Devices affected:** iPhone X (iOS 16.7.x).<br>
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** During Azure Communication Service calls on iPhone X with iOS 16.7.x, users experience the disappearance of both their local video preview and incoming video after more than 30 minutes of being in a call with video enabled, which may appear blank or empty to the user. For other users, the video from the iPhone X user appears frozen at the moment it is lost on the iPhone X device. Along with the disappearance of the video, a pronounced echo can occur. The video restores when the iPhone X user turns the camera off and then on again.
+- This issue has been observed only on the iPhone X device with iOS versions 16.7.5 and 16.7.7.<br>
 
 ### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
 **iOS version:** All<br>

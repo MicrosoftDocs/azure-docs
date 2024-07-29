@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/16/2023
 ms.subservice: aks-nodes
 ---
@@ -18,7 +18,7 @@ Artifact Streaming can reduce time to pod readiness by over 15%, depending on th
 
 This article describes how to enable the Artifact Streaming feature on your AKS node pools to stream artifacts from ACR.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 4. Push or import an image to the registry using the [`az acr import`][az-acr-import] command.
 
     ```azurecli-interactive
-    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest --repository jupyter/all-spark-notebook:latest
     ```
 
 5. Create a streaming artifact from the image using the [`az acr artifact-streaming create`][az-acr-artifact-streaming-create] command.
@@ -88,7 +88,7 @@ Enablement on ACR is a prerequisite for Artifact Streaming on AKS. For more info
 6. Verify the generated Artifact Streaming using the [`az acr manifest list-referrers`][az-acr-manifest-list-referrers] command.
 
     ```azurecli-interactive
-    az acr manifest list-referrers -n jupyter/all-spark-notebook:latest
+    az acr manifest list-referrers --name jupyter/all-spark-notebook:latest
     ```
 
 ## Enable Artifact Streaming on AKS

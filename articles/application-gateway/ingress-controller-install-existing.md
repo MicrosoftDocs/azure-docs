@@ -22,7 +22,7 @@ resources, and creates and applies Application Gateway config based on the statu
 ## Outline
 
 - [Prerequisites](#prerequisites)
-- [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
+- [Azure Resource Manager authentication](#azure-resource-manager-authentication)
     - Option 1: [Set up Microsoft Entra Workload ID](#set-up-azure-ad-workload-identity) and create Azure Identity on ARMs
     - Option 2: [Set up a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
@@ -168,10 +168,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: pet-supplies-ingress
-  annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
-
 spec:
+  ingressClassName: azure-application-gateway
   rules:
   - http:
       paths:

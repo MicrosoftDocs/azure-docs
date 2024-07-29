@@ -1,14 +1,15 @@
 ---
 title: Major version upgrade
 description: Learn how to upgrade major version for an Azure Database for MySQL - Flexible Server instance.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.topic: how-to
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 10/12/2022
+ms.date: 06/18/2024
+ms.service: mysql
+ms.subservice: flexible-server
+ms.topic: how-to
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Major version upgrade in Azure Database for MySQL - Flexible Server

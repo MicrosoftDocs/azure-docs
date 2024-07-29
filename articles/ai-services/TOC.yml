@@ -6,21 +6,19 @@ items:
   items:
   - name: What are Azure AI services?
     href: what-are-ai-services.md
-    displayName: applied, cognitive, form recognizer
+    displayName: applied, cognitive, form
   - name: Language support
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/
 - name: Quickstarts
   items:
-  - name: Create a multi-service resource
+  - name: Create an Azure AI services resource
     href: multi-service-resource.md
-    displayName: cognitive
+    displayName: applied, cognitive, form
   - name: Create a new resource using Bicep
-    displayName: Resource Manager, ARM, Template
     href: create-account-bicep.md
   - name: Create a new resource using an ARM template
-    displayName: Resource Manager
     href: create-account-resource-manager-template.md  
   - name: Create a new resource using Terraform
     href: create-account-terraform.md

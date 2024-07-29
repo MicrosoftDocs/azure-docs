@@ -3,7 +3,7 @@ title: Manage Apache Spark configuration
 description: Learn how to create an Apache Spark configuration for your synapse studio.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

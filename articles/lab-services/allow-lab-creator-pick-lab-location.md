@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Allow lab creator to pick location for the lab in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 In Azure Lab Services, a lab account owner can allow lab creators (educators) to pick a location for the lab they create. This location can be different from the location of the lab account. A location is a group of Azure regions. For example, United States location is a group of regions such as East US, West US, and so on.

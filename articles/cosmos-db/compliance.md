@@ -21,19 +21,19 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes the following
 - **Azure Government Secret** is available from three regions exclusively for the needs of US Government and designed to accommodate classified Secret workloads and native connectivity to classified networks.
 - **Azure Government Top Secret** serves America's security mission and empowers leaders across the Intelligence Community (IC), Department of Defense (DoD), and Federal Civilian agencies to process security workloads classified at the US Top Secret level.
 
-To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of [compliance offerings](../compliance/index.yml)) and depth (number of [customer-facing services](https://azure.microsoft.com/services/) in assessment scope). For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+To help you meet your own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry both in terms of breadth (total number of [compliance offerings](/azure/compliance/offerings)) and depth (number of [customer-facing services](https://azure.microsoft.com/services) in assessment scope). For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 Azure compliance offerings are grouped into four segments - globally applicable, US Government, industry specific, and region/country specific.  Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft.
 
 ## Azure Cosmos DB certifications  
 
-To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.  
+To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance offerings](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3), Appendix A & B.  
 
 ## Next steps
 
 To learn more about Azure compliance coverage, see the following articles:
 
-- To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/), Appendix A & B.  
+- To find out the latest compliance certifications for Azure Cosmos DB, see [Microsoft Azure Compliance offerings](https://servicetrust.microsoft.com/DocumentPage/7adf2d9e-d7b5-4e71-bad8-713e6a183cf3), Appendix A & B.  
 - For an overview of Azure Cosmos DB security and the latest improvements, see [Security in Azure Cosmos DB](database-security.md).
 - For recommendations to improve the security posture of your Azure Cosmos DB deployment, see [Azure Cosmos DB security baseline](/security/benchmark/azure/baselines/cosmos-db-security-baseline). 
 - For more information about Azure certifications, see [Azure compliance documentation](../compliance/index.yml).

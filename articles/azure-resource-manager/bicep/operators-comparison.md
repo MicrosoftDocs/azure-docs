@@ -1,7 +1,7 @@
 ---
 title: Bicep comparison operators
 description: Describes Bicep comparison operators that compare values.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---

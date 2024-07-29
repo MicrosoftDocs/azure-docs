@@ -32,9 +32,10 @@ Authentication is done by adding the HTTP request header **Ocp-Apim-Subscription
 
 The code in this guide uses remote images referenced by URL. You may want to try different images on your own to see the full capability of the Image Analysis features.
 
-
+### Image URL
 When analyzing a remote image, you specify the image's URL by formatting the request body like this: `{"url":"https://learn.microsoft.com/azure/cognitive-services/computer-vision/images/windows-kitchen.jpg"}`. The **Content-Type** should be `application/json`.
 
+### Image file
 To analyze a local image, you'd put the binary image data in the HTTP request body. The **Content-Type** should be `application/octet-stream` or `multipart/form-data`.
 
 
@@ -44,7 +45,7 @@ To analyze a local image, you'd put the binary image data in the HTTP request bo
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the available visual features, but for practical usage you likely need fewer. 
 
-Visual features 'Captions' and 'DenseCaptions' are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+Visual features 'Captions' and 'DenseCaptions' are only supported in certain Azure regions: see [Region availability](./../../overview-image-analysis.md#region-availability).
 
 > [!NOTE]
 > The REST API uses the terms **Smart Crops** and **Smart Crops Aspect Ratios**. The SDK uses the terms **Crop Suggestions** and **Cropping Aspect Ratios**. They both refer to the same service operation. Similarly, the REST API uses the term **Read** for detecting text in the image using Optical Character Recognition (OCR), whereas the SDK uses the term **Text** for the same operation.
@@ -306,7 +307,7 @@ List of common errors:
     * For a binary image data, **Content-Type** should be `application/octet-stream` or `multipart/form-data`
   * `InvalidRequest - Either 'features' or 'model-name' needs to be specified in the query parameter`. 
   * `InvalidRequest - Image format is not valid`
-    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0#image-requirements) section for supported image formats.
+    * `InvalidImageFormat - Image format is not valid`. See the [Image requirements](/azure/ai-services/computer-vision/overview-image-analysis?tabs=4-0#input-requirements) section for supported image formats.
   * `InvalidRequest - Analyze query is invalid`
     * `NotSupportedVisualFeature - Specified feature type is not valid`. Make sure the **features** query string has a valid value.
     * `NotSupportedLanguage - The input language is not supported`. Make sure the **language** query string has a valid value for the selected visual feature, based on the [following table](https://aka.ms/cv-languages).

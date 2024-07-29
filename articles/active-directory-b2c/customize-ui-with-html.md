@@ -228,6 +228,9 @@ To host your HTML content in Blob storage, use the following steps:
 
 To create a public container in Blob storage, perform the following steps:
 
+1. Under **Settings** in the leftmost menu, select **Configuration**.
+1. Enable **Allow Blob anonymous access**.
+1. Select **Save**.
 1. Under **Data storage** in the left-hand menu, select **Containers**.
 1. Select **+ Container**.
 1. For **Name**, enter *root*. The name can be a name of your choosing, for example *contoso*, but we use *root* in this example for simplicity.
@@ -264,7 +267,7 @@ Configure Blob storage for Cross-Origin Resource Sharing by performing the follo
 Validate that you're ready by performing the following steps:
 
 1. Repeat the configure CORS step. For **Allowed origins**, enter `https://www.test-cors.org`
-1. Navigate to [www.test-cors.org](https://www.test-cors.org/) 
+1. Navigate to [www.test-cors.org](https://cors-test.codehappy.dev/) 
 1. For the **Remote URL** box, paste the URL of your HTML file. For example, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Select **Send Request**.
     The result should be `XHR status: 200`. 

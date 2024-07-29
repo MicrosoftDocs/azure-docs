@@ -24,8 +24,6 @@ Most of the Linux Operating Systems (OS) are covered by both agents. The agents 
 
 The Defender for IoT micro agent also supports Yocto as an open source.
 
-For additional information on supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager.
-
 For a more granular view of the micro agent-operating system dependencies, see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies).
 
 ## Eclipse ThreadX micro agent

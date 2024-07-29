@@ -13,7 +13,7 @@ ms.author: nickoman
 > [!NOTE]
 > When using proximity placement groups on AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation doesn't affect the placement of a cluster's control plane.
 
-When deploying your application in Azure, you can create network latency by spreading virtual machine (VM) instances across regions or availability zones, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to one another. Some applications, such as gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that can complete quickly. For similar high-performance computing (HPC) scenarios, consider using [proximity placement groups](../virtual-machines/co-location.md#proximity-placement-groups) (PPG) for your cluster's node pools.
+When deploying your application in Azure, you can create network latency by spreading virtual machine (VM) instances across regions or availability zones, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to one another. Some applications, such as gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that can complete quickly. For similar high-performance computing (HPC) scenarios, consider using [proximity placement groups (PPG)](../virtual-machines/co-location.md#proximity-placement-groups) for your cluster's node pools.
 
 ## Before you begin
 
@@ -55,7 +55,7 @@ Accelerated networking greatly improves networking performance of virtual machin
 2. Create a proximity placement group using the [`az ppg create`][az-ppg-create] command. Make sure to note the ID value in the output.
 
     ```azurecli-interactive
-    az ppg create -n myPPG -g myResourceGroup -l centralus -t standard
+    az ppg create --name myPPG --resource-group myResourceGroup --location centralus --type standard
     ```
 
     The command produces an output similar to the following example output, which includes the *ID* value you need for upcoming CLI commands.
@@ -83,6 +83,7 @@ Accelerated networking greatly improves networking performance of virtual machin
         --resource-group myResourceGroup \
         --name myAKSCluster \
         --ppg myPPGResourceID
+        --generate-ssh-keys
     ```
 
 ## Add a proximity placement group to an existing cluster
@@ -122,4 +123,3 @@ Learn more about [proximity placement groups][proximity-placement-groups].
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-ppg-create]: /cli/azure/ppg#az_ppg_create
-

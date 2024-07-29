@@ -4,7 +4,7 @@ description: Troubleshooting guide for high CPU utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 01/23/2024
+ms.date: 04/27/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Troubleshoot high CPU utilization in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL flexible server](overview.md).
 

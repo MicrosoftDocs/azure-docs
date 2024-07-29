@@ -80,7 +80,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
 3. To get the OIDC Issuer URL and save it to an environmental variable, run the following command. Replace the default values for the cluster name and the resource group name.
 
     ```bash
-    export AKS_OIDC_ISSUER="$(az aks show -n myAKSCluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv)"
+    export AKS_OIDC_ISSUER="$(az aks show --name myAKSCluster --resource-group myResourceGroup --query "oidcIssuerProfile.issuerUrl" -o tsv)"
     ```
 
     The variable should contain the Issuer URL similar to the following example:
@@ -96,7 +96,7 @@ If you don't have a managed identity created and assigned to your pod, perform t
 If you don't have a dedicated Kubernetes service account created for this application, perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli-interactive
-az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
+az aks get-credentials --name myAKSCluster --resource-group "${RESOURCE_GROUP}"
 ```
 
 Copy and paste the following multi-line input in the Azure CLI.

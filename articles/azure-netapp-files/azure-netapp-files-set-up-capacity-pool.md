@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 05/20/2024
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -31,6 +31,9 @@ Creating a capacity pool enables you to create volumes within it.
         ```
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
+    >[!IMPORTANT]
+    >To create a 1-TiB capacity pool with a tag, you must use API versions `2023-07-01_preview` to `2024-01-01_preview` or stable releases from `2024-01-01`. 
+    
 ## Steps 
 
 1. In the Azure portal, go to your NetApp account. From the navigation pane, select **Capacity pools**.  

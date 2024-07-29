@@ -80,6 +80,7 @@ This section describes how to create an alert suppression rule on the Azure port
     1. In the **Alert name** dropdown list, select one or more alerts for your rule. Selecting the name of an alert engine instead of a specific rule name applies the rule to all existing and future alerts associated with that engine.
 
     1. Optionally filter your rule further by defining additional conditions, such as for traffic coming from specific sources, to specific destinations, or on specific subnets.
+       When specifying subnets as conditions, note that the subnets refer to both the source and destination devices.
 
     1. When you're finished configuring your rule conditions, select **Next**.
 

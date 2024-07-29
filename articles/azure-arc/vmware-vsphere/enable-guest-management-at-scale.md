@@ -2,11 +2,11 @@
 title: Install Arc agent at scale for your VMware VMs
 description: Learn how to enable guest management at scale for Arc enabled VMware vSphere VMs. 
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 07/18/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 
 #Customer intent: As an IT infra admin, I want to install arc agents to use Azure management services for VMware VMs.
@@ -25,7 +25,7 @@ Ensure the following before you install Arc agents at scale for VMware VMs:
 - The user account must have permissions listed in Azure Arc VMware Administrator role.
 - All the target machines are:
     - Powered on and the resource bridge has network connectivity to the host running the VM.
-    - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).c
+    - Running a [supported operating system](../servers/prerequisites.md#supported-operating-systems).
     - VMware tools are installed on the machines. If VMware tools aren't installed, enable guest management operation is grayed out in the portal.  
         >[!Note]
         >You can use the [out-of-band method](./enable-guest-management-at-scale.md#approach-d-install-arc-agents-at-scale-using-out-of-band-approach) to install Arc agents if VMware tools aren't installed.  
@@ -158,21 +158,15 @@ Arc agents can be installed directly on machines without relying on VMware tools
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified subscription and links the machines with that vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-     ```
+     [!INCLUDE [azure-cli-subscription](./includes/azure-cli-subscription.md)]
 
    - The following command scans all the Arc for Server machines that belong to the vCenter in the specified Resource Group and links the machines with that vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter.
-     ```
+     [!INCLUDE [azure-cli-all](./includes/azure-cli-all.md)]
 
    - The following command can be used to link an individual Arc for Server resource to vCenter. 
 
-     ```azurecli
-     az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-     ```
+     [!INCLUDE [azure-cli-specified-arc](./includes/azure-cli-specified-arc.md)]
 
 ## Next steps
 

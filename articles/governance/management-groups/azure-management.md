@@ -43,11 +43,7 @@ covers the different services used at [Monitoring Azure applications and resourc
 
 ## Configure
 
-Configure refers to the initial deployment and configuration of resources and ongoing maintenance.
-Automation of these tasks allows you to eliminate redundancy, minimizing your time and effort and
-increasing your accuracy and efficiency. [Azure Automation](../../automation/overview.md)
-provides the bulk of services for automating configuration tasks. While runbooks handle process
-automation, configuration and update management help manage configuration.
+Configure refers to the initial deployment and configuration of resources and ongoing maintenance. Automation of these tasks allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency. [Azure Automation](../../automation/overview.md) provides the bulk of services for automating configuration tasks. While runbooks handle process automation, configuration and update management help manage configuration.
 
 ## Govern
 

@@ -3,12 +3,12 @@ title: Set up authentication (v1)
 titleSuffix: Azure Machine Learning
 description: Learn how to set up and configure authentication for various resources and workflows in Azure Machine Learning SDK v1.
 services: machine-learning
-author: rastala
-ms.author: roastala
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: roastala
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.date: 07/18/2022
+ms.date: 05/31/2024
 ms.topic: how-to
 ms.custom: UpdateFrequency5, has-adal-ref, subject-rbac-steps, sdkv1
 ---
@@ -146,7 +146,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
     | Assign access to | Managed Identity |
     | Members | The managed identity you created earlier |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ### Managed identity with compute cluster
 

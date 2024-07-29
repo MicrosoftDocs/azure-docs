@@ -55,7 +55,6 @@ If you have questions about Azure savings plan for compute, contact your account
 - To learn more about Azure Savings plans, see the following articles:
   - [What are Azure Savings plans?](savings-plan-compute-overview.md)
   - [Manage Azure savings plans](manage-savings-plan.md)
-  - [Who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan)
   - [How saving plan discount is applied](discount-application.md)
   - [Understand savings plan costs and usage](utilization-cost-reports.md)
   - [Software costs not included with Azure savings plans](software-costs-not-included.md)

@@ -49,7 +49,9 @@ The following is an example of an advanced query that utilizes container image m
 
 ## Map your container image from GitHub workflows to the container registry
 
-1. Add the container image mapping tool to your MSDO workflow:
+1. Ensure you have onboarded a [GitHub connector](quickstart-onboard-github.md) to Defender for Cloud. 
+
+1. Run the following MSDO workflow:
 
 ```yml
 name: Build and Map Container Image
@@ -68,7 +70,8 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.8' 
-    # Set Authentication to Container Registry of Choice
+    # Set Authentication to Container Registry of Choice. 
+    # The example below is for Azure Container Registry. Amazon Elastic Container Registry and Google Artifact Registry are also supported. 
    - name: Azure Container Registry Login 
         uses: Azure/docker-login@v1 
         with:
@@ -86,8 +89,6 @@ jobs:
     - name: Run Microsoft Security DevOps Analysis
       uses: microsoft/security-devops-action@latest
       id: msdo
-      with:
-        include-tools: container-mapping
 ```
 
 After building a container image in a GitHub workflow and pushing it to a registry, see the mapping by using the [Cloud Security Explorer](how-to-manage-cloud-security-explorer.md):

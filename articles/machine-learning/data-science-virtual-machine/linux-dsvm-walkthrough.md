@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: data-science-vm
 ms.custom: linux-related-content
 
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 04/25/2024
 ---
 

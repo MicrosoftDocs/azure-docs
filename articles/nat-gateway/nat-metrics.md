@@ -5,7 +5,7 @@ description: Get started learning about Azure Monitor metrics and alerts availab
 author: asudbring
 ms.service: nat-gateway
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/29/2024
 ms.author: allensu
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ---
@@ -19,7 +19,7 @@ Azure NAT Gateway provides the following diagnostic capabilities:
 
 - Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provide you with a topological map of your Azure setup and metrics dashboards. 
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway uses all IP addresses for a public IP prefix. The NAT gateway directs traffic between subnets of VMs and a virtual machine scale set":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
 
 *Figure: Azure NAT Gateway for outbound to Internet*
 
@@ -271,7 +271,7 @@ To create the alert, use the following steps:
 1. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer seeting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer setting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
 
 ### Alerts for NAT gateway resource health
 
@@ -313,6 +313,7 @@ The metrics dashboard can be used to better understand the performance and healt
 
 For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](#how-to-use-nat-gateway-metrics).
 
+## Metrics FAQ
 
 ### What type of metrics are available for NAT gateway?
 
@@ -320,7 +321,7 @@ The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essent
 
 Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
 
-### How to store NAT gateway metrics long-term
+### How do I store NAT gateway metrics long-term?
 
 All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
 
@@ -329,7 +330,7 @@ All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-
 >
 >To retrieve NAT gateway metrics, use the metrics REST API.
 
-### How to interpret metrics charts
+### How do I interpret metrics charts?
 
 Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing or interpreting charts in Azure metrics explorer. 
 

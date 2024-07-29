@@ -5,11 +5,9 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
-ms.custom:
-  - devx-track-csharp
-  - ignite-2023
+ms.custom: devx-track-csharp, ignite-2023, linux-related-content
 ---
 
 <!-- markdownlint-disable MD001 -->
@@ -29,7 +27,7 @@ ms.custom:
 
   If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
-  - A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
+  - A [**Java Development Kit (JDK)**](/java/openjdk/download#openjdk-17) version 8 or later. For more information, see [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
   - [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
 - An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -87,10 +85,10 @@ This article uses the Gradle dependency manager. You can find the client library
 
 1. Open the project's *build.gradle.kts* file in your IDE. Copy and paste the following code to include the client library as an `implementation` statement, along with the required plugins and settings.
 
-    ```kotlin
-    plugins {
-       java
-       application
+   ```kotlin
+   plugins {
+      java
+      application
    }
    application {
        mainClass.set("DocIntelligence")
@@ -100,9 +98,8 @@ This article uses the Gradle dependency manager. You can find the client library
    }
    dependencies {
        implementation group: 'com.azure', name: 'azure-ai-documentintelligence', version: '1.0.0-beta.2'
-
    }
-    ```
+   ```
 
 ## Create a Java application
 

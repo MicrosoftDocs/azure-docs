@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 05/27/2024
 ms.author: anfdocs
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -29,6 +29,8 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 A backup policy enables a volume to be protected on a regularly scheduled interval. It does not require snapshot policies to be configured. Backup policies will continue the daily cadence based on the time of day when the backup policy is linked to the volume, using the time zone of the Azure region where the volume exists. Weekly schedules are preset to occur each Monday after the daily cadence.  Monthly schedules are preset to occur on the first day of each calendar month after the daily cadence. If backups are needed at a specific time/day, consider using [manual backups](backup-configure-manual.md). 
 
 You need to create a backup policy and associate the backup policy to the volume that you want to back up. A single backup policy can be attached to multiple volumes. Backups can be temporarily suspended by disabling the policy. A backup policy can't be deleted if it's attached to any volumes.
+
+Before creating the policy, review [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md).    
 
 To enable a policy-based (scheduled) backup: 
 
@@ -66,7 +68,7 @@ The following example configuration has a backup policy configured for daily bac
 
 ## Assign backup vault and backup policy to a volume
 
-Every Azure NetApp Files volume must have a backup vault assigned before any backups (policy-based or manual) can be taken. 
+Every Azure NetApp Files volume must have a [backup vault](backup-vault-manage.md) assigned before any backups (policy-based or manual) can be taken. 
 
 After you assign a backup vault to the volume, you need to assign a backup policy to the volume for policy-based backups to take effects. (For manual backups, a backup policy is optional.)
 
@@ -77,7 +79,7 @@ To configure backups for a volume:
 
 1. Navigate to **Volumes** then select the volume for which you want to configure backups.
 2. From the selected volume, select **Backup** then **Configure**.
-3. In the Configure Backups page, select the backup vault from the **Backup vaults** drop-down.
+3. In the Configure Backups page, select the backup vault from the **Backup vaults** drop-down. For information about creating a backup vault, see [Create a backup vault](backup-vault-manage.md).
 4. In the **Backup Policy** drop-down menu, assign the backup policy to use for the volume. Select **OK**.
 
     The Vault information is prepopulated.  

@@ -15,11 +15,17 @@ ms.date: 07/09/2023
 
 This article explains how to enable VM insights for Azure virtual machines, virtual machine scale sets, and hybrid virtual machines connected with Azure Arc by using predefined VM insights policy initiates.
 
-> [!NOTE]
-> For information about how to use Azure Policy with Azure virtual machine scale sets and how to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## VM insights initiatives
 VM insights policy initiatives install Azure Monitor Agent and the Dependency agent on new virtual machines in your Azure environment. Assign these initiatives to a management group, subscription, or resource group to install the agents on Windows or Linux Azure virtual machines in the defined scope automatically.
+
+> [!NOTE]
+> The VM Insights initiatives listed below don't update a Dependency Agent extension that already exists on your VM with Azure Monitoring Agent settings. Make sure to uninstall the Dependency Agent extension from your VM before deploying these initiatives.
+
+Enable Azure Monitor for VMs with Azure Monitoring Agent
+Enable Azure Monitor for virtual machine scale sets with Azure Monitoring Agent
+Enable Azure Monitor for Hybrid VMs with Azure Monitoring Agent
+
 
 The initiatives apply to new machines you create and machines you modify, but not to existing VMs.
 

@@ -1,21 +1,21 @@
 ---
-title: Increase the size of an Azure Elastic SAN and its volumes
-description: Learn how to increase the size of an Azure Elastic SAN and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
+title: Resize an Azure Elastic SAN and its volumes
+description: Learn how to increase or decrease the size of an Azure Elastic SAN and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Increase the size of an Elastic SAN
+# Resize an Azure Elastic SAN
 
-This article covers increasing the size of an Elastic storage area network (SAN) and an individual volume, if you need additional storage or performance. Be sure you need the storage or performance before you increase the size because decreasing the size isn't supported, to prevent data loss.
+This article covers increasing or decreasing the size of an Elastic storage area network (SAN) and an individual volume.
 
-## Expand SAN size
+## Resize your SAN
 
-First, increase the size of your Elastic storage area network (SAN).
+To increase the size of your volumes, increase the size of your Elastic SAN first. To decrease the size of your SAN, make sure your volumes aren't using the extra size, or decrease the size of your volumes first.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -39,9 +39,9 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 
 ---
 
-## Expand volume size
+## Resize a volume
 
-Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume.
+Once you've expanded the size of your SAN, you can either create more volumes, or expand the size of an existing volume. You cannot decrease the size of your volumes.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -59,4 +59,4 @@ az elastic-san volume update -e $sanName -g $resourceGroupName -v $volumeGroupNa
 
 ## Next steps
 
-To create a new volume with the extra capacity you added to your SAN, see [Create volumes](elastic-san-create.md#create-volumes).
+If you expanded the size of your SAN, see [Create volumes](elastic-san-create.md#create-volumes) to create a new volume with the extra capacity.

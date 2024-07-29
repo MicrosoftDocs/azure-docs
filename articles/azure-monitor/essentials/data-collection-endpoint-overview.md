@@ -12,11 +12,24 @@ ms.reviwer: nikeist
 
 # Data collection endpoints in Azure Monitor
 
-A data collection endpoint (DCE) is a connection that the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) uses to send collected data for processing and ingestion into Azure Monitor. [Azure Monitor Agent](../agents/agents-overview.md) also uses data collection endpoints to receive configuration files from Azure Monitor and to send collected log data for processing and ingestion. 
+A data collection endpoint (DCE) is a connection where data sources send collected data for processing and ingestion into Azure Monitor. This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
 
-This article provides an overview of data collection endpoints and explains how to create and set them up based on your deployment.
+## When is a DCE required?
+Prior to March 31, 2024, a DCE was required for all data collection scenarios using a DCR that required an endpoint. Any DCR created after this date includes its own endpoints for logs and metrics. The URL for these endpoints can be found in the [`logsIngestion` and `metricsIngestion`](./data-collection-rule-structure.md#endpoints) properties of the DCR. These endpoints can be used instead of a DCE for any direct ingestion scenarios.
 
-## Components of a data collection endpoint
+Endpoints cannot be added to an existing DCR, but you can keep using any existing DCRs with existing DCEs. If you want to move to a DCR endpoint, then you must create a new DCR to replace the existing one. A DCR with endpoints can also use a DCE. In this case, you can choose whether to use the DCE or the DCR endpoints for each of the clients that use the DCR.
+
+The following scenarios can currently use DCR endpoints.  A DCE required if private link is used.
+
+- [Logs ingestion API](../logs/logs-ingestion-api-overview.md)
+
+The following data types still require creating a DCE:
+
+- [AMA Based Custom Logs](../agents/data-collection-text-log.md)
+- [Windows IIS Logs](../agents/data-collection-iis.md)
+- [Prometheus Metrics](../containers/container-insights-prometheus-logs.md)
+
+## Components of a DCE
 
 A data collection endpoint includes components required to ingest data into Azure Monitor and send configuration files to Azure Monitor Agent. 
 
@@ -25,8 +38,9 @@ A data collection endpoint includes components required to ingest data into Azur
 This table describes the components of a data collection endpoint, related regionality considerations, and how to  set up the data collection endpoint when you create a data collection rule using the portal:
 
 | Component | Description | Regionality considerations |Data collection rule configuration |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | Logs ingestion endpoint | The endpoint that ingests logs into the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Log Analytics workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.ingest`. |Same region as the destination Log Analytics workspace. |Set on the **Basics** tab when you create a data collection rule using the portal. |
+| Metrics ingestion endpoint | The endpoint that ingests metrics into the data ingestion pipeline. Azure Monitor transforms the data and sends it to the defined destination Azure Monitor workspace and table based on a DCR ID sent with the collected data.<br>Example: `<unique-dce-identifier>.<regionname>-1.metrics.ingest`. |Same region as the destination Azure Monitor workspace. |Set on the **Basics** tab when you create a data collection rule using the portal. |
 | Configuration access endpoint | The endpoint from which Azure Monitor Agent retrieves data collection rules (DCRs).<br>Example: `<unique-dce-identifier>.<regionname>-1.handler.control`. | Same region as the monitored resources. | Set on the **Resources** tab when you create a data collection rule using the portal.| 
 
 
@@ -101,6 +115,9 @@ The sample data collection endpoint (DCE) below is for virtual machines with Azu
     "logsIngestion": {
       "endpoint": "https://mycollectionendpoint-abcd.eastus-1.ingest.monitor.azure.com"
     },
+    "metricsIngestion": {
+      "endpoint": "https://mycollectionendpoint-abcd.eastus-1.metrics.ingest.monitor.azure.com"
+    },
     "networkAcls": {
       "publicNetworkAccess": "Disabled"
     }
@@ -119,10 +136,9 @@ The sample data collection endpoint (DCE) below is for virtual machines with Azu
 
 ## Limitations
 
-- Data collection endpoints only support Log Analytics workspaces as a destination for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
+- Data collection endpoints only support Log Analytics workspaces and Azure Monitor Workspace as destinations for collected data. [Custom metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via Azure Monitor Agent aren't currently controlled by DCEs.
 
-- Data collection endpoints are where [Logs ingestion API ingestion limits](../service-limits.md#logs-ingestion-api) are applied.
 
 ## Next steps
-- [Associate endpoints to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+
 - [Add an endpoint to an Azure Monitor Private Link Scope resource](../logs/private-link-configure.md#connect-azure-monitor-resources)

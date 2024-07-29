@@ -11,6 +11,8 @@ ms.date: 06/02/2023
 
 # Control Windows shutdown behavior in lab virtual machines
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn how to remove the shutdown command from the Windows Start menu in lab virtual machines in Azure Lab Services. When a lab user performs a shutdown in the operating system instead of stopping the lab virtual machine, the shutdown might interfere with the Azure Lab Services cost control measures.
 
 Azure Lab Services provides different cost control measures, such as [lab schedules](./how-to-create-schedules.md), [quota hours](./how-to-manage-lab-users.md#set-quotas-for-users), and [automatic shutdown policies](./how-to-enable-shutdown-disconnect.md).

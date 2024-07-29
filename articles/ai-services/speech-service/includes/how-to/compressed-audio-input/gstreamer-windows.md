@@ -9,7 +9,7 @@ ms.author: eur
 Make sure that packages of the same platform (x64 or x86) are installed. For example, if you installed the x64 package for Python, you need to install the x64 GStreamer package. The following instructions are for the x64 packages.
 
 1. Create the folder c:\gstreamer.
-1. Download the [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi).
+1. Download the [installer](https://gstreamer.freedesktop.org/download/).
 1. Copy the installer to c:\gstreamer.
 1. Open PowerShell as an administrator.
 1. Run the following command in PowerShell:

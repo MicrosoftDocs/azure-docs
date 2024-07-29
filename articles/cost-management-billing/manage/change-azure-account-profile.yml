@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 03/04/2023
+  ms.date: 07/22/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -20,16 +20,20 @@ introduction: |
 
   If you want to update your Microsoft Entra user profile information, only a user administrator can make the changes. If you're not assigned the user administrator role, contact your user administrator. For more information about changing a user's profile, see [Add or update a user's profile information using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
   
-  *Sold-to address* - The sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. It's displayed in all the invoices generated for the billing account.
+  *Sold-to address* - The sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. In other words, the sold-to information describes the legal entity. It's displayed in all the invoices generated for the billing account.
   
-  *Bill-to address* - The bill-to address is the address and the contact information of the organization or the individual, who is responsible for the invoices generated for a billing account. For a billing account for a Microsoft Online Service Program (MOSP), there's one bill-to address, which is displayed on all the invoices generated for the account. For a billing account for a Microsoft Customer Agreement (MCA), there's a bill-to address for each billing profile and it's displayed in the invoice generated for the billing profile.
+  *Bill-to address* - The bill-to address is the address and the contact information of the organization or the individual, who is responsible for paying the invoices generated for a billing account. 
+  - For a billing account for a Microsoft Online Service Program (MOSP), the bill-to address appears on credit card or invoice information. For MOSP accounts, your bill-to information is the same as your payment information (credit card or invoice details).
+    > [!NOTE]
+    > If you want to update your bill-to information instead, see [Edit credit card details](change-credit-card.md#edit-credit-card-details).
+  - For a billing account for a Microsoft Customer Agreement (MCA), there's a bill-to address for each billing profile and it's displayed in the invoice generated for the billing profile.
   
   *Contact email address for service and marketing emails* - You can specify an email address that's different from the email address that you sign in with to receive important billing, service, and recommendation-related notifications about your Azure account. Service notification emails, such as urgent security issues, price changes, or breaking changes to services in use by your account are always sent to your sign-in address.
 procedureSection:
   - title: |
-      Update an MOSP billing account address
+      Update an MOSP billing account sold-to address
     summary: |
-      Follow these steps:
+      Use the following information to update your sold-to address.
     steps:
       - |
         Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
@@ -40,7 +44,9 @@ procedureSection:
         Select **Properties** from the left-hand side.  
           ![Screenshot that shows MOSP billing account properties.](./media/change-azure-account-profile/update-contact-information-select-properties.png)
       - |
-        Select **Update billing address** to update the sold-to and the bill-to addresses. Enter the new address and then select **Save**.  
+        Select **Update sold to** to update the sold-to address. 
+      - |
+        Enter the new address and then select **Save**.  
           ![Screenshot that shows update address for the MOSP billing account.](./media/change-azure-account-profile/update-contact-information-mosp.png)
   - title: |
       Update an MCA billing account sold-to address
@@ -85,7 +91,7 @@ procedureSection:
   - title: |
       Update a PO number
     summary: |
-      By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
+      By default, invoices for the billing profile don't have an associated PO number. After you add a PO number for a billing profile, the system regenerates the invoices within 24 hours. Afterward, the PO number appears on invoices for the billing profile.
       To add or change the PO number for a billing profile, use the following steps.
     steps:
       - |
@@ -123,7 +129,7 @@ procedureSection:
   - title: |
       Service and marketing emails
     summary: |
-      You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
+      You get prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
       - Service notifications
       - Security alerts
       - Billing purposes
@@ -132,11 +138,12 @@ procedureSection:
       - Best practice recommendations, based on your Azure usage  
 
       Enter the email address where you want to receive communications about your account. By entering an email address, you're opting in to receive communications from Microsoft.
+      
       ![Screenshot example of the prompt to update your contact information.](./media/change-azure-account-profile/update-contact-information.png)
       
       ### Change your contact email address
       You can change your contact email address by using one of the following methods. Updating your contact email address doesn't update the email address that you sign in with.
-      1. If you're an account administrator for an MOSP account, follow the instructions in [Update an MOSP billing account address](#update-an-mosp-billing-account-address) and select **Update contact info** in the last step. Next, enter the new email address.
+      1. If you're an account administrator for an MOSP account, follow the instructions in [Update an MOSP billing account sold-to address](#update-an-mosp-billing-account-sold-to-address) and select **Update contact info** in the last step. Next, enter the new email address.
       1. Go to the [Contact information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) area in the Azure portal and enter the new email address. 
       1. In the Azure portal, select the icon with your initials or picture. Then, select the context menu (**...**). Next, select **My Contact Information** from the menu and enter the new email address.
       ![Screenshot example of updating an email address in Azure.](./media/change-azure-account-profile/azure-contact-information.png)
@@ -160,9 +167,9 @@ procedureSection:
       - |
         For an MCA billing account, you can give the new email address permissions on your account.
   - title: |
-      Update your country or region
+      Update your country/region
     summary: |
-      Changing the country or region for an existing account isn't supported. However, you can work around this issue.
+      Changing the country/region for an existing account isn't supported. However, you can work around this issue.
     steps: 
       - |
          You can create a new account in a different country or region and then contact Azure support to transfer your subscription to the new account.

@@ -40,12 +40,14 @@ This guide provides two options to upgrade from the Azure Monitor Application In
     Remove all Application Insights instrumentation from your code. Delete any sections where the Application Insights client is initialized, modified, or called.
 
 4. Enable Application Insights with the Azure Monitor OpenTelemetry Distro.
-
+    > [!IMPORTANT] 
+    > *Before* you import anything else, `useAzureMonitor` must be called. There might be telemetry loss if other libraries are imported first.
     Follow [getting started](opentelemetry-enable.md?tabs=nodejs) to onboard to the Azure Monitor OpenTelemetry Distro.
 
 #### Azure Monitor OpenTelemetry Distro changes and limitations
 
-The APIs from the Application Insights SDK 2.X aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights SDK 3.X.
+   * The APIs from the Application Insights SDK 2.X aren't available in the Azure Monitor OpenTelemetry Distro. You can access these APIs through a nonbreaking upgrade path in the Application Insights SDK 3.X.
+   * Filtering dependencies, logs, and exceptions by operation name is not yet supported.
 
 ## [Upgrade](#tab/upgrade)
 
@@ -69,9 +71,9 @@ The APIs from the Application Insights SDK 2.X aren't available in the Azure Mon
 
 The following changes and limitations apply to both upgrade paths.
 
-##### Node < 14 support
+##### Node.js version support
 
-OpenTelemetry JavaScript's monitoring solutions officially support only Node version 14+. Check the [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes) for the latest updates. Users on older versions like Node 8, previously supported by the ApplicationInsights SDK, can still use OpenTelemetry solutions but can experience unexpected or breaking behavior.
+For a version of Node.js to be supported by the ApplicationInsights 3.X SDK, it must have overlapping support from both the Azure SDK and OpenTelemetry. Check the [OpenTelemetry supported runtimes](https://github.com/open-telemetry/opentelemetry-js#supported-runtimes) for the latest updates. Users on older versions like Node 8, previously supported by the ApplicationInsights SDK, can still use OpenTelemetry solutions but can experience unexpected or breaking behavior. The ApplicationInsights SDK also depends on the Azure SDK for JS which does not guarantee support for any Node.js versions that have reached end-of-life. See [the Azure SDK for JS support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md). For a version of Node.js to be supported by the ApplicationInsights 3.X SDK, it must have overlapping support from both the Azure SDK and OpenTelemetry.
 
 ##### Configuration options
 

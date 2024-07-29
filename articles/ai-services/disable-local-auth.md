@@ -27,7 +27,7 @@ You can use PowerShell to determine whether the local authentication policy is c
 
 ## Re-enable local authentication
 
-To enable local authentication, execute the PowerShell cmdlet **[Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount)** with the parameter `-DisableLocalAuth false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
+To enable local authentication, execute the PowerShell cmdlet **[Set-AzCognitiveServicesAccount](/powershell/module/az.cognitiveservices/set-azcognitiveservicesaccount)** with the parameter `-DisableLocalAuth $false`.  Allow a few minutes for the service to accept the change to allow local authentication requests.
 
 ## Next steps
 - [Authenticate requests to Azure AI services](./authentication.md)

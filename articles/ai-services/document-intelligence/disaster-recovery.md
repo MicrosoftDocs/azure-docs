@@ -525,6 +525,6 @@ In this guide, you learned how to use the Copy API to back up your custom models
 ::: moniker range="doc-intel-2.1.0"
 In this guide, you learned how to use the Copy API to back up your custom models to a secondary Document Intelligence resource. Next, explore the API reference docs to see what else you can do with Document Intelligence.
 
-* [REST API reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
+* [REST API reference documentation](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)
 
 ::: moniker-end

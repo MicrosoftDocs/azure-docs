@@ -72,14 +72,15 @@ The following example creates an AKS cluster with single node pool backed by a v
 
     ```azurecli-interactive
     az aks create \
-      --resource-group myResourceGroup \
-      --name myAKSCluster \
-      --node-count 1 \
-      --vm-set-type VirtualMachineScaleSets \
-      --load-balancer-sku standard \
-      --enable-cluster-autoscaler \
-      --min-count 1 \
-      --max-count 3
+        --resource-group myResourceGroup \
+        --name myAKSCluster \
+        --node-count 1 \
+        --vm-set-type VirtualMachineScaleSets \
+        --load-balancer-sku standard \
+        --enable-cluster-autoscaler \
+        --min-count 1 \
+        --max-count 3 \
+        --generate-ssh-keys
     ```
 
 ## Existing attached Azure Services

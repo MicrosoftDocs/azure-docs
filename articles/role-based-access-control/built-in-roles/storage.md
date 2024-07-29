@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -266,7 +266,7 @@ Lets you manage backup service, but can't create vaults and give access to other
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage backup service,but can't create vaults and give access to others",
+  "description": "Lets you manage backups, but can't delete vaults and give access to others",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/5e467623-bb1f-42f4-a55d-6e525e11384b",
   "name": "5e467623-bb1f-42f4-a55d-6e525e11384b",
   "permissions": [

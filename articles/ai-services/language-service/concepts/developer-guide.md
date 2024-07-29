@@ -121,7 +121,7 @@ It additionally enables you to use the following features, without creating any 
 * [Conversation summarization](../summarization/quickstart.md?pivots=rest-api&tabs=conversation-summarization)
 * [Personally Identifiable Information (PII) detection for conversations](../personally-identifiable-information/how-to-call-for-conversations.md?tabs=rest-api#examples)
 
-As you use this API in your application, see the [reference documentation](/rest/api/language/2023-04-01/conversation-analysis-runtime) for additional information.
+As you use this API in your application, see the [reference documentation](/rest/api/language) for additional information.
 
 
 ### Text analysis authoring API
@@ -159,9 +159,8 @@ The question answering APIs enables you to use the [question answering](../quest
 
 As you use this API in your application, see the following reference documentation for additional information.
 
-* [Prebuilt API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) - Use the prebuilt runtime API to answer specified question using text provided by users.
-* [Custom authoring API](/rest/api/cognitiveservices/questionanswering/question-answering-projects) - Create a knowledge base to answer questions.
-* [Custom runtime API](/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) - Query and knowledge base to generate an answer.
+* [Prebuilt API](/azure/ai-services/language-service/question-answering/how-to/prebuilt) - Use the prebuilt runtime API to answer specified question using text provided by users.
+* [Custom authoring API](/azure/ai-services/language-service/question-answering/how-to/authoring) - Create a knowledge base to answer questions.
 
 
 ---

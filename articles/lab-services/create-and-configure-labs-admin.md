@@ -11,6 +11,8 @@ ms.custom: template-how-to
 
 # Configure regions for labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article shows you how to configure the locations where you can create labs by enabling or disabling regions associated with the lab plan. Enabling a region allows lab creators to create labs within that region. You cannot create labs in disabled regions. 
 
 When you create a lab plan, you have to set an initial region for the labs, but you can enable or disable more regions for your lab at any time. If you create a lab plan by using the Azure portal, enable regions initially includes the same region as the location of the lab plan. If you create a lab plan by using the API or SDKs, you must set the AllowedRegion property when you create the lab plan. 

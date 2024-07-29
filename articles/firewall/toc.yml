@@ -137,6 +137,8 @@ items:
       href: firewall-sentinel-overview.md
     - name: Best practices for performance
       href: firewall-best-practices.md
+    - name: Microsoft Copilot for Security
+      href: firewall-copilot.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -181,6 +183,10 @@ items:
       href: premium-migrate.md
     - name: Migrate to Premium using Terraform
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Monitor
     items:
     - name: Monitor diagnostic logs

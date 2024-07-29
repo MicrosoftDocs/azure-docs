@@ -1,60 +1,53 @@
 ### YamlMime:Landing
 
-title: Trusted Signing # < 60 chars
-summary: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers # < 160 chars
+title: Trusted Signing
+summary: Trusted Signing is a Microsoft fully managed, end-to-end signing solution for partner developers.
 
 metadata:
-  title: Trusted Signing documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for third party developers. The service is currently in a preview state. # Required; article description that is displayed in search results. < 160 chars.
-  ms.service: azure-code-signing #Required; use either service or product per approved list. 
-  ms.topic: landing-page # Required
-  author: microsoftshawarma #Required; your GitHub user alias, with correct capitalization.
-  ms.author: rakiasegev #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/05/2024 #Required; mm/dd/yyyy format.
+  title: Trusted Signing documentation
+  description: Trusted Signing is a Microsoft fully managed end-to-end signing solution for partner developers. The service is currently in public preview.
+  ms.service: trusted-signing
+  ms.topic: landing-page
+  author: microsoftshawarma
+  ms.author: rakiasegev
+  ms.date: 01/05/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
-# Start card title with a verb
-  # Card 
-  - title: How-To Guides
+  - title: About Trusted Signing
     linkLists:
+        - linkListType: overview
+          links:
+            - text: What is the Trusted Signing service?
+              url: overview.md
+        - linkListType: concept
+          links:
+            - text: Trusted Signing trust models
+              url: concept-trusted-signing-trust-models.md
+            - text: Trusted Signing resources and roles
+              url: concept-trusted-signing-resources-roles.md
+            - text: Trusted Signing certificate management
+              url: concept-trusted-signing-cert-management.md
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up Trusted Signing
+            url: quickstart.md
       - linkListType: how-to-guide
         links:
-          - text: Sign CI Policies with Trusted Signing
+          - text: Sign a CI policy by using Trusted Signing
             url: how-to-sign-ci-policy.md
-          - text: Signing Integrations with Trusted Signing
+          - text: Set up signing integrations to use Trusted Signing
             url: how-to-signing-integrations.md
           - text: Access signed transactions in Trusted Signing 
             url: how-to-sign-history.md
           - text: Revoke a certificate profile in Trusted Signing
             url: how-to-cert-revocation.md
-  - title: Overview
-    linkLists:
-        - linkListType: overview
-          links:
-            - text: Overview of Trusted Signing
-              url: overview.md
-  - title: Assigning Roles in Trusted Signing
+  - title: Assign roles
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Tutorial on assigning roles in the Trusted Signing service
+          - text: Assign roles in the Trusted Signing service
             url: tutorial-assign-roles.md
-  - title: Quickstart with Trusted Signing
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Trusted Signing Quickstart
-            url: quickstart.md
-  - title: Learn about Signing
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Trusted Signing trust models
-            url: concept-trusted-signing-trust-models.md
-          - text: Trusted Signing resources and roles
-            url: concept-trusted-signing-resources-roles.md
-          - text: Trusted Signing certificate management
-            url: concept-trusted-signing-cert-management.md

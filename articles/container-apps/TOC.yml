@@ -11,7 +11,7 @@
     - name: Use serverless containers
       href: start-serverless-containers.md
     - name: Quickstarts
-      items: 
+      items:
       - name: Deploy from an existing container image
         items:
         - name: Azure portal
@@ -49,13 +49,22 @@
     - name: Environment
       href: environment.md
     - name: Containers
-      href: containers.md 
+      href: containers.md
     - name: Revisions
       href: revisions.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
     - name: Jobs
       href: jobs.md
+    - name: Dynamic sessions
+      items:
+      - name: Overview
+        href: sessions.md
+        displayName: Dynamic sessions overview
+      - name: Code interpreter sessions
+        href: sessions-code-interpreter.md
+      - name: Custom container sessions
+        href: sessions-custom-container.md
     - name: Microservices
       href: microservices.md
     - name: Build and deliver apps with Container Apps (video)
@@ -74,6 +83,7 @@
           items:
             - name: Overview
               href: services.md
+              displayName: Connecting to services overview
             - name: Tutorials
               items:
               - name: Apache Kafka
@@ -113,7 +123,7 @@
     - name: Revision management
       href: revisions-manage.md
     - name: Environment Variables
-      href: environment-variables.md    
+      href: environment-variables.md
     - name: Use health probes
       href: health-probes.md
     - name: Storage mounts
@@ -122,6 +132,18 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use dynamic sessions
+      items:
+        - name: Code interpreter sessions
+          items:
+          - name: AutoGen
+            href: sessions-tutorial-autogen.md
+          - name: LangChain
+            href: sessions-tutorial-langchain.md
+          - name: LlamaIndex
+            href: sessions-tutorial-llamaindex.md
+          - name: Semantic Kernel
+            href: sessions-tutorial-semantic-kernel.md
     - name: Event-driven processing
       items:
         - name: With an app
@@ -136,8 +158,11 @@
   items:
     - name: Overview
       href: observability.md
-    - name: Application logging 
+      displayName: Observability overview
+    - name: Application logging
       href: logging.md
+    - name: Real time data
+      href: aspire-dashboard.md
     - name: Logging options
       href: log-options.md
     - name: Log streaming
@@ -156,24 +181,28 @@
   items:
     - name: Overview
       href: scale-app.md
+      displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
 - name: Domains & certificates
   items:
   - name: Overview
     href: certificates-overview.md
-  - name: Set up custom domain with a free certificate
+    displayName: Domains & certificates overview
+  - name: Custom domain with a free certificate
     href: custom-domains-managed-certificates.md
     displayName: Set up custom domain with a managed certificate
   - name: Set up custom domain with existing certificate
-    href: custom-domains-certificates.md        
+    href: custom-domains-certificates.md
   - name: Set up environment custom DNS suffix
     href: environment-custom-dns-suffix.md
-
+  - name: Certificates from Key Vault
+    href: key-vault-certificates-manage.md
 - name: Authentication
   items:
     - name: Overview
       href: authentication.md
+      displayName: Authentication overview
     - name: Enable authentication
       items:
         - name: Microsoft Entra ID
@@ -184,7 +213,7 @@
           href: authentication-github.md
         - name: Google
           href: authentication-google.yml
-        - name: Twitter
+        - name: X
           href: authentication-twitter.md
         - name: Custom OpenID Connect
           href: authentication-openid.md
@@ -213,7 +242,7 @@
 - name: Dedicated hardware
   items:
     - name: Workload profiles
-      href: workload-profiles-overview.md    
+      href: workload-profiles-overview.md
     - name: Manage workload profiles
       items:
         - name: CLI
@@ -226,10 +255,11 @@
       items:
       - name: Overview
         href: dapr-overview.md
+        displayName: Developing with Dapr overview
       - name: Get started
         items:
         - name: Connect to Azure services via Dapr components
-          href: dapr-component-connection.md        
+          href: dapr-component-connection.md
         - name: Enable Dapr
           href: enable-dapr.md
       - name: Configure
@@ -240,7 +270,7 @@
           href: dapr-component-resiliency.md
         - name: Scale Dapr apps with KEDA using Bicep
           href: dapr-keda-scaling.md
-        - name: Enable token authentication for Dapr requests 
+        - name: Enable token authentication for Dapr requests
           href: dapr-authentication-token.md
       - name: Tutorials
         items:
@@ -267,9 +297,10 @@
         - name: Deploy with an internal environment
           href: vnet-custom-internal.md
     - name: Ingress
-      items: 
+      items:
         - name: Overview
           href: ingress-overview.md
+          displayName: Ingress overview
         - name: Configure ingress
           href: ingress-how-to.md
         - name: Configure IP restrictions
@@ -302,14 +333,22 @@
   items:
     - name: .NET
       items:
-      - name: Deploy and scale an ASP.NET Core app
-        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
+      - name: Overview
+        href: dotnet-overview.md
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
+      - name: Deploy and scale an ASP.NET Core app
+        href: /aspnet/core/host-and-deploy/scaling-aspnet-apps/scaling-aspnet-apps
     - name: Java
       items:
       - name: Overview
         href: java-overview.md
+        displayName: java
+      - name: Launch your first Java app
+        href: java-get-started.md
+        displayName: java
+      - name: Get started using IntelliJ
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
@@ -317,20 +356,33 @@
       - name: Build environment variables
         href: java-build-environment-variables.md
         displayName: java
+      - name: Metrics
+        href: java-metrics.md
+        displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
+      - name: Use Admin for Spring
+        href: java-admin-for-spring-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
         displayName: java
+      - name: Set dynamic logger level
+        href: java-dynamic-log-level.md
+        displayName: java
       - name: Tutorials
         items:
-          - name: Deploy a WAR file
-            href: java-deploy-war-file.md
-            displayName: java
           - name: Connect to Eureka Server for Spring
             href: java-eureka-server.md
+          - name: Connect to Admin for Spring
+            href: java-admin.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Integrate Eureka Server with Admin for Spring
+            href: java-admin-eureka-integration.md
+            displayName: java
+          - name: Query managed component logs
+            href: java-component-logs.md
             displayName: java
 - name: Billing & quotas
   items:

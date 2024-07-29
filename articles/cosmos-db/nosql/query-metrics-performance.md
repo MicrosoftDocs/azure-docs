@@ -75,7 +75,7 @@ while (feedIterator.HasMoreResults)
     FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
 
     // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
-    metrics.Add(response.Diagnostics.GetQueryMetrics());
+    metrics.Add(feedResponse.Diagnostics.GetQueryMetrics());
 }
 
 // Aggregate values across trips for metrics of interest
@@ -108,7 +108,7 @@ while (feedIterator.HasMoreResults)
     FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
 
     // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
-    metrics.Add(response.Diagnostics.GetQueryMetrics());
+    metrics.Add(feedResponse.Diagnostics.GetQueryMetrics());
 }
 
 // Group metrics by partition key range id

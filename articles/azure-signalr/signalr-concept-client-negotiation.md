@@ -113,7 +113,7 @@ services.AddSignalR().AddAzureSignalR(options =>
             new Claim(ClaimTypes.NameIdentifier, context.Request.Query["username"]),
             new Claim("<Custom Claim Name>", "<Custom Claim Value>")
         };
-        options.AccessTokenLifetime = TimeSapn.FromMinutes(5);
+        options.AccessTokenLifetime = TimeSpan.FromMinutes(5);
     });
 ```
 

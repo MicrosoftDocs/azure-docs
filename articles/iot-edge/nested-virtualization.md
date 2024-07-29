@@ -1,10 +1,9 @@
 ---
-title: Nested virtualization for Azure IoT Edge for Linux on Windows | Microsoft Docs
-description: Learn about how to navigate nested virtualization in Azure IoT Edge for Linux on Windows.
-author: fcabrera
-manager: kgremban
-ms.author: fcabrera
-ms.date: 11/15/2022
+title: Nested virtualization - Azure IoT Edge for Linux on Windows
+description: Learn about how to use nested virtualization in Azure IoT Edge for Linux on Windows and the different deployment options available.
+author: PatAltimore
+ms.author: patricka
+ms.date: 06/06/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -13,9 +12,9 @@ services: iot-edge
 
 # Nested virtualization for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-There are three forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local virtual machine (using Hyper-V hypervisor), VMware Windows virtual machine or Azure Virtual Machine. This article will provide users clarity on which option is best for their scenario and provide insight into configuration requirements.
+There are three forms of nested virtualization compatible with Azure IoT Edge for Linux on Windows. Users can choose to deploy through a local virtual machine (using Hyper-V hypervisor), VMware Windows virtual machine, or Azure Virtual Machine. This article provides clarity on which option is best for their scenario and provide insight into configuration requirements.
 
 > [!NOTE]
 > Ensure to enable one [networking option](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization#networking-options) for nested virtualization. Failing to do so will result in EFLOW installation errors. 

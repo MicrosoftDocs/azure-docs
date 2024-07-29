@@ -38,8 +38,6 @@ The sample projects are all self-contained and are designed to be ran individual
 | Task | API reference |
 | :--- | ---: |
 | [Create a client with connection string](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/101-client-connection-string/Program.cs#L11-L13) | [``CosmosClient(string)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-string)) |
-| [Create a client with ``DefaultAzureCredential``](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/102-client-default-credential/Program.cs#L20-L23) | [``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
-| [Create a client with custom ``TokenCredential``](https://github.com/azure-samples/cosmos-db-table-api-dotnet-samples/blob/v12/103-client-secret-credential/Program.cs#L25-L28) | [``TableServiceClient(Uri, TokenCredential)``](/dotnet/api/azure.data.tables.tableserviceclient.-ctor#azure-data-tables-tableserviceclient-ctor(system-uri-azure-azuresascredential)) |
 
 ### Tables
 

@@ -73,6 +73,9 @@ In this section, you map the Private Link service to a private endpoint created 
 
     :::image type="content" source="../media/how-to-enable-private-link-storage-account/private-endpoint-approved.png" alt-text="Screenshot of approved storage endpoint request.":::
 
+> [!NOTE]
+> If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
+
 ## Next steps
 
 Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).

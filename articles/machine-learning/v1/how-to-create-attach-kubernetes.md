@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1, sdkv1
-ms.author: bozhlin
-author:  bozhong68
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: bozhlin
 ms.date: 04/21/2022
 ---
 

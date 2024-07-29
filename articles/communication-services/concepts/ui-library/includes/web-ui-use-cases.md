@@ -141,5 +141,10 @@ Accessibility by design is a principle across Microsoft products. UI Library fol
 
 Localization is key to making products for users around the world and who speak different languages. UI Library provides default support for some languages and capabilities, including right-to-left languages. You can provide their own localization files to use with UI Library.
 
+## Known Issues
+
+* The UI library doesn't support updating message type when editing existing messages at this time. Adding rich text formatting to an existing message will add html styling to the text content. Since this does not change the message type, it may result in displaying html content as plain text in the message thread.
+
+
 > [!div class="nextstepaction"]
 > [Visit UI Library storybook](https://azure.github.io/communication-ui-library)

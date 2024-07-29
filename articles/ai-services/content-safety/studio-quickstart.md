@@ -23,6 +23,7 @@ In this quickstart, get started with the Azure AI Content Safety service using C
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Content Safety](https://aka.ms/acs-create) Azure resource.
+* Assign `Cognitive Services User` role to your account to ensure the studio experience. Go to [Azure Portal](https://portal.azure.com/), navigate to your Content Safety resource or Azure AI Services resource, and select **Access Control** in the left navigation bar, then click **+ Add role assignment**, choose the `Cognitive Services User` role and select the memeber of your account that you need to assign this role to, then review and assign. It might take few minutes for the assignment to take effect.
 * Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource. 
 
 
@@ -36,7 +37,7 @@ The [Moderate text content](https://contentsafety.cognitive.azure.com/text) page
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters.
+    > See [Input requirements](./overview.md#input-requirements) for maximum text length limitations.
 1. Select **Run test**.
 
 The service returns all the categories that were detected, with the severity level for each(0-Safe, 2-Low, 4-Medium, 6-High). It also returns a binary **Accepted**/**Rejected** result, based on the filters you configure. Use the matrix in the **Configure filters** tab on the right to set your allowed/prohibited severity levels for each category. Then you can run the text again to see how the filter works.

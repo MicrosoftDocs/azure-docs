@@ -3,7 +3,7 @@ title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 06/22/2023
+ms.date: 06/20/2024
 ---
 
 # Set name and type for child resources

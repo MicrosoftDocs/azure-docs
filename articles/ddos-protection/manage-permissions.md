@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: how-to
-ms.date: 11/06/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 

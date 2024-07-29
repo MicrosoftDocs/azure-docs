@@ -9,9 +9,31 @@ ms.author: eur
 ### Upcoming plans for Linux and Android users:
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-* **Ubuntu 18.04** also hit end of life back in April of 2023, so our users should prepare for us to move our minimum version up to Ubuntu 20.04.
+### Speech SDK 1.38.0: 2024-June release
+
+####  New features
+
+*  Upgrade Speech SDK Linux platform requirements:
+    *  The new minimum baseline is Ubuntu 20.04 LTS or compatible with glibc 2.31 or newer. 
+    *  Binaries for Linux x86 are removed in accordance with Ubuntu 20.04 platform support.
+    *  **Note that RHEL/CentOS 7** remain supported until June 30 (CentOS 7 EOL and the end of RHEL 7 Maintenance Support 2). Binaries for them will be removed in the Speech SDK 1.39.0 release.
+*  Add support for OpenSSL 3 on Linux.
+*  Add support for g722-16khz-64kbps audio output format with speech synthesizer.
+*  Add support for sending messages through a connection object with speech synthesizer.
+*  Add Start/StopKeywordRecognition APIs in Objective-C and Swift.
+*  Add API for selecting a custom translation model category.
+* Update GStreamer usage with speech synthesizer.
+
+####  Bug fixes
+
+* Fix "Websocket message size cannot exceed 65536 bytes" error during Start/StopKeywordRecognition.
+* Fix a Python segmentation fault during speech synthesis.
+
+####  Samples
+
+* Update C# samples to use .NET 6.0 by default.
 
 ### Speech SDK 1.37.0: 2024-April release
 

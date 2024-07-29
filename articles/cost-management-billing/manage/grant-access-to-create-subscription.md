@@ -19,7 +19,7 @@ As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft
 > - Unless you have a specific need to use the legacy APIs, you should use the information for the [latest GA version](programmatically-create-subscription-enterprise-agreement.md) about the latest API version. **See [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) to grant permission to create EA subscriptions with the latest API**. 
 > - If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Grant access
 
@@ -191,7 +191,7 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 
 To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
-## Next steps
+## Related content
 
 * Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription-enterprise-agreement.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).

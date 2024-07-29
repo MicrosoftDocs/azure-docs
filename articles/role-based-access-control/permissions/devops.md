@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -272,6 +272,9 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | Microsoft.LoadTestService/loadTestMappings/read | Get a LoadTest mapping resource, or Lists LoadTest mapping resources in a scope. |
 > | Microsoft.LoadTestService/loadTestMappings/write | Create or update LoadTest mapping resource. |
 > | Microsoft.LoadTestService/loadTestMappings/delete | Delete a LoadTest mapping resource. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/read | Get a LoadTest profile mapping resource, or Lists LoadTest profile mapping resources in a scope. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/write | Create or update LoadTest profile mapping resource. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/delete | Delete a LoadTest profile mapping resource. |
 > | Microsoft.LoadTestService/loadTests/read | Get a LoadTest resource, or Lists loadtest resources in a subscription or resource group. |
 > | Microsoft.LoadTestService/loadTests/write | Create or update LoadTest resource. |
 > | Microsoft.LoadTestService/loadTests/delete | Delete a LoadTest resource. |

@@ -87,9 +87,9 @@ items:
 - name: Reference
   items:
   - name: Custom Vision Training API  
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3
+    href: /rest/api/customvision/training/operation-groups?view=rest-customvision-training-v3.3
   - name: Custom Vision Prediction API 
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1
+    href: /rest/api/customvision/prediction/operation-groups?view=rest-customvision-prediction-v3.1
   - name: SDKs
     items:
     - name: .NET

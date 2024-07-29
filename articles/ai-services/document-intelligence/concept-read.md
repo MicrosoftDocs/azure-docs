@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/09/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
@@ -66,7 +66,7 @@ Document Intelligence v3.0 supports the following tools, applications, and libra
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)|**prebuilt-read**|
 ::: moniker-end
 
 ## Input requirements
@@ -129,6 +129,8 @@ The pages collection is a list of pages within the document. Each page is repres
 |PowerPoint (PPTX) |  Each slide = 1 page unit, embedded or linked images not supported | Total slides |
 |HTML | Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
+::: moniker range="doc-intel-2.1.0 || doc-intel-3.0.0"
+
 ```json
 "pages": [
     {
@@ -143,6 +145,70 @@ The pages collection is a list of pages within the document. Each page is repres
     }
 ]
 ```
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing document from page #{page.page_number}----")
+    print(
+        f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}"
+    )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze pages.
+for page in result.pages:
+    print(f"----Analyzing document from page #{page.page_number}----")
+    print(f"Page has width: {page.width} and height: {page.height}, measured with unit: {page.unit}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+```json
+"pages": [
+    {
+        "pageNumber": 1,
+        "angle": 0,
+        "width": 915,
+        "height": 1190,
+        "unit": "pixel",
+        "words": [],
+        "lines": [],
+        "spans": []
+    }
+]
+```
+---
+::: moniker-end
 
 ### Select pages for text extraction
 
@@ -168,7 +234,7 @@ The Read OCR model extracts print and handwritten style text as `lines` and `wor
 
 For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read model v3.1 and later versions extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images aren't supported.
 
-
+::: moniker range="doc-intel-2.1.0 || doc-intel-3.0.0"
 ```json
 "words": [
     {
@@ -186,6 +252,87 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read mode
     }
 ]
 ```
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze lines.
+for line_idx, line in enumerate(page.lines):
+    words = line.get_words()
+    print(
+        f"...Line # {line_idx} has {len(words)} words and text '{line.content}' within bounding polygon '{format_polygon(line.polygon)}'"
+    )
+
+    # Analyze words.
+    for word in words:
+        print(
+            f"......Word '{word.content}' has a confidence of {word.confidence}"
+        )
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+---
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+#### [Sample code](#tab/sample-code)
+```Python
+# Analyze lines.
+if page.lines:
+    for line_idx, line in enumerate(page.lines):
+        words = get_words(page, line)
+        print(
+            f"...Line # {line_idx} has {len(words)} words and text '{line.content}' within bounding polygon '{line.polygon}'"
+        )
+
+        # Analyze words.
+        for word in words:
+            print(f"......Word '{word.content}' has a confidence of {word.confidence}")
+```
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
+
+#### [Output](#tab/output)
+```json
+"words": [
+    {
+        "content": "While",
+        "polygon": [],
+        "confidence": 0.997,
+        "span": {}
+    },
+],
+"lines": [
+    {
+        "content": "While healthcare is still in the early stages of its Al journey, we",
+        "polygon": [],
+        "spans": [],
+    }
+]
+```
+---
+::: moniker-end
 
 ### Handwritten style for text lines
 
@@ -223,3 +370,17 @@ Explore our REST API:
 
 > [!div class="nextstepaction"]
 > [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
+
+::: moniker range="doc-intel-4.0.0"
+Find more samples on GitHub:
+> [!div class="nextstepaction"]
+> [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Read_model)
+
+::: moniker-end
+
+::: moniker range="doc-intel-3.1.0"
+Find more samples on GitHub:
+> [!div class="nextstepaction"]
+> [Read model.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model)
+
+::: moniker-end

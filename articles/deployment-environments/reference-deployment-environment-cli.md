@@ -337,7 +337,7 @@ This format is adapted from how ARM template deployments report outputs of a dep
 
 Acceptable types for outputs are "string", "int", "boolean", "array", and "object".
 
-### How to Access Outputs
+### How to access outputs
 
 To access outputs either while within the container or post-execution, a customer can use the Outputs API for ADE, accessible either by calling the API endpoint or using the AZ CLI.
 

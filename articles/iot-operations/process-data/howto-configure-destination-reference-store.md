@@ -20,7 +20,7 @@ Use the _Reference datasets_ destination to write data to the internal reference
 
 ## Prerequisites
 
-To configure and use an Azure Data Explorer destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview.
+To configure and use an Azure Data Explorer destination pipeline stage, you need a deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 
 ## Configure the destination stage
 

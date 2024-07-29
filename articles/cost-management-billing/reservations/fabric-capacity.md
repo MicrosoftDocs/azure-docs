@@ -6,7 +6,7 @@ ms.reviewer: franciscosa
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 05/03/2024
 ms.author: banders
 ms.custom: ignite-2023
 ---
@@ -34,7 +34,7 @@ You can buy a Fabric capacity reservation in the [Azure portal](https://portal.a
 - Direct Enterprise customers can update the **Reserved Instances** policy settings in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the **Policies** menu to change settings.
 - For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Fabric capacity reservations.
 
-For more information about how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) and [Understand Azure reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md).
+For more information about how enterprise customers and pay-as-you-go customers are charged for reservation purchases, see [Understand Azure reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md) and [Understand Azure reservation usage for your pay-as-you-go subscription](understand-reserved-instance-usage.md).
 
 ## Choose the right size before purchase
 
@@ -47,16 +47,16 @@ For example, assume that your total consumption of Fabric capacity is F64 (which
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **All services** > **Reservations** and then select **Microsoft Fabric**.  
     :::image type="content" source="./media/fabric-capacity/all-reservations.png" alt-text="Screenshot showing the Purchase reservations page where you select Microsoft Fabric." lightbox="./media/fabric-capacity/all-reservations.png" :::
-1. Select a subscription. Use the Subscription list to choose the subscription that gets used to pay for the reserved capacity. The payment method of the subscription is charged the costs for the reserved capacity. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
+1. Select a subscription. Use the Subscription list to choose the subscription that gets used to pay for the reserved capacity. The payment method of the subscription is charged the costs for the reserved capacity. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
     - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
-    - For a Pay-As-You-Go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
+    - For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
 1. Select a scope. Use the Scope list to choose a subscription scope. You can change the reservation scope after purchase.
     - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
-    - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context.  If a subscription is moved to different billing context, the benefit no longer applies to the subscription. It continues to apply to other subscriptions in the billing context.
+    - **Shared scope** - Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. If a subscription is moved to different billing context, the benefit no longer applies to the subscription. It continues to apply to other subscriptions in the billing context.
         - For enterprise customers, the billing context is the EA enrollment. The reservation shared scope would include multiple Microsoft Entra tenants in an enrollment.
         - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
-        - For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.
+        - For pay-as-you-go customers, the shared scope is all pay-as-you-go subscriptions created by the account administrator.
     - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have at least read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription.
 1. Select a region to choose an Azure region that gets covered by the reservation and select **Add to cart**.  
     :::image type="content" source="./media/fabric-capacity/select-product.png" alt-text="Screenshot showing the Select the product page where you select Fabric Capacity reservation." lightbox="./media/fabric-capacity/select-product.png" :::
@@ -76,7 +76,7 @@ If you want to request a refund for your Fabric capacity reservation, you can do
 2. Select the Fabric capacity reservation that you want to refund and select **Return**.
 3. On the Refund reservation page, review the refund amount and select a **Reason for return**.
 4. Select **Return reserved instance**.
-5. Review the terms and conditions and select the box to agree and submit your request.
+5. Review the terms and conditions and agree to them.
 
 The refund amount is based on the prorated remaining term and the current price of the reservation. The refund amount is applied as a credit to your Azure account.
 
@@ -86,7 +86,7 @@ The sum total of all canceled reservation commitment in your billing scope (such
 
 ## Exchange Azure Synapse Analytics reserved capacity for a Fabric Capacity reservation
 
-If you already bought a reservation for Azure Synapse Analytics Dedicated SQL pool (formerly SQL DW) and want to exchange it for a Fabric capacity reservation, you can do so using the following steps. This process returns the original reservation and purchases a new reservation as separate transactions.
+If you bought an Azure Synapse Analytics Dedicated SQL pool reservation and you want to exchange it for a Fabric capacity reservation, use the following steps. This process returns the original reservation and purchases a new reservation as separate transactions.
 
 1. Sign into the Azure portal and go to the [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) page.
 2. Select the Azure Synapse Analytics reserved capacity item that you want to exchange and then select **Exchange**.
@@ -116,14 +116,18 @@ After purchase, the reservation is matched to Fabric capacity usage emitted by r
 
 The following examples show how the Fabric capacity reservation discount applies, depending on the deployments.
 
-- **Example 1** - You purchase a Fabric capacity reservation of 64 CUs. You deploy one hour of Power BI using 32 CUs per hour and you also deploy Synapse Data Warehouse using 32 CUs per hour. In this case, both usage events get reservation discounts. No usage is charged using pay-as-you-go rates.
-- **Example 2** - This example explains the relationship between smoothing and reservations. [Smoothing](/power-bi/enterprise/service-premium-smoothing) is enabled for Fabric capacity reservations. Smoothing spreads usage spikes into 24-hour intervals (except for interactive usage such as reports read from Power BI or KQL). Therefore, reservations examine the average CU consumption over a 24-hour interval. You purchase a Fabric capacity reservation of two CUs, and you enable smoothing for Fabric capacity. Assume that your usage spikes to 4 CUs within an hour. You pay the pay-as-you-go rate only if the CU consumption exceeds an average of two CU per hour during the 24-hour interval.
+- **Example 1** - A reservation that's exactly the same size as the capacity. For example, you purchase 64 CUs of capacity and you deploy an F64. In this example, you only pay the reservation price.
+- **Example 2** - A reservation that's larger than your used capacity. For example, you buy 64 CUs of capacity and you only deploy an F32. In this example, the reservation discount is applied to the F32. For the remaining 32 CUs of unused reservation capacity, if you don't have matching resources for any hour. You lose the reservation quantity for that hour. You can't carry forward unused reserved hours.
+- **Example 3** - A reservation that's smaller than the used capacity. For example, you buy 64 CUs of capacity and you deploy an F128. In this example, your discount is applied to 64 CUs that were used. For the remaining 64 CUs, you pay the pay-as-you-go rate.
+- **Example 4** - A reservation that's the same size as two used capacities that equal the size of the reservation. For example, you buy 64 CUs of capacity and you deploy two F32s. In this example, the discount is applied to all used capacity.
+- **Example 5** - This example explains the relationship between smoothing and reservations. Smoothing is a feature of Fabric and allows spikes in usage to be spread out over time.   Smoothing spreads background process like Spark jobs and sematic model refreshes over a 24-hour interval.  Interactive process like Power BI reports, KQL and SQL queries are spread out of a 10 minute interval.  See the detailed explanation here: [Smoothing](https://support.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming)  
+For example, You purchase a Fabric capacity reservation of two CUs, and assume that your usage spikes to 4 CUs for an hour.  The processes will run and consume 4 CUs, however, the CU usage is spread out of the 24 hours. This feature allows you to purchase for average workload rather than the peak. Please review the link provided to understand the impact of smoothing if you use more CU that available over 24 hours.  
 
 ## Increase the size of a Fabric Capacity reservation
 
 If you want to increase the size of your Fabric capacity reservation, use the exchange process or buy more Fabric capacity reservations.
 
-## Next steps
+## Related content
 
 - To learn more about Azure reservations, see the following articles:
   - [What are Azure Reservations?](save-compute-costs-reservations.md)

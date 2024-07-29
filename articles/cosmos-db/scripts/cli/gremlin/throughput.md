@@ -13,7 +13,7 @@ ms.date: 02/21/2022
 
 # Throughput (RU/s) operations with Azure CLI for a database or graph for Azure Cosmos DB - API for Gremlin
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 The script in this article creates a Gremlin database with shared throughput and a Gremlin graph with dedicated throughput, then updates the throughput for both the database and graph. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 
@@ -23,7 +23,7 @@ The script in this article creates a Gremlin database with shared throughput and
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -31,7 +31,7 @@ The script in this article creates a Gremlin database with shared throughput and
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

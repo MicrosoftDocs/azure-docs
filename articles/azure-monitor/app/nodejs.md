@@ -38,7 +38,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Create an [Application Insights resource](create-workspace-resource.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### <a name="sdk"></a> Set up the Node.js client library
 
@@ -341,7 +341,8 @@ appInsights.defaultClient.commonProperties = {
 Use the following code to manually track HTTP GET requests:
 
 > [!NOTE]
-> All requests are tracked by default. To disable automatic collection, call `.setAutoCollectRequests(false)` before calling `start()`.
+> - All requests are tracked by default. To disable automatic collection, call `.setAutoCollectRequests(false)` before calling `start()`.
+> - Native fetch API requests aren’t automatically tracked by classic Application Insights; manual dependency tracking is required.
 
 ```javascript
 appInsights.defaultClient.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true});

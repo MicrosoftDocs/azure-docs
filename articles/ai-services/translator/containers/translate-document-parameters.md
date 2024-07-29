@@ -1,5 +1,5 @@
 ---
-title: "Container: Translate document method"
+title: "Container: Translate document"
 titleSuffix: Azure AI services
 description: Understand the parameters, headers, and body request/response messages for the Azure AI Translator container translate document operation.
 #services: cognitive-services
@@ -8,16 +8,11 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: reference
-ms.date: 04/08/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 ---
 
-# Container: Translate Documents (preview)
-
-> [!IMPORTANT]
->
-> * Azure AI Translator public preview releases provide early access to features that are in active development.
-> * Features, approaches, and processes may change, prior to General Availability (GA), based on user feedback.
+# Container: Translate Documents
 
 **Translate document with source language specified**.
 
@@ -25,20 +20,14 @@ ms.author: lajanuar
 
 `POST` request:
 
-```http
-    POST {Endpoint}/translate?api-version=3.0&to={to}
-```
-
-***With optional parameters***
-
-```http
-POST {Endpoint}/translate?api-version=3.0&from={from}&to={to}&textType={textType}&category={category}&profanityAction={profanityAction}&profanityMarker={profanityMarker}&includeAlignment={includeAlignment}&includeSentenceLength={includeSentenceLength}&suggestedFrom={suggestedFrom}&fromScript={fromScript}&toScript={toScript}
+```bash
+    POST "http://localhost:{port}/translator/document:translate?sourceLanguage={sourceLanguage}&targetLanguage={targetLanguage}&api-version={api-version}" -F "document=@{path-to-your-document-with-file-extension};type={ContentType}/{file-extension}" -o "{path-to-output-file-with-file-extension}"
 ```
 
 Example:
 
 ```bash
-`curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2023-11-01-preview" -F "document={path-to-your-document-with-file-extension};type={ContentType}/{file-extension" -o "{path-to-output-file-with-file-extension}"`
+curl -i -X POST "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=hi&api-version=2024-05-01" -F "document=@C:\Test\test-file.md;type=text/markdown" -o "C:\translation\translated-file.md"
 ```
 
 ## Synchronous request headers and parameters
@@ -53,7 +42,7 @@ Use synchronous translation processing to send a document as part of the HTTP re
 |`sourceLanguage`|Specifies the language of the input document. If the `sourceLanguage` parameter isn't specified, automatic language detection is applied to determine the source language. |*Optional*|
 |`-H` or `--header` `"Ocp-Apim-Subscription-Key:{KEY}`    | Request header that specifies the Document Translation resource key authorizing access to the API.|*Required*|
 |`-F` or `--form` |The filepath to the document that you want to include with your request. Only one source document is allowed.|*Required*|
-|&bull; `document=`<br> &bull; `type={contentType}/fileExtension` |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br> Ex: **"document=@C:\Test\test-file.md;type=text/markdown**|*Required*|
+|&bull; `document=`<br> &bull; `type={contentType}/fileExtension` |&bull; Path to the file location for your source document.</br> &bull; Content type and file extension.</br></br> Ex: **"document=@C:\Test\test-file.md;type=text/markdown"**|*Required*|
 |`-o` or `--output`|The filepath to the response results.|*Required*|
 |`-F` or `--form` |The filepath to an optional glossary to include with your request. The glossary requires a separate `--form` flag.|*Optional*|
 | &bull; `glossary=`<br> &bull; `type={contentType}/fileExtension`|&bull; Path to the file location for your optional glossary file.</br> &bull; Content type and file extension.</br></br> Ex: **"glossary=@C:\Test\glossary-file.txt;type=text/plain**|*Optional*|
@@ -77,7 +66,7 @@ For this project, you need a source document to translate. You can download our 
 Here's an example cURL HTTP request using localhost:5000:
 
 ```bash
-curl -v "http://localhost:5000/translator/documents:translateDocument?from=en&to=es&api-version=v1.0" -F "document=@document-translation-sample-docx"
+curl -v "http://localhost:5000/translator/document:translate?sourceLanguage=en&targetLanguage=es&api-version=2024-05-01" -F "document=@document-translation-sample-docx" -o "C:\translation\translated-file.md"
 ```
 
 ***Upon successful completion***:
@@ -88,4 +77,4 @@ curl -v "http://localhost:5000/translator/documents:translateDocument?from=en&to
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about synchronous document translation](../document-translation/reference/synchronous-rest-api-guide.md)
+> [Learn more about synchronous document translation](../document-translation/reference/rest-api-guide.md)

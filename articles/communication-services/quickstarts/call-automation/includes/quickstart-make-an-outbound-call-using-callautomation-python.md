@@ -2,8 +2,8 @@
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, we learn how to make an outbound PSTN call using Azure Communication Services Call Automation
-author: anujb-msft
-ms.author: anujb-msft
+author: jutik0
+ms.author: jutik0
 ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services

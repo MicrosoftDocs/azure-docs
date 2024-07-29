@@ -190,7 +190,7 @@ For more information about setting up and configuring Marketplace product collec
 
 :::image type="content" source="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" alt-text="Screenshot showing the Collection items." lightbox="./media/enable-marketplace-purchases/azure-portal-private-marketplace-manage-collection-rules-select.png" :::
 
-## Next steps
+## Related content
 
 - To learn more about creating the private marketplace, see [Create private Azure Marketplace](/marketplace/create-manage-private-azure-marketplace-new#create-private-azure-marketplace).
 - To learn more about setting up and configuring Marketplace product collections, see [Collections overview](/marketplace/create-manage-private-azure-marketplace-new#collections-overview).

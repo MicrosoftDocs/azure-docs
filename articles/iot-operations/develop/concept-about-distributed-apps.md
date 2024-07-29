@@ -2,7 +2,7 @@
 title: Develop highly available distributed applications
 description: Learn how to develop highly available distributed applications that work with Azure IoT MQ.
 author: PatAltimore
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: concept-article
 ms.custom:

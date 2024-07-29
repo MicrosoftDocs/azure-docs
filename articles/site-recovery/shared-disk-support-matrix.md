@@ -54,4 +54,4 @@ The following table lists the disaster recovery support for shared disk in Azure
 
 ## Next steps
 
-Learn about [setting up disaster recovery for Azure virtual machines using shared disk](./shared-disk-support-matrix.md).
+Learn about [setting up disaster recovery for Azure virtual machines using shared disk](./tutorial-shared-disk.md).

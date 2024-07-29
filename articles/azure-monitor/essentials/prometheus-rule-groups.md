@@ -34,7 +34,7 @@ You can optionally limit the rules in a rule group to query data originating fro
 You should limit rules to a single cluster if your Azure Monitor workspace contains a large amount of data from multiple clusters. In such a case, there's a concern that running a single set of rules on all the data may cause performance or throttling issues. By using the cluster scope, you can create multiple rule groups, each configured with the same rules, with each group covering a different cluster. 
 
 To limit your rule group to a cluster scope [using an ARM template](#creating-prometheus-rule-group-using-resource-manager-template), you should add the Azure Resource ID of your cluster to the rule group **scopes[]** list. **The scopes list must still include the Azure Monitor workspace resource ID**. The following cluster resource types are supported as a cluster scope:
-* Azure Kubernetes Service clusters (AKS) (Microsoft.ContainerService/managedClusters)
+* Azure Kubernetes Service (AKS) clusters (Microsoft.ContainerService/managedClusters)
 * Azure Arc-enabled Kubernetes clusters (Microsoft.kubernetes/connectedClusters)
 * Azure connected appliances (Microsoft.ResourceConnector/appliances)
 
@@ -67,7 +67,7 @@ If both cluster ID scope and `clusterName` aren't specified  for a rule group, t
 
 You can also limit your rule group to a cluster scope using the [portal UI](#configure-the-rule-group-scope).
 
-### Create or edit Prometheus rule group in the Azure portal (preview)
+### Create or edit Prometheus rule group in the Azure portal
 
 To create a new rule group from the portal home page:
 
@@ -227,7 +227,7 @@ The rule group contains the following properties.
 | `name` | True | string | Prometheus rule group name |
 | `type` | True | string | `Microsoft.AlertsManagement/prometheusRuleGroups` |
 | `apiVersion` | True | string | `2023-03-01` |
-| `location` | True | string | Resource location from regions supported in the preview. |
+| `location` | True | string | Resource location out of supported regions. |
 | `properties.description` | False | string | Rule group description. |
 | `properties.scopes` | True | string[] | Must include the target Azure Monitor workspace ID. Can optionally include one more cluster ID, as well. |
 | `properties.enabled` | False | boolean | Enable/disable group. Default is true. |
@@ -303,7 +303,7 @@ You can view your Prometheus rule groups and their included rules in the Azure p
 * In the [portal home page](https://portal.azure.com/), in the search box, look for **Prometheus Rule Groups**.
 * In the [portal home page](https://portal.azure.com/), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**.
       :::image type="content" source="media/prometheus-metrics-rule-groups/prometheus-rule-groups-from-alerts.png" alt-text="Screenshot that shows how to view Prometheus rule groups from the alerts screen.":::
-* In the page of a specific Azure Kubernetes Services resource (AKS), or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
+* In the page of a specific Azure Kubernetes Services (AKS) resource, or a specific Azure Monitor Workspace (AMW), select **Monitor** > **Alerts**, then select **Prometheus Rule Groups**, to view a list of rule groups for this specific resource.
 You can select a rule group from the list to view or edit its details.
 
 ## View the resource health states of your Prometheus rule groups

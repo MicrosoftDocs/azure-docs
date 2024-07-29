@@ -13,7 +13,7 @@ ms.custom: template-quickstart, devx-track-azurepowershell, mode-api, engagement
 
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server learns routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server also advertises the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." border="false":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure PowerShell." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 

@@ -23,7 +23,7 @@ For more information, see the [Kubernetes documentation on kube-proxy](https://k
 > [!NOTE]
 > If you want, you can disable the AKS-managed `kube-proxy` DaemonSet to support [bring-your-own CNI][aks-byo-cni].
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -110,10 +110,17 @@ You can view the full `kube-proxy` configuration structure in the [AKS Cluster S
 
     ```azurecli-interactive
     # Create a new cluster
-    az aks create -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy.json
+    az aks create \
+        --resource-group <resourceGroup> \
+        --name <clusterName> \
+        --kube-proxy-config kube-proxy.json \
+        --generate-ssh-keys
 
     # Update an existing cluster
-    az aks update -g <resourceGroup> -n <clusterName> --kube-proxy-config kube-proxy.json
+    az aks update \
+        --resource-group <resourceGroup> \
+        --name <clusterName> \
+        --kube-proxy-config kube-proxy.json
     ```
 
 ## Next steps

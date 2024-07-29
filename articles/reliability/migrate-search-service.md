@@ -44,7 +44,7 @@ If you created your search service in a region that supports availability zones 
 
    >[!IMPORTANT]
    >The [free and basic tiers do not support availability zones](../search/search-sku-tier.md#feature-availability-by-tier), and so they should not be used.
-1. Add at [least two replicas to your new search service](../search/search-capacity-planning.md#add-or-reduce-replicas-and-partitions). Once the search service has at least two replicas, it automatically takes advantage of availability zone support.
+1. Add at [least two replicas to your new search service](../search/search-capacity-planning.md#adjust-capacity). Once the search service has at least two replicas, it automatically takes advantage of availability zone support.
 1. Migrate your data from your old search service to your new search service by rebuilding of all your search indexes from your old service.
 
 To rebuild all of your search indexes:

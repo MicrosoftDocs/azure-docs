@@ -1,9 +1,9 @@
 ---
-author: probableprime
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
-ms.author: rifox
+ms.date: 07/25/2024
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
@@ -246,12 +246,12 @@ call.off('isLocalVideoStartedChanged', () => {
 
 ## Start and stop screen sharing while on a call
 To start screen sharing while on a call, you can use the asynchronous method `startScreenSharing()` on a `Call` object:
-
 ### Start screen sharing
 ```js
 // Start screen sharing
 await call.startScreenSharing();
 ```
+Note: Sending screenshare is only supported on desktop browser.
 
 ### Find the screen sharing in the collection of LocalVideoStream
 After you successfully start sending screen sharing, a `LocalVideoStream` instance of type `ScreenSharing`, is added to the `localVideoStreams` collection on the call instance.
@@ -445,7 +445,7 @@ application should render at a given moment. Applications should handle these ch
 accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method.
+The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method. The current [maximum number of incoming videos](../../../../concepts/voice-video-calling/calling-sdk-features.md#supported-number-of-incoming-video-streams) that can be rendered is 16. To properly support 16 incoming videos the computer should have a mimimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old.
 
 ```javascript
 const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);

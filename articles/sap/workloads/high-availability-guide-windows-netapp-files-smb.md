@@ -100,8 +100,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 
 When considering Azure NetApp Files for the SAP Netweaver architecture, be aware of the following important considerations:
 
-- The minimum capacity pool is 4 TiB. The capacity pool size can be increased in 1 TiB increments.
-- The minimum volume is 100 GiB
+- For sizing requirements of Azure NetApp Files volumes and capacity pools, see [Azure NetApp Files resource limits](../../azure-netapp-files/azure-netapp-files-resource-limits.md) and [Create a capacity pool for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
 - The throughput and performance characteristics of an Azure NetApp Files volume is a function of the volume quota and service level, as documented in [Service level for Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-service-levels.md). While sizing the SAP Azure NetApp volumes, make sure that the resulting throughput meets the application requirements.  
  

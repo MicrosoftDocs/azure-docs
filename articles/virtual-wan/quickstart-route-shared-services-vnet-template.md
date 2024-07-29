@@ -14,7 +14,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to set up routes to access a shared service VNet with workloads that you want every VNet and Branch (VPN/ER/P2S) to access. Examples of these shared workloads might include virtual machines with services like domain controllers or file shares, or Azure services exposed internally through [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

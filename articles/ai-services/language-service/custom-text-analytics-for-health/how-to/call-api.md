@@ -16,7 +16,7 @@ ms.custom: language-service-custom-ta4h
 # Send queries to your custom Text Analytics for health model
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api). 
+You can query the deployment programmatically using the [Prediction API](/rest/api/language/text-analysis-runtime/analyze-text). 
 
 ## Test deployed model
 

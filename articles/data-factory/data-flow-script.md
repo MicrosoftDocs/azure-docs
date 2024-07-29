@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Data flow script (DFS)

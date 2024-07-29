@@ -55,13 +55,25 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
   If you don't have an Office 365 account, you can use [any other available email connector](/connectors/connector-reference/connector-reference-logicapps-connectors) that can send messages from your email account, for example, Outlook.com. If you use a different email connector, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
-* To test the example workflow in this guide, you need a tool that can send calls to the endpoint created by the Request trigger. If you don't have such a tool, you can download, install, and use [Postman](https://www.postman.com/downloads/).
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 * If you create your logic app resource and enable [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
 * To deploy your Standard logic app resource to an [App Service Environment v3 (ASEv3) - Windows plan only](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
 * Starting mid-October 2022, new Standard logic app workflows in the Azure portal automatically use Azure Functions v4. Throughout November 2022, existing Standard workflows in the Azure portal are automatically migrating to Azure Functions v4. Unless you deployed your Standard logic apps as NuGet-based projects or pinned your logic apps to a specific bundle version, this upgrade is designed to require no action from you nor have a runtime impact. However, if the exceptions apply to you, or for more information about Azure Functions v4 support, see [Azure Logic Apps Standard now supports Azure Functions v4](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-standard-now-supports-azure-functions-v4/ba-p/3656072).
+
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
+
+More workflows in your logic app raise the risk of longer load times, which negatively affect performance. If you have mission-critical logic apps that require zero downtime deployments, consider [setting up deployment slots](set-up-deployment-slots.md).
 
 <a name="create-logic-app-resource"></a>
 
@@ -189,11 +201,11 @@ So now you'll add a trigger that starts your workflow.
 
 ## Add a trigger
 
-This example workflow starts with the [built-in Request trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
+This example workflow starts with the [built-in **Request** trigger](../connectors/connectors-native-reqres.md) named **When a HTTP request is received**. This trigger creates an endpoint that other services or logic app workflows can call and waits for those inbound calls or requests to arrive. Built-in operations run natively and directly within the Azure Logic Apps runtime.
 
 1. On the workflow designer, make sure that your blank workflow is open and that the **Add a trigger** prompt is selected on the designer surface.
 
-1. By using **request** as the search term, [follow these steps to add the built-in Request trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. By using **request** as the search term, [follow these steps to add the built-in **Request** trigger named **When a HTTP request is received**](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    When the trigger appears on the designer, the trigger's information pane opens to show the trigger's properties, settings, and other actions.
 
@@ -201,7 +213,7 @@ This example workflow starts with the [built-in Request trigger](../connectors/c
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   When you save a workflow for the first time, and that workflow starts with a Request trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the Request trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
+   When you save a workflow for the first time, and that workflow starts with a **Request** trigger, Azure Logic Apps automatically generates a URL for an endpoint that's created by the **Request** trigger. Later, when you test your workflow, you send a request to this URL, which fires the trigger and starts the workflow run.
 
 ## Add an action
 
@@ -277,7 +289,7 @@ Before you deploy your logic app and run your workflow in the Azure portal, if y
 
 To find the inbound and outbound IP addresses used by your logic app and workflows, follow these steps:
 
-1. On your logic app menu, under **Settings**, select **Networking (preview)**.
+1. On your logic app menu, under **Settings**, select **Networking**.
 
 1. On the networking page, find and review the **Inbound Traffic** and **Outbound Traffic** sections.
 
@@ -301,9 +313,9 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 ## Trigger the workflow
 
-In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
+In this example, the workflow runs when the **Request** trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, Azure Logic Apps automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the **Request** trigger that's named **When a HTTP request is received**.
 
 1. After the information pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
@@ -316,6 +328,7 @@ In this example, the workflow runs when the Request trigger receives an inbound 
    **`https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`**
 
    > [!TIP]
+   >
    > You can also find the endpoint URL on your logic app's **Overview** pane in the **Workflow URL** property.
    >
    > 1. On the resource menu, select **Overview**.
@@ -323,43 +336,15 @@ In this example, the workflow runs when the Request trigger receives an inbound 
    > 1. To copy the endpoint URL, move your pointer over the end of the endpoint URL text, 
    >    and select **Copy to clipboard** (copy file icon).
 
-1. To test the URL by sending a request, open [Postman](https://www.postman.com/downloads/) or your preferred tool for creating and sending requests.
+1. To test the endpoint URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
 
-   This example continues by using Postman. For more information, see [Postman Getting Started](https://learning.postman.com/docs/getting-started/introduction/).
+   This example uses the **GET** method with the copied URL, which looks like the following sample:
 
-   1. On the Postman toolbar, select **New**.
+   **`GET https://fabrikam-workflows.azurewebsites.net:443/api/Fabrikam-Stateful-Workflow/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xxxxxXXXXxxxxxXXXXxxxXXXXxxxxXXXX`**
 
-      ![Screenshot that shows Postman with New button selected](./media/create-single-tenant-workflows-azure-portal/postman-create-request.png)
+   When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
 
-   1. On the **Create New** pane, under **Building Blocks**, select **Request**.
-
-   1. In the **Save Request** window, under **Request name**, provide a name for the request, for example, **Test workflow trigger**.
-
-   1. Under **Select a collection or folder to save to**, select **Create Collection**.
-
-   1. Under **All Collections**, provide a name for the collection to create for organizing your requests, press Enter, and select **Save to <*collection-name*>**. This example uses **Logic Apps requests** as the collection name.
-
-      In the Postman app, the request pane opens so that you can send a request to the endpoint URL for the Request trigger.
-
-      ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-azure-portal/postman-request-pane.png)
-
-   1. On the request pane, in the address box that's next to the method list, which currently shows **GET** as the default request method, paste the URL that you previously copied, and select **Send**.
-
-      ![Screenshot that shows Postman and endpoint URL in the address box with Send button selected](./media/create-single-tenant-workflows-azure-portal/postman-test-endpoint-url.png)
-
-      When the trigger fires, the example workflow runs and sends an email that appears similar to this example:
-
-      ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
-
-## Best practices and recommendations
-
-For optimal designer responsiveness and performance, review and follow these guidelines:
-
-- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
-
-- Consider splitting business logic into multiple workflows where necessary.
-
-- Have no more than 10-15 workflows per logic app resource.
+   ![Screenshot that shows Outlook email as described in the example](./media/create-single-tenant-workflows-azure-portal/workflow-app-result-email.png)
 
 <a name="review-run-history"></a>
 

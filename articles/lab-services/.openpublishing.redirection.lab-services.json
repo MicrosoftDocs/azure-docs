@@ -822,7 +822,7 @@
         },
         {
             "source_path_from_root": "/articles/lab-services/classroom-labs/tutorial-setup-lab-account.md",
-            "redirect_url": "/azure/lab-services/tutorial-setup-lab-account",
+            "redirect_url": "/azure/lab-services/how-to-create-lab-accounts",
             "redirect_document_id": true
         },
         {
@@ -859,7 +859,11 @@
             "source_path_from_root": "/articles/lab-services/get-started-manage-labs.md",
             "redirect_url": "/azure/lab-services/quick-create-lab-portal",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/lab-services/tutorial-setup-lab-account.md",
+            "redirect_url": "/azure/lab-services/how-to-create-lab-accounts",
+            "redirect_document_id": false
         }
-
     ]
 }

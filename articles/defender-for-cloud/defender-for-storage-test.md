@@ -3,8 +3,9 @@ title: Test the Defender for Storage data security features
 description: Learn how to test the Malware Scanning, sensitive data threat detection, and activity monitoring provided by Defender for Storage.
 author: dcurwin
 ms.author: dacurwin
-ms.date: 03/23/2023
+ms.date: 05/16/2024
 ms.topic: how-to
+#customer intent: As a user, I want to learn how to test the Defender for Storage data security features so that I can validate its capabilities and ensure the security of my storage accounts.
 ---
 
 # Testing the Defender for Storage data security features
@@ -78,7 +79,7 @@ To simulate a malware upload using an EICAR test file, follow these steps:
 
 1. b. Select on the alert’s **View full details** button to see all the related details.
 
-1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Testing sensitive data threat detection
 
@@ -144,7 +145,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
         :::image type="content" source="media/defender-for-storage-test/sensitive-data-alert.png" alt-text="Screenshot showing how to see an alert for a test file in Malware Scanning.":::
 
-Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Testing activity monitoring
 
@@ -188,7 +189,7 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
     1. Select on the alert’s **View full details** button to see all the related details.
 
-Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Next steps
 
@@ -197,6 +198,5 @@ In this article, you learned how to test data protection and threat detection in
 Learn more about:
 
 - [Threat response](defender-for-storage-threats-alerts.md)
-- [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)
-
+- [Customizing data sensitivity settings](defender-for-storage-data-sensitivity.md)8
 - [Threat detection and alerts](defender-for-storage-threats-alerts.md)

@@ -13,6 +13,8 @@
       href: concepts-compute.md
     - name: Storage overview
       href: concepts-storage.md
+    - name: Cluster deployment
+      href: concepts-cluster-deployment-overview.md
     - name: Network Fabric
       expanded: false
       items:
@@ -26,6 +28,10 @@
           href: concepts-network-fabric-resource-update-commit.md
         - name: Network Fabric read-only commands
           href: concepts-network-fabric-read-only-commands.md
+        - name: Network Fabric read write commands
+          href: concepts-network-fabric-read-write-commands.md   
+        - name: Disable Border Gateway Protocol neighbors
+          href: concepts-disable-border-gateway-protocol-neighbors.md
     - name: Isolation Domains
       expanded: false
       items:
@@ -38,7 +44,16 @@
     - name: Access Control Lists
       href: concepts-access-control-lists.md
     - name: Nexus Kubernetes
-      href: concepts-nexus-kubernetes-cluster.md
+      expanded: false
+      items:
+      - name: Overview
+        href: concepts-nexus-kubernetes-cluster.md
+      - name: Resource Placement
+        href: concepts-nexus-kubernetes-placement.md
+      - name: Networking
+        href: concepts-nexus-networking.md
+      - name: Workload Network Types
+        href: concepts-nexus-workload-network-types.md
     - name: Observability
       expanded: false
       items:
@@ -46,6 +61,10 @@
           href: concepts-observability.md
         - name: Metrics
           href: reference-operator-nexus-observability-metrics.md
+        - name: Azure Operator Nexus Network Fabric Configuration Monitoring
+          href: concepts-network-fabric-configuration-monitoring.md
+        - name: Azure Operator Nexus Network Fabric Internal Network BGP Metrics
+          href: concepts-internal-network-bgp-metrics.md
     - name: Security
       href: concepts-security.md
     - name: Control Plane Resiliency
@@ -103,6 +122,10 @@
               href: howto-configure-network-fabric-controller.md
             - name: Cluster Manager
               href: howto-cluster-manager.md
+            - name: Cluster Manager Template JSON Example
+              href: clustermanager-jsonc-example.md
+            - name: Cluster Manager Parameters JSON Example
+              href: clustermanager-parameters-jsonc-example.md
         - name: On-Premises Operator Nexus Instance
           expanded: false
           items:
@@ -115,6 +138,10 @@
                   href: howto-configure-network-fabric.md
                 - name: Cluster
                   href: howto-configure-cluster.md
+                - name: Cluster Template JSON Example
+                  href: cluster-jsonc-example.md
+                - name: Cluster Parameters JSON Example
+                  href: cluster-parameters-jsonc-example.md
                 - name: Instance Readiness Testing
                   href: howto-run-instance-readiness-testing.md
                 - name: Cluster Upgrades
@@ -123,8 +150,6 @@
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
                   href: how-to-credential-manager-key-vault.md
-                - name: Service Principal Rotation
-                  href: howto-service-principal-rotation.md
         - name: Network Fabric
           expanded: false
           items:
@@ -148,7 +173,18 @@
               href: howto-update-access-control-list-for-network-to-network-interconnects.md
             - name: Delete ACLs associated with Network-to-Network Interconnects (NNI)
               href: howto-delete-access-control-list-network-to-network-interconnect.md
-           
+            - name: How to Configure Diagnostic Settings and Monitor Configuration Differences in Nexus Network Fabric
+              href: howto-configure-diagnostic-settings-monitor-configuration-differences.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
+            - name: How to monitor interface In and Out packet rate for network fabric devices
+              href: howto-monitor-interface-packet-rate.md
+            - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
+              href: howto-delete-layer-3-isolation-domains.md
+            - name: How to put a device into maintenance mode
+              href: howto-put-device-in-maintenance-mode.md
+            - name: How to upgrade Network Fabric
+              href: howto-upgrade-nexus-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
@@ -172,8 +208,12 @@
           href: howto-kubernetes-cluster-action-restart.md
         - name: Customize cluster DNS
           href: how-to-customize-kubernetes-cluster-dns.md
-        - name: Customize Worker Nodes
+        - name: Customize worker nodes
           href: howto-kubernetes-cluster-customize-workers.md
+        - name: Collect debug logs for support ticket
+          href: howto-kubernetes-cluster-log-collector-script.md
+        - name: Manage SSH keys
+          href: howto-kubernetes-cluster-manage-ssh-key.md
     - name: Nexus Virtual Machine
       expanded: false
       items:
@@ -205,6 +245,12 @@
           href: howto-use-mde-runtime-protection.md
         - name: Configure Network Access Control Lists for SSH Access on Management VPN
           href: howto-configure-acls-for-ssh-management-on-access-vpn.md
+        - name: Service Principal Best Practices
+          href: howto-service-principal.md
+          expanded: false
+          items:
+            - name: Service Principal Rotation
+              href: howto-service-principal-rotation.md
     - name: Install CLI Extension
       href: howto-install-cli-extensions.md
 - name: Troubleshooting
@@ -240,6 +286,8 @@
           href: howto-baremetal-run-data-extract.md
     - name: Troubleshoot Control Plane Quorum
       href: troubleshoot-control-plane-quorum.md
+    - name: Troubleshoot Bare Metal Machine Provisioning
+      href: troubleshoot-bare-metal-machine-provisioning.md
 - name: FAQ
   href: azure-operator-nexus-faq.md
 - name: Reference
@@ -253,16 +301,25 @@
           href: reference-nexus-kubernetes-cluster-supported-versions.md
     - name: Platform Cluster runtime versioning
       href: reference-nexus-platform-runtime-upgrades.md
+    - name: Supported Software Versions
+      href: reference-supported-software-versions.md
     - name: Instance to on-premises WAN Connectivity
       href: reference-customer-edge-provider-edge-connectivity.md
     - name: List of metrics collected
       href: List-of-metrics-collected.md
+    - name: List of logs available for streaming
+      href: list-logs-available.md
     - name: Near-edge Compute
       href: reference-near-edge-compute.md
     - name: BareMetal Machine roles
       href: reference-near-edge-baremetal-machine-roles.md
-    - name: Near-edge storage
-      href: reference-near-edge-storage.md
+    - name: Nexus Storage Solution
+      expanded: false
+      items:
+        - name: Near-edge storage
+          href: reference-near-edge-storage.md
+        - name: Supported Storage Appliance Versions
+          href: reference-near-edge-storage-supported-versions.md
     - name: Limits & quotas
       href: reference-limits-and-quotas.md
     - name: Neighbor Group Configuration Overview
@@ -285,3 +342,11 @@
           href: reference-acl-examples.md
     - name: Operator Nexus Network Fabric SKUs
       href: reference-operator-nexus-fabric-skus.md
+- name: Release Notes
+  items:
+    - name: 2024
+      expanded: false
+      items:
+        - name: 2404.2
+          href: release-notes-2404.2.md
+        

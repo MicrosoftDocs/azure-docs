@@ -19,11 +19,11 @@ Workbooks are shared resources. They require write access to the parent resource
 1. Select **Save**.
 
 By default, the workbook is auto-filled with the same settings, subscription and resource group as the LA workspace. 
-By default, workbooks are saved to 'My Reports' and are only accessible by the individual user. You can also save the workbook directly to shared reports or share the workbook.
+You can save the workbook directly to shared reports or share the workbook. Keep in mind that the person you want to share with must have permissions to access the workbook as well as to all of the resources referenced in the workbook.
 
 ## Share a workbook
 
-When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook. They must have an Azure account, and **Monitoring Reader** permissions.
+When you want to share a workbook or template, keep in mind that the person you want to share with must have permissions to access the workbook as well as to all of the resources referenced in the workbook. They must have an Azure account, and **Monitoring Reader** permissions.
 To share a workbook or workbook template:
 
 1. In the Azure portal, select **Monitor**, and then select **Workbooks** from the left pane.
@@ -32,7 +32,7 @@ To share a workbook or workbook template:
 1. The **Share workbook** or **Share template** window opens with a URL to use for sharing the workbook.
 1. Copy the link to share the workbook, or select **Share link via email** to open your default mail app.
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
+:::image type="content" source="media/workbooks-manage/workbooks-share.png" alt-text="Screenshot of the steps to share an Azure workbook.":::
 
 ## Delete a workbook
 
@@ -56,9 +56,9 @@ When you delete an Azure Workbook, it is soft-deleted and can be recovered by co
 - The **Auto refresh** setting isn't saved with the workbook. Every time a user opens a workbook, **Auto refresh** is **Off** and needs to be set again.
 - Switching workbooks and going out of the gallery clears the **Auto refresh** interval.
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" lightbox="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
+:::image type="content" source="media/workbooks-manage/workbooks-auto-refresh.png" lightbox="media/workbooks-manage/workbooks-auto-refresh.png" alt-text="Screenshot that shows workbooks with Auto refresh.":::
 
-:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
+:::image type="content" source="media/workbooks-manage/workbooks-auto-refresh-interval.png" alt-text="Screenshot that shows workbooks with Auto refresh with an interval set.":::
 
 ## Manage workbook resources
 

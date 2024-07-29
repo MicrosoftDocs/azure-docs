@@ -124,7 +124,7 @@ POST {{baseUrl}}/datasources?api-version=2023-11-01  HTTP/1.1
 
 ### Step 2: Create a skillset
 
-Call [Create Skillset](/rest/api/searchservice/create-skillset) to specify which enrichment steps are applied to your content. Skills execute in parallel unless there's a dependency.
+Call [Create Skillset](/rest/api/searchservice/skillsets/create) to specify which enrichment steps are applied to your content. Skills execute in parallel unless there's a dependency.
 
 ```http
 ### Create a skillset

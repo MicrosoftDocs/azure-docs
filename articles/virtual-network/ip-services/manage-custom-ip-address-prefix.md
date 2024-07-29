@@ -41,7 +41,7 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network custom-ip prefix update](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 > [!NOTE]

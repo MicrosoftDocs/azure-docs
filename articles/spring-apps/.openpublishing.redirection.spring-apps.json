@@ -77,8 +77,8 @@
         },
         {
             "source_path": "how-to-config-server.md",
-            "redirect_url": "/azure/spring-apps/basic-standard/how-to-config-server",
-            "redirect_document_id": true
+            "redirect_url": "/azure/spring-apps/enterprise/how-to-config-server",
+            "redirect_document_id": false
         },
         {
             "source_path": "how-to-dynatrace-one-agent-monitor.md",
@@ -838,6 +838,11 @@
         {
             "source_path": "how-to-use-flush-dns-settings.md",
             "redirect_url": "/azure/spring-apps/enterprise/how-to-use-flush-dns-settings",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "basic-standard/how-to-config-server.md",
+            "redirect_url": "/azure/spring-apps/enterprise/how-to-config-server",
             "redirect_document_id": true
         }
     ]

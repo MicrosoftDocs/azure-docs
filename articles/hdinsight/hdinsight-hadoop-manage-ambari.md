@@ -4,7 +4,7 @@ description: Learn how to use Apache Ambari UI to monitor and manage HDInsight c
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/25/2023
+ms.date: 05/23/2024
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari Web UI

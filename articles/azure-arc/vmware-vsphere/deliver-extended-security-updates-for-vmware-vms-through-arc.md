@@ -5,15 +5,15 @@ ms.date: 12/06/2023
 ms.topic: how-to
 ms.services: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 keywords: "VMware, Arc, Azure"
 ---
 
 # Deliver ESUs for VMware VMs through Arc
 
-Azure Arc-enabled VMware vSphere allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your vCenter in [Extended Security Updates](/windows-server/get-started/extended-security-updates-overview) (ESUs) at scale. 
+Azure Arc-enabled VMware vSphere allows you to enroll all the Windows Server 2012/2012 R2 VMs managed by your vCenter in [Extended Security Updates (ESUs)](/windows-server/get-started/extended-security-updates-overview) at scale. 
 
 ESUs allow you to leverage cost flexibility in the form of pay-as-you-go Azure billing and enhanced delivery experience in the form of built-in inventory and keyless delivery. In addition, ESUs enabled by Azure Arc give you access to Azure management services such as [Azure Update Manager](/azure/update-manager/overview?tabs=azure-vms), [Azure Automation Change Tracking and Inventory](/azure/automation/change-tracking/overview?tabs=python-2), and [Azure Policy Guest Configuration](/azure/cloud-adoption-framework/manage/azure-server-management/guest-configuration-policy) at no additional cost. 
 

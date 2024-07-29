@@ -3,7 +3,7 @@ title: Create an App Service Environment
 description: Learn how to create an App Service Environment.
 author: madsd
 ms.topic: article
-ms.date: 03/09/2023
+ms.date: 07/18/2024
 ms.author: madsd
 ---
 
@@ -38,7 +38,7 @@ For the deployment type, you can choose *single zone*, *zone redundant*, or *hos
 
 In a zone redundant App Service Environment, your apps spread across three zones in the same region. Zone redundant is available in regions that support availability zones. With this deployment type, the smallest size for your App Service plan is three instances. That ensures that there's an instance in each availability zone. App Service plans can be scaled up one or more instances at a time. Scaling doesn't need to be in units of three, but the app is only balanced across all availability zones when the total instances are multiples of three.
 
-A zone redundant deployment has triple the infrastructure, and ensures that even if two of the three zones go down, your workloads remain available. Due to the increased system need, the minimum charge for a zone redundant App Service Environment is nine instances. If you've fewer than this number of instances, the difference is charged as Windows I1v2. If you've nine or more instances, there's no added charge to have a zone redundant App Service Environment. To learn more about zone redundancy, see [Regions and availability zones](./overview-zone-redundancy.md).
+A zone redundant deployment has triple the infrastructure, and ensures that even if two of the three zones go down, your workloads remain available. Due to the increased system need, the minimum charge for a zone redundant App Service Environment is 18 cores. If you've fewer than this number of cores across all App Service plans in your App Service Environment, the difference is charged as Windows I1v2. If you've 18 or more cores, there's no added charge to have a zone redundant App Service Environment. To learn more about zone redundancy, see [Regions and availability zones](./overview-zone-redundancy.md). For sample calculations for zone redundant App Service Environment, see [App Service Environment pricing](overview.md#pricing).
 
 In a host group deployment, your apps are deployed onto a dedicated host group. The dedicated host group isn't zone redundant. With this type of deployment, you can install and use your App Service Environment on dedicated hardware. There's no minimum instance charge for using App Service Environment on a dedicated host group, but you do have to pay for the host group when you're provisioning the App Service Environment. You also pay a discounted App Service plan rate as you create your plans and scale out.
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 05/15/2024
 ms.author: phjensen
 ---
 
@@ -13,143 +13,78 @@ ms.author: phjensen
 
 This article provides a guide for installing the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
-## Getting the snapshot tools
+## Installation and setup workflow for AzAcSnap
 
-It's recommended customers get the most recent version of the [AzAcSnap Installer](https://aka.ms/azacsnapinstaller) from Microsoft.
+This workflow provides the main steps to install, setup and configure AzAcSnap along with your chosen database and storage option.
 
-The self-installation file has an associated [AzAcSnap Installer signature file](https://aka.ms/azacsnapdownloadsignature).  This file is signed with Microsoft's public key to allow for GPG verification of the downloaded installer.
+**Steps**:
+1. [Install AzAcSnap](azacsnap-installation.md)
+1. [Configure Database](azacsnap-configure-database.md)
+   1. [SAP HANA](azacsnap-configure-database.md?tabs=sap-hana)
+   1. [Oracle DB](azacsnap-configure-database.md?tabs=oracle)
+   1. [IBM Db2](azacsnap-configure-database.md?tabs=db2)
+   1. Microsoft SQL Server (PREVIEW)
+1. [Configure Storage](azacsnap-configure-storage.md)
+   1. [Azure NetApp Files](azacsnap-configure-storage.md?tabs=azure-netapp-files)
+   1. [Azure Large Instance](azacsnap-configure-storage.md?tabs=azure-large-instance)
+   1. Azure Managed Disk (PREVIEW)
+1. [Configure AzAcSnap](azacsnap-cmd-ref-configure.md)
+1. [Test AzAcSnap](azacsnap-cmd-ref-test.md)
+1. [Take a backup with AzAcSnap](azacsnap-cmd-ref-backup.md)
 
-Once these downloads are completed, then follow the steps in this guide to install.
+## Technical articles
 
-### Verifying the download
+The following technical articles describe how to set up AzAcSnap as part of a data protection strategy:
 
-The installer has an associated PGP signature file with an `.asc` filename extension. This file can be used to ensure the installer downloaded is a verified
-Microsoft provided file. The [Microsoft PGP Public Key used for signing Linux packages](https://packages.microsoft.com/keys/microsoft.asc) has been used to sign the signature file.
+- [Manual Recovery Guide for SAP HANA on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-vms-from-azure/ba-p/3290161)
+- [Manual Recovery Guide for SAP HANA on Azure Large Instance from storage snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-hana-on-azure-large-instance-from/ba-p/3242347)
+- [Manual Recovery Guide for SAP Oracle 19c on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-oracle-19c-on-azure-vms-from-azure/ba-p/3242408)
+- [Manual Recovery Guide for SAP Db2 on Azure VMs from Azure NetApp Files snapshot with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/manual-recovery-guide-for-sap-db2-on-azure-vms-from-azure-netapp/ba-p/3865379)
+- [SAP Oracle 19c System Refresh Guide on Azure VMs using Azure NetApp Files Snapshots with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-oracle-19c-system-refresh-guide-on-azure-vms-using-azure/ba-p/3708172)
+- [Protecting HANA databases configured with HSR on Azure NetApp Files with AzAcSnap](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/protecting-hana-databases-configured-with-hsr-on-azure-netapp/ba-p/3654620)
+- [Automating SAP system copy operations with Libelle SystemCopy](https://docs.netapp.com/us-en/netapp-solutions-sap/lifecycle/libelle-sc-overview.html)
 
-The Microsoft PGP Public Key can be imported to a user's local as follows:
+## Get command help
 
-```bash
-wget https://packages.microsoft.com/keys/microsoft.asc
-gpg --import microsoft.asc
-```
+To see a list of commands and examples, type `azacsnap -h` and then press the ENTER key.
 
-The following commands trust the Microsoft PGP Public Key:
+The general format of the commands is:
+`azacsnap -c [command] --[command] [sub-command] --[flag-name] [flag-value]`.
 
-1. List the keys in the store.
-2. Edit the Microsoft key.
-3. Check the fingerprint with `fpr`.
-4. Sign the key to trust it.
+### Command options
 
-```bash
-gpg --list-keys
-```
+The command options are as follows. The main bullets are commands, and the indented bullets are subcommands.
 
-Listed keys:
-```output
-----<snip>----
-pub rsa2048 2015- 10 - 28 [SC]
-BC528686B50D79E339D3721CEB3E94ADBE1229CF
-uid [ unknown] Microsoft (Release signing) gpgsecurity@microsoft.com
-```
+- `-h` provides extended command-line help with examples on AzAcSnap usage.
+- [`-c configure`](azacsnap-cmd-ref-configure.md) provides an interactive Q&A style interface to create or modify the `azacsnap` configuration file (default = `azacsnap.json`).
+  - `--configuration new` creates a new configuration file.
+  - `--configuration edit` enables editing an existing configuration file.
+- [`-c test`](azacsnap-cmd-ref-test.md) validates the configuration file and tests connectivity.
+  - `--test <DbType>`, where DbType is one of `hana`, `oracle`, or `db2`, tests the connection to the specified database.
+  - `--test storage` tests communication with the underlying storage interface by creating a temporary storage snapshot on all the configured `data` volumes, and then removing them.
+  - `--test all` performs both the `hana` and `storage` tests in sequence.
+- [`-c backup`](azacsnap-cmd-ref-backup.md) is the primary command to execute database-consistent storage snapshots for SAP HANA data volumes and for other (for example, shared, log backup, or boot) volumes.
+  - `--volume data` takes a snapshot of all the volumes in the `dataVolume` stanza of the configuration file.
+  - `--volume other` takes a snapshot of all the volumes in the `otherVolume` stanza of the configuration file.
+  - `--volume all` takes a snapshot of all the volumes in the `dataVolume` stanza and then all the volumes in the `otherVolume` stanza of the configuration file.
+- [`-c details`](azacsnap-cmd-ref-details.md) provides information on snapshots or replication.
+  - `--details snapshots` (optional) provides a list of basic details about the snapshots for each volume that you configured.
+  - `--details replication` (optional) provides basic details about the replication status from the production site to the disaster-recovery site.
+- [`-c delete`](azacsnap-cmd-ref-delete.md) deletes a storage snapshot or a set of snapshots.
+- [`-c restore`](azacsnap-cmd-ref-restore.md) provides two methods to restore a snapshot to a volume.
+  - `--restore snaptovol` creates a new volume based on the latest snapshot on the target volume.
+  - `-c restore --restore revertvolume` reverts the target volume to a prior state, based on the most recent snapshot.
+- `[--configfile <configfilename>]` is an optional command-line parameter to provide a different file name for the JSON configuration. It's useful for creating a separate configuration file per security ID (for example, `--configfile H80.json`).
+- [`[--runbefore]` and `[--runafter]`](azacsnap-cmd-ref-runbefore-runafter.md) are optional commands to run external commands or shell scripts before and after the execution of the main AzAcSnap logic.
+- `[--preview]` is an optional command-line option that's required when you're using preview features.
 
-```bash
-gpg --edit-key gpgsecurity@microsoft.com
-```
-
-Output from interactive `gpg` session signing Microsoft public key:
-```output
-gpg (GnuPG) 2.1.18; Copyright (C) 2017 Free Software Foundation, Inc.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-pub rsa2048/EB3E94ADBE1229CF
-created: 2015- 10 - 28 expires: never usage: SC
-trust: unknown validity: unknown
-[ unknown] (1). Microsoft (Release signing) <gpgsecurity@microsoft.com>
-
-gpg> fpr
-pub rsa2048/EB3E94ADBE1229CF 2015- 10 - 28 Microsoft (Release signing)
-<gpgsecurity@microsoft.com>
-Primary key fingerprint: BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF
-
-gpg> sign
-pub rsa2048/EB3E94ADBE1229CF
-created: 2015- 10 - 28 expires: never usage: SC
-trust: unknown validity: unknown
-Primary key fingerprint: BC52 8686 B50D 79E3 39D3 721C EB3E 94AD BE12 29CF
-Microsoft (Release signing) <gpgsecurity@microsoft.com>
-Are you sure that you want to sign this key with your
-key "XXX XXXX <xxxxxxx@xxxxxxxx.xxx>" (A1A1A1A1A1A1)
-Really sign? (y/N) y
-
-gpg> quit
-Save changes? (y/N) y
-```
-
-The PGP signature file for the installer can be checked as follows:
-
-```bash
-gpg --verify azacsnap_installer_v5.0.run.asc azazsnap_installer_v5.0.run
-```
-
-```output
-gpg: Signature made Sat 13 Apr 2019 07:51:46 AM STD
-gpg: using RSA key EB3E94ADBE1229CF
-gpg: Good signature from "Microsoft (Release signing)
-<gpgsecurity@microsoft.com>" [full]
-```
-
-For more information about using GPG, see [The GNU Privacy Handbook](https://www.gnupg.org/gph/en/manual/book1.html).
-
-## Supported scenarios
-
-The snapshot tools can be used in the following [Supported scenarios for HANA Large Instances](../virtual-machines/workloads/sap/hana-supported-scenario.md) and [SAP HANA with Azure NetApp Files](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md).
-
-## Snapshot Support Matrix from SAP
-
-The following matrix is provided as a guideline on which versions of SAP HANA are supported by SAP for Storage Snapshot Backups.
-
- 
- 
-|  Database type            | Minimum database versions | Notes                                                                                   |
-|---------------------------|---------------------------|-----------------------------------------------------------------------------------------|
-| Single Container Database | 1.0 SPS 12, 2.0 SPS 00    |                                                                                         |
-| MDC Single Tenant	        | [2.0 SPS 01](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/2194a981ea9e48f4ba0ad838abd2fb1c.html?version=2.0.01&locale=en-US)                | or later versions where MDC Single Tenant supported by SAP for storage/data snapshots.* | 
-| MDC Multiple Tenants      | [2.0 SPS 04](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/7910eb4a498246b1b0435a4e9bf938d1.html?version=2.0.04&locale=en-US)                | or later where MDC Multiple Tenants supported by SAP for data snapshots.                |
-> \* [SAP changed terminology from Storage Snapshots to Data Snapshots from 2.0 SPS 02](https://help.sap.com/docs/SAP_HANA_PLATFORM/42668af650f84f9384a3337bcd373692/7f203cf75ae4445d96ad0012c67c0480.html?version=2.0.02&locale=en-US)
-
-
-
-
+  For more information, see [Preview features of the Azure Application Consistent Snapshot tool](azacsnap-preview.md).
 
 ## Important things to remember
 
-- After the setup of the snapshot tools, continuously monitor the storage space available and if
-    necessary, delete the old snapshots on a regular basis to avoid storage fill out.
+- After the setup of the snapshot tools, continuously monitor the storage space available and if necessary, delete the old snapshots on a regular basis to avoid running out of storage capacity.
 - Always use the latest snapshot tools.
-- Use the same version of the snapshot tools across the landscape.
 - Test the snapshot tools to understand the parameters required and their behavior, along with the log files, before deployment into production.
-- When setting up the HANA user for backup, you need to set up the user for each HANA instance. Create an SAP HANA user account to access HANA
-    instance under the SYSTEMDB (and not in the SID database) for MDC. In the single container environment, it can be set up under the tenant database.
-- Customers must provide the SSH public key for storage access. This action must be done once per node and for each user under which the command is executed.
-- The number of snapshots per volume is limited to 250.
-- If manually editing the configuration file, always use a Linux text editor such as "vi" and not Windows editors like Notepad. Using Windows editor may corrupt the file format.
-- Set up `hdbuserstore` for the SAP HANA user to communicate with SAP HANA.
-- For DR: The snapshot tools must be tested on DR node before DR is set up.
-- Monitor disk space regularly
-  - Automated log deletion is managed with the `--trim` option of the `azacsnap -c backup` for SAP HANA 2 and later releases.
-- **Risk of snapshots not being taken** - The snapshot tools only interact with the node of the SAP HANA system specified in the configuration file.  If this 
-    node becomes unavailable, there's no mechanism to automatically start communicating with another node.  
-  - For an **SAP HANA Scale-Out with Standby** scenario it's typical to install and configure the snapshot tools on the primary node. But, if the primary node becomes
-      unavailable, the standby node will take over the primary node role. In this case, the implementation team should configure the snapshot tools on both
-      nodes (Primary and Stand-By) to avoid any missed snapshots. In the normal state, the primary node will take HANA snapshots initiated by crontab.  If the primary 
-      node fails over those snapshots will have to be executed from another node, such as the new primary node (former standby). To achieve this outcome, the standby
-      node would need the snapshot tool installed, storage communication enabled, hdbuserstore configured, `azacsnap.json` configured, and crontab commands staged 
-      in advance of the failover.
-  - For an **SAP HANA HSR HA** scenario, it's recommended to install, configure, and schedule the snapshot tools on both (Primary and Secondary) nodes. Then, if 
-      the Primary node becomes unavailable, the Secondary node will take over with snapshots being taken on the Secondary. In the normal state, the Primary node 
-      will take HANA snapshots initiated by crontab.  The Secondary node would attempt to take snapshots but fail as the Primary is functioning correctly.  But, 
-      after Primary node failover, those snapshots will be executed from the Secondary node. To achieve this outcome, the Secondary node needs the snapshot tool 
-      installed, storage communication enabled, `hdbuserstore` configured, `azacsnap.json` configured, and crontab enabled in advance of the failover.
 
 ## Guidance provided in this document
 
@@ -158,8 +93,8 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 ### Taking snapshot backups
 
 - [What are the prerequisites for the storage snapshot](azacsnap-installation.md#prerequisites-for-installation)
-  - [Enable communication with storage](azacsnap-installation.md#enable-communication-with-storage)
-  - [Enable communication with database](azacsnap-installation.md#enable-communication-with-the-database)
+  - [Enable communication with storage](azacsnap-configure-storage.md#enable-communication-with-storage)
+  - [Enable communication with database](azacsnap-configure-database.md#enable-communication-with-the-database)
 - [How to take snapshots manually](azacsnap-tips.md#take-snapshots-manually)
 - [How to set up automatic snapshot backup](azacsnap-tips.md#setup-automatic-snapshot-backup)
 - [How to monitor the snapshots](azacsnap-tips.md#monitor-the-snapshots)
@@ -167,8 +102,6 @@ The following guidance is provided to illustrate the usage of the snapshot tools
 - [How to restore a snapshot](azacsnap-tips.md#restore-a-snapshot)
 - [How to restore a `boot` snapshot](azacsnap-tips.md#restore-a-boot-snapshot)
 - [What are key facts to know about the snapshots](azacsnap-tips.md#key-facts-to-know-about-snapshots)
-
-> Snapshots are tested for both single SID and multi SID.
 
 ### Performing disaster recovery
 

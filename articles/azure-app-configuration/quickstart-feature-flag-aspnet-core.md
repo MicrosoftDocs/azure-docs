@@ -1,6 +1,8 @@
 ---
-title: Quickstart for adding feature flags to ASP.NET Core
-description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
+title: Quickstart for adding feature flags to ASP.NET Core apps
+titleSuffix: Azure App Configuration
+description: Learn to implement feature flags in your ASP.NET Core application using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
+services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
@@ -26,7 +28,7 @@ Follow the documents to create an ASP.NET Core app with dynamic configuration.
 
 ## Create a feature flag
 
-Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./quickstart-azure-app-configuration-create.md#create-a-feature-flag).
+Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](./media/add-beta-feature-flag.png)
@@ -112,7 +114,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     <h1>This is the beta website.</h1>
     ```
 
-    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the *Beta* page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
+    Open *Beta.cshtml.cs*, and add `FeatureGate` attribute to the `BetaModel` class. The `FeatureGate` attribute ensures the **Beta** page is accessible only when the *Beta* feature flag is enabled. If the *Beta* feature flag isn't enabled, the page will return 404 Not Found.
 
     ```csharp
     using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -130,7 +132,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     }   
     ```
 
-1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive:
+1. Open *Pages/_ViewImports.cshtml*, and register the feature manager Tag Helper using an `@addTagHelper` directive.
 
     ```cshtml
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
@@ -138,11 +140,11 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     The preceding code allows the `<feature>` Tag Helper to be used in the project's *.cshtml* files.
 
-1. Open *_Layout.cshtml* in the *Pages*\\*Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
+1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-    The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
+    The `<feature>` tag ensures the **Beta** menu item is shown only when the *Beta* feature flag is enabled.
 
 ## Build and run the app locally
 
@@ -164,13 +166,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store that you created previously. 
 
-1. Select **Feature manager** and locate the **Beta** feature flag. Enable the flag by selecting the checkbox under **Enabled**.
+1. Select **Feature manager** and locate the *Beta* feature flag. Enable the flag by selecting the checkbox under **Enabled**.
 
 1. Refresh the browser a few times. When the refresh interval time window passes, the page will show with updated content.
 
     ![Feature flag after enabled](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 
-1. Select the *Beta* menu. It will bring you to the beta website that you enabled dynamically.
+1. Select the **Beta** menu. It will bring you to the beta website that you enabled dynamically.
 
     ![Feature flag beta page](./media/quickstarts/aspnet-core-feature-flag-local-beta.png)
 
@@ -180,25 +182,31 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Next steps
 
-In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For more information, continue to the following tutorial.
+In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in ASP.NET Core apps](./use-feature-flags-dotnet-core.md)
+> [.NET Feature Management](./feature-management-dotnet-reference.md)
 
 While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Use feature filters for conditional feature flags](./howto-feature-filters-aspnet-core.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)
 
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in .NET/.NET Framework console apps](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
 
 > [!div class="nextstepaction"]
 > [Use feature flags in Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)

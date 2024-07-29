@@ -112,9 +112,11 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Web App
 * Internal load balancers, or any services that expose internal load balancers such as Azure Kubernetes Service, Azure Container Apps or Azure Red Hat OpenShift
 * Storage Static Website
+* Application Gateway (Preview only. Please do not put production workloads)
 
 > [!NOTE]
-> This feature is not supported with App Service Slots and Functions
+> * This feature isn't supported with Azure App Service Slots or Functions.
+> * Azure Application Gateway integration is currently not supported using the Azure portal.
 
 The Azure Front Door Private Link feature is region agnostic but for the best latency, you should always pick an Azure region closest to your origin when choosing to enable Azure Front Door Private Link endpoint.
 

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/16/2023
+ms.date: 07/11/2024
 ms.author: lajanuar
 ---
 
@@ -21,13 +21,11 @@ ms.author: lajanuar
 > * **Custom neural models** do not provide accuracy scores during training.
 > * Confidence scores for tables, table rows and table cells are available starting with the **2024-02-29-preview** API version for **custom models**.
 
-
-Custom template models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
+Custom template models generate an estimated accuracy score when trained. Documents analyzed with a custom model produce a confidence score for extracted fields. A confidence score indicates probability by measuring the degree of statistical certainty that the extracted result is detected correctly. The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values. In this article, learn to interpret accuracy and confidence scores and best practices for using those scores to improve accuracy and confidence results.
 
 ## Accuracy scores
 
-The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document.
-The accuracy value range is a percentage between 0% (low) and 100% (high). The estimated accuracy is calculated by running a few different combinations of the training data to predict the labeled values.
+The output of a `build` (v3.0) or `train` (v2.1) custom model operation includes the estimated accuracy score. This score represents the model's ability to accurately predict the labeled value on a visually similar document. Accuracy is measured within a percentage value range from 0% (low) to 100% (high). It's best to target a score of 80% or higher. For more sensitive cases, like financial or medical records, we recommend a score of close to 100%. You can also require human review. 
 
 **Document Intelligence Studio** </br>
 **Trained custom model (invoice)**
@@ -49,6 +47,20 @@ Field confidence indicates an estimated probability between 0 and 1 that the pre
 **Analyzed invoice prebuilt-invoice model**
 
 :::image type="content" source="media/accuracy-confidence/confidence-scores.png" alt-text="confidence scores from Document Intelligence Studio":::
+
+## Improve confidence scores
+
+After an analysis operation, review the JSON output. Examine the `confidence` values for each key/value result under the `pageResults` node. You should also look at the confidence score in the `readResults` node, which corresponds to the text-read operation. The confidence of the read results doesn't affect the confidence of the key/value extraction results, so you should check both. Here are some tips:
+
+* If the confidence score for the `readResults` object is low, improve the quality of your input documents.
+
+* If the confidence score for the `pageResults` object is low, ensure that the documents you're analyzing are of the same type.
+
+* Consider incorporating human review into your workflows.
+
+* Use forms that have different values in each field.
+
+* For custom models, use a larger set of training documents. Tagging more documents teaches your model to recognize fields with greater accuracy.
 
 ## Interpret accuracy and confidence scores for custom models
 

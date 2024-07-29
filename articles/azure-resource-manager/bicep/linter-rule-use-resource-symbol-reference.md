@@ -1,9 +1,9 @@
 ---
 title: Linter rule - use resource symbol reference
 description: Linter rule - use resource symbol reference
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use resource symbol reference
@@ -37,11 +37,11 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
+resource cluster 'Microsoft.HDInsight/clusters@2023-08-15-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -60,10 +60,10 @@ resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
     storageProfile: {
       storageaccounts: [
         {
-          name: replace(replace(reference(storageAccount.id, '2022-09-01').primaryEndpoints.blob, 'https://', ''), '/', '')
+          name: replace(replace(reference(storageAccount.id, '2023-04-01').primaryEndpoints.blob, 'https://', ''), '/', '')
           isDefault: true
           container: clusterName
-          key: listKeys(storageAccount.id, '2022-09-01').keys[0].value
+          key: listKeys(storageAccount.id, '2023-04-01').keys[0].value
         }
       ]
     }
@@ -90,11 +90,11 @@ param location string = resourceGroup().location
 
 param storageAccountName string = uniqueString(resourceGroup().id)
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2021-06-01' = {
+resource cluster 'Microsoft.HDInsight/clusters@2023-08-15-preview' = {
   name: clusterName
   location: location
   properties: {

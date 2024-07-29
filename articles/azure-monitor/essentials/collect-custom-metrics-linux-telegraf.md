@@ -1,5 +1,5 @@
 ---
-title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
+title: Collect custom metrics for Linux Virtual Machines with the InfluxData Telegraf agent
 description: Instructions on how to deploy the InfluxData Telegraf agent on a Linux VM in Azure and configure the agent to publish metrics to Azure Monitor.
 services: azure-monitor
 author: EdB-MSFT
@@ -7,21 +7,19 @@ ms.author: edbaynash
 ms.reviewer: priyamishra
 ms.topic: conceptual
 ms.custom: linux-related-content
-ms.date: 08/01/2023
+ms.date: 06/06/2024
 ---
-# Collect custom metrics for a Linux VM with the InfluxData Telegraf agent
+# Collect custom metrics for a Linux Virtual Machine with the InfluxData Telegraf agent
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article explains how to deploy and configure the [InfluxData](https://www.influxdata.com/) Telegraf agent on a Linux virtual machine to send metrics to Azure Monitor.
 
 > [!NOTE]
-> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector, please refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
+> InfluxData Telegraf is an open source agent and not officially supported by Azure Monitor. For issues with the Telegraf connector,  refer to the Telegraf GitHub page here: [InfluxData](https://github.com/influxdata/telegraf)
 
 ## InfluxData Telegraf agent
 
-[Telegraf](https://docs.influxdata.com/telegraf/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to use specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent has integrated directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. Using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor.
+[Telegraf](https://docs.influxdata.com/telegraf/) is a plug-in-driven agent that enables the collection of metrics from over 150 different sources. Depending on what workloads run on your VM, you can configure the agent to use specialized input plug-ins to collect metrics. Examples are MySQL, NGINX, and Apache. By using output plug-ins, the agent can then write to destinations that you choose. The Telegraf agent integrates directly with the Azure Monitor custom metrics REST API. It supports an Azure Monitor output plug-in. Using this plug-in, the agent can collect workload-specific metrics on your Linux VM and submit them as custom metrics to Azure Monitor.
 
 :::image type="content" source="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png" alt-text="A diagram showing the Telegraph agent overview." lightbox="./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png":::
 
@@ -29,7 +27,7 @@ This article explains how to deploy and configure the [InfluxData](https://www.i
 
 Create an SSH connection to the VM where you want to install Telegraf. Select the **Connect** button on the overview page for your virtual machine.
 
-:::image source="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png" alt-text="A screenshot of the a Virtual machine overview page with the connect button highlighted." lightbox="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png":::
+:::image source="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png" alt-text="A screenshot of the Virtual machine overview page with the connect button highlighted." lightbox="./media/collect-custom-metrics-linux-telegraf/connect-to-virtual-machine.png":::
 
 In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like:
 
@@ -59,7 +57,7 @@ Install the package:
    sudo apt-get update
    sudo apt-get install telegraf
 ```
-# [RHEL, CentOS, Oracle Linux](#tab/redhat)
+# [RHEL, Oracle Linux](#tab/redhat)
 
 Add the repository:
 

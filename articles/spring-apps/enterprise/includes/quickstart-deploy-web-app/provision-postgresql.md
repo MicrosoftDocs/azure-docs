@@ -32,8 +32,6 @@ Use the following steps to create an Azure Database for PostgreSQL server:
    - **Admin username**: *myadmin*
    - **Password** and **Confirm password**: Enter a password.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/postgresql-create-server-basics.png" alt-text="Screenshot of the Azure portal that shows the Server details page." lightbox="../../media/quickstart-deploy-web-app/postgresql-create-server-basics.png":::
-
 1. Configure the **Networking** tab using the following information:
 
    - **Connectivity method**: **Public access (allowed IP addresses)**
