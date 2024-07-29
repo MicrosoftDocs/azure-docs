@@ -35,9 +35,8 @@ db.collection.createIndex( { "$**": 1 } )
 
 ## Include or exclude specific fields
 
-Wildcard indexes can also be restricted to specific fields while excluding certain fields from being targeted for indexing.
+Wildcard indexes can also be restricted to specific fields while excluding certain fields from being targeted for indexing. Let's review a sample for following Json.
 
-Consider the json document below:
 ```json
 {
     "firstName": "Steve",
@@ -48,10 +47,18 @@ Consider the json document below:
 }
 ```
 
-we can control the indexing behavior using command.
+We can control the indexing behavior, the example restricts creating indexes on `firstName`,`lastName` & `timeInOrgInYears` field.
 
 ```javascript
-db.collection.createIndex( { "$**": 1 }, {"wildcardProjection" : {"firstName": 0 , "lastName": 0, "companyName": 1, "division": 1 , "timeInOrgInYears": 0} )
+db.collection.createIndex( { "$**": 1 },
+                           {"wildcardProjection" : {  "firstName": 0
+                                                    , "lastName": 0
+                                                    , "companyName": 1
+                                                    , "division": 1
+                                                    , "timeInOrgInYears": 0
+                                                   }
+                           }
+                         )
 ```
 
 In the wildcardProjection document, the value 0 or 1 indicates whether the field is included (1) or excluded (0) from indexing.

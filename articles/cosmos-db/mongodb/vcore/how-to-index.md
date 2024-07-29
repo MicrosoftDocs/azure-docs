@@ -1,25 +1,25 @@
 ---
-title":  Different indexing options on Azure Cosmos DB for MongoDB vCore
-titleSuffix": Azure Cosmos DB for MongoDB vCore
-description": Basic know-how for efficient usage of indexes on Azure Cosmos DB for MongoDB vCore.
-author": avijitgupta
-ms.author": avijitgupta
-ms.reviewer": gahllevy
-ms.service": cosmos-db
-ms.subservice": mongodb-vcore
-ms.topic": conceptual
-ms.date": 07/23/2024
+"title":  Different indexing options on Azure Cosmos DB for MongoDB vCore
+"titleSuffix": Azure Cosmos DB for MongoDB vCore
+"description": Basic know-how for efficient usage of indexes on Azure Cosmos DB for MongoDB vCore.
+"author": avijitgupta
+"ms.author": avijitgupta
+"ms.reviewer": gahllevy
+"ms.service": cosmos-db
+"ms.subservice": mongodb-vcore
+"ms.topic": conceptual
+"ms.date": 07/30/2024
 ---
 
 # Working with indexes in Azure Cosmos DB for MongoDB vcore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Indexes are structures that enhance data retrieval speed by enabling quick access to specific fields within a collection. This article explains how to perform indexing at various nesting levels and reviews how to effectively utilize these indexes for optimal performance.
+Indexes are structures that enhance data retrieval speed by enabling quick access to specific fields within a collection. This article explains how to perform indexing at various nesting levels and reviews how to effectively review utilization of these indexes.
 
 ## Indexing scenarios
 
-We would review indexing scenarios against the sample json.
+We would work on example scenarios with context to the defined sample json.
 
 ```json
 {
@@ -121,14 +121,17 @@ We would review indexing scenarios against the sample json.
 
 ### Indexing the root field
 
-Azure Cosmos DB for MongoDB vcore create indexes on root properties using syntax outlined and review the utilization with `explain`.
+Azure Cosmos DB for MongoDB vcore allows indexes on root properties. The example allows searching `sampleColl` by `car_id`.
 
 ```javascript
-// Indexing the root property
-db.sampleCollection.createIndex({"car_id":1})
+CarData> db.sampleColl.createIndex({"car_id":1})
+```
 
-// review index getting utilized
-[mongos] CarData> db.sampleColl.find({"car_id":"ZA-XWB804"}).explain()
+Execution plan allows reviewing the utilization of index created on `car_id` field with `explain`.
+
+```javascript
+CarData> db.sampleColl.find({"car_id":"ZA-XWB804"}).explain()
+
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'car_id' : 'ZA-XWB804' } }})",
@@ -155,14 +158,22 @@ db.sampleCollection.createIndex({"car_id":1})
 
 ### Indexing the nested properties
 
-Azure Cosmos DB for MongoDB vcore supports indexing embedded document properties.
+Azure Cosmos DB for MongoDB vcore allows indexing embedded document properties. The example creates an index  on field `registration_datetime` within a nested document `registration`.
 
 ```javascript
-// Indexing the properties in nested document
-[mongos] Cosmicworks> db.sampleColl.createIndex({"car_info.registration.registration_datetime":1})
+CarData> db.sampleColl.createIndex({"car_info.registration.registration_datetime":1})
+```
 
-[mongos] CarData> db.sampleColl.find({"car_info.registration.registration_datetime":
-                                            { $gte : new ISODate("2024-05-01"),$lt: ISODate("2024-05-07")}}).explain()
+Review execution plan with `explain` provides insight into index scan.
+
+```javascript
+CarData> db.sampleColl.find({"car_info.registration.registration_datetime":
+                              {  $gte : new ISODate("2024-05-01")
+                                ,$lt: ISODate("2024-05-07")
+                              }
+                            }).explain()
+
+
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'car_info.registration.registration_datetime' : { '$gte' : ISODate('2024-05-01T00:00:00Z'), '$lt' : ISODate('2024-05-07T00:00:00Z') } } }})",
@@ -200,69 +211,82 @@ Azure Cosmos DB for MongoDB vcore supports indexing embedded document properties
 
 ### Indexing the arrays at root
 
-The example utilizes index on root array to identify for pokemon with weakness across `Ground, Water & Fire`.
+Azure Cosmos DB for MongoDB vcore allows indexing the root property defined as an array. Let us consider following json sample.
 
 ```json
 {
-  _id: ObjectId("58f56170ee9d4bd5e610d644"),
-  id: 1,
-  num: '001',
-  name: 'Bulbasaur',
-  img: 'http://www.serebii.net/pokemongo/pokemon/001.png',
-  type: [ 'Grass', 'Poison' ],
-  height: '0.71 m',
-  weight: '6.9 kg',
-  candy: 'Bulbasaur Candy',
-  candy_count: 25,
-  egg: '2 km',
-  spawn_chance: 0.69,
-  avg_spawns: 69,
-  spawn_time: '20:00',
-  multipliers: [ 1.58 ],
-  weaknesses: [ 'Fire', 'Ice', 'Flying', 'Psychic' ],
-  next_evolution: [ { num: '002', name: 'Ivysaur' }, { num: '003', name: 'Venusaur' } ]
+  "_id": ObjectId("58f56170ee9d4bd5e610d644"),
+  "id": 1,
+  "num": 001,
+  "name": "Bulbasaur",
+  "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
+  "type": [ 'Grass', 'Poison' ],
+  "height": '0.71 m',
+  "weight": '6.9 kg',
+  "avg_spawns": 69,
+  "spawn_time": "20:00",
+  "multipliers": [ 1.58 ],
+  "weaknesses": [ "Fire", "Ice", "Flying", "Psychic"],
+  "next_evolution": [ { "num": "002", "name": "Ivysaur" }, { "num": "003", "name": "Venusaur" }]
 }
 ```
 
-```javascript
-[mongos] Cosmicworks> db.sampleColl.createIndex({"weaknesses":1})
+In our example, we will create an index on `weaknesses` array field and we are reviewing for the existence of all three values `Ground`, `Water` & `Fire` in the array.
 
-[mongos] Cosmicworks> db.Pokemon.countDocuments()
-151
-[mongos] Cosmicworks> db.Pokemon.find({"weaknesses":{$all:["Ground","Water","Fire"]}}).count()
-2
-[mongos] Cosmicworks> db.Pokemon.find({"weaknesses":{$all:["Ground","Water","Fire"]}}).explain()
+```javascript
+Cosmicworks> db.Pokemon.createIndex({'weaknesses':1})
+
+Cosmicworks> db.Pokemon.find({"weaknesses":
+                                {$all:["Ground","Water","Fire"]}
+                              }
+                            ).explain()
+
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'Pokemon', 'filter' : { 'weaknesses' : { '$all' : ['Ground', 'Water', 'Fire'] } } }})",
-  explainCommandPlanningTimeMillis: 0.099,
-  explainCommandExecTimeMillis: 1.188,
+  explainCommandPlanningTimeMillis: 10.161,
+  explainCommandExecTimeMillis: 21.64,
   dataSize: '906 bytes',
   queryPlanner: {
     namespace: 'Cosmicworks.Pokemon',
     winningPlan: {
-      stage: 'COLLSCAN', // Thing to review
-      runtimeFilterSet: [
-        { '$all': { weaknesses: [ 'Ground', 'Water', 'Fire' ] } }
-      ],
-      estimatedTotalKeysExamined: 50
+      stage: 'FETCH',
+      estimatedTotalKeysExamined: 50,
+      inputStage: {
+        stage: 'IXSCAN',
+        indexName: 'weaknesses_1',
+        isBitmap: true,
+        indexFilterSet: [
+          { '$all': { weaknesses: [ 'Ground', 'Water', 'Fire' ] } }
+        ],
+        estimatedTotalKeysExamined: 2
+      }
     }
   },
   ok: 1
 }
-
-[mongos] CarData> db.sampleColl.createIndex({"rental_history":1})
-MongoServerError: Index key is too large. // Another error
 ```
 
-### Indexing nested array
+> [!NOTE]
+> For MongoServerError: Index key is too large.
+>
+> Please create a support request for enabling background indexing, followed by `enableLargeIndexKeys`
+>
+> db.runCommand({ createIndexes: "collectionName", indexes: [{ {"index_spec"}], enableLargeIndexKeys: true });
 
-The example uses an index on nested array to identify for all the rentals, without a resolution provided to the customer.
+### Indexing nested arrays
+
+Azure Cosmos DB for MongoDB vcore allows indexing nested arrays. The example creates an index on `resolutions` field existing within `complains` array.
 
 ```javascript
-[mongos] CarData> db.sampleColl.createIndex({"rental_history.complains.resolutions":1})
+CarData> db.sampleColl.createIndex({"rental_history.complains.resolutions":1})
+```
 
-[mongos] CarData> db.sampleColl.find({"rental_history.complains.resolutions":{ $exists: false, $ne: []}}).explain()
+We review the plan with `explain` to identify for all the rentals, without a resolution provided to the customer.
+
+```javascript
+CarData> db.sampleColl.find({"rental_history.complains.resolutions":{ $exists: false, $ne: []}}).explain()
+
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'rental_history.complains.resolutions' : { '$exists' : false, '$ne' : [] } } }})",
@@ -294,12 +318,21 @@ The example uses an index on nested array to identify for all the rentals, witho
 
 ### Indexing specific field in an array
 
-The example utilizes the nested document property while evaluating the accidents between a time range.
+Azure Cosmos DB for MongoDB vcore allows indexing fields within an array. The example creates an index on `date` field within `accidents` array.
 
 ```javascript
-[mongos] CarData> db.sampleColl.createIndex({"rental_history.accidents.date":1})
+CarData> db.sampleColl.createIndex({"rental_history.accidents.date":1})
+```
 
-[mongos] CarData> db.sampleColl.find({"rental_history.accidents.date":{ $gte : new ISODate("2024-05-01"),$lt: ISODate("2024-05-07")}}).explain()
+The example query evaluates for the accidents between a time range, shows index created on `date` property being utilized.
+
+```javascript
+CarData> db.sampleColl.find({"rental_history.accidents.date":
+                                { $gte : ISODate("2024-05-01")
+                                , $lt  : ISODate("2024-05-07")
+                                }
+                            }).explain()
+
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'rental_history.accidents.date' : { '$gte' : ISODate('2024-05-01T00:00:00Z'), '$lt' : ISODate('2024-05-07T00:00:00Z') } } }})",
@@ -337,12 +370,26 @@ The example utilizes the nested document property while evaluating the accidents
 
 ### Wildcard indexing while excluding nested fields
 
+Azure Cosmos DB for MongoDB vcore supports Wildcard indexes. The example allows us exclude indexing all nested fields within document `car_info`.
+
 ```javascript
 // Excludes all the nested sub-document property 
-[mongos] CarData> db.sampleColl.createIndex({"$**":1},{"wildcardProjection":{"car_info.make":0,"car_info.model":0,"car_info.registration":0,"car_info.year":0,"rental_history":0}})
+CarData> db.sampleColl.createIndex(  {"$**":1}
+                                    ,{"wildcardProjection":
+                                          {  "car_info.make":0
+                                            ,"car_info.model":0
+                                            ,"car_info.registration":0
+                                            ,"car_info.year":0
+                                            ,"rental_history":0
+                                          }
+                                      }
+                                  )
+```
 
-// Index created excludes model field from being indexed
-[mongos] CarData> db.sampleColl.find({"car_info.model":"GT Fastback"}).explain()
+Execution plan does show no support for queries performed on `model` field, which was excluded while creating the Wildcard index.
+
+```javascript
+CarData> db.sampleColl.find({"car_info.model":"GT Fastback"}).explain()
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'car_info.model' : 'GT Fastback' } }})",
@@ -363,12 +410,23 @@ The example utilizes the nested document property while evaluating the accidents
 
 ### Wildcard indexing while excluding nested objects
 
+Azure Cosmos DB for MongoDB vcore supports Wildcard indexes. The example allows us exclude nested objects from the document.
+
 ```javascript
 // Wildcard index excluding nested object
-[mongos] CarData> db.sampleColl.createIndex({"$**":1},{"wildcardProjection":{"car_info":0,"rental_history":0}})
+[mongos] CarData> db.sampleColl.createIndex( {"$**":1},
+                                             {"wildcardProjection":
+                                                    {  "car_info":0
+                                                      ,"rental_history":0
+                                                    }
+                                              }
+                                            )
+```
 
-// Querying internally on car_info and associated properties doesn't utilize index
-[mongos] CarData> db.sampleColl.find({"car_info.make":"Mustang"}).explain()
+Execution plan shows no support for queries performed on nested field `make` within `car_info` document.
+
+```javascript
+CarData> db.sampleColl.find({"car_info.make":"Mustang"}).explain()
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'sampleColl', 'filter' : { 'car_info.make' : 'Mustang' } }})",
@@ -393,32 +451,43 @@ The wildcard index example allows excluding fields from nested array. We will us
 
 ```json
 {
-  _id: ObjectId("58f56170ee9d4bd5e610d644"),
-  id: 1,
-  num: '001',
-  name: 'Bulbasaur',
-  img: 'http://www.serebii.net/pokemongo/pokemon/001.png',
-  type: [ 'Grass', 'Poison' ],
-  height: '0.71 m',
-  weight: '6.9 kg',
-  candy: 'Bulbasaur Candy',
-  candy_count: 25,
-  egg: '2 km',
-  spawn_chance: 0.69,
-  avg_spawns: 69,
-  spawn_time: '20:00',
-  multipliers: [ 1.58 ],
-  weaknesses: [ 'Fire', 'Ice', 'Flying', 'Psychic' ],
-  next_evolution: [ { num: '002', name: 'Ivysaur' }, { num: '003', name: 'Venusaur' } ]
+{
+  "_id": ObjectId("58f56170ee9d4bd5e610d644"),
+  "id": 1,
+  "num": 001,
+  "name": "Bulbasaur",
+  "img": "http://www.serebii.net/pokemongo/pokemon/001.png",
+  "type": [ 'Grass', 'Poison' ],
+  "height": '0.71 m',
+  "weight": '6.9 kg',
+  "avg_spawns": 69,
+  "spawn_time": "20:00",
+  "multipliers": [ 1.58 ],
+  "weaknesses": [ "Fire", "Ice", "Flying", "Psychic"],
+  "next_evolution": [ { "num": "002", "name": "Ivysaur" }, { "num": "003", "name": "Venusaur" }]
+}
 }
 ```
 
-We have excluded `name` property from within `next_evolution` array.
+We are creating index on all the fields within the json excluding a `num` and `name` fields from within an array.
 
 ```javascript
-[mongos] Cosmicworks> db.Pokemon.createIndex({"$**":1},{"wildcardProjection":{"id":0,"name":0,"multipliers":0,"next_evolution.num":0,"next_evolution.name":0}})
+Cosmicworks> db.Pokemon.createIndex( {"$**":1},
+                                     {"wildcardProjection":
+                                        {  "id":0
+                                          ,"name":0
+                                          ,"multipliers":0
+                                          ,"next_evolution.num":0
+                                          ,"next_evolution.name":0
+                                        }
+                                      }
+                                    )
+```
 
-[mongos] Cosmicworks> db.Pokemon.find({"next_evolution.name":"Venusaur"}).explain()
+Explain plan shows no index utilization while querying on `name` field within `next_evolution` array.
+
+```javascript
+Cosmicworks> db.Pokemon.find({"next_evolution.name":"Venusaur"}).explain()
 {
   explainVersion: 2,
   command: "db.runCommand({explain: { 'find' : 'Pokemon', 'filter' : { 'next_evolution.name' : 'Venusaur' } }})",
@@ -437,15 +506,9 @@ We have excluded `name` property from within `next_evolution` array.
 }
 ```
 
-```javascript
-// Can't use on json sample shared initially
-[mongos] CarData> db.sampleColl.createIndex({"$**":1},{"wildcardProjection":{"car_info":0,"rental_history.pickup_location":0,"rental_history.drop_location":0,"rental_history.total_price":0,"rental_history.daily_rent":0,"rental_history.accidents":0,"rental_history.complains.complain_id":0,"rental_history.complains.issue":0,"rental_history.complains.resolutions.resolution_datetime":0,"rental_history.complains.resolutions.solution":0,"rental_history.complains.resolutions.resolved":0,"rental_history.complains.reported_datetime":0,"rental_history.complains.reported_medium":0,"rental_history.start_date":0,"rental_history.end_date":0,"rental_history.rental_id":0}})
-MongoServerError: Index key is too large.
-```
-
 ## Next steps
 
+- Learn here about [Wildcard indexing](how-to-create-wildcard-indexes.md).
 - Learn about indexing [Best practices](how-to-create-indexes.md) for most efficient outcomes.
 - Learn about [background indexing](background-indexing.md)
 - Learn here to work with [Text indexing](how-to-create-text-index.md).
-- Learn here about [Wildcard indexing](how-to-create-wildcard-indexes.md).
