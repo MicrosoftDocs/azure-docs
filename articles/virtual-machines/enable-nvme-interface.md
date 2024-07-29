@@ -55,4 +55,4 @@ For more information about enabling the NVMe interface on virtual machines creat
 - Windows 10
 - Windows 11
 
-For the image download, [Navigate to Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home)
+To download an image, go to [Azure Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home).
