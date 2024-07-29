@@ -60,7 +60,6 @@ The required network ports are as follows:
 
 \* Active Directory DNS only 
 
-
 \*\* LDAP over SSL (port 636) isn't currently supported. Instead, use [LDAP over StartTLS](configure-ldap-over-tls.md) (port 389) to encrypt LDAP traffic.
 
 ### DNS requirements 
