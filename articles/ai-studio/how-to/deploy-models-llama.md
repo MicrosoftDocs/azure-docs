@@ -41,9 +41,9 @@ Meta Llama 3.1 models - like `Meta Llama 3.1 405B Instruct` - can be deployed as
 
 The following models are available in Azure Marketplace for Llama 3.1 and Llama 3 when deployed as a service with pay-as-you-go:
 
-* [Meta-Llama-3.1-405B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-405B-base)
-* [Meta-Llama-3.1-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8B-refresh)
-* [Meta Llama-3.1-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70B-refresh)
+* [Meta-Llama-3.1-405B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-405B-instruct)
+* [Meta-Llama-3.1-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-70B-instruct)
+* [Meta Llama-3.1-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3.1-8B-instruct)
 * [Meta-Llama-3-70B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-70b-chat)
 * [Meta-Llama-3-8B-Instruct (preview)](https://aka.ms/aistudio/landing/meta-llama-3-8b-chat)
 

@@ -88,10 +88,6 @@ $tableParams = @'
                     {
                         "name": "FilePath",
                         "type": "string"
-                    },
-                    {
-                        "name": "Computer",
-                        "type": "string"
                     }
               ]
         }
@@ -116,7 +112,6 @@ JSON files include a property name with each value, and the incoming stream in t
 | `TimeGenerated` | datetime | The time the record was generated. |
 | `RawData` | string | This column will be empty for a JSON log. |
 | `FilePath` | string | If you add this column to the incoming stream in the DCR, it will be populated with the path to the log file. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
-| `Computer` | string | If you add this column to the incoming stream in the DCR, it will be populated with the name of the computer. This column is not created automatically and can't be added using the portal. You must manually modify the DCR created by the portal or create the DCR using another method where you can explicitly define the incoming stream. |
 
 ### [Portal](#tab/portal)
 
@@ -151,34 +146,40 @@ Use the following ARM template to create a DCR for collecting text log files. In
             "type": "string",
             "metadata": {
               "description": "Unique name for the DCR. "
-            },
+            }
         },
         "location": {
             "type": "string",
             "metadata": {
               "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
+            }
         },
         "filePatterns": {
             "type": "string",
             "metadata": {
               "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
-            },
+            }
         },
         "tableName": {
             "type": "string",
             "metadata": {
               "description": "Name of destination table in your Log Analytics workspace. "
-            },
+            }
         },
         "workspaceResourceId": {
             "type": "string",
             "metadata": {
               "description": "Resource ID of the Log Analytics workspace with the target table."
-            },
-        }
+            }
+        },
+        "dataCollectionEndpointResourceId": {
+		"type": "string",
+		"metadata": {  "description": "Resource ID of the Data Collection Endpoint to be used with this rule."
+		}
+	  }
     },
     "variables": {
-      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+      "tableOutputStream": "[concat('Custom-', parameters('tableName'))]]"
     },
     "resources": [
         {
@@ -196,11 +197,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                             },
                             {
                                 "name": "FilePath",
-                                "type": "String"
-                            },
-                            {
-                                "name": "Computer",
-                                "type": "String"
+                                "type": "string"
                             },
                             {
                                 "name": "MyStringColumn",
@@ -216,7 +213,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                             },
                             {
                                 "name": "MyBooleanColumn",
-                                "type": "bool"
+                                "type": "boolean"
                             }
                         ]
                     }
@@ -246,7 +243,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                 "dataFlows": [
                     {
                         "streams": [
-                            "Custom-Json-dataSource"
+                            "Custom-JSONLog-stream"
                         ],
                         "destinations": [
                             "workspace"
@@ -255,6 +252,7 @@ Use the following ARM template to create a DCR for collecting text log files. In
                         "outputStream": "[variables('tableOutputStream')]"
                     }
                 ]
+                "dataCollectionEndpointId" : "[parameters('dataCollectionEndpointResourceId')]"
             }
         }
     ]

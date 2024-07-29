@@ -48,7 +48,7 @@ There are three different configuration modes for outbound traffic from the mana
     > While you can create a private endpoint for Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).
 
 * You must add rules for each outbound connection you need to allow.
-* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall.
+* Adding FQDN outbound rules __increase your costs__ as this rule type uses Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 * The default rules for _allow only approved outbound_ are designed to minimize the risk of data exfiltration. Any outbound rules you add might increase your risk.
 
 The managed virtual network is preconfigured with [required default rules](#list-of-required-rules). It's also configured for private endpoint connections to your hub, the hub's default storage, container registry, and key vault if they're configured as private or the hub isolation mode is set to allow only approved outbound. After choosing the isolation mode, you only need to consider other outbound requirements you might need to add.
@@ -380,9 +380,6 @@ To configure a managed virtual network that allows internet outbound communicati
 
         If the destination type is __FQDN__, provide the following information:
 
-        > [!WARNING]
-        > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
-
         * __FQDN destination__: The fully qualified domain name to add to the approved outbound rules.
 
         Select __Save__ to save the rule. You can continue using __Add user-defined outbound rules__ to add rules.
@@ -414,9 +411,6 @@ You can also define _outbound rules_ to define approved outbound communication. 
 > [!IMPORTANT]
 > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `allow_only_approved_outbound`.
 > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
-
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
 ```yaml
 managed_network:
@@ -476,9 +470,6 @@ You can configure a managed virtual network using either the `az ml workspace cr
 
     The following YAML file defines a managed virtual network for the hub. It also demonstrates how to add an approved outbound to the managed virtual network. In this example, an outbound rule is added for both a service tag:
 
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
-
     ```yaml
     name: myhub_dep
     managed_network:
@@ -521,9 +512,6 @@ To configure a managed virtual network that allows only approved outbound commun
     > [!IMPORTANT]
     > * Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
     > * If you add outbound rules, Microsoft can't guarantee data exfiltration.
-
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
 
     ```python
     # Basic managed VNet configuration
@@ -587,9 +575,6 @@ To configure a managed virtual network that allows only approved outbound commun
 
     > [!TIP]
     > Adding an outbound for a service tag or FQDN is only valid when the managed VNet is configured to `IsolationMode.ALLOW_ONLY_APPROVED_OUTBOUND`.
-
-    > [!WARNING]
-    > FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are added to your billing. For more information, see [Pricing](#pricing).
     
     ```python
     # Get the existing hub
@@ -728,9 +713,6 @@ __Inbound__ service tag rules:
 
 To allow installation of __Python packages for training and deployment__, add outbound _FQDN_ rules to allow traffic to the following host names:
 
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
-
 > [!NOTE]
 > This is not a complete list of the hosts required for all Python resources on the internet, only the most commonly used. For example, if you need access to a GitHub repository or other host, you must identify and add the required hosts for that scenario.
 
@@ -747,9 +729,6 @@ Visual Studio Code relies on specific hosts and ports to establish a remote conn
 
 #### Hosts
 If you plan to use __Visual Studio Code__ with the hub, add outbound _FQDN_ rules to allow traffic to the following hosts:
-
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 * `*.vscode.dev`
 * `vscode.blob.core.windows.net`
@@ -772,9 +751,6 @@ You must allow network traffic to ports 8704 to 8710. The VS Code server dynamic
 ### Scenario: Use HuggingFace models
 
 If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rules to allow traffic to the following hosts:
-
-> [!WARNING]
-> FQDN outbound rules are implemented using Azure Firewall. If you use outbound FQDN rules, charges for Azure Firewall are included in your billing. For more information, see [Pricing](#pricing).
 
 * docker.io
 * *.docker.io

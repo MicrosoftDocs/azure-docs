@@ -112,6 +112,8 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Deploy Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Deploy Meta Llama family models
@@ -127,6 +129,8 @@ items:
       displayName: maas
     - name: Deploy Phi-3 models
       href: how-to/deploy-models-phi-3.md
+    - name: Fine-tune Phi-3 models
+      href: how-to/fine-tune-phi-3.md
     - name: Deploy TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
