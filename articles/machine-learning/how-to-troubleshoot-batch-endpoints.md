@@ -8,7 +8,7 @@ ms.subservice: inferencing
 ms.topic: troubleshooting-general
 author: msakande
 ms.author: mopeakande
-ms.date: 07/19/2024
+ms.date: 07/29/2024
 ms.reviewer: cacrest
 ms.custom: devplatv2
 
@@ -27,7 +27,7 @@ After you invoke a batch endpoint by using the Azure CLI or the REST API, the ba
 
 - **Option 1**: Stream job logs to a local console. Only logs in the _azureml-logs_ folder are streamed.
 
-   Run the following command to stream system-generated logs to your console. Replace the `\<job_name>` parameter with the name of your batch scoring job:
+   Run the following command to stream system-generated logs to your console. Replace the `<job_name>` parameter with the name of your batch scoring job:
 
    ```azurecli
    az ml job stream --name <job_name>
@@ -35,7 +35,7 @@ After you invoke a batch endpoint by using the Azure CLI or the REST API, the ba
 
 - **Option 2**: View job logs in Azure Machine Learning studio.
 
-   Run the following command to get the job link to use in the studio. Replace the `\<job_name>` parameter with the name of your batch scoring job:
+   Run the following command to get the job link to use in the studio. Replace the `<job_name>` parameter with the name of your batch scoring job:
 
    ```azurecli
    az ml job show --name <job_name> --query services.Studio.endpoint -o tsv
@@ -49,7 +49,7 @@ After you invoke a batch endpoint by using the Azure CLI or the REST API, the ba
 
 ## Review log files
 
-Machine Learning provides several types of log files and other data files that you can use to help troubleshoot your batch scoring job. 
+Azure Machine Learning provides several types of log files and other data files that you can use to help troubleshoot your batch scoring job. 
 
 The two top-level folders for batch scoring logs are _azureml-logs_ and _logs_. Information from the controller that launches the scoring script is stored in the  _~/azureml-logs/70\_driver\_log.txt_ file.
 
@@ -59,8 +59,8 @@ The distributed nature of batch scoring jobs results in logs from different sour
 
 | File | Description |
 | --- | --- |
-| **~/logs/job_progress_overview.txt** | Provides high-level information about the current number of created mini-batches (also known as _tasks_) created and the current number of processed mini-batches. As processing for mini-batches comes to an end, the log records the results of the job. If the job fails, the log shows the error message and where to start the troubleshooting. |
-| **~/logs/sys/master_role.txt** | Supplies the principal node (also known as the _orchestrator_) view of the running job. This log includes information about the task creation, progress monitoring, and the job result. |
+| **~/logs/job_progress_overview.txt** | Provides high-level information about the current number of mini-batches (also known as _tasks_) created and the current number of processed mini-batches. As processing for mini-batches comes to an end, the log records the results of the job. If the job fails, the log shows the error message and where to start the troubleshooting. |
+| **~/logs/sys/master_role.txt** | Provides the principal node (also known as the _orchestrator_) view of the running job. This log includes information about the task creation, progress monitoring, and the job result. |
 
 ### Examine stack trace data for errors
 
@@ -69,13 +69,13 @@ Other files provide information about possible errors in your script:
 | File | Description |
 | --- | --- |
 | **~/logs/user/error.txt** | Provides a summary of errors in your script. |
-| **~/logs/user/error/\*** | Supplies the full stack traces of exceptions thrown while loading and running the entry script. |
+| **~/logs/user/error/\*** | Provides the full stack traces of exceptions thrown while loading and running the entry script. |
 
 ### Examine process logs per node
 
 For a complete understanding of how each node executes your score script, examine the individual process logs for each node. The process logs are stored in the _~/logs/sys/node_ folder and grouped by worker nodes.
 
-The folder contains an _\<ip\_address>/_ subfolder and a _\<process\_name>.txt_ file with detailed info about each mini-batch. The folder contents updates when a worker selects or completes the mini-batch. For each mini-batch, the log file includes:
+The folder contains an _\<ip\_address>/_ subfolder that contains a _\<process\_name>.txt_ file with detailed info about each mini-batch. The folder contents updates when a worker selects or completes the mini-batch. For each mini-batch, the log file includes:
 
 - The IP address and the process ID (PID) of the worker process. 
 - The total number of items, the number of successfully processed items, and the number of failed items.
@@ -94,7 +94,7 @@ The folder contains an _\<ip\_address>/_ subfolder about each mini-batch. The fo
 
 | File or Folder | Description |
 | --- | --- |
-| **os/** | Stores information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. The folder contains the following items: <br> - **%Y%m%d%H**: Contains one or more process check files. The subfolder name is the creation date and time of the check (Year, Month, Day, Hour). <br> **processes_%M**: Shows details about the process check. The file name ends with the check time (Minute) relative to the check creation time. |
+| **os/** | Stores information about all running processes in the node. One check runs an operating system command and saves the result to a file. On Linux, the command is `ps`. The folder contains the following items: <br> - **%Y%m%d%H**: Subfolder that contains one or more process check files. The subfolder name is the creation date and time of the check (Year, Month, Day, Hour). <br> **processes_%M**: File within the subfolder. The file shows details about the process check. The file name ends with the check time (Minute) relative to the check creation time. |
 | **node_disk_usage.csv** | Shows the detailed disk usage of the node. |
 | **node_resource_usage.csv** | Supplies the resource usage overview of the node. |
 | **processes_resource_usage.csv** | Provides a resource usage overview of each process. |
@@ -126,15 +126,15 @@ logger.debug("Debug log statement")
 
 The following sections describe common errors that can occur during batch endpoint development and consumption, and steps for resolution.
 
-### No azureml module in installation
+### No module named azureml
 
 Azure Machine Learning batch deployment requires the **azureml-core** package in the installation.
 
-**Message logged**: "No module named azureml."
+**Message logged**: "No module named `azureml`."
 
-**Reason**: The azureml-core package appears to be missing in the installation.
+**Reason**: The `azureml-core` package appears to be missing in the installation.
 
-**Solution**: Add the azureml-core package to your conda dependencies file.
+**Solution**: Add the `azureml-core` package to your conda dependencies file.
 
 ### No output in predictions file
 
@@ -170,7 +170,7 @@ For batch deployment to succeed, the managed identity for the compute cluster mu
 
 **Solution**: Ensure the managed identity associated with the compute cluster where your deployment is running has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only Azure Storage account owners can [change the access level in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
-### No mounted storage, no dataset initialization
+### Dataset initialization failed, can't mount dataset
 
 The batch deployment process requires mounted storage for the data asset. When the storage doesn't mount, the dataset can't be initialized.
 
@@ -180,11 +180,11 @@ The batch deployment process requires mounted storage for the data asset. When t
 
 **Solution**: Ensure the managed identity associated with the compute cluster where your deployment is running has at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only Azure Storage account owners can [change the access level in the Azure portal](../storage/blobs/assign-azure-role-data-access.md).
 
-### No value for dataset_param parameter
+### The dataset_param parameter doesn't have a specified value or a default value
 
 During batch deployment, the data set node references the `dataset_param` parameter. For the deployment to proceed, the parameter must have an assigned value or a specified default value.
 
-**Message logged**: "Data set node [code] references parameter dataset_param, which doesn't have a specified value or a default value."
+**Message logged**: "Data set node [code] references parameter `dataset_param`, which doesn't have a specified value or a default value."
 
 **Reason**: The input data asset provided to the batch endpoint isn't supported.
 
@@ -272,7 +272,7 @@ For batch deployment to succeed, the batch endpoint must have at least one valid
    
    - Define the route with a deployment-specific header.
 
-## Review unsupported configurations and file types
+## Limitations and unsupported scenarios
 
 When you design machine learning deployment solutions that rely on batch endpoints, keep in mind that some configurations and scenarios aren't supported. The following sections identify unsupported workspaces and compute resources, and invalid types for input files.
 
