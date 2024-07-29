@@ -5,9 +5,9 @@ description: The feature retrieval specification, and how to use it for training
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: yogipandey
 ms.date: 12/06/2023
 ms.custom: template-concept
 ---

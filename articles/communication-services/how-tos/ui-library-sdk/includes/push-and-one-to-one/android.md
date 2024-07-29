@@ -22,107 +22,96 @@ For the Android application to receive notification messages from FCM, it needs 
 <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 ```
 
-### Register for push notifications
+### Add incoming notifications to your mobile app
+
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
+
+### Register/Unregister for notification hub push notifications
 
 To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
 
 To get the device registration token, add the Firebase SDK to your application module's `build.gradle` instance. To receive notifications from Firebase, integrate Azure Notification Hubs by following the instructions in [Communication Services notifications](/azure/communication-services/concepts/notifications).
 
-To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
-
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
     val deviceRegistrationToken = "" // From Firebase
-    callComposite.registerPushNotification(
-        applicationContext,
-        CallCompositePushNotificationOptions(
-            CommunicationTokenCredential...,
-            deviceRegistrationToken,
-            displayName
-        )
-    )
+    callComposite.registerPushNotification(deviceRegistrationToken).whenComplete { _, throwable ->
+        if (throwable != null) {
+            // Handle error
+        }
+    }
 ```
 
 #### [Java](#tab/java)
 
 ```java
     String deviceRegistrationToken = ""; // From Firebase
-    callComposite.registerPushNotification(
-            applicationContext,
-            new CallCompositePushNotificationOptions(tokenCredential,
-                    deviceRegistrationToken,
-                    "DISPLAY_NAME"),
-            (result) -> {
-                // Handle success/failure
-            });
+    callComposite.registerPushNotification(deviceRegistrationToken)
+    .whenComplete((aVoid, throwable) -> {
+            if (throwable != null) {
+                // Handle error
+            }
+    });
 ```
 
 -----
 
-### Handle push notifications
+### Handle push notifications received from Event Grid or notification hub
 
 To receive push notifications for incoming calls, call `handlePushNotification` on a `CallComposite` instance with a payload.
 
-To get the payload from FCM, begin by creating a new service (**File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler that's called when FCM delivers the push notification to the application.
+To get the payload from FCM, begin by creating a new service (**File** > **New** > **Service** > **Service**) that extends the `FirebaseMessagingService` Firebase SDK class and overrides the `onMessageReceived` method. This method is the event handler that called when FCM delivers the push notification to the application.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
     // On Firebase onMessageReceived
-    val pushNotificationInfo = CallCompositePushNotificationInfo(remoteMessage.data)
-
-    // If pushNotificationInfo.eventType is an incoming call
-    val remoteOptions = CallCompositeRemoteOptions(
-            pushNotificationInfo,
-            communicationTokenCredential,
-            displayName
-        )
-    callComposite.handlePushNotification(
-            applicationContext,
-            remoteOptions
-        )
+    val pushNotification = CallCompositePushNotification(remoteMessage.data)
+    callComposite.handlePushNotification(pushNotification).whenComplete { _, throwable ->
+        if (throwable != null) {
+            // Handle error
+        }
+    }
 ```
 
 #### [Java](#tab/java)
 
 ```java
     // On Firebase onMessageReceived
-    CallCompositePushNotificationInfo pushNotificationInfo = 
-            new CallCompositePushNotificationInfo(remoteMessage.data)
+    // push notification contains from/to communication identifiers and event type
+    CallCompositePushNotification pushNotification = 
+            new CallCompositePushNotification(remoteMessage.data)
 
-    // If pushNotificationInfo.eventType is an incoming call
-    CallCompositeRemoteOptions remoteOptions = new CallCompositeRemoteOptions(
-            pushNotificationInfo,
-            tokenCredential,
-            "DISPLAY_NAME"
-    );
-    callComposite.handlePushNotification(
-            applicationContext,
-            remoteOptions
-    );
+    callComposite.handlePushNotification(pushNotification)
+    .whenComplete((aVoid, throwable) -> {
+            if (throwable != null) {
+                // Handle error
+            }
+    });
 ```
 
 -----
 
 ### Register for incoming call notifications
 
-To receive incoming call notifications after `handlePushNotification`, subscribe to `IncomingCallEvent` and `IncomingCallEndEvent`.
+To receive incoming call notifications after `handlePushNotification`, subscribe to `CallCompositeIncomingCallEvent` and `CallCompositeIncomingCallCancelledEvent`. `CallCompositeIncomingCallEvent` contains the incoming callId and caller information. `CallCompositeIncomingCallCancelledEvent` contains callId and call cancellation code [Troubleshooting in Azure Communication Services](../../../../concepts/troubleshooting-info.md#calling-sdk-error-codes).
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
     private var incomingCallEvent: IncomingCallEvent? = null
-    private var incomingCallEndEvent: IncomingCallEndEvent? = null
+    private var incomingCallCancelledEvent: IncomingCallCancelledEvent? = null
 
-    class IncomingCallEndEvent : CallCompositeEventHandler<CallCompositeIncomingCallEndEvent> {
-        override fun handle(eventArgs: CallCompositeIncomingCallEndEvent?) {
+    class IncomingCallEvent : CallCompositeEventHandler<CallCompositeIncomingCallEvent> {
+        override fun handle(eventArgs: CallCompositeIncomingCallEvent?) {
             // Display incoming call UI to accept/decline a call
+            // CallCompositeIncomingCallEvent contains call id and caller information
         }
     }
 
-    class IncomingCallEndEvent : CallCompositeEventHandler<CallCompositeIncomingCallEndEvent> {
-        override fun handle(eventArgs: CallCompositeIncomingCallEndEvent?) {
+    class IncomingCallCancelledEvent : CallCompositeEventHandler<CallCompositeIncomingCallCancelledEvent> {
+        override fun handle(eventArgs: CallCompositeIncomingCallCancelledEvent?) {
             // Call-ended event when a call is declined or not accepted
         }
     }
@@ -131,12 +120,12 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
     incomingCallEvent = IncomingCallEvent()
     callComposite.addOnIncomingCallEventHandler(incomingCallEvent)
 
-    incomingCallEndEvent = IncomingCallEndEvent()
-    callComposite.addOnIncomingCallEndEventHandler(incomingCallEndEvent)
+    incomingCallCancelledEvent = IncomingCallCancelledEvent()
+    callComposite.addOnIncomingCallCancelledEventHandler(incomingCallEndEvent)
 
     // Event unsubscribe
     callComposite.removeOnIncomingCallEventHandler(incomingCallEvent)
-    callComposite.removeOnIncomingCallEndEventHandler(incomingCallEndEvent)
+    callComposite.removeOnIncomingCallCancelledEventHandler(incomingCallEndEvent)
 ```
 
 #### [Java](#tab/java)
@@ -144,10 +133,16 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
 ```java
     callComposite.addOnIncomingCallEventHandler((call) -> {
         // Display incoming call UI to accept/decline a call
+        // incomingCallEvent.getCallId()
+        // incomingCallEvent.getCallerIdentifier()
+        // incomingCallEvent.getCallerDisplayName()
     });
 
-    callComposite.addOnIncomingCallEndEventHandler((call) -> {
+    callComposite.addOnIncomingCallCancelledEventHandler((call) -> {
         // Call-ended event when a call is declined or not accepted
+        // incomingCallCancelledEvent.getCallId()
+        // incomingCallCancelledEvent.getCode()
+        // incomingCallCancelledEvent.getSubCode()
     });
 ```
 
@@ -155,26 +150,26 @@ To receive incoming call notifications after `handlePushNotification`, subscribe
 
 ### Handle calls
 
-To accept calls, make a call to `acceptIncomingCall`. To decline calls, make a call to `declineIncomingCall`.
+To accept calls, make a call to `accept`. To decline calls, make a call to `reject`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
 // Accept call
-callComposite.acceptIncomingCall(applicationContext, localOptions)
+callComposite.accept(applicationContext, incomingCallId, localOptions)
 
 // Decline call
-callComposite.declineIncomingCall()
+callComposite.reject(incomingCallId)
 ```
 
 #### [Java](#tab/java)
 
 ```java
 // Accept call
-callComposite.acceptIncomingCall(applicationContext, localOptions);
+callComposite.accept(applicationContext, incomingCallId, localOptions);
 
 // Decline call
-callComposite.declineIncomingCall();
+callComposite.reject(incomingCallId);
 ```
 
 -----
@@ -186,46 +181,15 @@ To start calls with other participants, create `CallCompositeStartCallOptions` w
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-    val participant = [] // Participant raw IDs
-    val startCallOption = CallCompositeStartCallOptions(participant)
-    val remoteOptions = CallCompositeRemoteOptions(startCallOption, communicationTokenCredential, displayName)
-    callComposite.launch(context, remoteOptions, localOptions)
+    val participants: List<CommunicationIdentifier> // participants to dial
+    callComposite.launch(context, participants, localOptions)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-    List<String> participant; // Participant raw IDs
-    CallCompositeStartCallOptions startCallOption =
-            new CallCompositeStartCallOptions(participant);
-    CallCompositeRemoteOptions remoteOptions = CallCompositeRemoteOptions(startCallOption,
-            tokenCredential,
-            "DISPLAY_NAME");
-    callComposite.launch(applicationContext, remoteOptions, localOptions);
-```
-
------
-
-### Integrate TelecomManager samples
-
-To integrate [TelecomManager](https://developer.android.com/reference/android/telecom/TelecomManager), use the samples provided in the [open-source library](https://github.com/Azure/communication-ui-library-android). Use  `CallComposite` APIs for `hold`, `resume`, `mute`, and `unmute`. Create `CallComposite` with `CallCompositeTelecomIntegration.APPLICATION_IMPLEMENTED_TELECOM_MANAGER` to use `TelecomManager` in an application.
-
-#### [Kotlin](#tab/kotlin)
-
-```kotlin
-callComposite.hold()
-callComposite.resume()
-callComposite.mute()
-callComposite.unmute()
-```
-
-#### [Java](#tab/java)
-
-```java
-callComposite.hold();
-callComposite.resume();
-callComposite.mute();
-callComposite.unmute();
+    Collection<CommunicationIdentifier> participants; // participants to dial
+    callComposite.launch(applicationContext, participants, localOptions);
 ```
 
 -----

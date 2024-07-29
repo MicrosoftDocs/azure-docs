@@ -9,6 +9,8 @@ ms.custom: devdivchpfy22
 
 # Firewall settings for labs when using lab accounts
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 Each organization or school will configure their own network in a way that best fits their needs.  Sometimes that includes setting firewall rules that block Remote Desktop Protocol (RDP) or Secure Shell (SSH) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow students to access their VM when connecting from the campus network.

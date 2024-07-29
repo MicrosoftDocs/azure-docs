@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 06/25/2024
 ms.author: cshoe
 ---
 

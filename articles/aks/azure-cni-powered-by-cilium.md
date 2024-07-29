@@ -57,6 +57,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
+* Network policies are not applied to pods using host networking (`spec.hostNetwork: true`) because these pods use the host identity instead of having individual identities.
+
 ## Prerequisites
 
 * Azure CLI version 2.48.1 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).

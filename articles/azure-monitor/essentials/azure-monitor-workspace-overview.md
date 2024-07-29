@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: poojaa
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 07/24/2024
 ---
 
 # Azure Monitor workspace
@@ -60,17 +60,47 @@ In certain circumstances, splitting an Azure Monitor workspace into multiple wor
 >[!Note] 
 > A single query cannot access multiple Azure Monitor workspaces. Keep data that you want to retrieve in a single query in same workspace. For visualization purposes, setting up Grafana with each workspace as a dedicated data source will allow for querying multiple workspaces in a single Grafana panel. 
 
-
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
 
-
 ## Data considerations
+
 Data stored in the Azure Monitor Workspace is handled in accordance with all standards described in the [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1). Several considerations exist specific to data stored in the Azure Monitor Workspace:
 - Data is physically stored in the same region that the Azure Monitor Workspace is provisioned in
 - Data is encrypted at rest using a Microsoft-managed key
 - Data is retained for 18 months
 - For details about the Azure Monitor managed service for Prometheus' support of PII/EUII data, please see details [here](./prometheus-metrics-overview.md)
+
+## Regional availability
+
+When you create a new Azure Monitor workspace, you provide a region which sets the location in which the data is stored. Currently Azure Monitor Workspace is available in the below regions.
+
+|Geo|Regions|
+|---|---|
+|Africa|South Africa North|
+|Asia Pacific|East Asia, Southeast Asia|
+|Australia|Australia Central, Australia East, Australia Southeast|
+|Brazil|Brazil South, Brazil Southeast|
+|Canada|Canada Central, Canada East|
+|Europe|North Europe, West Europe|
+|France|France Central, France South|
+|Germany|Germany West Central|
+|India|Central India, South India|
+|Israel|Israel Central|
+|Italy|Italy North|
+|Japan|Japan East, Japan West|
+|Korea|Korea Central, Korea South|
+|Norway|Norway East, Norway West|
+|Spain|Spain Central|
+|Sweden|Sweden South, Sweden Central|
+|Switzerland|Switzerland North, Switzerland West|
+|UAE|UAE North|
+|UK|UK South, UK West|
+|US|Central US, East US, East US 2, South Central US, West Central US, West US, West US 2, West US 3|
+|US Government|USGov Virginia, USGov Texas|
+
+
+If you have clusters in regions where Azure Monitor Workspace is not yet available, you can select another region in the same geography.
 
 ## Frequently asked questions
 

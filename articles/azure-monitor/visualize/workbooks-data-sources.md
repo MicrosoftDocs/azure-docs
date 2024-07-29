@@ -98,7 +98,13 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 
 Merging data from different sources can enhance the insights experience. An example is augmenting active alert information with related metric data. Merging data allows users to see not just the effect (an active alert) but also potential causes, for example, high CPU usage. The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
 
-With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.
+With workbooks, you can query different data sources. Workbooks also provide simple controls that you can use to merge or join data to provide rich insights. The *merge* control is the way to achieve it.  A single merge data source can do many merges in one step.  For example, a *single* merge data source can merge results from a step using Azure Resource Graph with Azure Metrics, and then merge that result with another step using the Azure Resource Manager data source in one query item.
+
+> [!NOTE]
+> Although hidden query and metrics steps run if they're referenced by a merge step, hidden query items that use the merge data source don't run while hidden.
+> A step that uses merge and attempts to reference a hidden step by using merge data source won't run until that hidden step becomes visible.
+> A single merge step can merge many data sources at once.  There's rarely a case where a merge data source will reference another merge data source.
+
 
 ### Combine alerting data with Log Analytics VM performance data
 

@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/03/2023
+ms.date: 05/21/2024
 ---
 # SMB FAQs for Azure NetApp Files
 

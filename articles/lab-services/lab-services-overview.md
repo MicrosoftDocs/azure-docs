@@ -12,6 +12,8 @@ ms.date: 03/12/2024
 
 # What is Azure Lab Services?
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Azure Lab Services enables you to create labs with infrastructure managed by Azure. The service handles all the infrastructure management, from spinning up virtual machines (VMs) to handling errors and scaling the infrastructure. For example, configure labs for specific class types, such as data science or general programming, and quickly assign lab users their dedicated lab virtual machine.
 
 To create, manage, and access labs in Azure Lab Services, use the dedicated Azure Lab Services website, or directly integrate labs in Microsoft Teams or the Canvas Learning Management System (LMS).

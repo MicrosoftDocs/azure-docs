@@ -3,7 +3,7 @@ title: Azure Datacenter DNS records used by Azure Automation | Microsoft Docs
 description: This article provides the DNS records required by Azure Automation features when restricting communication to a specific Azure region hosting that Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/29/2021
+ms.date: 06/28/2024
 ms.topic: conceptual
 ---
 
@@ -63,6 +63,7 @@ To support [Private Link](../../private-link/private-link-overview.md) in Azure 
 | China East 2 |`https://<accountId>.webhook.sha2.azure-automation.cn`<br>`https://<accountId>.agentsvc.sha2.azure-automation.cn`<br>`https://<accountId>.jrds.sha2.azure-automation.cn` |
 | China North |`https://<accountId>.webhook.bjb.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjb.azure-automation.cn`<br>`https://<accountId>.jrds.bjb.azure-automation.cn` |
 | China North 2 |`https://<accountId>.webhook.bjs2.azure-automation.cn`<br>`https://<accountId>.agentsvc.bjs2.azure-automation.cn`<br>`https://<accountId>.jrds.bjs2.azure-automation.cn` |
+| China North 3 | `https://<accountId>.webhook.cnn3.azure-automation.cn` </br> `https://<accountId>.agentsvc.cnn3.azure-automation.cn` </br> `https://<accountId>.jrds.cnn3.azure-automation.cn` |  
 | West Europe |`https://<accountId>.webhook.we.azure-automation.net`<br>`https://<accountId>.agentsvc.we.azure-automation.net`<br>`https://<accountId>.jrds.we.azure-automation.net` |
 | North Europe |`https://<accountId>.webhook.ne.azure-automation.net`<br>`https://<accountId>.agentsvc.ne.azure-automation.net`<br>`https://<accountId>.jrds.ne.azure-automation.net` |
 | France Central |`https://<accountId>.webhook.fc.azure-automation.net`<br>`https://<accountId>.agentsvc.fc.azure-automation.net`<br>`https://<accountId>.jrds.fc.azure-automation.net` |

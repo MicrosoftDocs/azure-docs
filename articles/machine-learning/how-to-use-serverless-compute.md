@@ -9,9 +9,9 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.topic: how-to
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 10/23/2023
 ---
 

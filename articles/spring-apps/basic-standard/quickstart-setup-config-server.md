@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 7/19/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, fasttrack-edit, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---

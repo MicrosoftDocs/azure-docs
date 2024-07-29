@@ -52,6 +52,8 @@ A. Your existing Azure Database for MariaDB workloads will continue to function 
 
 A. Unfortunately, we don't plan to support Azure Database for MariaDB beyond the sunset date of September 19, 2025. Hence, we advise that you start planning your migration as soon as possible.
 
+On 19 September 2025, workloads that run Azure Database for MariaDB will be deleted, and associated application data will be lost. For more information, see [Azure Database for MariaDB will be retired on 19 September 2025 – Migrate to Azure Database for MySQL Flexible Server](https://azure.microsoft.com/updates/azure-database-for-mariadb-will-be-retired-on-19-september-2025-migrate-to-azure-database-for-mysql-flexible-server/)
+
 **Q. How do I manage my reserved instances for MariaDB?**
 
 A. Since MariaDB service is on the deprecation path you will not be able to purchase new MariaDB reserved instances. For any existing reserved instances, you will continue to use the benefits of your reserved instances until the September, 19 2025 when MariaDB service will no longer be available. [You can exchange your existing MariaDB reservations to MySQL reservations](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).

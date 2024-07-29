@@ -5,10 +5,10 @@ description: Learn the available options for building a data ingestion pipeline 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: iefedore
-author: eedorenko
+ms.author: larryfr
+author: Blackmist
 manager: davete
-ms.reviewer: larryfr
+ms.reviewer: iefedore
 ms.date: 08/17/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1

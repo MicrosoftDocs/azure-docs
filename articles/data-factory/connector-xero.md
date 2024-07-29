@@ -16,6 +16,9 @@ ms.author: jianleishen
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Xero. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> The Xero connector requires OAuth authentication and is not intended for server-to-server use.
+
 ## Supported capabilities
 
 This Xero connector is supported for the following capabilities:

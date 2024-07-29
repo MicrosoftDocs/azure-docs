@@ -222,6 +222,6 @@ In this article, you learned how to enable trusted launch. Learn more about [tru
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool#az-aks-nodepool-add
 [az-aks-nodepool-update]: /cli/azure/aks/nodepool#az-aks-nodepool-update
 [azure-generation-two-virtual-machines]: ../virtual-machines/generation-2.md
-[verify-secure-boot-failures]: ../virtual-machines/trusted-launch-faq.md#verifying-secure-boot-failures
+[verify-secure-boot-failures]: ../virtual-machines/trusted-launch-faq.md#verify-secure-boot-failures
 [tusted-launch-ephemeral-os-sizes]: ../virtual-machines/ephemeral-os-disks.md#trusted-launch-for-ephemeral-os-disks
 [skip-gpu-driver-install]: gpu-cluster.md#skip-gpu-driver-installation-preview

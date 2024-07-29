@@ -3,7 +3,7 @@ title: Azure IoT Central solution architecture
 description: This article introduces key IoT Central architectural concepts such as device management, security, integration, and extensibility.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 06/13/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -100,6 +100,46 @@ You might need to [transform or do computations](howto-transform-data.md) on you
 
 Build integrations that let other applications and services manage your application. For example, programmatically [manage the devices](howto-control-devices-with-rest-api.md) in your application or synchronize [user information](howto-manage-users-roles-with-rest-api.md) with an external system.
 
-## Next steps
+## Scalability
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](overview-iot-central-developer.md) in Azure IoT Central.
+IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS). Many of these underlying services are multi-tenanted. However, to ensure the full isolation of customer data, IoT Central uses single-tenant IoT hubs.
+
+IoT Central automatically scales its IoT hubs based on the load profiles in your application. IoT Central can scale up individual IoT hubs and scale out the number of IoT hubs in an application. IoT Central also automatically scales other underlying services.
+
+### Data export
+
+IoT Central applications often use other, user configured services. For example, you can configure your IoT Central application to continuously export data to services such as Azure Event Hubs and Azure Blob Storage.
+
+If a configured data export can't write to its destination, IoT Central tries to retransmit the data for up to 15 minutes, after which IoT Central marks the destination as failed. Failed destinations are periodically checked to verify if they're writable.
+
+You can force IoT Central to restart the failed exports by disabling and re-enabling the data export.
+
+Review the high availability and scalability best practices for the data export destination service you're using:
+
+- Azure Blob Storage: [Azure Storage redundancy](../../storage/common/storage-redundancy.md) and [Performance and scalability checklist for Blob storage](../../storage/blobs/storage-performance-checklist.md)
+- Azure Event Hubs: [Availability and consistency in Event Hubs](../../event-hubs/event-hubs-availability-and-consistency.md) and [Scaling with Event Hubs](../../event-hubs/event-hubs-scalability.md)
+- Azure Service Bus: [Best practices for insulating applications against Service Bus outages and disasters](../../service-bus-messaging/service-bus-outages-disasters.md) and [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)
+
+## High availability and disaster recovery
+
+HADR capabilities depend on when you created your IoT Central application:
+
+### Applications created before April 2021
+
+Some applications created before April 2021 use a single IoT hub. For these applications, IoT Central doesn't provide HADR capabilities. If the IoT hub becomes unavailable, the application becomes unavailable.
+
+Use the `az iot central device manual-failover` command to check if your application still uses a single IoT hub. This command returns an error if the application has a single IoT hub.
+
+### Applications created after April 2021 and before April 2023
+
+For highly available device connectivity, an IoT Central application always has at least two IoT hubs. The number of hubs can grow or shrink as IoT Central scales the application in response to changes in the load profile.
+
+IoT Central also uses [availability zones](../../availability-zones/az-overview.md#availability-zones) to make various services it uses highly available.
+
+An incident that requires disaster recovery could range from a subset of services becoming unavailable to a whole region becoming unavailable. IoT Central follows different recovery processes depending on the nature and scale of the incident. For example, if an entire Azure region becomes unavailable in the wake of a catastrophic failure, disaster recovery procedures failover applications to another region in the same geography.
+
+### Applications created after April 2023
+
+IoT Central applications created after April 2023 initially have a single IoT hub. If the IoT hub becomes unavailable, the application becomes unavailable. However, IoT Central automatically scales the application and adds a new IoT hub for each 10,000 connected devices. If you require multiple IoT hubs for applications with fewer than 10,000 devices, submit a request to [IoT Central customer support](../../iot/iot-support-help.md?toc=%2Fazure%2Fiot-central%2Ftoc.json&bc=%2Fazure%2Fiot-central%2Fbreadcrumb%2Ftoc.json).
+
+Use the `az iot central device manual-failover` command to check if your application currently uses a single IoT hub. This command returns an error if the application currently has a single IoT hub.

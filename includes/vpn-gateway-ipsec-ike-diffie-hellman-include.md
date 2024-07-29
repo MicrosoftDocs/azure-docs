@@ -6,7 +6,7 @@ ms.service: vpn-gateway
 ms.topic: include
 ---
 
-| **Diffie-Hellman Group**  | **DHGroup**              | **PFSGroup** | **Key length** |
+| Diffie-Hellman group | DHGroup | PFSGroup | Key length |
 | --- | --- | --- | --- |
 | 1                         | DHGroup1                 | PFS1         | 768-bit MODP   |
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |

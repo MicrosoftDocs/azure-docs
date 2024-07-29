@@ -2,13 +2,13 @@
 title: How to evaluate Azure Arc-enabled servers with an Azure virtual machine
 description: Learn how to evaluate Azure Arc-enabled servers using an Azure virtual machine.
 ms.date: 10/01/2021
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Evaluate Azure Arc-enabled servers on an Azure virtual machine
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Arc-enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you wouldn't connect an Azure virtual machine to Azure Arc because all the same capabilities are natively available for these VMs. Azure VMs already have a representation in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc-enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported.
 

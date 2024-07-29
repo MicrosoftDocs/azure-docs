@@ -3,7 +3,7 @@ title: Monitor applications running on Azure Functions with Application Insights
 description: Azure Monitor integrates with your Azure Functions application, allowing performance monitoring and quickly identifying problems.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
-ms.date: 07/10/2023
+ms.date: 08/24/2024
 ms.reviewer: abinetabate
 ---
 
@@ -15,7 +15,7 @@ Application Insights collects log, performance, and error data and automatically
 
 The required Application Insights instrumentation is built into Azure Functions. All you need is a valid connection string to connect your function app to an Application Insights resource. The connection string should be added to your application settings when your function app resource is created in Azure. If your function app doesn't already have a connection string, you can set it manually. For more information, see [Monitor executions in Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd) and [Connection strings](sdk-connection-string.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 For a list of supported autoinstrumentation scenarios, see [Supported environments, languages, and resource providers](codeless-overview.md#supported-environments-languages-and-resource-providers).
 
@@ -36,6 +36,14 @@ On the function app **Overview** pane, go to **Application Insights**. Under **C
 
 > [!div class="mx-imgBorder"]
 :::image type="content" source="./media//functions/collection-level.jpg" lightbox="./media//functions/collection-level.jpg" alt-text="Screenshot that shows the how to enable the AppInsights Java Agent.":::
+
+### Configuration
+
+To configure this feature for an Azure Function App not on a consumption plan, add environment variables in App settings. To review available configurations, see [Configuration options: Azure Monitor Application Insights for Java](../app/java-standalone-config.md). 
+
+For Azure Functions on a consumption plan, the available configuration options are limited to WEBSITE_SITE_NAME, APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL, and APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL in order to take advantage of the consumption plan warmup pool. For more configurations on a consumption plan Function, deploy your own agent and see [Distributed Tracing for Java Functions](https://github.com/Azure/azure-functions-java-worker/wiki/Distributed-Tracing-for-Java-Azure-Functions#customize-distribute-agent).
+
+Deploying your own agent results in a longer cold start implication for consumption plan Functions.
 
 ### Troubleshooting
 
@@ -146,7 +154,7 @@ To view more data from your Node Azure Functions applications than is [collected
 
 ## Distributed tracing for Python function apps
 
-To collect telemetry from services such as Requests, urllib3, httpx, PsycoPG2, and more, use the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python). Tracked incoming requests coming into your Python application hosted in Azure Functions will not be automatically correlated with telemetry being tracked within it. You can manually achieve trace correlation by extract the TraceContext directly as shown below:
+To collect telemetry from services such as Requests, urllib3, `httpx`, PsycoPG2, and more, use the [Azure Monitor OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python). Tracked incoming requests coming into your Python application hosted in Azure Functions aren't automatically correlated with telemetry being tracked within it. You can manually achieve trace correlation by extracting the TraceContext directly as follows:
 
 <!-- TODO: Remove after Azure Functions implements this automatically -->
 

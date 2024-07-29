@@ -6,23 +6,19 @@ ms.topic: quickstart
 ms.custom: ignite-2023
 ---
 
-# Quickstart: Connect your Azure DevOps Environment to Microsoft Defender for Cloud
+# Connect Azure DevOps environments to Defender for Cloud
 
-This quickstart shows you how to connect your Azure DevOps organizations on the **Environment settings** page in Microsoft Defender for Cloud. This page provides a simple onboarding experience to autodiscover your Azure DevOps repositories.
+This page provides a simple onboarding experience to connect Azure DevOps environments to Microsoft Defender for Cloud, and automatically discover Azure DevOps repositories.
 
-By connecting your Azure DevOps organizations to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your Azure DevOps resources. These features include:
-
-- **Foundational Cloud Security Posture Management (CSPM) features**: You can assess your Azure DevOps security posture through Azure DevOps-specific security recommendations. You can also learn about all the [recommendations for DevOps](recommendations-reference.md) resources.
-
-- **Defender CSPM features**: Defender CSPM customers receive code to cloud contextualized attack paths, risk assessments, and insights to identify the most critical weaknesses that attackers can use to breach their environment. Connecting your Azure DevOps repositories allows you to contextualize DevOps security findings with your cloud workloads and identify the origin and developer for timely remediation. For more information, learn how to [identify and analyze risks across your environment](concept-attack-path.md).
-
-API calls that Defender for Cloud performs count against the [Azure DevOps global consumption limit](/azure/devops/integrate/concepts/rate-limits). For more information, see the [common questions about DevOps security in Defender for Cloud](faq-defender-for-devops.yml).
+By connecting your Azure DevOps environments to Defender for Cloud, you extend the security capabilities of Defender for Cloud to your Azure DevOps resources and improve security posture. [Learn more](defender-for-devops-introduction.md).
 
 ## Prerequisites
 
 To complete this quickstart, you need:
 
 - An Azure account with Defender for Cloud onboarded. If you don't already have an Azure account, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Note that API calls that Defender for Cloud performs count against the [Azure DevOps global consumption limit](/azure/devops/integrate/concepts/rate-limits). 
+- Review [common questions about DevOps security in Defender for Cloud](faq-defender-for-devops.yml).
 
 ## Availability
 

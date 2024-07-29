@@ -4,7 +4,7 @@ description: Tutorial on how to train a machine learning model without code in A
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 03/06/2024
 author: midesa
 ms.author: midesa

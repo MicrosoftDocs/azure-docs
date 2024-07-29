@@ -147,7 +147,7 @@ When `imageAction` is set to a value other than "none", the new *normalized_imag
 
 This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing context for working with skill inputs, outputs, and patterns, as they relate to image processing.
 
-1. [Create or update a skillset](/rest/api/searchservice/create-skillset) to add skills.
+1. [Create or update a skillset](/rest/api/searchservice/skillsets/create) to add skills.
 
 1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the [skill reference](cognitive-search-predefined-skills.md) documentation. Insert them into the skills array of your skillset definition.
 

@@ -6,7 +6,7 @@ ms.author: halkazwini
 ms.service: network-watcher
 ms.topic: how-to
 ms.date: 06/13/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to manage Network Watcher instance in Azure regions based on my team's needs to Network Watcher capabilities in those regions.
 ---

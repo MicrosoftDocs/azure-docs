@@ -18,7 +18,7 @@ In this quickstart, you use the Azure CLI to deploy an isolated Docker container
 
 ![View an app deployed to Azure Container Instances in browser][aci-app-browser]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

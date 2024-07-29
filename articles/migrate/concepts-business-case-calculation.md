@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: ronai
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 05/22/2024
-ms.custom: engagement-fy24
+ms.date: 07/03/2024
+ms.custom: engagement-fy25
 ---
 
 # Business case (preview) overview
@@ -234,4 +234,5 @@ You can override the above values in the assumptions section of the Business cas
 
 
 ## Next steps
-- [Learn more](./migrate-services-overview.md) about Azure Migrate.
+- [Review](best-practices-assessment.md) the best practices for creating assessments.
+- Learn more on how to [build](how-to-build-a-business-case.md) and [view](how-to-view-a-business-case.md) a business case.

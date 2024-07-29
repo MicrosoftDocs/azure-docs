@@ -3,7 +3,7 @@ title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/03/2024
+ms.date: 07/11/2024
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -61,7 +61,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -118,7 +118,7 @@ param storageAccountConfig storageAccountConfigType = {
   sku: 'Standard_LRS'
 }
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountConfig.name
   location: location
   sku: {
@@ -189,7 +189,7 @@ var uniqueStorageName = '${storagePrefix}${uniqueString(resourceGroup().id)}'
 Apply this variable wherever you need the complex expression.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
 ```
 
@@ -202,7 +202,7 @@ Use the `resource` keyword to define a resource to deploy. Your resource declara
 The resource declaration includes the resource type and API version. Within the body of the resource declaration, include properties that are specific to the resource type.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -221,11 +221,47 @@ Some resources have a parent/child relationship. You can define a child resource
 
 The following example shows how to define a child resource within a parent resource. It contains a storage account with a child resource (file service) that is defined within the storage account. The file service also has a child resource (share) that is defined within it.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+
+  resource service 'fileServices' = {
+    name: 'default'
+
+    resource share 'shares' = {
+      name: 'exampleshare'
+    }
+  }
+}
+```
 
 The next example shows how to define a child resource outside of the parent resource. You use the parent property to identify a parent/child relationship. The same three resources are defined.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+  name: 'default'
+  parent: storage
+}
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+  name: 'exampleshare'
+  parent: service
+}
+```
 
 For more information, see [Set name and type for child resources in Bicep](child-resource-name-type.md).
 
@@ -255,7 +291,7 @@ By default, resources are deployed in parallel. When you add the `batchSize(int)
 
 ```bicep
 @batchSize(3)
-resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' = [for storageName in storageAccounts: {
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2023-04-01' = [for storageName in storageAccounts: {
   ...
 }]
 ```
@@ -305,7 +341,7 @@ You can add a resource or module to your Bicep file that is conditionally deploy
 ```bicep
 param deployZone bool
 
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZone) {
   name: 'myZone'
   location: 'global'
 }
@@ -320,7 +356,7 @@ Spaces and tabs are ignored when authoring Bicep files.
 Bicep is newline sensitive. For example:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
   ...
 }
 ```
@@ -328,7 +364,7 @@ resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting =
 Can't be written as:
 
 ```bicep
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' =
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' =
     if (newOrExisting == 'new') {
       ...
     }
@@ -344,8 +380,8 @@ The following example shows a single-line comment.
 
 ```bicep
 // This is your primary NIC.
-resource nic1 'Microsoft.Network/networkInterfaces@2020-06-01' = {
-   ...
+resource nic1 'Microsoft.Network/networkInterfaces@2023-11-01' = {
+  ...
 }
 ```
 

@@ -1,9 +1,9 @@
 ---
 title: "Azure Synapse Analytics security white paper: Authentication"
 description: Implement authentication mechanisms with Azure Synapse Analytics.
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022

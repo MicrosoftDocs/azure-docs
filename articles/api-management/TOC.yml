@@ -397,6 +397,8 @@
       href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
+    - name: Customize developer portal on WordPress
+      href: developer-portal-wordpress-plugin.md
   - name: Self-host the developer portal
     items:
     - name: Create self-hosted portal
