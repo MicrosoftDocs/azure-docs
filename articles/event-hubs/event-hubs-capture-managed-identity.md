@@ -7,6 +7,7 @@ ms.date: 03/20/2024
 
 
 # Authenticate modes for capturing events to destinations in Azure Event Hubs
+
 Azure Event Hubs allows you to select different authentication modes when capturing events to a destination such as [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) or [Azure Data Lake Storage Gen 1 or Gen 2](https://azure.microsoft.com/services/data-lake-store/) account of your choice. The authentication mode determines how the capture agent running in Event Hubs authenticate with the capture destination. 
 
 ## Use managed identity
@@ -17,7 +18,7 @@ Azure Event Hubs allows you to select different authentication modes when captur
 
 You can use system-assigned or user-assigned managed identities with Event Hubs Capture destinations.
 
-## Use a system-assigned managed identity to capture events
+### Use a system-assigned managed identity to capture events
 System-assigned Managed Identity is automatically created and associated with an Azure resource, which is an Event Hubs namespace in this case. 
 
 To use system assigned identity, the capture destination must have the required role assignment enabled for the corresponding system assigned identity. 
@@ -25,10 +26,10 @@ Then you can select `System Assigned` managed identity option when enabling the 
 
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-captute-system-assigned.png" alt-text="Image showing capturing of Event Hubs data into Azure Storage or Azure Data Lake Storage using System Assigned managed identity.":::
 
- Then capture agent would use the identity of the namespace for authentication and authorization with the capture destination. 
+Then capture agent would use the identity of the namespace for authentication and authorization with the capture destination. 
 
-### Azure Resource Manager template
-Here's an example Azure Resource Manager template to configure capturing of data using a system-assigned managed identity. 
+#### Azure Resource Manager template
+Here's an example Azure Resource Manager (ARM) template to configure capturing of data using a system-assigned managed identity. 
 
 ```json
 {
@@ -290,7 +291,7 @@ Here's an example Azure Resource Manager template to configure capturing of data
 }
 ```
 
-## Use a user-assigned managed identity to capture events
+### Use a user-assigned managed identity to capture events
 You can create a user-assigned managed identity and use it for authenticate and authorize with the capture destination of Event hubs. Once the managed identity is created, you can assign it to the Event Hubs namespace and make sure that the capture destination has the required role assignment enabled for the corresponding user assigned identity. 
 
 Then you can select `User Assigned` managed identity option when enabling the capture feature in an event hub and assign the required user assigned identity when enabling the capture feature. 
@@ -300,7 +301,7 @@ Then you can select `User Assigned` managed identity option when enabling the ca
  Then capture agent would use the configured user assigned identity for authentication and authorization with the capture destination. 
 
 
-### Capturing events to a capture destination in a different subscription 
+#### Capturing events to a capture destination in a different subscription 
 The Event Hubs Capture feature also support capturing data to a capture destination in a different subscription with the use of managed identity. 
 
 > [!IMPORTANT]
