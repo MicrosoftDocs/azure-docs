@@ -34,7 +34,7 @@ To improve relevance:
 
 ## Choose an API or tool
 
-+ [**2023-11-01**](/rest/api/searchservice/documents/search-post) stable version
++ [**2024-07-01**](/rest/api/searchservice/documents/search-post) stable version
 + [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), adds integrated vectorization to the vector side of a hybrid query
 + [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), adds narrow data types and scalar quantization to the vector side of a hybrid query
 + [**2024-05-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds `maxTextRecallSize` and `countAndFacetMode` specifially for hybrid search
@@ -82,7 +82,7 @@ Results are returned in plain text, including vectors in fields marked as `retri
 The following example shows a hybrid query configuration.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -135,7 +135,7 @@ api-key: {{admin-api-key}}
 This example adds a filter, which is applied to the `filterable` nonvector fields of the search index.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -173,7 +173,7 @@ api-key: {{admin-api-key}}
 Assuming that you [enabled semantic ranking](semantic-how-to-enable-disable.md) and your index definition includes a [semantic configuration](semantic-how-to-query-request.md), you can formulate a query that includes vector search and keyword search, with semantic ranking over the merged result set. Optionally, you can add captions and answers. 
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -214,7 +214,7 @@ api-key: {{admin-api-key}}
 Here's the last query in the collection. It's the same semantic hybrid query as the previous example, but with a filter.
 
 ```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-11-01
+POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {

@@ -98,7 +98,7 @@ The following example in this section uses the [hotels-sample-index](search-get-
 1. Paste the following request into a web client as a template. Replace the service name and index name with valid values.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2023-11-01      
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2024-07-01      
     {
         "queryType": "semantic",
         "search": "newer hotel near the water with a great restaurant",

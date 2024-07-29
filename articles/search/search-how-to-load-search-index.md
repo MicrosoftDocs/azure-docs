@@ -58,7 +58,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 1. Formulate a POST call specifying the index name, the "docs/index" endpoint, and a request body that includes the `@search.action` parameter.
 
     ```http
-    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/index?api-version=2024-07-01
     Content-Type: application/json   
     api-key: [admin key] 
     {
@@ -96,7 +96,7 @@ In the Azure portal, use the [import wizards](search-import-data-portal.md) to c
 1. [Look up the documents](/rest/api/searchservice/documents/get) you just added as a validation step:
 
     ```http
-    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2023-11-01
+    GET https://[service name].search.windows.net/indexes/hotel-sample-index/docs/1111?api-version=2024-07-01
     ```
 
 When the document key or ID is new, **null** becomes the value for any field that is unspecified in the document. For actions on an existing document, updated values replace the previous values. Any fields that weren't specified in a "merge" or "mergeUpload" are left intact in the search index.
