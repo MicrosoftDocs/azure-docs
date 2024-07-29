@@ -46,7 +46,7 @@ Contact the solution provider for more information or where information is unava
 
 ## Codeless connector platform connectors
 
-The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're are available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connectors within Microsoft Sentinel.
+The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connectors within Microsoft Sentinel.
 
 |Codeless connector name  |Azure Marketplace solution  |
 |---------|---------|
