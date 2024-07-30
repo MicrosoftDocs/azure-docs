@@ -111,7 +111,7 @@ The following code adds the entities to the LUIS app. Copy or [download](https:/
 
 
 ## Add utterances
-Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) API, which allows you to add up to 100 utterances at a time.  Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_upload.js`.
+Once the entities and intents have been defined in the LUIS app, you can add the utterances. The following code uses the [Utterances_AddBatch](/rest/api/luis/examples/batch) API, which allows you to add up to 100 utterances at a time.  Copy or [download](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js) it, and save it into `_upload.js`.
 
    [!code-javascript[Node.js code for adding utterances](~/samples-luis/examples/build-app-programmatically-csv/_upload.js)]
 
@@ -194,7 +194,7 @@ Once the script completes, you can sign in to [LUIS](luis-reference-regions.md) 
 ## Additional resources
 
 This sample application uses the following LUIS APIs:
-- [create app](/rest/api/cognitiveservices-luis/authoring/apps/add?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
-- [add intents](/rest/api/cognitiveservices-luis/authoring/features/add-intent-feature?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
-- [add entities](/rest/api/cognitiveservices-luis/authoring/features/add-entity-feature?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
-- [add utterances](/rest/api/cognitiveservices-luis/authoring/examples/add?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true)
+- [create app](/rest/api/luis/apps/add)
+- [add intents](/rest/api/luis/features/add-intent-feature)
+- [add entities](/rest/api/luis/features/add-entity-feature)
+- [add utterances](/rest/api/luis/examples/add)

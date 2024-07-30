@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 07/19/2024
+ms.date: 07/29/2024
 ms.author: juergent
 ---
 
@@ -55,11 +55,13 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
-- July 19, 2024: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a statement around clusters spanning Virtual networks(VNets)/subnets 
+- July 29, 2024: Changes in [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](./high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-netapp-files.md), [Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md), [Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) with the instructions of managing SAP ASCS and ERS instances SAP startup framework when configured with systemd.
+- July 24, 2024: Release of SBD STONITH support using iSCSI target server or Azure shared disk in [Configuring Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md).
+- July 19, 2024: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to add a statement around clusters spanning Virtual networks(VNets)/subnets.
 - July 18, 2024: Add note about metadata heavy workload to Azure Premium Files in [Azure Storage types for SAP workload](./planning-guide-storage.md)
 - June 26, 2024: Adapt [Azure Storage types for SAP workload](./planning-guide-storage.md) to latest features, like snapshot capabilities for Premium SSD v2 and Ultra disk. Adapt ANF to support of mix of NFS and block storage between /hana/data and /hana/log
 - June 26, 2024: Fix wrong memory stated for some VMs in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md) and [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md)
-- June 19, 2024: Update the SAP high availability guides to lift the restriction of using floating IP on the NIC secondary IP address in load-balancing scenarios   
+- June 19, 2024: Update the SAP high availability guides to lift the restriction of using floating IP on the NIC secondary IP address in load-balancing scenarios.
 - May 21, 2024: Update timeouts and added start delay for pacemaker scheduled events in [Set up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) and [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](./high-availability-guide-suse-pacemaker.md).
 - April 1, 2024: Reference the considerations section for sizing HANA shared file system in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md), [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [Azure Files NFS for SAP](planning-guide-storage-azure-files.md)
 - March 18, 2024: Added considerations for sizing the HANA shared file system in [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)

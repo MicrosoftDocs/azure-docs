@@ -34,7 +34,7 @@ You can create a new alert rule using the [Azure CLI](/cli/azure/get-started-wit
     > [!NOTE]
     > When you create a metric alert on a single resource, the syntax uses the `TargetResourceId`. When you create a metric alert on multiple resources, the syntax contains the `TargetResourceScope`, `TargetResourceType`, and `TargetResourceRegion`.
 - To create a log search alert rule using PowerShell, use the [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) cmdlet.
-- To create an activity log alert rule using PowerShell, use the [Set-AzActivityLogAlert](/powershell/module/az.monitor/set-azactivitylogalert) cmdlet.
+- To create an activity log alert rule using PowerShell, use the [New-AzActivityLogAlert](/powershell/module/az.monitor/new-azactivitylogalert) cmdlet.
 
 ## Create a new alert rule using an ARM template
 

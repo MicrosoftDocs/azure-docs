@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
-ms.date: 08/17/2023
+ms.date: 07/22/2024
 adobe-target: true
 ms.custom: mode-other
 #Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
@@ -43,7 +43,7 @@ The workspace is the top-level resource for your machine learning activities, pr
 
 If you  already have a workspace, skip this section and continue to [Create a compute instance](#create-a-compute-instance).
 
-If you don't yet have a workspace, create one now: 
+If you don't yet have a workspace, create one now:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com)
 1. Select **Create workspace**
@@ -72,16 +72,15 @@ If you don't yet have a workspace, create one now:
 
 You'll use the *compute instance* to run Jupyter notebooks and Python scripts in the rest of the tutorials. If you don't yet have a compute instance, create one now:
 
-1. On the left navigation, select **Notebooks**.
-1. Select **Create compute** in the middle of the page. 
+1. Select your workspace.
+1. On the top right, select **New**.
+1. Select **Compute instance** in the list.
 
-    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the middle of the screen.":::
+    :::image type="content" source="media/quickstart-create-resources/create-compute.png" alt-text="Screenshot shows create compute in the New list.":::
 
-    > [!TIP]
-    > You'll only see this option if you don't yet have a compute instance in your workspace.
-
-1. Supply a name. Keep all the defaults on the first page.
+1. Supply a name.
 1. Keep the default values for the rest of the page.
+1. Select **Review + Create**.
 1. Select **Create**.
 
 ## Quick tour of the studio

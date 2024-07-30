@@ -17,13 +17,11 @@ Microsoft's proprietary discovery technology recursively searches for infrastruc
 Defender EASM includes the discovery of the following kinds of assets:
 
 - Domains
-- Hosts
-- Pages
 - IP Blocks
-- IP Addresses
-- Autonomous System Numbers (ASNs)
-- SSL Certificates
-- WHOIS Contacts
+- Hosts
+- Email Contacts
+- ASNs
+- WHOIS Organizations
 
 These asset types comprise your attack surface inventory in Defender EASM. This solution discovers externally facing assets that are exposed to the open internet outside of traditional firewall protection; they need to be monitored and maintained to minimize risk and improve an organization’s security posture. Microsoft Defender External Attack Surface Management (Defender EASM) actively discovers and monitors these assets, then surfacing key insights that help customers efficiently address any vulnerabilities to their organization.
 

@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment v2 to App Service
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 7/11/2024
+ms.date: 7/25/2024
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3 using the side-by-side migration feature
@@ -81,6 +81,9 @@ The side-by-side migration feature doesn't support the following scenarios. See 
   - If you have an App Service Environment v1, you can migrate using the [in-place migration feature](migrate.md) or one of the [manual migration options](migration-alternatives.md).
 - ELB App Service Environment v2 with IP SSL addresses
 - [Zone pinned](zone-redundancy.md) App Service Environment v2
+- App Service Environment with a name that doesn't meet the character limits. The entire name, including the domain suffix, must be 64 characters or fewer. For example: *my-ase-name.appserviceenvironment.net* for ILB and *my-ase-name.p.azurewebsites.net* for ELB must be 64 characters or fewer. If you don't meet the character limit, you must migrate manually. The character limits specifically for the App Service Environment name are as follows:
+    - ILB App Service Environment name character limit: 36 characters
+    - ELB App Service Environment name character limit: 42 characters
  
 The App Service platform reviews your App Service Environment to confirm side-by-side migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the side-by-side migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
 
@@ -216,7 +219,7 @@ Once you're ready to redirect traffic, you can complete the final step of the mi
 >
 
 > [!NOTE]
-> You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+> It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
 >
 
 If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
@@ -447,11 +450,15 @@ For ELB App Service Environments, get the public inbound IP address by running t
 az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.externalInboundIpAddresses
 ```
 
+> [!IMPORTANT]
+> If your migration includes a custom domain suffix, the default host name behavior for App Service Environment v3 is different than for App Service Environment v2. For App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. Review all your dependent resources, such as App Gateway, that use the host names of your apps to ensure they're updated to account for this behavior. For more information on App Service Environment feature differences between the different versions, see [App Service Environment version comparison](version-comparison.md). 
+> 
+
 ### 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
 This step is your opportunity to test and validate your new App Service Environment v3.
 
-Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment. You have 14 days to complete this step. If you don't complete this step in 14 days, your migration is automatically reverted back to an App Service Environment v2. If you need more than 14 days to complete this step, contact support.
+Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
 
 If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to discuss your options. Don't run the DNS change command since that command completes the migration.
 
