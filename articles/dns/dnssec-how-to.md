@@ -1,15 +1,15 @@
 ---
-title: How to DNSSEC-sign your Azure public DNS zone
+title: How to sign your Azure pubic DNS zone with DNSSEC
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
 services: dns
 author: greg-lindsay
 ms.service: dns
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 07/30/2024
 ms.author: greglin
 ---
 
-# How to DNSSEC-sign your Azure public DNS zone
+# How to sign your Azure pubic DNS zone with DNSSEC
 
 Introduction to the article.
 
