@@ -155,7 +155,7 @@ For more information, *see* [**Use native documents for language processing**](.
 # [Conversation summarization](#tab/conversation-summarization)
 
 * Conversation summarization takes structured text for analysis. For more information, see [data and service limits](../concepts/data-limits.md).
-* Conversation summarization accepts text in English. For more information, see [language support](language-support.md?tabs=conversation-summarization).
+* Conversation summarization works with various spoken languages. For more information, see [language support](language-support.md?tabs=conversation-summarization).
 
 # [Document summarization](#tab/document-summarization)
 

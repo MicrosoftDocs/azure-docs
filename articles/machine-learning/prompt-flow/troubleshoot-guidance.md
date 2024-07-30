@@ -9,9 +9,9 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-author: ChenJieting
-ms.author: chenjieting
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenjieting
 ms.date: 09/05/2023
 ---
 
@@ -270,6 +270,10 @@ If you encounter an error like "Access denied to list workspace secret", check w
 ## Authentication and identity related issues
 
 ### How do I use credential-less datastore in prompt flow?
+
+To use credential-less storage in Azure AI studio. You need basically do following things:
+- Change the data store auth type to None.
+- Grant project MSI and user blob/file data contributor permission on storage.
 
 #### Change auth type of datastore to None
 

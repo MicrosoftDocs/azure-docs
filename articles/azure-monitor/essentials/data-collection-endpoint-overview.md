@@ -21,8 +21,13 @@ Endpoints cannot be added to an existing DCR, but you can keep using any existin
 
 The following scenarios can currently use DCR endpoints.  A DCE required if private link is used.
 
-- [Logs ingestion API](../logs/logs-ingestion-api-overview.md).
+- [Logs ingestion API](../logs/logs-ingestion-api-overview.md)
 
+The following data types still require creating a DCE:
+
+- [AMA Based Custom Logs](../agents/data-collection-text-log.md)
+- [Windows IIS Logs](../agents/data-collection-iis.md)
+- [Prometheus Metrics](../containers/container-insights-prometheus-logs.md)
 
 ## Components of a DCE
 
@@ -135,5 +140,5 @@ The sample data collection endpoint (DCE) below is for virtual machines with Azu
 
 
 ## Next steps
-- [Associate endpoints to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+
 - [Add an endpoint to an Azure Monitor Private Link Scope resource](../logs/private-link-configure.md#connect-azure-monitor-resources)

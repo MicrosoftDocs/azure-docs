@@ -90,7 +90,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Leave the _App artifact location_ box empty.
+1. Leave the _Output location_ box empty.
 
 Select **Review + create**.
 
@@ -288,7 +288,7 @@ Next.js uses environment variables at build time and at request time, to support
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           app_location: "/" 
           api_location: ""

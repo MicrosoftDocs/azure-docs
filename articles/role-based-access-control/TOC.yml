@@ -99,6 +99,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: role-assignments-template.md
+  - name: Activate roles
+    items:
+    - name: Activate eligible roles
+      href: role-assignments-eligible-activate.md
   - name: Delegate
     items:
     - name: Subscription administrator with conditions

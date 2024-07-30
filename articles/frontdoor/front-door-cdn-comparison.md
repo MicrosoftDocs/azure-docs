@@ -62,7 +62,6 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Geo-filtering | &check; | &check; | &check; | &check; | &check; | &check; |
 | Token authentication |  |  |  |  |  | &check; |
 | DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
-| DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
 | Domain Fronting Block | &check; | &check; | &check; | &check; | &check; | &check; |
 | **Analytics and reporting** | | | | | | |
 | Monitoring Metrics | &check; (more metrics than Classic) | &check; (more metrics than Classic) | &check; | &check; | &check; | &check; |

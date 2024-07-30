@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Manage labs in a lab account
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how a lab account owner or administrator can view all the labs in a lab account, and delete a lab in the lab account.

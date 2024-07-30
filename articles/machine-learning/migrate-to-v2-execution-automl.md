@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: shouryah
-ms.author: rasavage
+author: sdgilley
+ms.author: sgilley
 ms.date: 09/16/2022
-ms.reviewer: sgilley
+ms.reviewer: rasavage
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

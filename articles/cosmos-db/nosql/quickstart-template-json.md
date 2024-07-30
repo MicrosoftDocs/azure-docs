@@ -46,6 +46,9 @@ Three Azure resources are defined in the template:
 
 * [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos DB container.
 
+> [!IMPORTANT]
+> The Azure Resource Manager provider, `Microsoft.DocumentDB/databaseAccounts`, has maintained the same name for many years. This ensures that templates written years ago are still compatible with the same provider even as the name of the service and sub-services have evolved.
+
 More Azure Cosmos DB template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
 ## Deploy the template

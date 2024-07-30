@@ -213,7 +213,7 @@
           href: authentication-github.md
         - name: Google
           href: authentication-google.yml
-        - name: Twitter
+        - name: X
           href: authentication-twitter.md
         - name: Custom OpenID Connect
           href: authentication-openid.md
@@ -347,6 +347,9 @@
       - name: Launch your first Java app
         href: java-get-started.md
         displayName: java
+      - name: Get started using IntelliJ
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
+        displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
         displayName: java
@@ -358,6 +361,8 @@
         displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
+      - name: Use Admin for Spring
+        href: java-admin-for-spring-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
         displayName: java
@@ -368,8 +373,13 @@
         items:
           - name: Connect to Eureka Server for Spring
             href: java-eureka-server.md
+          - name: Connect to Admin for Spring
+            href: java-admin.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
+            displayName: java
+          - name: Integrate Eureka Server with Admin for Spring
+            href: java-admin-eureka-integration.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md

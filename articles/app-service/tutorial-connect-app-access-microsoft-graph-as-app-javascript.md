@@ -41,8 +41,6 @@ npm install @azure/identity @microsoft/microsoft-graph-client
 
 ### Configure authentication information
 
-Create an object to hold the [authentication settings](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/3-WebApp-graphapi-managed-identity/app.js):
-
 ```javascript
 // partial code in app.js
 const appSettings = {

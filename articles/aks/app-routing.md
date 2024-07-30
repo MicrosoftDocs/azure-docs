@@ -63,10 +63,14 @@ az aks create \
 
 ### Enable on an existing cluster
 
-To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] command.
+To enable application routing on an existing cluster, use the [`az aks approuting enable`][az-aks-approuting-enable] or the [`az aks enable-addons`][az-aks-enable-addons] command with the `--addons` parameter set to `http_application_routing`.
 
 ```azurecli-interactive
+# az aks approuting enable
 az aks approuting enable --resource-group <ResourceGroupName> --name <ClusterName>
+
+# az aks enable-addons
+az aks enable-addons --resource-group <ResourceGroupName> --name <ClusterName> --addons http_application_routing
 ```
 
 # [Open Service Mesh (OSM) (retired)](#tab/with-osm)

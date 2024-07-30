@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Run Resource Graph query using Azure CLI"
 description: In this quickstart, you run a Resource Graph query using Azure CLI and the resource-graph extension.
-ms.date: 06/26/2024
+ms.date: 06/27/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
@@ -15,18 +15,6 @@ This quickstart describes how to run an Azure Resource Graph query using the Azu
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
 - A Bash shell environment where you can run Azure CLI commands. For example, Git Bash in a [Visual Studio Code](https://code.visualstudio.com/) terminal session.
-
-## Connect to Azure
-
-From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
-
-```azurecli
-az login
-
-# Run these commands if you have multiple subscriptions
-az account list --output table
-az account set --subscription <subscriptionID>
-```
 
 ## Install the extension
 
@@ -57,6 +45,18 @@ To enable Azure CLI to query resources using Azure Resource Graph, the Resource 
    ```
 
    For more information about Azure CLI extensions, go to [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurecli
+az login
+
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
+```
 
 ## Run a query
 
@@ -102,7 +102,7 @@ az logout
 
 ## Next steps
 
-In this quickstart, you ran Azure Resource Graph queries using the extension for Azure CLI. To learn more, go to the query language details article.
+In this quickstart, you ran Azure Resource Graph queries using the extension for Azure CLI. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
 > [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

@@ -5,7 +5,7 @@ description: Describes how to secure communications end-to-end or terminate tran
 author: KarlErickson
 ms.service: spring-apps
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 06/27/2024
 ms.author: asirveda
 ms.custom: devx-track-java
 ---
@@ -75,7 +75,7 @@ You need the following three configuration steps to secure communications using 
    azure:
      keyvault:
        uri: ${KEY_VAULT_URI}
-   
+
    server:
      ssl:
        key-alias: ${SERVER_SSL_CERTIFICATE_NAME}

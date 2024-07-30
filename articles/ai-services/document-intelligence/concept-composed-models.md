@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -54,6 +54,16 @@ With the introduction of [**custom classification models**](./concept-custom-cla
 
 > [!NOTE]
 > With the addition of **_custom neural model_** , there are a few limits to the compatibility of models that can be composed together.
+
+* With the model compose operation, you can assign up to 200 models to a single model ID. If the number of models that I want to compose exceeds the upper limit of a composed model, you can use one of these alternatives:
+
+  * Classify the documents before calling the custom model. You can use the [Read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases by using sources like code, regular expressions, or search.
+
+  * If you want to extract the same fields from various structured, semi-structured, and unstructured documents, consider using the deep-learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between the custom template model and the custom neural model](concept-custom.md#compare-model-features).
+
+* Analyzing a document by using composed models is identical to analyzing a document by using a single model. The `Analyze Document` result returns a `docType` property that indicates which of the component models you selected for analyzing the document. There's no change in pricing for analyzing a document by using an individual custom model or a composed custom model.
+
+* Model Compose is currently available only for custom models trained with labels.
 
 ### Composed model compatibility
 

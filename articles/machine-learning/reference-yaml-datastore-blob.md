@@ -8,10 +8,10 @@ ms.subservice: mldata
 ms.topic: reference
 ms.custom: cliv2
 
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 04/15/2024
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ---
 
 # CLI (v2) Azure Blob datastore YAML schema

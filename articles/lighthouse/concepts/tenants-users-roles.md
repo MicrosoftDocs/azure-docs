@@ -1,7 +1,7 @@
 ---
 title: Tenants, users, and roles in Azure Lighthouse scenarios
 description: Understand how Microsoft Entra tenants, users, and roles can be used in Azure Lighthouse scenarios.
-ms.date: 05/04/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
@@ -22,9 +22,9 @@ With either onboarding method, you'll need to define *authorizations*. Each auth
 
 When creating your authorizations, we recommend the following best practices:
 
-- In most cases, you'll want to assign permissions to a Microsoft Entra user group or service principal, rather than to a series of individual user accounts. This lets you add or remove access for individual users through your tenant's Microsoft Entra ID, rather than having to [update the delegation](../how-to/update-delegation.md) every time your individual access requirements change.
-- Follow the principle of least privilege so that users only have the permissions needed to complete their job, helping to reduce the chance of inadvertent errors. For more information, see [Recommended security practices](../concepts/recommended-security-practices.md).
-- Include an authorization with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/remove-delegation.md) later if needed. If this role isn't assigned, access to delegated resources can only be removed by a user in the customer's tenant.
+- In most cases, you'll want to assign permissions to a Microsoft Entra user group or service principal, rather than to a series of individual user accounts. Doing so lets you add or remove access for individual users through your tenant's Microsoft Entra ID, without having to [update the delegation](../how-to/update-delegation.md) every time your individual access requirements change.
+- Follow the principle of least privilege. To reduce the chance of inadvertent errors, users should have only the permissions needed to perform their specific job. For more information, see [Recommended security practices](../concepts/recommended-security-practices.md).
+- Include an authorization with the [Managed Services Registration Assignment Delete Role](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) so that you can [remove access to the delegation](../how-to/remove-delegation.md) if needed. If this role isn't assigned, access to delegated resources can only be removed by a user in the customer's tenant.
 - Be sure that any user who needs to [view the My customers page in the Azure portal](../how-to/view-manage-customers.md) has the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role that includes Reader access).
 
 > [!IMPORTANT]
@@ -32,14 +32,14 @@ When creating your authorizations, we recommend the following best practices:
 
 ## Role support for Azure Lighthouse
 
-When you define an authorization, each user account must be assigned one of the [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+When you define an authorization, each user account must be assigned one of the [Azure built-in roles](../../role-based-access-control/built-in-roles.md). Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) aren't supported.
 
 All [built-in roles](../../role-based-access-control/built-in-roles.md) are currently supported with Azure Lighthouse, with the following exceptions:
 
-- The [Owner](../../role-based-access-control/built-in-roles.md#owner) role is not supported.
+- The [Owner](../../role-based-access-control/built-in-roles.md#owner) role isn't supported.
 - The [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) role is supported, but only for the limited purpose of [assigning roles to a managed identity in the customer tenant](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). No other permissions typically granted by this role will apply. If you define a user with this role, you must also specify the role(s) that this user can assign to managed identities.
-- Any roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported.
-- Roles that include any of the following [actions](../../role-based-access-control/role-definitions.md#actions) are not supported:
+- Any roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission aren't supported.
+- Roles that include any of the following [actions](../../role-based-access-control/role-definitions.md#actions) aren't supported:
 
   - */write
   - */delete
@@ -58,11 +58,11 @@ All [built-in roles](../../role-based-access-control/built-in-roles.md) are curr
   - Microsoft.Authorization/denyAssignments/delete
 
 > [!IMPORTANT]
-> When assigning roles, be sure to review the [actions](../../role-based-access-control/role-definitions.md#actions) specified for each role. In some cases, even though roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission are not supported, the actions included in a role may allow access to data, where data is exposed through access keys and not accessed via the user's identity. For example, the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md) role includes the `Microsoft.Storage/storageAccounts/listKeys/action` action, which returns storage account access keys that could be used to retrieve certain customer data.
+> When assigning roles, be sure to review the [actions](../../role-based-access-control/role-definitions.md#actions) specified for each role. Even though roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission aren't supported, there are cases where actions included in a supported role may allow access to data. This generally occurs when data is exposed through access keys, not accessed via the user's identity. For example, the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md) role includes the `Microsoft.Storage/storageAccounts/listKeys/action` action, which returns storage account access keys that could be used to retrieve certain customer data.
 
-In some cases, a role that was previously supported with Azure Lighthouse may become unavailable. For example, if the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission is added to a role that previously didn't have that permission, that role can no longer be used when onboarding new delegations. Users who had already been assigned the role will still be able to work on previously delegated resources, but they won't be able to perform tasks that use the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission.
+In some cases, a role that was previously supported with Azure Lighthouse may become unavailable. For example, if the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission is added to a role that previously didn't have that permission, that role can no longer be used when onboarding new delegations. Users who had already been assigned that role will still be able to work on previously delegated resources, but they won't be able to perform any tasks that use the [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission.
 
-As soon as a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md). Similarly, if a role becomes unavailable, you may still see it in Partner Center for a while; however, you won't be able to publish new offers using such roles.
+As soon as a new applicable built-in role is added to Azure, it can be assigned when [onboarding a customer using Azure Resource Manager templates](../how-to/onboard-customer.md). There may be a delay before the newly added role becomes available in Partner Center when [publishing a managed service offer](../how-to/publish-managed-services-offers.md). Similarly, if a role becomes unavailable, you may still see it in Partner Center for a while, but you won't be able to publish new offers using such roles.
 
 <a name='transferring-delegated-subscriptions-between-azure-ad-tenants'></a>
 

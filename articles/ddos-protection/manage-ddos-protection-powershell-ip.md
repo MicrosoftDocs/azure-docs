@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart
-ms.date: 03/18/2024
+ms.date: 07/17/2024
 ms.custom: template-quickstart, devx-track-azurepowershell
 ---
 

@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 10/19/2023
+ms.date: 06/28/2024
 ms.author: mbender
 ms.custom: mvc, mode-ui, template-quickstart, engagement-fy24
 #Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
@@ -97,7 +97,7 @@ During the creation of the load balancer, you configure:
     | Protocol | Select **TCP**. |
     | Port | Enter **80**. |
     | Backend port | Enter **80**. |
-    | Health probe | Select **Create new**. </br> In **Name**, enter **lb-health-probe**. </br> Select **TCP** in **Protocol**. </br> Leave the rest of the defaults, and select **OK**. |
+    | Health probe | Select **Create new**.</br> In **Name**, enter **lb-health-probe**.</br> Select **TCP** in **Protocol**.</br> Leave the rest of the defaults, and select **Save**. |
     | Session persistence | Select **None**. |
     | Idle timeout (minutes) | Enter or select **15**. |
     | Enable TCP reset | Select **checkbox**. |

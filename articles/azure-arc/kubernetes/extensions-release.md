@@ -127,7 +127,7 @@ The most recent version of the Flux v2 extension and the two previous versions (
 >
 > The [HelmChart](https://fluxcd.io/flux/components/source/helmcharts/) kind will be promoted from `v1beta2` to `v1` (GA). The `v1` API is backwards compatible with `v1beta2`, with the exception of the `.spec.valuesFile` field, which will be replaced by `.spec.valuesFiles`.
 >
-> To avoid issues due to breaking changes, we recommend updating your deployments by July 22, 2024, so that they stop using the fields that will be removed and use the replacement fields instead. These new fields are already available in the current version of the APIs.
+> To avoid issues due to breaking changes, we recommend updating your deployments by July 29, 2024, so that they stop using the fields that will be removed and use the replacement fields instead. These new fields are already available in the current version of the APIs.
 
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.

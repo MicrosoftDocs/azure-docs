@@ -26,7 +26,7 @@ By default, Azure Container Instances are stateless. If the container is restart
 >
 
 > [!IMPORTANT]
-> If you are deploying container groups into an Azure Virtual Network, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to your Azure Storage Account.
+> If the outbound connection to the internet is blocked in the delegated subnet, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to Azure Strorage on your delegated subnet.
 
 ## Create an Azure file share
 

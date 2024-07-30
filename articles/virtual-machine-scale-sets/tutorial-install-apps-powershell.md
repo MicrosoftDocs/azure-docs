@@ -32,7 +32,7 @@ To see the Custom Script Extension in action, create a scale set that installs t
 
 ## Create a scale set
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.compute/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroup -Location "East US"

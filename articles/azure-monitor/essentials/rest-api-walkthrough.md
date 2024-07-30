@@ -20,43 +20,9 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md).
 
 ### Retrieve a token
-Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
+Once you've created a service principal, retrieve an access token. Specify `resource=https://management.azure.com` in the token request.
 
-```HTTP
-
-    POST /<tenant-id>/oauth2/token
-    Host: https://login.microsoftonline.com
-    Content-Type: application/x-www-form-urlencoded
-    
-    grant_type=client_credentials
-    &client_id=<app-client-id>
-    &resource=https://management.azure.com
-    &client_secret=<password>
-
-```
-
-For example
-
-```bash
-curl --location --request POST 'https://login.microsoftonline.com/abcd1234-5849-4a5d-a2eb-5267eae1bbc7/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=0123b56a-c987-1234-abcd-1a2b3c4d5e6f' \
---data-urlencode 'client_secret=123456.ABCDE.~XYZ876123ABceDb0000' \
---data-urlencode 'resource=https://management.azure.com'
-
-```
-A successful request receives an access token in the response:
-
-```HTTP
-{
-   token_type": "Bearer",
-   "expires_in": "86399",
-   "ext_expires_in": "86399",
-   "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax"
-}
-```
-
+[!INCLUDE [Get a token](../includes/get-authentication-token.md)]
 
 
 After authenticating and retrieving a token, use the access token in your Azure Monitor API requests by including the header  `'Authorization: Bearer <access token>'`

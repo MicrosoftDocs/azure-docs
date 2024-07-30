@@ -121,6 +121,7 @@ If you use a proxy, it may prevent communication with a secured project. To test
 * Temporarily disable the proxy setting and see if you can connect.
 * Create a [Proxy auto-config (PAC)](https://wikipedia.org/wiki/Proxy_auto-config) file that allows direct access to the FQDNs listed on the private endpoint. It should also allow direct access to the FQDN for any compute instances.
 * Configure your proxy server to forward DNS requests to Azure DNS.
+* Ensure that the proxy allows connections to AML APIs, such as "*.\<region\>.api.azureml.ms" and "*.instances.azureml.ms"
 
 ## Troubleshoot missing storage connections
 

@@ -34,3 +34,4 @@ The following fields can be scrubbed from the logs:
 ## Next steps
 
 - [How to mask sensitive data on Azure Web Application Firewall on Azure Front Door (preview)](waf-sensitive-data-protection-configure-frontdoor.md)
+- [A Closer Look at Azure WAF’s Data Masking Capabilities for Azure Front Door](https://techcommunity.microsoft.com/t5/azure-network-security-blog/a-closer-look-at-azure-waf-s-data-masking-capabilities-for-azure/ba-p/4167558)

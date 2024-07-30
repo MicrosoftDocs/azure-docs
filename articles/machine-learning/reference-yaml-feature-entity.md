@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
-author: qjxu
-ms.author: qiax
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: qiax
 ms.date: 05/23/2023
 ms.custom: cliv2, build-2023
 ---

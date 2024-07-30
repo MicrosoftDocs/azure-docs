@@ -7,6 +7,7 @@ metadata:
   title: Multicloud connector enabled by Azure Arc (preview)
   description: Connect non-Azure public cloud resources to Azure for centralized management and governance.
   ms.service: azure-arc
+  ms.author: jroth
   ms.topic: landing-page
   ms.date: 06/11/2024
 

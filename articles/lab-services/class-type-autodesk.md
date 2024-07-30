@@ -12,6 +12,8 @@ ms.date: 03/03/2023
 
 # Set up a lab to teach engineering classes with Autodesk
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
 This article describes how to set up Autodesk Inventor and Autodesk Revit software for engineering classes in Azure Lab Services.

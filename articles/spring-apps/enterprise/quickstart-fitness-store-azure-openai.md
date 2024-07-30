@@ -8,6 +8,7 @@ ms.service: spring-apps
 ms.topic: quickstart
 ms.date: 11/02/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Integrate Azure OpenAI

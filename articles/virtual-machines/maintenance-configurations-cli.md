@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 11/20/2020
+ms.date: 07/01/2024
 ms.author: jushiman
 #pmcontact: shants
 ---
@@ -246,7 +246,7 @@ Check for pending updates for an isolated VM. In this example, the output is for
 ```azurecli-interactive
 az maintenance update list \
    --subscription {subscription ID} \
-   --resourcegroup myMaintenanceRg \
+   --resource-group myMaintenanceRg \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
@@ -260,7 +260,7 @@ Check for pending updates for a dedicated host. In this example, the output is f
 ```azurecli-interactive
 az maintenance update list \
    --subscription {subscription ID} \
-   --resourcegroup myHostResourceGroup \
+   --resource-group myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create Resource Graph shared query using Azure CLI"
 description: In this quickstart, you create an Azure Resource Graph shared query using Azure CLI and the resource-graph extension.
-ms.date: 06/26/2024
+ms.date: 06/27/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
@@ -17,18 +17,6 @@ A shared query can be run from Azure CLI with the _experimental_ feature's comma
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
 - A Bash shell environment where you can run Azure CLI commands. For example, Git Bash in a [Visual Studio Code](https://code.visualstudio.com/) terminal session.
-
-## Connect to Azure
-
-From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
-
-```azurecli
-az login
-
-# Run these commands if you have multiple subscriptions
-az account list --output table
-az account set --subscription <subscriptionID>
-```
 
 ## Install the extension
 
@@ -59,6 +47,18 @@ To enable Azure CLI to query resources using Azure Resource Graph, the Resource 
    ```
 
   For more information about Azure CLI extensions, go to [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurecli
+az login
+
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
+```
 
 ## Create a shared query
 
@@ -126,16 +126,24 @@ You can verify the shared query works using Azure Resource Graph Explorer. To ch
 1. Change **Type** to _Shared queries_.
 1. Select the query _Count VMs by OS_.
 1. Select **Run query** and the view output in the **Results** tab.
+1. Select **Charts** and then select **Map** to view the location map.
 
 You can also run the query from your resource group. 
 
 1. In Azure, go to the resource group, _demoSharedQuery_.
 1. From the **Overview** tab, select the query _Count VMs by OS_.
 1. Select the **Results** tab.
+1. Select **Charts** and then select **Map** to view the location map.
 
 ## Clean up resources
 
-To remove the resource group and shared query:
+To remove the shared query:
+
+```azurecli
+az graph shared-query delete --name "Summarize resources by location" --resource-group demoSharedQuery
+```
+
+When a resource group is deleted, the resource group and all its resources are deleted. To remove the resource group:
 
 ```azurecli
 az group delete --name demoSharedQuery
@@ -155,9 +163,7 @@ az logout
 
 ## Next steps
 
-In this quickstart, you added the Resource Graph extension to your Azure CLI environment and
-created a shared query. To learn more about the Resource Graph language, continue to the query
-language details page.
+In this quickstart, you added the Resource Graph extension to your Azure CLI environment and created a shared query. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
 > [Understanding the Azure Resource Graph query language](./concepts/query-language.md)
