@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 08/05/2024
 ---
 
 # Create a vector query in Azure AI Search
@@ -20,9 +20,9 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 > + [Query vector fields](#vector-query-request)
 > + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields)
-> + [Query with integrated vectorization (preview)](#query-with-integrated-vectorization-preview)
+> + [Set vector weights](#vector-weighting)
+> + [Query with integrated vectorization](#query-with-integrated-vectorization)
 > + [Set thresholds to exclude low-scoring results (preview)](#set-thresholds-to-exclude-low-scoring-results-preview)
-> + [Set vector weights (preview)](#vector-weighting-preview)
 
 This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
 
@@ -468,9 +468,9 @@ The following query example looks for similarity in both `myImageVector` and `my
 
 Search results would include a combination of text and images, assuming your search index includes a field for the image file (a search index doesn't store images).
 
-## Query with integrated vectorization (preview)
+## Query with integrated vectorization
 
-This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature that converts a text query into a vector. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and newer preview REST APIs or an updated beta Azure SDK package.
+This section shows a vector query that invokes the [integrated vectorization](vector-search-integrated-vectorization.md) that converts a text query into a vector. Use the stable [**2024-07-01**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true)  REST API and newer Azure SDK packages for this feature.
 
 A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. Check the index definition for a vectorizers specification. 
 
@@ -485,7 +485,7 @@ Queries provide text strings instead of vectors:
 Here's a simple example of a query that's vectorized at query time. The text string is vectorized and then used to query the descriptionVector field.
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-05-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-07-01
 {
     "select": "title, genre, description",
     "vectorQueries": [
@@ -504,7 +504,7 @@ Here's a [hybrid query](hybrid-search-how-to-query.md) using integrated vectoriz
 In this example, the search engine makes three vectorization calls to the vectorizers assigned to `descriptionVector`, `synopsisVector`, and `authorBioVector` in the index. The resulting vectors are used to retrieve documents against their respective fields. The search engine also executes a keyword search on the `search` query, "mystery novel set in London". 
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-05-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-07-01
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -571,16 +571,52 @@ Multiple sets are created if the query targets multiple vector fields, runs mult
 
 During query execution, a vector query can only target one internal vector index. So for [multiple vector fields](#multiple-vector-fields) and [multiple vector queries](#multiple-vector-queries), the search engine generates multiple queries that target the respective vector indexes of each field. Output is a set of ranked results for each query, which are fused using RRF. For more information, see [Relevance scoring using Reciprocal Rank Fusion (RRF)](hybrid-search-ranking.md).
 
+## Vector weighting
+
+Add a `weight` query parameter to specify the relative weight of each vector query included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
+
+The default is 1.0 and the value must be a positive number larger than zero.
+
+Weights are used when calculating the [reciprocal rank fusion](hybrid-search-ranking.md#weighted-scores) scores of each document. The calculation is multiplier of the `weight` value against the rank score of the document within its respective result set.
+
+The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vector query is twice as important. 
+
+Text queries have no weight parameters, but you can increase or decrease their importance by setting [maxTextRecallSize](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
+
+```http
+POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-07-01
+
+    { 
+      "vectorQueries": [ 
+        { 
+          "kind": "vector", 
+          "vector": [1.0, 2.0, 3.0], 
+          "fields": "my_first_vector_field", 
+          "k": 10, 
+          "weight": 0.5 
+        },
+        { 
+          "kind": "vector", 
+          "vector": [4.0, 5.0, 6.0], 
+          "fields": "my_second_vector_field", 
+          "k": 10, 
+          "weight": 2.0
+        } 
+      ], 
+      "search": "hello world" 
+    } 
+```
+
 ## Set thresholds to exclude low-scoring results (preview)
 
-Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get multiple low scoring matches as part of meeting the `k` number requirement on search results.
+Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get multiple low scoring matches as part of meeting the `k` number requirement on search results. To exclude low-scoring search result, you can add a `threshold` query parameter that filters out results based on a minimum score. Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
 
-Using the 2024-05-01-preview REST APIs, you can now add a `threshold` query parameter to exclude low-scoring search results based on a minimum score. Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
+This parameter is still in preview. We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 In this example, all matches that score below 0.8 are excluded from vector search results, even if the number of results fall below `k`.
 
 ```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
+POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-preview 
     Content-Type: application/json 
     api-key: [admin key] 
 
@@ -606,43 +642,9 @@ Vector queries are often used in hybrid constructs that include nonvector fields
 
 You can only set this property in hybrid requests that include both "search" and "vectorQueries" components.
 
+This parameter is still in preview. We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
+
 For more information, see [Set maxTextRecallSize - Create a hybrid query](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
-
-## Vector weighting (preview)
-
-Add a `weight` query parameter to specify the relative weight of each vector query included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
-
-The default is 1.0 and the value must be a positive number larger than zero.
-
-Weights are used when calculating the [reciprocal rank fusion](hybrid-search-ranking.md#weighted-scores) scores of each document. The calculation is multiplier of the `weight` value against the rank score of the document within its respective result set.
-
-The following example is a hybrid query with two vector query strings and one text string. Weights are assigned to the vector queries. The first query is 0.5 or half the weight, reducing its importance in the request. The second vectory query is twice as important. 
-
-Text queries have no weight parameters, but you can increase or decrease their importance by setting [maxTextRecallSize](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview).
-
-```http
-POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
-
-    { 
-      "vectorQueries": [ 
-        { 
-          "kind": "vector", 
-          "vector": [1.0, 2.0, 3.0], 
-          "fields": "my_first_vector_field", 
-          "k": 10, 
-          "weight": 0.5 
-        },
-        { 
-          "kind": "vector", 
-          "vector": [4.0, 5.0, 6.0], 
-          "fields": "my_second_vector_field", 
-          "k": 10, 
-          "weight": 2.0
-        } 
-      ], 
-      "search": "hello world" 
-    } 
-```
 
 ## Next steps
 

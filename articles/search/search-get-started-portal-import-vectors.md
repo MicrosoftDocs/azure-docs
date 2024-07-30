@@ -9,19 +9,16 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: quickstart
-ms.date: 07/19/2024
+ms.date: 08/05/2024
 ---
 
 # Quickstart: Vectorize text and images by using the Azure portal
 
-> [!IMPORTANT]
-> The **Import and vectorize data** wizard is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, it targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
-
-This quickstart helps you get started with [integrated vectorization (preview)](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
+This quickstart helps you get started with [integrated vectorization](vector-search-integrated-vectorization.md) by using the **Import and vectorize data** wizard in the Azure portal. The wizard chunks your content and calls an embedding model to vectorize content during indexing and for queries.
 
 Key points about the wizard:
 
-+ Source data is either Azure Blob Storage or OneLake files and shortcuts.
++ Source data is either Azure Blob Storage, ADLS Gen2, or OneLake files and shortcuts.
 + Document parsing mode is the default (one search document per blob or file).
 + Index schema is nonconfigurable. It provides vector and nonvector fields for chunked data.
 + Chunking is nonconfigurable. The effective settings are:
@@ -38,9 +35,9 @@ Key points about the wizard:
 
 + [Azure AI Search service](search-create-service-portal.md) in the same region as Azure AI. We recommend the Basic tier or higher.
 
-+ [Azure Blob Storage](/azure/storage/common/storage-account-overview) or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
++ [Azure Blob Storage](/azure/storage/common/storage-account-create), [Azure Data Lake Storage (ADLS) Gen2](/azure/storage/blobs/create-data-lake-storage-account) (a storage account with a hierarchical namespace), or a [OneLake lakehouse](search-how-to-index-onelake-files.md).
 
-  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold. Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
+  Azure Storage must be a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
 
 + An embedding model on an Azure AI platform. [Deployment instructions](#set-up-embedding-models) are in this article.
 
