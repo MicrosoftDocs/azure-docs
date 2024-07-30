@@ -7,7 +7,7 @@ ms.author: limingchen
 ms.date: 07/10/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Add a reference layer
