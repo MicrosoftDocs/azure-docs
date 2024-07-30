@@ -310,8 +310,6 @@ In the **Create CSV table** action, keep the **Header** column empty. On each ro
 
    :::image type="content" source="media/logic-apps-perform-data-operations/finished-csv-expression.png" alt-text="Screenshot shows action named Create CSV table and function named item()." lightbox="media/logic-apps-perform-data-operations/finished-csv-expression.png":::
 
----
-
 #### Work in code view
 
 In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
