@@ -66,7 +66,7 @@ Use the Azure portal or CLI to create a user-assigned managed identity or Micros
 
 ### Remote-write using user-assigned managed identity authentication
 
-User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Entra ID application authentication.
+User-assigned managed identity authentication can be used in any Azure-managed environment. If your Prometheus service is running in a non-Azure environment, you can use Microsoft Entra ID application authentication.
 
 To configure a user-assigned managed identity for remote-write to Azure Monitor workspace, complete the following steps.
 
