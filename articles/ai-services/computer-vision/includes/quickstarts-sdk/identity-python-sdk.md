@@ -15,7 +15,7 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/python/api/overview/azure/cognitiveservices/face-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](/samples/browse/?products=azure&term=face)
+[Reference documentation](https://aka.ms/azsdk-python-face-ref) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face) | [Package (PiPy)](https://aka.ms/azsdk-python-face-pkg) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     After installing Python, you can install the client library with:
 
     ```console
-    pip install --upgrade azure-cognitiveservices-vision-face
+    pip install --upgrade azure-ai-vision-face
     ```
 
 1. Create a new Python application
@@ -49,7 +49,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     > [!NOTE]
     > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart-single.py?name=snippet_single)]
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/Quickstart.py?name=snippet_single)]
 
 
 1. Run your face recognition app from the application directory with the `python` command.
@@ -66,25 +66,28 @@ Get started with facial recognition using the Face client library for Python. Fo
 ## Output
 
 ```console
-Person group: c8e679eb-0b71-43b4-aa91-ab8200cae7df
-face 861d769b-d014-40e8-8b4a-7fd3bc9b425b added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
-face e3c356a4-1ac3-4c97-9219-14648997f195 added to person f80c1cfa-b8cb-46f8-9f7f-e72fbe402bc3
-face f9119820-c374-4c4d-b795-96ae2fec5069 added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
-face 67d626df-3f75-4801-9364-601b63c8296a added to person be4084a7-0c7b-4cf9-9463-3756d2e28e17
-face 19e2e8cc-5029-4087-bca0-9f94588fb850 added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
-face dcc61e80-16b1-4241-ae3f-9721597bae4c added to person 3ff07c65-6193-4d3e-bf18-d7c106393cd5
-pg resource is c8e679eb-0b71-43b4-aa91-ab8200cae7df
-<msrest.pipeline.ClientRawResponse object at 0x00000240DAD47310>
-Training status: running.
-
-Training status: succeeded.
-
-Pausing for 10 seconds to avoid triggering rate limit on free account...
+Person group: ad12b2db-d892-48ec-837a-0e7168c18224
+face 335a2cb1-5211-4c29-9c45-776dd014b2af added to person 9ee65510-81a5-47e5-9e50-66727f719465
+face df57eb50-4a13-4f93-b804-cd108327ad5a added to person 9ee65510-81a5-47e5-9e50-66727f719465
+face d8b7b8b8-3ca6-4309-b76e-eeed84f7738a added to person 00651036-4236-4004-88b9-11466c251548
+face dffbb141-f40b-4392-8785-b6c434fa534e added to person 00651036-4236-4004-88b9-11466c251548
+face 9cdac36e-5455-447b-a68d-eb1f5e2ec27d added to person 23614724-b132-407a-aaa0-67003987ce93
+face d8208412-92b7-4b8d-a2f8-3926c839c87e added to person 23614724-b132-407a-aaa0-67003987ce93
+Train the person group ad12b2db-d892-48ec-837a-0e7168c18224
+The person group ad12b2db-d892-48ec-837a-0e7168c18224 is trained successfully.
+Pausing for 60 seconds to avoid triggering rate limit on free account...
 Identifying faces in image
-Person for face ID 40582995-d3a8-41c4-a9d1-d17ae6b46c5c is identified in image, with a confidence of 0.96725.
-Person for face ID 7a0368a2-332c-4e7a-81c4-2db3d74c78c5 is identified in image, with a confidence of 0.96921.
-No person identified for face ID c4a3dd28-ef2d-457e-81d1-a447344242c4 in image.
-Person for face ID 360edf1a-1e8f-402d-aa96-1734d0c21c1c is identified in image, with a confidence of 0.92886.
+Person is identified for face ID bc52405a-5d83-4500-9218-557468ccdf99 in image, with a confidence of 0.96726.
+verification result: True. confidence: 0.96726
+Person is identified for face ID dfcc3fc8-6252-4f3a-8205-71466f39d1a7 in image, with a confidence of 0.96925.
+verification result: True. confidence: 0.96925
+No person identified for face ID 401c581b-a178-45ed-8205-7692f6eede88 in image.
+Person is identified for face ID 8809d9c7-e362-4727-8c95-e1e44f5c2e8a in image, with a confidence of 0.92898.
+verification result: True. confidence: 0.92898
+
+The person group ad12b2db-d892-48ec-837a-0e7168c18224 is deleted.
+
+End of quickstart.
 ```
 
 
@@ -96,10 +99,6 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 * [Portal](../../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
-To delete the **PersonGroup** you created in this quickstart, run the following code in your script:
-
-[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_deletegroup)]
-
 ## Next steps
 
 In this quickstart, you learned how to use the Face client library for Python to do basic face identification. Next, learn about the different face detection models and how to specify the right model for your use case.
@@ -108,4 +107,4 @@ In this quickstart, you learned how to use the Face client library for Python to
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
 * [What is the Face service?](../../overview-identity.md)
-* More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).
+* More extensive sample code can be found on [GitHub](https://aka.ms/FaceSamples).

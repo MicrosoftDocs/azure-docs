@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 01/31/2024
+ms.date: 07/11/2024
 ---
 
 # String functions for Bicep
@@ -213,7 +213,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+`True` if the item is found; otherwise, `False`.
 
 ### Examples
 
@@ -343,7 +343,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns `True` if the value is empty; otherwise, `False`.
 
 ### Examples
 
@@ -384,7 +384,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the last character or characters of the string match the value; otherwise, **False**.
+`True` if the last character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -834,7 +834,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -1033,7 +1033,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the first character or characters of the string match the value; otherwise, **False**.
+`True` if the first character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -1355,7 +1355,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
@@ -1391,29 +1391,29 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is simply
-  **baseUri** followed by **relativeUri**.
+* If `baseUri` ends with a trailing slash, the result is simply `baseUri` followed by `relativeUri`. If `relativeUri` also begins with a leading slash, the trailing slash and the leading slash will be combined into one.
 
-* If **baseUri** does not end in a trailing slash one of two things
+* If `baseUri` does not end in a trailing slash one of two things
   happens.
 
-   * If **baseUri** has no slashes at all (aside from the "//" near
-     the front) the result is simply **baseUri** followed by **relativeUri**.
+   * If `baseUri` has no slashes at all (aside from the "//" near
+     the front) the result is simply `baseUri` followed by `relativeUri`.
 
-   * If **baseUri** has some slashes, but doesn't end with a slash,
-     everything from the last slash onward is removed from **baseUri**
-     and the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has some slashes, but doesn't end with a slash,
+     everything from the last slash onward is removed from `baseUri`
+     and the result is `baseUri` followed by `relativeUri`.
 
 Here are some examples:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
 uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/', '/myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
 
-For complete details, the **baseUri** and **relativeUri** parameters are
+For complete details, the `baseUri` and `relativeUri` parameters are
 resolved as specified in
 [RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 

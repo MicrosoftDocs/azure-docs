@@ -985,12 +985,26 @@ items:
           href: storage-blob-upload-go.md
         - name: Download blobs
           href: storage-blob-download-go.md
+        - name: Copy blobs
+          items:
+          - name: Overview of copy operations
+            href: storage-blob-copy-go.md
+          - name: Copy from a source object URL
+            href: storage-blob-copy-url-go.md
+          - name: Copy with asynchronous scheduling
+            href: storage-blob-copy-async-go.md
         - name: List blobs
           href: storage-blobs-list-go.md
         - name: Delete and restore blobs
           href: storage-blob-delete-go.md
+        - name: Find blobs using tags
+          href: storage-blob-tags-go.md
         - name: Manage blob properties and metadata
           href: storage-blob-properties-metadata-go.md
+      - name: Client library configuration options
+        items:
+        - name: Implement a retry policy
+          href: storage-retry-policy-go.md
     - name: Test with a storage emulator
       items:
       - name: Use the Azurite open-source emulator

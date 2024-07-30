@@ -45,9 +45,9 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md) or [add an on-premises Linux server to Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 - A Linux-based device that generates event log data like a firewall network device.
 
-## Create a data collection rule
+## Configure Azure Monitor Agent to collect Syslog data
 
-See the step-by-step instructions in [Create a data collection rule](../azure-monitor/agents/data-collection-syslog.md#create-a-data-collection-rule).
+See the step-by-step instructions in [Collect Syslog events with Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md).
 
 ## Verify that Azure Monitor Agent is running
 
@@ -68,6 +68,15 @@ In Microsoft Sentinel or Azure Monitor, verify that Azure Monitor Agent is runni
 ## Enable log reception on port 514
 
 Verify that the VM that's collecting the log data allows reception on port 514 TCP or UDP depending on the Syslog source. Then configure the built-in Linux Syslog daemon on the VM to listen for Syslog messages from your devices. After you finish those steps, configure your Linux-based device to send logs to your VM.
+
+> [!NOTE]
+> If the firewall is running, a rule will need to be created to allow remote systems to reach the daemon’s syslog listener: `systemctl status firewalld.service`
+> 1. Add for tcp 514 (your zone/port/protocol may differ depending on your scenario)
+>      `firewall-cmd --zone=public --add-port=514/tcp --permanent`
+> 2. Add for udp 514 (your zone/port/protocol may differ depending on your scenario)
+>      `firewall-cmd --zone=public --add-port=514/udp --permanent`
+> 3. Restart the firewall service to ensure new rules take effect
+>      `systemctl restart firewalld.service`
 
 The following two sections cover how to add an inbound port rule for an Azure VM and configure the built-in Linux Syslog daemon.
 

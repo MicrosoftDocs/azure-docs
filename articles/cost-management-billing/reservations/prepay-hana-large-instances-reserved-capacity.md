@@ -254,5 +254,4 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## Next steps
 
-- Learn about [How to call Azure REST APIs with Postman and cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
 - See [SKUs for SAP HANA on Azure (Large Instances)](../../virtual-machines/workloads/sap/hana-available-skus.md) for the available SKU list and regions.

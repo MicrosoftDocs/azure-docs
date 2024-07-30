@@ -77,8 +77,8 @@ items:
             href: mqtt-client-microsoft-entra-token-and-rbac.md
           - name: Transport Layer Security connection with MQTT broker
             href: mqtt-transport-layer-security-flow.md
-        - name: High availability and disaster recovery
-          href: high-availability-disaster-recovery.md 
+        - name: Reliability
+          href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
         - name: Security
           items:
           - name: Security baseline
@@ -423,6 +423,10 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
+          - name: SAP
+            href: subscribe-to-sap-events.md
+          - name: Tribal Group
+            href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
             items:
             - name: Graph API event sources
@@ -484,7 +488,7 @@ items:
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
-        href: availability-zones-disaster-recovery.md
+        href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
       - name: Security
         items:
         - name: Security baseline

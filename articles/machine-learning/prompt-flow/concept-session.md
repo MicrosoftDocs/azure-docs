@@ -9,10 +9,10 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: conceptual
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
-ms.date: 06/30/2023
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
+ms.date: 06/26/2024
 ---
 
 # Compute session in prompt flow

@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure portal to create an Azure Cache for Redis instance, subscribe to events for that instance, trigger an event, and view the results. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 When you're finished, you'll see that the event data has been sent to the web app.
 

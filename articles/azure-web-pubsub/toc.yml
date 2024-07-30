@@ -78,6 +78,8 @@
       items:
         - name: Protect the access key
           href: howto-secure-rotate-access-key.md
+        - name: Application firewall
+          href: howto-configure-application-firewall.md  
         - name: Use Azure Service Tags
           href: howto-service-tags.md
         - name: Use Azure private endpoints
@@ -162,6 +164,8 @@
               href: socketio-troubleshoot-common-issues.md
             - name: Collect logs
               href: socketio-troubleshoot-logging.md
+            - name: Admin UI
+              href: socketio-troubleshoot-admin-ui.md
     - name: Concepts
       items:
         - name: How does Web PubSub support Socket.IO library

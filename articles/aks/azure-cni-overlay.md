@@ -6,7 +6,7 @@ ms.author: allensu
 ms.subservice: aks-networking
 ms.topic: how-to
 ms.custom: references_regions, devx-track-azurecli
-ms.date: 11/28/2023
+ms.date: 07/02/2024
 ---
 
 # Configure Azure CNI Overlay networking in Azure Kubernetes Service (AKS)
@@ -146,9 +146,6 @@ az aks nodepool add --resource-group $resourceGroup --cluster-name $clusterName 
 > - Doesn't use any Windows node pools with docker as the container runtime.
 
 > [!NOTE]
-> Because Routing domain is not yet supported for ARM, CNI Overlay is not yet supported on ARM-based (ARM64) processor nodes.
-
-> [!NOTE]
 > Upgrading an existing cluster to CNI Overlay is a non-reversible process.
 
 > [!WARNING]
@@ -194,7 +191,7 @@ az aks update --name $clusterName \
 --network-plugin-mode overlay 
 ```
 
-Since the cluster is already using a private CIDR for pods which doesn't overlap with the VNet IP space, you don't need to specify the `--pod-cidr` parameter and the Pod CIDR will remain the same.
+Since the cluster is already using a private CIDR for pods which doesn't overlap with the VNet IP space, you don't need to specify the `--pod-cidr` parameter and the Pod CIDR will remain the same if the parameter is not used.
 
 > [!NOTE]
 > When upgrading from Kubenet to CNI Overlay, the route table will no longer be required for pod routing. If the cluster is using a customer provided route table, the routes which were being used to direct pod traffic to the correct node will automatically be deleted during the migration operation. If the cluster is using a managed route table (the route table was created by AKS and lives in the node resource group) then that route table will be deleted as part of the migration.

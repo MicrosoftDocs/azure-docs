@@ -95,6 +95,9 @@ The process of migrating a classic storage account involves four steps:
 
 For more information about the migration process, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md)
 
+> [!NOTE]
+> Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
+
 You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)

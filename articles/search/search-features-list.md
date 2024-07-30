@@ -17,7 +17,7 @@ Azure AI Search provides information retrieval and uses optional AI integration 
 
 The following table summarizes features by category. For more information about how Azure AI Search compares with other search technologies, see [Compare search options](search-what-is-azure-search.md#compare-search-options).
 
-There's feature parity in all Azure public, private, and sovereign clouds, but some features aren't supported in specific regions. For more information, see [product availability by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=search&regions=all&rar=true).
+There's feature parity in all Azure public, private, and sovereign clouds, but some features aren't supported in specific regions. For more information, see [Choose a region](search-region-support.md).
 
 > [!NOTE]
 > Looking for preview features? See the [preview features list](search-api-preview.md).

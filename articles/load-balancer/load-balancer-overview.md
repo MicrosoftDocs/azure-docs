@@ -22,7 +22,7 @@ A **[public load balancer](./components.md#frontend-ip-configurations)** can pro
 
 An **[internal (or private) load balancer](./components.md#frontend-ip-configurations)** is used in scenarios where private IPs are needed at the frontend only. Internal load balancers are used to load balance traffic inside a virtual network. A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
 
-:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts public and internal load balancers directing traffic to web and business tiers.":::
+:::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
 *Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
 

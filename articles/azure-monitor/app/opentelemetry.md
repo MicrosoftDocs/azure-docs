@@ -49,8 +49,8 @@ The **.NET** OpenTelemetry implementation uses logging, metrics, and activity AP
 
 **Azure Monitor pipeline at edge** is a powerful solution designed to facilitate high-scale data ingestion and routing from edge environments to seamlessly enable observability across cloud, edge, and multicloud. It uses the OpenTelemetry Collector. Currently, in public preview, it can be deployed on a single Arc-enabled Kubernetes cluster, and it can collect OpenTelemetry Protocol (OTLP) logs.
 
-- [Accelerate your observability journey with Azure Monitor pipeline (preview)](https://devblogs.microsoft.com/dotnet/introducing-dotnet-aspire-simplifying-cloud-native-development-with-dotnet-8/)
-- [Configure Azure Monitor pipeline for edge and multicloud](/dotnet/aspire/fundamentals/dashboard/overview)
+- [Accelerate your observability journey with Azure Monitor pipeline (preview)](https://techcommunity.microsoft.com/t5/azure-observability-blog/accelerate-your-observability-journey-with-azure-monitor/ba-p/4124852)
+- [Configure Azure Monitor pipeline for edge and multicloud](../essentials/edge-pipeline-configure.md)
 
 **OpenTelemetry Collector Azure Data Explorer Exporter** is a data exporter component that can be plugged into the OpenTelemetry Collector. It supports ingestion of data from many receivers into to Azure Data Explorer, Azure Synapse Data Explorer, and Real-Time Analytics in Fabric. 
 

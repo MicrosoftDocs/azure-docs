@@ -50,7 +50,7 @@ To attach route filters with Microsoft 365 services, you must have authorization
   - [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider before you continue. The ExpressRoute circuit must be in a provisioned and enabled state.
   - [Create Microsoft peering](expressroute-circuit-peerings.md) if you manage the BGP session directly. Or, have your connectivity provider provision Microsoft peering for your circuit.
   
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ### Sign in to your Azure account and select your subscription
 

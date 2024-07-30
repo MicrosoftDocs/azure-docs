@@ -7,7 +7,7 @@ ms.subservice: pipeline
 ms.topic: conceptual
 ms.date: 02/15/2022
 ms.author: makromer
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Data integration in Azure Synapse Analytics versus Azure Data Factory

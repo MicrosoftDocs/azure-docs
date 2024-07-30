@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -29,7 +29,7 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 ## May 2024
 
-The Document Intelligence Studio has added support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](studio-overview.md#authentication).
+The Document Intelligence Studio adds support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](quickstarts/try-document-intelligence-studio.md#authentication).
 
 ## February 2024
 
@@ -43,11 +43,11 @@ The Document Intelligence [**2024-02-29-preview**](/rest/api/aiservices/document
 
 * [Layout model](concept-layout.md) now supports [figure detection](concept-layout.md#figures) and [hierarchical document structure analysis (sections and subsections)](concept-layout.md#sections). The AI quality of reading order and logical roles detection is also improved.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
-  * Custom extraction models now support cell, row and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
+  * Custom extraction models now support cell, row, and table level confidence scores. Learn more about [table, row, and cell confidence](concept-accuracy-confidence.md#table-row-and-cell-confidence).
   * Custom extraction models have AI quality improvements for field extraction.
   * Custom template extraction model now supports extracting overlapping fields. Learn more about [overlapping fields and how you use them](concept-custom-neural.md#overlapping-fields).
 * [Custom classification model](concept-custom.md#custom-classification-model)
-  * Custom classification model now supported incremental training for scenarios where you need to update the classifier model with additional samples or additional classes. Learn more about [incremental training](concept-custom-classifier.md#incremental-training).
+  * Custom classification model now supported incremental training for scenarios where you need to update the classifier model with added samples or classes. Learn more about [incremental training](concept-custom-classifier.md#incremental-training).
   * Custom classification model adds support for Office document types (.docx, .pptx, and .xls). Learn more about [expanded document type support](concept-custom-classifier.md#office-document-type-support).
 * [Invoice model](concept-invoice.md)
   * Support for new locales:
@@ -69,17 +69,17 @@ The Document Intelligence [**2024-02-29-preview**](/rest/api/aiservices/document
 
   |Currency|Locale| Code|
   |---|---|---|
-  |BAM | Bosnian Convertible Mark|(`ba`)|
-  |BGN | Bulgarian Lev| (`bg`)|
-  |ILS | Israeli New Shekel| (`il`)|
-  |MKD | Macedonian Denar |(`mk`)|
-  |RUB | Russian Ruble | (`ru`)|
-  |THB | Thai Baht |(`th`) |
-  |TRY | Turkish Lira| (`tr`)|
-  |UAH | Ukrainian Hryvnia |(`ua`)|
-  |VND | Vietnamese Dong| (`vn`) |
+  |`BAM` | Bosnian Convertible Mark|(`ba`)|
+  |`BGN`| Bulgarian Lev| (`bg`)|
+  |`ILS` | Israeli New Shekel| (`il`)|
+  |`MKD` | Macedonian Denar |(`mk`)|
+  |`RUB` | Russian Ruble | (`ru`)|
+  |`THB` | Thai Baht |(`th`) |
+  |`TRY` | Turkish Lira| (`tr`)|
+  |`UAH` | Ukrainian Hryvnia |(`ua`)|
+  |`VND` | Vietnamese Dong| (`vn`) |
 
-  * Tax items support expansion for Germany (`de`), Spain (`es`),Portugal (`pt`), English Canada `en-CA`.
+  * Tax items support expansion for Germany (`de`), Spain (`es`), Portugal (`pt`), English Canada `en-CA`.
 
 * [ID model](concept-id-document.md)
   * [Expanded field support](concept-id-document.md#supported-document-types) for European Union IDs and driver license.
@@ -200,7 +200,7 @@ The v3.1 API introduces new and updated capabilities:
 
 * Once you train a custom extraction model, make use of the test page to improve your model quality by uploading test documents to training dataset if needed.
 
-* If a low confidence score is returned for some labels, make sure they're correctly labeled. If not, add them to the training dataset and relabel to improve the model quality.
+* If a low confidence score is returned for some labels, make sure your labels are correct. If not, add them to the training dataset and relabel to improve the model quality.
 
 :::image type="content" source="media/studio/add-from-test.gif" alt-text="Animated screenshot showing how to add test files to training dataset.":::
 
@@ -1121,7 +1121,7 @@ The v3.1 API introduces new and updated capabilities:
   * **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
   * **Model name** - add a friendly name to your custom models for easier management and tracking.
   * **[New prebuilt model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
-  * **[New locales for prebuilt Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN.
+  * **[New locales for prebuilt Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for en-au, en-ca, en-gb, en-in.
   * **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
 * **v2.0** includes the following update:

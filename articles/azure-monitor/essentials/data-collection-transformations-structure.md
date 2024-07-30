@@ -333,4 +333,4 @@ Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity
 
 ## Next steps
 
-- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Create a data collection rule](../agents/azure-monitor-agent-data-collection.md) and an association to it from a virtual machine using the Azure Monitor agent.

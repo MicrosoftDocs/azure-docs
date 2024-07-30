@@ -15,3 +15,6 @@ As an administrator, you can customize the content of the portal using the visua
 * On the top, switch between viewports (for screens of different sizes), or view the elements of the portal visible to users in different [groups](../articles/api-management/api-management-howto-create-groups.md). For example, you might want to display certain pages only to groups that are associated with particular products, or to users that can access specific APIs.
 
 * Also, save or undo changes you make, or publish the website. 
+
+> [!TIP]
+> For even more flexibility in customizing the portal, you can use an open-source [developer portal plugin for Wordpress](../articles/api-management/developer-portal-wordpress-plugin.md). Take advantage of site capabilities in WordPress to localize content, customize menus, apply custom stylesheets, and more. 

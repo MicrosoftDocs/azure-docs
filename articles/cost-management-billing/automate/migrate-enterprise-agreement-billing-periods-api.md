@@ -13,7 +13,7 @@ ms.reviewer: maminn
 
 # Migrate from the EA Billing Periods API
 
-EA customers that previously used the Billing periods Enterprise Reporting consumption.azure.com API to get their billing periods need to use different mechanisms to get the data they need. This article helps you migrate from the old API by using replacement APIs.
+EA customers that previously used the Billing Periods Enterprise Reporting consumption.azure.com API to get their billing periods need to use different mechanisms to get the data they need. This article helps you migrate from the old API by using replacement APIs.
 
 > [!NOTE]
 > All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
@@ -48,7 +48,7 @@ Call the [List Marketplaces API](/rest/api/consumption/marketplaces/list/#market
 
 ### Price Sheet
 
-Call the new [Price Sheet API](/rest/api/consumption/price-sheet) to get the price sheet for either [the current billing period](/rest/api/consumption/price-sheet/get/) or for [a specific billing period](/rest/api/consumption/price-sheet/get-by-billing-period/).
+Call the new Price Sheet API to [download the price sheet by billing account for the specified billing period](/rest/api/cost-management/price-sheet/download-by-billing-account/).
 
 ## Related content
 

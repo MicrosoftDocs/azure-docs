@@ -103,7 +103,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get a Microsoft Entra access token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
+To get a Microsoft Entra access token in Python, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
 
 Here's an example of using Azure Identity to get a Microsoft Entra access token from an interactive browser:
 ```Python

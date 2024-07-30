@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.date: 06/13/2024
 ms.author: ajkundna
-ms.custom: include file
+ms.custom: include file, devx-track-arm-template
 ---
 
 <details>

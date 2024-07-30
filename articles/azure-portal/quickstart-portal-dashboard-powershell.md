@@ -18,7 +18,7 @@ A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and o
 
 - If you choose to use PowerShell locally, this article requires that you install the Az PowerShell module and connect to your Azure account using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet. For more information about installing the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-azure-powershell).
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Choose a specific Azure subscription
 

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: training
 ms.custom: devx-track-python, update-code
 ms.topic: how-to
-ms.reviewer: ssalgado
-author: ManojBableshwar
-ms.author: swatig
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 12/15/2023
 ---
 

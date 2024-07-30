@@ -11,7 +11,7 @@ ms.date: 01/04/2024
 
 # Create Azure Resource Manager templates to automate Consumption logic app deployment for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To help you automatically create and deploy a Consumption logic app, this article describes the ways that you can create an [Azure Resource Manager template](../azure-resource-manager/management/overview.md). Azure Logic Apps also provides a [prebuilt logic app Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) that you can reuse, not only to create Consumption logic apps, but also to define the resources and parameters for deployment. You can use this template for your own business scenarios or customize the template to meet your requirements. For an overview about the structure and syntax for a template that contains a workflow definition and other resources necessary for deployment, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md).
 

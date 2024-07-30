@@ -22,7 +22,7 @@ In this documentation, you review each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
-[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## How Resource Graph complements Azure Resource Manager
 

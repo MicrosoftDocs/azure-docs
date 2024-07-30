@@ -1,7 +1,7 @@
 ---
 title: Auto-upgrade Node OS Images 
 description: Learn how to choose an upgrade channel that best supports your needs for cluster's node OS security and maintenance. 
-ms.topic: article
+ms.topic: how-to
 ms.custom: build-2023, devx-track-azurecli
 ms.author: kaarthis
 author: kaarthis
@@ -131,7 +131,7 @@ For more information on Planned Maintenance, see [Use Planned Maintenance to sch
 
 ## Node OS auto-upgrades FAQ
 
-* How can I check the current nodeOsUpgradeChannel value on a cluster?
+### How can I check the current nodeOsUpgradeChannel value on a cluster?
 
 Run the `az aks show` command and check the "autoUpgradeProfile" to determine what value the `nodeOsUpgradeChannel` is set to:
 
@@ -139,23 +139,23 @@ Run the `az aks show` command and check the "autoUpgradeProfile" to determine wh
 az aks show --resource-group myResourceGroup --name myAKSCluster --query "autoUpgradeProfile"
 ```
 
-* How can I monitor the status of node OS auto-upgrades?
+### How can I monitor the status of node OS auto-upgrades?
 
 To view the status of your node OS auto upgrades, look up [activity logs][monitor-aks] on your cluster. You can also look up specific upgrade-related events as mentioned in [Upgrade an AKS cluster][aks-upgrade]. AKS also emits upgrade-related Event Grid events. To learn more, see [AKS as an Event Grid source][aks-eventgrid].
 
-* Can I change the node OS auto-upgrade channel value if my cluster auto-upgrade channel is set to `node-image` ?
+### Can I change the node OS auto-upgrade channel value if my cluster auto-upgrade channel is set to `node-image` ?
 
  No. Currently, when you set the [cluster auto-upgrade channel][Autoupgrade] to `node-image`, it also automatically sets the node OS auto-upgrade channel to `NodeImage`. You can't change the node OS auto-upgrade channel value if your cluster auto-upgrade channel is `node-image`. In order to be able to change the node OS auto-upgrade channel values, make sure the [cluster auto-upgrade channel][Autoupgrade] isn't `node-image`.
 
- * Why is `SecurityPatch` recommended over `Unmanaged` channel?
+### Why is `SecurityPatch` recommended over `Unmanaged` channel?
 
 On the `Unmanaged` channel, AKS has no control over how and when the security updates are delivered. With `SecurityPatch`, the security updates are fully tested and follow safe deployment practices. `SecurityPatch` also honors maintenance windows. For more details, see [Increased security and resiliency of Canonical workloads on Azure][Blog].
 
-* Does `SecurityPatch` always lead to a reimage of my nodes?
+### Does `SecurityPatch` always lead to a reimage of my nodes?
 
 AKS limits reimages to only when absolutely necessary, such as certain kernel packages that may require a reimage to get fully applied. `SecurityPatch` is designed to minimize disruptions as much as possible. If AKS decides reimaging nodes isn't necessary, it will patch nodes live without draining pods and no VHD update is performed in such cases.
 
- * How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
+### How do I know if a `SecurityPatch` or `NodeImage` upgrade is applied on my node?
  
  Run the following command to obtain node labels:
  

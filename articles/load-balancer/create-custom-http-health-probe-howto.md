@@ -27,7 +27,7 @@ In this article, you learn to create a custom API for HTTP [health probes](load-
 - Remote access to the virtual machine via SSH or Azure Bastion.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 ## Configure API on virtual machine

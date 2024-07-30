@@ -623,7 +623,7 @@ The default Quarkus sample application includes tests with database connectivity
 Learn more about running Java apps on App Service in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Configure a Java app in Azure App Service](configure-language-java.md?pivots=platform-linux)
+> [Configure a Java app in Azure App Service](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

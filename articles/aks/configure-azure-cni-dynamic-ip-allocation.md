@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: azure-kubernetes-service
 ms.subservice: aks-networking
 ms.topic: article
-ms.date: 04/20/2023
+ms.date: 07/09/2024
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -26,9 +26,6 @@ It offers the following benefits:
 This article shows you how to use Azure CNI networking for dynamic allocation of IPs and enhanced subnet support in AKS.
 
 ## Prerequisites
-
-> [!NOTE]
-> When using dynamic allocation of IPs, exposing an application as a Private Link Service using a Kubernetes Load Balancer Service isn't supported.
 
 * Review the [prerequisites][azure-cni-prereq] for configuring basic Azure CNI networking in AKS, as the same prerequisites apply to this article.
 * Review the [deployment parameters][azure-cni-deployment-parameters] for configuring basic Azure CNI networking in AKS, as the same parameters apply.

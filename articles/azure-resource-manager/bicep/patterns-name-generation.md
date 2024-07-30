@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---
+
 # Name generation pattern
 
 Within your Bicep files, use string interpolation and Bicep functions to create resource names that are unique, deterministic, meaningful, and different for each environment that you deploy to.

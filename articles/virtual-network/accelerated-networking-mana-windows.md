@@ -57,8 +57,8 @@ PS C:\Users\testVM> Get-NetAdapter
 
 Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
 ----                      --------------------                    ------- ------       ----------             ---------
-Ethernet 4                Microsoft Hyper-V Network Adapter #2         10 Up           00-00-AA-AA-00-AA       200 Gbps
-Ethernet 5                Microsoft Azure Network Adapter #3            7 Up           11-11-BB-BB-11-BB       200 Gbps
+Ethernet                  Microsoft Hyper-V Network Adapter            13 Up           00-0D-3A-AA-00-AA       200 Gbps
+Ethernet 3                Microsoft Azure Network Adapter #2            8 Up           00-0D-3A-AA-00-AA       200 Gbps
 ```
 
 #### Device Manager

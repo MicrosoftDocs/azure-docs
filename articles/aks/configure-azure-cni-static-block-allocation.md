@@ -149,7 +149,7 @@ location="myRegion"
 az group create --name $resourceGroup --location $location
 
 # Create our two subnet network 
-az network vnet create -resource-group $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet create --resource-group $resourceGroup --location $location --name $vnet --address-prefixes 10.0.0.0/8 -o none 
 az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
 az network vnet subnet create --resource-group $resourceGroup --vnet-name $vnet --name podsubnet --address-prefixes 10.40.0.0/13 -o none 
 ```
@@ -171,7 +171,6 @@ az aks create \
     --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet \
     --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet \
     --enable-addons monitoring \
-    --kubernetes-version 1.28 \
     --generate-ssh-keys
 ```
 

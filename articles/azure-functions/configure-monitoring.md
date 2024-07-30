@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.service: azure-functions
 ms.topic: how-to
-ms.date: 06/17/2024
+ms.date: 07/11/2024
 ms.custom: devdivchpfy22
 
 # Customer intent: As a developer, I want to understand how to configure monitoring for my functions correctly, so I can collect the data that I need.
@@ -287,10 +287,13 @@ For a function app to send data to Application Insights, it needs to connect to 
 
 | Setting name | Description |
 | ---- | ---- |
-| **[APPLICATIONINSIGHTS_CONNECTION_STRING](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
-| **[APPINSIGHTS_INSTRUMENTATIONKEY](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
+| **[`APPLICATIONINSIGHTS_CONNECTION_STRING`](functions-app-settings.md#applicationinsights_connection_string)** | This setting is recommended and is required when your Application Insights instance runs in a sovereign cloud. The connection string supports other [new capabilities](../azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings.md#new-capabilities).   |
+| **[`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](./functions-app-settings.md#applicationinsights_authentication_string)** | Connects to Application Insights using Microsoft Entra authentication. The value contains the client ID of either a system-assigned or a user-assigned managed identity that is authorized to publish telemetry to your Application Insights workspace. The string has a format of `ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).|
+| **[`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey)** | Legacy setting, which Application Insights has deprecated in favor of the connection string setting. |
 
 When you create your function app in the [Azure portal](./functions-get-started.md) from the command line by using [Azure Functions Core Tools](./create-first-function-cli-csharp.md) or [Visual Studio Code](./create-first-function-vs-code-csharp.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and is created either in the same region or in the nearest region.
+
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ### New function app in the portal
 

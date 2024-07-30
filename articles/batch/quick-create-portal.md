@@ -14,7 +14,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 >[!NOTE]
 >For some regions and subscription types, quota restrictions might cause Batch account or node creation to fail or not complete. In this situation, you can request a quota increase at no charge. For more information, see [Batch service quotas and limits](batch-quota-limit.md).

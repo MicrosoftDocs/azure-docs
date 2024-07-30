@@ -2,7 +2,7 @@
 title: What is Microsoft Defender for Cloud?
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.date: 11/02/2023
+ms.date: 06/24/2024
 ---
 
 # What is Microsoft Defender for Cloud?
@@ -79,6 +79,7 @@ For more information about Defender for Cloud and how it works, check out:
 - An interview about Defender for Cloud with an expert in cybersecurity in [Lessons Learned from the Field](episode-six.md)
 - [Microsoft Defender for Cloud - Use cases](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-use-cases/ba-p/2953619)
 - [Microsoft Defender for Cloud PoC Series - Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-poc-series-microsoft-defender-for/ba-p/3064644)
+- Learn how [Microsoft Defender for Cloud provides data security](data-security.md)
 
 ## Next steps
 

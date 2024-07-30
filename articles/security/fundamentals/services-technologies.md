@@ -9,7 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 01/16/2023
+ms.date: 04/27/2024
 ms.author: terrylan
 
 ---

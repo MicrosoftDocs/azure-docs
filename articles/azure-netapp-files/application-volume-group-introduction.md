@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 06/18/2024
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 

@@ -1,13 +1,17 @@
 ---
-title: .NET feature management - Azure App Configuration
-description: Overview of .NET Feature Management library
+title: .NET feature flag management
+titleSuffix: Azure App Configuration
+description: Learn to implement feature flags in your .NET and ASP.NET Core applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
+ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ms.topic: tutorial
 ms.date: 05/22/2024
 zone_pivot_groups: feature-management
+#Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
 # .NET Feature Management
@@ -284,7 +288,7 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/schemas/FeatureManagement.Dotnet.v1.0.0.schema.json). Starting from v4.0.0, new features including variants and telemetry won't be supported for the .NET feature management schema.
 
 > [!NOTE]
-> If a feature flag written with `Microsoft Feature Management schema` can be found in the configuration, any feature flag written with `.NET feature management schema` will be ignored.
+> If there is a feature flag declaration that can be found in both the `feature_management` and `FeatureManagement` sections, the one from the `feature_management` section will be adopted.
 
 :::zone-end
 
@@ -322,10 +326,10 @@ By default, the feature manager retrieves feature flag configuration from the "F
 
 > [!NOTE]
 > You can also specify that feature flag configuration should be retrieved from a different configuration section by passing the section to `AddFeatureManagement`. The following example tells the feature manager to read from a different section called "MyFeatureFlags" instead:
-
-``` C#
-services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
-```
+>
+> ``` C#
+> services.AddFeatureManagement(configuration.GetSection("MyFeatureFlags"));
+> ```
 
 ### Dependency Injection
 
@@ -957,20 +961,27 @@ An example web application that uses the targeting feature filter is available i
 
 To begin using the `TargetingFilter` in an application, it must be added to the application's service collection just as any other feature filter. Unlike other built-in filters, the `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor`.
 
-The implementation type used for the `ITargetingContextAccessor` service must be implemented by the application that is using the targeting filter. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `HttpContextTargetingContextAccessor`.
+`Microsoft.FeatureManagement.AspNetCore` provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` which will extract targeting info from a request's `HttpContext`. You can use the default targeting context accessor when setting up targeting by using the non-generic `WithTargeting` overload on the `IFeatureManagementBuilder`.
+
+The default targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting` on the `IFeatureManagementBuilder`.
 
 ``` C#
 services.AddFeatureManagement()
-        .WithTargeting<HttpContextTargetingContextAccessor>();
+        .WithTargeting();
 ```
 
-The targeting context accessor and `TargetingFilter` are registered by calling `WithTargeting<T>` on the `IFeatureManagementBuilder`.
+You can also register a customized implementation for `ITargetingContextAccessor` and `TargetingFilter` by calling `WithTargeting<T>`. Here's an example setting up feature management in a web application to use the `TargetingFilter` with an implementation of `ITargetingContextAccessor` called `ExampleTargetingContextAccessor`.
+
+``` C#
+services.AddFeatureManagement()
+        .WithTargeting<ExampleTargetingContextAccessor>();
+```
 
 #### ITargetingContextAccessor
 
-To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, information such as what user is currently being evaluated is needed. This information is known as the targeting context. Different web applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
+To use the `TargetingFilter` in a web application, an implementation of `ITargetingContextAccessor` is required. This is because when a targeting evaluation is being performed, contextual information such as what user is currently being evaluated is needed. This information is known as the [`TargetingContext`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement/Targeting/TargetingContext.cs). Different applications may extract this information from different places. Some common examples of where an application may pull the targeting context are the request's HTTP context or a database.
 
-An example that extracts targeting context information from the application's HTTP context is included in the [FeatureFlagDemo](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/FeatureFlagDemo/HttpContextTargetingContextAccessor.cs) example project. This method relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
+An example that extracts targeting context information from the application's HTTP context is the [`DefaultHttpTargetingContextAccessor`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) provided by the `Microsoft.FeatureManagement.AspNetCore` package. It will extract targeting info from `HttpContext.User`. `UserId` information will be extracted from from the `Identity.Name` field and `Groups` information will be extracted from claims of type [`Role`](/dotnet/api/system.security.claims.claimtypes.role). This implementation relies on the use of `IHttpContextAccessor`, which is discussed [here](#using-httpcontext).
 
 ### Targeting in a Console Application
 
@@ -1226,7 +1237,7 @@ Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) fe
 
 ### Overriding Enabled State with a Variant
 
-You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with a `Status` of `Disabled` can't be overridden.
+You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
 
 If you're using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
 
@@ -1318,7 +1329,7 @@ When a feature flag change is deployed, it's often important to analyze its effe
 * Which variant is a particular user seeing?
 
 
-These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library supports emitting these events through telemetry publishers. One or many telemetry publishers can be registered to publish events whenever feature flags are evaluated.
+These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library uses the [`System.Diagnostics.Activity`](/dotnet/api/system.diagnostics.activity) API to produce tracing telemetry during feature flag evaluation.
 
 ### Enabling Telemetry
 
@@ -1351,39 +1362,68 @@ The `telemetry` section of a feature flag has the following properties:
 | `enabled` | Specifies whether telemetry should be published for the feature flag. |
 | `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
 
-### Custom Telemetry Publishers
+### Custom Telemetry Publishing
 
-Custom handling of feature flag telemetry is made possible by implementing an `ITelemetryPublisher` and registering it in the feature manager. Whenever a feature flag that has telemetry enabled is evaluated, the registered telemetry publisher gets a chance to publish the corresponding evaluation event.
+The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `"FeatureFlag"` to the current activity. The `"FeatureFlag"` event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the following fields:
+
+| Tag | Description |
+| ---------------- | ---------------- |
+| `FeatureName` | The feature flag name. |
+| `Enabled` | Whether the feature flag is evaluated as enabled. |
+| `Variant` | The assigned variant. |
+| `VariantAssignmentReason` | The reason why the variant is assigned. |
+| `TargetingId` | The user id used for targeting. |
+
+> [!NOTE]
+> All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.
+
+To enable custom telemetry publishing, you can create an [`ActivityListener`](/dotnet/api/system.diagnostics.activitylistener) and listen to the `Microsoft.FeatureManagement` activity source. Here is an example showing how to listen to the feature management activity source and add a callback when a feature is evaluated.
 
 ``` C#
-public interface ITelemetryPublisher
+ActivitySource.AddActivityListener(new ActivityListener()
 {
-    ValueTask PublishEvent(EvaluationEvent evaluationEvent, CancellationToken cancellationToken);
-}
+    ShouldListenTo = (activitySource) => activitySource.Name == "Microsoft.FeatureManagement",
+    Sample = (ref ActivityCreationOptions<ActivityContext> options) => ActivitySamplingResult.AllData,
+    ActivityStopped = (activity) =>
+    {
+        ActivityEvent? evaluationEvent = activity.Events.FirstOrDefault((activityEvent) => activityEvent.Name == "FeatureFlag");
+
+        if (evaluationEvent.HasValue && evaluationEvent.Value.Tags.Any())
+        {
+            // Do something.
+        }
+    }
+});
 ```
 
-The `EvaluationEvent` type can be found [here](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement/Telemetry/EvaluationEvent.cs) for reference.
+For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
-Registering telemetry publishers is done when calling `AddFeatureManagement()`. Here's an example setting up feature management to emit telemetry with an implementation of `ITelemetryPublisher` called `MyTelemetryPublisher`.
 
-``` C#
-builder.services
-    .AddFeatureManagement()
-    .AddTelemetryPublisher<MyTelemetryPublisher>();
-```
 
 ### Application Insights Telemetry Publisher
 
-The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher implementation that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To take advantage of this, add a reference to the package and register the Application Insights telemetry publisher as shown below.
+The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To take advantage of this, add a reference to the package and register the Application Insights telemetry publisher as shown below.
 
 ``` C#
 builder.services
     .AddFeatureManagement()
-    .AddTelemetryPublisher<ApplicationInsightsTelemetryPublisher>();
+    .AddApplicationInsightsTelemetryPublisher();
+```
+
+The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a telemetry initializer that automatically tags all events with `TargetingId` so that events may be linked to flag evaluations. To use the telemetry initializer, [`TargetingTelemetryInitializer`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/TargetingTelemetryInitializer.cs), add it into the application's service collection.
+
+``` C#
+builder.Services.AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
 ```
 
 > [!NOTE]
-> The base `Microsoft.FeatureManagement` package doesn't include this telemetry publisher.
+> To ensure that `TargetingTelemetryInitializer` works as expected, the `TargetingHttpContextMiddleware` described below should be used.
+
+To enable persistance of targeting context in the current activity, you can use the [`TargetingHttpContextMiddleware`](https://github.com/microsoft/FeatureManagement-Dotnet/blob/preview/src/Microsoft.FeatureManagement.AspNetCore/TargetingHttpContextMiddleware.cs).
+
+``` C#
+app.UseMiddleware<TargetingHttpContextMiddleware>();
+```
 
 An example of its usage can be found in the [EvaluationDataToApplicationInsights](https://github.com/microsoft/FeatureManagement-Dotnet/tree/preview/examples/EvaluationDataToApplicationInsights) example.
 
@@ -1422,3 +1462,32 @@ To use an implementation of `IFeatureDefinitionProvider`, it must be added into 
 services.AddSingleton<IFeatureDefinitionProvider, InMemoryFeatureDefinitionProvider>()
         .AddFeatureManagement()
 ```
+
+## Next steps
+
+To learn how to use feature flags in your applications, continue to the following quickstarts.
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+
+> [!div class="nextstepaction"]
+> [.NET/.NET Framework console app](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [.NET background service](./quickstart-feature-flag-dotnet-background-service.md)
+
+To learn how to use feature filters, continue to the following tutorials.
+
+> [!div class="nextstepaction"]
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
+
+> [!div class="nextstepaction"]
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)
+
+To learn how to run experiments with variant feature flags, continue to the following tutorial.
+
+> [!div class="nextstepaction"]
+> [Run experiments with variant feature flags](./howto-feature-filters.md)

@@ -151,7 +151,7 @@ To set up your remaining session hosts using the configuration workbook:
 1. Once the agent has installed and the managed identity has been added, refresh the configuration workbook.
 
 >[!NOTE]
->For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md#install) when you create a session host by using an Azure Resource Manager template.
+>For larger host pools (over 1,000 session hosts) or if you encounter deployment issues, we recommend you [install the Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md#installation-options) when you create a session host by using an Azure Resource Manager template.
 
 # [Log Analytics agent](#tab/analytics)
 
