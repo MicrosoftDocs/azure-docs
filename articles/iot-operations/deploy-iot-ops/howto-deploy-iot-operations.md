@@ -217,6 +217,14 @@ az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --des
 
 ## Uninstall Azure IoT Operations
 
+The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.
+
+If you want to delete an entire Azure IoT Operations deployment, use the Azure CLI.
+
+If you want to delete an Azure IoT Operations instance but keep the related resources in the deployment, use the Azure portal.
+
+### [Azure CLI](#tab/cli)
+
 Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online prior to running this command.
 
 The `delete` command removes:
@@ -230,6 +238,20 @@ The `delete` command removes:
 ```azurecli
 az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
 ```
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
+
+1. Select the name of your Azure IoT Operations instance.
+
+1. On the **Overview** page of your instance, select **Delete** your instance.
+
+1. Review the list of resources that are and aren't deleted as part of this operations, then type the name of your instance and select **Delete** to confirm.
+
+   :::image type="content" source="./media/howto-deploy-iot-operations/delete-instance.png" alt-text="A screenshot that shows deleting an Azure IoT Operations instance in the Azure portal.":::
+
+---
 
 ## Update Azure IoT Operations
 
