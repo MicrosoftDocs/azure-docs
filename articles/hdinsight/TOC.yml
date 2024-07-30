@@ -90,8 +90,6 @@ items:
       items:
       - name: Azure Storage overview 
         href: overview-azure-storage.md
-      - name: Azure Data Lake Storage Gen1 overview 
-        href: overview-data-lake-storage-gen1.md
       - name: Azure Data Lake Storage Gen2 overview 
         href: overview-data-lake-storage-gen2.md
   - name: How-to guides
@@ -129,8 +127,6 @@ items:
         href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
       - name: Use Data Lake Storage Gen2 with Azure CLI
         href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
-      - name: Use Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
@@ -483,8 +479,6 @@ items:
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
         items: 
-        - name: Use with Data Lake Storage
-          href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Run Azure ML workloads with AutoML

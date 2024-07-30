@@ -30,6 +30,10 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 
 ## Prerequisites
 
+> [!IMPORTANT]
+> The minimum supported Linux Guest Agent is version 2.4.0.2
+> Older versions do not support Managed RunCommand
+
 ### Linux Distro’s Supported
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|

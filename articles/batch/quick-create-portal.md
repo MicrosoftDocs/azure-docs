@@ -59,6 +59,7 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
    - **Publisher**: Select **microsoftwindowsserver**.
    - **Sku**: Select **2019-datacenter-core-smalldisk**.
 
+1. Under **OS disk storage account type**, select **Standard LRS**.
 1. Scroll down to **Node size**, and for **VM size**, select **Standard_A1_v2**.
 
 1. Under **Scale**, for **Target dedicated nodes**, enter *2*.

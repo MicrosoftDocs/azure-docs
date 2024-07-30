@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/14/2024
+ms.date: 07/29/2024
 ms.custom:
   - references_regions
 ---
@@ -18,6 +18,14 @@ ms.custom:
 
 > [!NOTE]
 > Preview features are announced here, but we also maintain a [preview features list](search-api-preview.md) so you can find them in one place.
+
+## July 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+[Chat with your data](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) | Accelerator| A solution accelerator for the RAG pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to create conversational search experiences. The code with sample data is available for use case scenarios such as financial advisor and contract review and summarization.|
+[Conversational Knowledge Mining](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services) | Accelerator|	A solution accelerator built on top of Azure AI Search, Azure Speech and Azure OpenAI services that allows customers to extract actionable insights from post-contact center conversations. |
+[Build Your Own AI Assistant](https://github.com/microsoft/Build-your-own-AI-Assistant-Solution-Accelerator) | Accelerator| A solution built on Azure Open AI Service, Azure AI Search and Microsoft Fabric, to identify relevant documents, summarize and categorize vast amounts of unstructured information, and accelerate the overall document review and content generation process. |
 
 ## June 2024
 
