@@ -34,8 +34,9 @@ This table shows a mapping of shard key values to logical partitions.
 | "45678"     | "Michael Smith" | Shard 3       |
 | "56789"     | "Jane Doe"      | Shard 2       |
 
-There are no limits to the number of logical shards for a collection. A collection can have as many logical shards as documents with a unique value for the shard key property in each document. There are also no limits to the size of a single logical shard. In addition, the service does not limit transactions to the scope of a logical shard. The vCore based service for Azure Cosmos DB for MongoDB 
-supports read and write transactions that are applicable across multiple logical shards and across multiple physical shards in the cluster.
+- There are no limits to the number of logical shards for a collection. A collection can have as many logical shards as documents with a unique value for the shard key property in each document.
+- There are also no limits to the size of a single logical shard.
+- In addition, the service does not limit transactions to the scope of a logical shard. The vCore based service for Azure Cosmos DB for MongoDB supports read and write transactions that are applicable across multiple logical shards and across multiple physical shards in the cluster.
 
 ## Physical shards
 Physical shards are the underlying machines and disks responsible for persisting the data and fulfilling database transactions. Unlike logical shards, physical shards are entirely managed by the service under the covers.
