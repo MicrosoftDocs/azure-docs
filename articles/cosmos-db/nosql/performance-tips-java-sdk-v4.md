@@ -57,7 +57,7 @@ For more information, see the [Windows](../../virtual-network/create-vm-accelera
 
 For general guidance on configuring high availability in Azure Cosmos DB, see [High availability in Azure Cosmos DB](../../reliability/reliability-cosmos-db-nosql.md). 
 
-In addition to a good foundational setup in the database platform, there are specific techniques that can be implemented in the Java SDK itself which can help in outage scenarios. Two notable strategies are the threshold-based availability strategy and the partition-level circuit breaker.
+In addition to a good foundational setup in the database platform, there are specific techniques that can be implemented in the Java SDK itself, which can help in outage scenarios. Two notable strategies are the threshold-based availability strategy and the partition-level circuit breaker.
 
 These techniques provide advanced mechanisms to address specific latency and availability challenges, going above and beyond the cross-region retry capabilities that are built into the SDK by default. By proactively managing potential issues at the request and partition levels, these strategies can significantly enhance the resilience and performance of your application, particularly under high-load or degraded conditions.
 
@@ -87,15 +87,15 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 
 **How it Works:**
 
-1. **Initial Request:** At time T1, a read request is made to the primary region (e.g., East US). The SDK waits for a response for up to 500 milliseconds (the `threshold` value).
+1. **Initial Request:** At time T1, a read request is made to the primary region (for example, East US). The SDK waits for a response for up to 500 milliseconds (the `threshold` value).
   
-2. **Second Request:** If there's no response from the primary region within 500 milliseconds, a parallel request is sent to the next preferred region (e.g., East US 2).
+2. **Second Request:** If there's no response from the primary region within 500 milliseconds, a parallel request is sent to the next preferred region (for example, East US 2).
   
-3. **Third Request:** If neither the primary nor the secondary region responds within 600 milliseconds (500ms + 100ms, the `thresholdStep` value), the SDK sends another parallel request to the third preferred region (e.g., West US).
+3. **Third Request:** If neither the primary nor the secondary region responds within 600 milliseconds (500ms + 100ms, the `thresholdStep` value), the SDK sends another parallel request to the third preferred region (for example, West US).
 
 4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
 
-This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur additional cost in terms of request units when cross-region requests are required.
+This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur more cost in terms of request units when parallel cross-region requests are required.
 
 > [!NOTE]
 > If the first preferred region returns a non-transient error status code (e.g. document not found, authorization error, conflict, etc), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario.
