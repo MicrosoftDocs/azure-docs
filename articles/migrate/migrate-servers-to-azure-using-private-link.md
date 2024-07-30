@@ -50,7 +50,7 @@ Enable replication as follows:
      - Select **Yes**, and select the VM group and assessment name.  
      - Select **No** if you aren't using assessment settings.
 
-1. In **Virtual machines**, select VMs you want to migrate. Then click **Next**. 
+1. In **Virtual machines**, select VMs you want to migrate. Then select **Next**. 
 
 1. In **Target settings**, select the **target region** in which the Azure VMs will reside after migration.  
 
@@ -87,9 +87,9 @@ Enable replication as follows:
     > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
 
-    - Select **No** if you don't want to apply Azure Hybrid Benefit and click **Next**. 
+    - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
 
-    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and click **Next**. 
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating and select **Next**. 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements). 
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
@@ -101,16 +101,16 @@ Enable replication as follows:
     - **Availability Set**: Specify the Availability Set to use. 
     >[!Note] 
     > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines. 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**. 
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then select **Next**. 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
-1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
+1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers. 
     Next, follow the instructions to [perform migrations](tutorial-migrate-vmware.md#run-a-test-migration). 
 
 #### Provisioning for the first time  
 
-Azure Migrate does not create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts are not created). Azure Migrate will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
+Azure Migrate doesn't create any additional resources for replications using Azure Private Link (Service Bus, Key Vault, and storage accounts aren't created). Azure Migrate will make use of the selected storage account for uploading replication data, state data, and orchestration messages.
 
 ## Create a private endpoint for the storage account  
 
@@ -179,13 +179,13 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 > You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. 
 
 1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization** > **Migration tools**, select **Replicate**. 
-1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then click **Next: Virtual machines**.
+1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Yes, with Hyper-V**. Then select **Next: Virtual machines**.
 1. In **Virtual machines**, select the machines you want to replicate. 
     - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option. 
     - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** option. 
     - If you selected to use the assessment, select the VM group, and assessment name. 
 
-1. In **Virtual machines**, search for VMs as needed, and select each VM you want to migrate. Then click **Next:Target settings**. 
+1. In **Virtual machines**, search for VMs as needed, and select each VM you want to migrate. Then select **Next:Target settings**. 
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.  
 
@@ -211,9 +211,9 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Azure Hybrid Benefit**: 
 
-    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**. 
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, select **Next**. 
 
-    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements). 
 
@@ -223,13 +223,13 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
     - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
-1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then click **Next**. 
+1. In **Disks**, specify the VM disks that need to be replicated to Azure. Then select **Next**. 
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
-1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
+1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers. 
 
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
@@ -339,10 +339,10 @@ Now, select machines for replication and migration.
 1. In **Replicate** > **Basics** > **Are your machines virtualized?**, select **Not virtualized/Other**. 
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up. 
 1. In **Process Server**, select the name of the replication appliance. 
-1. In **Guest credentials**, please select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#download-the-replication-appliance-installer) to install the Mobility service manually (push install is not supported). Then click **Next: Virtual machines.**
+1. In **Guest credentials**, select the dummy account created previously during the [replication installer setup](tutorial-migrate-physical-virtual-machines.md#download-the-replication-appliance-installer) to install the Mobility service manually (push install isn't supported). Then select **Next: Virtual machines.**
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
-1. Select each VM you want to migrate. Then click **Next:Target settings**. 
-1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
+1. Select each VM you want to migrate. Then select **Next:Target settings**. 
+1. In **Target settings**, select the subscription, the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
 1. In **Virtual network**, select the Azure VNet/subnet for the migrated  Azure VMs. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
 
@@ -368,8 +368,8 @@ Now, select machines for replication and migration.
     > [!Note]
     > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
-    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**. 
-    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.    
+    - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.    
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-physical-migration.md#azure-vm-requirements). 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
@@ -379,12 +379,12 @@ Now, select machines for replication and migration.
 
     - **Availability Set**: Specify the Availability Set to use. 
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then click **Next**. 
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**. 
     - You can exclude disks from replication. 
     - If you exclude disks, they won't be present on the Azure VM after migration. 
 1. In **Tags**, add tags to your migrated virtual machines, disks, and NICs.
 
-1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
+1. In **Review and start replication**, review the settings, and select **Replicate** to start the initial replication for the servers. 
 
     > [!Note]
     > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
