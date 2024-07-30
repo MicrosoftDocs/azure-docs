@@ -86,6 +86,36 @@ Each physical shard consists of a set of replicas, also referred to as a replica
   
 - For optimal performance, logical shards should be evenly distributed in storage and request volume across the physical shards of the cluster.
   
+## How to shard a collection
+Consider the following document within the 'cosmicworks' database and 'employee' collection
+
+```json
+{
+    "firstName": "Steve",
+    "lastName": "Smith",
+    "companyName": "Microsoft",
+    "division": "Azure",
+    "subDivision": "Data & AI",
+    "timeInOrgInYears": 7
+}
+```
+
+If the firstName property has been determined to be shard key for the collection, the following command should be used to shard the employee collection after it has been created.
+```javascript
+use cosmicworks;
+sh.shardCollection("cosmicworks.employee", {"firstName": 1})
+```
+
+The service does not index the shard key default. Once the collection has been sharded an index must be explicitly created on the shard key property.
+
+```javascript
+use cosmicworks;
+db.runCommand({
+  createIndexes: "employee",
+  indexes: [{"key":{"firstName":1}, "name":"firstName_1", "enableLargeIndexKeys": true}],
+  blocking: true
+})
+```
 
 ## Next steps
 
