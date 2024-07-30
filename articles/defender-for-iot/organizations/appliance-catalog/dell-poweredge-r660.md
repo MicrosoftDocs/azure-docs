@@ -17,11 +17,11 @@ The Dell PowerEdge R660 is also available for the on-premises management console
 |**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE|
 |**Status** | Supported, available as a preconfigured appliance|
 
-The following image shows a view of the Dell PowerEdge R360 front panel:
+The following image shows a view of the Dell PowerEdge R660 front panel:
 
 :::image type="content" source="media/dell-poweredge-r660/dell-r660-front.png" alt-text="Photograph of the Dell PowerEdge R360 front panel." border="false":::
 
-The following image shows a view of the Dell PowerEdge R360 back panel:
+The following image shows a view of the Dell PowerEdge R660 back panel:
 
 :::image type="content" source="media/dell-poweredge-r660/dell-r660-back.png" alt-text="Photograph of the Dell PowerEdge R360 back panel." border="false":::
 
@@ -38,7 +38,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R360 - Bill of Materials
+## Dell PowerEdge R660 - Bill of Materials
 
 ### Components
 
@@ -89,7 +89,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |1| 605-BBFN | OS media kits | No media required |
 |1| 631-AACK | System documentation | No Systems Documentation, No OpenManage DVD Kit |
 
-### Service 
+### Service
 
 |Quantity|PN| Module| Description|
 |----|---|----|---|
@@ -98,7 +98,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |1| 865-BBLM | Dell Services: Extended Service | ProSupport and Next Business Day Onsite Service Initial, 12 Months |
 |1| 709-BBIX | Dell Services: Hardware Support | Parts Only Warranty 12 Months |
 
-## Install Defender for IoT software on the DELL R360
+## Install Defender for IoT software on the DELL R660
 
 This procedure describes how to install Defender for IoT software on the Dell R660.
 
