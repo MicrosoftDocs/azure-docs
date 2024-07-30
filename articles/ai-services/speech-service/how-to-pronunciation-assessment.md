@@ -1047,7 +1047,7 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
    This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
  
 - Currently, only `en-US` is supported for topics in pronunciation assessment. There is no length limit for the topic parameter.
-
+### Continuous recognition
 ::: zone pivot="programming-language-csharp"
 
 - If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
