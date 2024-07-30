@@ -213,7 +213,7 @@ The current detection also runs a summary query on a separate logic app for each
 
 Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
 
-**Scenario**: You need to build an analytics rule for firewall logs to match domain names in the system that have been visted against a threat intelligence domain name list. 
+**Scenario**: You need to build an analytics rule for firewall logs to match domain names in the system that have been visited against a threat intelligence domain name list. 
 
 Most of the data sources are raw logs that are noisy and have high volume, but have lower security value, including IP addresses, Azure Firewall traffic, Fortigate traffic, and so on. There's a total volume of about 1 TB per day.
 
