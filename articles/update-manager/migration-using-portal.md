@@ -69,7 +69,7 @@ After you review the resources that must be moved, you can proceed with the migr
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png" alt-text="Screenshot that shows how to perform post migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png":::
 
-   When you select **Start** the runbook, asks for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](migration-using-runbook-scripts#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
+   When you select **Start** the runbook, asks for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](migration-using-runbook-scripts.md#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png" alt-text="Screenshot that shows how to deboard from Automation Update Management and starting the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png":::
 
