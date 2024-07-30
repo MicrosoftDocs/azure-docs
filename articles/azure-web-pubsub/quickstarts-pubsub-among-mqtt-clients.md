@@ -68,10 +68,13 @@ A client can have a few ways to obtain the Client Access URL. For this quick sta
 
 <!--TODO Replace with portal token generation tool after it's implemented-->
 
-```bash
+```powershell
 npm install -g jwtgen
-jwtgen -a HS256 -s "{webpubsub_access_key}" -c "aud=wss://{service_name}.webpubsub.azure.com/clients/mqtt/hubs/{hub_name}" -c "role=['webpubsub.sendToGroup','webpubsub.joinLeaveGroup']" -e 3600000
+jwtgen -a HS256 -s "{webpubsub_access_key}" -c "aud=wss://{service_name}.webpubsub.azure.com/clients/mqtt/hubs/{hub_name}"  -c 'role=["webpubsub.sendToGroup","webpubsub.joinLeaveGroup"]'  -e 3600000
 ```
+
+> [!NOTE]
+> If you use other shells, pay attention to the role claims
 
 As shown in the preceding code, the client has the permissions to send messages to and subscribe to any topic.
 

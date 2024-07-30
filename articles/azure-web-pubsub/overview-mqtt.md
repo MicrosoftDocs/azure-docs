@@ -1,7 +1,7 @@
 ---
 title: MQTT support in Azure Web PubSub Service
 description: Get an overview of Azure Web PubSub's support for the MQTT protocols, understand typical use case scenarios to use MQTT in Azure Web PubSub, and learn the key benefits of MQTT in Azure Web PubSub.
-keywords: MQTT, MQTT on Azure Web PubSub
+keywords: MQTT, MQTT on Azure Web PubSub, MQTT over WebSocket
 author: Y-Sindo
 ms.author: zityang
 ms.date: 07/15/2024
@@ -12,13 +12,13 @@ ms.topic: overview
 
 ## Introduction
 
-Azure Web PubSub service now natively supports MQTT over WebSocket.
+[MQTT](https://mqtt.org/) is a lightweight pub/sub messaging protocol designed for devices with constrained resources. Azure Web PubSub service now natively supports MQTT over WebSocket transport.
 
 You can use MQTT protocols in Web PubSub service for the following scenarios:
 
 1. Pub/Sub among MQTT clients and Web PubSub native clients.
 1. Broadcast messages to MQTT clients.
-1. Get notifications for MQTT clients lifetime events.
+1. Get notifications for MQTT client lifetime events.
 
 ## Key Features
 
@@ -28,16 +28,23 @@ Web PubSub service supports MQTT 3.1.1 and 5.0 protocols in a standard way that 
 
 **Communication Between Various Protocols**:
 
-MQTT clients can communicate with clients of other Web PubSub protocols.
+MQTT clients can communicate with clients of other Web PubSub protocols. Find more details [here](./reference-mqtt-cross-protocol-communication.md)
 
 **Easy MQTT adoption for Current Web PubSub Users**:
 
-Current users of Azure Web PubSub can use MQTT protocol  with minimal modifications to their existing upstream servers. The Web PubSub REST API is already equipped to handle MQTT connections, simplifying the transition process.
+Current users of Azure Web PubSub can use MQTT protocol with minimal modifications to their existing upstream servers. The Web PubSub REST API is already equipped to handle MQTT connections, simplifying the transition process.
 
-## Supported MQTT Features
-Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features include but not limited to :
+**Client-to-Server Request/Response Model**:
+
+In addition to the client-to-client pub/sub model provided by the MQTT protocols, Web PubSub also support a client-to-server request/response model. Basically Web PubSub converts a specific kind of MQTT application messages into HTTP requests to registered webhooks, and sends the HTTP responses as application messages back to the MQTT clients.
+
+For more details, see [MQTT custom event handler protocol](./reference-mqtt-cloud-events.md#user-custom_event-event).
+
+## MQTT Feature Support Status
+Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features include but not limited to:
 
 1. All the levels of Quality Of Service including at most once, at least once and exactly once.
+1. Persistent session. MQTT sessions are preserved for up to 30 seconds when client connections are interrupted.
 1. Last Will & Testament
 1. Client Certificate Authentication
 
@@ -49,11 +56,17 @@ Web PubSub support MQTT protocol version 3.1.1 and 5.0. The supported features i
 4. Flow Control
 5. Server-Sent Disconnect
 
+### Not Supported Feature
+1. Wildcard subscription
+1. Retained messages
+1. Topic alias
+1. Shared subscription
+
 ## How MQTT Is Adapted Into Web PubSub's System
 
 This section assumes you have basic knowledge about MQTT protocols and Web PubSub. You can find the definitions of MQTT terms in [MQTT V5.0.0 Spec](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901003). You can also learn basic concepts of Web PubSub in [Basic Concepts](./key-concepts.md).
 
-The following table shows similar or equivalent term mappings between MQTT and Web PubSub. It help you understand how we adapt MQTT concepts into the Web PubSub's system. It's essential if you want to use the [data-plane REST API](./reference-rest-api-data-plane.md) or [client event handlers](./howto-develop-eventhandler.md) to interact with MQTT clients.
+The following table shows similar or equivalent term mappings between MQTT and Web PubSub. It helps you understand how we adapt MQTT concepts into the Web PubSub's system. It's essential if you want to use the [data-plane REST API](./reference-rest-api-data-plane.md) or [client event handlers](./howto-develop-eventhandler.md) to interact with MQTT clients.
 
 [!INCLUDE [MQTT-Term-Mappings](includes/mqtt-term-mappings.md)]
 

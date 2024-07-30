@@ -10,6 +10,8 @@ ms.topic: how-to
 
 # How To Connect MQTT Clients to Web PubSub
 
+MQTT is a lightweight pub/sub messaging protocol designed for devices with limited resources.
+
 In this article, we introduce how to connect MQTT clients to the service, so that the clients can publish and subscribe messages.
 
 ## Connection Parameters

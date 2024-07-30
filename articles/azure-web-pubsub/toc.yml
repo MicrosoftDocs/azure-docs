@@ -166,6 +166,8 @@
           href: reference-mqtt-cloud-events.md
         - name: REST API for MQTT
           href: reference-rest-api-mqtt.md
+        - name: Cross-protocol Communication
+          href: reference-mqtt-cross-protocol-communication.md
 - name: Socket.IO
   expanded: false
   items:
