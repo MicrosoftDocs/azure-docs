@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/network-watcher/network-watcher-connectivity-rest.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-connectivity-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/resource-manager-template-samples.md",
       "redirect_url": "/previous-versions/azure/application-gateway/resource-manager-template-samples",
       "redirect_document_id": false
