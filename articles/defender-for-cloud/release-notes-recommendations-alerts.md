@@ -49,7 +49,7 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| July 31 | Recommendation | Upcoming deprecation | [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyf9f0eed0-f143-47bf-b856-671ea2eeed62) [assessment Key: f9f0eed0-f143-47bf-b856-671ea2eeed62]  |
+| July 31 | Recommendation | Upcoming deprecation | [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machines)  |
 | July 31 | Alert | Upcoming deprecation | [Traffic detected from IP addresses recommended for blocking](alerts-azure-network-layer.md#traffic-detected-from-ip-addresses-recommended-for-blocking) |
 | July 30 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|

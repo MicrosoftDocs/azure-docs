@@ -51,7 +51,7 @@ July 31, 2024
 Defender for Server's adaptive network hardening is being deprecated.
 
 The feature deprecation includes the following experiences:
-- **Recommendation**: [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyf9f0eed0-f143-47bf-b856-671ea2eeed62) [assessment Key: f9f0eed0-f143-47bf-b856-671ea2eeed62]
+- **Recommendation**: [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machines) [assessment Key: f9f0eed0-f143-47bf-b856-671ea2eeed62]
 - **Alert**: [Traffic detected from IP addresses recommended for blocking](alerts-azure-network-layer.md#traffic-detected-from-ip-addresses-recommended-for-blocking)
 
 ### Preview: Security assessments for GitHub no longer requires additional licensing
