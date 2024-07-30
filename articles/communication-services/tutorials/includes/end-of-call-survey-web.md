@@ -1,3 +1,16 @@
+---
+title: Azure Communication Services End of Call Survey
+titleSuffix: An Azure Communication Services tutorial document
+description: Learn how to use the End of Call Survey to collect user feedback.
+author: viniciusl-msft
+ms.author: viniciusl
+manager: gaobob
+services: azure-communication-services
+ms.date: 7/30/2024
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
 
 > [!IMPORTANT]
 > End of Call Survey is available starting on the version [1.13.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.13.1) of the Calling SDK. Make sure to use that version or later when trying the instructions.
@@ -62,7 +75,7 @@ call.feature(Features.CallSurvey).submitSurvey({
 
 ### Failures while submitting survey
 
-The API will return the following error messages if data validation fails or the survey can't be submitted.
+The API returns the following error messages if data validation fails or the survey can't be submitted.
 
 - At least one survey rating is required.
 
@@ -80,7 +93,7 @@ The API will return the following error messages if data validation fails or the
 
 - Please try again [ACS failed to submit survey, due to network or other error].
 
-### We will return any error codes with a message.
+### We'll return any error codes with a message.
 
 - Error code 400 (bad request) for all the error messages except one.
 
@@ -146,10 +159,10 @@ Screenshare. However, each API value can be customized from a minimum of
    > A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
 ## Custom questions
-In addition to using the End of Call Survey API, you can create your own survey questions and incorporate them with the End of Call Survey results. Below you'll find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
+In addition to using the End of Call Survey API, you can create your own survey questions and incorporate them with the End of Call Survey results. Below you find steps to incorporate your own customer questions into a survey and query the results of the End of Call Survey API and your own survey questions.
 -  [Create App Insight resource](../../../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource).
 -  Embed Azure AppInsights into your application [Click here to know more about App Insight initialization using plain JavaScript](../../../azure-monitor/app/javascript-sdk.md). Alternatively, you can use NPM to get the App Insights dependences. [Click here to know more about App Insight initialization using NPM](../../../azure-monitor/app/javascript-sdk-configuration.md).
--  Build a UI in your application that will serve custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
+-  Build a UI in your application that serves custom questions to the user and gather their input, lets assume that your application gathered responses as a string in the `improvementSuggestion` variable
 
 -  Submit survey results to ACS and send user response using App Insights:
     ``` javascript
@@ -173,7 +186,7 @@ User responses that were sent using AppInsights are available under your App Ins
 -  Add new query (+Add -> Add query)
 -  Make sure `Data source` is `Logs` and `Resource type` is `Communication`
 -  You can rename the query (Advanced Settings -> Step name [example: call-survey])
--  Be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal.. Query the call rating data-
+-  Be aware that it could require a maximum of **2 hours** before the survey data becomes visible in the Azure portal. Query the call rating data-
    ```KQL
    ACSCallSurvey
    | where TimeGenerated > now(-24h)
