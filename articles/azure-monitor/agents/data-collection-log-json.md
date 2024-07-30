@@ -138,37 +138,37 @@ Use the following ARM template to create a DCR for collecting text log files, ma
     "contentVersion": "1.0.0.0",
     "parameters": {
         "dataCollectionRuleName": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Unique name for the DCR. "
             }
         },
         "location": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
             }
         },
         "filePatterns": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
             }
         },
         "tableName": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Name of destination table in your Log Analytics workspace. "
             }
         },
         "workspaceResourceId": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Resource ID of the Log Analytics workspace with the target table."
             }
         },
         "dataCollectionEndpointResourceId": {
-            "type": "String",
+            "type": "string",
             "metadata": {
                 "description": "Resource ID of the Data Collection Endpoint to be used with this rule."
             }
