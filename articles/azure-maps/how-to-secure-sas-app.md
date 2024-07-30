@@ -7,8 +7,7 @@ ms.author: eriklind
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: philema
+ms.subservice: authentication
 ms.custom: subject-rbac-steps, kr2b-contr-experiment, devx-track-azurecli
 ---
 

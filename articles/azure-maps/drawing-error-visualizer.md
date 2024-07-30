@@ -7,8 +7,7 @@ ms.author: aterceros
 ms.date: 02/17/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: service-creator
 ---
 
 # Using the Azure Maps Drawing Error Visualizer with Creator

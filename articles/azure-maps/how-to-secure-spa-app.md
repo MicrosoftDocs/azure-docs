@@ -7,7 +7,7 @@ ms.author: eriklind
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ms.custom: subject-rbac-steps
 ---
 

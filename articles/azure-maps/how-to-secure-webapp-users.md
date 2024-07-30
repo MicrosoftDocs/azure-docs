@@ -7,8 +7,7 @@ ms.author: eriklind
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: authentication
 ---
 
 # Secure a web application with user sign-in
