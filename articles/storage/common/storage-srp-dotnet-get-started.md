@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/18/2024
+ms.date: 07/31/2024
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---

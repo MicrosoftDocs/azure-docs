@@ -5,7 +5,7 @@ description: Learn how to manage storage account resources with the Azure Storag
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 07/18/2024
+ms.date: 07/31/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
@@ -101,7 +101,7 @@ The following code example takes a [ResourceGroupResource](/dotnet/api/azure.res
 
 ## Manage storage account keys
 
-You can get storage account keys using the following method:
+You can get storage account access keys using the following method:
 
 - [GetKeysAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.getkeysasync): Returns an iterable collection of [StorageAccountKey](/dotnet/api/azure.resourcemanager.storage.models.storageaccountkey) instances.
 
@@ -109,7 +109,7 @@ The following code example gets the keys for a storage account and writes the na
 
 :::code language="csharp" source="~/storage-mgmt-devguide-dotnet/StorageAccountManagement/ManagementTasks.cs" id="Snippet_GetAccountKeys":::
 
-You can regenerate a storage account key using the following method:
+You can regenerate a storage account access key using the following method:
 
 - [RegenerateKeyAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.regeneratekeyasync): Regenerates a storage account key and returns the new key value.
 
@@ -119,9 +119,10 @@ The following code example regenerates a storage account key:
 
 ## Update the storage account SKU
 
-You can update existing storage account settings by passing updated parameters to the following method:
+You can update existing storage account settings by passing updated parameters to one of the following methods:
 
-- [CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync)
+- [StorageAccountCollection.CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync): Updated parameters passed as a [StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance.
+- [StorageAccountResource.UpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.updateasync): Updated parameters passed as a [StorageAccountPatch](/dotnet/api/azure.resourcemanager.storage.models.storageaccountpatch) instance.
 
 The following code example updates the storage account SKU from `Standard_LRS` to `Standard_GRS`:
 
