@@ -22,10 +22,29 @@ Validation of DNS responses occurs by using digital signatures included with DNS
 
 ## Why sign a zone with DNSSEC?
 
-DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks. DNS hijacking, also known as 
+DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks, also known as DNS redirection. DNS hijacking occurs when a client device is redirected to a malicious server by using incorrect (spoofed) DNS responses. An example of how DNS hijacking works is shown in the following figure.
 
 ![A diagram showing how DNS hijacking works.](media/dnssec/dns-hijacking.png)
 
+**Normal DNS resolution**:
+1. A client device sends a DNS query for **contoso.com** to a DNS server.
+2. The DNS server responds with a DNS resource record for **contoso.com**.
+3. The client device requests a response from **contoso.com**.
+4. The contoso.com app or web server returns a response to the client.
+
+**DNS hijacking**
+1. A client device sends a DNS query for **contoso.com** to a hijacked DNS server.
+2. The DNS server responds with an invalid (spoofed) DNS resource record for **contoso.com**.
+3. The client device requests a response for **contoso.com** from malicious server.
+4. The malicious server returns a spoofed response to the client.
+
+The type of DNS resource record that is spoofed depends on the type of DNS hijacking attack. An MX record might be spoofed to redirect client emails, or a spoofed A record might send clients to a malicious web server.  
+
+DNSSEC works to prevent DNS hijacking by performing validation on DNS responses.
+
+## Chain of trust
+
+In order to validate DNS responses, DNSSEC requires a chain of trust.
 
 ## Next steps
 
