@@ -43,7 +43,19 @@ This table shows a mapping of shard key values to logical partitions.
 ## Physical shards
 Physical shards are the underlying machines and disks responsible for persisting the data and fulfilling database transactions. Unlike logical shards, physical shards are entirely managed by the service under the covers.
 
-The number of physical shards are defined when the cluster is created. The address space of all the logical shards is evenly distributed across the physical shards in the cluster. The mapping of a logical shard to a physical shard is an internal implementation that is abstracted from users. Data for a logical shard will always map to one physical shard and never across multiple physical shards.
+The number of physical shards are defined when a cluster is created. Single shard clusters have one physical shard that is entirely responsible for the cluster's storage and database transactions. Multi shard clusters distribute the data and transaction volume across the physical shards in the cluster. 
+
+The hash range used to map logical and physical shards is evenly distributed across the physical shards in the cluster. Each physical shard owns an evenly sized bucket of the hash range. For every document that is written, he value of the shard key property is hashed and the hash value determines the mapping of the document to the underlying physical shard. Internally, several logical shards map to a single physical shard. Moreover, logical shards are never split across physical shards and all the documents for a logical shard will always map to one physical shard. 
+
+Building on the prior example using a cluster with 2 physical shards, the table below describes a sample mapping of documents to physical shards.
+
+| Document Id | Shard Key Value | Logical Shard | Physical Shard   |
+|-------------|-----------------|-------------- |------------------|
+| "12345"     | "Steve Smith"   | Shard 1       | Physical Shard 1 |
+| "23456"     | "Jane Doe"      | Shard 2       | Physical Shard 2 |
+| "34567"     | "Steve Smith"   | Shard 1       | Physical Shard 1 |
+| "45678"     | "Michael Smith" | Shard 3       | Physical Shard 1 |
+| "56789"     | "Jane Doe"      | Shard 2       | Physical Shard 2 |
 
 ### Mapping logical shards to physical shards
 When new logical shards are added, the cluster's mapping is updated based on the hash value of the new logical shards and the address space distribution of the physical shards. Similarly, the assignment of the address space to each physical shard is changed as new physical shards are added to the cluster after which, logical shards are rebalanced across the cluster.  
