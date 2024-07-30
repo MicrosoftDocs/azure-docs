@@ -45,6 +45,9 @@ Physical shards are the underlying machines and disks responsible for persisting
 
 The number of physical shards are defined when a cluster is created. Single shard clusters have one physical shard that is entirely responsible for the cluster's storage and database transactions. Multi shard clusters distribute the data and transaction volume across the physical shards in the cluster. 
 
+### Mapping logical shards to physical shards
+When new logical shards are added, the cluster's mapping is updated based on the hash value of the new logical shards and the address space distribution of the physical shards. Similarly, the assignment of the address space to each physical shard is changed as new physical shards are added to the cluster after which, logical shards are rebalanced across the cluster.  
+
 The hash range used to map logical and physical shards is evenly distributed across the physical shards in the cluster. Each physical shard owns an evenly sized bucket of the hash range. For every document that is written, he value of the shard key property is hashed and the hash value determines the mapping of the document to the underlying physical shard. Internally, several logical shards map to a single physical shard. Moreover, logical shards are never split across physical shards and all the documents for a logical shard will always map to one physical shard. 
 
 Building on the prior example using a cluster with 2 physical shards, the table below describes a sample mapping of documents to physical shards.
@@ -57,15 +60,18 @@ Building on the prior example using a cluster with 2 physical shards, the table 
 | "45678"     | "Michael Smith" | Shard 3       | Physical Shard 1 |
 | "56789"     | "Jane Doe"      | Shard 2       | Physical Shard 2 |
 
-### Mapping logical shards to physical shards
-When new logical shards are added, the cluster's mapping is updated based on the hash value of the new logical shards and the address space distribution of the physical shards. Similarly, the assignment of the address space to each physical shard is changed as new physical shards are added to the cluster after which, logical shards are rebalanced across the cluster.  
 
-Each physical shard in a multi-shard cluster has the same characteristics. The CPU and memory capacity of each physical shard is determined by the cluster tier that is provisioned. Similarly the storage and IOPS capacity is uniform across each physical shard and is determined by the storage SKU provisioned. Scaling up the cluster tier or the storage SKU does not change the placement of logical shards on the physical shards. After a scale up operation, the number of physical shards remains the same and so does the distribution of the hash range buckets.
+### Capacity of physical shards 
+The CPU and memory capacity of a physical shard is determined by the cluster tier that is selected when the cluster is provisioned. Similarly the storage and IOPS capacity of the shard is determined by the storage SKU. Larger cluster tiers provide more compute power and larger memory while larger storage disks provide more storage and IOPS. Read heavy workloads will benefit from a higher cluster tier while write heavy workloads will benefit from a larger storage SKU. The cluster tier can be scaled up and down after the cluster is created based on the changing needs of the application.
 
-The logical shards that are co-located within the same physical shard are collectively bound by the compute, memory, storage and IOPS capacity of the physical shard. Shard keys that do not have an even distribution of storage and request volumes can cause uneven storage and throughput distribution within the cluster. Hot partitions can cause physical shards to be unevenly utilized leading to unpredictable throughput and performance. Thus sharded clusters require careful planning upfront to ensure performance remains consistent as the requirements of the application grow.
+In a multi-shard cluster, the capacity of each physical shard is the same. Scaling up the cluster tier or the storage SKU does not change the placement of logical shards on the physical shards. After a scale up operation, the number of physical shards remains the same thus avoiding the need to relabance the data in the cluster.
+
+The logical shards that are co-located within the same physical shard are collectively bound by the compute, memory, storage and IOPS capacity of the physical shard they are mapped to. Shard keys that do not have an even distribution of storage and request volumes can cause uneven storage and throughput consumption within the cluster. Hot partitions can cause physical shards to be unevenly utilized leading to unpredictable throughput and performance. Thus sharded clusters require careful planning upfront to ensure performance remains consistent as the requirements of the application change over time.
+
 
 ### Replica sets
 Each physical shard consists of a set of replicas, also referred to as a replica set. Each replica hosts an instance of the database engine. A replica set makes the data store within the physical shard durable, highly available, and consistent. Each replica that makes up the physical shard inherits the partition's storage and compute capacity. Azure Cosmos DB for MongoDB vCore automatically manages replica sets.
+
 
 ## Best practices for sharding data
 - Shard keys are not indexed by default. Indexes should be explicitly created for the shard key property to ensure optimal query performance.
