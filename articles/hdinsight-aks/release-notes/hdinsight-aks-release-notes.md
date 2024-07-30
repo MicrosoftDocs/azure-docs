@@ -40,32 +40,25 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 ### New Features
 
 **MSI based SQL authentication**
-
 Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This feature helps to further secure the cluster connection with Metastore.
 
-**Configurable VM SKUs for Head node, SSH** 
-
+**Configurable VM SKUs for Head node, SSH node** 
 This functionality allows users to choose specific SKUs for head nodes, worker nodes, and SSH nodes, offering the flexibility to select according to the use case and the potential to lower total cost of ownership (TCO).
+
+**Multiple MSI in cluster**
+Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
+For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
 
 ### Updated
 
 **Script action**
-
 Script Action now can be added with Sudo user permission. Users can now install multiple dependencies including custom jars to customize the clusters as required. 
 
 **Library Management**
-
 Maven repository shortcut feature added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
 
-**Multiple MSI in cluster**
-
-Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
-For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
-
 **Spark 3.4**
-
 Spark 3.4 update brings a range of new features includes 
-
 * API enhancements
 * Structured streaming improvements
 * Improved usability and developer experience
