@@ -715,7 +715,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    :::image type="content" source="media/logic-apps-perform-data-operations/configure-join-action.png" alt-text="Screenshot shows Consumption workflow, action named Join, and selected array output to join as a string." lightbox="media/logic-apps-perform-data-operations/configure-join-action.png":::
 
-1. In the **Join with** box, enter the character to use for separating each array item.
+1. In the **Join With** box, enter the character to use for separating each array item.
 
    This example uses a colon (**:**) as the separator for the **Join With** property.
 
@@ -733,7 +733,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
    |-----------|-----------------------|
    | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
-   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Join" action.](./media/logic-apps-perform-data-operations/sample-start-join-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-join-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for the action named Join." lightbox="media/logic-apps-perform-data-operations/sample-start-join-action-standard.png":::
 
 1. [Follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
@@ -743,7 +743,7 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    :::image type="content" source="media/logic-apps-perform-data-operations/configure-join-action.png" alt-text="Screenshot shows Standard workflow, action named Join, and selected array output to join as a string." lightbox="media/logic-apps-perform-data-operations/configure-join-action.png":::
 
-1. In the **Join with** box, enter the character to use for separating each array item.
+1. In the **Join With** box, enter the character to use for separating each array item.
 
    This example uses a colon (**:**) as the separator for the **Join With** property.
 
@@ -761,9 +761,9 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
+1. In this action, for each box where you want the results to appear, select inside each box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
 
-   ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-join-action-complete.png" alt-text="Screenshot shows a workflow with the finished action named Send an email for the Join action." lightbox="media/logic-apps-perform-data-operations/send-email-join-action-complete.png":::
 
 1. Save your workflow, and then manually run your workflow.
 
@@ -799,25 +799,15 @@ For more information about this action in your underlying workflow definition, s
    }
    ```
 
-   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/sample-start-parse-json-action-consumption.png":::
 
-1. In your workflow where you want to parse the JSON object, follow one of these steps:
+1. [Follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action under the last step, select **New step**.
-   
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+1. On the designer, select the **Parse JSON** action, if not already selected. In the **Content** box, enter the JSON object that you want to parse.
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **parse json**.
+   For this example, select inside the **Content** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-1. From the actions list, select the action named **Parse JSON**.
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box, and the "Parse JSON" action selected.](./media/logic-apps-perform-data-operations/select-parse-json-action-consumption.png)
-
-1. In the **Content** box, enter the JSON object that you want to parse.
-
-   For this example, select inside the **Content** box, which opens the dynamic content list. From that list, select the previously created variable:
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-parse-json-action.png" alt-text="Screenshot shows Consumption workflow, action named Parse JSON, and the selected JSON object variable to parse." lightbox="media/logic-apps-perform-data-operations/configure-parse-json-action.png":::
 
 1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*, that you want to parse.
 
@@ -845,7 +835,7 @@ For more information about this action in your underlying workflow definition, s
    }
    ```
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the JSON schema for the JSON object that you want to parse.](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png" alt-text="Screenshot shows Consumption workflow, action named Parse JSON, and JSON schema for the JSON object that you want to parse." lightbox="media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png":::
 
    If you don't have a schema, you can generate the schema from the JSON object:
 
@@ -856,14 +846,14 @@ For more information about this action in your underlying workflow definition, s
       ```json
       {
           "Member": {
-             "Email": "Sophia.Owen@fabrikam.com",
+             "Email": "Sophia.Owens@fabrikam.com",
              "FirstName": "Sophia",
-             "LastName": "Owen"
+             "LastName": "Owens"
           }
       }
       ```
 
-      ![Screenshot showing the designer for a Consumption workflow, the "Parse JSON" action, and the "Enter or paste a sample JSON payload" box with the JSON entered to generate the schema.](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action-consumption.png)
+      :::image type="content" source="media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png" alt-text="Screenshot shows Consumption workflow, action named Parse JSON, and box named Enter or paste a sample JSON payload, which contains JSON sample to generate the schema." lightbox="media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -876,28 +866,22 @@ For more information about this action in your underlying workflow definition, s
    ```json
    {
        "Member": {
-           "Email": "Sophia.Owen@fabrikam.com",
+           "Email": "Sophia.Owens@fabrikam.com",
            "FirstName": "Sophia",
-           "LastName": "Owen"
+           "LastName": "Owens"
        }
    }
    ```
 
-   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/sample-start-parse-json-action-standard.png":::
 
-1. In your workflow where you want to parse the JSON object, follow one of these steps:
+1. [Follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
-   
-   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
-
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
-
-1. After the action information box appears, in the **Content** box, enter the JSON object that you want to parse.
+1. On the designer, select the **Parse JSON** action, if not already selected. In the **Content** box, enter the JSON object that you want to parse.
 
    For this example, select inside the **Content** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-   ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the selected JSON object variable to use in the "Parse JSON" action.](./media/logic-apps-perform-data-operations/configure-parse-json-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-parse-json-action.png" alt-text="Screenshot shows Standard workflow, action named Parse JSON, and the selected JSON object variable to parse." lightbox="media/logic-apps-perform-data-operations/configure-parse-json-action.png":::
 
 1. In the **Schema** box, enter the JSON schema that describes the JSON object, or *payload*. that you want to parse.
 
@@ -925,7 +909,7 @@ For more information about this action in your underlying workflow definition, s
    }
    ```
 
-   ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the JSON schema for the JSON object that you want to parse.](./media/logic-apps-perform-data-operations/provide-schema-parse-json-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png" alt-text="Screenshot shows Standard workflow, action named Parse JSON, and JSON schema for the JSON object that you want to parse." lightbox="media/logic-apps-perform-data-operations/provide-schema-parse-json-action.png":::
 
    If you don't have a schema, you can generate the schema from the JSON object:
 
@@ -936,14 +920,14 @@ For more information about this action in your underlying workflow definition, s
       ```json
       {
           "Member": {
-             "Email": "Sophia.Owen@fabrikam.com",
+             "Email": "Sophia.Owens@fabrikam.com",
              "FirstName": "Sophia",
-             "LastName": "Owen"
+             "LastName": "Owens"
           }
       }
       ```
 
-      ![Screenshot showing the designer for a Standard workflow, the "Parse JSON" action, and the "Enter or paste a sample JSON payload" box with the JSON entered to generate the schema.](./media/logic-apps-perform-data-operations/generate-schema-parse-json-action-standard.png)
+      :::image type="content" source="media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png" alt-text="Screenshot shows Standard workflow, action named Parse JSON, and box named Enter or paste a sample JSON payload, which contains JSON sample to generate the schema." lightbox="media/logic-apps-perform-data-operations/generate-schema-parse-json-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -953,47 +937,28 @@ For more information about this action in your underlying workflow definition, s
 
 To confirm whether the **Parse JSON** action creates the expected results, send yourself a notification that includes output from the **Parse JSON** action.
 
-#### [Consumption](#tab/consumption)
-
 1. In your workflow, add an action that can send you the results from the **Parse JSON** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
-1. In this action, for each edit box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
+1. In this action, for each box where you want the results to appear, select inside each edit box, and then select the lightning icon, which opens the dynamic content list. From that list, under the **Parse JSON** action, select the properties from the parsed JSON object.
 
-   This example selects the following properties: **FirstName**, **LastName**, and **Email**
+   This example selects the following properties: **Body FirstName**, **Body LastName**, and **Body Email**
 
-   ![Screenshot showing a Consumption workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-consumption.png)
-
-   When you're done, the **Send an email** action looks similar to the following example:
-
-   ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2-consumption.png)
-
-1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
-
-#### [Standard](#tab/standard)
-
-1. In your workflow, add an action that can send you the results from the **Parse JSON** action.
-
-   This example continues by using the Office 365 Outlook action named **Send an email**.
-
-1. In this action, for each box where you want the results to appear, select inside each edit box, which opens the dynamic content list. From that list, under the **Parse JSON** action, you can now select the properties from the parsed JSON object.
-
-   This example selects the following properties: **FirstName**, **LastName**, and **Email**
-
-   ![Screenshot showing a Standard workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action.png" alt-text="Screenshot shows Standard workflow with JSON properties in the action named Send an email." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action.png":::
 
    When you're done, the **Send an email** action looks similar to the following example:
 
-   ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-complete-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png" alt-text="Screenshot shows workflow with finished action named Send an email ction for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
+1. Save your workflow, and then manually run your workflow.
 
----
+   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
+   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
 If you used the Office 365 Outlook action, the following example shows the result:
 
-![Screenshot showing an email with the "Parse JSON" action results.](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+:::image type="content" source="media/logic-apps-perform-data-operations/parse-json-email-results.png" alt-text="Screenshot shows email with results from action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/parse-json-email-results.png":::
 
 <a name="select-action"></a>
 
