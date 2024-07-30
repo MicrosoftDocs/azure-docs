@@ -19,8 +19,7 @@ items:
   - name: .NET
     href: quick-create-net.md
   - name: JavaScript
-    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-javascript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy
+    href: quick-create-node.md
   - name: Python
     href: quick-create-python.md
   - name: Go
@@ -28,8 +27,7 @@ items:
   - name: Java
     href: quick-create-java.md
   - name: TypeScript
-    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-typescript
-    displayName: az ad sp create-for-rbac, az keyvault set-policy    
+    href: quick-create-node.md
   - name: Bicep
     displayName: Azure Resource Manager, ARM
     href: quick-create-bicep.md
@@ -138,4 +136,4 @@ items:
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0
