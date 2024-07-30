@@ -39,7 +39,7 @@ Azure Communication Services capabilities for asynchronous messaging share commo
 
 ## Voice, Video, and Telephony
 
-The patterns for integrating AI into the voice and video system are summarized below.
+The patterns for integrating AI into the voice and video system are summarized here.
 
 |  | Accessor | Transformer | Bot ||
 |--|--|--|--|--|
