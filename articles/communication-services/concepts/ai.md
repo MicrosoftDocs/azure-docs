@@ -41,7 +41,7 @@ Azure Communication Services capabilities for asynchronous messaging share commo
 
 The patterns for integrating AI into the voice and video system are summarized here.
 
-|  | Accessor | Transformer | Bot ||
+| Feature | Accessor | Transformer | Bot | Description |
 |--|--|--|--|--|
 | [Call Automation REST APIs and SDKs](https://learn.microsoft.com/azure/communication-services/concepts/call-automation/call-automation) | ✅ | ✅ |  | Call Automation APIs include both accessors and transformers, with REST APIs for playing audio files and recognizing a user’s response. The `recognize` APIs integrate Azure Bot Services to transform users’ audio content into text for easier processing by your service. The most common scenario for these APIs is implementing voice bots, sometimes called interactive voice response (IVR).  |
 | [Microsoft Copilot Studio](https://learn.microsoft.com/en-us/microsoft-copilot-studio/voice-overview) | | ✅ | ✅ | Copilot studio is directly integrated with Azure Communication Services telephony. This integration is designed for voice bots and IVR.  |
