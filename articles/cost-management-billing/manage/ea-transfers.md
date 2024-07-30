@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 07/30/2024
 ms.author: banders
 ---
 
@@ -118,7 +118,7 @@ You might see that an enrollment has the **Transferred** state, even if you didn
 - The new agreement has an invoiced Azure Prepayment order that has a current date or is backdated
 - The new enrollment is created in the Azure portal
 - Auto enrollment transfers are executed on the effective start date of the target enrollment. The start date is usually first day of the month. It takes three to four days to complete the enrollment transfer and for it to appear in the Azure portal.
-- If the subscription or enrollment was deleted within five days of the effective transfer date, the auto transfer stops automatically and fails.
+- If the subscription or account was deleted within five days of the effective transfer date, the auto transfer stops automatically and fails.
 
 If there's no missing usage data in the Azure portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
