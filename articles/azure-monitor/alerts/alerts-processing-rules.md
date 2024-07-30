@@ -4,7 +4,7 @@ description: Understand Azure Monitor alert processing rules and how to configur
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 6/19/2023
+ms.date: 7/30/2024
 ms.reviewer: nolavime
 ---
 
