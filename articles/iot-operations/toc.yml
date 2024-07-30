@@ -71,6 +71,20 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
       - name: Connect to cloud services
         items:
+        - name: What are dataflows?
+          href: connect-to-cloud/overview-dataflow.md
+        - name: Configure dataflow endpoint
+          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+        - name: Create a dataflow
+          href: connect-to-cloud/howto-create-dataflow.md
+        - name: Configure dataflow profile
+          href: connect-to-cloud/howto-configure-dataflow-profile.md
+        - name: Dataflow language design
+          href: connect-to-cloud/concept-dataflow-language.md
+        - name: MQTT to Event Grid tutorial
+          href: connect-to-cloud/tutorial-dataflow-mqtt-event-grid.md
+        - name: Asset to Event Grid tutorial
+          href: connect-to-cloud/tutorial-dataflow-asset-event-grid.md
         - name: Connect to MQTT or Event Grid
           href: connect-to-cloud/howto-configure-mqtt-bridge.md
         - name: Bridge MQTT data between IoT MQ and Azure Event Grid
@@ -79,10 +93,6 @@ items:
           href: connect-to-cloud/howto-configure-data-lake.md
         - name: Send data to Kafka or Azure Event Hubs
           href: connect-to-cloud/howto-configure-kafka.md
-        - name: Send data to Azure Data Explorer from a pipeline
-          href: connect-to-cloud/howto-configure-destination-data-explorer.md
-        - name: Send data to Microsoft Fabric from a pipeline
-          href: connect-to-cloud/howto-configure-destination-fabric.md
     - name: Process data
       items:
       - name: Overview
@@ -97,6 +107,12 @@ items:
           href: process-data/concept-partitioning.md
         - name: Configuration patterns
           href: process-data/concept-configuration-patterns.md
+      - name: Tutorials
+        items:
+        - name: Anomaly detection
+          href: process-data/tutorial-anomaly-detection.md
+        - name: Overall equipment effectiveness
+          href: process-data/tutorial-overall-equipment-effectiveness.md
       - name: Edit and manage pipelines
         href: process-data/howto-edit-pipelines.md
       - name: Read data
@@ -141,6 +157,10 @@ items:
           href: process-data/howto-configure-destination-http.md
         - name: Publish data to an MQTT broker
           href: process-data/howto-configure-destination-mq-broker.md
+        - name: Send data to Azure Data Explorer from a pipeline
+          href: process-data/howto-configure-destination-data-explorer.md
+        - name: Send data to Microsoft Fabric from a pipeline
+          href: process-data/howto-configure-destination-fabric.md
       - name: jq guide
         items:
         - name: What is jq?
@@ -185,8 +205,6 @@ items:
         href: configure-observability-monitoring/howto-add-cluster.md
       - name: Clean up observability resources
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
-      - name: Configure MQ diagnostic service settings
-        href: configure-observability-monitoring/howto-configure-diagnostics.md
     - name: Create edge apps
       items:
       - name: Edge apps overview

@@ -201,7 +201,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Debian 10 and 11|
    | Rocky Linux 8|
 
-# [Windows IoT on Arc enabled IaaS VMs](#tab/winio-arc)
+# [Windows IoT Enterprise on Arc enabled IaaS VMs (preview)](#tab/winio-arc)
 
    - Windows 10 IoT Enterprise LTSC 2021 
    - Windows 10 IoT Enterprise LTSC 2019 
@@ -284,7 +284,7 @@ Update Manager doesn't support driver updates.
 
 #### Extended Security Updates (ESU) for Windows Server
 
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available are default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available are default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
 
 
 #### Microsoft application updates on Windows
@@ -321,7 +321,7 @@ Use one of the following options to perform the settings change at scale:
 
 #### [Windows](#tab/third-party-win)
 
-Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](https://learn.microsoft.com/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](https://learn.microsoft.com/mem/configmgr/sum/tools/install-updates-publisher).
+Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
 #### [Linux](#tab/third-party-lin)
 

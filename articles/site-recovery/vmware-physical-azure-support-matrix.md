@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 07/07/2024
+ms.date: 07/15/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23, linux-related-content
@@ -179,7 +179,7 @@ Debian 9.1 | [9.59]() | No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 9.1 kernels supported in this release|
 |||
 Debian 10 | [9.62]() | No new Debian 10 kernels supported in this release. |
-Debian 10 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Debian 10 kernels support added for Modernized experience**: 5.10.0-0.deb10.29-amd64 <br> 5.10.0-0.deb10.29-cloud-amd64. <br><br> **Debian 10 kernels support added for Classic experience**: 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br>5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
+Debian 10 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Debian 10 kernels support added for Modernized experience**: 5.10.0-0.deb10.29-amd64 <br> 5.10.0-0.deb10.29-cloud-amd64 <br><br> **Debian 10 kernels support added for Classic experience**: 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br>5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
 Debian 10 | [9.60]()| 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br> 5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
 Debian 10 | [9.59]() | No new Debian 10 kernels supported in this release. |
 Debian 10 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 10 kernels supported in this release  |
@@ -223,7 +223,7 @@ SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.56](https://support.mic
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.54-azure:5 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.37-azure <br> 5.14.21-150500.33.48-azure:5 <br> 5.14.21-150500.33.51-azure:5 <br><br> **SUSE 15 Azure kernels support added for Classic experience:** <br> 5.14.21-150500.33.29-azure:5 <br>5.14.21-150500.33.34-azure:5 <br> 5.14.21-150500.33.42-azure  |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.37-azure <br> 5.14.21-150500.33.48-azure:5 <br> 5.14.21-150500.33.51-azure:5 <br><br> **SUSE 15 Azure kernels support added for Classic experience:** <br> 5.14.21-150500.33.29-azure:5 <br>5.14.21-150500.33.34-azure:5 <br> 5.14.21-150500.33.42-azure |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.60]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.14.21-150500.33.29-azure <br>5.14.21-150500.33.34-azure  |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.59]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release. |
 SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release.|

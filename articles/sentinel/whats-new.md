@@ -18,10 +18,38 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+## August 2024
+
+- [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
+
+### New Auxiliary logs retention plan (Preview)
+
+The new **Auxiliary logs** retention plan for Log Analytics tables allows you to ingest large quantities of high-volume logs with supplemental value for security at a much lower cost. Auxiliary logs are available with interactive retention for 30 days, in which you can run simple, single-table queries on them, such as to summarize and aggregate the data. Following that 30-day period, auxiliary log data goes to long-term retention, which you can define for up to 12 years, at ultra-low cost. This plan also allows you to run search jobs on the data in long-term retention, extracting only the records you want to a new table that you can treat like a regular Log Analytics table, with full query capabilities.
+
+To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+
+For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+
 ## July 2024
 
+- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
 - [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
 - [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+
+### SOC optimizations now generally available
+
+The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
+
+- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
+
+- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
+
+The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
 
 ### SAP Business Technology Platform (BTP) connector now generally available (GA)
 

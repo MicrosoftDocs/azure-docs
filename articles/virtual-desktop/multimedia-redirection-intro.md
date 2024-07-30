@@ -66,13 +66,13 @@ The following sites work with video playback redirection:
       - Skillshare
       - The Guardian
       - Twitch
-      - Twitter
       - Udemy\*
       - UMU
       - U.S. News
       - Vidazoo
       - Vimeo
       - The Wall Street Journal
+      - X
       - Yahoo
       - Yammer
       - YouTube (including sites with embedded YouTube videos).

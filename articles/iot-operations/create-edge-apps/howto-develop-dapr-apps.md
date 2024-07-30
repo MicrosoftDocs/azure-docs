@@ -97,7 +97,7 @@ To create the yaml file, use the following definitions:
           serviceAccountName: dapr-client
 
           volumes:
-          # SAT token used to authenticate between Dapr and the MQTT broker
+          # SAT used to authenticate between Dapr and the MQTT broker
           - name: mqtt-client-token
             projected:
               sources:

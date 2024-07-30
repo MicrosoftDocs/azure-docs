@@ -302,7 +302,7 @@ Functions is often the compute component in a serverless workflow topology, such
 
 ::: zone pivot="programming-language-csharp" 
 + Tutorial: [Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
-+ Quickstart: [Create your first durable function in Azure using C#](./durable/durable-functions-create-first-csharp.md)
++ Quickstart: [Create your first durable function in Azure using C#](./durable/durable-functions-isolated-create-first-csharp.md)
 + Training: [Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 

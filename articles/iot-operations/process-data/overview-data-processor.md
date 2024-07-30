@@ -95,8 +95,8 @@ Data processor pipelines can use the following stages:
 | [Destination - Reference](howto-configure-destination-reference-store.md) | Writes your processed data to the built-in reference store. Other pipelines can use the reference store to enrich their messages. |
 | [Destination - gRPC](howto-configure-destination-grpc.md) | Sends your processed, clean, and contextualized data to a gRPC endpoint. |
 | [Destination - HTTP](howto-configure-destination-http.md) | Sends your processed, clean, and contextualized data to an HTTP endpoint. |
-| [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
-| [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
+| [Destination - Fabric Lakehouse](../process-data/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
+| [Destination - Azure Data Explorer](../process-data/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
 
 ## Next step
 

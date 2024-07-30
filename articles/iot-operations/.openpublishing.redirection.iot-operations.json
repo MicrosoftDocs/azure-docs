@@ -12,7 +12,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-diagnostics",
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
             "redirect_document_id": false
         },
         {
@@ -202,8 +202,8 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-configure-diagnostics.md",
-            "redirect_url": "/azure/iot-operations/configure-observability-monitoring/howto-configure-diagnostics",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/howto-configure-availability-scale",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/monitor/howto-clean-up-observability-resources.md",
@@ -227,12 +227,12 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-overall-equipment-effectiveness.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-overall-equipment-effectiveness",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/process-data/tutorial-overall-equipment-effectiveness",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-data/tutorial-anomaly-detection.md",
-            "redirect_url": "/azure/iot-operations/view-analyze-telemetry/tutorial-anomaly-detection",
+            "redirect_url": "/azure/iot-operations/process-data/tutorial-anomaly-detection",
             "redirect_document_id": true
         },
         {
@@ -268,6 +268,16 @@
         {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-blob.md",
             "redirect_url": "/azure/iot-operations/process-data/overview-data-processor",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-fabric.md",
+            "redirect_url": "/azure/iot-operations/process-data/howto-configure-destination-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-destination-data-explorer.md",
+            "redirect_url": "/azure/iot-operations/process-data/howto-configure-destination-data-explorer",
             "redirect_document_id": false
         }
     ]

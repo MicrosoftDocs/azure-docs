@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 07/11/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -133,39 +133,49 @@ Then, run the following command to deploy the broker:
 kubectl apply -f <path-to-yaml-file>
 ```
 
-## Configure MQ broker diagnostic settings
+## Configure MQTT broker advanced settings
 
-Diagnostic settings allow you to enable metrics and tracing for MQ broker.
+The following table lists the properties of the broker advanced settings that include client configurations, encryption of internal traffic, certificate rotation, and node tolerations.
 
-- Metrics provide information about the resource utilization and throughput of MQ broker.
-- Tracing provides detailed information about the requests and responses handled by MQ broker.
+| Name                                | Type                     | Description                                                                 |
+|-------------------------------------|--------------------------|-----------------------------------------------------------------------------|
+| clients                             | ClientConfig             | Configurations related to all clients                                      |
+| clients.maxKeepAliveSeconds         | `integer`                | Upper bound of a client's keep alive, in seconds                           |
+| clients.maxMessageExpirySeconds     | `integer`                | Upper bound of message expiry interval, in seconds                         |
+| clients.maxReceiveMaximum           | `integer`                | Upper bound of receive maximum that a client can request in the CONNECT packet |
+| clients.maxSessionExpirySeconds     | `integer`                | Upper bound of session expiry interval, in seconds                         |
+| clients.subscriberQueueLimit        | `SubscriberQueueLimit`    | The limit on the number of queued messages for a subscriber                |
+| clients.subscriberQueueLimit.length | `integer`                | The maximum length of the queue before messages are dropped       |
+| clients.subscriberQueueLimit.strategy | `SubscriberMessageDropStrategy` | The strategy for dropping messages from the queue              |
+| clients.subscriberQueueLimit.strategy.DropOldest | `string` | The oldest message is dropped                                       |
+| clients.subscriberQueueLimit.strategy.None     | `string` | Messages are never dropped                                          |
+| encryptInternalTraffic              | Encrypt                  | The setting to enable or disable encryption of internal traffic            |
+| encryptInternalTraffic.Disabled     | `string`                 | Disable internal traffic encryption                                       |
+| encryptInternalTraffic.Enabled      | `string`                 | Enable internal traffic encryption                                        |
+| internalCerts                       | CertManagerCertOptions   | Certificate rotation and private key configuration                         |
+| internalCerts.duration              | `string`                 | Lifetime of certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.privateKey            | `CertManagerPrivateKey`  | Configuration of certificate private key                                   |
+| internalCerts.renewBefore           | `string`                 | Duration before renewing a certificate. Must be specified using a *Go* *time.Duration* format (h, m, s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| internalCerts.privateKey.algorithm  | PrivateKeyAlgorithm      | Algorithm for private key                                                  |
+| internalCerts.privateKey.rotationPolicy | PrivateKeyRotationPolicy | Cert-manager private key rotation policy                                |
+| internalCerts.privateKey.algorithm.Ec256   | `string`| Algorithm - EC256  |
+| internalCerts.privateKey.algorithm.Ec384   | `string`| Algorithm - EC384  |
+| internalCerts.privateKey.algorithm.Ec521   | `string`| Algorithm - EC521  |
+| internalCerts.privateKey.algorithm.Ed25519 | `string`| Algorithm - Ed25519|
+| internalCerts.privateKey.algorithm.Rsa2048 | `string`| Algorithm - RSA2048|
+| internalCerts.privateKey.algorithm.Rsa4096 | `string`| Algorithm - RSA4096|
+| internalCerts.privateKey.algorithm.Rsa8192 | `string`| Algorithm - RSA8192|
+| internalCerts.privateKey.rotationPolicy.Always  | `string`| Always rotate key |
+| internalCerts.privateKey.rotationPolicy.Never   | `string`| Never rotate key  |
+| tolerations                         | NodeTolerations          | The details of tolerations that are applied to all *Broker* pods             |
+| tolerations.effect                  | `string`                 | Toleration effect                                                          |
+| tolerations.key                     | `string`                 | Toleration key                                                             |
+| tolerations.operator                | `TolerationOperator`     | Toleration operator. For example, "Exists" or "Equal".                              |
+| tolerations.value                   | `string`                 | Toleration value                                                            |
+| tolerations.operator.Equal          | `string`                 | Equal operator                                                             |
+| tolerations.operator.Exists         | `string`                 | Exists operator                                                             |
 
-To enable these features, first [Configure the MQ diagnostic service settings](../configure-observability-monitoring/howto-configure-diagnostics.md).
-
-To override default diagnostic settings for MQ broker, update the `spec.diagnostics` section in  the Broker CR. You also need to specify the diagnostic service endpoint, which is the address of the service that collects and stores the metrics and traces. The default endpoint is `aio-mq-diagnostics-service :9700`.
-
-You can also adjust the log level of MQ broker to control the amount and detail of information that is logged. The log level can be set for different components of MQ broker. The default log level is `info`.
-
-If you don't specify settings, default values are used. The following table shows the properties of the broker diagnostic settings and all default values.
-
-| Name                                       | Required | Format           | Default| Description                                              |
-| ------------------------------------------ | -------- | ---------------- | -------|----------------------------------------------------------|
-| `diagnosticServiceEndpoint`                | true    | String            | N/A    |An endpoint to send metrics/ traces to                    |
-| `enableMetrics`                            | false   | Boolean           | true   |Enable or disable broker metrics                          |
-| `enableTracing`                            | false   | Boolean           | true   |Enable or disable tracing                                 |
-| `logLevel`                                 | false   | String            |`info`  |Log level. `trace`, `debug`, `info`, `warn`, or `error`   |
-| `enableSelfCheck`                          | false   | Boolean           | true   |Component that periodically probes the health of broker   |
-| `enableSelfTracing`                        | false   | Boolean           | true   |Automatically traces incoming messages at a frequency of 1 every `selfTraceFrequencySeconds`  |
-| `logFormat`                                | false   | String            |`text`  |Log format in `json` or `text`                         |
-| `metricUpdateFrequencySeconds`             | false   | Integer           | 30     |The frequency to send metrics to diagnostics service endpoint, in seconds |
-| `selfCheckFrequencySeconds`                | false   | Integer           | 30     |How often the probe sends test messages|
-| `selfCheckTimeoutSeconds`                  | false   | Integer           | 15     |Timeout interval for probe messages  |
-| `selfTraceFrequencySeconds`                | false   | Integer           | 30     |How often to automatically trace external messages if `enableSelfTracing` is true |  
-| `spanChannelCapacity`                      | false   | Integer           | 1000   |Maximum number of spans that selftest can store before sending to the diagnostics service     |  
-| `probeImage`                               | true    | String            |mcr.microsoft.com/azureiotoperations/diagnostics-probe:0.4.0-preview | Image used for self check |
-
-
-Here's an example of a Broker CR with metrics and tracing enabled and self-check disabled:
+Here's an example of a *Broker* with advanced settings:
 
 ```yml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -174,13 +184,98 @@ metadata:
   name: broker
   namespace: azure-iot-operations
 spec:
+  advanced:
+    clients:
+        maxSessionExpirySeconds: 282277
+        maxMessageExpirySeconds: 1622
+        subscriberQueueLimit:
+          length: 1000
+          strategy: DropOldest
+        maxReceiveMaximum: 15000
+        maxKeepAliveSeconds: 300
+    encryptInternalTraffic: Enabled
+    internalCerts:
+      duration: 240h
+      renewBefore: 45m
+      privateKey:
+        algorithm: Rsa2048
+        rotationPolicy: Always
+    tolerations:
+        effect: string
+        key: string
+        operator: Equal
+        value: string
+```
+
+## Configure MQTT broker diagnostic settings
+
+Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
+
+- Metrics provide information about the resource utilization and throughput of MQTT broker.
+- Tracing provides detailed information about the requests and responses handled by MQTT broker.
+
+To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
+
+You can configure diagnostics using the *Broker* custom resource definition (CRD). The following table shows the properties of the broker diagnostic settings and all default values.
+
+| Name                                 | Format           | Default | Description                                                     |
+| ------------------------------------ | ---------------- | ------- | --------------------------------------------------------------- |
+| logs.exportIntervalSeconds           | integer          | 30      | How often to export the logs to the open telemetry collector    |
+| logs.exportLogLevel                  | string           | error   | The level of logs to export                                     |
+| logs.level                           | string           | info    | The log level. For example, `debug`, `info`, `warn`, `error`, `trace` |
+| logs.openTelemetryCollectorAddress   | string           |         | The open telemetry collector endpoint where to export           |
+| metrics.exportIntervalSeconds        | integer          | 30      | How often to export the metrics to the open telemetry collector |
+| metrics.mode                         | MetricsEnabled   | Enabled | The toggle to enable/disable metrics.                           |
+| metrics.openTelemetryCollectorAddress| string           |         | The open telemetry collector endpoint where to export           |
+| metrics.prometheusPort               | integer          | 9600    | The prometheus port to expose the metrics                       |
+| metrics.stalenessTimeSeconds         | integer          | 600     | The time used to determine if a metric is stale and drop from the metrics cache |
+| metrics.updateIntervalSeconds        | integer          | 30      | How often to refresh the metrics                                |
+| selfcheck.intervalSeconds            | integer          | 30      | The self check interval                                         |
+| selfcheck.mode                       | SelfCheckMode    | Enabled | The toggle to enable/disable self check                         |
+| selfcheck.timeoutSeconds             | integer          | 15      | The timeout for self check                                      |
+| traces.cacheSizeMegabytes            | integer          | 16      | The cache size in megabytes                                     |
+| traces.exportIntervalSeconds         | integer          | 30      | How often to export the metrics to the open telemetry collector |
+| traces.mode                          | TracesMode       | Enabled | The toggle to enable/disable traces                             |
+| traces.openTelemetryCollectorAddress | string           |         | The open telemetry collector endpoint where to export           |
+| traces.selfTracing                   | SelfTracing      |         | The self tracing properties                                     |
+| traces.spanChannelCapacity           | integer          | 1000    | The span channel capacity                                       |
+
+Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
+
+```yaml
+apiVersion: mq.iotoperations.azure.com/v1beta1
+kind: Broker
+metadata:
+  name: broker
+  namespace: azure-iot-operations
+spec:
   mode: auto
   diagnostics:
-    diagnosticServiceEndpoint: diagnosticservices.mq.iotoperations:9700
-    enableMetrics: true  
-    enableTracing: true
-    enableSelfCheck: false
-    logLevel: debug,hyper=off,kube_client=off,tower=off,conhash=off,h2=off
+    logs:
+      exportIntervalSeconds: 220
+      exportLogLevel: nym
+      level: debug
+      openTelemetryCollectorAddress: acfqqatmodusdbzgomgcrtulvjy
+    metrics:
+      stalenessTimeSeconds: 463
+      mode: Enabled
+      exportIntervalSeconds: 246
+      openTelemetryCollectorAddress: vyasdzsemxfckcorfbfx
+      prometheusPort: 60607
+      updateIntervalSeconds: 15
+    selfCheck:
+      mode: Enabled
+      intervalSeconds: 106
+      timeoutSeconds: 70
+    traces:
+      cacheSizeMegabytes: 97
+      mode: Enabled
+      exportIntervalSeconds: 114
+      openTelemetryCollectorAddress: oyujxiemzlqlcsdamytj
+      selfTracing:
+        mode: Enabled
+        intervalSeconds: 179
+      spanChannelCapacity: 47152
 ```
 
 ## Configure encryption of internal traffic
@@ -281,7 +376,7 @@ diskBackedMessageBufferSettings:
 
 ### emptyDir volume
 
-Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir)** emptyDir volume is the next preferred option for your message buffer after persistent volume. 
+Use an [emptyDir volume](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir). An *emptyDir volume* is the next preferred option after persistent volume. 
 
 Only use *emptyDir* volume when using a cluster with filesystem quotas. For more information, see details in the [Filesystem project quota tab](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-emphemeralstorage-consumption). If the feature isn't enabled, the cluster does *periodic scanning* that doesn't enforce any limit and allows the host node to fill disk space and mark the whole host node as unhealthy. 
 
