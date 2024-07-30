@@ -1,8 +1,9 @@
 ---
-title:Customize the actions from the button bar in the UI Library
+title: Customize the actions from the button bar in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
 description: Customize the actions from the button bar in the Azure Communication Services UI Library.
 author: garchiro7
+
 ms.author: jorgegarc
 ms.service: azure-communication-services
 ms.subservice: calling
