@@ -454,11 +454,11 @@ df = spark.read.option("header", "true") \
 
 You can access data in the primary storage account directly. There's no need to provide the secret keys. In Data Explorer, right-click a file and select **New notebook** to see a new notebook with an automatically generated data extractor.
 
-![Screenshot of data-to-cell in an Azure Synapse Analytics notebook.](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
+![Screenshot that shows opening a new Spark table to access file data in Azure Synapse Analytics.](./media/apache-spark-development-using-notebooks/synapse-data-to-cell.png)
 
 ## IPython Widgets
 
-Widgets are eventful Python objects that have a representation in the browser, often as a control like a slider, textbox etc. IPython Widgets only works in Python environment, it's not supported in other languages (for example, Scala, SQL, C#) yet.
+Widgets are eventful Python objects that have a representation in the browser, often as a control like a slider or text box. IPython Widgets only works in Python environment, it's not supported in other languages (for example, Scala, SQL, C#) yet.
 
 ### To use IPython Widget
 
