@@ -54,21 +54,37 @@ ms.author: mattmcinnes
 
 ---
 ### Dasv6 and Dadsv6-series
+#### [Dasv6-series](#tab/dasv6)
 [!INCLUDE [dasv6-series-summary](./includes/dasv6-series-summary.md)]
 
-[View the full Dasv6 and Dadsv6-series page](../../dasv6-dadsv6-series.md).
+[View the full Dasv6-series page](./dasv6-series.md).
 
-[!INCLUDE [dasv6-dadsv6-series-specs](./includes/dasv6-dadsv6-series-specs.md)]
+[!INCLUDE [dasv6-series-specs](./includes/dasv6-series-specs.md)]
 
+#### [Dadsv6-series](#tab/dadsv6)
+[!INCLUDE [dadsv6-series-summary](./includes/dadsv6-series-summary.md)]
 
+[View the full Dadsv6-series page](./dadsv6-series.md).
+
+[!INCLUDE [dadsv6-series-specs](./includes/dadsv6-series-specs.md)]
+
+---
 ### Dalsv6 and Daldsv6-series
-[!INCLUDE [dalsv6-daldsv6-series-summary](./includes/dalsv6-series-summary.md)]
+#### [Dalsv6-series](#tab/dalsv6)
+[!INCLUDE [dalsv6-series-summary](./includes/dalsv6-series-summary.md)]
 
-[View the full Dalsv6 and Daldsv6-series page](../../dalsv6-daldsv6-series.md).
+[View the full Dalsv6-series page](./dalsv6-series.md).
 
-[!INCLUDE [dalsv6-daldsv6-series-specs](./includes/dalsv6-daldsv6-series-specs.md)]
+[!INCLUDE [dalsv6-series-specs](./includes/dalsv6-series-specs.md)]
 
+#### [Daldsv6-series](#tab/daldsv6)
+[!INCLUDE [daldsv6-series-summary](./includes/daldsv6-series-summary.md)]
 
+[View the full Daldsv6-series page](./daldsv6-series.md).
+
+[!INCLUDE [daldsv6-series-specs](./includes/daldsv6-series-specs.md)]
+
+---
 ### Dv5 and Dsv5-series
 #### [Dv5-series](#tab/dv5)
 [!INCLUDE [dv5-series-summary](./includes/dv5-series-summary.md)]
@@ -183,12 +199,19 @@ ms.author: mattmcinnes
 
 ---
 ### Dav4 and Dasv4-series
-[!INCLUDE [dav4-dasv4-series-summary](./includes/dav4-series-summary.md)]
+#### [Dav4-series](#tab/dav4)
+[!INCLUDE [dav4-series-summary](./includes/dav4-series-summary.md)]
 
-[View the full Dav4 and Dasv4-series page](../../dav4-dasv4-series.md).
+[View the full Dav4-series page](./dav4-series.md).
 
-[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-dasv4-series-specs.md)]
+[!INCLUDE [dav4-dasv4-series-specs](./includes/dav4-series-specs.md)]
 
+#### [Dasv4-series](#tab/dasv4)
+[!INCLUDE [dasv4-series-summary](./includes/dasv4-series-summary.md)]
+
+[View the full Dasv4-series page](./dasv4-series.md).
+
+[!INCLUDE [dasv4-series-specs](./includes/dasv4-series-specs.md)]
 
 ### Ddv4 and Ddsv4-series
 #### [Ddv4-series](#tab/ddv4)
