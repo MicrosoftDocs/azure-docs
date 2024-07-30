@@ -54,7 +54,7 @@ To complete the procedures in this article, you need:
 
 - Contributor level permission for the relevant Azure subscription.
 
-- An Entra ID account that has an Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations).
+- To enable CIEM (Cloud Infrastructure Entitlement Management) capabilities as part of the Defender CSPM plan, the Entra ID account used for the onboarding process must have either the Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations). This requirement is only necessary during the onboarding process.
 
 > [!NOTE]
 > The AWS connector is not available on the national government clouds (Azure Government, Microsoft Azure operated by 21Vianet).
