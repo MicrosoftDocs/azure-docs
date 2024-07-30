@@ -2,7 +2,7 @@
 title: Frequently asked questions
 description: "Frequently asked questions to understand and troubleshoot Azure Arc sites and site manager"
 author: torreymicrosoft
-ms.author: torreyt
+ms.author: juniem
 ms.service: azure-arc
 ms.subservice: azure-arc-site-manager
 ms.topic: faq #Don't change
