@@ -69,9 +69,9 @@ The domain hint query string parameter can set to one of the following domains:
 - linkedin.com
 - microsoft.com
 - qq.com
-- twitter.com
 - wechat.com
 - weibo.com 
+- x.com
 - For [Generic OpenID Connect](identity-provider-generic-openid-connect.md), see [Domain hint](identity-provider-generic-openid-connect.md#response-mode).
 
 ::: zone-end
