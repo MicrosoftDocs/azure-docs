@@ -1,14 +1,14 @@
 ---
 title: Contract data extraction – Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
-description: Automate tax document data extraction with Document Intelligence's tax document models.
+description: Automate contract data extraction with Document Intelligence's contract models.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -35,10 +35,9 @@ Automated contract processing is the process of extracting key contract fields f
 
 ## Development options
 
-
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-07-31-preview) and v4.0 (2024-02-29-preview) support the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -105,7 +104,7 @@ The following are the fields extracted from a contract in the JSON output respon
 | Parties | Array |List of legal parties| |
 | ExecutionDate | Date |Date when the agreement was fully signed and agreed upon by all parties|`On this twenty-third day of February two thousand and twenty two` |
 | ExpirationDate | Date |Date when the contract ends| One year |
-| EffectiveDate  | Date |Date when the contract starts to be in effect| immediately |
+| EffectiveDate  | Date |Date when the contract is in effect| immediately |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
 | ContractDuration | String | Contract terms | 5 years |
 | Jurisdictions | Array | List of jurisdictions| |
