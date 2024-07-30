@@ -6,7 +6,7 @@ ms.author: fsiddiqui
 ms.date: 11/08/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: service-weather
 ms.custom: references_regions
 ---
 

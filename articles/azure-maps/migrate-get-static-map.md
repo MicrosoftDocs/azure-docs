@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 06/26/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: service-render
 ---
 
 # Migrate Bing Maps Get a Static Map API

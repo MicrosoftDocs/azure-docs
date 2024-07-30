@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 03/24/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: service-traffic
 ---
 
 

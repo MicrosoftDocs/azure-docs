@@ -6,8 +6,7 @@ ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: service-routing
 ---
 
 # Best practices for Azure Maps Route service

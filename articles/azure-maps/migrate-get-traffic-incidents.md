@@ -3,11 +3,11 @@ title: Migrate Bing Maps Get Traffic Incidents API to Azure Maps Get Traffic Inc
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Get Traffic Incidents API to the Azure Maps Get Traffic Incident Detail API.
 author: FarazGIS
-ms.author: eriklind
+ms.author: fsiddiqui
 ms.date: 04/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: service-traffic
 ---
 
 

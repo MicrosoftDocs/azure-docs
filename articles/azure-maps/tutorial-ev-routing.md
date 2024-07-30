@@ -6,8 +6,7 @@ ms.author: fsiddiqui
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: service-routing
 ms.custom: mvc, devx-track-python
 ---
 
