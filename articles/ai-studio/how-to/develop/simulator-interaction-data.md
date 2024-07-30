@@ -37,7 +37,7 @@ from azure.identity import DefaultAzureCredential
 azure_ai_project = {
     "subscription_id": <sub_ID>,
     "resource_group_name": <resource_group_name>,
-    "workspace_name": <workspace_name>,
+    "project_name": <project_name>,
     "credential": DefaultAzureCredential(),
 }
 ```

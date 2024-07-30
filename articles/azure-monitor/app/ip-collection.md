@@ -2,46 +2,44 @@
 title: Application Insights IP address collection | Microsoft Docs
 description: Understand how Application Insights handles IP addresses and geolocation.
 ms.topic: conceptual
-ms.date: 06/23/2023
-ms.custom:
-ms.reviewer: saars
+ms.date: 07/24/2024
+ms.reviewer: mmcc
 ---
 
 # Geolocation and IP address handling
 
-This article explains how geolocation lookup and IP address handling work in Application Insights, along with how to modify the default behavior.
+This article explains how geolocation lookup and IP address handling work in [Application Insights](app-insights-overview.md#application-insights-overview).
 
 ## Default behavior
 
-By default, IP addresses are temporarily collected but not stored in Application Insights. This process follows some basic steps.
+By default, IP addresses are temporarily collected but not stored.
 
-When telemetry is sent to Azure, Application Insights uses the IP address to do a geolocation lookup. Application Insights uses the results of this lookup to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field.
-
-To remove geolocation data, see the following articles:
-
-* [Remove the client IP initializer](../app/configuration-with-applicationinsights-config.md)
-* [Use a custom initializer](../app/api-filtering-sampling.md)
+When telemetry is sent to Azure, the IP address is used in a geolocation lookup. The result is used to populate the fields `client_City`, `client_StateOrProvince`, and `client_CountryOrRegion`. The address is then discarded, and `0.0.0.0` is written to the `client_IP` field.
 
 The telemetry types are:
 
 * **Browser telemetry**: Application Insights collects the sender's IP address. The ingestion endpoint calculates the IP address.
-* **Server telemetry**: The Application Insights telemetry module temporarily collects the client IP address. The IP address isn't collected locally when the `X-Forwarded-For` header is set. When the incoming IP address list has more than one item, the last IP address is used to populate geolocation fields.
+* **Server telemetry**: The Application Insights telemetry module temporarily collects the client IP address when the `X-Forwarded-For` header isn't set. When the incoming IP address list has more than one item, the last IP address is used to populate geolocation fields.
 
-This behavior is by design to help avoid unnecessary collection of personal data and IP address location information. Whenever possible, we recommend avoiding the collection of personal data.
+This behavior is by design to help avoid unnecessary collection of personal data and IP address location information.
 
-> [!NOTE]
-> Although the default is to not collect IP addresses, you can override this behavior. We recommend verifying that the collection doesn't break any compliance requirements or local regulations.
->
-> To learn more about handling personal data in Application Insights, see [Guidance for personal data](../logs/personal-data-mgmt.md).
-
-When IP addresses aren't collected, city and other geolocation attributes populated by our pipeline by using the IP address also aren't collected. You can mask IP collection at the source. There are two ways to do it. You can:
-
-* Remove the client IP initializer. For more information, see [Configuration with Applications Insights Configuration](configuration-with-applicationinsights-config.md).
-* Provide your own custom initializer. For more information, see an [API filtering example](api-filtering-sampling.md).
+When IP addresses aren't collected, city and other geolocation attributes also aren't collected.
 
 ## Storage of IP address data
 
-To enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`. You can set this property through Azure Resource Manager templates (ARM templates) or by calling the REST API.
+> [!WARNING]
+> The default and our recommendation is to not collect IP addresses. If you override this behavior, verify the collection doesn't break any compliance requirements or local regulations.
+>
+> To learn more about handling personal data, see [Guidance for personal data](../logs/personal-data-mgmt.md).
+
+To enable IP collection and storage, the `DisableIpMasking` property of the Application Insights component must be set to `true`.
+
+Options to set this property include:
+
+- [ARM template](#arm-template)
+- [Portal](#portal)
+- [REST API](#rest-api)
+- [PowerShell](#powershell)
 
 ### ARM template
 
@@ -93,7 +91,7 @@ If you need to modify the behavior for only a single Application Insights resour
 
 1. After the deployment is complete, new telemetry data will be recorded.
 
-    If you select and edit the template again, you'll see only the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell commands:
+    If you select and edit the template again, only the default template without the newly added property. If you aren't seeing IP address data and want to confirm that `"DisableIpMasking": true` is set, run the following PowerShell commands:
     
     ```powershell
     # Replace `Fabrikam-dev` with the appropriate resource and resource group name.
@@ -103,13 +101,13 @@ If you need to modify the behavior for only a single Application Insights resour
     $AppInsights.Properties
     ```
     
-    A list of properties is returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell commands before you deploy the new property with Azure Resource Manager, the property won't exist.
+    A list of properties is returned as a result. One of the properties should read `DisableIpMasking: true`. If you run the PowerShell commands before you deploy the new property with Azure Resource Manager, the property doesn't exist.
 
 ### REST API
 
 The following [REST API](/rest/api/azure/) payload makes the same modifications:
 
-```
+```json
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
 Host: management.azure.com
 Authorization: AUTH_TOKEN
@@ -128,160 +126,15 @@ Content-Length: 54
 
 ### PowerShell
 
-The PoweShell 'Update-AzApplicationInsights' cmdlet can disable IP masking with the `DisableIPMasking` parameter.
+The PowerShell `Update-AzApplicationInsights` cmdlet can disable IP masking with the `DisableIPMasking` parameter.
 
 ```powershell
 Update-AzApplicationInsights -Name "aiName" -ResourceGroupName "rgName" -DisableIPMasking:$true
 ```
 
-For more information on the 'Update-AzApplicationInsights' cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
-
-## Telemetry initializer
-
-If you need a more flexible alternative than `DisableIpMasking`, you can use a [telemetry initializer](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) to copy all or part of the IP address to a custom field. The code for this class is the same across .NET versions.
-
-```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.DataContracts;
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace MyWebApp
-{
-    public class CloneIPAddress : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            ISupportProperties propTelemetry = telemetry as ISupportProperties;
-
-            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
-            {
-                string clientIPValue = telemetry.Context.Location.Ip;
-                propTelemetry.Properties.Add("client-ip", clientIPValue);
-            }
-        }
-    } 
-}
-```
-
-> [!NOTE]
-> If you can't access `ISupportProperties`, make sure you're running the latest stable release of the Application Insights SDK. `ISupportProperties` is intended for high cardinality values. `GlobalProperties` is more appropriate for low cardinality values like region name and environment name.
-
-
-# [.NET 6.0+](#tab/framework)
-
-```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
-
-builder.services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
-```
-
-# [.NET 5.0](#tab/dotnet5)
-
-```csharp
- using Microsoft.ApplicationInsights.Extensibility;
- using CustomInitializer.Telemetry;
-
- public void ConfigureServices(IServiceCollection services)
-{
-    services.AddSingleton<ITelemetryInitializer, CloneIPAddress>();
-}
-```
-
-# [ASP.NET Framework](#tab/dotnet6)
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility;
-
-namespace MyWebApp
-{
-    public class MvcApplication : System.Web.HttpApplication
-    {
-        protected void Application_Start()
-        {
-              //Enable your telemetry initializer:
-              TelemetryConfiguration.Active.TelemetryInitializers.Add(new CloneIPAddress());
-        }
-    }
-}
-
-```
-
----
-
-# [Node.js](#tab/nodejs)
-
-### Node.js
-
-```javascript
-appInsights.defaultClient.addTelemetryProcessor((envelope) => {
-    const baseData = envelope.data.baseData;
-    if (appInsights.Contracts.domainSupportsProperties(baseData)) {
-        const ipAddress = envelope.tags[appInsights.defaultClient.context.keys.locationIp];
-        if (ipAddress) {
-            baseData.properties["client-ip"] = ipAddress;
-        }
-    }
-});
-```
-# [Client-side JavaScript](#tab/javascript)
-
-### Client-side JavaScript
-
-Unlike the server-side SDKs, the client-side JavaScript SDK doesn't calculate an IP address. By default, IP address calculation for client-side telemetry occurs at the ingestion endpoint in Azure.
-
-If you want to calculate the IP address directly on the client side, you need to add your own custom logic and use the result to set the `ai.location.ip` tag. When `ai.location.ip` is set, the ingestion endpoint doesn't perform IP address calculation, and the provided IP address is used for the geolocation lookup. In this scenario, the IP address is still zeroed out by default.
-
-To keep the entire IP address calculated from your custom logic, you could use a telemetry initializer that would copy the IP address data that you provided in `ai.location.ip` to a separate custom field. But again, unlike the server-side SDKs, the client-side SDK won't calculate the address for you if it can't rely on third-party libraries or your own custom logic.
-
-```javascript
-appInsights.addTelemetryInitializer((item) => {
-    const ipAddress = item.tags && item.tags["ai.location.ip"];
-    if (ipAddress) {
-        item.baseData.properties = {
-            ...item.baseData.properties,
-            "client-ip": ipAddress
-        };
-    }
-});
-
-```  
-
-If client-side data traverses a proxy before forwarding to the ingestion endpoint, IP address calculation might show the IP address of the proxy and not the client.
-
----
-
-### View the results of your telemetry initializer
-
-If you send new traffic to your site and wait a few minutes, you can then run a query to confirm that the collection is working:
-
-```kusto
-requests
-| where timestamp > ago(1h) 
-| project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
-```
-
-Newly collected IP addresses will appear in the `customDimensions_client-ip` column. The default `client-ip` column will still have all four octets zeroed out.
-
-If you're testing from localhost, and the value for `customDimensions_client-ip` is `::1`, this value is expected behavior. The `::1` value represents the loopback address in IPv6. It's equivalent to `127.0.0.1` in IPv4.
-
-## Frequently asked questions
-
-This section provides answers to common questions.
-
-### How is city, country/region, and other geolocation data calculated?
-
-We look up the IP address (IPv4 or IPv6) of the web client:
-          
-* Browser telemetry: We collect the sender's IP address.
-* Server telemetry: The Application Insights module collects the client IP address. It's not collected if `X-Forwarded-For` is set.
-* To learn more about how IP address and geolocation data is collected in Application Insights, see [Geolocation and IP address handling](./ip-collection.md).
-          
-You can configure `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it's moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/posts/2016-07-05-client-ip-address/).
-          
-You can [use Power BI](../logs/log-powerbi.md) to display your request telemetry on a map if you've [migrated to a workspace-based resource](./convert-classic-resource.md).          
+For more information on the `Update-AzApplicationInsights` cmdlet, see [Update-AzApplicationInsights](/powershell/module/az.applicationinsights/update-azapplicationinsights)
 
 ## Next steps
 
-* Learn more about [personal data collection](../logs/personal-data-mgmt.md) in Application Insights.
-* Learn more about how [IP address collection](https://apmtips.com/posts/2016-07-05-client-ip-address/) works in Application Insights. This article is an older external blog post written by one of our engineers. It predates the current default behavior where the IP address is recorded as `0.0.0.0`. The article goes into greater depth on the mechanics of the built-in telemetry initializer.
+* Learn more about [personal data collection](../logs/personal-data-mgmt.md) in Azure Monitor.
+* Learn how to [set the user IP](opentelemetry-add-modify.md#set-the-user-ip) using OpenTelemetry.

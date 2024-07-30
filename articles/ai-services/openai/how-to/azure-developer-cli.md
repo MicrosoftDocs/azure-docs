@@ -18,10 +18,6 @@ Use this article to learn how to automate resource deployment for Azure OpenAI S
 ## Prerequisites
 
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-  Azure OpenAI requires registration and is currently available only to approved enterprise customers and partners. For more information, see [Limited access to Azure OpenAI Service](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context). You can apply for access to Azure OpenAI by [completing the form](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have a problem.
-
 - The Azure Developer CLI [installed](/azure/developer/azure-developer-cli/install-azd) on your machine.
 
 ## Clone and initialize the Azure Developer CLI template

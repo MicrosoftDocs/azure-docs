@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 08/31/2023
+ms.date: 07/23/2023
 ms.author: duau
 ms.custom: devx-track-azurepowershell, template-tutorial
 ---
@@ -208,7 +208,7 @@ With Virtual Network Peering and UDR support, FastPath will send traffic directl
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
-These scenarios are Generally Available for limited scenarios with connections associated to 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
+These scenarios are Generally Available for limited scenarios with connections associated to 10 Gbps and 100 Gbps ExpressRoute Direct circuits. To enable, follow the below guidance:
 1. Complete this [Microsoft Form](https://aka.ms/fastpathlimitedga) to request to enroll your subscription. Requests may take up to 4 weeks to complete, so plan deployments accordingly.
 2. Once you receive a confirmation from Step 1, run the following Azure PowerShell command in the target Azure subscription.
  ```azurepowershell-interactive

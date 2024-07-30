@@ -119,10 +119,6 @@ Azure Data Lake Storage Gen2 connector now supports shared access signature auth
 - Anonymous authentication type supported for Azure Blob storage [Learn more](connector-azure-blob-storage.md?tabs=data-factory#anonymous-authentication)
 - Updated SAP template to easily move SAP data to ADLSGen2 in Delta format [Learn more](industry-sap-templates.md)
 
-### Monitoring
-
-Container monitoring view available in default ADF studio [Learn more](how-to-manage-studio-preview-exp.md#container-view)
-
 ### Orchestration
 
 - Set pipeline output value (Public preview) [Learn more](tutorial-pipeline-return-value.md)
@@ -189,10 +185,10 @@ Continued region expansion - Azure Data Factory is now available in China North 
 - Support to Azure Databricks through private link from a Data Factory managed virtual network [Learn more](managed-virtual-network-private-endpoint.md?tabs=data-factory#supported-data-sources-and-services)
 
 ### User Interface
-3 Pipeline designer enhancements added to ADF Studio preview experience
+2 Pipeline designer enhancements added to ADF Studio preview experience
 - Dynamic content flyout - make it easier to set dynamic content in your pipeline activities without using the expression builder  [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#dynamic-content-flyout)
 - Error message relocation to status column - make it easier for you to view errors when you see a Failed pipeline run [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#error-message-relocation-to-status-column)
-- Container view - in Author Tab, Pipeline can change output view from list to container [Learn more](how-to-manage-studio-preview-exp.md?tabs=data-factory#container-view)
+
 
 ### Continuous integration and continuous deployment
 
@@ -568,5 +564,5 @@ Be a part of Azure Data Factory studio preview features - Experience the latest 
 - [What's New in Azure Data Factory - current months](whats-new.md)
 - [Blog - Azure Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+- [X](https://x.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 - [Videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/featured)
