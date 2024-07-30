@@ -45,7 +45,7 @@ The following combinations of primary and secondary namespaces are supported:
 
 The following section is an overview of the failover process, and explains how to set up the initial failover. 
 
-:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="Image showing the overview of failover process.":::
+:::image type="content" source="./media/event-hubs-geo-dr/geo1.png" alt-text="Screenshot showing the overview of failover process.":::
 
 > [!NOTE]
 > The Geo-disaster recovery feature doesn't support an automatic failover.  
