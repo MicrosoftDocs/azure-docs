@@ -130,6 +130,8 @@ After deployment, you can use the Azure CLI and Azure portal to view and manage 
 
 ### List instances
 
+#### [Azure CLI](#tab/cli)
+
 Use the `az iot ops list` command to see all of the Azure IoT Operations instances in your subscription or resource group.
 
 The basic command returns all instances in your subscription.
@@ -144,22 +146,58 @@ Add the `--resource-group` parameter to filter the results.
 az iot ops list --resource-group <RESOURCE_GROUP>
 ```
 
-### View instance components
+#### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure IoT Operations**.
+1. Use the filters to view Azure IoT Operations instances based on subscription, resource group, and more.
+
+---
+
+### View instance
+
+#### [Azure CLI](#tab/cli)
+
+You can view the resources in your Azure IoT Operations deployment in the Azure CLI. Use the `az iot ops show` command to show a tree view of the deployment, which includes the Azure IoT Operations instance.
+
+```azurecli
+az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --tree
+```
+
+The tree view of a deployment looks like the following example:
+
+```bash
+MyCluster
+├── extensions
+│   ├── akvsecretsprovider
+│   ├── azure-iot-operations-ltwgs
+│   └── azure-iot-operations-platform-ltwgs
+└── customLocations
+    └── MyCluster-cl
+        ├── resourceSyncRules
+        └── resources
+            ├── MyCluster-ops-init-instance
+            └── MyCluster-observability
+```
+
+You can run `az iot ops check` on your cluster to assess health and configurations of individul Azure IoT Operations components. By default, the command checks MQ but you can [specifiy the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service` parameter.
+
+#### [Azure portal](#tab/portal)
 
 You can view your Azure IoT Operations instance in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
-1. From the **Overview** page of the resource group, select the name of your Azure IoT Operations instance.
+1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster..
+1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
 
-   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-components.png" alt-text="Screenshot that shows the deployed components on your Arc-enabled cluster.":::
+   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster.":::
 
-> [!TIP]
-> You can run `az iot ops check` on your cluster to assess health and configurations of individul Azure IoT Operations components. By default, the command checks MQ but you can [specifiy the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service` parameter.
+---
 
 ### Update instance tags and description
+
+#### [Azure CLI](#tab/cli)
 
 Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance.
 
@@ -167,13 +205,15 @@ Use the `az iot ops update` command to edit the tags and description parameters 
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE>
 ```
 
-### View deployment resources
+#### [Azure portal](#tab/portal)
 
-You can view the resources in your Azure IoT Operations deployment in the Azure CLI. Use the `az iot ops show` command to show a tree view of the deployment.
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
-```azurecli
-az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --tree
-```
+1. Select the name of your Azure IoT Operations instance.
+
+1. On the **Overview** page of your instance, select **Add tags** or **edit** to modify tags on your instance.
+
+---
 
 ## Uninstall Azure IoT Operations
 
