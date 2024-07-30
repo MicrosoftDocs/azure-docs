@@ -1,6 +1,11 @@
 {
     "redirections": [
     {
+      "source_path": "articles/network-watcher/connection-monitor-create-using-template.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/connection-monitor-create-using-template",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/resource-manager-template-samples.md",
       "redirect_url": "/previous-versions/azure/application-gateway/resource-manager-template-samples",
       "redirect_document_id": false
