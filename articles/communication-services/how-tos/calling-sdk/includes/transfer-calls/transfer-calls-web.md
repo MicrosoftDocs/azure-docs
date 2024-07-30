@@ -101,7 +101,7 @@ transfer.on('stateChanged', () => {
 
 1. There's already a connected call between the *transferor* and the *transferee*. 
 2. The Teams User Identifier of the *target participant voicemail* is known.
-3. The *transferor* decides to transfer the call with the *transferee* to the *target patricipant voicemail* with their Teams User Identifier.
+3. The *transferor* decides to transfer the call with the *transferee* to the *target participant voicemail* with their Teams User Identifier.
 4. The *transferor* calls the `transfer` API.
 6. The *transferee* receives the transfer request.
 
