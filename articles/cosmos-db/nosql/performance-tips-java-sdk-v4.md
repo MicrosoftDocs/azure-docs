@@ -78,6 +78,11 @@ CosmosItemRequestOptions options = new CosmosItemRequestOptions();
 options.setCosmosEndToEndOperationLatencyPolicyConfig(config);
 
 container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
+
+//Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
+//and the account is configured for multi-region writes.
+options.setNonIdempotentWriteRetryPolicy(true,true);
+container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 ```
 
 **How it Works:**
@@ -91,6 +96,9 @@ container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block(
 4. **Fastest Response Wins:** Whichever region responds first, that response is accepted, and the other parallel requests are ignored.
 
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur additional cost in terms of request units when cross-region requests are required.
+
+> [!NOTE]
+> If the first preferred region returns a non-transient error status code (e.g. document not found, authorization error, conflict, etc), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario. As such, combining this strategy with [Partition Level Circuit Breaker](#partition-level-circuit-breaker) below can provide a maximal approach to enhances tail latency and write availability.
 
 ### Partition Level Circuit Breaker
 
@@ -131,12 +139,15 @@ System.setProperty("COSMOS.ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS"
 
 This mechanism helps to continuously monitor partition health and ensures that requests are served with minimal latency and maximum availability, without being bogged down by problematic partitions.
 
+>[!NOTE]
+> Circuit breaker only applies to multi-region write accounts, as when a partition is marked as `Unavailable`, both reads and writes are moved to the next preferred region. This is to prevent reads and writes from different regions being served from the same client instance, as this would be an anti-pattern.
+
 ### Comparing availability optimizations
 
 - **Threshold-based Availability Strategy**: 
   - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
   - **Cost**: Incurs extra RU (Request Units) costs due to additional cross-region requests.
-  - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost is acceptable.
+  - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost (both in terms of RU charge and client CPU pressure) is acceptable. Write operations can also benefit, if opted into non-idempotent write retry policy and the account has multi-region writes.
 
 - **Partition Level Circuit Breaker**: 
   - **Benefit**: Improves write availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
