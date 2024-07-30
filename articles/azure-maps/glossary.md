@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Glossary

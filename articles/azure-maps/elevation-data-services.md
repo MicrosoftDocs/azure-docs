@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Create elevation data & services

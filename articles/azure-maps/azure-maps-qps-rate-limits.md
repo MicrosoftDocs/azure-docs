@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 10/15/2021
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mode-other
 ---
 
