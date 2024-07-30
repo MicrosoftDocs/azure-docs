@@ -1,3 +1,16 @@
+---
+title: Azure Communication Services End of Call Survey
+titleSuffix: An Azure Communication Services tutorial document
+description: Learn how to use the End of Call Survey to collect user feedback.
+author: viniciusl-msft
+ms.author: viniciusl
+manager: gaobob
+services: azure-communication-services
+ms.date: 7/30/2024
+ms.topic: tutorial
+ms.service: azure-communication-services
+ms.subservice: calling
+---
 
 > [!IMPORTANT]
 > End of Call Survey is available starting on the version [2.10.0](https://github.com/Azure/Communication/releases/tag/v2.12.0) of the iOS Calling SDK. Make sure to use that version or later when trying the instructions.
@@ -93,7 +106,7 @@ do {
 
 ### Failures while submitting survey:
 
-The submitSurvey API can return a error in the following scenarios:
+The submitSurvey API can return an error in the following scenarios:
 
 - At least overall survey rating is required.
 
@@ -124,7 +137,7 @@ The submitSurvey API can return a error in the following scenarios:
 | `Echo` | Echo being perceived in the call| 
 | `AudioNoise` | Audio received with unintended noise| 
 | `LowVolume`  | Audio too low | 
-| `AudioStoppedUnexpectedly` | Audio stopped with no clear reason ( e.g. no one is muted)| 
+| `AudioStoppedUnexpectedly` | Audio stopped with no clear reason (e.g. no one is muted)| 
 | `DistortedSpeech` | A participant's voice is distorted, different from their expected voice | 
 | `AudioInterruption`  | Customer experiences audio interruptions, voice cuts, etc.| 
 | `OtherIssues`   | Issue that is not described by the previous values | 
