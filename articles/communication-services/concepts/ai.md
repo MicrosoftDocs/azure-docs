@@ -34,7 +34,7 @@ Azure Communication Services capabilities for asynchronous messaging share commo
 |--|--|--|--|--|
 | REST APIs and SDKs| ✅ | |  | The messaging services center around REST APIs and server-oriented SDKs. You can use these SDKs to export content to an external datastore and attach a language model to summarize conversations. Or you can use the SDKs to integrate a bot that directly engages with human users.  |
 | WhatsApp Message Analysis  | | ✅ |  | The Azure Communication Service messaging APIs for WhatsApp provide a built-in integration with Azure OpenAI that analyses and annotates messages. This integration can detect the user’s language, recognize their intent, and extract key phrases. |
-| [Azure Bot – Chat Channel Integration](https://learn.microsoft.com/azure/communication-services/quickstarts/chat/quickstart-botframework-integration) | | | ✅  | The Azure Communication Service chat system is directly integrated with Azure Bot services. This integration simplifies creating chat bots that engage with human users.|
+| [Azure Bot – Chat Channel Integration](../quickstarts/chat/quickstart-botframework-integration.md) | | | ✅  | The Azure Communication Service chat system is directly integrated with Azure Bot services. This integration simplifies creating chat bots that engage with human users.|
 
 ## Voice, Video, and Telephony
 
