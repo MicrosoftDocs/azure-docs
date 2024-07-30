@@ -162,7 +162,7 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 | Cost description | Service name | Meter |
 |--|--|--|
 | Microsoft Sentinel Free Trial – Sentinel Analysis| `Sentinel` |**Free trial Analysis**|
-| Microsoft Defender XDR Benefit – Data Ingestion and Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
+| Microsoft Defender XDR Benefit – Data Analysis| `Sentinel` |**Free Benefit - M365 Defender Analysis**|
 
 
 # [Free data meters](#tab/free-data-meters/classic)
