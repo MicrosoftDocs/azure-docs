@@ -9,7 +9,6 @@ ms.author: chpalm
 ms.date: 07/10/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: ai
 ---
 
 # Artificial intelligence (AI) overview
