@@ -1,6 +1,7 @@
 ---
  author: normesta
  ms.service: storage
+ms.custom: devx-track-azurepowershell
  ms.topic: include
  ms.date: 05/02/2024
  ms.author: normesta

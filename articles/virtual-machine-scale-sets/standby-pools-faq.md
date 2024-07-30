@@ -5,7 +5,7 @@ author: mimckitt
 ms.author: mimckitt
 ms.service: virtual-machine-scale-sets
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/14/2024
 ms.reviewer: ju-shim
 ---
 
@@ -17,16 +17,22 @@ ms.reviewer: ju-shim
 Get answers to frequently asked questions about standby pools for Virtual Machine Scale Sets in Azure.
 
 ### What are standby pools for Virtual Machine Scale Sets? 
-Azure standby pools is a feature for Virtual Machine Scale Sets with Flexible Orchestration that enables faster scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your workload. 
+Azure standby pools for Virtual Machine Scale Sets with Flexible Orchestration enables faster scaling out of resources by creating a pool of pre-provisioned virtual machines ready to service your workload. 
 
 ### When should I use standby pools for Virtual Machine Scale Sets? 
 Using a standby pool with your Virtual Machine Scale Set can help improve scale-out performance by completing various pre and post provisioning steps in the pool before the instances are placed into the scale set. 
 
 ### What are the benefits of using Azure standby pools for Virtual Machine Scale Sets? 
-Standby pools is a powerful feature for accelerating your time to scale-out and reducing the management needed for provisioning virtual machine resources and getting them ready to service your workload. If your applications are latency sensitive or have long initialization steps, standby pools can help with reducing that time and managing the steps to make your virtual machines ready on your behalf. 
+Standby pools is a powerful feature for accelerating your time to scale out and reducing the management needed for provisioning virtual machine resources and getting them ready to service your workload. If your applications are latency sensitive or have long initialization steps, standby pools can help with reducing that time and managing the steps to make your virtual machines ready on your behalf. 
 
 ### Can I use standby pools on Virtual Machine Scale Sets with Uniform Orchestration?
-Standby pools is only supported on Virtual Machine Scale Sets with Flexible Orchestration.
+Standby pools are only supported on Virtual Machine Scale Sets with Flexible Orchestration.
+
+### Does using a standby pool guarantee capacity? 
+Using a standby pool with deallocated instances doesn't guarantee capacity. When starting the deallocated virtual machine, there needs to be enough capacity in the region your instances are deployed in to start the machines. If using running virtual machines in your pool, those virtual machines are already allocated and consuming compute capacity. When the virtual machine moves from the standby pool to the Virtual Machine Scale Set, it doesn't release the compute resources and doesn't require any additional allocation of resources. 
+
+### How long can my standby pool name be? 
+A standby pool can be anywhere between 3 and 24 characters. For more information, see [Resource naming restrictions for Azure resources](..//azure-resource-manager/management/resource-name-rules.md)
 
 ### Can I use standby pools for Virtual Machine Scale Sets if I'm already using Azure autoscale? 
 Attaching a standby pool to a Virtual Machine Scale Set with Azure autoscale enabled isn't supported.  

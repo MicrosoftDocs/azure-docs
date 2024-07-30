@@ -7,7 +7,7 @@ ms.author: robinroy
 ms.service: hdinsight
 ms.custom: troubleshooting
 ms.topic: conceptual
-ms.date: 05/05/2023
+ms.date: 06/15/2024
 ---
 # Use the Apache HBase HBCK2 tool
 

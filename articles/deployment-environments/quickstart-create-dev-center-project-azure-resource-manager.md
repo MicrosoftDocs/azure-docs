@@ -6,9 +6,8 @@ ms.service: deployment-environments
 author: thophan-microsoft
 ms.author: thophan
 ms.topic: quickstart-arm
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-arm-template
 ms.date: 03/21/2024
-
 # Customer intent: As an enterprise admin, I want a quick method to create and configure a Dev Center and Project resource to evaluate Deployment Environments.
 ---
 

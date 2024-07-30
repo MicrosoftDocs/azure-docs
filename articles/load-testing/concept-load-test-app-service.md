@@ -59,7 +59,8 @@ Get started [create a load test by uploading a JMeter script](./how-to-create-an
 
 If you previously created a [URL-based test](#create-a-url-based-load-test), Azure Load Testing generates a JMeter test script. You can download this generated test script, modify or extend it, and then reupload the script.
 
-<a name="monitor"/>
+<a name="monitor"></a>
+
 ## Monitor your apps for bottlenecks and provisioning issues 
 
 During a load test, Azure Load Testing collects [metrics](./concept-load-testing-concepts.md#metrics) about the test run:

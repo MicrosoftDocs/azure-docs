@@ -486,8 +486,6 @@ If you can't enable automatic updates, see the following common errors and recom
 
   **Recommended action**: To resolve this issue, select **Repair** and then **Renew Certificate**.
 
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renew-cert":::
-
   > [!NOTE]
   > After you renew the certificate, refresh the page to display the current status.
 

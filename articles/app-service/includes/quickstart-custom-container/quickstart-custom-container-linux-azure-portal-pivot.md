@@ -113,7 +113,7 @@ Browse to the deployed application in your web browser at the URL `http://<app-n
 
 ## 5 - Clean up resources
 
-[!INCLUDE [Clean-up Portal web app resources](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal-no-h.md)]
+[!INCLUDE [Clean-up Portal web app resources](../../../../includes/clean-up-section-portal-no-h.md)]
 
 ## Next steps
 

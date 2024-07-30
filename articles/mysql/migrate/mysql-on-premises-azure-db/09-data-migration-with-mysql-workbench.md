@@ -8,8 +8,7 @@ ms.date: 05/21/2024
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-ms.custom:
-  - devx-track-extended-java
+ms.custom: devx-track-extended-java, devx-track-azurepowershell
 ---
 
 # Migrate MySQL on-premises to Azure Database for MySQL: Data Migration with MySQL Workbench

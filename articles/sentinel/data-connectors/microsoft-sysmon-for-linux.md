@@ -5,6 +5,7 @@ author: cwatson-cat
 ms.topic: how-to
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
+ms.custom: linux-related-content
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---

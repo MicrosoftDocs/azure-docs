@@ -112,6 +112,8 @@ az rest --method get --url "https://management.azure.com/{experimentId}?api-vers
 az rest --method put --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --body @{experimentName.json} 
 ```
 
+Note: if you receive an `UnsupportedMediaType` error, make sure your referenced JSON file is valid, and try other ways to reference the `.json` file. Different command-line interpreters may require different methods of file referencing. Another common syntax is `--body "@experimentName.json"`.
+
 ### Delete an experiment
 
 ```azurecli

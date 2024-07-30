@@ -10,7 +10,7 @@ ms.date: 05/07/2024
 
 # Call Azure Functions from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To run code that performs a specific job in your logic app workflow, you don't have to build a complete app or infrastructure. Instead, you can create and call an Azure function. [Azure Functions](../azure-functions/functions-overview.md) provides serverless computing in the cloud and the capability to perform the following tasks:
 

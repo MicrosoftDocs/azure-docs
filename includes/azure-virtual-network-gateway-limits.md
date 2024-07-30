@@ -23,10 +23,10 @@
 
 #### Limits by gateway SKU
 
-[!INCLUDE [Limits by gateway SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [Limits by gateway SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 For more information about gateway SKUs and limits, see [About gateway SKUs](../articles/vpn-gateway/about-gateway-skus.md#benchmark).
 
 #### Gateway performance limits
 
-[!INCLUDE [Performance by gateway SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-sku-performance.md)]
+[!INCLUDE [Performance by gateway SKU](./vpn-gateway-table-sku-performance.md)]

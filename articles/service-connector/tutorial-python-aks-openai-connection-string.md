@@ -6,7 +6,8 @@ description: Learn how to connect Azure Kubernetes Service (AKS) to Azure OpenAI
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python, build-2024
+ms.custom: devx-track-python, build-2024, devx-track-azurecli
+ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
 ms.date: 05/07/2024
 ---

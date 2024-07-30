@@ -5,7 +5,7 @@ author: PatAltimore
 
 ms.author: patricka
 ms.date: 06/05/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 services: iot-edge
 ---

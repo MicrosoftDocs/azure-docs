@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/04/2022
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: mode-api, devx-track-azurecli
 ---
 

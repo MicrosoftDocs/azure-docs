@@ -16,7 +16,7 @@ For more information on Hg38 data, see the [GRCh38 report at NCBI](http://www.nc
 
 Other details about the data can be found at [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) site.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

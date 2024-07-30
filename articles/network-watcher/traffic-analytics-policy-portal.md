@@ -25,7 +25,7 @@ To audit your flow logs by using the built-in policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
     :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 
@@ -75,7 +75,7 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search box at the top of the portal, enter *policy*. Select **Policy** in the search results. 
+1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
     :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
 

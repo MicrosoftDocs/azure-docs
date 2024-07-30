@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial
 ms.date: 07/13/2023
-ms.custom: template-tutorial, devx-track-azurecli
+ms.custom: template-tutorial, devx-track-azurecli, linux-related-content
 ---
 
 # Tutorial: Configure dual stack outbound connectivity with a NAT gateway and a public load balancer

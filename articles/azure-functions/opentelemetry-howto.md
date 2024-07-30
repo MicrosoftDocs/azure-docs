@@ -2,6 +2,7 @@
 title: Use OpenTelemetry with Azure Functions
 description: This article shows you how to enable export of application logs and traces from your function app using OpenTelemetry.
 ms.service: azure-functions
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 05/16/2024
 zone_pivot_groups: programming-languages-set-functions
@@ -294,4 +295,3 @@ When you export your data using OpenTelemetry, keep these current considerations
 
 [Monitor Azure Functions](monitor-functions.md)
 [Flex Consumption plan](./flex-consumption-plan.md)
-

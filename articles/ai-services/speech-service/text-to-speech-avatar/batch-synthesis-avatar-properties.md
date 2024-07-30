@@ -11,9 +11,7 @@ ms.author: eur
 author: eric-urban
 ---
 
-# Batch synthesis properties for text to speech avatar (preview)
-
-[!INCLUDE [Text to speech avatar preview](../includes/text-to-speech-avatar-preview.md)]
+# Batch synthesis properties for text to speech avatar
 
 Batch synthesis properties can be grouped as: avatar related properties, batch job related properties, and text to speech related properties,  which are described in the following tables.
 
@@ -25,8 +23,8 @@ The following table describes the avatar properties.
 
 | Property  | Description |
 |------------------------------------------|------------------------------------------|
-| avatarConfig.talkingAvatarCharacter      | The character name of the talking avatar.<br/><br/>The supported avatar characters can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required.|
-| avatarConfig.talkingAvatarStyle          | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](avatar-gestures-with-ssml.md#supported-pre-built-avatar-characters-styles-and-gestures).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
+| avatarConfig.talkingAvatarCharacter      | The character name of the talking avatar.<br/><br/>The supported avatar characters can be found [here](avatar-gestures-with-ssml.md#supported-prebuilt-avatar-characters-styles-and-gestures).<br/><br/>This property is required.|
+| avatarConfig.talkingAvatarStyle          | The style name of the talking avatar.<br/><br/>The supported avatar styles can be found [here](avatar-gestures-with-ssml.md#supported-prebuilt-avatar-characters-styles-and-gestures).<br/><br/>This property is required for prebuilt avatar, and optional for customized avatar.|
 | avatarConfig.customized                  | A bool value indicating whether the avatar to be used is customized avatar or not. True for customized avatar, and false for prebuilt avatar.<br/><br/>This property is optional, and the default value is `false`.|
 | avatarConfig.videoFormat                 | The format for output video file, could be mp4 or webm.<br/><br/>The `webm` format is required for transparent background.<br/><br/>This property is optional, and the default value is mp4.|
 | avatarConfig.videoCodec                  | The codec for output video, could be h264, hevc or vp9.<br/><br/>Vp9 is required for transparent background. The synthesis speed will be slower with vp9 codec, as vp9 encoding is slower.<br/><br/>This property is optional, and the default value is hevc.|

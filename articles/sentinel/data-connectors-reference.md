@@ -3,7 +3,8 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 05/30/2024
+ms.date: 07/03/2024
+ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -17,7 +18,7 @@ This article lists all supported, out-of-the-box data connectors and links to ea
 
 > [!IMPORTANT]
 > - Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> - For connectors that use the Log Analytics agent, the agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the the Azure Monitor Agent (AMA). For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 > - [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
 Data connectors are available as part of the following offerings:
@@ -36,9 +37,33 @@ Data connectors are available as part of the following offerings:
 
 ## Syslog and Common Event Format (CEF) connectors
 
-Some Microsoft Sentinel solutions are supported by the data connectors Syslog via AMA or Common Event Format (CEF) via AMA in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing either the **Common Event Format** or **Syslog** solution from the **Content hub** in Microsoft Sentinel. Then, configure the related AMA connector that's installed with the solution. Complete the setup by configuring the appropriate devices or appliances. For more information, see the solution provider's installation instructions or contact the solution provider.
+Log collection from many security appliances and devices are supported by the data connectors **Syslog via AMA** or **Common Event Format (CEF) via AMA** in Microsoft Sentinel. To forward data to your Log Analytics workspace for Microsoft Sentinel, complete the steps in [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md). These steps include installing the Microsoft Sentinel solution for a security appliance or device from the **Content hub** in Microsoft Sentinel. Then, configure the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector that's appropriate for the Microsoft Sentinel solution you installed. Complete the setup by configuring the security device or appliance. Find instructions to configure your security device or appliance in one of the following articles:
+
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+
+Contact the solution provider for more information or where information is unavailable for the appliance or device.
+
+## Codeless connector platform connectors
+
+The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connectors within Microsoft Sentinel.
+
+|Codeless connector name  |Azure Marketplace solution  |
+|---------|---------|
+|Atlassian Jira Audit (using REST API) (Preview)     |  [Atlassian Jira Audit ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-atlassianjiraaudit?tab=Overview)      |       
+|Cisco Meraki (using Rest API)    |   [Cisco Meraki Events via REST API](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-ciscomerakinativepoller?tab=Overview)|        
+|Ermes Browser Security Events    |  [Ermes Browser Security for Microsoft Sentinel](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/ermes.azure-sentinel-solution-ermes-browser-security?tab=Overview)|        
+|Okta Single Sign-On (Preview)|[Okta Single Sign-On Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-okta?tab=Overview)|
+|Sophos Endpoint Protection (using REST API) (Preview)|[Sophos Endpoint Protection Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sophosep?tab=Overview)|
+|Workday User Activity (Preview)|[Workday (Preview)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-workday?tab=Overview)|
+
+For more information about the codeless connector platform, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 [comment]: <> (DataConnector includes start)
+
+## 1Password
+
+- [1Password (using Azure Functions)](data-connectors/1password.md)
 
 ## 42Crunch
 
@@ -144,7 +169,6 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 - [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp.md)
 - [Cisco Secure Cloud Analytics](data-connectors/cisco-secure-cloud-analytics.md)
-- [Cisco Stealthwatch](data-connectors/cisco-stealthwatch.md)
 - [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella.md)
 - [Cisco Web Security Appliance](data-connectors/cisco-web-security-appliance.md)
@@ -187,6 +211,7 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Crowdstrike
 
 - [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
+- [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
 
@@ -313,10 +338,6 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## H.O.L.M. Security Sweden AB
 
 - [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data.md)
-
-## HYAS Infosec Inc
-
-- [HYAS Protect (using Azure Functions)](data-connectors/hyas-protect.md)
 
 ## Illumio
 
@@ -663,7 +684,8 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 
 ## Tenable
 
-- [Tenable.io Vulnerability Management (using Azure Function)](data-connectors/tenable-io-vulnerability-management.md)
+- [Tenable Identity Exposure](data-connectors/tenable-identity-exposure.md)
+- [Tenable Vulnerability Management (using Azure Functions)](data-connectors/tenable-vulnerability-management.md)
 
 ## The Collective Consulting BV
 
@@ -676,6 +698,10 @@ Some Microsoft Sentinel solutions are supported by the data connectors Syslog vi
 ## Theom, Inc.
 
 - [Theom](data-connectors/theom.md)
+
+## Transmit Security LTD
+
+- [Transmit Security Connector (using Azure Functions)](data-connectors/transmit-security-connector.md)
 
 ## Trend Micro
 

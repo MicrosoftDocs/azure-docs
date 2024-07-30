@@ -66,13 +66,13 @@ For enabling CMK on existing account that has continuous backup and point in tim
 
     **For System managed identity :**
     ```
-    az cosmosdb update --resource-group $resourceGroupName  --name $accountName  --default-identity "SystemAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/ systemAssignedIdentities/MyID"
+    az cosmosdb update--resource-group $resourceGroupName --name $accountName --default-identity "SystemAssignedIdentity"
     ```
 
     **For User managed identity  :**
 
     ```
-    az cosmosdb update -n $sourceAccountName -g $resourceGroupName --default-identity "UserAssignedIdentity=subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID"
+    az cosmosdb update -n $sourceAccountName -g $resourceGroupName --default-identity "UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/MyID"
     ```
 
 1. Configure Keyvault as given in documentation [here](./how-to-setup-customer-managed-keys.md?tabs=azure-cli#configure-your-azure-key-vault-instance) 

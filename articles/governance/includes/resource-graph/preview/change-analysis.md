@@ -3,7 +3,7 @@ ms.service: resource-graph
 author: iancarter-msft
 ms.author: iancarter
 ms.topic: include
-ms.date: 03/12/2024
+ms.date: 06/14/2024
 ---
 
 > [!IMPORTANT]

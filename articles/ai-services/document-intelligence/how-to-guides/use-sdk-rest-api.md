@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2023, linux-related-content
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 07/18/2024
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 ---
@@ -68,7 +68,7 @@ Choose from the following Document Intelligence models and analyze and extract d
 ::: zone pivot="programming-language-csharp"
 
 ::: moniker range="doc-intel-4.0.0"
-[!INCLUDE [C# SDK quickstart](includes/v3-0/csharp-sdk.md)]
+[!INCLUDE [C# SDK quickstart](includes/v4-0/csharp-sdk.md)]
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"

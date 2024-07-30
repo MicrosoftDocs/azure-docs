@@ -15,7 +15,7 @@ The integration between Defender for Cloud and ServiceNow allows Defender for Cl
 
 ## Prerequisites
 
-- Have an [application registry in ServiceNow](https://docs.servicenow.com/bundle/utah-employee-service-management/page/product/meeting-extensibility/task/create-app-registry-meeting-extensibility.html).
+- Have an [application registry in ServiceNow](https://www.opslogix.com/knowledgebase/servicenow/kb-create-a-servicenow-api-key-and-secret-for-the-scom-servicenow-incident-connector).
 
 - Enable [Defender Cloud Security Posture Management (CSPM)](tutorial-enable-cspm-plan.md) on your Azure subscription.
 

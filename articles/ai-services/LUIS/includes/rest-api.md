@@ -9,11 +9,11 @@ ms.topic: include
 
 By following this quickstart, you will perform three REST calls in sequence.
 
-- First, you will upload a batch of example utterances, which will be used to train the Pizza app model, using the [REST Batch add labels](/rest/api/cognitiveservices-luis/authoring/examples/batch?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
-- Next, you will begin a training session for the Pizza app, using the [REST Train application version](/rest/api/cognitiveservices-luis/authoring/train/train-version?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
-- Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](/rest/api/cognitiveservices-luis/authoring/train/get-status?view=rest-cognitiveservices-luis-authoring-v3.0-preview&tabs=HTTP&preserve-view=true) call.
+- First, you will upload a batch of example utterances, which will be used to train the Pizza app model, using the [REST Batch add labels](/rest/api/luis/examples/batch) call.
+- Next, you will begin a training session for the Pizza app, using the [REST Train application version](/rest/api/luis/train/train-version) call.
+- Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](/rest/api/luis/train/get-status) call.
 
-[Reference documentation](/rest/api/cognitiveservices-luis/authoring/operation-groups?view=rest-cognitiveservices-luis-authoring-v3.0-preview&preserve-view=true)
+[Reference documentation](/rest/api/luis/operation-groups)
 
 ## Prerequisites
 
@@ -360,7 +360,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
 
 ## Get intent from the prediction endpoint
 
-Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use cURL to query the [prediction endpoint](/rest/api/luis/prediction) and get a prediction result.
 
 > [!NOTE]
 > This command uses your prediction endpoint.

@@ -40,7 +40,7 @@ Example output:
 
 ```output
 {
-  "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
+  "customerId": "00000000-0000-0000-0000-000000000000",
   "eTag": null,
   "id": "/subscriptions/<Subscription ID>/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
   "location": "eastus",
@@ -93,8 +93,8 @@ Example output:
 
 ```output
 {
-  "primarySharedKey": "JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123==",
-  "secondarySharedKey": "p2XHSxLJ4o9IAqm2zINcEmx0UWU5Z5EZz8PQC0OHpFjdpuVaI0zsPbTv5VyPFgaCUlCZb2yEbkiR4eTuTSF123=="
+  "primarySharedKey": "<primarySharedKey>==",
+  "secondarySharedKey": "<secondarySharedKey>=="
 }
 ```
 

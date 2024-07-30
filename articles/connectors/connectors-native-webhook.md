@@ -10,7 +10,7 @@ ms.date: 02/09/2024
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Rather than use a trigger that regularly checks or *polls* a service endpoint or action that calls that endpoint, you can use an **HTTP Webhook** trigger or action that subscribes to a service endpoint, waits for specific events, and runs specific actions in your workflow.
 

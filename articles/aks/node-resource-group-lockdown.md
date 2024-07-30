@@ -2,7 +2,7 @@
 title: Deploy a fully managed resource group with node resource group lockdown (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to deploy a fully managed resource group using node resource group lockdown (preview) in Azure Kubernetes Service (AKS).
 ms.topic: article
-ms.custom: azure-kubernetes-service
+ms.custom: azure-kubernetes-service, devx-track-azurecli
 ms.date: 04/16/2024
 ms.author: schaffererin
 author: schaffererin

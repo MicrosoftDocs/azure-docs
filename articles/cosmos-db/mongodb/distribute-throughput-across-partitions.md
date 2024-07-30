@@ -6,7 +6,7 @@ ms.author: avijitgupta
 ms.reviewer: gahllevy
 ms.service: cosmos-db
 ms.subservice: mongodb
-ms.custom: devx-track-azurecli
+ms.custom:
 ms.topic: concept-article
 ms.date: 04/11/2024
 ---

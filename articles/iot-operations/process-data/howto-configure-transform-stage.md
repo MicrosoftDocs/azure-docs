@@ -33,7 +33,7 @@ The transform stage uses [jq](concept-jq.md) to support data transformation:
 
 To configure and use a transform pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor Preview.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An understanding of [jq expressions](concept-jq-expression.md).
 
 ### Configure the stage

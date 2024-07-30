@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: quickstart
 ms.service: virtual-machine-scale-sets
-ms.date: 04/18/2023
+ms.date: 06/14/2024
 ms.reviewer: mimckitt, mattmcinnes
 ms.custom: mimckitt, mode-ui
 ---
@@ -13,7 +13,7 @@ ms.custom: mimckitt, mode-ui
 # Quickstart: Create a Virtual Machine Scale Set in the Azure portal
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
 

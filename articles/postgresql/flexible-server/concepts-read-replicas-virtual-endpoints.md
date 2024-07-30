@@ -4,7 +4,7 @@ description: This article describes the virtual endpoints for read replica featu
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 6/5/2024
+ms.date: 6/10/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
@@ -54,26 +54,25 @@ The sections below delve into how these endpoints react to both [Promote to prim
 
 ### Using Virtual Endpoints for Consistent Hostname During Point-in-Time Recovery (PITR) or Snapshot Restore
 
-This section explains how to use Virtual Endpoints in Azure Database for PostgreSQL - Flexible Server to maintain a consistent hostname during Point-in-Time Recovery (PITR) or Snapshot Restore, ensuring application connection strings remain unchanged.
+This section explains how to use Virtual Endpoints in Azure Database for PostgreSQL - Flexible Server to maintain a consistent hostname during Point-in-Time Recovery (PITR) or Snapshot Restore, ensuring application connection strings remain unchanged. Follow below steps:
 
-### Steps:
-1. Add Virtual Endpoint to Primary Server:
+1. **Add Virtual Endpoint to Primary Server:**
     - Browse to your primary server instance in the Azure Portal.
-    - Navigate to “Replication” Tab, and under "Virtual Endpoints," click "Add Virtual Endpoint."
+    - Navigate to **Replication** Tab, and under **Virtual Endpoints**, click **Add Virtual Endpoint**.
     - Configure the virtual endpoint with a consistent hostname (e.g., `mydb-virtual-endpoint.postgres.database.azure.com`).
     - Save the configuration.
     - Update your application to use this virtual endpoint in the connection string.
 
-2. Perform Point-in-Time-Restore (PITR) or Snapshot Restore:
+2. **Perform Point-in-Time-Restore (PITR) or Snapshot Restore:**
     - Initiate Recovery:
-        - Go to the "Backups" section of your primary server.
-        - Choose the appropriate restore option (PITR or snapshot) and specify the desired point in time.
+        - Go to the **Backups** section of your primary server.
+        - Choose the appropriate restore option (`PITR` or `snapshot`) and specify the desired point in time.
     - Update Virtual Endpoint:
-        - Once the new instance is created, navigate back to the primary server settings.
-        - Remove the virtual endpoint from the original primary server.
+        - Once the new instance is created, navigate back to the old primary server **Replication** Tab.
+        - Remove the virtual endpoint from the original primary server. Old Primary should be in `succeeded` state to remove the virtual endpoint
         - Add the same virtual endpoint to the newly created server.
 
-3. Validation:
+3. **Validation:**
     - Ensure that your application connects using the virtual endpoint and verify the database operations post-recovery.
 
 ## Related content

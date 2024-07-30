@@ -46,7 +46,7 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 A connection pooler minimizes the cost and time associated with creating and closing new connections to the database. The pool is a collection of connections that can be reused.
 
-There are multiple connection poolers you can use with PostgreSQL. One of these is [PgBouncer](https://pgbouncer.github.io/). In the Microsoft Container Registry, we provide a lightweight containerized PgBouncer that can be used in a sidecar to pool connections from AKS to Azure Database for PostgreSQL. Visit the [docker hub page](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) to learn how to access and use this image.
+There are multiple connection poolers you can use with PostgreSQL. One of these is [PgBouncer](https://pgbouncer.github.io/). In the Microsoft Container Registry, we provide a lightweight containerized PgBouncer that can be used in a sidecar to pool connections from AKS to Azure Database for PostgreSQL. Visit the [docker hub page](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) to learn how to access and use this image.
 
 ## Next steps
 

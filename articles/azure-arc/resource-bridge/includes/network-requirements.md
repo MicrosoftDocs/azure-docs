@@ -45,11 +45,13 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 
 ## Inbound connectivity requirements
 
-The following ports must be allowlisted in your firewall/proxy to enable communication between the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open to facilitate the deployment and maintenance of Arc resource bridge.
+Communication between the following ports must be allowed from the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open and that traffic is not being routed through a proxy to facilitate the deployment and maintenance of Arc resource bridge. 
 
-|**Service**|**Port**|**URL**|**Direction**|**Notes**|
+|**Service**|**Port**|**IP/machine**|**Direction**|**Notes**|
 |--|--|--|--|--|
 |SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
 |Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of the appliance VM.|
-|HTTPS | 443 | `private cloud management console` | Management machine needs outbound connection. | Communication with management console (for example, VMware vCenter Server).|
+|SSH| 22 | `control plane IP` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `control plane IP` and `Management machine` | Bidirectional | Management of the appliance VM.|
+|HTTPS | 443 | `private cloud control plane address` and `Management machine` | Management machine needs outbound connection. | Communication with control plane (ex: VMware vCenter address).|
 

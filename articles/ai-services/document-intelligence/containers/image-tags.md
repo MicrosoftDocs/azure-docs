@@ -61,11 +61,10 @@ The following containers support DocumentIntelligence v3.0 models and features:
 
 Document Intelligence container images can be found within the [**Microsoft Artifact Registry** (also know as Microsoft Container Registry(MCR))](https://mcr.microsoft.com/catalog?search=document%20intelligence), the primary registry for all Microsoft published container images.
 
-The following containers support DocumentIntelligence v3.0 models and features:
+The following containers support DocumentIntelligence v3.1 models and features:
 
 | Container name |image |
 |---|---|
-|[**Document Intelligence Studio**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/studio/tags)| `mcr.microsoft.com/azure-cognitive-services/form-recognizer/studio:latest`|
 | [**Read 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/read-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/read-3.1:latest`|
 | [**Layout 3.1**](https://mcr.microsoft.com/en-us/product/azure-cognitive-services/form-recognizer/layout-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout-3.1:latest`|
 | [**Invoice 3.1**](https://mcr.microsoft.com/product/azure-cognitive-services/form-recognizer/invoice-3.1/tags) |`mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice-3.1:latest`|

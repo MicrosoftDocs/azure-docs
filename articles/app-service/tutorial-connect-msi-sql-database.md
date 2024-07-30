@@ -312,7 +312,7 @@ When the new webpage shows your to-do list, your app is connecting to the databa
 
 You should now be able to edit the to-do list as before.
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 

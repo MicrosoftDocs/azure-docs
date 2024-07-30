@@ -70,7 +70,13 @@ A deployed tenant in the Azure Large Instances stamp is assigned to one Azure su
 If you deploy with another Azure subscription in the same Azure region, you also request for a separated Azure Large Instances tenant.
 
 ### Operational model
-In addition to its BareMetal offering, Azure Large Instances also has an offering where Microsoft deploys a foundational ESXi environment onto the host servers and subsequent configuration of VMware vCenter by Microsoft as an ESXi VM in the cluster. Microsoft owns the ESXi licenses. On the storage configurations, Azure Large Instances comes with highly redundant Fiber Channel storage provisioned. Microsoft retains the root admin access to ESXi and provides a cloud admin role for customer’s use. The Cloud Admin role in Azure Large Instances Solution has the following privileges on vCenter Server.  
+In addition to its BareMetal offering, Azure Large Instances also has an offering where Microsoft deploys a foundational ESXi environment onto the host servers and subsequent configuration of VMware vCenter by Microsoft as an ESXi VM in the cluster. Microsoft owns the ESXi licenses. On the storage configurations, Azure Large Instances comes with highly redundant Fiber Channel storage provisioned. Microsoft retains the root admin access to ESXi and provides a cloud admin role for customer’s use. The Cloud Admin role in Azure Large Instances Solution has the following privileges on vCenter Server. 
+
+The following table color-codes areas of management responsibility, where:
+
+* Microsoft = blue
+* Customer/tenant = gray
+* Not applicable = black
 
 :::image type="content" source="media/support-diagram.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners.":::
 

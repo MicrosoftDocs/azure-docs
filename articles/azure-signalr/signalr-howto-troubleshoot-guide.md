@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues
 author: vicancy
 ms.service: signalr
 ms.topic: how-to
-ms.date: 07/18/2022
+ms.date: 07/02/2024
 ms.author: lianwei
 ms.devlang: csharp
 ---
@@ -164,9 +164,9 @@ For **Standard** instances, **concurrent** connection count limit **per unit** i
 
 The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
 
-### Too many negotiate requests at the same time
+### NegotiateThrottled
 
-We suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
+When there are too many client negotiate requests at the **same** time, it may get throttled. The limit relates to the unit counts that more units has a higher limit. Besides, we suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 

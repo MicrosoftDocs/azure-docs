@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: reference
-author: SturgeonMi
-ms.author: xunwan
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 04/15/2024
-ms.reviewer: franksolomon
+ms.reviewer: xunwan
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

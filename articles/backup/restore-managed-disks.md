@@ -1,8 +1,8 @@
 ---
 title: Restore Azure Managed Disks
 description: Learn how to restore Azure Managed Disks from the Azure portal.
-ms.topic: conceptual
-ms.date: 01/07/2021
+ms.topic: how-to
+ms.date: 07/18/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

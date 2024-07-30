@@ -20,7 +20,7 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 
 ## Scale targets for standard storage accounts
 
-[!INCLUDE [azure-storage-account-limits-standard](~/reusable-content/ce-skilling/azure/includes/azure-storage-account-limits-standard.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 ## See also
 

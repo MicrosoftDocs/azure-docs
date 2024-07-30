@@ -11,7 +11,7 @@ ms.date: 03/22/2024
 
 In this article, you'll learn how [security admins rules](concept-security-admins.md) provide flexible and scalable enforcement of security policies over tools like [network security groups](../virtual-network/network-security-groups-overview.md). First, you learn the different models of virtual network enforcement. Then, you learn the general steps for enforcing security with security admin rules.
 
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+ 
 
 ## Virtual network enforcement 
 

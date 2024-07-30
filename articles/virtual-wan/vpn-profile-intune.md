@@ -12,7 +12,7 @@ ms.author: cherylmc
 ---
 # Create custom Intune profiles to deploy User VPN client profiles
 
-[!INCLUDE [Intune profile](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-virtual-wan-vpn-profile-intune.md)]
+[!INCLUDE [Intune profile](../../includes/vpn-gateway-virtual-wan-vpn-profile-intune.md)]
  
 ## Next steps
 

@@ -39,6 +39,9 @@ Some common uses for filled maps include:
 
 This article uses [Sales and Marketing Sample PBIX] as the data source for demonstration purposes. You can create a new report using this data before continuing if you wish to follow along.
 
+> [!NOTE]
+> To ensure the highest level of accuracy in geocoding results within Filled Map, it's crucial to correctly set the data category. See [Categorize geographic fields in Power BI](./power-bi-visual-geocode.md#categorize-geographic-fields-in-power-bi).
+
 ## Filled map settings
 
 There are two places where you can adjust filled maps settings: Build and format visuals. Both are located in the **Visualizations** pane.

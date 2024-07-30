@@ -2,12 +2,12 @@
 title: StorageAccountSelector UI element
 description: Describes the Microsoft.Storage.StorageAccountSelector UI element for Azure portal.
 ms.topic: reference
-ms.date: 03/17/2023
+ms.date: 06/21/2024
 ---
 
 # Microsoft.Storage.StorageAccountSelector UI element
 
-A control that's used to select a new or existing storage account.
+A control used to select a new or existing storage account.
 
 Storage account names must be globally unique across Azure with a length of 3-24 characters, and include only lowercase letters or numbers.
 
@@ -61,7 +61,7 @@ The `StorageAccountSelector` control allows you to create a new storage account 
 - The `defaultValue.name` is required and the value is automatically validated for uniqueness. If the storage account name isn't unique, the user must specify a different name or choose an existing storage account.
 - The default value for `defaultValue.type` is **Premium_LRS**. You can set any storage account type as the default value. For example, _Standard_LRS_ or _Standard_GRS_.
 - Any type not specified in `constraints.allowedTypes` is hidden, and any type not specified in `constraints.excludedTypes` is shown. `constraints.allowedTypes` and `constraints.excludedTypes` are both optional, but can't be used simultaneously.
-- If `options.hideExisting` is **true**, the user can't choose an existing storage account. The default value is **false**. The control only shows storage accounts as _existing_ if they are in same resource group and region as the selections made on the **Basics** tab.
+- If `options.hideExisting` is `true`, the user can't choose an existing storage account. The default value is `false`. The control only shows storage accounts as _existing_ if they are in same resource group and region as the selections made on the **Basics** tab.
 - The `kind` property displays the value if a new storage account was created, or an existing storage account's value.
 
 ## Example

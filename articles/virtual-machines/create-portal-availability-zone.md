@@ -4,7 +4,7 @@ description: Create VMs in an availability zone with the Azure portal
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 06/06/2024
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: references_regions
@@ -17,35 +17,6 @@ ms.custom: references_regions
 This article steps through using the Azure portal to create highly resilient virtual machines in [availability zones](../availability-zones/az-overview.md). Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. Use availability zones to protect your applications and data against unlikely datacenter failures.
 
 To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
-
-Some users will now see the option to create VMs in multiple zones. If you see the following message, use the **Preview** tab below.
-
-:::image type="content" source="media/create-portal-availability-zone/preview.png" alt-text="Screenshot showing that you have the option to create virtual machines in multiple availability zones.":::
-
-### [Standard](#tab/standard)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Click **Create a resource** > **Compute** > **Virtual machine**. 
-
-3. Enter the virtual machine information. The user name and password or SSH key is used to sign in to the virtual machine.  
-
-4. Choose a region such as East US 2 that supports availability zones. 
-
-5. Under **Availability options**, select **Availability zone** dropdown. 
-
-1. Under **Availability zone**, select a zone from the drop-down list.
-        
-4. Choose a size for the VM. Select a recommended size, or filter based on features. Confirm the size is available in the zone you want to use.
-
-6. Finish filling in the information for your VM. When you're done, select **Review + create**.
-
-7. Once the information is verified, select **Create**.
-
-1. After the VM is created, you can see the availability zone listed in the **Essentials section** on the page for the VM.
-
-
-### [Preview](#tab/preview)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -63,7 +34,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 
 1. Complete the rest of the page as usual. If you want to create a load balancer, go to the **Networking** tab > **Load Balancing** > **Load balancing options**. You can choose either an Azure load balancer or an Application gateway.
    
-   For a **Azure load balancer**:
+   For an **Azure load balancer**:
 
    1. You can select an existing load balancer or select **Create a load balancer**.
    2. To create a new load balancer, for **Load balancer name** type a load balancer name.
@@ -94,7 +65,7 @@ Some users will now see the option to create VMs in multiple zones. If you see t
 1. If you are creating a Linux VM and the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will download as **myKey.pem**.
 
 1. When the deployment is finished, select **Go to resource**.
----
+
 ## Create a Zonal Virtual Machine in an Azure-selected Zone 
 
    > [!IMPORTANT]

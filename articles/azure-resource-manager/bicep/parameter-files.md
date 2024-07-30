@@ -3,7 +3,7 @@ title: Create parameters files for Bicep deployment
 description: Create parameters file for passing in values during deployment of a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 04/01/2024
+ms.date: 06/28/2024
 ---
 
 # Create parameters files for Bicep deployment
@@ -43,7 +43,7 @@ using './azuredeploy.json'
 ```
 
 ```bicep
-using 'br/public:storage/storage-account:3.0.1'
+using 'br/public:avm/res/storage/storage-account:0.9.0' 
 ...
 ```
 

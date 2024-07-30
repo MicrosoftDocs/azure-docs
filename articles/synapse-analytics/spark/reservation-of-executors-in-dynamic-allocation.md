@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 11/07/2022
 ms.author: saravi 
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Reservation of Executors as part of Dynamic Allocation in Synapse Spark Pools

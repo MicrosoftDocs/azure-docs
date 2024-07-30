@@ -2,12 +2,11 @@
 title: 'Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)'
 description: Learn how to quickly deploy a Kubernetes cluster and deploy an application in Azure Kubernetes Service (AKS) Automatic (preview).
 ms.topic: quickstart
-ms.custom: build-2024
+ms.custom: build-2024, devx-track-azurecli, devx-track-bicep
 ms.date: 05/21/2024
 author: sabbour
 ms.author: asabbour
 zone_pivot_groups: bicep-azure-cli-portal
-
 ---
 
 # Quickstart: Deploy an Azure Kubernetes Service (AKS) Automatic cluster (preview)
@@ -121,8 +120,7 @@ To create an AKS Automatic cluster, use the [az aks create][az-aks-create] comma
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSAutomaticCluster \
-    --sku automatic \
-    --generate-ssh-keys
+    --sku automatic
 ```
 
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.

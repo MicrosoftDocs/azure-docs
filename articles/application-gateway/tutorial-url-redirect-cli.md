@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
-![URL routing example](./media/tutorial-url-redirect-cli/scenario.png)
+:::image type="content" source="./media/tutorial-url-redirect-cli/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/tutorial-url-redirect-cli/scenario.png":::
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 

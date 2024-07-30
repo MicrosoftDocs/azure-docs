@@ -16,7 +16,7 @@ This sample PowerShell script loads only new or updated records from a source da
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 See [tutorial: incremental copy](../tutorial-incremental-copy-powershell.md#prerequisites) for the prerequisites for running this sample. 
 

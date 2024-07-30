@@ -68,7 +68,7 @@ az trustedsigning update -n MyAccount -g MyResourceGroup --sku Premium
 View and estimate the cost of your Trusted Signing resource usage.  
 1. In the Azure portal, search **Subscriptions**.
 2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Cost Management from the menu on the left. Learn more about using [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
+3. Select Cost Management from the menu on the left. Learn more about using [Cost Management](/azure/cost-management-billing/costs/).
 4. For Trusted Signing, you can see costs associated to your Trusted Signing account.  
 
 **Billing**
@@ -76,4 +76,4 @@ View and estimate the cost of your Trusted Signing resource usage.
 View Invoice for Trusted Signing service. 
 1. In the Azure portal, search **Subscriptions**.
 2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Billing from the menu on the left. Learn more about [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).
+3. Select Billing from the menu on the left. Learn more about [Billing](/azure/cost-management-billing/manage/).

@@ -1,10 +1,10 @@
 ---
 title: Use Logstash to stream logs with pipeline transformations via DCR-based API
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
-author: limwainstein
+author: yelevin
 ms.topic: how-to
-ms.date: 11/07/2022
-ms.author: lwainstein
+ms.date: 07/14/2024
+ms.author: yelevin
 ---
 
 # Use Logstash to stream logs with pipeline transformations via DCR-based API
@@ -69,7 +69,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 - Install a supported version of Logstash. The plugin supports the following Logstash versions: 
     - 7.0 - 7.17.13
     - 8.0 - 8.9
-    - 8.11
+    - 8.11 - 8.13
 
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
@@ -470,4 +470,4 @@ The following table lists the firewall requirements for scenarios where Azure vi
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

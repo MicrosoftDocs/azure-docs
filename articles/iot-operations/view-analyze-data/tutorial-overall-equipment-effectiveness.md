@@ -25,7 +25,10 @@ To achieve these goals, Contoso needs to:
 
 ## Prerequisites
 
-- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster.
+- Follow the steps in [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) to install Azure IoT operations Preview on an Azure Arc-enabled Kubernetes cluster. Add the `--include-dp` argument to the `az iot ops init` command to include the optional Data Processor component in your deployment.
+
+    > [!IMPORTANT]
+    > You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
 
 - A Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
@@ -34,7 +37,7 @@ To achieve these goals, Contoso needs to:
 
   To learn more, see [Microsoft Fabric > About tenant settings](/fabric/admin/tenant-settings-index).
 
-- Download and sign into [Power BI Desktop.](/power-bi/fundamentals/desktop-what-is-desktop/) <!-- TODO: Clarify if we need desktop? -->
+- Download and sign into [Power BI Desktop.](/power-bi/fundamentals/desktop-what-is-desktop/)
 
 ## Prepare your environment
 

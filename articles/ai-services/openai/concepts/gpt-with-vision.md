@@ -24,19 +24,19 @@ The GPT-4 Turbo with Vision model answers general questions about what's present
 
 Enhancements let you incorporate other Azure AI services (such as Azure AI Vision) to add new functionality to the chat-with-vision experience.
 
-**Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
-
 > [!IMPORTANT]
 > To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
+
+> [!IMPORTANT]
+> Vision enhancements are not supported by the GPT-4 Turbo GA model. They are only available with the preview models.
+
+**Object grounding**: Azure AI Vision complements GPT-4 Turbo with Vision’s text response by identifying and locating salient objects in the input images. This lets the chat model give more accurate and detailed responses about the contents of the image.
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding.png" alt-text="Screenshot of an image with object grounding applied. Objects have bounding boxes with labels.":::
 
 :::image type="content" source="../media/concepts/gpt-v/object-grounding-response.png" alt-text="Screenshot of a chat response to an image prompt about an outfit. The response is an itemized list of clothing items seen in the image.":::
 
 **Optical Character Recognition (OCR)**: Azure AI Vision complements GPT-4 Turbo with Vision by providing high-quality OCR results as supplementary information to the chat model. It allows the model to produce higher quality responses for images with dense text, transformed images, and numbers-heavy financial documents, and increases the variety of languages the model can recognize in text.
-
-> [!IMPORTANT]
-> To use Vision enhancement, you need a Computer Vision resource. It must be in the paid (S1) tier and in the same Azure region as your GPT-4 Turbo with Vision resource.
 
 :::image type="content" source="../media/concepts/gpt-v/receipts.png" alt-text="Photo of several receipts.":::
 
@@ -45,9 +45,6 @@ Enhancements let you incorporate other Azure AI services (such as Azure AI Visio
 **Video prompt**: The **video prompt** enhancement lets you use video clips as input for AI chat, enabling the model to generate summaries and answers about video content. It uses Azure AI Vision Video Retrieval to sample a set of frames from a video and create a transcript of the speech in the video.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RW1eHRf]
-
-> [!NOTE]
-> In order to use the video prompt enhancement, you need both an Azure AI Vision resource, in the paid (S1) tier, in addition to your Azure OpenAI resource.
 
 ## Special pricing information
 
@@ -68,7 +65,6 @@ If you turn on Enhancements, additional usage applies for using GPT-4 Turbo with
 |-----------------|-----------------|
 | + Enhanced add-on features for OCR | $1.5 per 1000 transactions |
 | + Enhanced add-on features for Object Detection | $1.5 per 1000 transactions |
-| + Enhanced add-on feature for “Add your Image” Image Embeddings | $1.5 per 1000 transactions |
 | + Enhanced add-on feature for “Video Retrieval” integration **<sup>1</sup>** | Ingestion: $0.05 per minute of video <br>Transactions: $0.25 per 1000 queries of the Video Retrieval index |
 
 **<sup>1</sup>** Processing videos involves the use of extra tokens to identify key frames for analysis. The number of these additional tokens will be roughly equivalent to the sum of the tokens in the text input, plus 700 tokens.
@@ -79,13 +75,14 @@ If you turn on Enhancements, additional usage applies for using GPT-4 Turbo with
 
 For a typical use case, take an image with both visible objects and text and a 100-token prompt input. When the service processes the prompt, it generates 100 tokens of output. In the image, both text and objects can be detected. The price of this transaction would be:
 
-| Item        | Detail        | Total Cost   |
+| Item        | Detail        |  Cost   |
 |-----------------|-----------------|--------------|
-| GPT-4 Turbo with Vision input tokens | 100 text tokens | $0.001 |
+| Text prompt input | 100 text tokens | $0.001 |
+| Example image input (see [Image tokens](/azure/ai-services/openai/overview#image-tokens-gpt-4-turbo-with-vision)) | 170 + 85 image tokens | $0.00255 |
 | Enhanced add-on features for OCR | $1.50 / 1000 transactions | $0.0015 |
 | Enhanced add-on features for Object Grounding | $1.50 / 1000 transactions | $0.0015 | 
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
-| **Total Cost** |  | $0.007 |
+| **Total** |  |**$0.00955** |
 
 
 ### Example video price calculation
@@ -95,13 +92,13 @@ For a typical use case, take an image with both visible objects and text and a 1
 
 For a typical use case, take a 3-minute video with a 100-token prompt input. The video has a transcript that's 100 tokens long, and when the service processes the prompt, it generates 100 tokens of output. The pricing for this transaction would be:
 
-| Item        | Detail        | Total Cost   |
+| Item        | Detail        |  Cost   |
 |-----------------|-----------------|--------------|
 | GPT-4 Turbo with Vision input tokens      | 100 text tokens    | $0.001     |
 | Additional Cost to identify frames        | 100 input tokens + 700 tokens + 1 Video Retrieval transaction         | $0.00825     |
 | Image Inputs and Transcript Input         | 20 images (85 tokens each) + 100 transcript tokens            | $0.018       |
 | Output Tokens      | 100 tokens (assumed)    | $0.003       |
-| **Total Cost**      |      | **$0.03025** |
+| **Total**      |      | **$0.03025** |
 
 Additionally, there's a one-time indexing cost of $0.15 to generate the Video Retrieval index for this 3-minute video. This index can be reused across any number of Video Retrieval and GPT-4 Turbo with Vision API calls.
 

@@ -8,8 +8,8 @@ metadata:
   description: Learn about Network Function Manager.
   ms.service: network-function-manager
   ms.topic: landing-page
-  author: prmitt
-  ms.author: prmitt
+  author: polarapfel
+  ms.author: tobiaw
   ms.date: 06/09/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

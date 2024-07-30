@@ -11,7 +11,7 @@ ms.custom: engagement-fy23
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This guide shows how to access Azure Service Bus from a workflow in Azure Logic Apps using the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
 
@@ -66,7 +66,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Infinite loops
 
-[!INCLUDE [Warning about creating infinite loops](~/reusable-content/ce-skilling/azure/includes/connectors-infinite-loops.md)]
+[!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
 ### Limit on saved sessions in connector cache
 

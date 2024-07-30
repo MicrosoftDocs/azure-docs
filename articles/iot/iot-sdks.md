@@ -16,7 +16,7 @@ The following tables list the various SDKs you can use to build IoT solutions.
 
 ## Device SDKs
 
-[!INCLUDE [iot-hub-sdks-device](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-device.md)]
+[!INCLUDE [iot-hub-sdks-device](../../includes/iot-hub-sdks-device.md)]
 
 Use the device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
@@ -24,7 +24,7 @@ To learn more about how to use the device SDKs, see [What is Azure IoT device an
 
 ### Embedded device SDKs
 
-[!INCLUDE [iot-hub-sdks-embedded](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-embedded.md)]
+[!INCLUDE [iot-hub-sdks-embedded](../../includes/iot-hub-sdks-embedded.md)]
 
 Use the embedded device SDKs to develop code to run on IoT devices that connect to IoT Hub or IoT Central.
 
@@ -54,39 +54,39 @@ If you experience problems while using the Azure IoT SDKs, there are several way
 
 ## IoT Hub service SDKs
 
-[!INCLUDE [iot-hub-sdks-service](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-service.md)]
+[!INCLUDE [iot-hub-sdks-service](../../includes/iot-hub-sdks-service.md)]
 
 To learn more about using the service SDKs to interact with devices through an IoT hub, see [IoT Plug and Play service developer guide](../iot/concepts-developer-guide-service.md).
 
 ## IoT Hub management SDKs
 
-[!INCLUDE [iot-hub-sdks-management](~/reusable-content/ce-skilling/azure/includes/iot-hub-sdks-management.md)]
+[!INCLUDE [iot-hub-sdks-management](../../includes/iot-hub-sdks-management.md)]
 
 Alternatives to the management SDKs include the [Azure CLI](../iot-hub/iot-hub-create-using-cli.md), [PowerShell](../iot-hub/iot-hub-create-using-powershell.md), and [REST API](../iot-hub/iot-hub-rm-rest.md).
 
 ## DPS device SDKs
 
-[!INCLUDE [iot-dps-sdks-device](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-device.md)]
+[!INCLUDE [iot-dps-sdks-device](../../includes/iot-dps-sdks-device.md)]
 
 ### DPS embedded device SDKs
 
-[!INCLUDE [iot-dps-sdks-embedded](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-embedded.md)]
+[!INCLUDE [iot-dps-sdks-embedded](../../includes/iot-dps-sdks-embedded.md)]
 
 ## DPS service SDKs
 
-[!INCLUDE [iot-dps-sdks-service](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-service.md)]
+[!INCLUDE [iot-dps-sdks-service](../../includes/iot-dps-sdks-service.md)]
 
 ## DPS management SDKs
 
-[!INCLUDE [iot-dps-sdks-management](~/reusable-content/ce-skilling/azure/includes/iot-dps-sdks-management.md)]
+[!INCLUDE [iot-dps-sdks-management](../../includes/iot-dps-sdks-management.md)]
 
 ## Azure Digital Twins control plane APIs
 
-[!INCLUDE [digital-twins-sdks-control-plane](~/reusable-content/ce-skilling/azure/includes/digital-twins-sdks-control-plane.md)]
+[!INCLUDE [digital-twins-sdks-control-plane](../../includes/digital-twins-sdks-control-plane.md)]
 
 ## Azure Digital Twins data plane APIs
 
-[!INCLUDE [digital-twins-sdks-data-plane](~/reusable-content/ce-skilling/azure/includes/digital-twins-sdks-data-plane.md)]
+[!INCLUDE [digital-twins-sdks-data-plane](../../includes/digital-twins-sdks-data-plane.md)]
 
 ## Next steps
 

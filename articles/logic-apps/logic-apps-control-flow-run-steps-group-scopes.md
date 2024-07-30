@@ -1,11 +1,11 @@
 ---
 title: Group and run actions by scope
-description: Create scoped actions that run based on group status in Azure Logic Apps.
+description: Group actions that run based on group status in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 06/21/2024
 ---
 
 # Run actions based on group status by using scopes in Azure Logic Apps
@@ -114,7 +114,6 @@ so save your work often.
       | **Travel mode** | Driving | Enter the mode of travel for your route. This example uses this value "Driving" | 
       | **Transit Date-Time** | None | Applies to transit mode only. | 
       | **Transit Date-Type Type** | None | Applies to transit mode only. | 
-      ||||  
 
 1. [Add a condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) 
    that checks whether the current travel time with traffic exceeds a specified time. 
@@ -123,7 +122,7 @@ so save your work often.
    1. Rename the condition with this description: 
    **If traffic time is more than specified time**
 
-   1. In the leftmost column, click inside the **Choose a value** 
+   1. In the leftmost column, select inside the **Choose a value** 
    box so the dynamic content list appears. From that list, 
    select the **Travel Duration Traffic** field, which is in seconds. 
 
@@ -138,10 +137,10 @@ so save your work often.
 
       ![Finished condition](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. In the **If true** branch, add a "send email" action for your email provider. 
+1. In the **True** branch, add a "send email" action for your email provider. 
    Set up this action by following the steps under this image:
 
-   ![Add "Send an email" action to "If true" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+   ![Add "Send an email" action to "True" branch](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
    1. In the **To** field, enter your email address for testing purposes.
 
@@ -157,13 +156,13 @@ so save your work often.
       the dynamic content list stays open so that you can
       select any parameters that are available at this point.
 
-   1. In the dynamic content list, choose **Expression**.
+   1. In the dynamic content list, select **Expression**.
 
    1. Find and select the **div()** function. 
       Put your cursor in inside the function's parentheses.
 
    1. While your cursor is inside the function's parentheses, 
-      choose **Dynamic content** so that the dynamic content list appears. 
+      select **Dynamic content** so that the dynamic content list appears. 
    
    1. From the **Get route** section, 
       select the **Traffic Duration Traffic** field.
@@ -183,11 +182,10 @@ so save your work often.
 
       ![Finish expression](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   1. When you're done, choose **OK**.
+   1. When you're done, select **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. After the expression resolves, 
-       add this text with a leading space: ``` minutes```
+   1. After the expression resolves, add this text with a leading space: ` minutes`
   
        Your **Body** field now looks like this example:
 
@@ -201,14 +199,14 @@ specific actions and evaluate their status.
 
 ## Add a scope
 
-1. If you haven't already, open your logic app in Logic App Designer. 
+1. If you haven't already, open your logic app in the workflow designer.
 
 1. Add a scope at the workflow location that you want. For example, 
 to add a scope between existing steps in the logic app workflow, 
 follow these steps: 
 
    1. Move your pointer over the arrow where you want to add the scope. 
-   Choose the **plus sign** (**+**) > **Add an action**.
+   Select the **plus sign** (**+**) > **Add an action**.
 
       ![Add a scope](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -235,15 +233,15 @@ Rename the condition with this description: **If scope failed**
    ![Add condition to check scope status](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
 1. In the condition, add these expressions that check whether 
-the scope's status is equal to "Failed" or "Aborted". 
+the scope's status is equal to "Failed" or "Aborted".
 
-   1. To add another row, choose **Add**. 
+   1. To add another row, select **Add**.
 
-   1. In each row, click inside the left box so the dynamic content list appears. 
-   From the dynamic content list, choose **Expression**. In the edit box,
-   enter this expression, and then choose **OK**: 
+   1. In each row, select inside the left box so the dynamic content list appears. 
+   From the dynamic content list, select **Expression**. In the edit box,
+   enter this expression, and then select **OK**:
    
-      `result('Scope')[0]['status']`
+      `action('Scope')`
 
       ![Screenshot that shows the "Expression" box with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
@@ -259,8 +257,8 @@ the scope's status is equal to "Failed" or "Aborted".
       Now, set the condition's `runAfter` property so the condition checks the 
       scope status and runs the matching action that you define in later steps.
 
-   1. On the **If scope failed** condition, choose the **ellipsis** (...) button, 
-   and then choose **Configure run after**.
+   1. On the **If scope failed** condition, select the **ellipsis** (...) button, 
+   and then select **Configure run after**.
 
       ![Configure `runAfter` property](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
 
@@ -269,10 +267,10 @@ the scope's status is equal to "Failed" or "Aborted".
 
       ![Select scope statuses](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 
-   1. When you're finished, choose **Done**. 
+   1. When you're finished, select **Done**. 
    The condition now shows an "information" icon.
 
-1. In the **If true** and **If false** branches, 
+1. In the **True** and **False** branches, 
 add the actions that you want to perform based on 
 each scope status, for example, send an email or message.
 
@@ -286,7 +284,7 @@ Your finished logic app now looks like this example:
 
 ## Test your work
 
-On the designer toolbar, choose **Run**. If all the scoped actions succeed, 
+On the designer toolbar, select **Run** > **Run**. If all the scoped actions succeed, 
 you get a "Scope succeeded" message. If any scoped actions don't succeed, 
 you get a "Scope failed" message. 
 
@@ -319,7 +317,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
+            "Body": "Scope failed. Scope status: @{action('Scope')}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -340,7 +338,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
+              "Body": "Scope succeeded. Scope status: @{action('Scope')}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -360,13 +358,13 @@ here is the JSON definition for trigger and actions in the previous logic app:
       "or": [ 
          {
             "equals": [ 
-              "@result('Scope')[0]['status']", 
+              "@action('Scope')",
               "Failed"
             ]
          },
          {
             "equals": [
-               "@result('Scope')[0]['status']", 
+               "@action('Scope')",
                "Aborted"
             ]
          } 
@@ -447,13 +445,6 @@ here is the JSON definition for trigger and actions in the previous logic app:
   }
 },
 ```
-
-## Get support
-
-* For questions, visit the 
-[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
-* To submit or vote on features and suggestions, 
-visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

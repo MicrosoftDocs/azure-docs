@@ -4,7 +4,7 @@ description: Client Connection Defaults / Other Defaults server parameters for A
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
+ms.date: 06/18/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: include

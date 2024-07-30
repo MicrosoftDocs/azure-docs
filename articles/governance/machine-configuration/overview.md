@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Understanding Azure Machine Configuration
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Policy's machine configuration feature provides native capability to audit or configure
 operating system settings as code for machines running in Azure and hybrid
@@ -114,23 +114,26 @@ status is then written to Azure Resource Graph.
 
 Machine configuration policy definitions are inclusive of new versions. Older versions of operating
 systems available in Azure Marketplace are excluded if the Guest Configuration client isn't
-compatible. The following table shows a list of supported operating systems on Azure images. The
-`.x` text is symbolic to represent new minor versions of Linux distributions.
+compatible. Additionally, Linux server versions that are out of lifetime support by their
+respective publishers are excluded from the support matrix.
+
+The following table shows a list of supported operating systems on Azure images. The `.x` text is
+symbolic to represent new minor versions of Linux distributions.
 
 | Publisher | Name                       | Versions         |
 | --------- | -------------------------- | ---------------- |
 | Alma      | AlmaLinux                  | 9                |
 | Amazon    | Linux                      | 2                |
-| Canonical | Ubuntu Server              | 14.04 - 22.x     |
-| Credativ  | Debian                     | 8 - 10.x         |
+| Canonical | Ubuntu Server              | 16.04 - 22.x     |
+| Credativ  | Debian                     | 10.x - 12.x      |
 | Microsoft | CBL-Mariner                | 1 - 2            |
-| Microsoft | Windows Client             | Windows 10       |
+| Microsoft | Windows Client             | Windows 10, 11   |
 | Microsoft | Windows Server             | 2012 - 2022      |
 | Oracle    | Oracle-Linux               | 7.x - 8.x        |
 | OpenLogic | CentOS                     | 7.3 - 8.x        |
 | Red Hat   | Red Hat Enterprise Linux\* | 7.4 - 9.x        |
-| Rocky     | Rocky Linux                | 9                |
-| SUSE      | SLES                       | 12 SP3-SP5, 15.x |
+| Rocky     | Rocky Linux                | 8                |
+| SUSE      | SLES                       | 12 SP5, 15.x     |
 
 \* Red Hat CoreOS isn't supported.
 

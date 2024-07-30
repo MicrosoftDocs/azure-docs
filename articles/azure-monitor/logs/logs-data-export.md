@@ -4,7 +4,7 @@ description: Log Analytics workspace data export in Azure Monitor lets you conti
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ms.reviewer: yossiy
-ms.date: 06/29/2023
+ms.date: 06/14/2024
 ---
 
 # Log Analytics workspace data export in Azure Monitor
@@ -651,8 +651,7 @@ If the data export rule includes an unsupported table, the configuration will su
 ## Supported tables
 
 > [!NOTE]
-> We are in a process of adding support for more tables. Please check this article regularly. 
-> Data must be in one of these tables for it to appear in a Data Export Rule.
+> We are in a process of adding support for more tables. Please check this article regularly.
 
 | Table | Limitations |
 |---|---|
@@ -733,6 +732,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | ADTModelsOperation |  |
 | ADTQueryOperation |  |
 | ADXCommand |  |
+| ADXIngestionBatching |  |
 | ADXJournal |  |
 | ADXQuery |  |
 | ADXTableDetails |  |
@@ -766,6 +766,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AKSAudit |  |
 | AKSAuditAdmin |  |
 | AKSControlPlane |  |
+| ALBHealthEvent |  |
 | Alert | Partial support. Data ingestion for Zabbix alerts isn't supported. |
 | AlertEvidence |  |
 | AlertInfo |  |
@@ -773,6 +774,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | AmlComputeCpuGpuUtilization |  |
 | AmlComputeInstanceEvent |  |
 | AmlComputeJobEvent |  |
+| AmlDataLabelEvent |  |
 | AmlDataSetEvent |  |
 | AmlDataStoreEvent |  |
 | AmlDeploymentEvent |  |
@@ -791,12 +793,14 @@ If the data export rule includes an unsupported table, the configuration will su
 | AMSLiveEventOperations |  |
 | AMSMediaAccountHealth |  |
 | AMSStreamingEndpointRequests |  |
+| AMWMetricsUsageDetails |  |
 | ANFFileAccess |  |
 | Anomalies |  |
 | AOIDatabaseQuery |  |
 | AOIDigestion |  |
 | AOIStorage |  |
 | ApiManagementGatewayLogs |  |
+| ApiManagementWebSocketConnectionLogs |  |
 | AppAvailabilityResults |  |
 | AppBrowserTimings |  |
 | AppCenterError |  |
@@ -807,6 +811,8 @@ If the data export rule includes an unsupported table, the configuration will su
 | AppMetrics |  |
 | AppPageViews |  |
 | AppPerformanceCounters |  |
+| AppPlatformBuildLogs |  |
+| AppPlatformContainerEventLogs |  |
 | AppPlatformIngressLogs |  |
 | AppPlatformLogsforSpring |  |
 | AppPlatformSystemLogs |  |
@@ -872,13 +878,13 @@ If the data export rule includes an unsupported table, the configuration will su
 | AZMSArchiveLogs |  |
 | AZMSAutoscaleLogs |  |
 | AZMSCustomerManagedKeyUserLogs |  |
+| AZMSDiagnosticErrorLogs |  |
 | AZMSHybridConnectionsEvents |  |
 | AZMSKafkaCoordinatorLogs |  |
 | AZMSKafkaUserErrorLogs |  |
 | AZMSOperationalLogs |  |
 | AZMSRunTimeAuditLogs |  |
 | AZMSVnetConnectionEvents |  |
-| AzureActivity | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
 | AzureAssessmentRecommendation |  |
 | AzureAttestationDiagnostics |  |
 | AzureBackupOperations |  |
@@ -920,24 +926,33 @@ If the data export rule includes an unsupported table, the configuration will su
 | ContainerServiceLog |  |
 | CoreAzureBackup |  |
 | DatabricksAccounts |  |
+| DatabricksBrickStoreHttpGateway |  |
 | DatabricksCapsule8Dataplane |  |
 | DatabricksClamAVScan |  |
+| DatabricksCloudStorageMetadata |  |
 | DatabricksClusterLibraries |  |
 | DatabricksClusters |  |
+| DatabricksDashboards |  |
+| DatabricksDataMonitoring |  |
 | DatabricksDBFS |  |
 | DatabricksDeltaPipelines |  |
 | DatabricksFeatureStore |  |
+| DatabricksFilesystem |  |
 | DatabricksGenie |  |
 | DatabricksGitCredentials |  |
 | DatabricksGlobalInitScripts |  |
 | DatabricksIAMRole |  |
+| DatabricksIngestion |  |
 | DatabricksInstancePools |  |
 | DatabricksJobs |  |
+| DatabricksLineageTracking |  |
+| DatabricksMarketplaceConsumer |  |
 | DatabricksMLflowAcledArtifact |  |
 | DatabricksMLflowExperiment |  |
 | DatabricksModelRegistry |  |
 | DatabricksNotebook |  |
 | DatabricksPartnerHub |  |
+| DatabricksPredictiveOptimization |  |
 | DatabricksRemoteHistoryService |  |
 | DatabricksRepos |  |
 | DatabricksSecrets |  |
@@ -1036,6 +1051,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | IdentityQueryEvents |  |
 | InsightsMetrics | Partial support. Some of the data is ingested through internal services that aren't supported in export. Currently, this portion is missing in export. |
 | IntuneAuditLogs |  |
+| IntuneDeviceComplianceOrg |  |
 | IntuneDevices |  |
 | IntuneOperationalLogs |  |
 | KubeEvents |  |
@@ -1053,6 +1069,8 @@ If the data export rule includes an unsupported table, the configuration will su
 | MCCEventLogs |  |
 | MCVPAuditLogs |  |
 | MCVPOperationLogs |  |
+| MDCFileIntegrityMonitoringEvents |  |
+| MDECustomCollectionDeviceFileEvents |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -1061,6 +1079,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | MicrosoftHealthcareApisAuditLogs |  |
 | MicrosoftPurviewInformationProtection |  |
 | MNFDeviceUpdates |  |
+| MNFSystemSessionHistoryUpdates |  |
 | MNFSystemStateMessageUpdates |  |
 | NCBMBreakGlassAuditLogs |  |
 | NCBMSecurityDefenderLogs |  |
@@ -1074,10 +1093,12 @@ If the data export rule includes an unsupported table, the configuration will su
 | NetworkMonitoring |  |
 | NGXOperationLogs |  |
 | NSPAccessLogs |  |
+| NTAInsights |  |
 | NTAIpDetails |  |
 | NTANetAnalytics |  |
 | NTATopologyDetails |  |
 | NWConnectionMonitorDestinationListenerResult |  |
+| NWConnectionMonitorDNSResult |  |
 | NWConnectionMonitorPathResult |  |
 | NWConnectionMonitorTestResult |  |
 | OEPAirFlowTask |  |
@@ -1117,7 +1138,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| SecurityEvent | |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -1134,6 +1155,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SigninLogs |  |
 | SPAssessmentRecommendation |  |
 | SQLAssessmentRecommendation |  |
+| SqlAtpStatus |  |
 | SQLSecurityAuditEvents |  |
 | SqlVulnerabilityAssessmentScanStatus |  |
 | StorageBlobLogs |  |
@@ -1150,8 +1172,13 @@ If the data export rule includes an unsupported table, the configuration will su
 | SucceededIngestion |  |
 | SynapseBigDataPoolApplicationsEnded |  |
 | SynapseBuiltinSqlPoolRequestsEnded |  |
+| SynapseDXCommand |  |
 | SynapseDXFailedIngestion |  |
+| SynapseDXIngestionBatching |  |
+| SynapseDXQuery |  |
 | SynapseDXSucceededIngestion |  |
+| SynapseDXTableDetails |  |
+| SynapseDXTableUsageStatistics |  |
 | SynapseGatewayApiRequests |  |
 | SynapseIntegrationActivityRuns |  |
 | SynapseIntegrationPipelineRuns |  |
@@ -1165,7 +1192,7 @@ If the data export rule includes an unsupported table, the configuration will su
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| Syslog | Partial support. Data arriving from the Log Analytics agent or Azure Monitor Agent is fully supported in export. Data arriving via the Diagnostics extension agent is collected through storage. This path isn't supported in export. |
+| Syslog | |
 | ThreatIntelligenceIndicator |  |
 | TSIIngress |  |
 | UCClient |  |
@@ -1205,13 +1232,16 @@ If the data export rule includes an unsupported table, the configuration will su
 | WUDOAggregatedStatus |  |
 | WUDOStatus |  |
 | WVDAgentHealthStatus |  |
+| WVDAutoscaleEvaluationPooled |  |
 | WVDCheckpoints |  |
+| WVDConnectionGraphicsDataPreview |  |
 | WVDConnectionNetworkData |  |
 | WVDConnections |  |
 | WVDErrors |  |
 | WVDFeeds |  |
 | WVDHostRegistrations |  |
 | WVDManagement |  |
+| WVDSessionHostManagement |  |
 
 ## Next steps
 

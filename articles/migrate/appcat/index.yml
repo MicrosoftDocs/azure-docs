@@ -7,6 +7,7 @@ metadata:
   title: Azure Migrate application and code assessment
   description: Learn about Azure Migrate application and code assessment.
   ms.service: appcat
+  ms.author: v-sreedevank
   ms.topic: landing-page
   ms.date: 11/15/2023
 
@@ -33,7 +34,7 @@ landingContent:
         links:
           - text: FAQ
             url: faq.yml
-          - text: CLI usage guide
+          - text: CLI usage guide for Java
             url: https://azure.github.io/appcat-docs/cli/
-          - text: Rules development guide
+          - text: Rules development guide for Java
             url: https://azure.github.io/appcat-docs/rules-development-guide/

@@ -12,7 +12,7 @@ services: azure-maps
 
 # Create multi-itinerary optimization service
 
-This guide describes how to use [Azure Maps] and [NVIDIA cuOpt] to build an itinerary optimization service that automates the process of building itineraries for multiple agents and mixed fleets, and optimizes their route across multiple destinations.
+​​​This guide explains how to use [Azure Maps] and [NVIDIA cuOpt] to create an itinerary optimization service. This service automates the process of building itineraries for multiple agents and mixed fleets, utilizing the NVIDIA cuOpt route optimization engine to optimize routes across multiple destinations.​​
 
 This is a two-step process that requires a cost matrix for the travel time and a solver to optimize the problem and generate an outcome. A cost matrix represents the cost of traveling between every two sets of locations in the problem, which includes the travel time cost and other costs of travel.
 
@@ -54,25 +54,26 @@ This service can support the following features and constraints.
 
 For the full list of supported capabilities, see [cuOpt Supported Features].
 
-## Get started with Nvidia cuOpt on Azure Marketplace
+## Get started with NVIDIA cuOpt on Azure Marketplace
 
-Nvidia cuOpt uses GPU accelerated logistics solver and optimizations to calculate complex vehicle routing problems with a wide range of constraints. For more information, see the [List of cuOpt supported features].
+NVIDIA cuOpt uses GPU accelerated logistics solver and optimizations to calculate complex vehicle routing problems with a wide range of constraints. For more information, see the [List of cuOpt supported features].
 
-cuOpt is included with Nvidia AI Enterprise. Visit [Azure Marketplace] to get started.
+cuOpt is included with NVIDIA AI Enterprise. Visit [Azure Marketplace] to get started.
 
 ## Get the travel cost
 
-Itinerary optimization requires a square matrix of some travel metric that is passed to the cuOpt solver. This could include travel time or distance cost. A cost matrix is a square matrix that represents the cost of traveling between each two pairs of locations in the problem.
+Itinerary optimization requires a square matrix of some travel metric that is passed to the cuOpt solver. This could include travel time or distance cost. A cost matrix is a square matrix that represents the cost of traveling between every pair of locations in the problem.
 
 The Azure Maps [Route Matrix] API calculates the time and distance cost of routing from origin to every destination. The set of origins and the set of destinations can be thought of as the column and row headers of a table and each cell in the table contains the costs of routing from the origin to the destination for that cell.
 
-For example, a restaurant has two drivers that need to deliver food to four locations. To solve this case, you'll first call the Route Matrix API to get the travel times between all locations. This example assumes that the drivers’ start, and end location is the restaurant. If the start and end locations are different from the depot, they must be included in the cost matrices.
+For example, a restaurant has two drivers that need to deliver food to four locations. To solve this case, call the Route Matrix API to get the travel times between all locations. This example assumes that the drivers’ start, and end location is the restaurant. If the start and end locations are different from the depot, they must be included in the cost matrices.
 
 Number of origins = Number of destinations = 1 (restaurant also known as _depot_) + 4 (deliveries)
 
 Matrix size = 5 origins x 5 destinations = 25
 
-Note: Azure Maps Route Matrix can support up to 700 matrix cells which approximate to a square matrix of 26x26. You can use it to plan the itinerary for 26 locations including depots and deliveries.
+> [!NOTE]
+> Azure Maps Route Matrix can support up to 700 matrix cells which approximate to a square matrix of 26x26. You can use it to plan the itinerary for 26 locations including depots and deliveries.
 
 The Route Matrix POST request:
 
@@ -147,7 +148,7 @@ Parse the Azure Maps Route Matrix API response to get the travel time between lo
     }}}
 ```
 
-Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles can travel faster while others might incur additional costs when traveling through certain areas. This can be modeled using additional cost matrices one for each vehicle type. The next example has two matrices, “0” represents first vehicle, which could be a car and “1” represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
+Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles can travel faster while others might incur more costs when traveling through certain areas. This can be modeled using more cost matrices one for each vehicle type. The next example has two matrices, “0” represents first vehicle, which could be a car and “1” represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
 
 ```json
 "data": {" cost_matrix_data ": {
@@ -171,7 +172,7 @@ Multiple cost matrices can optionally be provided depending on the types of vehi
 
 ### Set Fleet Data
 
-Fleet data could describe the fleet description like the number of vehicles, their start and end location, vehicle capacity, etc. that is used by the solver to determine which vehicles are available to carry out the task within the constraints.
+Fleet data could describe the fleet description such as the number of vehicles, their start/end location, and vehicle capacity that are used by the solver to determine which vehicles are available to carry out the task within the constraints.
 
 ```json
 {
@@ -196,8 +197,7 @@ Fleet data could describe the fleet description like the number of vehicles, the
 ```
 
 - **Vehicle locations**: In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
-- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data.
-For example, if there are two vehicles in the fleet with a capacity of two and three that indicates the number of people it can accommodate on a single trip and the demand is three for a delivery location, the solver would use the vehicle with a capacity of three to carry out the task.
+- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
 - **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
 - **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
 
@@ -216,7 +216,7 @@ Tasks define the objective that must be fulfilled within the constraints. In the
 
 - **Task location**: In the above example, task_locations indicate the delivery location located at positions 1, 2, 3 and 4. These locations correspond to row (or column) indices in the cost matrix.
 - **Demand**: The demand array indicates the demand quantity at each location; the first location has a demand of 3, second and third location has 4 and the last location has 3. The count of demand dimensions should correspond to the number of capacity dimensions for each vehicle.
-- **Task time window**: Time windows constraints specifies when a task should be completed. Each task is assigned a start and end time window, and the task must be completed within that. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Task time window**: Time window constraints specify when a task should be completed. Each task is assigned a start and end time window, and the task must be completed within that. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
 - **Service times**: This represents the duration required to complete the tasks. The service_times array specifies the time duration for each task location. All time/cost units provided to the cuOpt solver should be in the same unit.
 
 ### Set Solver config (optional)
@@ -247,14 +247,14 @@ Sample request data
         "vehicle_ids": ["Car-A", "Car-B"], 
         "vehicle_types": [1, 1], 
         "capacities": [[75, 75]], 
-        "vehicle_time_windows": [[8, 17], [8, 17]], 
+        "vehicle_time_windows": [[8, 18], [8, 17]], 
         "vehicle_break_time_windows": [[[12, 14], [12, 14]]], 
         "vehicle_break_durations": [[0, 0]]
 }, 
 "task_data": {
         "task_locations": [1, 2, 3, 4], 
         "demand": [[30, 40, 40, 30]], 
-        "task_time_windows": [[8, 17], [8, 17], [8, 17], [17, 20]], 
+        "task_time_windows": [[8, 17], [8, 17], [8, 17], [17, 15]], 
         "service_times": [0, 0, 0, 0]
 },
 "solver_config": {
@@ -268,45 +268,81 @@ Sample request data
 Sample response
 
 ```json
-{
-    "reqId": "5a96b531-bacf-44db-9170-87585eeffc3e",
-    "status": "fulfilled",
-    "percentComplete": 100,
+  "reqId": "4bdc2610-d821-48dc-b53f-57698015bb2e",
+  "status": "fulfilled",
+  "percentComplete": 100,
+  "response": {
     "response": {
-        "response": {
-            "solver_infeasible_response": {
-                "status": 1,
-                "num_vehicles": 2,
-                "solution_cost": 19.0,
-                "vehicle_data": {
-                    "Car-A": {
-                        "task_id": ["Depot", "0", "Break", "2", "Depot"],
-                        "arrival_stamp": [8.0, 11.0, 12.0, 14.0, 16.0]
-                        ],
-                        "route": [0, 1, 1, 3, 0],
-                        "type": ["Depot", "Delivery", "Break", "Delivery", "Depot”]
-                    },
-                    "Car-B": {
-                        "task_id": [
-                            "Depot",
-                            "Break",
-                            "1",
-                            "3",
-                            "Depot"
-                        ],
-                        "arrival_stamp": [8.0, 12.0, 12.0, 17.0, 18.0],
-                        "route": [0, 2, 2, 4, 0],
-                        "type": ["Depot", "Break", "Delivery", "Delivery", "Depot"]
-                    }
-                },
-                "dropped_tasks": {
-                    "task_id": [],
-                    "task_index": []
-                },
-                "msg": ""
-            }
-        }
+      "solver_response": {
+        "status": 0,
+        "num_vehicles": 2,
+        "solution_cost": 19.0,
+        "vehicle_data": {
+          "Car-A": {
+            "task_id": [
+              "Depot",
+              "Break",
+              "0",
+              "2",
+              "Depot"
+            ],
+            "arrival_stamp": [
+              8.0,
+              13.0,
+              13.0,
+              17.0,
+              18.0
+            ],
+            "route": [
+              0,
+              1,
+              1,
+              3,
+              0
+            ],
+            "type": [
+              "Depot",
+              "Break",
+              "Delivery",
+              "Delivery",
+              "Depot"
+            ]
+          },
+          "Car-B": {
+            "task_id": [
+              "Depot",
+              "Break",
+              "1",
+              "3",
+              "Depot"
+            ],
+            "arrival_stamp": [
+              8.0,
+              12.0,
+              12.0,
+              14.0,
+              17.0
+            ],
+            "route": [
+              0,
+              2,
+              2,
+              4,
+              0
+            ],
+            "type": [
+              "Depot",
+              "Break",
+              "Delivery",
+              "Delivery",
+              "Depot"
+            ]
+          }
+        },
+        "msg": ""
+      }
     }
+  }
 }
 ```
 

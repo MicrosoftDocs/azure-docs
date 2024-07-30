@@ -15,7 +15,7 @@ ms.custom: UpdateFrequency2
 
 In Azure DevTest Labs, both [custom images](devtest-lab-create-template.md) and [formulas](devtest-lab-manage-formulas.md) can be used as bases for [creating new lab virtual machines (VMs)](devtest-lab-add-vm.md). The key distinction between custom images and formulas is that a custom image is simply an image based on a virtual hard drive (VHD). A formula is an image based on a VHD that also includes preconfigured settings. These settings can include VM size, virtual network, subnet, and artifacts. Preconfigured settings are set up with default values that you can override when you create the VM. 
 
-In this article, you learn the pros and cons of using custom images versus formulas. You can also read [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create a formula from a VM](devtest-lab-manage-formulas.md#create-a-formula-from-a-vm) for more details.
+In this article, you learn the pros and cons of using custom images versus formulas. You can also read [Create a custom image from a VM](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create a formula from a VM](devtest-lab-manage-formulas.md#create-formula-from-existing-vm) for more details.
 
 ## Custom image benefits
 

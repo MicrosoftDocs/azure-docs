@@ -43,7 +43,7 @@ To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in t
 1. [Create an App registration to authenticate against the API](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application).
 1. [Create a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-new-table-in-log-analytics-workspace) to store the data, and provide a data sample. In this step, you can also define a transformation before the data is ingested.
 1. [Collect information from the data collection rule](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr) and assign permissions to the rule.
-1. [Change the table from Analytics to Basic Logs](../azure-monitor/logs/basic-logs-configure.md).
+1. [Change the table from Analytics to Basic Logs](../azure-monitor/logs/logs-table-plans.md).
 1. Run the [Custom Log Ingestion script](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/CustomLogsIngestion-DCE-DCR). The script asks for the following details:  
     - Path to the log files to ingest 
     - Microsoft Entra tenant ID 

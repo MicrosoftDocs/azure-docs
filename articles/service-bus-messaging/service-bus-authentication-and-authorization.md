@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus authentication and authorization | Microsoft Docs
-description: Authenticate apps to Service Bus with Shared Access Signature (SAS) authentication.
+title: Azure Service Bus authentication and authorization
+description: Learn how to securely authenticate and authorize access to Azure Service Bus, including best practices for managing access keys and using Microsoft Entra ID.
 ms.topic: article
 ms.date: 02/23/2024
 ---
@@ -16,7 +16,7 @@ This article gives you details on using these two types of security mechanisms.
 <a name='azure-active-directory'></a>
 
 ## Microsoft Entra ID
-Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, an application service principal, or a managed identity. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. This token can be used to authorize a request to access a Service Bus resource (queue, topic, and so on).
+Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, an application service principal, or a managed identity. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. This token can be used to authorize a request to access a Service Bus resource (queue, topic, and subscription).
 
 For more information about authenticating with Microsoft Entra ID, see the following articles:
 
@@ -34,7 +34,7 @@ For more information about authenticating with Microsoft Entra ID, see the follo
 ## Shared access signature
 [SAS authentication](service-bus-sas.md) enables you to grant a user access to Service Bus resources, with specific rights. SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients can then gain access to that resource by presenting a SAS token, which consists of the resource URI being accessed and an expiry signed with the configured key.
 
-You can configure keys for SAS on a Service Bus namespace. The key applies to all messaging entities within that namespace. You can also configure keys on Service Bus queues and topics. To use SAS, you can configure a shared access authorization rule on a namespace, queue, or topic. This rule consists of the following elements:
+You can configure shared access policies on a Service Bus namespace. The key applies to all messaging entities within that namespace. You can also configure shared access policies on Service Bus queues and topics. To use SAS, you can configure a shared access authorization rule on a namespace, queue, or topic. This rule consists of the following elements:
 
 * **KeyName**: identifies the rule.
 * **PrimaryKey**: a cryptographic key used to sign/validate SAS tokens.
@@ -45,10 +45,12 @@ Authorization rules configured at the namespace level can grant access to all en
 
 To access an entity, the client requires a SAS token generated using a specific shared access authorization rule. The SAS token is generated using the HMAC-SHA256 of a resource string that consists of the resource URI to which access is claimed, and an expiry with a cryptographic key associated with the authorization rule.
 
-SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a shared access authorization rule. All APIs that accept a connection string as a parameter include support for SAS connection strings.
+SAS authentication support for Service Bus is included in the Azure .NET SDK versions 2.0 and later. SAS includes support for a shared access authorization rule. All APIs that accept a connection string as a parameter include support for SAS connection strings. 
+
+For detailed information on using SAS for authentication, see [Authentication with Shared Access Signatures](service-bus-sas.md).
 
 
-## Next steps
+## Related content
 For more information about authenticating with Microsoft Entra ID, see the following articles:
 
 - [Authentication with managed identities](service-bus-managed-service-identity.md)

@@ -10,24 +10,26 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 06/27/2024
 ---
 
 # Configure semantic ranking and return captions in search results
 
-In this article, learn how to invoke a semantic ranking over a result set, promoting the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
+This article explains how to configure a search index for semantic reranking. 
+
+Semantic ranking iterates over an initial result set, applying an L2 ranking methodology that promotes the most semantically relevant results to the top of the stack. You can also get semantic captions, with highlights over the most relevant terms and phrases, and [semantic answers](semantic-answers.md).
 
 ## Prerequisites
 
-+ A search service on Basic, Standard tier (S1, S2, S3), or Storage Optimized tier (L1, L2), subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
++ A search service on a basic tier or higher, subject to [region availability](https://azure.microsoft.com/global-infrastructure/services/?products=search).
 
 + Semantic ranker [enabled on your search service](semantic-how-to-enable-disable.md).
 
-+ An existing search index with rich text content. Semantic ranking applies to text (nonvector) fields and works best on content that is informational or descriptive.
++ An existing search index with rich text content. Semantic ranking applies to strings (nonvector) fields and works best on content that is informational or descriptive.
 
 ## Choose a client
 
-Choose a search client that supports semantic ranking. Here are some options:
+You can use any of the following tools and SDKs to add a semantic configuration:
 
 + [Azure portal](https://portal.azure.com), using the index designer to add a semantic configuration.
 + [Visual Studio Code](https://code.visualstudio.com/download) with the [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
@@ -53,7 +55,7 @@ You can only specify one title field, but you can have as many content and keywo
 Across all semantic configuration properties, the fields you assign must be:
 
 + Attributed as `searchable` and `retrievable`
-+ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of  `Collection(Edm.ComplexType)`
++ Strings of type `Edm.String`, `Collection(Edm.String)`, string subfields of `Edm.ComplexType`
 
 ### [**Azure portal**](#tab/portal)
 

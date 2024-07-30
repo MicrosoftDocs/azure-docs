@@ -3,7 +3,7 @@ title: Azure monitoring REST API walkthrough
 description: How to authenticate requests and use the Azure Monitor REST API to retrieve available metric definitions, metric values, and activity logs.
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 03/11/2024
+ms.date: 06/27/2024
 ms.custom: has-adal-ref
 ms.author: edbaynash
 ms.reviewer: priyamishra
@@ -20,43 +20,9 @@ Retrieve metric definitions, dimension values, and metric values using the Azure
 Request submitted using the Azure Monitor API use the Azure Resource Manager authentication model. All requests are authenticated with Microsoft Entra ID. One approach to authenticating the client application is to create a Microsoft Entra service principal and retrieve an authentication token. You can create a Microsoft Entra service principal using the Azure portal, CLI, or PowerShell. For more information, see [Register an App to request authorization tokens and work with APIs](../logs/api/register-app-for-token.md).
 
 ### Retrieve a token
-Once you've created a service principal, retrieve an access token using a REST call. Submit the following request using the `appId` and `password` for your service principal or app:
+Once you've created a service principal, retrieve an access token. Specify `resource=https://management.azure.com` in the token request.
 
-```HTTP
-
-    POST /<tenant-id>/oauth2/token
-    Host: https://login.microsoftonline.com
-    Content-Type: application/x-www-form-urlencoded
-    
-    grant_type=client_credentials
-    &client_id=<app-client-id>
-    &resource=https://management.azure.com
-    &client_secret=<password>
-
-```
-
-For example
-
-```bash
-curl --location --request POST 'https://login.microsoftonline.com/abcd1234-5849-4a5d-a2eb-5267eae1bbc7/oauth2/token' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=0123b56a-c987-1234-abcd-1a2b3c4d5e6f' \
---data-urlencode 'client_secret=123456.ABCDE.~XYZ876123ABceDb0000' \
---data-urlencode 'resource=https://management.azure.com'
-
-```
-A successful request receives an access token in the response:
-
-```HTTP
-{
-   token_type": "Bearer",
-   "expires_in": "86399",
-   "ext_expires_in": "86399",
-   "access_token": "eyJ0eXAiOiJKV1QiLCJ.....Ax"
-}
-```
-
+[!INCLUDE [Get a token](../includes/get-authentication-token.md)]
 
 
 After authenticating and retrieving a token, use the access token in your Azure Monitor API requests by including the header  `'Authorization: Bearer <access token>'`
@@ -393,9 +359,10 @@ After retrieving the metric definitions and dimension values, retrieve the metri
 
 Use the metric's `name.value` element in the filter definitions. If no dimension filters are specified, the rolled up, aggregated metric is returned.  
 
-To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`.   
-
-To return a time series for every value of a given dimension, use an `*` filter such as `"&$filter=ApiName eq '*'"`. The `Top` and `OrderBy` query parameters can be used to limit and order the number of time series returned.  
+### Multiple time series
+A time series is a set of data points that are ordered by time for a given combination of dimensions. A dimension is an aspect of the metric that describes the data point such as resource Id, region, or ApiName. 
++ To fetch multiple time series with specific dimension values, specify a filter query parameter that specifies both dimension values such as `"&$filter=ApiName eq 'ListContainers' or ApiName eq 'GetBlobServiceProperties'"`.  In this example, you get a time series where `ApiName` is  `ListContainers` and a second time series where `ApiName` is `GetBlobServiceProperties`.
++ To return a time series for every value of a given dimension, use an `*` filter such as `"&$filter=ApiName eq '*'"`. Use the `Top` and `OrderBy` query parameters to limit and sort the number of time series returned.  In this example, you get a time series for every value of `ApiName`in the result set. If no data is returned, the API returns an empty time series `"timeseries": []`.
 
 > [!NOTE]
 > To retrieve multi-dimensional metric values using the Azure Monitor REST API, use the API version "2019-07-01" or later.
@@ -516,7 +483,7 @@ Below is an equivalent metrics request for multiple resources:
 GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef012345/providers/microsoft.Insights/metrics?timespan=2023-06-25T22:20:00.000Z/2023-06-26T22:25:00.000Z&interval=PT5M&metricnames=Percentage CPU&aggregation=average&api-version=2021-05-01&region=eastus&metricNamespace=microsoft.compute/virtualmachines&$filter=Microsoft.ResourceId eq '*'
 ```
 > [!NOTE] 
-> A `Microsoft.ResourceId eq '*'` filter is added in the example for the multi resource metrics requests. The filter tells the API to return a separate time series per virtual machine resource in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value. If there are no resourceIds retrieved by this query an empty time series`"timeseries": []` is returned.
+> A `Microsoft.ResourceId eq '*'` filter is added in the example for the multi resource metrics requests. The `*` filter tells the API to return a separate time series for each virtual machine resource that has data in the subscription and region. Without the filter the API would return a single time series aggregating the average CPU for all VMs. The times series for each resource is differentiated by the `Microsoft.ResourceId` metadata value on each time series entry, as can be seen in the following sample return value. If there are no resourceIds retrieved by this query an empty time series`"timeseries": []` is returned.
 
 ```JSON
 {
@@ -640,7 +607,7 @@ GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef0123
     "resourceregion": "eastus"
 }
 ```
-
+ 
 ### Troubleshooting querying metrics for multiple resources
 
 + Empty time series returned `"timeseries": []` 
@@ -648,11 +615,10 @@ GET https://management.azure.com/subscriptions/12345678-abcd-98765432-abcdef0123
     - Another common cause is specifying a filter that doesn't match any resources. For example, if the filter specifies a dimension value that doesn't exist on any resources in the subscription and region combination, `"timeseries": []` is returned. 
     
 +  Wildcard filters  
-    Using a wildcard filter such as `Microsoft.ResourceId eq '*'` causes the API to return a time series for every resourceId in the subscription and region. If the subscription and region combination contains no resources, an empty time series is returned. The same query without the wildcard filter would return a single time series, aggregating the requested metric over the requested dimensions, for example subscription and region. If there are no resources in the subscription and region combination, the API returns a single time series with a single data point of `0`.
+    Using a wildcard filter such as `Microsoft.ResourceId eq '*'` causes the API to return a time series for every resourceId in the subscription and region. If the subscription and region combination contains no resources, an empty time series is returned. The same query without the wildcard filter would return a single time series, aggregating the requested metric over the requested dimensions, for example subscription and region.
  
 + 401 authorization errors:  
     The individual resource metrics APIs requires a user have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission on the resource being queried. Because the multi resource metrics APIs are subscription level APIs, users must have the  [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) permission for the queried subscription to use the multi resource metrics APIs. Even if users have Monitoring Reader on all the resources in a subscription, the request fails if the user doesn't have Monitoring Reader on the subscription itself.
-
 
 
 ## Next steps

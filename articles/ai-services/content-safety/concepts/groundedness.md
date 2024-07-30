@@ -51,7 +51,7 @@ Currently, the Groundedness detection API supports English language content. Whi
 
 ### Text length limitations
 
-The maximum character limit for the grounding sources is 55,000 characters per API call, and for the text and query, it's 7,500 characters per API call. If your input (either text or grounding sources) exceeds these character limitations, you'll encounter an error.
+See [Input requirements](../overview.md#input-requirements) for maximum text length limitations.
 
 ### Regions
 

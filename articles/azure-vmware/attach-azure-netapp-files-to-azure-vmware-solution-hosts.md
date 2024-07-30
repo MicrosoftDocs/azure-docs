@@ -49,6 +49,7 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * East US 2
 * France Central
 * Germany West Central
+* Italy North 
 * Japan East
 * Japan West
 * North Central US
@@ -68,6 +69,15 @@ Azure NetApp Files datastores for Azure VMware Solution are currently supported 
 * West US
 * West US 2
 * West US 3
+
+## Supported host types
+
+Azure NetApp Files datastores for Azure VMware Solution are currently supported in the following host types:
+
+* AV36 
+* AV36P
+* AV52
+* AV64
 
 ## Performance best practices
 

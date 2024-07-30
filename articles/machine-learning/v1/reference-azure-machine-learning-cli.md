@@ -5,10 +5,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: balapv
-ms.author: balapv
-ms.reviewer: larryfr
-ms.date: 11/11/2022
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: balapv
+ms.date: 07/26/2024
 ms.custom: UpdateFrequency5, devx-track-azurecli, cliv1
 ---
 

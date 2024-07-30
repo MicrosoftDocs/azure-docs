@@ -69,7 +69,7 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### Create a diagnostic setting
 
-Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using log queries. For this tutorial, you enable the web server and standard output/error logs. See [supported log types](./troubleshoot-diagnostic-logs.md#supported-log-types) for a complete list of log types and descriptions.
+Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using log queries. For this tutorial, you enable the web server and standard output/error logs. See [supported log types](monitor-app-service-reference.md#resource-logs) for a complete list of log types and descriptions.
 
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
@@ -250,7 +250,7 @@ Converting images should not longer produce the HTTP 500 errors.
 
 ![PHP app running in Azure App Service](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 Delete the diagnostic setting with the following command:
 

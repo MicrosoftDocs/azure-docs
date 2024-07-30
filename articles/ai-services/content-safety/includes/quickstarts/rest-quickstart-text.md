@@ -28,7 +28,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters. 
+    > See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-10-01' \
@@ -36,14 +36,10 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
 --header 'Content-Type: application/json' \
 --data-raw '{
   "text": "I hate you",
-  "categories": [
-   "Hate","Sexual","SelfHarm","Violence"
-  ]
-   "blocklistNames": [
-      "string"
-    ],
-   "haltOnBlocklistHit": true,
-   "outputType": "FourSeverityLevels"
+  "categories": ["Hate", "Sexual", "SelfHarm", "Violence"],
+  "blocklistNames": ["string"],
+  "haltOnBlocklistHit": true,
+  "outputType": "FourSeverityLevels"
 }'
 ```
 
@@ -68,12 +64,8 @@ See the following sample request body:
 ```json
 {
   "text": "I hate you",
-  "categories": [
-   "Hate","Sexual","SelfHarm","Violence"
-  ],
-  "blocklistNames": [
-    "array"
-  ],
+  "categories": ["Hate", "Sexual", "SelfHarm", "Violence"],
+  "blocklistNames": ["array"],
   "haltOnBlocklistHit": false,
   "outputType": "FourSeverityLevels"
 }
@@ -96,21 +88,22 @@ You should see the text moderation results displayed as JSON data in the console
     }
   ],
   "categoriesAnalysis": [
-        {
-            "category": "Hate",
-            "severity": 2
-        },
-        {
-            "category": "SelfHarm",
-            "severity": 0
-        },
-        {
-            "category": "Sexual",
-            "severity": 0
-        },
-        {
-            "category": "Violence",
-            "severity": 0
+    {
+      "category": "Hate",
+      "severity": 2
+    },
+    {
+      "category": "SelfHarm",
+      "severity": 0
+    },
+    {
+      "category": "Sexual",
+      "severity": 0
+    },
+    {
+      "category": "Violence",
+      "severity": 0
+    }
   ]
 }
 ```

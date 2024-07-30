@@ -34,7 +34,7 @@ In this tutorial section, you can either use the Azure Cloud Shell (in your inte
 
 [!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Log in to Azure](../../../includes/login-to-azure.md)]
+[!INCLUDE [Log in to Azure](../includes/login-to-azure.md)]
 
 [!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/app-service-web-create-resource-group.md)]
 
