@@ -50,7 +50,12 @@ You can monitor diagnostic logs from your Azure Cosmos DB account and create das
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Cosmos DB, see [Azure Cosmos DB monitoring data reference](monitor-reference.md#resource-logs).
 
+<a name="activity-log"></a>
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
+
+### Audit restore actions for continuous backup mode
+
+By using activity logs, you can list all the point-in-time restores for continuous mode that were performed on an Azure Cosmos DB account. To learn how to view these operations in the Azure portal, see [Audit the point-in-time restore action for continuous backup mode](audit-restore-continuous.md).
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
@@ -112,6 +117,9 @@ See the following articles for more information about working with Azure Monitor
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 Prior to using Log Analytics to issue Kusto queries, you must [enable diagnostic logs for control plane operations](audit-control-plane-logs.md#enable-diagnostic-logs-for-control-plane-operations). When you enable diagnostic logs, you select between storing your data in [resource-specific tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) or the single [AzureDiagnostics table (legacy)](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). The exact text of Kusto queries depends on the [collection mode](/azure/azure-monitor/essentials/resource-logs#select-the-collection-mode) you select.
+
+- See [Troubleshoot issues with diagnostics queries](monitor-logs-basic-queries.md) for simple queries to help troubleshoot issues with your Azure Cosmos DB.
+- See [Troubleshoot issues with advanced diagnostics queries with Azure Cosmos DB for NoSQL](nosql/diagnostic-queries.md) for more advanced queries to help troubleshoot issues with your Azure Cosmos DB account by using diagnostics logs sent to Azure Diagnostics (legacy) and resource-specific (preview) tables.
 
 Here are some queries that you can enter into the **Log search** search bar to help you monitor your Azure Cosmos DB resources. 
 

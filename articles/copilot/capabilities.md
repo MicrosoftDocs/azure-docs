@@ -30,7 +30,7 @@ Use Microsoft Copilot in Azure to perform many basic tasks in the Azure portal o
 - Work smarter with Azure services:
   - [Deploy virtual machines effectively](deploy-vms-effectively.md)
   - [Build infrastructure and deploy workloads](build-infrastructure-deploy-workloads.md)
-  - [Create resources using guided deployments](use-guided-deployments.md)
+  - [Create resources using interactive deployments](use-guided-deployments.md)
   - [Work with AKS clusters efficiently](work-aks-clusters.md)
   - [Get information about Azure Monitor metrics and logs](get-monitoring-information.md)
   - [Work smarter with Azure Stack HCI](work-smarter-edge.md)
@@ -85,3 +85,4 @@ Keep in mind these current limitations:
 
 - [Get tips for writing effective prompts](write-effective-prompts.md) to use with Microsoft Copilot in Azure.
 - Learn about [managing access to Copilot in Azure](manage-access.md) in your organization.
+- Explore the [Microsoft Copilot in Azure video series](/shows/microsoft-copilot-in-azure/).

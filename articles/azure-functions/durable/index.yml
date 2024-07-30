@@ -40,11 +40,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create durable functions (C#)
-            url: durable-functions-create-first-csharp.md
-          - text: Create your first function (JavaScript)
+          - text: Create a Durable Functions app (C#)
+            url: durable-functions-isolated-create-first-csharp.md
+          - text: Create a Durable Functions app (JavaScript)
             url: quickstart-js-vscode.md
-          - text: Create your first function (Python)
+          - text: Create a Durable Functions app (Python)
             url: quickstart-python-vscode.md
       - linkListType: learn
         links:
@@ -83,7 +83,7 @@ landingContent:
           - text: Function chaining
             url: durable-functions-sequence.md
           - text: Async HTTP APIs
-            url: durable-functions-create-first-csharp.md
+            url: durable-functions-isolated-create-first-csharp.md
           - text: Fan-out/fan-in
             url: durable-functions-cloud-backup.md
           - text: Monitors

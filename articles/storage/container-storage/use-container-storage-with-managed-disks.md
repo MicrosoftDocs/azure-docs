@@ -1,15 +1,15 @@
 ---
-title: Use Azure Container Storage Preview with Azure managed disks
+title: Use Azure Container Storage with Azure managed disks
 description: Configure Azure Container Storage for use with Azure managed disks. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with Azure managed disks
+# Use Azure Container Storage with Azure managed disks
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure managed disks as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Azure managed disks as its storage.
 
@@ -42,7 +42,7 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
-1. Paste in the following code. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti. Save the file.
+1. Paste in the following code. The storage pool **name** value can be whatever you want. For **skuName**, specify the level of performance and redundancy. Acceptable values are Premium_LRS, Standard_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, PremiumV2_LRS, and StandardSSD_ZRS. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
 
    ```yml
    apiVersion: containerstorage.azure.com/v1
@@ -59,7 +59,30 @@ Follow these steps to create a dynamic storage pool for Azure Disks.
          storage: 1Ti
    ```
 
-1. Apply the YAML manifest file to create the storage pool.
+   If you're using UltraSSD_LRS or PremiumV2_LRS disks, you can set IOPS and throughput using the `IOPSReadWrite` and `MBpsReadWrite` parameters in your storage pool definition.
+
+   `IOPSReadWrite` refers to the number of IOPS allowed for Ultra SSD and Premium v2 LRS disks. For more information, see [Ultra Disk IOPS](../../virtual-machines/disks-types.md#ultra-disk-iops) and [Premium SSD v2 IOPS](../../virtual-machines/disks-types.md#premium-ssd-v2-iops).
+
+   `MBpsReadWrite` refers to the bandwidth allowed for Ultra SSD and Premium v2 LRS disks. MBps refers to millions of bytes per second (MB/s = 10^6 Bytes per second). For more information, see [Ultra Disk throughput](../../virtual-machines/disks-types.md#ultra-disk-throughput) and [Premium SSD v2 throughput](../../virtual-machines/disks-types.md#premium-ssd-v2-throughput).
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       azureDisk:
+         skuName: PremiumV2_LRS
+         iopsReadWrite: 5000
+         MbpsReadWrite: 200
+     resources:
+       requests:
+         storage: 1Ti
+   ```
+
+1. Save the YAML manifest file, and then apply it to create the storage pool.
    
    ```azurecli-interactive
    kubectl apply -f acstor-storagepool.yaml 
@@ -314,10 +337,14 @@ To check which persistent volume a persistent volume claim is bound to, run `kub
 
 ### Expand a storage pool
 
-You can expand storage pools backed by Azure Disks to scale up quickly and without downtime. Shrinking storage pools isn't currently supported.
+You can expand storage pools backed by Azure Disks to scale up quickly and without downtime. Shrinking storage pools isn't currently supported. Storage pool expansion isn't supported for Ultra Disks or Premium SSD v2.
 
 > [!NOTE]
-> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage).
+> Expanding a storage pool can increase your costs for Azure Container Storage and Azure Disks. See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing.md).
+
+Currently, storage pool expansion has the following limitation when using `Premium_LRS`, `Standard_LRS`, `StandardSSD_LRS`, `Premium_ZRS`, and `StandardSSD_ZRS` SKUs:
+
+- If your existing storage pool is less than 4 TiB (4,096 GiB), you can only expand it up to 4,095 GiB. To avoid errors, don't attempt to expand your current storage pool beyond 4,095 GiB if it is initially smaller than 4 TiB (4,096 GiB). Storage pools > 4 TiB can be expanded up to the maximum storage capacity available.
 
 Follow these instructions to expand an existing storage pool for Azure Disks.
 
@@ -331,6 +358,9 @@ Follow these instructions to expand an existing storage pool for Azure Disks.
        requests:
          storage: 2Ti
    ```
+
+  > [!NOTE]
+  > If you have two disks in a storage pool with a capacity of 1 TiB each, and you edit the YAML manifest file to read `storage: 4Ti`, both disks will be expanded to 2 TiB when the YAML is applied, giving you a new total capacity of 4 TiB.
 
 1. Apply the YAML manifest file to expand the storage pool.
    

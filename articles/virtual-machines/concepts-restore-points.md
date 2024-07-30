@@ -97,7 +97,8 @@ For Azure VM Linux VMs, restore points support the list of Linux [distributions 
 - Ephemeral OS disks, and Shared disks aren't supported via both consistency modes. 
 - Restore points APIs require an API of version 2021-03-01 or later for application consistency. 
 - Restore points APIs require an API of version 2021-03-01 or later for crash consistency. (in preview)
-- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections. 
+- A maximum of 10,000 restore point collections can be retained at per subscription per region level.
+- A maximum of 500 VM restore points can be retained at any time for a VM, irrespective of the number of restore point collections.
 - Concurrent creation of restore points for a VM isn't supported. 
 - Movement of Virtual Machines (VM) between Resource Groups (RG), or Subscriptions isn't supported when the VM has restore points. Moving the VM between Resource Groups or Subscriptions won't update the source VM reference in the restore point and will cause a mismatch of ARM processor IDs between the actual VM and the restore points. 
  > [!Note]
