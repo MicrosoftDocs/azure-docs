@@ -177,7 +177,7 @@ http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 
 The request that you send to this endpoint is a simulated request. It does not send or receive data from your Azure Storage account. 
 
-Send a request to this endpoint by using your HTTP request tool and its instructions. Make sure to substituting the name of your function for `{functionname}` and removing the curly braces. Make sure that the request verb is set to GET (For example `Get http://localhost:7071/runtime/webhooks/EventGrid?functionName=BlobRehydrateEventHandler`).
+Send a request to this endpoint by using your HTTP request tool and its instructions. Make sure to substitute the `{functionname}` placeholder with the name of your function (for example `Get http://localhost:7071/runtime/webhooks/EventGrid?functionName=BlobRehydrateEventHandler`).
 
 1. In Visual Studio, place any desired breakpoints in your code, and press **F5** to run the debugger.
 1. In your HTTP request tool, send the request to the endpoint.
