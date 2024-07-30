@@ -62,7 +62,13 @@ Maven repository shortcut feature added to the Library Management in this releas
 Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
 For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
 
-**Spark 3.4**  
+**Spark 3.4**
+
+Spark 3.4 update brings a range of new features includes 
+
+* API enhancements
+* Structured streaming improvements
+* Improved usability and developer experience
 
 > [!IMPORTANT]
 > To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
