@@ -118,7 +118,10 @@ Navigate to your Azure Functions app’s **Configuration** page and perform the 
      * **AzureWebJobsStorage__clientId**: (This is a GUID value that you obtain from your managed identity resource)
 
      :::image type="content" source="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png" alt-text="Screenshot that shows the user identity client ID." lightbox="media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png":::
-
+     
+      > [!NOTE] 
+      > Durable Functions does not support `managedIdentityResourceId` when using user-assigned identity. Use `clientId` instead. 
+   
 
 
 
