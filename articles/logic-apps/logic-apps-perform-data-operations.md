@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 07/31/2024
 # Customer intent: As a developer using Azure Logic Apps, I want to perform various data operations on various data types for my workflow in Azure Logic Apps.
 ---
 
@@ -372,8 +372,6 @@ To confirm whether the **Create CSV table** action creates the expected results,
    - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
    - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
----
-
 If you used the Office 365 Outlook action, the following example shows the result:
 
 :::image type="content" source="media/logic-apps-perform-data-operations/create-csv-table-email-results.png" alt-text="Screenshot shows email with results from action named Create CSV table." lightbox="media/logic-apps-perform-data-operations/create-csv-table-email-results.png":::
@@ -562,11 +560,9 @@ To confirm whether the **Create HTML table** action creates the expected results
    - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
    - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
----
-
 If you used the Office 365 Outlook action, the following example shows the result:
 
-![Screenshot showing an email with the "Create HTML table" results.](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+:::image type="content" source="media/logic-apps-perform-data-operations/create-html-table-email-results.png" alt-text="Screenshot shows email with results from action named Create HTML table." lightbox="media/logic-apps-perform-data-operations/create-html-table-email-results.png":::
 
 <a name="filter-array-action"></a>
 
@@ -596,36 +592,30 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
 
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+
    > [!NOTE]
    >
    > Although this example uses a simple integer array, this action is especially useful for JSON 
    > object arrays where you can filter based on the objects' properties and values.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Filter array" action.](./media/logic-apps-perform-data-operations/sample-start-filter-array-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-filter-array-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for action named Filter array." lightbox="media/logic-apps-perform-data-operations/sample-start-filter-array-action-consumption.png":::
 
-1. In your workflow where you want to create the filtered array, follow one of these steps:
+1. [Follow these general steps to find the **Data Operations** action named **Filter array**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action under the last step, select **New step**.
+1. On the designer, select the **Filter array** action, if not already selected. In the **From** box, enter the array or expression to use as the filter.
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **filter array**.
-
-1. From the actions list, select the action named **Filter array**.
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box with "filter array" entered, and the "Filter array" action selected.](./media/logic-apps-perform-data-operations/select-filter-array-action-consumption.png)
-
-1. In the **From** box, enter the array or expression to use as the filter.
-
-   For this example, select the **From** box, which opens the dynamic content list. From that list, select the previously created variable:
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-filter-array-action.png" alt-text="Screenshot shows Consumption workflow, action named Filter array, and selected input to use." lightbox="media/logic-apps-perform-data-operations/configure-filter-array-action.png":::
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
    This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
 
-   ![Screenshot showing the designer for a Consumption workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-filter-array-action.png" alt-text="Screenshot shows Consumption workflow and finished example action named Filter array." lightbox="media/logic-apps-perform-data-operations/finished-filter-array-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -635,32 +625,30 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
 
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+
    > [!NOTE]
    >
    > Although this example uses a simple integer array, this action is especially useful for JSON 
    > object arrays where you can filter based on the objects' properties and values.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Filter array" action.](./media/logic-apps-perform-data-operations/sample-start-filter-array-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-filter-array-action-standard.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and example workflow for action named Filter array." lightbox="media/logic-apps-perform-data-operations/sample-start-filter-array-action-standard.png":::
 
-1. In your workflow where you want to create the filtered array, follow one of these steps:
+1. [Follow these general steps to find the **Data Operations** action named **Filter array**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
-
-   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
-
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Filter array**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
-
-1. After the action information box appears, in the **From** box, enter the array or expression to use as the filter.
+1. On the designer, select the **Filter array** action, if not already selected. In the **From** box, enter the array or expression to use as the filter.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-   ![Screenshot showing the designer for a Standard workflow, the "Filter array" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-filter-array-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-filter-array-action.png" alt-text="Screenshot shows Standard workflow, action named Filter array, and selected input to use." lightbox="media/logic-apps-perform-data-operations/configure-filter-array-action.png":::
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
    This example uses the [**item()** function](workflow-definition-language-functions-reference.md#item) to access each item in the array, while the **Filter array** action searches for array items where the value is greater than one. The following screenshot shows the finished example **Filter array** action:
 
-   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Filter array" action.](./media/logic-apps-perform-data-operations/finished-filter-array-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-filter-array-action.png" alt-text="Screenshot shows Standard workflow and finished example action named Filter array." lightbox="media/logic-apps-perform-data-operations/finished-filter-array-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -670,55 +658,32 @@ To try the **Filter array** action, follow these steps by using the workflow des
 
 To confirm whether **Filter array** action creates the expected results, send yourself a notification that includes output from the **Filter array** action.
 
-#### [Consumption](#tab/consumption)
-
 1. In your workflow, add an action that can send you the results from the **Filter array** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
 
 1. In this action, complete the following steps:
 
-   1. For each box where you want the results to appear, select inside each box, which opens the dynamic content list.
+   1. For each box where you want the results to appear, select inside each box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
 
-   1. From that list, select **Expression** to open the expression editor instead.
+   1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**body()** function](workflow-definition-language-functions-reference.md#body) with the **Filter array** action name, and then select **Add**.
 
-   1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
+      `body('Filter_array')`
 
-      `actionBody('Filter_array')`
-
-      ![Screenshot showing a Consumption workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-consumption.png)
+      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-filter-array-action.png" alt-text="Screenshot shows workflow with action named Send an email. The Body property contains the body() function, which gets the body content from the preceding action named Filter array." lightbox="media/logic-apps-perform-data-operations/send-email-filter-array-action.png":::
 
       The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
 
-      ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-consumption.png)
+      :::image type="content" source="media/logic-apps-perform-data-operations/send-email-filter-array-action-complete.png" alt-text="Screenshot shows Standard workflow and finished example action for Send an email." lightbox="media/logic-apps-perform-data-operations/send-email-filter-array-action-complete.png":::
 
-1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
+1. Save your workflow, and then manually run your workflow.
 
-#### [Standard](#tab/standard)
-
-1. In your workflow, add an action that can send you the results from the **Filter array** action.
-
-1. In this action, complete the following steps:
-
-   1. For each box where you want the results to appear, select inside box, and then select the function icon, which opens the expression editor. Make sure that the **Function** list appears selected.
-
-   1. To get the array output from the **Filter array** action, enter the following expression, which uses the [**actionBody()** function](workflow-definition-language-functions-reference.md#actionBody) with the **Filter array** action name, and then select **OK**.
-
-      `actionBody('Filter_array')`
-
-      ![Screenshot showing a Standard workflow with the "Send an email" action and the action outputs from the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-standard.png)
-
-      The resolved expression specifies to show the outputs from the **Filter_array** action in the email body when sent:
-
-      ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Filter array" action.](./media/logic-apps-perform-data-operations/send-email-filter-array-action-complete-standard.png)
-
-1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
-
----
+   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
+   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
 If you used the Office 365 Outlook action, the following example shows the result:
 
-![Screenshot showing an email with the "Filter array" action results.](./media/logic-apps-perform-data-operations/filter-array-email-results.png)
+:::image type="content" source="media/logic-apps-perform-data-operations/filter-array-email-results.png" alt-text="Screenshot shows email with results from action named Filter array." lightbox="media/logic-apps-perform-data-operations/filter-array-email-results.png":::
 
 <a name="join-action"></a>
 
@@ -734,31 +699,27 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. This action is set up to create a variable where the initial value is an array that has some sample integer values.
 
-   ![Screenshot showing the Azure portal and the designer with a sample Consumption workflow for the "Join" action.](./media/logic-apps-perform-data-operations/sample-start-join-action-consumption.png)
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
 
-1. In your workflow where you want to create the string from an array, follow one of these steps:
+   :::image type="content" source="media/logic-apps-perform-data-operations/sample-start-join-action-consumption.png" alt-text="Screenshot shows Azure portal, Consumption workflow designer, and example workflow for the action named Join." lightbox="media/logic-apps-perform-data-operations/sample-start-join-action-consumption.png":::
 
-   * To add an action under the last step, select **New step**.
+1. [Follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Built-in**. In the search box, enter **join**.
-
-1. From the actions list, select the action named **Join**.
-
-   ![Screenshot showing the designer for a Consumption workflow, the "Choose an operation" search box, and the "Join" action selected.](./media/logic-apps-perform-data-operations/select-join-action-consumption.png)
+1. On the designer, select the **Join** action, if not already selected. In the **From** box, enter the array that has the items that you want to join as a string.
 
 1. In the **From** box, enter the array that has the items you want to join as a string.
 
-   For this example, select inside the **From** box, which opens the dynamic content list. From that list, select the previously created variable:  
+   For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-   ![Screenshot showing the designer for a Consumption workflow, the "Join" action, and the selected array output to use join as a string.](./media/logic-apps-perform-data-operations/configure-join-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-join-action.png" alt-text="Screenshot shows Consumption workflow, action named Join, and selected array output to join as a string." lightbox="media/logic-apps-perform-data-operations/configure-join-action.png":::
 
 1. In the **Join with** box, enter the character to use for separating each array item.
 
-   This example uses a colon (**:**) as the separator.
+   This example uses a colon (**:**) as the separator for the **Join With** property.
 
-   ![Screenshot showing where to provide the separator character.](./media/logic-apps-perform-data-operations/finished-join-action-consumption.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-join-action.png" alt-text="Screenshot shows Consumption workflow and the finished example for the action named Join." lightbox="media/logic-apps-perform-data-operations/finished-join-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -768,27 +729,25 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
    This example uses the Azure portal and a sample workflow with the **Recurrence** trigger followed by an **Initialize variable** action. The action is set up to create where the initial value is an array that has some sample integer values.
 
+   | Operation | Properties and values |
+   |-----------|-----------------------|
+   | **Initialize variable** | - **Name**: myIntegerArray <br>- **Type**: Array <br>- **Value**: `[1,2,3,4]` |
+
    ![Screenshot showing the Azure portal and the designer with a sample Standard workflow for the "Join" action.](./media/logic-apps-perform-data-operations/sample-start-join-action-standard.png)
 
-1. In your workflow where you want to create the filtered array, follow one of these steps:
+1. [Follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   * To add an action under the last step, select the plus sign (**+**), and then select **Add an action**.
-
-   * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
-
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Join**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
-
-1. After the action information box appears, in the **From** box, enter the array that has the items you want to join as a string.
+1. On the designer, select the **Join** action, if not already selected. In the **From** box, enter the array that has the items that you want to join as a string.
 
    For this example, select inside the **From** box, and then select the lightning icon, which opens the dynamic content list. From that list, select the previously created variable:
 
-   ![Screenshot showing the designer for a Standard workflow, the "Join" action, and the selected input to use.](./media/logic-apps-perform-data-operations/configure-join-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/configure-join-action.png" alt-text="Screenshot shows Standard workflow, action named Join, and selected array output to join as a string." lightbox="media/logic-apps-perform-data-operations/configure-join-action.png":::
 
 1. In the **Join with** box, enter the character to use for separating each array item.
 
-   This example uses a colon (**:**) as the separator.
+   This example uses a colon (**:**) as the separator for the **Join With** property.
 
-   ![Screenshot showing the designer for a Standard workflow and the finished example for the "Join" action.](./media/logic-apps-perform-data-operations/finished-join-action-standard.png)
+   :::image type="content" source="media/logic-apps-perform-data-operations/finished-join-action.png" alt-text="Screenshot shows Standard workflow and the finished example for the action named Join." lightbox="media/logic-apps-perform-data-operations/finished-join-action.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -798,27 +757,6 @@ To try the **Join** action, follow these steps by using the workflow designer. O
 
 To confirm whether the **Join** action creates the expected results, send yourself a notification that includes output from the **Join** action.
 
-#### [Consumption](#tab/consumption)
-
-1. In your workflow, add an action that can send you the results from the **Join** action.
-
-   This example continues by using the Office 365 Outlook action named **Send an email**.
-
-1. In this action, for each box where you want the results to appear, select inside each box, which opens the dynamic content list. From that list, under the **Join** action, select **Output**.
-
-   ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-consumption.png)
-
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Join** label in the list.
-   >
-   > ![Screenshot showing a Consumption workflow and the dynamic content list with "See more" selected for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-see-more.png)
-
-1. Save your workflow, and then manually run your workflow. On the designer toolbar, select **Run Trigger** > **Run**.
-
-#### [Standard](#tab/standard)
-
 1. In your workflow, add an action that can send you the results from the **Join** action.
 
    This example continues by using the Office 365 Outlook action named **Send an email**.
@@ -827,20 +765,14 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
    ![Screenshot showing a Standard workflow with the finished "Send an email" action for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-complete-standard.png)
 
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Join** label in the list.
-   >
-   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Join" action.](./media/logic-apps-perform-data-operations/send-email-join-action-see-more.png)
+1. Save your workflow, and then manually run your workflow.
 
-1. Save your workflow, and then manually run your workflow. On the workflow navigation menu, select **Overview** > **Run Trigger** > **Run**.
-
----
+   - Consumption workflow: On the designer toolbar, select **Run** > **Run**.
+   - Standard workflow: On the workflow navigation menu, select **Overview**. On the **Overview** page toolbar, select **Run** > **Run**.
 
 If you used the Office 365 Outlook action, the following example shows the result:
 
-![Screenshot showing an email with the "Join" action results.](./media/logic-apps-perform-data-operations/join-email-results.png)
+:::image type="content" source="media/logic-apps-perform-data-operations/join-email-results.png" alt-text="Screenshot shows email with results from the Join action." lightbox="media/logic-apps-perform-data-operations/join-email-results.png":::
 
 <a name="parse-json-action"></a>
 
@@ -959,7 +891,7 @@ For more information about this action in your underlying workflow definition, s
    
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Parse JSON**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. After the action information box appears, in the **Content** box, enter the JSON object that you want to parse.
 
@@ -1033,13 +965,6 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    ![Screenshot showing a Consumption workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-consumption.png)
 
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Parse JSON** label in the list.
-   >
-   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-see-more.png)
-
    When you're done, the **Send an email** action looks similar to the following example:
 
    ![Screenshot showing a Consumption workflow with the finished "Send an email" action for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2-consumption.png)
@@ -1057,13 +982,6 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
    This example selects the following properties: **FirstName**, **LastName**, and **Email**
 
    ![Screenshot showing a Standard workflow with JSON properties in the "Send an email" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-standard.png)
-
-   > [!NOTE]
-   >
-   > If the dynamic content list shows the message that **We can't find any outputs to match this input format**, 
-   > select **See more** next to the **Parse JSON** label in the list.
-   >
-   > ![Screenshot showing a Standard workflow and the dynamic content list with "See more" selected for the "Parse JSON" action.](./media/logic-apps-perform-data-operations/send-email-parse-json-action-see-more.png)
 
    When you're done, the **Send an email** action looks similar to the following example:
 
@@ -1153,7 +1071,7 @@ To try the **Select** action, follow these steps by using the workflow designer.
 
    * To add an action between steps, select the plus sign (**+**) between those steps, and then select **Add an action**.
 
-1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Select**](create-workflow-with-trigger-or-action.md?tabs=standard#add-an-action-to-run-a-task).
+1. After the connector gallery opens, [follow these general steps to find the **Data Operations** action named **Select**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
 1. After the action information box appears, in the **From** box, enter the source array that you want to use.
 
