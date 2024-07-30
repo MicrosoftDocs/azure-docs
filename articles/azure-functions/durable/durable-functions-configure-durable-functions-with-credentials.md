@@ -4,7 +4,6 @@ description: Configure Durable Functions with managed identity
 author: naiyuantian
 ms.topic: quickstart
 ms.date: 07/24/2024
-ms.date: 07/08/2024
 ms.author: azfuncdf
 ---
 
