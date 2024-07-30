@@ -42,7 +42,7 @@ To query a vector field, the query itself must be a vector.
 
 One approach for converting a user's text query string into its vector representation is to call an embedding library or API in your application code. As a best practice, *always use the same embedding models used to generate embeddings in the source documents*. You can find code samples showing [how to generate embeddings](vector-search-how-to-generate-embeddings.md) in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
 
-A second approach is [using integrated vectorization](#query-with-integrated-vectorization-preview), currently in public preview, to have Azure AI Search handle your query vectorization inputs and outputs.
+A second approach is [using integrated vectorization](#query-with-integrated-vectorization), now generally available, to have Azure AI Search handle your query vectorization inputs and outputs.
 
 Here's a REST API example of a query string submitted to a deployment of an Azure OpenAI embedding model:
 
@@ -128,7 +128,7 @@ api-key: {{admin-api-key}}
 
 ### [**2023-10-01-Preview**](#tab/query-2023-10-01-Preview)
 
-[**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the preview API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). It supports the same vector query syntax as 2023-11-01 (shown in this tab), but also adds [integrated vectorization of text queries](#query-with-integrated-vectorization-preview). 
+[**2023-10-01-Preview**](/rest/api/searchservice/search-service-api-versions#2023-10-01-Preview) is the preview API version for [Search POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&tabs=HTTP&preserve-view=true). It supports the same vector query syntax as 2023-11-01 (shown in this tab), but also introduced [integrated vectorization of text queries](#query-with-integrated-vectorization). 
 
 + `vectorQueries` is the construct for vector search.
 + `kind` set to `vector` specifies that the query is a vector array.
