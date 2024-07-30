@@ -59,6 +59,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Network policies are not applied to pods using host networking (`spec.hostNetwork: true`) because these pods use the host identity instead of having individual identities.
 
+* Incompatible with Microsoft Entra pod-managed identities ([aad-pod-identity](https://github.com/Azure/aad-pod-identity)). Use [Microsoft Entra Workload ID](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview) instead.
+
 ## Prerequisites
 
 * Azure CLI version 2.48.1 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
