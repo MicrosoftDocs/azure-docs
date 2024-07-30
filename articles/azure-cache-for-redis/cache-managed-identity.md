@@ -148,8 +148,9 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 > [!NOTE]
 > For _export_ to work with a storage account with firewall exceptions, you must:
->- add an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity, and 
->- check [**Allow Azure services on the trusted services list to access this storage account**](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services). 
+>
+>- add an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity, and
+>- check [**Allow Azure services on the trusted services list to access this storage account**](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 If you're not using managed identity and instead authorizing a storage account with a key, then having firewall exceptions on the storage account breaks the persistence process and the import-export processes.
 

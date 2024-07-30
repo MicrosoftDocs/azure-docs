@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-content-safety
 ms.topic: overview
-ms.date: 07/18/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 keywords: content safety, Azure AI Content Safety, online content safety, content filtering software, content moderation service, content moderation
 ms.custom: references_regions, build-2023, build-2023-dataai
@@ -30,6 +30,8 @@ This documentation contains the following article types:
 
 The following are a few scenarios in which a software developer or team would require a content moderation service:
 
+- User prompts submitted to a generative AI service. 
+- Content produced by generative AI models.
 - Online marketplaces that moderate product catalogs and other user-generated content.
 - Gaming companies that moderate user-generated game artifacts and chat rooms.
 - Social messaging platforms that moderate images and text added by their users.
@@ -45,19 +47,22 @@ There are different types of analysis available from this service. The following
 
 | Type                        | Functionality           |
 | :-------------------------- | :---------------------- |
-| Analyze text API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Analyze image API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
-| Prompt Shields (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
-| Groundedness detection (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
-| Protected material text detection (preview) | Scans AI-generated text for known text content (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| [Prompt Shields](/rest/api/contentsafety/text-operations/detect-text-jailbreak) (preview) | Scans text for the risk of a [User input attack](./concepts/jailbreak-detection.md) on a Large Language Model. [Quickstart](./quickstart-jailbreak.md) |
+| [Groundedness detection](/rest/api/contentsafety/text-groundedness-detection-operations/detect-groundedness-options) (preview) | Detects whether the text responses of large language models (LLMs) are grounded in the source materials provided by the users. [Quickstart](./quickstart-groundedness.md) |
+| [Protected material text detection](/rest/api/contentsafety/text-operations/detect-text-protected-material) (preview) | Scans AI-generated text for [known text content](./concepts/protected-material.md) (for example, song lyrics, articles, recipes, selected web content). [Quickstart](./quickstart-protected-material.md)|
+| Custom categories API (preview)    | Lets you create and train your own [custom content categories](./concepts/custom-categories.md) and scan text for matches. [Quickstart](./quickstart-custom-categories.md) |
+| Custom categories (rapid) API (preview) | Lets you define [emerging harmful content patterns](./concepts/custom-categories.md) and scan text and images for matches. [How-to guide](./how-to/custom-categories-rapid.md) |
+| [Analyze text](/rest/api/contentsafety/text-operations/analyze-text) API          | Scans text for sexual content, violence, hate, and self harm with multi-severity levels. |
+| [Analyze image](/rest/api/contentsafety/image-operations/analyze-image) API         | Scans images for sexual content, violence, hate, and self harm with multi-severity levels. |
+
 
 ## Content Safety Studio
 
 [Azure AI Content Safety Studio](https://contentsafety.cognitive.azure.com) is an online tool designed to handle potentially offensive, risky, or undesirable content using cutting-edge content moderation ML models. It provides templates and customized workflows, enabling users to choose and build their own content moderation system. Users can upload their own content or try it out with provided sample content.
 
-Content Safety Studio not only contains out-of-the-box AI models but also includes Microsoft's built-in terms blocklists to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
+Content Safety Studio not only contains out-of-the-box AI models but also includes Microsoft's built-in **terms blocklists** to flag profanities and stay up to date with new trends. You can also upload your own blocklists to enhance the coverage of harmful content that's specific to your use case. 
 
-Studio also lets you set up a moderation workflow, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real-time, whether user-generated or AI-generated.
+Studio also lets you set up a **moderation workflow**, where you can continuously monitor and improve content moderation performance. It can help you meet content requirements from all kinds of industries like gaming, media, education, E-commerce, and more. Businesses can easily connect their services to the Studio and have their content moderated in real-time, whether user-generated or AI-generated.
 
 All of these capabilities are handled by the Studio and its backend; customers don’t need to worry about model development. You can onboard your data for quick validation and monitor your KPIs accordingly, like technical metrics (latency, accuracy, recall), or business metrics (block rate, block volume, category proportions, language proportions, and more). With simple operations and configurations, customers can test different solutions quickly and find the best fit, instead of spending time experimenting with custom models or doing moderation manually. 
 
@@ -69,17 +74,11 @@ All of these capabilities are handled by the Studio and its backend; customers d
 
 In Content Safety Studio, the following Azure AI Content Safety service features are available:
 
-* [Moderate Text Content](https://contentsafety.cognitive.azure.com/text): With the text moderation tool, you can easily run tests on text content. Whether you want to test a single sentence or an entire dataset, our tool offers a user-friendly interface that lets you assess the test results directly in the portal. You can experiment with different sensitivity levels to configure your content filters and blocklist management, ensuring that your content is always moderated to your exact specifications. Plus, with the ability to export the code, you can implement the tool directly in your application, streamlining your workflow and saving time.
+* **[Moderate Text Content](https://contentsafety.cognitive.azure.com/text)**: With the text moderation tool, you can easily run tests on text content. Whether you want to test a single sentence or an entire dataset, our tool offers a user-friendly interface that lets you assess the test results directly in the portal. You can experiment with different sensitivity levels to configure your content filters and blocklist management, ensuring that your content is always moderated to your exact specifications. Plus, with the ability to export the code, you can implement the tool directly in your application, streamlining your workflow and saving time.
 
-* [Moderate Image Content](https://contentsafety.cognitive.azure.com/image): With the image moderation tool, you can easily run tests on images to ensure that they meet your content standards. Our user-friendly interface allows you to evaluate the test results directly in the portal, and you can experiment with different sensitivity levels to configure your content filters. Once you've customized your settings, you can easily export the code to implement the tool in your application.
+* **[Moderate Image Content](https://contentsafety.cognitive.azure.com/image)**: With the image moderation tool, you can easily run tests on images to ensure that they meet your content standards. Our user-friendly interface allows you to evaluate the test results directly in the portal, and you can experiment with different sensitivity levels to configure your content filters. Once you've customized your settings, you can easily export the code to implement the tool in your application.
 
-* [Monitor Online Activity](https://contentsafety.cognitive.azure.com/monitor): The powerful monitoring page allows you to easily track your moderation API usage and trends across different modalities. With this feature, you can access detailed response information, including category and severity distribution, latency, error, and blocklist detection. This information provides you with a complete overview of your content moderation performance, enabling you to optimize your workflow and ensure that your content is always moderated to your exact specifications. With our user-friendly interface, you can quickly and easily navigate the monitoring page to access the information you need to make informed decisions about your content moderation strategy. You have the tools you need to stay on top of your content moderation performance and achieve your content goals.
-
-## Input requirements
-
-The default maximum length for text submissions is 10K characters. If you need to analyze longer blocks of text, you can split the input text (for example, by punctuation or spacing) across multiple related submissions.
-
-The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
+* **[Monitor Online Activity](https://contentsafety.cognitive.azure.com/monitor)**: The powerful monitoring page allows you to easily track your moderation API usage and trends across different modalities. With this feature, you can access detailed response information, including category and severity distribution, latency, error, and blocklist detection. This information provides you with a complete overview of your content moderation performance, enabling you to optimize your workflow and ensure that your content is always moderated to your exact specifications. With our user-friendly interface, you can quickly and easily navigate the monitoring page to access the information you need to make informed decisions about your content moderation strategy. You have the tools you need to stay on top of your content moderation performance and achieve your content goals.
 
 ## Security
 
@@ -97,53 +96,87 @@ Learn how Azure AI Content Safety handles the [encryption and decryption of your
 
 ## Pricing
 
-Currently, Azure AI Content Safety has an **F0 and S0** pricing tier.
+Currently, Azure AI Content Safety has an **F0 and S0** pricing tier. See the Azure [pricing page](https://aka.ms/content-safety-pricing) for more information.
 
 ## Service limits
+
+### Input requirements
+
+See the following list for the input requirements for each feature.
+
+<!--
+|  | Analyze text API | Analyze image API |  Prompt Shields<br>(preview) | Groundedness<br>detection (preview) | Protected material<br>detection (preview) |
+|-------|---|----------|----------|-----|-----|
+| Input requirements:   | Default maximum length: 10K characters (split longer texts as needed). | Maximum image file size: 4 MB<br>Dimensions between 50x50 and 2048x2048 pixels.<br>Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats. | Maximum prompt length: 10K characters.<br>Up to five documents with a total of 10D characters. | Maximum 55,000 characters for grounding sources per API call.<br>Maximum text and query length: 7,500 characters. | Default maximum: 1K characters.<br>Minimum: 111 characters (for scanning LLM completions, not user prompts). | -->
+
+- **Analyze text API**: 
+  - Default maximum length: 10K characters (split longer texts as needed).
+- **Analyze image API**: 
+  - Maximum image file size: 4 MB
+  - Dimensions between 50 x 50 and 2048 x 2048 pixels.
+  - Images can be in JPEG, PNG, GIF, BMP, TIFF, or WEBP formats.
+- **Prompt Shields (preview)**: 
+  - Maximum prompt length: 10K characters.
+  - Up to five documents with a total of 10K characters.
+- **Groundedness detection (preview)**: 
+  - Maximum length for grounding sources: 55,000 characters (per API call).
+  - Maximum text and query length: 7,500 characters.
+- **Protected material detection (preview)**: 
+  - Default maximum length: 1K characters.
+  - Default minimum length: 110 characters (for scanning LLM completions, not user prompts).
+- **Custom categories (standard)**:
+  - Maximum inference input length: 1K characters.
+
 
 ### Language support
 
 Content Safety models have been specifically trained and tested in the following languages: English, German, Japanese, Spanish, French, Italian, Portuguese, and Chinese. However, the service can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
+Custom Categories currently only works well in English. You can try to use other languages with your own dataset, but the quality might vary across languages.
+
 For more information, see [Language support](/azure/ai-services/content-safety/language-support).
 
-### Region/location
+### Region availability
 
-To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, it is available in the following Azure regions: 
-- Australia East
-- Canada East
-- Central US
-- East US
-- East US 2
-- France Central
-- Japan East
-- North Central US
-- South Central US
-- Switzerland North
-- UK South
-- West Europe
-- West US 2
-- Sweden Central
+To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-Public preview features, such as Prompt Shields and protected material detection, are available in the following Azure regions:
-- East US
-- West Europe
+|Region | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) | Blocklists |
+|---|---|---|---|---|---|---|--|
+| East US | ✅ | ✅| ✅ |✅ |✅ |✅|✅ |
+| East US 2 | ✅ | | | ✅ |✅ | |✅|
+| West US | | | | | ✅ | | |
+| West US 2 | ✅ | | | |✅  | |✅ |
+| Central US | ✅ | | | | | |✅ |
+| North Central US | ✅ | | | |✅ | | ✅|
+| South Central US | ✅ | | | | ✅| |✅ |
+| Canada East | ✅ | | | | ✅| | ✅|
+| Switzerland North | ✅ | | | |✅ | ✅ | ✅|
+| Sweden Central | ✅ | | |✅ |✅ | | ✅|
+| UK South | ✅ | | | | ✅| |✅ |
+| France Central | ✅ | | | |✅ | | ✅|
+| West Europe | ✅ | ✅ |✅ | |✅ | |✅ |
+| Japan East | ✅ | | | |✅ | |✅ |
+| Australia East| ✅ | ✅ | | |✅ | ✅| ✅|
+| USGov Arizona | ✅ | | | | | | |
+| USGov Virginia | ✅ | | | | | | |
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
 ### Query rates
 
-| Pricing Tier | Requests per 10 seconds (RPS) |
-| :----------- | :--------------------- |
-| F0           | 1000                     |
-| S0           | 1000                     |
+Content Safety features have query rate limits in requests-per-second (RPS) or requests-per-10-seconds (RP10S) . See the following table for the rate limits for each feature.
+
+|Pricing tier | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) (preview)|
+|--------|---------|-------------|---------|---------|---------|--|
+| F0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
+| S0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
 
 If you need a faster rate, please [contact us](mailto:contentsafetysupport@microsoft.com) to request.
 
 
 ## Contact us
 
-If you get stuck, [email us](mailto:contentsafetysupport@microsoft.com) or use the feedback widget on the upper right of any docs page.
+If you get stuck, [email us](mailto:contentsafetysupport@microsoft.com) or use the feedback widget at the bottom of any Microsoft Learn page.
 
 ## Next steps
 

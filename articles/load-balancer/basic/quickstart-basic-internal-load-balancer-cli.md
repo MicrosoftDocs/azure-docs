@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
@@ -57,9 +57,8 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 In this example, you'll create an Azure Bastion host. The Azure Bastion host is used later in this article to securely manage the virtual machines and test the load balancer deployment.
 
 > [!IMPORTANT]
-
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
-
+> 
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 ### Create a bastion public IP address
@@ -258,7 +257,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
 
 It can take a few minutes for the VMs to deploy.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Add virtual machines to the backend pool
 

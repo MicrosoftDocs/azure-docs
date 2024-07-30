@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: cacrest
 ms.date: 11/04/2023
 ms.custom: how-to, devplatv2, update-code
 ---

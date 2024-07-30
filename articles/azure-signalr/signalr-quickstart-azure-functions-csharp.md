@@ -6,13 +6,13 @@ ms.service: signalr
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other
-ms.date: 12/28/2022
+ms.date: 05/16/2024
 ms.author: lianwei
 ---
 
 # Quickstart: Create an app showing GitHub star count with Azure Functions and SignalR Service via C#
 
-In this article, you'll learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
+In this article, you learn how to use SignalR Service and Azure Functions to build a serverless application with C# to broadcast messages to clients.
 
 # [In-process](#tab/in-process)
 
@@ -41,7 +41,7 @@ The following prerequisites are needed for this quickstart:
 
 ## Setup and run the Azure Function locally
 
-You'll need the Azure Functions Core Tools for this step.
+You need the Azure Functions Core Tools for this step.
 
 1. Create an empty directory and change to the directory with the command line.
 1. Initialize a new project.
@@ -287,7 +287,7 @@ You'll need the Azure Functions Core Tools for this step.
     func start
     ```
 
-    After the Azure function is running locally, open `http://localhost:7071/api/index`, and you can see the current star count. If you star or unstar in the GitHub, you'll get a star count refreshing every few seconds.
+    After the Azure function is running locally, open `http://localhost:7071/api/index`, and you can see the current star count. If you star or unstar in the GitHub, you get a star count refreshing every few seconds.
 
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

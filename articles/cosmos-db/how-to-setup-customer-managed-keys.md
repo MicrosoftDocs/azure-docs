@@ -103,7 +103,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
 1. Choose **Select** at the bottom.
 
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" lightbox="media/how-to-setup-customer-managed-keys/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/add-access-policy-principal.png" lightbox="~/reusable-content/ce-skilling/azure/media/cosmos-db/add-access-policy-principal.png" alt-text="Screenshot of the Select principal option on the Add access policy page.":::
 
 1. Select **Add** to add the new access policy.
 
@@ -117,9 +117,7 @@ In this variation, use the Azure Cosmos DB principal to create an access policy 
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-grant-access.png" alt-text="Screenshot of the Grant access to this resource option on the Access control page.":::
 
-1. Search the **“Key Vault Administrator role”** and assign it to yourself. This assignment is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
-
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" lightbox="media/how-to-setup-customer-managed-keys/search-key-vault-admin-role.png" alt-text="Screenshot of the Key vault administrator role in the search results.":::
+1. Search the **Key Vault Administrator** role and assign it to yourself. This assignment is done by first searching the role name from the list and then clicking on the **“Members”** tab. Once on the tab, select the “User, group or service principal” option from the radio and then look up your Azure account. Once the account has been selected, the role can be assigned.
 
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-assign-role.png" alt-text="Screenshot of a role assignment on the Access control page.":::
 
@@ -141,8 +139,6 @@ Next, use the access control page to confirm that all roles have been configured
    :::image type="content" source="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" lightbox="media/how-to-setup-customer-managed-keys/access-control-view-access-resource.png" alt-text="Screenshot of the View access to resource option on the Access control page.":::
 
 1. On the page, set the scope to **“this resource”** and verify that you have the Key Vault Administrator role, and the Cosmos DB principal has the Key Vault Crypto Encryption User role.
-
-   :::image type="content" source="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" lightbox="media/how-to-setup-customer-managed-keys/role-assignment-set-scope.png" alt-text="Screenshot of the scope adjustment option for a role assignment query.":::
 
 ## Generate a key in Azure Key Vault
 
@@ -349,6 +345,9 @@ az cosmosdb show \
 
 
 ---
+
+> [!IMPORTANT]
+> Depending on your network configuration, you may need to allow access to Azure Cosmos DB from other Azure services.
 
 ## Using a managed identity in the Azure Key Vault access policy
 
@@ -640,6 +639,8 @@ Rotating the customer-managed key used by your Azure Cosmos DB account can be do
 
 The previous key or key version can be disabled after the [Azure Key Vault audit logs](../key-vault/general/logging.md) don't show activity from Azure Cosmos DB on that key or key version anymore. No more activity should take place on the previous key or key version after 24 hours of key rotation.
 
+[Key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md) is supported as long as the previous key is not disabled or deleted. The internal systems need some time to catch up with the new version of the key after validating that the account is not in revoked state or in transition to enable customer-managed keys.  
+
 ## Error handling
 
 If there are any errors with customer-managed keys in Azure Cosmos DB, Azure Cosmos DB returns the error details along with an HTTP substatus code in the response. You can use the HTTP substatus code to debug the root cause of the issue. See the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article to get the list of supported HTTP substatus codes.
@@ -676,7 +677,7 @@ All the data stored in your Azure Cosmos DB account is encrypted with the custom
 
 ### Are customer-managed keys supported for existing Azure Cosmos DB accounts?
 
-This feature is currently available only for new accounts.
+Yes. You can refer to [How to setup customer-managed keys for your existing Azure Cosmos DB accounts](./how-to-setup-customer-managed-keys-existing-accounts.md)
 
 ### Is it possible to use customer-managed keys with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 

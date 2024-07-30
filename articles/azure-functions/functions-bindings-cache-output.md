@@ -1,5 +1,5 @@
 ---
-title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis (preview)
+title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
 description: Learn how to use Redis output binding on an Azure Functions. 
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -10,7 +10,7 @@ ms.topic: reference
 ms.date: 02/27/2024
 ---
 
-# Azure Cache for Redis output binding for Azure Functions (preview)
+# Azure Cache for Redis output binding for Azure Functions
 
 The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 

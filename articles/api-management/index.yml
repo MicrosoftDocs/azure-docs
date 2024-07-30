@@ -102,19 +102,16 @@ landingContent:
     linkLists:
       -  linkListType: how-to-guide
          links:
-          - text: Import a gRPC API
-            url: grpc-api.md
-          - text: Enable API security with Defender for APIs
-            url: protect-with-defender-for-apis.md   
-          - text: Author policies using Microsoft Copilot for Azure
-            url: /azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=%2Fazure%2Fapi-management%2Fbreadcrumb%2Ftoc.json            
+          - text: Import API from Azure OpenAI service
+            url: azure-openai-api-from-specification.md
+          - text: Enable semantic caching for Azure OpenAI APIs
+            url: azure-openai-enable-semantic-caching.md   
+          - text: Authenticate and authorize to Azure OpenAI APIs
+            url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
           - text: New v2 service tiers
             url: v2-service-tiers-overview.md
-          - text: Credential manager for OAuth 2.0 authorization
-            url: credentials-overview.md
-
 # Card
   - title: Related services
     linkLists:

@@ -14,7 +14,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 * [cURL](https://curl.haxx.se/) installed
 
@@ -28,7 +28,7 @@ The following section walks through a sample request with cURL. Paste the comman
     > [!TIP]
     > Text size and granularity
     >
-    > The default maximum length for text submissions is **10K** characters. 
+    > See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 ```shell
 curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-version=2023-10-01' \
@@ -36,14 +36,10 @@ curl --location --request POST '<endpoint>/contentsafety/text:analyze?api-versio
 --header 'Content-Type: application/json' \
 --data-raw '{
   "text": "I hate you",
-  "categories": [
-   "Hate","Sexual","SelfHarm","Violence"
-  ]
-   "blocklistNames": [
-      "string"
-    ],
-   "haltOnBlocklistHit": true,
-   "outputType": "FourSeverityLevels"
+  "categories": ["Hate", "Sexual", "SelfHarm", "Violence"],
+  "blocklistNames": ["string"],
+  "haltOnBlocklistHit": true,
+  "outputType": "FourSeverityLevels"
 }'
 ```
 
@@ -68,21 +64,17 @@ See the following sample request body:
 ```json
 {
   "text": "I hate you",
-  "categories": [
-   "Hate","Sexual","SelfHarm","Violence"
-  ],
-  "blocklistNames": [
-    "array"
-  ],
+  "categories": ["Hate", "Sexual", "SelfHarm", "Violence"],
+  "blocklistNames": ["array"],
   "haltOnBlocklistHit": false,
   "outputType": "FourSeverityLevels"
 }
 ```
 
-Open a command prompt window and run the cURL command.
+Open a command prompt window, paste in the edited cURL command, and run it.
 
 
-### Interpret the API response
+## Output
 
 You should see the text moderation results displayed as JSON data in the console output. For example:
 
@@ -96,21 +88,22 @@ You should see the text moderation results displayed as JSON data in the console
     }
   ],
   "categoriesAnalysis": [
-        {
-            "category": "Hate",
-            "severity": 2
-        },
-        {
-            "category": "SelfHarm",
-            "severity": 0
-        },
-        {
-            "category": "Sexual",
-            "severity": 0
-        },
-        {
-            "category": "Violence",
-            "severity": 0
+    {
+      "category": "Hate",
+      "severity": 2
+    },
+    {
+      "category": "SelfHarm",
+      "severity": 0
+    },
+    {
+      "category": "Sexual",
+      "severity": 0
+    },
+    {
+      "category": "Violence",
+      "severity": 0
+    }
   ]
 }
 ```

@@ -18,7 +18,7 @@ Managing access to your Azure Cache for Redis instance is critical to ensure tha
 
 Azure Cache for Redis now integrates this ACL functionality with Microsoft Entra ID to allow you to configure your Data Access Policies for your application's service principal and managed identity.
 
-Azure Cache for Redis offers three built-in access policies: _Owner_, _Contributor_, and _Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy](#configure-a-custom-data-access-policy-for-your-application).
+Azure Cache for Redis offers three built-in access policies: _Data Owner_, _Data Contributor_, and _Data Reader_. If the built-in access policies don't satisfy your data protection and isolation requirements, you can create and use your own custom data access policy as described in [Configure custom data access policy](#configure-a-custom-data-access-policy-for-your-application).
 
 ## Scope of availability
 

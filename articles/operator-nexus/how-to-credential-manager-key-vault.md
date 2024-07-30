@@ -6,7 +6,7 @@ ms.author: gagehugo
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 01/24/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Set up Key Vault for Managed Credential Rotation in Operator Nexus

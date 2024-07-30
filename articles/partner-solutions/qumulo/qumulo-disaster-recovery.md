@@ -72,7 +72,7 @@ Here's the basic workflow for ANQ for disaster recovery:
 
 The solution architecture comprises the following components:
 
-- [Azure Native Qumulo Scalable File Service (ANQ)](https://qumulo.com/azure)
+- [Azure Native Qumulo (ANQ) Scalable File Service](https://qumulo.com/azure)
 - [Qumulo Continuous Replication](https://care.qumulo.com/hc/articles/360018873374-Replication-Continuous-Replication-with-2-11-2-and-above)
 - [Qumulo Snapshots with Replication](https://care.qumulo.com/hc/articles/360037962693-Replication-Snapshot-Policy-Replication)
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)

@@ -84,7 +84,7 @@ Additionally, **RediSearch** can function as a secondary index, expanding your c
 You can use **RediSearch** is used in a wide variety of use-cases, including real-time inventory, enterprise search, and in indexing external databases. [For more information, see the RediSearch documentation page](https://redis.io/search/).
 
 >[!IMPORTANT]
-> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering Policy](quickstart-create-redis-enterprise.md#clustering-policy) and [Memory Policies](cache-configure.md#memory-policies)
+> The RediSearch module requires use of the `Enterprise` clustering policy and the `NoEviction` eviction policy. For more information, see [Clustering on Enterprise](cache-best-practices-enterprise-tiers.md#clustering-on-enterprise) and [Memory Policies](cache-configure.md#memory-policies)
 >
 
 ### RedisBloom

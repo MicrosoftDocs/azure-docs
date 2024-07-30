@@ -16,4 +16,4 @@ ms.custom: include file
 | Memory           | 16 - 176<sup>GiB    |                                                |
 | Data Disks       | 8 - 32<sup>Disks     |  12800 - 51200<sup>IOPS</sup> / 200 - 768<sup>MBps    |
 | Network          | 2 - 8<sup>NICs       | 10000 - 40000<sup>Mbps                           |
-| Accelerators     | 1/4 - 1<sup>GPUs</sup> | [AMD Radeon™ PRO V620](https://www.amd.com/en/products/server-accelerators/amd-radeon-pro-v620) 32<sup>GiB </sup> <br> 8 - 32<sup>GiB </sup>per VM |
+| Accelerators     | 1/4 - 1<sup>GPUs</sup> | [AMD Radeon™ PRO V620](https://www.amd.com/en/newsroom/press-releases/2021-11-4-amd-radeon-pro-v620-gpu-delivers-powerful-multi-.html) 32<sup>GiB </sup> <br> 8 - 32<sup>GiB </sup>per VM |

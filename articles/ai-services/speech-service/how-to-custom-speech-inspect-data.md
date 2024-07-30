@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/19/2024
+ms.date: 7/15/2024
 ms.author: eur
 zone_pivot_groups: speech-studio-cli-rest
 ---
@@ -53,56 +53,56 @@ To create a test, use the `spx csr evaluation create` command. Construct the req
 Here's an example Speech CLI command that creates a test:
 
 ```azurecli-interactive
-spx csr evaluation create --api-version v3.1 --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
+spx csr evaluation create --api-version v3.2 --project 0198f569-cc11-4099-a0e8-9d55bc3d0c52 --dataset 23b6554d-21f9-4df1-89cb-f84510ac8d23 --model1 13fb305e-09ad-4bce-b3a1-938c9124dda3 --model2 13fb305e-09ad-4bce-b3a1-938c9124dda3 --name "My Inspection" --description "My Inspection Description"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac",
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23"
   },
   "transcription2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
   },
   "transcription1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac/files"
   },
   "properties": {
-    "wordErrorRate2": -1.0,
     "wordErrorRate1": -1.0,
-    "sentenceErrorRate2": -1.0,
-    "sentenceCount2": -1,
-    "wordCount2": -1,
-    "correctWordCount2": -1,
-    "wordSubstitutionCount2": -1,
-    "wordDeletionCount2": -1,
-    "wordInsertionCount2": -1,
     "sentenceErrorRate1": -1.0,
     "sentenceCount1": -1,
     "wordCount1": -1,
     "correctWordCount1": -1,
     "wordSubstitutionCount1": -1,
     "wordDeletionCount1": -1,
-    "wordInsertionCount1": -1
+    "wordInsertionCount1": -1,
+    "wordErrorRate2": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1
   },
-  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "lastActionDateTime": "2024-07-14T21:21:39Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-05-20T16:42:43Z",
+  "createdDateTime": "2024-07-14T21:21:39Z",
   "locale": "en-US",
   "displayName": "My Inspection",
   "description": "My Inspection Description"
@@ -124,7 +124,7 @@ spx help csr evaluation
 To create a test, use the [Evaluations_Create](/rest/api/speechtotext/evaluations/create) operation of the [Speech to text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This property is recommended so that you can also view the test in Speech Studio. You can make a [Projects_List](/rest/api/speechtotext/projects/list) request to get available projects.
-- Set the required `model1` property to the URI of a model that you want to test.
+- Set the required `model1` property to the URI of a model that you want to test. 
 - Set the required `model2` property to the URI of another model that you want to test. If you don't want to compare two models, use the same model for both `model1` and `model2`.
 - Set the required `dataset` property to the URI of a dataset that you want to use for the test.
 - Set the required `locale` property. This property should be the locale of the dataset contents. The locale can't be changed later.
@@ -135,70 +135,70 @@ Make an HTTP POST request using the URI as shown in the following example. Repla
 ```azurecli-interactive
 curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "displayName": "My Inspection",
   "description": "My Inspection Description",
   "locale": "en-US"
-}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations"
+}'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations"
 ```
 
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac",
   "model1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "model2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
   },
   "dataset": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23"
   },
   "transcription2": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
   },
   "transcription1": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
   },
   "project": {
-    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
   },
   "links": {
-    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac/files"
   },
   "properties": {
-    "wordErrorRate2": -1.0,
     "wordErrorRate1": -1.0,
-    "sentenceErrorRate2": -1.0,
-    "sentenceCount2": -1,
-    "wordCount2": -1,
-    "correctWordCount2": -1,
-    "wordSubstitutionCount2": -1,
-    "wordDeletionCount2": -1,
-    "wordInsertionCount2": -1,
     "sentenceErrorRate1": -1.0,
     "sentenceCount1": -1,
     "wordCount1": -1,
     "correctWordCount1": -1,
     "wordSubstitutionCount1": -1,
     "wordDeletionCount1": -1,
-    "wordInsertionCount1": -1
+    "wordInsertionCount1": -1,
+    "wordErrorRate2": -1.0,
+    "sentenceErrorRate2": -1.0,
+    "sentenceCount2": -1,
+    "wordCount2": -1,
+    "correctWordCount2": -1,
+    "wordSubstitutionCount2": -1,
+    "wordDeletionCount2": -1,
+    "wordInsertionCount2": -1
   },
-  "lastActionDateTime": "2022-05-20T16:42:43Z",
+  "lastActionDateTime": "2024-07-14T21:21:39Z",
   "status": "NotStarted",
-  "createdDateTime": "2022-05-20T16:42:43Z",
+  "createdDateTime": "2024-07-14T21:21:39Z",
   "locale": "en-US",
   "displayName": "My Inspection",
   "description": "My Inspection Description"
@@ -236,7 +236,7 @@ To get test results, use the `spx csr evaluation status` command. Construct the 
 Here's an example Speech CLI command that gets test results:
 
 ```azurecli-interactive
-spx csr evaluation status --api-version v3.1 --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
+spx csr evaluation status --api-version v3.2 --evaluation 9c06d5b1-213f-4a16-9069-bc86efacdaac
 ```
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
@@ -245,52 +245,108 @@ You should receive a response body in the following format:
 
 ```json
 {
-	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
-	"model1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
-	},
-	"model2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
-	},
-	"dataset": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
-	},
-	"transcription2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
-	},
-	"transcription1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
-	},
-	"project": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
-	},
-	"links": {
-		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
-	},
-	"properties": {
-		"wordErrorRate2": 4.62,
-		"wordErrorRate1": 4.6,
-		"sentenceErrorRate2": 66.7,
-		"sentenceCount2": 3,
-		"wordCount2": 173,
-		"correctWordCount2": 166,
-		"wordSubstitutionCount2": 7,
-		"wordDeletionCount2": 0,
-		"wordInsertionCount2": 1,
-		"sentenceErrorRate1": 66.7,
-		"sentenceCount1": 3,
-		"wordCount1": 174,
-		"correctWordCount1": 166,
-		"wordSubstitutionCount1": 7,
-		"wordDeletionCount1": 1,
-		"wordInsertionCount1": 0
-	},
-	"lastActionDateTime": "2022-05-20T16:42:56Z",
-	"status": "Succeeded",
-	"createdDateTime": "2022-05-20T16:42:43Z",
-	"locale": "en-US",
-	"displayName": "My Inspection",
-	"description": "My Inspection Description"
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac/files"
+  },
+  "properties": {
+    "wordErrorRate1": 0.028900000000000002,
+    "sentenceErrorRate1": 0.667,
+    "tokenErrorRate1": 0.12119999999999999,
+    "sentenceCount1": 3,
+    "wordCount1": 173,
+    "correctWordCount1": 170,
+    "wordSubstitutionCount1": 2,
+    "wordDeletionCount1": 1,
+    "wordInsertionCount1": 2,
+    "tokenCount1": 165,
+    "correctTokenCount1": 145,
+    "tokenSubstitutionCount1": 10,
+    "tokenDeletionCount1": 1,
+    "tokenInsertionCount1": 9,
+    "tokenErrors1": {
+      "punctuation": {
+        "numberOfEdits": 4,
+        "percentageOfAllEdits": 20.0
+      },
+      "capitalization": {
+        "numberOfEdits": 2,
+        "percentageOfAllEdits": 10.0
+      },
+      "inverseTextNormalization": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      },
+      "lexical": {
+        "numberOfEdits": 12,
+        "percentageOfAllEdits": 12.0
+      },
+      "others": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      }
+    },
+    "wordErrorRate2": 0.028900000000000002,
+    "sentenceErrorRate2": 0.667,
+    "tokenErrorRate2": 0.12119999999999999,
+    "sentenceCount2": 3,
+    "wordCount2": 173,
+    "correctWordCount2": 170,
+    "wordSubstitutionCount2": 2,
+    "wordDeletionCount2": 1,
+    "wordInsertionCount2": 2,
+    "tokenCount2": 165,
+    "correctTokenCount2": 145,
+    "tokenSubstitutionCount2": 10,
+    "tokenDeletionCount2": 1,
+    "tokenInsertionCount2": 9,
+    "tokenErrors2": {
+      "punctuation": {
+        "numberOfEdits": 4,
+        "percentageOfAllEdits": 20.0
+      },
+      "capitalization": {
+        "numberOfEdits": 2,
+        "percentageOfAllEdits": 10.0
+      },
+      "inverseTextNormalization": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      },
+      "lexical": {
+        "numberOfEdits": 12,
+        "percentageOfAllEdits": 12.0
+      },
+      "others": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      }
+    }
+  },
+  "lastActionDateTime": "2024-07-14T21:22:45Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-14T21:21:39Z",
+  "locale": "en-US",
+  "displayName": "My Inspection",
+  "description": "My Inspection Description"
 }
 ```
 
@@ -309,7 +365,7 @@ To get test results, start by using the [Evaluations_Get](/rest/api/speechtotext
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 ```azurecli-interactive
-curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/YourEvaluationId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
 ```
 
 The models, audio dataset, transcriptions, and more details are returned in the response body.
@@ -318,52 +374,108 @@ You should receive a response body in the following format:
 
 ```json
 {
-	"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca",
-	"model1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/ff43e922-e3e6-4bf0-8473-55c08fd68048"
-	},
-	"model2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
-	},
-	"dataset": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/datasets/be378d9d-a9d7-4d4a-820a-e0432e8678c7"
-	},
-	"transcription2": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/6eaf6a15-6076-466a-83d4-a30dba78ca63"
-	},
-	"transcription1": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/transcriptions/0c5b1630-fadf-444d-827f-d6da9c0cf0c3"
-	},
-	"project": {
-		"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/projects/9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226"
-	},
-	"links": {
-		"files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.1/evaluations/8bfe6b05-f093-4ab4-be7d-180374b751ca/files"
-	},
-	"properties": {
-		"wordErrorRate2": 4.62,
-		"wordErrorRate1": 4.6,
-		"sentenceErrorRate2": 66.7,
-		"sentenceCount2": 3,
-		"wordCount2": 173,
-		"correctWordCount2": 166,
-		"wordSubstitutionCount2": 7,
-		"wordDeletionCount2": 0,
-		"wordInsertionCount2": 1,
-		"sentenceErrorRate1": 66.7,
-		"sentenceCount1": 3,
-		"wordCount1": 174,
-		"correctWordCount1": 166,
-		"wordSubstitutionCount1": 7,
-		"wordDeletionCount1": 1,
-		"wordInsertionCount1": 0
-	},
-	"lastActionDateTime": "2022-05-20T16:42:56Z",
-	"status": "Succeeded",
-	"createdDateTime": "2022-05-20T16:42:43Z",
-	"locale": "en-US",
-	"displayName": "My Inspection",
-	"description": "My Inspection Description"
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac",
+  "model1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+  },
+  "model2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/models/base/13fb305e-09ad-4bce-b3a1-938c9124dda3"
+  },
+  "dataset": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/datasets/23b6554d-21f9-4df1-89cb-f84510ac8d23"
+  },
+  "transcription2": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
+  },
+  "transcription1": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/transcriptions/b50642a8-febf-43e1-b9d3-e0c90b82a62a"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/projects/0198f569-cc11-4099-a0e8-9d55bc3d0c52"
+  },
+  "links": {
+    "files": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.2/evaluations/9c06d5b1-213f-4a16-9069-bc86efacdaac/files"
+  },
+  "properties": {
+    "wordErrorRate1": 0.028900000000000002,
+    "sentenceErrorRate1": 0.667,
+    "tokenErrorRate1": 0.12119999999999999,
+    "sentenceCount1": 3,
+    "wordCount1": 173,
+    "correctWordCount1": 170,
+    "wordSubstitutionCount1": 2,
+    "wordDeletionCount1": 1,
+    "wordInsertionCount1": 2,
+    "tokenCount1": 165,
+    "correctTokenCount1": 145,
+    "tokenSubstitutionCount1": 10,
+    "tokenDeletionCount1": 1,
+    "tokenInsertionCount1": 9,
+    "tokenErrors1": {
+      "punctuation": {
+        "numberOfEdits": 4,
+        "percentageOfAllEdits": 20.0
+      },
+      "capitalization": {
+        "numberOfEdits": 2,
+        "percentageOfAllEdits": 10.0
+      },
+      "inverseTextNormalization": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      },
+      "lexical": {
+        "numberOfEdits": 12,
+        "percentageOfAllEdits": 12.0
+      },
+      "others": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      }
+    },
+    "wordErrorRate2": 0.028900000000000002,
+    "sentenceErrorRate2": 0.667,
+    "tokenErrorRate2": 0.12119999999999999,
+    "sentenceCount2": 3,
+    "wordCount2": 173,
+    "correctWordCount2": 170,
+    "wordSubstitutionCount2": 2,
+    "wordDeletionCount2": 1,
+    "wordInsertionCount2": 2,
+    "tokenCount2": 165,
+    "correctTokenCount2": 145,
+    "tokenSubstitutionCount2": 10,
+    "tokenDeletionCount2": 1,
+    "tokenInsertionCount2": 9,
+    "tokenErrors2": {
+      "punctuation": {
+        "numberOfEdits": 4,
+        "percentageOfAllEdits": 20.0
+      },
+      "capitalization": {
+        "numberOfEdits": 2,
+        "percentageOfAllEdits": 10.0
+      },
+      "inverseTextNormalization": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      },
+      "lexical": {
+        "numberOfEdits": 12,
+        "percentageOfAllEdits": 12.0
+      },
+      "others": {
+        "numberOfEdits": 1,
+        "percentageOfAllEdits": 5.0
+      }
+    }
+  },
+  "lastActionDateTime": "2024-07-14T21:22:45Z",
+  "status": "Succeeded",
+  "createdDateTime": "2024-07-14T21:21:39Z",
+  "locale": "en-US",
+  "displayName": "My Inspection",
+  "description": "My Inspection Description"
 }
 ```
 

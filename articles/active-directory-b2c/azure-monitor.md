@@ -316,7 +316,7 @@ Use the following instructions to create a new Azure Alert, which will send an [
    - Alert logic: Set **Number of results** **Greater than** **0**.
    - Evaluation based on: Select **120** for Period (in minutes) and **5** for Frequency (in minutes)
 
-   ![Create a alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
+   ![Create an alert rule condition](./media/azure-monitor/alert-create-rule-condition.png)
 
 After the alert is created, go to **Log Analytics workspace** and select **Alerts**. This page displays all the alerts that have been triggered in the duration set by **Time range** option.
 
@@ -342,7 +342,7 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## Change the data retention period
 
-Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-archive.md).
+Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-configure.md).
 
 ## Disable monitoring data collection
 

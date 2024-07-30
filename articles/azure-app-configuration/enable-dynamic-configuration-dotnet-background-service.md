@@ -3,7 +3,7 @@ title: "Tutorial: Use dynamic configuration in a .NET background service"
 titleSuffix: Azure App Configuration
 description: In this tutorial, you learn how to dynamically update the configuration data for .NET background services.
 services: azure-app-configuration
-author: zhiyuanliang
+author: zhiyuanliang-ms
 manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp

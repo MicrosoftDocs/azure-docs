@@ -6,6 +6,7 @@ ms.author: yongl
 ms.reviewer: krmeht
 ms.service: cosmos-db
 ms.subservice: mongodb-vcore
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 03/08/2024
 ---

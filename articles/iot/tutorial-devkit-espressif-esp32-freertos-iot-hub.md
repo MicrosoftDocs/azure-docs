@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot
 ms.devlang: c
 ms.topic: tutorial
-ms.date: 04/04/2024
+ms.date: 06/11/2024
 #Customer intent: As a device builder, I want to see a working IoT device sample using FreeRTOS to connect to Azure IoT Hub.  The device should be able to send telemetry and respond to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -67,7 +67,7 @@ To connect the ESP32 DevKit to Azure, you modify configuration settings, build t
 
 ### Set up the environment
 To launch the ESP-IDF environment:
-1. Select Windows **Start**, find **ESP-IDF 5.0 CMD** and run it. 
+1. Select Windows **Start**, find **ESP-IDF 5.0 CMD**, and run it. 
 1. In **ESP-IDF 5.0 CMD**, navigate to the *iot-middleware-freertos-samples* directory that you cloned previously.
 1. Navigate to the ESP32-Azure IoT Kit project directory *demos\projects\ESPRESSIF\aziotkit*.
 1. Run the following command to launch the configuration menu:
@@ -211,7 +211,7 @@ To view and edit device properties using Azure IoT Explorer:
  
 To use Azure CLI to view device properties:
 
-1. In your CLI console, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
+1. Run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command.
 
     ```azurecli
     az iot hub device-twin show --device-id mydevice --hub-name {YourIoTHubName}
@@ -267,17 +267,17 @@ To use Azure CLI to view device telemetry:
 
 ## Call a direct method on the device
 
-You can also use Azure IoT Explorer to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
+You can also use Azure IoT Explorer to call a direct method that you implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
 
 To call a method in Azure IoT Explorer:
 
 1. From the **IoT Plug and Play components** (Default Component) pane for your device in IoT Explorer, select the **Commands** tab.
-1. For the **ToggleLed1** command, select **Send command**. The LED on the ESP32 DevKit toggles on or off.  You should also see a notification in IoT Explorer. 
+1. For the **ToggleLed1** command, select **Send command**. The LED on the ESP32 DevKit toggles on or off. You should also see a notification in IoT Explorer. 
 
     :::image type="content" source="media/tutorial-devkit-espressif-esp32-iot-hub/iot-explorer-invoke-method.png" alt-text="Screenshot of calling a method in IoT Explorer.":::
 
 1. For the **DisplayText** command, enter some text in the **content** field. 
-1. Select **Send command**.  The text displays on the ESP32 DevKit screen. 
+1. Select **Send command**. The text displays on the ESP32 DevKit screen. 
 
 
 To use Azure CLI to call a method:

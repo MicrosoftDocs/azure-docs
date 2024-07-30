@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/24/2023
+ms.date: 05/15/2024
 ---
 
 # Copy data from or to MongoDB using Azure Data Factory or Synapse Analytics
@@ -33,8 +33,7 @@ This MongoDB connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
-Specifically, this MongoDB connector supports **versions up to 4.2**.
-
+Specifically, this MongoDB connector supports **versions up to 4.2**. If your work requires versions newer than 4.2, consider using MongoDB Atlas with the [MongoDB Atlas connector](connector-mongodb-atlas.md), which provides more comprehensive support and features.
 
 ## Prerequisites
 

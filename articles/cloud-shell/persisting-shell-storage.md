@@ -2,7 +2,7 @@
 description: Walkthrough of how Azure Cloud Shell persists files.
 ms.contributor: jahelmic
 ms.date: 05/02/2024
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 ms.custom:
 title: Persist files in Azure Cloud Shell
@@ -56,61 +56,16 @@ If you want to disallow users from creating storage accounts in Cloud Shell, cre
 
 ## Managing Cloud Shell storage
 
-### Use the `clouddrive` command
-
-Cloud Shell includes a command-line tool that enables you to change the Azure Files share that's in
-Cloud Shell. Run `clouddrive` to see the available commands.
-
-```Output
-Group
-  clouddrive                  :Manage storage settings for Azure Cloud Shell.
-
-Commands
-  mount                       :Mount a file share to Cloud Shell.
-  unmount                     :Unmount a file share from Cloud Shell.
-```
-
 ### Mount a new clouddrive
 
-Use the `clouddrive mount` command to change the share used by Cloud Shell.
+If you have previously selected to use ephemeral sessions for Cloud Shell, then you must reset your
+preferences by selecting **Settings** > **Reset User Settings** in Cloud Shell. Follow the steps to
+mount an [existing storage account][04] or a [new storage account][05].
+
 
 > [!NOTE]
 > If you're mounting a new share, a new user image is created for your `$HOME` directory. Your
 > previous `$HOME` image is kept in the previous file share.
-
-Run the `clouddrive mount` command with the following parameters:
-
-```bash
-clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
-```
-
-For more information, run `clouddrive mount -h`.
-
-```Output
-Command
-  clouddrive mount            :Mount an Azure file share to Cloud Shell.
-
-    Mount enables mounting and associating an Azure file share to Cloud Shell.
-    Cloud Shell will automatically attach this file share on each session start-up.
-
-    Note: This command does not mount storage if the session is Ephemeral.
-
-    Cloud Shell persists files with both methods below:
-    1. Create a disk image of your $HOME directory to persist files within $HOME.
-    This disk image is saved in your specified file share as 'acc_sean.img'' at
-    '//<storageaccount>.file.storage.windows.net/<fileshare>/.cloudconsole/acc_sean.img'
-    2. Mount specified file share as 'clouddrive' in $HOME for file sharing.
-    '/home/sean/clouddrive' maps to '//<storageaccount>.file.storage.windows.net/<fileshare>'
-
-Arguments
-  -s | --subscription id          [Required]:Subscription ID or name.
-  -g | --resource-group group     [Required]:Resource group name.
-  -n | --storage-account name     [Required]:Storage account name.
-  -f | --file-share name          [Required]:File share name.
-  -d | --disk-size size                     :Disk size in GB. (default 5)
-  -F | --force                              :Skip warning prompts.
-  -? | -h | --help                          :Shows this usage text.
-```
 
 ### Unmount clouddrive
 

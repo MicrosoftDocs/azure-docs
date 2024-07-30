@@ -224,8 +224,6 @@ The time taken for step #2 depends on the transactions that occur on the source.
 **A.** You can get further information in a few different ways.
 - Gett answers from community experts in [Microsoft Q&A](/answers/tags/214/azure-database-postgresql).
 
-- You can contact the [Azure Database for PostgreSQL product team](mailto:AskAzureDBforMySQL@service.microsoft.com?subject=Azure%20Database%20for%20PostgreSQL%20-%20Single%20Server%20retirement).
-
 - If you have a support plan and you need technical help, create a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
     - For Summary, type a description of your issue.
     - For Issue type, select Technical.

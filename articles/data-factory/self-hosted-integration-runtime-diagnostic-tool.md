@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Diagnostic tool for self-hosted integration runtime

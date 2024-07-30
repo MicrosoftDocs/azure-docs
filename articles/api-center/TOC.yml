@@ -38,20 +38,26 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Build and register APIs - VS Code extension
+      - name: Register APIs - VS Code extension
         href: use-vscode-extension.md
+      - name: Register APIs - GitHub Actions
+        href: register-apis-github-actions.md
 - name: API governance
   items:
       - name: Use metadata for governance
         href: metadata.md
       - name: Analyze APIs using linting rules
         href: enable-api-analysis-linting.md
+      - name: Discover shadow APIs with Dev Proxy
+        href: discover-shadow-apis-dev-proxy.md
+      - name: Find nonproduction API requests with Dev Proxy
+        href: find-nonproduction-api-requests-dev-proxy.md
 - name: API discovery and consumption
   items:
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
-      - name: Discover APIs with GitHub Copilot Chat
-        href: use-vscode-extension-copilot.md
+      - name: Check if app calls APIs using minimal permissions with Dev Proxy
+        href: check-minimal-api-permissions-dev-proxy.md
 - name: API center management and operations
   items:
       - name: Reliability
@@ -76,3 +82,9 @@
         href: /azure/templates/microsoft.apicenter/allversions
       - name: Azure built-in roles
         href: ../role-based-access-control/built-in-roles.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#integration
+- name: Resources
+  items:
+      - name: Samples and labs
+        href: resources.md
+      - name: Azure updates
+        href: https://aka.ms/apic/updates

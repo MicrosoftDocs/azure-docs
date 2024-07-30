@@ -21,11 +21,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/store-php-create-mysql-database.md",
-        "redirect_url": "/azure/mysql/single-server/quickstart-create-mysql-server-database-using-azure-portal",
-        "redirect_document_id": false
-    },
-    {
         "source_path_from_root": "/articles/mysql/reference-data-in-stored-procedures.md",
         "redirect_url": "/azure/mysql/single-server/reference-stored-procedures",
         "redirect_document_id": false
@@ -919,6 +914,16 @@
         "source_path_from_root": "/articles/mysql/single-server/concepts-aks.md",
         "redirect_url": "/azure/mysql/flexible-server/concepts-aks",
         "redirect_document_id": true
-      }
+      },
+      {
+        "source_path_from_root": "/articles/mysql/flexible-server/overview-single.md",
+        "redirect_url": "/azure/mysql/flexible-server/overview",
+        "redirect_document_id": true
+      },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/whats-happening-to-mysql-single-server.md",
+        "redirect_url": "/azure/mysql/migrate/whats-happening-to-mysql-single-server",
+        "redirect_document_id": true
+    }
   ]
 }

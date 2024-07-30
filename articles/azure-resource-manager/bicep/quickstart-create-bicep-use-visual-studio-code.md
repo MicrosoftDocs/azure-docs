@@ -179,7 +179,7 @@ When finished, you have:
 @maxLength(24)
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
   name: 'exampleVNet'
   location: resourceGroup().location
   properties: {
@@ -205,7 +205,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   }
 }
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: 'eastus'
   sku: {

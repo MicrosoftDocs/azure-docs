@@ -101,8 +101,8 @@
     href: expressroute-qos.md
   - name: Rate limit for service provider ports
     href: provider-rate-limit.md
-  - name: Routing Microsoft 365 traffic over ExpressRoute 
-    href: using-expressroute-for-microsoft365.md
+  - name: Routing Microsoft 365 traffic over ExpressRoute
+    href: /microsoft-365/enterprise/azure-expressroute?toc=/azure/expressroute/TOC.json
   - name: Routing Microsoft PSTN traffic over ExpressRoute
     href: using-expressroute-for-microsoft-pstn.md
   - name: High Availability - Design
@@ -165,8 +165,6 @@
       href: expressroute-howto-set-global-reach-portal.md
     - name: Azure PowerShell
       href: expressroute-howto-set-global-reach.md
-    - name: Azure CLI
-      href: expressroute-howto-set-global-reach-cli.md
   - name: Add IPv6 support for private peering
     items:
     - name: Azure portal
@@ -177,7 +175,7 @@
       href: expressroute-howto-add-ipv6-cli.md
   - name: Monitoring
     items:
-    - name: Monitoring ExpressRoute
+    - name: Monitor ExpressRoute
       href: monitor-expressroute.md
     - name: Network Insights
       href: expressroute-network-insights.md
@@ -185,8 +183,6 @@
       href: how-to-configure-connection-monitor.md
     - name: Configure ExpressRoute Traffic Collector
       href: how-to-configure-traffic-collector.md
-    - name: ExpressRoute monitoring, metrics, and alerts
-      href: expressroute-monitoring-metrics-alerts.md
     - name: View and configure maintenance alerts
       href: maintenance-alerts.md
     - name: Configure custom alerts to monitor advertised routes
@@ -199,7 +195,7 @@
     items:
     - name: Enable and disable peerings
       items:
-      - name: Azure portal 
+      - name: Azure portal
         href: expressroute-howto-reset-peering-portal.md
       - name: Azure PowerShell
         href: expressroute-howto-reset-peering.md
@@ -209,8 +205,6 @@
         href: how-to-configure-custom-bgp-communities-portal.md
       - name: Azure PowerShell
         href: how-to-configure-custom-bgp-communities.md
-    - name: Move from public peering to Microsoft peering
-      href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
     items:
     - name: Configure a site-to-site VPN over Microsoft peering
@@ -273,7 +267,7 @@
       href: expressroute-troubleshooting-arp-classic.md
 - name: Reference
   items:
-  - name: Monitor data reference
+  - name: Monitoring data reference
     href: monitor-expressroute-reference.md
   - name: Azure PowerShell
     href: /powershell/module/az.network#expressroute
@@ -333,8 +327,6 @@
       href: /events/ignite-2015/brk1454
     - name: Set up Microsoft peering for your circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
-    - name: Set up public peering for your circuit
-      href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
   - name: Classic and legacy articles
     items:
     - name: Modify a circuit
@@ -345,9 +337,3 @@
       href: expressroute-howto-linkvnet-classic.md
     - name: Configure ExpressRoute and S2S coexisting connections
       href: expressroute-howto-coexist-classic.md
-    - name: Add a gateway to a VNet
-      href: expressroute-howto-add-gateway-classic.md
-    - name: Create and modify public peering
-      href: about-public-peering.md
-    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
-      href: how-to-npm.md

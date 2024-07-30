@@ -2,7 +2,7 @@
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
 author: austinmccollum
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 03/14/2024
 ms.author: austinmc
 appliesto:
@@ -129,7 +129,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Inte
 
 ### Recorded Future Security Intelligence Platform
 
-- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf) necessary to take full advantage of the complete offering.
+- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 

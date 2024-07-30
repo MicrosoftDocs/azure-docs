@@ -1,9 +1,9 @@
 ---
 title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services classic)
-description: How to configure your Azure cloud service application to allow remote desktop connections
+description: How to configure your Azure cloud service application to allow remote desktop connections through Visual Studio.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -19,11 +19,11 @@ ms.custom: compute-evergreen
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
-Remote Desktop enables you to access the desktop of a role running in Azure. You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it is running.
+Remote Desktop enables you to access the desktop of a role running in Azure, using Remote Desktop Protocol (RDP). You can use a Remote Desktop connection to troubleshoot and diagnose problems with your application while it runs.
 
 The publish wizard that Visual Studio provides for cloud services includes an option to enable Remote Desktop during the publishing process, using credentials that you provide. Using this option is suitable when using Visual Studio 2017 version 15.4 and earlier.
 
-With Visual Studio 2017 version 15.5 and later, however, it's recommended that you avoid enabling Remote Desktop through the publish wizard unless you're working only as a single developer. For any situation in which the project might be opened by other developers, you instead enable Remote Desktop through the Azure portal, through PowerShell, or from a release pipeline in a continuous deployment workflow. This recommendation is due to a change in how Visual Studio communicates with Remote Desktop on the cloud service VM, as is explained in this article.
+With Visual Studio 2017 version 15.5 and later, we recommend you avoid enabling Remote Desktop through the publish wizard unless you're working as a single developer. For any situation in which multiple developers open the project, you should instead enable Remote Desktop through the Azure portal, through PowerShell, or from a release pipeline in a continuous deployment workflow. This recommendation is due to a change in how Visual Studio communicates with Remote Desktop on the cloud service virtual machine (VM), as is explained in this article.
 
 ## Configure Remote Desktop through Visual Studio 2017 version 15.4 and earlier
 
@@ -44,9 +44,9 @@ When using Visual Studio 2017 version 15.4 and earlier, you can use the **Enable
 
 6. Provide a user name and a password. You can’t use an existing account. Don’t use "Administrator" as the user name for the new account.
 
-7. Choose a date on which the account will expire and after which Remote Desktop connections will be blocked.
+7. Choose a date on which the account will expire. An expired account automatically blocks further Remote Desktop connections.
 
-8. After you've provided all the required information, select **OK**. Visual Studio adds the Remote Desktop settings to your project's `.cscfg` and `.csdef` files, including the password that's encrypted using the chosen certificate.
+8. After you provide all the required information, select **OK**. Visual Studio adds the Remote Desktop settings to your project's `.cscfg` and `.csdef` files, including the password that's encrypted using the chosen certificate.
 
 9. Complete any remaining steps using the **Next** button, then select **Publish** when you’re ready to publish your cloud service. If you're not ready to publish, select **Cancel** and answer **Yes** when prompted to save changes. You can publish your cloud service later with these settings.
 
@@ -56,22 +56,22 @@ With Visual Studio 2017 version 15.5 and later, you can still use the publish wi
 
 If you're working as part of a team, you should instead enable remote desktop on the Azure cloud service by using either the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
-This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When enabling Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through what's called the "RDP plugin." Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that is more secure and more flexible. This change also aligns with the fact that the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
+This recommendation is due to a change in how Visual Studio 2017 version 15.5 and later communicates with the cloud service VM. When you enable Remote Desktop through the publish wizard, earlier versions of Visual Studio communicate with the VM through the "RDP plugin." Visual Studio 2017 version 15.5 and later communicates instead using the "RDP extension" that is more secure and more flexible. This change also aligns with the fact that the Azure portal and PowerShell methods to enable Remote Desktop also use the RDP extension.
 
-When Visual Studio communicates with the RDP extension, it transmit a plain text password over TLS. However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
+When Visual Studio communicates with the RDP extension, it transmits a plain text password over Transport Layer Security (TLS). However, the project's configuration files store only an encrypted password, which can be decrypted into plain text only with the local certificate that was originally used to encrypt it.
 
 If you deploy the cloud service project from the same development computer each time, then that local certificate is available. In this case, you can still use the **Enable Remote Desktop for all roles** option in the publish wizard.
 
-If you or other developers want to deploy the cloud service project from different computers, however, then those other computers won't have the necessary certificate to decrypt the password. As a result, you see the following error message:
+However, if you or other developers want to deploy the cloud service project from different computers, then those other computers lack the necessary certificate to decrypt the password. As a result, you see the following error message:
 
 ```output
-Applying remote desktop protocol (RDP) extension.
+Applying remote desktop protocol extension.
 Certificate with thumbprint [thumbprint] doesn't exist.
 ```
 
 You could change the password every time you deploy the cloud service, but that action becomes inconvenient for everyone who needs to use Remote Desktop.
 
-If you're sharing the project with a team, then, it's best to clear the option in the publish wizard and instead enable Remote Desktop directly through the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or by using [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
+If you're sharing the project with a team, then it's best to clear the option in the publish wizard and instead enable Remote Desktop directly through the [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md) or by using [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md).
 
 ### Deploying from a build server with Visual Studio 2017 version 15.5 and later
 
@@ -90,7 +90,7 @@ To use the RDP extension from Azure DevOps Services, include the following detai
 
 1. After the deployment step, add an **Azure PowerShell** step, set its **Display name** property to "Azure Deployment: Enable RDP Extension" (or another suitable name), and select your appropriate Azure subscription.
 
-1. Set **Script Type** to "Inline" and paste the code below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
+1. Set **Script Type** to "Inline" and paste the following below into the **Inline Script** field. (You can also create a `.ps1` file in your project with this script, set **Script Type** to "Script File Path", and set **Script Path** to point to the file.)
 
     ```ps
     Param(
@@ -131,14 +131,14 @@ To use the RDP extension from Azure DevOps Services, include the following detai
 
 ## Connect to an Azure Role by using Remote Desktop
 
-After you publish your cloud service on Azure and have enabled Remote Desktop, you can use Visual Studio Server Explorer to log into the cloud service VM:
+After you publish your cloud service on Azure and enable Remote Desktop, you can use Visual Studio Server Explorer to log into the cloud service VM:
 
 1. In Server Explorer, expand the **Azure** node, and then expand the node for a cloud service and one of its roles to display a list of instances.
 
 2. Right-click an instance node and select **Connect Using Remote Desktop**.
 
-3. Enter the user name and password that you created previously. You are now logged into your remote session.
+3. Enter the user name and password that you created previously. You're now signed into your remote session.
 
-## Additional resources
+## Next steps
 
-[How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)
+* [How to Configure Cloud Services](cloud-services-how-to-configure-portal.md)

@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.custom:  update-code, devx-track-python
 ms.topic: reference
-ms.reviewer: ssalgado
-ms.author: rvadthyavath
-author: vadthyavath
+ms.reviewer: None
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 09/09/2022
 ---
 

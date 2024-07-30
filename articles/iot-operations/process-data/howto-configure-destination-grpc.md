@@ -28,7 +28,7 @@ When you send data to a gRPC endpoint from a destination stage:
 
 To configure and use a destination pipeline stage, you need:
 
-- A deployed instance of Azure IoT Data Processor Preview.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - A [gRPC](https://grpc.io/docs/what-is-grpc/) server that's accessible from the Data Processor instance.
 - The `protoc` tool to generate the descriptor.
 
@@ -67,7 +67,6 @@ Use the output from the previous command as the `descriptor` in the configuratio
 
 - [Send data to Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md)
 - [Send data to Microsoft Fabric](../connect-to-cloud/howto-configure-destination-fabric.md)
-- [Send data to Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md)
 - [Send data to an HTTP endpoint](howto-configure-destination-http.md)
 - [Publish data to an MQTT broker](howto-configure-destination-mq-broker.md)
 - [Send data to the reference data store](howto-configure-destination-reference-store.md)

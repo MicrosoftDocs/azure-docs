@@ -2,7 +2,7 @@
 title: Provision a pool in a virtual network
 description: Learn how to create a Batch pool in an Azure virtual network so that compute nodes can communicate securely with other VMs in the network, such as a file server.
 ms.topic: how-to
-ms.date: 12/06/2023
+ms.date: 06/27/2024
 ---
 
 # Create an Azure Batch pool in a virtual network
@@ -11,8 +11,7 @@ When you create an Azure Batch pool, you can provision the pool in a subnet of a
 
 ## Why use a Virtual Network?
 
-Compute nodes in a pool can communicate with each other, such as to run multi-instance tasks, without requiring a
-separate Virtual Network. However, by default, nodes in a pool can't communicate with any virtual machine (VM) that is outside of the pool, such as license or file servers.
+Compute nodes in a pool can communicate with each other, such as to run multi-instance tasks, without requiring a separate Virtual Network. However, by default, nodes in a pool can't communicate with any virtual machine (VM) that is outside of the pool, such as license or file servers.
 
 To allow compute nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool in a subnet of a Virtual Network.
 
@@ -33,15 +32,10 @@ To allow compute nodes to communicate securely with other virtual machines, or w
 
 * The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool, enough to accommodate the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
-* If you aren't using [Simplified Compute Node Communication](simplified-compute-node-communication.md), you need to resolve your Azure Storage endpoints by using any custom DNS servers that serve your virtual network. Specifically,
-URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and
+* If you aren't using [Simplified Compute Node Communication](simplified-compute-node-communication.md), you need to resolve your Azure Storage endpoints by using any custom DNS servers that serve your virtual network. Specifically, URLs of the form `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`, and
 `<account>.blob.core.windows.net` should be resolvable.
 
 * Multiple pools can be created in the same virtual network or in the same subnet (as long as it has sufficient address space). A single pool can't exist across multiple virtual networks or subnets.
-
-Other virtual network requirements differ, depending on whether the Batch pool is in the `VirtualMachineConfiguration`
-or `CloudServiceConfiguration`. `VirtualMachineConfiguration` for Batch pools is recommended, because `CloudServiceConfiguration`
-pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
 
 > [!IMPORTANT]
 > Batch pools can be configured in one of two node communication modes. Classic node communication mode is
@@ -49,10 +43,7 @@ pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserv
 > [Simplified](simplified-compute-node-communication.md) node communication mode
 > is where the compute nodes initiate communication to the Batch Service.
 
-* Any virtual network or peered virtual network that will be used for Batch pools should not have overlapping IP address ranges with software defined networking
-or routing on compute nodes. A common source for conflicts is from the use of a [container runtime](batch-docker-container-workloads.md), such as docker. Docker
-will create a default network bridge with a defined subnet range of `172.17.0.0/16`. Any services running within a virtual network in that default IP address
-space will conflict with services on the compute node, such as remote access via SSH.
+* Any virtual network or peered virtual network that will be used for Batch pools should not have overlapping IP address ranges with software defined networking or routing on compute nodes. A common source for conflicts is from the use of a [container runtime](batch-docker-container-workloads.md), such as docker. Docker will create a default network bridge with a defined subnet range of `172.17.0.0/16`. Any services running within a virtual network in that default IP address space will conflict with services on the compute node, such as remote access via SSH.
 
 ## Pools in Virtual Machine Configuration
 
@@ -74,15 +65,11 @@ Requirements:
 
 ### Network security groups for Virtual Machine Configuration pools: Batch default
 
-Batch creates a network security group (NSG) at the network interface level of each Virtual Machine Scale
-Set deployment within a Batch pool. For pools that don't have public IP addresses under `simplified` compute
-node communication, NSGs aren't created.
+Batch creates a network security group (NSG) at the network interface level of each Virtual Machine Scale Set deployment within a Batch pool. For pools that don't have public IP addresses under `simplified` compute node communication, NSGs aren't created.
 
-In order to provide the necessary communication between compute nodes and the Batch service, these NSGs are
-configured such that:
+In order to provide the necessary communication between compute nodes and the Batch service, these NSGs are configured such that:
 
-* Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the
-BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
+* Inbound TCP traffic on ports 29876 and 29877 from Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag. This rule is only created in `classic` pool communication mode.
 * Inbound TCP traffic on port 22 (Linux nodes) or port 3389 (Windows nodes) to permit remote access for SSH or RDP on default ports, respectively. For certain types of multi-instance tasks on Linux, such as MPI, you may need to allow SSH traffic for IPs in the subnet containing Batch compute nodes. Certain MPI runtimes may require launching over SSH, which is typically routed on private IP address space. This traffic might be blocked per subnet-level NSG rules.
 * Outbound any traffic on port 443 to Batch service IP addresses that correspond to the BatchNodeManagement.*region* service tag.
 * Outbound traffic on any port to the virtual network. This rule might be amended per subnet-level NSG rules.
@@ -93,8 +80,7 @@ BatchNodeManagement.*region* service tag. This rule is only created in `classic`
 
 ### Network security groups for Virtual Machine Configuration pools: Specifying subnet-level rules
 
-If you have an NSG associated with the subnet for Batch compute nodes, you must configure this
-NSG with at least the inbound and outbound security rules that are shown in the following tables.
+If you have an NSG associated with the subnet for Batch compute nodes, you must configure this NSG with at least the inbound and outbound security rules that are shown in the following tables.
 
 > [!WARNING]
 > Batch service IP addresses can change over time. Therefore, you should use the
@@ -108,12 +94,7 @@ NSG with at least the inbound and outbound security rules that are shown in the 
 | BatchNodeManagement.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 29876-29877 | TCP | Classic | Yes |
 | Source IP addresses for remotely accessing compute nodes | 3389 (Windows), 22 (Linux) | TCP | Classic or Simplified | No |
 
-Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access
-to the compute nodes from outside sources on default RDP or SSH ports, respectively. You might need to allow
-SSH traffic on Linux if you require support for multi-instance tasks with certain Message Passing Interface
-(MPI) runtimes in the subnet containing the Batch compute nodes as traffic may be blocked per subnet-level NSG
-rules. MPI traffic is typically over private IP address space, but can vary between MPI runtimes and runtime
-configuration. Allowing traffic on these ports isn't strictly required for the pool compute nodes to be usable.
+Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the compute nodes from outside sources on default RDP or SSH ports, respectively. You might need to allow SSH traffic on Linux if you require support for multi-instance tasks with certain Message Passing Interface (MPI) runtimes in the subnet containing the Batch compute nodes as traffic may be blocked per subnet-level NSG rules. MPI traffic is typically over private IP address space, but can vary between MPI runtimes and runtime configuration. Allowing traffic on these ports isn't strictly required for the pool compute nodes to be usable.
 You can also disable default remote access on these ports through configuring [pool endpoints](pool-endpoint-configuration.md).
 
 #### Outbound security rules
@@ -123,49 +104,7 @@ You can also disable default remote access on these ports through configuring [p
 | BatchNodeManagement.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | * | Simplified | Yes |
 | Storage.*region* [service tag](../../articles/virtual-network/network-security-groups-overview.md#service-tags) | 443 | TCP | Classic | Yes |
 
-Outbound to BatchNodeManagement.*region* service tag is required in `classic` pool communication mode
-if you're using Job Manager tasks or if your tasks must communicate back to the Batch service. For outbound to
-BatchNodeManagement.*region* in `simplified` pool communication mode, the Batch service currently only
-uses TCP protocol, but UDP might be required for future compatibility. For
-[pools without public IP addresses](simplified-node-communication-pool-no-public-ip.md)
-using `simplified` communication mode and with a node management private endpoint, an NSG isn't needed.
-For more information about outbound security rules for the BatchNodeManagement.*region* service tag, see
-[Use simplified compute node communication](simplified-compute-node-communication.md).
-
-## Pools in the Cloud Services Configuration
-
-> [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Use Virtual Machine Configuration pools instead.
-
-Requirements:
-
-- Supported Virtual Networks: Classic Virtual Networks only.
-- Subnet ID: when specifying the subnet using the Batch APIs, use the *resource identifier* of the subnet. The subnet identifier is of the form:
-
-    `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork/virtualNetworks/{network}/subnets/{subnet}`
-
-- Permissions: the `Microsoft Azure Batch` service principal must have the `Classic Virtual Machine Contributor` Azure role for the specified Virtual Network.
-
-### Network security groups for Cloud Services Configuration pools
-
-The subnet must allow inbound communication from the Batch service to be able to schedule tasks on the compute nodes, and it must allow outbound communication to communicate with Azure Storage or other resources.
-
-You don't need to specify an NSG, because Batch configures inbound communication only from Batch IP addresses to the pool nodes. However, If the specified subnet has associated NSGs and/or a firewall, configure the inbound and outbound security rules as shown in the following tables. If communication to the compute nodes in the specified subnet is denied by an NSG, the Batch service sets the state of the compute nodes to **unusable**.
-
-Configure inbound traffic on port 3389 for Windows if you need to permit RDP access to the pool nodes. This rule isn't required for the pool nodes to be usable.
-
-**Inbound security rules**
-
-| Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
-| --- | --- | --- | --- | --- | --- |
-Any <br /><br />Although this rule effectively requires *allow all*, the Batch service applies an ACL rule at the level of each node that filters out all non-Batch service IP addresses. | * | Any | 10100, 20100, 30100 | TCP | Allow |
-| Optional, to allow RDP access to compute nodes. | * | Any | 3389 | TCP | Allow |
-
-**Outbound security rules**
-
-| Source | Source ports | Destination | Destination ports | Protocol | Action |
-| --- | --- | --- | --- | --- | --- |
-| Any | * | Any | 443  | Any | Allow |
+Outbound to BatchNodeManagement.*region* service tag is required in `classic` pool communication mode if you're using Job Manager tasks or if your tasks must communicate back to the Batch service. For outbound to BatchNodeManagement.*region* in `simplified` pool communication mode, the Batch service currently only uses TCP protocol, but UDP might be required for future compatibility. For [pools without public IP addresses](simplified-node-communication-pool-no-public-ip.md) using `simplified` communication mode and with a node management private endpoint, an NSG isn't needed. For more information about outbound security rules for the BatchNodeManagement.*region* service tag, see [Use simplified compute node communication](simplified-compute-node-communication.md).
 
 ## Create a pool with a Virtual Network in the Azure portal
 

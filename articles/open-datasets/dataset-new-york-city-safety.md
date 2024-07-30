@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 All New York City 311 service requests from 2010 to the present.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 
 ## Volume and retention

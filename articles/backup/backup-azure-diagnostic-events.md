@@ -35,7 +35,7 @@ If you are still using the [legacy event](#legacy-event) Azure Backup Reporting 
 
 For more information, see [Data model for Azure Backup diagnostics events](./backup-azure-reports-data-model.md).
 
-Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.
+Data for these events can be sent to either a storage account, a Log Analytics workspace, or an event hub. The storage account needs to be in the same region as the Recovery Services vaults. However, the Log Analytics workspace can be in a different region.  If you're sending this data to a Log Analytics workspace, select the **Resource specific** toggle on the **Diagnostics settings** screen. For more information, see the following sections.
 
 ## Use diagnostics settings with Log Analytics
 
@@ -143,6 +143,10 @@ You might choose to have separate diagnostics settings for *Azure Backup Report*
 Azure Backup and Azure Site Recovery events are sent from the same Recovery Services vault. Azure Site Recovery offers two resource-specific tables - *Azure Site Recovery Jobs* and *Azure Site Recovery Replicated Items Details*. Users must choose resource specific for the two tables mentioned. Choosing the resource-specific mode for Azure Site Recovery events for any other table for site recovery prevents the required data from being sent to the Log Analytics workspace. Azure Site Recovery Jobs is available as both resource specific and legacy table.
 
 ![Site Recovery events](./media/backup-azure-diagnostics-events/site-recovery-settings.png)
+
+> [!NOTE]
+> When you create a Log Analytics workspace, it does not matter if the Recovery Services vault is located in a different region.
+
 
 To summarize:
 

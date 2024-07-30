@@ -4,6 +4,7 @@ description: Learn to manage environment variables in Azure Container Apps.
 services: container-apps
 author: fred-cardoso
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 04/10/2024
 ms.author: fredcardoso

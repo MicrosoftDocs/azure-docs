@@ -201,7 +201,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 - Conflicting DLLs in an app's bin directory
 - Conflict with IIS shared configuration
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 

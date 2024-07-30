@@ -93,7 +93,6 @@ If you encounter the following error: `Unable to load DLL 'Microsoft.Azure.Cosmo
 * Learn about Performance guidelines for the [.NET SDK](performance-tips-dotnet-sdk-v3.md)
 * Learn about the best practices for the [.NET SDK](best-practice-dotnet.md)
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

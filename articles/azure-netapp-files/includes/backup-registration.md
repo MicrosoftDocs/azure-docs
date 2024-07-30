@@ -11,7 +11,7 @@ ms.author: anfdocs
 
 ## Register the feature
 
-You must register for Azure NetApp Files backup before using it for the first time. 
+Azure NetApp Files backup is generally available (GA). You must register for Azure NetApp Files backup before using it for the first time. 
 
 1.  Register the feature
 

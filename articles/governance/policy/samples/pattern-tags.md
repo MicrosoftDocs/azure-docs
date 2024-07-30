@@ -6,7 +6,7 @@ ms.topic: sample
 ---
 # Azure Policy pattern: tags
 
-[Tags](../../../azure-resource-manager/management/tag-resources.md) are an important part of
+[Tags](/azure/azure-resource-manager/management/tag-resources) are an important part of
 managing, organizing, and governing your Azure resources. Azure Policy makes it possible to
 configure tags on your new and existing resources at scale with the
 [modify](../concepts/effects.md#modify) effect and

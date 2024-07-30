@@ -1,1 +1,1 @@
-**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for PostgreSQL - Single Server 
+**APPLIES TO:** :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/postgresql/yes.png" border="false":::Azure Database for PostgreSQL - Single Server 

@@ -15,7 +15,7 @@ ms.custom:
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Flexible Server from the Azure portal, CLI, or REST API
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL flexible server from the Azure portal, CLI, and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 

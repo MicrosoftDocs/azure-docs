@@ -6,17 +6,17 @@ keywords: deep learning, AI, data science tools, data science virtual machine, t
 services: machine-learning
 ms.service: data-science-vm
 ms.custom: linux-related-content
-author: jesscioffi
-ms.author: jcioffi
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.topic: conceptual
-ms.reviewer: franksolomon
+ms.reviewer: jcioffi
 ms.date: 05/08/2024
 ---
 
 # Upgrade your Data Science Virtual Machine to Ubuntu 20.04
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 If you have a Data Science Virtual Machine (DSVM) that runs an older release, such as Ubuntu 18.04 or CentOS, you should migrate your DSVM to Ubuntu 20.04. This migration ensures that you get the latest operating system patches, drivers, preinstalled software, and library versions. This document tells you how to migrate from either older Ubuntu versions or from CentOS.
 

@@ -54,4 +54,4 @@
 
 #### ExpressRoute gateway performance limits
 
-[!INCLUDE [expressroute-gateway-preformance-include](expressroute-gateway-performance-include.md)]
+[!INCLUDE [expressroute-gateway-preformance-include](./expressroute-gateway-performance-include.md)]

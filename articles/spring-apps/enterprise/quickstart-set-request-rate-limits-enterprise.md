@@ -33,7 +33,7 @@ Rate limiting enables you to avoid problems that arise with spikes in traffic. W
 
 ## Set request rate limits
 
-Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
+Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-guides-filters-traffic-control.html#ratelimit). The RateLimit filter limits the number of requests allowed per route during a time window.
 
 When defining a route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
 

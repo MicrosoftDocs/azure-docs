@@ -9,7 +9,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 07/01/2022
+ms.date: 06/27/2024
 ms.author: terrylan
 ---
 # Double encryption

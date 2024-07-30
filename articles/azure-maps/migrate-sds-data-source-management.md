@@ -115,4 +115,5 @@ The Azure Maps store locator starter project gives you the following general arc
 [STDistance]: /sql/t-sql/spatial-geography/stdistance-geography-data-type
 [STIntersects]: /sql/t-sql/spatial-geography/stintersects-geography-data-type
 [STWithin]: /sql/t-sql/spatial-geography/stwithin-geography-data-type
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tutorial: Use Azure Maps to create store locator]: tutorial-create-store-locator.md

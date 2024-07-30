@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: how-to
-ms.date: 04/19/2024
+ms.date: 06/27/2024
 ms.author: lajanuar
 recommendations: false
 keywords: on-premises, Docker, container, identify
@@ -28,7 +28,7 @@ In this article, learn how to install and run the Translator container online wi
 
 * **🆕 Text Transliteration**. Convert text from one language script or writing system to another language script or writing system in real time. For more information, *see* [Container: transliterate text](transliterate-text-parameters.md).
 
-* **🆕 Document translation (preview)**. Synchronously translate documents while preserving structure and format in real time. For more information, *see* [Container:translate documents](translate-document-parameters.md).
+* **🆕 Document translation**. Synchronously translate documents while preserving structure and format in real time. For more information, *see* [Container:translate documents](translate-document-parameters.md).
 
 ## Prerequisites
 
@@ -175,7 +175,7 @@ docker run --rm -it -p 5000:5000 --memory 12g --cpus 4 \
 mcr.microsoft.com/azure-cognitive-services/translator/text-translation:latest
 ```
 
-The above command:
+The Docker command:
 
 * Creates a running Translator container from a downloaded container image.
 * Allocates 12 gigabytes (GB) of memory and four CPU core.
@@ -312,7 +312,7 @@ The following example shows the formatting for the `docker run` command with pla
 |:-------------|:-------|:---:|
 | `[image]` | The container image you want to use. | `mcr.microsoft.com/azure-cognitive-services/translator/text-translation` |
 | `{LICENSE_MOUNT}` | The path where the license is downloaded, and mounted.  | `/host/license:/path/to/license/directory` |
- | `{MODEL_MOUNT_PATH}`| The path where the machine translation models are downloaded, and mounted. Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
+| `{MODEL_MOUNT_PATH}`| The path where the machine translation models are downloaded, and mounted. Your directory structure must be formatted as **/usr/local/models** | `/host/translator/models:/usr/local/models`|
 | `{ENDPOINT_URI}` | The endpoint for authenticating your service request. You can find it on your resource's **Key and endpoint** page, in the Azure portal. | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{API_KEY}` | The key for your Text Translation resource. You can find it on your resource's **Key and endpoint** page, in the Azure portal. |`{string}`|
 | `{LANGUAGES_LIST}` | List of language codes separated by commas. It's mandatory to have English (en) language as part of the list.| `en`, `fr`, `it`, `zu`, `uk` |
@@ -426,7 +426,7 @@ There are several ways to validate that the container is running:
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../includes/cognitive-services-containers-stop.md)]
 
 ## Use cases for supporting containers
 
@@ -468,8 +468,8 @@ If you installed Docker Desktop CLI, it includes Docker compose and its prerequi
             - EULA=accept
             - billing={TRANSLATOR_ENDPOINT_URI}
             - apiKey={TRANSLATOR_KEY}
-            - AzureAiLanguageHost=http://azure-ai-language:5000
-            - AzureAiReadHost=http://azure-ai-read:5000
+            - ladurl=http://azure-ai-language:5000
+            - VISIONURL=http://azure-ai-read:5000
         ports:
               - "5000:5000"
         azure-ai-language:
@@ -477,15 +477,15 @@ If you installed Docker Desktop CLI, it includes Docker compose and its prerequi
           image:  mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
           environment:
               - EULA=accept
-              - billing={TRANSLATOR_ENDPOINT_URI}
-              - apiKey={TRANSLATOR_KEY}
+              - billing={LANGUAGE_RESOURCE_ENDPOINT_URI}
+              - apiKey={LANGUAGE_RESOURCE_KEY}
         azure-ai-read:
           container_name: azure-ai-read
           image:  mcr.microsoft.com/azure-cognitive-services/vision/read:latest
           environment:
               - EULA=accept
-              - billing={TRANSLATOR_ENDPOINT_URI}
-              - apiKey={TRANSLATOR_KEY}
+              - billing={COMPUTER_VISION_ENDPOINT_URI}
+              - apiKey={COMPUTER_VISION_KEY}
     ```
 
 1. Open a terminal navigate to the `container-environment` folder, and start the containers with the following `docker-compose` command:

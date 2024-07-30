@@ -35,7 +35,8 @@ This article shows you how to create an Azure Kubernetes Service (AKS) cluster w
         --node-count 3 \
         --outbound-type managedNATGateway \
         --nat-gateway-managed-outbound-ip-count 2 \
-        --nat-gateway-idle-timeout 4
+        --nat-gateway-idle-timeout 4 \
+        --generate-ssh-keys
    ```
 
 * Update the outbound IP address or idle timeout using the [`az aks update`][az-aks-update] command with the `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` parameter.
@@ -127,8 +128,8 @@ This configuration requires bring-your-own networking (via [Kubenet][byo-vnet-ku
         --network-plugin azure \
         --vnet-subnet-id $SUBNET_ID \
         --outbound-type userAssignedNATGateway \
-        --enable-managed-identity \
-        --assign-identity $IDENTITY_ID
+        --assign-identity $IDENTITY_ID \
+        --generate-ssh-keys
     ```
 
 ## Disable OutboundNAT for Windows
@@ -166,11 +167,11 @@ Windows enables OutboundNAT by default. You can now manually disable OutboundNAT
 
     ```azurecli-interactive
     az aks nodepool add \
-        --resource-group myResourceGroup
-        --cluster-name myNatCluster
-        --name mynodepool
-        --node-count 3
-        --os-type Windows
+        --resource-group myResourceGroup \
+        --cluster-name myNatCluster \
+        --name mynp \
+        --node-count 3 \
+        --os-type Windows \
         --disable-windows-outbound-nat
     ```
 

@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/15/2023
+ms.date: 05/21/2024
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -23,14 +23,17 @@ Azure NetApp Files supports NFSv3 and NFSv4.1. You can [create a volume](azure-n
 
 ## Does Azure NetApp Files officially support NFSv4.2?
 
-Currently, Azure NetApp Files does not officially support NFSv4.2 nor its ancillary features (including sparse file ops, extended attributes, and security labels). However, the functionality is turned on for the NFS server when NFSv4.1 is used, which means NFS clients are able to mount using the NFSv4.2 protocol in one of two ways:
+Azure NetApp Files does not support NFSv4.2 nor its ancillary features (including sparse file ops, extended attributes, and security labels).
+Although you can mount an NFS4.1 volume on Azure NetApp Files with NFSv4.2 protocol, the use of NFSv4.2 isn't supported.
 
-* Explicitly specifying `vers=4.2`, `nfsvers=4.2`, or `nfsvers=4,minorversion=2` in the mount options.
-* Not specifying an NFS version in the mount options and allowing the NFS client to negotiate to the highest supported NFS version allowed.
+Azure NetApp Files volumes can be mounted using the NFSv4.2 protocol in one of two ways:
 
-In most cases, if a client mounts using NFSv4.2, no issues can be seen. However, some clients can experience problems if they don’t fully support NFSv4.2 or the NFSv4.2 extended attributes functionality. Further, since NFSv4.2 is currently unsupported with Azure NetApp Files, any issues with NFSv4.2 are out of scope.
+- Explicitly specifying `vers=4.2`, `nfsvers=4.2`, or `nfsvers=4,minorversion=2` in the mount options.
+- Not specifying an NFS version in the mount options and allowing the NFS client to negotiate to the highest supported NFS version allowed. Depending on Linux distribution this may result in NFSv4.2 being used as the highest available NFS protocol.
 
-To avoid any issues with clients mounting NFSv4.2 and to comply with supportability, ensure the NFSv4.1 version is specified in mount options or the client’s NFS client configuration is set to cap the NFS version at NFSv4.1.
+Many clients can experience problems if they don’t fully support NFSv4.2 or the NFSv4.2 extended attributes functionality. Since NFSv4.2 is unsupported with Azure NetApp Files, any issues with NFSv4.2 are out of support scope. To avoid any issues with clients mounting NFSv4.2 and to comply with supportability, ensure the NFSv4.1 version is specified in mount options or the client’s NFS client configuration is set to cap the NFS version at NFSv4.1.
+
+For more information, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs).
 
 ## How do I enable root squashing?
 

@@ -318,7 +318,7 @@ CosmosClient client = new CosmosClient(
     });
 
 // Open a connection to Azure SQL using a managed identity
-string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; User Id=ObjectIdOfManagedIdentity; Authentication=Active Directory Default; Database=<database-name>";
+string ConnectionString1 = @"Server=<azure-sql-hostname>.database.windows.net; User Id=ClientIDOfTheManagedIdentity; Authentication=Active Directory Default; Database=<database-name>";
 
 using (SqlConnection conn = new SqlConnection(ConnectionString1))
 {

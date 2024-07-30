@@ -20,7 +20,7 @@ Features of confidential computing nodes include:
 
 - Linux worker nodes supporting Linux containers.
 - Generation 2 virtual machine (VM) with Ubuntu 18.04 VM nodes.
-- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
+- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache (EPC) memory. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]

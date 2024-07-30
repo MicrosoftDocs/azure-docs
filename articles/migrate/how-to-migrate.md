@@ -21,7 +21,7 @@ This article describes how to add migration tools in [Azure Migrate](./migrate-s
 
 ## Select a migration scenario
 
-1. In the Azure Migrate project, click **Overview**.
+1. In the Azure Migrate project, select **Overview**.
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.

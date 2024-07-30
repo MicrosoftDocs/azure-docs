@@ -75,26 +75,10 @@ Alternatively, you can use the following ARM template below to remove Container 
   ```
 
 ### Arc-enabled Kubernetes cluster
-The following PowerShell and Bash scripts are available for removing Container insights from your Arc-enabled Kubernetes clusters. You can get the **kube-context** of your cluster by running the command `kubectl config get-contexts`. If you want to use the current context, then don't specify this parameter.
+Use the following CLI command to delete the `azuremonitor-containers` extension and all the Kubernetes resources related to the extension.
 
-PowerShell: [disable-monitoring.ps1](https://aka.ms/disable-monitoring-powershell-script)
-
-```powershell
-# Use current context
-.\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id>
-
-# Specify kube-context
-.\disable-monitoring.ps1 -clusterResourceId <cluster-resource-id> -kubeContext <kube-context>
-```
-
-Bash: [disable-monitoring.sh](https://aka.ms/disable-monitoring-bash-script)
-
-```bash
-# Use current context
-bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID 
-
-# Specify kube-context
-bash disable-monitoring.sh --resource-id $AZUREARCCLUSTERRESOURCEID --kube-context $KUBECONTEXT
+```azurecli
+az k8s-extension delete --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <cluster-resource-group> --cluster-type connectedClusters
 ```
 
 ### Remove Container insights with Helm

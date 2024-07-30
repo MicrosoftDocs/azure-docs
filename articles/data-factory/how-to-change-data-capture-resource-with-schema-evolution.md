@@ -5,7 +5,7 @@ author: KrishnakumarRukmangathan
 ms.author: krirukm
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/21/2023
+ms.date: 05/15/2024
 ---
 
 # Capture changed data with schema evolution from Azure SQL Database to a Delta sink by using a change data capture resource

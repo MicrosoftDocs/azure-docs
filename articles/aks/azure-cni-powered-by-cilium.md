@@ -57,6 +57,8 @@ Azure CNI powered by Cilium currently has the following limitations:
 
 * Network policies may be enforced on reply packets when a pod connects to itself via service cluster IP ([Cilium issue #19406](https://github.com/cilium/cilium/issues/19406)).
 
+* Network policies are not applied to pods using host networking (`spec.hostNetwork: true`) because these pods use the host identity instead of having individual identities.
+
 ## Prerequisites
 
 * Azure CLI version 2.48.1 or later. Run `az --version` to see the currently installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
@@ -73,11 +75,15 @@ Azure CNI powered by Cilium currently has the following limitations:
 Use the following commands to create a cluster with an overlay network and Cilium. Replace the values for `<clusterName>`, `<resourceGroupName>`, and `<location>`:
 
 ```azurecli-interactive
-az aks create --name <clusterName> --resource-group <resourceGroupName> --loctaion <location> \
-  --network-plugin azure \
-  --network-plugin-mode overlay \
-  --pod-cidr 192.168.0.0/16 \
-  --network-dataplane cilium
+az aks create \
+    --name <clusterName> \
+    --resource-group <resourceGroupName> \
+    --location <location> \
+    --network-plugin azure \
+    --network-plugin-mode overlay \
+    --pod-cidr 192.168.0.0/16 \
+    --network-dataplane cilium \
+    --generate-ssh-keys
 ```
 
 > [!NOTE]
@@ -96,18 +102,22 @@ az group create --name <resourceGroupName> --location <location>
 # Create a virtual network with a subnet for nodes and a subnet for pods
 az network vnet create --resource-group <resourceGroupName> --location <location> --name <vnetName> --address-prefixes <address prefix, example: 10.0.0.0/8> -o none 
 az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name nodesubnet --address-prefixes <address prefix, example: 10.240.0.0/16> -o none 
-az network vnet subnet create --resource-group<resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
+az network vnet subnet create --resource-group <resourceGroupName> --vnet-name <vnetName> --name podsubnet --address-prefixes <address prefix, example: 10.241.0.0/16> -o none 
 ```
 
 Create the cluster using `--network-dataplane cilium`:
 
 ```azurecli-interactive
-az aks create --name <clusterName> --resource-group <resourceGroupName> --location <location> \
-  --max-pods 250 \
-  --network-plugin azure \
-  --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
-  --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
-  --network-dataplane cilium
+az aks create \
+    --name <clusterName> \
+    --resource-group <resourceGroupName> \
+    --location <location> \
+    --max-pods 250 \
+    --network-plugin azure \
+    --vnet-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/nodesubnet \
+    --pod-subnet-id /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/podsubnet \
+    --network-dataplane cilium \
+    --generate-ssh-keys
 ```
 
 ## Upgrade an existing cluster to Azure CNI Powered by Cilium

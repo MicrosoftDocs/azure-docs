@@ -15,30 +15,63 @@ This article provides information on troubleshooting and resolving issues with A
 
 To help troubleshoot issues with extension-based Hybrid Runbook Workers:
 
-- Check the OS is supported and the prerequisites have been met. See [Prerequisites](../extension-based-hybrid-runbook-worker-install.md#prerequisites).
+- Check the OS is supported, and the prerequisites have been met. See [Prerequisites](../extension-based-hybrid-runbook-worker-install.md#prerequisites).
 
 - Check whether the system-assigned managed identity is enabled on the VM. Azure VMs and Arc enabled Azure Machines should be enabled with a system-assigned managed identity.
 
 - Check whether the extension is enabled with the right settings. Setting file should have right `AutomationAccountURL`. Cross-check the URL with Automation account property - `AutomationHybridServiceUrl`.  
-  - For windows: you can find the settings file at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\RuntimeSettings`.
-  - For Linux: you can find the settings file at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/`.
+  - For Windows, you can find the settings file here:
+   > [!TIP] 
+   > Replace `*` in the below path with the specific version that is installed if you know it.
+    ```
+    C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*\RuntimeSettings
+    ```
+  - For Linux, you can find the settings file here:
+    ```
+    /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux/
+    ```
 
 - Check the error message shown in the Hybrid worker extension status/Detailed Status. It contains error message(s) and respective recommendation(s) to fix the issue.
 
 - Run the troubleshooter tool on the VM and it generates an output file. Open the output file and verify the errors identified by the troubleshooter tool.
-  - For windows: you can find the troubleshooter at `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\TroubleShootWindowsExtension.ps1`
-  - For Linux: you can find the troubleshooter at `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>/Troubleshooter/LinuxTroubleshooter.py`
+  - For Windows, you can find the troubleshooter here:
+   > [!TIP] 
+   > Replace `*` in the below path with the specific version that is installed if you know it.
+    ```
+    C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*\bin\troubleshooter\TroubleShootWindowsExtension.ps1
+    ```
+  - For Linux, you can find the troubleshooter here:
+   > [!TIP] 
+   > Replace `*` in the below path with the specific version that is installed if you know it.
+    ```
+    /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-*/Troubleshooter/LinuxTroubleshooter.py
+    ```
 
 - For Linux machines, the Hybrid worker extension creates a `hweautomation` user and starts the Hybrid worker under the user. Check whether the user `hweautomation` is set up with the correct permissions. If your runbook is trying to access any local resources, ensure that the `hweautomation` has the correct permissions to the local resources.
 
 - Check whether the hybrid worker process is running.
-   - For Windows: check the `Hybrid Worker Service` service.
-   - For Linux: check the `hwd.` service.
+   - For Windows, check the `Hybrid Worker Service` (***HybridWorkerService***) service.
+   - For Linux, check the `hwd` service.
 
 - Collect logs:
-  - For Windows: Run the log collector tool in </br>`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>\bin\troubleshooter\PullLogs.ps1` </br>
-  Logs are in `C:\HybridWorkerExtensionLogs`.
-  - For Linux: Logs are in folders </br>`/var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux` and `/home/hweautomation`.
+  - For Windows, run the log collector tool located here:
+   > [!TIP] 
+   > Replace `*` in the below path with the specific version that is installed if you know it.
+    ```
+    C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*\bin\troubleshooter\PullLogs.ps1
+    ```
+    Logs will be located here: 
+    ```
+    C:\HybridWorkerExtensionLogs
+    ```
+  - For Linux: Logs are in the following folders:
+    ```
+    /var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux
+    ```
+    and
+    ```
+    /home/hweautomation
+    ```
 
 
 ### Unable to update Az modules while using the Hybrid Worker
@@ -51,9 +84,16 @@ The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
 
 As a workaround, you can follow these steps:
 
-1. Go to the folder: C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
-1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
-1. Add the following lines inside the `<assemblyBinding>` tags:
+1. Navigate to the folder:
+   > [!TIP] 
+   > Replace `*` in the below path with the specific version that is installed if you know it.
+   ```
+   C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\*\HybridAgent
+   ```
+
+1. Edit the file with the name `Orchestrator.Sandbox.exe.config`
+
+1. Add the following lines inside the `<assemblyBinding>` tag:
 ```xml
 <dependentAssembly>
   <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
@@ -75,20 +115,20 @@ For Custom user on the Hybrid Runbook Worker, update the permissions in the foll
 
 | Folder |Permissions |
 |--- | --- |
-| C:\ProgramData\AzureConnectedMachineAgent\Tokens | Read |
-| C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows | Read and Execute |
+| `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
+| `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
 #### Issue
-Job fails to start on a Hybrid Worker and you see the following error:
+Job fails to start on a Hybrid Worker, and you see the following error:
 
 *Failed to start, as hybrid worker wasn't available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
 
 #### Cause
 This error can occur due to the following reasons:
-- The machines doesn't exist anymore.
+- The machines don't exist anymore.
 - The machine is turned off and is unreachable.
 - The machine has a network connectivity issue.
 - The Hybrid Runbook Worker extension has been uninstalled from the machine.
@@ -178,13 +218,40 @@ Sometimes the installation process might get stuck.
 ### Resolution
 Follow the steps mentioned below to install Hybrid Worker extension again: 
 
-1. Open PowerShell console 
-1. Remove registry entry, if present: *HKLM:/Software/Microsoft/Azure/HybridWorker*
-1. Remove the registry entry, if present: *HKLM:/Software/Microsoft/HybridRunbookWorkerV2* 
-1. Go to Hybrid Worker extension installation folder
-   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version>" 
-1. Install Hybrid Worker extension: `.\bin\install.ps1` 
-1. Enable Hybrid Worker extension: `.\bin\enable.ps1`
+1. Open PowerShell console.
+
+1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
+
+   1. PowerShell code to remove the registry key along with any subkeys and values under it.:  
+   
+      ```powershell
+      Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
+      ```
+      
+1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
+
+   1. PowerShell code to remove the registry key along with any subkeys and values under it.:  
+   
+      ```powershell
+      Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse
+      ```
+1. Navigate to the Hybrid Worker extension installation folder:
+
+   > [!TIP] 
+   > Replace `*` in the below command with the specific version that is installed if you know it.
+   ```powershell
+   cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*"
+   ```
+1. **Install** the Hybrid Worker extension: 
+
+   ```powershell
+   .\bin\install.ps1
+   ``` 
+1. **Enable** the Hybrid Worker extension: 
+
+   ```powershell
+   .\bin\enable.ps1
+   ```
 
 ### Scenario: Uninstallation process of Hybrid Worker extension on Windows VM gets stuck
 
@@ -195,13 +262,40 @@ You have installed a Hybrid Worker extension on a Windows VM from the portal, bu
 Sometimes the uninstallation process might get stuck.
 
 #### Resolution
-1. Open PowerShell console 
-1. Go to Hybrid Worker extension installation folder 
-   Cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\<version\>" 
-1. Disable Hybrid Worker extension: `.\bin\disable.cmd`
-1. Uninstall Hybrid Worker extension: `.\bin\uninstall.ps1`
-1. Remove registry entry, if present: *HKLM:/Software/Microsoft/Azure/HybridWorker* 
-1. Remove the registry entry, if present: *HKLM:/Software/Microsoft/HybridRunbookWorkerV2*
+1. Open PowerShell console.
+
+1. Navigate to the Hybrid Worker extension installation folder:
+
+   > [!TIP] 
+   > Replace `*` in the below command with the specific version that is installed if you know it.
+   ```powershell
+   cd "C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\*"
+   ```
+1. **Disable** the Hybrid Worker extension: 
+
+   ```powershell
+   .\bin\disable.cmd
+   ```
+1. **Uninstall** the Hybrid Worker extension:
+
+   ```powershell
+   .\bin\uninstall.ps1
+   ```
+1. **Remove registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
+
+   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   
+      ```powershell
+      Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
+      ```
+      
+1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
+
+   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   
+      ```powershell
+      Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse
+      ```
 
 
 ### Scenario: Installation process of Hybrid Worker extension on Linux VM gets stuck
@@ -213,11 +307,30 @@ You have installed a Hybrid Worker extension on a Linux VM from the portal, but 
 Sometimes the uninstallation process might get stuck.
 
 #### Resolution
-1. Go to folder: `rm -r /home/hweautomation/state`
-1. Go to Hybrid Worker extension installation folder */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-\<version\>/*
-1. Go to above folder and run command `rm mrseq`
-1. Install Hybrid Worker Extension: *"installCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -i"*
-1. Enable Hybrid Worker extension: *"enableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -e"*
+1. **Delete** the `state` folder: 
+   ```bash
+   rm -r /home/hweautomation/state
+   ```
+1. Navigate to the Hybrid Worker extension installation folder:
+   > [!TIP] 
+   > Replace `*` in the below command with the specific version that is installed if you know it.
+   ```bash
+   cd /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-*/
+   ```
+   
+1. **Delete** the mrseq file:
+   ```bash
+   rm mrseq
+   ```
+1. **Install** the Hybrid Worker Extension:
+   ```bash
+   ./extension_shim.sh -c ./HWExtensionHandlers.py -i
+   ```
+
+1. **Enable** the Hybrid Worker extension:
+   ```bash
+   ./extension_shim.sh -c ./HWExtensionHandlers.py -e
+   ```
 
 ### Scenario: Uninstallation process of Hybrid Worker extension on Linux VM gets stuck
 
@@ -230,10 +343,20 @@ Sometimes the uninstallation process might get stuck.
 #### Resolution
 Follow the steps mentioned below to completely uninstall Hybrid Worker extension: 
 
-1. Go to Hybrid Worker Extension installation folder:  
-  */var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-\<version\>/*
-1. Disable the extension: `"disableCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -d" `
-1. Uninstall the extension: `"uninstallCommand": "./extension_shim.sh -c ./HWExtensionHandlers.py -u"`
+1. Navigate to the Hybrid Worker Extension installation folder:
+   > [!TIP] 
+   > Replace `*` in the below command with the specific version that is installed if you know it.
+   ```bash
+   cd /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-*/
+   ```
+1. **Disable** the Hybrid Worker extension:
+   ```bash
+   ./extension_shim.sh -c ./HWExtensionHandlers.py -d
+   ```
+1. **Uninstall** the Hybrid Worker extension:
+   ```bash
+   ./extension_shim.sh -c ./HWExtensionHandlers.py -u
+   ```
  
 ### Scenario: Runbook execution fails
 
@@ -270,12 +393,14 @@ Check the **Microsoft-SMA** event log for a corresponding event with the descrip
 
 A runbook running on a Hybrid Runbook Worker fails with the following error message:
 
-`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
-`At line:3 char:1`  
-`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
-`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
-`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
-`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+```
+Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
+```
 
 #### Cause
 
@@ -310,9 +435,12 @@ As a workaround, you can create a configuration file named `OrchestratorSandbox.
 </configuration>
 ```
 
-Place this file in the same folder as the executable file `OrchestratorSandbox.exe`. For example,
-
-`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+Place this file in the same folder as the executable file `OrchestratorSandbox.exe`. For example:
+> [!TIP] 
+> Replace `*` in the below path with the specific version that is installed if you know it.
+```
+%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\*\HybridAgent
+```
 
 
 ### Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group
@@ -334,5 +462,5 @@ Start the worker machine, and then re-register it with Azure Automation. For ins
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

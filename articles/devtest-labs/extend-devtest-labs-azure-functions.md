@@ -1,107 +1,152 @@
 ---
-title: Extend Azure DevTest Labs using Azure Functions
-description: Learn how to extend Azure DevTest Labs using Azure Functions. 
+title: Extend Azure DevTest Labs with Azure Functions
+description: Learn how to extend Azure DevTest Labs by using Azure Functions, and build, publish, and test a sample function application.
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 06/26/2020
+ms.date: 06/18/2024
 ms.custom: UpdateFrequency2
+
+#customer intent: As a developer, I want to use Azure Functions with Azure DevTest Labs so I can extend the supported scenarios available in DevTest Labs.
 ---
 
-# Use Azure Functions to extend DevTest Labs
-You can use Azure Functions to support more scenarios beyond the ones that DevTest Labs already supports. You can use Azure Functions to extend the built-in functionality of the service to meet your business-specific needs. The following list provides some of the possible scenarios. This article shows you how to implement one of these sample scenarios.
+# Use Azure Functions to extend Azure DevTest Labs
 
-- Provide a top-level summary of virtual machines (VMs) in the Lab
-- [Configure a lab to use a remote desktop gateway](configure-lab-remote-desktop-gateway.md)
-- Compliance reporting on the internal support page
-- Enable users to complete operations that require increased permissions in the subscription
-- [Starting workflows based on DevTest Labs events](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
+[Azure Functions](../azure-functions/functions-overview.md) is a serverless computing platform in Azure. You can use Functions to support extra scenarios in Azure DevTest Labs. When you use Functions in a solution with DevTest Labs, you can augment the existing service features with your own custom code. 
 
-## Overview
-[Azure Functions](../azure-functions/functions-overview.md) is a serverless computing platform in Azure. Using Azure Functions in a solution with DevTest Labs enables us to augment the existing features with our own custom code. For more information on Azure Functions, see [Azure Functions documentation](../azure-functions/functions-overview.md). To illustrate how Azure Functions can help fulfill your requirements or complete scenarios in DevTest Labs, this article uses an example of providing a top-level summary of VMs in the lab as follows:
+This article shows how to extend DevTest Labs built-in functionality to provide a top-level summary of virtual machines (VMs) in a lab. Here are some other scenarios you can support by extending DevTest Labs with Functions:
 
-**Example requirement/scenario**: Users can see details about all VMs in a lab including the operating system, owner, and any applied artifacts.  Also, if the **Apply Windows Updates** artifact hasn't been recently applied, there's an easy way to apply it.
+- [Configure your lab to use a remote desktop gateway](configure-lab-remote-desktop-gateway.md)
+- Enable compliance reporting for your lab on the internal support page
+- Allow users to complete operations that require increased permissions in the subscription
+- [Start workflows based on DevTest Labs events](https://github.com/RogerBestMsft/DTL-SecureArtifactData)
 
-To complete the scenario, you use two functions, as described in the following diagram:  
+The following sections provide step-by-step instructions for setting up the Azure Resources needed to update the **Internal support** page in DevTest Labs. This walkthrough provides one example for how to extend DevTest Labs. You can use this pattern for other scenarios.
 
-![Overall flow](./media/extend-devtest-labs-azure-functions/flow.png)
+## Explore sample scenario
 
-The source code for these sample functions is located in the [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions) (both C# and PowerShell implementations are available).
+The sample walkthrough in this article extends DevTest Labs by using Functions to support the following features:
 
-- **UpdateInternalSupportPage**: This function queries DevTest Labs and updates the internal support page directly with details about the virtual machines.
-- **ApplyWindowsUpdateArtifact**: For a VM in a lab, this function applies the **Windows update** artifact.
+- Provide a top-level summary of all VMs in a lab
+- Enable lab users to see virtual machine (VM) details, including operating system, owner, and applied artifacts
+- Offer a quick way to apply the [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) artifact
 
-## How it works
-When users select the **Internal support** page in DevTest Labs, they have a pre-populated page with information about VMs, lab owners, and support contacts.  
+The scenario implements two Azure functions:
 
-When you select the **Select here to refresh** button, the page calls the first Azure function: **UpdateInternalSupportPage**. The function queries DevTest Labs for information and then rewrites the **Internal support** page with the new information.
+- `UpdateInternalSupportPage`: Queries DevTest Labs and updates the internal support page directly with details about the lab VMs.
+- `ApplyWindowsUpdateArtifact`: Applies the **Windows update** artifact to all VMs in the lab, as needed.
 
-There's another action you can take. For any VMs that haven't had Windows Update artifacts applied recently, there's a button to apply windows updates to the VM. When you select the ***Run Windows update** button for a VM, the page calls the second Azure Function: **ApplyWindowsUpdateArtifact**. This function checks whether the virtual machine is running and if so, applies the [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) artifact directly.
+The following diagram demonstrates the overall flow of function behavior in the scenario:
 
-## Step-by-step walkthrough
-This section provides step-by-step instructions for setting up Azure Resources needed to update the **Internal support** page. This walkthrough provides one example of extending DevTest Labs. You can use this pattern for other scenarios.
+:::image type="content" source="./media/extend-devtest-labs-azure-functions/flow.png" border="false" alt-text="Diagram that demonstrates the overall flow to extend Azure DevTest Labs with Azure Functions for the sample scenario." lightbox="./media/extend-devtest-labs-azure-functions/flow.png":::
 
-### Step 1: Create a service principal 
-The first step is to get a service principal with permission to the subscription that contains the lab. The service principal must use the password-based authentication. It can be done with [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), or the [Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). If you already have a service principal to use, you can skip this step.
+- When the user browses to the **Internal support** page in DevTest Labs, they see a prepopulated page with information about lab VMs, lab owners, and support contacts.  
 
-Note down the **application ID**, **key**, and **tenant ID** for the service principal. You need them later in this walkthrough. 
+- When the user selects the **Select here to refresh** option, the page calls the Azure function `UpdateInternalSupportPage`. This function queries DevTest Labs for information and then refreshes the **Internal support** page with the latest information.
 
-### Step 2: Download the sample and open in Visual Studio 2019
-Download a copy of the [C# Azure Functions sample](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) locally (either by cloning the repository or downloading the repository from [here](https://github.com/Azure/azure-devtestlab/archive/master.zip)).  
+- When a VM doesn't have a recent **Windows update** artifact, the user can select the ***Run Windows update** option for the VM. The page calls the Azure Function `ApplyWindowsUpdateArtifact`. This function checks whether the VM is running, and if so, applies the [Windows Update](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-install-windows-updates) artifact directly.
 
-1. Open the sample solution with Visual Studio 2019.  
-1. Install the **Azure development** workload for Visual Studio if you don't have it already installed. It can be installed via **Tools** -> **Get Tools and Features** menu item).
+## Prerequisites
 
-    ![Azure development workload](./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png)
-1. Build the solution. Select **Build** and then **Build Solution** menu item.
+- To work with the sample in this walkthrough, you need a service principal that has permission to the subscription that contains the lab. The service principal must use password-based authentication. If you already have a service principal that you can use in this walkthrough, you can continue to the [next section](#download-sample-and-build-solution-in-visual-studio).
 
-### Step 3: Deploy the sample to Azure
-In Visual Studio, In the **Solution Explorer** window, right-click the **AzureFunctions** project, and then select **Publish**. Follow the wizard to complete publishing to either a new or an existing Azure Function App. For detailed information on developing and deploying Azure functions using Visual Studio, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md).
+   1. To get the service principal, you can use the [Azure CLI](/cli/azure/azure-cli-sp-tutorial-1), [Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps), or the [Azure portal](/entra/identity-platform/howto-create-service-principal-portal). 
 
-![Publish dialog](./media/extend-devtest-labs-azure-functions/publish-dialog.png)
+   1. After you have the service principal, copy and save the application ID, key, and tenant ID values. You use the values later in the walkthrough. 
 
+## Download sample and build solution in Visual Studio
 
-### Step 4:  Gather application settings
-Once the functions are published, you need to get URLs for these functions from the Azure portal. 
+The source code for the sample is located in the [DevTest Labs Internal Support Page integration with Azure Functions](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions) GitHub repository. The sample files support both C# and PowerShell implementations.
 
-1. Navigate to the [Azure portal](https://portal.azure.com). 
-1. Find the function app.
-1. On the **Function Apps** page, select the function. 
-1. Select **Get function URL** as shown in the following image. 
+After you have the service principal, you're ready to get the sample source:
 
-    ![Azure functions URLs](./media/extend-devtest-labs-azure-functions/function-url.png)
-4. Copy and save the URL. Repeat these steps for the other Azure function. 
+1. Copy the [C# Azure Functions sample](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/AzureFunctions/CSharp) to your local system. You can clone or download the [Azure DevTest Labs Archive repository](https://github.com/Azure/azure-devtestlab/archive/master.zip).  
 
-You also need information about the service principal, such as application ID, key, and tenant ID.
+1. Open the sample solution in Visual Studio.
 
+1. As needed, install the **Azure development** workload for Visual Studio by selecting **Tools** > **Get Tools and Features**:
 
-### Step 5:  Update Application Settings
-In Visual Studio, after publishing the Azure Function, select the **Edit Azure App Service Settings** under **Actions**. Update the following application settings (remote):
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/azure-development-workload-vs.png" alt-text="Screenshot that shows how to install the Azure development workload in Visual Studio.":::
 
-- AzureFunctionUrl_ApplyUpdates
-- AzureFunctionUrl_UpdateSupportPage
-- WindowsUpdateAllowedDays (default to 7)
-- ServicePrincipal_AppId
-- ServicePrincipal_Key
-- ServicePrincipal_Tenant
+1. Select **Build** > **Build Solution** to complete the process.
 
-    ![Application settings](./media/extend-devtest-labs-azure-functions/application-settings.png)
+## Deploy sample to Azure
 
-### Step 6: Test the Azure function
-The last step in this walkthrough is to test the Azure function.  
+The next step is to deploy the sample Function application to Azure:
 
-1. Navigate to the **UpdateInternalSupportPage** function in the function app created in the step 3. 
-1. Select **Test** on the right side of the page. 
-1. Enter in the route properties (LABNAME, RESOURCEGROUPNAME, and SUBSCRIPTIONID).
-1. Select **Run** to execute the function.  
+1. In Visual Studio, open the **Solution Explorer** window.
 
-    This function will update the internal support page of the specified lab. It also includes a button for users to directly call the function next time
+1. Right-click the **AzureFunctions** project, and then select **Publish**.
 
-    ![Test function](./media/extend-devtest-labs-azure-functions/test-function.png)
+1. Complete the Wizard steps to publish a new or existing Azure Function App:
 
-## Next steps
-Azure Functions can help extend the functionality of DevTest Labs beyond what’s already built-in and help customers meet their unique requirements for their teams. This pattern can be extended & expanded further to cover even more.  To learn more about DevTest Labs, see the following articles: 
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/publish-dialog.png" border="false" alt-text="Screenshot that shows the Publish dialog for an Azure Function app in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/publish-dialog-large.png":::
 
-- [DevTest Labs Enterprise Reference Architecture](devtest-lab-reference-architecture.md)
-- [Scaling up DevTest Labs](devtest-lab-guidance-scale.md)
-- [Automating DevTest Labs with PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)
+   For detailed information on developing and deploying Azure Functions applications in Visual Studio, see [Develop Azure Functions by using Visual Studio](../azure-functions/functions-develop-vs.md).
+
+## Get function URL
+
+After you publish the Function app, you need to get URLs for the functions from the Azure portal:
+
+1. In the [Azure portal](https://portal.azure.com), go to the **Function App** page, and select the Function app that you created in Visual Studio.
+
+1. On the **Overview** page for the Function app, locate the **Functions** section and select one of the functions: **UpdateInternalSupportPage** or **ApplyWindowsUpdateArtifact**:
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/select-function.png"  alt-text="Screenshot that shows how to access the Azure functions for the Function app in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/select-function.png":::
+
+1. On the **Code + Test** page for the Azure function, select **Get function URL**.
+
+1. On the **Get Function URL** pane, use the **Copy** action to copy the desired URL to your clipboard:
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/function-url.png" alt-text="Screenshot that shows how to copy the URL for the function in the Azure portal." lightbox="./media/extend-devtest-labs-azure-functions/function-url.png":::
+
+1. Save the copied URL for later use.
+
+1. Repeat these steps for the other Azure function. 
+
+## Update application settings
+
+In addition to the URL for each function, you also need to update information about the service principal, including the application ID, key, and tenant ID.
+
+Follow these steps to update the required application settings in Visual Studio:
+
+1. In Visual Studio, return to the **Publish** page for the **AzureFunctions** project.
+
+1. In the **Hosting** section, select **More actions** (...), and then select **Manage Azure App Service settings**:
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/manage-settings.png" alt-text="Screenshot that shows how to manage the Azure App Service settings from the Publish page for the Function app." lightbox="./media/extend-devtest-labs-azure-functions/manage-settings-large.png":::
+
+1. On the **Application settings** dialog, update the **Remote** value for the following settings:
+
+   - **AzureFunctionUrl_ApplyUpdates**
+   - **AzureFunctionUrl_UpdateSupportPage**
+   - **WindowsUpdateAllowedDays** (default to 7)
+   - **ServicePrincipal_AppId**
+   - **ServicePrincipal_Key**
+   - **ServicePrincipal_Tenant**
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/application-settings.png" alt-text="Screenshot that shows how to update the Azure App Service Function application settings in Visual Studio." lightbox="./media/extend-devtest-labs-azure-functions/application-settings-large.png":::
+
+1. Select **OK**.
+
+## Test Azure function
+
+The last step is to test the Azure function:
+
+1. In the [Azure portal](https://portal.azure.com), go to the **Function App** page, and select the Function app that you created in Visual Studio.
+
+1. On the **Overview** page for the Function app, locate the **Functions** section and select the **UpdateInternalSupportPage** function.
+
+1. On the **Code + Test** page for the Azure function, select **Test / Run**.
+
+1. On the **Test / Run** pane, enter values for the route properties: `LABNAME`, `RESOURCEGROUPNAME`, and `SUBSCRIPTIONID`:
+
+   :::image type="content" source="./media/extend-devtest-labs-azure-functions/test-function.png" alt-text="Screenshot that shows how to enter the property values for the function test." lightbox="./media/extend-devtest-labs-azure-functions/test-function.png":::
+
+1. Select **Run** to execute the function. The function test updates the internal support page of the specified lab. It also includes an option for users to directly call the function next time.
+
+## Related content
+
+- Explore [DevTest Labs enterprise reference architecture](devtest-lab-reference-architecture.md)
+- [Scale up your DevTest Labs infrastructure](devtest-lab-guidance-scale.md)
+- [Automate DevTest Labs with PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library/Tests)

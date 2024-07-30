@@ -73,15 +73,7 @@ To order and device, perform the following steps in the Azure portal:
 
       This quota is used for billing. After your data is uploaded to the datacenter, you should adjust the quota to meet your needs. For more information, see [Understanding billing](../articles/storage/files/understanding-billing.md).
 
-    - If you're using a **General Purpose v1** or **General Purpose v2** storage account, you can enable large file shares to allow data uploads of up to 100 TiB per share. If large file shares aren't enabled, a data upload to Azure fails after reaching the 5-TiB standard share limit.
-
-      If you select a General Purpose v1 or v2 storage account that supports Azure file shares without large file shares enabled, the **Enable large file shares** button is displayed. To enable large file shares for one or more storage accounts, select **Enable large file shares**, and then enable large file shares on each storage account that requires large file shares.
-
-      Once you enable large file shares on an account, the storage account is upgraded and this upgrade can't be reversed. For more information, see [Large file shares](../articles/storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-file-shares-on-an-existing-account).
-
-      :::image type="content" source="media/data-box-order-portal/data-box-import-07.png" alt-text="Screenshot of the Enable option for a Data Box order that imports files to storage accounts. The Enabled button is highlighted."::: 
-
-    - If you're using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, both the **Enable copy to archive** and **Enable large file shares** options are shown. Enabling **Copy to archive** allows you to send your blobs to the archive tier automatically. Any data uploaded to the archive tier remains offline and needs to be rehydrated before it can be read or modified.
+    - If you're using a **General Purpose v1**, **General Purpose v2**, or **Blob** storage account, the **Enable copy to archive** option is shown. Enabling **Copy to archive** allows you to send your blobs to the archive tier automatically. Any data uploaded to the archive tier remains offline and needs to be rehydrated before it can be read or modified.
     
         When **Copy to archive** is enabled, an extra `Archive` share is available during the copy process. The extra share is available for [SMB, NFS, REST, and data copy service](../articles/databox/data-box-deploy-copy-data.md) methods. 
 
@@ -89,7 +81,6 @@ To order and device, perform the following steps in the Azure portal:
 
     > [!NOTE]
     > Storage accounts with virtual networks are supported. To allow the Data Box service to work with secured storage accounts, enable the trusted services within the storage account network firewall settings. For more information, see how to [Add Azure Data Box as a trusted service](../articles/storage/common/storage-network-security.md#exceptions).
-
 
     #### To use managed disks
 

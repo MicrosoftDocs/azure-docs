@@ -19,10 +19,6 @@ ms.author: pafarley
 
 This article explains the data structures used in the Face service for face recognition operations. These data structures hold data on faces and persons.
 
-You can try out the capabilities of face recognition quickly and easily using Vision Studio.
-> [!div class="nextstepaction"]
-> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
-
 [!INCLUDE [Gate notice](./includes/identity-gate-notice.md)]
 
 ## Data structures used with Identify 

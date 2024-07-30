@@ -7,7 +7,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 05/08/2024
+ms.date: 06/06/2024
 ---
 
 # Changes to the Azure reservation exchange policy
@@ -25,7 +25,7 @@ For more information, see [Azure savings plan for compute and how it works with 
 
 The reserved instance cancellation policy isn't changing - the total canceled commitment can't exceed 50,000 USD in a 12-month rolling window for a billing profile or single enrollment.
 
-A compute reservation exchange converts existing reservations to new compute reservations. A reservation [trade-in](../savings-plan/reservation-trade-in.md) converts existing reservations to a new savings plan. While exchanges You can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
+A compute reservation exchange converts existing reservations to new compute reservations. A reservation [trade-in](../savings-plan/reservation-trade-in.md) converts existing reservations to a new savings plan. You can always trade in your Azure reserved instances for compute for a savings plan. There's no time limit for trade-ins.
 
 You can [trade-in](../savings-plan/reservation-trade-in.md) your Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations that are used to cover dynamic/evolving workloads for a savings plan. Or, you can continue to use and purchase reservations for stable workloads where the specific configuration needs are known.
 

@@ -1037,7 +1037,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    ```bash
    sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
    meta allow-unhealthy-nodes=true failure-timeout=120s \ 
-   op start start-delay=90s \ 
+   op start start-delay=60s \ 
    op monitor interval=10s
 
    sudo crm configure clone health-azure-events-cln health-azure-events

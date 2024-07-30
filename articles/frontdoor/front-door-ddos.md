@@ -15,7 +15,7 @@ Azure Front Door is a Content Delivery Network (CDN) that can help you protect y
 
 ## Infrastructure DDoS protection
 
-Azure Front Door benefits from the default Azure infrastructure DDoS protection. This protection monitors and mitigates network layer attacks in real time by using the global scale and capacity of Front Door’s network. This protection has a proven track record in safeguarding Microsoft’s enterprise and consumer services from large-scale attacks.
+Azure Front Door benefits from the [default Azure infrastructure DDoS protection](../ddos-protection/ddos-protection-overview.md). This protection monitors and mitigates network layer attacks in real time by using the global scale and capacity of Front Door’s network. This protection has a proven track record in safeguarding Microsoft’s enterprise and consumer services from large-scale attacks.
 
 ## Protocol blocking
 

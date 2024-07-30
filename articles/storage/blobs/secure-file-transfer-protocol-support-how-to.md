@@ -3,7 +3,7 @@ title: Enable or disable SFTP support in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Learn how to enable SSH File Transfer Protocol (SFTP) support for Azure Blob Storage so that you can directly connect to your Azure Storage account by using an SFTP client.
 author: normesta
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 04/30/2024

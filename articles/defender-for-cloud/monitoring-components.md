@@ -3,7 +3,7 @@ title: Overview of the extensions that collect data from your workloads
 description: Protect your workloads with Microsoft Defender for Cloud by learning about the extensions that collect data from your workloads.
 author: dcurwin
 ms.author: dacurwin
-ms.topic: conceptual-article
+ms.topic: concept-article
 ms.date: 03/13/2024
 ---
 
@@ -17,7 +17,7 @@ You can benefit from Microsoft Defender for Cloud even if you don’t provision 
 
 Data is collected using:
 
-- [Azure Monitor Agent](auto-deploy-azure-monitoring-agent.md) (AMA)
+- [Azure Monitor Agent (AMA)](auto-deploy-azure-monitoring-agent.md)
 - [Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) (MDE)
 - [Log Analytics agent](working-with-log-analytics-agent.md)
 - **Security components**, such as the [Azure Policy for Kubernetes](../governance/policy/concepts/policy-for-kubernetes.md)

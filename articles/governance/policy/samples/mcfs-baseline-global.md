@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Microsoft Cloud for Sovereignty Baseline Global Policies
 description: Details of the Microsoft Cloud for Sovereignty Baseline Global Policies Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 05/01/2024
+ms.date: 07/15/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -11,8 +11,8 @@ The following article details how the Azure Policy Regulatory Compliance built-i
 definition maps to **compliance domains** and **controls** in Microsoft Cloud for Sovereignty Baseline Global Policies.
 For more information about this compliance standard, see
 [Microsoft Cloud for Sovereignty Baseline Global Policies](/industry/sovereignty/policy-portfolio-baseline). To understand
-_Ownership_, see [Azure Policy policy definition](../concepts/definition-structure.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+_Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **Microsoft Cloud for Sovereignty Baseline Global Policies** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete

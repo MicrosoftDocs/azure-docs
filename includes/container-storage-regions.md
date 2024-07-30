@@ -17,6 +17,7 @@ Azure Container Storage is only available for a subset of Azure regions:
 - (Asia Pacific) Southeast Asia
 - (Asia Pacific) Central India
 - (Europe) France Central
+- (Europe) Germany West Central
 - (Europe) North Europe
 - (Europe) West Europe
 - (Europe) UK South

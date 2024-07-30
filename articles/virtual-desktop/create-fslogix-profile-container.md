@@ -1,14 +1,14 @@
 ---
-title: FSLogix profile containers NetApp Azure Virtual Desktop - Azure
-description: How to create an FSLogix profile container using Azure NetApp Files in Azure Virtual Desktop.
+title: Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
+description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: helohr
 ---
-# Create a profile container with Azure NetApp Files
+# Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 
-We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
+We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -27,6 +27,8 @@ The instructions in this guide are specifically for Azure Virtual Desktop users.
 * To optimize performance and scalability, the number of _concurrent_ users accessing FSLogix profile containers stored on a single Azure NetApp Files regular volume should be limited to 3,000. Having more than 3,000 _concurrent_ users on a single volume causes significant increased latency on the volume. If your scenario requires more than 3,000 _concurrent_ users, divide users across multiple regular volumes or use a large volume. A single large volume can store FSLogix profiles for up to 50,000 _concurrent_ users. For more information on large volumes, see [Requirements and considerations for large volumes](../azure-netapp-files/large-volumes-requirements-considerations.md).
 
 * FSLogix profile containers on Azure NetApp Files can be accessed by users authenticating from Active Directory Domain Services (AD DS) and from [hybrid identities](../active-directory/hybrid/whatis-hybrid-identity.md), allowing Microsoft Entra users to access profile containers without requiring line-of-sight to domain controllers from Microsoft Entra hybrid joined and Microsoft Entra joined virtual machines (VMs). For more information, see [Access SMB volumes from Microsoft Entra joined Windows VMs](../azure-netapp-files/access-smb-volume-from-windows-client.md).
+
+* To protect your FSLogix profile containers, consider using [Azure NetApp Files snapshots](../azure-netapp-files/snapshots-introduction.md) and [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md).
 
 ## Prerequisites
 

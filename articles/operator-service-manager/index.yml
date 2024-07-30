@@ -56,8 +56,28 @@ landingContent:
             url: how-to-delete-operator-resources.md
           - text: Create site network service
             url: how-to-create-site-network-service.md
-          - text: Use Azure Operator Service Manager (AOSM) CLI extension
-            url: how-to-use-azure-operator-service-manager-cli-extension.md
+
+  # Card
+  - title: Onboard with the Azure Operator Service Manager (AOSM) CLI
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About the CLI
+            url: concepts-about-azure-operator-service-manager-cli.md
+      - linkListType: concept
+        links:
+          - text: Parameter exposure with the AOSM CLI Extension
+            url: concepts-expose-parameters-configuration-group-schema.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a Containerized Network Function
+            url: how-to-onboard-containerized-network-function-cli.md
+          - text: Onboard a Virtualized Network Function
+            url: how-to-onboard-virtualized-network-function-cli.md
+          - text: Onboard Azure Resource Manager (ARM) resources
+            url: how-to-onboard-azure-resource-manager-resources-cli.md
+          - text: Troubleshoot common CLI Issues
+            url: troubleshoot-cli-common-issues.md
 
   # Card
   - title: Additional Resources

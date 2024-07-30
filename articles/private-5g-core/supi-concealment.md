@@ -95,7 +95,7 @@ The home network private keys are stored in Azure Key Vault.
 
 1. [Create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity). Make a note of its UAMI resource ID.
 
-1. [Assign Key Vault Secrets User access](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal) to the Key Vault for the managed identity.
+1. [Assign Key Vault Secrets User access](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) to the Key Vault for the managed identity.
 
 1. Go to the **Mobile Network** resource in the portal and select **Identity** from the left-hand **Settings** menu. Select **Add** to add the user-assigned managed identity to the mobile network.
 

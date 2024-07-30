@@ -3,7 +3,7 @@ title: Azure Service Bus samples or examples
 description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 11/28/2023
 ms.author: spelluru
 ---

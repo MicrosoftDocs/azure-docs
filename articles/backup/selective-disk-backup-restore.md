@@ -2,8 +2,8 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 05/14/2023
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 10/16/2023
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

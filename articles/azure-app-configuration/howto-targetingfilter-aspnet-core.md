@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: Learn how to enable staged rollout of features for targeted audiences in an ASP.NET Core application.
 ms.service: azure-app-configuration
 ms.devlang: csharp
-author: zhiyuanliang
+author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
 ms.date: 03/26/2024
@@ -228,3 +228,8 @@ To learn more about the feature filters, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter-aspnet-core.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

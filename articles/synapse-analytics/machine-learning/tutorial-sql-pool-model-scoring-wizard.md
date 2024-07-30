@@ -4,7 +4,7 @@ description: Tutorial for how to use the machine learning model scoring wizard t
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 
 ms.date: 09/25/2020
 author: nelgson

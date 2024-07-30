@@ -1,20 +1,25 @@
 ---
 title: Azure Functions Consumption plan hosting
-description: Learn about how Azure Functions Consumption plan hosting lets you run your code in an environment that scales dynamically, but you only pay for resources used during execution. 
+description: Learn about how Azure Functions Consumption plan hosting lets you run your code in an environment that scales dynamically, but you only pay for resources used during execution.
 ms.date: 07/10/2023
 ms.topic: conceptual
+ms.custom:
+  - build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
 # Azure Functions Consumption plan hosting
 
-When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan is the fully <em>serverless</em> hosting option for Azure Functions.
+When you're using the Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. The Consumption plan, along with the [Flex Consumption plan](./flex-consumption-plan.md), is a fully <em>serverless</em> hosting option for Azure Functions.
 
 ## Benefits
 
 The Consumption plan scales automatically, even during periods of high load. When running functions in a Consumption plan, you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
 For a comparison of the Consumption plan against the other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+
+> [!TIP]  
+> If you want the benefits of dynamic scale and execution-only billing, but also need to integrate your app with virtual networks, you should instead consider hosting your app in the [Flex Consumption plan](./flex-consumption-plan.md).
 
 ## Billing
 

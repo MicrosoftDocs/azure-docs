@@ -2,8 +2,7 @@
 title: Backup strategies for Oracle Database on an Azure Linux VM
 description:  Get options to back up Oracle Database instances in an Azure Linux VM environment.
 author: cro27
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: article
@@ -13,9 +12,6 @@ ms.reviewer: jjaygbay1
 ---
 
 # Backup strategies for Oracle Database on an Azure Linux VM
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
@@ -87,7 +83,7 @@ Azure Blob Storage is a cloud-based service for storing large amounts of unstruc
 
 [Blobfuse](../../../storage/blobs/storage-how-to-mount-container-linux.md) is an open-source project that provides a virtual file system backed by Azure Blob Storage. It uses the libfuse open-source library to communicate with the Linux FUSE kernel module. It implements file-system operations by using the Azure Blob Storage REST APIs.
 
-Blobfuse is currently available for Ubuntu and Centos/RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
+Blobfuse is currently available for Ubuntu and RedHat distributions. It's also available for Kubernetes via the [CSI driver](https://github.com/kubernetes-sigs/blob-csi-driver).
 
 Blobfuse is ubiquitous across Azure regions and works with all storage account types, including general-purpose v1/v2 and Azure Data Lake Storage Gen2. But it doesn't perform as well as alternative protocols. For suitability as the database backup medium, we recommend using the SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocol to mount Azure Blob Storage.
 
@@ -109,7 +105,7 @@ You can also help protect Azure file shares by using Azure Backup for a Recovery
 
 You can mount Azure file shares in Linux distributions by using the NFS v4.1 protocol. There are limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features).
 
-[!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 #### Azure Files with SMB 3.0
 

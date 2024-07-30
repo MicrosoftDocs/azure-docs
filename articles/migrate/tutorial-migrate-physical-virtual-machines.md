@@ -6,8 +6,8 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 01/12/2023
-ms.custom: MVC, engagement-fy23
+ms.date: 06/17/2024
+ms.custom: MVC, engagement-fy24
 ---
 
 # Migrate machines as physical servers to Azure
@@ -121,9 +121,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
 ### Download the replication appliance installer
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Discover**.
-
-    ![Screenshot that shows discovering VMs.](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Discover**.
 
 1. In **Discover machines** > **Are your machines virtualized?**, select **Not virtualized/Other**.
 1. In **Target region**, select the Azure region to which you want to migrate the machines.
@@ -190,7 +188,7 @@ Now, select machines for migration.
 > [!NOTE]
 > You can replicate up to 10 machines together. If you need to replicate more, replicate them simultaneously in batches of 10.
 
-1. In the Azure Migrate project, select **Servers** > **Migration and modernization** > **Replicate**.
+1. In the Azure Migrate project, select **Servers, databases, and web apps** > **Migration and modernization** > **Replicate**.
 
     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replicate.png" alt-text="Screenshot that shows selecting Replicate.":::
 

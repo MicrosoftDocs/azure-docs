@@ -1,7 +1,7 @@
 ---
 title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
-ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023
+ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
 ms.topic: conceptual
 ms.date: 03/29/2024
 ---
@@ -56,7 +56,7 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. 
 
-You must manually sync triggers when using these deploymention options:
+You must manually sync triggers when using these deployment options:
 
 + [External package URL](#external-package-url)
 + [Local Git](#local-git)
@@ -65,7 +65,7 @@ You must manually sync triggers when using these deploymention options:
 You can sync triggers in one of three ways:
 
 + Restart your function app in the Azure portal.
-+ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
++ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](function-keys-how-to.md).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
 
@@ -149,7 +149,7 @@ You can deploy a function app running in a Linux container.
 >
 >+ Deploy to Azure Functions resources you create in the Azure portal. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 >+ Deploy to Azure Functions resources you create from the command line. Requires either a Premium or Dedicated (App Service) plan. To learn how, see [Create your first containerized Azure Functions](functions-deploy-container.md). 
->+ Deploy to Azure Container Apps (preview). To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
+>+ Deploy to Azure Container Apps. To learn how, see [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md).
 >+ Deploy to Azure Arc (preview). To learn how, see [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md).
 >+ Deploy to a Kubernetes cluster. You can deploy to a cluster using [Azure Functions Core Tools](functions-run-local.md). Use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command. 
 

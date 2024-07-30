@@ -43,6 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
 4. For **Origin type**, choose one of the following origin types:
    - **Storage** for Azure Storage
+   - **Storage static website** for Azure Storage static websites
    - **Cloud service** for Azure Cloud Services
    - **Web App** for Azure Web Apps
    - **Custom origin** for any other publicly accessible origin web server (hosted in Azure or elsewhere)

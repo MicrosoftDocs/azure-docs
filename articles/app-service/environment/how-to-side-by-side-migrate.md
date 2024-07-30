@@ -1,10 +1,10 @@
 ---
 title: Use the side-by-side migration feature to migrate your App Service Environment v2 to App Service Environment v3
-description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side-by-side migration feature.
+description: Deprecated - Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side-by-side migration feature.
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 4/26/2024
+ms.date: 5/21/2024
 ms.author: jordanselig
 ---
 # Use the side-by-side migration feature to migrate App Service Environment v2 to App Service Environment v3
@@ -70,7 +70,7 @@ az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=Validation&api-ve
 
 If there are no errors, your migration is supported, and you can continue to the next step.
 
-If you need to start an upgrade to upgrade your App Service Environment to the supported build version, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, which could take 8-12 hours or longer depending on the size of your environment, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigrationUpgrade&api-version=2022-03-01"
@@ -146,7 +146,7 @@ For related commands to check if your subscription or resource group has locks, 
 If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 resource during the migration process](./side-by-side-migrate.md#add-a-custom-domain-suffix-optional). Migration fails if you don't configure a custom domain suffix and are using one currently. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
 
 > [!NOTE]
-> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet.
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly with the new subnet.
 >
 
 To set these configurations, including identifying the subnet you selected earlier, create another file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it to the same value you used in the outbound IP generation step. **You must use the same value for zone redundancy that you used in the outbound IP generation step.**
