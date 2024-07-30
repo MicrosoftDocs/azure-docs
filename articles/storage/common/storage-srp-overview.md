@@ -74,10 +74,10 @@ The following table shows the Azure Storage client libraries for data access:
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **azure-storage-blob** | [Reference](/dotnet/api/overview/azure/storage.blobs-readme) | [PyPi](https://pypi.org/project/azure-storage-blob/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob) |
-| **azure-storage-file-datalake** (Preview) | [Reference](/dotnet/api/overview/azure/storage-file-datalake-readme) | [PyPi](https://pypi.org/project/azure-storage-file-datalake/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-file-datalake/azure/storage/filedatalake) |
-| **azure-storage-file-share** | [Reference](/dotnet/api/overview/azure/storage-file-share-readme) | [PyPi](https://pypi.org/project/azure-storage-file-share/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-file-share/azure/storage/fileshare) |
-| **azure-storage-queue** | [Reference](/dotnet/api/overview/azure/storage-queue-readme) | [PyPi](https://pypi.org/project/azure-storage-queue/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-queue/azure/storage/queue) |
+| **azure-storage-blob** | [Reference](/python/api/overview/azure/storage-blob-readme) | [PyPi](https://pypi.org/project/azure-storage-blob/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob) |
+| **azure-storage-file-datalake** (Preview) | [Reference](/python/api/overview/azure/storage-file-datalake-readme) | [PyPi](https://pypi.org/project/azure-storage-file-datalake/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-file-datalake/azure/storage/filedatalake) |
+| **azure-storage-file-share** | [Reference](/python/api/overview/azure/storage-file-share-readme) | [PyPi](https://pypi.org/project/azure-storage-file-share/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-file-share/azure/storage/fileshare) |
+| **azure-storage-queue** | [Reference](/python/api/overview/azure/storage-queue-readme) | [PyPi](https://pypi.org/project/azure-storage-queue/) | [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-queue/azure/storage/queue) |
 
 To learn more about using the Blob Storage client library for specific data access scenarios, see the [Blob Storage developer guide for Python](../blobs/storage-blob-python-get-started.md).
 

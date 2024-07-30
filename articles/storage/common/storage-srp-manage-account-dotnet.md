@@ -83,7 +83,7 @@ You can create a storage account using the following method from the [StorageAcc
 
 - [CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync)
 
-When creating a storage account resource, you can set the properties for the storage account by including a[StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance in the `content` parameter.
+When creating a storage account resource, you can set the properties for the storage account by including a [StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance in the `content` parameter.
 
 The following code example creates a storage account and configures properties for SKU, kind, location, access tier, and shared key access:
 
@@ -103,7 +103,9 @@ The following code example takes a [ResourceGroupResource](/dotnet/api/azure.res
 
 You can get storage account access keys using the following method:
 
-- [GetKeysAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.getkeysasync): Returns an iterable collection of [StorageAccountKey](/dotnet/api/azure.resourcemanager.storage.models.storageaccountkey) instances.
+- [GetKeysAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.getkeysasync)
+
+This method returns an iterable collection of [StorageAccountKey](/dotnet/api/azure.resourcemanager.storage.models.storageaccountkey) instances.
 
 The following code example gets the keys for a storage account and writes the names and values to the console for example purposes:
 
@@ -111,7 +113,9 @@ The following code example gets the keys for a storage account and writes the na
 
 You can regenerate a storage account access key using the following method:
 
-- [RegenerateKeyAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.regeneratekeyasync): Regenerates a storage account key and returns the new key value.
+- [RegenerateKeyAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.regeneratekeyasync)
+
+This method regenerates a storage account key and returns the new key value as part of an iterable collection of [StorageAccountKey](/dotnet/api/azure.resourcemanager.storage.models.storageaccountkey) instances.
 
 The following code example regenerates a storage account key:
 
@@ -121,8 +125,8 @@ The following code example regenerates a storage account key:
 
 You can update existing storage account settings by passing updated parameters to one of the following methods:
 
-- [StorageAccountCollection.CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync): Updated parameters passed as a [StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance.
-- [StorageAccountResource.UpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.updateasync): Updated parameters passed as a [StorageAccountPatch](/dotnet/api/azure.resourcemanager.storage.models.storageaccountpatch) instance.
+- [StorageAccountCollection.CreateOrUpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountcollection.createorupdateasync) (updated parameters passed as a [StorageAccountCreateOrUpdateContent](/dotnet/api/azure.resourcemanager.storage.models.storageaccountcreateorupdatecontent) instance)
+- [StorageAccountResource.UpdateAsync](/dotnet/api/azure.resourcemanager.storage.storageaccountresource.updateasync) (updated parameters passed as a [StorageAccountPatch](/dotnet/api/azure.resourcemanager.storage.models.storageaccountpatch) instance)
 
 The following code example updates the storage account SKU from `Standard_LRS` to `Standard_GRS`:
 

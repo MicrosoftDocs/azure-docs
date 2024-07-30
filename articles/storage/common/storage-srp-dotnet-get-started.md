@@ -91,17 +91,7 @@ You can register the Storage resource provider, or check the registration status
 
 You can also use the Azure management libraries to check the registration status and register the Storage resource provider, as shown in the following example:
 
-```csharp
-public static async Task RegisterSRPInSubscription(SubscriptionResource subscription)
-{
-    ResourceProviderResource resourceProvider =
-        await subscription.GetResourceProviderAsync("Microsoft.Storage");
-
-    // Check the registration state of the resource provider and register, if needed
-    if (resourceProvider.Data.RegistrationState == "NotRegistered")
-        resourceProvider.Register();
-}
-```
+:::code language="csharp" source="~/storage-mgmt-devguide-dotnet/StorageAccountManagement/ManagementTasks.cs" id="Snippet_RegisterSRP":::
 
 > [!NOTE]
 > To perform the register operation, you need permissions for the following Azure RBAC action: **Microsoft.Storage/register/action**. This permission is included in the **Contributor** and **Owner** built-in roles.
