@@ -36,35 +36,35 @@ To get started with Copilot for Azure, try a few prompts from this list. You can
 | Azure CLI & PowerShell | Lists all resources of a certain kind using Azure CLI. | "How do I list all my VMs using Azure CLI?" |
 | Azure CLI & PowerShell | Creates resources with CLI. | "Create a virtual network with two subnets using the address space of 10.0.0.0/16 using az cli." |
 | Azure CLI & PowerShell | Deploys resources with CLI. | "I want to use Azure CLI to deploy and manage AKS using a private service endpoint." |
-| Azure Kubernetes Service | Adds the user's IP address to the allowlist. | "Add my IP address to the allowlist of my AKS cluster's network policies." |
-| Azure Kubernetes Service | Configures AKS backups. | "Configure AKS backup." |
-| Azure Kubernetes Service | Scales the number of replicas of a deployment. | "Scale the number of replicas of my deployment my-deployment to 5." |
-| Azure Kubernetes Service | Updates the authorized IP ranges. | "Update my AKS cluster's authorized IP ranges." |
-| Azure Kubernetes Service | Shows existing backups. | "I want to view the backups on my AKS cluster." |
-| Azure Kubernetes Service | Manages the backup extension. | "Manage backup extension on my AKS cluster." |
-| Azure Kubernetes Service | Upgrades the AKS pricing tier. | "Upgrade AKS cluster pricing tier to Standard." |
-| Azure Monitor | Lists alerts using natural language. | "Show me all alerts triggered during the last 24 hours." |
-| Azure Monitor | Provides a summary of alerts, including the number of critical alerts. | "Tell me more about these alerts. How many critical alerts are there?" |
-| Azure Monitor | Detects anomalies in a specific resource. | "Is there any anomaly in my AKS resource?" |
-| Azure Monitor | Performs root cause analysis. | "Why is this resource not working properly?" |
-| Azure Monitor | Provides charts on platform metrics for a specific resource. | "Give me a chart of OS disk latency statistics for the last week." |
-| Azure Monitor | Queries logs using natural language | "Show me container logs that include word 'error' for the last day for namespace 'xyz'." |
-| Azure Monitor | Runs an investigation on a specific resource. | "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me." |
-| Azure Portal | Changes Azure Portal theme. | "Change my theme to dark mode." |
-| Azure Resource Graph | Lists the number of critical alerts. | "How many critical alerts do I have?" |
-| Azure Resource Graph | Retrieves live resource information. | "Which VMs are running right now? Please restart them." |
-| Azure Resource Graph  | Identifies states of resources. | "Which resources are non-compliant?" |
-| Azure Resource Graph  | Lists resources created or modified in the last 24 hours. | "List resources that have been created or modified in the last 24 hours." |
-| Azure SQL Databases | Use natural language to manage Azure SQL Databases | "I want to automate Azure SQL Database scaling based on performance metrics using Azure Functions." |
-| Azure Storage | Checks if a storage account follows security best practices. | "Does this storage account follow security best practices?" |
-| Azure Storage | Provides recommendations to make a storage account more secure. | "How can I make this storage account more secure?" |
-| Azure Storage | Checks for vulnerabilities in a storage account. | "Is this storage account vulnerable?" |
-| Azure Storage | Prevents deletion of a storage account. | "How can I prevent this storage account from being deleted?" |
-| Azure Storage | Protects data from loss or theft. | "How do I protect this storage account's data from data loss or theft?" |
-| Azure Virtual Machines | Creates a cost-efficient virtual machine configuration. | "Help me create a cost-efficient virtual machine." |
-| Cost Management | Compares the current month's cost to the previous month's cost. | "How does our cost this month compare to last month's." |
-| Cost Management | Forecasts cost for the next 3 months. | "Forecast my cost for the next 3 months." |
-| Cost Management | Shows Azure credits balance. | "What's our Azure credits balance?" |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Adds the user's IP address to the allowlist. | "Add my IP address to the allowlist of my AKS cluster's network policies." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Configures AKS backups. | "Configure AKS backup." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Scales the number of replicas of a deployment. | "Scale the number of replicas of my deployment my-deployment to 5." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Updates the authorized IP ranges. | "Update my AKS cluster's authorized IP ranges." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Shows existing backups. | "I want to view the backups on my AKS cluster." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Manages the backup extension. | "Manage backup extension on my AKS cluster." |
+| [Azure Kubernetes Service](work-aks-clusters.md) | Upgrades the AKS pricing tier. | "Upgrade AKS cluster pricing tier to Standard." |
+| [Azure Monitor](get-monitoring-information.md) | Lists alerts using natural language. | "Show me all alerts triggered during the last 24 hours." |
+| [Azure Monitor](get-monitoring-information.md) | Provides a summary of alerts, including the number of critical alerts. | "Tell me more about these alerts. How many critical alerts are there?" |
+| [Azure Monitor](get-monitoring-information.md) | Detects anomalies in a specific resource. | "Is there any anomaly in my AKS resource?" |
+| [Azure Monitor](get-monitoring-information.md) | Performs root cause analysis. | "Why is this resource not working properly?" |
+| [Azure Monitor](get-monitoring-information.md) | Provides charts on platform metrics for a specific resource. | "Give me a chart of OS disk latency statistics for the last week." |
+| [Azure Monitor](get-monitoring-information.md) | Queries logs using natural language | "Show me container logs that include word 'error' for the last day for namespace 'xyz'." |
+| [Azure Monitor](get-monitoring-information.md) | Runs an investigation on a specific resource. | "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me." |
+| [Azure portal](capabilities.md#manage-portal-settings) | Changes Azure portal theme. | "Change my theme to dark mode." |
+| [Azure Resource Graph](capabilities.md#get-information) | Lists the number of critical alerts. | "How many critical alerts do I have?" |
+| [Azure Resource Grap](capabilities.md#get-information)h | Retrieves live resource information. | "Which VMs are running right now? Please restart them." |
+| [Azure Resource Graph](capabilities.md#get-information)  | Identifies states of resources. | "Which resources are non-compliant?" |
+| [Azure Resource Graph](capabilities.md#get-information)  | Lists resources created or modified in the last 24 hours. | "List resources that have been created or modified in the last 24 hours." |
+| [Azure SQL Databases](https://aka.ms/sqlcopilot) | Use natural language to manage Azure SQL Databases | "I want to automate Azure SQL Database scaling based on performance metrics using Azure Functions." |
+| [Azure Storage](improve-storage-accounts.md) | Checks if a storage account follows security best practices. | "Does this storage account follow security best practices?" |
+| [Azure Storage](improve-storage-accounts.md) | Provides recommendations to make a storage account more secure. | "How can I make this storage account more secure?" |
+| [Azure Storage](improve-storage-accounts.md) | Checks for vulnerabilities in a storage account. | "Is this storage account vulnerable?" |
+| [Azure Storage](improve-storage-accounts.md) | Prevents deletion of a storage account. | "How can I prevent this storage account from being deleted?" |
+| [Azure Storage](improve-storage-accounts.md) | Protects data from loss or theft. | "How do I protect this storage account's data from data loss or theft?" |
+| [Azure Virtual Machines](deploy-vms-effectively.md) | Creates a cost-efficient virtual machine configuration. | "Help me create a cost-efficient virtual machine." |
+| [Cost Management](analyze-cost-management.md) | Compares the current month's cost to the previous month's cost. | "How does our cost this month compare to last month's." |
+| [Cost Management](analyze-cost-management.md) | Forecasts cost for the next 3 months. | "Forecast my cost for the next 3 months." |
+| [Cost Management](analyze-cost-management.md) | Shows Azure credits balance. | "What's our Azure credits balance?" |
 | Execute Commands | Restarts VMs with the tag 'env' | "Restart my VMs that have the tag 'env'" |
 | Guided Deployments | Provides a detailed guide on deploying an AKS cluster on Azure. | "Provide me a detailed guide on deploying an AKS cluster on Azure." |
 | Guided Deployments | Explains steps to create a Linux VM on Azure and SSH into it. | "What are the steps to create a Linux VM on Azure and how do I SSH into it?" |
