@@ -21,11 +21,11 @@ The End of Call Survey feature should be used after the call ends. Users can rat
 
 The following code snips show an example of one-to-one call. After the end of the call, your application can show a survey UI and once the user chooses a rating, your application should call the feature API to submit the survey with the user choices.
 
-We encourage you to use the default rating scale, which is the 5 star rating (between 1-5). However, you can submit a survey with custom rating scale.
+We encourage you to use the default rating scale, which is the five star rating (between 1-5). However, you can submit a survey with custom rating scale.
 
 ### Start a survey
 
-You create a `CallSurvey` object by starting a survey. This records a survey intent. In case this particular `CallSurvey` object is not submitted afterwards, it means that the survey was skipped or ignored by the end customer.
+You create a `CallSurvey` object by starting a survey. This records a survey intent. In case this particular `CallSurvey` object isn't submitted afterwards, it means that the survey was skipped or ignored by the end customer.
 
 ```csharp
 var surveyCallFeature = call.Features.Survey;
@@ -38,7 +38,7 @@ When rating calls, you must respect values defined on the scale field. The lower
 
 OverallRating is a required category for all surveys.
 
-For more information on suggested survey use, see (Survey Concepts)[https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept]
+For more information on suggested survey use, see [Survey Concepts](https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept)
 
 > [!NOTE]
 >A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
@@ -101,11 +101,11 @@ try
 
 The submitSurvey API can return an error in the following scenarios:
 
-- At least overall survey rating is required.
+- Overall survey rating is required.
 
 - `CallSurveyRatingScale` bounds must be within 0 and 100. LowerBound should be less than UpperBound. LowScoreThreshold should be within bounds.
 
-- Any of the score must respect the bounds defined by the `CallSurveyRatingScale`. All values in the `CallSurveyRatingScale` object are inclusive. Using the default scale, the score value should be between 1 and 5.
+- Any of the scores must respect the bounds defined by the `CallSurveyRatingScale`. All values in the `CallSurveyRatingScale` object are inclusive. Using the default scale, the score value should be between 1 and 5.
 
 - Survey can't be submitted because of network/service error.
 
@@ -115,11 +115,11 @@ The submitSurvey API can return an error in the following scenarios:
 
 | Tag | Description |
 | ----------- | ----------- |
-|  `CannotJoin` | Customer was not able to join a call |
-| `CannotInvite` | Customer was not able to add a new participant on call | 
+|  `CannotJoin` | Customer wasn't able to join a call |
+| `CannotInvite` | Customer wasn't able to add a new participant on call | 
 | `HadToRejoin` | Customer left and joined again the call as a workaround for an issue |
 |  `EndedUnexpectedly`  | Customer's call ended with no apparent reason | 
-| `OtherIssues` | Any issue that does not fit previous descriptions | 
+| `OtherIssues` | Any issue that doesn't fit previous descriptions | 
 
 ### Audio Issues
 
@@ -133,7 +133,7 @@ The submitSurvey API can return an error in the following scenarios:
 | `AudioStoppedUnexpectedly` | Audio stopped with no clear reason (e.g. no one is muted)| 
 | `DistortedSpeech` | A participant's voice is distorted, different from their expected voice | 
 | `AudioInterruption`  | Customer experiences audio interruptions, voice cuts, etc.| 
-| `OtherIssues`   | Any issue that does not fit previous descriptions | 
+| `OtherIssues`   | Any issue that doesn't fit previous descriptions | 
 
 ###  Video Issues    
 
@@ -145,21 +145,21 @@ The submitSurvey API can return an error in the following scenarios:
 | `Freezes` | Video Freezes| 
 | `StoppedUnexpectedly` | Screen Share stops with no clear reason (e.g camera is on and video calling is on) |  
 | `DarkVideoReceived` | Video is being sent but participant sees only a dark box (or another single color) | 
-| `AudioVideoOutOfSync` | Video and Audio does not seem to be in sync| 
-| `OtherIssues`   |Any issue that does not fit previous descriptions |
+| `AudioVideoOutOfSync` | Video and Audio do not seem to be in sync| 
+| `OtherIssues`   |Any issue that doesn't fit previous descriptions |
 
-### Screenshare Issues    
+### Screen share Issues    
 
 | Tag | Description | 
 | ----------- | ----------- |
 | `NoContentLocal` | Customer doesn't receive screen share from a participant that is sharing | 
-| `NoContentRemote` | Customer is sharing screen, but other participant(s) are unable to see it not  | 
+| `NoContentRemote` | Customer is sharing screen, but other one or more participants are unable to see it  | 
 | `CannotPresent` | Unable to start screen share| 
 | `LowQuality` | Low quality on screen share video, e.g unable to read | 
 | `Freezes` | Screen Share freezes during presentation | 
-| `StoppedUnexpectedly` | Screen Share stops with no clear reason (e.g screen share was not stopped by customer) | 
+| `StoppedUnexpectedly` | Screen Share stops with no clear reason (e.g screen share wasn't stopped by customer) | 
 | `LargeDelay` |Perceived delay between what is being shown and what is seen | 
-| `OtherIssues`     |Any issue that does not fit previous descriptions| 
+| `OtherIssues`     |Any issue that doesn't fit previous descriptions| 
 
 ### Customization options
 
@@ -169,7 +169,7 @@ customers about their overall call experience instead of asking them
 about their audio, video, and screen share experience. You can also
 customize input ranges to suit your needs. The default input range is 1
 to 5 for Overall Call, Audio, Video, and
-Screenshare. However, each API value can be customized from a minimum of
+Screen share. However, each API value can be customized from a minimum of
 0 to maximum of 100.
 
    > [!NOTE]
@@ -179,4 +179,4 @@ Screenshare. However, each API value can be customized from a minimum of
 
 In addition to using the End of Call Survey API, you can create your own survey questions and incorporate them with the End of Call Survey results. 
 
-However, the result payload of `SubmitSurvey` operation provides data that you can use to correlate ACS Survey data with your own custom data and storage. `CallSurveyResult` class have the `SurveyId` field that denotes a unique identifier for the survey and `CallId` denotes an identifier for the call where the survey was generated. Saving these identifiers along with your customized data will allow data to be associated uniquely.
+However, the result payload of `SubmitSurvey` operation provides data that you can use to correlate ACS Survey data with your own custom data and storage. `CallSurveyResult` class have the `SurveyId` field that denotes a unique identifier for the survey and `CallId` denotes an identifier for the call where the survey was generated. Saving these identifiers along with your customized data allow data to be associated uniquely.
