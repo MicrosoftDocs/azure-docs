@@ -3,7 +3,7 @@ title: "Configure Durable Functions with managed identity"
 description: Configure Durable Functions with managed identity
 author: naiyuantian
 ms.topic: quickstart
-ms.date: 07/08/2024
+ms.date: 07/30/2024
 ms.author: azfuncdf
 ---
 
@@ -119,6 +119,9 @@ Navigate to your Azure Functions app’s **Configuration** page and perform the 
 
      ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
+      > [!NOTE] 
+      > Durable Functions does not support `managedIdentityResourceId` when using user-assigned identity. Use `clientId` instead. 
+   
 
 
 
