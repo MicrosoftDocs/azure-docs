@@ -97,13 +97,10 @@ Workspace gateways need to be in the same Azure region and subscription as the A
 * North Central US
 * West US
 * UK South
-* France Central
 * North Europe
 * East Asia
 * Southeast Asia
 * Australia East
-* Australia Southeast
-* Japan East
 
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
