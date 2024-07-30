@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
 
-# Get started with Azure Storage management library for .NET
+# Get started with the Azure Storage management library for .NET
 
 This article shows you how to connect to Azure Storage resources using the Azure Storage management library for .NET. Once connected, you can create, update, and delete storage accounts, and manage storage account settings. To learn about the differences between resource management and data access using Azure Storage client libraries, see [Overview of the Azure Storage client libraries](storage-srp-overview.md).
 
