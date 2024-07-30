@@ -122,7 +122,7 @@ ms.author: mattmcinnes
 #### [Dasv5-series](#tab/dasv5)
 [!INCLUDE [dasv5-series-summary](./includes/dasv5-series-summary.md)]
 
-[View the full Dasv5-series page](../../dasv5-series.md).
+[View the full Dasv5-series page](./dasv5-series.md).
 
 [!INCLUDE [dasv5-series-specs](./includes/dasv5-series-specs.md)]
 
