@@ -362,5 +362,5 @@ Regardless of the scenario, Azure policy retains the last known policy on the cl
 If your problem isn't listed in this article or you can't resolve it, get support by visiting one of the following channels:
 
 - Get answers from experts through [Microsoft Q&A](/answers/topics/azure-policy.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport). This official Microsoft Azure resource on Twitter helps improve the customer experience by connecting the Azure community to the right answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport). This official Microsoft Azure resource on X helps improve the customer experience by connecting the Azure community to the right answers, support, and experts.
 - If you still need help, go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Submit a support ticket**.

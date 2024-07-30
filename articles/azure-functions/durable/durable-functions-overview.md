@@ -38,7 +38,7 @@ Durable Functions is designed to work with all Azure Functions programming langu
 > This article uses tabs to support multiple versions of the Python programming model. The v2 model is generally available and is designed to provide a more code-centric way for authoring functions through decorators. For more details about how the v2 model works, refer to the [Azure Functions Python developer guide](../functions-reference-python.md). 
 ::: zone-end
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio](durable-functions-isolated-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
 
@@ -479,7 +479,7 @@ The async HTTP API pattern addresses the problem of coordinating the state of lo
 
 ![A diagram of the HTTP API pattern](./media/durable-functions-concepts/async-http-api.png)
 
-Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
+Durable Functions provides **built-in support** for this pattern, simplifying or even removing the code you need to write to interact with long-running function executions. For example, the Durable Functions quickstart samples ([C#](durable-functions-isolated-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md), [TypeScript](quickstart-ts-vscode.md), [Python](quickstart-python-vscode.md), [PowerShell](quickstart-powershell-vscode.md), and [Java](quickstart-java.md)) show a simple REST command that you can use to start new orchestrator function instances. After an instance starts, the extension exposes webhook HTTP APIs that query the orchestrator function status. 
 
 The following example shows REST commands that start an orchestrator and query its status. For clarity, some protocol details are omitted from the example.
 
@@ -1501,7 +1501,7 @@ Durable Functions are billed the same as Azure Functions. For more information, 
 
 You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
 
-* [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
+* [C# using Visual Studio 2019](durable-functions-isolated-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 * [TypeScript using Visual Studio Code](quickstart-ts-vscode.md)
 * [Python using Visual Studio Code](quickstart-python-vscode.md)

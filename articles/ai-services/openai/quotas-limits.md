@@ -61,7 +61,7 @@ The following sections provide you with a quick guide to the default quotas and 
 
 |Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|:---:|:---:|
-|Enterprise agreement | 30 M | 60 K |
+|Enterprise agreement | 30 M | 180 K |
 |Default | 450 K | 2.7 K |
 
 M = million | K = thousand
