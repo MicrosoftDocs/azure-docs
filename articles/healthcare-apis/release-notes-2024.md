@@ -6,7 +6,7 @@ author: shellyhaverkamp
 ms.service: healthcare-apis
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 05/13/2024
+ms.date: 07/29/2024
 ms.author: jasteppe
 ms.custom: references_regions
 ---
@@ -14,6 +14,18 @@ ms.custom: references_regions
 # Release notes 2024: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## July 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Allow dates in JSON data to be treated as strings in the Convert-Data operation
+
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
 
 ## May 2024
 
