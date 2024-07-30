@@ -31,7 +31,7 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 ## Identities
 
 |Identities| Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
-|----------------------------------------------|--------|--------|--------|---|---|
+|----------------------------------------------|--------|--------|--------|---|---|---|
 |Communication Services user	| ✔️	|   |   |  |	|	
 |Microsoft 365 user	| ✔️	|  |  |	 |  |
 
@@ -43,9 +43,10 @@ Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager r
 |Join breakout room | ✔️	| ✔️ |
 |Manage breakout rooms| | |
 |Participate in breakout room chat | | ✔️[2]|
-|Get breakout room settings|✔️[1] | ✔️|
+|Get breakout room settings|✔️ | ✔️|
 
 [1] Only Microsoft 365 user with role organizer, co-organizer, or breakout room manager.
+
 [2] Microsoft 365 users can use Graph API to participate in breakout room chat. The thread ID of the chat is provided in the assigned breakout room object.
 
 ## SDKs
