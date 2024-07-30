@@ -131,13 +131,13 @@ For more information about how-to configure multiple address prefixes on a subne
 
 > [!IMPORTANT]
 > 
-> Please note that there are two subnet properties for address space, namely **AddressPrefix** (string), and **AddressPrefixes** (list), and the distinction and usage is as explained below
-> -	The array property was introduced for dual stack, but is also used for scenarios with more than one subnet prefixes as discussed above.
-> - Since IPv6 is becoming more and more popular, as part of the Azure Portal customer experience update, we have now made **AddressPrefixes** the default property for subnet address space, when a subnet is created via portal. This means  
->     - any new subnets created via portal will default to AddressPrefixes list parameter
->     -	if customers are using dual-stack in their virtual network or have more than one subnet prefixes, they are updated to use the list property
->     - For existing deployments using the string, the current behavior is retained unless there are any explicit changes in their Vnet to use the list property for subnet address prefixes (adding IPv6 address space or another prefix on subnet) 
-> - This is why we recommend that customers should look for both the properties in subnet wherever applicable.
+> There are two subnet properties for address space, **AddressPrefix** (string), and **AddressPrefixes** (list). The distinction and usage is explained as follows.
+> - The array property was introduced for dual stack. The property is also used for scenarios with more than one subnet prefixes as discussed previously.
+> - As part of the Azure Portal customer experience update, the **AddressPrefixes** is the default property for subnet address space when a subnet is created via the portal. 
+>     - Any new subnets created via portal will default to the **AddressPrefixes** list parameter.
+> - If customers are using dual-stack in their virtual network or have more than one subnet prefixes, they are updated to use the list property.
+>     - For existing deployments using the string, the current behavior is retained unless there are explicit changes in  your virtual network to use the list property for subnet address prefixes. An example is adding IPv6 address space or another prefix to the subnet.
+> - We recommend that customers should look for both the properties in subnet wherever applicable.
  
 
 
