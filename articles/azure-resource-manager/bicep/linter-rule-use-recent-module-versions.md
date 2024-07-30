@@ -8,14 +8,14 @@ ms.date: 07/30/2024
 
 # Linter rule - use recent module versions
 
-This rule looks for old public module versions. It is recommended to use the most recent module versions.
+This rule looks for old [public module](./modules.md#public-module-registry) versions. It's best to use the most recent module versions.
 
 > [!NOTE]
 > This rule is off by default, change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
 
 ## Linter rule code
 
-Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
+To customize rule settings, use the following value in the [Bicep configuration file](bicep-config-linter.md) :
 
 `use-recent-module-versions`
 
