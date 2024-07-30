@@ -58,7 +58,7 @@ This section applies to the `Microsoft.Insights/autoscaleSettings` resource type
 
 ## Azure Kubernetes Service
 
-This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|

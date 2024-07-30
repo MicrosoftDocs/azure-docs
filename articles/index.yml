@@ -418,7 +418,7 @@ productDirectory:
         - featured
         - compute
         - containers
-      url: aks/index.yml
+      url: /azure/aks/
     # Card
     - title: Azure Kubernetes Fleet Manager (Fleet)
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters

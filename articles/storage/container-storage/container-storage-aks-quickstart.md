@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, ignite-2023-container-storage, linux-related-con
 
 # Quickstart: Use Azure Container Storage with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This Quickstart shows you how to connect to a Linux-based [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster, install Azure Container Storage, and create a storage pool using Azure CLI.
 
 > [!IMPORTANT]
 > Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads.
@@ -135,7 +135,7 @@ Running this command will enable Azure Container Storage on the system node pool
 \*If there are any existing node pools with the `acstor.azure.com/io-engine:acstor` label then Azure Container Storage will be installed there by default. Otherwise, it's installed on the system node pool.
 
 > [!IMPORTANT]
-> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](../../aks/create-node-pools.md#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
+> **If you created your AKS cluster using the Azure portal:** The cluster will likely have a user node pool and a system/agent node pool. However, if your cluster consists of only a system node pool, which is the case with test/dev clusters created with the Azure portal, you'll need to first [add a new user node pool](/azure/aks/create-node-pools#add-a-node-pool) and then label it. This is because when you create an AKS cluster using the Azure portal, a taint `CriticalAddOnsOnly` is added to the system/agent node pool, which blocks installation of Azure Container Storage on the system node pool. This taint isn't added when an AKS cluster is created using Azure CLI.
 
 ```azurecli-interactive
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage <storage-pool-type>

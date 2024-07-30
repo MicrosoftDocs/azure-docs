@@ -18,7 +18,7 @@ In this tutorial, you'll deploy a reference ASP.NET web application on an Azure 
 
 [Azure Cosmos DB](../introduction.md) is a fully managed distributed database platform for modern application development with NoSQL or relational databases.
 
-[AKS](../../aks/intro-kubernetes.md) is a managed Kubernetes service that helps you quickly deploy and manage clusters.
+[AKS](/azure/aks/intro-kubernetes) is a managed Kubernetes service that helps you quickly deploy and manage clusters.
 
 > [!IMPORTANT]
 > - This article requires the latest version of the Azure CLI. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you're using Azure Cloud Shell, the latest version is already installed.
@@ -44,7 +44,7 @@ The Bicep modules will deploy the following Azure resources within the targeted 
 - A [resource group](../../azure-resource-manager/management/overview.md#resource-groups) to organize the resources
 -  A [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for authentication
 - A [container registry](../../container-registry/container-registry-intro.md) for storing container images
-- An [AKS](../../aks/intro-kubernetes.md) cluster
+- An [AKS](/azure/aks/intro-kubernetes) cluster
 - A [virtual network](../../virtual-network/network-overview.md) for configuring AKS
 - An [Azure Cosmos DB for NoSQL account](../introduction.md), along with a database, a container, and the [SQL role](/cli/azure/cosmosdb/sql/role)
 - A [key vault](../../key-vault/general/overview.md) to store secure keys
@@ -155,7 +155,7 @@ You can also see the deployment status in the resource group:
 :::image type="content" source="./media/tutorial-deploy-app-bicep-aks/deployed-resource-group.png" lightbox="./media/tutorial-deploy-app-bicep-aks/deployed-resource-group.png" alt-text="Screenshot of the deployment status for the resource group in the Azure portal.":::
 
 > [!NOTE]
-> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks).
+> When you create an AKS cluster, a second resource group is automatically created to store the AKS resources. For more information, see [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks).
 
 ## Link Azure Container Registry with AKS
 
@@ -352,6 +352,6 @@ az deployment sub delete \
 
 - Learn how to [develop a web application with Azure Cosmos DB](./tutorial-dotnet-web-app.md).
 - Learn how to [query Azure Cosmos DB for NoSQL](./tutorial-query.md).
-- Learn how to [upgrade your cluster](../../aks/tutorial-kubernetes-upgrade-cluster.md).
-- Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md).
-- Learn how to [enable continuous deployment](../../aks/deployment-center-launcher.md).
+- Learn how to [upgrade your cluster](/azure/aks/tutorial-kubernetes-upgrade-cluster).
+- Learn how to [scale your cluster](/azure/aks/tutorial-kubernetes-scale).
+- Learn how to [enable continuous deployment](/azure/aks/deployment-center-launcher).

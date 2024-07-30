@@ -20,7 +20,7 @@ In addition to these prerequisites, be sure to meet all [network requirements fo
 ### [Azure CLI](#tab/azure-cli)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
+* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli) and connect your cluster to Azure Arc.
 * The latest version of [Azure CLI](/cli/azure/install-azure-cli).
 * The latest version of **connectedk8s** Azure CLI extension, installed by running the following command:
@@ -43,7 +43,7 @@ In addition to these prerequisites, be sure to meet all [network requirements fo
 ### [Azure PowerShell](#tab/azure-powershell)
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* A basic understanding of [Kubernetes core concepts](../../aks/concepts-clusters-workloads.md).
+* A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
 * [Azure PowerShell version 6.6.0 or later](/powershell/azure/install-azure-powershell)
 * The **Az.ConnectedKubernetes** PowerShell module, installed by running the following command:

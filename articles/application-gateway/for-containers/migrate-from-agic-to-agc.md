@@ -228,7 +228,7 @@ Application Gateway for Containers implementation
 
 Direct certificate upload and reference to a certificate in Azure Key Vault is not available.
 
-Secrets should be stored in [AKS Secret Store](../../aks/concepts-security.md#kubernetes-secrets) and referenced by name.
+Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 
 ### Establishing backend certificate chain trust
 

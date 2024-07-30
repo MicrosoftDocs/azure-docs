@@ -138,7 +138,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md).
+1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access).
 
     [!INCLUDE [secret-provider-class-yaml](../includes/secret-procider-class-yaml.md)]
 
