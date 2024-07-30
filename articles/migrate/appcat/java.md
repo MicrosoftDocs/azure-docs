@@ -75,8 +75,9 @@ The `appcat` CLI is available for download as a ZIP file from [aka.ms/appcat/azu
 
 #### Known issues
 
- - Certain rules may not be triggered when parsing specific Lambda expressions. See [issue](https://github.com/konveyor/rulesets/issues/102).
- - Running `appcat` under non-unicode environment with complex double-byte characters will cause corruption. See [issue](https://github.com/Azure/appcat-rulesets/issues/183) for workarounds.
+Certain rules might not be triggered when parsing specific Lambda expressions. For more information, see [the GitHub issue](https://github.com/konveyor/rulesets/issues/102).
+
+Running `appcat` in a non-unicode environment with complex double-byte characters will cause corruption. For workarounds, see [the GitHub issue](https://github.com/Azure/appcat-rulesets/issues/183).
 
 ### Get started with appcat
 
