@@ -5,7 +5,7 @@ ms.author: dacurwin
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: concept-article
-ms.date: 07/16/2024
+ms.date: 07/30/2024
 #customer intent: As a security professional, I want to understand how Defender for Cloud enhances data security in a multicloud environment so that I can effectively protect sensitive data.
 ---
 
@@ -87,7 +87,7 @@ To get complete data cataloguing scanning results with all SITs available in the
 
 ### For cloud storage
 
-Defender for Cloud's scanning algorithm selects containers that may contain sensitive information and samples up to 20MBs for each storage.
+Defender for Cloud's scanning algorithm selects containers that may contain sensitive information and samples up to 20MBs for each file scanned within the container.
 
 ### For cloud Databases
 
