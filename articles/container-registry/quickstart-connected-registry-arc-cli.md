@@ -84,7 +84,7 @@ Creating the Connected registry to synchronize with ACR is the foundation step f
 
 ### Deploy the Connected registry arc extension on the Arc-enabled kubernetes cluster
 
-By deploying the Connected Registry Arc Extension, you can synchronize container images and other OCI artifacts with your cloud-based Azure container registry, which helps speed up access to registry artifacts and enables the building of advanced scenarios. The extension deployment ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for Transport Layer Security (TLS) encryption. 
+By deploying the Connected Registry Arc Extension, you can synchronize container images and other Open Container Initiative (OCI) artifacts with your cloud-based Azure container registry. The deployment helps speed-up access to registry artifacts and enables the building of advanced scenarios. The extension deployment ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for Transport Layer Security (TLS) encryption. 
 
 1. Generate the Connection String and Protected Settings JSON File
 
@@ -103,7 +103,7 @@ By deploying the Connected Registry Arc Extension, you can synchronize container
     EOF
     ```
 
-- The cat command creates the `protected-settings-extension.json` file with the connection string details. This will only work on Linux or macOS. If you are using Windows, you can use the `echo` command to create the file. 
+- The cat command creates the `protected-settings-extension.json` file with the connection string details. The cat command works on Linux or macOS. If you're using Windows, you can use the `echo` command to create the file. 
 - The [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol.
 - It creates and injects the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment.
 
@@ -123,7 +123,7 @@ By deploying the Connected Registry Arc Extension, you can synchronize container
 
 - The [az k8s-extension create][az-k8s-extension-create] command deploys the Connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
 - It ensures secure trust distribution between the Connected registry and all client nodes within the cluster and installs the cert-manager service for Transport Layer Security (TLS) encryption.
--  The clusterIP must be from the AKS cluster subnet. The `service.clusterIP` parameter specifies the IP address of the Connected registry service within the cluster. The `service.clusterIP` must be set within the range of valid service IPs for the Kubernetes (k8s) cluster. It is crucial to ensure that the IP address specified for `service.clusterIP` falls within the designated service IP range defined during the cluster's initial configuration. This range is typically found in the cluster's networking settings. If the `service.clusterIP` is not within this range, it must be updated to an IP address that is both within the valid range and not currently in use by another service.
+-  The clusterIP must be from the AKS cluster subnet. The `service.clusterIP` parameter specifies the IP address of the Connected registry service within the cluster. The `service.clusterIP` must be set within the range of valid service IPs for the Kubernetes (K8s) cluster. It's crucial to ensure that the IP address specified for `service.clusterIP` falls within the designated service IP range defined during the cluster's initial configuration. This range is typically found in the cluster's networking settings. If the `service.clusterIP` isn't within this range, it must be updated to an IP address that is both within the valid range and not currently in use by another service.
 
 
 ### Verify the Connected registry extension deployment
@@ -231,7 +231,7 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
 
 ### Pull an image from the Connected registry 
 
-To authenticate and pull an image from the locally deployed Connected Registry within the cluster from a cluster client node, the operation must be performed from within the cluster node itself. Please follow the steps:
+To authenticate and pull an image from the locally deployed Connected Registry within the cluster. The operation must be performed from within the cluster node itself. Follow the steps:
 
 1. Authenticate and pull the desired image from the Connected registry using the [ crictl pull] command with the IP address `10.10.10.10` of the Connected registry, and the Image name `hello-world` with tag `latest`:
 
