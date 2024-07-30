@@ -40,7 +40,7 @@ If you don't have an existing Durable Functions project deployed in Azure, we re
 When developing locally, it's recommended that you use Azurite, which is Azure Storage's local emulator. Configure your app to the emulator by specifying `"AzureWebJobsStorage": "UseDevelopmentStorage = true"` in the local.settings.json.
 
 ### Identity-based connections for local development
-You can use an identity-based connection for local development if you prefer. Strictly speaking, a managed identity is only available to apps when executing on Azure. When configured to use identity-based connections, a locally executing app will utilize your developer credentials to authenticate against Azure resources. Then, when deployed on Azure, it will utilize your managed identity configuration instead.
+Strictly speaking, a managed identity is only available to apps when executing on Azure. However, you can still configure a locally running app to use identity-based connection by using your developer credentials to authenticate against Azure resources. Then, when deployed on Azure, the app will utilize your managed identity configuration instead.
 
 When using developer credentials, the connection attempts to get a token from the following locations, in the said order, for access to your Azure resources:
 
@@ -49,7 +49,7 @@ When using developer credentials, the connection attempts to get a token from th
 - The current user context in Visual Studio Code
 - The current user context in the Azure CLI
 
-If none of these options are successful, an error shows up regarding the app's inability to retrieve authentication token for your Azure resources. 
+If none of these options are successful, an error stating that the app cannot retrieve authentication token for your Azure resources shows up. 
 
 #### Configure runtime to use local developer identity
 1. Specify the name of your Azure Storage account in local.settings.json, for example: 
