@@ -202,13 +202,13 @@
         - name: B-series CPU Credit Model
           href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: Bsv2 series
-          href: bsv2-series.md
+          href: ./sizes/general-purpose/bsv2-series.md
         - name: Basv2 series
-          href: basv2.md
+          href: ./sizes/general-purpose/basv2-series.md
         - name: Bpsv2 series
-          href: bpsv2-arm.md
+          href: ./sizes/general-purpose/bpsv2-series.md
         - name: B series V1
-          href: sizes-b-series-burstable.md
+          href: ./sizes/general-purpose/bv1-series.md
       - name: D family
         items:
         - name: Overview

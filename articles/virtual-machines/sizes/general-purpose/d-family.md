@@ -122,16 +122,16 @@ ms.author: mattmcinnes
 #### [Dasv5-series](#tab/dasv5)
 [!INCLUDE [dasv5-series-summary](./includes/dasv5-series-summary.md)]
 
-[View the full Dasv5-series page](../../dasv5-dadsv5-series.md).
+[View the full Dasv5-series page](../../dasv5-series.md).
 
-[!INCLUDE [dasv5-series-specs](./includes/dasv5-dadsv5-series-specs.md)]
+[!INCLUDE [dasv5-series-specs](./includes/dasv5-series-specs.md)]
 
 #### [Dadsv5-series](#tab/dadsv5)
-[!INCLUDE [dasv5-dadsv5-series-summary](./includes/dadsv5-series-summary.md)]
+[!INCLUDE [dadsv5-series-summary](./includes/dadsv5-series-summary.md)]
 
-[View the full Dasv5 and Dadsv5-series page](../../dasv5-dadsv5-series.md).
+[View the full Dadsv5-series page](./dadsv5-series.md).
 
-[!INCLUDE [dasv5-dadsv5-series-specs](./includes/dasv5-dadsv5-series-specs.md)]
+[!INCLUDE [dadsv5-series-specs](./includes/dadsv5-series-specs.md)]
 
 ---
 ### Dpsv5 and Dpdsv5-series
