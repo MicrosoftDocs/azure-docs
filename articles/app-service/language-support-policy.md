@@ -43,7 +43,7 @@ To learn more about specific timelines for the language support policy, see the 
 
 ## Support status
 
-App Service supports languages on both Linux and Windows operating systems.  See the following resources for the list of OS support for each language:
+App Service supports languages on both Linux and Windows operating systems. See the following resources for the list of OS support for each language:
 
 - [.NET](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/dot_net_core.md#support-timeline)
 - [Java](#jdk-versions-and-maintenance)
