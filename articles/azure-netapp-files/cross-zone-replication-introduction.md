@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---

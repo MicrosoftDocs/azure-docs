@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
