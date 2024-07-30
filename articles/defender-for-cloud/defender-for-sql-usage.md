@@ -64,19 +64,6 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
       - Publisher: Microsoft.Azure.Monitor
       - Type: AzureMonitorWindowsAgent
 
-### Configurations for Defender for SQL resources for non-Azure machines
-
-- Defender for SQL uses the following naming convention when creating our resources:
-
-  - DCR: `MicrosoftDefenderForSQL-<vm location>-dcr`
-  - DCRA: `<vm name>/Microsoft.Insights/MicrosoftDefenderForSQL-RulesAssociation`
-  - Resource group: `DefaultResourceGroup-<vm location code>`
-  - Log analytics workspace: `D4SQL-<subscription id>-<vm location>`
-
-- For the database tag *createdBy*, Defender for SQL uses *MicrosoftDefenderForSQL*.
-
-- Defender for SQL installs the `MicrosoftDefenderForSQL` extension on SQL VMs running Windows.  
-
 ### Steps to enable Defender for SQL on non-Azure machines
 
 1. Connect SQL server to Azure Arc. For more information on the supported operating systems, connectivity configuration, and required permissions, see the following documentation:
@@ -87,6 +74,9 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
     - [Roles specific to SQL Server enabled by Azure Arc](/sql/relational-databases/security/authentication-access/server-level-roles#roles-specific-to-sql-server-enabled-by-azure-arc)
 
 1. Once Azure Arc is installed, the Azure extension for SQL Server is installed automatically on the database server. For more information, see [Manage automatic connection for SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/manage-autodeploy).
+
+### Enable Defender for SQL
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
@@ -111,6 +101,19 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
    - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a user-defined LAW. This creates a resource group with data collection rules and a custom Log analytics workspace in the predefined region. During this process we install the Azure monitoring agent. For more information about the options to install the AMA agent, see [Azure Monitor Agent prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites).
 
 1. To complete the installation process, a restart of the SQL server (instance) is necessary for versions 2017 and older.
+
+### Configurations for Defender for SQL resources for non-Azure machines
+
+- Defender for SQL uses the following naming convention when creating our resources:
+
+  - DCR: `MicrosoftDefenderForSQL--dcr`
+  - DCRA: `/Microsoft.Insights/MicrosoftDefenderForSQL-RulesAssociation`
+  - Resource group: `DefaultResourceGroup-`
+  - Log analytics workspace: `D4SQL--`
+
+- Defender for SQL uses *MicrosoftDefenderForSQL* as a *createdBy* database tag.
+
+- Defender for SQL installs the `MicrosoftDefenderForSQL` extension on SQL VMs running Windows.  
 
 ## Enabling Defender for SQL on Azure virtual machines using the AMA agent
 
@@ -189,17 +192,13 @@ It takes approximately 30 minutes to update the protection status by the SQL Iaa
 1. Under the **Security** tab, select **Defender for Cloud**.
 1. Check the **Protection status**. If the status is **Protected**, the deployment was successful.
 
-### Is this setting configurable by Azure Policy?
-
-The Azure extension for SQL is required for Defender for Cloud. If the extension isn't already there, this check box installs this for you. By default, Azure VMs with SQL Server 2016 or later are automatically registered with the SQL IaaS Agent extension when detected by the CEIP service.
-
-### What is the purpose of this managed identity?
+### What is the purpose of the managed identity created during the installation process on Azure SQL VMs?
 
 The managed identity is part of the Azure Policy, which pushes out the AMA. It's used by the AMA to access the database to collect the data and send it via the Log Analytics Workspace (LAW) to Defender for Cloud. For more information about the use of the managed identity, see [Resource Manager template samples for agents in Azure Monitor](/azure/azure-monitor/agents/resource-manager-agent).
 
 ### Can I use my own DCR or managed-identity instead of Defender for Cloud creating a new one?
 
-Yes, we allow you to bring your own identity or DCR using the following script only. For more information, see [???]().
+Yes, we allow you to bring your own identity or DCR using the following script only. For more information, see 
 
 ### How can I enable SQL servers on machines with AMA at scale?
 
@@ -207,13 +206,11 @@ See [???]() for the process of how to enable Microsoft Defender for SQL’s auto
 
 ### Which tables are used in LAW with AMA?
 
-When enabling Defender for SQL with AMA autoprovisioning, a **Defender for SQL on SQL VMs and Arc-enabled SQL Servers** policy assignment that gets assigned. Once deployed, the policy deploys AMA, Managed Identity, DCR, and the Defender for SQL extension.
+Defender for SQL on SQL VMs and Arc-enabled SQL servers uses the Log Analytics Workspace (LAW) to transfer data from the database to the Defender for Cloud portal. This means that no data is saved locally at the LAW. The tables in the LAW named *SQLAtpStatus* and the *SqlVulnerabilityAssessmentScanStatus* will be retired [when MMA is deprecated](/azure/azure-monitor/agents/azure-monitor-agent-migration). ATP and VA status can be viewed in the Defender for Cloud portal.
 
-If the logs don't appear, in the *SqlVulnerabilityAssessmentScanStatus* table, review whether the machines have requirements met. The *SQLAtpStatus* and the *SqlVulnerabilityAssessmentScanStatus* tables will be retired [when MMA is deprecated](/azure/azure-monitor/agents/azure-monitor-agent-migration). ATP and VA status can be viewed in the Defender for Cloud portal.  
+### How does Defender for SQL collect logs from the SQL server?
 
-### What are you using to collect logs on the SQL Servers?
-
-Defender for SQL uses Xevent, beginning with SQL Server 2017. On previous versions of SQL Server, we collect the logs using the SQL server audit logs.
+Defender for SQL uses Xevent, beginning with SQL Server 2017. On previous versions of SQL Server, Defender for SQL collects the logs using the SQL server audit logs.
 
 ### I see a parameter named enableCollectionOfSqlQueriesForSecurityResearch in the policy initiative. Does this mean that my data is collected for analysis?
 
