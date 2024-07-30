@@ -58,7 +58,7 @@ This article provides suggestions to troubleshoot common problems with the REST 
     
     - Note that 'curl' might not be suitable to reproduce an SSL certificate validation issue. In some scenarios, the 'curl' command was executed successfully without encountering any SSL certificate validation issues. But when the same URL is executed in a browser, no SSL certificate is actually returned for the client to establish trust with server.
 
-      Tools like **Postman** and **Fiddler** are recommended for the preceding case.
+      Tools like **Fiddler** are recommended for the preceding case.
 
 ## Related content
 

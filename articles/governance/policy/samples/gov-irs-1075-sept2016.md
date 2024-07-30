@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in IRS 1075 September
 For more information about this compliance standard, see
 [IRS 1075 September 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **IRS 1075 September 2016** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
