@@ -12,7 +12,7 @@ ms.custom: include file, build-2024
 ---
 | Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor    | 2 - 96  vCores      | Azure Cobalt 100 [ARM-64]                      |
+| Processor    | 2 - 96  vCPUs      | Azure Cobalt 100 [ARM-64]                      |
 | Memory       | 8 - 384  GiB          |                         |
 | Local Storage  | 1 - 6 Disks        | 110 - 880 GiB/Disk <br>15000 - 1800000 IOPS <br> 90 - 8640 MBps  |
 | Remote Storage   | 8 - 64 Disks     | 3750 - 199987 IOPS <br>106 - 5850 MBps     |

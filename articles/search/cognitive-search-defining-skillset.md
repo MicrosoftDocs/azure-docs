@@ -166,7 +166,7 @@ Context also determines where outputs are produced in the [enrichment tree](cogn
 
 Skills read from and write to an enriched document. Skill inputs specify the origin of the incoming data. It's often the root node of the enriched document. For blobs, a typical skill input is the document's content property. 
 
-[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can consume. Each input has a "name" that identifies a specific input, and a "source" that specifies the location fo the data in the enriched document. The following example is from the Entity Recognition skill:
+[Skill reference documentation](cognitive-search-predefined-skills.md) for each skill describes the inputs it can consume. Each input has a "name" that identifies a specific input, and a "source" that specifies the location of the data in the enriched document. The following example is from the Entity Recognition skill:
 
 ```json
 "inputs": [
