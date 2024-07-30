@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers
 
-This article lists the significant details that you must note when you are migrating using the portal migration tool or migration scripts.
+This article lists the significant details that you must note when you're migrating using the portal migration tool or migration scripts.
 
 ## Important reminders
 
@@ -39,9 +39,9 @@ This article lists the significant details that you must note when you are migra
   | **30 minutes** | 1 hour 30 minutes |
   | **6 hours** | 4 hours |
  
-- When the migration runbook is executed multiple times, say you did Migrate All automation schedules and then again tried to migrate all the schedules, then migration runbook will run the same logic. Doing it again will update the MRP schedule if any new change is present in SUC. It won't make duplicate config assignments. Also, operations are carried only for automation schedules having enabled schedules. If an SUC was **Migrated** earlier, it will be skipped in the next turn as its underlying schedule will be **Disabled**. 
+- When the migration runbook is executed multiple times, say you did Migrate All automation schedules and then again tried to migrate all the schedules, then migration runbook will run the same logic. Doing it again updates the MRP schedule if any new change is present in SUC. It won't make duplicate config assignments. Also, operations are carried only for automation schedules having enabled schedules. If an SUC was **Migrated** earlier, it will be skipped in the next turn as its underlying schedule will be **Disabled**. 
 - In the end, you can resolve more machines from Azure Resource Graph as in Azure Update Manager; You can't check if Hybrid Runbook Worker is reporting or not, unlike in Automation Update Management where it was an intersection of Dynamic Queries and Hybrid Runbook Worker.
-- Machines which are unsupported in Azure Update Manager will not be migrated. The Schedules which have such machines will be partially migrated and only supported machines of the software update configuration will be moved to Azure Update Manager. To prevent patching by both Automation Update Management and Azure Update Manager, remove migrated machines from deployment schedules in Automation Update Management. 
+- Machines that are unsupported in Azure Update Manager won't be migrated. The Schedules, which have such machines will be partially migrated and only supported machines of the software update configuration will be moved to Azure Update Manager. To prevent patching by both Automation Update Management and Azure Update Manager, remove migrated machines from deployment schedules in Automation Update Management. 
 
 Post-migration, a Software Update Configuration can have any one of the following four migration statuses: 
 
@@ -59,7 +59,7 @@ The below table shows the scenarios associated with each Migration Status:
 | | Non-Zero number of Dynamic Queries failed to resolve that is failed to execute the query against Azure Resource Graph. | Software Update Configuration isn't having succeeded provisioning state in DB. | |
 | | Non-Zero number of Dynamic Scope Configuration assignment failures. | Software Update Configuration is in errored state in DB. | |
 | | Software Update Configuration is having Saved Search Queries. | Schedule associated with Software Update Configuration is already expired at the time of migration. | |
-| | Software Update Configuration is having pre/post tasks which have not been migrated successfully| Schedule associated with Software Update Configuration is disabled. | |
+| | Software Update Configuration is having pre/post tasks, which haven't been migrated successfully| Schedule associated with Software Update Configuration is disabled. | |
 | | | Unhandled exception while migrating software update configuration. |
 
 ## Next steps

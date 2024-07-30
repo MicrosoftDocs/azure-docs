@@ -25,13 +25,13 @@ You can migrate from any of the following entry points:
 
 #### [Automation Update Management](#tab/update-mgmt)
 
-Select the **Migrate Now** button and a migration blade opens. It contains a summary of all resources including machines, and schedules in the Automation account. By default, the Automation account from which you accessed this blade is preselected if you go by this route. 
+Select the **Migrate Now** button. 
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png" alt-text="Screenshot that shows how to migrate from Automation Update Management entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-from-update-management.png":::
 
-Here, you can see how many of Azure, Arc-enabled servers, non-Azure non Arc-enabled servers, and schedules are enabled in Automation Update Management and need to be moved to Azure Update Manager. You can also view the details of these resources.
+The migration blade opens. It contains a summary of all resources including machines, and schedules in the Automation account. By default, the Automation account from which you accessed this blade is preselected if you go by this route.
 
-The migration blade provides an overview of the resources that will be moved, allowing you to review and confirm the migration before proceeding. Once you're ready, you can proceed with the migration process to move your schedules and machines to Azure Update Manager.
+Here, you can see how many of Azure, Arc-enabled servers, non-Azure non Arc-enabled servers, and schedules are enabled in Automation Update Management and need to be moved to Azure Update Manager. You can also view the details of these resources.
 
 :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png" alt-text="Screenshot that shows how to migrate all resources from Automation account." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/migrate-resources-automation-account.png":::
 
@@ -44,7 +44,7 @@ After you review the resources that must be moved, you can proceed with the migr
    a. **Onboard non-Azure non-Arc-enabled machines to Arc** - This is because Arc connectivity is a prerequisite for Azure Update Manager. Onboarding your machines to Azure Arc is free of cost, and once you do so, you can avail all management services as you can do for any Azure machine. For more information, see [Azure Arc documentation](../azure-arc/servers/onboard-service-principal.md)
    on how to onboard your machines.
 
-   b. **Download and run PowerShell script locally** -  This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. For more information, see [Azure Update Manager documentation](guidance-migration-automation-update-management-azure-update-manager.md#prerequisite-2-create-user-identity-and-role-assignments-by-running-powershell-script).
+   b. **Download and run PowerShell script locally** -  This is required for the creation of a user identity and appropriate role assignments so that the migration can take place. This script gives proper RBAC to the User Identity on the subscription to which the automation account belongs, machines onboarded to Automation Update Management, scopes that are part of dynamic queries etc. so that the configuration can be assigned to the machines, MRP configurations can be created and updates solution can be removed. 
    
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png" alt-text="Screenshot that shows the prerequisites for migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/prerequisite-migration-update-manager.png":::
 
@@ -93,10 +93,6 @@ To initiate migration from a single VM **Updates** view, follow these steps:
    You can see that the Automation account to which the machine belongs is preselected and a summary of all resources in the Automation account is presented. This allows you to migrate the resources from Automation Update Management to Azure Update Manager.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png" alt-text="Screenshot that shows how to migrate the resources from single virtual machine entry point." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/single-vm-migrate-now.png":::
-
-   From here, follow the migration steps listed in [Automation Update Management](#azure-portal-experience).
-
-   For more information on how the scripts are executed in the backend, and their behavior see, [Migration scripts](#migration-scripts).
 
 ---
 
