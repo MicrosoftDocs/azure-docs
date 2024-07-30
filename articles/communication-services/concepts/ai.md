@@ -29,7 +29,7 @@ Typical communication scenarios integrating these capabilities:
 
 ## Messaging: SMS, Chat, Email, WhatsApp
 
-Azure Communication Services capabilities for asynchronous messaging share common patterns for integrating AI listed below.
+Azure Communication Services capabilities for asynchronous messaging share common patterns for integrating AI listed here.
 
 | | Accessor | Transformer | Bot | |
 |--|--|--|--|--|
