@@ -21,7 +21,7 @@ landingContent:
       - linkListType: deploy
         links:
         - text: Dell PowerEdge R660
-          url: appliance-catalog/dell-poweredge-r660.md
+          url: dell-poweredge-r660.md
         - text: HPE ProLiant DL360
           url: hpe-proliant-dl360.md
 
