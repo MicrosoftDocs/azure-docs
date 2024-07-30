@@ -4,7 +4,7 @@ description: This article provides details about the known issues of Azure VMwar
 ms.topic: reference
 ms.custom: "engagement-fy23"
 ms.service: azure-vmware
-ms.date: 6/27/2024
+ms.date: 7/30/2024
 ---
 
 # Known issues: Azure VMware Solution
@@ -29,6 +29,7 @@ Refer to the table to find details about resolution dates or possible workaround
 | [VMSA-2024-0011](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24308) Out-of-bounds read/write vulnerability (CVE-2024-22273) | June 2024 | Microsoft has confirmed the applicability of the CVE-2024-22273 vulnerability and it will be addressed in the upcoming 8.0u2b Update. | July 2024 |
 | [VMSA-2024-0012](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24453) Multiple Vulnerabilities in the DCERPC Protocol and Local Privilege Escalations | June 2024 | Microsoft, working with Broadcom, adjudicated the risk of these vulnerabilities at an adjusted Environmental Score of [6.8](https://www.first.org/cvss/calculator/3.1#CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/MAC:L/MPR:H/MUI:R) or lower. Adjustments from the base score were possible due to the network isolation of the Azure VMware Solution vCenter Server (ports 2012, 2014, and 2020 are not exposed via any interactive network path) and multiple levels of authentication and authorization necessary to gain interactive access to the vCenter Server network segment. A plan is being put in place to address these vulnerabilities at a future date TBD. | N/A |
 | Zerto DR is not currently supported with the AV64 SKU. The AV64 SKU uses ESXi host secure boot and Zerto DR has not implemented a signed VIB for the ESXi install. | 2024  | Continue using the AV36, AV36P, and AV52 SKUs for Zerto DR. | N/A |
+| [VMSA-2024-0013 (CVE-2024-37085)](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/24505) VMware ESXi Active Directory Integration Authentication Bypass | July 2024 | Azure VMware Solution does not provide Active Directory integration and is not vulnerable to this attack. | N/A |
 
 In this article, you learned about the current known issues with the Azure VMware Solution.
 
