@@ -53,7 +53,7 @@ Network Virtual Appliances that are deployed via Azure Marketplace Managed Appli
 
 Azure Marketplace owns a first-party service principal that performs the deployment of resources into the **managed resource group**. This first-party principal has permissions to create resources in the **managed resource group**, but doesn;t have permissions to read, update or create Azure resources outside of the **managed resource group**.
 
-To ensure that your NVA deployment is performed with the sufficient level of permissions, grant additional permissions to Azure Marketplace. You can grant additional permissions by deploying your Managed Application with a user-assigned managed identity that has permissions over the Virtual WAN hub and public IP address that you want to use the Network Virtual Appliance. This user-assigned Managed Identity is used only for initial deployment of resources in the Managed Resource Group and is only used in the context of that Managed Application deployment.
+To ensure that your NVA deployment is performed with the sufficient level of permissions, grant additional permissions to the Azure Marketplace deployment service principal by deploying your Managed Application with a user-assigned managed identity that has permissions over the Virtual WAN hub and public IP address that you want to use with your Network Virtual Appliance. This user-assigned Managed Identity is used only for initial deployment of resources in the managed resource group and is  used solely in the context of that Managed Application deployment.
 
 >[!NOTE]
 > Only user-assigned system identities can be assigned to Azure Managed Applications to deploy Network Virtual Appliances in the Virtual WAN Hub. System-assigned identities are not supported.
