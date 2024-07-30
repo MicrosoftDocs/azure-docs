@@ -1,7 +1,7 @@
 ---
-"title":  Different indexing options on Azure Cosmos DB for MongoDB vCore
+"title":  Exploring indexing scenarios on Azure Cosmos DB for MongoDB vCore
 "titleSuffix": Azure Cosmos DB for MongoDB vCore
-"description": Basic usage scenarios for creating indexes.
+"description": Practical indexing examples in Azure Cosmos DB for MongoDb vCore.
 "author": avijitgupta
 "ms.author": avijitgupta
 "ms.reviewer": gahllevy
@@ -11,7 +11,7 @@
 "ms.date": 07/30/2024
 ---
 
-# Working with indexes in Azure Cosmos DB for MongoDB vCore
+# Scenario based guide to indexing in Azure Cosmos DB for MongoDB vCore
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
@@ -231,7 +231,7 @@ Azure Cosmos DB for MongoDB vCore allows indexing the root property defined as a
 }
 ```
 
-In our example, we will create an index on `weaknesses` array field and we are reviewing for the existence of all three values `Ground`, `Water` & `Fire` in the array.
+In our example, we create an index on `weaknesses` array field and we're reviewing for the existence of all three values `Ground`, `Water` & `Fire` in the array.
 
 ```javascript
 Cosmicworks> db.Pokemon.createIndex({'weaknesses':1})
@@ -368,6 +368,9 @@ CarData> db.sampleColl.find({"rental_history.accidents.date":
 }
 ```
 
+> [!NOTE]
+> Indexing a property in a nested array is a partially supported operation and certain operators may lead into error.
+
 ### Wildcard indexing while excluding nested fields
 
 Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us exclude indexing all nested fields within document `car_info`.
@@ -447,7 +450,7 @@ CarData> db.sampleColl.find({"car_info.make":"Mustang"}).explain()
 
 ### Wildcard indexing while excluding fields with nested array
 
-The wildcard index example allows excluding fields from nested array. We will use `pokemon` collection with json format highlighted.
+The wildcard index example allows excluding fields from nested array. We use `pokemon` collection with json format highlighted.
 
 ```json
 {
@@ -469,7 +472,7 @@ The wildcard index example allows excluding fields from nested array. We will us
 }
 ```
 
-We are creating index on all the fields within the json excluding a `num` and `name` fields from within an array.
+We're creating index on all the fields within the json excluding a `num` and `name` fields from within an array.
 
 ```javascript
 Cosmicworks> db.Pokemon.createIndex( {"$**":1},
