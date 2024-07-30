@@ -26,7 +26,9 @@ This article provides information about known issues with the Connected Registry
 1. Run the [az acr connected-registry update] command to update the connected registry extension with the debug log level:  
 
     ```azurecli
-    az acr connected-registry update --registry mycloudregistry --name myacrregistr --log-level debug   
+    az acr connected-registry update --registry mycloudregistry \ 
+    --name myacrregistry \
+    --log-level debug \   
     ```
 
 2. The following log levels can be applied to aid in troubleshooting:
@@ -45,11 +47,13 @@ This article provides information about known issues with the Connected Registry
  
 The active selection provides more options to adjust the verbosity of logs when debugging issues with a connected registry. The following options are available:
 
-* **--verbose** increases the verbosity of the logs. It provides more detailed information than the default setting, which can be useful for identifying issues.
+- **--log-level** set the log level on the instance. The log level determines the severity of messages that the logger handle. By setting the log level, you can filter out messages that are below a certain severity. For example, if you set the log level to "warning" the logger handles warnings, errors, and critical messages, but it ignores information and debug messages.
 
-2. **--debug** enables full debug logs. Debug logs provide the most detailed information, including all the information provided at the "verbose" level plus more details intended for diagnosing problems.
+The Azure CLI (az) provides several verbosity options for log levels, which can be adjusted to control the amount of output information during its operation:
 
-3. **--log-level** set the log level on the instance. The log level determines the severity of messages that the logger handle. By setting the log level, you can filter out messages that are below a certain severity. For example, if you set the log level to "warning" the logger handles warnings, errors, and critical messages, but it ignores information and debug messages.
+- **--verbose** increases the verbosity of the logs. It provides more detailed information than the default setting, which can be useful for identifying issues.
+
+- **--debug** enables full debug logs. Debug logs provide the most detailed information, including all the information provided at the "verbose" level plus more details intended for diagnosing problems.
 
 ## Next steps
 

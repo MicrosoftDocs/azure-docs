@@ -107,7 +107,7 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### Modes
 
-- **Accepted Values:** `ReadOnly`, `ReadWrite`
+- **Accepted Values:** `ReadOnly`
 - **Default Value/Behavior:** `ReadOnly`
 - **Description:** Defines the operational permissions for client access to the connected registry. In `ReadOnly` mode, clients can only pull (read) artifacts, which is suitable for nested scenarios. In `ReadWrite` mode, clients can pull (read) and push (write) artifacts, which is ideal for local development environments.
 
@@ -164,22 +164,17 @@ This glossary provides terms and definitions for the Connected registry extensio
 
 ### trustDistribution.enabled
 
-- **Definition:** Configures nodes labeled with "containerd-configured-by: connected-registry" to decide which nodes to configure the trust distribution daemon set within the cluster at extension deployment.
+- **Definition:** When enabled, all nodes are configured with trust distribution.
 - **Accepted Values:** `true`, `false`
 - **Note:** Customer must choose `true` or `false`.
 
-### trustDistribution.skipNodeSelector
+### trustDistribution.useNodeSelector
 
-- **Definition:** Controls whether to trust all the nodes in the cluster or only select nodes that are labeled.
+- **Definition:** By default, the trust distribution daemonsets, which are responsible for configuring the container runtime environment (containerd), will run on all nodes in the cluster. However, with this setting enabled, trust distribution is limited to only those nodes that have been specifically labeled with `containerd-configured-by: connected-registry`.
 - **Accepted Values:** `true`, `false`
 - **Label:** `containerd-configured-by=connected-registry`
 - **Command:** `kubectl label node/[node name] containerd-configured-by=connected-registry`
 
-### httpEnabled
-
-- **Definition:** Enables TLS encryption for secure communication between the connected registry and the client nodes within the cluster.
-- **Accepted Values:** `true`, `false`
-- **Default Value:** `true`
 
 ### Registry Hierarchy
 
