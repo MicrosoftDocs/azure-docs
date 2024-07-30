@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Authenticate and authorize MQTT clients
+title: Tutorial - Authenticate and authorize MQTT clients with event handlers
 description: A tutorial to walk through how to authenticate and authorize MQTT clients based on client certificates, username, and password.
 author: Y-Sindo
 ms.author: zityang
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 07/12/2024
 ---
 
-# Tutorial - Authenticate and authorize MQTT clients based on client certificates
+# Tutorial - Authenticate and authorize MQTT clients based on client certificates with event handlers
 
 In this tutorial, you'll learn how to write a .NET web server to authenticate and authorize MQTT clients.
 

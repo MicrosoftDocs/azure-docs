@@ -1,12 +1,12 @@
 ---
 title: Cross-protocol communication between MQTT clients and Web PubSub clients
-description:
-keywords: MQTT, MQTT on Azure Web PubSub, Cross-protocol communication
+description: Describes the behavior of cross-protocol communication between MQTT clients and Web PubSub clients
+keywords: MQTT, MQTT on Azure Web PubSub, MQTT over WebSocket
 author: Y-Sindo
 ms.author: zityang
-ms.date: 07/26/2024
+ms.date: 07/30/2024
 ms.service: azure-web-pubsub
-ms.topic: concept
+ms.topic: reference
 ---
 
 # Cross-protocol Communication Between MQTT Clients and Web PubSub Clients
@@ -31,7 +31,7 @@ From the [Overview: MQTT in Azure Web PubSub Service](./overview-mqtt.md), we le
 
 In Web PubSub protocols, there are four message data types: Text, Binary, JSON, and Protobuf.
 
-In MQTT protocols, there is no such field to indicate message content type in MQTT 3.1.1, but there is a string "content type" field in MQTT 5.0.
+In MQTT protocols, there's no such field to indicate message content type in MQTT 3.1.1, but there's a string "content type" field in MQTT 5.0.
 
 We define a conversion between the MQTT "content type" field and Web PubSub message data type:
 
