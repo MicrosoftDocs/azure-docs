@@ -1,15 +1,15 @@
 ---
-title: Use Azure Container Storage Preview with Azure Elastic SAN
+title: Use Azure Container Storage with Azure Elastic SAN
 description: Configure Azure Container Storage for use with Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with Azure Elastic SAN
+# Use Azure Container Storage with Azure Elastic SAN
 
 [Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
 
