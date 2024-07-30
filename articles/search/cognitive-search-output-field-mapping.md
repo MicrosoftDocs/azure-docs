@@ -33,7 +33,7 @@ In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definitio
 
 ## Prerequisites
 
-- Indexer, index, data source, and skillset
+- Indexer, index, data source, and skillset.
 
 - Index fields must be simple or top-level fields. You can't output to a [complex type](search-howto-complex-data-types.md), but if you have a complex type, you can use an output field definition to flatten parts of the complex type and send them to a collection in a search index. 
 
@@ -176,6 +176,42 @@ Assume a skillset that generates embeddings for a vector field, and an index tha
     { "sourceFieldName" : "/document/content/text_vector", "targetFieldName" : "vector_scalar" }       
   ]
 ```
+
+The source field path is skill output. In this example, the output is `text_vector`. Target name is an optional property. If you don't give the output mapping a target name, the path would be `embedding` or more precisely, `/document/content/embedding`.
+
+```json
+{
+  "name": "test-vector-size-ss",  
+  "description": "Generate embeddings using AOAI",
+  "skills": [
+    {
+      "@odata.type": "#Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill",
+      "name": "#1",
+      "description": null,
+      "context": "/document/content",
+      "resourceUri": "https://my-demo-eastus.openai.azure.com",
+      "apiKey": null,
+      "deploymentId": "text-embedding-ada-002",
+      "dimensions": 1536,
+      "modelName": "text-embedding-ada-002",
+      "inputs": [
+        {
+          "name": "text",
+          "source": "/document/content"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "embedding",
+          "targetName": "text_vector"
+        }
+      ],
+      "authIdentity": null
+    }
+  ]
+}
+```
+
 
 <a name="flattening-information-from-complex-types"></a>
 
