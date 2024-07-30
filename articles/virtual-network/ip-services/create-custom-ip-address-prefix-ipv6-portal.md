@@ -128,7 +128,7 @@ In the same **Create a custom IP prefix** page as before, enter or select the fo
 | Region | Select **West US 2**. |
 | IP Version | Select IPv6. | 
 | IP prefix range | Select Regional. |
-| Custom IP prefix parent | Select myCustomIPv6GlobalPrefix (2a05:f500:2::/48) from the drop down menu. |
+| Custom IP prefix parent | Select myCustomIPv6GlobalPrefix (2a05:f500:2::/48) from the drop-down menu. |
 | Regional IPv6 Prefix (CIDR) | Enter **2a05:f500:2:1::/64**. |
 | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
 | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
