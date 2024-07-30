@@ -25,7 +25,7 @@ Typical communication scenarios integrating these capabilities:
 - Transforming audio speech content into text transcriptions
 - Transforming a video feed to blur the user's background
 - Operating a chat or voice bot that responds to human conversation
-- Transforming a corpus of text chat and meeting transcriptions into summaries. This experience may involve a generative AI interface, where a user asks "summarize all conversations between me and user Joe."
+- Transforming a corpus of text chat and meeting transcriptions into summaries. This experience might involve a generative AI interface in which a user asks, "summarize all conversations between me and user Joe."
 
 ## Messaging: SMS, Chat, Email, WhatsApp
 
