@@ -3,8 +3,8 @@ title: Quickstart -  Azure Key Vault key client library for JavaScript (version 
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/24/2024
-ms.service: key-vault
+ms.date: 07/30/2024
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: javascript

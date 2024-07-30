@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library with either JavaScript or TypeScript
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/24/2024
+ms.date: 07/30/2024
 ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
