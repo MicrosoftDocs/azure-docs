@@ -1034,7 +1034,7 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 - Pronunciation assessment uses a fixed version of the speech to text model, different from the standard speech to text model.
 - Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
   
-  When sorting the scores of accuracy/prosody/fluency/completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
+  When sorting the scores of accuracy, prosody, fluency, and completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
 
    For reading scenario:
    - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
