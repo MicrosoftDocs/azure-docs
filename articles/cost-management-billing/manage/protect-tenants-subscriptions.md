@@ -43,11 +43,11 @@ To transfer a different subscription type, like a Cloud Solution Provider (CSP) 
 
 #### Transfer to a different partner
 
-To transfer your subscription to a different partner, see [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md)
+To transfer your subscription to a different partner, see [Transfer subscriptions under an Azure plan from one partner to another](azure-plan-subscription-transfer-partners.md).
 
 #### Transfer a subscription to a different Microsoft Entra directory (Optional)
 
-To transfer your subscription to a different Microsoft Entra directory, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md#overview)
+To transfer your subscription to a different Microsoft Entra directory, see [Transfer an Azure subscription to a different Microsoft Entra directory](../../role-based-access-control/transfer-subscription.md#overview).
 
 ### Delete a tenant
 
