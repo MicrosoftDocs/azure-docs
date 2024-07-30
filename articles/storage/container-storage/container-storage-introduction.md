@@ -1,28 +1,25 @@
 ---
-title: Introduction to Azure Container Storage Preview
-description: An overview of Azure Container Storage Preview, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
+title: Introduction to Azure Container Storage
+description: An overview of Azure Container Storage, a service built natively for containers that enables customers to create and manage volumes for running production-scale stateful container applications.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: overview
-ms.date: 06/07/2024
+ms.date: 07/24/2024
 ms.author: kendownie
 ms.custom:
   - references_regions
   - ignite-2023-container-storage
 ---
 
-# What is Azure Container Storage? Preview
+# What is Azure Container Storage?
 
 Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. It integrates with Kubernetes, allowing you to dynamically and automatically provision persistent volumes to store data for stateful applications running on Kubernetes clusters.
 
 > [!IMPORTANT]
-> Azure Container Storage is currently in public preview and isn't available in all Azure regions. See [regional availability](#regional-availability).
-> This preview version is provided without a service level agreement, and isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Container Storage isn't available in all Azure regions. See [regional availability](#regional-availability).
+> Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads. If you previously installed the Azure Container Storage preview and don't have auto-upgrade enabled, be sure to [update to the GA version](container-storage-aks-quickstart.md#install-azure-container-storage-on-your-aks-cluster).
 
 To get started using Azure Container Storage, see [Use Azure Container Storage with Azure Kubernetes Service](container-storage-aks-quickstart.md) or watch the video.
-
-We'd like input on how you plan to use Azure Container Storage. Please complete this [short survey](https://aka.ms/AzureContainerStoragePreviewSignUp).
 
 :::row:::
     :::column:::
@@ -52,17 +49,15 @@ Feature support depends on which backing storage option you select. The followin
 | **Feature** | **Local NVMe** | **Local SSD** | **Azure Disks** | **Azure Elastic SAN** |
 |-------------|----------------|---------------|-----------------|-------------------------------|
 | Storage pool expansion/resize | Supported | Supported | Supported | Not supported |
-| Replication | Supported | Not supported | Natively supported | Natively supported |
+| Replication | Supported | Not supported | Natively supported | Preview |
 | Resource consumption | Supported | Supported | Supported | Preview |
 | SSE/CMK | Not supported | Not supported | Supported | Preview |
-| Expose ZRS option | N/A | N/A | Supported | Supported |
-| Persistent volumes | Supported | Supported<sup>1</sup> | Supported | Preview |
+| Expose ZRS option | N/A | N/A | Supported | Preview |
+| Persistent volumes | Supported<sup>1</sup> | Supported<sup>1</sup> | Supported | Preview |
 | Ephemeral volumes | Supported | Supported | Supported | Preview |
-| Snapshots | Supported<sup>2</sup> | Supported | Supported | Not supported |
+| Snapshots | Supported | Supported | Supported | Not supported |
 
-<sup>1</sup> With explicit annotation that the data isn't persistent.
-
-<sup>2</sup> Only with `replica_count` of 1. Not supported with higher replica counts.
+<sup>1</sup> For local NVMe and local SSD, Azure Container Storage uses generic ephemeral volumes by default, in which the data isn't persistent. However, you can update your Azure Container Storage installation to support the creation of persistent volumes from ephemeral disk storage pools.
 
 ## Regional availability
 
@@ -70,7 +65,7 @@ Feature support depends on which backing storage option you select. The followin
 
 ## What's new in Azure Container Storage
 
-Based on feedback from customers, we've included the following capabilities with the latest preview update:
+Based on feedback from customers, we've included the following capabilities with the latest updates:
 
 - Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
 - Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) (Azure Disks only).
@@ -113,7 +108,15 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
 -  **Kubernetes**
 
-    Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications. A Kubernetes cluster is a set of nodes that run containerized applications.
+    Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+-  **Cluster**
+
+    A Kubernetes cluster is a set of compute nodes (VMs) that run containerized applications. Each node is managed by the control plane and contains the services necessary to run pods.
+
+-  **Pod**
+
+    A pod is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. A pod is the smallest deployable unit in a Kubernetes cluster.
 
 -  **Azure Kubernetes Service (AKS)**
 
@@ -127,9 +130,13 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 
     A Kubernetes storage class defines how a unit of storage is dynamically created with a persistent volume. For more information, see [Kubernetes Storage Classes](https://kubernetes.io/docs/concepts/storage/storage-classes/).
 
+-  **Volume**
+
+    A Kubernetes volume is a directory containing data accessible to containers in a given pod. Volumes can be persistent or ephemeral. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool.
+
 -   **Persistent volume**
 
-    Persistent volumes are like disks in a VM. They represent a raw block device that you can use to mount any file system. Volumes are thinly provisioned within a storage pool and share the performance characteristics (IOPS, bandwidth, and capacity) of the storage pool. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
+    Persistent volumes are like disks in a VM. They represent a raw block device that you can use to mount any file system. Application developers create persistent volumes alongside their application or pod definitions, and the volumes are often tied to the lifecycle of the stateful application. For more information, see [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).
 
 -   **Persistent volume claim (PVC)**
 
@@ -138,4 +145,4 @@ It's helpful to understand some key terms relating to Azure Container Storage an
 ## Next steps
 
 - [Install Azure Container Storage for use with AKS](container-storage-aks-quickstart.md)
-- [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage)
+- [Azure Container Storage pricing](https://aka.ms/AzureContainerStoragePricingPage)
