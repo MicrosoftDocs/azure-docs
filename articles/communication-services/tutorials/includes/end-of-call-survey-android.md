@@ -46,7 +46,7 @@ OverallRating is a required category for all surveys.
 > [!NOTE]
 >A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
 
-For more information on suggested survey use, see [Survey Concepts](../../concepts/voice-video-calling/end-of-call-survey-concept)
+For more information on suggested survey use, see [Survey Concepts](../../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
 ### Rate call only - no custom scale
 

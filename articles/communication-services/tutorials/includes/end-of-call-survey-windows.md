@@ -38,7 +38,7 @@ When rating calls, you must respect values defined on the scale field. The lower
 
 OverallRating is a required category for all surveys.
 
-For more information on suggested survey use, see [Survey Concepts](../../concepts/voice-video-calling/end-of-call-survey-concept)
+For more information on suggested survey use, see [Survey Concepts](../../concepts/voice-video-calling/end-of-call-survey-concept.md)
 
 > [!NOTE]
 >A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
