@@ -50,21 +50,21 @@ Finally, configure a _cyclecloud.list_ file, update the Apt cache, and install C
 
 ::: moniker range="<=cyclecloud-7"
 ```CMD
-sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
+sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud stable main' > /etc/apt/sources.list.d/cyclecloud.list
 sudo apt update
 sudo apt -y install cyclecloud
 ```
 ::: moniker-end
 ::: moniker range="=cyclecloud-8"
 ```CMD
-sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud bionic main' > /etc/apt/sources.list.d/cyclecloud.list
+sudo echo 'deb https://packages.microsoft.com/repos/cyclecloud stable main' > /etc/apt/sources.list.d/cyclecloud.list
 sudo apt update
 sudo apt -y install cyclecloud8
 ```
 ::: moniker-end
 
 > [!NOTE]
-> Although the Apt repository is published for the "bionic" release of Ubuntu, CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical.
+> The CycleCloud Apt repository distribution release for Ubuntu family platform, is a floating "stable" moniker. CycleCloud is officially supported on all Ubuntu LTS releases under support by Canonical. The CycleCloud package files are not specific to a version of GLIBC (GNU C Library) or Ubuntu release.
 
 ### Installing on Enterprise Linux (RHEL) clones
 
