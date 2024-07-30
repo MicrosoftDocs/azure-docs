@@ -150,6 +150,6 @@ Remove-AzResourceGroup -Name TestRG1
 
 Once the gateway finishes creating, you can create a connection between your virtual network and another virtual network. Or, create a connection between your virtual network and an on-premises location. See the following articles:
 
-* [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Add or remove a site-to-site connection](add-remove-site-to-site-connections.md)
 * [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Create a connection to another virtual network](vpn-gateway-vnet-vnet-rm-ps.md)

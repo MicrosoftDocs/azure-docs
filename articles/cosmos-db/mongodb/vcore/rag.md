@@ -71,7 +71,7 @@ OpenAI is a leader in AI research, providing various models for language generat
 
 ### Embedding models vs. Language generation models
 
-|      | **Text Embedding Model**      | **Language Model**                                                                                                            |
+| **Category**              | **Text Embedding Model**      | **Language Model**                                                                                                            |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | **Purpose**               | Converting text into vector embeddings.                                                                               | Understanding and generating natural language.                                                                                |
 | **Function**              | Transforms textual data into high-dimensional arrays of numbers, capturing the semantic meaning of the text.          | Comprehends and produces human-like text based on given input.                                                                |

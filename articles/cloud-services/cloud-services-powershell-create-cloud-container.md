@@ -3,7 +3,7 @@ title: Create a cloud service (classic) container with PowerShell | Microsoft Do
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -14,7 +14,7 @@ ms.custom: compute-evergreen, devx-track-azurepowershell
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-This article explains how to quickly create a Cloud Services container using Azure PowerShell cmdlets. Please follow the steps below:
+This article explains how to quickly create a Cloud Services container using Azure PowerShell cmdlets. Use the following steps:
 
 1. Install the Microsoft Azure PowerShell cmdlet from the [Azure PowerShell downloads](https://aka.ms/webpi-azps) page.
 2. Open the PowerShell command prompt.
@@ -45,5 +45,5 @@ Get-help New-AzureService
 
 ### Next steps
 
-* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService), and [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice) commands. You may also refer to [How to configure cloud services](cloud-services-how-to-configure-portal.md) for further information.
+* To manage the cloud service deployment, refer to the [Get-AzureService](/powershell/module/servicemanagement/azure/Get-AzureService), [Remove-AzureService](/powershell/module/servicemanagement/azure/Remove-AzureService), and [Set-AzureService](/powershell/module/servicemanagement/azure/set-azureservice) commands. For more information, see [How to configure cloud services](cloud-services-how-to-configure-portal.md).
 * To publish your cloud service project to Azure, refer to the  **PublishCloudService.ps1** code sample from [archived cloud services repository](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Scripts/cloud-services-continuous-delivery).
