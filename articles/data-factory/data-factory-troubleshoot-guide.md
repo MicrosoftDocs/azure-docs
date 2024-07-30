@@ -1076,7 +1076,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
+- **Recommendation**: Use Fiddler/Netmon/Wireshark to validate the request.
 
     **Using Fiddler**
     
