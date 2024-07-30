@@ -258,7 +258,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
 1. Set up your custom CEF connector from Logstash:
 
     1. Deploy our [ARM template](https://aka.ms/DeployCEFresources) to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
-    
 
     1. Note the following details from the ARM template output:
 
@@ -269,7 +268,26 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
     1. Create a Microsoft Entra application, and note the application's **Client ID** and **Secret**. For more information, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal).
 
-    1. Use the following sample script to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. Make sure to replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+    1. Use the following sample script to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. In this script:
+    
+        - Replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
+        - Add a the Logstash ['prune' filter plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-prune.html) to your filter section to include only the following field names in your events:
+        
+            :::row:::
+                :::column:::
+                - `Message`
+                - `TimeGenerated`
+                - `Activity`
+                - `LogSeverity`
+                - `CefVersion`
+                :::column-end:::
+                :::column:::
+                - `DeviceVendor`
+                - `DeviceProduct`
+                - `DeviceVersion`
+                - `DeviceEventClassID`
+                :::column-end:::
+            :::row-end:::
 
         ```json
         input { 
@@ -296,9 +314,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
             rename => {"deviceEventClassId" => "DeviceEventClassID"} 
             rename => {"@timestamp" => "TimeGenerated"} 
             add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"}     
-          } 
-          prune { 
-            whitelist_names => [ "Message", "TimeGenerated", "Activity", "LogSeverity",     "CefVersion", "DeviceVendor", "DeviceProduct", "DeviceVersion", "DeviceEventClassID"] 
           } 
         } 
          output { 
