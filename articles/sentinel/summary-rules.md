@@ -259,7 +259,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
     1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
     
-       [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://%3A%2F%2Faka.ms%2FDeployCEFresources)
+       [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/aka.ms/DeployCEFresources)
 
 
     1. Note the following deatails from the ARM template output:
@@ -300,7 +300,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
             add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"}     
           } 
           prune { 
-            whitelist_names => [ "Message", "TimeGenerated", "Activity", "LogSeverity",     "CefVersion", "DeviceVendor", "DeviceProduct", "DeviceVersion", "DeviceEventClassID"] 
           } 
         } 
          output { 
