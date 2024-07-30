@@ -74,13 +74,15 @@ Each physical shard consists of a set of replicas, also referred to as a replica
 
 
 ## Best practices for sharding data
-- Shard keys are not indexed by default. Indexes should be explicitly created for the shard key property to ensure optimal query performance.
+- Sharding in Azure Cosmos DB for MongoDB vCore is not required unless the collection's storage and transaction volumes can exceed the capacity of a single physical shard. For instance, the service provides 32 TB disks per shard. If a collection requires more than 32 TB, it should be sharded.
+
+- It is not necessary to shard every collection in a cluster with multiple physical shards. Sharded and unsharded collections can coexist in the same cluster. The service optimally distributes the collections within the cluster to evenly utilize the cluster's compute and storage resources as evenly as possible. 
   
-- For read heavy applications, the shard key must be selected based on query patterns. The most commonly used query filter for a given collection should be chosen as the shard key for that collection. This ensures the highest percentage of queries are optimized by localizing the search to a single physical shard.
+- For read heavy applications, the shard key must be selected based on the most frequent query patterns. The most commonly used query filter for a collection should be chosen as the shard key to optimize the highest percentage of database transactions by localizing the search to a single physical shard.
   
-- For write heavy applications that favor write performance over reads, a shard key should be chosen such that data is most evenly distributed across the physical shards. Shard keys that have the most number of distinct values provide the best opportunity to hash to the most number of unique hash buckets and thus the best physical distribution across the underlying machines.
+- For write heavy applications that favor write performance over reads, a shard key should be chosen to evenly distribute data across the physical shards. Shard keys with the highest cardinality provide the best opportunity to uniformly distribute as evenly as possible.
   
-- For optimal performance, the storage size of a logical shard should be less than 4TB.
+- For optimal performance, the storage size of a logical shard should be less than 4 TB.
   
 - For optimal performance, logical shards should be evenly distributed in storage and request volume across the physical shards of the cluster.
   
