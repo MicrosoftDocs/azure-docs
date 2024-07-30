@@ -56,7 +56,7 @@ For detailed information on the supported and unsupported SSML elements for Phoe
 | Element                 | Description                                                                 | Supported in Phoenix | Supported in Dragon |
 |-------------------------|-----------------------------------------------------------------------------|----------------------|---------------------|
 | `<voice>`               | Specifies the voice and optional effects (`eq_car` and `eq_telecomhp8k`).       | Yes                  | Yes                 |
-| `<mstts:express-as>`    | Specifies speaking styles and roles.                                        | Yes                  | No                  |
+| `<mstts:express-as>`    | Specifies speaking styles and roles.                                        | No                 | No                  |
 | `<mstts:ttsembedding>`  | Specifies the `speakerProfileId` property for a personal voice.               | Yes                  | No                  |
 | `<lang xml:lang>`       | Specifies the speaking language.                                            | Yes                  | Yes                 |
 | `<prosody>`             | Adjusts pitch, contour, range, rate, and volume.                            |                      |                     |
