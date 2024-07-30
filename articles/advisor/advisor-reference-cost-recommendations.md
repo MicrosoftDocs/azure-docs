@@ -2,8 +2,6 @@
 title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 10/15/2023
 ---
 
@@ -173,6 +171,9 @@ Learn more about [Disk - DeleteOrDowngradeUnattachedDisks (You have disks that h
 We've analyzed the usage patterns of your virtual machine scale sets over the past seven days and identified virtual machine scale sets with low usage. While certain scenarios can result in low utilization by design, you can often save money by managing the size and number of virtual machine scale sets.
 
 Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdown underutilized virtual machine scale sets)](https://aka.ms/aa_lowusagerec_vmss_learnmore).
+
+> [!TIP]  
+> If you're unsure whether you can shut down an idle resource without causing chaos, you can first restrict access to the resource. Make sure the resource's role is restricted, too. Leave the resource up for a few weeks, and if nobody has connected to it or has complained, chances are the resource can be shut down safely.
 
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 

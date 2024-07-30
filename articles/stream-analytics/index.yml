@@ -86,12 +86,6 @@ landingContent:
             url: stream-analytics-troubleshoot-output.md
   - title: Monitor and troubleshoot your job
     linkLists: 
-      - linkListType: concept
-        links:
-          - text: Stream Analytics job metrics 
-            url: stream-analytics-job-metrics.md
-          - text: Stream Analytics dimensions for job metrics
-            url: stream-analytics-job-metrics-dimensions.md
       - linkListType: how-to-guide
         links:
           - text: Monitor and manage jobs using Azure portal

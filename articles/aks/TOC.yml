@@ -182,7 +182,7 @@
       href: concepts-sustainable-software-engineering.md
     - name: Preview API life cycle
       href: concepts-preview-api-life-cycle.md
-    - name: Dapr
+    - name: Dapr extension
       href: dapr-overview.md
     - name: GitOps
       href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
@@ -248,6 +248,16 @@
       href: deployment-safeguards.md
 - name: How-to guides
   items:
+    - name: AKS extension for Visual Studio Code
+      items:
+        - name: Attach to Azure Container Registry (ACR)
+          href: aks-extension-attach-azure-container-registry.md
+        - name: Create a Dockerfile
+          href: aks-extension-draft-dockerfile.md
+        - name: Create a Kubernetes deployment
+          href: aks-extension-draft-deployment.md
+        - name: Create a GitHub Workflow
+          href: aks-extension-draft-github-workflow.md
     - name: Migration
       items:
         - name: Plan and execute a migration
@@ -318,6 +328,8 @@
               href: create-node-pools.md
             - name: Manage node pools
               href: manage-node-pools.md
+            - name: Use mixed SKU node pools
+              href: mixed-sku-node-pools.md
             - name: Reduce image pull time with Artifact Streaming on AKS
               href: artifact-streaming.md
             - name: Use generation 2 VMs
@@ -362,8 +374,10 @@
               href: gpu-multi-instance.md
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
@@ -701,8 +715,8 @@
           href: control-plane-metrics-default-list.md
         - name: View the kubelet logs
           href: kubelet-logs.md
-        - name: View container data real-time
-          href: ../azure-monitor/containers/container-insights-livedata-overview.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
+        - name: View container data in real time
+          href: container-insights-live-data.md
         - name: Cost analysis
           items:
           - name: Enable cost analysis on your cluster
@@ -759,8 +773,10 @@
       items:
         - name: Vertical Pod Autoscaler
           items:
-            - name: About Vertical Pod Autoscaler 
+            - name: Vertical Pod Autoscaler overview
               href: vertical-pod-autoscaler.md
+            - name: Use the Vertical Pod Autoscaler on AKS
+              href: use-vertical-pod-autoscaler.md
             - name: Vertical Pod Autoscaler API reference
               href: vertical-pod-autoscaler-api-reference.md
         - name: Configure Metrics Server VPA
@@ -877,9 +893,11 @@
               href: deploy-application-template.md
             - name: Deploy Kubernetes applications with Azure CLI
               href: deploy-application-az-cli.md
+        - name: Connect an AKS app to Azure SQL Database
+          href: ../service-connector/tutorial-python-aks-sql-database-connection-string.md?toc=/azure/aks/toc.json&bc=/azure/aks/breadcrumb/toc.json
         - name: Dapr
           items:
-            - name: Create the Dapr extension
+            - name: Install the Dapr extension
               href: dapr.md
             - name: Configure the Dapr extension
               href: dapr-settings.md
@@ -943,6 +961,8 @@
           href: eks-edw-prepare.md
         - name: Deploy to Azure
           href: eks-edw-deploy.md
+- name: FAQ
+  href: faq.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -982,8 +1002,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-container-service
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
-    - name: FAQ
-      href: faq.md
 - name: Support and troubleshooting
   items:
     - name: Support options for AKS

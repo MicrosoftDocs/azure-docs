@@ -17,7 +17,7 @@ This article details the default resource limits for Azure Kubernetes Service (A
 
 ## Service quotas and limits
 
-[!INCLUDE [container-service-limits](../../includes/container-service-limits.md)]
+[!INCLUDE [container-service-limits](~/reusable-content/ce-skilling/azure/includes/container-service-limits.md)]
 
 ## Provisioned infrastructure
 

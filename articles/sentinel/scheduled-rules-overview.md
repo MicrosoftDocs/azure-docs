@@ -72,8 +72,8 @@ The MITRE ATT&CK tactics and techniques defined here in the rule apply to any al
 
 For more information on maximizing your coverage of the MITRE ATT&CK threat landscape, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 
-**Status:** When you create the rule, its **Status** is **Enabled** by default, which means it will run immediately after you finish creating it. If you don’t want it to run immediately, you have two options:
-- Select **Disabled**, and the rule will be added to your **Active rules** tab. You can enable it from there when you need it.
+**Status:** When you create the rule, its **Status** is **Enabled** by default, which means it runs immediately after you finish creating it. If you don’t want it to run immediately, you have two options:
+- Select **Disabled**, and the rule is created without running. When you want the rule to run, find it in your **Active rules** tab, and enable it from there.
 - Schedule the rule to first run at a specific date and time. This method is currently in PREVIEW. See [Query scheduling](#query-scheduling) later on in this article.
 
 ### Rule query

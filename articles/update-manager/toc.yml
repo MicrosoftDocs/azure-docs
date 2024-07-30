@@ -5,12 +5,20 @@ items:
   items:
   - name: About Azure Update Manager
     href: overview.md
-  - name: Support matrix
-    href: support-matrix.md
+  - name: How Update Manager works
+    href: workflow-update-manager.md
   - name: What's New 
     href: whats-new.md
   - name: FAQ
     href: update-manager-faq.md
+- name: Getting started
+  items:
+  - name: Prerequisites
+    href: prerequisites.md
+  - name: Roles and Permissions
+    href: roles-permissions.md
+  - name: Support matrix
+    href: support-matrix.md
 - name: Quickstarts
   items:
   - name: Check and install on-demand updates
@@ -25,9 +33,9 @@ items:
         href: tutorial-dynamic-grouping-for-scheduled-patching.md
   - name: Pre and Post Events (preview)
     items:
-      - name: Create pre and post events using a webhook with Automation Runbooks
+      - name: Create pre and post events (preview) using a webhook with Automation Runbooks
         href: tutorial-webhooks-using-runbooks.md
-      - name: Create pre and post events using Azure Functions
+      - name: Create pre and post events (preview) using Azure Functions
         href: tutorial-using-functions.md
 - name: Concepts
   items:
@@ -37,7 +45,7 @@ items:
     href: assessment-options.md
   - name: Overview of Pre and Post Events (preview)
     href: pre-post-scripts-overview.md
-  - name: Query resources with Azure Resource Graph
+  - name: Access Azure Update Manager operations data using Azure Resource Graph
     href: query-logs.md 
   - name: Manage updates on multiple machines
     href: manage-multiple-machines.md
@@ -47,7 +55,7 @@ items:
     href: security-awareness-ubuntu-support.md
 - name: Samples
   items:
-  - name: Azure Resource Graph queries
+  - name: ARG queries to access Azure Update Manager operations data
     href: sample-query-logs.md
 - name: How-to guides
   items:

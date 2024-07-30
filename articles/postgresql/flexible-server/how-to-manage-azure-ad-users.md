@@ -112,7 +112,7 @@ DROP ROLE rolename;
 ## Create a role using Microsoft Entra object identifier
 
 ```sql
-pg_catalog.pgaadauth_create_principal(roleName text, objectId text, objectType text, isAdmin boolean, isMfa boolean)
+pg_catalog.pgaadauth_create_principal_with_oid(roleName text, objectId text, objectType text, isAdmin boolean, isMfa boolean)
 ```
 
 #### Arguments

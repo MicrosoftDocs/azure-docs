@@ -12,7 +12,7 @@ ms.reviewer: jojoh
 
 # Tutorial: Seed a historical cost dataset with the Exports API
 
-Large organizations often need to analyze their historical costs going back a year or more. Creating the dataset might be needed for targeted one-time inquiries or to set up reporting dashboards to visualize cost trends over time. In either case, you need a way to get the data reliably so that you can load it into a data store that you can query. After your historical cost dataset is seeded, your data store can then be updated as new costs come in so that your reporting is kept up to date. Historical costs rarely change and if so, you'll be notified. So we recommend that you refresh your historical costs no more than once a month.
+Large organizations often need to analyze their historical costs going back a year or more. Creating the dataset might be needed for targeted one-time inquiries or to set up reporting dashboards to visualize cost trends over time. In either case, you need a way to get the data reliably so that you can load it into a data store that you can query. After your historical cost dataset is seeded, your data store can then be updated as new costs come in so that your reporting is kept up to date. Historical costs rarely change and if so, you get notified. So we recommend that you refresh your historical costs no more than once a month.
 
 In this tutorial, you learn how to:
 
@@ -28,7 +28,13 @@ You need proper permissions to successfully call the Exports API. We recommend u
 - To learn more, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about the specific permissions needed for the Exports API, see [Understand and work with scopes](../costs/understand-work-scopes.md).
 
-Additionally, you'll need a way to query the API directly. For this tutorial, we recommend using [PostMan](https://www.postman.com/).
+Additionally, you need a way to query the API directly. Some popular ways to query the API are:
+
+- [Visual studio](/aspnet/core/test/http-files)
+- [Insomnia](https://insomnia.rest/)
+- [Bruno](https://www.usebruno.com/)
+- PowerShell’s [Invoke-RestMethod](https://powershellcookbook.com/recipe/Vlhv/interact-with-rest-based-web-apis)
+- [Curl](https://curl.se/docs/httpscripting.html)
 
 ## Get a bearer token for your service principal
 
@@ -83,11 +89,11 @@ Content-Type: application/json
 
 ## Create Exports in one-month chunks
 
-We recommend creating one-time data exports in one month chunks. If you want to seed a one-year historical dataset, then you should execute 12 Exports API requests - one for each month. After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue over time.
+We recommend creating one-time data exports in one month chunks. If you want to seed a one-year historical dataset, then you should execute 12 Exports API requests - one for each month. After you seed your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue over time.
 
 ## Run each Export
 
-Now that you have created the Export for each month, you need to manually run each by calling the [Execute API](/rest/api/cost-management/exports/execute). An example request to the API is below.
+Now that you created the Export for each month, you need to manually run each by calling the [Execute](/rest/api/cost-management/exports/execute) API. Here's an example request to the API.
 
 ```http
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}/run?api-version=2021-10-01

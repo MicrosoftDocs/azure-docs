@@ -43,7 +43,7 @@ The following table lists the retired versions of HDInsight.
 
 ## Call to action
 
-To maintain the security posture,  migrate to [HDInsight 5.1](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x), which is  Generally Available since November 1, 2023. This release contains all the [latest versions of supported software](./hdinsight-5x-component-versioning.md) along with significant improvements on the security patches on open-source components.  ​
+To maintain the security posture,  migrate to the latest image of [HDInsight 5.1](./hdinsight-5x-component-versioning.md#open-source-components-available-with-hdinsight-5x), which is  Generally Available since November 1, 2023. This release contains all the [latest versions of supported software](./hdinsight-5x-component-versioning.md) along with significant improvements on the security patches on open-source components.  ​
 
 ## Next steps
 

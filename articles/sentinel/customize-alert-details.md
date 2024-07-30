@@ -78,10 +78,14 @@ Follow the procedure detailed below to use the alert details feature. These step
         | **ConfidenceScore** (Preview)      | Integer, between **0**-**1** (inclusive) |
         | **ExtendedLinks** (Preview)        | String |
         | **ProductComponentName** (Preview) | String |
-        | **ProductName** (Preview)          | String |
+        | **ProductName** (Preview)<br>\* See note following this table          | String |
         | **ProviderName** (Preview)         | String |
         | **RemediationSteps** (Preview)     | String |
     
+       > [!NOTE]
+       > 
+       > If you onboarded Microsoft Sentinel to the unified security operations platform, **do not customize** the *ProductName* field for alerts from Microsoft sources. Doing so will result in these alerts being dropped from Microsoft Defender XDR and no incident being created.
+
     If you change your mind, or if you made a mistake, you can remove an alert detail by clicking the trash can icon next to the **Alert property/Value** pair, or delete the free text from the **Alert Name/Description Format** fields.
 
 1. When you have finished customizing your alert details, if you're now creating the rule, continue to the next tab in the wizard. If you're editing an existing rule, select the **Review and create** tab. Once the rule validation is successful, select **Save**.

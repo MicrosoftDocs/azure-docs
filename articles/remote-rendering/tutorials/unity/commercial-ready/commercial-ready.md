@@ -67,7 +67,7 @@ Azure Application Insights helps you understand how people use your Azure Remote
 
 For more information, visit:
 
-* [Usage Analysis with Application Insights](../../../../azure-monitor/app/usage-overview.md)
+* [Usage Analysis with Application Insights](../../../../azure-monitor/app/usage.md)
 
 ## Fast startup time strategies
 

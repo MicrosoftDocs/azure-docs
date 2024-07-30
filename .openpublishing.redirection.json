@@ -1,6 +1,71 @@
 {
     "redirections": [
     {
+      "source_path": "articles/application-gateway/resource-manager-template-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/resource-manager-template-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/cli-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/scripts/create-vmss-cli.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/scripts/create-vmss-powershell.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/scripts/create-vmss-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/scripts/waf-custom-rules-powershell.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/scripts/waf-custom-rules-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/scripts/dns-cli-create-dns-zone-record.md",
+      "redirect_url": "/previous-versions/azure/dns/scripts/dns-cli-create-dns-zone-record",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/scripts/find-unhealthy-dns-records.md",
+      "redirect_url": "/previous-versions/azure/dns/scripts/find-unhealthy-dns-records",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/cli-samples.md",
+      "redirect_url": "/previous-versions/azure/dns/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/traffic-manager/scripts/traffic-manager-powershell-websites-high-availability.md",
+      "redirect_url": "/previous-versions/azure/traffic-manager/scripts/traffic-manager-powershell-websites-high-availability",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/traffic-manager/cli-samples.md",
+      "redirect_url": "/previous-versions/azure/traffic-manager/cli-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/about-public-peering.md",
+      "redirect_url": "/previous-versions/azure/expressroute/about-public-peering",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/how-to-npm.md",
+      "redirect_url": "/previous-versions/azure/expressroute/how-to-npm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/how-to-move-peering.md",
+      "redirect_url": "/previous-versions/azure/expressroute/how-to-move-peering",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/networking/connectivity-interoperability-configuration.md",
       "redirect_url": "/previous-versions/azure/networking/connectivity-interoperability-configuration",
       "redirect_document_id": false
@@ -13,6 +78,7 @@
     {
       "source_path": "articles/expressroute/expressroute-howto-set-global-reach-cli.md",
       "redirect_url": "/previous-versions/azure/expressroute/expressroute-howto-set-global-reach-cli",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/digital-twins/how-to-integrate-maps.md",
@@ -1190,6 +1256,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/azure-maps/tutorial-creator-indoor-maps.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-maps/about-creator.md",
+            "redirect_url": "/azure/azure-maps/creator-indoor-maps",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/azure-maps/search-categories.md",
             "redirect_url": "/azure/azure-maps/supported-search-categories",
             "redirect_document_id": true
@@ -1592,6 +1668,11 @@
         {
             "source_path_from_root": "/articles/vpn-gateway/tutorial-protect-vpn-gateway.md",
             "redirect_url": "/azure/vpn-gateway/tutorial-create-gateway-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vpn-gateway/create-routebased-vpn-gateway-powershell.md",
+            "redirect_url": "/azure/vpn-gateway/create-gateway-powershell",
             "redirect_document_id": false
         },
         {
@@ -3703,6 +3784,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
             "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
             "redirect_document_id": false
@@ -4143,6 +4234,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
+            "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-desktop/partners.md",
             "redirect_url": "https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=azure%20virtual%20desktop",
             "redirect_document_id": false
@@ -4295,6 +4401,11 @@
         {
             "source_path_from_root": "/articles/azure-functions/create-first-function-vs-code-web.md",
             "redirect_url": "/azure/azure-functions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-functions/durable/durable-functions-create-first-csharp.md",
+            "redirect_url": "/azure/azure-functions/durable/durable-functions-isolated-create-first-csharp.md",
             "redirect_document_id": false
         },
         {
@@ -4763,11 +4874,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-resource-manager/management/control-plane-metrics.md",
+             "redirect_url": "/azure/azure-resource-manager/management/monitor-resource-manager",
+             "redirect_document_id": false
+        },
+	{
+           "source_path_from_root": "/articles/expressroute/expressroute-monitoring-metrics-alerts.md",
+            "redirect_url": "/azure/expressroute/monitor-expressroute-reference",
+            "redirect_document_id": false
+        },
+        {
            "source_path_from_root": "/articles/data-factory/continuous-integration-delivery-automate-github-actions.md",
             "redirect_url": "/azure",
             "redirect_document_id": false
         },
         {
+
+            "source_path_from_root": "/articles/backup/azure-backup-move-vaults-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-backup",
+            "redirect_document_id": false
+        },
+        {
+
            "source_path_from_root": "/articles/cosmos-db/how-to-move-regions.md",
            "redirect_url": "/azure/operational-excellence/relocation-cosmos-db",
            "redirect_document_id": false
@@ -4783,19 +4911,80 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/manage-move-across-regions.md",
+            "redirect_url": "/azure/operational-excellence/relocation-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/event-grid/high-availability-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
+            "redirect_url": "/azure/openshift/howto-byok",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/event-grid/availability-zones-disaster-recovery.md",
             "redirect_url": "/azure/reliability/reliability-event-grid",
             "redirect_document_id": false
-        }
-
-
-
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/add-dual-stack-ipv6-vm-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/add-dual-stack-ipv6-vm-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-vm-dual-stack-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-vm-dual-stack-ipv6-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
+            "redirect_document_id": false
+        },
+        {
+          "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
+          "redirect_url":"/azure/operational-excellence/relocation-container-registry",
+          "redirect_document_id":false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        }  
         
-
     ]
 }

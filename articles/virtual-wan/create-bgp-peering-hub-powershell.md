@@ -5,7 +5,7 @@ description: Learn how to create a BGP peering with Virtual WAN hub router using
 author: cherylmc
 ms.service: virtual-wan
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
 ---
