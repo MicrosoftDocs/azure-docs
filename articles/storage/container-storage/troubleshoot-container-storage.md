@@ -178,7 +178,7 @@ etcd-azurecontainerstorage-phf92lmqml                            1/1     Running
 etcd-azurecontainerstorage-xznvwcgq4p                            1/1     Running   0               4d19h
 ```
 
-If less than two instances are shown in the Running state, you can conclude that the volume is failing to attach due to the metadata store being offline, and the automated recovery wasn't successful. If this is the case, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
+If fewer than two instances are shown in the Running state, you can conclude that the volume is failing to attach due to the metadata store being offline, and the automated recovery wasn't successful. If this is the case, file a support ticket with [Azure Support]( https://azure.microsoft.com/support/).
 
 ## See also
 
