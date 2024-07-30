@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud AI security rec
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 07/11/2024
+ms.date: 07/30/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -124,7 +124,7 @@ This recommendation replaces the old recommendation *Diagnostic logs in Search s
 
 **Severity:** Low
 
-### AWS Bedrock should use AWS PrivateLink
+### [AWS Bedrock should use AWS PrivateLink](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dd55620f-09f2-4d4b-9d6b-adcee7479a64)
 
 **Description** Amazon Bedrock VPC endpoint powered by AWS PrivateLink, allows you to establish a private connection between the VPC in your account and the Amazon Bedrock service account. AWS PrivateLink enables VPC instances to communicate with Bedrock service resources, without the need for public IP addresses, ensuring your data is not exposed to the public internet and thereby helping with your compliance requirements.
 

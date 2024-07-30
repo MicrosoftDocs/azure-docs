@@ -1,8 +1,8 @@
 ---
 title: New and upcoming changes in recommendations and alerts
 description: Get release notes for new and upcoming changes in recommendations and alerts in Microsoft Defender for Cloud. 
-ms.topic: conceptual
-ms.date: 07/14/2024
+ms.topic: overview
+ms.date: 07/30/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
@@ -49,7 +49,7 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| July  | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
+| July 30 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
