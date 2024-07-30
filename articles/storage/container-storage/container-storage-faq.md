@@ -55,12 +55,6 @@ ms.custom: references_regions
   **Does Azure Container Storage support Windows containers on AKS?**  
   No, Azure Container Storage only supports AKS containers running on Ubuntu and Azure Linux nodes.
 
-## Billing and pricing
-
-* <a id="azure-container-storage-extension-operation-failed"></a>
-  **How much does Azure Container Storage cost to use?**  
-  See the [Azure Container Storage pricing page](https://aka.ms/AzureContainerStoragePricingPage) and [Understand Azure Container Storage billing](container-storage-billing.md).
-
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)
