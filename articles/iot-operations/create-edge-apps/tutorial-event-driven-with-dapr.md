@@ -61,7 +61,6 @@ To start, create a yaml file that uses the following definitions:
       name: mq-event-driven-dapr
       namespace: azure-iot-operations
     spec:
-      replicas: 1
       selector:
         matchLabels:
           app: mq-event-driven-dapr
@@ -118,10 +117,15 @@ To start, create a yaml file that uses the following definitions:
     mq-event-driven-dapr          3/3     Running             0          30s
     ```
 
-
 ## Deploy the simulator
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQTT broker using an MQTT client on the `sensor/data` topic.
+
+1. Patch BrokerListener to allow unauthenticated connection, to simplify injection of simulated data:
+
+    ```bash
+    kubectl patch BrokerListener listener -n azure-iot-operations --type=json -p='[{ "op": "add", "path": "/spec/ports/1", "value": {"port":1883} }]'
+    ```
 
 1. Deploy the simulator from the Explore IoT Operations repository:
 
@@ -159,6 +163,12 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 
     ```yaml
     apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: mqtt-client
+      namespace: azure-iot-operations
+    ---
+    apiVersion: v1
     kind: Pod
     metadata:
       name: mqtt-client
@@ -188,7 +198,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
           name: aio-ca-trust-bundle-test-only
     ```
 
-1. Apply the deployment file with kubectl.
+1. Apply the deployment file with kubectl:
 
     ```bash
     kubectl apply -f client.yaml
@@ -211,7 +221,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Subscribe to the `sensor/window_data` topic to observe the published output from the Dapr application:
 
     ```bash
-    mosquitto_sub -L mqtts://aio-mq-dmqtt-frontend/sensor/window_data -u 'K8S-SAT' -P $(cat /var/run/secrets/tokens/mqtt-client-token) --cafile /var/run/certs/aio-mq-ca-cert/ca.crt 
+    mosquitto_sub -L mqtt://aio-mq-dmqtt-frontend/sensor/window_data
     ```
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:
