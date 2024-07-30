@@ -20,7 +20,7 @@ monikerRange: '>=doc-intel-3.0.0'
 ::: moniker range="doc-intel-4.0.0"
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
-**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=tru)
+**This content applies to:**![checkmark](media/yes-icon.png) **v4.0 (preview)** | **Previous version:** ![blue-checkmark](media/blue-yes-icon.png) [**v3.1 (GA)**](?view=doc-intel-3.1.0&preserve-view=true)
 :::moniker-end
 
 :::moniker range="doc-intel-3.1.0"
@@ -35,9 +35,10 @@ Automated contract processing is the process of extracting key contract fields f
 
 ## Development options
 
+
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) and v4.0 (2024-02-29-preview) support the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -103,8 +104,10 @@ The following are the fields extracted from a contract in the JSON output respon
 | ContractId | String | Contract title| AB12956 |
 | Parties | Array |List of legal parties| |
 | ExecutionDate | Date |Date when the agreement was fully signed and agreed upon by all parties|`On this twenty-third day of February two thousand and twenty two` |
-| ExpirationDate | Date |Date when the contract ends to be in effect| One year |
+| ExpirationDate | Date |Date when the contract ends| One year |
+| EffectiveDate  | Date |Date when the contract starts to be in effect| immediately |
 | RenewalDate | Date |Date when the contract needs to be renewed| `On this twenty-third day of February two thousand and twenty two` |
+| ContractDuration | String | Contract terms | 5 years |
 | Jurisdictions | Array | List of jurisdictions| |
 
 The contract key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
