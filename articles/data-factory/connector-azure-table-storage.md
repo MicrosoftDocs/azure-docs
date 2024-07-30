@@ -233,7 +233,7 @@ These properties are supported for an Azure Table Storage linked service:
 | serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
 
 >[!NOTE]
->System-assigned managed identity authentication is supported by the Azure integration runtime.
+>System-assigned managed identity authentication is only supported by the Azure integration runtime.
 
 **Example:**
 
