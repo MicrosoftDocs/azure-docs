@@ -69,10 +69,14 @@ To authorize with Microsoft Entra ID, you need to use a security principal. The 
 
 An easy and secure way to authorize access and connect to storage account resources is to obtain an OAuth token by creating a [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) instance. You can then use that credential to create an [ArmClient](/dotnet/api/azure.resourcemanager.armclient) object.
 
-The following example creates an `ArmClient` object authorized using `DefaultAzureCredential`:
+The following example creates an `ArmClient` object authorized using `DefaultAzureCredential`, then gets the subscription resource for the specified subscription ID:
 
 ```csharp
 ArmClient armClient = new ArmClient(new DefaultAzureCredential());
+
+// Create a resource identifier, then get the subscription resource
+ResourceIdentifier resourceIdentifier = new($"/subscriptions/{subscriptionId}");
+SubscriptionResource subscription = armClient.GetSubscriptionResource(resourceIdentifier);
 ```
 
 If you know exactly which credential type you use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
@@ -107,12 +111,6 @@ public static async Task RegisterSRPInSubscription(SubscriptionResource subscrip
 After creating an `ArmClient` object and registering the Storage resource provider, you can create client objects at the resource group and storage account levels. The following code example shows how to create client objects for a given resource group and storage account:
 
 ```csharp
-ArmClient armClient = new(credential);
-
-// Create a resource identifier, then get the subscription resource
-ResourceIdentifier resourceIdentifier = new($"/subscriptions/{subscriptionId}");
-SubscriptionResource subscription = armClient.GetSubscriptionResource(resourceIdentifier);
-
 // Get a resource group
 ResourceGroupResource resourceGroup = await subscription.GetResourceGroupAsync(rgName);
 
