@@ -149,7 +149,7 @@ const client = new ModelClient(
 );
 ```
 
-Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/js/reference) to get yourself started.
 
 # [REST](#tab/rest)
 
@@ -478,7 +478,7 @@ Explore our [samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sd
 
 The client library `@azure-rest/ai-inference` does inference, including chat completions, for AI models deployed by Azure AI Studio and Azure Machine Learning Studio. It supports Serverless API endpoints and Managed Compute endpoints (formerly known as Managed Online Endpoints).
 
-Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/AAp1kxa) to get yourself started.
+Explore our [samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/ai/ai-inference-rest/samples) and read the [API reference documentation](https://aka.ms/azsdk/azure-ai-inference/js/reference) to get yourself started.
 
 # [REST](#tab/rest)
 

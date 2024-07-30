@@ -1061,6 +1061,10 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
+      - name: Message Analysis
+        items:
+        - name: Overview
+          href: concepts/advanced-messaging/message-analysis.md
   - name: Azure Advisor
     items:
       - name: Overview
