@@ -116,7 +116,7 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
 
 **Scenario**: You're a threat hunter, and one of your team's goals is to identify all instances of when a malicious IP address interacted in the network traffic logs from an active incident, in the last 90 days.
 
-**Challenge**: Microsoft Sentinel currently ingests multiple terabytes of network logs a day. You needs to move through them quickly to find matches for the malicious IP address.
+**Challenge**: Microsoft Sentinel currently ingests multiple terabytes of network logs a day. You need to move through them quickly to find matches for the malicious IP address.
 
 **Solution**: We recommend using summary rules to do the following:
 
@@ -213,13 +213,13 @@ The current detection also runs a summary query on a separate logic app for each
 
 Generate alerts on threat intelligence matches against noisy, high volume, and low-security value network data.
 
-**Scenario**: You need to build an analytics rule for firewall logs to match domain names in the system that have been visted agsinst a threat intelligece domain name list. 
+**Scenario**: You need to build an analytics rule for firewall logs to match domain names in the system that have been visted against a threat intelligence domain name list. 
 
 Most of the data sources are raw logs that are noisy and have high volume, but have lower security value, including IP addresses, Azure Firewall traffic, Fortigate traffic, and so on. There's a total volume of about 1 TB per day.
 
 **Challenge**: Creating separate rules requires multiple logic apps, requiring extra setup and maintenance overhead and costs.
 
-**Solution**: We recommed using summary rules to do the following:
+**Solution**: We recommend using summary rules to do the following:
 
 1. Summarize McAfee firewall logs every 10 minutes, updating the data in the same custom table with each run. [ASIM functions](normalization-functions.md) might be helpful in the summary query when interacting with your McAfee logs.
 
@@ -262,7 +262,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
        [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/aka.ms/DeployCEFresources)
 
 
-    1. Note the following deatails from the ARM template output:
+    1. Note the following details from the ARM template output:
 
         - `tenant_id`
         - `data_collection_endpoint`
@@ -323,7 +323,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
 1. Create summary rules that aggregate your CEF data. For example:
 
-    - **Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurences, and then query only those occurences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other medata, which can then be used against IoC lookups:
+    - **Lookup incident of concern (IoC) data**: Hunt for specific IoCs by running aggregated summary queries to bring unique occurrences, and then query only those occurrences for faster results. The following example shows an example of how to bring a unique `Source Ip` feed along with other metadata, which can then be used against IoC lookups:
 
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
