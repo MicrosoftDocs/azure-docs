@@ -64,4 +64,4 @@ Response `ParticipantEndReason` with value 603 means that the call was rejected 
 
 | SubCode | Code | Message | Result Categories | Advice |
 |--- |--- |--- |--- |--- |
-| 560603 | 603 | - Call declined by the recipient.<br/> - Call declined due to fraud detection. |  | - If declined by the recipient, retry the call.<br/> - Ensure that you aren't exceeding the maximum number of concurrent calls allowed for your Azure Communication Services phone number. For more information, see [PSTN call limitations](../concepts/service-limits.md#pstn-call-limitations). |
+| 560603 | 603 | - Call declined by the recipient.<br/> - Call declined due to fraud detection. |  | - If declined by the recipient, retry the call.<br/> - Ensure that you aren't exceeding the maximum number of concurrent calls allowed for your Azure Communication Services phone number. For more information, see [PSTN call limitations](../../../concepts/concepts/service-limits.md#pstn-call-limitations). |

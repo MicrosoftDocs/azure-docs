@@ -35,6 +35,10 @@ For more information about issues tracked by the product team, see [Known issues
 [!INCLUDE [Calling SDK](./includes/codes/calling-sdk.md)]
 ::: zone-end
 
+::: zone pivot="callend"
+[!INCLUDE [Call end](./includes/codes/call-end.md)]
+::: zone-end
+
 ::: zone pivot="automation"
 [!INCLUDE [Call Automation](./includes/codes/call-automation-sdk.md)]
 ::: zone-end

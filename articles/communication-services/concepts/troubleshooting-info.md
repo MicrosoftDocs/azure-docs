@@ -21,20 +21,20 @@ We encourage developers to submit questions, suggest features, and report proble
 
 To help you troubleshoot certain issues, you might need one or more of the following pieces of information:
 
-* **MS-CV ID**: This ID is used to troubleshoot calls and messages.
-* **Call ID**: This ID is used to identify Communication Services calls.
-* **SMS message ID**: This ID is used to identify SMS messages.
-* **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
-* **Toll-free verification campaign brief ID**: This ID is used to identify a toll-free verification campaign brief application.
-* **Email message ID**: This ID is used to identify Send Email requests.
-* **Correlation ID**: This ID is used to identify requests made using Call Automation. 
-* **Call logs**: These logs contain detailed information can be used to troubleshoot calling and network issues.
+* **MS-CV ID**: Troubleshoot calls and messages.
+* **Call ID**: Identify Communication Services calls.
+* **SMS message ID**: Identify SMS messages.
+* **Short Code Program Brief ID**: Identify a short code program brief application.
+* **Toll-free verification campaign brief ID**: Identify a toll-free verification campaign brief application.
+* **Email message ID**: Identify Send Email requests.
+* **Correlation ID**: Identify requests made using Call Automation. 
+* **Call logs**: Contain detailed information can be used to troubleshoot calling and network issues.
 
 For more information about throttling and limitations, see [Service limits](service-limits.md).
 
 ## Access your MS-CV ID
 
-You can access the MS-CV ID  by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. You can configure diagnostics for any Azure SDK including Chat, Identity, and VoIP calling.
+You can access the MS-CV ID by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. You can configure diagnostics for any Azure SDK including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
@@ -89,11 +89,11 @@ When troubleshooting issues with the Call Automation SDK, such as call managemen
 
     ![Screenshot of call disconnected event showing correlation ID.](media/troubleshooting/correlation-id-in-callback-event.png)
 
-In addition to one of these IDs, you need to provide details about the failing use case and the timestamp when the failure occurred. 
+In addition to one of these IDs, you need to provide details about the failing use case and the timestamp when the failure occurred.
 
 ## Access your client call ID
 
-When troubleshooting voice or video calls, you might need to provide a `call ID`. This value can be accessed via the `id` property of the `call` object:
+When troubleshooting voice or video calls, you might need to provide a `call ID`. Access this value via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
