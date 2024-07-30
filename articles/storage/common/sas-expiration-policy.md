@@ -38,6 +38,11 @@ When a SAS expiration policy is in effect for the storage account, the signed st
 
 When you configure a SAS expiration policy on a storage account, the policy applies to each type of SAS: user delegation SAS, service SAS, and account SAS. Service SAS and account SAS types are signed with the account key, while user delegation SAS is signed with Microsoft Entra credentials.
 
+> [!NOTE]
+> A user delegation SAS is signed with a user delegation key, which is obtained using Microsoft Entra credentials. The user delegation key has its own expiry interval which isn't subject to the SAS expiration policy. The SAS expiration policy applies only to the user delegation SAS, not the user delegation key it's signed with.
+>
+> A user delegation SAS has a maximum expiry interval of 7 days, regardless of the SAS expiration policy. If the SAS expiration policy is set to a value greater than 7 days, then the policy has no effect for a user delegation SAS. If the user delegation key expires, then any user delegation SAS signed with that key is invalid and any attempt to use the SAS returns an error.
+
 ### Do I need to rotate the account access keys first?
 
 This section applies to service SAS and account SAS types, which are signed with the account key. Before you can configure a SAS expiration policy, you might need to rotate each of your account access keys at least once. If the **keyCreationTime** property of the storage account has a null value for either of the account access keys (key1 and key2), you'll need to rotate them. To determine whether the **keyCreationTime** property is null, see [Get the creation time of the account access keys for a storage account](storage-account-get-info.md#get-the-creation-time-of-the-account-access-keys-for-a-storage-account). If you attempt to configure a SAS expiration policy and the keys need to be rotated first, the operation fails.
