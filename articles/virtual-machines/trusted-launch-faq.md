@@ -23,7 +23,6 @@ Frequently asked questions (FAQs) about Azure Trusted Launch feature use cases, 
 This section answers questions about use cases for Trusted Launch.
 
 ### Why should I use Trusted Launch? What does Trusted Launch guard against?
-
 Trusted Launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
 
 - **Firmware rootkits**: These kits overwrite the firmware of the virtual machine (VM) BIOS, so the rootkit can start before the operating system (OS).
@@ -31,11 +30,19 @@ Trusted Launch guards against boot kits, rootkits, and kernel-level malware. The
 - **Kernel rootkits**: These kits replace a portion of the OS kernel, so the rootkit can start automatically when the OS loads.
 - **Driver rootkits**: These kits pretend to be one of the trusted drivers that the OS uses to communicate with the VM's components.
 
+### What are the differences between Secure Boot and measured boot?
+
+In a Secure Boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot).
+
 ### How does Trusted Launch compare to Hyper-V Shielded VM?
 
 Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are used in fabrics where the data and state of the VM must be protected from various actors. These actors are both fabric administrators and untrusted software that might be running on the Hyper-V hosts.
 
 Trusted Launch, on the other hand, can be deployed as a standalone VM or as virtual machine scale sets on Azure without other deployment and management of HGS. All of the Trusted Launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
+
+### What is VM Guest State (VMGS)?
+
+VM Guest State (VMGS) is specific to Trusted Launch VMs. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) Secure Boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS disk.
 
 ### Can I disable Trusted Launch for a new VM deployment?
 
@@ -98,6 +105,10 @@ Trusted Launch supports ephemeral OS disks. For more information, see [Trusted L
 
 > [!NOTE]
 > When you use ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the virtual Trusted Platform Module (vTPM) after the creation of the VM might not be persisted across operations like reimaging and platform events like service healing.
+
+### Are security features available with Trusted launch applicable to data disks as well?
+
+Trusted launch provides foundational security for Operating system hosted in virtual machine by attesting its boot integrity. Trusted launch security features are applicable for running OS and OS disks only, they are not applicable to data disks or OS binaries stored in data disks. For more details, see [Trusted launch overview](trusted-launch.md)
 
 ### Can a VM be restored by using backups taken before Trusted Launch was enabled?
 
@@ -378,17 +389,34 @@ Architecture      : x64
 
 Adding COM ports requires that you disable Secure Boot. COM ports are disabled by default in Trusted Launch VMs.
 
-## Troubleshooting boot issues
+## Troubleshooting issues
 
 This section answers questions about specific states, boot types, and common boot issues.
 
-### What is VM Guest State (VMGS)?
+### What should I do when my Trusted Launch VM has deployment failures ? 
+This section provides additional details on Trusted Launch deployment failures for you to take proper action to prevent them. 
 
-VM Guest State (VMGS) is specific to Trusted Launch VMs. It's a blob managed by Azure and contains the unified extensible firmware interface (UEFI) Secure Boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS disk.
+```
+Virtual machine <vm name> failed to create from the selected snapshot because the virtual Trusted Platform Module (vTPM) state is locked.
+To proceed with the VM creation, please select a different snapshot without a locked vTPM state.
+For more assistance, please refer to “Troubleshooting locked vTPM state” in FAQ page at https://aka.ms/TrustedLaunch-FAQ. 
+```
+This deployment error happens when the snapshot or restore point provided is inaccessible or unusable for the following reasons: 
+1. Corrupt virtual machine guest state (VMGS) 
+2. vTPM in a locked state  
+3. One or more critical vTPM indices are in an invalid state. 
 
-### What are the differences between Secure Boot and measured boot?
+The above can happen if a user or workload running on the virtual machine sets the lock on vTPM or modifies critical vTPM indices that leaves the vTPM in an invalid state. 
 
-In a Secure Boot chain, each step in the boot process checks a cryptographic signature of the subsequent steps. For example, the BIOS checks a signature on the loader, and the loader checks signatures on all the kernel objects that it loads, and so on. If any of the objects are compromised, the signature doesn't match and the VM doesn't boot. For more information, see [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot).
+Retrying with the same snapshot/restore point will result in the same failure. 
+
+To resolve this: 
+
+1. On the source Trusted Launch VM where the snapshot or restore point was generated, the vTPM errors must be rectified.
+    1. If the vTPM state was modified by a workload on the virtual machine, you need to use the same to check the error states and bring the vTPM to a non-error state.
+    1. If TPM tools were used to modify the vTPM state, then you should use the same tools to check the error states and bring the vTPM to a non-error state.  
+
+Once the snapshot or restore point is free from these errors, you can use this to create a new Trusted Launch VM.  
 
 ### Why is the Trusted Launch VM not booting correctly?
 

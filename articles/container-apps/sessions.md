@@ -205,9 +205,12 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     |--------|------------------|------------------|
     | East Asia | ✔ | ✔ |
     | East US | ✔ | ✔ |
-    | West US 2 | ✔ | ✔ |
+    | Germany West Central | ✔ | ✔ |
+    | Italy North | ✔ | ✔ |
+    | Poland Central | ✔ | ✔ |
     | North Central US | ✔ | - |
-    | North Europe | ✔ | - |
+    | North Europe | ✔ | ✔ |
+    | West US 2 | ✔ | ✔ |
     
 * Logging isn't supported. Your application can log requests to the session pool management API and its responses.
 

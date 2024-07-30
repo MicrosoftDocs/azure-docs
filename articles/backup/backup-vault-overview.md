@@ -1,8 +1,8 @@
 ---
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
-ms.topic: conceptual
-ms.date: 03/28/2024
+ms.topic: overview
+ms.date: 07/30/2024
 ms.custom: references_regions
 ms.service: backup
 author: AbhishekMallick-MS

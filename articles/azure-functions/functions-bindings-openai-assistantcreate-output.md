@@ -2,8 +2,14 @@
 title: Azure OpenAI assistant create output binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant create output binding to create Azure OpenAI assistants from your function code executions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 05/20/2024
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilotms.date: 05/20/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 

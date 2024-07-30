@@ -2,8 +2,8 @@
 title: Manage Microsoft Azure Maps Creator
 titleSuffix:  Microsoft Azure Maps Creator
 description: This article demonstrates how to manage Microsoft Azure Maps Creator.
-author: brendansco
-ms.author: brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 01/20/2022
 ms.topic: how-to
 ms.service: azure-maps
@@ -92,14 +92,10 @@ Introduction to Creator services for indoor mapping:
 Learn how to use the Creator services to render indoor maps in your application:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Creator tutorial]
-
-> [!div class="nextstepaction"]
 > [Use the Indoor Maps module]
 
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
 [Microsoft Entra authentication]: azure-maps-authentication.md#microsoft-entra-authentication
-[Azure Maps Creator tutorial]: tutorial-creator-indoor-maps.md
 [Azure Maps pricing]: https://aka.ms/CreatorPricing
 [Azure portal]: https://portal.azure.com
 [Data conversion]: creator-indoor-maps.md#convert-a-drawing-package

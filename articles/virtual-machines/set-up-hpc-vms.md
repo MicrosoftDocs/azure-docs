@@ -6,7 +6,7 @@ ms.author: sherrywang
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 07/25/2024
 ---
 
 # Set up Azure HPC or AI VMs

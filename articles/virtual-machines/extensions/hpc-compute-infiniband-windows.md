@@ -7,7 +7,7 @@ ms.subservice: hpc
 ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 1/13/2022
+ms.date: 07/25/2024
 ms.custom: devx-track-azurepowershell
 ms.author: jushiman
 author: ju-shim

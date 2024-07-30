@@ -97,9 +97,9 @@ landingContent:
             url: metro.md
       - linkListType: how-to-guide
         links:
-          - text: Create maximum resiliency with ExpressRoute circuits
+          - text: Create Maximum resiliency with ExpressRoute circuits
             url: expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview
-          - text: Create maximum resiliency with ExpressRoute gateways
+          - text: Create Maximum resiliency with ExpressRoute gateways
             url: expressroute-howto-linkvnet-portal-resource-manager.md?pivots=expressroute-preview
       - linkListType: architecture
         links:
@@ -173,7 +173,7 @@ landingContent:
             url: /rest/api/expressroute
       - linkListType: architecture
         links:
-          - text: Reference Architecutre for Hybrid Networking
+          - text: Reference Architecture for Hybrid Networking
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
           - text: Reference Architecture for Hybrid Networking with VPN Failover
             url: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover

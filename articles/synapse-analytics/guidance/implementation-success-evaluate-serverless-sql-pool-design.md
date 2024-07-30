@@ -1,7 +1,7 @@
 ---
 title: "Synapse implementation success methodology: Evaluate serverless SQL pool design"
 description: "Learn how to evaluate your serverless SQL pool design to identify issues and validate that it meets guidelines and requirements."
-author: SnehaGunda
+author: whhender
 ms.author: whhender
 ms.reviewer: whhender
 ms.service: synapse-analytics

@@ -4,7 +4,7 @@ description: This article lists all Microsoft Defender for Cloud AI security rec
 author: dcurwin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 03/13/2024
+ms.date: 07/30/2024
 ms.author: dacurwin
 ms.custom: generated
 ai-usage: ai-assisted
@@ -33,14 +33,20 @@ This recommendation replaces the old recommendation *Cognitive Services accounts
 
 **Description**: By restricting network access, you can ensure that only allowed networks can access the service. This can be achieved by configuring network rules so that only applications from allowed networks can access the Azure AI service resource.
 
-- This recommendation is covered by another networking recommendation for Azure AI services - [Cognitive Services accounts should restrict network access](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243/showSecurityCenterCommandBar%7E/false).
-- The Cognitive Services accounts should restrict network access recommendation is now in turn replaced by a new one (Azure AI Services should restrict network access).
-- This recommendation replaces the old recommendation *Cognitive Services accounts should restrict network access*. It was formerly in category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
-- The related policy definition [Cognitive Services accounts should disable public network access](https://ms.portal.azure.com/?feature.msaljs=true#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0725b4dd-7e76-479c-a735-68e7ee23d5ca) has been removed from the regulatory compliance dashboard.
-
+This recommendation replaces the old recommendation *Cognitive Services accounts should restrict network access*. It was formerly in category Cognitive Services and Cognitive Search, and was updated to comply with the Azure AI Services naming format and align with the relevant resources.
 
 **Severity**: Medium
 
+
+### [(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/18bf29b3-a844-e170-2826-4e95d0ba4dc9/showSecurityCenterCommandBar~/false)
+
+**Description**: Using customer-managed keys to encrypt data at rest provides more control over the key lifecycle, including rotation and management. This is particularly relevant for organizations with related compliance requirements.
+
+This is not assessed by default and should only be applied when required by compliance or restrictive policy requirements. If not enabled, the data will be encrypted using platform-managed keys. To implement this, update the 'Effect' parameter in the Security Policy for the applicable scope. (Related policy: [Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/ai-services/openai/how-to/use-your-data-securely))
+
+This recommendation replaces the old recommendation *Cognitive services accounts should enable data encryption using customer keys*. It was formerly in category Data recommendations, and was updated to comply with the Azure AI Services naming format and align with the relevant resources. 
+
+**Severity**: Low
 
 ### Resource logs in Azure Machine Learning Workspaces should be enabled (Preview)
 
@@ -117,6 +123,12 @@ This recommendation replaces the old recommendation *Diagnostic logs in Search s
 **Description:** With invocation logging, you can collect the full request data, response data, and metadata associated with all calls performed in your account. This enables you to recreate activity trails for investigation purposes when a security incident occurs.
 
 **Severity:** Low
+
+### [AWS Bedrock should use AWS PrivateLink](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/dd55620f-09f2-4d4b-9d6b-adcee7479a64)
+
+**Description** Amazon Bedrock VPC endpoint powered by AWS PrivateLink, allows you to establish a private connection between the VPC in your account and the Amazon Bedrock service account. AWS PrivateLink enables VPC instances to communicate with Bedrock service resources, without the need for public IP addresses, ensuring your data is not exposed to the public internet and thereby helping with your compliance requirements.
+
+**Severity** Medium
 
 
 ## Related content

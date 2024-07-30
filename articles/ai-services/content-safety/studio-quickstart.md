@@ -23,7 +23,7 @@ In this quickstart, get started with the Azure AI Content Safety service using C
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Content Safety](https://aka.ms/acs-create) Azure resource.
-* The `Cognitive Services User` role assigned to the Content Safety resource in the desired Azure subscription.
+* Assign `Cognitive Services User` role to your account to ensure the studio experience. Go to [Azure Portal](https://portal.azure.com/), navigate to your Content Safety resource or Azure AI Services resource, and select **Access Control** in the left navigation bar, then click **+ Add role assignment**, choose the `Cognitive Services User` role and select the memeber of your account that you need to assign this role to, then review and assign. It might take few minutes for the assignment to take effect.
 * Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource. 
 
 

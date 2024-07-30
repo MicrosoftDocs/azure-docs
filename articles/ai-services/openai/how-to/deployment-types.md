@@ -33,9 +33,9 @@ Azure OpenAI offers three types of deployments. These provide a varied level of 
 | **Best suited for**      | Applications that don’t require data residency. Recommended starting place for customers. | For customers with data residency requirements. Optimized for low to medium volume. | Real-time scoring for large consistent volume. Includes the highest commitments and limits.|
 | **How it works**         | Traffic may be routed anywhere in the world | | |
 | **Getting started**      | [Model deployment](./create-resource.md) | [Model deployment](./create-resource.md) | [Provisioned onboarding](./provisioned-throughput-onboarding.md) |
-| **Cost**                 | [Baseline](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | [Regional Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | May experience cost savings for consistent usage |
+| **Cost**                 | [Global deployment pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | [Regional pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) | May experience cost savings for consistent usage |
 | **What you get**         | Easy access to all new models with highest default pay-per-call limits.<br><br> Customers with high volume usage may see higher latency variability | Easy access with [SLA on availability](https://azure.microsoft.com/support/legal/sla/). Optimized for low to medium volume workloads with high burstiness. <br><br>Customers with high consistent volume may experience greater latency variability. | Regional access with very high & predictable throughput. Determine throughput per PTU using the provided [capacity calculator](./provisioned-throughput-onboarding.md#estimate-provisioned-throughput-and-cost) |
-| **What you don’t get**   | ❌Data residency guarantees | ❌High volume w/consistent low latency | ❌Pay-per-call flexibility |
+| **What you don’t get**   |❌Data processing guarantee<br> <br> Data might be processed outside of the resource's Azure geography, but data storage remains in its Azure geography. [Learn more about data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) | ❌High volume w/consistent low latency | ❌Pay-per-call flexibility |
 | **Per-call Latency**     | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time calling & low to medium volume usage. Customers with high volume usage may see higher latency variability. Threshold set per model | Optimized for real-time. |
 | **Sku Name in code**     |    `GlobalStandard`               | `Standard`   |      `ProvisionedManaged`       |
 | **Billing model**        | Pay-per-token | Pay-per-token | Monthly Commitments |
@@ -52,11 +52,12 @@ Standard deployments are optimized for low to medium volume workloads with high 
 
 ## Global standard
 
-Global deployments are available in the same Azure OpenAI resources as non-global offers but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request.  Global standard will provide the highest default quota for new models and eliminates the need to load balance across multiple resources.  
+> [!IMPORTANT]
+> Data might be processed outside of the resource's Azure geography, but data storage remains in its Azure geography. [Learn more about data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).
 
-The deployment type is optimized for low to medium volume workloads with high burstiness. Customers with high consistent volume may experience greater latency variability. The threshold is set per model. See the [quotas page to learn more](./quota.md).  
+Global deployments are available in the same Azure OpenAI resources as non-global deployment types but allow you to leverage Azure's global infrastructure to dynamically route traffic to the data center with best availability for each request.  Global standard provides the highest default quota and eliminates the need to load balance across multiple resources.  
 
-For customers that require the lower latency variance at large workload usage, we recommend purchasing provisioned throughput.
+Customers with high consistent volume may experience greater latency variability. The threshold is set per model. See the [quotas page to learn more](./quota.md).  For applications that require the lower latency variance at large workload usage, we recommend purchasing provisioned throughput.
 
 ### How to disable access to global deployments in your subscription
 

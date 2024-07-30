@@ -22,7 +22,6 @@ ms.date: 06/11/2024
 |`https://graph.microsoft.com/` | Required when [Azure RBAC](../azure-rbac.md) is configured. |
 | `*.arc.azure.net`| Required to manage connected clusters in Azure portal. |
 |`https://<region>.obo.arc.azure.com:8084/` | Required when [Cluster Connect](../cluster-connect.md) is configured. |
-|`dl.k8s.io`| Required when [automatic agent upgrade](../agent-upgrade.md#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) is enabled. |
 | `https://linuxgeneva-microsoft.azurecr.io` | Required if using [Azure Arc-enabled Kubernetes extensions](../conceptual-extensions.md).
 
 To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command:

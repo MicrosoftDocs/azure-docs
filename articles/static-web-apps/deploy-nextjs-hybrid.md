@@ -90,7 +90,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Leave the _App artifact location_ box empty.
+1. Leave the _Output location_ box empty.
 
 Select **Review + create**.
 

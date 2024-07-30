@@ -66,7 +66,7 @@ This article shows you how to securely scale your applications with the Kubernet
         --overwrite-existing
     ```
 
-## Deploy Azure Service Bus
+## Create an Azure Service Bus
 
 1. Create an Azure Service Bus namespace using the [`az servicebus namespace create`][az-servicebus-namespace-create] command. Make sure to replace the placeholder value with your own value.
 

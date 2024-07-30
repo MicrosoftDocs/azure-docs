@@ -11,11 +11,9 @@ ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same tenant.
+This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same tenant.  If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
 
-In this exercise, you create the required virtual networks (VNets) and VPN gateways. We have steps to connect VNets within the same subscription, as well as steps and commands for the more complicated scenario to connect VNets in different subscriptions. 
-
-The PowerShell cmdlet to create a connection is [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). The `-ConnectionType` is `Vnet2Vnet`. If you're connecting VNets from different subscriptions, use the steps in this article or in the [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md) article.  If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
+In this exercise, you create the required virtual networks (VNets) and VPN gateways. We have steps to connect VNets within the same subscription, as well as steps and commands for the more complicated scenario to connect VNets in different subscriptions. The PowerShell cmdlet to create a connection is [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). The `-ConnectionType` is `Vnet2Vnet`. 
 
 :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 

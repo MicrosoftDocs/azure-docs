@@ -105,6 +105,36 @@ To check the setting, open your *web.config* file and find the system.web sectio
 > Modifying the `httpRuntime targetFramework` value changes the runtime quirks applied to your application and can cause other, subtle behavior changes. Be sure to test your application thoroughly after making this change. For a full list of compatibility changes, see [Re-targeting changes](/dotnet/framework/migration-guide/application-compatibility#retargeting-changes).
 > [!NOTE]
 > If the `targetFramework` is 4.7 or above then Windows determines the available protocols. In Azure App Service, TLS 1.2 is available. However, if you're using your own virtual machine, you may need to enable TLS 1.2 in the OS.
+
+## Snapshot Debugger overhead scenarios
+
+The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 
+
+However, you may experience small CPU, memory, and I/O overhead associated with the Snapshot Debugger, like in the following scenarios.
+
+**When an exception is thrown in your application:**
+
+- Creating a signature for the problem type and deciding whether to create a snapshot adds a very small CPU and memory overhead.
+- If de-optimization is enabled, there is an overhead for re-JITting the method that threw the exception. This will be incurred the next time that method executes. Depending on the size of the method, this could be between 1ms and 100ms of CPU time.
+
+**If the exception handler decides to create a snapshot:**
+
+- Creating the process snapshot takes about half a second (P50=0.3s, P90=1.2s, P95=1.9s) during which time, the thread that threw the exception is paused. Other threads are not blocked.
+
+- Converting the process snapshot to a minidump and uploading it to Application Insights takes several minutes. 
+   - Convert: P50=63s, P90=187s, P95=275s. 
+   - Upload: P50=31s, P90=75s, P95=98s. 
+
+   This is done in Snapshot Uploader, which runs in a separate process. The Snapshot Uploader process runs at below normal CPU priority and uses low priority I/O. 
+
+   The minidump is first written to disk and the amount of disk spaced is roughly the same as the working set of the original process. Writing the minidump can induce page faults as memory is read. 
+
+   The minidump is compressed during upload, which consumes both CPU and memory in the Snapshot Uploader process. The CPU, memory, and disk overhead for this is be proportional to the size of the process snapshot. Snapshot Uploader processes snapshots serially.
+
+**When `TrackException` is called:**
+
+The Snapshot Debugger checks if the exception is new or if a snapshot has been created for it. This adds a very small CPU overhead.
+
 ## Preview Versions of .NET Core
 
 If you're using a preview version of .NET Core or your application references Application Insights SDK, directly or indirectly via a dependent assembly, follow the instructions for [Enable Snapshot Debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json).

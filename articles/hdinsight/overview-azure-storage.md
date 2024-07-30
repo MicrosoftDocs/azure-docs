@@ -77,6 +77,5 @@ Certain MapReduce jobs and packages might create intermediate results that you w
 
 - [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 - [Introduction to Azure Storage](../storage/common/storage-introduction.md)
-- [Azure Data Lake Storage Gen1 overview](./overview-data-lake-storage-gen1.md)
 - [Use Azure storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md)
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)
