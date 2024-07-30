@@ -300,6 +300,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
             add_field => {"LogstashVersion" => "${LOGSTASH_VERSION}"}     
           } 
           prune { 
+            whitelist_names => [ "Message", "TimeGenerated", "Activity", "LogSeverity",     "CefVersion", "DeviceVendor", "DeviceProduct", "DeviceVersion", "DeviceEventClassID"] 
           } 
         } 
          output { 
