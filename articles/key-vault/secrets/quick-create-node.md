@@ -8,13 +8,13 @@ ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api, passwordless-js
+ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions-nodejs
 ---
 
 # Quickstart: Azure Key Vault secret client library for JavaScript
 
-Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
+Get started with the Azure Key Vault secret client library for JavaScript. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for secrets. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library.
 
 Key Vault client library resources:
 
@@ -105,25 +105,25 @@ Create a Node.js application that uses your key vault.
 
 ## Set environment variables
 
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
+This application is using key vault endpoint as an environment variable called `KEY_VAULT_URL`.
 
 ### [Windows](#tab/windows)
 
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set KEY_VAULT_URL=<your-key-vault-endpoint>
 ````
 
 ### [PowerShell](#tab/powershell)
 
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:KEY_VAULT_URL="<your-key-vault-endpoint>"
 ```
 
 ### [macOS or Linux](#tab/linux)
 
 ```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+export KEY_VAULT_URL=<your-key-vault-endpoint>
 ```
 ---
 
@@ -134,7 +134,7 @@ Application requests to most Azure services must be authorized. Using the [Defau
 
 In this quickstart, `DefaultAzureCredential` authenticates to key vault using the credentials of the local development user logged into the Azure CLI. When the application is deployed to Azure, the same `DefaultAzureCredential` code can automatically discover and use a managed identity that is assigned to an App Service, Virtual Machine, or other services. For more information, see [Managed Identity Overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
-In this code, the name of your key vault is used to create the key vault URI, in the format `https://<your-key-vault-name>.vault.azure.net`. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In this code, the endpoint of your key vault is used to create the key vault client. The endpoint format looks like `https://<your-key-vault-name>.vault.azure.net` but may change for sovereign clouds. For more information about authenticating to key vault, see [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
 
 ## Code example
 
@@ -167,11 +167,10 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const credential = new DefaultAzureCredential();
     
-      const keyVaultName = process.env["KEY_VAULT_NAME"];
-      if(!keyVaultName) throw new Error("KEY_VAULT_NAME is empty");
-      const url = "https://" + keyVaultName + ".vault.azure.net";
+      const keyVaultUrl = process.env["KEY_VAULT_URL"];
+      if(!keyVaultUrl) throw new Error("KEY_VAULT_URL is empty");
     
-      const client = new SecretClient(url, credential);
+      const client = new SecretClient(keyVaultUrl, credential);
     
       // Create a secret
       // The secret can be a string of any kind. For example,
@@ -243,8 +242,8 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
             "enabled": true,
             "recoverableDays": 90,
             "recoveryLevel": "Recoverable+Purgeable",
-            "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
-            "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+            "id": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+            "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net",
             "version": "YOUR-VERSION",
             "name": "secret1637692472606"
         }
@@ -259,8 +258,8 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "enabled": true,
     "recoverableDays": 90,
     "recoveryLevel": "Recoverable+Purgeable",
-    "id": "https: //YOUR-KEYVAULT-NAME.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
-    "vaultUrl": "https: //YOUR-KEYVAULT-NAME.vault.azure.net",
+    "id": "https: //YOUR-KEYVAULT-ENDPOINT/secrets/secret1637692472606/YOUR-VERSION",
+    "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT",
     "version": "YOUR-VERSION",
     "name": "secret1637692472606"
     ```
