@@ -13,22 +13,22 @@
     href: microsoft-sentinel-defender-portal.md
 - name: Plan
   items:
-  - name: Deployment planning guide
+  - name: Deployment planning guide  
     href: deploy-overview.md
-  - name: Prerequisites
+  - name: Prerequisites      
     href: prerequisites.md
   - name: Workspace architecture
     items:
     - name: Review best practices
-      href: best-practices-workspace-architecture.md
+      href: best-practices-workspace-architecture.md 
     - name: Design workspace architecture
-      href: design-your-workspace-architecture.md
+      href: design-your-workspace-architecture.md      
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces
       href: prepare-multiple-workspaces.md
   - name: Prioritize data connectors
-    href: prioritize-data-connectors.md
+    href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
   - name: Plan interactive and long-term data retention
@@ -36,9 +36,9 @@
   - name: Plan costs
     href: billing.md
   - name: Availability and support
-    items:
+    items:     
     - name: Geographical availability and data residency
-      href: geographical-availability-data-residency.md
+      href: geographical-availability-data-residency.md          
     - name: Support for data types in different clouds
       href: data-type-cloud-support.md
     - name: Feature support in different clouds
@@ -46,7 +46,7 @@
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
 - name: Deploy
   items:
   - name: Enable Microsoft Sentinel and initial features and content
@@ -72,15 +72,15 @@
     - name: Use the SIEM migration experience
       href: siem-migration.md
     - name: Track migration with a workbook
-      href: migration-track.md
-  - name: Migrate from ArcSight
-    items:
+      href: migration-track.md                
+  - name: Migrate from ArcSight      
+    items: 
     - name: Migrate detection rules
       href: migration-arcsight-detection-rules.md
     - name: Migrate SOAR automation
       href: migration-arcsight-automation.md
     - name: Export historical data
-      href: migration-arcsight-historical-data.md
+      href: migration-arcsight-historical-data.md           
   - name: Migrate from Splunk
     items:
     - name: Migrate detection rules
@@ -89,7 +89,7 @@
       href: migration-splunk-automation.md
     - name: Export historical data
       href: migration-splunk-historical-data.md
-  - name: Migrate from QRadar
+  - name: Migrate from QRadar      
     items:
     - name: Migrate detection rules
       href: migration-qradar-detection-rules.md
@@ -98,7 +98,7 @@
     - name: Export historical data
       href: migration-qradar-historical-data.md
   - name: Ingest historical data
-    items:
+    items:      
     - name: Select target platform
       href: migration-ingestion-target-platform.md
     - name: Select data ingestion tool
@@ -107,14 +107,14 @@
       href: migration-export-ingest.md
   - name: Convert dashboards to workbooks
     href: migration-convert-dashboards.md
-  - name: Update SOC processes
+  - name: Update SOC processes      
     href: migration-security-operations-center-processes.md
 - name: Enable solutions and content
-  items:
+  items:  
   - name: Overview
     href: sentinel-solutions.md
   - name: Tutorial - Monitor Zero Trust security architectures
-    href: sentinel-solution.md
+    href: sentinel-solution.md   
   - name: OOTB content centralization changes
     href: sentinel-content-centralize.md
   - name: Deploy out-of-the-box content
@@ -134,7 +134,7 @@
     - name: Overview
       href: ci-cd-custom-content.md
     - name: Deploy custom content from your repository
-      href: ci-cd.md
+      href: ci-cd.md   
     - name: Customize repository deployments
       href: ci-cd-custom-deploy.md
   - name: Protect business applications
@@ -164,18 +164,18 @@
           - name: Configure auditing
             href: sap/configure-audit.md
           - name: Deploy the data connector agent
-            href: sap/deploy-data-connector-agent-container.md
+            href: sap/deploy-data-connector-agent-container.md        
           - name: Deploy SAP security content
             href: sap/deploy-sap-security-content.md
           - name: Configure the solution
             href: sap/deployment-solution-configuration.md
           - name: Update the connector
-            href: sap/update-sap-data-connector.md
+            href: sap/update-sap-data-connector.md      
           - name: Disable the connector
             displayName: disable, stop ingestion, stop
             href: sap/deployment-solution-configuration.md#stop-log-ingestion-and-disable-the-connector
         - name: Reference
-          items:
+          items:    
           - name: SAP solution data reference
             href: sap/sap-solution-log-reference.md
           - name: Monitored SAP security parameters
@@ -183,7 +183,7 @@
           - name: SAP audit log workbook
             href: sap/sap-audit-log-workbook.md
           - name: SAP audit controls workbook
-            href: sap/sap-audit-controls-workbook.md
+            href: sap/sap-audit-controls-workbook.md   
           - name: Kickstart script reference
             href: sap/reference-kickstart.md
           - name: Container update script reference 
@@ -195,7 +195,7 @@
       - name: Optional deployment steps
         items: 
         - name: Configure SAP data connector to use SNC
-          href: sap/configure-snc.md
+          href: sap/configure-snc.md      
         - name: Collect SAP HANA audit logs
           href: sap/collect-sap-hana-audit-logs.md
         - name: Deploy SAP connector manually
