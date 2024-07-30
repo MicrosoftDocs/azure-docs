@@ -117,10 +117,12 @@ In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) c
 To use a system-assigned managed identity to access the container registry, you need to enable managed identities in your app and grant the system-assigned managed identity access to the container registry. This example uses `az functionapp identity assign` and `az role assignment create` command to enable managed identities in the app and assign the system-assigned identity to the `ACRPull` role in the container registry:
 
 ```azurecli
-FUNCTION_APP_ID=$(az functionapp identity assign --name glengatestaca-py --resource-group AzureFunctionsContainers-rg --query principalId --output tsv)
-ACR_ID=$(az acr show --name glengatest --query id --output tsv)
+FUNCTION_APP_ID=$(az functionapp identity assign --name <APP_NAME> --resource-group AzureFunctionsContainers-rg --query principalId --output tsv)
+ACR_ID=$(az acr show --name <REGISTRY_NAME> --query id --output tsv)
 az role assignment create --assignee $FUNCTION_APP_ID --role AcrPull --scope $ACR_ID
 ```
+
+In this example, replace `<APP_NAME>` and `<REGISTRY_NAME>` with the name of your function app and container registry, respectively.  
 
 ### [Docker Hub](#tab/docker)
 ::: zone pivot="programming-language-csharp"  
@@ -154,7 +156,9 @@ az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --envir
 ```
 ::: zone-end
 
-In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your Docker Hub account ID. If you're using a private registry, you also need to supply  `--registry-username`, `--registry-password`, and `--registry-server`. 
+In the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, the `--environment` parameter specifies the Container Apps environment and the `--image` parameter specifies the image to use for the function app. In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you and `<DOCKER_ID>` with your public Docker Hub account ID. 
+
+If you're using a private registry, you need to include the fully qualified domain name of your registry instead of just the Docker ID for `<DOCKER_ID>`, along with the `--registry-username` and `--registry-password` credential required to access the registry. 
 
 ---
 
