@@ -14,10 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-<!-- Date TBD --> 
+## July 2024
+
 * Availability zone volume placement enhancement - [**Populate existing volumes**](manage-availability-zone-volume-placement.md#populate-an-existing-volume-with-availability-zone-information) is now generally available (GA).
 
-## July 2024
 
 * [Cross-zone replication](cross-zone-replication-introduction.md) is now generally available (GA).
 
