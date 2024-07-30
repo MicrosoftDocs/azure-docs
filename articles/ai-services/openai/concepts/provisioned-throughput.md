@@ -36,10 +36,6 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 | Utilization | Provisioned-managed Utilization measure provided in Azure Monitor. |
 | Estimating size | Provided calculator in the studio & benchmarking script. |
 
-## How do I get access to Provisioned?
-
-You need to speak with your Microsoft sales/account team to acquire provisioned throughput. If you don't have a sales/account team, unfortunately at this time, you cannot purchase provisioned throughput.
-
 ## What models and regions are available for provisioned throughput?
 
 [!INCLUDE [Provisioned](../includes/model-matrix/provisioned-models.md)]
@@ -55,7 +51,9 @@ Provisioned throughput units (PTU) are units of model processing capacity that y
 
 ### Deployment types
 
-When deploying a model in Azure OpenAI, you need to set the `sku-name` to be Provisioned-Managed. The `sku-capacity` specifies the number of PTUs assigned to the deployment. 
+When creating a provisioned deployment in Azure OpenAI Studio, the deployment type on the Create Deployment dialog is Provisioned-Managed.
+
+When creating a provisioned deployment in Azure OpenAI via CLI or API, you need to set the `sku-name` to be Provisioned-Managed. The `sku-capacity` specifies the number of PTUs assigned to the deployment. 
 
 ```azurecli
 az cognitiveservices account deployment create \
@@ -83,12 +81,12 @@ The new quota shows up in the AI Studio and Azure OpenAI Studio as a quota item 
 
 ## Capacity transparency and quota definitions
 
-Azure OpenAI is a highly sought-after service where customer demand may exceed service GPU capacity. While Microsoft strives to provide capacity for all in-demand regions and models, selling out a region is always a possibility. This can impact some customers’ ability to create a deployment of the desired model, version, PTU count in a desired region. For existing customers, there is a negotiation about regional availability during the quota allocation process that results in a region selection. With the release of the self-service quota changes, this process changes in a few ways:
+Azure OpenAI is a highly sought-after service where customer demand may exceed service GPU capacity. Microsoft strives to provide capacity for all in-demand regions and models, but selling out a region is always a possibility. This can limit some customers’ ability to create a deployment of their desired model, version, or number of PTUs in a desired region -- even if they have quota available in that region. Generally speaking:
 
-- Quota is a limit on the maximum number of PTUs that can be deployed but is not a guarantee of capacity availability. This is the same quota meaning as for other Azure services, such as VMs.
-- Capacity is allocated to a customer at deployment time and is held by that customer for as long as the deployment exists. It isn't released unless the customer deletes or scales down the deployment.
-- Quota won't be considered an implicit commitment to pay, and it will not be reclaimed if not used.
-- Customers use real-time information on quota/capacity availability to choose for themselves an appropriate region for their scenario that can support the deployment they require.
+- Quota places a limit on the maximum number of PTUs that can be deployed in a subscription and region, but is not a guarantee of capacity availability. This is algned with how quota works for other Azure services, such as VMs.
+- Capacity is allocated to a customer at deployment time and is held for as long as the deployment exists.  If service capacity is not available, the deployment will fail
+- Customers use real-time information on quota/capacity availability to choose an appropriate region for their scenario with the necessary model capacity
+- Scaling down or deleting a deployment releases capacity back to the region.  There is no guarantee that the capacity will be available should the customer scale up or re-create the deployment later.
 
 ## Regional capacity transparency
 
