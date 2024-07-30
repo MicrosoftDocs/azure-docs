@@ -27,11 +27,11 @@ sections:
          Can I just upgrade my preview version to the general availability version?
       answer: You won't be able to upgrade from the preview to the general availability version directly. You'll need to redeploy.
     - question: |
-         What Kubernetes distros are compatible with Azure IoT Operations?
-      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu+K3s, Windows IoT + AKS EE. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md). 
+         What Kubernetes distributions are compatible with Azure IoT Operations?
+      answer: Azure IoT Operations is only officially supported on two platforms now Ubuntu using K3s, Windows IoT using AKS Edge Essentials. For more information, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md). 
     - question: |
          For IoT Operations, which device communication protocols supported.
-      answer: Currently in the preview version, we support OPC-UA and MQTT.
+      answer: Currently, OPC-UA and MQTT are supported in the preview version.
     - question: |
          Is there a non-Dapr Azure IoT Operations state store code example?
       answer: |
@@ -47,7 +47,7 @@ sections:
       answer: Currently, this is not supported in the preview version of Azure IoT Operations.
     - question: |
          Is there a hard limit on the sampling intervals for OPC UA tags for minimum and maximum sampling interval?
-      answer: The minimum is 1ms, however there's no upper restriction imposed at the connector level
+      answer: The minimum is 1ms, however there's no upper restriction imposed at the connector level.
   - name: Pricing
     questions:
     - question: |
