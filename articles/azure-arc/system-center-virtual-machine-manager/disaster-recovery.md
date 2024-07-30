@@ -66,5 +66,5 @@ If you had deployed Arc Resource Bridge earlier using DHCP, you must clean up yo
 If the recovery steps mentioned above are unsuccessful in restoring Arc resource bridge to its original state, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

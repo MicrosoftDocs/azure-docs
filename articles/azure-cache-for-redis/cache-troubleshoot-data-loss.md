@@ -130,5 +130,5 @@ These articles provide more information on avoiding data loss:
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
-- [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
+- [Monitor Azure Cache for Redis](monitor-cache.md)
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)

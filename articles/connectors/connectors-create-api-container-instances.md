@@ -83,7 +83,7 @@ review the connector's [reference page](/connectors/aci/) or container group [YA
 
 ## Next steps
 
-* See a [sample logic app](https://github.com/Azure-Samples/aci-logicapps-integration) that runs a container in Azure Container Instances to analyze the sentiment of e-mail or Twitter text
+* See a [sample logic app](https://github.com/Azure-Samples/aci-logicapps-integration) that runs a container in Azure Container Instances to analyze the sentiment of e-mail or X text
 
 * [Managed connectors for Azure Logic Apps](managed.md)
 
