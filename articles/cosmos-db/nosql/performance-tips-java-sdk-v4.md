@@ -154,10 +154,7 @@ This mechanism helps to continuously monitor partition health and ensures that r
   - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
   - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
 
-Both strategies can be used to enhance availability and performance:
-
-- The **Threshold-based Availability Strategy** is more suitable for scenarios where minimizing latency for read operations is a priority, even at an additional cost.
-- The **Partition Level Circuit Breaker** is better suited for scenarios where write operations are critical, and avoiding latency spikes and ensuring consistent performance are prioritized without incurring additional costs.
+Both strategies can be used to enhance write availability and reduce tail latency. We recommend Partition Level Circuit Breaker as a primary strategy, and additionally Threshold-based Availability Strategy can be used to further minimise tail latency if additional cost is acceptable. 
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 
