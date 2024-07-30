@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 08/05/2024
 ---
 
 # Create a hybrid query in Azure AI Search
@@ -20,9 +20,9 @@ In many cases, [per benchmark tests](https://techcommunity.microsoft.com/t5/ai-a
 
 To improve relevance:
 
-+ New parameters [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. 
++ Parameters [maxTextRecallSize and countAndFacetMode (preview)](#set-maxtextrecallsize-and-countandfacetmode-preview) give you more control over text inputs into a hybrid query. This feature requires a preview API version.
 
-+ New [vector weighting](vector-search-how-to-query.md#vector-weighting-preview) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. 
++ [Vector weighting](vector-search-how-to-query.md#vector-weighting) lets you set the relative weight of the vector query. This feature is particularly useful in complex queries where two or more distinct result sets need to be combined, as is the case for hybrid search. This feature is generally available.
 
 ## Prerequisites
 
@@ -34,10 +34,7 @@ To improve relevance:
 
 ## Choose an API or tool
 
-+ [**2024-07-01**](/rest/api/searchservice/documents/search-post) stable version
-+ [**2023-10-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true), adds integrated vectorization to the vector side of a hybrid query
-+ [**2024-03-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-03-01-preview&preserve-view=true), adds narrow data types and scalar quantization to the vector side of a hybrid query
-+ [**2024-05-01-preview**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) adds `maxTextRecallSize` and `countAndFacetMode` specifially for hybrid search
++ [**2024-07-01**](/rest/api/searchservice/documents/search-post) stable version or a recent preview API version if you're using [maxTextRecallSize and countAndFacetMode(preview)](#set-maxtextrecallsize-and-countandfacetmode-preview).
 + Search Explorer in the Azure portal (targets 2024-05-01-preview behaviors)
 + Newer stable or beta packages of the Azure SDKs (see change logs for SDK feature support)
 
@@ -49,7 +46,7 @@ To improve relevance:
 
 1. Replace the default query template with a hybrid query, such as the one starting on line 539 for the [vector quickstart example](vector-search-how-to-configure-vectorizer.md#try-a-vectorizer-with-sample-data). For brevity, the vector is truncated in this article. 
 
-   A hybrid query has a text query specified in `search`, and a vectory query specified under `vectorQueries.vector`.
+   A hybrid query has a text query specified in `search`, and a vector query specified under `vectorQueries.vector`.
 
    The text query and vector query should be equivalent or at least not conflict. If the queries are different, you don't get the benefit of hybrid.
 
@@ -254,10 +251,12 @@ api-key: {{admin-api-key}}
 
 ## Set maxTextRecallSize and countAndFacetMode (preview)
 
-This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results that flow to the hybrid ranking model. Controlling over the BM25-ranked input gives you more options for relevance tuning in hybrid scenarios. 
+This section explains how to adjust the inputs to a hybrid query by controlling the amount BM25-ranked results that flow to the hybrid ranking model. Controlling over the BM25-ranked input gives you more options for relevance tuning in hybrid scenarios.
+
+We recommend preview REST API version [2024-05-01-preview](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 > [!TIP]
-> Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting-preview), which increases the importance of vector queries in the request.
+> Another option to consider is a supplemental or replacement technique, is [vector weighting](vector-search-how-to-query.md#vector-weighting), which increases the importance of vector queries in the request.
 
 1. Use [Search - POST](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true) or [Search - GET](/rest/api/searchservice/documents/search-get?view=rest-searchservice-2024-05-01-preview&preserve-view=true) in 2024-05-01-preview to specify these parameters.
 
@@ -267,7 +266,7 @@ This section explains how to adjust the inputs to a hybrid query by controlling 
 
    + `countAndFacetMode` reports the counts for the BM25-ranked results (and for facets if you're using them). The default is all documents that match the query. Optionally, you can scope "count" to the `maxTextRecallSize`.
 
-1. Reduce `maxTextRecallSize` if vector similarity search is generally outperforming the text-side of the the hybrid query.
+1. Reduce `maxTextRecallSize` if vector similarity search is generally outperforming the text-side of the hybrid query.
 
 1. Raise `maxTextRecallSize` if you have a large index, and the default isn't capturing a sufficient number of results. With a larger BM25-ranked result set, you can also set `top`, `skip`, and `next` to retrieve portions of those results.
 

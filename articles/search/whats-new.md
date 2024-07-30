@@ -24,13 +24,14 @@ ms.custom:
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
 |-----------------------------|------|--------------|
 | [**2024-07-01**](/rest/api/searchservice/search-service-api-versions?view=rest-searchservice-2024-07-01&preserve-view=true) | API | Stable release of REST APIs for generally available vector data types, vector compression, and integrated vectorization during indexing and queries. |
+| [**vectorQueries.Weight property**](vector-search-how-to-query.md#vector-weighting) | Feature  | Announcing general availability. Vector weighting is now generally available. |
 | [**Narrow data types**](vector-search-how-to-configure-compression-storage.md#option-2-assign-narrow-data-types-to-vector-fields) | Feature  | Announcing general availability. Assign a smaller data type on vector fields, assuming incoming data is of that data type. |
 | [**Binary and Scalar quantization**](vector-search-how-to-configure-compression-storage.md#option-1-configure-quantization)  | Feature | Announcing general availability. Compress vector index size in memory and on disk using built-in quantization. |
 | [**stored property**](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage) | Feature  | Announcing general availability. Boolean that reduces storage of vector indexes by *not* storing retrievable vectors. |
 | [**Integrated vectorization**](vector-search-integrated-vectorization.md) | Feature | Announcing general availability. Skills-driven data chunking and embedding during indexing. |
 | [**Vectorizers**](vector-search-integrated-vectorization.md) | Feature  | Announcing general availability. Text-to-vector conversion during query execution. |
 | [**AzureOpenAIEmbedding skill**](cognitive-search-skill-azure-openai-embedding.md) | Feature | Announcing general availability. A skill type that calls Azure OpenAI embedding model to generate embeddings during queries and indexing.  |
-| [**Import and vectorize data wizard**](search-get-started-portal-import-vectors.md) | Azure portal | Announcing general availability. A wizard that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all necessary objects and configurations.  |
+| [**Import and vectorize data wizard**](search-get-started-portal-import-vectors.md) | Azure portal | Announcing general availability. A wizard that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all necessary objects and configurations. This release adds wizard support for ADLS Gen2 data sources.|
 
 ## June 2024
 

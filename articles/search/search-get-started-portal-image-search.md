@@ -7,15 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/14/2024
+ms.date: 08/05/2024
 ms.custom:
   - references_regions
 ---
 
 # Quickstart: Search for images by using Search Explorer in the Azure portal
-
-> [!IMPORTANT]
-> Image vectors are supported in stable API versions, but the wizard and vectorizers are in preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, the wizard targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 This quickstart shows you how to get started with image search by using the **Import and vectorize data** wizard in the Azure portal. It also shows how to use Search Explorer to run image-based queries.
 
