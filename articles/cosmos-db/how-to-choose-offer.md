@@ -4,7 +4,7 @@ description: Learn how to choose between standard (manual) provisioned throughpu
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 07/26/2024
 ms.author: dech
 ---
 
@@ -129,6 +129,10 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 The following example shows a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5,000 RU/s and 50,000 RU/s, respectively.
 
 :::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Screenshot of example workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s.":::
+
+## Migrate standard provisioned throughput to autoscale
+
+Users that want to migrate a large number of resources from standard provisioned throughput to autoscale can use an Azure CLI script that will migrate every throughput resource in an Azure subscription to autoscale. For more details see, [Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md).
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
