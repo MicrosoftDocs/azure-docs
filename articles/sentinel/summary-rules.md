@@ -271,7 +271,7 @@ This procedure describes a sample process for using summary rules with [auxiliar
     1. Use the following sample script to update your Logstash configuration file. The updates configure Logstash to send CEF logs to the custom table created by the ARM template, transforming JSON data to DCR format. In this script:
     
         - Replace placeholder values with your own values for the custom table and Microsoft Entra app you created earlier.
-        - Add a the Logstash ['prune' filter plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-prune.html) to your filter section to include only the following field names in your events:
+        - Add the Logstash ['prune' filter plugin](https://www.elastic.co/guide/en/logstash/current/plugins-filters-prune.html) to your filter section to include only the following field names in your events:
         
             :::row:::
                 :::column:::
