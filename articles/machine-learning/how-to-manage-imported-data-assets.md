@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: franksolomon
 author: fbsolo-ms1
 ms.reviewer: ambadal
-ms.date: 07/29/2024
+ms.date: 07/30/2024
 ms.custom: data4ml, devx-track-azurecli
 ---
 
@@ -60,7 +60,7 @@ These steps describe how to modify the auto delete settings of an imported data 
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
-1. As shown in the next screenshot, under **Assets** in the left navigation, select **Data**. At the **Data assets** tab, select an imported data asset located in the **Workspacemanageddatastore**.
+1. As shown in the next screenshot, under **Assets** in the left navigation, select **Data**. At the **Data assets** tab, select an imported data asset located in the **workspacemanageddatastore**.
 
    :::image type="content" source="./media/how-to-manage-imported-data-assets/data-assets-list.png" lightbox="./media/how-to-manage-imported-data-assets/data-assets-list.png" alt-text="Screenshot highlighting the imported data asset name in workspace managed datastore in the Data assets tab.":::
 
@@ -145,5 +145,5 @@ This Azure CLI code sample shows the data assets with certain conditions, or wit
 ## Next steps
 
 - [Access data in a job](how-to-read-write-data-v2.md#access-data-in-a-job)
-- [Working with tables in Azure Machine Learning](how-to-mltable.md)
-- [Access data from Azure cloud storage during interactive development](how-to-access-data-interactive.md)
+- [Access data from Azure cloud storage during interactive development](./how-to-access-data-interactive.md)
+- [Working with tables in Azure Machine Learning](./how-to-mltable.md)
