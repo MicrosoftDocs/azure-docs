@@ -62,7 +62,7 @@ Azure IoT Operations should work on any Kubernetes cluster that conforms to the 
 > [!IMPORTANT]
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only. To learn how to deploy Azure IoT Operations to a production cluster such as AKS Edge Essentials, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials).
 
-In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you've deployed Azure IoT Operations to before, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+In this section, you create a new cluster and connect it to Azure Arc. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
@@ -84,7 +84,7 @@ In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-ini
 
 Run the following CLI commands in your Codespaces terminal.
 
-1. Create a key vault. For this scenario, we'll use the same name and resource group as your cluster. Keyvault names have a maximum length of 24 characters, so the following command truncates the `CLUSTER_NAME`environment variable if necessary.
+1. Create a key vault. For this scenario, use the same name and resource group as your cluster. Keyvault names have a maximum length of 24 characters, so the following command truncates the `CLUSTER_NAME`environment variable if necessary.
 
    ```azurecli
    az keyvault create --enable-rbac-authorization false --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP
@@ -122,7 +122,7 @@ To view your resources on the Azure portal, use the following steps:
 
 1. From the **Overview** page of the resource group, select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster..
+1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
 
    :::image type="content" source="./media/quickstart-deploy/view-components.png" alt-text="Screenshot that shows the deployed components on your Arc-enabled cluster.":::
 
