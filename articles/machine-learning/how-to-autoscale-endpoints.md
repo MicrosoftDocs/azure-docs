@@ -9,7 +9,6 @@ author: msakande
 ms.author: mopeakande
 ms.reviewer: sehan
 ms.custom: devplatv2, cliv2, update-code
-
 ms.date: 07/29/2024
 
 #customer intent: As a developer, I want to autoscale online endpoints in Azure Machine Learning so I can control resource usage in my deployment based on metrics or schedules.
@@ -21,7 +20,7 @@ ms.date: 07/29/2024
 
 The autoscale process lets you automatically run the right amount of resources to handle the load on your application. [Online endpoints](concept-endpoints.md) in Azure Machine Learning support autoscaling through integration with the Azure Monitor autoscale feature.
 
-Azure Monitor autoscaling provides a rich set of rules. You can configure metrics-based scaling, such as CPU utilization greater than 70%, schedule-based scaling, such as scaling rules for peak business hours, or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
+Azure Monitor autoscaling provides a rich set of rules. You can configure metrics-based scaling (such as CPU utilization greater than 70%), schedule-based scaling (such as scaling rules for peak business hours), or a combination. For more information, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
 
 :::image type="content" source="media/how-to-autoscale-endpoints/concept-autoscale.png" border="false" alt-text="Diagram that shows how autoscale adds and removes instances as needed.":::
 
@@ -93,7 +92,7 @@ To enable autoscale for a Machine Learning endpoint, you first define an autosca
     mon_client = MonitorManagementClient(
         credential, subscription_id
     )
-```
+    ```
 
 1. Get the endpoint and deployment objects: 
 
@@ -132,7 +131,7 @@ To enable autoscale for a Machine Learning endpoint, you first define an autosca
             ]
         }
     )
-```
+   ```
 
 # [Studio](#tab/azure-studio)
 
@@ -140,11 +139,11 @@ To enable autoscale for a Machine Learning endpoint, you first define an autosca
 
 1. In the list of available endpoints, select the endpoint to configure:
 
-   :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot that shows how to select an endpoint deployment entry for a Machine Learning workspace in the studio.":::
+   :::image type="content" source="media/how-to-autoscale-endpoints/select-endpoint.png" alt-text="Screenshot that shows how to select an endpoint deployment entry for a Machine Learning workspace in the studio." lightbox="media/how-to-autoscale-endpoints/select-endpoint.png":::
 
 1. On the __Details__ tab for the selected endpoint, select __Configure auto scaling__:
 
-   :::image type="content" source="media/how-to-autoscale-endpoints/configure-auto-scaling.png" alt-text="Screenshot that shows how to select the option to configure autoscaling for an endpoint.":::
+   :::image type="content" source="media/how-to-autoscale-endpoints/configure-auto-scaling.png" alt-text="Screenshot that shows how to select the option to configure autoscaling for an endpoint." lightbox="media/how-to-autoscale-endpoints/configure-auto-scaling.png":::
 
 1. For the __Choose how to scale your resources__ option, select __Custom autoscale__ to begin the configuration.
 
@@ -155,7 +154,7 @@ To enable autoscale for a Machine Learning endpoint, you first define an autosca
    - __Instance limits__ > __Maximum__: Set the value to 5.
    - __Instance limits__ > __Default__: Set the value to 2.
 
-   :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot that shows how to configure the autoscale settings in the studio.":::
+   :::image type="content" source="media/how-to-autoscale-endpoints/choose-custom-autoscale.png" alt-text="Screenshot that shows how to configure the autoscale settings in the studio." lightbox="media/how-to-autoscale-endpoints/choose-custom-autoscale.png":::
 
 Leave the configuration pane open. In the next section, you configure the __Rules__ settings.
 
@@ -203,7 +202,7 @@ The rule is part of the `my-scale-settings` profile, where `autoscale-name` matc
     )
     ```
 
-   This rule refers to the last 5-minute average of the `CPUUtilizationpercentage` value from the arguments `metric_name`, `time_window` and `time_aggregation`. When the value of the metric is greater than the `threshold` of 70, two more VM instances are allocated. 
+   This rule refers to the last 5-minute average of the `CPUUtilizationpercentage` value from the arguments `metric_name`, `time_window`, and `time_aggregation`. When the value of the metric is greater than the `threshold` of 70, the deployment allocates two more VM instances. 
 
 1. Update the `my-scale-settings` profile to include this rule: 
 
@@ -249,7 +248,7 @@ The following steps continue with the autoscaling configuration.
 
 1. Select __Add__ to create the rule:
 
-   :::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot that shows how to configure the scale out rule for greater than 70% CPU for 5 minutes.":::
+   :::image type="content" source="media/how-to-autoscale-endpoints/scale-out-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-out-rule.png" alt-text="Screenshot that shows how to configure the scale-out rule for greater than 70% CPU for 5 minutes.":::
 
 Leave the configuration pane open. In the next section, you adjust the __Rules__ settings.
 
@@ -339,9 +338,9 @@ The following steps adjust the __Rules__ configuration to support a scale in rul
 
    :::image type="content" source="media/how-to-autoscale-endpoints/scale-in-rule.png" lightbox="media/how-to-autoscale-endpoints/scale-in-rule.png" alt-text="Screenshot that shows how to configure the scale in rule for less than 30% CPU for 5 minutes.":::
 
-   If you configure both scale out and scale in rules, your rules look similar to the following screenshot. The rules specify that if average CPU load exceeds 70% for 5 minutes, two more nodes should be allocated, up to the limit of five. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of two. 
+   If you configure both scale-out and scale in rules, your rules look similar to the following screenshot. The rules specify that if average CPU load exceeds 70% for 5 minutes, two more nodes should be allocated, up to the limit of five. If CPU load is less than 30% for 5 minutes, a single node should be released, down to the minimum of two. 
 
-   :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot that shows the autoscale settings including the scale in and scale out rules.":::
+   :::image type="content" source="media/how-to-autoscale-endpoints/autoscale-rules-final.png" lightbox="media/how-to-autoscale-endpoints/autoscale-rules-final.png" alt-text="Screenshot that shows the autoscale settings including the scale in and scale-out rules.":::
 
 Leave the configuration pane open. In the next section, you specify other scale settings.
 
@@ -581,5 +580,5 @@ Alternatively, you can delete a managed online endpoint directly in the [endpoin
 ## Related content
 
 - [Understand autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md)
-- [Overview of common autoscale patterns](../azure-monitor/autoscale/autoscale-common-scale-patterns.md)
-- [Best practices for autoscale](../azure-monitor/autoscale/autoscale-best-practices.md)
+- [Review common autoscale patterns](../azure-monitor/autoscale/autoscale-common-scale-patterns.md)
+- [Explore best practices for autoscale](../azure-monitor/autoscale/autoscale-best-practices.md)
