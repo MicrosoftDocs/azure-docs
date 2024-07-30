@@ -84,7 +84,6 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     | Column name | Data type |
     | --- | --- |
-    | SequenceNumber | int |
     | assetName | string |
     | Temperature | decimal | 
     | Pressure | decimal | 
@@ -97,7 +96,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"SequenceNumber", "Properties":{"Path":"$[\'SequenceNumber\']"}},{"column":"assetName", "Properties":{"Path":"$[\'DataSetWriterName\']"}},{"column":"Temperature", "Properties":{"Path":"$.Payload.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.Payload.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'Timestamp\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"Temperature", "Properties":{"Path":"$.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ``` 
 
 ### Add data table as a destination
