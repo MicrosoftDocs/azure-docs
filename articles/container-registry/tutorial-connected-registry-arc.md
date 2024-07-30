@@ -57,7 +57,7 @@ To complete this tutorial, you need:
 
 * Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Apply Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service. 
 
-## Deploy Connected registry extension with HTTPS (TLS encryption)
+## Deploy Connected registry extension with HTTPS (TLS encryption) using preinstalled cert-manager service
 
 While using a preinstalled cert-manager service on the cluster, you can deploy the Connected registry extension with HTTPS (TLS encryption) by following the steps:
 
