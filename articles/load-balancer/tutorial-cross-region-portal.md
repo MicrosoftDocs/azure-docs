@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 06/27/2024
+ms.date: 07/30/2024
 ms.custom: template-tutorial, references_regions
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
@@ -500,6 +500,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'myResourceGroupLB-CR'
 ```
+---
 
 ## Next steps
 
