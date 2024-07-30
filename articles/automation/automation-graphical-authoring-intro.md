@@ -365,13 +365,13 @@ $h = @{'q'=$query; 'lr'='lang_ja';  'count'=$Count}
 $h
 ```
 
-The following example uses output from an activity called `Get Twitter Connection` to populate a hashtable.
+The following example uses output from an activity called `Get X Connection` to populate a hashtable.
 
 ```powershell-interactive
-@{'ApiKey'=$ActivityOutput['Get Twitter Connection'].ConsumerAPIKey;
-    'ApiSecret'=$ActivityOutput['Get Twitter Connection'].ConsumerAPISecret;
-    'AccessToken'=$ActivityOutput['Get Twitter Connection'].AccessToken;
-    'AccessTokenSecret'=$ActivityOutput['Get Twitter Connection'].AccessTokenSecret}
+@{'ApiKey'=$ActivityOutput['Get X Connection'].ConsumerAPIKey;
+    'ApiSecret'=$ActivityOutput['Get X Connection'].ConsumerAPISecret;
+    'AccessToken'=$ActivityOutput['Get X Connection'].AccessToken;
+    'AccessTokenSecret'=$ActivityOutput['Get X Connection'].AccessTokenSecret}
 ```
 
 ## Authenticate to Azure resources

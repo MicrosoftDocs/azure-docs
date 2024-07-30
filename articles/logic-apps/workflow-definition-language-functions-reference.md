@@ -442,7 +442,7 @@ actionBody('<actionName>')
 
 *Example*
 
-This example gets the `body` output from the Twitter action `Get user`:
+This example gets the `body` output from the X action `Get user`:
 
 ```
 actionBody('Get_user')
@@ -487,7 +487,7 @@ actionOutputs('<actionName>')
 
 *Example*
 
-This example gets the output from the Twitter action `Get user`:
+This example gets the output from the X action `Get user`:
 
 ```
 actionOutputs('Get_user')
@@ -572,7 +572,7 @@ actions('<actionName>').outputs.body.<property>
 *Example*
 
 This example gets the `status` property value
-from the Twitter action `Get user` at runtime:
+from the X action `Get user` at runtime:
 
 ```
 actions('Get_user').outputs.body.status
@@ -1164,7 +1164,7 @@ body('<actionName>')
 
 *Example*
 
-This example gets the `body` output from the `Get user` Twitter action:
+This example gets the `body` output from the `Get user` X action:
 
 ```
 body('Get_user')
@@ -3568,7 +3568,7 @@ outputs('<actionName>')
 
 *Example*
 
-This example gets the output from the Twitter action `Get user`:
+This example gets the output from the X action `Get user`:
 
 ```
 outputs('Get_user')

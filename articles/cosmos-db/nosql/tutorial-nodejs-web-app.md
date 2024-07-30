@@ -367,7 +367,7 @@ After you've completed the initial setup and configuration, learn how to write t
 
 Now build the user interface so that a user can interact with the application. The Express application you created in the previous sections uses **Jade** as the view engine.
 
-1. The *layout.jade* file in the **views** directory is used as a global template for other *.jade* files. In this step, you modify it to use Twitter Bootstrap, which is a toolkit used to design a website.
+1. The *layout.jade* file in the **views** directory is used as a global template for other *.jade* files. In this step, you modify it to use Bootstrap, which is a toolkit used to design a website.
 
 1. Open the *layout.jade* file found in the **views** folder and replace the contents with the following code:
 
