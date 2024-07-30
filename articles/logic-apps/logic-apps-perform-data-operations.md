@@ -67,7 +67,7 @@ For example, you can construct a JSON message from multiple variables, such as s
 
 `{ "age": <ageVar>, "fullName": "<lastNameVar>, <firstNameVar>" }`
 
-and creates the following output:
+And creates the following output:
 
 `{"age":35,"fullName":"Owens,Sophia"}`
 
@@ -949,7 +949,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
    When you're done, the **Send an email** action looks similar to the following example:
 
-   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png" alt-text="Screenshot shows workflow with finished action named Send an email ction for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png":::
+   :::image type="content" source="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png" alt-text="Screenshot shows workflow with finished action named Send an email for action named Parse JSON." lightbox="media/logic-apps-perform-data-operations/send-email-parse-json-action-complete.png":::
 
 1. Save your workflow, and then manually run your workflow.
 
