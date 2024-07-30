@@ -42,7 +42,7 @@ When rating calls, you must respect values defined on the scale field. The lower
 
 OverallRating is a required category for all surveys.
 
-For more information on suggested survey use, see (Survey Concepts)[https://learn.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept]
+For more information on suggested survey use, see [Survey Concepts](https://learn.microsoft.com/azure/communication-services/concepts/voice-video-calling/end-of-call-survey-concept)
 
 > [!NOTE]
 >A question’s indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or Input Range, Microsoft analyzes your survey data according to your customization.
@@ -126,7 +126,7 @@ The submitSurvey API can return an error in the following scenarios:
 | `CannotInvite` | Customer wasn't able to add a new participant on call | 
 | `HadToRejoin` | Customer left and joined again the call as a workaround for an issue |
 |  `CallEndedUnexpectedly`  | Customer's call ended with no apparent reason | 
-| `OtherIssues` | Issue that isn't described by the previous values | 
+| `OtherIssues` | Any issue that does not fit previous descriptions | 
 
 ### Audio issues
 
@@ -140,7 +140,7 @@ The submitSurvey API can return an error in the following scenarios:
 | `AudioStoppedUnexpectedly` | Audio stopped with no clear reason (e.g. no one is muted)| 
 | `DistortedSpeech` | A participant's voice is distorted, different from their expected voice | 
 | `AudioInterruption`  | Customer experiences audio interruptions, voice cuts, etc.| 
-| `OtherIssues`   | Issue that isn't described by the previous values | 
+| `OtherIssues`   | Any issue that does not fit previous descriptions | 
 
 ###  Video issues
 
@@ -153,7 +153,7 @@ The submitSurvey API can return an error in the following scenarios:
 | `StoppedUnexpectedly` | Screen Share stops with no clear reason (e.g camera is on and video calling is on) |  
 | `DarkVideoReceived` | Video is being sent but participant sees only a dark box (or another single color) | 
 | `AudioVideoOutOfSync` | Video and Audio do not seem to be in sync|
-| `OtherIssues`   |Issue that isn't described by the previous values |
+| `OtherIssues`   |Any issue that does not fit previous descriptions |
 
 ### Screen share issues    
 | Tag | Description | 
@@ -165,7 +165,7 @@ The submitSurvey API can return an error in the following scenarios:
 | `Freezes` | Screen Share freezes during presentation | 
 | `StoppedUnexpectedly` | Screen Share stops with no clear reason (e.g screen share was not stopped by customer) | 
 | `LargeDelay` |Perceived delay between what is being shown and what is seen | 
-| `OtherIssues`     |Issue that isn't described by the previous values| 
+| `OtherIssues`     |Any issue that does not fit previous descriptions| 
 
 
 ### Customization options
