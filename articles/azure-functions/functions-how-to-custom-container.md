@@ -1,7 +1,7 @@
 ---
 title: Working with Azure Functions in containers
 description: Learn how to work with function apps running in Linux containers.
-ms.date: 02/27/2024
+ms.date: 07/27/2024
 ms.topic: how-to
 ms.custom: build-2023, linux-related-content, build-2024
 zone_pivot_groups: functions-container-hosting
@@ -116,7 +116,7 @@ Replace `<DOCKER_ID>` with your Docker Hub account ID.
 
 ---
 
-At this point, you need to update an existing deployment to use the new image. You can updates the function app to use the new image either by using the Azure CLI or in the [Azure portal]: 
+At this point, you need to update an existing deployment to use the new image. You can update the function app to use the new image either by using the Azure CLI or in the [Azure portal]: 
 
 ### [Azure CLI](#tab/azure-cli2)
 
@@ -147,7 +147,7 @@ The specified image version is deployed to your app.
 :::zone pivot="azure-functions"  
 You should also consider [enabling continuous deployment](#enable-continuous-deployment-to-azure).
 ::: zone-end  
-:::zone pivot="azure-functions, container-apps"  
+:::zone pivot="azure-functions"  
 ## Azure portal create using containers
 
 When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
@@ -185,12 +185,12 @@ The following steps create and deploy an existing containerized function app fro
 
 1. After your function app resource is created, select **Go to resource** and in the function app page select **Deployment center**.
 
-1. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable  GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry. 
+1. In the **Deployment center**, you can connect your container registry as the source of the image. You can also enable GitHub Actions or Azure Pipelines for more robust continuous deployment of updates to your container in the registry. 
 ::: zone-end   
 :::zone pivot="container-apps"  
 ## Azure portal create using containers
 
-When you create a function app in the [Azure portal], you can choose to deploy the function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
+When you create a Container Apps-hosted function app in the [Azure portal], you can choose to deploy your function app from an image in a container registry. To learn how to create a containerized function app in a container registry, see [Create your function app in a container](#create-your-function-app-in-a-container).
 
 The following steps create and deploy an existing containerized function app from a container registry.
 
@@ -211,13 +211,13 @@ The following steps create and deploy an existing containerized function app fro
  
    <sup>*</sup>App name must be unique within the Azure Container Apps environment. 
 
-1. For **Azure Container Apps environment**, accept the suggested new environment in the **Consumption + Dedicated** plan. By default, the environment is created with the default workload profile and without zone redundancy, which minimizes costs. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).       
+1. Still on the **Basics** page, accept the suggested new environment for **Azure Container Apps environment**. To minimize costs, the new default environment is created in the **Consumption + Dedicated** with the default workload profile and without zone redundancy. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).       
 
     You can also choose to use an existing Container Apps environment. To create a custom environment, instead select **Create new**. In the **Create Container Apps Environment** page, you can add nondefault workload profiles or enable zone redundancy. To learn about environments, see [Azure Container Apps environments](../container-apps/environment.md).
 
 1. Select the **Deployment** tab and unselect **Use quickstart image**. Otherwise, the function app is deployed from the base image for your function app language.
 
-1. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials.
+1. Choose your **Image type**, public or private. Choose **Private** if you're using Azure Container Registry or some other private registry. Supply the **Image** name, including the registry prefix. If you're using a private registry, provide the image registry authentication credentials. The **Public** setting only supports images stored publicly in Docker Hub.
 
 1. Under **Container resource allocation**, select your desired number of CPU cores and available memory. If your environment has other workload profiles added, you can select a nondefault **Workload profile**. Choices on this page affect the cost of hosting your app. See the [Container Apps pricing page](https://azure.microsoft.com/pricing/details/container-apps/) to estimate your potential costs. 
    
@@ -255,7 +255,7 @@ Based on your changes, a new image is deployed to your app or new allocations ar
  
 1. To make updates, modify any of the image settings, such as the **Full Image Name and Tag** and then select **Save**.
 
-The a new image is deployed to your app based on your new settings.
+The new image is deployed to your app based on your new settings.
 ::: zone-end 
 
 ---
@@ -275,7 +275,7 @@ You enable workload profiles when you create your container app environment. For
 
 You can add, edit, and delete profiles in your environment. For an example, see [Add profiles](../container-apps/workload-profiles-manage-cli.md#add-profiles).  
 
-When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You do this by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, like in this example:
+When you create a containerized function app in an environment that has workload profiles enabled, you should also specify the profile in which to run. You specify the profile by using the `--workload-profile-name` parameter of the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command, like in this example:
 
 ```azurecli
 az functionapp create --name <APP_NAME> --storage-account <STORAGE_NAME> --environment MyContainerappEnvironment --resource-group AzureFunctionsContainers-rg --functions-version 4 --runtime <LANGUAGE_STACK> --image <IMAGE_URI> --workload-profile-name <PROFILE_NAME> --cpu <CPU_COUNT> --memory <MEMORY_SIZE> 
@@ -309,7 +309,7 @@ Azure Functions lets you work with application settings for containerized functi
 :::zone pivot="container-apps"
 ## Enable continuous deployment to Azure
 
-When you host your containerized function app on Azure Container Apps, there are two ways to set up continous deployment from a source code repository:
+When you host your containerized function app on Azure Container Apps, there are two ways to set up continuous deployment from a source code repository:
 
 + [Azure Pipelines](./functions-how-to-azure-devops.md#deploy-a-container)
 + [GitHub Actions](./functions-how-to-github-actions.md?tabs=container)

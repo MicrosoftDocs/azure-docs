@@ -2,21 +2,22 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: conceptual
-ms.date: 07/19/2024
+ms.date: 03/16/2024
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
 
 # Continuous delivery by using GitHub Actions
 
-You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure. This article supports these GitHub Actions-based deployment methods: 
+You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
-| Method | Action | Tasks |
-| ---- | ---- | ---- |
-| Code-only | `Azure/functions-action` | 1. Set up the environment.<br/>2. Build the code project.<br/>3. Deploy the package to a function app in Azure.   |
-| Container | `Azure/functions-container-action` | 1. Set up the environment.<br/>2. Build the Docker container.<br/>3. Push the image to the container registry.<br/>4. Deploy the container to Azure. | 
+A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. A GitHub Actions workflow for Functions performs the following tasks, regardless of language: 
 
-A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+1. Set up the environment.
+1. Build the code project.
+1. Deploy the package to a function app in Azure.
+
+The Azure Functions action handles the deployment to an existing function app in Azure. 
 
 You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates in one of these ways:  
 
@@ -32,74 +33,24 @@ If you don't want to create your YAML file by hand, select a different method at
 
 + A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 
-+ Project source code in a GitHub repository.
-
-+ One of these deployment targets:
-
-    + A working function app hosted on Azure. This function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments).
-
-    + An existing container registry, such as [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
-::: zone pivot="method-cli,method-manual,method-template"
++ A working function app hosted on Azure with source code in a GitHub repository. 
+:::zone pivot="method-cli"
 + [Azure CLI](/cli/azure/install-azure-cli), when developing locally. You can also use the Azure CLI in Azure Cloud Shell.
-::: zone-end
+:::zone-end
 ::: zone pivot="method-manual,method-template"
 
-## <a name="generate-deployment-credentials"></a>Choose deployment credentials
+## Generate deployment credentials
 
-Since GitHub Actions requires credentials to be able to access Azure resources, you first need to get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
-
-There are several supported authentication credentials you can use when deploying your code to Azure using GitHub Actions. This article supports these credentials: 
-
-| Credential | Set in... | Deployment type | Usage |
-| ---- | ---- |  --- |  --- |
-| Publish profile | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Use the basic authentication credentials in the publish profile to connect to the `scm` deployment endpoint. |
-| Service principal secret |[`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Using the [credentials of an Azure service principal](https://github.com/marketplace/actions/azure-login?version=v1.6.1#login-with-a-service-principal-secret) to perform identity-based authentication during deployment. |
-| Docker credentials | [`docker/login-action`](https://github.com/marketplace/actions/docker-login) | Container | When accessing a private Docker container registry. For an Azure Container Registry, you can also use an Azure service principal secret. |  
-
-You must securely store the required credentials in GitHub secrets for use by GitHub Actions during deployment. 
-
-## Get the service access credentals
+Since GitHub Actions uses your publish profile to access your function app during deployment, you first need to get your publish profile and store it securely as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets).  
 
 >[!IMPORTANT]
->In this section you are working with valuable credentials that allow access to Azure resources. Make sure you always transport and store credentials securely. In GitHub, these credentials **must** only be stored as GitHub secrets.
+>The publish profile is a valuable credential that allows access to Azure resources. Make sure you always transport and store it securely. In GitHub, the publish profile must only be stored in GitHub secrets.
 
-### [Publish profile](#tab/publish-profile)
-
-Publish profile is an XML-formated object that contains basic authentication credentials used to access the `scm` deployment endpoint. These credentials are used by tools like Visual Studio and Azure Functions Core Tools to deploy code to your function app. Publish profiles require you to [enable basic authentication](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on the `scm` management endoint.
+### Download your publish profile
 
 [!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
 
-### [Service principal secret](#tab/service-principal)
-
-You can use the identity of a service principal in Azure when connecting to your app's `scm` deployment endpoint. This is also the recommended way to connect to an Azure Container Registry from your GitHub account. You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for publishing.
-
-1. Use this [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal and get its credential:
-
-    ```azurecli
-    az ad sp create-for-rbac --name "<APP_NAME>_deployment" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
-    ```
-
-    Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<APP_NAME>` with the names of your subscription, resource group, and function app. 
-
-    The output from this command is a JSON object that is the credential that GitHub Actions uses to connect to your app.You need to securely retain this output until you can add as a GitHub secret.
-
-1. (Optional) To deploy a containerized function app from Azure Container Registry, use this [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to add the `acrpull` role to the new service principal:
-
-    ```azurecli    
-    az role assignment create --assignee <SERVICE_PRINCIPAL_ID> --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerRegistry/registries/<REGISTRY_NAME> --role acrpull
-    ```
-
-    Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<REGISTRY_NAME>` with the names of your subscription, resource group, and registry.Replace `<SERVICE_PRINCIPAL_ID>` with the `clientID` from the credentials you obtained in the previous step. The role you added is scoped to your specific Azure Container Registry instance.
- 
-### [Docker credentials](#tab/docker-credentials)
-
-You need to use registry-specific credentials when deploying a container from a private container registry. The way that you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
-
-For Azure Container Registry (ACR), you can instead use the same service principal credentials you use to deploy to Azure.
-
----
-
-## Add credentials to GitHub secrets
+### Add the GitHub secret
 
 1. In [GitHub](https://github.com/), go to your repository.
 
@@ -109,30 +60,11 @@ For Azure Container Registry (ACR), you can instead use the same service princip
 
 1. Select **New repository secret**.
 
-1. Define the secret, which depends on your chosen credential:
-
-    ### [Publish profile](#tab/publish-profile)
-
-    + **Name**: `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-    + **Secret**: Paste the entire XML contents of the publish profile. 
-
-    ### [Service principal secret](#tab/service-principal)
-    
-    + **Name**: `AZURE_CREDENTIALS`
-    + **Secret**: Paste the entire JSON output you obtained when you created your service principal. 
-    
-    ### [Docker credentials](#tab/docker-credentials)
-    
-    + **Name**: `REGISTRY_USERNAME`
-    + **Secret**: The username of your account in the private Docker registry. 
-    + **Name**: `REGISTRY_PASSWORD`
-    + **Secret**: The password for your account in the private Docker registry. 
-    
-    ---
+1. Add a new secret with the name `AZURE_FUNCTIONAPP_PUBLISH_PROFILE` and the value set to the contents of the publishing profile file.
 
 1. Select **Add secret**.
 
-GitHub can now authenticate with your Azure resources during deployment.
+GitHub can now authenticate to your function app in Azure.
 ::: zone-end
 ::: zone pivot="method-manual"
 
@@ -142,97 +74,61 @@ The best way to manually create a workflow configuration is to start from the of
 
 1. Choose either **Windows** or **Linux** to make sure that you get the template for the correct operating system.
 
-    ### [Windows](#tab/windows)
+    # [Windows](#tab/windows)
     
-    Deployments to Windows use `runs-on: windows-latest`. Containerized deployments require Linux.
+    Deployments to Windows use `runs-on: windows-latest`.
     
-    ### [Linux](#tab/linux)
+    # [Linux](#tab/linux)
     
-    Deployments to Linux use `runs-on: ubuntu-latest`. Use Linux for containerized deployments.
+    Deployments to Linux use `runs-on: ubuntu-latest`.
     
     ---
 
 1. Copy the language-specific template from the Azure Functions actions repository using the following link:  
 
-    ### [.NET](#tab/dotnet/windows)
+    # [.NET](#tab/dotnet/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-dotnet-functionapp-on-azure.yml> 
     
-    ### [.NET](#tab/dotnet/linux)
+    # [.NET](#tab/dotnet/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-dotnet-functionapp-on-azure.yml>
     
-    ### [Java](#tab/java/windows)
+    # [Java](#tab/java/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-java-functionapp-on-azure.yml>
     
-    ### [Java](#tab/java/linux)
+    # [Java](#tab/java/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-java-functionapp-on-azure.yml>
     
-    ### [JavaScript](#tab/javascript/windows)
+    # [JavaScript](#tab/javascript/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-node.js-functionapp-on-azure.yml> 
     
-    ### [JavaScript](#tab/javascript/linux)
+    # [JavaScript](#tab/javascript/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-node.js-functionapp-on-azure.yml>
     
-    ### [Python](#tab/python/windows)
+    # [Python](#tab/python/windows)
     
     Python functions aren't supported on Windows. Choose Linux instead.
     
-    ### [Python](#tab/python/linux)
+    # [Python](#tab/python/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-python-functionapp-on-azure.yml>
     
-    ### [PowerShell](#tab/powershell/windows)
+    # [PowerShell](#tab/powershell/windows)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-powershell-functionapp-on-azure.yml>
     
-    ### [PowerShell](#tab/powershell/linux)
+    # [PowerShell](#tab/powershell/linux)
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-powershell-functionapp-on-azure.yml> 
-
-    ### [Container](#tab/container/windows)
     
-    Container deployments aren't supported on Windows. Choose Linux instead.
-    
-    ### [Container](#tab/container/linux)
-    
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
-
-    Remember to do the following before you use this YAML file:
-    
-    + Update the values of `REGISTRY`, `NAMESPACE`, `IMAGE`, and `TAG` based on your container registry. 
-    + Update the container respository credentials in the `docker/login-action` action. To use service principal credentials with Azure Container Registry, add an environment variable for the credentials object to your file:
-    
-        ```yml
-        - env: 
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        ```
-    
-        Then replace the existing `azure/docker-Login` action with this `docker/login-action`:
-
-        ```yml
-        - name: Login to ACR
-          uses: docker/login-action@v3
-          with:
-            registry: <registry-name>.azurecr.io
-            username: ${{ fromJson(creds.clientId) }}
-            password: ${{ fromJson(creds.clientSecret) }}
-        ```
     --- 
 
 1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#. 
- 
-1. To connect to your app using service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
-
-    ```yml
-    - name: 'Login w/ service principal'
-      uses: azure/login@v2
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
 1. Add this new YAML file in the `/.github/workflows/` path in your repository. 
 
@@ -316,14 +212,6 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. To use service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
-
-    ```yml
-    - name: 'Login w/ service principal'
-      uses: azure/login@v2
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
 1. Verify that the new workflow file is being saved in `/.github/workflows/` and select **Commit changes...**.  
 ::: zone-end
 
@@ -335,69 +223,61 @@ If for some reason, you need to update or change an existing workflow configurat
 
 The following template example uses version 1 of the `functions-action` and a `publish profile` for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
 
-### [Windows](#tab/windows)
+# [Windows](#tab/windows)
 
 If your function app runs on Linux, select **Linux**.
 
-### [Linux](#tab/linux)
+# [Linux](#tab/linux)
 
 If your function app runs on Windows, select **Windows**.
 
 ---
 
-### [.NET](#tab/dotnet/windows)
+# [.NET](#tab/dotnet/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
 
-### [.NET](#tab/dotnet/linux)
+# [.NET](#tab/dotnet/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-dotnet-functionapp-on-azure.yml" range="1-5,13-44"::: 
 
-### [Java](#tab/java/windows)
+# [Java](#tab/java/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
-### [Java](#tab/java/linux)
+# [Java](#tab/java/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-45"::: 
 
-### [JavaScript](#tab/javascript/windows)
+# [JavaScript](#tab/javascript/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
 
-### [JavaScript](#tab/javascript/linux)
+# [JavaScript](#tab/javascript/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-node.js-functionapp-on-azure.yml" range="1-5,13-46"::: 
 
-### [Python](#tab/python/windows)
+# [Python](#tab/python/windows)
 
 Python functions aren't supported on Windows. Choose Linux instead.
 
-### [Python](#tab/python/linux)
+# [Python](#tab/python/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-47"::: 
 
-### [PowerShell](#tab/powershell/windows)
+# [PowerShell](#tab/powershell/windows)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
 
-### [PowerShell](#tab/powershell/linux)
+# [PowerShell](#tab/powershell/linux)
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-powershell-functionapp-on-azure.yml" range="1-5,13-31"::: 
-
-### [Container](#tab/container/windows)
-    
-Container deployments aren't supported on Windows. Choose Linux instead.
-
-### [Container](#tab/container/linux)
-  
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="9-57":::   
 
 --- 
 
 ## Azure Functions action
 
-The Azure Functions action (`Azure/functions-action`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+The Azure Functions action (`Azure/azure-functions`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
 
 ### Parameters
 
@@ -407,7 +287,7 @@ The following parameters are most commonly used with this action:
 |---------|---------|
 |_**app-name**_ | (Mandatory) The name of your function app. |
 |_**slot-name**_ | (Optional) The name of a specific [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already exist in your function app. When not specified, the code is deployed to the active slot. |
-|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. Don't include this if you are instead using service principal credentials with `azure/login`.|
+|_**publish-profile**_ | (Optional) The name of the GitHub secret that contains your publish profile. |
 
 The following parameters are also supported, but are used only in specific cases:
 

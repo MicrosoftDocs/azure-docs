@@ -164,90 +164,6 @@ Use the following command to add a function to your project, where the `--name` 
 func new --name HttpExample --template "HTTP trigger"
 ```
 ::: zone-end  
-<!---
-::: zone pivot="programming-language-other"
-In a text editor, create a file in the project folder named *handler.R*. Add the following code as its content:
-
-```r
-library(httpuv)
-
-PORTEnv <- Sys.getenv("FUNCTIONS_CUSTOMHANDLER_PORT")
-PORT <- strtoi(PORTEnv , base = 0L)
-
-http_not_found <- list(
-  status=404,
-  body='404 Not Found'
-)
-
-http_method_not_allowed <- list(
-  status=405,
-  body='405 Method Not Allowed'
-)
-
-hello_handler <- list(
-  GET = function (request) {
-    list(body=paste(
-      "Hello,",
-      if(substr(request$QUERY_STRING,1,6)=="?name=") 
-        substr(request$QUERY_STRING,7,40) else "World",
-      sep=" "))
-  }
-)
-
-routes <- list(
-  '/api/HttpExample' = hello_handler
-)
-
-router <- function (routes, request) {
-  if (!request$PATH_INFO %in% names(routes)) {
-    return(http_not_found)
-  }
-  path_handler <- routes[[request$PATH_INFO]]
-
-  if (!request$REQUEST_METHOD %in% names(path_handler)) {
-    return(http_method_not_allowed)
-  }
-  method_handler <- path_handler[[request$REQUEST_METHOD]]
-
-  return(method_handler(request))
-}
-
-app <- list(
-  call = function (request) {
-    response <- router(routes, request)
-    if (!'status' %in% names(response)) {
-      response$status <- 200
-    }
-    if (!'headers' %in% names(response)) {
-      response$headers <- list()
-    }
-    if (!'Content-Type' %in% names(response$headers)) {
-      response$headers[['Content-Type']] <- 'text/plain'
-    }
-
-    return(response)
-  }
-)
-
-cat(paste0("Server listening on :", PORT, "...\n"))
-runServer("0.0.0.0", PORT, app)
-```
-
-In *host.json*, modify the `customHandler` section to configure the custom handler's startup command.
-
-```json
-"customHandler": {
-  "description": {
-      "defaultExecutablePath": "Rscript",
-      "arguments": [
-      "handler.R"
-    ]
-  },
-  "enableForwardingHttpRequest": true
-}
-```
-::: zone-end
--->
 To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 ::: zone pivot="programming-language-csharp"  
 ```console
@@ -270,15 +186,7 @@ npm start
 mvn clean package  
 mvn azure-functions:run
 ```
-::: zone-end
-<!---
-::: zone pivot="programming-language-other"
-```console
-R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
-func start
-```
-::: zone-end
--->
+::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 After you see the `HttpExample` endpoint written to the output, navigate to that endpoint. You should see a welcome message in the response output.
 ::: zone-end  
@@ -290,28 +198,8 @@ Press **Ctrl**+**C** (**Command**+**C** on macOS) to stop the host.
 
 ## Build the container image and verify locally
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
-(Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
-::: zone-end
-<!---
-::: zone pivot="programming-language-other"
-Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
+(Optional) Examine the _Dockerfile_ in the root of the project folder. The _Dockerfile_ describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Modify the *Dockerfile* to install R. Replace the contents of the *Dockerfile* with the following code:
-
-```dockerfile
-FROM mcr.microsoft.com/azure-functions/dotnet:3.0-appservice 
-ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
-    AzureFunctionsJobHost__Logging__Console__IsEnabled=true
-
-RUN apt update && \
-    apt install -y r-base && \
-    R -e "install.packages('httpuv', repos='http://cran.rstudio.com/')"
-
-COPY . /home/site/wwwroot
-```
-::: zone-end
--->
 In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
@@ -328,8 +216,7 @@ docker run -p 8080:80 -it <DOCKER_ID>/azurefunctionsimage:v1.0.0
 
 ::: zone pivot="programming-language-csharp"
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample`, which must display the same greeting message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
-::: zone-end
-<!---add back programming-language-other-->
+::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
@@ -365,24 +252,6 @@ Azure Container Registry is a private registry service for building, storing, an
     ```docker
     docker push <LOGIN_SERVER>/azurefunctionsimage:v1.0.0
     ```
-<!---1. Use the following command to enable the built-in admin account so that Functions can connect to the registry with a username and password:
-
-    ```azurecli
-    az acr update -n <REGISTRY_NAME> --admin-enabled true
-    ```
-
-<!---Hide until Functions + ACA supports managed identities
-    > [!IMPORTANT]
-    > The admin account is designed for a single user to access the registry, mainly for testing purposes and for specific Azure services. In a production scenario, you should instead [add a user-assigned managed identity](../articles/app-service/overview-managed-identity.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=cli#add-a-user-assigned-identity) to which you can [grant access to the registry](../articles/container-registry/container-registry-authentication-managed-identity.md?tabs=azure-cli#grant-identity-access-to-the-container-registry).  --\>
-
-1. Use the following command to retrieve the admin username and password, which Functions needs to connect to the registry:
-
-    ```azurecli
-    az acr credential show -n <REGISTRY_NAME> --query "[username, passwords[0].value]" -o tsv
-    ```
-
-    > [!IMPORTANT]
-    > The admin account username and password are important credentials. Make sure to store them securely and never in an accessible location like a public repository. -->
  
 ### [Docker Hub](#tab/docker)
 
