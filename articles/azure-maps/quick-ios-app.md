@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-ios
 ms.custom: mode-other
 ---
 

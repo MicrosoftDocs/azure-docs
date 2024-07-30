@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 07/21/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-ios
 ---
 
 # Show traffic data on the map in the iOS SDK (Preview)

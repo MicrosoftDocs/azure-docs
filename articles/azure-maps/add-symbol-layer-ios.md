@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: sdk-ios
 ---
 
 # Add a symbol layer in the iOS SDK (Preview)
