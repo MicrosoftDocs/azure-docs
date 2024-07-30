@@ -13,12 +13,29 @@ ms.date: 7/28/2024
 
 # Sharding for horizontal scalability in Azure Cosmos DB for MongoDB vCore
 
+Azure Cosmos DB for MongoDB vCore supports sharding to horizontally distribute data and traffic. The documents within a collection are divided into chunks called logical shards. 
+
+Sharding is defined at the granularity of an individual collection within the cluster using a designated shard key from the collection's document structure. Data is then bucketed into chunks with each chunk corresponding to a logical partition. Documents for each unique value of the shard key property reside in the same logical shard. 
+
+For each document inserted into a sharded collection, the value of the shard key property is hashed to compute the designated logical shard. The onus of placing the logical shard and distributing all the logical shards within the cluster are abstracted from the user and fully managed by the service.
+
 ## Logical shards
-Azure Cosmos DB for MongoDB vCore supports logical sharding to horizontally distribute data and application traffic across physical shards.
+All documents containing the same value for the shard key belong to the same logical shard. 
 
-Sharding is defined at the granularity of an individual collection within the cluster and by a designated shard key from the collection's document structure. Data is then bucketed into individual chunks with each chunk corresponding to a logical partition. Documents corresponding to each unique value of the shard key property reside in the same logical shard. There are no limits to the number of logical partitions that a collection contains. In theory, a collection can have as many logical shards as documents.
+For example, let's consider a collection called Employees with the document structure below. 
 
-For each document inserted into a sharded collection, the value of the shard key property is hashed to compute the corresponding logical shard. The onus of placing the logical shard and distributing all the logical shards within the cluster are abstracted from the user and fully managed by the service.
+This table shows a mapping of shard key values to logical partitions.
+
+| Document Id | Shard Key Value | Logical Shard |
+|-------------|-----------------|-------------- |
+| "12345"     | "Steve Smith"   | Shard 1       |
+| "23456"     | "Jane Doe"      | Shard 2       | 
+| "34567"     | "Steve Smith"   | Shard 1       |
+| "45678"     | "Michael Smith" | Shard 3       |
+| "56789"     | "Jane Doe"      | Shard 2       |
+
+There are no limits to the number of logical shards for a collection. A collection can have as many logical shards as documents with a unique value for the shard key property in each document. There are also no limits to the size of a single logical shard. In addition, the service does not limit transactions to the scope of a logical shard. The vCore based service for Azure Cosmos DB for MongoDB 
+supports read and write transactions that are applicable across multiple logical shards and across multiple physical shards in the cluster.
 
 ## Physical shards
 Physical shards are the underlying machines and disks responsible for persisting the data and fulfilling database transactions. Unlike logical shards, physical shards are entirely managed by the service under the covers.
