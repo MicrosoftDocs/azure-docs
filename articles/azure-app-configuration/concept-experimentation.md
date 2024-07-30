@@ -1,6 +1,6 @@
 ---
 title: Experimentation in Azure App Configuration
-description: Experimentation in Azure App Configuration
+description: This document introduces experimentation in Azure App Configuration, scenarios for using Split Experimentation, and more.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
@@ -8,6 +8,7 @@ ms.custom:
   - build-2024
 ms.topic: conceptual
 ms.date: 05/08/2024
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Experimentation (preview)

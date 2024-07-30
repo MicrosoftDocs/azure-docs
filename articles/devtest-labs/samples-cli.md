@@ -20,7 +20,7 @@ This article includes sample bash scripts built for Azure CLI for Azure DevTest 
 
 ## Prerequisites
 
-[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

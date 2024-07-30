@@ -136,7 +136,7 @@ EGTs also introduce a potential trade-off for you to evaluate in your design. Th
 
 ## Capacity considerations
 
-[!INCLUDE [storage-table-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-tables-scale-targets.md)]
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## Cost considerations
 Table storage is relatively inexpensive, but you should include cost estimates for both capacity usage and the quantity of transactions as part of your evaluation of any Table service solution. However, in many scenarios, storing denormalized or duplicate data in order to improve the performance or scalability of your solution is a valid approach. For more information about pricing, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  

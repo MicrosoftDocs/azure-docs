@@ -320,7 +320,7 @@ For more information, see [Azure Synapse operations and management options](/azu
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
-Teradata implements features such as `FALLBACK`, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
+Teradata implements features such as `FALLBACK`, Archive Restore Copy (ARC) utility, and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
 
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.

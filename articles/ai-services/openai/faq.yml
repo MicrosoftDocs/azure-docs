@@ -7,7 +7,7 @@ metadata:
   manager: nitinme
   ms.service: azure-ai-openai
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 06/12/2024
   ms.author: mbullwin
   author: mrbullwinkle
 title: Azure OpenAI Service frequently asked questions
@@ -122,17 +122,13 @@ sections:
 
           If the service doesn't perform processing, you won't be charged.
           For example, a 401 error due to authentication or a 429 error due to exceeding the Rate Limit.
-          
   - name: Getting access to Azure OpenAI Service
     questions:
       - question: |
           How do I get access to Azure OpenAI? 
         answer: |
-          Access is currently limited as we navigate high demand, upcoming product improvements, and Microsoft's commitment to responsible AI. For now, we're working with customers with an existing partnership with Microsoft, lower risk use cases, and those committed to incorporating mitigations. Apply here for initial access: [Apply now](https://aka.ms/oaiapply)          
-      - question: |
-          After I apply for access, how long will I have to wait to get approved?
-        answer: |
-          We don't currently provide a timeline for access approval.
+          A Limited Access registration form is not required to access most Azure OpenAI models. Learn more on the [Azure OpenAI Limited Access page](/legal/cognitive-services/openai/limited-access?context=/azure/ai-services/openai/context/context).
+
   - name: Learning more and where to ask questions
     questions:
       - question: |
@@ -228,6 +224,11 @@ sections:
           What are the known limitations of GPT-4 Turbo with Vision?
         answer: |
           See the [limitations](./concepts/gpt-with-vision.md#limitations) section of the GPT-4 Turbo with Vision concepts guide.
+      - question: |
+          I keep getting truncated responses when I use GPT-4 Turbo vision models. Why is this happening?
+        answer:
+          By default GPT-4 `vision-preview` and GPT-4 `turbo-2024-04-09` have a `max_tokens` value of 16. Depending on your request this value is often too low and can lead to truncated responses. To resolve this issue, pass a larger `max_tokens` value as part of your chat completions API requests. GPT-4o defaults to 4096 max_tokens.
+
   - name: Assistants
     questions:
       - question: |

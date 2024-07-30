@@ -123,18 +123,16 @@ To start, create a yaml file that uses the following definitions:
 
 Simulate test data by deploying a Kubernetes workload. It simulates a sensor by sending sample temperature, vibration, and pressure readings periodically to the MQ broker using an MQTT client on the `sensor/data` topic.
 
-1. [Download the simulator yaml](https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml) from the Explore IoT Operations repository
-
-1. Deploy the simulator:
+1. Deploy the simulator from the Explore IoT Operations repository:
 
     ```bash
-    kubectl apply -f simulate-data.yaml
+    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/tutorials/mq-event-driven-dapr/simulate-data.yaml    
     ```
 
-1. Confirm the simulator is running:
+1. Confirm the simulator is running correctly:
 
     ```bash
-    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f 
+    kubectl logs deployment/mqtt-publisher-deployment -n azure-iot-operations -f
     ```
 
     With the following output:

@@ -351,7 +351,7 @@ When an email address is rate limited, a notification is sent to communicate tha
 When you use Azure Resource Manager for email notifications, you can send email to the members of a subscription's role. Email is sent to Microsoft Entra ID **user** or **group** members of the role. This includes support for roles assigned through Azure Lighthouse.
 
 > [!NOTE]
-> Action Groups only supports emailing the following roles: Owner, Contirbutor, Reader, Monitoring Contributor, Monitoring Reader.
+> Action Groups only supports emailing the following roles: Owner, Contributor, Reader, Monitoring Contributor, Monitoring Reader.
 
 If your primary email doesn't receive notifications, configure the email address for the Email Azure Resource Manager role:
 
@@ -559,60 +559,98 @@ If you use the webhook action, your target webhook endpoint must be able to proc
 
 ### Secure webhook PowerShell script
 
+> [!NOTE]
+>
+>Pre-requisites: [Install the Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true)
+
+#### How to run?
+
+1. Copy and paste the script below to your machine
+2. Replace your tenantId, and the ObjectID in your App Registration
+3. Save as *.ps1
+4. Open the PowerShell command from your machine, and run the *.ps1 script
+
 ```PowerShell
-Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
-# Define your Azure AD application's ObjectId.
-$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
-# Define the action group Azure AD AppId.
-$actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
-# Define the name of the new role that gets added to your Azure AD application.
+Write-Host "================================================================================================="
+$scopes = "Application.ReadWrite.All"
+$myTenantId = "<<Customer's tenant id>>"
+$myMicrosoftEntraAppRegistrationObjectId = "<<Customer's object id from the app registration>>"
 $actionGroupRoleName = "ActionGroupsSecureWebhook"
-# Create an application role with the given name and description.
+$azureMonitorActionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a" # Required. Do not change.
+
+Connect-MgGraph -Scopes $scopes -TenantId $myTenantId
+
 Function CreateAppRole([string] $Name, [string] $Description)
 {
-    $appRole = New-Object Microsoft.Open.AzureAD.Model.AppRole
-    $appRole.AllowedMemberTypes = New-Object System.Collections.Generic.List[string]
-    $appRole.AllowedMemberTypes.Add("Application");
-    $appRole.DisplayName = $Name
-    $appRole.Id = New-Guid
-    $appRole.IsEnabled = $true
-    $appRole.Description = $Description
-    $appRole.Value = $Name;
+    $appRole = @{
+        AllowedMemberTypes = @("Application")
+        DisplayName = $Name
+        Id = New-Guid
+        IsEnabled = $true
+        Description = $Description
+        Value = $Name
+    }
     return $appRole
 }
-# Get your Azure AD application, its roles, and its service principal.
-$myApp = Get-AzureADApplication -ObjectId $myAzureADApplicationObjectId
+
+$myApp = Get-MgApplication -ApplicationId $myMicrosoftEntraAppRegistrationObjectId
 $myAppRoles = $myApp.AppRoles
-$actionGroupsSP = Get-AzureADServicePrincipal -Filter ("appId eq '" + $actionGroupsAppId + "'")
+$myActionGroupServicePrincipal = Get-MgServicePrincipal -Filter "appId eq '$azureMonitorActionGroupsAppId'"
+
 Write-Host "App Roles before addition of new role.."
-Write-Host $myAppRoles
-# Create the role if it doesn't exist.
-if ($myAppRoles -match "ActionGroupsSecureWebhook")
+foreach ($role in $myAppRoles) { Write-Host $role.Value }
+
+if ($myAppRoles.Value -contains $actionGroupRoleName)
 {
-    Write-Host "The Action Group role is already defined.`n"
+    Write-Host "The Action Group role is already defined. No need to redefine.`n"
+    # Retrieve the application again to get the updated roles
+    $myApp = Get-MgApplication -ApplicationId $myMicrosoftEntraAppRegistrationObjectId
+    $myAppRoles = $myApp.AppRoles
 }
 else
 {
-    $myServicePrincipal = Get-AzureADServicePrincipal -Filter ("appId eq '" + $myApp.AppId + "'")
-    # Add the new role to the Azure AD application.
+    Write-Host "The Action Group role is not defined. Defining the role and adding it."
     $newRole = CreateAppRole -Name $actionGroupRoleName -Description "This is a role for Action Group to join"
-    $myAppRoles.Add($newRole)
-    Set-AzureADApplication -ObjectId $myApp.ObjectId -AppRoles $myAppRoles
+    $myAppRoles += $newRole
+    Update-MgApplication -ApplicationId $myApp.Id -AppRole $myAppRoles
+
+    # Retrieve the application again to get the updated roles
+    $myApp = Get-MgApplication -ApplicationId $myMicrosoftEntraAppRegistrationObjectId
+    $myAppRoles = $myApp.AppRoles
 }
-# Create the service principal if it doesn't exist.
-if ($actionGroupsSP -match "AzNS AAD Webhook")
+
+$myServicePrincipal = Get-MgServicePrincipal -Filter "appId eq '$($myApp.AppId)'"
+
+if ($myActionGroupServicePrincipal.DisplayName -contains "AzNS AAD Webhook")
 {
     Write-Host "The Service principal is already defined.`n"
+    Write-Host "The action group Service Principal is: " + $myActionGroupServicePrincipal.DisplayName + " and the id is: " + $myActionGroupServicePrincipal.Id
 }
 else
 {
-    # Create a service principal for the action group Azure AD application and add it to the role.
-    $actionGroupsSP = New-AzureADServicePrincipal -AppId $actionGroupsAppId
+    Write-Host "The Service principal has NOT been defined/created in the tenant.`n"
+    $myActionGroupServicePrincipal = New-MgServicePrincipal -AppId $azureMonitorActionGroupsAppId
+    Write-Host "The Service Principal is been created successfully, and the id is: " + $myActionGroupServicePrincipal.Id
 }
-New-AzureADServiceAppRoleAssignment -Id $myApp.AppRoles[0].Id -ResourceId $myServicePrincipal.ObjectId -ObjectId $actionGroupsSP.ObjectId -PrincipalId $actionGroupsSP.ObjectId
-Write-Host "My Azure AD Application (ObjectId): " + $myApp.ObjectId
+
+# Check if $myActionGroupServicePrincipal is not $null before trying to access its Id property
+# Check if the role assignment already exists
+$existingRoleAssignment = Get-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $myActionGroupServicePrincipal.Id | Where-Object { $_.AppRoleId -eq $myApp.AppRoles[0].Id -and $_.PrincipalId -eq $myActionGroupServicePrincipal.Id -and $_.ResourceId -eq $myServicePrincipal.Id }
+
+# If the role assignment does not exist, create it
+if ($null -eq $existingRoleAssignment) {
+    Write-Host "Doing app role assignment to the new action group Service Principal`n"
+    New-MgServicePrincipalAppRoleAssignment -ServicePrincipalId $myActionGroupServicePrincipal.Id -AppRoleId $myApp.AppRoles[0].Id -PrincipalId $myActionGroupServicePrincipal.Id -ResourceId $myServicePrincipal.Id
+} else {
+    Write-Host "Skip assigning because the role already existed."
+}
+
+Write-Host "myServicePrincipalId: " $myServicePrincipal.Id
+Write-Host "My Azure AD Application (ObjectId): " $myApp.Id
 Write-Host "My Azure AD Application's Roles"
-Write-Host $myApp.AppRoles
+foreach ($role in $myAppRoles) { Write-Host $role.Value }
+
+Write-Host "================================================================================================="
 ```
 ### Migrate Runbook action from "Run as account" to "Run as Managed Identity"  
 > [!NOTE]

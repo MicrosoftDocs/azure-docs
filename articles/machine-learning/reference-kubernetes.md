@@ -3,9 +3,9 @@ title: Reference for configuring Kubernetes cluster for Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Reference for configuring Kubernetes cluster for Azure Machine Learning.
 services: machine-learning
-author: zhongj
-ms.author: jinzhong
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: jinzhong
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: devx-track-arm-template

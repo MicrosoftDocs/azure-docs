@@ -12,7 +12,10 @@ ms.custom: template-how-to
 
 Microsoft launched a unified data governance service to help manage and govern your on-premises, multicloud, and software-as-a-service (SaaS) data. Microsoft Purview creates a map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Microsoft Purview data governance solutions enable data curators to manage and secure their data estate and empowers data consumers to find valuable, trustworthy data.
 
-The document shows you how to do the migration from Azure Data Catalog to Microsoft Purview.
+The document shows you how to migrate from an existing Azure Data Catalog to Microsoft Purview. 
+
+>[!TIP]
+>If you're looking into data catalog services for the first time, use [Microsoft Purview](/purview/purview).
 
 ## Recommended approach
 

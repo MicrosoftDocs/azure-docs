@@ -25,7 +25,7 @@ In this quickstart, you create a confidential ledger with [Azure PowerShell](/po
 
 ## Create a resource group
 
-[!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/powershell-rg-create.md)]
+[!INCLUDE [Create resource group](../../includes/powershell-rg-create.md)]
 
 ## Get your principal ID and tenant ID
 
@@ -72,7 +72,7 @@ If you again run [Get-AzConfidentialLedger](/powershell/module/az.confidentialle
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources](~/reusable-content/ce-skilling/azure/includes/powershell-rg-delete.md)]
+[!INCLUDE [Clean up resources](../../includes/powershell-rg-delete.md)]
 
 ## Next steps
 

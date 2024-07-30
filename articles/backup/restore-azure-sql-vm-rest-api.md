@@ -375,7 +375,7 @@ To perform Cross-region restore, you will require an access token to enable prop
     }
     ```
 
-1. Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to get an access token to enable communication between the Azure Backup services.
+1. Use the Get Access Token API to get an access token to enable communication between the Azure Backup services.
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20

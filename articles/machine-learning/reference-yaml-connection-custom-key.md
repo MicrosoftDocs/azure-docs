@@ -9,10 +9,10 @@ ms.custom:
   - build-2024
 ms.topic: reference
 
-author: AmarBadal
-ms.author: ambadal
+author: Blackmist
+ms.author: larryfr
 ms.date: 05/09/2024
-ms.reviewer: larryfr
+ms.reviewer: ambadal
 ---
 
 # CLI (v2) custom key connection YAML schema

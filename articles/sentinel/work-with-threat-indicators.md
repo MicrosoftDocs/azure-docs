@@ -45,15 +45,7 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 For example:
 
-#### [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-sentinel.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-sentinel.png":::
-
-#### [Defender portal](#tab/defender-portal)
-
-:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-defender.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data from the Defender portal." lightbox="media/work-with-threat-indicators/geolocation-whois-defender.png":::
-
----
+:::image type="content" source="media/work-with-threat-indicators/geolocation-whois-unified.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/work-with-threat-indicators/geolocation-whois-unified.png":::
 
 > [!IMPORTANT]
 > GeoLocation and WhoIs enrichment is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -95,9 +87,9 @@ The **Threat intelligence** page also allows you to create threat indicators dir
 
 ### Tag and edit threat indicators
 
-Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply a tag to indicators related to a particular incident, or to those representing threats from a particular known actor or well-known attack campaign. Tag threat indicators individually, or multi-select indicators and tag them all at once. Shown below is an example of tagging multiple indicators with an incident ID. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags. Indicators allow applying multiple tags.
+Tagging threat indicators is an easy way to group them together to make them easier to find. Typically, you might apply tags to an indicator related to a particular incident, or representing threats from a particular known actor or well-known attack campaign. Once you search for the indicators you want to work with, tag them individually, or multi-select indicators and tag them all at once with one or more tags. Since tagging is free-form, a recommended practice is to create standard naming conventions for threat indicator tags.
 
-:::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
+:::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Screenshot of apply tags to threat indicators." lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
 Microsoft Sentinel also allows you to edit indicators, whether they've been created directly in Microsoft Sentinel, or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators coming from partner sources, only specific fields are editable, including tags, *Expiration date*, *Confidence*, and *Revoked*. Either way, keep in mind only the latest version of the indicator is displayed in the **Threat Intelligence** page view. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
 

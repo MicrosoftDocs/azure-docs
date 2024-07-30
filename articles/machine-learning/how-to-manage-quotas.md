@@ -5,9 +5,9 @@ description: Learn about the quotas and limits on resources for Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-author: SimranArora904
-ms.author: siarora
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: siarora
 ms.date: 09/15/2023
 ms.topic: how-to
 ms.custom: troubleshooting

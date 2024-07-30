@@ -1,8 +1,8 @@
 ---
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
-ms.topic: conceptual
-ms.date: 03/04/2024
+ms.topic: overview
+ms.date: 07/30/2024
 ms.custom:
 ms.service: backup
 author: AbhishekMallick-MS

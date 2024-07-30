@@ -3,7 +3,7 @@ title: Transform telemetry on ingress to IoT Central
 description: To use complex telemetry from devices, you can use mappings to transform it as it arrives in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 07/12/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -17,6 +17,9 @@ Data mapping lets you transform complex device telemetry into structured data in
 * Create device templates and device management experiences in IoT Central.
 * Normalize telemetry from different devices by mapping JSON paths on multiple devices to a common alias.
 * Export to destinations outside IoT Central.
+
+> [!TIP]
+> If you want to autogenerate a device template from unmodeled telemetry, see [Autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template).
 
 :::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Diagram that summarizes the mapping process in IoT Central." border="false":::
 
@@ -150,7 +153,3 @@ The results of these mapping rules look like the following examples:
 ```
 
 Now you can use the mapped aliases to display telemetry on a chart or dashboard. You can also use the mapped aliases when you export telemetry.
-
-## Next steps
-
-Now that you've learned how to map data for your device, a suggested next step is to learn [How to use data explorer to analyze device data](howto-create-analytics.md).

@@ -64,13 +64,42 @@ The connection logs have slightly different implementations, contents, and setup
 
 ## Azure Cache for Redis metrics
 
-Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute and automatically stored for 30 days so they can be displayed in the metrics charts and evaluated by alert rules.
+Metrics for Azure Cache for Redis instances are collected using the Redis [`INFO`](https://redis.io/commands/info) command. Metrics are collected approximately two times per minute so they can be displayed in the metrics charts and evaluated by alert rules. To learn how long data is retained and how to configure a different retention policy, see [Data retention and archive in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-archive).
 
 The metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. Each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
 
 Each metric includes two versions: One metric measures performance for the entire cache, and for caches that use clustering. A second version of the metric, which includes `(Shard 0-9)` in the name, measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` measures just the hits for that shard of the cache.
 
 :::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager.":::
+
+### View cache metrics
+
+You can view Azure Monitor metrics for Azure Cache for Redis directly from an Azure Cache for Redis resource in the [Azure portal](https://portal.azure.com).
+
+[Select your Azure Cache for Redis instance](cache-configure.md#configure-azure-cache-for-redis-settings) in the portal. The **Overview** page shows the predefined **Memory Usage** and **Redis Server Load** monitoring charts. These charts are useful summaries that allow you to take a quick look at the state of your cache.
+
+:::image type="content" source="./media/cache-how-to-monitor/cache-overview-metrics.png" alt-text="Screen showing two charts: Memory Usage and Redis Server Load.":::
+
+For more in-depth information, you can monitor the following useful Azure Cache for Redis metrics from the **Monitoring** section of the Resource menu.
+
+| Azure Cache for Redis metric | More information |
+| --- | --- |
+| Network bandwidth usage |[Cache performance - available bandwidth](cache-planning-faq.yml#azure-cache-for-redis-performance) |
+| Connected clients |[Default Redis server configuration - max clients](cache-configure.md#maxclients) |
+| Server load |[Redis Server Load](monitor-cache-reference.md#azure-cache-for-redis-metrics) |
+| Memory usage |[Cache performance - size](cache-planning-faq.yml#azure-cache-for-redis-performance) |
+
+:::image type="content" source="media/cache-how-to-monitor/cache-monitor-metrics.png" alt-text="Screenshot of monitoring metrics selected in the Resource menu.":::
+
+### Create your own metrics
+
+You can create your own custom chart to track the metrics you want to see. Cache metrics are reported using several reporting intervals, including **Past hour**, **Today**, **Past week**, and **Custom**. On the left, select the **Metric** in the **Monitoring** section. Each metrics chart displays the average, minimum, and maximum values for each metric in the chart, and some metrics display a total for the reporting interval.
+
+Each metric includes two versions: One metric measures performance for the entire cache, and for caches that use clustering. A second version of the metric, which includes `(Shard 0-9)` in the name, measures performance for a single shard in a cache. For example if a cache has four shards, `Cache Hits` is the total number of hits for the entire cache, and `Cache Hits (Shard 3)` measures just the hits for that shard of the cache.
+
+In the Resource menu on the left, select **Metrics** under **Monitoring**. Here, you design your own chart for your cache, defining the metric type and aggregation type.
+
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitor.png" alt-text="Screenshot with metrics showing in the resource manager":::
 
 #### Aggregation types
 
@@ -89,9 +118,110 @@ In contrast, for clustered caches, use the metrics with the suffix `Instance Bas
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-For sample Kusto queries for Azure Cache for Redis connection logs, see [Connection log queries](cache-monitor-diagnostic-settings.md#log-analytics-queries).
+### Log Analytics queries
+
+> [!NOTE]
+> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics.
+
+Here are some basic queries to use as models.
+
+#### [Queries for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
+
+- Azure Cache for Redis client connections per hour within the specified IP address range:
+
+```kusto
+let IpRange = "10.1.1.0/24";
+ACRConnectedClientList
+// For particular datetime filtering, add '| where TimeGenerated between (StartTime .. EndTime)'
+| where ipv4_is_in_range(ClientIp, IpRange)
+| summarize ConnectionCount = sum(ClientCount) by TimeRange = bin(TimeGenerated, 1h)
+```
+
+- Unique Redis client IP addresses that have connected to the cache:
+
+```kusto
+ACRConnectedClientList
+| summarize count() by ClientIp
+```
+
+### [Queries for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
+
+- Azure Cache for Redis connections per hour within the specified IP address range:
+
+```kusto
+REDConnectionEvents
+// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
+// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
+// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
+| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
+| where EventType == "new_conn"
+| summarize ConnectionCount = count() by TimeRange = bin(EventTime, 1h)
+```
+
+- Azure Cache for Redis authentication requests per hour within the specified IP address range:
+
+```kusto
+REDConnectionEvents
+| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
+// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
+// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
+// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
+| where EventType == "auth"
+| summarize AuthencationRequestsCount = count() by TimeRange = bin(EventTime, 1h)
+```
+
+- Unique Redis client IP addresses that have connected to the cache:
+
+```kusto
+REDConnectionEvents
+// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
+// EventStatus :
+// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
+// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
+// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
+// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
+// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
+// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
+// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
+// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
+// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
+| where EventType == "auth" and EventStatus == 2 or EventStatus == 8 or EventStatus == 7
+| summarize count() by ClientIp
+```
+
+- Unsuccessful authentication attempts to the cache
+
+```kusto
+REDConnectionEvents
+// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
+// EventStatus : 
+// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
+// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
+// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
+// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
+// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
+// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
+// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
+// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
+// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
+| where EventType == "auth" and EventStatus != 2 and EventStatus != 8 and EventStatus != 7
+| project ClientIp, EventStatus, ConnectionId
+```
+---
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
+
+### Create alerts
+
+You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
+
+- Send an email notification
+- Call a webhook
+- Invoke an Azure Logic App
+
+To configure alerts for your cache, select **Alerts** under **Monitoring** on the Resource menu.
+
+:::image type="content" source="./media/cache-how-to-monitor/cache-monitoring.png" alt-text="Screenshot showing how to create an alert.":::
 
 ### Azure Cache for Redis common alert rules
 

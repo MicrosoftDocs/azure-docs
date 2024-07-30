@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     * When you're prompted, install Azure CLI extensions on first use. For more information about extensions, see [Use extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
     * Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade).
 
-  [!INCLUDE [iot-hub-cli-version-info](~/reusable-content/ce-skilling/azure/includes/iot-hub-cli-version-info.md)]
+  [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * The sample application that you run in this tutorial uses Node.js. You need Node.js v10.x.x or later on your development machine.
 
@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-include-create-hub-cli](~/reusable-content/ce-skilling/azure/includes/iot-hub-include-create-hub-cli.md)]
+[!INCLUDE [iot-hub-include-create-hub-cli](../../includes/iot-hub-include-create-hub-cli.md)]
 
 ## Check device authentication
 

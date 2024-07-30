@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: Multicloud connector enabled by Azure Arc (preview) # < 60 chars
+summary: Connect non-Azure public cloud resources to Azure for centralized management and governance. # < 160 chars
+ 
+metadata:
+  title: Multicloud connector enabled by Azure Arc (preview)
+  description: Connect non-Azure public cloud resources to Azure for centralized management and governance.
+  ms.service: azure-arc
+  ms.author: jroth
+  ms.topic: landing-page
+  ms.date: 06/11/2024
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Multicloud connector enabled by Azure Arc?
+            url: overview.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Connect a public cloud to Azure
+            url: connect-to-aws.md
+
+  - title: Solutions
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage multicloud inventory
+            url: view-multicloud-inventory.md
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard VMs to Azure Arc
+            url: onboard-multicloud-vms-arc.md

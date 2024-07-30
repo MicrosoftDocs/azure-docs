@@ -34,7 +34,7 @@ Now you have two options: You can either sync your data to the new Azure file sh
 
 If you plan to use the same local file server, you can skip this section and proceed to [Connect to the new Azure file share](#connect-to-the-new-azure-file-share).
 
-If you want to move to a new local Azure File Sync server, you can use [Storage Migration Service](/windows-server/storage/storage-migration-service/overview) (SMS) to:
+If you want to move to a new local Azure File Sync server, you can use [Storage Migration Service (SMS)](/windows-server/storage/storage-migration-service/overview) to:
 
 - Copy over all your share-level permissions
 - Make several passes to catch up with changes that happened during migration

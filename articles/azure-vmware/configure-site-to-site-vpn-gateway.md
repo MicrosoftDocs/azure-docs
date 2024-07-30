@@ -18,7 +18,7 @@ You must have a public-facing IP address terminating on an on-premises VPN devic
 
 ## Create an Azure Virtual WAN
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## Create a virtual hub
 
@@ -27,11 +27,11 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
 >[!TIP]
 >You can also [create a gateway in an existing hub](../virtual-wan/virtual-wan-expressroute-portal.md#existinghub).
 
-[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create a VPN gateway 
 
-[!INCLUDE [Create a gateway](~/reusable-content/ce-skilling/azure/includes/virtual-wan-tutorial-s2s-gateway-include.md)]
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 ## Create a site-to-site VPN
 
@@ -43,7 +43,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
  
 3. On the **Basics** tab, enter the required fields. 
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="Screenshot showing the Create VPN site page with the Basics tab open." lightbox="../../includes/media/virtual-wan-tutorial-site-include/site-basics.png":::
 
    * **Region** - Previously referred to as location. It's the location you want to create this site resource in.
    
@@ -69,7 +69,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
 
 1. Navigate to the virtual hub you want, and deselect **Hub association** to connect your VPN site to the hub.
  
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-site-include/connect.png":::   
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-site-include/connect.png" alt-text="Screenshot shows Connect to this hub." lightbox="../../includes/media/virtual-wan-tutorial-site-include/connect.png":::   
 
 ## (Optional) Create policy-based VPN site-to-site tunnels
 
@@ -115,7 +115,7 @@ A virtual hub is a virtual network that is created and used by Azure Virtual WAN
    >[!TIP]
    >If you don't have a previously defined key, you can leave this field blank. A key is generated for you automatically. 
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
+   :::image type="content" source="../../includes/media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="Screenshot that shows the Connected Sites pane for Virtual HUB ready for a Pre-shared key and associated settings. "::: 
 
 1. If you're deploying a firewall in the hub and it's the next hop, set the **Propagate Default Route** option to **Enable**. 
 

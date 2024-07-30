@@ -177,7 +177,7 @@ az deployment group create --resource-group "$ADE_RESOURCE_GROUP_NAME" \
     --template-file "$DIR/empty.json"
 ```
 
-You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder. A simple implementation could be as follows:
+You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/main/Runner-Images) folder. A simple implementation could be as follows:
 ```bash
 if [ $? -eq 0 ]; then # deployment successfully created
     while true; do

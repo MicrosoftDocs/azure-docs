@@ -125,15 +125,12 @@
         href: organization-internal-external-commercial-purposes-recommendations.md
     - name: Azure Virtual Desktop Agent
       href: agent-overview.md
-    - name: Host pool load balancing methods
-      href: host-pool-load-balancing.md
-      displayName: load-balancing, lb
-    - name: FSLogix Profile Container
+    - name: User profile management
       items:
-      - name: FSLogix Profile Container and Azure Files
+      - name: FSLogix profile container
         displayName: user profiles
-        href: fslogix-containers-azure-files.md
-      - name: Storage options for FSLogix Profile Container
+        href: fslogix-profile-containers.md
+      - name: Storage options for FSLogix profile container
         displayName: user profiles
         href: store-fslogix-profile.md
     - name: Applications
@@ -263,7 +260,7 @@
           displayName: deploy, get started
           href: add-session-hosts-host-pool.md
         - name: Enable GPU acceleration
-          displayName: graphics, multimedia, videos, cad, session hosts
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
           href: enable-gpu-acceleration.md
         - name: Customize session host images
           items:
@@ -287,6 +284,9 @@
           - name: Windows 11 Enterprise images
             displayName: languages, language packs
             href: windows-11-language-packs.md
+        - name: Configure default chroma value
+          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
+          href: configure-default-chroma-value.md
       - name: Applications
         items:
         - name: Publish applications with RemoteApp
@@ -348,9 +348,6 @@
         - name: Configure RDP Shortpath
           displayName: network, udp
           href: configure-rdp-shortpath.md
-        - name: Limit RDP Shortpath port range
-          displayName: network, udp
-          href: configure-rdp-shortpath-limit-ports-public-networks.md
         - name: Set up Azure Private Link
           displayName: network, private endpoints
           href: private-link-setup.md
@@ -463,9 +460,6 @@
       - name: Configure clipboard transfer direction
         displayName: security
         href: clipboard-transfer-direction-data-types.md
-    - name: Set up a disaster recovery plan
-      displayName: bcdr, bc dr
-      href: disaster-recovery.md
   - name: Connect
     items:
     - name: Windows App
@@ -664,8 +658,6 @@
     href: msixmgr-tool-syntax-description.md 
 - name: Resources
   items:
-  - name: User experience estimator
-    href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing
     items:
     - name: Azure Virtual Desktop pricing

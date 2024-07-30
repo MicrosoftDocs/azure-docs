@@ -135,14 +135,14 @@ CLIENT_ID=$(az aks show \
 
 To grant a system-assigned managed identity permissions to a resource in Azure, call the [`az role assignment create`][az-role-assignment-create] command to assign an Azure RBAC role to the managed identity.
 
-For a VNet, attached Azure disk, static IP address, or route table outside the default worker node resource group, you need to assign the `Contributor` role on the custom resource group.
+For a VNet, attached Azure disk, static IP address, or route table outside the default worker node resource group, you need to assign the ` Network Contributor` role on the custom resource group.
 
-For example, assign the `Contributor` role on the custom resource group using the [`az role assignment create`][az-role-assignment-create] command. For the `--scope` parameter, provide the resource ID for the resource group for the cluster.
+For example, assign the `Network Contributor` role on the custom resource group using the [`az role assignment create`][az-role-assignment-create] command. For the `--scope` parameter, provide the resource ID for the resource group for the cluster.
 
 ```azurecli-interactive
 az role assignment create \
     --assignee $CLIENT_ID \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope "<resource-group-id>"
 ```
 

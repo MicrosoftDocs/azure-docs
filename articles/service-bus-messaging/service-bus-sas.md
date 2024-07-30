@@ -9,7 +9,7 @@ ms.custom: devx-track-csharp
 
 # Service Bus access control with Shared Access Signatures
 
-This article discusses *Shared Access Signatures* (SAS), how they work, and how to use them in a platform-agnostic way with Azure Service Bus. 
+This article discusses *Shared Access Signatures (SAS)*, how they work, and how to use them in a platform-agnostic way with Azure Service Bus. 
 
 SAS guards access to Service Bus based on authorization rules that are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 

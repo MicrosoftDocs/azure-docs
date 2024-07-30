@@ -63,7 +63,7 @@ If you publish an updated package with the same name to Blob storage, you need t
 
 ### Access a package in Azure Blob Storage using a managed identity
 
-[!INCLUDE [Run from package via Identity](~/reusable-content/ce-skilling/azure/includes/app-service-run-from-package-via-identity.md)]
+[!INCLUDE [Run from package via Identity](../../includes/app-service-run-from-package-via-identity.md)]
 
 ## Deploy WebJob files when running from package
 

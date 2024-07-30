@@ -3,7 +3,7 @@ title: Node autoprovisioning (preview)
 description: Learn about Azure Kubernetes Service (AKS) node autoprovisioning (preview).
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 01/18/2024
+ms.date: 06/13/2024
 ms.author: schaffererin
 author: schaffererin
 #Customer intent: As a cluster operator or developer, how to scale my cluster based on workload requirements and right size my nodes automatically
@@ -66,7 +66,7 @@ NAP is based on the Open Source [Karpenter](https://karpenter.sh) project, and t
 
 ## Limitations
 
-- The only network configuration allowed is Cilium + Overlay + Azure
+- The only network configuration allowed is [Azure CNI Overlay](concepts-network-azure-cni-overlay.md) with [Powered by Cilium](azure-cni-powered-by-cilium.md).
 - You can't enable in a cluster where node pools have cluster autoscaler enabled
 
 ### Unsupported features

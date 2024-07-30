@@ -72,7 +72,7 @@ You can also learn more by watching these videos from the Defender for Cloud in 
 
 ## Simulate security alerts from Microsoft Defender for Containers
 
-A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
+A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-containers.md).
 
 1. To simulate a security alert, run the following command from the cluster:
 

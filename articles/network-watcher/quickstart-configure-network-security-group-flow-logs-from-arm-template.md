@@ -75,7 +75,7 @@ You can delete Azure resources by using complete deployment mode. To delete a fl
 
 You can also disable or delete a flow log in the Azure portal:
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 

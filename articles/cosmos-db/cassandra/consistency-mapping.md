@@ -135,7 +135,7 @@ Apache Cassandra would only provide eventual consistency for reads across other 
 
 ### Metrics
 
-If your Azure Cosmos DB account is configured with a consistency level other than the strong consistency, review the *Probabilistically Bounded Staleness* (PBS) metric. The metric captures the probability that your clients may get strong and consistent reads for your workloads. This metric is exposed in the Azure portal. To find more information about the PBS metric, see [Monitor Probabilistically Bounded Staleness (PBS) metric](../how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+If your Azure Cosmos DB account is configured with a consistency level other than the strong consistency, review the *Probabilistically Bounded Staleness (PBS)* metric. The metric captures the probability that your clients may get strong and consistent reads for your workloads. This metric is exposed in the Azure portal. To find more information about the PBS metric, see [Monitor Probabilistically Bounded Staleness (PBS) metric](../how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Probabilistically bounded staleness shows how eventual is your eventual consistency. This metric provides an insight into how often you can get a stronger consistency than the consistency level that you've currently configured on your Azure Cosmos DB account. In other words, you can see the probability (measured in milliseconds) of getting consistent reads for a combination of write and read regions.
 

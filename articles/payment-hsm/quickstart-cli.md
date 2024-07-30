@@ -19,7 +19,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
 
 ## Prerequisites
 
-[!INCLUDE [Specialized service](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 
@@ -52,7 +52,7 @@ This quickstart describes how to create, update, and delete an Azure Payment HSM
 
 ## Create a resource group
 
-[!INCLUDE [Create a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-create.md)]
+[!INCLUDE [Create a resource group with the Azure CLI](../../includes/cli-rg-create.md)]
 
 ## Create a virtual network and subnet
 
@@ -118,7 +118,7 @@ az dedicated-hsm delete --name "myPaymentHSM" -g "myResourceGroup"
 
 ## Delete the resource group
 
-[!INCLUDE [Delete a resource group with the Azure CLI](~/reusable-content/ce-skilling/azure/includes/cli-rg-delete.md)]
+[!INCLUDE [Delete a resource group with the Azure CLI](../../includes/cli-rg-delete.md)]
 
 ## Next steps
 

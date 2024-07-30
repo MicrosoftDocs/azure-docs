@@ -4,7 +4,7 @@ description: Learn about VPN Gateway resources and configuration settings.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 07/11/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
@@ -17,7 +17,6 @@ The values in this article specifically apply to VPN gateways (virtual network g
 
 * For values that apply to -GatewayType 'ExpressRoute', see [Virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
-* For active-active gateways, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
 * For Virtual WAN gateways, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
 ## <a name="gwtype"></a>Gateways and gateway types
@@ -57,6 +56,13 @@ If you already have a policy-based gateway, you aren't required to change your g
 
 [!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
 
+## <a name="active"></a>Active-active VPN gateways
+
+Azure VPN gateways can be configured as active-standby or active-active. In an active-active configuration, both instances of the gateway VMs establish S2S VPN tunnels to your on-premises VPN device or devices. Active-active mode gateways are a key part of highly available gateway connectivity design. For more information, see the following articles:
+
+* [About active-active gateways](about-active-active-gateways.md)
+* [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md)
+
 ## <a name="connectiontype"></a>Connection types
 
 In the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
@@ -94,7 +100,7 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 Considerations:
 
-[!INCLUDE [vpn-gateway-gwudr-warning.md](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-gwudr-warning.md)]
+[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 
 ## <a name="lng"></a>Local network gateways
 

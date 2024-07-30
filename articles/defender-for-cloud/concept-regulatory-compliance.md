@@ -11,7 +11,7 @@ Industry standards, regulatory standards, and benchmarks are represented in Micr
 
 Defender for Cloud continuously assesses your hybrid cloud environment against these standards, and provides information about compliance in the **Regulatory compliance** dashboard.
 
-When you onboard subscriptions and accounts to Defender for Cloud, the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) (MCSB) automatically starts to assess resources in scope.
+When you onboard subscriptions and accounts to Defender for Cloud, the [Microsoft cloud security benchmark (MCSB)](/security/benchmark/azure/introduction) automatically starts to assess resources in scope.
 
 This benchmark builds on the cloud security principles defined by the Azure Security Benchmark and applies these principles with detailed technical implementation guidance for Azure, for other cloud providers (such as AWS and GCP), and for other Microsoft clouds.
 

@@ -4,7 +4,7 @@ description: Learn about best practices for running Windows containers in Azure 
 ms.service: azure-kubernetes-service
 ms.custom: linux-related-content
 ms.author: schaffererin
-ms.topic: article
+ms.topic: best-practice
 ms.date: 10/27/2023
 ---
 
@@ -31,12 +31,19 @@ You might want to containerize existing applications and run them using Windows 
 
 > **Best practice guidance**
 >
-> Windows Server 2022 provides improved security and performance, and is the recommended OS for Windows node pools on AKS.
+> Windows Server 2022 provides improved security and performance and is the recommended OS for Windows node pools on AKS. AKS uses Windows Server 2022 as the host OS version and only supports process isolation.
 
-AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
+AKS supports two options for the Windows Server operating system: Long Term Servicing Channel Releases (LTSC) and Windows Server Annual Channel for Containers.
 
-Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life. Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life. For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
+1. AKS supports Long Term Servicing Channel Releases (LTSC), including Windows Server 2022 and Windows Server 2019. This channel is released every three years and is supported for five years. Customers using Long Term Support (LTS) should use Windows Server 2022.
 
+    AKS uses Windows Server 2019 and Windows Server 2022 as the host OS versions and only supports process isolation. AKS doesn't support container images built by other versions of Windows Server. For more information, see [Windows container version compatibility](/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+    Windows Server 2022 is the default OS for Kubernetes version 1.25 and later. Windows Server 2019 will retire after Kubernetes version 1.32 reaches end of life. Windows Server 2022 will retire after Kubernetes version 1.34 reaches its end of life. For more information, see [AKS release notes][aks-release-notes]. To stay up to date on the latest Windows Server OS versions and learn more about our roadmap of what's planned for support on AKS, see our [AKS public roadmap](https://github.com/azure/aks/projects/1).
+
+2. AKS supports [Windows Server Annual Channel for Containers](https://techcommunity.microsoft.com/t5/windows-server-news-and-best/windows-server-annual-channel-for-containers/ba-p/3866248) (preview). This channel is released annually and is supported for 2 years. This channel is beneficial for customers requiring increased innovation cycles and portability. The portability functionality enables the Windows Server 2022-based container image OS to run on newer versions of Windows Server host OS, such as the new annual channel release.
+
+    Windows Annual Channel versions are based on the Kubernetes version of your node pool. To upgrade from one Annual Channel version to the next, [upgrade to a Kubernetes version](./upgrade-aks-cluster.md) that supports the next Annual Channel version. For more information, see [Windows Server Annual Channel for Containers on AKS][use-windows-annual].
 
 ## Networking
 
@@ -120,6 +127,7 @@ To learn more about Windows containers on AKS, see the following resources:
 [upgrade-aks-node-images]: ./node-image-upgrade.md
 [upgrade-windows-workloads-aks]: ./upgrade-windows-2019-2022.md
 [windows-on-aks-partner-solutions]: ./windows-aks-partner-solutions.md
+[use-windows-annual]: ./windows-annual-channel.md
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases

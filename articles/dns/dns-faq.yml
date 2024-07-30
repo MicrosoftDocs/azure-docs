@@ -178,7 +178,7 @@ sections:
         answer: |
           The following default limits apply when you use Azure DNS.
           
-          [!INCLUDE [dns-limits](~/reusable-content/ce-skilling/azure/includes/dns-limits.md)]
+          [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
           
       - question: |
           Can I move an Azure DNS zone between resource groups or between subscriptions?

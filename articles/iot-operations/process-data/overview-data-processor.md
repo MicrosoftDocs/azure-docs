@@ -83,7 +83,6 @@ Data Processor pipelines can use the following stages:
 | [Destination - HTTP](howto-configure-destination-http.md) | Sends your processed, clean, and contextualized data to an HTTP endpoint. |
 | [Destination - Fabric Lakehouse](../connect-to-cloud/howto-configure-destination-fabric.md) | Sends your processed, clean, and contextualized data to a Microsoft Fabric lakehouse in the cloud. |
 | [Destination - Azure Data Explorer](../connect-to-cloud/howto-configure-destination-data-explorer.md) | Sends your processed, clean, and contextualized data to an Azure Data Explorer endpoint in the cloud. |
-| [Destination - Azure Blob Storage](../connect-to-cloud/howto-configure-destination-blob.md) | Sends your processed, clean, and contextualized data to an Azure Blob Storage endpoint in the cloud. |
 
 ## Next step
 

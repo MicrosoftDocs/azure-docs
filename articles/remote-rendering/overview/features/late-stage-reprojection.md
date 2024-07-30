@@ -9,7 +9,7 @@ ms.topic: article
 
 # Late stage reprojection
 
-*Late Stage Reprojection* (LSR) is a hardware feature that helps stabilize holograms when the user moves.
+*Late Stage Reprojection (LSR)* is a hardware feature that helps stabilize holograms when the user moves.
 
 Static models are expected to visually maintain their position when you move around them. If they appear to be unstable, this behavior may hint at LSR issues. Mind that extra dynamic transformations, like animations or explosion views, might mask this behavior.
 

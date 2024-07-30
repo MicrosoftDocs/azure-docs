@@ -3,7 +3,7 @@ title: Private DNS records overview - Azure Private DNS
 description: Overview of support for DNS records in Azure Private DNS.
 author: greg-lindsay
 ms.service: dns
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2024
 ms.author: greglin
 ---

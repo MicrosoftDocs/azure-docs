@@ -8,9 +8,9 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 ms.date: 03/08/2023
-ms.author: rasavage
-author: rsavage2
-ms.reviewer: ssalgado
+ms.author: ssalgado
+author: ssalgadodev
+ms.reviewer: rasavage
 ---
 
 # CLI (v2) Automated ML Forecasting command job YAML schema

@@ -32,7 +32,7 @@ This sample script deletes an instance of Azure App Configuration using the Azur
 az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 ```
 
-[!INCLUDE [cli-script-cleanup](~/reusable-content/ce-skilling/azure/includes/cli-script-clean-up.md)]
+[!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
 ## Script explanation
 

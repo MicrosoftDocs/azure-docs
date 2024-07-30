@@ -72,7 +72,7 @@ In the app, select **Basic** to run the demo and follow the instructions to plac
 > ![Screenshot 2](./media/get-started-xamarin-ios/screenshot-2.jpg)
 > ![Screenshot 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 

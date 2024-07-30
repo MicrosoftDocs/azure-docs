@@ -25,7 +25,7 @@ A return value attribute isn't required when using [HttpResponseData]. However, 
 
 # [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 A return value attribute isn't required for a [class library](functions-dotnet-class-library.md). C# script instead uses a function.json configuration file as described in the [C# scripting guide](./functions-reference-csharp.md#http-output). To learn more, see [Usage](#usage).
 

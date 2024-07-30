@@ -8,10 +8,10 @@ ms.subservice: mldata
 ms.topic: reference
 ms.custom: cliv2
 
-author: SturgeonMi
-ms.author: xunwan
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 02/14/2024
-ms.reviewer: franksolomon
+ms.reviewer: xunwan
 ---
 
 # CLI (v2) MLtable YAML schema

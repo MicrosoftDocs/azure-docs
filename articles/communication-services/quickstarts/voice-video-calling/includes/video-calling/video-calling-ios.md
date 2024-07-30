@@ -632,6 +632,9 @@ public class CallObserver: NSObject, CallDelegate, IncomingCallDelegate {
 
 All remote participants are represented with the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance.
 
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `RemoteParticipants` collection. The `didUpdateRemoteParticipant` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
+
 We can implement a `RemoteParticipantObserver` class to subscribe to the updates on remote video streams of remote participants.
 
 ```Swift

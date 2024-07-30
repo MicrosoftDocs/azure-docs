@@ -25,6 +25,8 @@ information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](./list-of-metrics-collected.md).
 
+## Limitations
+- **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
 
 ## Create a Cluster
 
@@ -114,10 +116,10 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 An alternate way to create a Cluster is with the ARM template editor.
 
-In order to create the cluster this way, you need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).  
+In order to create the cluster this way, you need to provide a template file (cluster.jsonc) and a parameter file (cluster.parameters.jsonc).
 You can find examples for an 8-Rack 2M16C SKU cluster using these two files:
 
-[cluster.jsonc](./cluster-jsonc-example.md) , 
+[cluster.jsonc](./cluster-jsonc-example.md) ,
 [cluster.parameters.jsonc](./cluster-parameters-jsonc-example.md)
 
 >[!NOTE]
@@ -270,7 +272,7 @@ az networkcloud cluster show --resource-group "$CLUSTER_RG" \
   --name "$CLUSTER_NAME"
 ```
 
-The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment. 
+The Cluster deployment is in-progress when detailedStatus is set to `Deploying` and detailedStatusMessage shows the progress of deployment.
 Some examples of deployment progress shown in detailedStatusMessage are `Hardware validation is in progress.` (if cluster is deployed with hardware validation) ,`Cluster is bootstrapping.`, `KCP initialization in progress.`, `Management plane deployment in progress.`, `Cluster extension deployment in progress.`, `waiting for "<rack-ids>" to be ready`, etc.
 
 :::image type="content" source="./media/nexus-deploy-kcp-status.png" lightbox="./media/nexus-deploy-kcp-status.png" alt-text="Screenshot of Azure portal showing cluster deploy progress kcp init.":::
@@ -295,3 +297,16 @@ Cluster create Logs can be viewed in the following locations:
 2. Azure CLI with `--debug` flag passed on command-line.
 
 :::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
+
+## Delete a cluster
+
+When deleting a cluster, it will delete the resources in Azure and the cluster that resides in the on-premises environment.
+
+>[!NOTE]
+>If there are any tenant resources that exist in the cluster, it will not be deleted until those resources are deleted.
+
+:::image type="content" source="./media/nexus-delete-failure.png" lightbox="./media/nexus-delete-failure.png" alt-text="Screenshot of the portal showing the failure to delete because of tenant resources.":::
+
+```azurecli
+az networkcloud cluster delete --name "$CLUSTER_NAME" --resource-group "$CLUSTER_RG"
+```

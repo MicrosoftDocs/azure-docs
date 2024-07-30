@@ -34,7 +34,7 @@ For more information, see [Sequential convoy pattern - Azure Architecture Cloud 
 
 * A Service Bus namespace and a [Service Bus queue](../service-bus-messaging/service-bus-queues-topics-subscriptions.md), which is a messaging entity that you'll use in your logic app. These items and your logic app need to use the same Azure subscription. Make sure that you select **Enable sessions** when you create your queue. If you don't have these items, learn [how to create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-  [!INCLUDE [Warning about creating infinite loops](~/reusable-content/ce-skilling/azure/includes/connectors-infinite-loops.md)]
+  [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
 * Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the [quickstart that creates an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 

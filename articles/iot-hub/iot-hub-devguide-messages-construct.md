@@ -14,7 +14,7 @@ ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 
 To support seamless interoperability across protocols, IoT Hub defines a common set of messaging features that are available in all device-facing protocols. These can be used in both [device-to-cloud message routing](iot-hub-devguide-messages-d2c.md) and [cloud-to-device messages](iot-hub-devguide-messages-c2d.md). 
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 IoT Hub implements device-to-cloud messaging using a streaming messaging pattern. IoT Hub's device-to-cloud messages are more like [Event Hubs](../event-hubs/index.yml) *events* than [Service Bus](../service-bus-messaging/index.yml) *messages* in that there is a high volume of events passing through the service that can be read by multiple readers.
 

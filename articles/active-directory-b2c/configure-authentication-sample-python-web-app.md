@@ -1,19 +1,19 @@
 ---
-title: Configure authentication in a sample Python web application by using Azure Active Directory B2C
+title: Configure authentication in a sample Python web app by using Azure AD B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Python web application.
 
 author: kengaderdus
-manager: CelesteDG
+manager: mwongerapk
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 06/04/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support, devx-track-python
 
 
-#Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in my web application, so that I can securely sign users in and add authentication and authorization support to my app.
+#Customer intent: As a Python web app developer, I want to configure Azure AD B2C authentication in a sample web app by using my own tenant, so that I can securely sign customer users.
 
 ---
 
@@ -37,7 +37,7 @@ The sign-in flow involves the following steps:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
-- [Python 3.7+](https://www.python.org/downloads/)
+- [Python 3.8+](https://www.python.org/downloads/)
 
 ## Step 1: Configure your user flow
 

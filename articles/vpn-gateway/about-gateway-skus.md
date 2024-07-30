@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/23/2024
+ms.date: 07/23/2024
 ms.author: cherylmc 
 
 ---
@@ -16,7 +16,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 ## <a name="benchmark"></a>Gateway SKUs by tunnel, connection, and throughput
 
-[!INCLUDE [Aggregated throughput by SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 (*) If you need more than 100 S2S VPN tunnels, use [Virtual WAN](../virtual-wan/virtual-wan-about.md) instead of VPN Gateway.
 
@@ -38,7 +38,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 ## <a name="performance"></a>Gateway SKUs by performance
 
-[!INCLUDE [Performance by SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-sku-performance.md)]
+[!INCLUDE [Performance by SKU](../../includes/vpn-gateway-table-sku-performance.md)]
 
 ## <a name="feature"></a>Gateway SKUs by feature set
 
@@ -75,7 +75,7 @@ For information about working with the legacy gateway SKUs (Basic, Standard, and
 You specify the gateway SKU when you create your VPN Gateway. See the following article for steps:
 
 * [Azure portal](tutorial-create-gateway-portal.md)
-* [PowerShell](create-routebased-vpn-gateway-powershell.md)
+* [PowerShell](create-gateway-powershell.md)
 * [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 ## <a name="resizechange"></a>Change or resize a SKU

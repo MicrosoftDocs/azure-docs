@@ -5,9 +5,9 @@ description: Create and run machine learning pipelines using the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: xiaoharper
-ms.author: zhanxia
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: zhanxia
 ms.date: 01/31/2024
 ms.topic: how-to
 ms.custom:

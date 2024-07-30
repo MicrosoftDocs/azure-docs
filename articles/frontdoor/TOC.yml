@@ -236,6 +236,8 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: About migration to Azure Front Door
+      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/TOC.json
     - name: CDN and Front Door price comparison
       href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
@@ -390,6 +392,8 @@
     items:
     - name: Microsoft (classic)
       items:
+      - name: Migrate to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/TOC.json
       - name: Optimized content
         href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
         items:

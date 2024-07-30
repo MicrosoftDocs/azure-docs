@@ -19,7 +19,7 @@ This article lists current metro cities with Azure Front Door point-of-presence 
 > [!NOTE]
 > A location may contain more than one POP, noted by the number in parentheses.
 
-[!INCLUDE [front-door-edge-locations](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations.md)]
+[!INCLUDE [front-door-edge-locations](../../includes/front-door-edge-locations.md)]
 
 ## Next steps
 

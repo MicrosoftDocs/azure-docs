@@ -8,10 +8,10 @@ ms.subservice: core
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
-ms.date: 06/30/2023
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
+ms.date: 06/26/2024
 ---
 
 # Connections in prompt flow

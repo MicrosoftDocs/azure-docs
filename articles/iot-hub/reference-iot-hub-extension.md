@@ -17,7 +17,7 @@ ms.custom: [mvc, 'Role: Cloud Development']
 
 Visual Studio Code (VS Code) lets you add *extensions*, such as languages, debuggers, and tools, to your VS Code installation to support your development workflow. The [Azure IoT Hub extension for Visual Studio Code](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki) lets you add Azure IoT Hub support to your VS Code installation, so you can manage and interact with your IoT hubs, devices, and modules during development. The Azure IoT Hub extension is available from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/vscode).
 
-[!INCLUDE [basic-partial](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [basic-partial](../../includes/iot-hub-basic-partial.md)]
 
 ## Install the extension
 

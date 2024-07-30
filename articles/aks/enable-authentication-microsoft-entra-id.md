@@ -206,6 +206,6 @@ If you lack administrative access to a valid Microsoft Entra group, you can foll
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [az-group-create]: /cli/azure/group#az_group_create
-[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
+[open-id-connect]: /entra/identity-platform/v2-protocols-oidc
 [az-aks-update]: /cli/azure/aks#az_aks_update
 [kubelogin-authentication]: kubelogin-authentication.md

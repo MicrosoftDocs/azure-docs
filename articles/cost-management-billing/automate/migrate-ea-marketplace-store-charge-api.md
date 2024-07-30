@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Marketplace Store Charge API.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/23/2024
+ms.date: 06/14/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -26,121 +26,60 @@ Endpoints to migrate off:
 | `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | • API method: GET <br><br> • Synchronous (non polling) <br><br>  • Data format: JSON |
 | `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | • API method: GET <br><br> • Synchronous (non polling) <br><br> • Data format: JSON |
 
+## New solutions generally available
+
+We merged Azure Marketplace and Azure usage records into a single cost details dataset.
+
+The following table provides a summary of the migration destinations that are available along with a summary of what to consider when choosing which solution is best for you.
+
+| Solution | Purpose | Considerations | Onboarding details |
+| --- | --- | --- | --- |
+| **Exports** | Recurring data dumps to storage on a schedule | • The most scalable solution for your workloads.  <br>• Can be configured to use file partitioning for bigger datasets.  <br>• Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.  <br>• Requires access to a storage account that can hold the data. | • [Configure in Azure portal](../costs/tutorial-export-acm-data.md)  <br>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)  <br>• [Export API Reference](/rest/api/cost-management/exports/create-or-update) |
+| **Cost Details API** | On demand download | • Useful for small cost datasets.  <br>• Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns. | • [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)  <br>• [Cost Details](/rest/api/cost-management/generate-cost-details-report) API |
+
+We recommend using Exports if you have ongoing data ingestion needs or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Choose a cost details solution](usage-details-best-practices.md).
+
 ## Assign permissions to a service principal to call the API
 
 Before calling the API, you need to configure a service principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 
-### Call the Marketplaces API
+## Avoid the Microsoft Consumption Marketplaces API
 
-Use the following request URIs when calling the new Marketplaces API. All Azure and Marketplace charges are merged into a single file that is available through the new solutions. You can identify which charges are *Azure* versus *Marketplace* charges by using the `PublisherType` field that is available in the new dataset.
+The Consumption Marketplaces API is another endpoint that currently supports EA customers. Don't migrate to this API. Migrate to either Exports or the Cost Details API, as outlined earlier in this document. The Consumption Marketplaces API will be deprecated in the future.
 
-Your enrollment number should be used as the `billingAccountId`.
+## Field differences
 
-#### Supported requests
+The following table summarizes the field mapping needed to transition from the data provided by the Marketplaces API to Exports and the Cost Details API. Both of the solutions provide a CSV file download as opposed to the paginated JSON response that gets provided by the Consumption API.
 
-You can call the API using the following scopes:
+Usage records can be identified as marketplace records in the combined dataset through the `PublisherType` field. Also, there are many new fields in the newer solutions that might be useful to you. For more information about available fields, see [Understand usage details fields](understand-usage-details-fields.md).
 
-- Department: `/providers/Microsoft.Billing/departments/{departmentId}`
-- Enrollment: `/providers/Microsoft.Billing/billingAccounts/{billingAccountId}`
-- EnrollmentAccount: `/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}`
-- Management Group: `/providers/Microsoft.Management/managementGroups/{managementGroupId}`
-- Subscription: `/subscriptions/{subscriptionId}/`
-
-For subscription, billing account, department, enrollment account, and management group scopes you can also add a billing period to the scope using `/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}`. For example, to specify a billing period at the department scope, use `/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}`.
-
-[List Marketplaces](/rest/api/consumption/marketplaces/list#marketplaceslistresult)
-
-```http
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?api-version=2023-05-01
-```
-
-With optional parameters:
-
-```http
-https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?api-version=2023-05-01?&$filter={$filter}&$top={$top}&$skiptoken={$skiptoken}
-```
-
-#### Response body changes
-
->[!NOTE]
-> The new response is missing the `AccountId`, `AccountOwnerId`, and `DepartmentId` fields. For account and department information, use the `AccountName` and `DepartmentName` fields.
-
-Old response:
-
-
-```json
-[
-            {
-                "id": "id",
-                "subscriptionGuid": "00000000-0000-0000-0000-000000000000",
-                "subscriptionName": "subName",
-                "meterId": "2core",
-                "usageStartDate": "2015-09-17T00:00:00Z",
-                "usageEndDate": "2015-09-17T23:59:59Z",
-                "offerName": "Virtual LoadMaster&trade; (VLM) for Azure",
-                "resourceGroup": "Res group",
-                "instanceId": "id",
-                "additionalInfo": "{\"ImageType\":null,\"ServiceType\":\"Medium\"}",
-                "tags": "",
-                "orderNumber": "order",
-                "unitOfMeasure": "",
-                "costCenter": "100",
-                "accountId": 100,
-                "accountName": "Account Name",
-                "accountOwnerId": "account@live.com",
-                "departmentId": 101,
-                "departmentName": "Department 1",
-                "publisherName": "Publisher 1",
-                "planName": "Plan name",
-                "consumedQuantity": 1.15,
-                "resourceRate": 0.1,
-                "extendedCost": 1.11,
-                "isRecurringCharge": "False"
-            },
-            ...
-        ]
-```
-
-New response:
-
-```json
-    {
-      "id": "/subscriptions/subid/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/marketPlaces/marketplacesId1",
-      "name": "marketplacesId1",
-      "type": "Microsoft.Consumption/marketPlaces",
-      "tags": {
-        "env": "newcrp",
-        "dev": "tools"
-      },
-      "properties": {
-        "accountName": "Account1",
-        "additionalProperties": "additionalProperties",
-        "costCenter": "Center1",
-        "departmentName": "Department1",
-        "billingPeriodId": "/subscriptions/subid/providers/Microsoft.Billing/billingPeriods/201702",
-        "usageStart": "2017-02-13T00:00:00Z",
-        "usageEnd": "2017-02-13T23:59:59Z",
-        "instanceName": "shared1",
-        "instanceId": "/subscriptions/subid/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
-        "currency": "USD",
-        "consumedQuantity": 0.00328,
-        "pretaxCost": 0.67,
-        "isEstimated": false,
-        "meterId": "00000000-0000-0000-0000-000000000000",
-        "offerName": "offer1",
-        "resourceGroup": "TEST",
-        "orderNumber": "00000000-0000-0000-0000-000000000000",
-        "publisherName": "xyz",
-        "planName": "plan2",
-        "resourceRate": 0.24,
-        "subscriptionGuid": "00000000-0000-0000-0000-000000000000",
-        "subscriptionName": "azure subscription",
-        "unitOfMeasure": "10 Hours",
-        "isRecurringCharge": false
-      }
-    }
-
-```
+| **Old Property** | **New Property** | **Notes** |
+| --- | --- | --- |
+| | PublisherType | Used to identify a marketplace usage record |
+| accountName | AccountName | |
+| additionalProperties | AdditionalInfo |  |
+| costCenter | CostCenter | |
+| departmentName | BillingProfileName |  |
+| billingPeriodId | | Use BillingPeriodStartDate / BillingPeriodEndDate |
+| usageStart |  | Use Date |
+| usageEnd |  | Use Date |
+| instanceName | ResourceName |  |
+| instanceId | ResourceId |  |
+| currency | BillingCurrencyCode |  |
+| consumedQuantity | Quantity |  |
+| pretaxCost | CostInBillingCurrency |  |
+| isEstimated |  | Not available |
+| meterId | MeterId |  |
+| offerName | OfferId |  |
+| resourceGroup | ResourceGroup |  |
+| orderNumber |  | Not available |
+| publisherName | PublisherName |  |
+| planName | PlanName |  |
+| resourceRate | EffectivePrice |  |
+| subscriptionGuid | SubscriptionId |  |
+| subscriptionName | SubscriptionName |  |
+| unitOfMeasure | UnitOfMeasure |  |
+| isRecurringCharge |  | Where applicable, use the Frequency and Term fields moving forward. |
 
 ## Related content
 
