@@ -23,9 +23,8 @@ This article summarizes what's new in security recommendations and alerts in Mic
 
 - Review a complete list of multicloud security recommendations and alerts:
   - [AI recommendations](/azure/defender-for-cloud/recommendations-reference-ai)
-    
   - [Compute recommendations](recommendations-reference-compute.md)
-    
+
   - [Container recommendations](recommendations-reference-container.md)
   - [Data recommendations](recommendations-reference-data.md)
   - [DevOps recommendations](recommendations-reference-devops.md)
@@ -50,6 +49,12 @@ New and updated recommendations and alerts are added to the table in date order.
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
+|July 18|Recommendation|GA|EDR solution should be installed on GCP Virtual Machines|
+|July 18|Recommendation|GA|EDR solution should be installed on EC2s|
+|July 18|Recommendation|GA|EDR solution should be installed on GCP virtual machines|
+|July 18|Recommendation|GA|EDR configuration issues should be resolved on virtual machines|
+|July 18|Recommendation|GA|EDR configuration issues should be resolved on EC2s|
+|July 18|Recommendation|GA|EDR configuration issues should be resolved on GCP virtual machines|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
 | June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all-repositories) |
