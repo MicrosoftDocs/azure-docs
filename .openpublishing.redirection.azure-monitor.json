@@ -1516,6 +1516,46 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-overview.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-segmentation.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-funnels.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-cohorts.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-impact.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-retention.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-flows.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/app/usage-heart.md",
+            "redirect_url": "/azure/azure-monitor/app/usage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/application-insights/app-insights-visual-studio.md",
             "redirect_url": "/azure/azure-monitor/app/visual-studio",
             "redirect_document_id": false

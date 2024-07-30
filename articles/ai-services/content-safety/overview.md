@@ -140,7 +140,7 @@ For more information, see [Language support](/azure/ai-services/content-safety/l
 
 To use the Content Safety APIs, you must create your Azure AI Content Safety resource in the supported regions. Currently, the Content Safety features are available in the following Azure regions: 
 
-|Region | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) | Blocklists |
+|Region | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) | Blocklists |
 |---|---|---|---|---|---|---|--|
 | East US | ✅ | ✅| ✅ |✅ |✅ |✅|✅ |
 | East US 2 | ✅ | | | ✅ |✅ | |✅|
@@ -157,6 +157,8 @@ To use the Content Safety APIs, you must create your Azure AI Content Safety res
 | West Europe | ✅ | ✅ |✅ | |✅ | |✅ |
 | Japan East | ✅ | | | |✅ | |✅ |
 | Australia East| ✅ | ✅ | | |✅ | ✅| ✅|
+| USGov Arizona | ✅ | | | | | | |
+| USGov Virginia | ✅ | | | | | | |
 
 Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need other regions for your business.
 
@@ -164,7 +166,7 @@ Feel free to [contact us](mailto:contentsafetysupport@microsoft.com) if you need
 
 Content Safety features have query rate limits in requests-per-second (RPS) or requests-per-10-seconds (RP10S) . See the following table for the rate limits for each feature.
 
-|Pricing tier | Moderation APIs | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) (preview)|
+|Pricing tier | Moderation APIs<br>(text and image) | Prompt Shields<br>(preview) |  Protected material<br>detection (preview) | Groundedness<br>detection (preview) | Custom categories<br>(rapid) (preview) | Custom categories<br>(standard) (preview)|
 |--------|---------|-------------|---------|---------|---------|--|
 | F0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
 | S0    | 1000 RP10S    | 1000 RP10S       | 1000 RP10S    | 50 RP10S     | 1000 RP10S | 5 RPS|
