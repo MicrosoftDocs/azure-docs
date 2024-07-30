@@ -15,7 +15,7 @@ ms.custom: include file
 |---|---|---|
 | Processor        | 2 - 64 <sup> vCores    | Ampere® Altra® (Arm64)                         |
 | Memory           | 1 - 128 <sup> GiB      |                                                |
-| Local Storage    | None                   |
+| Local Storage    | None                   |                                               |
 | Remote Storage       | 4 - 32 <sup>Disks      | 3750 - 300000<sup>IOPS</sup> / 85-4000<sup>MBps |
 | Network          | 2 - 8 <sup> NICs       | 12500 - 40000<sup>Mbps                         |
 | Accelerators     | None                   |                                                |
