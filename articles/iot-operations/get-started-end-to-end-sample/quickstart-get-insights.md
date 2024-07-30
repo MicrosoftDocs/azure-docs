@@ -84,7 +84,6 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     | Column name | Data type |
     | --- | --- |
-    | assetName | string |
     | Temperature | decimal | 
     | Pressure | decimal | 
     | Timestamp | datetime |
@@ -125,7 +124,7 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will allow filtering by asset name and timestamp, and will display visual summaries of temperature and pressure data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will automatically allow filtering by timestamp, and will display visual summaries of temperature and pressure data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
@@ -137,46 +136,19 @@ Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/
 Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following notes in mind:
 * In the **Data sources** pane, your database will be under **OneLake data hub**.
 
-### Configure parameters
-
-Next, configure some parameters for your dashboard so that the visuals can be filtered by asset name and timestamp. The dashboard comes with a default parameter to filter by time range, so you only need to create one that can filter by asset name.
-
-1. Switch to the **Manage** tab, and select **Parameters**. Select **+ Add** to add a new parameter.
-
-    :::image type="content" source="media/quickstart-get-insights/add-parameter.png" alt-text="Screenshot of adding a parameter to a dashboard.":::
-
-1. Create a new parameter with the following characteristics:
-    * **Label**: *Asset*
-    * **Parameter type**: *Single selection* (already selected by default)
-    * **Variable name**: *_asset*
-    * **Data type**: *string* (already selected by default)
-    * **Source**: *Query*
-        * **Data source**: Select your database.
-        * Select **Edit query** and add the following KQL query.
-    
-            ```kql
-            OPCUA2
-            | summarize by assetName
-            ```
-    * **Value column**: *assetName*
-    * **Default value**: *Select first value of query*
-
-1. Select **Done** to save your parameter.
-
 ### Create line chart tile
 
-Next, add a tile to your dashboard to show a line chart of temperature and pressure over time for the selected asset and time range.
+Next, add a tile to your dashboard to show a line chart of temperature and pressure over time for the selected time range.
 
 1. Select either **+ Add tile** or **New tile** to add a new tile.
 
     :::image type="content" source="media/quickstart-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
 
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the resulting records with their timestamp, temperature, and pressure.
+1. Enter the following KQL query for the tile. This query applies a built-in filter parameter from the dashboard selector for time range, and pulls the resulting records with their timestamp, temperature, and pressure.
 
     ```kql
     OPCUA 
     | where Timestamp between (_startTime.._endTime)
-    | where assetName == _asset
     | project Timestamp, Temperature, Pressure
     ```
 
@@ -209,12 +181,11 @@ Next, create some tiles to display the maximum values of temperature and pressur
 
 1. Select **New tile** to create a new tile.
 
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and takes the highest temperature value from the resulting records.
+1. Enter the following KQL query for the tile. This query applies a built-in filter parameter from the dashboard selector for time range, and takes the highest temperature value from the resulting records.
     
     ```kql
     OPCUA
     | where Timestamp between (_startTime.._endTime)
-    | where assetName == _asset
     | top 1 by Temperature desc
     | summarize by Temperature
     ```
@@ -247,7 +218,6 @@ Next, create some tiles to display the maximum values of temperature and pressur
     ```kql
     OPCUA
     | where Timestamp between (_startTime.._endTime)
-    | where assetName == _asset
     | top 1 by Pressure desc
     | summarize by Pressure
     ```
