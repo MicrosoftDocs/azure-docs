@@ -58,7 +58,7 @@ After you review the resources that must be moved, you can proceed with the migr
     
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png" alt-text="Screenshot that shows how to start runbook to allow the parameters to be passed to the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/start-runbook-migration.png":::
 
-   For more information on the parameters to fetch and the location from where it must be fetched, see [migration of machines and schedules](#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
+   For more information on the parameters to fetch and the location from where it must be fetched, see [migration of machines and schedules](migration-using-runbook-scripts.md#step-1-migration-of-machines-and-schedules). Once you start the runbook after passing in all the parameters, Azure Update Manager will begin to get enabled on machines and maintenance configuration in Azure Update Manager will start getting created. You can monitor Azure runbook logs for the status of execution and migration of schedules.
 
 
 1. **Deboard resources from Automation Update management**
@@ -69,7 +69,7 @@ After you review the resources that must be moved, you can proceed with the migr
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png" alt-text="Screenshot that shows how to perform post migration." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/run-clean-up-script.png":::
 
-   When you select **Start** the runbook, asks for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
+   When you select **Start** the runbook, asks for parameters to be passed to the runbook. For more information, see [Deboarding from Automation Update Management solution](migration-using-runbook-scripts#step-2-deboarding-from-automation-update-management-solution) to fetch the parameters to be passed to the runbook.
 
    :::image type="content" source="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png" alt-text="Screenshot that shows how to deboard from Automation Update Management and starting the runbook." lightbox="./media/guidance-migration-automation-update-management-azure-update-manager/deboard-update-management-start-runbook.png":::
 

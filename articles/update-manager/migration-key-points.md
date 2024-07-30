@@ -24,6 +24,7 @@ This article lists the significant details that you must note when you're migrat
 - User Managed Identities [don't support](/entra/identity/managed-identities-azure-resources/managed-identities-faq#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant) cross tenant scenarios.
 - RebootOnly Setting isn't available in Azure Update Manager. Schedules having RebootOnly Setting won't be migrated.
 - For Recurrence, Automation schedules support values between (1 to 100) for Hourly/Daily/Weekly/Monthly schedules, whereas Azure Update Manager’s maintenance configuration supports between (6 to 35) for Hourly and (1 to 35) for Daily/Weekly/Monthly. See the following examples:
+
   | **Automation schedule recurrence** | **Maintenance configuration schedule recurrence calculation** |
   |---|---|
   | **100 hours** | 100/24 = 4.16 (Round to Nearest Value) -> every 4 days |
@@ -34,6 +35,7 @@ This article lists the significant details that you must note when you're migrat
   | **More than 35 Months** | 35 months recurrence | 
   
 - SUC supports between 30 Minutes to six Hours for the Maintenance Window. MRP supports between 1 hour 30 minutes to 4 hours.
+
   | **Maintenance window in Automation Update Management** | **Maintenance window in Azure Update Manager** |
   |---|---|
   | **30 minutes** | 1 hour 30 minutes |
