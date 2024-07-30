@@ -34,7 +34,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                            | Value       |
 |--------------------------------------------------------|-------------|
 | Number of MiB in 5 GiB                                 | 5,120       |
-| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640         |
+| PutBlock operations per blob (5,120 MiB / 8 MiB block) | 640         |
 | PutBlockList operations per blob                       | 1           |
 | **Total write operations (1,000 * 641)**               | **641,000** |
 
@@ -58,7 +58,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, the follo
 
 ### Cost of uploading to the Data Lake Storage endpoint
 
-If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value is not configurable.
+If you upload data to the Data Lake Storage endpoint, then AzCopy uploads each blob in 4-MiB blocks. This value isn't configurable.
 
 AzCopy uploads each block by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `append`. After the final block is uploaded, AzCopy commits those blocks by using the [Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update) operation with the action parameter set to `flush`. Both operations are billed as _write_ operations. 
 
@@ -67,7 +67,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                          | Value        |
 |----------------------------------------------------------------------|--------------|
 | Number of MiB in 5 GiB                                               | 5,120        |
-| Path - Update (append) operations per blob (5,120 MiB / 4-MiB block) | 1,280        |
+| Path - Update (append) operations per blob (5,120 MiB / 4 MiB block) | 1,280        |
 | Path - Update (flush) operations per blob                            | 1            |
 | **Total write operations (1,000 * 1,281)**                           | **1,281,00** |
 
@@ -126,7 +126,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                 | Value         |
 |-------------------------------------------------------------|---------------|
 | Number of MiB in 5 GiB                                      | 5,120         |
-| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
+| Path - Update operations per blob (5,120 MiB / 4 MiB block) | 1,280         |
 | Total read operations (1000* 1,280)                         | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
@@ -185,7 +185,7 @@ This scenario is identical to the previous one except that you're also billed fo
 
 ### Cost of copying blobs to an account located in another region
 
-This scenario is identical to the previous one except you are billed for network egress charges. 
+This scenario is identical to the previous one except you're billed for network egress charges. 
 
 | Price factor                                           | Hot         | Cool        | Cold        |
 |--------------------------------------------------------|-------------|-------------|-------------|
@@ -203,13 +203,13 @@ When you run the [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md
 
 ### Cost to synchronize a container with a local file system
 
-If you want to keep a container updated with changes to a local file system, then AzCopy performs the exact same tasks as described in the [Cost of uploading to the Blob Service endpoint](#cost-of-uploading-to-the-blob-service-endpoint) section in this article. Blobs are uploaded only if the last modified time of a local file is different than the last modified time of the blob in the container. Therefore, you are billed _write_ transactions only for blobs that are uploaded. 
+If you want to keep a container updated with changes to a local file system, then AzCopy performs the exact same tasks as described in the [Cost of uploading to the Blob Service endpoint](#cost-of-uploading-to-the-blob-service-endpoint) section in this article. Blobs are uploaded only if the last modified time of a local file is different than the last modified time of the blob in the container. Therefore, you're billed _write_ transactions only for blobs that are uploaded. 
 
-If you want to keep a local file system updated with changes to a container, then AzCopy performs the exact same tasks as described in the [Cost of downloading from the Blob Service endpoint](#cost-of-downloading-from-the-blob-service-endpoint) section of this article. Blobs are downloaded only If the last modified time of a local blob is different than the last modified time of the blob in the container. Therefore, you are billed _read_ transactions only for blobs that are downloaded.
+If you want to keep a local file system updated with changes to a container, then AzCopy performs the exact same tasks as described in the [Cost of downloading from the Blob Service endpoint](#cost-of-downloading-from-the-blob-service-endpoint) section of this article. Blobs are downloaded only If the last modified time of a local blob is different than the last modified time of the blob in the container. Therefore, you're billed _read_ transactions only for blobs that are downloaded.
 
 ### Cost to synchronize containers
 
-If you want to keep two containers synchronized, then AzCopy performs the exact same tasks as described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section in this article. A blob is copied only if the last modified time of a blob in the source container is different than the last modified time of a blob in the destination container. Therefore, you are billed _write_ and _read_ transactions only for blobs that are copied. 
+If you want to keep two containers synchronized, then AzCopy performs the exact same tasks as described in the [The cost to copy between containers](#the-cost-to-copy-between-containers) section in this article. A blob is copied only if the last modified time of a blob in the source container is different than the last modified time of a blob in the destination container. Therefore, you're billed _write_ and _read_ transactions only for blobs that are copied. 
 
 The [azcopy sync](../common/storage-use-azcopy-blobs-synchronize.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) command uses the [List Blobs](/rest/api/storageservices/list-blobs) operation on both source and destination accounts when synchronizing containers that exist in separate accounts. 
 
@@ -244,8 +244,8 @@ The following table includes sample prices (fictitious) prices for each request 
 
 | Price factor                                         | Hot     | Cool    | Cold    | Archive |
 |------------------------------------------------------|---------|---------|---------|---------|
-| Price of write transactions (every 4MiB, per 10,000) | $0.0720 | $0.13   | $0.234  | $0.143  |
-| Price of read transactions (every 4MiB, per 10,000)  | $0.0057 | $0.013  | $0.13   | $7.15   |
+| Price of write transactions (every 4 MiB, per 10,000) | $0.0720 | $0.13   | $0.234  | $0.143  |
+| Price of read transactions (every 4 MiB, per 10,000)  | $0.0057 | $0.013  | $0.13   | $7.15   |
 | Price of data retrieval (per GiB)                    | Free    | $0.01   | $0.03   | $0.022  |
 | Iterative Read operations (per 10,000)               | $0.0715 | $0.0715 | $0.0845 | $0.0715 |
 
