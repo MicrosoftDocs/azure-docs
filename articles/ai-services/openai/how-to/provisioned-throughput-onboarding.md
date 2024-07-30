@@ -76,7 +76,7 @@ From Azure AI Studio select **Quota** in the left hand navigation bar, and then 
 
 :::image type="content" source="../media/provisioned/quota-alternate.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="../media/provisioned/quota-alternate.png":::
 
-Here, you can view the quota granted in the selected subscription/region, and how much is used. For example, the screenshot above shows that 100 out of 200 PTUs of quota are used in South Central US. This means that 100 are available for use in creating new deployments.
+Here, you can view the quota granted in the selected subscription/region, and how much is used. For example, the screenshot above shows that 100 out of 200 PTUs of quota are used in South Central US. This means that 100 are available for use in creating new deployments.  **MICHAEL: WILL NEED TO UPDATE SCREENSHOTS TO FINAL VERSIONS AND ALSO EDIT THE PTUS IN THIS TEXT**
 
 By selecting the small arrow to the left of the quota name **Provisioned Managed Throughput Unit**, you can expand it to show the deployments contributing to the usage. In the example above, the “gpt-4-chatbot" deployment in the “Production-Deployments” resource is the deployment using 100 PTUs of the quota.
 
@@ -93,7 +93,7 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
 
 ## Create provisioned throughput deployments
 
-1. Launch [Azure AI Studio](https://ai.azure.com/)
+1. Launch [Azure AI Studio](https://ai.azure.com/)  **MICHAEL: Let's update all Studio references/screenshots to be Azure OpenAI studio with the experience that'll be default on 8/12.  I've verifying the plan with Shane**
 2. Select the Azure OpenAI resource in the desired region, then select **Deployments** in the left-hand navigation bar.
 
     :::image type="content" source="../media/provisioned/deployments.png" alt-text="Screenshot of deployments UI for Azure OpenAI deployments." lightbox="../media/provisioned/deployments.png":::
@@ -107,7 +107,7 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
     :::image type="content" source="../media/provisioned/deploy-model.png" alt-text="Screenshot of model deployment UI for Azure OpenAI with a provisioned model being deployed." lightbox="../media/provisioned/deploy-model.png":::
 
     - Provide the deployment name and model version.
-    - Specify the Deployment Type as **Provisioned Managed**. This is what indicates a provisioned, instead of a standard deployment.
+    - Specify the Deployment Type as **Provisioned-Managed**. This is what indicates a provisioned, instead of a standard deployment.
     - Note the message reminding you to purchase an Azure Reservation to obtain a discount for a term commitment.
 
 5. Evaluate capacity availability.
@@ -124,11 +124,11 @@ Provisioned Throughput deployments are created via Azure OpenAI resource objects
 
 7. If there's insufficient capacity, choose another region.
 
-    If you select more PTUs than are available as service capacity, you're given the option to choose a resource in a region that has available quota and capacity.
+    If you select more PTUs than are available as service capacity, you're given the option to choose a resource in a different region that may have more quota and capacity.
 
     :::image type="content" source="../media/provisioned/insufficient-capacity.png" alt-text="Screenshot of capacity recommendation to try a new region." lightbox="../media/provisioned/insufficient-capacity.png":::
 
-    Selecting **See other regions** brings up a dialog where you can select alternative regions with both available quota and capacity for this model. Select a new resource and the deployment dialog will redisplay with the new resource so that you can continue your deployment.
+    Selecting **See other regions** brings up a dialog where you can select alternative regions where you can create a deployment of the selected model and version.  The dialog shows you the maximum sized deployment that you can create in the region based on both quota availability and service capacity availability. Select a new resource and the deployment dialog will redisplay with the new resource so that you can continue your deployment.
 
     :::image type="content" source="../media/provisioned/different-region.png" alt-text="Screenshot of choose a different region with more capacity option UI." lightbox="../media/provisioned/different-region.png":::
 
@@ -158,7 +158,7 @@ To buy a reservation: 
 
     :::image type="content" source="../media/provisioned/reservation-pane.png" alt-text="Screenshot of the add reservations portal experience." lightbox="../media/provisioned/reservation-pane.png":::
 
-3. Select **Azure OpenAI** from the reservation catalog.
+3. Select **Azure OpenAI Service Provisioned** from the reservation catalog.  **MICHAEL: WE'LL NEED A NEW SCREENSHOT**
 
     :::image type="content" source="../media/provisioned/purchase.png" alt-text="Screenshot of the purchase reservation experience." lightbox="../media/provisioned/purchase.png":::
 
