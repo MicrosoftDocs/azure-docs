@@ -27,7 +27,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 > [!IMPORTANT]  
 > The performance tips in this article are for Azure Cosmos DB Java SDK v4 only. Please view the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and Azure Cosmos DB Java SDK v4 [troubleshooting guide](troubleshoot-java-sdk-v4.md) for more information. If you are currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You do not have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Java SDK v4.
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call or SDK method call. However, because Azure Cosmos DB is accessed via network calls there are client-side optimizations you can make to achieve peak performance when using Azure Cosmos DB Java SDK v4.
 
 So if you're asking "How can I improve my database performance?" consider the following options:
 
@@ -49,7 +49,7 @@ We strongly recommend following the instructions to enable [Accelerated Networki
 
 Without accelerated networking, IO that transits between your Azure VM and other Azure resources might be routed through a host and virtual switch situated between the VM and its network card. Having the host and virtual switch inline in the datapath not only increases latency and jitter in the communication channel, it also steals CPU cycles from the VM. With accelerated networking, the VM interfaces directly with the NIC without intermediaries. All network policy details are handled in the hardware at the NIC, bypassing the host and virtual switch. Generally you can expect lower latency and higher throughput, as well as more *consistent* latency and decreased CPU utilization when you enable accelerated networking.
 
-Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM cannot be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
+Limitations: accelerated networking must be supported on the VM OS, and can only be enabled when the VM is stopped and deallocated. The VM can't be deployed with Azure Resource Manager. [App Service](../../app-service/overview.md) has no accelerated network enabled.
 
 For more information, see the [Windows](../../virtual-network/create-vm-accelerated-networking-powershell.md) and [Linux](../../virtual-network/create-vm-accelerated-networking-cli.md) instructions.
 
@@ -154,7 +154,7 @@ This mechanism helps to continuously monitor partition health and ensures that r
   - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
   - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
 
-Both strategies can be used to enhance write availability and reduce tail latency. We recommend Partition Level Circuit Breaker as a primary strategy, and additionally Threshold-based Availability Strategy can be used to further minimise tail latency if additional cost is acceptable. 
+Both strategies can be used to enhance write availability and reduce tail latency. We recommend Partition Level Circuit Breaker as a primary strategy, and additionally Threshold-based Availability Strategy can be used to further minimize tail latency if additional cost is acceptable. 
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 
