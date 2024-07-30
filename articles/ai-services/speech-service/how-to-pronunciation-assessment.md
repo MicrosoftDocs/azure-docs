@@ -23,6 +23,9 @@ zone_pivot_groups: programming-languages-ai-services
 
 In this article, you learn how to evaluate pronunciation with speech to text through the Speech SDK. Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio.
 
+> [!NOTE]
+> Pronunciation assessment uses a specific version of the speech-to-text model, different from the standard speech to text model, to ensure consistent and accurate pronunciation assessment.
+
 ## Use pronunciation assessment in streaming mode
 
 Pronunciation assessment supports uninterrupted streaming mode. The recording time can be unlimited through the Speech SDK. As long as you don't stop recording, the evaluation process doesn't finish and you can pause and resume evaluation conveniently.
@@ -76,6 +79,55 @@ For how to use Pronunciation Assessment in streaming mode in your own applicatio
 ::: zone pivot="programming-language-go"
 
 ::: zone-end
+
+### Continuous recognition
+
+::: zone pivot="programming-language-csharp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) under the function `pronunciationAssessmentContinuousWithFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/python/console/speech_sample.py) under the function `pronunciation_assessment_continuous_from_file`.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/js/node/pronunciationAssessmentContinue.js).
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) under the function `pronunciationAssessFromFile`.
+
+::: zone-end
+
+::: zone pivot="programming-language-swift"
+
+If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift) under the function `continuousPronunciationAssessment`.
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+::: zone-end
+
 
 ## Set configuration parameters
 
@@ -262,6 +314,8 @@ This table lists some of the optional methods you can set for the `Pronunciation
 > Content and prosody assessments are only available in the [en-US](./language-support.md?tabs=pronunciation-assessment) locale.
 > 
 > To explore the content and prosody assessments, upgrade to the SDK version 1.35.0 or later.
+>
+> There is no length limit for the topic parameter.
 
 | Method | Description |
 |-----------|-------------|
@@ -1029,71 +1083,21 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
 
 ::: zone-end
 
-## Other tips on configuration and SDK usage
+## Pronunciation score calculation
 
-- Pronunciation assessment uses a fixed version of the speech to text model, different from the standard speech to text model.
-- Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
+Pronunciation scores are calculated by weighting accuracy, prosody, fluency, and completeness scores based on specific formulas for reading and speaking scenarios.
   
-  When sorting the scores of accuracy, prosody, fluency, and completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
+When sorting the scores of accuracy, prosody, fluency, and completeness from low to high (if each score is available) and representing the lowest score to the highest score as s0 to s3, the pronunciation score is calculated as follows:
 
-   For reading scenario:
-   - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
-   - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+For reading scenario:
+  - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
+  - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
 
-   For the speaking scenario (the completeness score isn't applicable):
-   - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
-   - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
+For the speaking scenario (the completeness score isn't applicable):
+  - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
+  - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
 
-   This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
- 
-- Currently, only `en-US` is supported for topics in pronunciation assessment. There is no length limit for the topic parameter.
-### Continuous recognition
-::: zone pivot="programming-language-csharp"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) under the function `PronunciationAssessmentContinuousWithFile`.
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing.
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) under the function `pronunciationAssessmentContinuousWithFile`.
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/python/console/speech_sample.py) under the function `pronunciation_assessment_continuous_from_file`.
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/261160e26dfcae4c3aee93308d58d74e36739b6f/samples/js/node/pronunciationAssessmentContinue.js).
-
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) under the function `pronunciationAssessFromFile`.
-
-::: zone-end
-
-::: zone pivot="programming-language-swift"
-
-- If your audio file exceeds 30 seconds, use continuous mode for processing. The sample code for continuous mode can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/swift/ios/speech-samples/speech-samples/ViewController.swift) under the function `continuousPronunciationAssessment`.
-
-::: zone-end
-
-::: zone pivot="programming-language-go"
-
-::: zone-end
-
+This formula provides a weighted calculation based on the importance of each score, ensuring a comprehensive evaluation of pronunciation.
 
 ## Related content
 
