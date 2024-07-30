@@ -310,7 +310,7 @@ When you create a function app in Azure, you can choose either a quick function 
 
 #### [Advanced options](#tab/advanced-options)
 
-You can't use the [quick create](functions-develop-vs-code.md?tabs=quick-create#publish-to-azure) if you want more control over the function app that gets created, such as using an existing resouce group, storage account, or Application Insights intance. These steps create a function app with the ability to use existing Azure resources:
+You can't use the [quick create](functions-develop-vs-code.md?tabs=quick-create#publish-to-azure) if you want more control over the function app that gets created, such as using an existing resource group, storage account, or Application Insights instance. These steps create a function app with the ability to use existing Azure resources:
 
 1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
