@@ -118,4 +118,9 @@ db.runCommand({
 ```
 
 ## Next steps
+- [Learn how to scale Azure Cosmos DB for MongoDB vCore cluster](./how-to-scale-cluster.md)
+- [Check out indexing best practices](./how-to-create-indexes.md)
+
+> [!div class="nextstepaction"]
+> [Migration options for Azure Cosmos DB for MongoDB vCore](migration-options.md)
 
