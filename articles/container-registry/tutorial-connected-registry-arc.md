@@ -22,11 +22,11 @@ Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cl
 In this tutorial, you:
 
 > [!div class="checklist"]
-> - [Deploy Connected registry extension with HTTPS (TLS encryption)](#deploy-connected-registry-extension-with-https-tls-encryption).
+> - [Deploy Connected registry extension with HTTPS (TLS encryption).](#deploy-connected-registry-extension-with-https-tls-encryption-using-preinstalled-cert-manager-service)
 > - [Deploy Connected registry with kubernetes secret management for TLS encryption.](#deploy-connected-registry-with-kubernetes-secret-management-for-tls-encryption)
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption.](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc-for-tls-encryption)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
-> - [Deploy the Connected registry Arc extension with HTTP (no TLS encryption)](#deploy-the-connected-registry-arc-extension-with-http-no-tls-encryption).
+> - [Deploy the Connected registry Arc extension with HTTP (no TLS encryption).](#deploy-the-connected-registry-arc-extension-with-http-no-tls-encryption)
 
 ## Prerequisites
 
