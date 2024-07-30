@@ -176,7 +176,7 @@ const breakoutRoomParticipants = [breakoutRoomCall.remoteParticipants.values()].
 console.log(`Participants of the breakoutRoom : <br/>" + breakoutRoomParticipants.join("<br/>")`);
 ```
 
-### stop receiving breakout rooms events
+### Stop receiving breakout rooms events
 
 Use the following to stop receiving breakoutRooms events
 ```js
@@ -229,41 +229,18 @@ const roomEndTime : TimestampInfo = breakoutRoom.roomEndTime;
 - `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer or breakout room manager of the main meeting. This is a read-only property.
 
 ### Troubleshooting
+## Error Codes and Description
 
-- **User is trying to join a breakout room when the `state` of the assigned breakout room is `closed`.**
-
-  When the `join()` method is called on the `breakoutRoomsFeature.assignedBreakoutRoom` even before the breakout room's state is `open`, then an error is thrown to the user with the message "Not able to join 
-  Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join."
-
-  **Resolution** : Call `join()` only when the `state` of `assignedBreakoutRoom` is `open`.
-
-- **User gets an error when automatically joining the breakout room.**
-
-  There might be a possibility that the breakout room join might fail while automatically moving the user to the breakout room. 
-
-  **Resolution** : Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.
-
-- **User getting an error while leaving the breakout room.**
-
-The property `state` of assigned breakout room is set to "closed", but user have not moved back to the main meeting.
-
-**Resolution**: Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room.
-  
-- **Assigned breakout room details are not available to the user.**
-
-  Check if Teams Meeting Policy assigned to the Microsoft 365 user has property `AllowBreakoutRooms` set to true. If it is set to false, you need to update the property to allow Microsoft 365 user assign to 
-  breakout room. Azure Communication Services users are always assigned to breakout room. 
-
-  ## Error Codes and Description
-|Error code| Subcode | Result Category | Advice |
-|----------------------------------------------|--------|--------|---------|
+|Error code| Subcode | Result Category | Reason | Resolution |
+|----------------------------------------------|--------|--------|---------|----------|
 |400		| 46250	| ExpectedError  | Breakout Rooms feature is only available in Teams meetings. 		|
 |405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | 
-|500 | 46254	| UnexpectedServerError | Unable to join breakout room due to an unexpected error. Please try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. |
-|500| 46255 | UnexpectedServerError | Unable to hold main meeting. Try calling method join() again. If the issue persists, gather browser console logs and contact Azure Communication Services support.|
-|412 | 46257| UnexpectedServerError | Unable to resume main meeting. Please gather browser console logs and contact Azure Communication Services support. |
+|500 | 46254	| UnexpectedServerError | Unable to join breakout room due to an unexpected error. Please try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
+|500| 46255 | UnexpectedServerError | Unable to hold main meeting. If the issue persists, gather browser console logs and contact Azure Communication Services support.| Ensure that the state of assignedBreakoutRoom is open and call breakoutRoomsFeature.assignedBreakoutRoom.join() method explicitly. |
+|412 | 46256| ExpectedError | Unable to join Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
+|412 | 46257| UnexpectedServerError | Unable to resume main meeting. Please gather browser console logs and contact Azure Communication Services support. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
 |412| 46258 | UnexpectedClientError | Error while trying to update the Breakoutroom details. Please gather browser console logs and contact Azure Communication Services support.|
-|500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. Please gather browser console logs and contact Azure Communication Services support. |
-|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. Can join BreakoutRoom only when assigned.|
+|500 | 46259| UnexpectedServerError | Could not hang up the Breakout room call. Please gather browser console logs and contact Azure Communication Services support. | Follow the instructions defined in the section `Leave breakout room` for manual leaving of breakout room. |
+|412| 46260 | UnexpectedClientError | Cannot join Breakout Room as it is not yet assigned. Can join BreakoutRoom only when assigned.| Ensure that the `breakoutRoomsFeature.assignedBreakoutRoom` is having the details of the assigned breakout room. Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly. |
   
   
