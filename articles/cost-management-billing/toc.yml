@@ -105,6 +105,8 @@
         href: manage/subscription-states.md
       - name: Avoid unused subscriptions
         href: manage/avoid-unused-subscriptions.md
+      - name: Protect tenants and subscriptions from abuse
+        href: manage/protect-tenants-subscriptions.md
       - name: Reactivate subscription
         displayName: azure subscription disabled, how to enable azure subscription, enable azure subscription, azure subscription is disabled
         href: manage/subscription-disabled.md
