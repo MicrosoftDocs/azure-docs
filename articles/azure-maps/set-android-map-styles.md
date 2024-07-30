@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
+ms.subservice: sdk-android
 ms.custom: devx-track-extended-java
-services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---
 
