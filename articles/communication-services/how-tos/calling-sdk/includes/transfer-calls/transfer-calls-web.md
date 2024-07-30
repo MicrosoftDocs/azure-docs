@@ -101,20 +101,20 @@ transfer.on('stateChanged', () => {
 
 1. There's already a connected call between the *transferor* and the *transferee*. 
 2. The Teams User Identifier of the *target participant voicemail* is known.
-3. The *transferor* decides to transfer the call with the *transferee* to the voicemail with *voicemail id*.
+3. The *transferor* decides to transfer the call with the *transferee* to the *target patricipant voicemail* with their Teams User Identifier.
 4. The *transferor* calls the `transfer` API.
 6. The *transferee* receives the transfer request.
 
 To transfer a current call, you can use the `transfer` API.
 
 ```js
-// transfer to the target call specifying the call id
-const id = { targetParticipantVoicemail: <TEAMS_USER_ID> };
+// transfer to the target participant voicemail specified by their Teams User Id
+const id: MicrosoftTeamsUserIdentifier = { microsoftTeamsUserId: userId}
 ```
 
 ```js
 // call transfer API
-const transfer = callTransferApi.transfer({ target: id });
+const transfer = callTransferApi.transfer({ targetParticipantVoicemail: id });
 ```
 
 The `transfer` API allows you to subscribe to `stateChanged`. It also comes with a  transfer `state` and `error` properties
