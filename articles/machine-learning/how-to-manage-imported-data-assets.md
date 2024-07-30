@@ -3,7 +3,7 @@ title: Manage imported data assets (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to manage imported data assets also known as edit autodeletion.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon
