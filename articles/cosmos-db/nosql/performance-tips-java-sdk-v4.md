@@ -98,7 +98,7 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur additional cost in terms of request units when cross-region requests are required.
 
 > [!NOTE]
-> If the first preferred region returns a non-transient error status code (e.g. document not found, authorization error, conflict, etc), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario. As such, combining this strategy with [Partition Level Circuit Breaker](#partition-level-circuit-breaker) below can provide a maximal approach to enhances tail latency and write availability.
+> If the first preferred region returns a non-transient error status code (e.g. document not found, authorization error, conflict, etc), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario.
 
 ### Partition Level Circuit Breaker
 
