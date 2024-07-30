@@ -1040,7 +1040,7 @@ pronunciationAssessmentConfig?.nbestPhonemeCount = 5
    - With prosody score: PronScore = 0.4 * s0 + 0.2 * s1 + 0.2 * s2 + 0.2 * s3
    - Without prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
 
-   For speaking scenario (completeness score is useless):
+   For the speaking scenario (the completeness score isn't applicable):
    - With prosody score: PronScore = 0.6 * s0 + 0.2 * s1 + 0.2 * s2
    - Without prosody score: PronScore = 0.6 * s0 + 0.4 * s1
 
