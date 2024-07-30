@@ -115,7 +115,7 @@
       items:
       - name: Overview of Event Hubs emulator
         href: overview-emulator.md
-      - name: What''s new with emulator?
+      - name: What's new with Event Hubs emulator
         href: event-hubs-emulator-whats-new.md
     - name: Tiers 
       items: 
