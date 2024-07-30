@@ -20,7 +20,7 @@ items:
   - name: .NET
     href: quick-create-net.md
   - name: JavaScript
-    href: quick-create-node.md#pivots=programming-language-javascript
+    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-javascript
     displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Python
     href: quick-create-python.md
@@ -29,7 +29,7 @@ items:
   - name: Java
     href: quick-create-java.md
   - name: TypeScript
-    href: quick-create-node.md#pivots=programming-language-typescript
+    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-typescript
     displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Spring
     href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault-certificates
