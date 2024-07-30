@@ -52,7 +52,7 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Azure Monitor](get-monitoring-information.md) | Runs an investigation on a specific resource. | "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me." |
 | [Azure portal](capabilities.md#manage-portal-settings) | Changes Azure portal theme. | "Change my theme to dark mode." |
 | [Azure Resource Graph](get-information-resource-graph.md) | Lists the number of critical alerts. | "How many critical alerts do I have?" |
-| [Azure Resource Grap]((get-information-resource-graph.md) | Retrieves live resource information. | "Which VMs are running right now? Please restart them." |
+| [Azure Resource Graph](get-information-resource-graph.md) | Retrieves live resource information. | "Which VMs are running right now? Please restart them." |
 | [Azure Resource Graph](get-information-resource-graph.md)  | Identifies states of resources. | "Which resources are non-compliant?" |
 | [Azure Resource Graph](get-information-resource-graph.md)  | Lists resources created or modified in the last 24 hours. | "List resources that have been created or modified in the last 24 hours." |
 | [Azure SQL Databases](https://aka.ms/sqlcopilot) | Use natural language to manage Azure SQL Databases | "I want to automate Azure SQL Database scaling based on performance metrics using Azure Functions." |
