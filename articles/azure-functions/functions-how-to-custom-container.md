@@ -99,7 +99,7 @@ When you make changes to your functions code project or need to update to the la
 
 ### [Azure Container Registry](#tab/acr)
 
-```console
+```azurecli
 az acr build --registry <REGISTRY_NAME> --image <LOGIN_SERVER>/azurefunctionsimage:v1.0.1 .
 ```
 
