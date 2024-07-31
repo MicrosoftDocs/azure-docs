@@ -23,7 +23,7 @@ At a high level, you need to follow the below steps to migrate your machines and
 
 - Non-Azure Saved Search Queries won't be migrated; these have to be migrated manually.
 
-For the complete list of limitations and things to note, see the last section of this article.
+For the complete list of limitations and things to note, see the [key points in migration](migration-key-points.md)
 
 ### Step-by-step guide
 

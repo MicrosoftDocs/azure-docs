@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers
  
  
-This article explains how to use the Azure portal to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal clicks and automated way to move your resources, it's the easiest way to move if you don't have customizations built on top of your Automation Update Management solution. For more details on what this portal tool is doing in the backend, please refer to [migration scripts]
+This article explains how to use the Azure portal to move schedules and machines from Automation Update Management to Azure Update Manager. With minimal clicks and automated way to move your resources, it's the easiest way to move if you don't have customizations built on top of your Automation Update Management solution. For more details on what this portal tool is doing in the backend, please refer to [migration scripts](migration-using-runbook-scripts.md)
 
 ## Azure portal experience
 
