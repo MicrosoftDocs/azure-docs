@@ -21,7 +21,7 @@ In this tutorial you'll learn how to:
 > [!div class="checklist"]
 > - Add a resource group to your IoT solution
 
- [!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Prerequisites
 

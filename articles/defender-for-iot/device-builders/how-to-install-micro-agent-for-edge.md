@@ -9,6 +9,8 @@ ms.topic: how-to
 
 This article explains how to install, and authenticate the Defender micro agent for Edge.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites 
 
 1. Navigate to your IoT Hub or, [create a new IoT hub](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
