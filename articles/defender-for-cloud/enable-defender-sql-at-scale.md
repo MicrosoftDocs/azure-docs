@@ -4,17 +4,17 @@ description: Learn how to protect your Microsoft SQL servers on Azure VMs, on-pr
 ms.topic: how-to
 ms.author: dacurwin
 author: dcurwin
-ms.date: 07/23/2024
+ms.date: 07/31/2024
 #customer intent: As a user, I want to learn how to enable Defender for SQL servers at scale so that I can protect my SQL servers efficiently.
 ---
 
 # Enable Microsoft Defender for SQL servers on machines at scale
 
-Microsoft Defender for Cloud's Defender for Databases plan provides security for SQL servers on virtual machines. In order to protect your databases, the Azure Monitoring Agent (AMA) must be implemented to prevent attacks and to identify configuration errors. 
+IaaS SQL servers are protected by Microsoft Defender for Cloud's Defender for SQL plan, which identifies and mitigates potential database vulnerabilities while detecting anomalous activity that could indicate threats to your databases.
 
-When you enable Defender for Databases, it automatically enables the auto provisioning process that configures of all the required agent components necessary for the plan to function. The auto provisioning process includes installation the configuration of the AMA, workspace configuration, and the virtual machines (VM) extension and solution.
+When [you enable the SQL Server on a machines](tutorial-enable-databases-plan.md#enable-specific-plans-database-protections) component of the Defender for Databases plan, the auto-provision process is it automatically initiated. The auto-provision process installs and configures all the necessary components for the plan to function. Such as the Azure Monitor Agent (AMA), SQL IaaS extension, and Defender for SQL extensions. The auto-provision process also sets up the workspace configuration, Data Collection Rules, identity, and the SQL IaaS extension.
 
-This page explains how you can enable the autoprovisioning process for Defender for Databases across multiple subscriptions simultaneously using PowerShell. This process applies to SQL servers hosted on Azure VMs, on-premises environments, and Azure Arc-enabled SQL servers, and how to utilize extra functionalities that accommodate various configurations, including:
+This page explains how you can enable the auto-provision process for Defender for SQL across multiple subscriptions simultaneously using a PowerShell script. This process applies to SQL servers hosted on Azure VMs, on-premises environments, and Azure Arc-enabled SQL servers. This article also discusses how to utilize extra functionalities that can accommodate various configurations such as:
 
 - Custom data collection rules
 
@@ -29,13 +29,12 @@ This page explains how you can enable the autoprovisioning process for Defender 
 - Gain knowledge on: 
     - [SQL server on VMs](https://azure.microsoft.com/products/virtual-machines/sql-server/)
     - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
-    - [How to install Log Analytics agent on Windows computers](../azure-monitor/agents/agent-windows.md)
     - [How to migrate to Azure Monitor Agent from Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md)
 
 - [Connect AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Connect your GCP project to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
 
-- Install PowerShell on [Windows](/powershell/scripting/install/installing-powershell-on-windows), [Linux](/powershell/scripting/install/installing-powershell-on-linux), [macOS](/powershell/scripting/install/installing-powershell-on-macos), or [ARM](/powershell/scripting/install/powershell-on-arm).
+- Install PowerShell on [Windows](/powershell/scripting/install/installing-powershell-on-windows), [Linux](/powershell/scripting/install/installing-powershell-on-linux), [macOS](/powershell/scripting/install/installing-powershell-on-macos), or [Azure Resource Manager (ARM)](/powershell/scripting/install/powershell-on-arm).
 - [Install the following PowerShell modules](/powershell/module/powershellget/install-module):
     - Az.Resources
     - Az.OperationalInsights
