@@ -2,7 +2,7 @@
 title: Known issues
 titleSuffix: Azure Synapse Analytics
 description: Learn about the currently known issues with Azure Synapse Analytics and their possible workarounds or resolutions.
-author: charithdilshan
+author: charithcaldera
 ms.author: ccaldera
 ms.reviewer: wiassaf, joanpo
 ms.date: 04/08/2024
@@ -133,9 +133,10 @@ The Azure Policy Alias can be used for managing this property with a Deny Azure 
 Since the Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration child resource has no GET operation available, Azure Policy cannot manage these requests, and Azure Policy cannot generate an Azure Policy Alias for it.
 
 **Parent Resource:** Microsoft.Synapse/workspaces
+
 **Child Resource:** Microsoft.Synapse/workspaces/trustedServiceByPassConfiguration
 
-The Azure Portal makes the PUT request directly to the PUT API for the child resource and therefore the Azure Portal, along with any other API requests made outside of the parent Microsoft.Synapse/workspaces APIs, cannot be managed by Azure Policy through a Deny or other actionable Azure Policy Effect.
+The Azure portal makes the PUT request directly to the PUT API for the child resource and therefore the Azure portal, along with any other API requests made outside of the parent Microsoft.Synapse/workspaces APIs, cannot be managed by Azure Policy through a Deny or other actionable Azure Policy Effect.
 
 ## Azure Synapse Analytics serverless SQL pool active known issues summary
 
