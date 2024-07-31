@@ -160,7 +160,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Supported | Supported | Milan |
 | **RISQ** |Supported | Supported | Quebec City<br/>Montreal |
 | **SCSK** |Supported | Supported | Tokyo3 |
-| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** | Supported | Supported | Seoul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/)** | Supported | Supported | Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported | Supported | London2<br/>Washington DC |
 | **[SIFY](https://sifytechnologies.com/)** | Supported | Supported | Chennai<br/>Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported | Hong Kong2<br/>Singapore<br/>Singapore2 |

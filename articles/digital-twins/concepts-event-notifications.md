@@ -379,7 +379,7 @@ An example message body, populated in AMQP's *data* section:
 
 ## Digital twin telemetry messages
 
-Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digitaltwins_sendtelemetry) to emit *telemetry messages* and send them to egress endpoints.
+Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digital-twins-send-telemetry) to emit *telemetry messages* and send them to egress endpoints.
 
 ### Properties
 
