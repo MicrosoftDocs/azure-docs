@@ -11,7 +11,7 @@ ms.service: azure-communication-services
 
 ## Remove buttons
 
-`CallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the visbility to `false` to hide, the default behavior is  for `ButtonOptions` object.
+`CallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the visibility to `false` to hide, the default behavior is  for `ButtonOptions` object.
 
 ```swift
 let cameraButton = ButtonOptions(visible: false)
@@ -29,7 +29,7 @@ callComposite.launch(locator: .roomCall(roomId: "..."), localOptions: localOptio
 
 ## Add custom actions
 
-`Call composite` is using Fluent UI icons, you can download the icons directly from [the Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/) and incorporate them into your project as needed. This approach guarantees visual consistency across all user interface elements, enhancing the overall user experience.
+`Call composite` is using Fluent UI icons. You can download the icons directly from [the Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/) and incorporate them into your project as needed. This approach guarantees visual consistency across all user interface elements, enhancing the overall user experience.
 
 ```swift
 let customButton = CustomButtonOptions(image: UIImage(named: "...")!,
