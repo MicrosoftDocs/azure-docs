@@ -2,7 +2,7 @@
 title: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for NoSQL database or container
 description: PowerShell scripts for throughput (RU/s) operations for Azure Cosmos DB for NoSQL database or container
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
