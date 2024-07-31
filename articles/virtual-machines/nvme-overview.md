@@ -10,7 +10,7 @@ ms.topic: article
 ---
 # NVMe Overview
 
-Learn about NVM Express (NVMe) support on virtual machines (VMs) created in Azure. NVMe is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times.
+Learn about NVM Express (NVMe) support on virtual machine (VM) created in Azure. NVMe is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times.
 
 NVMe offers higher input/output operations per second (IOPS) and higher throughput in megabytes per second (MBps). This capability can significantly improve the performance of both temporary (local) and remote NVMe disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for I/O-intensive workloads that require fast data transfer to the Azure managed disks.
 
@@ -22,20 +22,20 @@ The performance gains that your applications can achieve depend on several facto
 
 ### Workloads
 
-The VM families that use NVMe disks demonstrate performance benefits compared to SCSI across various workloads that require higher I/O and improved storage performance. These workloads include application servers, web servers, databases, data warehousing, and analytics. You can achieve these benefits across VMs that use temporary and/or remote NVMe disks.
+The VM families that use NVMe disks demonstrate performance benefits compared to Small Computer System Interface (SCSI) across various workloads that require higher I/O and improved storage performance. These workloads include application servers, web servers, databases, data warehousing, and analytics. You can achieve these benefits across VMs that use temporary and/or remote NVMe disks.
 
 ### Azure Boost & NVMe VM benefits
 
 Azure Boost is a Microsoft-designed system that offloads server virtualization processes traditionally performed by the hypervisor and host OS onto purpose-built software and hardware. Offloading these processes enables faster storage and networking performance for Azure VM customers.
 
-One of the primary advantages of Azure Boost is its ability to enhance the throughput of Azure managed disks and local storage. This enhancement is enabled by offloading the storage processing tasks to hardware that's dedicated for Azure Boost.
+One of the primary advantages of Azure Boost is its ability to enhance the throughput of Azure managed disks and local storage. This enhancement is enabled by offloading the storage processing tasks to hardware dedicated for Azure Boost.
 
 Azure Boost also optimizes performance by using the industry-standard NVMe interface, which capitalizes on the low latency and internal parallelism of solid-state storage drives. For details on the performance that Azure Boost offers, refer to the [Microsoft blog post about general availability of Azure Boost](https://techcommunity.microsoft.com/t5/azure-infrastructure-blog/announcing-the-general-availability-of-azure-boost/ba-p/3981384).
 
 
 ## SCSI to NVMe
 
-For v6, Ebsv5 and greater VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux.md).
+For v6, Ebsv5, and greater VMs; you need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux.md).
 
 
 ## Supportability
@@ -53,13 +53,13 @@ If you think your workload benefits from NVMe performance, you must switch to th
 > [!NOTE]
 > We currently do not support NVMe disks on Generation 1 VMs.
 
-If you attempt to use a Generation 1 VM image, you will either not be able to select an NVMe-capable VM or you will receive an error message stating `that the selected image is not supported for NVMe.`
+If you attempt to use a Generation 1 VM image, you won't be able to select an NVMe-capable VM or you receive an error message stating `that the selected image is not supported for NVMe.`
 
-#### Availabilty of Support
+#### Availability of Support
 
-NVMe support is available in more than 50 of the most popular OS images. We're not adding NVMe support to older OS images. However, we continuously improve the OS image coverage. We recommend that you refer to [this documentation on OS image that supports NVMe](/azure/virtual-machines/enable-nvme-interface) for updates on the latest OS image support for both Linux and Windows.
+NVMe support is available in more than 50 of the most popular OS images. We're not adding NVMe support to older OS images. However, we continuously improve the OS image coverage. For updates on the latest OS image support for both Linux and Windows, we recommend [this documentation on OS image that supports NVMe](/azure/virtual-machines/enable-nvme-interface).
 
-If the OS you want to use does *not* support NVMe, use a VM series that still has SCSI support. Many of the latest Azure VM generations are NVMe-only and require an [OS image that supports NVMe](/azure/virtual-machines/enable-nvme-interface).
+If the OS you want to use doesn't support NVMe, use a VM series that still has SCSI support. Many of the latest Azure VM generations are NVMe-only and require an [OS image that supports NVMe](/azure/virtual-machines/enable-nvme-interface).
 
 ## How to create a VM with the NVMe interface
 
@@ -70,16 +70,16 @@ You can enable NVMe during VM creation by using methods such as:
 - Azure PowerShell
 - Azure Resource Manager templates
 
-To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and select the NVMe disk controller type for the VM. You can also update a VM to NVMe when it's stopped and deallocated, if the VM size supports NVMe.
+To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and select the NVMe disk controller type for the VM. You can also update a VM to NVMe when stopped and deallocated, if the VM size supports NVMe.
 
 #### Mark as NVMe capable  
 
-You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's marked as NVMe. Be sure to carefully follow these [instructions to enable NVMe](/azure/virtual-machines/enable-nvme-interface).
+You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) marked as NVMe.
 
 > [!WARNING]
 > If you use an unmarked image, a SCSI-based VM is created, and the VM might not perform as you intended.
 
-To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) marked as NVMe. If your current OS image is not supported for NVMe, you'll get this error message: ` "The selected image is not supported for NVMe. See supported VM images." `
+To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) marked as NVMe. If your current OS image isn't supported for NVMe, you get this error message: ` "The selected image is not supported for NVMe. See supported VM images." `
     :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of an example of choosing one of the supported operating system images on NVMe.":::
 
 #### Using Azure portal to enable the NVMe interface during VM creation
