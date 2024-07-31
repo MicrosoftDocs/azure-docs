@@ -71,10 +71,14 @@ The northbound cloud connectors let you connect the MQTT broker directly to clou
 * [Azure Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka.md)
 * [Azure Data Lake Storage](connect-to-cloud/howto-configure-data-lake.md)
 
-The data processor pipeline destinations let you connect to cloud services such as:
+## Process data
 
-* [Microsoft Fabric](process-data/howto-configure-destination-fabric.md)
-* [Azure Data Explorer](process-data/howto-configure-destination-data-explorer.md)
+In Azure IoT operations v0.6.0, the data processor is replaced by dataflows. Dataflows provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations.
+
+> [!NOTE]
+> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure).
+
+<!-- TODO: Fix the previous versions link before we publish -->
 
 ## Visualize and analyze telemetry
 
