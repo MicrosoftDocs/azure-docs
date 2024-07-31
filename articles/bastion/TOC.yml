@@ -111,8 +111,8 @@
       href: vm-upload-download-native.md
   - name: Monitoring
     items:
-    - name: Monitoring Azure Bastion
-      href: howto-metrics-monitor-alert.md
+    - name: Monitor Azure Bastion
+      href: monitor-bastion.md
     - name: Configure and access diagnostic logs
       href: diagnostic-logs.md
     - name: Monitor and manage sessions
@@ -127,6 +127,8 @@
     href: /rest/api/virtualnetwork/bastion-hosts
   - name: Azure CLI
     href: /cli/azure/network/bastion
+  - name: Bastion monitoring data reference
+    href: monitor-bastion-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
