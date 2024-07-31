@@ -73,7 +73,7 @@ items:
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
     displayName: connect, access dev box, RDP, iPad 
-    href: /windows-app/get-started-connect-devices-desktops-apps?pivots=dev-box&context=/azure/dev-box/context/context
+    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
   - name: Connect with Remote Desktop
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
