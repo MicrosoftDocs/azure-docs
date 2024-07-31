@@ -10,8 +10,6 @@ items:
     href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
-  - name: What's new in Azure AI Studio?
-    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
@@ -130,7 +128,7 @@ items:
       href: how-to/deploy-models-phi-3.md
     - name: Fine-tune Phi-3 models
       href: how-to/fine-tune-phi-3.md
-    - name: Deploy TimeGEN-1 model
+    - name: Deploy TimeGEN-1 model deployments
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
       href: how-to/deploy-models-open.md
