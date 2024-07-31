@@ -54,7 +54,7 @@ The following tables show support of individual APIs in calling SDK to individua
 ## SDKs
 The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
 | | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
-|-------------|--------|--------|--------|----------|--------|---|
+|----|-------------|--------|--------|--------|----------|--------|---|
 |Is Supported | ✔️|   |   |   |    |   |    |		
 
 ## BreakoutRooms
