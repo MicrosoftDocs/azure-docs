@@ -6,8 +6,8 @@ author: ananyagarg
 ms.topic: article
 ms.date: 10/04/2022
 ms.author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.custom: inspire-fall-2022
 ---
 
