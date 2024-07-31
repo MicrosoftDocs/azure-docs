@@ -102,4 +102,4 @@ For more allocation failure solutions and background information:
 > [!div class="nextstepaction"]
 > [Allocation failures - Cloud service (classic)](cloud-services-allocation-failures.md)
 
-If your Azure issue isn't addressed in this article, visit the Azure forums on [the Microsoft Developer Network (MSDN) and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.
+If your Azure issue isn't addressed in this article, visit the Azure forums on [the Microsoft Developer Network (MSDN) and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on X](https://x.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.

@@ -22,7 +22,6 @@ Through this process, Microsoft enables organizations to proactively monitor the
 
 To create a comprehensive mapping of your organization’s attack surface, the system first intakes known assets (i.e. “seeds”) that are recursively scanned to discover additional entities through their connections to a seed. An initial seed may be any of the following kinds of web infrastructure indexed by Microsoft:
 
-- Organization Names
 - Domains
 - IP Blocks
 - Hosts

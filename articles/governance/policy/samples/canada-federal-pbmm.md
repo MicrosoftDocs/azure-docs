@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in Canada Federal PBM
 For more information about this compliance standard, see
 [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **Canada Federal PBMM** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
