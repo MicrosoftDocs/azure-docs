@@ -15,7 +15,7 @@ zone_pivot_groups: acs-calling-automation-pstn
 
 # Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK
 
-This article describes troubleshooting call end response codes for [Calling SDK](#calling-sdk-error-codes), [Call Automation](#call-automation-sdk-error-codes), and [PSTN calling](#pstn-call-response-codes-with-participantendreason).
+This article describes troubleshooting call end response codes for Calling SDK, Call Automation, and PSTN calling.
 
 ## Troubleshooting tips
 

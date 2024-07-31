@@ -325,17 +325,9 @@ You can find your current Teams license using [licenseDetails](/graph/api/resour
     ```
 1. Find license detail where property `servicePlanName` has one of the values in the [Eligible Teams Licenses table](../quickstarts/eligible-teams-licenses.md)
 
-## Error codes
-
-- [Calling SDK error codes](./troubleshooting-codes.md#calling-sdk-error-codes)
-- [Call Automation error codes](./troubleshooting-codes.md#call-automation-sdk-error-codes)
-- [PSTN call response codes](./troubleshooting-codes.md#pstn-call-response-codes-with-participantendreason)
-- [Chat SDK error codes]
-- [SMS SDK error codes]
-
 ## Related articles
 - [Troubleshooting Azure Communication Services PSTN call failures](./telephony/troubleshooting-pstn-call-failures.md).
-- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](./troubleshooting-codes.md).
+- [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](./troubleshooting-codes.md).
 - Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](metrics.md).
 - [Service limits](service-limits.md).

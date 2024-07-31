@@ -204,7 +204,7 @@ States of remote participants in Teams meetings:
 const state = remoteParticipant.state;
 ```
 
-- `callEndReason`: Returns an object containing additional information about the reason the call ended. Property `code` returns a number associated with the reason, and `subCode` returns a number associated with the code and the reason. For more information about error codes, see [Troubleshooting call end response codes](../../../../concepts/troubleshooting-codes.md#calling-sdk-error-codes).
+- `callEndReason`: Returns an object containing additional information about the reason the call ended. Property `code` returns a number associated with the reason, and `subCode` returns a number associated with the code and the reason. For more information about error codes, see [Troubleshooting call end response codes](../../../../concepts/troubleshooting-codes.md).
 
 ```js
 const callEndReason = remoteParticipant.callEndReason;
@@ -294,7 +294,7 @@ States for Teams meetings:
 const callState = call.state;
 ```
 
-•	`callEndReason`: Returns object `CallEndReason` containing additional information about the call ended. The property `code` returns a number associated with the reason, and `subCode` returns a number associated with the code and the reason. For more information about error codes, see [Troubleshooting call end response codes](../../../../concepts/troubleshooting-codes.md#calling-sdk-error-codes).
+•	`callEndReason`: Returns object `CallEndReason` containing additional information about the call ended. The property `code` returns a number associated with the reason, and `subCode` returns a number associated with the code and the reason. For more information about error codes, see [Troubleshooting call end response codes](../../../../concepts/troubleshooting-codes.md).
 
 ```js
 const callEndReason = call.callEndReason;

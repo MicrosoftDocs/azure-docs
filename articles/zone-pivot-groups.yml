@@ -2481,7 +2481,7 @@ groups:
   pivots:
   - id: calling
     title: Calling SDK
-  - id:callend
+  - id: callend
     title: Call end
   - id: automation
     title: Call Automation SDK
