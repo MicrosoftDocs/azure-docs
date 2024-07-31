@@ -2,7 +2,7 @@
 title: Deploy Avere vFXT for Azure
 description: Learn how to use the deployment wizard available from the Azure Marketplace to deploy a cluster with Avere vFXT for Azure.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
