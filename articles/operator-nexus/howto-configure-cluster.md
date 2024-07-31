@@ -25,6 +25,8 @@ information on the resource providers and resource models, and the APIs.
 
 The metrics generated from the logging data are available in [Azure Monitor metrics](./list-of-metrics-collected.md).
 
+## Limitations
+- **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
 
 ## Create a Cluster
 

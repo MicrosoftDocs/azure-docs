@@ -23,9 +23,9 @@ These operations are the last steps in the sample end-to-end quickstart experien
 
 Before you begin this quickstart, you must complete the following quickstarts:
 
-- [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
+- [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using the data lake connector for Azure IoT MQ](quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using a dataflow](quickstart-upload-telemetry-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a **premium workspace** with **Contributor** or above permissions.
 
@@ -84,7 +84,6 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     | Column name | Data type |
     | --- | --- |
-    | SequenceNumber | int |
     | assetName | string |
     | Temperature | decimal | 
     | Pressure | decimal | 
@@ -97,7 +96,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"SequenceNumber", "Properties":{"Path":"$[\'SequenceNumber\']"}},{"column":"assetName", "Properties":{"Path":"$[\'DataSetWriterName\']"}},{"column":"Temperature", "Properties":{"Path":"$.Payload.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.Payload.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'Timestamp\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"Temperature", "Properties":{"Path":"$.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ``` 
 
 ### Add data table as a destination

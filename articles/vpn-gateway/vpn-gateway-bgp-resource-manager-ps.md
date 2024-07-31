@@ -182,6 +182,7 @@ A couple of things to note regarding the local network gateway parameters:
 
 * The local network gateway can be in the same or different location and resource group as the VPN gateway. This example shows them in different resource groups in different locations.
 * The prefix you need to declare for the local network gateway is the host address of your BGP Peer IP address on your VPN device. In this case, it's a /32 prefix of "10.51.255.254/32".
+* You can also leave the prefix empty if you're using BGP to connect to this network. Azure VPN gateway will internally add a route of your BGP peer IP address to the corresponding IPsec tunnel.
 * As a reminder, you must use different BGP ASNs between your on-premises networks and Azure VNet. If they're the same, you need to change your VNet ASN if your on-premises VPN device already uses the ASN to peer with other BGP neighbors.
 
 #### 2. Create the local network gateway for Site5

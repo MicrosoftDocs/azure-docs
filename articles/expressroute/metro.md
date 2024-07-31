@@ -71,6 +71,10 @@ You can create an ExpressRoute Metro circuit in the Azure portal in any of the t
 
     :::image type="content" source="./media/metro/generate-letter-of-authorization.png" alt-text="Screenshot of generating letter of authorization.":::
 
+## Migrate from an existing Expressroute circuit to a Metro circuit
+
+If you want to migrate from an existing ExpressRoute circuit, create a new ExpressRoute Metro circuit. Then, follow the steps for [circuit migration](circuit-migration.md) to transition from the existing standard ExpressRoute circuit to the ExpressRoute Metro circuit.
+
 ## Next steps
 
 * Review [ExpressRoute partners and peering locations](expressroute-locations.md) to understand the available ExpressRoute partners and peering locations.

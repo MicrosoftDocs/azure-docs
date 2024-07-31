@@ -1,9 +1,8 @@
 ---
 title: Request quota increases from support
 description: How to create a support request in the Azure portal for Azure Data Factory to request quota increases or get problem resolution support.
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.topic: conceptual
-ms.subservice: troubleshooting
 ms.date: 05/15/2024
 author: jonburchel
 ms.author: jburchel

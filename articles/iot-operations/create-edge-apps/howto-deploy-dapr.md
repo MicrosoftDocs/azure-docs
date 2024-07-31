@@ -15,12 +15,12 @@ ms.date: 07/02/2024
 
 The Distributed Application Runtime (Dapr) is a portable, serverless, event-driven runtime that simplifies the process of building distributed applications. Dapr lets you build stateful or stateless apps without worrying about how the building blocks function. Dapr provides several [building blocks](https://docs.dapr.io/developing-applications/building-blocks/): pub/sub, state management, service invocation, actors, and more.  
 
-MQTT broker supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md):
+Azure IoT Operations supports two of these building blocks, powered by [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md):
 
 - Publish and subscribe
 - State management
 
-To use the MQTT broker Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
+To use the Dapr pluggable components, define the component spec for each of the APIs and then [register this to the cluster](https://docs.dapr.io/operations/components/pluggable-components-registration/). The Dapr components listen to a Unix domain socket placed on the shared volume. The Dapr runtime connects with each socket and discovers all services from a given building block API that the component implements.
 
 ## Install Dapr runtime
 
@@ -37,7 +37,7 @@ helm upgrade --install dapr dapr/dapr --version=1.13 --namespace dapr-system --c
 
 ## Register MQTT broker pluggable components
 
-To register MQTT broker's pluggable pub/sub and state management components, create the component manifest yaml, and apply it to your cluster. 
+To register the pub/sub and state management pluggable components, create the component manifest yaml, and apply it to your cluster. 
 
 To create the yaml file, use the following component definitions:
 
@@ -45,86 +45,67 @@ To create the yaml file, use the following component definitions:
 > | Component | Description |
 > |-|-|
 > | `metadata.name` | The component name is important and is how a Dapr application references the component. |
-> | `metadata.annotations` | Component annotations used by the Dapr sidecar injector
-> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which must be declared exactly as shown. It tells Dapr what kind of component (`pubsub` or `state`) it is and which Unix socket to use. |
-> | `spec.metadata.url` | The URL tells the component where the local MQTT broker endpoint is. Defaults to `8883` is MQTT broker's default MQTT port with TLS enabled. |
-> | `spec.metadata.satTokenPath` | The Service Account Token is used to authenticate the Dapr components with the MQTT broker |
-> | `spec.metadata.tlsEnabled` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
-> | `spec.metadata.caCertPath` | The certificate chain path for validating the broker, required if `tlsEnabled` is `true` |
-> | `spec.metadata.logLevel` | The logging level of the component. 'Debug', 'Info', 'Warn' and 'Error' |
+> | `metadata.annotations` | Component annotations used by Dapr sidecar injector, defining the image location and required volume mounts
+> | `spec.type` | [The type of the component](https://docs.dapr.io/operations/components/pluggable-components-registration/#define-the-component), which needs to be declared exactly as shown |
+> | `spec.metadata.keyPrefix` | Defines the key prefix used when communicating to the statestore backend. See the [Dapr documentation](https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state) for more information |
+> | `spec.metadata.hostname` | The MQTT broker hostname. Defaults to `aio-mq-dmqtt-frontend` |
+> | `spec.metadata.tcpPort` | The MQTT broker port number. Default is `8883` |
+> | `spec.metadata.useTls` |  Define if TLS is used by the MQTT broker. Defaults to `true` |
+> | `spec.metadata.caFile` | The certificate chain path for validating the MQTT broker. Required if `useTls` is `true`. This file must be mounted in the pod with the specified volume name |
+> | `spec.metadata.satAuthFile ` | The Service Account Token (SAT) file is used to authenticate the Dapr components with the MQTT broker.  This file must be mounted in the pod with the specified volume name |
 
-1. Save the following yaml, which contains the component definitions, to a file named `components.yaml`:
+1. Save the following yaml, which contains the Azure IoT Operations component definitions, to a file named `components.yaml`:
 
     ```yml
-    # Pub/sub component
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: aio-mq-pubsub
+      name: iotoperations-pubsub
       namespace: azure-iot-operations
       annotations:
         dapr.io/component-container: >
           {
-            "name": "aio-mq-components",
-            "image": "ghcr.io/azure/iot-mq-dapr-components:latest",
+            "name": "iot-operations-dapr-components",
+            "image": "ghcr.io/azure/iot-operations-dapr-components:latest",
             "volumeMounts": [
-              {
-                "name": "mqtt-client-token",
-                "mountPath": "/var/run/secrets/tokens"
-              },
-              {
-                "name": "aio-ca-trust-bundle",
-                "mountPath": "/var/run/certs/aio-mq-ca-cert"
-              }
+              { "name": "mqtt-client-token", "mountPath": "/var/run/secrets/tokens" },
+              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-mq-ca-cert" }
             ]
           }
     spec:
-      type: pubsub.aio-mq-pubsub-pluggable # DO NOT CHANGE
+      type: pubsub.azure.iotoperations
       version: v1
       metadata:
-      - name: url
-        value: "aio-mq-dmqtt-frontend:8883"
-      - name: satTokenPath
-        value: "/var/run/secrets/tokens/mqtt-client-token"
-      - name: tlsEnabled
+      - name: hostname
+        value: aio-mq-dmqtt-frontend
+      - name: tcpPort
+        value: 8883
+      - name: useTls
         value: true
-      - name: caCertPath
-        value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
+      - name: caFile
+        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+      - name: satAuthFile
+        value: /var/run/secrets/tokens/mqtt-client-token
     ---
-    # State Management component
     apiVersion: dapr.io/v1alpha1
     kind: Component
     metadata:
-      name: aio-mq-statestore
+      name: iotoperations-statestore
       namespace: azure-iot-operations
-      annotations:
-        dapr.io/component-container: >
-          {
-            "name": "aio-mq-components",
-            "image": "ghcr.io/azure/iot-mq-dapr-components:latest",
-            "volumeMounts": [
-              {
-                "name": "mqtt-client-token",
-                "mountPath": "/var/run/secrets/tokens"
-              },
-              {
-                "name": "aio-ca-trust-bundle",
-                "mountPath": "/var/run/certs/aio-mq-ca-cert"
-              }
-            ]
-          }
     spec:
-      type: state.aio-mq-statestore-pluggable # DO NOT CHANGE
+      type: state.azure.iotoperations
       version: v1
       metadata:
-      - name: url
-        value: "aio-mq-dmqtt-frontend:8883"
-      - name: satTokenPath
-        value: "/var/run/secrets/tokens/mqtt-client-token"
-      - name: tlsEnabled
+      - name: hostname
+        value: aio-mq-dmqtt-frontend
+      - name: tcpPort
+        value: 8883
+      - name: useTls
         value: true
-      - name: caCertPath
-        value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
+      - name: caFile
+        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+      - name: satAuthFile
+        value: /var/run/secrets/tokens/mqtt-client-token    
     ```
 
 1. Apply the component yaml to your cluster by running the following command:
@@ -136,8 +117,8 @@ To create the yaml file, use the following component definitions:
     Verify the following output:
 
     ```output
-    component.dapr.io/aio-mq-pubsub created
-    component.dapr.io/aio-mq-statestore created
+    component.dapr.io/iotoperations-pubsub created
+    component.dapr.io/iotoperations-statestore created
     ```
 
 ## Create authorization policy for MQTT broker
