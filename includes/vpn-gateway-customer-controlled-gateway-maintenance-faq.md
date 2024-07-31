@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 11/01/2023
+ms.date: 07/30/2024
 ms.service: vpn-gateway
 ms.topic: include
 
@@ -24,7 +24,7 @@ Azure services go through periodic maintenance updates to improve functionality,
 
 ### Can I get advanced notification of the maintenance?
 
-At this time, you can't get advanced notification for the maintenance of Network Gateway REST API resources.
+At this time, you can't get advanced notification for the maintenance of Network Gateway resources.
 
 ### Can I configure a maintenance window shorter than five hours?
 

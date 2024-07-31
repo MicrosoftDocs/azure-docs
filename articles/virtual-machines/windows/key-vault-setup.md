@@ -2,7 +2,7 @@
 title: Set up Key Vault using PowerShell
 description: How to set up Key Vault for use with a virtual machine using PowerShell.
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: how-to
 ms.date: 01/24/2017

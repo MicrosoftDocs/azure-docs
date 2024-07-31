@@ -52,9 +52,9 @@ If you want to clean up and remove an Azure AI services subscription, you can de
 
 To learn about automating your custom question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
 
-* [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [Authoring API reference](/rest/api/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)
-* [Runtime API reference](/rest/api/cognitiveservices/questionanswering/question-answering)
+* [Runtime API reference](/rest/api/questionanswering/question-answering)
 
 ## Next steps
 

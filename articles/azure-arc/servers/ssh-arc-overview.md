@@ -36,8 +36,7 @@ Authenticating with Microsoft Entra credentials has additional requirements:
     > The Virtual Machine Administrator Login and Virtual Machine User Login roles use `dataActions` and can be assigned at the management group, subscription, resource group, or resource scope. We recommend that you assign the roles at the management group, subscription, or resource level and not at the individual VM level. This practice avoids the risk of reaching the [Azure role assignments limit](../../role-based-access-control/troubleshoot-limits.md) per subscription.
 
 ### Availability
-SSH access to Arc-enabled servers is currently supported in all regions supported by Arc-Enabled Servers with the following exceptions:
- - Germany West Central
+SSH access to Arc-enabled servers is currently supported in all regions supported by Arc-Enabled Servers.
 
 ## Getting started
 

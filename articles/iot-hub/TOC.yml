@@ -371,8 +371,6 @@
       items:
         - name: Monitor IoT Hub
           href: monitor-iot-hub.md
-        - name: Monitoring data reference
-          href: monitor-iot-hub-reference.md
         - name: Enable message tracing
           displayName: monitor, distributed tracing
           href: iot-hub-distributed-tracing.md
@@ -481,6 +479,8 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
+    - name: Monitoring data reference
+      href: monitor-iot-hub-reference.md
 - name: Resources
   items:
     - name: Support and help options

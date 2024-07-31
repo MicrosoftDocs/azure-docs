@@ -1,8 +1,8 @@
 ---
 title: Overview of Azure Disk Backup
 description: Learn about the Azure Disk backup solution.
-ms.topic: conceptual
-ms.date: 05/09/2024
+ms.topic: overview
+ms.date: 07/30/2024
 ms.service: backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

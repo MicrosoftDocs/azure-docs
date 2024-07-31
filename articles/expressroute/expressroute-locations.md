@@ -3,7 +3,7 @@ title: Connectivity providers and locations for Azure ExpressRoute
 description: This article provides a detailed overview of peering locations served by each ExpressRoute connectivity provider to connect to Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 04/21/2024
 ms.author: duau
@@ -160,7 +160,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Supported | Supported | Milan |
 | **RISQ** |Supported | Supported | Quebec City<br/>Montreal |
 | **SCSK** |Supported | Supported | Tokyo3 |
-| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** | Supported | Supported | Seoul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/)** | Supported | Supported | Seoul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Supported | Supported | London2<br/>Washington DC |
 | **[SIFY](https://sifytechnologies.com/)** | Supported | Supported | Chennai<br/>Mumbai2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported | Hong Kong2<br/>Singapore<br/>Singapore2 |
@@ -327,7 +327,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | Provider | Exchange |
 | --- | --- |
 | **[CyrusOne](https://www.cyrusone.com/cloud-solutions/microsoft-azure)** | Megaport<br/>PacketFabric |
-| **[Cyxtera](https://www.cyxtera.com/data-center-services/interconnection)** | Megaport<br/>PacketFabric |
+| **[Cyxtera](https://centersquaredc.com/products)** | Megaport<br/>PacketFabric |
 | **[Databank](https://www.databank.com/platforms/connectivity/cloud-direct-connect/)** | Megaport |
 | **[DataFoundry](https://www.datafoundry.com/services/cloud-connect/)** | Megaport |
 | **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
@@ -377,7 +377,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Orange Networks** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
-| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
+| **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
