@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Browse the developer portal to see changes and change log
 > * Access an API revision
 
-:::image type="content" source="media/api-management-getstarted-revise-api/azure-portal.png" alt-text="Screenshot of API revisions in the Azure portal.":::
+:::image type="content" source="media/api-management-getstarted-revise-api/azure-portal.png" alt-text="Screenshot of API revisions in the Azure portal." lightbox="media/api-management-getstarted-revise-api/azure-portal.png":::
 
 ## Prerequisites
 
