@@ -19,26 +19,32 @@ Here's an example of where you would copy and paste the Azure portal parameter i
 
 [![Screenshot that shows Azure portal parameter location.](images/azure-portal-parameter-examples.png)](images/azure-portal-parameter-examples.png#lightbox)
 
+To save one of the "experiment.json" examples shown below, simply type *nano experiment.json* into your cloud shell, copy and paste any of the below experiment examples, save it (ctrl+o), exit nano (ctrl+x) and run the following command:
+ ```AzCLI
+az rest --method put --uri https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2024-01-01
+```
 > [!NOTE]
-> Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment permissions](chaos-studio-permissions-security.md). 
+> This is the generic command you would use to create any experiment from the Azure CLI
+
+> [!NOTE]
+> Make sure your experiment has permission to operate on **ALL** resources within the experiment. These examples exclusively use **System-assigned managed identity**, but we also support User-assigned managed identity. For more information, see [Experiment permissions](chaos-studio-permissions-security.md). These experiments will **NOT** run without granting the experiment permission to run on the target resources. 
 ><br>
 ><br>
 >View all available role assignments [here](chaos-studio-fault-providers.md) to determine which permissions are required for your target resources. 
+
+
 
 ---
 Azure Kubernetes Service (AKS) Network Delay
 ---
 
-### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
-PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2024-01-01
 
 {    
 
 "identity": {
         "type": "SystemAssigned",
-        "principalId": "35g5795t-8sd4-5b99-a7c8-d5asdh9as7",
-        "tenantId": "asd79ash-7daa-95hs-0as8-f3md812e3md"
     },
     "tags": {},
     "location": "westus",
@@ -85,7 +91,6 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 
 ```
 
-
 ### [Azure portal parameters](#tab/azure-portal)
 
 ```Azure portal
@@ -95,16 +100,12 @@ PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588
 Azure Kubernetes Service (AKS) Pod Failure
 ---
 
-### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
-PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2024-01-01
-
 {    
 
 "identity": {
         "type": "SystemAssigned",
-        "principalId": "35g5795t-8sd4-5b99-a7c8-d5asdh9as7",
-        "tenantId": "asd79ash-7daa-95hs-0as8-f3md812e3md"
     },
     "tags": {},
     "location": "westus",
@@ -163,14 +164,10 @@ Azure Kubernetes Service (AKS) Memory Stress
 
 ### [Azure CLI](#tab/azure-CLI)
 ```AzCLI
-PUT https://management.azure.com/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment?api-version=2024-01-01
-
 {    
 
 "identity": {
         "type": "SystemAssigned",
-        "principalId": "35g5795t-8sd4-5b99-a7c8-d5asdh9as7",
-        "tenantId": "asd79ash-7daa-95hs-0as8-f3md812e3md"
     },
     "tags": {},
     "location": "westus",
