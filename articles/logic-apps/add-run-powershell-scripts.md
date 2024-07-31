@@ -5,7 +5,7 @@ ms.service: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to
-ms.date: 07/01/2024
+ms.date: 08/15/2024
 # Customer intent: As a logic app workflow developer, I want to write and run PowerShell code so that I can perform custom integration tasks in Standard workflows for Azure Logic Apps.
 ---
 
@@ -158,8 +158,8 @@ Gets the output from the workflow's trigger.
 
 #### Syntax
 
-```azurepowershell
-`Get-TriggerOutput`
+```powershell
+Get-TriggerOutput
 ```
 
 #### Parameters
@@ -172,7 +172,7 @@ Gets the output from another action in the workflow and returns an object named 
 
 #### Syntax
 
-```azurepowershell
+```powershell
 Get-ActionOutput [ -ActionName <String> ]
 ```
 
@@ -195,7 +195,7 @@ Pushes output from the **Execute PowerShell Code** action to your workflow, whic
 
 #### Syntax
 
-```azurepowershell
+```powershell
 Push-WorkflowOutput [-Output <Object>] [-Clobber]
 ```
 
@@ -310,7 +310,7 @@ To find publicly available modules, visit the [PowerShell gallery](https://www.p
 
 If you use dependency management, the following considerations apply:
 
-- To download modules, public modules require access to the [PowerShell Gallery](https://www.powershellgallery.com). If you're running a logic app locally, make sure that the Azure Logic Apps runtime can access the gallery's URL (`https://www.powershellgallery.com`) by adding any required firewall rules.
+- To download modules, public modules require access to the [PowerShell Gallery](https://www.powershellgallery.com).
 
 - Managed dependencies currently don't support modules that require you to accept a license, either by accepting the license interactively or by providing the **-AcceptLicense** option when you run **Install-Module**.
 
@@ -336,7 +336,7 @@ When you're done, your complete logic app file structure appears similar to the 
 
 ```text
 MyLogicApp
-- execute_powershell_script.ps1
+-- execute_powershell_script.ps1
 - host.json
 - Modules
 -- MyPrivateModule
@@ -361,7 +361,7 @@ Make sure that you use the **Push-WorkflowOutput** cmdlet.
 
 ### Execute PowerShell Code action fails: "The term '{some-text}' is not recognized..."
 
-If you incorrectly add your module to the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}, you get the following error:
+If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}, you get the following error:
 
 **The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
 
