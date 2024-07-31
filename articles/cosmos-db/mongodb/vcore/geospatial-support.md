@@ -15,7 +15,7 @@ ms.date: 07/31/2024
 
 [!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Geospatial data can now be stored and queried using vCore-based Azure Cosmos DB for MongoDB. This enhancement provides powerful tools to manage and analyse spatial data, enabling a wide range of applications such as real-time location tracking, route optimization, and spatial analytics.
+Geospatial data can now be stored and queried using vCore-based Azure Cosmos DB for MongoDB. This enhancement provides powerful tools to manage and analyze spatial data, enabling a wide range of applications such as real-time location tracking, route optimization, and spatial analytics.
 
 Here’s a quick overview of the geospatial commands and operators now supported:
 
@@ -54,7 +54,7 @@ Selects documents with geospatial data that exists entirely within a specified s
   ```
 
 ### **$box**
-Defines a rectangular area using two coordinate pairs (bottom-left and top-right corners). Used with the `$geoWithin` operator to find documents within this rectangle. Eg. finding all locations within a rectangular region on a map.
+Defines a rectangular area using two coordinate pairs (bottom-left and top-right corners). Used with the `$geoWithin` operator to find documents within this rectangle. For example, finding all locations within a rectangular region on a map.
 
    ```json
      db.collection.find({
@@ -109,7 +109,7 @@ Specifies a GeoJSON object to define a geometry. Used with geospatial operators 
    ```
 
 ### **$maxDistance**
-Specifies the maximum distance from a point for a geospatial query. Used with `$near` and `$nearSphere` operators. Eg. finding all locations within 2 km of a given point.
+Specifies the maximum distance from a point for a geospatial query. Used with `$near` and `$nearSphere` operators. For example, finding all locations within 2 km of a given point.
 
    ```json
      db.collection.find({
@@ -159,7 +159,7 @@ Defines a polygon using an array of coordinate pairs. Used with the `$geoWithin`
    ```
 
 ### **$near**
-Finds documents that are near a specified point. Returns documents sorted by distance from the point. Eg. Finding the nearest restaurants to a user's location.
+Finds documents that are near a specified point. Returns documents sorted by distance from the point. For example, finding the nearest restaurants to a user's location.
 
   ```json
       db.collection.find({
@@ -217,26 +217,26 @@ Performs a geospatial query to return documents sorted by distance from a specif
 ## Considerations and Unsupported Capabilities
 
 
-* Currently, querying with a single-ringed GeoJSON polygon whose area exceeds a single hemisphere is not supported. In such cases, Mongo vCore will return the following error message:
+* Currently, querying with a single-ringed GeoJSON polygon whose area exceeds a single hemisphere isn't supported. In such cases, Mongo vCore returns the following error message:
 ```json
 Error: Custom CRS for big polygon is not supported yet.
 ```
-* A composite index using a regular index and geospatial index is not allowed. Eg.
+* A composite index using a regular index and geospatial index isn't allowed. For example:
 ```json
 db.collection.createIndex({a: "2d", b: 1});
 Error: Compound 2d indexes are not supported yet
 ```
-* Polygons with holes are currently not supported for use with $geoWithin queries. Although inserting a polygon with holes is not restricted, but it will eventually fail with the following error message:
+* Polygons with holes are currently not supported for use with $geoWithin queries. Although inserting a polygon with holes is not restricted, it eventually fails with the following error message:
 
 ```json
 Error: $geoWithin currently doesn't support polygons with holes
 ```
-* The key field is always required in the $geoNear aggregation stage. If the key field is missing, the following error will occur:
+* The key field is always required in the $geoNear aggregation stage. If the key field is missing, the following error occurs:
 
 ```json
 Error: $geoNear requires a 'key' option as a String
 ```
-* The `$geoNear`, `$near`, and `$nearSphere` stages do not have strict index requirements, so these queries would not fail if an index is missing.
+* The `$geoNear`, `$near`, and `$nearSphere` stages don't have strict index requirements, so these queries wouldn't fail if an index is missing.
 
 ## Related content
 
