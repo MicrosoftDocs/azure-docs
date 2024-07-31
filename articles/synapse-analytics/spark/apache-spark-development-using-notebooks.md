@@ -3,7 +3,7 @@ title: Create, develop, and maintain Synapse notebooks
 description: In this article, you learn how to create and develop Synapse notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: JeneZhang 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics 
 ms.topic: conceptual 
 ms.subservice: spark
 ms.date: 05/08/2021
@@ -246,7 +246,7 @@ To cancel the running cells or the cells waiting in the queue, select the **Canc
 
 ![Screenshot of the button for canceling all running or waiting cells in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png)
 
-### Reference a notebook
+### <a name = "notebook-reference"></a>Reference a notebook
 
 To reference another notebook within the current notebook's context, use the `%run <notebook path>` magic command. All the variables defined in the reference notebook are available in the current notebook.
 
@@ -289,7 +289,7 @@ The number of tasks for each job or stage helps you identify the parallel level 
 
 ![Screenshot of the Spark progress indicator in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
-### Configure a Spark session
+### <a name = "spark-session-configuration"></a>Configure a Spark session
 
 On the **Configure session** pane, you can specify the timeout duration, the number, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
 
@@ -330,7 +330,7 @@ Here are some considerations for the `%%configure` magic command:
 * You must use the standard Spark configuration properties in the `"conf"` body. We don't support first-level references for the Spark configuration properties.
 * Some special Spark properties won't take effect in `"conf"` body, including `"spark.driver.cores"`, `"spark.executor.cores"`, `"spark.driver.memory"`, `"spark.executor.memory"`, and `"spark.executor.instances"`.
 
-#### Parameterized session configuration from a pipeline  
+#### <a name = "parameterized-session-configuration-from-pipeline"></a>Parameterized session configuration from a pipeline  
 
 You can use parameterized session configuration to replace values in the `%%configure` magic command with pipeline run (notebook activity) parameters. When you're preparing a `%%configure` code cell, you can override default values by using an object like this:
 
@@ -514,7 +514,7 @@ On the notebook's **Properties** pane, you can configure whether to include the 
 
 ![Screenshot of Synapse notebook properties and the checkbox for including cell output when saving.](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-## Use magic commands
+## <a name = "magic-commands"></a>Use magic commands
 
 You can use familiar Jupyter magic commands in Synapse notebooks. Review the following lists of currently available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to create more magic commands to meet your needs.
 
