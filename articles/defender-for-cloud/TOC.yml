@@ -855,6 +855,8 @@
           - name: Enable Defender for SQL servers on machines
             href: defender-for-sql-usage.md
             displayName: hybrid, arc, Azure Defender
+          - name: Investigate Defender for SQL security alerts
+            href: defender-for-sql-alerts.md
           - name: Enable Defender for SQL servers on machines at scale
             displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers
             href: enable-defender-sql-at-scale.md
