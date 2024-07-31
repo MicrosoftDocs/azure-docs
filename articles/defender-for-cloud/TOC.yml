@@ -51,8 +51,8 @@
     - name: Define an adoption strategy
       displayName: strategy, adoption, ownership
       href: plan-multicloud-security-define-adoption-strategy.md
-    - name: Determine data residency requirements
-      displayName: data, residency, cspm, cwp, plan
+    - name: Determine plan and agents requirements
+      displayName: data, residency, cspm, cwp, plan, agent, requirements
       href: plan-multicloud-security-determine-data-residency-requirements.md
     - name: Determine compliance requirements
       displayName: compliance, standards
