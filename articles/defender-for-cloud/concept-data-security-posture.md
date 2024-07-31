@@ -96,4 +96,4 @@ Defender for Cloud selects certain tables and samples between 300 to 1,024 rows 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Prepare and review requirements](concept-data-security-posture-prepare.md) for data security posture management.
+> [Prepare and review requirements for data security posture management.](concept-data-security-posture-prepare.md) 
