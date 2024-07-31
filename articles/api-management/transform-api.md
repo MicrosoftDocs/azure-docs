@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Protect an API by adding a rate limit policy (throttling)
 > * Test the transformations
 
-:::image type="content" source="media/transform-api/api-management-console-new.png" alt-text="Screenshot of API Management policies in the portal.":::
+:::image type="content" source="media/transform-api/api-management-console-new.png" lightbox="media/transform-api/api-management-console-new.png" alt-text="Screenshot of API Management policies in the portal.":::
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To see the original response:
 
 The original API response should look similar to the following response:
 
-:::image type="content" source="media/transform-api/test-original-response-new.png" alt-text="Screenshot of the original API response in the portal":::
+:::image type="content" source="media/transform-api/test-original-response-new.png" lightbox="media/transform-api/test-original-response-new.png" alt-text="Screenshot of the original API response in the portal.":::
 
 As you can see, the response includes the **X-AspNet-Version** and **X-Powered-By** headers.
 
@@ -110,7 +110,7 @@ In this example, you use the policy code editor to add the policy XML snippet di
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Outbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Screenshot of navigating to outbound policy code editor in the portal.":::
+   :::image type="content" source="media/transform-api/outbound-policy-code.png" lightbox="media/transform-api/outbound-policy-code.png" alt-text="Screenshot of navigating to outbound policy code editor in the portal.":::
 
 1. Position the cursor inside the **`<outbound>`** element on a blank line. Then select **Show snippets** at the top-right corner of the screen.
 
@@ -131,7 +131,7 @@ This section shows how to add protection to your backend API by configuring rate
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Inbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
+   :::image type="content" source="media/transform-api/inbound-policy-code.png" lightbox="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
 
 1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
 
@@ -141,7 +141,7 @@ This section shows how to add protection to your backend API by configuring rate
 
     The **`<rate-limit-by-key />`** element is added at the cursor. 
 
-   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the pportal":::
+   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the portal.":::
 
 1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
 
