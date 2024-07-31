@@ -5,7 +5,8 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.topic: faq
-  ms.date: 07/25/2024
+  ms.custom: references_regions
+  ms.date: 07/31/2024
 
 title: Azure IoT Operations frequently asked questions
 summary: |
@@ -19,7 +20,7 @@ sections:
       answer: Currently, message persistence isn't supported in the preview version of Azure IoT Operations.
     - question: |
          Does Azure IoT Operations offer high availability and zero data loss features at general availability?
-      answer: Currently, Azure IoT Operations workloads on K3s and HCI/Aks-Arc multi-node clusters don't support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
+      answer: Currently, Azure IoT Operations workloads on K3s and HCI/Aks-Arc multi-node clusters don't support distribution of Azure IoT Operations workloads across multi-node setups in the preview version.
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
       answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, relay your requests back to us.
@@ -35,7 +36,7 @@ sections:
     - question: |
          Is there a non-Dapr Azure IoT Operations state store code example?
       answer: |
-        Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md)
+        Currently, we don't have an example/asset for external use. However, the StateStore documentation can help you understand how it can be used. For more information, see [MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
     - question: |
          Is MQTT with QoS 2 supported?
       answer: Currently, QoS 2 isn't supported.
