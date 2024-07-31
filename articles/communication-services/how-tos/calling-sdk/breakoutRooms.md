@@ -52,7 +52,7 @@ The following tables show support of breakout rooms for specific call type and i
 
 ## SDKs
 The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
-| Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+| | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|--------|--------|--------|----------|--------|---|
 |Is Supported | ✔️|   |   |   |    |   |    |		
 
