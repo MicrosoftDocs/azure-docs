@@ -115,7 +115,7 @@ sections:
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now in public preview. 
+          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now generally available. 
 
       - question: |
           Does my search service support vector search?
