@@ -4,7 +4,7 @@ description: These error codes could be returned by an operation on an Azure Key
 services: machine-learning
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 02/20/2024
