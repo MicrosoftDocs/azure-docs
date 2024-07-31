@@ -218,24 +218,24 @@ Performs a geospatial query to return documents sorted by distance from a specif
 
 
 * Currently, querying with a single-ringed GeoJSON polygon whose area exceeds a single hemisphere isn't supported. In such cases, Mongo vCore returns the following error message:
-```json
-Error: Custom CRS for big polygon is not supported yet.
-```
+   ```json
+   Error: Custom CRS for big polygon is not supported yet.
+   ```
 * A composite index using a regular index and geospatial index isn't allowed. For example:
-```json
-db.collection.createIndex({a: "2d", b: 1});
-Error: Compound 2d indexes are not supported yet
-```
+   ```json
+   db.collection.createIndex({a: "2d", b: 1});
+   Error: Compound 2d indexes are not supported yet
+   ```
 * Polygons with holes are currently not supported for use with $geoWithin queries. Although inserting a polygon with holes is not restricted, it eventually fails with the following error message:
 
-```json
-Error: $geoWithin currently doesn't support polygons with holes
-```
+   ```json
+   Error: $geoWithin currently doesn't support polygons with holes
+   ```
 * The key field is always required in the $geoNear aggregation stage. If the key field is missing, the following error occurs:
 
-```json
-Error: $geoNear requires a 'key' option as a String
-```
+   ```json
+   Error: $geoNear requires a 'key' option as a String
+   ```
 * The `$geoNear`, `$near`, and `$nearSphere` stages don't have strict index requirements, so these queries wouldn't fail if an index is missing.
 
 ## Related content
