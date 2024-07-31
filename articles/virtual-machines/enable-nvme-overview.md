@@ -5,6 +5,8 @@ author: mehollin
 ms.service: virtual-network
 ms.date: 07/31/2024
 ms.author: mehollin
+ms.topic: how-to
+
 ---
 # NVMe Overview
 
