@@ -160,6 +160,10 @@ Try the following steps:
 
 - Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. 
 
+### How can I automate the creation of an anomaly alert rule?
+
+You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP), specifying the scheduled action kind as **`InsightAlert.`**
+
 ## Get help to identify charges
 
 If used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
