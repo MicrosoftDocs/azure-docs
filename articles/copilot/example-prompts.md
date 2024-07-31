@@ -37,9 +37,9 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Cost Management](analyze-cost-management.md) | Compares the current month's cost to the previous month's cost. | "How does our cost this month compare to last month's." |
 | [Cost Management](analyze-cost-management.md) | Forecasts cost for the next 3 months. | "Forecast my cost for the next 3 months." |
 | [Cost Management](analyze-cost-management.md) | Shows Azure credits balance. | "What's our Azure credits balance?" |
-| [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Generates a cheatsheet for managing resources with CLI. | "Generate a cheatsheet for managing VMs with CLI." |
-| [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Lists all resources of a certain kind using Azure CLI. | "How do I list all my VMs using Azure CLI?" |
-| [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Creates resources with CLI. | "Create a virtual network with two subnets using the address space of 10.0.0.0/16 using az cli." |
+| [Azure CLI](generate-cli-scripts.md) | Generates a cheatsheet for managing resources with CLI. | "Generate a cheatsheet for managing VMs with CLI." |
+| [Azure CLI](generate-cli-scripts.md) | Lists all resources of a certain kind using Azure CLI. | "How do I list all my VMs using Azure CLI?" |
+| [Azure CLI](generate-cli-scripts.md) | Creates resources with CLI. | "Create a virtual network with two subnets using the address space of 10.0.0.0/16 using az cli." |
 | [Azure CLI](generate-cli-scripts.md) | Deploys resources with CLI. | "I want to use Azure CLI to deploy and manage AKS using a private service endpoint." |
 | [PowerShell](generate-powershell-scripts.md) | Create resources with Powershell. | "How can I create a new resource group using PowerShell?" |
 | [PowerShell](generate-powershell-scripts.md) | Deploy muliple resources with Powershell. | "Help me write a PS script where after creating VM, deploy an AKS cluster on it." |
