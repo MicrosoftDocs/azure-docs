@@ -257,7 +257,9 @@ This procedure describes a sample process for using summary rules with [auxiliar
 
 1. Set up your custom CEF connector from Logstash:
 
-    1. Deploy our [ARM template](https://aka.ms/DeployCEFresources) to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE).
+    1. Deploy the following ARM template to your Microsoft Sentinel workspace to create a custom table with data collection rules (DCR) and a data collection endpoint (DCE):
+
+        [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https://aka.ms/DeployCEFresources)
 
     1. Note the following details from the ARM template output:
 
