@@ -5,7 +5,7 @@ author: filippopovic
 ms.author: fipopovi
 ms.reviewer: wiassaf, kecona
 ms.date: 01/30/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: reference
 ---
