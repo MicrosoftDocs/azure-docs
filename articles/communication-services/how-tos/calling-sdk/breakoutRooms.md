@@ -27,7 +27,7 @@ In this article, you learn how to implement Microsoft Teams breakout rooms with 
 Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager roles can manage the breakout rooms.
 
 ## Support
-
+The following tables define support of breakout rooms in Azure Communication Services.
 ## Identities
 
 |Identities| Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
