@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 07/30/2024
 ms.author: normesta
 ms.reviewer: fryu
 ms.devlang: csharp
@@ -27,7 +27,7 @@ For more information about rehydrating blobs from the archive tier, see [Overvie
 
 This article shows you how to use [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or later to develop an Azure Function with .NET. You can install Visual Studio Community for free. Make sure that you [configure Visual Studio for Azure Development with .NET](/dotnet/azure/configure-visual-studio).
 
-To debug the Azure Function locally, you will need to use a tool that can send an HTTP request, such as Postman.
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 An [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
@@ -167,7 +167,7 @@ To learn more about the information that is included when a Blob Storage event i
 
 ## Run the Azure Function locally in the debugger
 
-To test your Azure Function code locally, you need to manually send an HTTP request that triggers the event. You can post the request using a tool such as Postman.
+To test your Azure Function code locally, you need to manually send an HTTP request that triggers the event. You can post the request by using a tool such as those that are described in the prerequisite section of this article.
 
 At the top of the class file for your Azure Function is a URL endpoint that you can use for testing in the local environment. Posting the request with this URL triggers the event in the local environment so that you can debug your code. The URL is in the following format:
 
@@ -175,50 +175,12 @@ At the top of the class file for your Azure Function is a URL endpoint that you 
 http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 ```
 
-The request that you send to this endpoint is a simulated request. It does not send or receive data from your Azure Storage account.
+The request that you send to this endpoint is a simulated request. It does not send or receive data from your Azure Storage account. 
 
-Follow these steps to construct and send a request to this endpoint. This example shows how to send the request with Postman.
-
-1. In Postman, create a new request.
-1. Paste the URL shown above into the field for the request URL, substituting the name of your function for `{functionname}` and removing the curly braces. Make sure that the request verb is set to GET.
-
-    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-url.png" alt-text="Screenshot showing how to specify local URL for event trigger in Postman ":::
-
-1. Add the **Content-Type** header and set it to *application/json*.
-1. Add the **aeg-event-type** header and set it to *Notification*.
-
-    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-headers.png" alt-text="Screenshot showing header configuration for local request to trigger event":::
-
-1. In Postman, specify the request body, with the body type set to *JSON* and the format to *raw*. The following example simulates a **Copy Blob** request. Replace placeholder values in angle brackets with your own values. Note that it is not necessary to change date/time or identifier values, because this is a simulated request:
-
-    ```json
-    [{
-      "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
-      "subject": "/blobServices/default/containers/<container-name>/blobs/<blob-name>",
-      "eventType": "Microsoft.Storage.BlobCreated",
-      "id": "2bfb587b-501e-0094-2746-8b2884065d32",
-      "data": {
-        "api": "CopyBlob",
-        "clientRequestId": "3d4dedc7-6c27-4816-9405-fdbfa806b00c",
-        "requestId": "2bfb587b-501e-0094-2746-8b2884000000",
-        "eTag": "0x8D9595DCA505BDF",
-        "contentType": "text/plain",
-        "contentLength": 48,
-        "blobType": "BlockBlob",
-        "url": "https://<storage-account>.blob.core.windows.net/<container-name>/<blob-name>",
-        "sequencer": "0000000000000000000000000000201B00000000004092a5",
-        "storageDiagnostics": {
-          "batchId": "8a92736a-6006-0026-0046-8bd7f5000000"
-        }
-      },
-      "dataVersion": "",
-      "metadataVersion": "1",
-      "eventTime": "2021-08-07T04:42:41.0730463Z"
-    }]
-    ```
+Send a request to this endpoint by using your HTTP request tool and its instructions. Make sure to substitute the `{functionname}` placeholder with the name of your function (for example `Get http://localhost:7071/runtime/webhooks/EventGrid?functionName=BlobRehydrateEventHandler`).
 
 1. In Visual Studio, place any desired breakpoints in your code, and press **F5** to run the debugger.
-1. In Postman, select the **Send** button to send the request to the endpoint.
+1. In your HTTP request tool, send the request to the endpoint.
 
 When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/event-grid-how-tos.md#manually-post-the-request) in the Azure Functions documentation.
 
