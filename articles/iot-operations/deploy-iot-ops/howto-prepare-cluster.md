@@ -25,7 +25,7 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-- Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
+* Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -44,7 +44,6 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * Ensure that your machine has a minimum of 10-GB RAM, 4 vCPUs, and 40-GB free disk space.
   * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
   * Review the [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
-
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -106,51 +105,38 @@ This section provides steps to prepare and Arc-enable clusters in validated envi
 
 [Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.
 
->[!TIP]
->You can use the [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script to automate the steps in this section and connect your cluster.
->
->Open an elevated PowerShell window, change the directory to a working folder, then run the following commands:
->
->```powershell
->$url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
->Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
->Unblock-File .\AksEdgeQuickStartForAio.ps1
->Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
->.\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
->```
->
->Your machine might reboot as part of this process. If so, run the whole set of commands again.
+The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
-Prepare your machine for AKS Edge Essentials.
+1. Open an elevated PowerShell window and change the directory to a working folder.
 
-1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version to your local machine.
+1. Run the following commands, replacing the placeholder values with your information:
 
-1. Complete the steps in [Prepare your machine for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the validated installer you downloaded in the previous step and not the most recent version.
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](../../azure-portal/get-subscription-tenant-id#find-your-azure-subscription) |
+   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant) |
+   | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
+   | LOCATION | An Azure region close to you. Currently, the supported regions are: "eastus", "eastus2", "westus", "westus2", "westeurope", or "northeurope" |
+   | CLUSTER_NAME | A name for the new cluster to be created. |
 
-Set up an AKS Edge Essentials cluster on your machine.
+   ```powershell
+   $url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
+   Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
+   Unblock-File .\AksEdgeQuickStartForAio.ps1
+   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
+   ```
 
-1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment), but at the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the _aksedge-config.json_ file:
+   If there are any issues during deployment, including if your machine reboots as part of this process, run the whole set of commands again.
 
-    ```json
-    `Init.ServiceIPRangeSize` = 10
-    `LinuxNode.DataSizeInGB` = 30
-    `LinuxNode.MemoryInMB` = 8192
-    ```
+1. Run the following commands to check that the deployment was successful:
 
-1. Install **local-path** storage in the cluster by running the following command:
+   ```powershell
+   Import-Module AksEdge
+   Get-AksEdgeDeploymentInfo
+   ```
 
-    ```cmd
-    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
-    ```
-
-Run the following commands to check that the deployment was successful:
-
-```powershell
-Import-Module AksEdge
-Get-AksEdgeDeploymentInfo
-```
-
-In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
+   In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -213,7 +199,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
-To connect your cluster to Azure Arc, complete the steps in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
+The **AksEdgeQuickStartForAio.ps1** script that you ran in the previous section handled the steps to connect your cluster. You don't need to take any extra steps to Arc-enable.
 
 ### [Ubuntu](#tab/ubuntu)
 
