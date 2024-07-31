@@ -41,7 +41,7 @@ You can use the Azure portal, Azure CLI, or Azure PowerShell to complete this tu
         - Append the name of the load balancers and virtual machines in each region with a **-R1** and **-R2**. 
 - Azure CLI installed locally or Azure Cloud Shell.
 
-If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). When running Azure CLI locally, you'll need to sign in with `az login` to create a connection with Azure.
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
@@ -55,22 +55,18 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ---
 
-## Sign in to Azure portal
-
-[Sign in](https://portal.azure.com) to the Azure portal.
 
 ## Create cross-region load balancer
 
-In this section, you create a 
+In this section, you create a cross-region load balancer with a public IP address, a frontend IP configuration, a backend pool, and a load balancer rule.
 
-* Cross-region load balancer
-* Frontend with a global public IP address
-* Backend pool with two regional load balancers
+# [Azure portal](#tab/azureportal)
+
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
 
-# [Azure portal](#tab/azureportal)
+### Create the load balancer resource and other resources
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancer** in the search results.
@@ -147,21 +143,8 @@ In this section, you create a
 
 # [Azure CLI](#tab/azurecli/)
 
-### Sign in to Azure CLI
-
-Sign in to Azure CLI:
-
-```azurecli-interactive
-az login
-```
-### Set resource variables
-
-```azurecli-interactive
-
-``````
-## Create cross-region load balancer
-
-In this section, you create a cross-region load balancer, public IP address, and load balancing rule.
+> [!IMPORTANT]
+> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
 
 ### Create a resource group
 
@@ -178,7 +161,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
     --location westus
 ```
 
-### Create the load balancer resource
+### Create the cross-region load balancer resource
 
 Create a cross-region load balancer with [az network cross-region-lb create](/cli/azure/network/cross-region-lb#az-network-cross-region-lb-create):
 
