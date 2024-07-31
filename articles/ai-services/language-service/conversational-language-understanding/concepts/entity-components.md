@@ -125,4 +125,4 @@ When you don't combine components, you allow every component to act as an indepe
 
 ## Related content
 
-[Supported prebuilt components](../prebuilt-component-reference.md)
+- [Supported prebuilt components](../prebuilt-component-reference.md)
