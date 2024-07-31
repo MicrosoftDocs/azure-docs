@@ -34,8 +34,8 @@ The following table shows the Azure Storage client libraries for data access:
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
 | **Azure.Storage.Blobs** | [Reference](/dotnet/api/azure.storage.blobs) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs) |
-| **Azure.Storage.Blobs.Batch** | | [NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs.Batch/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs.Batch) |
-| **Azure.Storage.Common** | | [NuGet](https://www.nuget.org/packages/Azure.Storage.Common/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Common) |
+| **Azure.Storage.Blobs.Batch** | [Reference](/dotnet/api/azure.storage.blobs.batch) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs.Batch/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Blobs.Batch) |
+| **Azure.Storage.Common** | [Reference](/dotnet/api/azure.storage) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Common/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Common) |
 | **Azure.Storage.Files.DataLake** | [Reference](/dotnet/api/azure.storage.files.datalake) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Files.DataLake) |
 | **Azure.Storage.Files.Shares** | [Reference](/dotnet/api/azure.storage.files.shares) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Files.Shares/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Files.Shares) |
 | **Azure.Storage.Queues** | [Reference](/dotnet/api/azure.storage.queues) | [NuGet](https://www.nuget.org/packages/Azure.Storage.Queues/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.Queues) |
