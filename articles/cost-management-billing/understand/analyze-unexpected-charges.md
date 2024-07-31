@@ -158,7 +158,7 @@ Try the following steps:
 - Verify that you have the Owner, Contributor, or Cost Management Contributor role on the subscription.
 - If you got an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
 
-- Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. We are actively working to make it available soon.
+- Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. 
 
 ## Get help to identify charges
 
