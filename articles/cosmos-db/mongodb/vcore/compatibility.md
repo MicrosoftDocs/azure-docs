@@ -5,7 +5,7 @@ description: Review Azure Cosmos DB for MongoDB vCore supported features and syn
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 10/21/2023
