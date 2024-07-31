@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 07/31/2024
 ---
 
 # Copy data from or to Azure Files by using Azure Data Factory
@@ -73,6 +73,8 @@ The Azure Files connector supports the following authentication types. See the c
 
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
+- [System-assigned managed identity authentication](#managed-identity)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
 > If you were using Azure Files linked service with [legacy model](#legacy-model), where on ADF authoring UI shown as "Basic authentication", it is still supported as-is, while you are suggested to use the new model going forward. The legacy model transfers data from/to storage over Server Message Block (SMB), while the new model utilizes the storage SDK which has better throughput. To upgrade, you can edit your linked service to switch the authentication method to "Account key" or "SAS URI"; no change needed on dataset or copy activity.
@@ -197,6 +199,83 @@ The service supports the following properties for using shared access signature 
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Files authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use system-assigned managed identity authentication, follow these steps：
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the managed identity permission in Azure Files. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Contributor** role.
+
+These properties are supported for an Azure Files linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureFileStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
+| fileShare | Specify the file share. | Yes |
+
+**Example:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.file.core.windows.net/",
+            "fileShare": "<file share name>" 
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Azure Files authentication, which allows to access and copy data from or to Azure Files. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Contributor** role.
+     
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for an Azure Files linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureFileStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| fileShare | Specify the file share. | Yes |
+
+**Example:**
+
+```json
+{
+    "name": "AzureFileStorageLinkedService",
+    "properties": {
+        "type": "AzureFileStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.file.core.windows.net/",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            },
+            "fileShare": "<file share name>"
         }
     }
 }
