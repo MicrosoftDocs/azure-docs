@@ -40,18 +40,20 @@ For v6, Ebsv5 and greater VMs, you will need to transition from SCSI to NVMe. Fo
 
 ## Supportability
 
+### VM sizes
+
+Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Da/Ea/Fav6 and newer) typically support only the NVMe storage interface. However, Ebsv5/Ebdsv5 and Lsv2/Lsv3/Lasv3 VMs introduced NVMe as an option for temporary disks.
+
+For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
+
+### VM image generation
+
 If you think your workload benefits from NVMe performance, you must switch to the Generation 2 VMs. To create a Generation 2 VM, follow the [documented steps](/azure/virtual-machines/generation-2#creating-a-generation-2-vm).
 
 > [!NOTE]
 > We currently do not support NVMe disks on Generation 1 VMs.
 
-If you attempt to use a Generation 1 VM image, you will either not be able to select an NVMe-capable VM or you will receive an error message stating that the selected image is not supported for NVMe. Please refer to our list of supported VM images for NVMe compatibility.
-
-### VM generations that support NVMe disks
-
-Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Da/Ea/Fav6 and newer) typically support only the NVMe storage interface. However, Ebsv5/Ebdsv5 and Lsv2/Lsv3/Lasv3 VMs introduced NVMe as an option for temporary disks.
-
-For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
+If you attempt to use a Generation 1 VM image, you will either not be able to select an NVMe-capable VM or you will receive an error message stating `that the selected image is not supported for NVMe.`
 
 #### Availabilty of Support
 
@@ -63,14 +65,14 @@ If the OS you want to use does *not* support NVMe, use a VM series that still ha
 
 You can enable NVMe during VM creation by using methods such as:
 
-- Azure portal
+- Azure portal 
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Manager templates
 
 To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and select the NVMe disk controller type for the VM. You can also update a VM to NVMe when it's stopped and deallocated, if the VM size supports NVMe.
 
-### Mark as NVMe capable  
+#### Mark as NVMe capable  
 
 You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's marked as NVMe. Be sure to carefully follow these [instructions to enable NVMe](/azure/virtual-machines/enable-nvme-interface).
 
@@ -80,7 +82,7 @@ You can create an NVMe-supported VM only by using an image (Platform Image Repos
 To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) marked as NVMe. If your current OS image is not supported for NVMe, you'll get this error message: ` "The selected image is not supported for NVMe. See supported VM images." `
     :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of an example of choosing one of the supported operating system images on NVMe.":::
 
-### Using Azure portal to enable the NVMe interface during VM creation
+#### Using Azure portal to enable the NVMe interface during VM creation
 
 1. Add a disk controller filter. To find the NVMe-eligible sizes, select **See All Sizes**, select the **Disk controller** filter, and then select **NVMe**.
 
