@@ -66,6 +66,8 @@ items:
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-communication-services-security-baseline?toc=/azure/communication-services/toc.json
+  - name: Artificial intelligence (AI)
+    href: concepts/ai.md
   - name: Service limits
     href: concepts/service-limits.md
   - name: Troubleshooting

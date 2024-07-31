@@ -3,8 +3,8 @@ title: DICOM Conformance Statement version 1 for Azure Health Data Services
 description: Read about the features and specifications of the DICOM service v1 API, which supports a subset of the DICOMweb Standard for medical imaging data. A DICOM Conformance Statement is a technical document that describes how a device or software implements the DICOM standard.
 services: healthcare-apis
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 10/13/2023
 ms.author: mmitrik
