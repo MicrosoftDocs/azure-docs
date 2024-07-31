@@ -402,12 +402,13 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
-| **Tier** | **Number of vCPUs** |
-|---------------|--------------------------|
-| `Basic` | 12.5% of total VM cores | 
-| `Standard` (default) | 25% of total VM cores |
-| `Advanced` | 50% of total VM cores | 
+| **Tier** | **Number of vCPUs** | **Read IOPS** | **Write IOPS** |
+| --- | --- | --- | --- |
+| `Basic` | 12.5% of total VM cores | Up to 100,000  | Up to 90,000 |
+| `Standard` (default)| 25% of total VM cores | Up to 200,000  | Up to 180,000 |
+| `Advanced` | 50% of total VM cores | Up to 400,000  | Up to 360,000 |
 
+Note that the [FIO](https://github.com/axboe/fio) benchmark tool was used to evaluate the IOPS performance in the above table. FIO is a popular tool to benchmark storage. The AKS node SKU used is **Standard_L16s_v3**. The test parameters included a block size of 4KB and a queue depth of 32. The FIO worker set size was configured to 32G, and the number of jobs was set to match the number of vCPUs available.
 > [!NOTE]
 > RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
 
