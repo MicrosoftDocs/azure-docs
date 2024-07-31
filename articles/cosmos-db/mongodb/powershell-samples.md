@@ -2,7 +2,7 @@
 title: Azure PowerShell samples for Azure Cosmos DB for MongoDB
 description:  Get the Azure PowerShell samples to perform common tasks in Azure Cosmos DB for MongoDB
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
