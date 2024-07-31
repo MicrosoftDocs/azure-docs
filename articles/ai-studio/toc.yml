@@ -181,6 +181,8 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs

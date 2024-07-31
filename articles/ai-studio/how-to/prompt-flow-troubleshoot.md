@@ -40,17 +40,17 @@ Compute session support to use `requirements.txt` or custom base image in `flow.
 
 In prompt flow, on flow page with successful run and run detail page, you can find the raw inputs and outputs of LLM tool in the output section. Select the `view full output` button to view full output. 
 
-:::image type="content" source="./media/prompt-flow/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "./media/prompt-flow/view-full-output.png":::
+:::image type="content" source="../media/prompt-flow/view-full-output.png" alt-text="Screenshot that shows view full output on LLM node." lightbox = "../media/prompt-flow/view-full-output.png":::
 
 `Trace` section includes each request and response to the LLM tool. You can check the raw message sent to the LLM model and the raw response from the LLM model.
 
-:::image type="content" source="./media/prompt-flow/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "./media/prompt-flow/trace-large-language-model-tool.png":::
+:::image type="content" source="../media/prompt-flow/trace-large-language-model-tool.png" alt-text="Screenshot that shows raw request send to LLM model and response from LLM model." lightbox = "../media/prompt-flow/trace-large-language-model-tool.png":::
 
 ### How to fix 409 error from Azure OpenAI? 
 
 You may encounter 409 error from Azure OpenAI, it means you have reached the rate limit of Azure OpenAI. You can check the error message in the output section of LLM node. Learn more about [Azure OpenAI rate limit](../../ai-services/openai/quotas-limits.md).
 
-:::image type="content" source="./media/prompt-flow/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "./media/prompt-flow/429-rate-limit.png":::
+:::image type="content" source="../media/prompt-flow/429-rate-limit.png" alt-text="Screenshot that shows 429 rate limit error from Azure OpenAI." lightbox = "../media/prompt-flow/429-rate-limit.png":::
 
 ### Identify which node consumes the most time
 
@@ -64,13 +64,13 @@ You may encounter 409 error from Azure OpenAI, it means you have reached the rat
 
    - **Case 1:** Python script node runs for a long time.
 
-        :::image type="content" source="./media/prompt-flow/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign." lightbox = "./media/prompt-flow/runtime-timeout-running-for-long-time.png":::
+        :::image type="content" source="../media/prompt-flow/runtime-timeout-running-for-long-time.png" alt-text="Screenshot that shows a timeout run sign." lightbox = "../media/prompt-flow/runtime-timeout-running-for-long-time.png":::
 
         In this case, you can find that `PythonScriptNode` was running for a long time (almost 300 seconds). Then you can check the node details to see what's the problem.
 
    - **Case 2:** LLM node runs for a long time.
 
-        :::image type="content" source="./media/prompt-flow/rruntime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout." lightbox = "./media/prompt-flow/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+        :::image type="content" source="../media/prompt-flow/rruntime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
 
         In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the timeout limit.
 
@@ -176,7 +176,7 @@ Consider optimizing the endpoint with above considerations to improve the perfor
 
 After you deploy the endpoint and want to test it in the **Test** tab in the deployment detail page, if the **Test** tab shows **Unable to fetch deployment schema**, you can try the following two methods to mitigate this issue:
 
-:::image type="content" source="./media/prompt-flow//unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in deployment detail page. " lightbox = "./media/prompt-flow/unable-to-fetch-deployment-schema.png":::
+:::image type="content" source="../media/prompt-flow//unable-to-fetch-deployment-schema.png" alt-text="Screenshot of the error unable to fetch deployment schema in Test tab in deployment detail page. " lightbox = "../media/prompt-flow/unable-to-fetch-deployment-schema.png":::
 
 - Make sure you have granted the correct permission to the endpoint identity. Learn more about [how to grant permission to the endpoint identity](./flow-deploy.md#grant-permissions-to-the-endpoint).
 - It might be because you ran your flow in an old version runtime and then deployed the flow, the deployment used the environment of the runtime that was in old version as well. To update the runtime, follow [Update a runtime on the UI](./create-manage-compute-session.md#upgrade-compute-instance-runtime) and rerun the flow in the latest runtime and then deploy the flow again.
