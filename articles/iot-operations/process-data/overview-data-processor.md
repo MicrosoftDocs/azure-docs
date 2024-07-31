@@ -48,19 +48,21 @@ Key data processor features include:
 
 By default, the data processor isn't included in an Azure IoT Operations Preview deployment. If you plan to use the data processor, you must include it when you deploy Azure IoT Operations Preview - you can't add it later.
 
-The data processor is available in Azure IoT Operations versions 0.5.1 and earlier.
+The data processor is available in Azure IoT Operations version 0.5.1 and earlier.
 
-To deploy the data processor, make sure that you have a supported version of the Azure IoT Operations CLI extension. For example:
+To deploy the data processor, use version 0.5.1b1 of the Azure IoT Operations CLI extension:
 
 ```azurecli
-az extension add --upgrade --name azure-iot-ops --version 0.5.1
+az extension add --upgrade --name azure-iot-ops --version 0.5.1b1
 ```
 
-For versions earlier than 0.5.1, data processor is included in Azure IoT Operations deployments. For version 0.5.1, use the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. To learn more, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+Then, include the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. For example:
 
 ```azurecli-interactive
 az iot ops init --include-dp --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
 ```
+
+To learn more about the `init` command parameters, see [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## What is a pipeline?
 
