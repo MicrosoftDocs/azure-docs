@@ -215,6 +215,105 @@ result = call_connection_client.send_dtmf_tones(
 ```
 -----
 
+### Call Recording
+ACS Rooms supports recording capabilities (start, stop, pause, resume, etc.) provided by Call Automation. The following code snippets are used to start/stop/pause/resume a recording in a room call. However, please refer to [Call Automation recording](../../concepts/voice-video-calling/call-recording#get-full-control-over-your-recordings-with-our-call-recording-apis) for a complete list of actions.
+
+### [csharp](#tab/csharp)
+```csharp
+// Start recording
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<ServerCallId>"))
+{
+   RecordingContent = RecordingContent.Audio,
+   RecordingChannel = RecordingChannel.Unmixed,
+   RecordingFormat = RecordingFormat.Wav,
+   RecordingStateCallbackUri = new Uri("<CallbackUri>"),
+   RecordingStorage = RecordingStorage.CreateAzureBlobContainerRecordingStorage(new Uri("<YOUR_STORAGE_CONTAINER_URL>"))
+};
+Response<RecordingStateResult> response = await callAutomationClient.GetCallRecording()
+.StartAsync(recordingOptions);
+
+// Stop recording using recordingId received in response of start recording.
+var stopRecording = await callAutomationClient.GetCallRecording().StopAsync(recordingId);
+
+// Pause recording using recordingId received in response of start recording.
+var pauseRecording = await callAutomationClient.GetCallRecording ().PauseAsync(recordingId);
+
+// Resume recording using recordingId received in response of start recording.
+var resumeRecording = await callAutomationClient.GetCallRecording().ResumeAsync(recordingId);
+
+```
+### [Java](#tab/java)
+```java
+// Start recording
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
+                    .setRecordingChannel(RecordingChannel.UNMIXED)
+                    .setRecordingFormat(RecordingFormat.WAV)
+                    .setRecordingContent(RecordingContent.AUDIO)
+                    .setRecordingStateCallbackUrl("<recordingStateCallbackUrl>");
+
+Response<RecordingStateResult> response = callAutomationClient.getCallRecording()
+.startWithResponse(recordingOptions, null);
+
+// Stop recording using recordingId received in response of start recording
+Response<Void> response = callAutomationClient.getCallRecording()
+               .stopWithResponse(recordingId, null);
+
+// Pause recording using recordingId received in response of start recording
+Response<Void> response = callAutomationClient.getCallRecording()
+              .pauseWithResponse(recordingId, null);
+
+// Resume recording using recordingId received in response of start recording
+Response<Void> response = callAutomationClient.getCallRecording()
+               .resumeWithResponse(recordingId, null);
+
+```
+### [JavaScript](#tab/javascript)
+```javascript
+// Start recording
+var locator: CallLocator = { id: "<ServerCallId>", kind: "serverCallLocator" };
+
+var options: StartRecordingOptions =
+{
+  callLocator: locator,
+  recordingContent: "audio",
+  recordingChannel:"unmixed",
+  recordingFormat: "wav",
+  recordingStateCallbackEndpointUrl: "<CallbackUri>"
+};
+var response = await callAutomationClient.getCallRecording().start(options);
+
+// Stop recording using recordingId received in response of start recording
+var stopRecording = await callAutomationClient.getCallRecording().stop(recordingId);
+
+// Pause recording using recordingId received in response of start recording
+var pauseRecording = await callAutomationClient.getCallRecording().pause(recordingId);
+
+// Resume recording using recordingId received in response of start recording.
+var resumeRecording = await callAutomationClient.getCallRecording().resume(recordingId);
+
+```
+### [Python](#tab/python)
+```python
+# Start recording
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+            recording_content_type = RecordingContent.Audio,
+            recording_channel_type = RecordingChannel.Unmixed,
+            recording_format_type = RecordingFormat.Wav,
+            recording_state_callback_url = "<CallbackUri>")
+
+# Stop recording using recording_id received in response of start recording
+stop_recording = call_automation_client.stop_recording(recording_id = recording_id)
+
+# Pause recording using recording_id received in response of start recording
+pause_recording = call_automation_client.pause_recording(recording_id = recording_id)
+
+# Resume recording using recording_id received in response of start recording
+resume_recording = call_automation_client.resume_recording(recording_id = recording_id)
+```
+-----
+
+
+
 ### Terminate a Call
 Call Automation SDKs provides Hang Up action which can be used to terminate a call. CallDisconnected event is published once the Hang Up action has completed successfully.
 
