@@ -5,6 +5,7 @@ ms.date: 2024-07-31
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: nvme-linux
+title: SCSI to NVMe for Linux VMs
 ---
 
 # Converting Virtual Machines Running Linux from SCSI to NVMe

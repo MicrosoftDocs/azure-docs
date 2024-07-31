@@ -35,7 +35,7 @@ Azure Boost also optimizes performance by using the industry-standard NVMe inter
 
 ## SCSI to NVMe
 
-To migrate to v6 VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux).
+For v6, Ebsv5 and greater VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux).
 
 
 ## Supportability
@@ -70,14 +70,14 @@ You can enable NVMe during VM creation by using methods such as:
 
 To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and select the NVMe disk controller type for the VM. You can also update a VM to NVMe when it's stopped and deallocated, if the VM size supports NVMe.
 
-### Tag image to enable NVMe  
+### Mark as NVMe capable  
 
-You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's tagged as NVMe. Be sure to carefully follow these [instructions to enable NVMe](/azure/virtual-machines/enable-nvme-interface).
+You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) that's marked as NVMe. Be sure to carefully follow these [instructions to enable NVMe](/azure/virtual-machines/enable-nvme-interface).
 
 > [!WARNING]
-> If you use an untagged image, a SCSI-based VM is created, and the VM might not perform as you intended.
+> If you use an unmarked image, a SCSI-based VM is created, and the VM might not perform as you intended.
 
-To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) tagged as NVMe. If your current OS image is not supported for NVMe, you'll get this error message: ` "The selected image is not supported for NVMe. See supported VM images." `
+To create VMs with an NVMe interface, it's essential to choose one of the [supported OS images](/azure/virtual-machines/enable-nvme-interface) marked as NVMe. If your current OS image is not supported for NVMe, you'll get this error message: ` "The selected image is not supported for NVMe. See supported VM images." `
     :::image type="content" source="./media/enable-nvme/nvme-faq-2.png" alt-text="Screenshot of an example of choosing one of the supported operating system images on NVMe.":::
 
 ### Using Azure portal to enable the NVMe interface during VM creation
