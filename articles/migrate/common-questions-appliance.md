@@ -7,7 +7,7 @@ ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.custom: engagement-fy24
-ms.date: 05/02/2024
+ms.date: 06/20/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -110,6 +110,10 @@ A project can have multiple appliances registered to it. However, one appliance 
 1. Select **Change** in the upper-right corner to choose your project.
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
+
+## Can I change the Azure user account from the Azure Migrate appliance once registered with the project?
+If you registered the appliance to Migrate project using a particular user account, it cannot be changed. You can try re-registering the appliance with the new project using another user account via PowerShell script but it will break all the operations in the old project.
+
 
 ## Can the Azure Migrate appliance/Replication appliance connect to the same vCenter?
 

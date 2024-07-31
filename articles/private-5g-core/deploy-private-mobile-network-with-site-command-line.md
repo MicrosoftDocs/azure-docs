@@ -44,7 +44,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - [az mobile network sim create](/cli/azure/mobile-network/sim#az-mobile-network-sim-create)
 - [az mobile-network attached-data-network create](/cli/azure/mobile-network/attached-data-network#az-mobile-network-attached-data-network-create)
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Deploy a private mobile network, site and SIM
 

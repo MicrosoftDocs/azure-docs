@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
 ms.date: 03/08/2024
 ---
 
@@ -32,8 +32,6 @@ When deploying to AKS, you deploy to an AKS cluster that's *connected to your wo
 
 > [!IMPORTANT]
 > We recommend that you debug locally before deploying to the web service. For more information, see [Troubleshooting with a local model deployment](how-to-troubleshoot-deployment-local.md).
->
-> You can also refer to [Deploy to local notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local) on GitHub.
 
 [!INCLUDE [endpoints-option](../includes/machine-learning-endpoints-preview-note.md)]
 

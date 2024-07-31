@@ -47,7 +47,7 @@ When you enable an IP access control policy programmatically, you need to add th
 |------|----------|
 |China|139.217.8.252|
 |US Gov|52.244.48.71|
-|All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
+|All other regions|104.42.195.92|
 
 You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
@@ -160,16 +160,16 @@ The example below shows how the **ipRules** property is exposed in API version 2
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
     "ipRules": [
       {
-        "ipAddressOrRange": "40.76.54.131"
+        "ipAddressOrRange": "13.91.105.215"
       },
       {
-        "ipAddressOrRange": "52.176.6.30"
+        "ipAddressOrRange": "4.210.172.107"
       },
       {
-        "ipAddressOrRange": "52.169.50.45"
+        "ipAddressOrRange": "13.88.56.148"
       },
       {
-        "ipAddressOrRange": "52.187.184.26"
+        "ipAddressOrRange": "40.91.218.243"
       }
     ]
   }
@@ -190,7 +190,7 @@ Here's the same example for any API version prior to 2020-04-01:
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"13.91.105.215,4.210.172.107,13.88.56.148,40.91.218.243"
   }
 }
 ```

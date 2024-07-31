@@ -32,7 +32,7 @@ In this quickstart, you use the Gremlin console to connect to a newly created Az
   - Don't have Docker installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
-[!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE[Cloud Shell](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create an API for Gremlin account and relevant resources
 

@@ -3,7 +3,7 @@ title: Export or delete workspace data
 titleSuffix: Azure Machine Learning
 description: Learn how to export or delete your workspace with the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.custom: devx-track-python
 author: fbsolo-ms1
@@ -18,9 +18,9 @@ monikerRange: 'azureml-api-2 || azureml-api-1'
 
 In Azure Machine Learning, you can export or delete your workspace data with either the portal graphical interface or the Python SDK. This article describes both options.
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Control your workspace data
 

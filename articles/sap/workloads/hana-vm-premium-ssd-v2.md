@@ -7,13 +7,13 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage, Premium SSD v2'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/01/2024
+ms.date: 06/28/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
 
 # SAP HANA Azure virtual machine Premium SSD v2 storage configurations
-This document is about HANA storage configurations for Azure Premium SSD v2. Azure Premium SSD v2 is a new storage that was developed to more flexible block storage with submillisecond latency for general purpose and DBMS workload. Premium SSD v2 simplifies the way how you build storage architectures and let's you tailor and adapt the storage capabilities to your workload. Premium SSD v2 allows you to configure and pay for capacity, IOPS, and throughput independent of each other. 
+This document is about HANA storage configurations for Azure Premium SSD v2. Azure Premium SSD v2 is a new storage that was developed to more flexible block storage with submillisecond latency for general purpose and DBMS workload. Premium SSD v2 simplifies the way how you build storage architectures and let's you tailor and adapt the storage capabilities to your workload. Premium SSD v2 allows you to configure and pay for capacity, IOPS (I/O operations per second), and throughput independent of each other. 
 
 For general considerations around stripe sizes when using LVM, HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
 
@@ -34,7 +34,7 @@ The major difference of Premium SSD v2 to the existing netWeaver and HANA certif
 - Latency of Premium SSD v2 is lower than premium storage, but higher than Ultra disk. But is submilliseconds, so, that it passes the SAP HANA KPIs without the help of any other functionality, like Azure Write Accelerator
 - **Like with Ultra disk, you can use Premium SSD v2 for /hana/data and /hana/log volumes without the need of any accelerators or other caches**.
 - Like Ultra disk, Azure Premium SSD doesn't offer caching options as premium storage does
-- With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, and M-series VMs that offer the same memory 
+- With Premium SSD v2, the same storage configuration applies to the HANA certified Ev4, Ev5, and M-series virtual machines (VM) that offer the same memory 
 - Unlike premium storage, there's no disk bursting for Premium SSD v2
 
 Not having Azure Write Accelerator support or support by other caches makes the configuration of Premium SSD v2 for the different VM families easier and more unified and avoid variations that need to be considered in deployment automation. Not having bursting capabilities makes throughput and IOPS delivered more deterministic and reliable. Since Premium SSD v2 is a new storage type, there are still some restrictions related to its features and capabilities. to read up on these limitations and differences between the different storages, start with reading the document [Azure managed disk types](../../virtual-machines/disks-types.md).
@@ -77,18 +77,18 @@ Configuration for SAP **/hana/data** volume:
 | M32ts | 192 GiB | 500 MBps | 20,000 | 224 GB | 425 MBps | 3,000| 
 | M32ls | 256 GiB | 500 MBps | 20,000 | 304 GB | 425 MBps | 3,000 | 
 | M64ls | 512 GiB | 1,000 MBps | 40,000 | 608 GB | 425 MBps | 3,000 | 
-| M32(d)ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1056 GB | 425 MBps | 3,000 | 
-| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 1232 GB | 600 MBps | 5,000 | 
-| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1232 GB | 600 MBps | 5,000 | 
-| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2144 GB | 600 MBps | 5,000 | 
-| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 2464 GB | 800 MBps | 12,000|  
-| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2464 GB | 800 MBps | 12,000| 
-| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2464 GB | 800 MBps | 12,000| 
-| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000 | 3424 GB | 1,000 MBps| 15,000 | 
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 4672 GB | 800 MBps | 12,000 | 
-| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4672 GB | 800 MBps | 12,000 | 
-| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4912 GB | 800 MBps | 12,000 | 
-| M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3424 GB | 1,000 MBps| 15,000 | 
+| M32(d)ms_v2 | 875 GiB  | 500 MBps | 30,000 | 1,056 GB | 425 MBps | 3,000 | 
+| M48(d)s_1_v3, M96(d)s_1_v3 | 974 GiB | 1,560 MBps | 65,000 | 1,232 GB | 600 MBps | 5,000 | 
+| M64s, M64(d)s_v2 | 1,024 GiB | 1,000 MBps | 40,000 | 1,232 GB | 600 MBps | 5,000 | 
+| M64ms, M64(d)ms_v2 | 1,792 GiB | 1,000 MBps | 50,000 | 2,144 GB | 600 MBps | 5,000 | 
+| M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 130,000 | 2,464 GB | 800 MBps | 12,000|  
+| M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 2,464 GB | 800 MBps | 12,000| 
+| M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000| 2,464 GB | 800 MBps | 12,000| 
+| M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000 | 3,424 GB | 1,000 MBps| 15,000 | 
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 130,000 | 4,672 GB | 800 MBps | 12,000 | 
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 4,672 GB | 800 MBps | 12,000 | 
+| M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 4,912 GB | 800 MBps | 12,000 | 
+| M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 3,424 GB | 1,000 MBps| 15,000 | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 40,000 | 6,848 GB | 1,000 MBps | 15,000 | 
 | M416s_v2 | 5,700 GiB | 2,000 MBps | 80,000 | 6,848 GB | 1,200 MBps| 17,000 | 
 | M416s_8_v2 | 7,600 GiB | 2,000 MBps | 80,000 | 9,120 GB | 1,250 MBps| 20,000 | 
@@ -96,7 +96,7 @@ Configuration for SAP **/hana/data** volume:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 19,200 GB | 2,000 MBps<sup>2</sup> | 40,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 28,400 GB | 2,000 MBps<sup>2</sup> | 60,000 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more throughput and IOPS
 
@@ -125,7 +125,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 130,000  | 512 GB | 300 MBps | 4,000 | 1,024 GB |
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 130,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 80,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 40,000 | 512 GB | 300 MBps | 4,000 | 1,024 GB |
@@ -136,7 +136,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 80,000 | 512 GB | 600 MBps | 9,000 | 1,024 GB |
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system)   
 
 
@@ -158,11 +158,11 @@ A few examples on how combining multiple Premium SSD v2 disks with a stripe set 
 | M416ms_v2 | 11,400 GiB | 1 | 13,680 | 25,000 | 3,000 | 22,000 | 1,200 MBps | 125 MBps | 1,075 MBps |
 | M416ms_v2 | 11,400 GiB | 2 | 6,840 | 25,000 | 6,000 | 19,000 | 1,200 MBps | 250 MBps | 950 MBps |
 | M416ms_v2 | 11,400 GiB | 4 | 3,420 | 25,000 | 12,000 | 13,000 | 1,200 MBps | 500 MBps | 700 MBps |
-| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1750 MBps |
-| M832ixs<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1500 MBps |
-| M832ixs<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1000 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 2 | 7,451 GB | 40,000 | 6,000 | 34,000 | 2,000 MBps | 250 MBps | 1,750 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 4 | 3,726 GB | 40,000 | 12,000 | 28,000 | 2,000 MBps | 500 MBps | 1,500 MBps |
+| M832ixs<sup>1</sup> | 14,902 GiB | 8 | 1,863 GB | 40,000 | 24,000 | 16,000 | 2,000 MBps | 1,000 MBps | 1,000 MBps |
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 For **/hana/log**, a similar approach of using two disks could look like:
 

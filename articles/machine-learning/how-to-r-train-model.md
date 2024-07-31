@@ -6,9 +6,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 03/22/2024
 ms.topic: how-to
-author: wahalulu
-ms.author: mavaisma
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: mavaisma
 ms.devlang: r
 ---
 

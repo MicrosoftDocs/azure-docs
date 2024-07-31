@@ -19,8 +19,6 @@ In this guide, we demonstrate how to create dynamic advertising content that res
 - **OpenAI Embeddings**: Utilizes the cutting-edge embeddings from OpenAI to generate vectors for inventory descriptions. This approach allows for more nuanced and semantically rich matches between the inventory and the advertisement content.
 - **Content Generation**: Employs OpenAI's advanced language models to generate engaging, trend-focused advertisements. This method ensures that the content is not only relevant but also captivating to the target audience.
 
-<!-- > [!VIDEO https://www.youtube.com/live/MLY5Pc_tSXw?si=fQmAuQcZkVauhmu-&t=1078] -->
-
 ## Prerequisites
 - Azure OpenAI: Let's setup the Azure OpenAI resource. Access to this service is currently available by application only. You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Once you have access, complete the following steps:
     - Create an Azure OpenAI resource following this [quickstart](../../../ai-services/openai/how-to/create-resource.md?pivots=web-portal).

@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 This article helps you view and upgrade your Bastion SKU. Once you upgrade, you can't revert back to a lower SKU without deleting and reconfiguring Bastion. For more information about features and SKUs, see [Configuration settings](configuration-settings.md).
 
-[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## View a SKU
 

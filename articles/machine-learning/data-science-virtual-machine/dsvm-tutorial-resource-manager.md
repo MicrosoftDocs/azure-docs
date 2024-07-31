@@ -3,8 +3,8 @@ title: 'Quickstart: Create a Data Science VM - Resource Manager template'
 titleSuffix: Azure Data Science Virtual Machine
 description: Learn how to use an Azure Resource Manager template to quickly deploy a Data Science Virtual Machine
 services: machine-learning
-author: s-polly
-ms.author: scottpolly
+author: fbsolo-ms1 
+ms.author: franksolomon 
 ms.reviewer: franksolomon
 ms.date: 04/23/2024
 ms.topic: quickstart
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart shows how to create an Ubuntu Data Science Virtual Machine (DSVM) using an Azure Resource Manager template (ARM template). A Data Science Virtual Machines is a cloud-based resource, preloaded with a suite of data science and machine learning frameworks and tools. When deployed on GPU-powered compute resources, all tools and libraries are configured to use the GPU.
 
-[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you know how to use ARM templates, select the **Deploy to Azure** button. This opens the template in the Azure portal.
 

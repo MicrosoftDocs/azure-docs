@@ -14,6 +14,8 @@ ms.custom: subject-rbac-steps
 
 # Tutorial: Create a lab for classroom training with Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this tutorial, you create a lab for classroom training with Azure Lab Services. Azure Lab Services enables you to create labs with infrastructure managed by Azure. Learn how to set up a customized lab template and invite students to register for their lab virtual machine (VM).
 
 :::image type="content" source="./media/tutorial-setup-lab/lab-services-process-setup-lab.png" alt-text="Diagram that shows the steps involved in creating a lab with Azure Lab Services." lightbox="./media/tutorial-setup-lab/lab-services-process-setup-lab.png":::

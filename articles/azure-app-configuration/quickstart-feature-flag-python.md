@@ -1,17 +1,17 @@
 ---
-title: Quickstart for adding feature flags to Python with Azure App Configuration (Preview)
+title: Quickstart for adding feature flags to Python with Azure App Configuration
 description: Add feature flags to Python apps and manage them using Azure App Configuration.
 author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/29/2024
+ms.date: 07/01/2024
 ms.author: mametcal
 ms.custom: devx-track-python, mode-other
 #Customer intent: As an Python developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
-# Quickstart: Add feature flags to a Python app (preview)
+# Quickstart: Add feature flags to a Python app
 
  In this quickstart, you'll create a feature flag in Azure App Configuration and use it to dynamically control Python apps to create an end-to-end implementation of feature management.
 

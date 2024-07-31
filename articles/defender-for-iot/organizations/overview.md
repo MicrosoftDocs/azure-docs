@@ -6,10 +6,9 @@ ms.date: 04/10/2024
 ms.custom: enterprise-iot
 ---
 
-# Welcome to Microsoft Defender for IoT for organizations
+# Welcome to Microsoft Defender for IoT
 
-> [!NOTE]
-> OT monitoring with Microsoft Defender for IoT is now available for purchase with site-based licenses, purchased on the Microsoft 365 admin center.
+[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
 The Internet of Things (IoT) supports billions of connected devices that use both operational technology (OT) and IoT networks. IoT/OT devices and networks are often built using specialized protocols, and might prioritize operational challenges over security.
 

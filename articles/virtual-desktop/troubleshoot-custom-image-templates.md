@@ -15,7 +15,7 @@ Custom image templates in Azure Virtual Desktop enable you to easily create a cu
 
 Azure Image Builder uses Hashicorp Packer to create images. Packer outputs all log entries to a file called **customization.log**. By default this file is located in a resource group that Azure Image Builder created automatically with the naming convention `IT_<ResourceGroupName>_<TemplateName>_<GUID>`. You can override this naming by specifying your own name in the template creation phase.
 
-In this resource group is a storage account with a blob container called **packerlogs**. In the container is a folder named with a GUID in which you'll find the log file. 	Entries for built-in scripts you use to customize your image begin **Starting AVD AIB Customization: {Script name}: {Timestamp}**, to help you locate any errors related to the scripts.
+In this resource group is a storage account with a blob container called **packerlogs**. In the container is a folder named with a GUID in which you'll find the log file. Entries for built-in scripts you use to customize your image begin **Starting AVD AIB Customization: {Script name}: {Timestamp}**, to help you locate any errors related to the scripts.
 
 To learn how to interpret Azure Image Builder logs, see [Troubleshoot Azure VM Image Builder](../virtual-machines/linux/image-builder-troubleshoot.md).
 
@@ -55,3 +55,7 @@ Additional languages can be added by custom image templates, which uses the [Ins
 ## Can't progress from the source image tab in the Azure portal
 
 When you create a custom image template in the Azure portal, you might not be able to progress from the **Source image** tab if you select the **Azure Compute Gallery** as the **Source type**. A red `X` appears next to the tab name. As a workaround, select **Previous** to return to the **Basics** tab, then select **Next** to return to the **Source image** tab. You should now be able to progress to the next tab and a green check mark appears next to the tab name.
+
+## Authorization error occurred during Azure Container Groups operation
+
+Custom image templates requires the `Microsoft.ContainerInstance` resource provider registered on your subscription due to the dependency on Azure Image Builder. If you receive the error `The client '<GUID>' with object id '<GUID>' does not have authorization to perform action 'Microsoft.ContainerInstance/register/action' over scope '/subscriptions/<subscription ID>' or the scope is invalid`, you need to register the `Microsoft.ContainerInstance` resource provider on your subscription. Once you register the resource provider, try the action again. For information on how you can check their registration status and how to register them if needed, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).

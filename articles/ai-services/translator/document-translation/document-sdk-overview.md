@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: devx-track-python
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 recommendations: false
 ---
@@ -26,9 +26,9 @@ Document Translation is a cloud-based REST API feature of the Azure AI Translato
 Document Translation SDK supports the following programming languages:
 
 | Language → SDK version | Package|Client library| Supported API version|
-|:----------------------:|:----------|:----------|:-------------|
+|:----------------------|:----------|:----------|:-------------|
 |🆕 [.NET/C# → 2.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.Translation.Document/2.0.0-beta.1/index.html)| [NuGet](https://www.nuget.org/packages/Azure.AI.Translation.Document/2.0.0-beta.1) | [Azure SDK for .NET](/dotnet/api/overview/azure/ai.translation.document-readme?branch=main&view=azure-dotnet-preview&preserve-view=true) | Document Translation `api-version=2024-05-01`|
-|🆕 [Python → 1.1.0b1](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.1.0b1/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.1.0b1/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python&preserve-view=true)|Document Translation `api-version=2024-05-01`|
+|🆕 [Python → 1.1.0b1](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-translation-document/1.1.0b1/index.html)|[PyPi](https://pypi.org/project/azure-ai-translation-document/1.1.0b1/)|[Azure SDK for Python](/python/api/overview/azure/ai-translation-document-readme?view=azure-python-preview&preserve-view=true)|Document Translation `api-version=2024-05-01`|
 
 ## Changelog and release history
 
@@ -50,11 +50,11 @@ This section provides a version-based description of Document Translation featur
 **Version 1.1.0b1** </br>
 **2024-05-07**
 
-##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/CHANGELOG.md)
+##### [**Changelog/Release History**](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.1.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md)
 
-##### [README](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/README.md)
+##### [README](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.1.0b1/sdk/translation/azure-ai-translation-document/samples/README.md)
 
-##### [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0/sdk/translation/azure-ai-translation-document/samples)
+##### [Samples](https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.1.0b1/sdk/translation/azure-ai-translation-document/samples)
 
 ---
 
@@ -77,7 +77,7 @@ Install-Package Azure.AI.Translation.Document -Version 2.0.0-beta.1
 ### [Python](#tab/python)
 
 ```python
-pip install azure-ai-translation-document==1.0.0
+pip install azure-ai-translation-document==1.1.0b1
 ```
 
 ---
@@ -107,6 +107,8 @@ from azure.core.credentials import AzureKeyCredential
 
 Create an instance of the `DocumentTranslationClient` object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The `DocumentTranslationClient` is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
+***Asynchronous batch translation***
+
 ```csharp
 private static readonly string endpoint = "<your-custom-endpoint>";
 private static readonly string key = "<your-key>";
@@ -115,15 +117,37 @@ DocumentTranslationClient client = new DocumentTranslationClient(new Uri(endpoin
 
 ```
 
+***Synchronous single document translation***
+
+```csharp
+private static readonly string endpoint = "<your-custom-endpoint>";
+private static readonly string key = "<your-key>";
+
+SingleDocumentTranslationClient client = new SingleDocumentTranslationClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
+
+```
+
 ### [Python](#tab/python)
 
 Create an instance of the `DocumentTranslationClient` object to interact with the Document Translation SDK, and then call methods on that client object to interact with the service. The `DocumentTranslationClient` is the primary interface for using the Document Translation client library. It provides both synchronous and asynchronous methods to perform operations.
 
-```python
-endpoint = "<endpoint>"
-key = "<apiKey>"
+***Asynchronous batch translation***
 
-client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
+```python
+  endpoint = "<endpoint>"
+  key = "<apiKey>"
+
+  client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
+
+```
+
+***Synchronous single document translation***
+
+```python
+  endpoint = "<endpoint>"
+  key = "<apiKey>"
+
+  client = SingleDocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ```
 
@@ -133,7 +157,9 @@ client = DocumentTranslationClient(endpoint, AzureKeyCredential(key))
 
 ### [C#/.NET](#tab/csharp)
 
-The Document Translation interface requires the following input:
+***Asynchronous batch translation***
+
+Document Translation batch interfaces require the following input:
 
 1. Upload your files to an Azure Blob Storage source container (sourceUri).
 1. Provide a target container where the translated documents can be written (targetUri).
@@ -148,9 +174,15 @@ string targetLanguage = "<target-language-code>";
 DocumentTranslationInput input = new DocumentTranslationInput(sourceUri, targetUri, targetLanguage)
 ```
 
+***Synchronous single document translation***
+
+[Single document translation](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/translation/Azure.AI.Translation.Document/samples/Sample5_SynchronousTranslation.md)
+
 ### [Python](#tab/python)
 
-The Document Translation interface requires the following input:
+***Asynchronous batch translation***
+
+Document Translation batch interfaces require the following input:
 
 1. Upload your files to an Azure Blob Storage source container (sourceUri).
 1. Provide a target container where the translated documents can be written (targetUri).
@@ -165,6 +197,10 @@ poller = client.begin_translation(sourceUrl, targetUrl, targetLanguage)
 result = poller.result()
 
 ```
+
+***Synchronous single document translation***
+
+[Single document translation](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.1.0b1/sdk/translation/azure-ai-translation-document/samples/sample_single_document_translation.py)
 
 ---
 

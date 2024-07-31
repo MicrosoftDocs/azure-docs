@@ -65,6 +65,8 @@ For a tutorial on enabling VM insights for a virtual machine, see [Enable monito
 
 If you enable VM insights, the Azure Monitor agent is installed and starts sending a predefined set of performance data to Azure Monitor Logs. You can create other data collection rules to collect events and other performance data. To learn how to install the Azure Monitor agent and create a data collection rule (DCR) that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](/azure/azure-monitor/vm/tutorial-monitor-vm-guest).
 
+In VM insights, you can use the Azure Monitor Map feature to view application components that run in Azure or your environment. The Dependency agent VM extension is available for [Windows](extensions/agent-dependency-windows.md) and [Linux](extensions/agent-dependency-linux.md).
+
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]

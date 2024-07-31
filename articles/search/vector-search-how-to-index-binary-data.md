@@ -14,6 +14,9 @@ ms.date: 05/30/2024
 
 # Index binary vectors for vector search
 
+> [!IMPORTANT]
+> Binary data types are in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-03-01-preview&preserve-view=true) and later preview APIs provide the new data type.
+
 Beginning with the 2024-05-01-preview REST API, Azure AI Search supports a packed binary type of `Collection(Edm.Byte)` for further reducing the storage and memory footprint of vector data. You can use this data type for output from models such as [Cohere's Embed v3 binary embedding models](https://cohere.com/blog/introducing-embed-v3).
 
 There are three steps to configuring an index for binary vectors:
@@ -23,7 +26,7 @@ There are three steps to configuring an index for binary vectors:
 > + Add a vector profile that points to the algorithm
 > + Add the vector profile to your binary field definition
 
-This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step. You can also add a binary field type to an index in the Azure portal.
+This article assumes you're familiar with [creating an index in Azure AI Search](search-how-to-create-search-index.md). It uses the REST APIs to illustrate each step, but you could also add a binary field to an index in the Azure portal.
 
 ## Prerequisites
 

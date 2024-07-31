@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/06/2023
 ---
 
-# View and remediate vulnerabilities for images running on your Kubernetes clusters (Secure Score)
+# View and remediate vulnerabilities for images running on Kubernetes clusters (secure score)
 
 > [!NOTE]
 > This page describes the classic secure score approach to vulnerability management in Defender for Cloud. Customers using Defender CSPM should use the new risk-based approach: [View and remediate vulnerabilities for images running on your Kubernetes clusters (Risk based)](view-and-remediate-vulnerabilities-for-images.md).

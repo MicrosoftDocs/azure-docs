@@ -30,7 +30,7 @@ Both geo-replication with read replicas and geo-backup are solutions for geo-dis
 | <b> Can be in non-paired region                        | Yes                | No             |
 | <b> Supports read scale                                | Yes                | No             |
 | <b> Can be configured after the creation of the server | Yes                | No             |
-| <b> Restore to specific point in time                  | No                 | Yes            |
+| <b> Restore to specific point in time                  | No                 | No            |
 | <b> Capacity guaranteed                                | Yes                | No             |    
 
 

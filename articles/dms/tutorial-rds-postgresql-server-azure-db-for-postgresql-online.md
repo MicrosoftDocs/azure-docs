@@ -14,6 +14,8 @@ ms.custom:
 
 # Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online using DMS
 
+[!INCLUDE [postgresql-migration-service](includes/postgresql-migration-service.md)]
+
 You can use Azure Database Migration Service to migrate databases from an RDS PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) while the source database remains online during migration. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an instance of RDS PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
 In this tutorial, you learn how to:

@@ -4,7 +4,7 @@ description: This article describes how to view the updates pending for your env
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 05/07/2024
+ms.date: 06/21/2024
 ms.topic: how-to
 ---
 

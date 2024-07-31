@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/16/2023
 ms.subservice: aks-nodes
 ---

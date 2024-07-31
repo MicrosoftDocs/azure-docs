@@ -1,12 +1,13 @@
 ---
 title: Authorize access with Microsoft Entra ID
 description: This article provides information on authorizing access to Event Hubs resources using Microsoft Entra ID. 
-ms.topic: conceptual
-ms.date: 12/11/2023
+ms.topic: concept-article
+ms.date: 06/26/2024
+#customer intent: As an Azure Event Hubs user, I want to know how to authorize requests to event hubs using Microsoft Entra ID. 
 ---
 
 # Authorize access to Event Hubs resources using Microsoft Entra ID
-Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which can be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
+Azure Event Hubs supports using Microsoft Entra ID to authorize requests to Event Hubs resources. With Microsoft Entra ID, you can use Azure role-based access control (RBAC) to grant permissions to a security principal, which can be a user, or an application service principal. To learn more about roles and role assignments, see [Understanding the different roles](../role-based-access-control/overview.md).
 
 ## Overview
 When a security principal (a user, or an application) attempts to access an Event Hubs resource, the request must be authorized. With Microsoft Entra ID, access to a resource is a two-step process. 
@@ -66,7 +67,7 @@ For more information about how built-in roles are defined, see [Understand role 
 - [Event Hubs for Kafka - OAuth samples](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
 
 
-## Next steps
+## Related content
 - Learn how to assign an Azure built-in role to a security principal, see [Authenticate access to Event Hubs resources using Microsoft Entra ID](authenticate-application.md).
 - Learn [how to create custom roles with Azure RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Learn [how to use Microsoft Entra ID with EH](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)

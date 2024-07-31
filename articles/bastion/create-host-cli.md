@@ -43,7 +43,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 This section helps you deploy Azure Bastion using Azure CLI.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).

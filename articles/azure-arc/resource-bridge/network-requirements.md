@@ -22,7 +22,11 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 
 ## SSL proxy configuration
 
-If using a proxy, Arc resource bridge must be configured for proxy so that it can connect to the Azure services.
+> [!IMPORTANT]
+> Arc Resource Bridge supports only direct (explicit) proxies, including unauthenticated proxies, proxies with basic authentication, SSL terminating proxies, and SSL passthrough proxies.
+>
+
+If using a proxy, the Arc Resource Bridge must be configured to use the proxy in order to connect to Azure services.
 
 - To configure the Arc resource bridge with proxy, provide the proxy certificate file path during creation of the configuration files.
 
@@ -41,6 +45,7 @@ There are only two certificates that should be relevant when deploying the Arc r
 - SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
 In order to deploy Arc resource bridge, images need to be downloaded to the management machine and then uploaded to the on-premises private cloud gallery. If your proxy server throttles download speed, you may not be able to download the required images (~3.5 GB) within the allotted time (90 min).
+
 
 ## Exclusion list for no proxy
 

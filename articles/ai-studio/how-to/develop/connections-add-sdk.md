@@ -39,7 +39,7 @@ The following example creates an Azure OpenAI Service connection.
 > To connect to Azure OpenAI and more AI services with one connection, you can use the [AI services connection](#azure-ai-services) instead.
 
 ```python
-from azure.ai.ml.entities import Connection, AzureOpenAIConnection, ApiKeyConfiguration
+from azure.ai.ml.entities import AzureOpenAIConnection, ApiKeyConfiguration
 from azure.ai.ml.entities import UsernamePasswordConfiguration
 
 name = "XXXXXXXXX"
@@ -50,7 +50,7 @@ resource_id= "Azure-resource-id"
 
 wps_connection = AzureOpenAIConnection(
     name=name,
-    endpoint=target,
+    azure_endpoint=target,
     credentials=ApiKeyConfiguration(key=api_key),
     resource_id = resource_id,
     is_shared=False
@@ -252,7 +252,7 @@ The following example creates an OpenAI (not Azure OpenAI) connection:
 from azure.ai.ml.entities import OpenAIConnection
 
 name = "my_oai_apk"
-api_key = "XXXXXXXX
+api_key = "XXXXXXXX"
 
 wps_connection = OpenAIConnection(
     name=name,

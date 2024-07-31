@@ -40,7 +40,7 @@ The following limitations apply only to standard custom setups:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To customize your Azure-SSIS IR, you need the following items:
 

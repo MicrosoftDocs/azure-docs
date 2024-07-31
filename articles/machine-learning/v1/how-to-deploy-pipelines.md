@@ -5,9 +5,9 @@ description: Run machine learning workflows with machine learning pipelines and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: xiaoharper
-ms.author: zhanxia
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: zhanxia
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1, devx-track-python

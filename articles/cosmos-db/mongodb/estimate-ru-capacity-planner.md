@@ -2,11 +2,12 @@
 title: Estimate costs using the Azure Cosmos DB capacity planner - API for MongoDB
 description: The Azure Cosmos DB capacity planner allows you to estimate the throughput (RU/s) required and cost for your workload. This article describes how to use the capacity planner to estimate the throughput and cost required when using Azure Cosmos DB for MongoDB.
 author: deborahc
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 06/20/2024
 ms.author: dech
+show_latex: true
 ---
 
 # Estimate RU/s using the Azure Cosmos DB capacity planner - Azure Cosmos DB for MongoDB
@@ -55,7 +56,7 @@ After you sign in, you can see more fields compared to the fields in basic mode.
 |Indexing policy| If you choose **Off** option, none of the properties are indexed. This results in the lowest RU charge for writes. Turn off the indexing policy if you only plan to query using the _id field and the shard key for every query (both per query).<br/><br/> If you choose the **Automatic** option, the 3.6 and higher versions of API for MongoDB automatically index the _id filed. When you choose automatic indexing, it is the equivalent of setting a wildcard index (where every property gets auto-indexed). Use wildcard indexes for all fields for flexible and efficient queries.<br/><br/>If you choose the **Custom** option, you can set how many properties are indexed with multi-key indexes or compound indexes. You can enter the number of properties indexed later in the form. To learn more, see [index management](../mongodb/indexing.md) in API for MongoDB.|
 |Total data stored in transactional store |Total estimated data stored (GB) in the transactional store in a single region.|
 |Use analytical store| Choose **On** if you want to use [Synapse analytical store](../synapse-link.md). Enter the **Total data stored in analytical store**, it represents the estimated data stored (GB) in the analytical store in a single region.  |
-|Workload mode|Select **Steady** option if your workload volume is constant. <br/><br/> Select **Variable** option if your workload volume changes over time.  For example, during a specific day or a month. The following setting is available if you choose the variable workload option:<ul><li>Percentage of time at peak: Percentage of time in a month where your workload requires peak (highest) throughput. </li></ul> <br/><br/> For example, if you have a workload that has high activity during 9am – 6pm weekday business hours, then the percentage of time at peak is: 45 hours at peak / 730 hours / month = ~6%.<br/><br/>With peak and off-peak intervals, you can optimize your cost by [programmatically scaling your provisioned throughput](../set-throughput.md#update-throughput-on-a-database-or-a-container) up and down accordingly.|
+|Workload mode|Select **Steady** option if your workload volume is constant. <br/><br/> Select **Variable** option if your workload volume changes over time.  For example, during a specific day or a month. The following setting is available if you choose the variable workload option:<ul><li>Percentage of time at peak: Percentage of time in a month where your workload requires peak (highest) throughput. </li></ul> <br/><br/> For example, if you have a workload that has high activity during 9am – 6pm weekday business hours, then the percentage of time at peak is `45` hours at peak of the week (`168 hours`), which is equivalent to: $45 / 168 = 0.267 = ~27%$.<br/><br/>With peak and off-peak intervals, you can optimize your cost by [programmatically scaling your provisioned throughput](../set-throughput.md#update-throughput-on-a-database-or-a-container) up and down accordingly.|
 |Item size|The size of the documents, ranging from 1 KB to 2 MB. You can add estimates for multiple sample items. <br/><br/>You can also **Upload sample (JSON)** document for a more accurate estimate.<br/><br/>If your workload has multiple types of items (with different JSON content) in the same container, you can upload multiple JSON documents and get the estimate. Use the **Add new item** button to add multiple sample JSON documents.|
 | Operation type | The type of operation such as **Find**, **Aggregate**, **Modify** etc.  |
 | Request unit (RU) charge per call | The estimated RU/s charge to execute the selected operation type. |

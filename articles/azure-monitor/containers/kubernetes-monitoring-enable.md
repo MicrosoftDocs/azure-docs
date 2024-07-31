@@ -58,8 +58,8 @@ This article provides onboarding guidance for the following types of clusters. A
 
 > [!NOTE]
 > The Managed Prometheus Arc-Enabled Kubernetes extension does not support the following configurations:
-> * Red Hat Openshift distributions
-  > * Windows nodes
+> * Red Hat Openshift distributions, including Azure Red Hat OpenShift (ARO)
+> * Windows nodes
 
 
 ## Workspaces

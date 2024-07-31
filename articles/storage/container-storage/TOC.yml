@@ -13,14 +13,22 @@
   items:
   - name: Create AKS cluster and install Azure Container Storage
     href: install-container-storage-aks.md
-- name: How-to guides
+- name: Storage options
   items:
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
-  - name: Use with Ephemeral Disk
-    href: use-container-storage-with-local-disk.md
-  - name: Use with Azure Elastic SAN
+  - name: Use with Azure Elastic SAN (Preview)
     href: use-container-storage-with-elastic-san.md
+  - name: Use with Ephemeral Disk
+    items:
+    - name: Local NVMe
+      href: use-container-storage-with-local-disk.md
+    - name: Local NVMe with replication
+      href: use-container-storage-with-local-nvme-replication.md
+    - name: Temp SSD
+      href: use-container-storage-with-temp-ssd.md    
+- name: How-to guides
+  items:
   - name: Use volume snapshot and restore
     href: volume-snapshot-restore.md
   - name: Expand a persistent volume
@@ -32,9 +40,13 @@
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
   - name: Troubleshoot Azure Container Storage
-    href: troubleshoot-container-storage.md    
+    href: troubleshoot-container-storage.md
+  - name: Install Azure Container Storage using Azure Arc (optional)
+    href: install-container-storage-azure-arc.md    
 - name: Concepts
   items:
+  - name: Understand billing
+    href: container-storage-billing.md 
   - name: FAQ
     href: container-storage-faq.md
 - name: Reference
@@ -71,5 +83,5 @@
 - name: Resources
   items:
   - name: Pricing for Azure Container Storage
-    href: https://azure.microsoft.com/pricing/details/storage/container-storage
+    href: https://azure.microsoft.com/pricing/details/container-storage/
   

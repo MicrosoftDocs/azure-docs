@@ -19,7 +19,7 @@ This section describes the prerequisites for creating a persistent volume (PV).
 1. Create a storage account [following the instructions here](/azure/storage/common/storage-account-create?tabs=azure-portal).
 
     > [!NOTE]
-    > When you create your storage account, create it under the same resource group and region/location as your Kubernetes cluster.
+    > When you create your storage account, create it under the same resource group as your Kubernetes cluster. It is recommended that you also create it under the same region/location as your Kubernetes cluster.
 
 1. Create a container in the storage account that you created in the previous step, [following the instructions here](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
@@ -65,8 +65,6 @@ Note the `metadata: name:` as you must specify it in the `spec: volumeName` of t
    metadata:
        ### Create a name here ###
        name: CREATE_A_NAME_HERE
-       ### Use a namespace that matches your intended consuming pod, or "default" ###
-       namespace: INTENDED_CONSUMING_POD_OR_DEFAULT_HERE
    spec:
        capacity:
            ### This storage capacity value is not enforced at this layer. ###

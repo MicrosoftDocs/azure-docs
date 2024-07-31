@@ -38,7 +38,6 @@ Connector's version	    Flink's version
 0.7.0	                X >= 1.16.1         --- We use this in Flink 1.17.0
 ```
 
-For more information, see [Flink/Delta Connector](https://github.com/delta-io/connectors/blob/master/flink/README.md).
 
 ## Prerequisites
 
@@ -90,7 +89,6 @@ import org.apache.hadoop.conf.Configuration;
     }
 ```
 
-For other continuous model example, see [Data Source Modes](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
 
 ## Writing to Delta sink
 
@@ -140,7 +138,7 @@ public static DataStream<RowData> createDeltaSink(
         return stream;
     }
 ```
-For other Sink creation example, see [Data Sink Metrics](https://github.com/delta-io/connectors/blob/master/flink/README.md#modes).
+
 
 ## Full code
 
@@ -353,14 +351,12 @@ Once the data is in delta sink, you can run the query in Power BI desktop and cr
 
     :::image type="content" source="./media/use-flink-delta-connector/adls-gen-2-details.png" alt-text="Screenshot shows ADLS Gen2-details.":::
 
-1. Create M-query for the source and invoke the function, which queries the data from storage account. Refer [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
+2. Create M-query for the source and invoke the function, which queries the data from storage account.
 
-1. Once the data is readily available, you can create reports.
+3. Once the data is readily available, you can create reports.
 
     :::image type="content" source="./media/use-flink-delta-connector/create-reports.png" alt-text="Screenshot shows how to create reports.":::
 
 ## References
 
-* [Delta connectors](https://github.com/delta-io/connectors/tree/master/flink).
-* [Delta Power BI connectors](https://github.com/delta-io/connectors/tree/master/powerbi).
 * Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

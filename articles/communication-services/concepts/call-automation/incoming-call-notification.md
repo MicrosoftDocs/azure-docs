@@ -2,12 +2,12 @@
 title: Incoming call concepts
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Communication Services IncomingCall notification
-author: jasonshave
+author: sroons
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: conceptual
 ms.date: 09/26/2022
-ms.author: jassha
+ms.author: serooney 
 ---
 
 # Incoming call concepts

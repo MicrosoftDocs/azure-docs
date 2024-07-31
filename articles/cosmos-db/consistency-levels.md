@@ -64,6 +64,13 @@ The following graphic illustrates the strong consistency with musical notes. Aft
 
 :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Animation of strong consistency level using musical notes that are always synced.":::
 
+#### Dynamic quorum
+
+Under normal circumstances, for an account with strong consistency, a write is considered committed when all regions acknowledge that the record has been replicated to it. However, for accounts with 3 regions or more (including the write region), the system can "downshift" the quorum of regions to a global majority in cases where some regions are either unresponsive or responding slowly. At that point, unresponsive regions are taken out of the quorum set of regions in order to preserve strong consistency. They will only be added back once they are consistent with other regions and are performing as expected. The number of regions that can potentially be taken out of the quorum set will depend on the total number of regions. For example, in a 3 or 4 region account, the majority is 2 or 3 regions respectively, so only 1 region can be removed in either case. For a 5 region account, the majority is 3, so up to 2 unresponsive regions can be removed. This capability is known as "dynamic quorum" and can improve both write availability and replication latency for accounts with 3 or more regions.
+
+> [!NOTE]
+> When regions are removed from the quorum set as part of dynamic quorum, those regions are no longer able to serve reads until re-added into the quorum.
+
 ### Bounded staleness consistency
 
 For single-region write accounts with two or more regions, data is replicated from the primary region to all secondary (read-only) regions. For multi-region write accounts with two or more regions, data is replicated from the region it was originally written in to all other writable regions. In both scenarios, while not common, there may occasionally be a replication lag from one region to another.

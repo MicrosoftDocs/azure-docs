@@ -470,9 +470,11 @@ Search results would include a combination of text and images, assuming your sea
 
 ## Query with integrated vectorization (preview)
 
-This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature that converts a text query into a vector. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) or an updated beta Azure SDK package.
+This section shows a vector query that invokes the new [integrated vectorization](vector-search-integrated-vectorization.md) preview feature that converts a text query into a vector. Use [**2023-10-01-Preview** REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and newer preview REST APIs or an updated beta Azure SDK package.
 
-A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time.
+A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. Check the index definition for a vectorizers specification. 
+
+:::image type="content" source="media/vector-search-how-to-query/check-vectorizer.png" alt-text="Screenshot of a vectorizer setting in a search index.":::
 
 Queries provide text strings instead of vectors:
 
@@ -483,7 +485,7 @@ Queries provide text strings instead of vectors:
 Here's a simple example of a query that's vectorized at query time. The text string is vectorized and then used to query the descriptionVector field.
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-05-01-preview
 {
     "select": "title, genre, description",
     "vectorQueries": [
@@ -502,7 +504,7 @@ Here's a [hybrid query](hybrid-search-how-to-query.md) using integrated vectoriz
 In this example, the search engine makes three vectorization calls to the vectorizers assigned to `descriptionVector`, `synopsisVector`, and `authorBioVector` in the index. The resulting vectors are used to retrieve documents against their respective fields. The search engine also executes a keyword search on the `search` query, "mystery novel set in London". 
 
 ```http
-POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2023-10-01-preview
+POST https://{{search-service}}.search.windows.net/indexes/{{index}}/docs/search?api-version=2024-05-01-preview
 Content-Type: application/json
 api-key: {{admin-api-key}}
 {
@@ -571,9 +573,11 @@ During query execution, a vector query can only target one internal vector index
 
 ## Set thresholds to exclude low-scoring results (preview)
 
-Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get low scoring matches as part of meeting the `k` number requirement on search results.
+Because nearest neighbor search always returns the requested `k` neighbors, it's possible to get multiple low scoring matches as part of meeting the `k` number requirement on search results.
 
-Using the 2024-05-01-preview REST APIs, you can now add a `threshold` query parameter to exclude low-scoring search results.
+Using the 2024-05-01-preview REST APIs, you can now add a `threshold` query parameter to exclude low-scoring search results based on a minimum score. Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
+
+In this example, all matches that score below 0.8 are excluded from vector search results, even if the number of results fall below `k`.
 
 ```http
 POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?api-version=2024-05-01-Preview 
@@ -595,8 +599,6 @@ POST https://[service-name].search.windows.net/indexes/[index-name]/docs/search?
     }
 ```
 
-Filtering occurs before [fusing results](hybrid-search-ranking.md) from different recall sets. 
-
  <!-- Keep H2 as-is. Direct link from a blog post. Bulk of maxtextsizerecall has moved to hybrid query doc-->
 ## MaxTextSizeRecall for hybrid search (preview)
 
@@ -608,7 +610,7 @@ For more information, see [Set maxTextRecallSize - Create a hybrid query](hybrid
 
 ## Vector weighting (preview)
 
-Add a `weight` query parameter to specify the relative weight of each vector included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
+Add a `weight` query parameter to specify the relative weight of each vector query included in search operations. This value is used when combining the results of multiple ranking lists produced by two or more vector queries in the same request, or from the vector portion of a hybrid query.
 
 The default is 1.0 and the value must be a positive number larger than zero.
 

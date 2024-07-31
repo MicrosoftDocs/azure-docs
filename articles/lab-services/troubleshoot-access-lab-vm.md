@@ -12,6 +12,8 @@ ms.date: 03/15/2024
 
 # Troubleshoot accessing lab VMs in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this article, you learn about the different approaches for troubleshooting lab VMs. Understand how each approach affects your lab environment and user data on the lab VM. There can be different reasons why you're unable to access to a lab VM in Azure Lab Services, or why you're stuck to complete a course. For example, the underlying VM is experiencing issues, your organization's firewall settings changed, or a software change in the lab VM operating system.
 
 ## Prerequisites

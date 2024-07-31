@@ -7,6 +7,7 @@ ms.reviewer: maghan
 ms.date: 05/20/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: conceptual
@@ -591,5 +592,5 @@ select
 
 ## Related content
 
-- [Learn more about Azure Open AI integration](generative-ai-azure-openai.md)
+- [Learn more about Azure OpenAI Service integration](generative-ai-azure-openai.md)
 - [Learn more about Azure Machine Learning integration](generative-ai-azure-machine-learning.md)

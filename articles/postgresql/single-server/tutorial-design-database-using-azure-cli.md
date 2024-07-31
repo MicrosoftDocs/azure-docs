@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure CLI.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: tutorial
 ms.author: sunila
@@ -28,11 +28,11 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 > * Update data
 > * Restore data
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ## Set parameter values
 

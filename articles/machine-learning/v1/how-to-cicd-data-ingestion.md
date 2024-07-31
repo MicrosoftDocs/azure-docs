@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml
-ms.author: iefedore
-author: eedorenko
+ms.author: larryfr
+author: Blackmist
 manager: davete
-ms.reviewer: larryfr
+ms.reviewer: iefedore
 ms.date: 08/17/2022
 # Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---

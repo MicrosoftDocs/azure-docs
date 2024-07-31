@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 05/06/2024
+ms.date: 07/25/2024
 ms.author: radeltch
 ---
 
@@ -125,9 +125,6 @@ During VM configuration, you have an option to create or select exiting load bal
 [!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-ascs-ers-powershell.md)]
 
 ---
-
-> [!IMPORTANT]
-> A floating IP address isn't supported on a network interface card (NIC) secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need another IP address for the VM, deploy a second NIC.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -634,14 +631,33 @@ The instructions in this section are applicable only if you're using Azure NetAp
     sudo ssh sap-cl2 "cat /usr/sap/sapservices" | grep ERS01 | sudo tee -a /usr/sap/sapservices
     ```
 
-9. **[A]** Enable  `sapping` and `sappong`. The `sapping` agent runs before `sapinit` to hide the `/usr/sap/sapservices` file. The `sappong` agent runs after `sapinit` to unhide the `sapservices` file during VM boot. `SAPStartSrv` isn't started automatically for an SAP instance at boot time, because the Pacemaker cluster manages it.  
+9. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+
+   ```bash
+   # Stop ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 00 -function Stop
+   sapcontrol -nr 00 -function StopService
+
+   sapcontrol -nr 01 -function Stop
+   sapcontrol -nr 01 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation (e.g. sap-cl1)
+   sudo systemctl disable SAPNW1_00
+   # Execute below command on VM where you have performed ERS instance installation (e.g. sap-cl2)
+   sudo systemctl disable SAPNW1_01
+   ```
+
+10. **[A]** Enable  `sapping` and `sappong`. The `sapping` agent runs before `sapinit` to hide the `/usr/sap/sapservices` file. The `sappong` agent runs after `sapinit` to unhide the `sapservices` file during VM boot. `SAPStartSrv` isn't started automatically for an SAP instance at boot time, because the Pacemaker cluster manages it.  
 
     ```bash
     sudo systemctl enable sapping
     sudo systemctl enable sappong
     ```
 
-10. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
+11. **[1]** Create `SAPStartSrv` resource for ASCS and ERS by creating a file and then load the file.
 
     ```bash
     vi crm_sapstartsrv.txt
@@ -666,7 +682,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     > [!NOTE]
     > If you’ve set up a SAPStartSrv resource using the "crm configure primitive…" command on crmsh version 4.4.0+20220708.6ed6b56f-150400.3.3.1 or later, it’s important to review the configuration of the SAPStartSrv resource primitives. If a monitor operation is present, it should be removed. While SUSE also suggests removing the start and stop operations, but these are not as crucial as the monitor operation. For more information, see [recent changes to crmsh package can result in unsupported configuration of SAPStartSrv resource Agent in a SAP NetWeaver HA cluster](https://www.suse.com/support/kb/doc/?id=000021423).
 
-11. **[1]** Create the SAP cluster resources.
+12. **[1]** Create the SAP cluster resources.
 
     Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 

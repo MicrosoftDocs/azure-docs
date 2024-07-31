@@ -13,7 +13,7 @@ ms.custom: references_regions, build-2024
 
 # What is personal voice for text to speech? 
 
-With personal voice, you can get AI generated replication of your voice (or users of your application) in a few seconds. You provide a one-minute speech sample as the audio prompt, and then use it to generate speech in any of the more than 90 languages supported across more than 100 locales.  
+With personal voice, you can enable your users to get AI generated replication of their own voices in a few seconds. With a verbal statement and a short speech sample as the audio prompt, you can create a personal voice for your users and allow them to generate speech in any of the more than 90 languages supported across more than 100 locales.
 
 > [!NOTE]
 > Personal voice is available in these regions: West Europe, East US, and South East Asia. 

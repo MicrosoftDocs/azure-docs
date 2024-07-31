@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
@@ -19,7 +19,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD051 -->
 
 :::moniker range="doc-intel-2.1.0 || doc-intel-4.0.0"
-Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, ID Document, Receipt and Invoice models:
+Support for containers is currently available with Document Intelligence version `2022-08-31 (GA)` for all models and `2023-07-31 (GA)` for Read, Layout, ID Document, Receipt, and Invoice models:
 
 * [REST API `2022-08-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.0%20(2022-08-31)&preserve-view=true&tabs=HTTP)
 * [REST API `2023-07-31 (GA)`](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-v3.1%20(2023-07-31)&tabs=HTTP&preserve-view=true)
@@ -41,8 +41,6 @@ In this article you learn how to download, install, and run Document Intelligenc
 * **Read**, **Layout**,  **ID Document**,  **Receipt**, and **Invoice**  models are supported by Document Intelligence v3.1 containers.
 
 * **Read**, **Layout**, **General Document**, **Business Card**, and **Custom** models are supported by Document Intelligence v3.0 containers.
-
-* **Business Card** model is currently only supported in the [v2.1 containers](install-run.md?view=doc-intel-2.1.0&preserve-view=true).
 
 ## Prerequisites
 
@@ -67,6 +65,10 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 * [Azure Kubernetes Service](../../../aks/index.yml).
 * [Azure Container Instances](../../../container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+
+> [!NOTE]
+>
+> Note that Studio container cannot be deployed and run in Azure Kubernetes Service. Studio container is only supported to be run on local machine.
 
 ### Container requirements and recommendations
 
@@ -576,7 +578,7 @@ services:
 
  ```
 
-The custom template container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you're using Azure Storage queues. When running locally, delete these variables.
+The custom template container and Layout container can use Azure Storage queues or in memory queues. The `Storage:ObjectStore:AzureBlob:ConnectionString` and `queue:azure:connectionstring` environment variables only need to be set if you're using Azure Storage queues. When running locally, delete these variables.
 
 ### Ensure the service is running
 
@@ -610,7 +612,7 @@ Custom template containers require a few different configurations and support ot
 
 * Gather a set of at least five forms of the same type. You use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract _sample_data.zip_).
 
-* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5000](http://localhost:5000)`.
+* Once you can confirm that the containers are running, open a browser and navigate to the endpoint where you have the containers deployed. If this deployment is your local machine, the endpoint is `[http://localhost:5001](http://localhost:5001)`.
 * Select the custom extraction model tile.
 * Select the `Create project` option.
 * Provide a project name and optionally a description
@@ -683,7 +685,9 @@ docker-compose down
 
 The Document Intelligence containers send billing information to Azure by using a Document Intelligence resource on your Azure account.
 
-Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. You're billed for each container instance used to process your documents and images.
+Queries to the container are billed at the pricing tier of the Azure resource used for the API `Key`. Billing is calculated for each container instance used to process your documents and images.
+
+If you receive the following error: *Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota' API key is out of quota*. It's an indicator that your containers aren't communication wit the billing endpoint.
 
 ### Connect to Azure
 

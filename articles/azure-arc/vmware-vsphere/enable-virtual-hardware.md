@@ -2,7 +2,7 @@
 title:  Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
 description: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter.
 ms.topic: how-to 
-ms.date: 03/13/2024
+ms.date: 07/18/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: devx-track-azurecli
@@ -48,23 +48,17 @@ Follow these steps [here](./quick-start-connect-vcenter-to-arc-using-script.md) 
 
 Use the following az commands to link Arc-enabled Server machines to vCenter at scale.  
 
-**Create VMware resources from the specified Arc for Server machines in the vCenter** 
+**Create VMware resource from the specified Arc for Server machine in the vCenter** 
 
-```azurecli-interactive
-az connectedvmware vm create-from-machines --resource-group contoso-rg --name contoso-vm --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-```
+[!INCLUDE [azure-cli-specified-arc](./includes/azure-cli-specified-arc.md)]
 
 **Create VMware resources from all Arc for Server machines in the specified resource group belonging to that vCenter**
 
-```azurecli-interactive
-az connectedvmware vm create-from-machines --resource-group contoso-rg --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-```
+[!INCLUDE [azure-cli-all](./includes/azure-cli-all.md)]
 
 **Create VMware resources from all Arc for Server machines in the specified subscription belonging to that vCenter**
 
-```azurecli-interactive
-az connectedvmware vm create-from-machines --subscription contoso-sub --vcenter-id /subscriptions/fedcba98-7654-3210-0123-456789abcdef/resourceGroups/contoso-rg-2/providers/Microsoft.HybridCompute/vcenters/contoso-vcenter
-```
+[!INCLUDE [azure-cli-subscription](./includes/azure-cli-subscription.md)]
 
 ### Required Parameters 
 
