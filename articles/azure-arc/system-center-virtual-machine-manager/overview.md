@@ -92,4 +92,5 @@ Azure Arc-enabled SCVMM doesn't store/process customer data outside the region t
 
 ## Next steps
 
+[Plan for deployment](support-matrix-for-system-center-virtual-machine-manager).
 [Create an Azure Arc VM](create-virtual-machine.md).
