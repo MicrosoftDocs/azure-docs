@@ -3,7 +3,7 @@ title: Use pipeline parameters to build versatile pipelines
 titleSuffix: Azure Machine Learning
 description: How to use pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: lagayhar
 author: lgayhardt
