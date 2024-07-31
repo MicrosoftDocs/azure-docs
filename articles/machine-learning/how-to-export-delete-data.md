@@ -3,7 +3,7 @@ title: Export or delete workspace data
 titleSuffix: Azure Machine Learning
 description: Learn how to export or delete your workspace with the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.custom: devx-track-python
 author: fbsolo-ms1

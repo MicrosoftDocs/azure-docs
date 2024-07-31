@@ -5,7 +5,7 @@ services: key-vault
 author: mumian
 manager: dougeby
 tags: azure-resource-manager
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template

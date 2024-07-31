@@ -5,7 +5,7 @@ author: ginsiucheng
 ms.author: mjbrown
 tags: azure-resource-manager, terraform
 ms.custom: devx-track-terraform
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 09/22/2022

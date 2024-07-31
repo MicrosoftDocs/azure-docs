@@ -3,7 +3,7 @@ title: Dlsv6 and Dldsv6-series
 description: Specifications for the Dlsv6 and Dldsv6-series VMs
 author:      misha-bansal
 ms.author:   mishabansal
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: reference
 ms.date:     07/16/2024
 ms.subservice: sizes
