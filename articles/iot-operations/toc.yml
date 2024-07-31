@@ -71,16 +71,30 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and send data to cloud
       items:
-      - name: What are dataflows?
+      - name: Overview
         href: connect-to-cloud/overview-dataflow.md
-      - name: Configure dataflow endpoint
-        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-      - name: Create a dataflow
-        href: connect-to-cloud/howto-create-dataflow.md
+      - name: Concepts
+        items:
+        - name: Dataflow mapping language
+          href: connect-to-cloud/concept-dataflow-language.md
+      - name: Read Data
+        items:
+        - name: Configure dataflow source
+          href: connect-to-cloud/howto-dataflow-source.md
+      - name: Process Data
+        items:
+        - name: Create a dataflow
+          href: connect-to-cloud/howto-create-dataflow.md
+      - name: Enrich data
+        items:
+        - name: Configure enrich stage
+          href: connect-to-cloud/howto-dataflow-reference-data.md
+      - name: Send Data
+        items:
+        - name: Configure dataflow destination
+          href: connect-to-cloud/howto-dataflow-destination.md
       - name: Configure dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
-      - name: Dataflow mapping language
-        href: connect-to-cloud/concept-dataflow-language.md
     - name: Process data
       items:
       - name: Overview
