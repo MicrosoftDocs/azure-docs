@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 Artificial intelligence (AI) technologies can be useful for a wide variety of communication experiences. This concept page summarizes availability of AI and AI-adjacent features in Azure Communication Services. AI features can be split into three categories:
 
-1.  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
+-  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
 2.  **Transformers.** APIs that provide a built-in transformation of communication data using a machine learning or language model.
 3.  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
 
