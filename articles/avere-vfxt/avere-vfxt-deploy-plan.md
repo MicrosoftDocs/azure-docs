@@ -2,7 +2,7 @@
 title: Plan your Avere vFXT system - Azure
 description: Plan an Avere vFXT for Azure cluster that is right for your needs. Learn questions to ask before going to the Azure Marketplace or creating virtual machines.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
