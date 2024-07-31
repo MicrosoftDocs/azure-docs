@@ -35,12 +35,11 @@ az rest --method put --uri https://management.azure.com/subscriptions/6b052e15-0
 
 
 ---
-Azure Kubernetes Service (AKS) Network Delay
+Azure Kubernetes Service (AKS) - Network Delay
 ---
 
 ### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
-
 {    
 
 "identity": {
@@ -97,7 +96,7 @@ Azure Kubernetes Service (AKS) Network Delay
 {"action":"delay","mode":"all","selector":{"namespaces":["default"]},"delay":{"latency":"200ms","correlation":"100","jitter":"0ms"}}
 ```
 --- 
-Azure Kubernetes Service (AKS) Pod Failure
+Azure Kubernetes Service (AKS) - Pod Failure
 ---
 
 ### [Azure CLI Experiment.JSON](#tab/azure-CLI)
@@ -159,7 +158,7 @@ Azure Kubernetes Service (AKS) Pod Failure
 {"action":"pod-failure","mode":"all","duration":"600s","selector":{"namespaces":["autoinstrumentationdemo"]}}
 ```
 ---
-Azure Kubernetes Service (AKS) Memory Stress
+Azure Kubernetes Service (AKS) - Memory Stress
 ---
 
 ### [Azure CLI](#tab/azure-CLI)
@@ -221,3 +220,101 @@ Azure Kubernetes Service (AKS) Memory Stress
 {"mode":"all","selector":{"namespaces":["autoinstrumentationdemo"]},"stressors":{"memory":{"workers":4,"size":"95%"}}
 ```
 --- 
+
+---
+Azure Load Test - Start/Stop Load Test (With Delay)
+---
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{    
+
+"identity": {
+        "type": "SystemAssigned",
+    },
+    "tags": {},
+    "location": "eastus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/nikhilLoadTest/providers/microsoft.loadtestservice/loadtests/Nikhil-Demo-Load-Test/providers/Microsoft.Chaos/targets/microsoft-azureloadtest",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "66e5124c-12db-4f7e-8549-7299c5828bff"
+            },
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/builddemo/providers/microsoft.loadtestservice/loadtests/Nikhil-Demo-Load-Test/providers/Microsoft.Chaos/targets/microsoft-azureloadtest",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "9dc23b43-81ca-42c3-beae-3fe8ac80c30b"
+            }
+        ],
+        "steps": [
+            {
+                "name": "Step 1 - Start Load Test",
+                "branches": [
+                    {
+                        "name": "Branch 1",
+                        "actions": [
+                            {
+                                "selectorId": "66e5124c-12db-4f7e-8549-7299c5828bff",
+                                "type": "discrete",
+                                "parameters": [
+                                    {
+                                        "key": "testId",
+                                        "value": "ae24e6z9-d88d-4752-8552-c73e8a9adebc"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureLoadTest:start/1.0"
+                            },
+                            {
+                                "type": "delay",
+                                "duration": "PT10M",
+                                "name": "urn:csci:microsoft:chaosStudio:TimedDelay/1.0"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Step 2 - End Load test",
+                "branches": [
+                    {
+                        "name": "Branch 1",
+                        "actions": [
+                            {
+                                "selectorId": "9dc23b43-81ca-42c3-beae-3fe8ac80c30b",
+                                "type": "discrete",
+                                "parameters": [
+                                    {
+                                        "key": "testId",
+                                        "value": "ae24e6z9-d88d-4752-8552-c73e8a9adebc"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureLoadTest:stop/1.0"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+ae24e6z9-d88d-4752-8552-c73e8a9adebc
+```
