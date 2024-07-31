@@ -15,7 +15,7 @@ ms.date: 7/28/2024
 
 Azure Cosmos DB for MongoDB vCore supports sharding to horizontally distribute data and traffic. The documents within a collection are divided into chunks called logical shards. 
 
-Sharding is defined at the granularity of an individual collection within the cluster using a designated shard key from the collection's document structure. Data is then bucketed into chunks with each chunk corresponding to a logical partition. Documents for each unique value of the shard key property reside in the same logical shard. 
+Sharding is defined individually for each collection using a designated shard key from the collection's document structure. Data is then bucketed into chunks with each chunk corresponding to a logical partition. Documents for each unique value of the shard key property reside in the same logical shard. 
 
 For each document inserted into a sharded collection, the value of the shard key property is hashed to compute the designated logical shard. The onus of placing the logical shard and distributing all the logical shards within the cluster are abstracted from the user and fully managed by the service.
 
@@ -41,16 +41,16 @@ This table shows a mapping of shard key values to logical partitions.
 - In addition, the service does not limit transactions to the scope of a logical shard. The vCore based service for Azure Cosmos DB for MongoDB supports read and write transactions that are applicable across multiple logical shards and across multiple physical shards in the cluster.
 
 ## Physical shards
-Physical shards are the underlying machines and disks responsible for persisting the data and fulfilling database transactions. Unlike logical shards, physical shards are entirely managed by the service under the covers.
+Physical shards are the underlying machines and disks responsible for persisting the data and fulfilling database transactions. Unlike logical shards, the service manages physical shards under the covers.
 
 The number of physical shards are defined when a cluster is created. Single shard clusters have one physical shard that is entirely responsible for the cluster's storage and database transactions. Multi shard clusters distribute the data and transaction volume across the physical shards in the cluster. 
 
 ### Mapping logical shards to physical shards
-When new logical shards are added, the cluster's mapping is updated based on the hash value of the new logical shards and the address space distribution of the physical shards. Similarly, the assignment of the address space to each physical shard is changed as new physical shards are added to the cluster after which, logical shards are rebalanced across the cluster.  
+When new logical shards are added, the cluster seamlessly updates the mapping of logical to physical shards. Similarly, the assignment of the address space to each physical shard is changed as new physical shards are added to the cluster after which, logical shards are rebalanced across the cluster.  
 
-The hash range used to map logical and physical shards is evenly distributed across the physical shards in the cluster. Each physical shard owns an evenly sized bucket of the hash range. For every document that is written, he value of the shard key property is hashed and the hash value determines the mapping of the document to the underlying physical shard. Internally, several logical shards map to a single physical shard. Moreover, logical shards are never split across physical shards and all the documents for a logical shard will always map to one physical shard. 
+The hash range used to map logical and physical shards is evenly distributed across the physical shards in the cluster. Each physical shard owns an evenly sized bucket of the hash range. For every document that is written, he value of the shard key property is hashed and the hash value determines the mapping of the document to the underlying physical shard. Internally, several logical shards map to a single physical shard. Moreover, logical shards are never split across physical shards and all the documents for a logical shard only map to one physical shard. 
 
-Building on the prior example using a cluster with 2 physical shards, the table below describes a sample mapping of documents to physical shards.
+Building on the prior example using a cluster with 2 physical shards, this table shows a sample mapping of documents to physical shards.
 
 | Document Id | Shard Key Value | Logical Shard | Physical Shard   |
 |-------------|-----------------|-------------- |------------------|
@@ -62,11 +62,11 @@ Building on the prior example using a cluster with 2 physical shards, the table 
 
 
 ### Capacity of physical shards 
-The CPU and memory capacity of a physical shard is determined by the cluster tier that is selected when the cluster is provisioned. Similarly the storage and IOPS capacity of the shard is determined by the storage SKU. Larger cluster tiers provide more compute power and larger memory while larger storage disks provide more storage and IOPS. Read heavy workloads will benefit from a higher cluster tier while write heavy workloads will benefit from a larger storage SKU. The cluster tier can be scaled up and down after the cluster is created based on the changing needs of the application.
+The cluster tier that is selected when the cluster is provisioned determines the CPU and memory capacity of a physical shard. Similarly the storage SKU determines the storage and IOPS capacity of a physical shard. Larger cluster tiers provide more compute power and larger memory while larger storage disks provide more storage and IOPS. Read heavy workloads benefit from a larger cluster tier while write heavy workloads benefit from a larger storage SKU. The cluster tier can be scaled up and down after the cluster is created based on the changing needs of the application.
 
 In a multi-shard cluster, the capacity of each physical shard is the same. Scaling up the cluster tier or the storage SKU does not change the placement of logical shards on the physical shards. After a scale up operation, the number of physical shards remains the same thus avoiding the need to relabance the data in the cluster.
 
-The logical shards that are co-located within the same physical shard are collectively bound by the compute, memory, storage and IOPS capacity of the physical shard they are mapped to. Shard keys that do not have an even distribution of storage and request volumes can cause uneven storage and throughput consumption within the cluster. Hot partitions can cause physical shards to be unevenly utilized leading to unpredictable throughput and performance. Thus sharded clusters require careful planning upfront to ensure performance remains consistent as the requirements of the application change over time.
+The compute, memory, storage and IOPS capacity of the physical shard The logical shards that are co-located within the same physical shard are collectively bound by the compute, memory, storage and IOPS capacity of the physical shard they are mapped to. Shard keys that do not have an even distribution of storage and request volumes can cause uneven storage and throughput consumption within the cluster. Hot partitions can cause physical shards to be unevenly utilized leading to unpredictable throughput and performance. Thus sharded clusters require careful planning upfront to ensure performance remains consistent as the requirements of the application change over time.
 
 
 ### Replica sets
@@ -100,13 +100,13 @@ Consider the following document within the 'cosmicworks' database and 'employee'
 }
 ```
 
-If the firstName property has been determined to be shard key for the collection, the following command should be used to shard the employee collection after it has been created.
+The following sample shards the employee collection within the cosmicworks database on the firstName property.
 ```javascript
 use cosmicworks;
 sh.shardCollection("cosmicworks.employee", {"firstName": 1})
 ```
 
-The service does not index the shard key default. Once the collection has been sharded an index must be explicitly created on the shard key property.
+The service does not index the shard key by default. Once the collection is sharded an index must be explicitly created on the shard key property.
 
 ```javascript
 use cosmicworks;
