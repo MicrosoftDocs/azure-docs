@@ -285,13 +285,13 @@ A step-by-step status of a cell run appears beneath the cell to help you see its
 
 A Synapse notebook is purely Spark based. Code cells run on the serverless Apache Spark pool remotely. A Spark job progress indicator with a real-time progress bar appears to help you understand the job run status.
 
-The number of tasks for each job or stage help you identify the parallel level of your Spark job. You can also drill deeper to the Spark UI of a specific job (or stage) by selecting the link on the job (or stage) name.
+The number of tasks for each job or stage helps you identify the parallel level of your Spark job. You can also drill deeper to the Spark UI of a specific job (or stage) by selecting the link on the job (or stage) name.
 
 ![Screenshot of the Spark progress indicator in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-spark-progress-indicator.png)
 
 ### Configure a Spark session
 
-You can specify the timeout duration, the number, and the size of executors to give to the current Spark session on the **Configure session** pane. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
+On the **Configure session** pane, you can specify the timeout duration, the number, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
 
 You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, refer to [Manage Apache Spark configuration](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
 
@@ -369,7 +369,7 @@ During the pipeline run mode, you can use the **Settings** tab to configure sett
 
 ![Screenshot of parameterized session configuration in a Synapse notebook.](./media/apache-spark-development-using-notebooks/parameterized-session-config.png)
 
-If you want to change the session configuration, the name of the pipeline notebook activity parameter should be same as `activityParameterName` in the notebook. In this example, during a pipeline run, `driverCores` in `%%configure` will be replaced by `8` and `livy.rsc.sql.num-rows` will be replaced by `4000`.
+If you want to change the session configuration, the name of the pipeline notebook activity parameter should be the same as `activityParameterName` in the notebook. In this example, during a pipeline run, `8` replaces `driverCores` in `%%configure`, and `4000` replaces `livy.rsc.sql.num-rows`.
 
 If a pipeline run fails after you use the `%%configure` magic command, you can get more error information by running the `%%configure` magic cell in the interactive mode of the notebook.
 
@@ -393,7 +393,7 @@ df1 = spark.read.option('header', 'true') \
 
 ```
 
-#### Read a CSV file from Azure Blob Storage as a Spark DataFrame
+### Read a CSV file from Azure Blob Storage as a Spark DataFrame
 
 ```python
 
@@ -432,7 +432,7 @@ Widgets are eventful Python objects that have a representation in the browser, o
 
 ### Steps to use IPython widgets
 
-1. Import `ipywidgets` module to use the Jupyter Widgets framework:
+1. Import the `ipywidgets` module to use the Jupyter Widgets framework:
 
    ```python
    import ipywidgets as widgets
@@ -477,12 +477,12 @@ display(slider2)
 
 |Widget type|Widgets|
 |--|--|
-|Numeric|IntSlider, FloatSlider, FloatLogSlider, IntRangeSlider, FloatRangeSlider, IntProgress, FloatProgress, BoundedIntText, BoundedFloatText, IntText, FloatText|
-|Boolean|ToggleButton, Checkbox, Valid|
-|Selection|Dropdown, RadioButtons, Select, SelectionSlider, SelectionRangeSlider, ToggleButtons, SelectMultiple|
-|String|Text, Text area, Combobox, Password, Label, HTML, HTML Math, Image, Button|
-|Play (animation)|Date picker, Color picker, Controller|
-|Container/Layout|Box, HBox, VBox, GridBox, Accordion, Tabs, Stacked|
+|Numeric|`IntSlider`, `FloatSlider`, `FloatLogSlider`, `IntRangeSlider`, `FloatRangeSlider`, `IntProgress`, `FloatProgress`, `BoundedIntText`, `BoundedFloatText`, `IntText`, `FloatText`|
+|Boolean|`ToggleButton`, `Checkbox`, `Valid`|
+|Selection|`Dropdown`, `RadioButtons`, `Select`, `SelectionSlider`, `SelectionRangeSlider`, `ToggleButtons`, `SelectMultiple`|
+|String|`Text`, `Text area`, `Combobox`, `Password`, `Label`, `HTML`, `HTML Math`, `Image`, `Button`|
+|Play (animation)|`Date picker`, `Color picker`, `Controller`|
+|Container/Layout|`Box`, `HBox`, `VBox`, `GridBox`, `Accordion`, `Tabs`, `Stacked`|
 
 ### Known limitations
 
@@ -531,7 +531,7 @@ Available magic commands for cells:
 
 ## <a name = "reference-unpublished-notebook"></a>Reference an unpublished notebook
 
-Referencing an unpublished notebook is helpful when you want to debug locally. When you enable this feature, a notebook run fetches the current content in web cache. If you run a cell that includes a reference notebook statement, you reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster. Other notebooks can reference the changes in your notebook editor without your having to publish (Live mode) or commit (Git mode) the changes. By using this approach, you can prevent the pollution of common libraries during the developing or debugging process.
+Referencing an unpublished notebook is helpful when you want to debug locally. When you enable this feature, a notebook run fetches the current content in web cache. If you run a cell that includes a reference notebook statement, you reference the presenting notebooks in the current notebook browser instead of a saved version in a cluster. Other notebooks can reference the changes in your notebook editor without your having to publish (Live mode) or commit (Git mode) the changes. By using this approach, you can prevent the pollution of common libraries during the developing or debugging process.
 
 You can enable referencing an unpublished notebook by selecting the appropriate checkbox on the **Properties** pane.
 
@@ -607,7 +607,7 @@ customizedLogger.critical("customized critical message")
 
 ## View the history of input commands
 
-Synapse notebooks support the magic command `%history` to print the input command history that ran in the current session. The `%history` magic command is similar to the standard Jupyter IPython command and works for multiple language contexts in notebook.
+Synapse notebooks support the magic command `%history` to print the input command history for the current session. The `%history` magic command is similar to the standard Jupyter IPython command and works for multiple language contexts in a notebook.
 
 `%history [-n] [range [range ...]]`
 
@@ -616,9 +616,7 @@ In the preceding code, `-n` is the print execution number. The `range` value can
 * `N`: Print code of the `Nth` executed cell.
 * `M-N`: Print code from the `Mth` to `Nth` executed cell.
 
-Example:
-
-* Print input history from the first to the second executed cell: `%history -n 1-2`
+For example, to print input history from the first to the second executed cell, use `%history -n 1-2`.
 
 ## Integrate a notebook
 
@@ -634,15 +632,15 @@ To parameterize your notebook, select the ellipsis (**...**) to access more comm
 
 ![Screenshot of the menu option for designating a cell as a parameter cell.](./media/apache-spark-development-using-notebooks/azure-notebook-toggle-parameter-cell.png)
 
-Azure Data Factory looks for the parameter cell and treats this cell as defaults for the parameters passed in at execution time. The execution engine adds a new cell beneath the parameter cell with input parameters to overwrite the default values.
+Azure Data Factory looks for the parameter cell and treats this cell as the default for the parameters passed in at execution time. The execution engine adds a new cell beneath the parameter cell with input parameters to overwrite the default values.
 
 ### Assign parameters values from a pipeline
 
-After you create a notebook with parameters, you can run it from a pipeline by using a Synapse notebook activity. After you add the activity to your pipeline canvas, you can set the parameter values in the **Base parameters** section on the **Settings** tab.
+After you create a notebook with parameters, you can run it from a pipeline by using a Synapse notebook activity. After you add the activity to your pipeline canvas, you can set the parameter values in the **Base parameters** section of the **Settings** tab.
 
 ![Screenshot of the area for assigning parameters in Azure Synapse Analytics.](./media/apache-spark-development-using-notebooks/assign-parameter.png)
 
-When assigning parameter values, you can use the [pipeline expression language](../../data-factory/control-flow-expression-language-functions.md) or [system variables](../../data-factory/control-flow-system-variables.md).
+When you're assigning parameter values, you can use the [pipeline expression language](../../data-factory/control-flow-expression-language-functions.md) or [system variables](../../data-factory/control-flow-system-variables.md).
 
 ## Use shortcut keys
 
@@ -658,7 +656,7 @@ Similar to Jupyter Notebooks, Synapse notebooks have a modal user interface. The
 
 ### Shortcut keys in command mode
 
-| Action |Synapse notebook shortcuts  |
+| Action |Synapse notebook shortcut |
 |--|--|
 |Run the current cell and select below | Shift+Enter |
 |Run the current cell and insert below | Alt+Enter |
@@ -674,7 +672,7 @@ Similar to Jupyter Notebooks, Synapse notebooks have a modal user interface. The
 
 ### Shortcut keys in edit mode
 
-| Action |Synapse notebook shortcuts  |
+| Action |Synapse notebook shortcut |
 |--|--|
 |Move cursor up | Up |
 |Move cursor down|Down|
