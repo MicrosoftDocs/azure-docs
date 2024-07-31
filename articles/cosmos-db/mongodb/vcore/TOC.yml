@@ -52,6 +52,8 @@
       items: 
        - name: Scalability overview
          href: scalability-overview.md
+       - name: Sharding
+         href: partitioning.md
        - name: Compute and storage
          href: compute-storage.md 
     - name: Migration options
