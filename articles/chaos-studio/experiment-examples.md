@@ -219,7 +219,66 @@ Azure Kubernetes Service (AKS) - Memory Stress
 ```Azure portal
 {"mode":"all","selector":{"namespaces":["autoinstrumentationdemo"]},"stressors":{"memory":{"workers":4,"size":"95%"}}
 ```
---- 
+
+---
+Azure Kubernetes Service (AKS) - CPU Stress
+---
+
+### [Azure CLI](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_memory_stress_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS CPU stress",
+                "branches": [
+                    {
+                        "name": "AKS CPU stress",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT10M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"mode\":\"all\",\"selector\":{\"namespaces\":[\"autoinstrumentationdemo\"]},\"stressors\":{\"cpu\":{\"workers\":4,\"load\":95}}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:stressChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"mode":"all","selector":{"namespaces":["autoinstrumentationdemo"]},"stressors":{"cpu":{"workers":4,"load":95}}}
+```
 
 ---
 Azure Load Test - Start/Stop Load Test (With Delay)
