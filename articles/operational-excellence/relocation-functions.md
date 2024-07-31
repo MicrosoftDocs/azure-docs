@@ -104,7 +104,7 @@ To migrate Durable Entities, see [Recovery With GRS Enabled Storage for Azure Du
 Review and configure the resources identified in the [Prepare](#prepare) step above in the target region if they weren't configured during the deploy. 
 
 ### Relocation considerations
-+ If your deployment resources and automation doesn't create a function app, [create an app of the same type in a new hosting plan](../azure-functions/functions-scale.md#overview-of-plans) in the target region
++ If your deployment resources and automation don't create a function app, [recreate an app of the same language running on the same operating system in a new hosting plan of the same type](../azure-functions/functions-scale.md#overview-of-plans) in the target region and redeploy your code
 + Function app names are globally unique in Azure, so the app in the target region can't have the same name as the one in the source region
 + References and application settings that connect your function app to dependencies need to be reviewed and, when needed, updated. For example, when you move a database that your functions call, you must also update the application settings or configuration to connect to the database in the target region. Some application settings such as the Application Insights instrumentation key or the Azure storage account used by the function app can be already be configured on the target region and do not need to be updated
 + Remember to verify your configuration and test your functions in the target region
