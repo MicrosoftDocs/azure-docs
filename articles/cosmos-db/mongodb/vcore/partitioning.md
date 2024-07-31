@@ -69,7 +69,7 @@ The compute, memory, storage, and IOPS capacity of the physical shard determine 
 
 
 ### Replica sets
-Each physical shard consists of a set of replicas, also referred to as a replica set. Each replica hosts an instance of the database engine. A replica set makes the data store within the physical shard durable, highly available, and consistent. Each replica that makes up the physical shard inherits the partition's storage and compute capacity. Azure Cosmos DB for MongoDB vCore automatically manages replica sets.
+Each physical shard consists of a set of replicas, also referred to as a replica set. Each replica hosts an instance of the database engine. A replica set makes the data store within the physical shard durable, highly available, and consistent. Each replica that makes up the physical shard inherits the physical shard's storage and compute capacity. Azure Cosmos DB for MongoDB vCore automatically manages replica sets.
 
 
 ## Best practices for sharding data
