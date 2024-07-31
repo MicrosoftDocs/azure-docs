@@ -164,7 +164,7 @@ By implementing these strategies, developers can ensure their applications remai
 ## Region Scoped Session Consistency
 
 ### Overview
-The Java SDK provides region-scoped session consistency for multi-region write accounts. This feature enhances performance by reducing cross-regional replication latency and minimizing client-side retries by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
+For more information about consistency settings in general, see [Consistency levels in Azure Cosmos DB](../consistency-levels.md). The Java SDK provides region-scoped [session consistency](../consistency-levels.md#session-consistency) for multi-region write accounts. This feature enhances performance by reducing cross-regional replication latency and minimizing client-side retries by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
 
 ### Benefits
 - **Reduced Latency:** By localizing session token validation to the region level, the chances of costly cross-regional retries are significantly reduced.
