@@ -51,6 +51,8 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Azure Monitor](get-monitoring-information.md) | Provides charts on platform metrics for a specific resource. | "Give me a chart of OS disk latency statistics for the last week." |
 | [Azure Monitor](get-monitoring-information.md) | Queries logs using natural language | "Show me container logs that include word 'error' for the last day for namespace 'xyz'." |
 | [Azure Monitor](get-monitoring-information.md) | Runs an investigation on a specific resource. | "Had an alert in my HCI at 8 am this morning, run an anomaly investigation for me." |
+| [Azure Monitor](get-monitoring-information.md) | Lists alerts using natural language. | "Show me all alerts triggered during the last 24 hours." |
+| [Azure Monitor](get-monitoring-information.md) | Provides a summary of alerts, including the number of critical alerts. | "Tell me more about these alerts. How many critical alerts are there?" |
 | [Azure App Service](troubleshoot-app-service.md) | Analyzes performance issues with an app. | "Troubleshoot performance issues with my app." |
 | [Azure App Service](troubleshoot-app-service.md) | Diagnoses high CPU usage issues. | "It seems like there's a high CPU issue with my web app." |
 | [Azure App Service](troubleshoot-app-service.md) | Enables auto-heal for web apps. | "Enable auto heal on my web app." |
@@ -66,8 +68,6 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Azure Kubernetes Service](work-aks-clusters.md) | Shows existing backups. | "I want to view the backups on my AKS cluster." |
 | [Azure Kubernetes Service](work-aks-clusters.md) | Manages the backup extension. | "Manage backup extension on my AKS cluster." |
 | [Azure Kubernetes Service](work-aks-clusters.md) | Upgrades the AKS pricing tier. | "Upgrade AKS cluster pricing tier to Standard." |
-| [Azure Monitor](get-monitoring-information.md) | Lists alerts using natural language. | "Show me all alerts triggered during the last 24 hours." |
-| [Azure Monitor](get-monitoring-information.md) | Provides a summary of alerts, including the number of critical alerts. | "Tell me more about these alerts. How many critical alerts are there?" |
 | [Azure SQL Databases](https://aka.ms/sqlcopilot) | Use natural language to manage Azure SQL Databases | "I want to automate Azure SQL Database scaling based on performance metrics using Azure Functions." |
 | [Azure Storage](improve-storage-accounts.md) | Checks if a storage account follows security best practices. | "Does this storage account follow security best practices?" |
 | [Azure Storage](improve-storage-accounts.md) | Provides recommendations to make a storage account more secure. | "How can I make this storage account more secure?" |
