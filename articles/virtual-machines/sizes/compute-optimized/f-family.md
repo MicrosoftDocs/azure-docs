@@ -2,7 +2,7 @@
 title: F family VM size series
 description: List of size series in the F family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/18/2024
