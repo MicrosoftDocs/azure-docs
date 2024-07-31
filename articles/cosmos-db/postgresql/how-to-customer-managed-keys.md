@@ -3,7 +3,7 @@ title: How to enable encryption with customer-managed keys in Azure Cosmos DB fo
 description: Steps to enable data encryption with customer-managed keys.
 ms.author: akashrao
 author: akashraokm
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/03/2024

@@ -226,6 +226,10 @@ The NVIDIA GPU Operator automates the management of all NVIDIA software componen
 > [!WARNING]
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
 
+> [!NOTE]
+> There might be additional considerations to take when using the NVIDIA GPU Operator and deploying on SPOT instances. Please refer to <https://github.com/NVIDIA/gpu-operator/issues/577>
+
+
 ### Use the AKS GPU image (preview)
 
 AKS provides a fully configured AKS image containing the [NVIDIA device plugin for Kubernetes][nvidia-github]. The AKS GPU image is currently only supported for Ubuntu 18.04.
