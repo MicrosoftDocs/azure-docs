@@ -9,21 +9,20 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 08/05/2024
 ---
 
 # Generate embeddings for search queries and documents
 
-Azure AI Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models. Demos in the [sample repository](https://github.com/Azure/azure-search-vector-samples/tree/main) tap the [similarity embedding models](/azure/ai-services/openai/concepts/models#embeddings-models) of Azure OpenAI.
+Azure AI Search doesn't host vectorization models, so one of your challenges is creating embeddings for query inputs and outputs. You can use any embedding model, but this article assumes Azure OpenAI embeddings models.
 
-Dimension attributes have a minimum of 2 and a maximum of 4096 dimensions per vector field.
+We recommend [integrated vectorization](vector-search-integrated-vectorization.md), which provides embedded data chunking and vectorization. Integrated vectorization takes a dependency on indexers, skillsets, and built-in or custom skills that point to a model that executes externally from Azure AI Search.
 
-> [!NOTE]
-> This article applies to the generally available version of [vector search](vector-search-overview.md), which assumes your application code calls an external resource such as Azure OpenAI for vectorization. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers embedded vectorization. Integrated vectorization takes a dependency on indexers, skillsets, and either the AzureOpenAIEmbedding skill or a custom skill that points to a model that executes externally from Azure AI Search.
+If you want to handle data chunking and vectorization yourself, we provide demos in the [sample repository](https://github.com/Azure/azure-search-vector-samples/tree/main) that show you how to integrate with other community solutions.
 
-## How models are used
+## How embedding models are used in vector queries
 
-+ Query inputs require that you submit user-provided input to an embedding model that quickly converts human readable text into a vector.
++ Query inputs require that you submit user-provided text input to an embedding model that quickly converts human readable text into a vector.
 
   + For example, you can use **text-embedding-ada-002** to generate text embeddings and [Image Retrieval REST API](/rest/api/computervision/2023-02-01-preview/image-retrieval/vectorize-image) for image embeddings.
 
