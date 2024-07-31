@@ -472,7 +472,7 @@ Search results would include a combination of text and images, assuming your sea
 
 This section shows a vector query that invokes the [integrated vectorization](vector-search-integrated-vectorization.md) that converts a text query into a vector. Use the stable [**2024-07-01**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true)  REST API and newer Azure SDK packages for this feature.
 
-A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. Check the index definition for a vectorizers specification. 
+A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. To add or check for a vectorizer, see the index definition. 
 
 :::image type="content" source="media/vector-search-how-to-query/check-vectorizer.png" alt-text="Screenshot of a vectorizer setting in a search index.":::
 
