@@ -219,7 +219,7 @@ const invitees : Invitee[] = breakoutRoom.invitees;
 ### Breakout room  settings
 
 ```js
-const disableReturnToMainMeeting : boolean = breakoutRoom.disableReturnToMainMeeting;
+const disableReturnToMainMeeting : boolean = breakoutRoomsSettings.disableReturnToMainMeeting;
 ```
 - `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This is a read-only property.
 
