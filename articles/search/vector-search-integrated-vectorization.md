@@ -9,13 +9,10 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 06/11/2024
+ms.date: 08/05/2024
 ---
 
 # Integrated data chunking and embedding in Azure AI Search
-
-> [!IMPORTANT] 
-> Integrated data chunking and vectorization is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs provide this feature.
 
 Integrated vectorization is an extension of the indexing and query pipelines in Azure AI Search. It adds the following capabilities:
 
@@ -28,6 +25,8 @@ Data chunking isn't a hard requirement, but unless your raw documents are small,
 A key benefit is that integrated vectorization speeds up the development and minimizes maintenance tasks during data ingestion and query time because there are fewer external components to configure and manage.
 
 Vector conversions are one-way: text-to-vector. There's no vector-to-text conversion for queries or results (for example, you can't convert a vector result to a human-readable string).
+
+Integrated data chunking and vectorization is now generally available.
 
 ## Using integrated vectorization during indexing
 
@@ -125,7 +124,6 @@ On Azure AI Search, remember there are [service limits](search-limits-quotas-cap
 
 Finally, the following features aren't currently supported: 
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) are not supported for vectorizer configuration.
 + Currently, there's no batching for integrated data chunking and vectorization
 
 ## Benefits of integrated vectorization 
