@@ -33,7 +33,7 @@ The preceding schema design makes it easy for you to extend existing capabilitie
 
 Another approach is to model the _information_ as intents and the _actions_ as entities. Let's take the same example of allowing your customers to cancel subscriptions through your chatbot.
 
-You can create an intent for each subscription available, such as _Contoso_, with utterances like "Cancel Contoso," "Stop charging me for Contoso services", and "Cancel the Contoso subscription." You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
+You can create an intent for each subscription available, such as _Contoso_, with utterances like "Cancel Contoso," "Stop charging me for Contoso services," and "Cancel the Contoso subscription." You then create an entity to capture the _cancel_ action. You can define different entities for each action or consolidate actions as one entity with a list component to differentiate between actions with different keys.
 
 This schema design makes it easy for you to extend new actions to existing targets by adding new action entities or entity components.
 
@@ -142,7 +142,7 @@ curl --location 'https://<your-resource>.cognitiveservices.azure.com/language/au
 After the request is sent, you can track the progress of the training job in Language Studio as usual.
 
 > [!NOTE]
-> You have to retrain your model after you update the `confidenceThreshold` project setting. Afterwards, you need to republish the app for the new threshold to take effect.
+> You have to retrain your model after you update the `confidenceThreshold` project setting. Afterward, you need to republish the app for the new threshold to take effect.
 
 ### Normalization in model version 2023-04-15
 
