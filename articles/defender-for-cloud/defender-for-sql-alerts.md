@@ -41,6 +41,6 @@ Alerts are designed to be self-contained, with detailed remediation steps and in
 
 For related information, see these resources:
 
-- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-reference.md#alerts-for-sql-database-and-azure-synapse-analytics)
+- [Security alerts for SQL Database and Azure Synapse Analytics](alerts-sql-database-and-azure-synapse-analytics.md)
 - [Set up email notifications for security alerts](configure-email-notifications.md)
 - [Learn more about Microsoft Sentinel](../sentinel/index.yml)
