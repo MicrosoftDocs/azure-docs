@@ -103,6 +103,8 @@ Consider the following constraints during the implementation of this feature:
 - Custom In-Call Actions: A business application can add a custom "Report Issue" button, allowing users to directly report technical issues during a call.
 - Branding and User Experience: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
 
+To ensure a consistent call experience, , we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons will match the design of the Call Composite, creating a cohesive and professional appearance.
+
 #### Best Practices
 
 - Minimalism: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
