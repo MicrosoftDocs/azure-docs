@@ -32,6 +32,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 | Date    | Category        | Update                                                       |
 | ------- | --------------- | ------------------------------------------------------------ |
 | July 31 | GA              | [General availability of enhanced discovery and configuration recommendations for endpoint protection](#general-availability-of-enhanced-discovery-and-configuration-recommendations-for-endpoint-protection) |
+| July 31 | Upcoming update | [Adaptive network hardening deprecation](#adaptive-network-hardening-deprecation) |
 | July 22 | Preview         | [Security assessments for GitHub no longer requires additional licensing](#preview-security-assessments-for-github-no-longer-requires-additional-licensing) |
 | July 18 | Upcoming update | [Updated timelines toward MMA deprecation in Defender for Servers Plan 2](#updated-timelines-toward-mma-deprecation-in-defender-for-servers-plan-2) |
 | July 18 | Upcoming update | [Deprecation of MMA-related features as part of agent retirement](#deprecation-of-mma-related-features-as-part-of-agent-retirement) |
@@ -54,6 +55,19 @@ With this general availability release, the list of [supported solutions](/azure
 
 - Singularity Platform by SentinelOne  
 - Cortex XDR
+
+### Adaptive network hardening deprecation
+
+July 31, 2024
+
+**Estimated date for change: August 31, 2024**
+
+Defender for Server's adaptive network hardening is being deprecated.
+
+The feature deprecation includes the following experiences:
+
+- **Recommendation**: [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machines) [assessment Key: f9f0eed0-f143-47bf-b856-671ea2eeed62]
+- **Alert**: [Traffic detected from IP addresses recommended for blocking](alerts-azure-network-layer.md#traffic-detected-from-ip-addresses-recommended-for-blocking)
 
 ### Preview: Security assessments for GitHub no longer requires additional licensing
 
