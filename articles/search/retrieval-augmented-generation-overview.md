@@ -146,7 +146,7 @@ In comparison and benchmark testing, hybrid queries with text and vector fields,
 
 ### Example code of an Azure AI Search query for RAG scenarios
 
-The following code is copied from the [retrievethenread.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches/retrievethenread.py) file from a demo site. It produces `content` for the LLM from hybrid query search results. You can write a simpler query, but this example is inclusive of vector search and keyword search with semantic reranking and spell check. In the demo, this query is used to get initial content.
+The following code is copied from the [retrievethenread.py](https://github.com/Azure-Samples/azure-search-openai-demo/blob/main/app/backend/approaches/retrievethenread.py) file from a demo site. It produces `sources_content` for the LLM from hybrid query search results. You can write a simpler query, but this example is inclusive of vector search and keyword search with semantic reranking and spell check. In the demo, this query is used to get initial content.
 
 ```python
 # Use semantic ranker if requested and if retrieval mode is text or hybrid (vectors + text)
@@ -202,7 +202,7 @@ if len(history) > 0:
 else:
     search = user_input
 
-# Alternatively simply use search_client.search(q, top=3) if not using semantic ranking
+# Alternatively simply use search_client.search(q, top=3) if not using semantic search
 print("Searching:", search)
 print("-------------------")
 filter = "category ne '{}'".format(exclude_category.replace("'", "''")) if exclude_category else None

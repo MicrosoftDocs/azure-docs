@@ -109,7 +109,7 @@ This section points you to data that works for this quickstart.
 
 1. You can confirm that you have Data Lake Storage by checking the **Properties** tab on the **Overview** page.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/adls-gen2.png" alt-text="Screenshot of the storage account properties page showing Data Lake Storage.":::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/data-lake-storage.png" alt-text="Screenshot of the storage account properties page showing Data Lake Storage.":::
 
 1. On the left pane, under **Data Storage**, select **Containers**.
 
@@ -267,7 +267,7 @@ The next step is to connect to a data source to use for the search index.
 
    The wizard doesn't check Azure Storage for valid settings or throw an error if the requirements aren't met. Instead, deletion detection doesn't work, and your search index is likely to collect orphaned documents over time.
 
-   :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-adlsgen2.png" alt-text="Screenshot of the data source page with deletion detection options.":::
+   :::image type="content" source="media/search-get-started-portal-import-vectors/data-source-data-lake-storage.png" alt-text="Screenshot of the data source page with deletion detection options.":::
 
 1. Specify whether you want your search service to [connect to Azure Storage using its managed identity](search-howto-managed-identities-storage.md).
 
