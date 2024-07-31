@@ -24,12 +24,41 @@ In this quickstart, you create a secure Container Apps environment and deploy yo
 
 ## Setup
 
-<!-- Create -->
-[!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
+Begin by signing in to the [Azure portal](https://portal.azure.com).
 
-3. Select the **Container** tab.
+## Create a container app
 
-4. Select *Use quickstart image*.
+To create your container app, start at the Azure portal home page.
+
+1. Search for **Container Apps** in the top search bar.
+
+1. Select **Container Apps** in the search results.
+
+1. Select the **Create** button.
+
+### Basics tab
+
+In the *Basics* tab, do the following actions.
+
+1. Enter the following values in the *Project details* section.
+
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Create new** and enter **my-container-apps**. |
+    | Container app name |  Enter **my-container-app**. |
+    | Deployment source | Select **Container image**. |
+
+1. Enter the following values in the "Container Apps Environment" section.
+
+    | Setting | Action |
+    |---|---|
+    | Region | Select a region near you. |
+    | Container Apps Environment | Use the default value. |
+
+1. Select the **Container** tab.
+
+1. Select *Use quickstart image*.
 
 <!-- Deploy the container app -->
 [!INCLUDE [container-apps-create-portal-deploy.md](../../includes/container-apps-create-portal-deploy.md)]
