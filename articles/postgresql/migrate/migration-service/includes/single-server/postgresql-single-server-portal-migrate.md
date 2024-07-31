@@ -384,7 +384,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 ### Cutover migration
 
-For the **Migrate** and for the **Validate and Migrate** migration options, completion of the online migration requires the user to complete an additional step, which is to trigger the Cutover action. After the copy/clone of the base data is complete, the migration moves to the **WaitingForUserAction** state and the `**aitingForCutoverTrigger** substate. In this state, user can trigger cutover from the portal by selecting the migration, and selecting the **Cutover** button.
+For the **Migrate** and for the **Validate and Migrate** migration options, completion of the online migration requires the user to complete an additional step, which is to trigger the Cutover action. After the copy/clone of the base data is complete, the migration moves to the **WaitingForUserAction** state and the `**WaitingForCutoverTrigger** substate. In this state, user can trigger cutover from the portal by selecting the migration, and selecting the **Cutover** button.
 
 Before initiating cutover, it's essential to ensure that:
 
