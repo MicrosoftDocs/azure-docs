@@ -3,7 +3,7 @@ title: Manage prompt flow compute session
 titleSuffix: Azure Machine Learning
 description: Learn how to manage prompt flow compute session in Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - build-2024
