@@ -3,7 +3,7 @@ title: Create connections to external data sources (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to use connections to connect to External data sources for training with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

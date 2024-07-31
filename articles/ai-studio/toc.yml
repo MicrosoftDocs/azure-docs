@@ -10,8 +10,6 @@ items:
     href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
-  - name: What's new in Azure AI Studio?
-    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
