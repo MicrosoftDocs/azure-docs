@@ -67,7 +67,7 @@ If none of these options are successful, an error stating that the app cannot re
    * Storage Blob Data Contributor 
    * Storage Table Data Contributor 
 
-   Assign the roles to yourself by clicking "+ Select members" and finding your email in the pop-up window. (This email is the one you use to log into Microsoft applications, Azure CLI, or editors in the Visual Studio family.)
+   Assign the roles to yourself by clicking **"+ Select members"** and finding your email in the pop-up window. (This email is the one you use to log into Microsoft applications, Azure CLI, or editors in the Visual Studio family.)
 
    ![Assign access to user](./media/durable-functions-configure-df-with-credentials/assign-access-user.png)
 
