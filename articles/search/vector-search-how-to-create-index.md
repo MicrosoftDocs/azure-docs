@@ -19,7 +19,7 @@ Follow these steps to index vector data:
 > [!div class="checklist"]
 > + Define a schema with vector algorithms for indexing and search 
 > + Add vector fields
-> + Load prevectorized data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization (preview)](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing
+> + Load prevectorized data [as a separate step](#load-vector-data-for-indexing), or use [integrated vectorization](vector-search-integrated-vectorization.md) for data chunking and encoding during indexing
 
 This article explains the workflow and uses REST to illustrate each step. Each recent version of the REST API adds new functionality. Once you understand the basic workflow and what each API version provides, continue with the Azure SDK code samples in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository for guidance on using these features in test and production code.
 
@@ -30,7 +30,7 @@ This article explains the workflow and uses REST to illustrate each step. Each r
 
 + Azure AI Search, in any region and on any tier. Most existing services support vector search. For services created before January 2019, there's a small subset that can't create a vector index. In this situation, a new service must be created.
 
-+ Pre-existing vector embeddings in your source documents if you're using the generally available version of the Azure SDKs and REST APIs. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md). An alternative is [integrated vectorization (preview)](vector-search-integrated-vectorization.md).
++ Pre-existing vector embeddings in your source documents if you're using the generally available version of the Azure SDKs and REST APIs. For more information, see [Generate embeddings](vector-search-how-to-generate-embeddings.md). An alternative is [integrated vectorization](vector-search-integrated-vectorization.md).
 
 + You should know the dimensions limit of the model used to create the embeddings and how similarity is computed. In Azure OpenAI, for **text-embedding-ada-002**, the length of the numerical vector is 1536. Similarity is computed using `cosine`. Valid values are 2 through 3072 dimensions.
 

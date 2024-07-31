@@ -22,7 +22,7 @@ A search service accepts JSON documents that conform to the index schema. A sear
 
 + Plain text content is obtainable from alphanumeric fields in the external data source, metadata that's useful in search scenarios, or enriched content created by a [skillset](cognitive-search-working-with-skillsets.md) (skills can extract or infer textual descriptions from images and unstructured content). 
 
-+ Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization (preview)](vector-search-integrated-vectorization.md) using Azure AI Search features that integrate with applied AI.
++ Vector content is vectorized using an [external embedding model](vector-search-how-to-generate-embeddings.md) or [integrated vectorization](vector-search-integrated-vectorization.md) using Azure AI Search features that integrate with applied AI.
 
 You can prepare these documents yourself, but if content resides in a [supported data source](search-indexer-overview.md#supported-data-sources), running an [indexer](search-indexer-overview.md) or using an Import wizard can automate document retrieval, JSON serialization, and indexing.
 

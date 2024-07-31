@@ -30,7 +30,7 @@ To improve relevance:
 
 + (Optional) If you want [semantic ranking](semantic-how-to-configure.md), your search service must be Basic tier or higher, with [semantic ranking enabled](semantic-how-to-enable-disable.md).
 
-+ (Optional) If you want text-to-vector conversion of a query string (currently in preview), [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
++ (Optional) If you want text-to-vector conversion of a query string, [create and assign a vectorizer](vector-search-how-to-configure-vectorizer.md) to vector fields in the search index.
 
 ## Choose an API or tool
 
@@ -40,7 +40,7 @@ To improve relevance:
 
 ## Run a hybrid query in Search Explorer
 
-1. In [Search Explorer](search-explorer.md), make sure the API version is **2023-10-01-preview** or later.
+1. In [Search Explorer](search-explorer.md), make sure the API version is **2024-07-01** or newer preview API versions.
 
 1. Under **View**, select **JSON view**. 
 
