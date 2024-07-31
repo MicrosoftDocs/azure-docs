@@ -51,8 +51,8 @@
     - name: Define an adoption strategy
       displayName: strategy, adoption, ownership
       href: plan-multicloud-security-define-adoption-strategy.md
-    - name: Determine data residency requirements
-      displayName: data, residency, cspm, cwp, plan
+    - name: Determine plan and agents requirements
+      displayName: data, residency, cspm, cwp, plan, agent, requirements
       href: plan-multicloud-security-determine-data-residency-requirements.md
     - name: Determine compliance requirements
       displayName: compliance, standards
@@ -857,6 +857,9 @@
             displayName: hybrid, arc, Azure Defender
           - name: Investigate Defender for SQL security alerts
             href: defender-for-sql-alerts.md
+          - name: Enable Defender for SQL servers on machines at scale
+            displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers
+            href: enable-defender-sql-at-scale.md
           - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning
               process
             href: defender-for-sql-autoprovisioning.md

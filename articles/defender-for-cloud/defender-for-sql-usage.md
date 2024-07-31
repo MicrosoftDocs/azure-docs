@@ -64,6 +64,17 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
       - Publisher: Microsoft.Azure.Monitor
       - Type: AzureMonitorWindowsAgent
 
+### Naming conventions in the Deny policy allowlist
+
+- Defender for SQL uses the following naming convention when creating our resources:
+
+  - DCR: `MicrosoftDefenderForSQL--dcr`
+  - DCRA: `/Microsoft.Insights/MicrosoftDefenderForSQL-RulesAssociation`
+  - Resource group: `DefaultResourceGroup-`
+  - Log analytics workspace: `D4SQL--`
+
+- Defender for SQL uses *MicrosoftDefenderForSQL* as a *createdBy* database tag.
+
 ### Steps to enable Defender for SQL on non-Azure machines
 
 1. Connect SQL server to Azure Arc. For more information on the supported operating systems, connectivity configuration, and required permissions, see the following documentation:
@@ -98,22 +109,13 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 1. Once enabled we use one of the following policy initiatives:
    - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a Log analytics workspace (LAW) for a default LAW. This creates resources groups with data collection rules and a default Log analytics workspace. For more information about the Log analytics workspace, see [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
-   - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a user-defined LAW. This creates a resource group with data collection rules and a custom Log analytics workspace in the predefined region. During this process we install the Azure monitoring agent. For more information about the options to install the AMA agent, see [Azure Monitor Agent prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites).
+    :::image type="content" source="media/defender-for-sql-usage/default-log-analytics-workspace.png" alt-text="Screenshot of how to configure default log analytics workspace." lightbox="media/defender-for-sql-usage/default-log-analytics-workspace.png":::
+
+   - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a user-defined LAW. This creates a resource group with data collection rules and a custom Log analytics workspace in the predefined region. During this process, we install the Azure monitoring agent. For more information about the options to install the AMA agent, see [Azure Monitor Agent prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites).
+
+    :::image type="content" source="media/defender-for-sql-usage/user-defined-log-analytics-workspace.png" alt-text="Screenshot of how to configure user-defined log analytics workspace." lightbox="media/defender-for-sql-usage/user-defined-log-analytics-workspace.png":::
 
 1. To complete the installation process, a restart of the SQL server (instance) is necessary for versions 2017 and older.
-
-### Configurations for Defender for SQL resources for non-Azure machines
-
-- Defender for SQL uses the following naming convention when creating our resources:
-
-  - DCR: `MicrosoftDefenderForSQL--dcr`
-  - DCRA: `/Microsoft.Insights/MicrosoftDefenderForSQL-RulesAssociation`
-  - Resource group: `DefaultResourceGroup-`
-  - Log analytics workspace: `D4SQL--`
-
-- Defender for SQL uses *MicrosoftDefenderForSQL* as a *createdBy* database tag.
-
-- Defender for SQL installs the `MicrosoftDefenderForSQL` extension on SQL VMs running Windows.  
 
 ## Enabling Defender for SQL on Azure virtual machines using the AMA agent
 
@@ -138,21 +140,6 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
       - Type: AzureMonitorWindowsAgent
 - Since we're creating a resource group in *East US*, as part of the autoprovisioning enablement process, this region needs to be allowed or Defender for SQL can't complete the installation process successfully.
 
-### Configurations for Defender for SQL resources for Azure virtual machines
-
-- The Azure IaaS extension agent is installed automatically on the database server once the SQL server VM is registered with this extension. For more information, see [Automate management with the Windows SQL Server IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management).
-
-- Defender for SQL uses the following naming convention when creating our resources:
-
-  - DCR: `MicrosoftDefenderForSQL-<vm location>-dcr`
-  - DCRA: `<vm name>/Microsoft.Insights/MicrosoftDefenderForSQL-RulesAssociation`
-  - Resource group: `DefaultResourceGroup-<vm location code>`
-  - Log analytics workspace: `D4SQL-<subscription id>-<vm location>`
-
-- For the database tag *createdBy*, Defender for SQL uses *MicrosoftDefenderForSQL*.
-
-- Defender for SQL installs the `MicrosoftDefenderForSQL` extension on SQL VMs running Windows.  
-
 ### Steps to enable Defender for SQL on Azure virtual machines
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -176,7 +163,11 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 1. Once enabled we use one of the following policy initiatives:
    - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a Log analytics workspace (LAW) for a default LAW. This creates a resources group in *East US*, and managed identity. For more information about the use of the managed identity, see [Resource Manager template samples for agents in Azure Monitor](/azure/azure-monitor/agents/resource-manager-agent). It also creates a resource group that includes a Data Collection Rules (DCR) and a default LAW. All resources are consolidated under this single resource group. The DCR and LAW are created to align with the region of the virtual machine (VM).
 
+    :::image type="content" source="media/defender-for-sql-usage/default-log-analytics-workspace.png" alt-text="Screenshot of how to configure default log analytics workspace." lightbox="media/defender-for-sql-usage/default-log-analytics-workspace.png":::
+
    - Configure SQL VMs and Arc-enabled SQL servers to install Microsoft Defender for SQL and AMA with a user-defined LAW. This creates a resources group in *East US*, and managed identity. For more information about the use of the managed identity, see [Resource Manager template samples for agents in Azure Monitor](/azure/azure-monitor/agents/resource-manager-agent). It also creates a resources group with a DCR and a custom LAW in the predefined region.
+
+    :::image type="content" source="media/defender-for-sql-usage/user-defined-log-analytics-workspace.png" alt-text="Screenshot of how to configure user-defined log analytics workspace." lightbox="media/defender-for-sql-usage/user-defined-log-analytics-workspace.png":::
 
 1. To complete the installation process, a restart of the SQL server (instance) is necessary for versions 2017 and older.
 
@@ -192,17 +183,19 @@ It takes approximately 30 minutes to update the protection status by the SQL Iaa
 1. Under the **Security** tab, select **Defender for Cloud**.
 1. Check the **Protection status**. If the status is **Protected**, the deployment was successful.
 
+:::image type="content" source="media/defender-for-sql-usage/protection-status-protected.png" alt-text="Screenshot showing protection status as protected." lightbox="media/defender-for-sql-usage/protection-status-protected.png":::
+
 ### What is the purpose of the managed identity created during the installation process on Azure SQL VMs?
 
 The managed identity is part of the Azure Policy, which pushes out the AMA. It's used by the AMA to access the database to collect the data and send it via the Log Analytics Workspace (LAW) to Defender for Cloud. For more information about the use of the managed identity, see [Resource Manager template samples for agents in Azure Monitor](/azure/azure-monitor/agents/resource-manager-agent).
 
 ### Can I use my own DCR or managed-identity instead of Defender for Cloud creating a new one?
 
-Yes, we allow you to bring your own identity or DCR using the following script only. For more information, see 
+Yes, we allow you to bring your own identity or DCR using the following script only. For more information, see [Enable Microsoft Defender for SQL servers on machines at scale](enable-defender-sql-at-scale.md).
 
 ### How can I enable SQL servers on machines with AMA at scale?
 
-See [???]() for the process of how to enable Microsoft Defender for SQL’s autoprovisioning across multiple subscriptions simultaneously. It's applicable to SQL servers hosted on Azure Virtual Machines, on-premises environments, and Azure Arc-enabled SQL servers.
+See [Enable Microsoft Defender for SQL servers on machines at scale](enable-defender-sql-at-scale.md) for the process of how to enable Microsoft Defender for SQL’s autoprovisioning across multiple subscriptions simultaneously. It's applicable to SQL servers hosted on Azure Virtual Machines, on-premises environments, and Azure Arc-enabled SQL servers.
 
 ### Which tables are used in LAW with AMA?
 
