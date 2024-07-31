@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2023
+ms.date: 07/31/2024
 ---
 
 # What is Azure IoT Operations Preview?
