@@ -5,14 +5,14 @@ author: tomvcassidy
 ms.topic: include
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.date: 05/09/2024
+ms.date: 07/22/2024
 ms.author: tomcassidy
 ms.reviewer: tomcassidy
 ms.custom: include file, build-2024
 ---
 | Part | Quantity <br>Count Units | Specs <br>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor      | 2 - 96  vCPUs       | Microsoft Cobalt 100 (ARM-64)                      |
+| Processor      | 2 - 96  vCPUs       | Azure Cobalt 100 [ARM-64]                      |
 | Memory         | 16 - 672  GiB        |                         |
 | Local Storage  | None                 |                            |
 | Remote Storage | 8 - 64 Disks         | 3750 - 199987 IOPS <br>106 - 5850 MBps     |

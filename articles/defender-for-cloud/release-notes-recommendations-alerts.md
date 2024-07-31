@@ -1,8 +1,8 @@
 ---
 title: New and upcoming changes in recommendations and alerts
 description: Get release notes for new and upcoming changes in recommendations and alerts in Microsoft Defender for Cloud. 
-ms.topic: conceptual
-ms.date: 03/18/2024
+ms.topic: overview
+ms.date: 07/30/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
@@ -22,7 +22,10 @@ This article summarizes what's new in security recommendations and alerts in Mic
 > `https://aka.ms/mdc/rss-recommendations-alerts`
 
 - Review a complete list of multicloud security recommendations and alerts:
+  - [AI recommendations](/azure/defender-for-cloud/recommendations-reference-ai)
+    
   - [Compute recommendations](recommendations-reference-compute.md)
+    
   - [Container recommendations](recommendations-reference-container.md)
   - [Data recommendations](recommendations-reference-data.md)
   - [DevOps recommendations](recommendations-reference-devops.md)
@@ -46,9 +49,11 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| July 30 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
+|July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
-| June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all repositories) |
+| June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all-repositories) |
 | June 27     | Alert                          | Deprecation                                                  | `Security incident detected suspicious source IP activity`<br><br/> Severity: Medium/High |
 | June 27     | Alert                          | Deprecation                                                  | `Security incident detected on multiple resources`<br><br/> Severity: Medium/High |
 | June 27     | Alert                          | Deprecation                                                  | `Security incident detected compromised machine`<br><br/> Severity: Medium/High |
@@ -88,7 +93,7 @@ New and updated recommendations and alerts are added to the table in date order.
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on EC2s](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
-| March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on EC2s]                   |
+| March 18    | Recommendation                 | GA                                                           | EDR solution should be installed on EC2s              |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on GCP virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machines) |
 | End March   | Recommendation                 | Deprecation                                                  | [Endpoint protection should be installed on machines](recommendations-reference-deprecated.md#endpoint-protection-should-be-installed-on-machines)  . |

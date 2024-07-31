@@ -33,6 +33,10 @@ Connect-AzAccount
 
 [!INCLUDE [Create a key vault](../includes/key-vault-creation-powershell.md)]
 
+## Give your user account permissions to manage secrets in Key Vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-powershell.md)]
+
 ## Add a key to Key Vault
 
 To add a key to the vault, you just need to take a couple of additional steps. This key could be used by an application. 

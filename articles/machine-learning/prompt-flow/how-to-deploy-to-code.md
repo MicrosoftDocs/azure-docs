@@ -36,7 +36,7 @@ Before beginning make sure that you have tested your flow properly, and feel con
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you'll need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
 
 > [!NOTE]
-> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms such as Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 ### Virtual machine quota allocation for deployment
 
