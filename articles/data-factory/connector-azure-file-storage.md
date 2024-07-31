@@ -73,7 +73,7 @@ The Azure Files connector supports the following authentication types. See the c
 
 - [Account key authentication](#account-key-authentication)
 - [Shared access signature authentication](#shared-access-signature-authentication)
-- [System-assigned managed identity authentication](#managed-identity)
+- [System-assigned managed identity authentication](#system-assigned-managed-identity-authentication)
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!NOTE]
@@ -206,13 +206,13 @@ The service supports the following properties for using shared access signature 
 
 ### System-assigned managed identity authentication
 
-A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Files authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Files authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 To use system-assigned managed identity authentication, follow these steps：
 
 1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
 
-2. Grant the managed identity permission in Azure Files. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
+2. Grant the managed identity permission in Azure Files. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-file-data-smb-share-reader).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage File Data SMB Share Contributor** role.
@@ -224,6 +224,9 @@ These properties are supported for an Azure Files linked service:
 | type | The **type** property must be set to **AzureFileStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
 | fileShare | Specify the file share. | Yes |
+
+>[!NOTE]
+>System-assigned managed identity authentication is only supported by Azure integration runtime.
 
 **Example:**
 
@@ -242,7 +245,7 @@ These properties are supported for an Azure Files linked service:
 
 ### User-assigned managed identity authentication
 
-A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Azure Files authentication, which allows to access and copy data from or to Azure Files. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Azure Files authentication, which allows to access and copy data from or to Azure Files. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 To use user-assigned managed identity authentication, follow these steps:
 
