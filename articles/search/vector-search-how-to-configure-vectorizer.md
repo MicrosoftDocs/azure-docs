@@ -28,7 +28,7 @@ Vectorizers are now generally available as long as you use a generally available
 
 + [An index with searchable vector fields](vector-search-how-to-create-index.md) on Azure AI Search.
 
-+ A deployed embedding model, such as **text-embedding-ada-002** on Azure OpenAI. It's used to vectorize a query. It must be identical to the model used to generate the embeddings in your index. You can also use [models deployed from the Azure AI Studio model catalog](vector-search-integrated-vectorization-ai-studio.md) or an [Azure AI Vision model](/azure/ai-services/computer-vision/concept-image-retrieval).
++ A deployed embedding model, such as **text-embedding-ada-002**, **text-embedding-3-small**, or **text-embedding-3-large** on Azure OpenAI. It's used to vectorize a query. It must be [identical to the embedding model used for the vector field](vector-search-integrated-vectorization.md#using-integrated-vectorization-in-queries) in your index. You can also use [models deployed from the Azure AI Studio model catalog](vector-search-integrated-vectorization-ai-studio.md) or an [Azure AI Vision model](/azure/ai-services/computer-vision/concept-image-retrieval).
 
 + Permissions to use the embedding model. If you're using Azure OpenAI, the caller must have [Cognitive Services OpenAI User](/azure/ai-services/openai/how-to/role-based-access-control#azure-openai-roles) permissions. Or, you can provide an API key.
 
@@ -180,11 +180,11 @@ Use a search client to send a query through a vectorizer. This example assumes V
     @queryApiKey: 00000000000000000000000
    ```
 
-1. Paste in a [vector query request](vector-search-how-to-query.md). Be sure to use a preview REST API version.
+1. Paste in a [vector query request](vector-search-how-to-query.md).
 
    ```http
     ### Run a query
-    POST {{baseUrl}}/indexes/vector-nasa-ebook-txt/docs/search?api-version=2023-10-01-preview  HTTP/1.1
+    POST {{baseUrl}}/indexes/vector-nasa-ebook-txt/docs/search?api-version=2024-07-01 HTTP/1.1
         Content-Type: application/json
         api-key: {{queryApiKey}}
     

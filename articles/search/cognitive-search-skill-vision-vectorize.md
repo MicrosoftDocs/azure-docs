@@ -9,13 +9,13 @@ ms.custom:
   - build-2024
   - references_regions
 ms.topic: reference
-ms.date: 06/14/2024
+ms.date: 08/05/2024
 ---
 
-#	Azure AI Vision multimodal embeddings skill
+# Azure AI Vision multimodal embeddings skill
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
+> This skill is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
 The **Azure AI Vision multimodal embeddings** skill uses Azure AI Vision's [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
 
