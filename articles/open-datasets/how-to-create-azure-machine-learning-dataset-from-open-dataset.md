@@ -24,7 +24,7 @@ With an [Azure Machine Learning dataset](../machine-learning/v1/how-to-create-re
 
 For more information about where datasets fit in the overall Azure Machine Learning data access workflow, visit the [Securely access data](../machine-learning/v1/concept-data.md#data-workflow) article.
 
-Azure Open Datasets are curated public datasets that add scenario-specific features to enrich your predictive solutions and improve the accuracy of those solutions. Visit the [Open Datasets catalog](/dataset-catalog.md) resource for public-domain data that can help you train machine learning models - for example:
+Azure Open Datasets are curated public datasets that add scenario-specific features to enrich your predictive solutions and improve the accuracy of those solutions. Visit the [Open Datasets catalog](./dataset-catalog.md) resource for public-domain data that can help you train machine learning models - for example:
 
 - [Health and genomics](/dataset-catalog.md#health-and-genomics)
 - [Labor and economics](/dataset-catalog.md#labor-and-economics)
