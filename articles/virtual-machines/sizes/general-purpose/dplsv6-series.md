@@ -2,7 +2,7 @@
 title: Dplsv6 size series
 description: Information on and specifications of the Dplsv6-series sizes
 author: archatC
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024

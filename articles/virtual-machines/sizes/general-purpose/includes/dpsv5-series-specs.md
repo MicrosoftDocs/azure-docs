@@ -12,7 +12,7 @@ ms.custom: include file
 ---
 | Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor      | 2 - 64 vCPUs       | Ampere Altra [ARM-64]                                                 |
+| Processor      | 2 - 64 vCPUs       | Ampere Altra [Arm64]                                               |
 | Memory         | 8 - 208 GiB          |                                                    |
 | Local Storage  |  None     |  |
 | Remote Storage | 4 - 32 Disks    | 3750 - 80000 IOPS <br>85 - 1735 MBps                     |
