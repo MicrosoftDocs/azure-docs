@@ -104,9 +104,9 @@ Before you can use your app's managed identity, make some changes to the app con
 
    - **Azure cloud**: If your app runs in *public Azure*, add a setting that identifies an Azure storage account name:
 
-      - `AzureWebJobsStorage__<accountName>`
+      - `AzureWebJobsStorage__accountName: << Azure Storage account name >>`
 
-         Example: `AzureWebJobsStorage__mystorageaccount123`
+         Example: `AzureWebJobsStorage__accountName: mystorageaccount123`
 
    - **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (*an endpoint*) for the storage account instead of an account name.
 
@@ -114,17 +114,17 @@ Before you can use your app's managed identity, make some changes to the app con
    > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option to provide a specific service URL. For more information on using Azure Storage with Azure Government, see the [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md). 
 
 
-      - `AzureWebJobsStorage__blobServiceUri`
+      - `AzureWebJobsStorage__blobServiceUri: << Service endpoint >>`
 
-         Example: `https://mystorageaccount123.blob.core.windows.net/` 
+         Example: `AzureWebJobsStorage__blobServiceUri: https://mystorageaccount123.blob.core.windows.net/` 
 
-      - `AzureWebJobsStorage__queueServiceUri`
+      - `AzureWebJobsStorage__queueServiceUri: << Service endpoint >>`
 
-         Example: `https://mystorageaccount123.queue.core.windows.net/` 
+         Example: `AzureWebJobsStorage__queueServiceUri: https://mystorageaccount123.queue.core.windows.net/` 
 
-      - `AzureWebJobsStorage__tableServiceUri`
+      - `AzureWebJobsStorage__tableServiceUri: << Service endpoint >>`
 
-         Example: `https://mystorageaccount123.table.core.windows.net/` 
+         Example: `AzureWebJobsStorage__tableServiceUri: https://mystorageaccount123.table.core.windows.net/` 
 
    You can get the values for these URI variables in the storage account information on the Endpoints tab.
 
