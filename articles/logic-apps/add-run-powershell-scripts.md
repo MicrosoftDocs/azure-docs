@@ -124,10 +124,12 @@ Push-WorkflowOutput -Output $populatedString
 > In PowerShell, if you reference an object that has **JValue** type inside a complex object, and you 
 > add that object to a string, you get a format exception. To avoid this error, use **ToString()**.
 
-### Parameters
+### Trigger and action response outputs
 
-| Parameter | Type | Description |
-|-----------|------|-------------|
+The following table lists the outputs that are generated when you call **Get-ActionOutput** or **Get-TriggerOutput**. The return value is a complex object called **PowershellWorkflowOperationResult**, which contains thee following outputs.
+
+| Name | Type | Description |
+|------|------|-------------|
 | **Name** | String | The name for the trigger or action. |
 | **Inputs** | JToken | The input values passed into the trigger or action. |
 | **Outputs** | JToken | The outputs from the executed trigger or action. |
