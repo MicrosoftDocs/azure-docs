@@ -81,7 +81,7 @@ container.readItem("id", new PartitionKey("pk"), options, JsonNode.class).block(
 
 //Write operations can benefit from threshold-based availability strategy if opted into non-idempotent write retry policy 
 //and the account is configured for multi-region writes.
-options.setNonIdempotentWriteRetryPolicy(true,true);
+options.setNonIdempotentWriteRetryPolicy(true, true);
 container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 ```
 
