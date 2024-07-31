@@ -105,7 +105,31 @@ use cosmicworks;
 sh.shardCollection("cosmicworks.employee", {"firstName": "hashed"})
 ```
 
-The service doesn't index the shard key by default. Once the collection is sharded an index must be explicitly created on the shard key property.
+The collection can also be sharded using an admin command:
+```javascript
+use cosmicworks;
+db.adminCommand({
+  "shardCollection": "cosmicworks.employee",
+  "key": {"firstName": "hashed"}
+})
+```
+
+While it is not ideal to change the shard key after the collection has grown significantly in storage volume, the reshardCollection command can be used to alter the shard key.
+```javascript
+use cosmicworks;
+sh.reshardCollection("cosmicworks.employee", {"lastName": "hashed"})
+```
+
+The collection can also be resharded using an admin command:
+```javascript
+use cosmicworks;
+db.adminCommand({
+  "reshardCollection": "cosmicworks.employee",
+  "key": {"lastName": "hashed"}
+})
+```
+
+As a best practice, an index must be created on the shard key property.
 
 ```javascript
 use cosmicworks;
