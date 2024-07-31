@@ -101,7 +101,7 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    sudo zypper install -y azcopy
    ```
 
-### [apt (Ubunto, Debian)](#tab/apt)
+### [apt (Ubuntu, Debian)](#tab/apt)
 
 1. Download the repository configuration package.
 
