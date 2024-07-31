@@ -4554,6 +4554,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/guidance-migration-automation-update-management-azure-update-manager.md",
+            "redirect_url": "/azure/update-manager/migration-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/delete-contact.md",
             "redirect_url": "/azure/orbital/spacecraft-object",
             "redirect_document_id": false
