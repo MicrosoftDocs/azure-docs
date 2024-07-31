@@ -3,8 +3,7 @@ title: Copy data in bulk using Azure portal
 description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
-ms.subservice: tutorials
+ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 05/15/2024
 ---

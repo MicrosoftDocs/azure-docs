@@ -1,7 +1,7 @@
 ---
 title: Supported OS Images
 description: Get a list of supported operating system images for remote NVMe.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 06/25/2024
 ms.topic: how-to

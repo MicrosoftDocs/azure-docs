@@ -2,7 +2,7 @@
 title: M-series - Azure Virtual Machines
 description: Specifications for the M-series VMs.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
 ms.topic: conceptual
