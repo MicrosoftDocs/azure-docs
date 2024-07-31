@@ -75,23 +75,23 @@ Changes in sensitivity settings take effect the next time that resources are dis
 
 Sensitive data discovery identifies sensitive resources and their related risk and then helps to prioritize and remediate those risks.
 
-Defender for Cloud considers a resource sensitive if a sensitive information type (SIT) is detected in it and the customer has configured the SIT to be considered sensitive. Defender for Cloud detects SITs that are considered sensitive by default.
+Defender for Cloud considers a resource sensitive if a Sensitive Information Type (SIT) is detected in it and the customer has configured the SIT to be considered sensitive. Defender for Cloud detects SITs that are considered sensitive by default.
 
 The sensitive data discovery process operates by taking samples of the resource’s data. The sample data is then used to identify sensitive resources with high confidence without performing a full scan of all assets in the resource.
 
-The sensitive data discovery process is powered by the Microsoft Purview classification engine and uses a common set of SITs and labels for all datastores, regardless of their type or hosting cloud vendor.
+The sensitive data discovery process is powered by the Microsoft Purview classification engine that uses a common set of SITs and labels for all datastores, regardless of their type or hosting cloud vendor.
 
-Sensitive data discovery detects the existence of sensitive data at the cloud workload level. Sensitive data discovery aims to identify various types of sensitive information, but it may not detect all types.
+Sensitive data discovery detects the existence of sensitive data at the cloud workload level. Sensitive data discovery aims to identify various types of sensitive information, but it might not detect all types.
 
-To get complete data cataloguing scanning results with all SITs available in the cloud resource, we recommend you use the scanning features from Microsoft Purview. 
+To get complete data cataloging scanning results with all SITs available in the cloud resource, we recommend you use the scanning features from Microsoft Purview. 
 
 ### For cloud storage
 
-Defender for Cloud's scanning algorithm selects containers that may contain sensitive information and samples up to 20MBs for each file scanned within the container.
+Defender for Cloud's scanning algorithm selects containers that might contain sensitive information and samples up to 20MBs for each file scanned within the container.
 
 ### For cloud Databases
 
-Defender for Cloud selects certain tables and samples between 300 to 1024 rows using non-blocking queries. 
+Defender for Cloud selects certain tables and samples between 300 to 1,024 rows using nonblocking queries. 
 
 ## Next step
 
