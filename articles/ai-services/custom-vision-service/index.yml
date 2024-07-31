@@ -101,7 +101,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Training API
-            url: https://go.microsoft.com/fwlink/?linkid=865446
+            url: /rest/api/customvision/train-project
           - text: Prediction API
             url: /rest/api/customvision/operation-groups
           - text: .NET SDK
