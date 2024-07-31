@@ -74,7 +74,7 @@ Use a bicep file to create your static web app resource.
     
     ```
 
-[!INCLUDE [Provision with Visual Studio Code](./includes/deploy-bicep-visual-studio-code.md)]
+[!INCLUDE [Provision with Visual Studio Code](./include/deploy-bicep-visual-studio-code.md)]
 
 ## Create a static web resource with a managed function
 

@@ -5,6 +5,7 @@ ms.topic:  include
 ms.date: 09/05/2023
 ms.author: cshoe
 ---
+
 1. In Visual Studio Code, right-click the `main.bicep` file and select **Deploy Bicep File**. Set or select the following in the prompts:
 
     |Prompt|Setting|
