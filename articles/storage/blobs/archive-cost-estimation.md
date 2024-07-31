@@ -56,7 +56,7 @@ If you use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operatio
 
 You can calculate the storage costs by multiplying the <u>size of the data</u> in GB by the <u>price of archive storage</u>.
 
-For example (assuming the sample pricing), if you plan to store 10 TB archived blobs, the capacity cost is $0.00099 * 10 * 1024 = $10.14 per month. 
+For example (assuming the sample pricing), if you plan to store 10 TB archived blobs, the capacity cost is $0.002 * 10 * 1024 = $20.48 per month. 
 
 #### The cost to rehydrate
 
@@ -64,11 +64,11 @@ Blobs in the archive tier are offline and can't be read or modified. To read or 
 
 You can calculate the cost to rehydrate data by adding the <u>cost to retrieve data</u> to the <u>cost of reading the data</u>.
 
-Assuming sample pricing, the cost of retrieving 1 GB of data from the archive tier would be 1 * $0.02 = $0.02. 
+Assuming sample pricing, the cost of retrieving 1 GB of data from the archive tier would be 1 * $0.022 = $0.022. 
 
-Read operations are billed per 10,000. Therefore, if the cost per 10,000 operations is $5.00, then the cost of a single operation is $5.00 / 10,000 = $0.0005. The cost of reading 1000 blobs at standard priority is 1000 * $0.0005 = $0.50.
+Read operations are billed per 10,000. Therefore, if the cost per 10,000 operations is $5.50, then the cost of a single operation is $5.50 / 10,000 = $0.00055. The cost of reading 1000 blobs at standard priority is 1000 * $0.0005 = $0.50.
 
-In this example, the total cost to rehydrate (retrieving + reading) would be $0.02 + $0.50 = $0.52.
+In this example, the total cost to rehydrate (retrieving + reading) would be $0.022 + $0.50 = $0.52.
 
 > [!NOTE]
 > If you set the rehydration priority to high, then the data retrieval and read rates increase.
@@ -160,11 +160,7 @@ The following table compares the cost of archive storage with the cost of cool a
 > [!TIP]
 > To model your costs, open the **Choose Tiers** tab of this [workbook](https://azure.github.io/Storage/docs/backup-and-archive/azure-archive-storage-cost-estimation/azure-archive-storage-cost-estimation.xlsx). You can update the prices and values in that worksheet to estimate your costs.  
 
-The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size.
-
-For example, the second pair of bars assumes that workloads read 100,000 files (**10%** of 1,000,000 files) and 1,024 GB (**10%** of 10,240 GB). Assuming the sample pricing, the estimated monthly cost of cool storage is **$175.99** and the estimated monthly cost of archive storage is **$90.62**.
-
-This chart shows a break-even point at or around the 25% read level. After that level, the cost of archive storage begins to rise relative to the cost of cool storage.
+The following chart shows the impact on monthly spending given various read percentages. This chart assumes a monthly ingest of 1,000,000 files totaling 10,240 GB in size. Assuming sample pricing, this chart shows a break-even point at or around the 25% read level. After that level, the cost of archive storage begins to rise relative to the cost of cool storage.
 
 > [!div class="mx-imgBorder"]
 > ![Cool versus archive monthly spending](./media/archive-cost-estimation/cool-versus-archive-monthly-spending.png)
