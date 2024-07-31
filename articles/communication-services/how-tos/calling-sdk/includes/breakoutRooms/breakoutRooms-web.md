@@ -217,7 +217,7 @@ const invitees : Invitee[] = breakoutRoom.invitees;
 - `invitees` : The list of invitees who are assigned to the breakout room. This is a read-only property.
 
 ### Breakout room  settings
-
+Breakout rooms share setting that has the following properties:
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoomsSettings.disableReturnToMainMeeting;
 ```
