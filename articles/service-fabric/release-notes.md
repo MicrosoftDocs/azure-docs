@@ -34,7 +34,7 @@ We're excited to announce that the 10.1 release of the Service Fabric runtime ha
     - For those interested in using .NET 8, keep the following in mind:
         - You need to rebuild and redeploy your applications with .NET 8. This step isn't necessary if you want to continue using older versions of .NET.
         - If you deploy **self-contained** applications, know that applications are [no longer self-contained by default in .NET 8](/dotnet/core/compatibility/sdk/8.0/runtimespecific-app-default). You must explicitly add and set the `SelfContained` property to `true` to your projects in .NET 8.
-        - For customers utilizing Service Fabric Remoting v1, customers must enable `BinaryFormatter`, which isn't enabled with .NET 8. For the procedure to enable BinaryFormatter, see the [BinaryFormatter Obsoletion Strategy GitHub page](https://github.com/dotnet/designs/blob/main/accepted/2020/better-obsoletion/binaryformatter-obsoletion.md).
+        - For customers utilizing Service Fabric Remoting v1, customers must enable the `BinaryFormatter`, which isn't enabled with .NET 8. For the procedure to enable BinaryFormatter, see the [BinaryFormatter Obsoletion Strategy GitHub page](https://github.com/dotnet/designs/blob/main/accepted/2020/better-obsoletion/binaryformatter-obsoletion.md).
 
 ### Service Fabric 10.1 releases
 | Release date | Release | More info |
