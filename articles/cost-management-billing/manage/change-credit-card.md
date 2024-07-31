@@ -190,7 +190,7 @@ When all the conditions are fully satisfied, you can detach the payment method f
 > [!NOTE]
 > When the default payment method is detached, the billing profile is put into an _inactive_ state. Anything deleted in this process will not be able to be recovered. After a billing profile is set to inactive, you must sign up for a new Azure subscription to create new resources.
 
-#### Detach payment method problems
+#### Detach payment method errors
 
 There are several reasons why trying to detach a payment method might fail. If you’re having problems trying to detach (remove) a payment method, it's most likely caused by one of the following reasons.
 
