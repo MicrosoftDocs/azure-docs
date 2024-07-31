@@ -31,6 +31,7 @@ ms.custom:
 | [**Integrated vectorization**](vector-search-integrated-vectorization.md) | Feature | Announcing general availability. Skills-driven data chunking and embedding during indexing. |
 | [**Vectorizers**](vector-search-integrated-vectorization.md) | Feature  | Announcing general availability. Text-to-vector conversion during query execution. |
 | [**AzureOpenAIEmbedding skill**](cognitive-search-skill-azure-openai-embedding.md) | Feature | Announcing general availability. A skill type that calls Azure OpenAI embedding model to generate embeddings during queries and indexing.  |
+| [**Index projections**](vector-search-integrated-vectorization.md) | Feature | Announcing general availability. A component of a skillset definition that defines the shape of a secondary index, supporting a one-to-many index pattern, where content from an enrichment pipeline can target multiple indexes. |
 | [**Import and vectorize data wizard**](search-get-started-portal-import-vectors.md) | Azure portal | Announcing general availability. A wizard that creates a full indexing pipeline that includes data chunking and vectorization. The wizard creates all necessary objects and configurations. This release adds wizard support for ADLS Gen2 data sources.|
 
 ## June 2024

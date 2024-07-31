@@ -49,7 +49,7 @@ Vector search algorithms are used to create the query navigation structures duri
 
 1. Add one or more [vector search algorithms](vector-search-ranking.md) that have a similarity metric of `hamming`. It's common to use Hierarchical Navigable Small Worlds (HNSW), but you can also use Hamming distance with exhaustive K-nearest neighbors.
 
-1. Add one or more vector profiles that specify the algorithm. You can't specify scalar compression or a vectorizer in this preview.
+1. Add one or more vector profiles that specify the algorithm.
 
 The following example shows a basic `vectorSearch` configuration:
 
