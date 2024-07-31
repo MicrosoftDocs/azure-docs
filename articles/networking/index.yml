@@ -68,6 +68,11 @@ productDirectory:
       imageSrc: ./media/index/network-security.svg
       summary: Protect your network from cyber security attacks with Azure network security services.
       url: ./security/index.yml
+    # Card
+    - title: Network monitoring and management
+      imageSrc: ./media/index/network-monitoring-and-management.svg
+      summary: Monitor and manage your network with Azure network monitoring and management services.
+      url: ./monitoring-management/index.yml
 
 # additionalContent section (optional)
 # Card with links style
