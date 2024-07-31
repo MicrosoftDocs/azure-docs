@@ -18,9 +18,7 @@ This article describes how to move Azure Functions to another Azure region.
 
 Azure Functions resources are region-specific and can't be moved across regions. Instead, you must create a copy of your existing function app resources in the target region, and then redeploy your functions code over to the new app.
 
-If minimal downtime is a requirement, consider running your function app in both regions to implement a disaster recovery architecture:
-
-- [Reliability in Azure Functions](../reliability/reliability-functions.md#cross-region-disaster-recovery-and-business-continuity)
+If minimal downtime is a requirement, consider running your function app in both regions to implement a disaster recovery architecture. See [Reliability in Azure Functions](../reliability/reliability-functions.md#cross-region-disaster-recovery-and-business-continuity) for more information.
 
 
 ## Prerequisites
@@ -47,7 +45,7 @@ Your functions may connect to other resources by using triggers or bindings. For
 You should be able to also [export a template from existing resources](../azure-resource-manager/templates/export-template-portal.md).
 
 
-## Plan
+## Prepare
 
 This section is a planning checklist in the following areas:
 
@@ -81,21 +79,30 @@ See [Relocate Azure App Services to another region - VNet Connectivity](relocati
 
 See [Relocate Azure App Services to another region - Identities](relocation-app-service.md#identities)
 
+
 ## Relocate
 
-To relocate your function app resources, you can use either available [deployment technologies](../azure-functions/functions-deployment-technologies.md) or [Infrastructure as Code (IaC)](../azure-functions/functions-infrastructure-as-code.md).
+There are three ways to create function apps and related resources in Azure at the target region:
 
+- **IaC (Bicep/ARM/Terraform)**. Copy your code into the new function app at the target region.. If your code isn't available,  you can attempt to export a template from the source function app by using the Azure portal:
 
-### Relocate using available deployment technologies
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    
+    2. Select **All resources** and then select your key vault.
+    
+    3. Select > **Automation** > **Export template**.
+    
+    4. Choose **Download** in the **Export template** blade.
+    
+    5. Locate the .zip file that you downloaded from the portal, and unzip that file to a folder of your choice.
+    
+       This zip file contains the .json files that comprise the template and scripts to deploy the template.
 
-If you have access to the deployment and automation resources that created the function app in the source region, re-run the same deployment steps in the target region to create and redeploy your app. 
-
-If you only have access to the source code but not the deployment and automation resources you can deploy and configure the function app on the target region using any of the available [deployment technologies](../azure-functions/functions-deployment-technologies.md) or using one of the [continuous deployment methods](../azure-functions/functions-continuous-deployment.md).
+- **Azure CLI/PowerShell**. Copy your code into the new function app at the target region.
+- **Azure portal**. If for some reason your code is not available, you'll have to recreate it at the target region.
 
 
 ### Relocate using IaC
-
-As long as you aren't migrating any Durable Entities state, you can relocate using IaC. For instructions, see [Relocate App Service resources using IaC](./relocation-app-service.md#relocate-using-iac).
 
 To migrate Durable Entities, see [Recovery With GRS Enabled Storage for Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md#scenario-3---load-balanced-compute-with-grs-shared-storage)
 
