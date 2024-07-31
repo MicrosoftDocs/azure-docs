@@ -232,7 +232,7 @@ The sample tags you added in the previous quickstart generate messages from your
 
 ## Discover OPC UA data sources by using Akri services
 
-In the previous section, you saw how to add assets manually. You can also use Akri services to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri services can't detect and create assets that can be ingested into the Azure Device Registry Preview.
+In the previous section, you saw how to add assets manually. You can also use Akri services to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri services can't detect and create assets that can be ingested into the Azure Device Registry Preview. Therefore, you can't currently manage assets discovered by Akri in the Azure portal.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
@@ -259,10 +259,17 @@ The output from the previous command looks like the following example:
 aio-opc-asset-discovery-wzlnj                   1/1     Running     0              19m
 ```
 
-> [!TIP]
-> There's currently a known issue where the Akri discovery handler pod might not start. If you encounter this issue, see [Troubleshoot Akri services](../troubleshoot/known-issues.md#akri-services).
+To configure the Akri services to discover OPC UA data sources, create an Akri configuration that references your OPC UA source. Run the following command to create the configuration:
 
-To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services:
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
+```
+
+The following snippet shows the YAML file that you applied:
+
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
+
+To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services. You might need to wait a few minutes for the configuration to be available:
 
 ```console
 kubectl get akrii -n azure-iot-operations
