@@ -42,9 +42,9 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Azure CLI](generate-cli-scripts.md) | Creates resources with CLI. | "Create a virtual network with two subnets using the address space of 10.0.0.0/16 using az cli." |
 | [Azure CLI](generate-cli-scripts.md) | Deploys resources with CLI. | "I want to use Azure CLI to deploy and manage AKS using a private service endpoint." |
 | [PowerShell](generate-powershell-scripts.md) | Create resources with Powershell. | "How can I create a new resource group using PowerShell?" |
-| [PowerShell](generate-powershell-scripts.md) | Deploy muliple resources with Powershell. | "Help me write a PS script where after creating VM, deploy an AKS cluster on it." |
-| [PowerShell](generate-powershell-scripts.md) | Manage resources with Powershell. | "How to backup an Azure SQL single database to an Azure storage container using Azure PowerShell?" |
-| [Interactive deployments](use-guided-deployments.md) | Provides a detailed guide on deploying an AKS cluster on Azure. | "Provide me a detailed guide on deploying an AKS cluster on Azure." |
+| [PowerShell](generate-powershell-scripts.md) | Deploy multiple resources with Powershell. | "Help me write a PS script where after creating VM, deploy an AKS cluster on it." |
+| [PowerShell](generate-powershell-scripts.md) | Manage resources with Powershell. | "How to back up an Azure SQL single database to an Azure storage container using Azure PowerShell?" |
+| [Interactive deployments](use-guided-deployments.md) | Provides a detailed guide on deploying an AKS cluster on Azure. | "Provide me with a detailed guide on deploying an AKS cluster on Azure." |
 | [Interactive deployments](use-guided-deployments.md) | Explains steps to create a Linux VM on Azure and SSH into it. | "What are the steps to create a Linux VM on Azure and how do I SSH into it?" |
 | [Azure Monitor](get-monitoring-information.md) | Detects anomalies in a specific resource. | "Is there any anomaly in my AKS resource?" |
 | [Azure Monitor](get-monitoring-information.md) | Performs root cause analysis. | "Why is this resource not working properly?" |
