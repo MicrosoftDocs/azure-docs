@@ -170,7 +170,7 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 ### Global standard model availability
 
-- `gpt-4o` **Version:** `2024-05-13`  
+`gpt-4o` **Version:** `2024-05-13`  
 
 **Supported regions:**
 
@@ -196,12 +196,11 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 - westus            
 - westus3           
 
-- `gpt-4o-mini` **Version:** `2024-07-18`  
+`gpt-4o-mini` **Version:** `2024-07-18`  
 
 **Supported regions:**
 
 - eastus
-- swedencentral
 
 ### GPT-4 and GPT-4 Turbo model availability
 

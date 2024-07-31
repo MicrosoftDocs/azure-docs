@@ -72,9 +72,9 @@ M = million | K = thousand
 
 | Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|---|:---:|:---:|
-|`gpt4o`|Enterprise agreement | 1 M | 6 K |
+|`gpt-4o`|Enterprise agreement | 1 M | 6 K |
 |`gpt-4o-mini` | Enterprise agreement | 2 M | 12 K |
-|`gpt4o`|Default | 150 K | 900 |
+|`gpt-4o`|Default | 150 K | 900 |
 |`gpt-4o-mini` | Default | 450 K | 2.7 K |
 
 M = million | K = thousand
