@@ -168,7 +168,7 @@ const breakoutRoomsSettings = breakoutRoomsFeature.breakoutRoomsSettings;
 
 ### Get participants of the breakout room
 
-Use the below code to get the participants of the breakout room after joining the breakout room:
+When you join the breakout room, you can use the following code to get the list of remote participants of the breakout room:
 
 ```js
 const breakoutRoomParticipants = [breakoutRoomCall.remoteParticipants.values()].map((p: SDK.RemoteParticipant) => { p.displayName || p.identifier });
