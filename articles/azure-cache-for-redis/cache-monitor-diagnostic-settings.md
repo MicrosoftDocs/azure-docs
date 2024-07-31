@@ -27,7 +27,7 @@ Diagnostic settings in Azure are used to collect resource logs. An Azure resourc
 
 ## Cache Metrics
 
-Azure Cache for Redis emits [many metrics](cache-how-to-monitor.md#list-of-metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](cache-how-to-monitor.md#use-a-storage-account-to-export-cache-metrics). 
+Azure Cache for Redis emits [many metrics](monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](monitor-cache.md#view-cache-metrics). 
 
 ## Connection Logs
 
@@ -375,98 +375,6 @@ And the log for a disconnection event looks like this:
     }
 ```
 
----
-
-## Log Analytics Queries
-
-> [!NOTE]
-> For a tutorial on how to use Azure Log Analytics, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md). Remember that it may take up to 90 minutes before logs show up in Log Analtyics. 
->
-
-Here are some basic queries to use as models.
-
-### [Queries for Basic, Standard, and Premium tiers](#tab/basic-standard-premium)
-
-- Azure Cache for Redis client connections per hour within the specified IP address range:
-
-```kusto
-let IpRange = "10.1.1.0/24";
-ACRConnectedClientList
-// For particular datetime filtering, add '| where TimeGenerated between (StartTime .. EndTime)'
-| where ipv4_is_in_range(ClientIp, IpRange)
-| summarize ConnectionCount = sum(ClientCount) by TimeRange = bin(TimeGenerated, 1h)
-```
-
-- Unique Redis client IP addresses that have connected to the cache:
-
-```kusto
-ACRConnectedClientList
-| summarize count() by ClientIp
-```
-
-### [Queries for Enterprise and Enterprise Flash tiers](#tab/enterprise-enterprise-flash)
-
-- Azure Cache for Redis connections per hour within the specified IP address range:
-
-```kusto
-REDConnectionEvents
-// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
-// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
-// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
-| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
-| where EventType == "new_conn"
-| summarize ConnectionCount = count() by TimeRange = bin(EventTime, 1h)
-```
-
-- Azure Cache for Redis authentication requests per hour within the specified IP address range:
-
-```kusto
-REDConnectionEvents
-| extend EventTime = unixtime_seconds_todatetime(EventEpochTime)
-// For particular datetime filtering, add '| where EventTime between (StartTime .. EndTime)'
-// For particular IP range filtering, add '| where ipv4_is_in_range(ClientIp, IpRange)'
-// IP range can be defined like this 'let IpRange = "10.1.1.0/24";' at the top of query.
-| where EventType == "auth"
-| summarize AuthencationRequestsCount = count() by TimeRange = bin(EventTime, 1h)
-```
-
-- Unique Redis client IP addresses that have connected to the cache:
-
-```kusto
-REDConnectionEvents
-// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
-// EventStatus :
-// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
-// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
-// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
-// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
-// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
-// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
-// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
-// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
-// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
-| where EventType == "auth" and EventStatus == 2 or EventStatus == 8 or EventStatus == 7
-| summarize count() by ClientIp
-```
-
-- Unsuccessful authentication attempts to the cache
-
-```kusto
-REDConnectionEvents
-// https://docs.redis.com/latest/rs/security/audit-events/#status-result-codes
-// EventStatus : 
-// 0    AUTHENTICATION_FAILED    -    Invalid username and/or password.
-// 1    AUTHENTICATION_FAILED_TOO_LONG    -    Username or password are too long.
-// 2    AUTHENTICATION_NOT_REQUIRED    -    Client tried to authenticate, but authentication isn’t necessary.
-// 3    AUTHENTICATION_DIRECTORY_PENDING    -    Attempting to receive authentication info from the directory in async mode.
-// 4    AUTHENTICATION_DIRECTORY_ERROR    -    Authentication attempt failed because there was a directory connection error.
-// 5    AUTHENTICATION_SYNCER_IN_PROGRESS    -    Syncer SASL handshake. Return SASL response and wait for the next request.
-// 6    AUTHENTICATION_SYNCER_FAILED    -    Syncer SASL handshake. Returned SASL response and closed the connection.
-// 7    AUTHENTICATION_SYNCER_OK    -    Syncer authenticated. Returned SASL response.
-// 8    AUTHENTICATION_OK    -    Client successfully authenticated.
-| where EventType == "auth" and EventStatus != 2 and EventStatus != 8 and EventStatus != 7
-| project ClientIp, EventStatus, ConnectionId
-```
 ---
 
 ## Next steps

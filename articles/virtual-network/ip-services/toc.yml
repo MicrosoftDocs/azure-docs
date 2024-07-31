@@ -74,18 +74,10 @@ items:
       href: virtual-network-network-interface-addresses.md
     - name: Create a custom IP address prefix (BYOIP)
       items:
-      - name: Portal (IPv4)
+      - name: Create a custom IP IPv4 address prefix (BYOIP)
         href: create-custom-ip-address-prefix-portal.md      
-      - name: PowerShell (IPv4)
-        href: create-custom-ip-address-prefix-powershell.md
-      - name: CLI (IPv4)
-        href: create-custom-ip-address-prefix-cli.md
-      - name: Portal (IPv6)
+      - name: Create a custom IP IPv6 address prefix (BYOIP)
         href: create-custom-ip-address-prefix-ipv6-portal.md   
-      - name: PowerShell (IPv6)
-        href: create-custom-ip-address-prefix-ipv6-powershell.md
-      - name: CLI (IPv6)
-        href: create-custom-ip-address-prefix-ipv6-cli.md
     - name: Resource management
       items:
       - name: Load balancer
@@ -159,13 +151,7 @@ items:
     - name: Routing preference
       items:
       - name: Create public IP address
-        items:
-        - name: Azure portal
-          href: routing-preference-portal.md
-        - name: Azure PowerShell
-          href: routing-preference-powershell.md
-        - name: Azure CLI
-          href: routing-preference-cli.md
+        href: routing-preference-portal.md
     - name: Move across regions
       items:
       - name: Public IPs

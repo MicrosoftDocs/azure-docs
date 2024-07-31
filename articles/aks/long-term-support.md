@@ -128,7 +128,6 @@ To carry out an in-place upgrade to the latest LTS version, you need to specify 
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.32.2
 ```
 > [!NOTE]
-
 > 1.30 is the next LTS version after 1.27. Customers will be able to upgrade from 1.27 LTS to 1.30 LTS starting August, 2024. 1.27 LTS goes End of Life by July 2025.  
 > Kubernetes 1.32.2 is used as an example version in this article. Check the [AKS release tracker](release-tracker.md) for available Kubernetes releases.
 

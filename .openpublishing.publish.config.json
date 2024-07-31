@@ -897,6 +897,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "storage-mgmt-devguide-dotnet",
+      "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -983,6 +989,12 @@
     {
       "path_to_root": "msdocs-flask-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-fastapi-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
     },
