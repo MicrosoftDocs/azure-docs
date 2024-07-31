@@ -3,7 +3,7 @@ title: Troubleshoot environment images
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot issues with environment image builds and package installations.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: Blackmist
 ms.author: larryfr
