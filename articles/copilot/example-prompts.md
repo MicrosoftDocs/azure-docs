@@ -35,7 +35,10 @@ To get started with Copilot for Azure, try a few prompts from this list. Feel fr
 | [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Generates a cheatsheet for managing resources with CLI. | "Generate a cheatsheet for managing VMs with CLI." |
 | [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Lists all resources of a certain kind using Azure CLI. | "How do I list all my VMs using Azure CLI?" |
 | [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Creates resources with CLI. | "Create a virtual network with two subnets using the address space of 10.0.0.0/16 using az cli." |
-| [Azure CLI](generate-cli-scripts.md) and [PowerShell](generate-powershell-scripts.md) | Deploys resources with CLI. | "I want to use Azure CLI to deploy and manage AKS using a private service endpoint." |
+| [Azure CLI](generate-cli-scripts.md) | Deploys resources with CLI. | "I want to use Azure CLI to deploy and manage AKS using a private service endpoint." |
+| [PowerShell](generate-powershell-scripts.md) | Create resources with Powershell. | "How can I create a new resource group using PowerShell?" |
+| [PowerShell](generate-powershell-scripts.md) | Deploy muliple resources with Powershell. | "Help me write a PS script where after creating VM, deploy an AKS cluster on it." |
+| [PowerShell](generate-powershell-scripts.md) | Manage resources with Powershell. | "How to backup an Azure SQL single database to an Azure storage container using Azure PowerShell?" |
 | [Azure Kubernetes Service](work-aks-clusters.md) | Adds the user's IP address to the allowlist. | "Add my IP address to the allowlist of my AKS cluster's network policies." |
 | [Azure Kubernetes Service](work-aks-clusters.md) | Configures AKS backups. | "Configure AKS backup." |
 | [Azure Kubernetes Service](work-aks-clusters.md) | Scales the number of replicas of a deployment. | "Scale the number of replicas of my deployment my-deployment to 5." |
