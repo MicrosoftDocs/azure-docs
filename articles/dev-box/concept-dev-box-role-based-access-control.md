@@ -73,7 +73,7 @@ For Microsoft Dev Box, consider the following scopes:
   | Dev box pool (resource) | A collection of dev boxes that you manage together and to which you apply similar settings. Role assignment for the dev box pool grants permission only to that specific dev box pool. |
   | Dev box definition (resource) | An Azure resource that specifies a source image and size, including compute size and storage size. Role assignment for the dev box definition grants permission only to that specific dev box definition. |
 
-:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-scopes.png" alt-text="Diagram that shows the role assignment scopes for Microsoft Dev Box.":::
+:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-scopes.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-scopes.png" alt-text="Diagram that shows the role assignment scopes for Microsoft Dev Box.":::
 
 ## Roles for common Dev Box activities
 
@@ -108,7 +108,7 @@ Assign these roles to the *resource group*. The dev centers, network
 connections, dev box definitions, dev box pools, and projects within the
 resource group inherit these role assignments.
 
-:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-administrator-scope.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments.":::
+:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-administrator-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-administrator-scope.png" alt-text="Diagram that shows the administrator role assignments at the subscription for Azure Deployment Environments.":::
 
 ### Owner role
 
@@ -146,7 +146,7 @@ more restricted permissions at lower-level scopes than the platform
 engineer roles. You can assign this role to dev managers to enable them
 to perform administrative tasks for their team.
 
-:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-project-scope.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Microsoft Dev Box.":::
+:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-project-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-project-scope.png" alt-text="Diagram that shows the dev manager role assignment at the project level scopes for Microsoft Dev Box.":::
 
 ### DevCenter Project Admin role
 
@@ -164,7 +164,7 @@ Assign the DevCenter Project Admin to enable:
 There's one developer role: Dev Box User. This role enables developers
 to create and manage their own dev boxes.
 
-:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" alt-text="Diagram that shows the user role assignments at the project for Microsoft Dev Box.":::
+:::image type="content" source="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" lightbox="media/concept-dev-box-role-based-access-control/dev-box-user-scope.png" alt-text="Diagram that shows the user role assignments at the project for Microsoft Dev Box.":::
 
 ### Dev Box User
 
@@ -195,13 +195,11 @@ For detailed steps, see [Assign Azure roles using the Azure portal](https://micr
 Your organization should invest time up front to plan the placement of
 your dev centers, and the structure of resource groups and projects.
 
-**Dev centers:** organize dev centers by the set of projects you would
+**Dev centers:** Organize dev centers by the set of projects you would
 like to manage together, applying similar settings, and providing
 similar templates.
 
-> Organizations can use one or more dev center. Typically, each
-> sub-organization within the organization has its own dev center. You
-> might consider creating multiple dev centers in the following cases:
+Organizations can use one or more dev center. Typically, each sub-organization within the organization has its own dev center. You might consider creating multiple dev centers in the following cases:
 
 -   If you want specific configurations to be available to a subset of
     projects.
@@ -209,7 +207,7 @@ similar templates.
 -   If different teams need to own and maintain the dev center resource
     in Azure.
 
-**Projects:** associated with each dev team or group of people working
+**Projects:** Associated with each dev team or group of people working
 on one app or product.
 
 Planning is especially important when you assign roles to the resource
