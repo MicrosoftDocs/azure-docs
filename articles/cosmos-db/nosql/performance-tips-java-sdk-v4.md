@@ -139,8 +139,11 @@ System.setProperty("COSMOS.ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS"
 
 This mechanism helps to continuously monitor partition health and ensures that requests are served with minimal latency and maximum availability, without being bogged down by problematic partitions.
 
->[!NOTE]
+> [!NOTE]
 > Circuit breaker only applies to multi-region write accounts, as when a partition is marked as `Unavailable`, both reads and writes are moved to the next preferred region. This is to prevent reads and writes from different regions being served from the same client instance, as this would be an anti-pattern.
+
+> [!IMPORTANT]
+> You must be using version 4.63.0 of the Java SDK or higher in order to activate Partition Level Circuit Breaker. 
 
 ### Comparing availability optimizations
 
