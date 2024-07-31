@@ -110,7 +110,7 @@ switch(event.type) {
       break;
     case "join":
       const breakoutRoomCall = event.data;
-      console.log(`Breakout room call ID is: ${breakoutRoomCall.id}`);      
+      console.log(`You have joined breakout room with call ID: ${breakoutRoomCall.id}`);      
       break;
   }
 }
