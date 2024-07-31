@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/20/2023
