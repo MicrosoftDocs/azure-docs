@@ -19,7 +19,7 @@ See [Monitor Azure OpenAI](./how-to/monitor-openai.md) for details on the data y
 
 ### Supported metrics for Microsoft.CognitiveServices/accounts
 
-This list summarizes the current subset of metrics available in Azure OpenAI. For descriptions and other details, see the following table.
+This list is the current subset of metrics available in Azure OpenAI. For descriptions and other details, see the following table.
 
 - Azure OpenAI Requests
 - Active Tokens
