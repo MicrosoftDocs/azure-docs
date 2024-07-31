@@ -10,9 +10,9 @@ ms.date: 07/31/2024
 
 # Enable Microsoft Defender for SQL servers on machines at scale
 
-IaaS SQL servers are protected by Microsoft Defender for Cloud's Defender for SQL plan, which identifies and mitigates potential database vulnerabilities while detecting anomalous activity that could indicate threats to your databases.
+Microsoft Defender for Cloud's SQL servers on machines component of the Defender for Databases plan, protects SQL IaaS and Defender for SQL extensions. The SQL servers on machines component identifies and mitigates potential database vulnerabilities while detecting anomalous activity that could indicate threats to your databases.
 
-When [you enable the SQL Server on a machines](tutorial-enable-databases-plan.md#enable-specific-plans-database-protections) component of the Defender for Databases plan, the auto-provision process is it automatically initiated. The auto-provision process installs and configures all the necessary components for the plan to function. Such as the Azure Monitor Agent (AMA), SQL IaaS extension, and Defender for SQL extensions. The auto-provision process also sets up the workspace configuration, Data Collection Rules, identity, and the SQL IaaS extension.
+When [you enable the SQL Server on a machines](tutorial-enable-databases-plan.md#enable-specific-plans-database-protections) component of the Defender for Databases plan, the auto-provision process is it automatically initiated. The auto-provision process installs and configures all the necessary components for the plan to function. Such as the Azure Monitor Agent (AMA), SQL IaaS extension, and Defender for SQL extensions. The auto-provision process also sets up the workspace configuration, Data Collection Rules, identity (if needed), and the SQL IaaS extension.
 
 This page explains how you can enable the auto-provision process for Defender for SQL across multiple subscriptions simultaneously using a PowerShell script. This process applies to SQL servers hosted on Azure VMs, on-premises environments, and Azure Arc-enabled SQL servers. This article also discusses how to utilize extra functionalities that can accommodate various configurations such as:
 
