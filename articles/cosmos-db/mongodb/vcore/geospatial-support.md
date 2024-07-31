@@ -223,9 +223,6 @@ Error: Custom CRS for big polygon is not supported yet.
 ```
 * A composite index using a regular index and geospatial index is not allowed. Eg.
 ```json
-db.collection.createIndex({a: 1, b: "2dsphere"});
-Error in specification { "key" : { "a" : 1, "b" : "2dsphere" }, "name" : "a_1_b_2dsphere" } :: caused by :: Compound Regular & 2dsphere indexes are not supported yet
-
 db.collection.createIndex({a: "2d", b: 1});
 Error: Compound 2d indexes are not supported yet
 ```
