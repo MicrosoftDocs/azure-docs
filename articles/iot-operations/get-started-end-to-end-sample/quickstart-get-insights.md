@@ -43,6 +43,8 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
+Start by navigating to the [Real-Time Intelligence experience in Microsoft Fabric](https://msit.powerbi.com/home?experience=kusto).
+
 Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=enhanced-capabilities) to create a new eventstream from the Real-Time Intelligence capabilities.
 
 After the eventstream is created, you'll see the main editor where you can start adding sources to the eventstream.
@@ -54,7 +56,7 @@ After the eventstream is created, you'll see the main editor where you can start
 Next, add your event hub from the previous quickstart as a data source for the eventstream.
 
 Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=enhanced-capabilities) to add the event source. Keep the following notes in mind:
-* When it's time to select a **Data format**, choose *Json*.
+* When it's time to select a **Data format**, choose *Json* (it might be selected already by default).
 * Make sure to complete all the steps in the article through selecting **Publish** on the ribbon.
 
 After completing this flow, the Azure event hub is visible in the eventstream live view as a source.
@@ -111,7 +113,7 @@ Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/r
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
     
     >[!TIP]
-    >If no existing mappings are found, try refreshing the event stream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
+    >If no existing mappings are found, try refreshing the eventstream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
 
 After completing this flow, the KQL table is visible in the eventstream live view as a destination.
 
@@ -151,11 +153,11 @@ Next, configure some parameters for your dashboard so that the visuals can be fi
     * **Variable name**: *_asset*
     * **Data type**: *string* (already selected by default)
     * **Source**: *Query*
-        * **Data source**: Select your database.
+        * **Data source**: Your database (already selected by default)
         * Select **Edit query** and add the following KQL query.
     
             ```kql
-            OPCUA2
+            OPCUA
             | summarize by assetName
             ```
     * **Value column**: *assetName*
@@ -219,7 +221,7 @@ Next, create some tiles to display the maximum values of temperature and pressur
     | summarize by Temperature
     ```
 
-1. **Run** the query to verify that data can be found.
+    **Run** the query to verify that a maximum temperature can be found.
 
 1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
     * **Tile name**: *Max temperature*
@@ -252,7 +254,7 @@ Next, create some tiles to display the maximum values of temperature and pressur
     | summarize by Pressure
     ```
 
-    **Run** the query.
+    **Run** the query to verify that a maximum pressure can be found.
 
 1. In the **Visual formatting** pane, update the following characteristics:
     * **Tile name**: *Max pressure*
