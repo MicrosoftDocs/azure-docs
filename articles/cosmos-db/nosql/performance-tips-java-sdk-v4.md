@@ -161,6 +161,75 @@ Both strategies can be used to enhance write availability and reduce tail latenc
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 
+## Region Scoped Session Consistency
+
+### Overview
+The Java SDK provides region-scoped session consistency for multi-region write accounts. This feature enhances performance by reducing cross-regional replication latency and minimizing client-side retries by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
+
+### Benefits
+- **Reduced Latency:** By localizing session token validation to the region level, the chances of costly cross-regional retries are significantly reduced.
+- **Enhanced Performance:** Minimizes the impact of regional failover and replication lag, offering higher read/write consistency and lower CPU utilization.
+- **Improved Resilience:** Provides better handling of regional outages and network issues, ensuring more consistent and reliable application performance.
+- **Optimized Resource Utilization:** Reduces CPU and network overhead on client applications by limiting the need for retries and cross-regional calls, thus optimizing resource usage.
+- **High Availability:** By maintaining region-scoped session tokens, applications can continue to operate smoothly even if certain regions experience higher latency or temporary failures.
+- **Consistency Guarantees:** Ensures that the session consistency (read your write, monotonic read) guarantees are met more reliably without unnecessary retries.
+- **Cost Efficiency:** Reduces the number of cross-regional calls, thereby potentially lowering the costs associated with data transfers between regions.
+- **Scalability:** Allows applications to scale more efficiently by reducing the contention and overhead associated with maintaining a global session token, especially in multi-region setups.
+
+### Trade-Offs
+- **Increased Memory Usage:** The bloom filter and region-specific session token storage require additional memory, which may be a consideration for applications with limited resources.
+- **Configuration Complexity:** Fine-tuning the expected insertion count and false-positive rate for the bloom filter adds a layer of complexity to the configuration process.
+- **Potential for False Positives:** While the bloom filter minimizes cross-regional retries, there is still a slight chance of false positives impacting the session token validation, although the rate can be controlled.
+- **Applicability:** This feature is most beneficial for applications with a high cardinality of logical partitions and regular restarts. Applications with fewer logical partitions or infrequent restarts might not see significant benefits.
+
+### Enabling Region-Scoped Session Consistency
+To enable region-scoped session capturing in your application, set the following system property:
+
+```java
+System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
+```
+
+### Configuring Bloom Filter
+Fine-tune the performance by configuring the expected insertions and false positive rate for the bloom filter:
+
+```java
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "5000000"); // adjust as needed
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.001"); // adjust as needed
+```
+
+### How It Works
+#### Setting the Session Token
+1. **Request Completion:** After a request is completed, the SDK captures the session token and associates it with the region and partition key.
+2. **Region-Level Storage:** Session tokens are stored in a nested `ConcurrentHashMap` that maintains mappings between partition key ranges and region-level progress.
+3. **Bloom Filter:** A bloom filter keeps track of which regions have been accessed by each logical partition, helping to localize session token validation.
+
+#### Resolving the Session Token
+1. **Request Initialization:** Before a request is sent, the SDK attempts to resolve the session token for the appropriate region.
+2. **Token Check:** The token is checked against the region-specific data to ensure the request is routed to the most up-to-date replica.
+3. **Retry Logic:** If the session token is not validated within the current region, the SDK retries with other regions, but given the localized storage, this is less frequent.
+
+
+### Using the SDK
+ Here's how to initialize the CosmosClient with region-scoped session consistency:
+
+```java
+CosmosClient client = new CosmosClientBuilder()
+    .endpoint("<your-endpoint>")
+    .key("<your-key>")
+    .consistencyLevel(ConsistencyLevel.SESSION)
+    .buildClient();
+
+// Your operations here
+```
+
+### Example Configuration
+```java
+System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "1000000");
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.01");
+```
+> [!IMPORTANT]
+> You must be using version 4.60.0 of the Java SDK or higher in order to activate region-scoped session consistency. 
 
 ## Tuning direct and gateway connection configuration
 
