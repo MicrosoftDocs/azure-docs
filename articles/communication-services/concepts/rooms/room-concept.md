@@ -30,6 +30,7 @@ Virtual Rooms empower developer with essential security and controls capabilitie
 | Interoperability with Microsoft Teams | ❌ |
 
 *Some exceptions apply. Full list supported Call Automation capabilities listed below in this document.
+
 ** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # When to use Virtual Rooms
@@ -75,7 +76,7 @@ At a high-level, conducting calls in Virtual Rooms involves the creation and man
 
 [Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client side in-call operations and explains how to use them.
 
-* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Managing Virtual Rooms calls from the server-side using Call Automation Server SDK
 Call Automation SDK empowers developers to manage Virtual Rooms calls from the server-side and execute in-call operations. Call Automation capabilities are being progressively enabled in Virtual Rooms calls. The following table shows the current status of these capabilities. Since developers manage control Call Automation capabilities from the server-side, which operates at a higher level than a call participant's privileges, these Call Automation capabilities are not controlled through user roles and permissions.
@@ -90,7 +91,7 @@ Call Automation SDK empowers developers to manage Virtual Rooms calls from the s
 | Call Transcriptions | ❌ |
 | Audio media streaming | ❌ |
 
-* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 The picture below illustrates the concept of managing and joining the rooms.
 
