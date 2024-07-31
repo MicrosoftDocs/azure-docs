@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: concept-article
-ms.date: 07/02/2024
+ms.date: 07/31/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -25,7 +25,7 @@ When the reservation expires, Azure OpenAI deployments continue to run but are b
 
 You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Azure OpenAI reservation auto renewal, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
 
-For pricing information, see the **[UPDATE LINK FOR OPEN AI PRICING](https://azure.microsoft.com/pricing/)** page.
+For pricing information, see the [Azure OpenAI Service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) page.
 
 You can buy an Azure OpenAI reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Pay for the reservation [up front or with monthly payments](prepare-buy-reservation.md). To buy a reservation:
 
