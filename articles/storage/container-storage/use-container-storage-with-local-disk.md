@@ -400,15 +400,18 @@ kubectl delete sp -n acstor <storage-pool-name>
 
 ### Optimize performance when using local NVMe
 
-Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. These tiers offer a different range of IOPS, and your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
+Depending on your workload’s performance requirements, you can choose from three different performance tiers: **Basic**, **Standard**, and **Advanced**. Your selection will impact the number of vCPUs that Azure Container Storage components consume in the nodes where it's installed. Standard is the default configuration if you don't update the performance tier.
 
-| **Tier** | **Number of vCPUs** | **Read IOPS** | **Write IOPS** |
+These three tiers offer a different range of IOPS. The following table contains guidance on what you could expect with each of these tiers. We used [FIO](https://github.com/axboe/fio), a popular benchmarking tool, to achieve these numbers with the following configuration:
+- AKS: Node SKU - Standard_L16s_v3; 
+- FIO: Block size - 4KB; Queue depth - 32; Numjobs - number of cores assigned to container storage components; Access pattern - random; Worker set size - 32G
+
+| **Tier** | **Number of vCPUs** | **100 % Read IOPS** | **100 % Write IOPS** |
 | --- | --- | --- | --- |
 | `Basic` | 12.5% of total VM cores | Up to 100,000  | Up to 90,000 |
 | `Standard` (default)| 25% of total VM cores | Up to 200,000  | Up to 180,000 |
 | `Advanced` | 50% of total VM cores | Up to 400,000  | Up to 360,000 |
 
-Note that the [FIO](https://github.com/axboe/fio) benchmark tool was used to evaluate the IOPS performance in the above table. FIO is a popular tool to benchmark storage. The AKS node SKU used is **Standard_L16s_v3**. The test parameters included a block size of 4KB and a queue depth of 32. The FIO worker set size was configured to 32G, and the number of jobs was set to match the number of vCPUs available.
 > [!NOTE]
 > RAM and hugepages consumption will stay consistent across all tiers: 1 GiB of RAM and 2 GiB of hugepages.
 
