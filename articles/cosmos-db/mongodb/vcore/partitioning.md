@@ -102,7 +102,7 @@ Consider the following document within the 'cosmicworks' database and 'employee'
 The following sample shards the employee collection within the cosmicworks database on the firstName property.
 ```javascript
 use cosmicworks;
-sh.shardCollection("cosmicworks.employee", {"firstName": 1})
+sh.shardCollection("cosmicworks.employee", {"firstName": "hashed"})
 ```
 
 The service doesn't index the shard key by default. Once the collection is sharded an index must be explicitly created on the shard key property.
