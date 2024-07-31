@@ -95,7 +95,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Java memory management
-            url: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
       - linkListType: quickstart
         links:
           - text: Analyze logs and metrics

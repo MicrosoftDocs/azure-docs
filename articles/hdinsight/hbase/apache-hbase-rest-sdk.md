@@ -182,4 +182,4 @@ finally
 ## Next steps
 
 * [Get started with an Apache HBase example in HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Build an end-to-end application with [Analyze real-time Twitter sentiment with Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
+* Build an end-to-end application with [Analyze real-time X sentiment with Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
