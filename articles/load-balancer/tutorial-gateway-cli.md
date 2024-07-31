@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 07/31/2024
 ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23

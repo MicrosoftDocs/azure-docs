@@ -4971,12 +4971,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-network/ip-services/tutorial-cross-region-cli.md",
+            "source_path_from_root": "/articles/load-balancer/tutorial-cross-region-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal.md",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/virtual-network/ip-services/tutorial-cross-region-powershell.md",
+            "source_path_from_root": "/articles/load-balancer/tutorial-cross-region-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal.md",
             "redirect_document_id": false
         },
