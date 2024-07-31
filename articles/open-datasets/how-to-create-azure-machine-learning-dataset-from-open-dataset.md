@@ -26,11 +26,11 @@ For more information about where datasets fit in the overall Azure Machine Learn
 
 Azure Open Datasets are curated public datasets that add scenario-specific features to enrich your predictive solutions and improve the accuracy of those solutions. Visit the [Open Datasets catalog](./dataset-catalog.md) resource for public-domain data that can help you train machine learning models - for example:
 
-- [Health and genomics](/dataset-catalog.md#health-and-genomics)
-- [Labor and economics](/dataset-catalog.md#labor-and-economics)
-- [Population and safety](/dataset-catalog.md#population-and-safety)
-- [Supplemental and common datasets](/dataset-catalog.md#supplemental-and-common-datasets)
-- [Transportation](/dataset-catalog.md#transportation)
+- [Health and genomics](./dataset-catalog.md#health-and-genomics)
+- [Labor and economics](./dataset-catalog.md#labor-and-economics)
+- [Population and safety](./dataset-catalog.md#population-and-safety)
+- [Supplemental and common datasets](./dataset-catalog.md#supplemental-and-common-datasets)
+- [Transportation](./dataset-catalog.md#transportation)
 
 Open Datasets are hosted in the cloud on Microsoft Azure. Both [Azure Machine Learning Python SDK](#create-datasets-with-the-sdk) and [Azure Machine Learning studio](#create-datasets-with-the-studio) include them.
 
@@ -134,7 +134,7 @@ You can also create Azure Machine Learning datasets from Azure Open Datasets wit
 
    :::image type="content" source="./media/how-to-create-dataset-from-open-dataset/create-the-data-asset.png" lightbox="./media/how-to-create-dataset-from-open-dataset/create-the-data-asset.png" alt-text="Screenshot showing review of the chosen settings, and selection of the Next button.":::
 
-1. For more information about the field descriptions and date ranges for the **San Francisco Safety Data** dataset, visit the [San Francisco Safety Data](./dataset-san-francisco-safety.md) resource. For more information about the other datasets, visit the [Azure Open Datasets Catalog](/dataset-catalog.md) resource.
+1. For more information about the field descriptions and date ranges for the **San Francisco Safety Data** dataset, visit the [San Francisco Safety Data](./dataset-san-francisco-safety.md) resource. For more information about the other datasets, visit the [Azure Open Datasets Catalog](./dataset-catalog.md) resource.
 
 The dataset is now available in your workspace under **Datasets**. You can use it in the same way as the other datasets you created.
 
