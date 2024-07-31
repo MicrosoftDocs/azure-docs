@@ -12,7 +12,7 @@ definition maps to **compliance domains** and **controls** in Microsoft Cloud fo
 For more information about this compliance standard, see
 [Microsoft Cloud for Sovereignty Baseline Confidential Policies](/industry/sovereignty/policy-portfolio-baseline). To understand
 _Ownership_, review the [policy type](../concepts/definition-structure-basics.md#policy-type) and
-[Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+[Shared responsibility in the cloud](/azure/security/fundamentals/shared-responsibility).
 
 The following mappings are to the **Microsoft Cloud for Sovereignty Baseline Confidential Policies** controls. Many of the controls
 are implemented with an [Azure Policy](../overview.md) initiative definition. To review the complete
