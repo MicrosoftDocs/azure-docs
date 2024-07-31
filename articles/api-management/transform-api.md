@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Transform and protect your API in Azure API Management | Microsoft Docs
+title: Tutorial - Transform and protect your API in Azure API Management
 description: In this tutorial, you learn how to protect your API in API Management with transformation and throttling (rate-limiting) policies.
 
 author: dlepow    
@@ -14,7 +14,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-In this tutorial, you'll learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API can help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
+In this tutorial, you learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API can help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
 
 This tutorial also explains how to add protection to your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
 
@@ -114,7 +114,7 @@ In this example, you use the policy code editor to add the policy XML snippet di
 
 1. Position the cursor inside the **`<outbound>`** element on a blank line. Then select **Show snippets** at the top-right corner of the screen.
 
-   :::image type="content" source="media/transform-api/show-snippets-1.png" alt-text="Screenshot of selecting show snippets in policy editor in the portal.":::
+   :::image type="content" source="media/transform-api/show-snippets-1.png" alt-text="Screenshot of selecting show snippets in outbound policy editor in the portal.":::
 
 1. In the right window, under **Transformation policies**, select **Mask URLs in content**. 
 
@@ -131,17 +131,17 @@ This section shows how to add protection to your backend API by configuring rate
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Inbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/inbound-policy-code.png" alt-text="Navigate to inbound policy":::
+   :::image type="content" source="media/transform-api/inbound-policy-code.png" alt-text="Screenshot of navigating to inbound policy code editor in the portal.":::
 
 1. Position the cursor inside the **`<inbound>`** element on a blank line. Then, select **Show snippets** at the top-right corner of the screen.
 
-    :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Set inbound policy" border="false":::
+    :::image type="content" source="media/transform-api/show-snippets-2.png" alt-text="Screenshot of selecting show snippets in inbound policy editor in the portal.":::
 
 1. In the right window, under **Access restriction policies**, select **Limit call rate per key**. 
 
     The **`<rate-limit-by-key />`** element is added at the cursor. 
 
-   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Select limit call rate per key":::
+   :::image type="content" source="media/transform-api/limit-call-rate-per-key.png" alt-text="Screenshot of inserting limit call rate per key policy in the pportal":::
 
 1. Modify your **`<rate-limit-by-key />`** code in the  **`<inbound>`** element to the following code. Then select **Save**.
 
@@ -181,9 +181,9 @@ The rest of this section tests policy transformations that you set in this artic
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see, the headers have been stripped:
+    As you can see, the headers were stripped:
 
-    :::image type="content" source="media/transform-api/stripped-response-headers.png" alt-text="Stripped response headers":::
+    :::image type="content" source="media/transform-api/stripped-response-headers.png" alt-text="Screenshot showing stripped response headers in the portal.":::
 
 ### Test the replaced URL
 
@@ -192,7 +192,7 @@ The rest of this section tests policy transformations that you set in this artic
 
     As you can see, the URLs are replaced.
 
-    :::image type="content" source="media/transform-api/test-replaced-url.png" alt-text="Replaced URLs":::
+    :::image type="content" source="media/transform-api/test-replaced-url.png" alt-text="Screenshot showing replaced URLs in the portal.":::
 
 ### Test the rate limit (throttling)
 
@@ -201,7 +201,7 @@ The rest of this section tests policy transformations that you set in this artic
 
     After sending the request three times, you get the **429 Too Many Requests** response.
 
-    :::image type="content" source="media/transform-api/test-throttling-new.png" alt-text="Too many requests":::
+    :::image type="content" source="media/transform-api/test-throttling-new.png" alt-text="Screenshot showing Too Many Requests in the response in the portal.":::
 
 1. Wait for 15 seconds or more and then select **Send** again. This time you should get a **200 OK** response.
 
