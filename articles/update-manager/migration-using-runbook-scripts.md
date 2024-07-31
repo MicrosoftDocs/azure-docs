@@ -75,7 +75,7 @@ Migration automation runbook ignores resources that aren't onboarded to Arc. It'
      1. For this, the script fetches all the machines onboarded to Automation Update Management under this automation account and parse their subscription IDs to be given the required RBAC to the User Identity. 
      1. The script gives a proper RBAC to the User Identity on the subscription to which the automation account belongs so that the MRP configs can be created here.
      1. The script assigns the required roles for the Log Analytics workspace and solution. 
- 1. Registration of required subscriptions to Microsoft.Maintenance and Microsoft.EventGrid Resource Providers.
+-  Registration of required subscriptions to Microsoft.Maintenance and Microsoft.EventGrid Resource Providers.
  
 #### Step 1: Migration of machines and schedules
 
