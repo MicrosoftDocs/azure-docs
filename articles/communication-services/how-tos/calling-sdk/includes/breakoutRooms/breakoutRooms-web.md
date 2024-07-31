@@ -178,7 +178,7 @@ console.log(`Participants of the breakoutRoom : <br/>" + breakoutRoomParticipant
 
 ### Stop receiving breakout rooms events
 
-Use the following to stop receiving breakoutRooms events
+Use the following code to stop receiving breakoutRooms events
 ```js
 breakoutRoomsFeature.off('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
