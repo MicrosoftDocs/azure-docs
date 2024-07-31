@@ -35,18 +35,8 @@ Azure Boost also optimizes performance by using the industry-standard NVMe inter
 
 ## SCSI to NVMe
 
-To migrate to v6 VMs, you will need to transition from SCSI to NVMe. 
+To migrate to v6 VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux).
 
-Azure VMs support two types of storage interfaces: Small Computer System Interface (SCSI) and NVMe. The SCSI interface is a legacy standard that provides physical connectivity and data transfer between computers and peripheral devices. NVMe is similar to SCSI in that it provides connectivity and data transfer, but NVMe is a faster and more efficient interface for data transfer between servers and storage systems.
-
-> [!NOTE]
-> VMs configured with Trusted Launch can't move from SCSI to NVMe.
-
-For more information, read about [converting VMs from SCSI to NVMe using Linux](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/converting-virtual-machines-running-linux-from-scsi-to-nvme/ba-p/4162497).
-
-### Support for SCSI interface VMs
-
-Azure will continue to support the SCSI interface on the versions of VM offerings that provide SCSI storage. However, not all new VM series will have SCSI storage as an option going forward.
 
 ## Supportability
 
