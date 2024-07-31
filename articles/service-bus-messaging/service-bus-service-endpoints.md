@@ -1,9 +1,10 @@
 ---
-title: Configure virtual network service endpoints for Azure Service Bus
+title: Configure network service endpoints 
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/31/2024
 ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a developer or IT Admin, I want to know how to allow access to my Service Bus namespace only from selected networks. 
 ---
 
 # Allow access to Azure Service Bus namespace from specific virtual networks
@@ -244,7 +245,7 @@ Azure portal always uses the latest API version to get and set properties. If yo
 
 :::image type="content" source="./media/service-bus-ip-filtering/firewall-all-networks-selected.png" alt-text="Screenshot of the Azure portal Networking page. The option to allow access from All networks is selected on the Firewalls and virtual networks tab.":::
 
-## Next steps
+## Related content
 
 For more information about virtual networks, see the following links:
 
