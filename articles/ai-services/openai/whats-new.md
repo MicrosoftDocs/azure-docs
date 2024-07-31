@@ -20,7 +20,7 @@ This article provides a summary of the latest releases and major documentation u
 
 ## July 2024
 
-### GPT-4o mini preview model available for deployment
+### GPT-4o mini model available for deployment
 
 GPT-4o mini is the latest Azure OpenAI model first [announced on July 18, 2024](https://azure.microsoft.com/blog/openais-fastest-model-gpt-4o-mini-is-now-available-on-azure-ai/):
 
