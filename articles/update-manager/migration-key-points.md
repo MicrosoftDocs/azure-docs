@@ -1,6 +1,6 @@
 ---
-title: Summary of important details during migration either by portal or scripts
-description: A summary of important pointers while migrating using Azure portal or migration scripts
+title: Important details during migration either by portal or scripts in Azure Update Manager
+description: A summary of important pointers while migrating using Azure portal or migration scripts in Azure Update Manager
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual

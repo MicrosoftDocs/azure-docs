@@ -23,9 +23,9 @@ Azure Update Manager provides a SaaS solution to manage and govern software upda
 For the Azure Update Manager, both AMA and MMA aren't a requirement to manage software update workflows as it relies on the Microsoft Azure VM Agent for Azure VMs and Azure connected machine agent for Arc-enabled servers. When you perform an update operation for the first time on a machine, an extension is pushed to the machine, and it interacts with the agents to assess missing updates and install updates.
 
 We provide three methods to move from Automation Update Management to Azure Update Manager which are explained in detail:
-1.	[Portal migration tool](migration-using-portal.md)
-2.	[Migration runbook scripts](migration-using-runbook-scripts.md)
-3.	[Manual migration](migration-manual.md)
+- [Portal migration tool](migration-using-portal.md)
+- [Migration runbook scripts](migration-using-runbook-scripts.md)
+- [Manual migration](migration-manual.md)
 
 
 ## Next steps
