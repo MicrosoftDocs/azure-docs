@@ -1,8 +1,7 @@
 ---
 title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
-ms.service: data-factory
-ms.subservice: tutorials
+ms.service: azure-data-factory
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
