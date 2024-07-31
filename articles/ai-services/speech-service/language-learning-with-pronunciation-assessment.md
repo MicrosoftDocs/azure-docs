@@ -1,6 +1,6 @@
 ---
 title: Interactive language learning with pronunciation assessment
-description: Interacive language learning with pronunciation assessment gives you instant feedback on pronunciation, fluency, prosody, grammar, and vocabulary through interactive chats.
+description: Interactive language learning with pronunciation assessment gives you instant feedback on pronunciation, fluency, prosody, grammar, and vocabulary through interactive chats.
 author: sally-baolian
 manager: nitinme
 ms.service: azure-ai-speech
