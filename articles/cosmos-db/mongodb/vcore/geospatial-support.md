@@ -5,7 +5,7 @@ description: Introducing support for geospatial queries on vCore based Azure Cos
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/31/2024
