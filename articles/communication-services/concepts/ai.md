@@ -17,7 +17,7 @@ Artificial intelligence (AI) technologies can be useful for a wide variety of co
 
 -  **Accessors.** APIs that allow you to access Azure Communication data for the purposes of integrating your own separate transformations and bots.
 2.  **Transformers.** APIs that provide a built-in transformation of communication data using a machine learning or language model.
-3.  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
+-  **Bots.** APIs that implement bots that directly communicate with end-users, typically blending structured programming with language models.
 
 Typical communication scenarios integrating these capabilities:
 
