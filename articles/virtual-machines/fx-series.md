@@ -2,7 +2,7 @@
 title: FX-series
 description: Specifications for the FX-series VMs.
 author: priyashan-19
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/20/2022

@@ -3,7 +3,7 @@ title: Enable a Azure Key Vault secret with JavaScript
 description: Enable or disable a Key Vault secret using JavaScript.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js

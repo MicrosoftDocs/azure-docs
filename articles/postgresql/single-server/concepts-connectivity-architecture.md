@@ -1,7 +1,7 @@
 ---
 title: Connectivity architecture - Azure Database for PostgreSQL - Single Server
 description: Describes the connectivity architecture of your Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: gennadyk 
