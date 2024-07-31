@@ -140,7 +140,7 @@ When you create a client SDK instance in your functions, you should get the conn
 When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-python.md#environment-variables).
 ::: zone-end
 
-## Connections
+## Define connections
 
 As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed at runtime by your app as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
 
@@ -150,9 +150,20 @@ The default configuration provider uses environment variables. These variables a
 
 ### Connection values
 
+When an application setting stores connection information, the format of the setting name depends on whether the setting represents a connection string or part of an [identity-based connection](#configure-an-identity-based-connection).
+
+#### [Identity-based connection](#tab/identity)
+
+#### [Connection string](#tab/connection-string) 
+
+
+---
+
 When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string depend on the service to which you connect.
 
-However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
+However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores (`__`). The group is referenced by setting the connection name to this prefix. By convention, identity-based connections use a double underscore to indicate hierarchy instead of a colon (`:`) because double underscore is supported on both Windows and Linux.
+
+
 
 For example, the `connection` property for an Azure Blob trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
@@ -296,10 +307,10 @@ Here's an example of `local.settings.json` properties required for identity-base
 
 #### Connecting to host storage with an identity
 
-The Azure Functions host uses the storage connection set in [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) to enable core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This connection can also be configured to use an identity.
+Functions uses the default storage account to enable core behaviors, such as coordinating singleton execution of timer triggers and default app key storage. The connection string for this storage account is set in [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage). However, you can configure your function app to use an identity instead of a connection string when connecting to the default storage account.
 
 > [!CAUTION]
-> Other components in Functions rely on `AzureWebJobsStorage` for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Other Functions components in Functions rely on `AzureWebJobsStorage` for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 >
 > In addition, your function app might be reusing `AzureWebJobsStorage` for other storage connections in their triggers, bindings, and/or function code. Make sure that all uses of `AzureWebJobsStorage` are able to use the identity-based connection format before changing this connection from a connection string.
 

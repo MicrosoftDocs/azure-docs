@@ -1367,7 +1367,7 @@ Function apps that are built remotely on Linux can run from a package.
 If you're deploying a [containerized function app](./functions-how-to-custom-container.md) to an Azure Functions Premium or Dedicated plan, you must:
 
 + Set the [`linuxFxVersion`](functions-app-settings.md#linuxfxversion) site setting with the identifier of your container image. 
-+ Set any required [`DOCKER_REGISTRY_SERVER_*`](#application-configuration) settings when obtaining the container from a private registry. 
++ Set any required [`DOCKER_REGISTRY_SERVER_*`](functions-infrastructure-as-code.md?tabs=linux#application-configuration-1) settings when obtaining the container from a private registry. 
 + Set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) application setting to `false`. 
 
 For more information, see [Application configuration](#application-configuration).
