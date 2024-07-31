@@ -4951,6 +4951,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
@@ -4961,6 +4971,7 @@
             "redirect_document_id": false
         },
         {
+<<<<<<< HEAD
             "source_path_from_root": "/articles/virtual-network/ip-services/tutorial-cross-region-cli.md",
             "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal.md",
             "redirect_document_id": false
@@ -4970,6 +4981,22 @@
             "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal.md",
             "redirect_document_id": false
         }        
+=======
+          "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
+          "redirect_url":"/azure/operational-excellence/relocation-container-registry",
+          "redirect_document_id":false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        }  
+>>>>>>> 4701e084e9cfa013ff1b21197328c2c70821f2b0
         
     ]
 }

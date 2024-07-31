@@ -3,8 +3,7 @@ title: General Troubleshooting
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
-ms.service: data-factory
-ms.subservice: troubleshooting
+ms.service: azure-data-factory
 ms.custom: synapse
 ms.topic: troubleshooting
 ms.date: 05/15/2024
@@ -1076,7 +1075,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
+- **Recommendation**: Use Fiddler/Netmon/Wireshark to validate the request.
 
     **Using Fiddler**
     
