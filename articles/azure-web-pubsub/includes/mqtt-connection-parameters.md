@@ -16,13 +16,13 @@ If client library doesn't accept a URI, then you probably need to split the info
 * Host: `{serviceName}.webpubsub.azure.com`
 * Path: `/clients/mqtt/hubs/{hub}?access_token={token}`
 * Port: 443
-* Transport: WebSockets with TLS.
+* Transport: WebSockets with [TLS](https://wikipedia.org/wiki/Transport_Layer_Security).
 
-There are some limitations you should follow in your MQTT clients, otherwise the connection will be rejected. These MQTT protocol parameters include:
+There are some limitations you should follow in your [MQTT](https://mqtt.org/mqtt-specification/) clients, otherwise the connection will be rejected. These MQTT protocol parameters include:
 * Protocol versions: 3.1.1 or 5.0.
 * Client ID format
     * Allowed characters: 0-9, a-z, A-Z
     * Length is between 1 and 128
-* For MQTT 3.1.1, you must set a positive keep alive interval no longer than 180 seconds.
-* Will Topic format: Not empty, and contains at least one non-whitespace character. The max length is 1024.
-* Max will message size: 2,000 bytes
+* Keep-alive interval for MQTT 3.1.1: 1 - 180 seconds
+* Last-will Topic format: Not empty, and contains at least one nonwhitespace character. The max length is 1024.
+* Last-will message size: up to 2,000 bytes
