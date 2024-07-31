@@ -86,7 +86,9 @@ export interface JoinBreakoutRoomEvent {
    */
   data: Call | TeamsCall;
 }
-
+```
+The following code shows you valuable information received in the breakout room events:
+```js
 const breakoutRoomsUpdatedListener = (event) => {
 switch(event.type) {
     case "breakoutRooms":
@@ -116,17 +118,15 @@ switch(event.type) {
 }
 breakoutRoomsFeature.on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 ```
-To retreive all the breakoutRooms created in the Teams main meeting by the Organizer / Co-organizer / Breakout room manager use the following code. These breakout rooms are available only to the Organizer / Co-Organizer / Breakout room manager of the meeting.
+### List available breakout rooms
+
+Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access all breakout rooms.
 ```js
 const breakoutRooms = breakoutRoomsFeature.breakoutRooms;
 breakoutRooms.forEach((room)=>{
       console.log(`- ${room.displayName}`);
        }); 
 ```
-
-### List available breakout rooms
-
-Microsoft 365 user with role organizer, co-organizer, or breakout room manager can access all breakout rooms.
 
 ### List invitees
 
@@ -145,7 +145,6 @@ breakoutRooms.forEach((room)=>{
 If the `assignedBreakoutRoom` has property `autoMoveParticipantToBreakoutRoom` set to `true`, then the user is automatically moved to the breakout room when the property `state` is set to `open`. 
 This triggers `breakoutRoomsUpdated` event with class `JoinBreakoutRoomsEvent` that has property `type` set as `join`. You can use the instance of a class `call` in property `data` to manage breakout room call. 
 
-If the assigned breakout room doesn't have enabled property `autoMoveParticipantToBreakoutRoom` and you receive event `breakoutRoomsUpdated` of a type `assignedBreakoutRooms` indicating the `state` of breakout room is set to `open`, then you can join breakout room by calling `join` method on object `breakoutRoom`.
 ```js
 const breakoutRoom = breakoutRoomsFeature.assignedBreakoutRoom;
 if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRoom) {
