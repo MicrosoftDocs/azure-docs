@@ -1,0 +1,5 @@
+# Codeowners file
+# Each line is a file pattern followed by one or more owners.
+
+# Specify owners for the aks folder
+/articles/aks @tynevi
