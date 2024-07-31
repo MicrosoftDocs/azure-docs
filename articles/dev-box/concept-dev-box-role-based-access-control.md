@@ -243,9 +243,7 @@ customizations for dev boxes by using a catalog of tasks and a
 configuration file to install software, add extensions, clone
 repositories, and more. 
 
-Microsoft Dev Box stores catalogs in either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or
-an [Azure DevOps Services repository](https://review.learn.microsoft.com/en-us/azure/devops/repos/get-started/what-is-repos).
-You can attach a catalog to a dev center or to a project.
+Microsoft Dev Box stores catalogs in either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/azure/devops/repos/get-started/what-is-repos). You can attach a catalog to a dev center or to a project.
 
 You can attach one or more catalogs to your dev center and manage all
 customizations at that level. To provide more granularity in how
@@ -256,5 +254,4 @@ needs of each development team.
 ## Related content
 
 -   [What is Azure role-based access control (Azure RBAC)](https://microsoft-my.sharepoint.com/azure/role-based-access-control/overview)
-
 -   [Understand scope for Azure RBAC](https://microsoft-my.sharepoint.com/azure/role-based-access-control/scope-overview)
