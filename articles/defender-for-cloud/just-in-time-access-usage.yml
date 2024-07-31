@@ -17,7 +17,7 @@ introduction: |
 
   Learn more about [how JIT works](just-in-time-access-overview.md) and the [permissions required to configure and use JIT](#prerequisites).
 
-  In this article, you learn how to include JIT in your security program, including how to:
+  In this article, you'll learn how to include JIT in your security program, including how to:
 
   - Enable JIT on your VMs from the Azure portal or programmatically
   - Request access to a VM that has JIT enabled from the Azure portal or programmatically
