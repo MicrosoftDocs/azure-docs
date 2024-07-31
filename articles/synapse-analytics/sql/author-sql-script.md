@@ -20,9 +20,9 @@ To start the authoring experience in a SQL script, you can create a new SQL scri
 
 - Select the plus sign (**+**), and then select **SQL script**.
 
-- Right-click the number next to **SQL scripts**, and then select **New SQL script**.
+- Right-click **SQL scripts**, and then select **New SQL script**.
 
-- Right-click the number next to **SQL scripts**, and then select **Import**. Select an existing SQL script from your local storage.
+- Right-click **SQL scripts**, and then select **Import**. Select an existing SQL script from your local storage.
 
   ![Screenshot that shows the Develop pane and the command to import a SQL script.](media/author-sql-script/new-sql-script-3-actions.png)
 
@@ -77,12 +77,12 @@ By using a shortcut menu on the **Data** pane, you can select actions for resour
 
 To create a folder:
 
-1. On the **Develop** pane, right-click in the **SQL scripts** area and then select **New folder**.
+1. On the **Develop** pane, right-click **SQL scripts** and then select **New folder**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows an example of a SQL script and a shortcut menu with the command to create a new folder.](./media/author-sql-script/new-sql-script-create-folder.png)
 
-1. On the **New folder** pane, enter the name of the new folder.
+1. On the pane that opens, enter the name of the new folder.
 
 To move a SQL script into a folder:
 

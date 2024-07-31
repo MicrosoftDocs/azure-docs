@@ -26,7 +26,7 @@ This article describes how to use notebooks in Synapse Studio.
 
 ## Create a notebook
 
-You can create a new notebook or import an existing notebook to a Synapse workspace from **Object Explorer**. Select **Develop** > **Notebooks**, and then select **New notebook** or **Import**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
+You can create a new notebook or import an existing notebook to a Synapse workspace from **Object Explorer**. Select **Develop**, right-click **Notebooks**, and then select **New notebook** or **Import**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
 
 ![Screenshot of selections for creating or importing a notebook.](./media/apache-spark-development-using-notebooks/synapse-create-import-notebook-2.png)
 
@@ -86,7 +86,7 @@ You can use multiple languages in one notebook by specifying the correct languag
 |---|------|-----|
 |`%%pyspark`| Python | Run a Python query against `SparkContext`.  |
 |`%%spark`| Scala | Run a Scala query against `SparkContext`.  |  
-|`%%sql`| SparkSQL | Run a Spark SQL query against `SparkContext`.  |
+|`%%sql`| Spark SQL | Run a Spark SQL query against `SparkContext`.  |
 |`%%csharp` | .NET for Spark C# | Run a .NET for Spark C# query against `SparkContext`. |
 |`%%sparkr` | R | Run an R query against `SparkContext`. |
 
@@ -122,15 +122,15 @@ You can't reference data or variables directly across different languages in a S
 
 ### <a name = "ide-style-intellisense"></a>Use IDE-style IntelliSense
 
-Synapse notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. The features of syntax highlight, error marker, and automatic code completion help you to write code and identify issues faster.
+Synapse notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. The features of syntax highlight, error marker, and automatic code completion help you write code and identify issues faster.
 
 The IntelliSense features are at different levels of maturity for different languages. Use the following table to see what's supported.
 
 |Languages| Syntax highlight | Syntax error marker | Syntax code completion | Variable code completion| System function code completion| User function code completion| Smart indent | Code folding|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Spark (Scala)|Yes|Yes|Yes|Yes|Yes|Yes|-|Yes|
-|SparkSQL|Yes|Yes|Yes|Yes|Yes|-|-|-|
+|Spark (Scala)|Yes|Yes|Yes|Yes|Yes|Yes|No|Yes|
+|Spark SQL|Yes|Yes|Yes|Yes|Yes|No|No|No|
 |.NET for Spark (C#)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 An active Spark session is required to benefit from variable code completion, system function code completion, and user function code completion for .NET for Spark (C#).
@@ -145,7 +145,7 @@ Snippets appear in [shortcut keys of IDE-style IntelliSense](#ide-style-intellis
 
 ### <a name = "format-text-cell-with-toolbar-buttons"></a>Format text cells by using toolbar buttons
 
-You can use the format buttons on the text cell toolbar to do common markdown actions. These actions include making text bold, making text italic, creating paragraphs and headings through a dropdown menu, inserting code, inserting an unordered list, inserting an ordered list, inserting a hyperlink, and inserting an image from a URL.
+You can use the format buttons on the text cell toolbar to do common Markdown actions. These actions include making text bold, making text italic, creating paragraphs and headings through a dropdown menu, inserting code, inserting an unordered list, inserting an ordered list, inserting a hyperlink, and inserting an image from a URL.
 
 ![Screenshot of the text cell toolbar in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-text-cell-toolbar-preview.png)
 
@@ -157,7 +157,7 @@ To revoke the most recent cell operations, select the **Undo** or **Redo** butto
 
 Supported cell operations include:
 
-* Insert or delete a cell: You can revoke delete operations by selecting **Undo**. This action keeps the text content along with the cell.
+* Insert or delete a cell. You can revoke delete operations by selecting **Undo**. This action keeps the text content along with the cell.
 * Reorder cells.
 * Turn a parameter cell on or off.
 * Convert between a code cell and a Markdown cell.
@@ -207,7 +207,7 @@ To collapse the current cell's output, select the **More commands** ellipsis (**
 
 ### <a name = "notebook-outline"></a>Use a notebook outline
 
-The outline (table of contents) presents the first markdown header of any Markdown cell in a sidebar window for quick navigation. The outline sidebar is resizable and collapsible to fit the screen in the best way possible. To open or hide the sidebar, select the **Outline** button on the notebook command bar.
+The outline (table of contents) presents the first Markdown header of any Markdown cell in a sidebar window for quick navigation. The outline sidebar is resizable and collapsible to fit the screen in the best way possible. To open or hide the sidebar, select the **Outline** button on the notebook command bar.
 
 :::image type="content" source="./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png" alt-text="Screenshot of the outline sidebar in a Synapse notebook." link="./media/apache-spark-development-using-notebooks/synapse-azure-notebook-outline.png":::
 
@@ -256,12 +256,12 @@ Here's an example:
 
 The notebook reference works in both interactive mode and pipelines.
 
-The `run` magic command has these limitations:
+The `%run` magic command has these limitations:
 
 * The command supports nested calls but not recursive calls.
 * The command supports passing an absolute path or notebook name only as a parameter. It doesn't support relative paths.
 * The command currently supports only four parameter value types: `int`, `float`, `bool`, and `string`. It doesn't support variable replacement operations.
-* The referenced notebooks must be published. You need to publish the notebooks to reference them unless you select the [option to enable an unpublished notebook reference](#reference-unpublished-notebook). Synapse Studio does not recognize the unpublished notebooks from the Git repo.
+* The referenced notebooks must be published. You need to publish the notebooks to reference them, unless you select the [option to enable an unpublished notebook reference](#reference-unpublished-notebook). Synapse Studio does not recognize the unpublished notebooks from the Git repo.
 * Referenced notebooks don't support statement depths larger than five.
 
 ### Use the variable explorer
@@ -283,7 +283,7 @@ A step-by-step status of a cell run appears beneath the cell to help you see its
 
 ### Use the Spark progress indicator
 
-A Synapse notebook is purely Spark based. Code cells run on the serverless Apache Spark pool remotely. A Spark job progress indicator with a real-time progress bar appears to help you understand the job run status.
+A Synapse notebook is purely Spark based. Code cells run on the serverless Apache Spark pool remotely. A Spark job progress indicator with a real-time progress bar helps you understand the job run status.
 
 The number of tasks for each job or stage helps you identify the parallel level of your Spark job. You can also drill deeper to the Spark UI of a specific job (or stage) by selecting the link on the job (or stage) name.
 
@@ -291,7 +291,7 @@ The number of tasks for each job or stage helps you identify the parallel level 
 
 ### <a name = "spark-session-configuration"></a>Configure a Spark session
 
-On the **Configure session** pane, you can specify the timeout duration, the number, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
+On the **Configure session** pane, you can specify the timeout duration, the number of executors, and the size of executors to give to the current Spark session. Restart the Spark session for configuration changes to take effect. All cached notebook variables are cleared.
 
 You can also create a configuration from the Apache Spark configuration or select an existing configuration. For details, refer to [Manage Apache Spark configuration](../../synapse-analytics/spark/apache-spark-azure-create-spark-configuration.md).
 
@@ -496,7 +496,7 @@ display(slider2)
 
 * The global `display` function that Azure Synapse Analytics provides doesn't support displaying multiple widgets in one call (that is, `display(a, b)`). This behavior is different from the IPython `display` function.
 
-* If you close a notebook that contains IPython widget, you can't view or interact with the widget until you run the corresponding cell again.
+* If you close a notebook that contains an IPython widget, you can't view or interact with the widget until you run the corresponding cell again.
 
 ## Save notebooks
 
@@ -561,7 +561,7 @@ In summary:
 
 ## Manage active sessions
 
-You can reuse your notebook sessions without having to start new ones. In Synapse notebooks, you can manage your active sessions in a single list. To open the list, select the ellipsis (**...**), and then select **Manage sessions** to open the **Active sessions** pane.
+You can reuse your notebook sessions without having to start new ones. In Synapse notebooks, you can manage your active sessions in a single list. To open the list, select the ellipsis (**...**), and then select **Manage sessions**.
 
 ![Screenshot of selections for opening a list of active Synapse notebook sessions.](./media/apache-spark-development-using-notebooks/synapse-notebook-manage-sessions.png)
 
@@ -614,7 +614,7 @@ Synapse notebooks support the magic command `%history` to print the input comman
 In the preceding code, `-n` is the print execution number. The `range` value can be:
 
 * `N`: Print code of the `Nth` executed cell.
-* `M-N`: Print code from the `Mth` to `Nth` executed cell.
+* `M-N`: Print code from the `Mth` to the `Nth` executed cell.
 
 For example, to print input history from the first to the second executed cell, use `%history -n 1-2`.
 
