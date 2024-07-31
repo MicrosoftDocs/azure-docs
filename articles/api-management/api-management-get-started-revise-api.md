@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Add a new revision
-> * Make non-breaking changes to your revision
+> * Make nonbreaking changes to your revision
 > * Make your revision current and add a change log entry
 > * Browse the developer portal to see changes and change log
 > * Access an API revision
@@ -85,7 +85,7 @@ In this tutorial, you learn how to:
 1. Select the **Post to Public Change log for this API** checkbox, if you want to post notes about this change. Provide a description for your change that the developers can see, for example: **Testing revisions. Added new "test" operation.**
 1. **Revision 2** is now current.
 
-    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Screenshot of revision menu in Revisions window in the portal.":::
+    :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Screenshot of revision menu in Revisions window in the portal." lightbox="media/api-management-getstarted-revise-api/revisions-menu.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -147,7 +147,8 @@ az apim api release delete --resource-group apim-hello-word-resource-group \
 
 If you've tried the [developer portal](api-management-howto-developer-portal-customize.md), you can review the API changes and change log there.
 
-1. In the Azure portal, in the left menu, select **APIs**.
+1. In the Azure portal, navigate to your API Management instance.
+1. In the left menu, under **APIs**, select **APIs**.
 1. Select **Developer portal** from the top menu.
 1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
 1. Notice your new **test** operation is now available.
@@ -157,7 +158,7 @@ If you've tried the [developer portal](api-management-howto-developer-portal-cus
 
 ## Access an API revision
 
-Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 2 of the Demo Conference API:
+Each revision to your API can be accessed using a specially formed URL. Add `;rev={revisionNumber}` at the end of your API URL path, but before the query string, to access a specific revision of that API. For example, you might use this URL to access revision 2 of the Demo Conference API:
 
 `https://apim-hello-world.azure-api.net/conf;rev=2/speakers`
 
@@ -175,7 +176,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Add a new revision
-> * Make non-breaking changes to your revision
+> * Make nonbreaking changes to your revision
 > * Make your revision current and add a change log entry
 > * Browse the developer portal to see changes and change log
 > * Access an API revision
