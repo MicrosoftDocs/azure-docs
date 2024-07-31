@@ -37,6 +37,8 @@ az rest --method put --uri https://management.azure.com/subscriptions/6b052e15-0
 ---
 Azure Kubernetes Service (AKS) - Network Delay
 ---
+**Experiment Description** This experiment delays network communication by 200ms 
+
 
 ### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
@@ -98,6 +100,7 @@ Azure Kubernetes Service (AKS) - Network Delay
 --- 
 Azure Kubernetes Service (AKS) - Pod Failure
 ---
+**Experiment Description** This experiment takes down all pods in the cluster for 10 minutes. 
 
 ### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
@@ -160,6 +163,7 @@ Azure Kubernetes Service (AKS) - Pod Failure
 ---
 Azure Kubernetes Service (AKS) - Memory Stress
 ---
+**Experiment Description** This experiment stresses the memory of 4 AKS pods to 95% for 10 minutes. 
 
 ### [Azure CLI](#tab/azure-CLI)
 ```AzCLI
@@ -223,6 +227,7 @@ Azure Kubernetes Service (AKS) - Memory Stress
 ---
 Azure Kubernetes Service (AKS) - CPU Stress
 ---
+**Experiment Description** This experiment stresses the CPU of four pods in the AKS cluster to 95%. 
 
 ### [Azure CLI](#tab/azure-CLI)
 ```AzCLI
@@ -279,10 +284,445 @@ Azure Kubernetes Service (AKS) - CPU Stress
 ```Azure portal
 {"mode":"all","selector":{"namespaces":["autoinstrumentationdemo"]},"stressors":{"cpu":{"workers":4,"load":95}}}
 ```
+---
+Azure Kubernetes Service (AKS) - Network Emulation
+---
+**Experiment Description** This experiment applies a network emulation to all pods in the specified namespace, adding a latency of 100ms and a packet loss of 0.1% for 5 minutes.
 
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_network_emulation_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network emulation",
+                "branches": [
+                    {
+                        "name": "AKS network emulation",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"netem\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"netem\":{\"latency\":\"100ms\",\"loss\":\"0.1\",\"correlation\":\"25\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"netem","mode":"all","selector":{"namespaces":["default"]},"netem":{"latency":"100ms","loss":"0.1","correlation":"25"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Partition
+---
+**Experiment Description** This experiment partitions the network for all pods in the specified namespace, simulating a network split in the 'to' direction for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_partition_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network partition",
+                "branches": [
+                    {
+                        "name": "AKS network partition",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"partition\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"partition\":{\"direction\":\"to\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"partition","mode":"all","selector":{"namespaces":["default"]},"partition":{"direction":"to"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Bandwidth Limitation
+---
+**Experiment Description** This experiment limits the network bandwidth for all pods in the specified namespace to 1mbps, with additional parameters for limit, buffer, peak rate, and burst for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_bandwidth_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network bandwidth",
+                "branches": [
+                    {
+                        "name": "AKS network bandwidth",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"bandwidth\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"bandwidth\":{\"rate\":\"1mbps\",\"limit\":\"50mb\",\"buffer\":\"10kb\",\"peakrate\":\"1mbps\",\"minburst\":\"0\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"bandwidth","mode":"all","selector":{"namespaces":["default"]},"bandwidth":{"rate":"1mbps","limit":"50mb","buffer":"10kb","peakrate":"1mbps","minburst":"0"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Packet Re-order
+---
+**Experiment Description** This experiment reorders network packets for all pods in the specified namespace, with a gap of 5 packets and a reorder percentage of 25% for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_reorder_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network reorder",
+                "branches": [
+                    {
+                        "name": "AKS network reorder",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"reorder\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"reorder\":{\"gap\":\"5\",\"reorder\":\"25\",\"correlation\":\"50\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"reorder","mode":"all","selector":{"namespaces":["default"]},"reorder":{"gap":"5","reorder":"25","correlation":"50"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Packet Loss
+---
+**Experiment Description** This experiment simulates a packet loss of 10% for all pods in the specified namespace for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_loss_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network loss",
+                "branches": [
+                    {
+                        "name": "AKS network loss",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"loss\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"loss\":{\"loss\":\"10\",\"correlation\":\"25\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"loss","mode":"all","selector":{"namespaces":["default"]},"loss":{"loss":"10","correlation":"25"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Packet Duplication
+---
+**Experiment Description** This experiment duplicates 50% of the network packets for all pods in the specified namespace for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_duplicate_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network duplicate",
+                "branches": [
+                    {
+                        "name": "AKS network duplicate",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"duplicate\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"duplicate\":{\"duplicate\":\"50\",\"correlation\":\"50\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"duplicate","mode":"all","selector":{"namespaces":["default"]},"duplicate":{"duplicate":"50","correlation":"50"}}
+```
+---
+Azure Kubernetes Service (AKS) - Network Packet Corruption
+---
+**Experiment Description** This experiment corrupts 50% of the network packets for all pods in the specified namespace for 5 minutes.
+
+
+### [Azure CLI Experiment.JSON](#tab/azure-CLI)
+```AzCLI
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "tags": {},
+    "location": "westus",
+    "properties": {
+        "provisioningState": "Succeeded",
+        "selectors": [
+            {
+                "type": "List",
+                "targets": [
+                    {
+                        "id": "/subscriptions/123hdq8-123d-89d7-5670-123123/resourceGroups/aks_corrupt_experiment/providers/Microsoft.ContainerService/managedClusters/nikhilAKScluster/providers/Microsoft.Chaos/targets/Microsoft-AzureKubernetesServiceChaosMesh",
+                        "type": "ChaosTarget"
+                    }
+                ],
+                "id": "Selector1"
+            }
+        ],
+        "steps": [
+            {
+                "name": "AKS network corrupt",
+                "branches": [
+                    {
+                        "name": "AKS network corrupt",
+                        "actions": [
+                            {
+                                "type": "continuous",
+                                "selectorId": "Selector1",
+                                "duration": "PT5M",
+                                "parameters": [
+                                    {
+                                        "key": "jsonSpec",
+                                        "value": "{\"action\":\"corrupt\",\"mode\":\"all\",\"selector\":{\"namespaces\":[\"default\"]},\"corrupt\":{\"corrupt\":\"50\",\"correlation\":\"50\"}}"
+                                    }
+                                ],
+                                "name": "urn:csci:microsoft:azureKubernetesServiceChaosMesh:networkChaos/2.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+```
+
+### [Azure portal parameters](#tab/azure-portal)
+
+```Azure portal
+{"action":"corrupt","mode":"all","selector":{"namespaces":["default"]},"corrupt":{"corrupt":"50","correlation":"50"}}
+```
 ---
 Azure Load Test - Start/Stop Load Test (With Delay)
 ---
+**Experiment Description** This experiment starts an existing Azure load test, then waits for 10 minutes using the "delay" action before stopping the load test. 
+
 
 ### [Azure CLI Experiment.JSON](#tab/azure-CLI)
 ```AzCLI
