@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Estimate the cost of archiving data
 
-The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot, cool and cold tiers. 
+The archive tier is an offline tier for storing data that is rarely accessed. The archive access tier has the lowest storage cost. However, this tier has higher data retrieval costs with a higher latency as compared to the hot, cool, and cold tiers. 
 
 This article explains how to calculate the cost of using archive storage and then presents a few example scenarios. 
 
@@ -36,14 +36,14 @@ You can calculate the cost of writing to the archive tier by multiplying the <u>
 
 ###### Put Blob
 
-If you use the [Put Blob](/rest/api/storageservices/put-blob) operation, then the number of operations is the same as the number of blobs. For example, if you plan to write 30,000 blobs to the archive tier, then that will require 30,000 operations. Each operation is charged the price of an **archive** write operation. 
+If you use the [Put Blob](/rest/api/storageservices/put-blob) operation, then the number of operations is the same as the number of blobs. For example, if you plan to write 30,000 blobs to the archive tier, then that requires 30,000 operations. Each operation is charged the price of an **archive** write operation. 
 
 > [!TIP]
 > Operations are billed per 10,000. Therefore, if the price per 10,000 operations is $0.10, then the price of a single operation is $0.10 / 10,000 = $0.00001. 
 
 ###### Put Block and Put Block List
 
-If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then an upload will require multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a write operation for the accounts default access tier. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation</u>.
+If you upload a blob by using the [Put Block](/rest/api/storageservices/put-block) and [Put Block List](/rest/api/storageservices/put-block-list) operations, then an upload requires multiple operations, and each of those operations are charged separately. Each [Put Block](/rest/api/storageservices/put-block) operation is charged at the price of a write operation for the accounts default access tier. The number of [Put Block](/rest/api/storageservices/put-block) operations that you need depends on the block size that you specify to upload the data. For example, if the blob size is 100 MiB and you choose block size to 10 MiB when you upload that blob, you would use 10 [Put Block](/rest/api/storageservices/put-block) operations. Blocks are written (committed) to the archive tier by using the [Put Block List](/rest/api/storageservices/put-block-list) operation. That operation is charged the price of an **archive** write operation. Therefore, to upload a single blob, your cost is (<u>number of blocks</u> * <u>price of a hot write operation) + price of an archive write operation</u>.
 
 > [!NOTE]
 > If you're not using an SDK or the REST API directly, you might have to investigate which operations your data transfer tool is using to upload files. You might be able to determine this by reaching out the tool provider or by using storage logs. 
@@ -56,7 +56,7 @@ If you use the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operatio
 
 You can calculate the storage costs by multiplying the <u>size of the data</u> in GB by the <u>price of archive storage</u>.
 
-For example (assuming the sample pricing), if you plan to store 10 TB archived blobs, the capacity cost is $0.002 * 10 * 1024 = $20.48 per month. 
+For example (assuming the sample pricing), if you plan to store 10 TB to the archive tier, the capacity cost is $0.002 * 10 * 1024 = $20.48 per month. 
 
 #### The cost to rehydrate
 
@@ -136,9 +136,9 @@ This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in si
 
 ## Archive versus cold and cool
 
-Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate 10 GiB files. To learn more, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md). The archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements will help you to choose between the cool, cold, and archive tiers.
+Archive storage is the lowest cost tier. However, it can take up to 15 hours to rehydrate 10-GiB files. To learn more, see [Blob rehydration from the archive tier](archive-rehydrate-overview.md). The archive tier might not be the best fit if your workloads must read data quickly. The cool tier offers a near real-time read latency with a lower price than that the hot tier. Understanding your access requirements helps you to choose between the cool, cold, and archive tiers.
 
-The following table compares the cost of archive storage with the cost of cool and cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about 10% of stored capacity (1024 GB), and 10% of total operations (20,000).
+The following table compares the cost of archive storage with the cost of cool and cold storage by using the [Sample prices](#sample-prices) that appear in this article. This scenario assumes a monthly ingest of 200,000 files totaling 10,240 GB in size to archive. It also assumes 1 read each month about 10% of stored capacity (1,024 GB), and 10% of total operations (20,000).
 
 | Cost factor                                                 | Archive    | Cold       | Cool        |
 |-------------------------------------------------------------|------------|------------|-------------|
