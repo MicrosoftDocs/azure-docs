@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Table client library for Go
 description: Store structured data in the cloud using the Azure Table client library for Go.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: golang
 ms.custom: devx-track-go
