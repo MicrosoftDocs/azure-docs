@@ -34,6 +34,14 @@ ms.custom:
 | [**stored property**](vector-search-how-to-configure-compression-storage.md#option-3-set-the-stored-property-to-remove-retrievable-storage) | Feature  | Announcing general availability. Boolean that reduces storage of vector indexes by *not* storing retrievable vectors. |
 | [**vectorQueries.Weight property**](vector-search-how-to-query.md#vector-weighting) | Feature  | Announcing general availability. Specify the relative weight of each vector query in a search operation. |
 
+## July 2024
+
+| Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
+|-----------------------------|------|--------------|
+[Chat with your data](https://github.com/Azure-Samples/chat-with-your-data-solution-accelerator) | Accelerator| A solution accelerator for the RAG pattern running in Azure, using Azure AI Search for retrieval and Azure OpenAI large language models to create conversational search experiences. The code with sample data is available for use case scenarios such as financial advisor and contract review and summarization.|
+[Conversational Knowledge Mining](https://github.com/microsoft/Customer-Service-Conversational-Insights-with-Azure-OpenAI-Services) | Accelerator|	A solution accelerator built on top of Azure AI Search, Azure Speech and Azure OpenAI services that allows customers to extract actionable insights from post-contact center conversations. |
+[Build Your Own AI Assistant](https://github.com/microsoft/Build-your-own-AI-Assistant-Solution-Accelerator) | Accelerator| A solution built on Azure Open AI Service, Azure AI Search and Microsoft Fabric, to identify relevant documents, summarize and categorize vast amounts of unstructured information, and accelerate the overall document review and content generation process. |
+
 ## June 2024
 
 | Item&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Type |  Description |
