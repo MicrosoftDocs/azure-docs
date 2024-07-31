@@ -3,7 +3,7 @@ title: Schedule data import (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to schedule an automated data import that brings in data from external sources.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon
