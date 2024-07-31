@@ -85,9 +85,9 @@ Select the appropriate tab for instructions.
 
 # [Azure or Defender portal](#tab/portal)
 
-### Create data collection rule
+### Create data collection rule (DCR)
 
-To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data connector rule.
+To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data collection rule (DCR).
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 
