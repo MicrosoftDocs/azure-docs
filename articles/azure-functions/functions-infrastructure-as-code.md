@@ -1370,7 +1370,9 @@ If you're deploying a [containerized function app](./functions-how-to-custom-con
 + Set any required [`DOCKER_REGISTRY_SERVER_*`](functions-infrastructure-as-code.md?tabs=linux#application-configuration-1) settings when obtaining the container from a private registry. 
 + Set [`WEBSITES_ENABLE_APP_SERVICE_STORAGE`](../app-service/reference-app-settings.md#custom-containers) application setting to `false`. 
 
-If some settings are missing, the application provisioning may fail with a HTTP/500 error "Function App provisioning failed."
+If some settings are missing, the application provisioning might fail with this HTTP/500 error: 
+
+>`Function app provisioning failed.`
 
 For more information, see [Application configuration](#application-configuration).
 
