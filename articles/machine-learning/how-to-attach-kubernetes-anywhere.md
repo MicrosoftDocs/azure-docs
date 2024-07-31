@@ -3,7 +3,7 @@ title: Introduction to Kubernetes compute target in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning Kubernetes compute enable Azure Machine Learning across different infrastructures in cloud and on-premises
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 author: ssalgadodev
