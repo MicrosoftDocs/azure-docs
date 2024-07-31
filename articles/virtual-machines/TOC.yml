@@ -202,34 +202,34 @@
         - name: B-series CPU Credit Model
           href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: Bsv2 series
-          href: bsv2-series.md
+          href: ./sizes/general-purpose/bsv2-series.md
         - name: Basv2 series
-          href: basv2.md
+          href: ./sizes/general-purpose/basv2-series.md
         - name: Bpsv2 series
-          href: bpsv2-arm.md
+          href: ./sizes/general-purpose/bpsv2-series.md
         - name: B series V1
-          href: sizes-b-series-burstable.md
+          href: ./sizes/general-purpose/bv1-series.md
       - name: D family
         items:
         - name: Overview
           displayName: D-series, sizes, size, vm size
           href: ./sizes/general-purpose/d-family.md
         - name: Dsv6 series
-          href: dsv6-ddsv6-series.md
+          href: ./sizes/general-purpose/dsv6-series.md
         - name: Ddsv6 series
-          href: dsv6-ddsv6-series.md
+          href: ./sizes/general-purpose/ddsv6-series.md
         - name: Dlsv6 series
-          href: dlsv6-dldsv6-series.md
+          href: ./sizes/general-purpose/dlsv6-series.md
         - name: Dldsv6 series
-          href: dlsv6-dldsv6-series.md
+          href: ./sizes/general-purpose/dldsv6-series.md
         - name: Dasv6 series
-          href: dasv6-dadsv6-series.md
+          href: ./sizes/general-purpose/dasv6-series.md
         - name: Dadsv6 series
-          href: dasv6-dadsv6-series.md
+          href: ./sizes/general-purpose/dadsv6-series.md
         - name: Dalsv6 series
-          href: dalsv6-daldsv6-series.md
+          href: ./sizes/general-purpose/dalsv6-series.md
         - name: Daldsv6 series
-          href: dalsv6-daldsv6-series.md
+          href: ./sizes/general-purpose/daldsv6-series.md
         - name: Dpsv6 series
           href: ./sizes/general-purpose/dpsv6-series.md
         - name: Dpdsv6 series
@@ -247,9 +247,9 @@
         - name: Ddsv5 series
           href: ./sizes/general-purpose/ddsv5-series.md
         - name: Dasv5 series
-          href: dasv5-dadsv5-series.md
+          href: ./sizes/general-purpose/dasv5-series.md
         - name: Dadsv5 series
-          href: dasv5-dadsv5-series.md
+          href: ./sizes/general-purpose/dadsv5-series.md
         - name: Dpsv5 series
           href: ./sizes/general-purpose/dpsv5-series.md
         - name: Dpdsv5 series
@@ -267,9 +267,9 @@
         - name: Dsv4 series
           href: ./sizes/general-purpose/dsv4-series.md
         - name: Dav4 series
-          href: dav4-dasv4-series.md
+          href: ./sizes/general-purpose/dav4-series.md
         - name: Dasv4 series
-          href: dav4-dasv4-series.md
+          href: ./sizes/general-purpose/dasv4-series.md
         - name: Ddv4 series
           href: ./sizes/general-purpose/ddv4-series.md   
         - name: Ddsv4 series

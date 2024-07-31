@@ -1,6 +1,6 @@
 ---
 author: ccompy
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 02/27/2020
 ms.author: ccompy

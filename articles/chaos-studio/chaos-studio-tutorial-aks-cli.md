@@ -214,7 +214,7 @@ az rest --method get --uri https://management.azure.com/subscriptions/$SUBSCRIPT
 
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --assignee-principal-type "ServicePrincipal" --scope subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME
+az role assignment create --role "Azure Kubernetes Service Cluster Admin Role" --assignee-principal-type "ServicePrincipal" --assignee-object-id $EXPERIMENT_PRINCIPAL_ID --scope subscriptions/$SUBSCRIPTION_ID/resourceGroups/$resourceGroupName/providers/Microsoft.ContainerService/managedClusters/$AKS_CLUSTER_NAME
 ```
 
 ## Run your experiment
