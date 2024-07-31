@@ -59,7 +59,7 @@ This section is a planning checklist in the following areas:
 - Service Endpoints
 
 
-### State, Storage and downstream dependencies
+### State, storage and downstream dependencies
 
 - **Verify that your functions are stateless.** We [recommend that your function executions be stateless](../azure-functions/performance-reliability#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. While the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../azure-functions/durable/durable-functions-overview.md). 
 
