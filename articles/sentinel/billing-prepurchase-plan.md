@@ -12,9 +12,9 @@ ms.collection: usx-security
 
 # Optimize Microsoft Sentinel costs with a prepurchase plan
 
-Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Think of the prepurchase plan as a pool of credits, called commit units (CUs), that are bought at discounted tiers in your purchasing currency. The more you buy, the greater the discount. Purchased CUs are used to pay down qualifying costs in US dollars (USD). So, the value of `1 CU` = `$1 USD`. 
+Save on your Microsoft Sentinel costs when you buy a prepurchase plan. Prepurchase plans are commit units (CUs) bought at discounted tiers in your purchasing currency for a specific product. The more you buy, the greater the discount. Purchased CUs pay down qualifying costs in US dollars (USD). So, if Microsoft Sentinel generates a retail cost of $100, then 100 Sentinel CUs (SCUs) are consumed. 
 
-Any eligible Microsoft Sentinel retail costs deduct first from the prepurchased Microsoft Sentinel CUs (SCUs) automatically over the course of its one year term. Your prepurchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
+Any eligible Microsoft Sentinel retail costs automatically deduct first from your SCUs over the course of its one year term or until they are depleted. Your prepurchase plan SCUs start paying for your Microsoft Sentinel workspace costs without needing to redeploy or reassign the plan, and by default automatically renew to ensure you continue saving.
 
 ## Prerequisites
 
@@ -27,9 +27,9 @@ To buy a prepurchase plan, you must have one of the following Azure subscription
 
 ## Determine the right size to buy
 
-Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments. Microsoft Sentinel prepurchase plans have a term agreement of one year.
+Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments and considered a retail cost. Microsoft Sentinel prepurchase plans have a term agreement of one year.
 
-Here's an example of the decision making and cost savings for a prepurchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day. 
+Here's an example of the decision making and cost savings for a prepurchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day.
 
 A $100,000 USD prepurchase plan covers five months of that commitment tier but is valid for paying Microsoft Sentinel costs for 12 months. That prepurchase plan is bought at a 22% discount for $78,000 USD. 
 
@@ -42,13 +42,7 @@ For more information, see the following articles:
 >[!IMPORTANT]
 > The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-The Microsoft Sentinel prepurchase SCUs apply to Microsoft Sentinel simplified and classic pricing tiers usage. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name and the following meters:
-- ***n* GB Commitment Tier**
-- **Analysis**
-- **Pay-as-You-Go Analysis**
-- **Classic *n* GB Commitment Tier**
-- **Classic Analysis**
-- **Classic Pay-as-You-Go Analysis**
+Microsoft Sentinel classic pricing tier usage and all simplified pricing is eligible for Microsoft Sentinel prepurchase plans. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name in the invoice details. 
 
 For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand your Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
 
