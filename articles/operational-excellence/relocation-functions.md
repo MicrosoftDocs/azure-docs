@@ -83,7 +83,7 @@ See [Relocate Azure App Services to another region - Identities](relocation-app-
 
 ## Relocate
 
-To relocate your Functions App resources, you can use either available deployment technologies or Infrastructure as Code (IaC).
+To relocate your function app resources, you can use either available [deployment technologies](../azure-functions/functions-deployment-technologies.md) or [Infrastructure as Code (IaC)](../azure-functions/functions-infrastructure-as-code.md).
 
 
 ### Relocate using available deployment technologies
