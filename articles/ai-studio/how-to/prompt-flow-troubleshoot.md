@@ -70,7 +70,7 @@ You may encounter 409 error from Azure OpenAI, it means you have reached the rat
 
    - **Case 2:** LLM node runs for a long time.
 
-        :::image type="content" source="../media/prompt-flow/rruntime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout." lightbox = "../media/prompt-flow/how-to-create-manage-runtime/runtime-timeout-by-language-model-timeout.png":::
+        :::image type="content" source="../media/prompt-flow/runtime-timeout-by-language-model-timeout.png" alt-text="Screenshot that shows timeout logs caused by an LLM timeout." lightbox = "../media/prompt-flow/runtime-timeout-by-language-model-timeout.png":::
 
         In this case, if you find the message `request canceled` in the logs, it might be because the OpenAI API call is taking too long and exceeding the timeout limit.
 
@@ -137,7 +137,7 @@ Could not find driver program in the request
 
 There are two ways to fix this error.
 
-- (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](./flow-deploy/md#requirements-text-file).
+- (Recommended) You can find the container image uri in your custom environment detail page, and set it as the flow base image in the flow.dag.yaml file. When you deploy the flow in UI, you just select **Use environment of current flow definition**, and the backend service will create the customized environment based on this base image and `requirement.txt` for your deployment. Learn more about [the environment specified in the flow definition](./flow-deploy.md#requirements-text-file).
 
 - You can fix this error by adding `inference_config` in your custom environment definition.
 
