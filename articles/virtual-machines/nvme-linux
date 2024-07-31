@@ -1,0 +1,22 @@
+---
+author: Melissa Hollingshed
+ms.author: mehollin
+ms.date: 2024-07-31
+ms.topic: how-to
+ms.service: virtual-machines
+ms.subservice: nvme-linux
+---
+
+# Converting Virtual Machines Running Linux from SCSI to NVMe
+
+In this article, we will discuss the process of converting virtual machines running Linux from SCSI to NVMe storage. By migrating to NVMe, you can take advantage of its improved performance and scalability.
+
+## What is changing for your VM?
+Changing the host interface from SCSI to NVMe will not change the remote storage (OS disk or data disks), but change the way the operating systems sees the disks.
+
+|                 | SCSI enabled VM | NVMe enabled VM |
+|-----------------|-----------------|----------------|
+| OS disk         | /dev/sda        | /dev/nvme0n1   |
+| Temp Disk       | /dev/sdb        | /dev/sda       |
+| First Data Disk | /dev/sdc        | /dev/nvme0n2   |
+
