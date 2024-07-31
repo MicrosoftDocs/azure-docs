@@ -157,7 +157,7 @@ if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRo
 
 When the breakout room state is `closed`, then the user is automatically moved to the main meeting. User is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms`, that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. 
 
-If the user wants to leave the breakout room even before the room is closed and join the main meeting call then use the below code :
+If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can join the main meeting call with the following code: 
 
 ```js
  if(breakoutRoomCall != null){
