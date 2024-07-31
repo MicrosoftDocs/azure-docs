@@ -20,7 +20,7 @@ It's defined in a [search index](search-what-is-an-index.md), it applies to sear
 
 To add a vectorizer to search index, you can use the index designer in Azure portal, or call the [Create or Update Index](/rest/api/searchservice/indexes/create-or-update) REST API, or use any Azure  SDK package that's updated to provide this feature.
 
-Vectorizers are now generally available as long as you use a generally available skill-vectorizer pair. [AzureOpenAIEmbedding vectorizer](vector-search-vectorizer-azure-open-ai.md) and [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) are generally available. Custom [Webapivectorizer](/rest/api/searchservice/indexes/create-or-update#webapivectorizer) is also generally available.
+Vectorizers are now generally available as long as you use a generally available skill-vectorizer pair. [AzureOpenAIEmbedding vectorizer](vector-search-vectorizer-azure-open-ai.md) and [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) are generally available. The custom [Web API vectorizer](/rest/api/searchservice/indexes/create-or-update#webapivectorizer) is also generally available.
 
 [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md), [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md), and their equivalent skills are still in preview. Your skillset must specify [2024-05-01-preview REST API](/rest/api/searchservice/operation-groups?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to use preview skills and vectorizers.
 
