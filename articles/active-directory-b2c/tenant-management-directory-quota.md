@@ -21,7 +21,7 @@ ms.subservice: B2C
 
 # Manage directory size quota of your Azure Active Directory B2C tenant
 
-It's important that you monitor how you use your Azure AD B2C directory quota. Directory quota has a given size that is expressed in number of objects. These objects include user accounts, app registrations, groups, etc. When the number of objects in your tenant reach quota size, the directory will generate an error when trying to create a new object.
+It's important that you monitor how you use your Azure AD B2C directory quota. Directory quota has a size that's expressed in number of objects. These objects include user accounts, app registrations, groups, etc. When the number of objects in your tenant reach quota size, the directory will generate an error when trying to create a new object.
 
 
 ## Monitor directory quota usage in your Azure AD B2C tenant
@@ -79,9 +79,9 @@ The response from the API call looks similar to the following json:
 
 - The attribute `used` is the number of objects you already have in the directory.
 
-If your tenant usage is higher that 80%, you can remove inactive users or request for a quota increase.
+If your tenant usage is higher that 80%, you can remove inactive users or request for a quota size increase.
 
 
-## Request increase directory quota size
+## Increase directory quota size
 
-You can request to increase the quota size by [contacting support](find-help-open-support-ticket.md) 
+You can request to increase the quota size by [contacting support](find-help-open-support-ticket.md).
