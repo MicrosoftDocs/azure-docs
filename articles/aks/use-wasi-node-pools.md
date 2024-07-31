@@ -127,57 +127,56 @@ Labels:             agentpool=mywasipool
 
 ## Running WASM/WASI Workload
 
-Create a file named *slight.yaml* with the following content:
+Create a file named *spin.yaml* with the following content:
 
 ```yml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wasm-slight
+  name: wasm-spin
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wasm-slight
+      app: wasm-spin
   template:
     metadata:
       labels:
-        app: wasm-slight
+        app: wasm-spin
     spec:
-      runtimeClassName: wasmtime-slight-v1
+      runtimeClassName: wasmtime-spin
       containers:
-        - name: hello-slight
-          image: ghcr.io/deislabs/containerd-wasm-shims/examples/slight-rust-hello:v0.3.3
+        - name: spin-hello
+          image: ghcr.io/spinkube/containerd-shim-spin/examples/spin-rust-hello:v0.15.1
           command: ["/"]
-          resources:
-            requests:
-              cpu: 10m
-              memory: 10Mi
+          resources: # limit the resources to 128Mi of memory and 100m of CPU
             limits:
-              cpu: 500m
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 100m
               memory: 128Mi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: wasm-slight
+  name: wasm-spin
 spec:
-  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
   selector:
-    app: wasm-slight
+    app: wasm-spin
 ```
 
 > [!NOTE]
-> When developing applications, modules should be build against the `wasm32-wasi` target. For more details, see the [spin][spin] and [slight][slight] documentation.
+> When developing applications, modules should be build against the `wasm32-wasi` target. For more details, see the [spin][spin] documentation.
 
 Use `kubectl` to run your example deployment:
 
 ```bash
-kubectl apply -f slight.yaml
+kubectl apply -f spin.yaml
 ```
 
 Use `kubectl get svc` to get the external IP address of the service.
@@ -188,7 +187,7 @@ kubectl get svc
 ```output
 NAME          TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)        AGE
 kubernetes    ClusterIP      10.0.0.1       <none>         443/TCP        10m
-wasm-slight   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
+wasm-spin   LoadBalancer   10.0.133.247   <EXTERNAL-IP>  80:30725/TCP   2m47s
 ```
 
 Access the example application at `http://EXTERNAL-IP/hello`. The following example uses `curl`.
@@ -206,7 +205,7 @@ hello
 To remove the example deployment, use `kubectl delete`.
 
 ```bash
-kubectl delete -f slight.yaml
+kubectl delete -f spin.yaml
 ```
 
 To remove the WASM/WASI node pool, use `az aks nodepool delete`.
