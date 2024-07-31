@@ -86,6 +86,43 @@ The **Checkpoint Key** is used by the SAP CDC runtime to store status informatio
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-checkpoint-key.png" alt-text="Screenshot of checkpoint key property in data flow activity.":::
 
+### Parameterized checkpoint keys
+
+Checkpoint keys are required to manage the status of change data capture processes. For efficient management, you can parameterize the checkpoint key to allow connections to different sources. Here's how you can implement a parameterized checkpoint key:
+
+1. Create a global parameter to store the checkpoint key at the pipeline level to ensure consistency across executions:
+
+   ```json
+   "parameters": {
+    "checkpointKey": {
+        "type": "string",
+        "defaultValue": "YourStaticCheckpointKey"
+    }
+   } 
+   ```
+
+1. Programmatically set the checkpoint key to invoke the pipeline with the desired value each time it runs. Here's an example of a REST call using the parameterized checkpoint key:
+
+   ```json
+   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/pipelines/{pipelineName}?api-version=2018-06-01
+   Content-Type: application/json
+   {
+       "properties": {
+           "activities": [
+               // Your activities here
+           ],
+           "parameters": {
+               "checkpointKey": {
+                   "type": "String",
+                   "defaultValue": "YourStaticCheckpointKey"
+               }
+           }
+       }
+   }
+   ```
+
+For more detailed information refer to [Advanced topics for the SAP CDC connector](sap-change-data-capture-advanced-topics.md).
+
 ### Mapping data flow properties
 
 To create a mapping data flow using the SAP CDC connector as a source, complete the following steps:

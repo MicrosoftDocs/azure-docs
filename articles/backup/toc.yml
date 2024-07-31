@@ -39,9 +39,15 @@
     - name: With Terraform
       href: quick-kubernetes-backup-terraform.md
   - name: Configure vaulted backup for Azure Blob
-    items:
+    items: 
+    - name: From the Azure portal
+      href: blob-backup-configure-quick.md
+    - name: Using PowerShell
+      href: quick-blob-vaulted-backup-powershell.md
+    - name: Using Azure CLI
+      href: quick-blob-vaulted-backup-cli.md
     - name: Using ARM template
-      href: backup-blobs-storage-account-arm-template.md
+      href: backup-blobs-storage-account-arm-template.md  
     - name: Using Bicep
       href: backup-blobs-storage-account-bicep.md
   - name: Install Backup extension in AKS cluster
@@ -80,6 +86,8 @@
       href: tutorial-cross-region-restore.md
   - name: Configure item level backup of an AKS cluster
     href: tutorial-configure-backup-aks.md
+  - name: Configure vaulted backup for Azure Blob
+    href: blob-backup-configure-tutorial.md  
   - name: Restore vaulted backups for AKS clusters in a secondary region
     href: tutorial-restore-aks-backups-across-regions.md
   - name: Back up Windows Server
@@ -246,8 +254,8 @@
         href: backup-create-recovery-services-vault.md
       - name: Delete
         href: backup-azure-delete-vault.md
-      - name: Move
-        href: backup-azure-move-recovery-services-vault.md
+      - name: Relocate
+        href: ../operational-excellence/relocation-backup.md?toc=/azure/backup/toc.json
       - name: Manage
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
@@ -803,6 +811,8 @@
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
+    - name: Azure Backup Vault
+      href: backup-azure-backup-vault-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
     - name: Azure File share
