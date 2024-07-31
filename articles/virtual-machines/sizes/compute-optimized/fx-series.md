@@ -2,7 +2,7 @@
 title: FX size series
 description: Information on and specifications of the FX-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/30/2024

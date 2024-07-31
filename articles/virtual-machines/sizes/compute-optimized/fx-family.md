@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### FX-series
 [!INCLUDE [fx-series-summary](./includes/fx-series-summary.md)]
 
-[View the full FX-series page](../../fx-series.md).
+[View the full FX-series page](./fx-series.md).
 
 [!INCLUDE [fx-series-specs](./includes/fx-series-specs.md)]
 
