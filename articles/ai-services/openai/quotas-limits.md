@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 07/25/2024
+ms.date: 07/31/2024
 ms.author: mbullwin
 ---
 
@@ -62,9 +62,9 @@ The following sections provide you with a quick guide to the default quotas and 
 | Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|---|:---:|:---:|
 |`gpt-4o`|Enterprise agreement | 30 M | 180 K |
-|`gpt-4o-mini` | Enterprise agreement | 15 M | 90 K |
+|`gpt-4o-mini` | Enterprise agreement | 50 M | 300 K |
 |`gpt-4o` |Default | 450 K | 2.7 K |
-|`gpt-4o-mini` | Default | 250 K | 1.5 K  |
+|`gpt-4o-mini` | Default | 2 M | 12 K  |
 
 M = million | K = thousand
 
@@ -73,9 +73,9 @@ M = million | K = thousand
 | Model|Tier| Quota Limit in tokens per minute (TPM) | Requests per minute |
 |---|---|:---:|:---:|
 |`gpt4o`|Enterprise agreement | 1 M | 6 K |
-|`gpt-4o-mini` | Enterprise agreement | 7.5 M | 45 K |
+|`gpt-4o-mini` | Enterprise agreement | 2 M | 12 K |
 |`gpt4o`|Default | 150 K | 900 |
-|`gpt-4o-mini` | Default | 125 K | 750 |
+|`gpt-4o-mini` | Default | 450 K | 2.7 K |
 
 M = million | K = thousand
 
