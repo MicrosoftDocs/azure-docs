@@ -1,7 +1,7 @@
 ---
 title: NVMe overview
 description: Learn about NVMe and how to enable it 
-author: mehollin
+author: MelissaHollingshed
 ms.service: virtual-network
 ms.date: 07/31/2024
 ms.author: mehollin
@@ -35,7 +35,7 @@ Azure Boost also optimizes performance by using the industry-standard NVMe inter
 
 ## SCSI to NVMe
 
-For v6, Ebsv5 and greater VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux).
+For v6, Ebsv5 and greater VMs, you will need to transition from SCSI to NVMe. For more information, read about [SCSI to NVMe using Linux](../../articles/virtual-machines/nvme-linux.md).
 
 
 ## Supportability

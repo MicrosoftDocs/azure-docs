@@ -1,11 +1,11 @@
 ---
-author: Melissa Hollingshed
+author: MelissaHollingshed
 ms.author: mehollin
-ms.date: 2024-07-31
+ms.date: 07/31/2024
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subservice: nvme-linux
 title: SCSI to NVMe for Linux VMs
+description: How to convert SCSI to NVMe using Linux
 ---
 
 # Converting Virtual Machines Running Linux from SCSI to NVMe
@@ -29,8 +29,8 @@ Azure will continue to support the SCSI interface on the versions of VM offering
 ## What is changing for your VM?
 Changing the host interface from SCSI to NVMe will not change the remote storage (OS disk or data disks), but change the way the operating systems sees the disks.
 
-|                 | SCSI enabled VM | NVMe enabled VM |
+|| SCSI enabled VM | NVMe enabled VM |
 |-----------------|-----------------|----------------|
-| OS disk         | /dev/sda        | /dev/nvme0n1   |
-| Temp Disk       | /dev/sdb        | /dev/sda       |
-| First Data Disk | /dev/sdc        | /dev/nvme0n2   |
+| **OS disk**        | /dev/sda        | /dev/nvme0n1   |
+| **Temp Disk**      | /dev/sdb        | /dev/sda       |
+| **First Data Disk**| /dev/sdc        | /dev/nvme0n2   |
