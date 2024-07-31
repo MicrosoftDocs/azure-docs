@@ -3,7 +3,7 @@ title: Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes
 description: Learn how to create a WebAssembly System Interface (WASI) node pool in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload on Kubernetes.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/17/2023
+ms.date: 07/31/2024
 author: schaffererin
 ms.author: schaffererin
 
