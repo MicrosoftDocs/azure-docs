@@ -1,8 +1,8 @@
 ---
 title: New and upcoming changes in recommendations and alerts
 description: Get release notes for new and upcoming changes in recommendations and alerts in Microsoft Defender for Cloud. 
-ms.topic: conceptual
-ms.date: 03/18/2024
+ms.topic: overview
+ms.date: 07/30/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
@@ -49,6 +49,9 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| July 31 | Recommendation | Upcoming deprecation | [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machines)  |
+| July 31 | Alert | Upcoming deprecation | [Traffic detected from IP addresses recommended for blocking](alerts-azure-network-layer.md#traffic-detected-from-ip-addresses-recommended-for-blocking) |
+| July 30 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
@@ -92,7 +95,7 @@ New and updated recommendations and alerts are added to the table in date order.
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on EC2s](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
-| March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on EC2s]                   |
+| March 18    | Recommendation                 | GA                                                           | EDR solution should be installed on EC2s              |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on GCP virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machines) |
 | End March   | Recommendation                 | Deprecation                                                  | [Endpoint protection should be installed on machines](recommendations-reference-deprecated.md#endpoint-protection-should-be-installed-on-machines)  . |

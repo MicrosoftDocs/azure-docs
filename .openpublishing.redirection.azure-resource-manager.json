@@ -1939,6 +1939,71 @@
       "source_path": "articles/azure-resource-manager/bicep/bicep-import-providers.md",
       "redirect_url": "bicep-import",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-codes.md",
+      "redirect_url": "bicep-core-diagnostics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp033.md",
+      "redirect_url": "diagnostics/bcp033",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp035.md",
+      "redirect_url": "diagnostics/bcp035",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp036.md",
+      "redirect_url": "diagnostics/bcp036",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp037.md",
+      "redirect_url": "diagnostics/bcp037",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp040.md",
+      "redirect_url": "diagnostics/bcp040",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp053.md",
+      "redirect_url": "diagnostics/bcp053",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp072.md",
+      "redirect_url": "diagnostics/bcp072",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp073.md",
+      "redirect_url": "diagnostics/bcp073",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp327.md",
+      "redirect_url": "diagnostics/bcp327",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp328.md",
+      "redirect_url": "diagnostics/bcp328",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp332.md",
+      "redirect_url": "diagnostics/bcp332",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/bicep/bicep-error-bcp333.md",
+      "redirect_url": "diagnostics/bcp333",
+      "redirect_document_id": false
     }
   ]
 }

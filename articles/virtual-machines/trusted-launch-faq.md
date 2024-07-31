@@ -106,6 +106,10 @@ Trusted Launch supports ephemeral OS disks. For more information, see [Trusted L
 > [!NOTE]
 > When you use ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the virtual Trusted Platform Module (vTPM) after the creation of the VM might not be persisted across operations like reimaging and platform events like service healing.
 
+### Are security features available with Trusted launch applicable to data disks as well?
+
+Trusted launch provides foundational security for Operating system hosted in virtual machine by attesting its boot integrity. Trusted launch security features are applicable for running OS and OS disks only, they are not applicable to data disks or OS binaries stored in data disks. For more details, see [Trusted launch overview](trusted-launch.md)
+
 ### Can a VM be restored by using backups taken before Trusted Launch was enabled?
 
 Backups taken before you [upgrade an existing Generation 2 VM to Trusted Launch](trusted-launch-existing-vm.md) can be used to restore the entire VM or individual data disks. They can't be used to restore or replace the OS disk only.

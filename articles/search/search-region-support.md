@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 07/09/2024
+ms.date: 07/25/2024
 
 ---
 
@@ -279,9 +279,9 @@ None of these regions support Azure [role-based access for data plane operations
 
 | Region | AI enrichment | Semantic ranking | Availability zones |
 |--|--|--|--|
-| Arizona | ✅ |  | |
+| Arizona | ✅ | ✅  | |
 | Texas |  |  |  |
-| Virginia | ✅ |  | ✅ |
+| Virginia | ✅ | ✅  | ✅ |
 
 ## Azure operated by 21Vianet
 

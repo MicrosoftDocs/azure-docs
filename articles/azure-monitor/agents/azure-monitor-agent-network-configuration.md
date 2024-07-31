@@ -24,6 +24,9 @@ Azure Virtual network service tags can be used to define network access controls
 ## Firewall endpoints
 The following table provides the endpoints that firewalls need to provide access to for different clouds. Each is an outbound connection to port 443.
 
+> [!IMPORTANT] 
+> For all endpoints, HTTPS inspection must be disabled.
+
 |Endpoint |Purpose | Example |
 |:--|:--|:--|
 | `global.handler.control.monitor.azure.com` |Access control service - |
