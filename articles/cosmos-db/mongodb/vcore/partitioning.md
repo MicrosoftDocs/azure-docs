@@ -4,8 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Logical sharding for horizontal scale in Azure Cosmos DB for MongoDB vCore.
 author: abinav2307
 ms.author: abramees
-ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 7/28/2024
