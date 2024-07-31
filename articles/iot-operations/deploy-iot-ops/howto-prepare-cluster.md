@@ -113,10 +113,10 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
    | Placeholder | Value |
    | ----------- | ----- |
-   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](../../azure-portal/get-subscription-tenant-id#find-your-azure-subscription) |
-   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant) |
+   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription). |
+   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-microsoft-entra-tenant). |
    | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
-   | LOCATION | An Azure region close to you. Currently, the supported regions are: "eastus", "eastus2", "westus", "westus2", "westeurope", or "northeurope" |
+   | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
    | CLUSTER_NAME | A name for the new cluster to be created. |
 
    ```powershell
@@ -213,12 +213,13 @@ To connect your cluster to Azure Arc:
 
 1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as it will show up in your resource group.
 
+   For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
+
    ```bash
    # Id of the subscription where your resource group and Arc-enabled cluster will be created
    export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
 
    # Azure region where the created resource group will be located
-   # Currently supported regions: "eastus", "eastus2", "westus", "westus2", "westeurope", or "northeurope"
    export LOCATION=<REGION>
 
    # Name of a new resource group to create which will hold the Arc-enabled cluster and Azure IoT Operations resources
@@ -227,9 +228,6 @@ To connect your cluster to Azure Arc:
    # Name of the Arc-enabled cluster to create in your resource group
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
-
-   >[!NOTE]
-   >West US 3 was a supported region in previous versions of Azure IoT Operations, but isn't supported with versions 0.6.x.
 
 1. Set the Azure subscription context for all commands:
 
