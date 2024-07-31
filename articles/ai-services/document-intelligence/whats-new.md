@@ -31,16 +31,19 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) is currently available only in the following Azure regions:
+* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) is currently available only in the following Azure regions. Note that the new document field extraction model in AI Studio is only available in North Central US region:
 
-  * **East US**
-  * **West US2**
-  * **West Europe**
+* **East US**
+* **West US2**
+* **West Europe**
+* **North Central US**
 
-* [Read model](concept-read.md) now supports [PDF output](concept-read.md#???) which allows to download the PDF with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and LLM ingestion.
+* [Read model](concept-read.md) now supports [PDF output](how-to-guides/searchablepdf.md) which allows to download the PDF with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and LLM ingestion.
 * [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support updating the model in-place. 
+* [🆕 Custom generative (Document field extraction) model](concept-custom-generative.md)
+  * Document Intelligence now offers new custom generative model which utilizes generative AI to extract fields from unstructured documents or structured forms with a wide variety of visual templates.
 * [Custom classification model](concept-custom.md#custom-classification-model)
   * Custom classification model now support updating the model in-place as well.
   * Custom classification model adds support for model copy operation to enable backup and disaster recovery.
@@ -48,19 +51,19 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * [🆕 Mortgage documents model](concept-mortgage-documents.md)
   * Extract information from Appraisal (Form 1004).
   * Extract information from Validation of Employment (Form 1005).
-* [🆕 Check model](concept-credit-card.md)
-  * Extract information from checkss.
-* [🆕 Paystub model](concept-marriage-certificate.md)
-  * New prebuilt to extract information from paystubs.
-* [🆕 Bank statement model](concept-marriage-certificate.md)
-  * New prebuilt to extract information from bank statements.
-* [🆕 US Tax model](concept-marriage-certificate.md)
+* [🆕 Check model](concept-check.md)
+  * Extract payee, amount, date and other relevant information form checks.​
+* [🆕 Pay Stub model](concept-paystub.md)
+  * New prebuilt to process pay stubs to extract wages, hours, deductions, net pay and more.​
+* [🆕 Bank statement model](concept-bankStatement-US.md)
+  * New prebuilt to extract account information including beginning and ending balances, transaction details from bank statements.​
+* [🆕 US Tax model](concept-tax-document.md)
   * New unified US tax model that can extract from forms such as W-2, 1098, 1099, and 1040.
 * [Add-on capabilities](concept-add-on-capabilities.md)
   * [Query fields](concept-add-on-capabilities.md#query-fields) AI quality of extraction is improved with the latest model.
-* [🆕 Batch API](concept-batch.md)
+* [🆕 Batch API](concept-batchapi.md)
   * Document Intelligence now adds support for batch analysis operation to support analyzing a set of documents to simplify developer experience and improve service efficiency.
-* [🆕 Model compose with custom classifiers](concept-composed-models.md)
+* [🆕 Model compose with custom classifiers](concept-compose-models-updated.md)
   * Document Intelligence now adds support for composing model with an explicit custom classification model. 
 
 
