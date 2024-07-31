@@ -233,16 +233,10 @@ To verify the deployment of the Connected registry extension on the Arc-enabled 
 
 To authenticate and pull an image from the locally deployed Connected Registry within the cluster. The operation must be performed from within the cluster node itself. Follow the steps:
 
-1. Authenticate and pull the desired image from the Connected registry using the [ crictl pull] command with the IP address `10.10.10.10` of the Connected registry, and the Image name `hello-world` with tag `latest`:
+1. Authenticate and pull the desired image from the Connected registry using the [ crictl pull] command with the value of  the value of service.clusterIP address `192.100.100.1` of the Connected registry, and the Image name `hello-world` with tag `latest`:
 
     ```azurecli
-    crictl pull --creds mytoken:password1 10.10.10.10/hello-world:latest
-    ```
-
-    For example, to pull the `hello-world:latest` image, from the Connected registry with the IP address `10.10.10.10` run:
-
-    ```azurecli
-    crictl pull --creds mytoken:password1 10.10.10.10/hello-world:latest
+    crictl pull --creds mytoken:password1 192.100.100.1/hello-world:latest
     ```
 
 - The `crictl pull` command pulls an image from the Connected registry by specifying the desired repository. Learn to create a client token [here.](container-registry-repository-scoped-permissions.md#create-token---cli)
