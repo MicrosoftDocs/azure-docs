@@ -111,7 +111,7 @@ PUT https://[search service].search.windows.net/datasources/[data source name]?a
 
 The purpose of the cache is to avoid unnecessary processing, but suppose you make a change to a skill that the indexer doesn't detect (for example, changing something in external code, such as a custom skill).
 
-In this case, you can use the [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, follow with a [Run Indexer](/rest/api/searchservice/indexers/run) request to invoke the pipeline processing.
+In this case, you can use the [Reset Skills](/rest/api/searchservice/skillsets/reset-skills?view=rest-searchservice-2024-05-01-preview&preserve-view=true) to force reprocessing of a particular skill, including any downstream skills that have a dependency on that skill's output. This API accepts a POST request with a list of skills that should be invalidated and marked for reprocessing. After Reset Skills, follow with a [Run Indexer](/rest/api/searchservice/indexers/run) request to invoke the pipeline processing.
 
 ## Re-cache specific documents
 
