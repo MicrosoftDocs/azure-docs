@@ -116,7 +116,7 @@ Use the Azure CLI to deploy Azure IoT Operations to your Arc-enabled Kubernetes 
 
       Once the **Deploy IoT Operations** phase begins, the text in the terminal becomes a link to view the deployment progress in the Azure portal.
 
-     :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal.":::
+     :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
 
    * Otherwise, or if you choose to disable the progress interface with `--no-progress`, you can use kubectl commands to view the pods on your cluster:
 
@@ -170,7 +170,7 @@ az iot ops list --resource-group <RESOURCE_GROUP>
 Use the `az iot ops show` command to view the properties of an instance.
 
 ```azurecli
-az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --tree
+az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
 ```
 
 You can also use the `az iot ops show` command to view the resources in your Azure IoT Operations deployment in the Azure CLI. Add the `--tree` flag to show a tree view of the deployment that includes the specified Azure IoT Operations instance.
@@ -207,7 +207,7 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. On the **Overview** page of your instance, select the **Components** tab to view the resources that were deployed to your cluster.
 
-   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster.":::
+   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 
 ---
 
