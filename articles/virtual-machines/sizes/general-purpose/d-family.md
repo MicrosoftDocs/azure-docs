@@ -2,7 +2,7 @@
 title: D-family size series
 description: List of sizes in the D family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/30/2024

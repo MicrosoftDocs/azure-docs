@@ -2,7 +2,7 @@
 title: B family VM size series
 description: List of size series in the B family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/29/2024
