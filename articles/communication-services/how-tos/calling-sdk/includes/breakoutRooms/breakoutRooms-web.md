@@ -234,7 +234,7 @@ const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 |Error code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |400		| 46250	| ExpectedError  | Breakout Rooms feature is only available in Teams meetings. 		|
-|405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | 
+|405	| 46251 | ExpectedError  | Breakout Rooms feature is currently disabled by Azure Communication Services.  | Please try the APIs in a couple of days. |
 |500 | 46254	| UnexpectedServerError | Unable to join breakout room due to an unexpected error. Please try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
 |500| 46255 | UnexpectedServerError | Unable to hold main meeting. If the issue persists, gather browser console logs and contact Azure Communication Services support.| Ensure that the state of assignedBreakoutRoom is open and call breakoutRoomsFeature.assignedBreakoutRoom.join() method explicitly. |
 |412 | 46256| ExpectedError | Unable to join Breakout Room as the room is closed. Please check the state of the Breakout Room before calling join. | Ensure that the `state` of `assignedBreakoutRoom` is `open` and call `breakoutRoomsFeature.assignedBreakoutRoom.join()` method explicitly.|
