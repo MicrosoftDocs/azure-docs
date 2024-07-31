@@ -41,7 +41,7 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 |Protected SQL versions:|SQL Server version: 2012, 2014, 2016, 2017, 2019, 2022 <br>- [SQL on Azure virtual machines](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview)<br>- [SQL Server on Azure Arc-enabled servers](/sql/sql-server/azure-arc/overview)<br><br>|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Microsoft Azure operated by 21Vianet **(Advanced Threat Protection Only)**|
 
-## Enabling Defender for SQL on non-Azure machines using the AMA agent
+## Enable Defender for SQL on non-Azure machines using the AMA agent
 
 ### Prerequisites for enabling Defender for SQL on non-Azure machines
 
@@ -117,7 +117,7 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 
 1. To complete the installation process, a restart of the SQL server (instance) is necessary for versions 2017 and older.
 
-## Enabling Defender for SQL on Azure virtual machines using the AMA agent
+## Enable Defender for SQL on Azure virtual machines using the AMA agent
 
 ### Prerequisites for enabling Defender for SQL on Azure virtual machines
 
@@ -152,7 +152,7 @@ Defender for SQL servers on machines protects your SQL servers hosted in Azure, 
 
 1. On the Defender plans page, locate the Databases plan and select **Select types**.
 
-    :::image type="content" source="media/tutorial-enabledatabases-plan/select-types.png" alt-text="Screenshot that shows you where to select, select types on the Defender plans page." lightbox="media/tutorial-enabledatabases-plan/select-types.png":::
+    :::image type="content" source="media/tutorial-enabledatabases-plan/select-types.png" alt-text="Screenshot that shows you where to select types on the Defender plans page." lightbox="media/tutorial-enabledatabases-plan/select-types.png":::
 
 1. In the Resource types selection window, toggle the **SQL servers on machines** plan to **On**.
 
