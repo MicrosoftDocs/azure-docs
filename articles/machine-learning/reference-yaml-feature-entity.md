@@ -3,7 +3,7 @@ title: 'CLI (v2) feature entity YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) feature entity YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
 author: fbsolo-ms1
