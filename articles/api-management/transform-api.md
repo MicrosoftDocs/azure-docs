@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
-ms.date: 03/15/2022
+ms.date: 07/30/2024
 ms.author: danlep
 ---
 
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Protect an API by adding a rate limit policy (throttling)
 > * Test the transformations
 
-:::image type="content" source="media/transform-api/api-management-console-new.png" alt-text="Policies in portal":::
+:::image type="content" source="media/transform-api/api-management-console-new.png" alt-text="Screenshot of API Management policies in the portal.":::
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ To see the original response:
 
 The original API response should look similar to the following response:
 
-:::image type="content" source="media/transform-api/test-original-response-new.png" alt-text="Original API response":::
+:::image type="content" source="media/transform-api/test-original-response-new.png" alt-text="Screenshot of the original API response in the portal":::
 
 As you can see, the response includes the **X-AspNet-Version** and **X-Powered-By** headers.
 
@@ -70,20 +70,23 @@ This example shows how to use the form-based policy editor, which helps you conf
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Outbound processing** section, select **+ Add policy**.
 
-   :::image type="content" source="media/transform-api/outbound-policy.png" alt-text="Navigate to outbound policy" border="false":::
+   :::image type="content" source="media/transform-api/outbound-policy-small.png" alt-text="Screenshot of navigating to outbound policy in the portal." lightbox="media/transform-api/outbound-policy.png":::
 
 1. In the **Add outbound policy** window, select **Set headers**.
 
-   :::image type="content" source="media/transform-api/set-http-header.png" alt-text="Set HTTP header policy":::
+   :::image type="content" source="media/transform-api/set-http-header.png" alt-text="Screenshot of configuring the Set headers policy in the portal.":::
 
-1. To configure the set headers policy, do the following:
-    1. Under **Name**, enter **X-Powered-By**. Under **Action**, select **delete**.
-    1. Select **+ Add header**.
-    1. Under **Name**, enter **X-AspNet-Version**. Under **Action**, select **delete**.
+1. To configure the Set headers policy, do the following:
+    1. Under **Name**, enter **X-Powered-By**. 
+    1. Leave **Value** empty. If a value appears in the dropdown, delete it.
+    1. Under **Action**, select **delete**.
+    1. Select **Save**.
 
-   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Set HTTP header":::
+1. Repeat the preceding two steps to add a **Set headers** policy that deletes the **X-AspNet-Version** header:
+  
+1. After configuration, two **set-header** policy elements appear in the **Outbound processing** section.
 
-1. Select **Save**. Two **set-header** policy elements appear in the **Outbound processing** section.
+   :::image type="content" source="media/transform-api/set-policy.png" alt-text="Screenshot of the Set headers outbound policies in the portal.":::
 
 ## Replace original URLs in the body of the API response with API Management gateway URLs
 
@@ -98,7 +101,7 @@ To see the original response:
 
     As you can see, the response includes the original backend URLs:
 
-    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Original URLs in response":::
+    :::image type="content" source="media/transform-api/original-response2.png" alt-text="Screenshot of original URLs in response in the portal.":::
 
 ### Set the transformation policy
 
@@ -107,17 +110,17 @@ In this example, you use the policy code editor to add the policy XML snippet di
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Outbound processing** section, select the code editor (**</>**) icon.
 
-   :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Navigate to outbound policy code editor":::
+   :::image type="content" source="media/transform-api/outbound-policy-code.png" alt-text="Screenshot of navigating to outbound policy code editor in the portal.":::
 
 1. Position the cursor inside the **`<outbound>`** element on a blank line. Then select **Show snippets** at the top-right corner of the screen.
 
-   :::image type="content" source="media/transform-api/show-snippets-1.png" alt-text="Select show snippets":::
+   :::image type="content" source="media/transform-api/show-snippets-1.png" alt-text="Screenshot of selecting show snippets in policy editor in the portal.":::
 
 1. In the right window, under **Transformation policies**, select **Mask URLs in content**. 
 
     The **`<redirect-content-urls />`** element is added at the cursor.
 
-   :::image type="content" source="media/transform-api/mask-urls-new.png" alt-text="Mask URLs in content":::
+   :::image type="content" source="media/transform-api/mask-urls-new.png" alt-text="Screenshot of inserting mask URLs in content policy in the portal.":::
 
 1. Select **Save**.
 
