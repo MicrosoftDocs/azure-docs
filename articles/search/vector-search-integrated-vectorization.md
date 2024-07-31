@@ -32,22 +32,40 @@ Integrated data chunking and vectorization is now generally available.
 
 For data chunking and text-to-vector conversions, you're taking a dependency on the following components:
 
-+ [An indexer](search-indexer-overview.md), which retrieves raw data from a supported data source and serves as the pipeline engine.
++ [An indexer](search-indexer-overview.md), which retrieves raw data from a [supported data source](search-indexer-overview.md#supported-data-sources) and serves as the pipeline engine.
+
++ [A vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
+
 + [A skillset](cognitive-search-working-with-skillsets.md) configured for:
 
   + [Text Split skill](cognitive-search-skill-textsplit.md), used to chunk the data.
-  + [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md), attached to text-embedding-ada-002 on Azure OpenAI.
-  + Alternatively, you can use a [custom skill](cognitive-search-custom-skill-web-api.md) in place of AzureOpenAIEmbdding that points to another embedding model on Azure or on another side.
+  
+  + An embedding skill, used to generate vector arrays:
 
-+ [A vector index](search-what-is-an-index.md) to receive the chunked and vectorized content.
+    + [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md), attached to text-embedding-ada-002,text-embedding-3-small, text-embedding-3-large on Azure OpenAI.
+
+    + [Custom skill](cognitive-search-custom-skill-web-api.md) that points to another embedding model on Azure or on another site.
+ 
+    + [Azure AI Vision skill (preview)](cognitive-search-skill-vision-vectorize.md) that points to the multimodal API for Azure AI Vision.
+
+    + [AML skill pointing to the model catalog in Azure AI Studio](cognitive-search-aml-skill.md) that points to selected models in the model catalog.
 
 ## Using integrated vectorization in queries
 
 For text-to-vector conversion during queries, you take a dependency on these components:
 
-+ [A vectorizer](vector-search-how-to-configure-vectorizer.md), defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector.
 + A query that specifies one or more vector fields.
+
 + A text string that's converted to a vector at query time.
+
++ [A vectorizer](vector-search-how-to-configure-vectorizer.md), defined in the index schema, assigned to a vector field, and used automatically at query time to convert a text query to a vector. The vectorizer you set up must match the embedding model used to encode your content. 
+
+    | Embedding skill | Vectorizer |
+    |-----------------|------------|
+    | [AzureOpenAIEmbedding skill](cognitive-search-skill-azure-openai-embedding.md) | [Azure OpenAI vectorizer](vector-search-vectorizer-azure-open-ai.md) |
+    | [Custom skill](cognitive-search-custom-skill-web-api.md) | [Custom Web API vectorizer](vector-search-vectorizer-custom-web-api.md) |
+    | [Azure AI Vision skill (preview)](cognitive-search-skill-vision-vectorize.md)  | [Azure AI Vision vectorizer](vector-search-vectorizer-ai-services-vision.md) |
+    | [AML skill pointing to the model catalog in Azure AI Studio (preview)](cognitive-search-aml-skill.md) | [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) |
 
 ## Component diagram
 
@@ -93,7 +111,7 @@ For query-only vectorization:
 A more common scenario - data chunking and vectorization during indexing:
 
 1. [Create a data source](search-howto-create-indexers.md#prepare-a-data-source) connection to a supported data source for indexer-based indexing.
-1. [Create a skillset](cognitive-search-defining-skillset.md) that calls [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) or a custom skill to vectorize the chunks.
+1. [Create a skillset](cognitive-search-defining-skillset.md) that calls [Text Split skill](cognitive-search-skill-textsplit.md) for chunking and [AzureOpenAIEmbeddingModel](cognitive-search-skill-azure-openai-embedding.md) or another embedding skill to vectorize the chunks.
 1. [Create an index](search-how-to-create-search-index.md) that specifies a [vectorizer](vector-search-how-to-configure-vectorizer.md) for query time, and assign it to vector fields.
 1. [Create an indexer](search-howto-create-indexers.md) to drive everything, from data retrieval, to skillset execution, through indexing.
 
