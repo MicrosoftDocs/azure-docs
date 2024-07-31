@@ -26,6 +26,10 @@ If minimal downtime is a requirement, consider running your function app in both
 - Make sure that the target region supports Azure Functions and any related service whose resources you want to move
 - Have access to the original source code for the functions you're migrating
 
+
+## Downtime
+
+
 ## Prepare
 
 Identify all the function app resources used on the source region, which may include the following:
@@ -45,21 +49,9 @@ Your functions may connect to other resources by using triggers or bindings. For
 You should be able to also [export a template from existing resources](../azure-resource-manager/templates/export-template-portal.md).
 
 
-## Prepare
-
-This section is a planning checklist in the following areas:
-
-- State, Storage and downstream dependencies
-- Certificates
-- Configuration
-- VNet Connectivity / Custom Names / DNS
-- Identities
-- Service Endpoints
-
-
 ### State, storage and downstream dependencies
 
-- **Verify that your functions are stateless.** We [recommend that your function executions be stateless](../azure-functions/performance-reliability#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. While the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../azure-functions/durable/durable-functions-overview.md). 
+**Verify that your functions are stateless.** We [recommend that your function executions be stateless](../azure-functions/performance-reliability#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. While the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../azure-functions/durable/durable-functions-overview.md). 
 
 When your application uses Durable Functions, and particularly Durable Entities, the migration becomes much more application centric, and depends on the needs of the application itself. You must consider how to migrate entity state and how to reconcile the new entity state with the old service. This is particularly the case, when you are doing anything more complex than a straight Active/Active + GRS Failover.
 

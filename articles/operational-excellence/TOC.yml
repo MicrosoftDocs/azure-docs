@@ -65,7 +65,7 @@
         - name: Relocate Azure Event Grid system topics
           href: relocation-event-grid-system-topics.md
       - name: Azure Functions
-        href: ../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-functions.md
       - name: Azure Logic apps
         href: ../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Monitor - Log Analytics Workspace
