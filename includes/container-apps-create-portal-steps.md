@@ -45,7 +45,7 @@ Next, create an environment for your container app.
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
-    | Environment type | Select **Workload profile**. |
+    | Environment type | Select **Workload profiles**. |
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.
