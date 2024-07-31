@@ -3,7 +3,7 @@ title: Tutorial - Transform and protect your API in Azure API Management
 description: In this tutorial, you learn how to protect your API in API Management with transformation and throttling (rate-limiting) policies.
 
 author: dlepow    
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc, devdivchpfy22
 ms.topic: tutorial
 ms.date: 07/30/2024
@@ -16,7 +16,7 @@ ms.author: danlep
 
 In this tutorial, you learn about configuring common [policies](api-management-howto-policies.md) to transform your API. You might want to transform your API so it doesn't reveal private backend info. Transforming an API can help you hide the technology stack info that's running in the backend, or hide the original URLs that appear in the body of the API's HTTP response.
 
-This tutorial also explains how to add protection to your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
+This tutorial also explains how to protect your backend API by configuring a rate limit policy, so that the API isn't overused by developers. For more policy options, see [API Management policies](api-management-policies.md).
 
 > [!NOTE]
 > By default, API Management configures a global [`forward-request`](forward-request-policy.md) policy. The `forward-request` policy is needed for the gateway to complete a request to a backend service.
@@ -181,7 +181,7 @@ The rest of this section tests policy transformations that you set in this artic
 1. Select **Demo Conference API** > **Test**.
 1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see, the headers were stripped:
+    As you can see, the **X-AspNet-Version** and **X-Powered-By** headers were removed:
 
     :::image type="content" source="media/transform-api/stripped-response-headers.png" alt-text="Screenshot showing stripped response headers in the portal.":::
 
@@ -205,7 +205,7 @@ The rest of this section tests policy transformations that you set in this artic
 
 1. Wait for 15 seconds or more and then select **Send** again. This time you should get a **200 OK** response.
 
-## Next steps
+## Summary
 
 In this tutorial, you learned how to:
 
@@ -215,6 +215,8 @@ In this tutorial, you learned how to:
 > * Replace original URLs in the body of the API response with API Management gateway URLs
 > * Protect an API by adding rate limit policy (throttling)
 > * Test the transformations
+
+## Next steps
 
 Advance to the next tutorial:
 
