@@ -109,7 +109,7 @@ Review and configure the resources identified in the [Prepare](#prepare) step ab
 + References and application settings that connect your function app to dependencies need to be reviewed and, when needed, updated. For example, when you move a database that your functions call, you must also update the application settings or configuration to connect to the database in the target region. Some application settings such as the Application Insights instrumentation key or the Azure storage account used by the function app can be already be configured on the target region and do not need to be updated
 + Remember to verify your configuration and test your functions in the target region
 + If you had custom domain configured, [remap the domain name](../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name)
-+ For Functions running on Dedicated plans also review the [App Service Migration Plan](../app-service/manage-move-across-regions.md) in case the plan is shared with web apps
++ For a function app running on Dedicated plans, also review the [App Service Migration Plan](../app-service/manage-move-across-regions.md) if the App Service plan is shared with a web app
 
 ## Clean up
 
