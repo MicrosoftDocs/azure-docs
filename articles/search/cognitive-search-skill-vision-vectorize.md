@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It is important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model refer to [multimodal embeddings](../ai-services/computer-vision/concept-image-retrieval.md#what-are-vector-embeddings).|
+| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model, refer to [multimodal embeddings](../ai-services/computer-vision/concept-image-retrieval.md#what-are-vector-embeddings).|
 
 ## Skill inputs
 
@@ -164,7 +164,7 @@ The output resides in memory. To send this output to a field in the search index
   ]
 ```
 
-For mapping image embeddings to the index, you will need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` might look something like this:
+For mapping image embeddings to the index, you'll need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` might look something like this:
 
 ```json
 "indexProjections": {

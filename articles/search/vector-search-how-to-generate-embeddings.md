@@ -32,7 +32,7 @@ If you want to handle data chunking and vectorization yourself, we provide demos
 
 If you want resources in the same region, start with:
 
-1. [Check regions for a text embedding model](/azure/ai-services/openai/concepts/models?branch=pr-en-us-282817#standard-and-global-standard-deployment-model-quota).
+1. [Check regions for a text embedding model](/azure/ai-services/openai/concepts/models#standard-and-global-standard-deployment-model-quota).
 
 1. [Find the same region for Azure AI Search](search-region-support.md). 
 

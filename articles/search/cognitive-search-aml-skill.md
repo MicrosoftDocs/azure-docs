@@ -22,7 +22,7 @@ The **AML** skill allows you to extend AI enrichment with a custom [Azure Machin
 
 Like other built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML online endpoint as a JSON object, which outputs a JSON payload as a response along with a success status code. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
 
-The **AML** skill can be called with 2024-07-01 stable API version and the 2024-05-01-preview API version for connections to the model catalog in Azure AI Studio.
+The **AML** skill can be called with the 2024-07-01 stable API version or the 2024-05-01-preview API version for connections to the model catalog in Azure AI Studio.
 
 Starting in 2024-05-01-preview REST API and in the Azure portal (which also targets the 2024-05-01-preview), Azure AI Search introduced the [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for query time connections to the model catalog in Azure AI Studio. If you want to use that vectorizer for queries, the **AML** skill is the *indexing counterpart* for generating embeddings using a model in the Azure AI Studio model catalog. 
 
