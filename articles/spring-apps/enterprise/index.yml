@@ -112,10 +112,6 @@ landingContent:
         url: structured-app-log.md
       - text: Analyze logs and metrics
         url: diagnostic-services.md
-    - linkListType: concept
-      links:
-      - text: Java memory management
-        url: concepts-for-java-memory-management.md
 
   # Card (optional)
   - title: Secure apps

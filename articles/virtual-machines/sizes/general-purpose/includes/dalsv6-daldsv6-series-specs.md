@@ -11,10 +11,10 @@
  ms.custom: include file
 ---
 
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 2 - 96 <sup> vCores    | AMD EPYC<sup>TM</sup> 9004 (Genoa) |
-| Memory           | 4 - 192 <sup> GiB      |                                                 |
-| Data Disks       | 4 - 32 <sup>Disks      | 4000-175000 <sup>IOPS</sup> / 90-5090 <sup>MBps |
-| Network          | 2 - 8 <sup> NICs       | 12500 - 40000 <sup>Mbps                         |
-| Accelerators     | 0                      |                                                 |
+| Processor        | 2 - 96 vCPUs    | AMD EPYC<sup>TM</sup> 9004 (Genoa) |
+| Memory           | 4 - 192 GiB      |                                                 |
+| Data Disks       | 4 - 32 Disks      | 4000 - 175000 IOPS (RR) <br>90 - 5090 MBps (RR) |
+| Network          | 2 - 8 NICs       | 12500 - 40000 Mbps                         |
+| Accelerators     | None                      |                                                 |
