@@ -3,7 +3,7 @@ title: 'Partner solutions available in Public MEC'
 description: This article lists all the Partner solutions that can be deployed in Public MEC.
 services: Public MEC
 author: anzaman
-ms.service: public-multi-access-edge-compute-mec
+ms.service: azure-public-multiaccess-edge-compute
 ms.topic: conceptual
 ms.date: 11/22/2022
 ms.author: alzam

@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to authorize, configure, and use Postman to call the Azure Digital Twins APIs. This article shows you how to use both the control and data plane APIs.
 ms.author: baanders
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 01/23/2023

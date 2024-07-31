@@ -3,7 +3,7 @@ title: Connectivity providers and locations for Azure ExpressRoute
 description: This article provides a detailed overview of peering locations served by each ExpressRoute connectivity provider to connect to Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 04/21/2024
 ms.author: duau
