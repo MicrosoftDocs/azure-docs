@@ -2,7 +2,7 @@
 title: Designing resilient applications with Azure Cosmos DB SDKs
 description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and what all are the expected error status codes to retry on.
 author: ealsur
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 05/05/2022
 ms.author: maquaran
 ms.subservice: nosql
