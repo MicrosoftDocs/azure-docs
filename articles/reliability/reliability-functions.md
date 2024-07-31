@@ -165,7 +165,7 @@ This section explains some of the strategies that you can use to deploy Function
 
 >[!NOTE]
 
->For disaster recovery for durable functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
+>For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
 
 ### Multi-region disaster recovery
 

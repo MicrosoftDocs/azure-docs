@@ -59,11 +59,11 @@ This section is a planning checklist in the following areas:
 - Service Endpoints
 
 
-### State, Storage and downstream dependencies
+### State, storage and downstream dependencies
 
-- **Determine whether your Functions App is stateful or stateless.**  Although its recommended that Functions (With the exception of Durable Functions) be stateless, and the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move.
+- **Verify that your functions are stateless.** We [recommend that your function executions be stateless](../azure-functions/performance-reliability#write-functions-to-be-stateless). However, we don't prevent you from writing data to the local file system. While the files on the `%HOME%\site` drive should be only those required to run the deployed application and any temporary files, it's possible to store runtime application state on the `%HOME%\site` virtual drive. If your application writes state on the app shared storage path, make sure to plan how you are going to manage that state during a resource move. If your scenario requires you to maintain state between function executions, consider instead using [Durable Functions](../azure-functions/durable/durable-functions-overview.md). 
 
-If the application uses Durable Functions, and particularly Durable Entities, the migration becomes much more application centric, and depends on the needs of the application itself. You must consider how to migrate entity state and how to reconcile the new entity state with the old service. This is particularly the case, if you are doing anything more complex than a straight Active/Active + GRS Failover.
+When your application uses Durable Functions, and particularly Durable Entities, the migration becomes much more application centric, and depends on the needs of the application itself. You must consider how to migrate entity state and how to reconcile the new entity state with the old service. This is particularly the case, when you are doing anything more complex than a straight Active/Active + GRS Failover.
 
 ### Certificates
 
@@ -83,7 +83,7 @@ See [Relocate Azure App Services to another region - Identities](relocation-app-
 
 ## Relocate
 
-To relocate your Functions App resources, you can use either available deployment technologies or Infrastructure as Code (IaC).
+To relocate your function app resources, you can use either available [deployment technologies](../azure-functions/functions-deployment-technologies.md) or [Infrastructure as Code (IaC)](../azure-functions/functions-infrastructure-as-code.md).
 
 
 ### Relocate using available deployment technologies
@@ -104,12 +104,12 @@ To migrate Durable Entities, see [Recovery With GRS Enabled Storage for Azure Du
 Review and configure the resources identified in the [Prepare](#prepare) step above in the target region if they weren't configured during the deploy. 
 
 ### Relocation considerations
-+ If your deployment resources and automation doesn't create a function app, [create an app of the same type in a new hosting plan](../azure-functions/functions-scale.md#overview-of-plans) in the target region
++ If your deployment resources and automation don't create a function app, [recreate an app of the same language running on the same operating system in a new hosting plan of the same type](../azure-functions/functions-scale.md#overview-of-plans) in the target region and redeploy your code
 + Function app names are globally unique in Azure, so the app in the target region can't have the same name as the one in the source region
 + References and application settings that connect your function app to dependencies need to be reviewed and, when needed, updated. For example, when you move a database that your functions call, you must also update the application settings or configuration to connect to the database in the target region. Some application settings such as the Application Insights instrumentation key or the Azure storage account used by the function app can be already be configured on the target region and do not need to be updated
 + Remember to verify your configuration and test your functions in the target region
 + If you had custom domain configured, [remap the domain name](../app-service/manage-custom-dns-migrate-domain.md#4-remap-the-active-dns-name)
-+ For Functions running on Dedicated plans also review the [App Service Migration Plan](../app-service/manage-move-across-regions.md) in case the plan is shared with web apps
++ For a function app running on Dedicated plans, also review the [App Service Migration Plan](../app-service/manage-move-across-regions.md) if the App Service plan is shared with a web app
 
 ## Clean up
 
