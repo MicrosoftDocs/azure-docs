@@ -59,7 +59,7 @@ Semantic ranking doesn't participate in RRF. Its score (`@search.rerankerScore`)
 
 ## Weighted scores
 
-Starting in 2024-05-01-preview, you can [weight vector queries](vector-search-how-to-query.md#vector-weighting) to increase or decrease their importance in a hybrid query.
+Using 2024-07-01 and newer preview API versions, you can [weight vector queries](vector-search-how-to-query.md#vector-weighting) to increase or decrease their importance in a hybrid query.
 
 Recall that when computing RRF for a certain document, the search engine looks at the rank of that document for each result set where it shows up. Assume a document shows up in three separate search results, where the results are from two vector queries and one text BM25-ranked query. The position of the document varies in each result.
 
