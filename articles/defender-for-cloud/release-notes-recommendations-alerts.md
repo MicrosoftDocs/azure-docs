@@ -48,14 +48,14 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|July 31|Recommendation|GA|[[EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)|
+|July 31|Recommendation|GA|[[EDR solution should be installed on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/77d09952-2bc2-4495-8795-cc8391452f85)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-ec2shttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey77d09952-2bc2-4495-8795-cc8391452f85)|
+|July 31|Recommendation|GA|[[EDR solution should be installed on GCP Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/68e595c1-a031-4354-b37c-4bdf679732f1)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey68e595c1-a031-4354-b37c-4bdf679732f1)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dc5357d0-3858-4d17-a1a3-072840bff5be)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeydc5357d0-3858-4d17-a1a3-072840bff5be)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/695abd03-82bd-4d7f-a94c-140e8a17666c)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2shttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey695abd03-82bd-4d7f-a94c-140e8a17666c)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyf36a15fb-61a6-428c-b719-6319538ecfbc)|
 | July 30 | Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
-|July 18|Recommendation|GA|EDR solution should be installed on GCP Virtual Machines|
-|July 18|Recommendation|GA|EDR solution should be installed on EC2s|
-|July 18|Recommendation|GA|EDR solution should be installed on GCP virtual machines|
-|July 18|Recommendation|GA|EDR configuration issues should be resolved on virtual machines|
-|July 18|Recommendation|GA|EDR configuration issues should be resolved on EC2s|
-|July 18|Recommendation|GA|EDR configuration issues should be resolved on GCP virtual machines|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
 | June 28     | Recommendation                 | GA                                                           | [GitHub organizations should not make action secrets accessible to all repositories](recommendations-reference-devops.md#github-organizations-should-not-make-action-secrets-accessible-to-all-repositories) |
@@ -161,3 +161,4 @@ New and updated recommendations and alerts are added to the table in date order.
 ## Related content
 
 For information about new features, see [What's new in Defender for Cloud features](release-notes.md).
+
