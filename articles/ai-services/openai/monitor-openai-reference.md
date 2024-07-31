@@ -19,22 +19,7 @@ See [Monitor Azure OpenAI](./how-to/monitor-openai.md) for details on the data y
 
 ### Supported metrics for Microsoft.CognitiveServices/accounts
 
-The following table lists the metrics available for the Microsoft.CognitiveServices/accounts resource type.
-
-[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-
-[!INCLUDE [Microsoft.CognitiveServices/account](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cognitiveservices-accounts-metrics-include.md)]
-
-### Cognitive Services Metrics
-
-Cognitive Services metrics have the category **Cognitive Services - HTTP Requests** in the preceding table. These metrics are legacy metrics that are common to all Azure AI Services resources. Microsoft no longer recommends that you use these metrics with Azure OpenAI.
-
-### Azure OpenAI Metrics
-
-> [!NOTE]
-> The **Provisioned-managed Utilization** metric is now deprecated and is no longer recommended. This metric has been replaced by the **Provisioned-managed Utilization V2** metric.
-
-The following list summarizes the current subset of metrics available in Azure OpenAI from the preceding table.
+This list summarizes the current subset of metrics available in Azure OpenAI. For descriptions and other details, see the following table.
 
 - Azure OpenAI Requests
 - Active Tokens
@@ -42,9 +27,20 @@ The following list summarizes the current subset of metrics available in Azure O
 - Processed FineTuned Training Hours
 - Processed Inference Tokens
 - Processed Prompt Tokens
-- Provision-managed Utilization V2
+- Provisioned-managed Utilization V2
 - Prompt Token Cache Match Rate
 - Time to Response
+
+> [!NOTE]
+> The **Provisioned-managed Utilization** metric is now deprecated and is no longer recommended. This metric has been replaced by the **Provisioned-managed Utilization V2** metric.
+
+Cognitive Services metrics have the category **Cognitive Services - HTTP Requests** in the following table. These metrics are legacy metrics that are common to all Azure AI Services resources. Microsoft no longer recommends that you use these metrics with Azure OpenAI.
+
+The following table lists the metrics available for the Microsoft.CognitiveServices/accounts resource type.
+
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
+
+[!INCLUDE [Microsoft.CognitiveServices/account](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cognitiveservices-accounts-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
