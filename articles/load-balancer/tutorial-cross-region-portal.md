@@ -58,10 +58,9 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Create cross-region load balancer
 
-In this section, you create a cross-region load balancer with a public IP address, a frontend IP configuration, a backend pool, and a load balancer rule.
+In this section, you create a cross-region load balancer with a public IP address, a frontend IP configuration, a backend pool with region load balancers added, and a load balancer rule.
 
 # [Azure portal](#tab/azureportal)
-
 
 > [!IMPORTANT]
 > To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md)**.
@@ -69,6 +68,7 @@ In this section, you create a cross-region load balancer with a public IP addres
 ### Create the load balancer resource and other resources
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
+
 2. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancer** in the search results.
 
 3. In the **Load balancer** page, select **Create**.
@@ -97,7 +97,7 @@ In this section, you create a cross-region load balancer with a public IP addres
 
 8. Select **IPv4** or **IPv6** for **IP version**.
 
-9. In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **Save** for the Add Public IP Address Dialog.
+9.  In **Public IP address**, select **Create new**. Enter **myPublicIP-cr** in **Name**.  Select **Save** for the Add Public IP Address Dialog.
 
 10. Select **Save**.
 
@@ -113,11 +113,11 @@ In this section, you create a cross-region load balancer with a public IP addres
 
 16. Select **Add**.
 
-17. Select **Next: Inbound rules** at the bottom of the page.
+18. Select **Next: Inbound rules** at the bottom of the page.
 
-18. In **Inbound rules**, select **+ Add a load balancing rule**.
+19. In **Inbound rules**, select **+ Add a load balancing rule**.
 
-19. In **Add load balancing rule**, enter or select the following information:
+20. In **Add load balancing rule**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -132,11 +132,11 @@ In this section, you create a cross-region load balancer with a public IP addres
     | TCP reset | Select **Enabled**. |
     | Floating IP | Leave the default of **Disabled**. |
 
-20. Select **Add**.
+21. Select **Add**.
 
-21. Select **Review + create** at the bottom of the page.
+22. Select **Review + create** at the bottom of the page.
 
-22. Select **Create** in the **Review + create** tab.
+23. Select **Create** in the **Review + create** tab.
 
     > [!NOTE]
     > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
