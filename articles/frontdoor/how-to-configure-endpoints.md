@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article shows you how to configure a new endpoint for an existing Azure Front Door profile with Front Door manager.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: duau

@@ -6,7 +6,7 @@ summary: Azure Front Door is a scalable and secure entry point for fast delivery
 metadata:
   title: Azure Front Door and CDN Documentation
   description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
-  ms.service: frontdoor
+  ms.service: azure-frontdoor
   ms.topic: landing-page
   author: duongau
   ms.author: duau
