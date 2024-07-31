@@ -2,7 +2,7 @@
 title: NP-series - Azure Virtual Machines
 description: Specifications for the NP-series VMs.
 author: charest
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/07/2023
@@ -63,7 +63,7 @@ VM Generation Support: Generation 1<br>
 
 **Q:** Where should I get all the XRT / Platform files?
 
-**A:** Visit Xilinx's [Microsoft-Azure](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.htmls) site for all files.
+**A:** Visit Xilinx's [Microsoft-Azure](https://www.amd.com/en/where-to-buy/accelerators/alveo/cloud-solutions/microsoft-azure.html) site for all files.
 
 **Q:** What Version of XRT should I use?
 

@@ -377,7 +377,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **Orange Networks** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
 | **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
-| **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
+| **[sol-tec](https://www.advania.co.uk/our-services/azure-and-cloud/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
