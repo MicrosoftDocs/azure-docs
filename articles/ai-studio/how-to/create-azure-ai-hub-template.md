@@ -105,18 +105,18 @@ To run the Bicep template, use the following commands from the `aistudio-basics`
 1. To run the template, use the following command. Replace `myai` with the name to use for your resources. This value is used, along with generated prefixes and suffixes, to create a unique name for the resources created by the template.
 
     > [!TIP]
-    > The `aiResourceName` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
+    > The `aiHubName` must be 5 or less characters. It can't be entirely numeric or contain the following characters: `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`.
 
     # [Azure CLI](#tab/cli)
 
     ```azurecli
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters aiResourceName=myai 
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters aiHubName=myai 
     ```
 
     # [Azure PowerShell](#tab/powershell)
 
     ```azurepowershell
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile main.bicep -aiResourceName myai
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile main.bicep -aiHubName myai
     ```
 
     ---
