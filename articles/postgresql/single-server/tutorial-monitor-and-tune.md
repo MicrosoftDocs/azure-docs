@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Monitor and tune - Azure Database for PostgreSQL - Single Server'
 description: This tutorial walks through monitoring and tuning in Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server 
 ms.topic: tutorial
 ms.author: sunila

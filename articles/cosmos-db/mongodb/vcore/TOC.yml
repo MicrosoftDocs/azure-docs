@@ -40,6 +40,8 @@
           href: rag.md
     - name: MongoDB feature support
       href: compatibility.md
+    - name: Support for Geospatial Queries
+      href: geospatial-support.md
     - name: High availability (HA)
       href: high-availability.md
     - name: Cross-region replication
