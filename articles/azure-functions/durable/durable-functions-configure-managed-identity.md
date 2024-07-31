@@ -13,7 +13,7 @@ A managed identity from the access management service [Microsoft Entra ID](../..
 
 In this quickstart, you complete steps to configure a Durable Functions app using the default **Azure Storage provider** to use identity-based connections for storage account access. 
 
-> [NOTE]
+> [!NOTE]
 > Managed identity is supported in [Durable Functions extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) versions **2.7.0** and greater.
 
 If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
