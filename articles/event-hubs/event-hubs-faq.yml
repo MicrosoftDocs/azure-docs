@@ -193,6 +193,12 @@ sections:
           How many partitions do I need?
         answer: |
           [!INCLUDE [event-hubs-partition-count](./includes/event-hubs-partition-count.md)]
+
+    questions:
+      - question: |  
+          Can partition count be increased in Standard tier of Event Hub?
+        answer: |
+          No, it is not possible as Partitions are immututable in Standard tier. Dynamic additions of partitions is available only in premium and dedicated tiers of Event Hubs.
           
   - name: Pricing
     questions:
