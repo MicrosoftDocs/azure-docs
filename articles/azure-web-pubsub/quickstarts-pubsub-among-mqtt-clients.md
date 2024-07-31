@@ -74,7 +74,7 @@ jwtgen -a HS256 -s "{webpubsub_access_key}" -c "aud=wss://{service_name}.webpubs
 ```
 
 > [!NOTE]
-> If you use other shells, pay attention to the role claims
+> This step will be replaced by the client generation tool on Azure Portal once it's implemented. If you're using other shells, make sure each element of the roles surrounded by double quotation marks.
 
 As shown in the preceding code, the client has the permissions to send messages to and subscribe to any topic.
 
