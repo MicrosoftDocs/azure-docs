@@ -80,7 +80,7 @@ To create a folder:
 1. On the **Develop** pane, right-click in the **SQL scripts** area and then select **New folder**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot that shows an example of an SQL script and a shortcut menu with the command to create a new folder.](./media/author-sql-script/new-sql-script-create-folder.png)
+   > ![Screenshot that shows an example of a SQL script and a shortcut menu with the command to create a new folder.](./media/author-sql-script/new-sql-script-create-folder.png)
 
 1. On the **New folder** pane, enter the name of the new folder.
 
