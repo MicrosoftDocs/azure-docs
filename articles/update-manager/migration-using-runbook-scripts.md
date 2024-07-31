@@ -8,7 +8,7 @@ ms.date: 07/30/2024
 ms.author: sudhirsneha
 ---
 
-# Migration runbook scripts
+# Migration using Automated runbook scripts
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers
 
