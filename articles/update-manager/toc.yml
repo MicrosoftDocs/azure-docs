@@ -65,8 +65,18 @@ items:
       href: configure-wu-agent.md
   - name: Manage
     items: 
-    - name: Move from Automation Update Management to Azure Update Manager
-      href: guidance-migration-automation-update-management-azure-update-manager.md
+    - name: Migration from Automation Update Management to Azure Update Manager
+      items:
+      - name: Overview of migration from Automation Update Management to Azure Update Manager
+        href: migration-overview.md
+      - name: Migration using Azure portal
+        href: migration-using-portal.md
+      - name: Migration using automated runbook scripts
+        href: migration-using-runbook-scripts.md
+      - name: Key points to note for automated migration
+        href: migration-key-points.md
+      - name: Manual migration guidance
+        href: migration-manual.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Automate assessment at scale using Policy
