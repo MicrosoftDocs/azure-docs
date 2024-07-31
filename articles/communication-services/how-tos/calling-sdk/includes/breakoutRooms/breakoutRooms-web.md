@@ -160,7 +160,8 @@ When the breakout room state is `closed`, then the user is automatically moved t
 If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can join the main meeting call with the following code: 
 
 ```js
- if(breakoutRoomCall != null){
+const breakoutRoomsSettings = breakoutRoomsFeature.breakoutRoomsSettings;
+ if(breakoutRoomCall != null && !breakoutRoomsSettings.disableReturnToMainMeeting){
     breakoutRoomCall.hangUp();   
     mainMeetingCall.resume();
  }
