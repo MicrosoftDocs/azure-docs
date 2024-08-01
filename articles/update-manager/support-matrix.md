@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/30/2024
+ms.date: 08/01/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -61,8 +61,8 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|
 |microsoftwindowsserver | windowsserverupgrade | * |
-|microsoftwindowsserver | windowsserverhotpatch-previews | windows-server-2022-azure-edition-hotpatch |
-| | microsoftserveroperatingsystems-previews | windows-server-vnext-azure-edition-core |
+|microsoftwindowsserver | windowsserverhotpatch-previews |  |
+| | microsoftserveroperatingsystems-previews |  |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 |microsoftsqlserver | sql2016sp1-ws2016 | standard |
 | | sql2016sp2-ws2016 | standard|
@@ -88,13 +88,13 @@ Following is the list of supported images and no other marketplace images releas
 |microsoft-dsvm | aml-workstation | ubuntu |
 || ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
 || ubuntu-2004 | 2004, 2004-gen2 |
-|redhat | rhel| 7*,8*,9* | 74-gen2 |
-|redhat | rhel-ha | 8* | 8.1, 81_gen2 |
+|redhat | rhel| 7*,8*,9* |  |
+|redhat | rhel-ha | 8* | 81_gen2 |
 |redhat | rhel-raw | 7*,8*,9* | |
-|redhat | rhel-sap | 7*| 7.4, 7.5, 7.7 |
+|redhat | rhel-sap | 7*|  |
 |redhat | sap-apps | 7*, 8* |
 |redhat | rhel-sap* | 9_0 |
-|redhat | rhel-sap-ha| 7*, 8* | 7.5|
+|redhat | rhel-sap-ha| 7*, 8* | |
 |redhat | rhel-sap-apps | 90sapapps-gen2 |
 |redhat | rhel-sap-ha | 90sapha-gen2 |
 |redhat | rhel-byos | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 |
