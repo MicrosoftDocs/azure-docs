@@ -3,7 +3,7 @@ title: Deploy a cross-region load balancer with Azure Resource Manager templates
 description: Deploy a cross-region load balancer with Azure Resource Manager templates
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial 
 ms.date: 07/22/2024
 ms.custom: template-tutorial, devx-track-arm-template

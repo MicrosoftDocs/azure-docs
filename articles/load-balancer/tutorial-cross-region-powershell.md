@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Get started with this tutorial deploying a cross-region Azure Load Balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 07/23/2023
 ms.custom: devx-track-azurepowershell, template-tutorial, engagement-fy23

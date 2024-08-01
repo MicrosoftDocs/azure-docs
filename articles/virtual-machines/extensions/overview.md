@@ -2,7 +2,7 @@
 title: Azure virtual machine extensions and features
 description: Learn more about Azure VM extensions that provide post-deployment configuration and automation on Azure VMs.
 ms.topic: overview
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
