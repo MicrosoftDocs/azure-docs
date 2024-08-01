@@ -31,7 +31,9 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
-- `gpt-4` (0613)
+- `gpt-4` (0613)**<sup>*</sup>** 
+
+**<sup>*</sup>** Fine-tuning for this model is currently in public preview.
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 

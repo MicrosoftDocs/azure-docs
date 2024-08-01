@@ -23,7 +23,7 @@ For details on how to create a diagnostic setting, see [Create diagnostic settin
 > [!TIP]
 > * Sending logs to Log Analytics workspace if free of charge for the default retention period.
 > * Send to Azure Monitor Logs for more complex querying and alerting and for longer retention of up to 12 years.
-> * Logs exported to a Log Analytics workspace can be [shown in Power BI](https://learn.microsoft.com/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
+> * Logs exported to a Log Analytics workspace can be [shown in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
 > * [Insights](./activity-log-insights.md) are provided for Activity Logs exported to Log Analytics.
 
 > [!NOTE]

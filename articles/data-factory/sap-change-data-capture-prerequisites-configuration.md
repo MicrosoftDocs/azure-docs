@@ -3,7 +3,7 @@ title: Prerequisites and setup for the SAP CDC connector
 titleSuffix: Azure Data Factory
 description: Learn about the prerequisites and setup for the SAP CDC connector in Azure Data Factory.
 author: ukchrist
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024

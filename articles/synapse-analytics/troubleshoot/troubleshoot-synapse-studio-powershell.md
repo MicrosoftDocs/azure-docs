@@ -2,7 +2,7 @@
 title: Troubleshoot Synapse Studio connectivity
 description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
 author: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 10/30/2020 

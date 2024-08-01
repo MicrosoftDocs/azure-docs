@@ -5,7 +5,7 @@ description: Monitor the safety and quality of generative AI applications deploy
 services: machine-learning
 author: buchananwp
 ms.author: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.reviewer: scottpolly
 reviewer: s-polly
