@@ -66,18 +66,18 @@ ms.author: mattmcinnes
 ---
 ### DCas_cc_v5 and DCads_cc_v5-series
 #### [DCas_cc_v5-series](#tab/dcasccv5)
-[!INCLUDE [dcasccv5-dcadsccv5-series-summary](./includes/dcas_cc_v5-series-summary.md)]
+[!INCLUDE [dcasccv5-series-summary](./includes/dcasccv5-series-summary.md)]
 
-[View the full DCas_cc_v5-series page](./dcas_cc_v5-series.md).
+[View the full DCas_cc_v5-series page](./dcasccv5-series.md).
 
-[!INCLUDE [dcasccv5-dcadsccv5-series-specs](./includes/dcas_cc_v5-series-specs.md)]
+[!INCLUDE [dcasccv5-series-specs](./includes/dcasccv5-series-specs.md)]
 
 #### [DCads_cc_v5-series](#tab/dcadsccv5)
-[!INCLUDE [dcadsccv5-series-summary](./includes/dcads_cc_v5-series-summary.md)]
+[!INCLUDE [dcadsccv5-series-summary](./includes/dcadsccv5-series-summary.md)]
 
-[View the full DCads_cc_v5-series page](./dcads_cc_v5-series.md).
+[View the full DCads_cc_v5-series page](./dcadsccv5-series.md).
 
-[!INCLUDE [dcadsccv5-series-specs](./includes/dcads_cc_v5-series-specs.md)]
+[!INCLUDE [dcadsccv5-series-specs](./includes/dcadsccv5-series-specs.md)]
 
 ---
 ### DCesv5 and DCedsv5-series

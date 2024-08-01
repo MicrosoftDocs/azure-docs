@@ -37,7 +37,7 @@ vCPUs (Qty.) and Memory for each size
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
-### [Local Storage](#tab/sizestoragelocal)
+### [Local storage](#tab/sizestoragelocal)
 
 Local (temp) storage info for each size
 
@@ -60,7 +60,7 @@ Local (temp) storage info for each size
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
-### [Remote Storage](#tab/sizestorageremote)
+### [Remote storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 

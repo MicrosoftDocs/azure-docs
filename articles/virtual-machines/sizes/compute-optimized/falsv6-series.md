@@ -39,7 +39,7 @@ vCPUs (Qty.) and Memory for each size
 #### VM Basics resources
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
-### [Local Storage](#tab/sizestoragelocal)
+### [Local storage](#tab/sizestoragelocal)
 
 Local (temp) storage info for each size
 
@@ -50,7 +50,7 @@ Local (temp) storage info for each size
 
 
 
-### [Remote Storage](#tab/sizestorageremote)
+### [Remote storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 

@@ -292,9 +292,9 @@
         - name: DCadsv5 series
           href: ./sizes/general-purpose/dcadsv5-series.md
         - name: DCas_cc_v5 series
-          href: ./sizes/general-purpose/dcas_cc_v5-series.md
+          href: ./sizes/general-purpose/dcasccv5-series.md
         - name: DCads_cc_v5 series
-          href: ./sizes/general-purpose/dcads_cc_v5-series.md
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
           href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
