@@ -1,5 +1,5 @@
 ---
-title: What are dataflows?
+title: Process and route data with dataflows
 description: What are dataflows in Azure IoT Operations?
 author: PatAltimore
 ms.author: patricka
@@ -10,7 +10,7 @@ ms.date: 07/28/2024
 #CustomerIntent: As an operator, I want to understand how to I can use dataflows connect data sources.
 ---
 
-# What are dataflows?
+# Process and route data with dataflows
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

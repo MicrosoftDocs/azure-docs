@@ -69,7 +69,7 @@ items:
         href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
-    - name: Process and send data to cloud
+    - name: Process and route data
       items:
       - name: Overview
         href: connect-to-cloud/overview-dataflow.md
@@ -77,22 +77,16 @@ items:
         items:
         - name: Dataflow mapping language
           href: connect-to-cloud/concept-dataflow-language.md
-      - name: Read Data
-        items:
-        - name: Configure dataflow source
-          href: connect-to-cloud/howto-dataflow-source.md
-      - name: Process Data
-        items:
-        - name: Create a dataflow
-          href: connect-to-cloud/howto-create-dataflow.md
+        - name: Dataflow operations
+          href: connect-to-cloud/concept-dataflow-operations.md
+        - name: Dataflow conversions
+          href: connect-to-cloud/concept-dataflow-conversions.md
+      - name: Configure endpoints
+        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+      - name: Create a dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
       - name: Enrich data
-        items:
-        - name: Configure enrich stage
-          href: connect-to-cloud/howto-dataflow-reference-data.md
-      - name: Send Data
-        items:
-        - name: Configure dataflow destination
-          href: connect-to-cloud/howto-dataflow-destination.md
+        href: connect-to-cloud/howto-dataflow-enrich.md
       - name: Configure dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Process data
