@@ -3,7 +3,7 @@ title: HX family VM size series
 description: List of sizes in the HX family.
 author: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/06/2024
 ms.author: mattmcinnes

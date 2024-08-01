@@ -274,14 +274,6 @@
           href: ./sizes/general-purpose/ddv4-series.md   
         - name: Ddsv4 series
           href: ./sizes/general-purpose/ddsv4-series.md       
-        - name: Dv3 series
-          href: ./sizes/general-purpose/dv3-series.md
-        - name: Dsv3 series
-          href: ./sizes/general-purpose/dsv3-series.md
-        - name: Dv2 series
-          href: ./sizes/general-purpose/dv2-series.md
-        - name: Dsv2 series
-          href: ./sizes/general-purpose/dsv2-series.md
       - name: DC family (confidential)
         items:
         - name: Overview
@@ -360,8 +352,6 @@
           href: eav4-easv4-series.md
         - name: Ev4 and Esv4 series
           href: ev4-esv4-series.md
-        - name: Ev3 and Esv3 series
-          href: ev3-esv3-series.md
       - name: Eb family
         items:
         - name: Overview
@@ -416,8 +406,6 @@
         - name: Overview
           displayName: L-series, sizes, size, vm size
           href: ./sizes/storage-optimized/l-family.md
-        - name: Lsv2 series
-          href: ./sizes/storage-optimized/lsv2-series.md
         - name: Lsv3 series
           href: ./sizes/storage-optimized/lsv3-series.md
         - name: Lasv3 series
@@ -634,6 +622,26 @@
         href: ./sizes/retirement-overview.md
       - name: Previous-gen sizes
         href: ./sizes/previous-gen-sizes-list.md
+      - name: Previous-gen size pages
+        items:
+        - name: D-family
+          items:
+          - name: Dv3 series
+            href: ./sizes/general-purpose/dv3-series.md
+          - name: Dsv3 series
+            href: ./sizes/general-purpose/dsv3-series.md
+          - name: Dv2 series
+            href: ./sizes/general-purpose/dv2-series.md
+          - name: Dsv2 series
+            href: ./sizes/general-purpose/dsv2-series.md
+        - name: E-family
+          items:
+          - name: Ev3 and Esv3 series
+            href: ev3-esv3-series.md
+        - name: L-family
+          items:
+          - name: Lsv2 series
+            href: ./sizes/storage-optimized/lsv2-series.md
       - name: Retired sizes
         href: ./sizes/retired-sizes-list.md
     - name: Generation 2 VMs

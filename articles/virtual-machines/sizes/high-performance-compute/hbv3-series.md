@@ -3,7 +3,7 @@ title: HBv3 size series
 description: Information on and specifications of the HBv3-series sizes
 author: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: sizes-hpc
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 08/01/2024
 ms.author: mattmcinnes
