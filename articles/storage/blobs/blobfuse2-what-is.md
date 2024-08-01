@@ -45,7 +45,7 @@ Other key features in BlobFuse2 include:
 - Multiple mounts to the same container for read-only workloads
 
 > [!IMPORTANT]
-> If you are using versions 2.2.0, 2.2.1 and 2.3.0, refrain from using `Block-cache` mode and switch to `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
+> If you are using versions 2.2.0, 2.2.1, or 2.3.0, refrain from using the `Block-cache` mode and switch to the `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
 
 
 ## BlobFuse2 enhancements from BlobFuse v1
