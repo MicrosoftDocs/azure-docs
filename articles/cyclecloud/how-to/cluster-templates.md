@@ -5,7 +5,7 @@ author: adriankjohnson
 ms.date: 06/20/2023
 ms.author: adjohnso
 ms.topic: how-to
-ms.service: cyclecloud
+ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---
 
