@@ -33,6 +33,8 @@ items:
       href: oracle-db/provision-manage-oracle-resources.md
     - name: Troubleshoot provisioning issues
       href: oracle-db/provision-troubleshoot-oracle-database.md
+  - name: Link Oracle Database@Azure to multiple Azure subscriptions
+    href: oracle-db/link-oracle-database-multiple-azure-subscriptions.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
   - name: FAQs

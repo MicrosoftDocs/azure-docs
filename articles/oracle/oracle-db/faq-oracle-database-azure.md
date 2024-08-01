@@ -1,6 +1,6 @@
 ---
 title: Oracle Database@Azure FAQs
-description: Learn about answers to frequently ask questions about Oracle Database@Azure
+description: Learn answers to frequently ask questions about Oracle Database@Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
