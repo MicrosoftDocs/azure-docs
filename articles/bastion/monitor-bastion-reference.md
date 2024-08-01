@@ -16,6 +16,9 @@ See [Monitor Azure Bastion](monitor-bastion.md) for details on the data you can 
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
+> [!NOTE]
+> We don't recommend that your use *Classic Metrics*.
+
 ### Supported metrics for microsoft.network/bastionHosts
 
 The following table lists the metrics available for the microsoft.network/bastionHosts resource type.
@@ -24,11 +27,14 @@ The following table lists the metrics available for the microsoft.network/bastio
 
 [!INCLUDE [microsoft.network/bastionHosts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-bastionhosts-metrics-include.md)]
 
+> [!NOTE]
+> The Bastion Communication Status metric only applies to Azure Bastion hosts deployed after November 2020.
+
+### Metrics details
+
 The following sections give details about the metrics in the preceding table.
 
-### <a name="availability"></a>Availability metrics
-
-#### <a name="communication-status"></a>Bastion communication status
+#### Bastion communication status
 
 You can view the communication status of Azure Bastion, aggregated across all instances comprising the bastion host.
 
@@ -37,27 +43,7 @@ You can view the communication status of Azure Bastion, aggregated across all in
 
 :::image type="content" source="./media/metrics-monitor-alert/communication-status.png" alt-text="Screenshot that shows the communication status metric in the Azure portal.":::
 
-#### <a name="total-memory"></a>Total memory
-
-You can view the total memory of Azure Bastion, split across each bastion instance.
-
-:::image type="content" source="./media/metrics-monitor-alert/total-memory.png" alt-text="Screenshot that shows the total memory metric in the Azure portal.":::
-
-### <a name="traffic"></a>Traffic metrics
-
-#### <a name="used-cpu"></a>Used CPU
-
-You can view the CPU utilization of Azure Bastion, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
-
-:::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot that shows the CPU used metric in the Azure portal.":::
-
-#### <a name="used-memory"></a>Used memory
-
-You can view memory utilization across each bastion instance, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
-
-:::image type="content" source="./media/metrics-monitor-alert/used-memory.png" alt-text="Screenshot that shows the memory used metric in the Azure portal.":::
-
-### <a name="performance"></a>Performance metrics
+Bastion communication status is an Availability metric.
 
 #### Session count
 
@@ -70,6 +56,32 @@ The recommended values for this metric's configuration are:
 - Splitting by instances is recommended to get a more accurate count
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot that shows the session count metric in the Azure portal.":::
+
+Session count is a Traffic metric.
+
+#### Total memory
+
+You can view the total memory of Azure Bastion, split across each bastion instance.
+
+:::image type="content" source="./media/metrics-monitor-alert/total-memory.png" alt-text="Screenshot that shows the total memory metric in the Azure portal.":::
+
+Total memory is a Saturation metric.
+
+#### CPU usage
+
+You can view the CPU utilization of Azure Bastion, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
+
+:::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot that shows the CPU used metric in the Azure portal.":::
+
+CPU usage is a Saturation metric.
+
+#### Memory usage
+
+You can view memory utilization across each bastion instance, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
+
+:::image type="content" source="./media/metrics-monitor-alert/used-memory.png" alt-text="Screenshot that shows the memory used metric in the Azure portal.":::
+
+Memory usage is a Saturation metric.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
