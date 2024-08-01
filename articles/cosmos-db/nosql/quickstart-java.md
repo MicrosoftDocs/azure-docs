@@ -198,7 +198,7 @@ Fetch all of the results of the query using `repository.getItemsByCategory`. Loo
 ## Related content
 
 - [.NET Quickstart](quickstart-dotnet.md)
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [java Quickstart](quickstart-java.md)
 - [Go Quickstart](quickstart-go.md)
 

@@ -2,7 +2,7 @@
 title: Access ADLSg2 data from Azure Machine Learning
 description: This article provides an overview on how you can access data in your Azure Data Lake Storage Gen 2 (ADLSg2) account directly from Azure Machine Learning. 
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 02/27/2024

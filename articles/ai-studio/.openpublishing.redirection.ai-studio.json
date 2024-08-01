@@ -94,6 +94,11 @@
             "source_path_from_root": "/articles/ai-studio/how-to/llmops-github-prompt-flow.md",
             "redirect_url": "/azure/machine-learning/prompt-flow/how-to-end-to-end-llmops-with-prompt-flow",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/ai-studio/whats-new.md",
+            "redirect_url": "/azure/ai-studio/faq",
+            "redirect_document_id": false
         }
     ]
 }
