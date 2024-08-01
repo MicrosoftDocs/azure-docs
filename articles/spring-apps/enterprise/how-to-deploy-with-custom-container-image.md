@@ -4,7 +4,7 @@ description: How to deploy applications in Azure Spring Apps with a custom conta
 author: KarlErickson
 ms.author: xiangy
 ms.topic: how-to
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.date: 06/27/2024
 ---
