@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that's mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that is mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure App Service, and Azure Functions on your Kubernetes cluster. 
 
@@ -260,7 +260,7 @@ az logicapp delete --name MyLogicAppName
 
 ### [Visual Studio Code](#tab/visual-studio-code)
 
-You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There is no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc-enabled Logic Apps.
+You can create, deploy, and monitor your logic app workflows from end to end in Visual Studio Code. There's no change or difference in the designer experience between developing logic app workflows that run in single-tenant Azure Logic Apps versus Azure Arc-enabled Logic Apps.
 
 1. To create a logic app project, follow the prerequisites and steps in the [Create integration workflows in single-tenant Azure Logic Apps with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md) documentation.
 
@@ -268,7 +268,7 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
    1. From a blank area in your logic app project's window, open the shortcut menu, and select **Deploy to Logic App**.
 
-   1. Select the Azure subscription that's associated with your custom location.
+   1. Select the Azure subscription associated with your custom location.
 
    1. To create a new Azure Arc-enabled Logic Apps resource, select **Create new Logic App in Azure (Advanced)**. Or, you can select an existing logic app resource from the list and skip the next steps.
 
@@ -282,7 +282,7 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
    1. Select or create a new Application Insights resource for storing application logs for your logic app.
 
-   1. If you haven't done so, set up your Microsoft Entra identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
+   1. If you have not done so, set up your Microsoft Entra identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
 
    1. Enter the client ID, tenant ID, object ID, and client secret for your Microsoft Entra identity.
 
@@ -495,7 +495,7 @@ In your [Azure Resource Manager template (ARM template)](../azure-resource-manag
 
 | Item | JSON property | Description |
 |------|---------------|-------------|
-| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value is *not the same* as the *name* for your custom location. |
+| Location | `location` | Make sure to use the same resource location (Azure region) as your custom location and Kubernetes environment. The resource locations for your logic app, custom location, and Kubernetes environment must all be the same. <p><p>**Note**: This value *isn't the same* as the *name* for your custom location. |
 | App kind | `kind` | The type of app that you're deploying so the Azure platform can identify your app. For Azure Logic Apps, this information looks like the following example: `kubernetes,functionapp,workflowapp,container` |
 | Extended Location | `extendedLocation` | This object requires the `"name"` of your *custom location* for your Kubernetes environment and must have `"type"` set to `"CustomLocation"`. |
 | Container name | `linuxFxVersion` | The name for your container, formatted as follows: `DOCKER\|<container-name>` |
