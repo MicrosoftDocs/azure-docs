@@ -75,6 +75,7 @@ For information about working with the legacy gateway SKUs (Basic, Standard, and
 You specify the gateway SKU when you create your VPN Gateway. See the following article for steps:
 
 * [Azure portal](tutorial-create-gateway-portal.md)
+* [PowerShell - Basic SKU](create-gateway-basic-sku-powershell.md)
 * [PowerShell](create-gateway-powershell.md)
 * [Azure CLI](create-routebased-vpn-gateway-cli.md)
 

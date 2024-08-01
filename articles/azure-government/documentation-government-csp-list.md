@@ -329,7 +329,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |Phacil (By Light) |
-|[Pharicode LLC](https://pharicode.com)|
+|[Pharicode LLC](https://glidefast.com/)|
 |Philistin & Heller Group, Inc.|
 |[Picis Envision](https://www.picis.com/en/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|

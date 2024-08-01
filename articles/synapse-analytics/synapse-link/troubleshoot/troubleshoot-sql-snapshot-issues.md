@@ -4,7 +4,7 @@ description: Learn how to troubleshoot Azure Synapse Link initial snapshot issue
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: imotiwala, prpasunu
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 05/03/2023
