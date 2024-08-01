@@ -56,7 +56,7 @@ Oracle Database@Azure currently runs on X9M hardware and provides a configuratio
 
 ### What Oracle applications are supported to run on Azure?
 
-Various Oracle applications are authorized and supported to be run on Azure. For more information,see [Oracle programs are eligible for Authorized Cloud Environments](https://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
+Various Oracle applications are authorized and supported to be run on Azure. For more information, see [Oracle programs are eligible for Authorized Cloud Environments](https://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
 
 ### What are the available Service Level Agreements (SLAs)?
 
@@ -191,7 +191,7 @@ For more information about Oracle Database@Azure, see the following resources.
 - [Network planning for Oracle Database@Azure](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
 
-## Next Steps
+## Next steps
 
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
