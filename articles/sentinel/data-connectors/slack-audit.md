@@ -117,7 +117,7 @@ If you're already signed in, go to the next step.
 **2. Configure the Function App**
 
 1. In the Function App, select the Function App Name and select **Configuration**.
-2. In the **Application settings** tab, select ** New application setting**.
+2. In the **Application settings** tab, select **New application setting**.
 3. Add each of the following application settings individually, with their respective string values (case-sensitive): 
 		SlackAPIBearerToken
 		WorkspaceID
