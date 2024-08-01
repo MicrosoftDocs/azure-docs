@@ -1,110 +1,168 @@
 ---
-title: 'Quickstart: Create a shared query with Azure PowerShell'
-description: In this quickstart, you follow the steps to create a Resource Graph shared query using Azure PowerShell.
-ms.date: 11/09/2022
+title: "Quickstart: Create a Resource Graph shared query using Azure PowerShell"
+description: In this quickstart, you create a Resource Graph shared query using Azure PowerShell.
+ms.date: 06/27/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, mode-api
 ---
+
 # Quickstart: Create a Resource Graph shared query using Azure PowerShell
 
-This article describes how you can create an Azure Resource Graph shared query using the
-[Az.ResourceGraph](/powershell/module/az.resourcegraph) PowerShell module.
+In this quickstart, you create an Azure Resource Graph shared query using the `Az.ResourceGraph` Azure PowerShell module. The module is included with the latest version of Azure PowerShell and adds [cmdlets](/powershell/module/az.resourcegraph) for Resource Graph.
+
+A shared query can be run from Azure CLI with the _experimental_ feature's commands, or you can run the shared query from the Azure portal. A shared query is an Azure Resource Manager object that you can grant permission to or run in Azure Resource Graph Explorer. When you finish, you can remove the Resource Graph extension.
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Latest versions of [PowerShell](/powershell/scripting/install/installing-powershell) and [Azure PowerShell](/powershell/azure/install-azure-powershell).
+- [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../../includes/azure-powershell-requirements-no-header.md)]
+## Install the module
 
-  > [!IMPORTANT]
-  > While the **Az.ResourceGraph** PowerShell module is in preview, you must install it separately
-  > using the `Install-Module` cmdlet.
+If you installed the latest versions of PowerShell and Azure PowerShell, you already have the `Az.ResourceGraph` module and required version of PowerShellGet. 
 
-  ```azurepowershell-interactive
-  Install-Module -Name Az.ResourceGraph -Scope CurrentUser -Repository PSGallery -Force
-  ```
+### Optional module installation
 
-- If you have multiple Azure subscriptions, choose the appropriate subscription in which the
-  resources should be billed. Select a specific subscription using the
-  [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
+Use the following steps to install the `Az.ResourceGraph` module so that you can use Azure PowerShell to run Azure Resource Graph queries. The Azure Resource Graph module requires PowerShellGet version 2.0.1 or higher. 
 
-  ```azurepowershell-interactive
-  Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
-  ```
+1. Verify your PowerShellGet version:
 
-## Create a Resource Graph shared query
+    ```azurepowershell
+    Get-Module -Name PowerShellGet
+    ```
 
-With the **Az.ResourceGraph** PowerShell module added to your environment of choice, it's time to create
-a Resource Graph shared query. The shared query is an Azure Resource Manager object that you can
-grant permission to or run in Azure Resource Graph Explorer. The query summarizes the count of all
-resources grouped by _location_.
+   If you need to update, go to [PowerShellGet](/powershell/gallery/powershellget/install-powershellget).
 
-1. Create a resource group with
-   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) to store the Azure
-   Resource Graph shared query. This resource group is named `resource-graph-queries` and the
-   location is `westus2`.
+1. Install the module:
 
-   ```azurepowershell-interactive
-   # Login first with `Connect-AzAccount` if not using Cloud Shell
-
-   # Create the resource group
-   New-AzResourceGroup -Name resource-graph-queries -Location westus2
+   ```azurepowershell
+   Install-Module -Name Az.ResourceGraph -Repository PSGallery -Scope CurrentUser
    ```
 
-1. Create the Azure Resource Graph shared query using the **Az.ResourceGraph** PowerShell module and
-   [New-AzResourceGraphQuery](/powershell/module/az.resourcegraph/new-azresourcegraphquery)
-   cmdlet:
+    The command installs the module in the `CurrentUser` scope. If you need to install in the `AllUsers` scope, run the installation from an administrative PowerShell session.
 
-   ```azurepowershell-interactive
-   # Create the Azure Resource Graph shared query
-   $Params = @{
+1. Verify the module was installed:
+
+   ```azurepowershell
+   Get-Command -Module Az.ResourceGraph -CommandType Cmdlet
+   ```
+
+   The command displays the `Search-AzGraph` cmdlet version and loads the module into your PowerShell session.
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurepowershell
+Connect-AzAccount
+
+# Run these commands if you have multiple subscriptions
+Get-AzSubScription
+Set-AzContext -Subscription <subscriptionID>
+```
+
+## Create a shared query
+
+The shared query is an Azure Resource Manager object that you can grant permission to or run in Azure Resource Graph Explorer. The query summarizes the count of all resources grouped by location.
+
+1. Create a resource group to store the Azure Resource Graph shared query.
+
+   ```azurepowershell
+   New-AzResourceGroup -Name demoSharedQuery -Location westus2
+   ```
+
+1. Create the Azure Resource Graph shared query.
+
+   ```azurepowershell
+   $params = @{
      Name = 'Summarize resources by location'
-     ResourceGroupName = 'resource-graph-queries'
+     ResourceGroupName = 'demoSharedQuery'
      Location = 'westus2'
      Description = 'This shared query summarizes resources by location for a pinnable map graphic.'
      Query = 'Resources | summarize count() by location'
    }
-   New-AzResourceGraphQuery @Params
+
+   New-AzResourceGraphQuery @params
    ```
 
-1. List the shared queries in the new resource group. The
-   [Get-AzResourceGraphQuery](/powershell/module/az.resourcegraph/get-azresourcegraphquery)
-   cmdlet returns an array of values.
+   The `$params` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the shared query. 
 
-   ```azurepowershell-interactive
-   # List all the Azure Resource Graph shared queries in a resource group
-   Get-AzResourceGraphQuery -ResourceGroupName resource-graph-queries
+1. List all shared queries in the resource group. 
+
+   ```azurepowershell
+   Get-AzResourceGraphQuery -ResourceGroupName demoSharedQuery
    ```
 
-1. To get just a single shared query result, use `Get-AzResourceGraphQuery` with its `Name` parameter.
+1. Limit the results to a specific shared query.
 
-   ```azurepowershell-interactive
-   # Show a specific Azure Resource Graph shared query
-   Get-AzResourceGraphQuery -ResourceGroupName resource-graph-queries -Name 'Summarize resources by location'
+   ```azurepowershell
+   Get-AzResourceGraphQuery -ResourceGroupName demoSharedQuery -Name 'Summarize resources by location'
    ```
+
+## Run the shared query
+
+You can verify the shared query works using Azure Resource Graph Explorer. To change the scope, use the **Scope** menu on the left side of the page. 
+
+1. Sign in to [Azure portal](https://portal.azure.com).
+1. Enter _resource graph_ into the search field at the top of the page.
+1. Select **Resource Graph Explorer**.
+1. Select **Open query**.
+1. Change **Type** to _Shared queries_.
+1. Select the query _Count VMs by OS_.
+1. Select **Run query** and the view output in the **Results** tab.
+1. Select **Charts** and then select **Map** to view the location map.
+
+You can also run the query from your resource group. 
+
+1. In Azure, go to the resource group, _demoSharedQuery_.
+1. From the **Overview** tab, select the query _Count VMs by OS_.
+1. Select the **Results** tab to view a list.
+1. Select **Charts** and then select **Map** to view the location map.
 
 ## Clean up resources
 
-If you wish to remove the Resource Graph shared query and resource group from your Azure
-environment, you can do so by using the following commands:
+When you finish, you can remove the Resource Graph shared query and resource group from your Azure environment. When a resource group is deleted, the resource group and all its resources are deleted.
 
-- [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
+Remove the shared query:
 
-```azurepowershell-interactive
-# Delete the Azure Resource Graph shared query
-Remove-AzResourceGraphQuery -ResourceGroupName resource-graph-queries -Name 'Summarize resources by location'
-
-# Remove the resource group
-# WARNING: This command deletes ALL resources you've added to this resource group
-Remove-AzResourceGroup -Name resource-graph-queries
+```azurepowershell
+Remove-AzResourceGraphQuery -ResourceGroupName demoSharedQuery -Name 'Summarize resources by location'
 ```
+
+Delete the resource group:
+
+```azurepowershell
+Remove-AzResourceGroup -Name demoSharedQuery
+```
+
+To sign out of your Azure PowerShell session:
+
+```azurepowershell
+Disconnect-AzAccount
+```
+
+### Optional clean up steps
+
+If you installed the latest version of Azure PowerShell, the `Az.ResourceGraph` module is included and shouldn't be removed. The following steps are optional if you did a manual install of the `Az.ResourceGraph` module and want to remove the module. 
+
+To remove the `Az.ResourceGraph` module from your PowerShell session, run the following command:
+
+```azurepowershell
+Remove-Module -Name Az.ResourceGraph
+```
+
+To uninstall the `Az.ResourceGraph` module from your computer, run the following command:
+
+```azurepowershell
+Uninstall-Module -Name Az.ResourceGraph
+```
+
+A message might be displayed that _module Az.ResourceGraph is currently in use_. If so, you need to shut down your PowerShell session and start a new session. Then run the command to uninstall the module from your computer.
 
 ## Next steps
 
-In this quickstart, you've created a Resource Graph shared query using Azure PowerShell. To learn
-more about the Resource Graph language, continue to the query language details page.
+In this quickstart, you created a Resource Graph shared query using Azure PowerShell. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

@@ -8,7 +8,7 @@ ms.topic: conceptual
 # Virtual machine extension management with Azure Arc-enabled servers
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script in it, a VM extension can be used.
 
@@ -95,6 +95,16 @@ This feature depends on the following Azure resource providers in your subscript
 If they aren't already registered, follow the steps under [Register Azure resource providers](prerequisites.md#azure-resource-providers).
 
 Be sure to review the documentation for each VM extension referenced in the previous table to understand if it has any network or system requirements. This can help you avoid experiencing any connectivity issues with an Azure service or feature that relies on that VM extension.
+
+### Required Permissions
+
+To deploy an extension to Arc-enabled servers, a user requires the following permissions.
+
+- `microsoft.hybridcompute/machines/read`
+- `microsoft.hybridcompute/machines/extensions/read`
+- `microsoft.hybridcompute/machines/extensions/write`
+
+The role **Azure Connected Machine Resource Administrator** includes the permissions required to deploy extensions, however it also includes permission to delete Arc-enabled server resources.
 
 ### Log Analytics VM extension
 

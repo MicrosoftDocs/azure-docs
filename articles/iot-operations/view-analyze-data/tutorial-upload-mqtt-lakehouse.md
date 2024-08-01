@@ -2,7 +2,7 @@
 title: Upload MQTT data to Microsoft Fabric lakehouse
 description: Learn how to upload MQTT data from the edge to a Fabric lakehouse using Azure IoT MQ
 author: PatAltimore
-ms.subservice: mq
+ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: how-to
 ms.date: 11/15/2023

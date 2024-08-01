@@ -3,9 +3,9 @@ title: Set up Visual Studio Code desktop with the Azure Machine Learning extensi
 titleSuffix: Azure Machine Learning
 description: Learn how to set up the Azure Machine Learning Visual Studio Code extension.
 services: machine-learning
-ms.reviewer: ssalgado
-author: tbombach
-ms.author: tbombach
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/16/2024

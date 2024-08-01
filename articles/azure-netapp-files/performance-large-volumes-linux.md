@@ -11,6 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 05/01/2023
 ms.author: anfdocs

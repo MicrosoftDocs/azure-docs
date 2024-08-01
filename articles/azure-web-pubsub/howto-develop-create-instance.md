@@ -70,7 +70,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ## Create a resource using Bicep template
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Review the Bicep file
 

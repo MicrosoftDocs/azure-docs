@@ -2,8 +2,7 @@
 title: Linux container support in Azure Functions
 description: Describes the options for and benefits of running your function code in Linux containers in Azure.
 ms.service: azure-functions
-ms.custom:
-  - build-2024
+ms.custom: build-2024, linux-related-content
 ms.topic: concept-article
 ms.date: 04/05/2024
 

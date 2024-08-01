@@ -14,7 +14,7 @@ ms.collection:
 
 # Key management in Azure
 
-[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
+[!INCLUDE [Zero Trust principles ](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
 
 In Azure, encryption keys can be either platform managed or customer managed.
 

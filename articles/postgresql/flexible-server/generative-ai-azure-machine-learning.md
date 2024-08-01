@@ -4,9 +4,10 @@ description: Real-time scoring with online inference endpoints on Azure Machine 
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan
-ms.date: 04/27/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: how-to
@@ -36,7 +37,7 @@ select azure_ai.set_setting('azure_ml.scoring_endpoint','<URI>');
 select azure_ai.set_setting('azure_ml.endpoint_key', '<Key>');
 ```
 
-### `azure_ml.inference`
+### `azure_ml.invoke`
 
 Scores the input data invoking an Azure Machine Learning model deployment on an [online endpoint](../../machine-learning/how-to-authenticate-online-endpoint.md).
 

@@ -21,10 +21,11 @@ Hibernating dev boxes at the end of the workday can help you save a substantial 
 
 With the introduction of Dev Box Hibernation (Preview), you can enable this capability on new dev boxes and hibernate and resume them. This feature provides a convenient way to manage your dev boxes while maintaining your work environment.
 
-There are two steps to enable hibernation: 
+There are three steps to enable hibernation: 
 
 1. Enable hibernation on your dev box image
 1. Enable hibernation on your dev box definition
+1. Automate hibernation of pools of dev boxes using auto-stop schedules, or stop on RDP disconnect.
 
 > [!IMPORTANT]
 > Dev Box Hibernation is currently in PREVIEW.
@@ -184,6 +185,7 @@ az devcenter admin devbox-definition update
 
 ## Related content
 
-- [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md)  
+
 - [How to hibernate your dev box](how-to-hibernate-your-dev-box.md)
+- [Configure a dev box by using Azure VM Image Builder](how-to-customize-devbox-azure-image-builder.md)  
 - [Azure CLI reference for az devcenter admin devbox-definition](/cli/azure/devcenter/admin/devbox-definition?view=azure-cli-latest&preserve-view=true)

@@ -25,7 +25,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 - [Quickstart: Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
 
-You also need a Microsoft Fabric subscription. You can sign up for a free [Microsoft Fabric (Preview) Trial](/fabric/get-started/fabric-trial). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
+You also need a Microsoft Fabric subscription. If you don't have a subscription, you can sign up for a free [Microsoft Fabric trial capacity](/fabric/get-started/fabric-trial). To access the trial capacity, you must be a [trial capacity administrator](/fabric/get-started/fabric-trial#look-up-the-trial-capacity-administrator). In your Microsoft Fabric subscription, ensure that the following settings are enabled for your tenant:
 
 - [Allow service principals to use Power BI APIs](/fabric/admin/service-admin-portal-developer#allow-service-principals-to-use-power-bi-apis)
 - [Users can access data stored in OneLake with apps external to Fabric](/fabric/admin/service-admin-portal-onelake#users-can-access-data-stored-in-onelake-with-apps-external-to-fabric)
@@ -89,10 +89,10 @@ Your codespace comes with the following sample connector configuration file, `/w
 1. Run the following command to create the connector:
 
    ```console
-   kubectl apply -f datalake-connector.yaml
+   kubectl apply -f samples/quickstarts/datalake-connector.yaml
    ```
 
-After a short time, the data from your MQ broker begins to populate the table in your lakehouse.
+After a short time, the data from your MQ broker begins to populate the table in your lakehouse. You may need refresh the lakehouse page to see the data.
 
 :::image type="content" source="media/quickstart-upload-telemetry-to-cloud/lakehouse-preview.png" alt-text="Screenshot that shows data from the pipeline appearing in the lakehouse table.":::
 

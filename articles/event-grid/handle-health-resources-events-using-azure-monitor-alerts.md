@@ -77,7 +77,9 @@ The event filter enables users to receive alerts for a specific resource group, 
   
 ## Sample JSON events
 
-Here's the sample JSON event:
+### Sample ResourceAnnotated event
+
+Here's a sample `ResourceAnnotated` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.ResourceAnnotated`.
 
 ```json
 {
@@ -110,6 +112,13 @@ Here's the sample JSON event:
         "apiVersion": "2022-08-01"
     }
 }
+```
+
+### Sample AvailabilityStatusChanged event
+
+Here's a sample `AvailabilityStatusChanged` event. Notice that the `type` is set to `Microsoft.ResourceNotifications.HealthResources.AvailabilityStatusChanged`.
+
+```json
 {
     "id": "sample-id",
     "source": "/subscriptions/sample-subscription",

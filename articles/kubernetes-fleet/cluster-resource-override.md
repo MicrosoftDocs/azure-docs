@@ -54,7 +54,18 @@ spec:
       name: secret-reader
 ```
 
-This example selects a `ClusterRole` named `secret-reader` from the `rbac.authorization.k8s.io/v1` API group for overriding.
+This example selects a `ClusterRole` named `secret-reader` from the `rbac.authorization.k8s.io/v1` API group, as shown below, for overriding.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+```
 
 ## Policy
 
@@ -152,11 +163,24 @@ spec:
             path: /rules/0/verbs/1
 ```
 
-This example removes the verbs "list" and "watch" in the `ClusterRole` named `secret-reader` on clusters with the label `env: prod`.
+This example removes the verbs "list" and "watch" in the `ClusterRole` named `secret-reader` on clusters with the label `env: prod`, as shown below.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: secret-reader
+rules:
+- apiGroups: [""]
+  resources: ["secrets"]
+  verbs: ["get", "watch", "list"]
+```
 
 `jsonPatchOverrides` apply a JSON patch on the selected resources following [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902).
 
-## Apply the cluster resource override
+## Apply the cluster resource placement
+
+### [Azure CLI](#tab/azure-cli)
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource.
 
@@ -223,8 +247,51 @@ This example removes the verbs "list" and "watch" in the `ClusterRole` named `se
           Type:                  Overridden
          ...
     ```
-
+    
     The `ClusterResourcePlacementOverridden` condition indicates whether the resource override was successfully applied to the selected resources in the clusters. Each cluster maintains its own `Applicable Cluster Resource Overrides` list, which contains the cluster resource override snapshot if relevant. Individual status messages for each cluster indicate whether the override rules were successfully applied.
+
+### [Portal](#tab/azure-portal)
+
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
+
+1. Select **Create**.
+
+1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the cluster resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate resource. Replace the default template with the YAML example below, and select **Add**.
+
+    :::image type="content" source="./media/cluster-resource-override/crp-create-inline.png" lightbox="./media/cluster-resource-override/crp-create.png" alt-text="A screenshot of the Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+
+    ```yaml
+    apiVersion: placement.kubernetes-fleet.io/v1beta1
+    kind: ClusterResourcePlacement
+    metadata:
+      name: crp
+    spec:
+      resourceSelectors:
+        - group: rbac.authorization.k8s.io
+          kind: ClusterRole
+          version: v1
+          name: secret-reader
+      policy:
+        placementType: PickAll
+        affinity:
+          clusterAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              clusterSelectorTerms:
+                - labelSelector:
+                    matchLabels:
+                      env: prod
+    ```
+
+    This example distributes resources across all clusters labeled with `env: prod`. As the changes are implemented, the corresponding `ClusterResourceOverride` configurations will be applied to the designated clusters, triggered by the selection of matching cluster role resource, `secret-reader`.
+
+
+1. Verify that the cluster resource placement is created successfully.
+
+    :::image type="content" source="./media/cluster-resource-override/crp-success-inline.png" lightbox="./media/cluster-resource-override/crp-success.png" alt-text="A screenshot of the Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+
+1. Verify the cluster resource placement applied to the selected resources by selecting the resource from the list and checking the status.
+
+---
 
 ## Next steps
 

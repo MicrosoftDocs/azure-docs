@@ -82,6 +82,9 @@ Add an access policy in the key vault for your Data Manager for Agriculture inst
 ### Step 5: Invoke control plane API call
 Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2023-06-01-preview/data-connectors) to specify connector credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
 
+> [!NOTE] 
+>For making control plane calls, you need owner access on ADMA resource scope.
+
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 
 #### Following values should be used for the connectors while invoking above APIs:

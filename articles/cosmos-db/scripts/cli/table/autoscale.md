@@ -4,7 +4,7 @@ description: Use Azure CLI to create a API for Table account and table with auto
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/22/2022
@@ -19,7 +19,7 @@ The script in this article creates an Azure Cosmos DB for Table account and tabl
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - This script requires Azure CLI version 2.12.1 or later.
 

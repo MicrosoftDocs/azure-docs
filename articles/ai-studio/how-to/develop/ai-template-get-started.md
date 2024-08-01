@@ -13,12 +13,12 @@ author: eric-urban
 
 # How to get started with an AI template
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Streamline your code-first development with prebuilt, task-specific Azure AI templates. Benefit from using the latest features and best practices from Microsoft Azure AI, with popular frameworks like LangChain, prompt flow, and Semantic Kernel in multiple languages.
 
 > [!TIP]
-> Discover the latest templates in our curated [AZD templates collection](https://aka.ms/azd-ai-templates). Deploy them with a single command ```azd up``` using the [Azure Developer CLI](/developer/azure-developer-cli/overview). 
+> Discover the latest templates in our curated [AZD templates collection](https://aka.ms/azd-ai-templates). Deploy them with a single command ```azd up``` using the [Azure Developer CLI](/azure/developer/azure-developer-cli/). 
 
 ## Start with a sample application
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Table Storage support in Azure Cosmos DB
 description: Learn how Azure Cosmos DB for Table and Azure Table Storage work together by sharing the same table data model and operations.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: how-to
 ms.date: 03/07/2023
@@ -20,7 +20,7 @@ Azure Cosmos DB for Table and Azure Table Storage share the same table data mode
 > [!NOTE]
 > The *serverless capacity mode* is now available on Azure Cosmos DB API for Table. For more information, see [Azure Cosmos DB serverless](../serverless.md).
 
-[!INCLUDE [storage-table-cosmos-comparison](../../../includes/storage-table-cosmos-comparison.md)]
+[!INCLUDE [storage-table-cosmos-comparison](../includes/storage-table-cosmos-comparison.md)]
 
 ## Azure SDKs
 
@@ -28,13 +28,14 @@ Azure Cosmos DB for Table and Azure Table Storage share the same table data mode
 
 The following SDK packages work with both the Azure Cosmos DB for Table and Table Storage.
 
-- **.NET**. Use the [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) available on NuGet.
-
-- **Python**. Use the [azure-data-tables](https://pypi.org/project/azure-data-tables/) available from PyPi.
-
-- **JavaScript/TypeScript**. Use the [@azure/data-tables](https://www.npmjs.com/package/@azure/data-tables) package available on npm.js.  
-
-- **Java**. Use the [azure-data-tables](https://mvnrepository.com/artifact/com.azure/azure-data-tables/12.0.0) package available on Maven.
+| Language | Package | Source Code |
+| --- | --- | --- |
+| **.NET** | [NuGet \| Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) | [azure-sdk-for-net/sdk/tables/Azure.Data.Tables](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables) |
+| **Python** | [PyPI \| azure-data-tables](https://pypi.org/project/azure-data-tables/) | [azure-sdk-for-python/sdk/tables/azure-data-tables](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/tables/azure-data-tables) |
+| **JavaScript/TypeScript** | [npm \| @azure/data-tables](https://www.npmjs.com/package/@azure/data-tables) | [azure-sdk-for-js/sdk/tables/data-tables](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/tables/data-tables) |
+| **Java** | [Maven \| azure-data-tables](https://mvnrepository.com/artifact/com.azure/azure-data-tables) | [azure-sdk-for-java/sdk/tables/azure-data-tables](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) |
+| **Go** | [pkg.go.dev \| aztables](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/aztables) | [azure-sdk-for-go/sdk/data/aztables](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/aztables) |
+| **C++** | [vcpkg \| azure-data-tables-cpp](https://vcpkg.io/en/package/azure-data-tables-cpp) | [azure-sdk-for-cpp/sdk/tables/azure-data-tables](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/tables/azure-data-tables) |
 
 ### Prior releases
 

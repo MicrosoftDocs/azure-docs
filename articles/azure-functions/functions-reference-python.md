@@ -216,7 +216,7 @@ Azure Functions integrates well with [Azure Cosmos DB](../cosmos-db/introduction
 
 For example, for [event sourcing](/azure/architecture/patterns/event-sourcing), the two services are integrated to power event-driven architectures using Azure Cosmos DB's [change feed](../cosmos-db/change-feed.md) functionality. The change feed provides downstream microservices the ability to reliably and incrementally read inserts and updates (for example, order events). This functionality can be used to provide a persistent event store as a message broker for state-changing events and drive order processing workflow between many microservices (which can be implemented as [serverless Azure Functions](https://azure.com/serverless)).
 
-:::image type="content" source="../cosmos-db/media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/event-sourcing.png" alt-text="Azure Cosmos DB ordering pipeline reference architecture" border="false":::
 
 To connect to Azure Cosmos DB, first [create an account, database, and container](../cosmos-db/nosql/quickstart-portal.md). Then you can connect your function code to Azure Cosmos DB using [trigger and bindings](functions-bindings-cosmosdb-v2.md), like this [example](functions-add-output-binding-cosmos-db-vs-code.md).
 
@@ -539,7 +539,7 @@ This feature makes it possible to handle large data stream, OpenAI integrations,
 
 ### Enable HTTP streams
 
-HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package.
+HTTP streams are disabled by default. You need to enable this feature in your application settings and also update your code to use the FastAPI package. Note that when enabling HTTP streams, the function app will default to using HTTP streaming, and the original HTTP functionality will not work.
 
 1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
@@ -549,10 +549,13 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
     :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="8" ::: 
 
-1. When you deploy to Azure, add these [application settings](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
+1. When you deploy to Azure, add the following [application setting](./functions-how-to-use-azure-function-app-settings.md#settings) in your function app:
 
-    + `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"` 
-    + `"PYTHON_ENABLE_INIT_INDEXING": "1"`
+    `"PYTHON_ENABLE_INIT_INDEXING": "1"` 
+
+    If you are deploying to Linux Consumption, also add
+
+    `"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"`
 
     When running locally, you also need to add these same settings to the `local.settings.json` project file.
 

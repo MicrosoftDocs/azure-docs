@@ -19,7 +19,7 @@ Independent software vendors (ISVs) can manage the Face API usage of their clien
 
 This guide shows you how to generate the access tokens, if you're an approved ISV, and how to use the tokens if you're a client. 
 
-The limited access token feature is a part of the existing [Azure AI services token service](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueScopedToken).  We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
+The limited access token feature is a part of the existing Azure AI Services token service. We have added a new operation for the purpose of bypassing the Limited Access gate for approved scenarios. Only ISVs that pass the gating requirements will be given access to this feature.
 
 ## Example use case
 
@@ -33,9 +33,9 @@ If the ISV learns that a client is using the LimitedAccessToken for non-approved
 
 ## Prerequisites
 
-* [cURL](https://curl.haxx.se/) installed (or another tool that can make HTTP requests).
-* The ISV needs to have either an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or an [Azure AI services multi-service](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
-* The client needs to have an [Azure AI Face](https://ms.portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
+* [cURL](https://curl.se/) installed (or another tool that can make HTTP requests).
+* The ISV needs to have either an [Azure AI Face](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource or an [Azure AI services multi-service](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/AllInOne) resource.
+* The client needs to have an [Azure AI Face](https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/Face) resource.
 
 ## Step 1: ISV obtains client's Face resource ID
 
@@ -159,7 +159,7 @@ static void Main(string[] args)
     // create Face client object
     var faceClient = new FaceClient(new LimitedAccessTokenWithApiKeyClientCredential(apiKey: "<client-face-key>", limitedAccessToken: "<token>")); 
 
-    faceClient.Endpoint = "https://willtest-eastus2.cognitiveservices.azure.com"; 
+    faceClient.Endpoint = "https://mytest-eastus2.cognitiveservices.azure.com"; 
 
     // use Face client in an API call
     using (var stream = File.OpenRead("photo.jpg")) 
@@ -172,5 +172,4 @@ static void Main(string[] args)
 ```
 ---
 
-## Next steps
-* [LimitedAccessToken API reference](https://westus.dev.cognitive.microsoft.com/docs/services/57346a70b4769d2694911369/operations/issueLimitedAccessToken)
+

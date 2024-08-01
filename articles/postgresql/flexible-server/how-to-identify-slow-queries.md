@@ -11,7 +11,7 @@ ms.topic: conceptual
 ---
 # Troubleshoot and identify slow-running queries in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to troubleshoot and identify slow-running queries using [Azure Database for PostgreSQL flexible server](overview.md).
 

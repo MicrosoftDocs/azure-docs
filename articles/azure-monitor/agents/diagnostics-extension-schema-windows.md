@@ -71,7 +71,7 @@ The top-level element of the diagnostics configuration file.
 |Attributes|Description|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | The maximum amount of local disk space that may be consumed by the various types of diagnostic data collected by Azure Diagnostics. The default setting is 4096 MB.<br />
-|**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in IE settings.|
+|**useProxyServer** | Configure Azure Diagnostics to use the proxy server settings as set in Internet Explorer settings.|
 |**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data for all child elements that support sinks. Sink example is Application Insights or Event Hubs. Note you need to add the *resourceId* property under the *Metrics* element if you want events uploaded to Event Hubs to have a resource ID. |  
 
 

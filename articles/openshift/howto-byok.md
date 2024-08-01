@@ -33,8 +33,8 @@ The Azure Red Hat OpenShift Engineering team can't access the keys. Therefore, t
 For details about using Disk Encryption Sets to manage your encryption keys, see [Server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md) in the Microsoft Azure documentation.
 
 ## Prerequisites
-* [Verify your permissions](tutorial-create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
-* If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
+* [Verify your permissions](create-cluster.md#verify-your-permissions). You must have either Contributor and User Access Administrator permissions or Owner permissions.
+* If you have multiple Azure subscriptions, register the resource providers. For registration details, see [Register the resource providers](create-cluster.md#register-the-resource-providers).
 * You will need to have the EncryptionAtHost feature enabled on your subscription. You can enable it by running:
 
     ```azurecli-interactive
@@ -47,7 +47,7 @@ For details about using Disk Encryption Sets to manage your encryption keys, see
     ```
 
 ## Create a virtual network containing two empty subnets
-Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
+Create a virtual network containing two empty subnets. If you have an existing virtual network that meets your needs, you can skip this step. To review the procedure of creating a virtual network, see [Create a virtual network containing two empty subnets](create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
 
 ## Create an Azure Key Vault instance
 You must use an Azure Key Vault instance to store your keys. Create a new Key Vault with purge protection enabled. Then, create a new key within the Key Vault to store your own custom key.

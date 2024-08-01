@@ -1,7 +1,7 @@
 ---
 title: Supported triggers and actions in Microsoft Sentinel playbooks | Microsoft Docs
 description: Learn in greater depth how to give your playbooks access to the information in your Microsoft Sentinel alerts and incidents and use that information to take remedial actions.
-ms.topic: concept
+ms.topic: concept-article
 author: batamig
 ms.author: bagol
 ms.date: 03/14/2024

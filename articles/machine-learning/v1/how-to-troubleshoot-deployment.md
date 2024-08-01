@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 11/16/2022
-author: dem108
-ms.author: sehan
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: sehan
 ms.topic: troubleshooting
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
@@ -228,7 +228,7 @@ Take these actions for the following errors:
 | 409 conflict error| When an operation is already in progress, any new operation on that same web service responds with 409 conflict error. For example, If create or update web service operation is in progress and if you trigger a new Delete operation it throws an error. |
 |Image building failure when deploying web service     |  Add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Change the SKU for VMs used in your deployment to one that has more memory. |
-|FPGA failure     |  You can't deploy models on FPGAs until you've requested and been approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai       |
+|FPGA failure     |  You can't deploy models on FPGAs until you've requested and been approved for FPGA quota. To request access, fill out the quota request form: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2nac9-PZhBDnNSV2ITz0LNUN0U5S0hXRkNITk85QURTWk9ZUUFUWkkyTC4u       |
 
 
 ## Advanced debugging

@@ -1,20 +1,20 @@
 ---
-title: Introduction to prompt engineering with GPT-4 Turbo with Vision
+title: Image prompt engineering techniques
 titleSuffix: Azure OpenAI
-description: Learn how to better engineer prompts for GPT-4 Turbo with Vision.
+description: Learn how to better engineer image prompts for GPT-4 Turbo with Vision.
 author: PatrickFarley
 ms.author: pafarley
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 01/30/2024
+ms.date: 06/10/2024
 manager: nitinme
 ---
 
-# Introduction to prompt engineering with GPT-4 Turbo with Vision
+# Image prompt engineering techniques
 
-To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailor the system prompt to your specific needs. Here are some guidelines to enhance the accuracy and efficiency of your prompts.
+To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailor the prompts to your specific needs. Here are some guidelines to enhance the accuracy and efficiency of your prompts.
 
-## Fundamentals of crafting your prompt
+## Fundamentals of crafting your image prompt
 - **Contextual specificity:** Adding context to the scenario at hand gives the model a better understanding of an appropriate output. This level of specificity aids in focusing on relevant aspects and avoiding extraneous details.
 - **Task-oriented prompts:** Focusing on a specific task helps the model to develop the output while taking that perspective into consideration.  
 - **Handling refusals:** When the model indicates an inability to perform a task, refining the prompt can be an effective solution. More specific prompts can guide the model towards a clearer understanding and better execution of the task. Some tips to keep in mind: 
@@ -24,7 +24,6 @@ To unlock the full potential of GPT-4 Turbo with Vision, it's essential to tailo
    - Ask the model to describe the image in details first and complete your specific task from the description
 
 - **Adding examples:** Add examples that represent the type of responses you're looking for
-- **Try prompt tuning:** Try prompt tuning techniques such as Chain of Thought, a technique where you describe a sequence of steps leading to an outcome, therefore communicating a sort of “chain of thought” or thought process for the model to replicate.
 - **Break down requests:** Try breaking down complex requests step-by-step to create manageable sub-goals
 - **Define output format:** Clearly mention the desired format for the output, such as markdown, JSON, HTML, etc. You can also suggest a specific structure, length, or specific attributes about the response.
 
@@ -74,17 +73,6 @@ When you receive a refusal output from a model, there are several ways you can t
 |Updated prompt|Model output|
 |--------|-----------|
 | Q: What is this dog breed and what is its average weight & height? :::image type="content" source="../media/concepts/gpt-v/pomeranian.jpg" lightbox="../media/concepts/gpt-v/pomeranian.jpg" alt-text="Photograph of a pomeranian dog sitting on a pool diving board above the water."::: <br> A: Breed: pomeranian; average weight: 3-7 lbs; average height: 8-14 inches <br> :::image type="content" source="../media/concepts/gpt-v/bulldog.jpg" lightbox="../media/concepts/gpt-v/bulldog.jpg" alt-text="Photograph of a bulldog laying in a grass field."::: A: Breed: English bulldog; average weight: 50-55 lbs; average height: 14-16 inches :::image type="content" source="../media/concepts/gpt-v/border-collie.jpg" lightbox="../media/concepts/gpt-v/border-collie.jpg" alt-text="Photograph of a border collie dog laying in a grass field."::: | A: Breed: Border Collie; average weight: 30-45 lbs; average height: 18-22 inches |
-
-### Try prompt tuning
-Using the chain of thought prompt technique below, you can guide the model to follow a thought process to achieve the correct answer.
-
-|Basic prompt|Model output|
-|--------|-----------|
-| Q: Alex has 8 cookies. She buys 2 more boxes of 4 cookies each. How many cookies does she have? <br> A: 16 <br> Q: Alex has 20 balloons for a party, but 3 of them pop. She buys 10 more balloons. How many balloons does she have?| A: 27 |
-
-|Updated prompt|Model output|
-|--------|-----------|
-| Q: Alex has 8 cookies. She buys 2 more boxes of 4 cookies each. How many cookies does she have? <br> A: Alex started with 8 cookies and bought two more boxes of 4 each. 2 x 4 = 8, and 8 + 8 = 16. <br> Q: Alex has 20 balloons for a party, but 3 of them pop. She buys 10 more balloons. How many balloons does she have? | A: Alex started with 20 balloons, but 3 popped, leaving her with 17 balloons. She then bought 10 more, so she has 17 + 10 = 27 balloons. |
 
 ### Break down requests
 

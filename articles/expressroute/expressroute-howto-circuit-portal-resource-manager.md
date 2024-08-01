@@ -6,18 +6,18 @@ author: duongau
 ms.author: duau
 ms.date: 05/14/2024
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: mode-ui
 zone_pivot_groups: expressroute-experience
 ---
 
-# Quickstart: Create and modify ExpressRoute circuits
+# Quickstart: Create and modify ExpressRoute Circuits
 
 This quickstart shows you how to create an ExpressRoute circuit using the Azure portal and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
 There are currently two create experience for ExpressRoute circuits in the portal. The new preview create experience is available through this [Preview link](https://aka.ms/expressrouteguidedportal). The current create experience is available through the [Azure portal](https://portal.azure.com). For guidance on how to create an ExpressRoute circuit with the preview create experience select the **Preview** tab at the top of the page. 
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal.":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure portal." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 ## Prerequisites
 

@@ -40,6 +40,8 @@
       href: configure-common.md
     - name: Use settings from App Configuration
       href: app-service-configuration-references.md
+    - name: App settings reference
+      href: reference-app-settings.md      
     - name: Configure specific languages
       items:
         - name: Configure ASP.NET
@@ -52,8 +54,16 @@
           href: configure-language-php.md
         - name: Configure Python
           href: configure-language-python.md
-        - name: Configure Java
-          href: configure-language-java.md
+        - name: Configure Java SE, Tomcat, or JBoss
+          items:
+            - name: Deployment and runtime
+              href: configure-language-java-deploy-run.md
+            - name: Data sources
+              href: configure-language-java-data-sources.md
+            - name: APM integration
+              href: configure-language-java-apm.md
+            - name: Security
+              href: configure-language-java-security.md
     - name: Deployment methods
       items:
         - name: Use ZIP or WAR
@@ -90,18 +100,14 @@
           href: provision-resource-terraform.md
         - name: ARM template reference
           href: /azure/templates/microsoft.web/allversions
-    - name: App settings reference
-      href: reference-app-settings.md
 - name: Logs and monitoring
   items:
-    - name: Monitor
+    - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Monitoring options
-      href: overview-monitoring.md
     - name: Stream diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
@@ -154,8 +160,10 @@
           href: tutorial-php-mysql-app.md
         - name: Node.js with MongoDB
           href: tutorial-nodejs-mongodb-app.md
-        - name: Python with Postgres
+        - name: Python with Postgres (Flask/Django)
           href: tutorial-python-postgresql-app.md
+        - name: Python with Postgres (FastAPI)
+          href: tutorial-python-postgresql-app-fastapi.md
         - name: Tomcat with MySQL
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
@@ -259,7 +267,7 @@
           href: configure-authentication-provider-github.md
         - name: Use Google
           href: configure-authentication-provider-google.md
-        - name: Use Twitter
+        - name: Use X
           href: configure-authentication-provider-twitter.md
         - name: Use OpenID Connect
           href: configure-authentication-provider-openid-connect.md
@@ -355,8 +363,8 @@
       href: app-service-web-app-cloning.md
     - name: Restore deleted app
       href: app-service-undelete.md
-    - name: Move app between regions
-      href: manage-move-across-regions.md
+    - name: Relocate app to another region
+      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management
@@ -379,8 +387,14 @@
           href: tutorial-custom-container.md
         - name: Deploy with GitHub Actions
           href: app-service-sql-github-actions.md
+        - name: Deploy with Azure Pipelines
+          href: deploy-container-azure-pipelines.md
         - name: Deploy a multi-container WordPress app
           href: tutorial-multi-container-app.md
+- name: Integrate AI with App Service
+  items:
+    - name: Deploy an application that uses OpenAI on App Service
+      href: deploy-intelligent-apps.md
 - name: Reliability
   items:
   - name: Reliability in Azure App Service
@@ -403,6 +417,8 @@
       href: samples-bicep.md
 - name: Reference
   items:
+    - name: App settings reference
+      href: reference-app-settings.md  
     - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
@@ -431,8 +447,6 @@
       href: operating-system-functionality.md
     - name: Kudu service
       href: resources-kudu.md
-    - name: Deploy an application that uses OpenAI on App Service
-      href: deploy-intelligent-apps.md
     - name: gRPC configuration
       href: configure-grpc.md
     - name: Recommended services (preview)

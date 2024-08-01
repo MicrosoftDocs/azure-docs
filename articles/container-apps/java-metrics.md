@@ -4,6 +4,7 @@ description: Java metrics and configuration Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.date: 05/10/2024
 ms.author: cshoe
 ms.topic: how-to

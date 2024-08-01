@@ -11,7 +11,7 @@ ms.topic: how-to
 ---
 # Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys (CMK) using  Azure portal
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to create and manage an Azure Database for PostgreSQL flexible server instance with data  encrypted by customer managed keys using  Azure portal. To learn more about the customer managed keys (CMK) feature with Azure Database for PostgreSQL flexible server, see the [overview](concepts-data-encryption.md).
 

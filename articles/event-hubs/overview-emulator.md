@@ -1,95 +1,99 @@
 ---
-title: Overview of Event Hubs emulator
-description: This article provides an overview of Azure Event Hubs emulator.
+title: Overview of the Azure Event Hubs emulator
+description: This article describes benefits, features, limitations, and other overview information for the Azure Event Hubs emulator.
 ms.topic: article
 ms.author: Saglodha
 ms.date: 05/06/2024
 ---
 
 
-# Overview of Event Hubs emulator
+# Overview of the Azure Event Hubs emulator
 
-Azure Event Hubs emulator is designed to offer a local development experience for Azure Event Hubs, enabling you to develop and test code against our services in isolation, free from cloud interference.
+The Azure Event Hubs emulator offers a local development experience for the Event Hubs service. You can use the emulator to develop and test code against the service in isolation, free from cloud interference.
 
-### Benefits of emulator
+## Benefits
 
 The primary advantages of using the emulator are:
 
-- Local Development: The Emulator provides a local development experience, enabling developers to work offline and avoid network latency.
-- Cost-Efficiency: With the Emulator, developers can test their applications without incurring any cloud usage costs.
-- Isolated Testing Environment: You can test your code in isolation, ensuring that the tests aren't impacted by other activities in the cloud.
-- Optimized Inner Development loop: Developers can use the Emulator to quickly prototype and test their applications before deploying them to the cloud.
-
->[!NOTE]
-> Event Hubs emulator is licensed under End user License Agreement. For more details, refer [here.](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md)
-
-### Features of Emulator
-
-This section highlights different features provided with Emulator:
-
-- Containerized Deployment: The Emulator runs as a Docker container (Linux-based).
-- Cross-Platform Compatibility: It can be used on any platform, including Windows, macOS, and Linux.
-- Managing Entity Configuration: Users can manage number of event hubs, partition count etc. using JSON supplied Configuration.
-- Streaming Support: The Emulator supports streaming messages using AMQP (Advanced Message Queuing Protocol).
-- Observability: It provides observability features, including console and file logging.
-
-### Known Limitations
-
-Current version of emulator has the following limitations:
-
-- It can't stream messages using Kafka protocol.  
-- It doesn't support  on fly management operations using Client side SDK. 
+- **Local development**: The emulator provides a local development experience, so you can work offline and avoid network latency.
+- **Cost efficiency**: With the emulator, you can test your applications without incurring any cloud usage costs.
+- **Isolated testing environment**: You can test your code in isolation, to help ensure that other activities in the cloud don't affect the tests.
+- **Optimized inner development loop**: You can use the emulator to quickly prototype and test your applications before deploying them to the cloud.
 
 > [!NOTE]
-> In case of container restart,data and entities are not persisted in emulator.
+> The Event Hubs emulator is available under the [Microsoft Software License Terms](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EMULATOR_EULA.md).
 
-### Difference between emulator and Event hubs cloud service?
+## Features
 
-Since Emulator is only meant for development and test purpose, there are functional differences between emulator and cloud service. Here are the high-level features that aren't supported in the Event Hubs emulator:
+The emulator provides these features:
 
--  Azure Goodness – VNet Integration/ Microsoft Entra ID integration/ Activity Logs/ UI Portal etc.
--  Event Hubs Capture
--  Resource Governance features like Application Groups
--  Auto scale capabilities
--  Geo DR capabilities
--  Schema Registry Integration.
--  Visual Metrics/ Alerts
+- **Containerized deployment**: It runs as a Docker container (Linux based).
+- **Cross-platform compatibility**: You can use it on any platform, including Windows, macOS, and Linux.
+- **Configurability**: You can manage the number of event hubs, partitions, and other entities by using the JSON supplied configuration.
+- **Streaming support**: It supports streaming messages by using the Advanced Message Queuing Protocol (AMQP).
+- **Observability**: It provides observability features, including console and file logging.
 
->[!CAUTION]
->The emulator is intended solely for development and testing scenarios.Any kind of Production use is strictly discouraged. There is no official support provided for emulator.
-> Any issues/suggestions should be reported via GitHub issues on emulator Installer [repository.](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
+## Known limitations
 
-### Managing Quotas and Configuration
+The current version of the emulator has the following limitations:
 
-Like our cloud service, Azure Event Hubs emulator provides below quotas for usage: 
+- It can't stream messages by using the Kafka protocol.  
+- It doesn't support on-the-fly management operations through a client-side SDK.
 
-| Property| Value| User Configurable within limits
-| ----|----|----|
-Number of supported namespaces| 1 |No| 
-Maximum number of Event Hubs within namespace| 10| Yes| 
-Maximum number of consumer groups within event hub| 20 |Yes| 
-Maximum number of partitions in event hub |32 |Yes 
-Maximum size of event being published to event hub (batch/nonbatch) |1 MB |No
-Minimum event retention time | 1 hr | No
+> [!NOTE]
+> After a container restart, data and entities don't persist in the emulator.
 
+## Differences from the cloud service
 
-### Making configuration changes
+Because the Event Hubs emulator is meant only for development and test purposes, there are functional differences between the emulator and the cloud service.
 
-You could use config.json to configure quotas associated with Event Hubs. By default, emulator would run with following [configuration](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json). Under the configuration file, you could make following edits as per needs: 
+The emulator doesn't support these high-level features:
 
-- **Entities**: You could add more entities (event hubs), with customized partition count and consumer groups count as per supported quotas.
-- **Logging**: Emulator supports Logging in file or console or both. You could set as per your personal preference.
+- Azure features like virtual network integration, Microsoft Entra ID integration, activity logs, and a UI portal
+- Event Hubs capture
+- Resource governance features like application groups
+- Autoscale capabilities
+- Geo-disaster recovery capabilities
+- Schema registry integration
+- Visual metrics and alerts
 
->[!IMPORTANT]
-> Any changes in JSON configuration must be supplied before running emulator and isn't honoured on fly. For subsequent changes to take effect, container restart is required.
->You cannot rename the preset namespace ("name") in configuration file. 
+> [!NOTE]
+> The emulator is intended solely for development and test scenarios. We discourage any kind of production use. We don't provide any official support for the emulator.
+>
+> Report any problems or suggestions in the emulator's [GitHub installer repository](https://github.com/Azure/azure-event-hubs-emulator-installer/issues).
 
-### Drill through available logs
-During testing phase, logs help in debugging unexpected failures. For this reason, Emulator supports logging in forms of Console and File. Follow below steps to review the logs: 
-- **Console Logs**: On docker desktop UI, click on the container name to open Console Logs.
-- **File Logs**: These would be present at /home/app/EmulatorLogs within the container.
+## Usage quotas
 
-### Next Steps
+Like the Event Hubs cloud service, the emulator provides the following quotas for usage:
 
-For instructions on how to develop locally with Event Hubs emulator, see [test locally with event hubs emulator](test-locally-with-event-hub-emulator.md).
+| Property| Value| User configurable within limits
+| ----|----|----
+| Number of supported namespaces| 1 |No
+| Maximum number of event hubs in a namespace| 10| Yes
+| Maximum number of consumer groups in an event hub| 20 |Yes
+| Maximum number of partitions in an event hub |32 |Yes
+| Maximum size of an event being published to an event hub (batch/nonbatch) |1 MB |No
+| Minimum event retention time | 1 h | No
 
+## Quota configuration changes
+
+By default, the emulator runs with the [config.json](https://github.com/Azure/azure-event-hubs-emulator-installer/blob/main/EventHub-Emulator/Config/Config.json) configuration file. You can configure the quotas associated with Event Hubs by editing this file in the following ways, based on your needs:
+
+- **Entities**: You can add more entities (event hubs), with a customized number of partitions and consumer groups, in accordance with supported quotas.
+- **Logging**: The emulator supports logging on a console, in a file, or both. You can choose according to your personal preference.
+
+> [!IMPORTANT]
+> You must supply any changes in JSON configuration before you run the emulator. Changes aren't honored on the fly. For changes to take effect, you must restart the container.
+>
+> You can't rename the preset namespace (`name`) in the configuration file.
+
+## Logs for debugging
+
+During testing, console or file logs help you debug unexpected failures. To review the logs:
+
+- **Console logs**: On the Docker desktop UI, select the container name.
+- **File logs**: In the container, go to */home/app/EmulatorLogs*.
+
+## Related content
+
+[Test locally by using the Azure Event Hubs emulator](test-locally-with-event-hub-emulator.md)

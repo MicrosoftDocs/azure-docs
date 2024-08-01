@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: edge
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/28/2024
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 
@@ -17,7 +17,7 @@ ms.author: alkohli
 # Use Azure Marketplace image to create VM image for your Azure Stack Edge Pro GPU
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -45,7 +45,7 @@ Before you can use Azure Marketplace images for Azure Stack Edge, make sure you'
 
 ## Search for Azure Marketplace images
 
-You'll now identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images.
+Identify a specific Azure Marketplace image that you wish to use. Azure Marketplace hosts thousands of VM images.
 
 To find some of the most commonly used Marketplace images that match your search criteria, run the following command.
 
@@ -57,7 +57,7 @@ The last three flags are optional but excluding them returns a long list.
 Some example queries are:
 
 ```azurecli
-#Returns all images of type “Windows Server”
+#Returns all images of type "Windows Server"
 az vm image list --all --publisher "MicrosoftWindowsserver" --offer "WindowsServer"
 
 #Returns all Windows Server 2019 Datacenter images from West US published by Microsoft
@@ -67,7 +67,7 @@ az vm image list --all --location "westus" --publisher "MicrosoftWindowsserver" 
 az vm image list --all --publisher "Canonical"
 ```
 
-Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
+Here's an example output when VM images of a certain publisher, offer, and SKU were queried.
 
 ```azurecli
 PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuServer" --sku "12.04.4-LTS"
@@ -135,28 +135,24 @@ PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuSer
 PS /home/user>
 ```
 
-In this example, we will select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We will identify this image by its Universal Resource Number (“URN”).
+In this example, we'll select Windows Server 2019 Datacenter Core, version 2019.0.20190410. We'll identify this image by its Universal Resource Number (“URN”).
 
 :::image type="content" source="media/azure-stack-edge-create-virtual-machine-marketplace-image/marketplace-image-1.png" alt-text="List of marketplace images":::
 
 ### Commonly used Marketplace images
 
-Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with “latest” in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”.
+Below is a list of URNs for some of the most commonly used images. If you just want the latest version of a particular OS, the version number can be replaced with "latest" in the URN. For example, “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”.
 
 
 | OS              | SKU                                     | Version               | URN                                                                                       |
 |-----------------|-----------------------------------------|-----------------------|-------------------------------------------------------------------------------------------|
 | Windows Server  | 2019 Datacenter                         | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter:17763.1879.2104091832                |
-| Windows Server  | 2019 Datacenter (30 GB small disk)      | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter-smalldisk:17763.1879.2104091832      |
+| Windows Server  | 2019 Datacenter (30-GB small disk)      | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter-smalldisk:17763.1879.2104091832      |
 | Windows Server  | 2019 Datacenter Core                    | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core:17763.1879.2104091832           |
-| Windows Server  | 2019 Datacenter Core (30 GB small disk) | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-smalldisk:17763.1879.2104091832 |
+| Windows Server  | 2019 Datacenter Core (30-GB small disk) | 17763.1879.2104091832 | MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-smalldisk:17763.1879.2104091832 |
 | Windows Desktop | Windows 10 20H2 Pro                     | 19042.928.2104091209  | MicrosoftWindowsDesktop:Windows-10:20h2-pro:19042.928.2104091209                          |
 | Ubuntu Server   | Canonical Ubuntu Server 18.04 LTS       | 18.04.202002180       | Canonical:UbuntuServer:18.04-LTS:18.04.202002180                                          |
 | Ubuntu Server   | Canonical Ubuntu Server 16.04 LTS       | 16.04.202104160       | Canonical:UbuntuServer:16.04-LTS:16.04.202104160                                          |
-| CentOS          | CentOS 8.1                              | 8.1.2020062400        | OpenLogic:CentOS:8_1:8.1.2020062400                                                       |
-| CentOS          | CentOS 7.7                              | 7.7.2020062400        | OpenLogic:CentOS:7.7:7.7.2020062400                                                       |
-
-
 
 ## Create a new managed disk from the Marketplace image
 
@@ -179,7 +175,7 @@ Create an Azure Managed Disk from your chosen Marketplace image.
     $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
     ```
 
-Here is an example output:
+Here's an example output:
 
 ```output
 PS /home/user> $urn = “MicrosoftWindowsServer:WindowsServer:2019-Datacenter:Latest”
@@ -251,9 +247,9 @@ PS /home/user>
 
 ## Export a VHD from the managed disk to Azure Storage
 
-This step will export a VHD from the managed disk to your preferred Azure blob storage account. This VHD can then be used to create VM images on Azure Stack Edge.
+This step exports a VHD from the managed disk to your preferred Azure blob storage account. This VHD can then be used to create VM images on Azure Stack Edge.
 
-1. Set the destination storage account where the VHD will be copied.
+1. Set the destination storage account where the VHD is copied.
 
     ```azurecli
     $storageAccountName = <destination storage account name>
@@ -269,13 +265,13 @@ This step will export a VHD from the managed disk to your preferred Azure blob s
     Start-AzureStorageBlobCopy -AbsoluteUri $diskAccessSAS -DestContainer $containerName -DestContext $destContext -DestBlob $destBlobName
     ```
 
-    The VHD copy will take several minutes to complete. Ensure the copy has completed before proceeding by running the following command. The status field will show “Success” when complete.
+    The VHD copy takes several minutes to complete. Ensure the copy completes before proceeding by running the following command. The status field shows “Success” when complete.
 
     ```azurecli
     Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName
     ```
 
-Here is an example output:
+Here's an example output:
 
 ```output
 PS /home/user> $storageAccountName = "edgeazurevmeus"

@@ -3,17 +3,15 @@ title: 'Create a hub and spoke topology in Azure - Portal'
 description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 06/20/2024
 ms.custom: template-concept, engagement-fy23
 ---
 
 # Create a hub and spoke topology in Azure - Portal
 
 In this article, you learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 
@@ -25,18 +23,10 @@ In this article, you learn how to create a hub and spoke network topology with A
 
 This section helps you create a network group containing the virtual networks you're using for the hub-and-spoke network topology.
 
-1. Go to your Azure Virtual Network Manager instance. This how-to guide assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide.
+> [!NOTE]
+> This how-to guide assumes you created a network manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
-1. Select **Network Groups** under *Settings*, then select **+ Create**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
-
-1. On the *Create a network group* page, enter a **Name** for the network group. This example uses the name **myNetworkGroup**. Select **Add** to create the network group.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-group-basics.png" alt-text="Screenshot of create a network group page.":::
-
-1. The *Network Groups* page lists the new network group.
-    :::image type="content" source="./media/create-virtual-network-manager-portal/network-groups-list.png" alt-text="Screenshot of network group page with list of network groups.":::
+[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
 ## Define network group members
 

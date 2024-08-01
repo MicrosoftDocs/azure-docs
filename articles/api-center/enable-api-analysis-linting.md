@@ -1,9 +1,9 @@
 ---
 title: Perform API linting and analysis - Azure API Center
 description: Configure linting of API definitions in your API center to analyze compliance of APIs with the organization's API style guide.
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 06/29/2024
 ms.author: danlep
 author: dlepow
 ms.custom: devx-track-azurecli
@@ -59,8 +59,7 @@ This article provides two options to deploy the linting engine and event subscri
 * For Azure CLI:
     [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > `az apic` commands require the `apic-extension` Azure CLI extension. If you haven't used `az apic` commands, the extension is installed dynamically when you run your first `az apic` command. Learn more about [Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
     > [!NOTE]
     > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
@@ -170,13 +169,13 @@ Now that the managed identity is enabled, assign it the Azure API Center Complia
 
     ```azurecli
     #! /bin/bash
-    apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> \
+    apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> \
         --query "id" --output tsv)
     ```
 
     ```azurecli
     # PowerShell syntax
-    $apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> `
+    $apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> `
         --query "id" --output tsv)
     ```
 
@@ -232,13 +231,13 @@ Now create an event subscription in your API center to trigger the function app 
 
     ```azurecli
     #! /bin/bash
-    apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> \
+    apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> \
         --query "id" --output tsv)
     ```
 
     ```azurecli
     # PowerShell syntax
-    $apicID=$(az apic service show --name <apic-name> --resource-group <resource-group-name> `
+    $apicID=$(az apic show --name <apic-name> --resource-group <resource-group-name> `
         --query "id" --output tsv)
     ```
 1. Get the resource ID of the function in the function app. In this example, the function name is *apicenter-analyzer*. Substitute `<function-app-name>` and `<resource-group-name>` with your function app name and resource group name.

@@ -6,7 +6,7 @@ ms.author: rajosh
 ms.topic: tutorial
 ms.date: 08/24/2023
 ms.service: azure-migrate
-ms.custom: engagement-fy24
+ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
 ---
 

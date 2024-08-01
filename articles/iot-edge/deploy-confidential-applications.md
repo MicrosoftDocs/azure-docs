@@ -19,7 +19,7 @@ Security is an important focus of the Internet of Things (IoT) because often IoT
 
 The [IoT Edge security manager](iot-edge-security-manager.md) addresses one piece of the confidential computing challenge. The security manager uses a hardware security module (HSM) to protect the identity workloads and ongoing processes of an IoT Edge device.
 
-Another aspect of confidential computing is protecting the data in use at the edge. A *Trusted execution environment* (TEE) is a secure, isolated environment on a processor and is sometimes referred to as an *enclave*. A *confidential application* is an application that runs in an enclave. Because of the nature of enclaves, confidential applications are protected from other apps running in the main processor or in the TEE.
+Another aspect of confidential computing is protecting the data in use at the edge. A *Trusted execution environment (TEE)* is a secure, isolated environment on a processor and is sometimes referred to as an *enclave*. A *confidential application* is an application that runs in an enclave. Because of the nature of enclaves, confidential applications are protected from other apps running in the main processor or in the TEE.
 
 ## Confidential applications on IoT Edge
 

@@ -72,7 +72,7 @@ You can also learn more by watching these videos from the Defender for Cloud in 
 
 ## Simulate security alerts from Microsoft Defender for Containers
 
-A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-reference.md#alerts-for-containers---kubernetes-clusters).
+A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-containers.md).
 
 1. To simulate a security alert, run the following command from the cluster:
 
@@ -118,7 +118,7 @@ You can check out the following blogs:
 
 Now that you enabled Defender for Containers, you can:
 
-- [Scan your ACR images for vulnerabilities](agentless-vulnerability-assessment-aws.md)
+- [Scan your ACR images for vulnerabilities](agentless-vulnerability-assessment-azure.md)
 - [Scan your AWS images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-aws.md)
 - [Scan your GGP images for vulnerabilities with Microsoft Defender Vulnerability Management](agentless-vulnerability-assessment-gcp.md)
 - Check out [common questions](faq-defender-for-containers.yml) about Defender for Containers.

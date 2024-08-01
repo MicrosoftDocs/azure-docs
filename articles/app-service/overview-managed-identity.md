@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 # How to use managed identities for App Service and Azure Functions
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 This article shows you how to create a managed identity for App Service and Azure Functions applications and how to use it to access other resources. 
 
 > [!IMPORTANT] 

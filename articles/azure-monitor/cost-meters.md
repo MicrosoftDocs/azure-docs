@@ -16,6 +16,7 @@ The following table lists the meters used to bill for data ingestion in your Log
 
 | Pricing tier |ServiceName | MeterName  | Regional Meter? |
 | -------- | -------- | -------- | -------- |
+| (any)        | Azure Monitor  | Auxiliary Logs Data Ingestion | yes |
 | (any)        | Azure Monitor  | Basic Logs Data Ingestion | yes |
 | Pay-as-you-go | Log Analytics | Pay-as-you-go Data Ingestion | yes |
 | 100 GB/day Commitment Tier | Azure Monitor  | 100 GB Commitment Tier Capacity Reservation | yes |
@@ -32,7 +33,7 @@ The following table lists the meters used to bill for data ingestion in your Log
 | Standalone (legacy tier)  | Log Analytics | Pay-as-you-go Data Analyzed | no | 
 | Standard (legacy tier)  | Log Analytics | Standard Data Analyzed | no |
 | Premium (legacy tier)  | Log Analytics | Premium Data Analyzed | no |
-| (any) | Azure Monitor | Free Benefit - M365 Defender Data Ingestion | yes |
+| (any) | Azure Monitor | Free Benefit - Microsoft 365 Defender Data Ingestion | yes |
 
 
 The **Standard Data Included per Node** meter is used both for the Log Analytics [Per Node tier](logs/cost-logs.md#per-node-pricing-tier) data allowance, and also the [Defender for Servers data allowance](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud), for workspaces in any pricing tier. 

@@ -3,7 +3,7 @@ title: Offline seeding workflow for MARS using customer-owned disks with Azure I
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 05/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -56,7 +56,7 @@ Before you start the offline backup workflow, complete the following prerequisit
 * Azure PowerShell 3.7.0 is required on the computer running the Azure Backup Agent. Download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * On the computer running the Azure Backup Agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
 * Create an Azure storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Microsoft Entra application. The offline backup workflow creates a Microsoft Entra application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
+* Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 * Register the *Microsoft.DataBox* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
     1. On the main menu, select **Subscriptions**.
     1. If you're subscribed to multiple subscriptions, select the subscription you plan to use for the offline backup. If you use only one subscription, then your subscription appears.

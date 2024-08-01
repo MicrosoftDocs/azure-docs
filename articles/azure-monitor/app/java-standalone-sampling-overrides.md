@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:
- * Set the sampling percentage to 0 (or some small value) for noisy health checks.
+* Set the sampling percentage to 0 (or some small value) for noisy health checks.
  * Set the sampling percentage to 0 (or some small value) for noisy dependency calls.
  * Set the sampling percentage to 100 for an important request type (for example, `/login`)
    even though you have the default sampling configured to something lower.
@@ -42,7 +42,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 {
   "connectionString": "...",
   "sampling": {
-    "percentage": 10
+    "percentage": 10,
     "overrides": [
       {
         "telemetryType": "request",

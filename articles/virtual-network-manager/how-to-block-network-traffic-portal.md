@@ -3,7 +3,7 @@ title: 'How to block network traffic with Azure Virtual Network Manager - Azure 
 description: Learn how to block network traffic using security rules in Azure Virtual Network Manager with the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 03/22/2024
 ms.custom: template-how-to
@@ -12,8 +12,6 @@ ms.custom: template-how-to
 # How to block network traffic with Azure Virtual Network Manager - Azure portal
 
 This article shows you how to create a security admin rule to block inbound network traffic on RDP port 3389 that you can add to a rule collection. For more information, see [Security admin rules](concept-security-admins.md).
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

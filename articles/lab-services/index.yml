@@ -21,6 +21,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Azure Lab Services retirement guide
+            url: retirement-guide.md
           - text: What is Azure Lab Services? 
             url: lab-services-overview.md                       
           - text: What's new in Lab Services?

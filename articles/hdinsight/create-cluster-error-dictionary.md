@@ -4,7 +4,7 @@ description: Learn how to troubleshoot errors that occur when creating Azure HDI
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
-ms.date: 05/18/2023
+ms.date: 06/15/2024
 ---
 
 

@@ -1,10 +1,9 @@
 ---
 title: Create and manage function apps in a Flex Consumption plan
 description: "Learn how to create function apps hosted in the Flex Consumption plan in Azure Functions and how to modify specific settings for an existing function app."
-ms.date: 05/12/2024
+ms.date: 05/21/2024
 ms.topic: how-to
-ms.custom:
-  - build-2024
+ms.custom: build-2024, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to create and manage function apps in the Flex Consumption plan so that I can take advantage of the beneficial features of this plan.
 ---
@@ -58,7 +57,7 @@ Function app resources are langauge-specific. Make sure to choose your preferred
 
 ## Create a Flex Consumption app
 
-This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/README.md#iac-samples-overview).
+This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
 ::: zone pivot="programming-language-java" 
 You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-using-maven).   
 ::: zone-end  
@@ -171,7 +170,6 @@ You can choose to deploy your project code to an existing function app using var
 
 ### [Visual Studio Code](#tab/vs-code-publish)
 
-
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ### [Core Tools](#tab/core-tools)
@@ -227,6 +225,9 @@ You can use Maven to create a Flex Consumption hosted function app and required 
 
 You can enable [virtual network integration](functions-networking-options.md#virtual-network-integration) for your app in a Flex Consumption plan. The examples in this section assume that you already have [created a virtual network with subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet) in your account. You can enable virtual network integration when you create your app or at a later time.
 
+> [!IMPORTANT]
+> The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters. 
+
 To enable virtual networking when you create your app:
 
 ### [Azure CLI](#tab/azure-cli)
@@ -271,8 +272,8 @@ You can't currently enable virtual networking when you use Visual Studio Code to
 
 For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
 
-+ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/HTTP-VNET-EH/README.md)
-+ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure/azure-functions-flex-consumption/blob/main/samples/E2E/SB-VNET/README.md)
++ [Flex Consumption: HTTP to Event Hubs using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/HTTP-VNET-EH/README.md)
++ [Flex Consumption: triggered from Service Bus using VNET Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/E2E/SB-VNET/README.md)
 
 To modify or delete virtual network integration in an existing app:
 
@@ -320,17 +321,23 @@ When choosing a subnet, these considerations apply:
 + You can share the same subnet with more than one app running in a Flex Consumption plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
 + In a Flex Consumption plan, a single function app might use up to 40 IP addresses, even when the app scales beyond 40 instances. While this rule of thumb is helpful when estimating the subnet size you need, it's not strictly enforced.  
 
-## Configure the deployment storage account
+## Configure deployment settings
 
-In the Flex Consumption plan, the deployment package that contains your app's code is maintained in a blob storage container. By default, deployments use the same storage account and connection string (`AzureWebJobsStorage`) used by the Functions runtime to maintain your app. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. 
+In the Flex Consumption plan, the deployment package that contains your app's code is maintained in an Azure Blob Storage container. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string value used by the Functions runtime to maintain your app. The connection string is stored in the `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting. However, you can instead designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container. 
 
-A custom deployment storage account must meet these conditions:
+A customized deployment source should meet this criteria:
 
 + The storage account must already exist.
-+ The container to use for deployments must also exist and be empty.
-+ An application setting that contains the connection string for the deployment storage account must already exist. 
++ The container to use for deployments must also exist.
++ When more than one app uses the same storage account, each should have its own deployment container. Using a unique container for each app prevents the deployment packages from being overwritten, which would happen if apps shared the same container.
 
-To configure the deployment storage account when you create your function app in the Flex Consumption plan:
+When configuring deployment storage authentication, keep these considerations in mind:
+
++ When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
++ When you use a user-assigned managed identity, the provided identity gets linked to the function app. The `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
++ When you use a system-assigned managed identity, an identity gets created when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity does exists, the `Storage Blob Data Contributor` role scoped to the deployment storage account also gets assigned to the identity.
+
+To configure deployment settings when you create your function app in the Flex Consumption plan:
 
 ### [Azure CLI](#tab/azure-cli) 
 
@@ -338,15 +345,15 @@ Use the [`az functionapp create`] command and supply these additional options th
 
 | Parameter | Description |
 |--|--|--|
-| `--deployment-storage-name` | The storage account name to use for your deployment package. | 
-| `--deployment-storage-container-name` | The name of the container in the account that contains the deployment package. | 
-| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Currently, only `storageAccountConnectionString` is supported. |
-| `--deployment-storage-auth-value` | When using  `storageAccountConnectionString`, this parameter is set to the name of the application setting that contains the storage account connection string used for deployment. |
+| `--deployment-storage-name` | The name of the deployment storage account. | 
+| `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
+| `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
+| `--deployment-storage-auth-value` | When using  `StorageAccountConnectionString`, this parameter is set to the name of the application setting that contains the connection string to the deployment storage account. When using `UserAssignedIdentity`, this parameter is set to the name of the resource ID of the identity you want to use. |
 
-This example creates a function app in the Flex Consumption plan with a separate deployment storage account:
+This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
 ```azurecli
-az functionapp create --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type storageAccountConnectionString --deployment-storage-auth-value <DEPLOYMENT_CONNECTION_STRING_NAME>"
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -368,16 +375,20 @@ You can also modify the deployment storage configuration for an existing app.
 Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration: 
 
 ```azurecli
-az functionapp deployment config set --resource-grpoup <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
+az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
 1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Deployment settings**.
 
-1. Select an existing **Storage account** and then select an existing empty container in the account.
+1. Under Application package location, select an existing **Storage account** and then select an existing empty **container** in the account.
 
-1. Select the **App setting name** for the setting that contains the connection string for the deployment storage account.
+1. Under Storage authentication, select your preferred authentication type 
+
+    + If you selected **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
+
+    + If you selected **User assigned identity**, select the identity you would like to use.
 
 1. Select **Save** to update the app.  
 
@@ -437,7 +448,12 @@ You can't currently change the instance memory size setting for your app using V
 
 ## Set always ready instance counts
 
-When creating an app in a Flex Consumption plan, you can set the always ready instance count for specific groups (HTTP or Durable triggers) and triggers.
+You can set a number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. There are three special groups, as in per-function scaling: 
++ `http` - all the HTTP triggered functions in the app scale together into their own instances.  
++ `durable` - all the Durable triggered functions (Orchestration, Activity, Entity) in the app scale together into their own instances.
++ `blob` - all the blob (Event Grid) triggered functions in the app scale together into their own instances. 
+
+Use `http`, `durable` or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app you need to configure always ready for each individual function using the format `function:<FUNCTION_NAME>=n`.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -450,7 +466,7 @@ az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --stor
 This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function5=2
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
 ```
 
 ### [Azure portal](#tab/azure-portal)
@@ -485,7 +501,7 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 1. In your function app page in the [Azure portal](https://portal.azure.com), expand **Settings** in the left menu and select **Scale and concurrency**.
 
-1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name in **Trigger** and type the **Number of always-ready instances**.
+1. Under **Always-ready instance minimum** type `http`, `blob`, `durable`, or a specific function name using the format `function:<FUNCTION_NAME>=n` in **Trigger** and type the **Number of always-ready instances**.
 
 1. Select **Save** to update the app.
 
@@ -506,7 +522,7 @@ Here's how you can set HTTP concurrency limits for an existing app:
 Use the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to set specific HTTP concurrency limits for your app, regardless of instance size.
 
 ```azurecli
-az functionapp scale config set -resource-group <RESOURCE_GROUP> -name <APP_NAME> --trigger-type http --trigger-settings perInstanceConcurrency=10
+az functionapp scale config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --trigger-type http --trigger-settings perInstanceConcurrency=10
 ```
 
 This example sets the HTTP trigger concurrency level to `10`. After you specifically set an HTTP concurrency value, that value is maintained despite any changes in your app's instance size setting. 

@@ -4,18 +4,54 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 4/30/2024
+ms.date: 07/30/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
 
+## July 2024
+
+In July 2024, there were no significant changes to the documentation.
+
+## June 2024
+
+In June 2024, we made the following changes to the documentation:
+
+- Published a new article to [Configure the default chroma value](configure-default-chroma-value.md).
+
+- Published two new articles about the [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md) and how to [Set the preferred application group type for a pooled host pool](set-preferred-application-group-type.md).
+
+- Added information about TLS 1.3 support in [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+
+- Updated [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include New Teams SlimCore changes.
+
+- Added a section to [Use cases for Azure Virtual Desktop Insights](insights-use-cases.md) for how you can view [connection reliability](insights-use-cases.md#connection-reliability) information.
+
+- Rewrote [Configure RDP Shortpath](configure-rdp-shortpath.md) to include host pool settings and a better flow.
+
+- Rewrote [Compare Remote Desktop app features across platforms and devices](compare-remote-desktop-clients.md) to include more comprehensive information. This article is shared for Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PC connections.
+
+- Combined host pool load balancing information to the single article [Configure host pool load balancing](configure-host-pool-load-balancing.md) and added Azure CLI steps.
+
+- Consolidated information on [Azure Virtual Desktop business continuity and disaster recovery concepts](disaster-recovery-concepts.md) in the product documentation, focusing more on the more comprehensive information for Azure Virtual Desktop in the [Cloud Adoption Framework](/azure/cloud-adoption-framework/scenarios/wvd/eslz-business-continuity-and-disaster-recovery) and the [Azure Architecture Center](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr).
+
+## May 2024
+
+In May 2024, we made the following changes to the documentation:
+
+- Published a new article to [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+
+- Updated the branding of the Getting started feature to [Quickstart](quickstart.md) to match the Azure portal.
+
+- Added the steps to [Set up Start VM on Connect](start-virtual-machine-connect.md) using Azure CLI.
+
 ## April 2024
 
 In April 2024, we made the following changes to the documentation:
 
-- Published a new article to [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md).
+- Published a new article to [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md). Integrated with Insights in Azure Virtual Desktop, Autoscale diagnostic data enables you to monitor scaling operations, identify issues that need to be fixed, and recognize opportunities to optimize your scaling plan configuration to save costs. 
 
 - Updated [Azure Virtual Desktop Insights glossary](insights-glossary.md) to include a list of [gateway region codes](insights-glossary.md#gateway-region-codes) used in Azure Virtual Desktop Insights and the Azure regions they correspond to.
 

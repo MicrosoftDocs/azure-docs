@@ -17,7 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - A working [Communication Services calling web app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
-- The Minimum Version supported for Teams meetingId and passcode join API : 1.17.1
+- The Minimum Version supported for Teams meeting ID and passcode join API : 1.17.1
 - An [access token](../../../identity/access-tokens.md).
 
 ## Add the Teams UI controls

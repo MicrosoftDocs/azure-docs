@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: availability
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 

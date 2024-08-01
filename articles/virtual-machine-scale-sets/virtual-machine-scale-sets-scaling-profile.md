@@ -5,7 +5,7 @@ author: fitzgeraldsteele
 ms.author: fisteele
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.date: 05/05/2023
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ---
 

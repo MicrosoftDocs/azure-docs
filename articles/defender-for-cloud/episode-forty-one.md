@@ -24,7 +24,7 @@ ms.date: 01/03/2024
 - Follow us on social media:
 
   - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-  - [Twitter](https://twitter.com/msftsecurity)
+  - [X](https://x.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 

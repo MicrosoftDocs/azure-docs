@@ -190,7 +190,7 @@ Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
 ---
 
 > [!NOTE]
-> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal, REST API, and PowerShell. It can't be enabled via the Azure CLI.
+> You can now enable the new prerequisite for schedule patching via the Azure portal, REST API, PowerShell and Azure CLI.
 
 ## Enable automatic guest VM patching on Azure VMs
 

@@ -4,8 +4,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about topologies and constraints for Oracle Database@Azure. 
 ms.topic: conceptual
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
 ---
@@ -33,7 +32,7 @@ The following table describes the network topologies supported by each network f
 |Connectivity over Active/Active VPN gateways| No |
 |Connectivity over Active/Active Zone Redundant gateways| No |
 |Transit connectivity via vWAN for Oracle database cluster provisioned in spoke virtual networks| Yes |
-|On-premises connectivity to Oracle database cluster via vWAN attached SD-WAN| No|
+|On-premises connectivity to Oracle database cluster via vWAN attached SD-WAN|Yes|
 |On-premises connectivity via Secured HUB (Firewall NVA) | No|
 |Connectivity from Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|
 

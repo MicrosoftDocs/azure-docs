@@ -12,7 +12,7 @@ ms.topic: quickstart
 
 # Manage Azure Database for PostgreSQL - Flexible Server using automation tasks (preview)
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 

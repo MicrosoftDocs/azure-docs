@@ -1,12 +1,12 @@
 ---
 title: 'Quickstart: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep'
-description: In this Quickstart, learn how to create an Azure Red Hat OpenShift cluster using an Azure Resource Manager template or a Bicep file.
+description: In this article, learn how to create an Azure Red Hat OpenShift cluster using an Azure Resource Manager template or a Bicep file.
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 02/02/2024
+ms.date: 07/15/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
 zone_pivot_groups: azure-red-hat-openshift
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
@@ -14,9 +14,9 @@ zone_pivot_groups: azure-red-hat-openshift
 
 # Quickstart: Deploy an Azure Red Hat OpenShift cluster with an Azure Resource Manager template or Bicep file
 
-This quickstart describes how to use either Azure Resource Manager template (ARM template) or Bicep to create an Azure Red Hat OpenShift cluster. You can deploy the Azure Red Hat OpenShift cluster with either PowerShell or the Azure command-line interface (Azure CLI).
+This article describes how to use either Azure Resource Manager template (ARM template) or Bicep to create an Azure Red Hat OpenShift cluster. You can deploy the Azure Red Hat OpenShift cluster with either PowerShell or the Azure command-line interface (Azure CLI).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -593,11 +593,7 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-
 
 ## Deploy the azuredeploy.json template
 
-This section provides information on deploying the azuredeploy.json template.
-
-### azuredeploy.json parameters
-
-The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
+The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required:
 
 > [!NOTE]
 > For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
@@ -639,7 +635,7 @@ Perform the following steps if you're using PowerShell.
 
 ### Before you begin - PowerShell
 
-Before running the commands in this quickstart, you might need to run `Connect-AzAccount`. Check to determine whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `Get-AzContext` to verify whether you have access to an active Azure subscription.
+Before running the commands in this article, you might need to run `Connect-AzAccount`. Check to determine whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `Get-AzContext` to verify whether you have access to an active Azure subscription.
 
 > [!NOTE] 
 > This template uses the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website. Before proceeding, ensure you have the pull secret saved locally as `pull-secret.txt`.
@@ -726,11 +722,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams 
 
 ### Connect to your cluster
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - PowerShell
 
-Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group and all the resources you created in this article.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup -Force
@@ -741,7 +737,7 @@ Perform the following steps if you're using Azure CLI.
 
 ### Before you begin - Azure CLI
 
-You might need to run `az login` before running the commands in this quickstart. Check whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `az account list` and verify that you have access to an active Azure subscription.
+You might need to run `az login` before running the commands in this article. Check whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `az account list` and verify that you have access to an active Azure subscription.
 
 > [!NOTE]
 > This template will use the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website. Before proceeding
@@ -830,11 +826,11 @@ az deployment group create \
 
 ### Connect to your cluster - Azure CLI
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - Azure CLI
 
-Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group and all the resources you created in this article.
 
 ```azurecli-interactive
 az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER

@@ -19,5 +19,5 @@ Although you don't indicate whether the dataset is for testing or training, you 
 |Pronunciation     |Training data: Pronunciation         |
 |OutputFormatting |Training data: Output format |
 
-> [!NOTE]
-> Structured text in markdown format training datasets are not supported by version 3.0 of the Speech to text REST API. You must use the [Speech to text REST API v3.1](~/articles/ai-services/speech-service/rest-speech-to-text.md). For more information, see [Migrate code from v3.0 to v3.1 of the REST API](~/articles/ai-services/speech-service/migrate-v3-0-to-v3-1.md).
+> [!IMPORTANT]
+> You don't use the Speech CLI or REST API to upload data files directly. First you store the training or testing dataset files at a URL that the Speech CLI or REST API can access. After you upload the data files, you can use the Speech CLI or REST API to create a dataset for custom speech testing or training.

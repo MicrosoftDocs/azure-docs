@@ -75,6 +75,8 @@ Azure Stream Analytics guarantees exactly once event processing and at-least-onc
 
 Azure Stream Analytics has built-in recovery capabilities in case the delivery of an event fails. Stream Analytics also provides built-in checkpoints to maintain the state of your job and provides repeatable results.
 
+Azure Stream Analytics supports Availability Zones for all jobs. Any new dedicated cluster or new job will automatically benefit from Availability Zones, and, in case of disaster in a zone, will continue to run seamlessly by failing over to the other zones without the need of any user action. Availability Zones provide customers with the ability to withstand datacenter failures through redundancy and logical isolation of services. This will significantly reduce the risk of outage for your streaming pipelines. Note that Azure Stream Analytics jobs integrated with VNET don't currently support Availability Zones.
+
 As a managed service, Stream Analytics guarantees event processing with a 99.9% availability at a minute level of granularity. 
 
 ### Security

@@ -2,8 +2,14 @@
 title: Azure OpenAI Semantic Search Input Binding for Azure Functions
 description: Learn how to use the Azure OpenAI semantic search input binding to use semantic search on your embeddings during function execution in Azure Functions.
 ms.topic: reference
-ms.custom:
+ms.custom: 
   - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 05/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -14,34 +20,15 @@ zone_pivot_groups: programming-languages-set-functions
 The Azure OpenAI semantic search input binding allows you to use semantic search on your embeddings.
 
 For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about semantic ranking in Azure AI Search, see [Semantic ranking in Azure AI Search](../search/semantic-search-overview.md).
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-> [!NOTE]  
-> References and examples are only provided for the [Node.js v4 model](./functions-reference-node.md?pivots=nodejs-model-v4).
-::: zone-end  
-::: zone pivot="programming-language-python"  
-> [!NOTE]  
-> References and examples are only provided for the [Python v2 model](functions-reference-python.md?pivots=python-mode-decorators#development-options).
-::: zone-end  
+
+[!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
-A C# function can be created using one of the following C# modes:
-
-[!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
-
-### [Isolated process](#tab/isolated-process)
-
 This example shows how to perform a semantic search on a file.
 
 :::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="63-70"::: 
-
-<!-- 
-### [In-process](#tab/in-process)
-
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)] -->
-
----
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

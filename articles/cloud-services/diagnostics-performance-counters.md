@@ -3,7 +3,7 @@ title: Collect on Performance Counters in Azure Cloud Services (classic) | Micro
 description: Learn how to discover, use, and create performance counters in Cloud Services with Azure Diagnostics and Application Insights.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -77,7 +77,7 @@ A performance counter can be added to your cloud service for either Azure Diagno
 
 Azure Application Insights for Cloud Services allows you specify what performance counters you want to collect. After you [add Application Insights to your project](../azure-monitor/app/azure-web-apps-net-core.md), a config file named **ApplicationInsights.config** is added to your Visual Studio project. This config file defines what type of information Application Insights collects and sends to Azure.
 
-Open the **ApplicationInsights.config** file and find the **ApplicationInsights** > **TelemetryModules** element. Each `<Add>` child-element defines a type of telemetry to collect, along with its configuration. The performance counter telemetry module type is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. If this element is already defined, do not add it a second time. Each performance counter to collect is defined under a node named `<Counters>`. Here is an example that collects drive performance counters:
+Open the **ApplicationInsights.config** file and find the **ApplicationInsights** > **TelemetryModules** element. Each `<Add>` child-element defines a type of telemetry to collect, along with its configuration. The performance counter telemetry module type is `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. If this element is already defined, don't add it a second time. Each performance counter to collect is defined under a node named `<Counters>`. Here's an example that collects drive performance counters:
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -96,7 +96,7 @@ Open the **ApplicationInsights.config** file and find the **ApplicationInsights*
 <!-- ... cut to save space ... -->
 ```
 
-Each performance counter is represented as an `<Add>` element under `<Counters>`. The `PerformanceCounter` attribute defines which performance counter to collect. The `ReportAs` attribute is the title to display in the Azure portal for the performance counter. Any performance counter you collect is put into a category named **Custom** in the portal. Unlike Azure Diagnostics, you cannot set the interval these performance counters are collected and sent to Azure. With Application Insights, performance counters are collected and sent every minute. 
+Each performance counter is represented as an `<Add>` element under `<Counters>`. The `PerformanceCounter` attribute defines which performance counter to collect. The `ReportAs` attribute is the title to display in the Azure portal for the performance counter. Any performance counter you collect is put into a category named **Custom** in the portal. Unlike Azure Diagnostics, you can't set the interval these performance counters are collected and sent to Azure. With Application Insights, performance counters are collected and sent every minute. 
 
 Application Insights automatically collects the following performance counters:
 
@@ -116,11 +116,11 @@ For more information, see [System performance counters in Application Insights](
 
 The Azure Diagnostics extension for Cloud Services allows you specify what performance counters you want to collect. To set up Azure Diagnostics, see [Cloud Service Monitoring Overview](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-The performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file (it is defined per role) in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. This element has two attributes: `counterSpecifier` and `sampleRate`. The `counterSpecifier` attribute defines which system performance counter set (outlined in the previous section) to collect. The `sampleRate` value indicates how often that value is polled. As a whole, all performance counters are transferred to Azure according to the parent `PerformanceCounters` element's `scheduledTransferPeriod` attribute value.
+The performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. This element has two attributes: `counterSpecifier` and `sampleRate`. The `counterSpecifier` attribute defines which system performance counter set (outlined in the previous section) to collect. The `sampleRate` value indicates how often that value is polled. As a whole, all performance counters are transferred to Azure according to the parent `PerformanceCounters` element's `scheduledTransferPeriod` attribute value.
 
 For more information about the `PerformanceCounters` schema element, see the [Azure Diagnostics Schema](../azure-monitor/agents/diagnostics-extension-schema-windows.md#performancecounters-element).
 
-The period defined by the `sampleRate` attribute uses the XML duration data type to indicate how often the performance counter is polled. In the example below, the rate is set to `PT3M`, which means `[P]eriod[T]ime[3][M]inutes`: every three minutes.
+The period defined by the `sampleRate` attribute uses the XML duration data type to indicate how often the performance counter is polled. In the following example, the rate is set to `PT3M`, which means `[P]eriod[T]ime[3][M]inutes`: every three minutes.
 
 For more information about how the `sampleRate` and `scheduledTransferPeriod` are defined, see the **Duration Data Type** section in the [W3 XML Date and Time Date Types](https://www.w3schools.com/XML/schema_dtypes_date.asp) tutorial.
 
@@ -158,7 +158,7 @@ For more information about how the `sampleRate` and `scheduledTransferPeriod` ar
 
 ## Create a new perf counter
 
-A new performance counter can be created and used by your code. Your code that creates a new performance counter must be running elevated, otherwise it will fail. Your cloud service `OnStart` startup code can create the performance counter, requiring you to run the role in an elevated context. Or you can create a startup task that runs elevated and creates the performance counter. For more information about startup tasks, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
+A new performance counter can be created and used by your code. Your code that creates a new performance counter must be running elevated, otherwise it fails. Your cloud service `OnStart` startup code can create the performance counter, requiring you to run the role in an elevated context. Or you can create a startup task that runs elevated and creates the performance counter. For more information about startup tasks, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
 
 To configure your role to run elevated, add a `<Runtime>` element to the [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) file.
 
@@ -256,7 +256,7 @@ As previously stated, the performance counters for Application Insights are defi
 
 ### Azure Diagnostics
 
-As previously stated, the performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file (it is defined per role) in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. Set the `counterSpecifier` attribute to the category and name of the performance counter you created in your code. 
+As previously stated, the performance counters you want to collect are defined in the **diagnostics.wadcfgx** file. Open this file in Visual Studio and find the **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** element. Add a new **PerformanceCounterConfiguration** element as a child. Set the `counterSpecifier` attribute to the category and name of the performance counter you created in your code. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,7 +283,7 @@ As previously stated, the performance counters you want to collect are defined i
 </DiagnosticsConfiguration>
 ```
 
-## More information
+## Next steps
 
 - [Application Insights for Azure Cloud Services](../azure-monitor/app/azure-web-apps-net-core.md)
 - [System performance counters in Application Insights](../azure-monitor/app/performance-counters.md)

@@ -306,7 +306,7 @@ For other configuration information related to SSL encryption other advanced NGI
 [app-routing-crds]: https://aka.ms/aks/approuting/nginxingresscontrollercrd
 
 <!-- LINKS - internal -->
-[summary-msi]: use-managed-identity.md#summary-of-managed-identities
+[summary-msi]: use-managed-identity.md#summary-of-managed-identities-used-by-aks
 [rbac-owner]: ../role-based-access-control/built-in-roles.md#owner
 [rbac-classic]: ../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles
 [app-routing-add-on-basic-configuration]: app-routing.md

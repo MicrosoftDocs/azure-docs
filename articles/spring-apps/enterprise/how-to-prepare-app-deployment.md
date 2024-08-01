@@ -2,7 +2,7 @@
 title: How to prepare an application for deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/28/2024
 ms.author: karler
@@ -289,13 +289,13 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 ## See also
 
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](../basic-standard/how-to-config-server.md)
+* [Set up your Config Server](how-to-config-server.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 
 ## Next steps
 
-In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](../basic-standard/how-to-config-server.md).
+In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](how-to-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

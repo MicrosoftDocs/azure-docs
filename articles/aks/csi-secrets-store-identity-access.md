@@ -3,7 +3,7 @@ title: Access Azure Key Vault with the CSI Driver Identity Provider
 description: Learn how to integrate the Azure Key Vault Provider for Secrets Store CSI Driver with your Azure credentials and user identities.
 author: nickomang
 ms.author: nickoman
-ms.topic: article
+ms.topic: how-to
 ms.subservice: aks-security
 ms.date: 12/19/2023
 ms.custom: devx-track-azurecli
@@ -201,7 +201,7 @@ In this security model, you can grant access to your cluster's resources to team
     Alternatively, you can create a new managed identity and assign it to your virtual machine (VM) scale set or to each VM instance in your availability set using the following commands.
 
     ```azurecli-interactive
-    az identity create -resource-group <resource-group> --name <identity-name>
+    az identity create --resource-group <resource-group> --name <identity-name>
     az vmss identity assign --resource-group <resource-group> --name <agent-pool-vmss> --identities <identity-resource-id>
     az vm identity assign --resource-group <resource-group> --name <agent-pool-vm> --identities <identity-resource-id>
 
@@ -347,10 +347,10 @@ A key vault certificate also contains public x509 certificate metadata. The key 
 
 ## Next steps
 
-In this article, you learned how to create and provide an identity to access your Azure Key Vault. If you want to configure extra configuration options or perform troubleshooting, continue to the next article.
+In this article, you learned how to create and provide an identity to access your Azure Key Vault. The [Service Connector](../service-connector/overview.md) integration helps simplify the connection configuration for AKS workloads and Azure backing services. It securely handles authentication and network configurations and follows best practices for connecting to Azure services. For more information, see [Use the Azure Key Vault provider for Secrets Store CSI Driver in an AKS cluster](../service-connector/tutorial-python-aks-keyvault-csi-driver.md) and the [Service Connector introduction](https://azure.github.io/AKS/2024/05/23/service-connector-intro).
 
-> [!div class="nextstepaction"]
-> [Configuration options and troubleshooting resources for Azure Key Vault provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md)
+If you want to configure extra configuration options or perform troubleshooting, see [Configuration options and troubleshooting resources for Azure Key Vault provider with Secrets Store CSI Driver in AKS](./csi-secrets-store-configuration-options.md).
+
 
 <!-- LINKS INTERNAL -->
 

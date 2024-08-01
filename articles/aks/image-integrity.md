@@ -5,7 +5,7 @@ author: schaffererin
 ms.author: schaffererin
 ms.service: azure-kubernetes-service
 ms.custom: devx-track-azurecli
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/26/2023
 ---
 
@@ -18,7 +18,7 @@ In these application environments, using signed container images helps verify th
 > [!NOTE]
 > Image Integrity is a feature based on [Ratify][ratify]. On an AKS cluster, the feature name and property name is `ImageIntegrity`, while the relevant Image Integrity pods' names contain `Ratify`.
 
-[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
+[!INCLUDE [preview features callout](~/reusable-content/ce-skilling/azure/includes/aks/includes/preview/preview-callout.md)]
 
 ## Prerequisites
 

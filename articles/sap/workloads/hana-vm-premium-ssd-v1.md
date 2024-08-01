@@ -7,23 +7,23 @@ keywords: 'SAP, Azure HANA, Storage Ultra disk, Premium storage'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/01/2024
+ms.date: 06/28/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
 
 # SAP HANA Azure virtual machine Premium SSD storage configurations
-This document is about HANA storage configurations for Azure premium storage or premium ssd as it was introduced years back as low latency storage for DBMS and other applications that need low latency storage. For general considerations around stripe sizes when using LVM, HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
+This document is about HANA storage configurations for Azure premium storage or premium ssd as it was introduced years back as low latency storage for database management systems (DBMS) and other applications that need low latency storage. For general considerations around stripe sizes when using Logical Volume Manager (LVM), HANA data volume partitioning or other considerations that are independent of the particular storage type, check these two documents:
 
 - [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md)
 - [Azure Storage types for SAP workload](./planning-guide-storage.md)
 
 
 > [!IMPORTANT]
-> The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
+> The suggestions for the storage configurations in this document are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you aren't utilizing all the storage bandwidth or IOPS (I/O operations per second) provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
 ## Solutions with premium storage and Azure Write Accelerator for Azure M-Series virtual machines
-Azure Write Accelerator is a functionality that is available for Azure M-Series VMs exclusively in combination with Azure premium storage. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
+Azure Write Accelerator is a functionality that is available for Azure M-Series Virtual Machines (VM) exclusively in combination with Azure premium storage. As the name states, the purpose of the functionality is to improve I/O latency of writes against the Azure premium storage. For SAP HANA, Write Accelerator is supposed to be used against the **/hana/log** volume only. Therefore,  the **/hana/data** and **/hana/log** are separate volumes with Azure Write Accelerator supporting the **/hana/log** volume only. 
 
 > [!IMPORTANT]
 > When using Azure premium storage, the usage of Azure [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md) for the **/hana/log** volume is mandatory. Write Accelerator is available for premium storage and M-Series and Mv2-Series VMs only. Write Accelerator is not working in combination with other Azure VM families, like Esv3 or Edsv4.
@@ -45,12 +45,12 @@ The caching recommendations for Azure premium disks below are assuming the I/O c
 
 
 ### Azure burst functionality for premium storage
-For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../virtual-machines/disk-bursting.md). When you read the article, you understand the concept of accruing IOPS and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
+For Azure premium storage disks smaller or equal to 512 GiB in capacity, burst functionality is offered. The exact way how disk bursting works is described in the article [Disk bursting](../../virtual-machines/disk-bursting.md). When you read the article, you understand the concept of accruing I/O Operations per second (IOPS) and throughput in the times when your I/O workload is below the nominal IOPS and throughput of the disks (for details on the nominal throughput see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/)). You're going to accrue the delta of IOPS and throughput between your current usage and the nominal values of the disk. The bursts  are limited to a maximum of 30 minutes.
 
 The ideal cases where this burst functionality can be planned in is likely going to be the volumes or disks that contain data files for the different DBMS. The I/O workload expected against those volumes, especially with small to mid-ranged systems is expected to look like:
 
 - Low to moderate read workload since data ideally is cached in memory, or like with SAP HANA should be completely in memory
-- Bursts of write triggered by database checkpoints or savepoints that are issued on a regular basis
+- Bursts of write triggered by database checkpoints or savepoints that are issued regularly
 - Backup workload that reads in a continuous stream in cases where backups aren't executed via storage snapshots
 - For SAP HANA, load of the data into memory after an instance restart
 
@@ -94,7 +94,7 @@ Configuration for SAP **/hana/data** volume:
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9,200| 14,000 | 
 | M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000| no bursting | 
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000 | no bursting | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 4 x P30 | 800 MBps | no bursting | 20,000| no bursting | 
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 4 x P40 | 1,000 MBps | no bursting | 30,000 | no bursting |
@@ -104,7 +104,7 @@ Configuration for SAP **/hana/data** volume:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P60<sup>1</sup> | 2,000 MBps | no bursting | 64,000 | no bursting |
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 <sup>2</sup> Maximum throughput provided by the VM and throughput requirement by SAP HANA workload, especially savepoint activity,  can force you to deploy significant more premium storage v1 capacity. 
 
@@ -124,7 +124,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500| 
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500| 
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 | 
 | M208s_v2 | 2,850 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
 | M208ms_v2 | 5,700 GiB | 1,000 MBps | 3 x P15 | 375 MBps | 510 MBps | 3,300 | 10,500 |  
@@ -134,7 +134,7 @@ For the **/hana/log** volume. the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps | 4 x P20 | 600 MBps | 680 MBps | 9,200 | 14,000 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team
 
 
 For the other volumes, the configuration would look like:
@@ -152,7 +152,7 @@ For the other volumes, the configuration would look like:
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M128ms, M128dms_v2, M128ms_v2 | 3,892 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MBps | 1 x P30 | 1 x P10 | 1 x P6 |
 | M208s_v2 | 2,850 GiB | 1,000 MBps |  1 x P30 | 1 x P10 | 1 x P6 |
@@ -163,7 +163,7 @@ For the other volumes, the configuration would look like:
 | M832ixs<sup>1</sup> | 14,902 GiB | larger than 2,000 Mbps | 1 x P30 | 1 x P10 | 1 x P6 | 
 | M832ixs_v2<sup>1</sup> | 23,088 GiB | larger than 2,000 Mbps |1 x P30 | 1 x P10 | 1 x P6 | 
 
-<sup>1</sup> VM type not available by default. Please contact your Microsoft account team  
+<sup>1</sup> VM type not available by default. Contact your Microsoft account team  
 <sup>2</sup> Review carefully the [considerations for sizing **/hana/shared**](hana-vm-operations-storage.md#considerations-for-the-hana-shared-file-system) 
 
 Check whether the storage throughput for the different suggested volumes meets the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure premium storage VHDs. Sizing a volume with more VHDs than listed increases the IOPS and I/O throughput within the limits of the Azure virtual machine type.
@@ -229,9 +229,9 @@ A less costly alternative for such configurations could look like:
 | M96(d)s_2_v3 | 1,946 GiB | 3,120 MBps | 6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M128s, M128(d)s_v2 | 2,048 GiB | 2,000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M192i(d)s_v2 | 2,048 GiB | 2,000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
-| M128ms, M128(d)ms_v2 | 3,800 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M128ms, M128(d)ms_v2 | 3,892 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M176(d)s_3_v3 | 2,794 GiB | 4,000 MBps | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
-| M176(d)s_4_v3 | 3,750 GiB | 4,000 MBps | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
+| M176(d)s_4_v3 | 3,892 GiB | 4,000 MBps | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M192i(d)ms_v2 | 4,096 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 20,000<sup>2</sup> |
 | M208s_v2 | 2,850 GiB | 1,000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |
 | M208ms_v2 | 5,700 GiB | 1,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Using Write Accelerator for combined data and log volume will limit IOPS rate to 10,000<sup>2</sup> |

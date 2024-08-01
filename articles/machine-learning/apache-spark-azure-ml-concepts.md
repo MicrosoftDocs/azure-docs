@@ -3,12 +3,12 @@ title: "Apache Spark in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: This article explains the options for accessing Apache Spark in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: conceptual
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: yogipandey
 ms.date: 10/05/2023
 ms.custom: cliv2, sdkv2, build-2023
 #Customer intent: As a full-stack machine learning pro, I want to use Apache Spark in Azure Machine Learning.
@@ -68,8 +68,10 @@ After the serverless Spark compute resource tear-down happens, submission of the
 
 ### Session-level Conda packages
 A Conda dependency YAML file can define many session-level Conda packages in a session configuration. A session will time out if it needs more than 15 minutes to install the Conda packages defined in the YAML file. It becomes important to first check whether a required package is already available in the Azure Synapse base image. To do this, users should follow the link to determine *packages available in the base image for* the Apache Spark version in use:
-- [Azure Synapse Runtime for Apache Spark 3.3](../synapse-analytics/spark/apache-spark-33-runtime.md#python-libraries-normal-vms)
-- [Azure Synapse Runtime for Apache Spark 3.2](../synapse-analytics/spark/apache-spark-32-runtime.md#python-libraries-normal-vms)
+- [Azure Synapse Runtime for Apache Spark 3.3](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.3)
+
+
+- [Azure Synapse Runtime for Apache Spark 3.2](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.2)
 
 > [!IMPORTANT]
 > Azure Synapse Runtime for Apache Spark: Announcements

@@ -5,9 +5,9 @@ description: Create and run machine learning pipelines to create and manage the 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.reviewer: lagayhar
-author: xiaoharper
-ms.author: zhanxia
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1
@@ -172,7 +172,7 @@ else:
         pin_sdk_version=False)
 ```
 
-The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/publishers/microsoftowner). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
+The code above shows two options for handling dependencies. As presented, with `USE_CURATED_ENV = True`, the configuration is based on a curated environment. Curated environments are "prebaked" with common inter-dependent libraries and can be faster to bring online. Curated environments have prebuilt Docker images in the [Microsoft Container Registry](https://hub.docker.com/u/microsoft). For more information, see [Azure Machine Learning curated environments](../resource-curated-environments.md).
 
 The path taken if you change `USE_CURATED_ENV` to `False` shows the pattern for explicitly setting your dependencies. In that scenario, a new custom Docker image will be created and registered in an Azure Container Registry within your resource group (see [Introduction to private Docker container registries in Azure](../../container-registry/container-registry-intro.md)). Building and registering this image can take quite a few minutes.
 

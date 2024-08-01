@@ -16,7 +16,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 To effectively create resources with Bicep, you'll need to set up a Bicep [development environment](../azure-resource-manager/bicep/install.md). The Bicep extension for [Visual Studio Code](https://code.visualstudio.com/) provides language support and resource autocompletion. The extension helps you create and validate Bicep files and is recommended for those developers that will create resources using Bicep after completing this quickstart.
 

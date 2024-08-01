@@ -2,8 +2,8 @@
 title: Drawing package requirements in Microsoft Azure Maps Creator
 titleSuffix: Microsoft Azure Maps Creator
 description: Learn about the drawing package requirements to convert your facility design files to map data
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 03/21/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -669,17 +669,6 @@ For a guide on how to prepare your drawing package, see the drawing package guid
 
 > [!div class="nextstepaction"]
 > [Drawing Package Guide]
-
-Learn more by reading:
-
-> [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
-> [Creator for indoor maps]
-
-[What is Azure Maps Creator?]: about-creator.md
-[Creator for indoor maps]: creator-indoor-maps.md
 
 <!--------------------- Drawing Package v1 links--------------------------------------------------->
 [Drawing package]: https://github.com/Azure-Samples/am-creator-indoor-data-examples/tree/master/Drawing%20Package%201.0

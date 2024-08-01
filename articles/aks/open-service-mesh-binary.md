@@ -45,7 +45,7 @@ This article will discuss how to download the OSM client library to be used to o
 ::: zone-end
 
 > [!WARNING]
-> Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
+> Do not attempt to install OSM from the binary using `osm install`. This will result in an installation of OSM that is not integrated as an add-on for AKS.
 
 ## Configure OSM CLI variables with an OSM_CONFIG file
 

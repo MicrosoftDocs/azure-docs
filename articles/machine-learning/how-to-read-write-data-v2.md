@@ -3,12 +3,12 @@ title: Access data in a job
 titleSuffix: Azure Machine Learning
 description: Learn how to read and write data in Azure Machine Learning training jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: yogipandey
 ms.date: 02/06/2024
 ms.custom:
   - devplatv2
@@ -78,15 +78,19 @@ ml_client = MLClient(
 )
 
 # ==============================================================
-# Set the URI path for the data. Supported paths include:
+# Set the URI path for the data.
+# Supported `path` formats for input include:
 # local: `./<path>
 # Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
 # ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
-# We set the path to a file on a public blob container
+# Supported `path` format for output is:
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
+# We set the input path to a file on a public blob container
 # ==============================================================
 path = "wasbs://data@azuremlexampledata.blob.core.windows.net/titanic.csv"
+
 
 # ==============================================================
 # What type of data does the path point to? Options include:
@@ -139,12 +143,15 @@ Create a job specification YAML file (`<file-name>.yml`).
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 # ==============================================================
-# Set the URI path for the data. Supported paths include:
+# Set the URI path for the data.
+# Supported `path` formats for input include:
 # local: `./<path>
 # Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
 # ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
+# Supported `path` format for output is:
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # ==============================================================
 
 # ==============================================================
@@ -212,12 +219,15 @@ ml_client = MLClient(
 )
 
 # ==============================================================
-# Set the input and output URI paths for the data. Supported paths include:
+# Set the URI path for the data.
+# Supported `path` formats for input include:
 # local: `./<path>
 # Blob: wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>
 # ADLS: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>
 # Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # Data Asset: azureml:<my_data>:<version>
+# Supported `path` format for output is:
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 # As an example, we set the input path to a file on a public blob container
 # As an example, we set the output path to a folder in the default datastore
 # ==============================================================
@@ -259,8 +269,8 @@ outputs = {
                           path=output_path, 
                           mode=output_mode,
                           # optional: if you want to create a data asset from the output, 
-                          # then uncomment name (name can be set without setting version)
-                          # name = "<name_of_data_asset>",
+                          # then uncomment `name` (`name` can be set without setting `version`, and in this way, we will set `version` automatically for you)
+                          # name = "<name_of_data_asset>", # use `name` and `version` to create a data asset from the output
                           # version = "<version>",
                   )
 }
@@ -319,10 +329,10 @@ outputs:
     path: azureml://datastores/workspaceblobstore/paths/quickstart-output/titanic.csv
     type: uri_file
     # optional: if you want to create a data asset from the output, 
-    # then uncomment name (name can be set without setting version)
-    # name: <name_of_data_asset>
+    # then uncomment `name` (`name` can be set without setting `version`, and in this way, we will set `version` automatically for you)
+    # name: <name_of_data_asset> # use `name` and `version` to create a data asset from the output
     # version: <version>
-    
+
 ```
 
 Next, submit the job using the CLI:
@@ -352,13 +362,13 @@ When you submit a job, the Azure Machine Learning data runtime controls the data
 
 When you provide a data input/output to a job, you must specify a `path` parameter that points to the data location. This table shows the different data locations that Azure Machine Learning supports, and also shows `path` parameter examples:
 
-|Location  | Examples  |
-|---------|---------|
-|A path on your local computer     | `./home/username/data/my_data`         |
-|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
-|A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
-|A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
-|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |
+|Location  | Examples  | Input | Output |
+|---------|---------|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         |Y|N|
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |Y|N|
+|A path on Azure Storage     |   `wasbs://<container_name>@<account_name>.blob.core.windows.net/<path>`<br>`abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |Y, only for identity-based authentication.|N|
+|A path on an Azure Machine Learning Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |Y|Y|
+|A path to a Data Asset  |  `azureml:<my_data>:<version>`  |Y|N, but you can use `name` and `version` to create a data asset from output|
 
 ## Modes
 

@@ -10,7 +10,7 @@ ms.subservice: mongodb
 ---
 
 # Improve performance and optimize costs when upgrading to Azure Cosmos DB API for MongoDB 4.0+
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB API for MongoDB introduced a new data compression algorithm in versions 4.0+ that saves up to 90% on RU and storage costs. Upgrading your database account to versions 4.0+ and following this guide will help you realize the maximum performance and cost improvements. 
 

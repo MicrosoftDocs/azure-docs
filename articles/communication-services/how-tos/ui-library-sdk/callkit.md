@@ -17,43 +17,63 @@ The Azure Communication Services UI Library provides out-of-the-box support for 
 
 In this article, you learn how to set up CallKit correctly by using the UI Library in your application.
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
-- Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
+- Optional: Completion of the [QuickStart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
 
 For more information, see the [open-source iOS UI Library](https://github.com/Azure/communication-ui-library-ios) and the [sample application code](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-calling).
 
 ### Set up CallKit integration
 
-The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](/azure/communication-services/how-tos/calling-sdk/callkit-integration#callkit-integration-within-sdk).
+The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../calling-sdk/callkit-integration.md).
 
-### Specify call recipient info for incoming and outgoing calls
+### Specify call recipient info for outgoing calls
 
-To specify call recipient info, create an instance of `CallCompositeCallKitRemoteInfo`.
+To specify outgoing call info, create an instance of `CallKitRemoteInfo`. If you don't provide `CallKitRemoteInfo`, the participant identifier's raw value is displayed by default.
 
-Assign a value for `displayName` to customize the display name for call recipients. The value specified in `displayName` is exactly how it appears in the last-dialed call log.
+Assign a value for `displayName` to customize the display name for caller. The value specified in `CallKitRemoteInfo` is exactly how it appears in the last-dialed call log.
 
 Also assign the `cxHandle` value. It's what the application receives when the user calls back on that contact.
 
 ```swift
 let cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
-var displayName = "DISPLAY_NAME"
-let callKitRemoteInfo = CallCompositeCallKitRemoteInfo(displayName: displayName, cxHandle: cxHandle)
+let callKitRemoteInfo = CallKitRemoteInfo(displayName: "DISPLAY_NAME", handle: cxHandle)
+callComposite.launch(..., // Locator for Azure Communication Service
+                     callKitRemoteInfo: callKitRemoteInfo)
 ```
 
-If you don't provide `CallCompositeCallKitRemoteInfo`, the participant identifier's raw value is displayed by default.
+### Specify call recipient info for incoming calls
+
+To specify incoming call caller info, create an instance of `CallKitOptions`. If you don't provide `CallKitOptions`, the participant identifier's raw value is displayed by default.
+
+Assign a value for `provideRemoteInfo` to customize the display name for caller. The value specified in `CallKitRemoteInfo` is exactly how it appears in the last-dialed call log.
+
+Also assign the `cxHandle` value. It's what the application receives when the user calls back on that contact.
+
+```swift
+public func incomingCallRemoteInfo(info: Caller) -> CallKitRemoteInfo {
+    let cxHandle = CXHandle(type: .generic, value: "VALUE_TO_CXHANDLE")
+    var remoteInfoDisplayName = "DISPLAY_NAME"
+    let callKitRemoteInfo = CallKitRemoteInfo(displayName: remoteInfoDisplayName,
+                                                            handle: cxHandle)
+    return callKitRemoteInfo
+}
+```
 
 ### Configure providers
 
-As required, provide a `CallCompositeCallKitRemoteInfo` instance to `CallCompositeCallKitOption`. The UI Library also provides a default provider: `CallCompositeCallKitOption.getDefaultCXProviderConfiguration()`. For more information, see the [Apple developer documentation about CXProviderConfiguration](https://developer.apple.com/documentation/callkit/cxproviderconfiguration).
+As required, provide a `CXProviderConfiguration` instance to `CallKitOptions`. For more information, see the [Apple developer documentation about CXProviderConfiguration](https://developer.apple.com/documentation/callkit/cxproviderconfiguration).
 
 ```swift
-let cxProvider = CallCompositeCallKitOption.getDefaultCXProviderConfiguration()
+let providerConfig = CXProviderConfiguration()
+providerConfig.supportsVideo = true
+providerConfig.maximumCallGroups = 1
+providerConfig.maximumCallsPerCallGroup = 1
+providerConfig.includesCallsInRecents = true
+providerConfig.supportedHandleTypes = [.phoneNumber, .generic]
 ```
 
 ### Configure an audio session
@@ -63,6 +83,7 @@ Configure an audio session to be called before placing or accepting incoming cal
 ```swift
 public func configureAudioSession() -> Error? {
     let audioSession = AVAudioSession.sharedInstance()
+    let options: AVAudioSession.CategoryOptions = .allowBluetooth
     var configError: Error?
     do {
         try audioSession.setCategory(.playAndRecord)
@@ -75,21 +96,45 @@ public func configureAudioSession() -> Error? {
 
 ### Enable CallKit
 
-To enable CallKit, create an instance of `CallCompositeCallKitOption` and provide it to `RemoteOptions`.
+To enable CallKit, create an instance of `CallKitOptions` and provide it to `callCompositeOptions`.
 
 ```swift
 let isCallHoldSupported = true // enable call hold (default is true)
-let callKitOptions = CallCompositeCallKitOption(
-    cxProvideConfig: cxProvider,
+let callKitOptions = CallKitOptions(
+    providerConfig: providerConfig,
     isCallHoldSupported: isCallHoldSupported,
-    remoteInfo: callKitRemoteInfo,
+    provideRemoteInfo: provideRemoteInfo,
     configureAudioSession: configureAudioSession
 )
 
-let remoteOptions = RemoteOptions(
+let options = CallCompositeOptions(
     ..., // Other options for Azure Communication Service
     callKitOptions: callKitOptions
 )
+```
+
+### Hold and Resume API for CallKit integrated in application
+
+For CallKit integrated in application use `hold` and `resume` to manage call state.
+
+```kotlin
+    callComposite.hold() { result in
+        switch result {
+            case .success:
+                // success
+            case .failure(let error):
+                // failure
+        }
+    }
+
+    callComposite.resume() { result in
+        switch result {
+            case .success:
+                // success
+            case .failure(let error):
+                // failure
+        }
+    }
 ```
 
 ## Next steps

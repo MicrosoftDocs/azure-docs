@@ -9,14 +9,13 @@ ms.custom:
   - build-2024
 ms.topic: how-to
 ms.date: 5/21/2024
-ms.reviewer: franksolomon
-ms.author: ssalgado
-author: ssalgadodev
+ms.author: franksolomon
+author: fbsolo-ms1 
 ---
 
 # How to add and manage data in your Azure AI Studio project
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 This article describes how to create and manage data in Azure AI Studio. Data can be used as a source for indexing in Azure AI Studio.
 

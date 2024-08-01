@@ -61,7 +61,7 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
    - The Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+   > Using empty resource actually acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
 
 #### Authentication in a function app
 

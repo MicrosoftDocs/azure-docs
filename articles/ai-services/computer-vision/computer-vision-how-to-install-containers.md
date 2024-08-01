@@ -7,16 +7,16 @@ author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 06/26/2024
 ms.author: pafarley
 keywords: on-premises, OCR, Docker, container
 ---
 
 # Install Azure AI Vision 3.2 GA Read OCR container
 
-Containers enable you to run the Azure AI Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run the Read (OCR) container.
+Containers let you run the Azure AI Vision APIs in your own environment and can help you meet specific security and data governance requirements. In this article you'll learn how to download, install, and run the Azure AI Vision Read (OCR) container.
 
-The Read container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
+The Read container allows you to extract printed and handwritten text from images and documents in JPEG, PNG, BMP, PDF, and TIFF file formats. For more information on the Read service, see the [Read API how-to guide](how-to/call-read-api.md).
 
 ## What's new
 The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you're an existing customer, follow the [download instructions](#get-the-container-image) to get started.
@@ -33,7 +33,7 @@ The Read 3.2 OCR container is the latest GA model and provides:
 * Choose text line output order from default to a more natural reading order for Latin languages only.
 * Text line classification as handwritten style or not for Latin languages only.
 
-If you're using Read 2.0 containers today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
+If you're using the Read 2.0 container today, see the [migration guide](read-container-migration-guide.md) to learn about changes in the new versions.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Host computer requirements
 
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../includes/cognitive-services-containers-host-computer.md)]
 
 ### Advanced Vector Extension support
 
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-202
 
 ---
 
-[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+[!INCLUDE [Tip for using docker list](../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ## How to use the container
 
@@ -144,11 +144,11 @@ To find your connection string:
 2. Select on **Access keys** in the left navigation list.
 3. Your connection string will be located below **Connection string**
 
-[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+[!INCLUDE [Running multiple containers on the same host](../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Query the container's prediction endpoint
 
@@ -309,7 +309,7 @@ For an example use-case, see the <a href="https://aka.ms/ts-read-api-types" targ
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -323,7 +323,7 @@ If you run the container with an output [mount](./computer-vision-resource-conta
 
 The Azure AI containers send billing information to Azure, using the corresponding resource on your Azure account.
 
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md). 
 

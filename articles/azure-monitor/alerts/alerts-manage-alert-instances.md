@@ -78,7 +78,7 @@ You can save up to 10 views of the alerts timeline. The **default** view is the 
 
 The **Alert details** page provides more information about the selected alert:
 
- - To change the user response to the alert, select the pencil near **User response**.
+ - To change the user response to the alert, select the pencil near **User response**. The User response can be **New**, **Acknowledged**, or **Closed**.
  - To see the details of the alert, expand the **Additional details** section.
  - To see all closed alerts, select the **History** tab.  
 

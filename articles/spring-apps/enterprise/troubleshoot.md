@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: troubleshooting
 ms.date: 04/23/2024
 ms.author: karler
@@ -105,7 +105,7 @@ Before you onboard your application, ensure that it meets the following criteria
 
 * The application can run locally with the specified Java runtime version.
 * The environment config (CPU/RAM/Instances) meets the minimum requirement set by the application provider.
-* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](../basic-standard/how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
+* The configuration items have their expected values. For more information, see [Set up a Spring Cloud Config Server instance for your service](how-to-config-server.md). For the Enterprise plan, see [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * The environment variables have their expected values.
 * The JVM parameters have their expected values.
 * We recommended that you disable or remove the embedded *Config Server* and *Spring Service Registry* services from the application package.

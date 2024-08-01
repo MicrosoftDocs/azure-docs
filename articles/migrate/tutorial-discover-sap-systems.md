@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/19/2024
-ms.custom: 
+ms.date: 05/04/2024
+ms.custom: engagement-fy24
 
 ---
 
@@ -71,13 +71,11 @@ To download the template, follow these steps:
 
 > [!Note]
    > To avoid any duplication or inadvertent errors affecting from one discovery file to another discovery file, we recommend you use a new file for every discovery that you plan to run.
-   > Use the [sample import file templates](https://github.com/Azure/Discovery-and-Assessment-for-SAP-systems-with-AzMigrate/tree/main/Import%20file%20samples) as guidance to prepare the import file of your SAP landscape.
 
 ### Add on-premises SAP infrastructure details
 
 Collect on-premises SAP system inventory and add it into the template file.
 - To collect data, export it from the SAP system and fill in the template with the relevant on-premises SAP system inventory.
-- To review sample data, download the [sample import file](https://github.com/Azure/Discovery-and-Assessment-for-SAP-systems-with-AzMigrate/tree/main/Import%20file%20samples).
 
 
 The following table summarizes the file fields to fill in:

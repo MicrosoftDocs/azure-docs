@@ -15,12 +15,12 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face client library for Python. Follow these steps to install the package and try out the example code for basic tasks. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images. Follow these steps to install the package and try out the example code for basic face identification using remote images.
 
-[Reference documentation](/python/api/azure-ai-vision-face/azure.ai.vision.face) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/azure/ai/vision/face) | [Package (PiPy)](https://aka.ms/azsdk-python-face-pkg) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
+[Reference documentation](https://aka.ms/azsdk-python-face-ref) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face) | [Package (PiPy)](https://aka.ms/azsdk-python-face-pkg) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* [Python 3.8+](https://www.python.org/)
+* [Python 3.x](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 * [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource</a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
@@ -28,8 +28,9 @@ Get started with facial recognition using the Face client library for Python. Fo
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 
+## Create environment variables
 
-[!INCLUDE [create environment variables](../environment-variables.md)]
+[!INCLUDE [create environment variables](../face-environment-variables.md)]
 
 ## Identify and verify faces
 
@@ -38,7 +39,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     After installing Python, you can install the client library with:
 
     ```console
-    python -m pip install azure-ai-vision-face
+    pip install --upgrade azure-ai-vision-face
     ```
 
 1. Create a new Python application
@@ -48,7 +49,7 @@ Get started with facial recognition using the Face client library for Python. Fo
     > [!NOTE]
     > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
 
-    [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart-single.py?name=snippet_single)]
+    [!code-python[](~/cognitive-services-quickstart-code/python/Face/Quickstart.py?name=snippet_single)]
 
 
 1. Run your face recognition app from the application directory with the `python` command.
@@ -65,26 +66,26 @@ Get started with facial recognition using the Face client library for Python. Fo
 ## Output
 
 ```console
-Person group: dbd92bf0-8b74-43fc-a27a-b127c1bb1b66
-face 1d09b50e-0fb6-430c-a47c-9bb235761c17 added to person ea92a5d5-5250-44db-88fb-3b32e1a1ecaf
-face 74e1807a-6c86-4c74-b497-a3bcdda8c631 added to person ea92a5d5-5250-44db-88fb-3b32e1a1ecaf
-face 512cc8ff-e18a-4702-9413-3c83af9a0915 added to person f03219b3-c2dc-4ad6-b00b-bd71792686ac
-face 899bbe8e-2d03-4941-8221-d087911df21b added to person f03219b3-c2dc-4ad6-b00b-bd71792686ac
-face dfc0d142-36b0-4d90-982b-b51570ead5a8 added to person 8697d263-be7b-4d78-ba40-b55305dbbeb6
-face 29939a66-9da2-46f2-b572-abbe4e0d754a added to person 8697d263-be7b-4d78-ba40-b55305dbbeb6
-Train the person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66
-The person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66 is trained successfully.
-Pausing for 10 seconds to avoid triggering rate limit on free account...
+Person group: ad12b2db-d892-48ec-837a-0e7168c18224
+face 335a2cb1-5211-4c29-9c45-776dd014b2af added to person 9ee65510-81a5-47e5-9e50-66727f719465
+face df57eb50-4a13-4f93-b804-cd108327ad5a added to person 9ee65510-81a5-47e5-9e50-66727f719465
+face d8b7b8b8-3ca6-4309-b76e-eeed84f7738a added to person 00651036-4236-4004-88b9-11466c251548
+face dffbb141-f40b-4392-8785-b6c434fa534e added to person 00651036-4236-4004-88b9-11466c251548
+face 9cdac36e-5455-447b-a68d-eb1f5e2ec27d added to person 23614724-b132-407a-aaa0-67003987ce93
+face d8208412-92b7-4b8d-a2f8-3926c839c87e added to person 23614724-b132-407a-aaa0-67003987ce93
+Train the person group ad12b2db-d892-48ec-837a-0e7168c18224
+The person group ad12b2db-d892-48ec-837a-0e7168c18224 is trained successfully.
+Pausing for 60 seconds to avoid triggering rate limit on free account...
 Identifying faces in image
-Person is identified for face ID 5779a986-238c-499d-b22a-d2a7cec92e88 in image, with a confidence of 0.96725.
-verification result: True. confidence: 0.96725
-Person is identified for face ID a28a4997-600e-4595-be39-d7a7d0f8afc8 in image, with a confidence of 0.96921.
-verification result: True. confidence: 0.96921
-No person identified for face ID 02a56d35-f3a4-43eb-a295-f23a1b772de9 in image.
-Person is identified for face ID 5de2019a-c4d3-4021-b8d0-9a3b86adceb7 in image, with a confidence of 0.92886.
-verification result: True. confidence: 0.92886
+Person is identified for face ID bc52405a-5d83-4500-9218-557468ccdf99 in image, with a confidence of 0.96726.
+verification result: True. confidence: 0.96726
+Person is identified for face ID dfcc3fc8-6252-4f3a-8205-71466f39d1a7 in image, with a confidence of 0.96925.
+verification result: True. confidence: 0.96925
+No person identified for face ID 401c581b-a178-45ed-8205-7692f6eede88 in image.
+Person is identified for face ID 8809d9c7-e362-4727-8c95-e1e44f5c2e8a in image, with a confidence of 0.92898.
+verification result: True. confidence: 0.92898
 
-The person group dbd92bf0-8b74-43fc-a27a-b127c1bb1b66 is deleted.
+The person group ad12b2db-d892-48ec-837a-0e7168c18224 is deleted.
 
 End of quickstart.
 ```
@@ -106,4 +107,4 @@ In this quickstart, you learned how to use the Face client library for Python to
 > [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
 * [What is the Face service?](../../overview-identity.md)
-* More extensive sample code can be found on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/face/azure-ai-vision-face/samples).
+* More extensive sample code can be found on [GitHub](https://aka.ms/FaceSamples).

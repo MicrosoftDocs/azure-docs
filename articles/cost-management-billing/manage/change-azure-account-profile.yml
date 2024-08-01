@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 05/02/2023
+  ms.date: 07/22/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -23,7 +23,9 @@ introduction: |
   *Sold-to address* - The sold-to address is the address and the contact information of the organization or the individual, who is responsible for a billing account. In other words, the sold-to information describes the legal entity. It's displayed in all the invoices generated for the billing account.
   
   *Bill-to address* - The bill-to address is the address and the contact information of the organization or the individual, who is responsible for paying the invoices generated for a billing account. 
-  - For a billing account for a Microsoft Online Service Program (MOSP), the bill-to address appears on credit card or invoice information. 
+  - For a billing account for a Microsoft Online Service Program (MOSP), the bill-to address appears on credit card or invoice information. For MOSP accounts, your bill-to information is the same as your payment information (credit card or invoice details).
+    > [!NOTE]
+    > If you want to update your bill-to information instead, see [Edit credit card details](change-credit-card.md#edit-credit-card-details).
   - For a billing account for a Microsoft Customer Agreement (MCA), there's a bill-to address for each billing profile and it's displayed in the invoice generated for the billing profile.
   
   *Contact email address for service and marketing emails* - You can specify an email address that's different from the email address that you sign in with to receive important billing, service, and recommendation-related notifications about your Azure account. Service notification emails, such as urgent security issues, price changes, or breaking changes to services in use by your account are always sent to your sign-in address.
@@ -32,9 +34,6 @@ procedureSection:
       Update an MOSP billing account sold-to address
     summary: |
       Use the following information to update your sold-to address.
-
-      >[!NOTE]
-      >If you want to update your credit or debit card information instead, see [Edit credit card details](change-credit-card.md#edit-credit-card-details).
     steps:
       - |
         Sign in to the Azure portal using the email address, which has the account administrator permission on the account.
@@ -92,7 +91,7 @@ procedureSection:
   - title: |
       Update a PO number
     summary: |
-      By default, an invoice for billing profile doesn't have an associated PO number. After you add a PO number for a billing profile, it appears on invoices for the billing profile.
+      By default, invoices for the billing profile don't have an associated PO number. After you add a PO number for a billing profile, the system regenerates the invoices within 24 hours. Afterward, the PO number appears on invoices for the billing profile.
       To add or change the PO number for a billing profile, use the following steps.
     steps:
       - |
@@ -130,7 +129,7 @@ procedureSection:
   - title: |
       Service and marketing emails
     summary: |
-      You're prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
+      You get prompted in the Azure portal to verify or update your email address every 90 days. Microsoft sends emails to this email address with Azure account-related information for:
       - Service notifications
       - Security alerts
       - Billing purposes
@@ -168,9 +167,9 @@ procedureSection:
       - |
         For an MCA billing account, you can give the new email address permissions on your account.
   - title: |
-      Update your country or region
+      Update your country/region
     summary: |
-      Changing the country or region for an existing account isn't supported. However, you can work around this issue.
+      Changing the country/region for an existing account isn't supported. However, you can work around this issue.
     steps: 
       - |
          You can create a new account in a different country or region and then contact Azure support to transfer your subscription to the new account.

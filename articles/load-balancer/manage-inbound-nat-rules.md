@@ -3,9 +3,9 @@ title: Manage inbound NAT rules for Azure Load Balancer
 description: In this article, you learn how to add and remove and inbound NAT rule using the Azure portal, PowerShell and CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 06/26/2024
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-azurecli,engagement-fy23
 ---
 
@@ -21,7 +21,7 @@ There are two types of inbound NAT rule:
 
 In this article, you learn how to add and remove an inbound NAT rule for both types. You learn how to change the frontend port allocation in a multiple instance inbound NAT rule. You can choose from the Azure portal, PowerShell, or CLI examples.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

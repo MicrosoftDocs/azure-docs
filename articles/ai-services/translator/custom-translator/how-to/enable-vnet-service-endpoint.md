@@ -6,7 +6,7 @@ description: This article describes how to use Custom Translator service with an
 author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
-ms.date: 08/08/2023
+ms.date: 07/10/2024
 ms.author: moelghaz
 ms.topic: how-to
 ---
@@ -121,31 +121,31 @@ Use a billing region code, listed in the following table, with the 'Create a wor
 
 |Billing Region Name|Billing Region Code|
 |:----|:----|
-|East Asia|AE|
-|Southeast Asia|ASE|
-|Australia East|AUE|
-|Brazil South|BRS|
-|Canada Central|CAC|
-|France Central|FC|
-|Global|GBL|
-|Central India|INC|
-|Japan East|JPE|
-|Japan West|JPW|
-|Korea Central|KC|
-|North Europe|NEU|
-|South Africa North|SAN|
-|Sweden Central|SWC|
-|UAE North|UAEN|
-|UK South|UKS|
-|Central US|USC|
-|East US|USE|
-|East US 2|USE2|
-|North Central US|USNC|
-|South Central US|USSC|
-|West US|USW|
-|West US 2|USW2|
-|West Central US|USWC|
-|West Europe|WEU|
+|East Asia|`AE`|
+|Southeast Asia|`ASE`|
+|Australia East|`AUE`|
+|Brazil South|`BRS`|
+|Canada Central|`CAC`|
+|France Central|`FC`|
+|Global|`GBL`|
+|Central India|`INC`|
+|Japan East|`JPE`|
+|Japan West|`JPW`|
+|Korea Central|`KC`|
+|North Europe|`NEU`|
+|South Africa North|`SAN`|
+|Sweden Central|`SWC`|
+|UAE North|`UAEN`|
+|UK South|`UKS`|
+|Central US|`USC`|
+|East US|`USE`|
+|East US 2|`USE2`|
+|North Central US|`USNC`|
+|South Central US|`USSC`|
+|West US|`USW`|
+|West US 2|`USW2`|
+|West Central US|`USWC`|
+|West Europe|`WEU`|
 
 Congratulations! You learned how to use Azure VNet service endpoints with Custom Translator.
 

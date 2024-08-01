@@ -4,7 +4,7 @@ description: Provides an overview of the implementation of managed identities in
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 05/24/2023
+ms.date: 06/15/2024
 ---
 
 # Managed identities in Azure HDInsight

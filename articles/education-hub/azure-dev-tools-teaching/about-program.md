@@ -23,7 +23,7 @@ As an administrator of the Azure Dev Tools for Teaching subscription, you can:
 
 We designed Azure Dev Tools for Teaching to help professors teach and help students learn more effectively.
 
-Your Azure Dev Tools for Teaching subscription gives you access to certain software developer tools. These tools are available to download for free. If you're a faculty member who is enrolled in an approved course, you're eligible to install Azure Dev Tools for Teaching software on your computer for noncommercial use.
+Your Azure Dev Tools for Teaching subscription gives you access to certain software developer tools. These tools are available to download for free. If you're a faculty member presenting an approved course, you're eligible to install Azure Dev Tools for Teaching software on your computer for noncommercial use.
 
 Students don't need to sign up for an Azure subscription to get their software benefits. Microsoft offers USD$100 in Azure credit for students, along with access to free Azure services. Students can sign up for the [Azure for Students offer](azure-students-program.md) without needing a credit card.
 

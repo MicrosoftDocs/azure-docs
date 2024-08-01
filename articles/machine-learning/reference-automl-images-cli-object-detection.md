@@ -8,10 +8,10 @@ ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 
-ms.author: rasavage
-author: rsavage2
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/11/2022
-ms.reviewer: ssalgado
+ms.reviewer: rasavage
 ---
 
 # CLI (v2) Automated ML image object detection job YAML schema
@@ -44,11 +44,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: AutoML image object detection job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/automl-standalone-jobs/cli-automl-image-object-detection-task-fridge-items/cli-automl-image-object-detection-task-fridge-items.yml":::
 
 ## YAML: AutoML image object detection pipeline job
 
-:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/automl/image-object-detection-task-fridge-items-pipeline/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-temp-fix/cli/jobs/pipelines/automl/image-object-detection-task-fridge-items-pipeline/pipeline.yml":::
 
 ## Next steps
 

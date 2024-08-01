@@ -3,18 +3,16 @@ title: "Configuring network groups with Azure Policy in Azure Virtual Network Ma
 description: Learn how to configure network groups with Azure Policy in Azure Virtual Network Manager to create scalable and dynamic virtual network environments. Optimize your network group membership control with policy definitions and assignments.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
-ms.topic: conceptual
-ms.date: 03/05/2024
+ms.service: azure-virtual-network-manager
+ms.topic: concept-article
+ms.date: 06/10/2024
 ms.custom: template-concept, engagement-fy23, seo-fy24
 #customer intent: As a network administrator, I want to learn how to use Azure Policy to define dynamic network group membership in Azure Virtual Network Manager so that I can create scalable and dynamically adapting virtual network environments in my organization.
 ---
 
 # Configuring network groups with Azure Policy in Azure Virtual Network Manager
 
-In this article, you learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization. 
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
+In this article, you learn how [Azure Policy](../governance/policy/overview.md) is used in Azure Virtual Network Manager to define dynamic network group membership. Dynamic network groups allow you to create scalable and dynamically adapting virtual network environments in your organization.
 
 ## Azure Policy overview
 

@@ -18,7 +18,7 @@ For more information, see [Choosing an Azure Kubernetes Fleet Manager option][co
 
 ## Prerequisites and limitations
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to the latest version.
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - You must have an existing Kubernetes Fleet resource without a hub cluster. The steps in this article show you how to create a Kubernetes Fleet resource without a hub cluster. If you already have one, you can skip the initial setup and begin at [Upgrade hub cluster type for the Kubernetes Fleet resource](#upgrade-hub-cluster-type-for-the-kubernetes-fleet-resource).

@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/30/2023
+ms.date: 05/30/2024
 ms.custom:
   - mode-ui
   - ignite-2023
@@ -15,18 +15,20 @@ ms.custom:
 
 # Quickstart: Create a search index in the Azure portal
 
-In this Azure AI Search quickstart, create your first _search index_ by using the [**Import data** wizard](search-import-data-portal.md) and a built-in sample data source consisting of fictitious hotel data hosted by Microsoft. The wizard guides you through the creation of a no-code search index to help you write interesting queries within minutes. 
+In this Azure AI Search quickstart, create your first _search index_ by using the [**Import data** wizard](search-import-data-portal.md) and a built-in sample data source consisting of fictitious hotel data hosted by Microsoft. The wizard guides you through the no-code creation of a search index to help you write interesting queries within minutes. 
 
 The wizard creates multiple objects on your search service - [searchable index](search-what-is-an-index.md) - but also an [indexer](search-indexer-overview.md) and data source connection for automated data retrieval. At the end of this quickstart, we review each object. 
 
 > [!NOTE]
-> The **Import data** wizard includes options for OCR, text translation, and other AI enrichments that aren't covered in this quickstart. For a similar walkthrough that focuses on AI enrichment, see [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md).
+> The **Import data** wizard includes options for OCR, text translation, and other AI enrichments that aren't covered in this quickstart. For a similar walkthrough that focuses on applied AI, see [Quickstart: Create a skillset in the Azure portal](cognitive-search-quickstart-blob.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
 - An Azure AI Search service for any tier and any region. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
+
+For this quickstart, which uses built-in sample data, make sure the search service doesn't have [network access controls](service-configure-firewall.md) in place. The portal controller uses the public endpoint to retrieve data and metadata from the built-in sample data source hosted by Microsoft. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
 ### Check for space
 
@@ -50,7 +52,7 @@ In this section, create and load an index in four steps.
 
 ### Connect to a data source
 
-The wizard creates a data source connection to sample data hosted by Microsoft on Azure Cosmos DB. This sample data is retrieved accessed over an internal connection. You don't need your own Azure Cosmos DB account or source files to run this quickstart.
+The wizard creates a data source connection to sample data hosted by Microsoft on Azure Cosmos DB. This sample data is retrieved accessed over a public endpoint. You don't need your own Azure Cosmos DB account or source files to run this quickstart.
 
 1. On **Connect to your data**, expand the **Data Source** dropdown list and select **Samples**.
 
@@ -80,10 +82,6 @@ The wizard infers a schema for the built-in hotels-sample index. Follow these st
 1. Accept the system-generated values for the **Index name** (_hotels-sample-index_) and **Key** field (_HotelId_).
 
 1. Accept the system-generated values for all field attributes.
-
-   > [!IMPORTANT]
-   > If you rerun the wizard and use an existing hotels-sample data source, the index isn't configured with default attributes.
-   > You have to manually select attributes on future imports. 
 
 1. Select **Next: Create an indexer** to continue.
 
@@ -153,7 +151,7 @@ To clearly understand what you can and can't edit during index design, take a mi
 
 ## Query with Search explorer
 
-You now have a search index that can be queried with [**Search explorer**](search-explorer.md). **Search explorer** sends REST calls that conform to the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true). The tool supports [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+You now have a search index that can be queried with [**Search explorer**](search-explorer.md). **Search explorer** sends REST calls that conform to the [Search POST REST API](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2024-05-01-preview&preserve-view=true). The tool supports [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query syntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 1. On the **Search explorer** tab, enter text to search on.
 
@@ -169,7 +167,10 @@ You now have a search index that can be queried with [**Search explorer**](searc
 
 ## Example queries for hotels sample index
 
-The following examples assume the JSON view and the 2023-11-01 REST API version.
+The following examples assume the JSON view and the 2024-05-01-preview REST API version.
+
+> [!TIP]
+> JSON view now supports intellisense for parameter name completion. Place the cursor inside the JSON view and type a space character to show a list of all query parameters, or type a single letter like "s" to show just the query parameters starting with "s". Intellisense doesn't exclude invalid parameters so use your best judgement.
 
 ### Filter examples
 

@@ -3,7 +3,7 @@ title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 04/09/2024
+ms.date: 06/14/2024
 ---
 
 # Use deployment scripts in ARM templates
@@ -298,6 +298,7 @@ A storage account and a container instance are needed for script execution and t
 
 - Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
+- The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 

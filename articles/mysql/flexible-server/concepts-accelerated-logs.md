@@ -4,7 +4,7 @@ description: This article describes the accelerated logs feature in Azure Databa
 author: code-sidd
 ms.author: sisawant
 ms.reviewer: maghan
-ms.date: 05/21/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: concept-article
@@ -12,7 +12,7 @@ ms.custom:
   - references_regions
   - ignite-2023
   - build-2024
-#customer intent: As a reader, I want to understand the concept of accelerated logs in Azure Database for MySQL - Flexible Server.
+# customer intent: As a reader, I want to understand the concept of accelerated logs in Azure Database for MySQL - Flexible Server.
 ---
 
 # Accelerated logs feature in Azure Database for MySQL - Flexible Server
@@ -41,7 +41,7 @@ Database servers with mission-critical workloads demand robust performance, requ
 
 ## Limitations
 
-- The accelerated logs feature can't be enabled on servers that have [Customer Managed Keys](./concepts-customer-managed-key.md)  (CMK) enabled.
+- The accelerated logs feature can't be enabled on servers that have [Customer Managed Keys (CMK)](./concepts-customer-managed-key.md) enabled.
 
 - The Accelerated logs feature is currently available only in specific regions. [Learn more about supported regions](#regions).
 

@@ -5,7 +5,7 @@ services: automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 07/15/2024
 ms.custom: mvc
 ---
 # Remove VMs from Update Management

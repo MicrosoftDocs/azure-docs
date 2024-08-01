@@ -61,19 +61,19 @@ The hub virtual network contains the firewall subnet that is associated with the
 
 1. Select **Next** to proceed to the **Security** tab.
 
-1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
+1. Select **Enable Azure Bastion** in the **Azure Bastion** section of the **Security** tab.
 
     Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+    >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
     | Setting | Value |
     |---|---|
     | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
 
 1. Select **Enable Azure Firewall** in the **Azure Firewall** section of the **Security** tab.
 
@@ -87,6 +87,8 @@ The hub virtual network contains the firewall subnet that is associated with the
     | Tier | Select **Standard**. |
     | Policy | Select **Create new**. </br> Enter **firewall-policy** in Name. </br> Select **OK**. |
     | Azure Firewall public IP address | Select **Create a public IP address**. </br> Enter **public-ip-firewall** in Name. </br> Select **OK**. |
+
+1. Select **Next** to proceed to the **IP addresses** tab.
 
 16. Select **Review + create**.
 
@@ -158,7 +160,9 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
 1. Select **Next** to proceed to the **IP addresses** tab.
 
-1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. In the **IP Addresses** tab in **IPv4 address space**, select **Delete address space** to delete the address space that is auto populated.
+
+1. Select **+ Add IPv4 address space**.
 
 1. In **IPv4 address space** enter **10.1.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
@@ -168,11 +172,12 @@ The spoke virtual network contains the test virtual machine used to test the rou
 
     | Setting | Value |
     | ------- | ----- |
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-private**. |
-    | Starting address | Enter **10.1.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
+    | **IPv4** |   |
+    | IPv4 address range| Leave the default of **10.1.0.0/16**. |
+    | Starting address | Leave the default of **10.1.0.0**. |
+    | Size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Add**.
 
@@ -195,23 +200,25 @@ A virtual network peering is used to connect the hub to the spoke and the spoke 
 1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **This virtual network** |   |
-    | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
-    | Allow 'vnet-hub' to access 'vnet-spoke' | Leave the default of **Selected**. |
-    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke' | Leave the default of **Unselected**. |
-    | Enable 'vnet-hub' to use 'vnet-spoke's' remote gateway | Leave the default of **Unselected**. |
-    | **Remote virtual network** |   |
+    | ------- | ----- 
+    | **Remote virtual network summary** |   |
     | Peering link name | Enter **vnet-spoke-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **vnet-spoke**. |
+    | Virtual network | Select **vnet-spoke (test-rg)**. |
+    | **Remote virtual network peering settings** |   |
     | Allow 'vnet-spoke' to access 'vnet-hub' | Leave the default of **Selected**. |
-    | Allow 'vnet-spoke' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-spoke' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
-    | Enable 'vnet-spoke' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
-    
+    | Allow 'vnet-spoke' to receive forwarded traffic from 'vnet-hub' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-spoke' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke' to use 'vnet-hub's' remote gateway or route server | Leave the default of **Unselected**. |
+    | **Local virtual network summary** |   |
+    | Peering link name | Enter **vnet-hub-to-vnet-spoke**. |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-hub' to forward traffic to 'vnet-spoke' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke's' remote gateway or route server | Leave the default of **Unselected**. |
+
 1. Select **Add**.
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
@@ -297,7 +304,7 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 2. Select **firewall-policy**.
 
-3. In **Settings** select **Network rules**.
+3. Expand **Settings** then select **Network rules**.
 
 4. Select **+ Add a rule collection**.
 
@@ -343,7 +350,7 @@ The following procedure creates a test virtual machine (VM) named **vm-spoke** i
     | Region | Select **(US) South Central US**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Leave the default of **Standard**. |
-    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |  |
@@ -354,7 +361,7 @@ The following procedure creates a test virtual machine (VM) named **vm-spoke** i
     | **Inbound port rules** |  |
     | Public inbound ports | Select **None**. |
 
-1. Select the **Networking** tab at the top of the page.
+1. Select the **Networking** tab at the top of the page or select **Next:Disks**, then **Next:Networking**.
 
 1. Enter or select the following information in the **Networking** tab:
 
@@ -370,6 +377,8 @@ The following procedure creates a test virtual machine (VM) named **vm-spoke** i
 1. Leave the rest of the settings at the defaults and select **Review + create**.
 
 1. Review the settings and select **Create**.
+
+Wait for the virtual machine to finishing deploying before proceeding to the next steps.
 
 >[!NOTE]
 >Virtual machines in a virtual network with a bastion host don't need public IP addresses. Bastion provides the public IP, and the VMs use private IPs to communicate within the network. You can remove the public IPs from any VMs in bastion hosted virtual networks. For more information, see [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
@@ -394,7 +403,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Select **vm-spoke**.
 
-1. In **Operations**, select **Bastion**.
+1. In **Overview**, select **Connect** then **Connect via Bastion**.
 
 1. Enter the username and password entered during VM creation. Select **Connect**.
 
@@ -413,7 +422,7 @@ Obtain the NAT gateway public IP address for verification of the steps later in 
 
 1. Close the Bastion connection to **vm-spoke**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

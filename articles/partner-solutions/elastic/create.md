@@ -69,6 +69,15 @@ After you've selected the offer for Elastic, you're ready to set up the applicat
    - Resources with _Exclude_ tags don't send logs to Elastic.
    - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
 
+   Select **Next: Azure OpenAI configuration** to create and configure Azure OpenAI connector that can be used within Elastic's AI Assistant.
+
+1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+
+    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
+
+   >[!Note]
+   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+
    Select **Next: Tags** to set up tags for the new Elastic resource.
 
 1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.

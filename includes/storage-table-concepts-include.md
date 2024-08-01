@@ -23,9 +23,6 @@ Table storage contains the following components:
 
 * **URL format:** Azure Table Storage accounts use this format: `http://<storage account>.table.core.windows.net/<table>`
 
-  Azure Cosmos DB for Table accounts use this format:
-  `http://<storage account>.table.cosmosdb.azure.com/<table>` 
-
   You can address Azure tables directly using this address with the OData protocol. For more information, see [OData.org][OData.org].
 
 * **Accounts:** All access to Azure Storage is done through a storage account. For more information about storage accounts, see [Storage account overview](../articles/storage/common/storage-account-overview.md).

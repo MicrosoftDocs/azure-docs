@@ -1,7 +1,7 @@
 ---
 title: Creating and configuring a key vault for Azure Disk Encryption
 description: This article provides steps for creating and configuring a key vault for use with Azure Disk Encryption on a Linux VM.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.subservice: security
 ms.topic: conceptual
@@ -55,7 +55,7 @@ az login
 Connect-AzAccount
 ```
 
-[!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
  
 ## Next steps

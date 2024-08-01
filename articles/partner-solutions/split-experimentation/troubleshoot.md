@@ -15,18 +15,7 @@ This document contains information about troubleshooting your Split Experimentat
 
 ## Getting support
 
-To contact support about a Split Experimentation Workspace, follow these steps:
-
-1. Open your Split Experimentation Workspace in the Azure portal.
-
-1. Select **Help** > **Support + Troubleshooting** from the left menu.
-
-1. Under **How can we help you?**, briefly describe the issue and select **Go**.
-
-    :::image type="content" source="media/troubleshoot/support-request.png" alt-text="Screenshot of the Azure platform showing the new support Support + Troubleshooting page.":::
-
-1. Share more information about the issue by answering the questions on screen.
-1. Check the help resources shared on screen. If you need more help, select **Contact support** and select one of the provided options.
+To log a support request about a Split Experimentation Workspace, send an email to <exp_preview@microsoft.com>.
 
 ## Known issues
 
@@ -77,7 +66,7 @@ If the data is more than 10 minutes old, requesting results will cause a recalcu
       :::image type="content" source="media/troubleshoot/sample-size-received.png" alt-text="Screenshot of the Azure platform showing the sample size received in the developer tools.":::
 
     - If `SampleSizeReceived` is more than 0, your Split Experimentation Workspace is receiving events but the mapping of the resources on Azure to create your experiment may not have been correctly set up.
-    - If `SampleSizeReceived` equals to 0, your Split Experimentation Workspace isn't seeing any of the data. This can be due to missing data in your storage account, implying an incorrect export rule, or incorrect permissions set up between your Split Experimentation Workspace and your storage account. Navigate to your Split Experimentation Workspace resource to review details of the linked Storage Account under "Data Source".
+    - If `SampleSizeReceived` equals to 0, your Split Experimentation Workspace isn't seeing any of the data. This can be due to missing data in your storage account, implying an incorrect export rule, or incorrect permissions set up between your Split Experimentation Workspace and your storage account. Navigate to your Split Experimentation Workspace resource to review details of the linked Storage Account under "Data Source". Verify that the Entra application that is associated with the Split Experimentation Workspace has **Storage Blob Data Reader** access on the Storage account.
 
 ### Data plane authorization errors
 
