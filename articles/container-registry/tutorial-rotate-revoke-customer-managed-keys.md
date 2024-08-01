@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/31/2023
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Rotate and revoke a customer-managed key 
