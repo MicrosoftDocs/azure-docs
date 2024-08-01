@@ -4,7 +4,7 @@ description: Understand the security policy implemented to provide self-protecti
 ms.topic: conceptual
 ms.author: magoedte
 author: mgoedtel
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 11/13/2023
 ---
