@@ -16,7 +16,7 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 # How to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio
 
 In this article, you learn about Mistral-7B and Mixtral-8x7B chat models and how to use them with Azure AI studio.
-Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-oss.md); available to also download and run on self-hosted managed endpoints.
+Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-open.md); available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
@@ -709,6 +709,12 @@ Import the following namespaces:
 using Azure;
 using Azure.Identity;
 using Azure.AI.Inference;
+```
+
+This example also use the following namespaces but you may not always need them:
+
+
+```csharp
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Reflection;

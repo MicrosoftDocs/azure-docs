@@ -987,6 +987,12 @@ Import the following namespaces:
 using Azure;
 using Azure.Identity;
 using Azure.AI.Inference;
+```
+
+This example also use the following namespaces but you may not always need them:
+
+
+```csharp
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Reflection;
