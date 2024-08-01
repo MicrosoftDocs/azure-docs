@@ -36,6 +36,8 @@ The capabilities below are rolling out for the Provisioned Managed offering.
 
 ### New hourly/reservation commercial model
 
+[!INCLUDE [hourly-ptu-description](includes/hourly-ptu-description.md)]
+
 |Feature | Benefit|
 |---|---|
 |Hourly, uncommitted usage | Hourly payment option without a required commitment enables short-term deployment scenarios |

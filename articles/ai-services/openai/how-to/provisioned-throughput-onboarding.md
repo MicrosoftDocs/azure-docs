@@ -21,8 +21,12 @@ This article walks you through the process of onboarding to [Provisioned Through
 
 You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there's an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing.  
 
-> [!NOTE]
-> On July 29th 2024, Microsoft switched to an hourly/reservation PTU offering that offers usability improvements. For more details, see the [PTU migration article](../provisioned-migration.md#whats-changing).
+### Hourly/reservation commercial model
+
+On July 29th 2024, Microsoft switched to an hourly/reservation PTU offering that offers usability improvements. For more details, see the [PTU migration article](../provisioned-migration.md#whats-changing).
+
+[!INCLUDE [hourly-ptu-description](../includes/hourly-ptu-description.md)]
+
 
 ### Typical PTU scenarios
 
