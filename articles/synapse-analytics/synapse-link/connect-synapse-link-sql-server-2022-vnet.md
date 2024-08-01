@@ -2,7 +2,7 @@
 title: Configure Azure Synapse Link for SQL Server 2022 with network security
 description: Learn how to configure Azure Synapse Link for SQL Server 2022 with network security.
 author: yexu
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 03/15/2023

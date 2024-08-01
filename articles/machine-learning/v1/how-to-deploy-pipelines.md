@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
-# Publish and track machine learning pipelines
+# Publish machine learning pipelines
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
