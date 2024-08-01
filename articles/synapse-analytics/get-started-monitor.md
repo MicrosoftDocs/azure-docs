@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to monitor activities in your Sy
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 08/25/2021
