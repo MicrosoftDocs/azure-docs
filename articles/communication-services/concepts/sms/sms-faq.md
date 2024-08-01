@@ -191,7 +191,7 @@ To submit a toll-free verification application, navigate to Azure Communication 
 
 ### What is considered a high quality toll-free verification application?
 
-The higher the quality of the application the higher chances your application enters [verified state](#what-do-the-different-application-statuses-verified-and-unverified-mean) faster.  
+The better the quality of your application, the greater the likelihood of it being approved.  
 
 Pointers to ensure you're submitting a high quality application:
 - Phone numbers listed are Toll-free numbers
