@@ -3,7 +3,7 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.author: mbender

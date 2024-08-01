@@ -6,7 +6,7 @@ ms.author: harmeetgill
 manager: charlesf
 ms.reviewer: charlesf
 ms.date: 06/14/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: conceptual
 ---

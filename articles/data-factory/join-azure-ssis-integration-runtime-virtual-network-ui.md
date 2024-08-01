@@ -1,7 +1,7 @@
 ---
 title: Join Azure-SSIS integration runtime to a virtual network via Azure portal
 description: Learn how to join Azure-SSIS integration runtime to a virtual network via Azure portal. 
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: integration-services
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
