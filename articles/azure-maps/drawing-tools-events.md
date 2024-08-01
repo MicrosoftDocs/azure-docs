@@ -4,7 +4,7 @@ description: This article demonstrates how to add a drawing toolbar to a map usi
 author: sinnypan
 ms.author: sipa
 ms.date: 05/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---

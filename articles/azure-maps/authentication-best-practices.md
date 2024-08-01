@@ -5,7 +5,7 @@ description: Learn tips & tricks to optimize the use of Authentication in your A
 author: eriklindeman
 ms.author: eriklind
 ms.date: 05/11/2022
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-maps
 services: azure-maps
 ---
