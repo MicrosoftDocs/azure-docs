@@ -141,7 +141,7 @@ To use a custom image stored in a public registry, you need to enable anonymous 
 > [!Caution]
 > Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. 
 
-To use a custom image stored in the ACR, you need to ensure that ADE can access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. With this configuration, you don't have to enable anonymous image pull access. 
+To use a custom image stored in the ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. With this configuration, you don't have to enable anonymous pull access. 
 
 #### Use a public registry with anonymous pull
 
@@ -161,7 +161,7 @@ docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 #### Use ACR with secured access
 
-By default, access to pull or push content from an Azure container registry is only available to authenticated users. You can further secure access to ACR by limiting access from public networks and assigning specific roles.
+By default, access to pull or push content from an Azure container registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
 
 ##### Limit network access
 
@@ -182,7 +182,7 @@ To disable access from public networks:
 
 ##### Assign the AcrPull role
 
-Creating environments by using container images uses the ADE infrastructure. Each project has one or more project environment types, which need read access to the container image that defines the environment to be deployed. To access the images within your ACR securely, assign the AcrPull role to each project environment type. 
+Creating environments by using container images uses the ADE infrastructure, including projects and environment types. Each project has one or more project environment types, which need read access to the container image that defines the environment to be deployed. To access the images within your ACR securely, assign the AcrPull role to each project environment type. 
 
 To assign the AcrPull role to the Project Environment Type:
 
