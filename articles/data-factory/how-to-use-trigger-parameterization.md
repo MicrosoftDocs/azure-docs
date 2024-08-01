@@ -1,7 +1,7 @@
 ---
 title: Pass trigger information to pipeline
 description: Learn how to reference trigger metadata in pipelines.
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
