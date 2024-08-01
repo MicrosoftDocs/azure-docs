@@ -4,11 +4,11 @@ description: A guidance overview on migration from Automation Update Management 
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 08/01/2024
 ms.author: sudhirsneha
 ---
 
-# Overview on migration from Automation Update Management to Azure Update Manager
+# Overview of migration from Automation Update Management to Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers
 
