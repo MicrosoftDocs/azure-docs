@@ -48,7 +48,7 @@ Before you begin:
 1. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint.
 1. Select **Save**.
 
-![direct_onboarding_subscription](media/onboard-machines-with-defender-for-endpoint/direct-onboarding-subscription.png)
+:::image type="content" source="media/onboard-machines-with-defender-for-endpoint/direct-onboarding-subscription.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
 
 
 
