@@ -24,6 +24,7 @@ Error code details include:
 - Successful responses (**200-299**)
 - Client error (**400-499**)
 - Server error (**500-599**)
+- Global error (**600-699**)
 
 **Subcode** - Are defined as an integer, where each number indicates a unique reason, specific to a group of scenarios or specific scenario outcome.
 
@@ -39,8 +40,8 @@ For client errors, if the resultCategories property is `ExpectedError`, the erro
 |--- |--- |--- |--- |--- |
 | 40101 | 408 | Failed to create CallAgent. Try again, if issue persists, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError | |
 | 40104 | 408 | Failed to create CallAgent. Try again, if issue persists, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError | |
-| 40114 | 408 | Failed to connect to Azure Communication Services infrastructure. Try again and check the browser's network requests. If the requests keep failing, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError | For more information, see [network requirements](../../voice-video-calling/network-requirements.md) for more details. |
-| 40115 | 412 | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure. Try again and check the browser's network requests. If the requests keep failing, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError |For more information, see [network requirements](../../voice-video-calling/network-requirements.md) for more details. |
+| 40114 | 408 | Failed to connect to Azure Communication Services infrastructure. Try again and check the browser's network requests. If the requests keep failing, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError | For more information, see [network requirements](../../voice-video-calling/network-requirements.md). |
+| 40115 | 412 | Failed to create CallAgent, unable to initialize connection to Azure Communication Services infrastructure. Try again and check the browser's network requests. If the requests keep failing, gather browser console logs, `.HAR` file, and contact Azure Communication Services support. | UnexpectedClientError |For more information, see [network requirements](../../voice-video-calling/network-requirements.md). |
 | 40216 | 500 | Failed to create CallAgent. Try again, if issue persists, gather browser console logs and contact Azure Communication Services support. | UnexpectedClientError | |
 | 40228 | 409 | Failed to create CallAgent, an instance of CallAgent associated with this identity already exists. Dispose the existing CallAgent, or create a new one with a different identity. | ExpectedError | |
 | 40230 | 409 | Failed to create TeamsCallAgent, an instance of TeamsCallAgent associated with this identity already exists. Dispose the existing TeamsCallAgent before creating a new one. | ExpectedError | |
@@ -59,7 +60,7 @@ For client errors, if the resultCategories property is `ExpectedError`, the erro
 | 41034 | 500 | Failed to resume the call. Try again, if the issue persists, gather browser console logs and contact Azure Communication Services support. | UnexpectedClientError ||
 | 41035 | 400 | Failed to start screen share, screen share is already started. | ExpectedError | Learn more about [how to start and stop screen sharing while on a call](../../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#start-and-stop-screen-sharing-while-on-a-call) |
 | 41041 | 400 | Failed to stop screen share, screen share is already stopped. | ExpectedError | Learn more about [how to start and stop screen sharing while on a call](../../../how-tos/calling-sdk/manage-video.md?pivots=platform-web#start-and-stop-screen-sharing-while-on-a-call) |
-| 41048 | 410 | Failed to start video during call setup process. Ensure to allow video permissions in the browser's settings and in the OS settings, and ensure the camera device isn't being used by another process. | UnexpectedClientError | - The camera device may be disabled in the system. <br /> - Camera is being used by another process.|
+| 41048 | 410 | Failed to start video during call setup process. Ensure to allow video permissions in the browser's settings and in the OS settings, and ensure the camera device isn't being used by another process. | UnexpectedClientError | - The camera device might be disabled in the system. <br /> - Camera is being used by another process.|
 | 41056 | 412 | Failed to start or join to the call, Teams Enterprise voice policy isn't enabled for this Azure Communication Services resource. Follow the tutorial online to enable it. | ExpectedError | See on [how to enable users for Enterprise Voice online and Phone System Voicemail](/skypeforbusiness/skype-for-business-hybrid-solutions/plan-your-phone-system-cloud-pbx-solution/enable-users-for-enterprise-voice-online-and-phone-system-voicemail) to enable Teams Enterprise voice policy|
 | 41071 | 412 | Failed to start screen share, call isn't in Connected state. Subscribe to the Call's `statteChanged` event to know when the call is connected. | ExpectedError |Helpful links: <br /> - [Check call properties](../../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web#check-call-properties) <br /> - [Subscribe to SDK events](../../../how-tos/calling-sdk/events.md?pivots=platform-web)</li></ul>|
 | 41073 | 412 | Failed to get or set custom MediaStream, this functionality is currently disabled by Azure Communication Services. | ExpectedError ||
@@ -82,16 +83,12 @@ For client errors, if the resultCategories property is `ExpectedError`, the erro
 | 43209 | 405 | Failed to render video stream, VideoStreamRenderer was disposed during initialization process. | ExpectedError ||
 | 43210 | 400 | Failed to dispose VideoStreamRenderer because it's already disposed. | ExpectedError ||
 | 43220 | 400 | Failed to create view, maximum number of active `RemoteVideoStream` views already reached. You can dispose of a previous one in order to create new one. | ExpectedError | Learn more about [how to properly support the best number of incoming video streams](../../troubleshooting-info.md?tabs=csharp%2Cjavascript%2Cdotnet#enable-and-access-call-logs) |
-
-## !Error codes not mentioned above!
-
-The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. 
-
-| SubCode | Code | Message | Result Categories | Advice |
-|--- |--- |--- |--- |--- |
 | | 480 | Remote client endpoint not registered. | | Ensure that the remote endpoint is available. |
 | | 481 | Failed to handle incoming call. | | File a support request through the Azure portal. |
 | | 487 | Call canceled, locally declined, ended due to an endpoint mismatch issue, or failed to generate media offer. | | Expected behavior. |
 | | 490, 491, 496, 497, 498 | Local endpoint network issues. | | Check your network. |
 | | 503, 504 | Communication Services infrastructure error. | | File a support request through the Azure portal. |
+| | 600 | Busy everywhere. Participant contacted successfully but returned busy signal. |  | Expected behavior. |
 | | 603 | Call globally declined by remote Communication Services participant. | | Expected behavior. |
+| | 604 | Doesn't exist anywhere. Requested URI doesn't exist. |  | Expected behavior. |
+| | 606 | Not acceptable. Participant successfully contacted but can't support the session described. |  | Expected behavior. |

@@ -24,6 +24,7 @@ Error code details include:
 - Successful responses (**200-299**)
 - Client error (**400-499**)
 - Server error (**500-599**)
+- Global error (**600-699**)
 
 **Subcode** - Are defined as an integer, where each number indicates a unique reason, specific to a group of scenarios or specific scenario outcome.
 
@@ -54,13 +55,6 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 540487 | 487 | Call ended successfully as caller canceled the call. | Success | |
 | 560000 | 0 | Call ended successfully by remote PSTN participant. | Success |Possible causes: <br /> - User ended the call. <br /> - Call ended by media agent. |
 | 560486 | 486 | Call ended because remote PSTN participant was busy. The number called was already in a call or having technical issues. |
-
-
-## !Error codes not mentioned above!
-
-
-| SubCode | Code | Message | Result Categories | Advice |
-|--- |--- |--- |--- |--- |
 | | 404 | Call not found. | | Ensure that the number you're calling (or call you're joining) exists. |
 | | 408 | Call controller timed out. | | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
 | | 410 | Local media stack or media infrastructure error. | | Ensure that you're using the latest SDK in a supported environment. |
