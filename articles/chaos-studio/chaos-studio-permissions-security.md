@@ -4,7 +4,7 @@ description: Understand how permissions work in Azure Chaos Studio and how you c
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: conceptual
 ms.date: 05/06/2024
 ms.custom: template-concept, devx-track-arm-template

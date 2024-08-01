@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 10/26/2022
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-azurecli
 ---
 
