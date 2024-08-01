@@ -5,7 +5,7 @@ author: gillharmeet
 ms.author: harmeetgill
 ms.reviewer: whhender
 ms.date: 06/16/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: troubleshooting
 ---

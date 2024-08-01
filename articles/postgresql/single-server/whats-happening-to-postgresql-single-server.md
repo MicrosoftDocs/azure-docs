@@ -5,7 +5,7 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: sunila
 ms.date: 03/30/2023
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: overview
 ms.custom: single server deprecation announcement
