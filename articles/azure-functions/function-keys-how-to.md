@@ -78,7 +78,7 @@ When using Key Vault for key storage, the app settings you need depend on the ma
 
 HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization level of a given function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header (`x-functions-key`). For more information, see [Access key authorization](functions-bindings-http-webhook-trigger.md#api-key-authorization). 
 
-To access the runtime REST APIs (under `/admin/`), you must provide the master key (`_master`) in the `x-functions-key` request header. 
+To access the runtime REST APIs (under `/admin/`), you must provide the master key (`_master`) in the `x-functions-key` request header. You can [remove the admin endpoints](./security-concepts.md#disable-administrative-endpoints) using the `functionsRuntimeAdminIsolationEnabled` site property.
 
 ## Get your function access keys
 

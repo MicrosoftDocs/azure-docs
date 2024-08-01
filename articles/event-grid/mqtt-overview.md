@@ -9,6 +9,7 @@ ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
+ms.service: azure-event-grid
 ---
 
 # Overview of the MQTT broker feature in Azure Event Grid
@@ -47,7 +48,6 @@ MQTT is a publish-subscribe messaging transport protocol that was designed for c
 	- **Clean start and session expiry** enable your clients to optimize the reliability and security of the session by preserving the client's subscription information and messages for a configurable time interval.
 	- **Negative acknowledgments** allow your clients to efficiently react to different error codes.
    	- **Server-sent disconnect packets** allow your clients to efficiently handle disconnects.
-	- **Last Will and Testament (LWT)** notifies your MQTT clients with the abrupt disconnections of other MQTT clients.
 - MQTT broker is adding more MQTT v5 features in the future to align more with the MQTT specifications. The following items detail the current differences between features supported by MQTT broker and the MQTT v5 specifications: Will message, Retain flag, Message ordering, and QoS 2 aren't supported.
 
 - MQTT v3.1.1 features:

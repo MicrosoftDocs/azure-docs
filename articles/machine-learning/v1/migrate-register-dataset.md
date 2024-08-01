@@ -2,7 +2,7 @@
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild dataset'
 description: Rebuild Studio (classic) datasets in Azure Machine Learning designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: studio-classic
 ms.custom: UpdateFrequency5
 ms.topic: how-to

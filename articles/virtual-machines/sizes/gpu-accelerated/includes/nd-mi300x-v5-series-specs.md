@@ -4,7 +4,7 @@ description: Include file containing specifications of ND MI300X v5-series virtu
 services: virtual-machines
 author: marccharest
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 05/21/2024
 ms.author: marccharest
