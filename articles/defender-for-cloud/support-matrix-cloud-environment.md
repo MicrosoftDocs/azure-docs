@@ -38,7 +38,7 @@ In the support table, **NA** indicates that the feature isn't available.
 | [Attack path](concept-attack-path.md) | GA | NA | NA |
 |**DEFENDER FOR CLOUD PLANS** | | ||
 |[Defender CSPM](concept-cloud-security-posture-management.md)| GA | NA | NA|
-|[Defender for APIs](defender-for-apis-introduction.md).  | GA | NA | NA|
+|[Defender for APIs](defender-for-apis-introduction.md) | GA | NA | NA|
 |[Defender for App Service](defender-for-app-service-introduction.md) | GA | NA | NA|
 |[Defender for Azure Cosmos DB](concept-defender-for-cosmos.md) | GA | NA | NA|
 |[Defender for Azure SQL database servers](defender-for-sql-introduction.md) | GA | GA | GA<br/><br/>A subset of alerts/vulnerability assessments is available.<br/>Behavioral threat protection isn't available.|

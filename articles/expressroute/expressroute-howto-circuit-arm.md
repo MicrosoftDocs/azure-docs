@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 12/28/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

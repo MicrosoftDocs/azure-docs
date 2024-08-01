@@ -2,7 +2,7 @@
 title: How to prepare an application for deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/28/2024
 ms.author: karler

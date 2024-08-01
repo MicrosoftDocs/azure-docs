@@ -221,6 +221,8 @@ The following table lists the **operationName** values and corresponding REST AP
   
 ### ApplicationAuditLogs
 The write and delete logs present in other categories are also present in this category. The difference between the logs in this category and other categories for the same API call is that, ApplicationAuditLogs doesn't log the request-body, while in other categories the request-body is populated. Use the correlation-id to relate logs of two different categories to get more details. Some of the control plane operations that aren't part of the rest of the categories are listed below.
+> [!NOTE] 
+>For making control plane calls, you need owner access on ADMA resource scope.
 
 |operationName|
 | --- |

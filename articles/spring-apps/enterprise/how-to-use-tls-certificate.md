@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Use TLS/SSL certificates in an application.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.custom: devx-track-java

@@ -1,6 +1,16 @@
 {
     "redirections": [
     {
+      "source_path": "articles/network-watcher/connection-monitor-create-using-template.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/connection-monitor-create-using-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/network-watcher/network-watcher-connectivity-rest.md",
+      "redirect_url": "/previous-versions/azure/network-watcher/network-watcher-connectivity-rest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-gateway/resource-manager-template-samples.md",
       "redirect_url": "/previous-versions/azure/application-gateway/resource-manager-template-samples",
       "redirect_document_id": false
@@ -2589,86 +2599,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
-            "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/dms/known-issues-azure-mysql-online.md",
-            "redirect_url": "/azure/dms/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
-            "redirect_url": "/azure/dms/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-database-ads.md",
-            "redirect_url": "/data-migration/sql-server/database/custom-roles",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-db-managed-instance-ads.md",
-            "redirect_url": "/data-migration/sql-server/managed-instance/custom-roles",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-db-virtual-machine-ads.md",
-            "redirect_url": "/data-migration/sql-server/virtual-machines/custom-roles",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-mysql-azure-mysql-online.md",
-            "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online.md",
-            "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
-            "redirect_url": "/azure/dms/",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline.md",
-            "redirect_url": "/data-migration/sql-server/database/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md",
-            "redirect_url": "/data-migration/sql-server/database/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
-            "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-managed-instance-offline-ads.md",
-            "redirect_url": "/data-migration/sql-server/managed-instance/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-managed-instance-online-ads.md",
-            "redirect_url": "/data-migration/sql-server/managed-instance/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-virtual-machine-offline-ads.md",
-            "redirect_url": "/data-migration/sql-server/virtual-machines/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-virtual-machine-online-ads.md",
-            "redirect_url": "/data-migration/sql-server/virtual-machines/database-migration-service",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/notebooks/use-machine-learning-services-jupyter-notebooks.md",
             "redirect_url": "/azure/machine-learning/samples-notebooks",
             "redirect_document_id": false
@@ -3794,11 +3724,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
-            "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/vs-azure-tools-access-private-azure-clouds-with-visual-studio.md",
             "redirect_url": "/visualstudio/azure/vs-azure-tools-access-private-azure-clouds-with-visual-studio",
             "redirect_document_id": false
@@ -4639,6 +4564,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/update-manager/guidance-migration-automation-update-management-azure-update-manager.md",
+            "redirect_url": "/azure/update-manager/migration-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/orbital/delete-contact.md",
             "redirect_url": "/azure/orbital/spacecraft-object",
             "redirect_document_id": false
@@ -4951,6 +4881,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/virtual-network/ip-services/routing-preference-powershell.md",
             "redirect_url": "/azure/virtual-network/ip-services/routing-preference-portal",
             "redirect_document_id": false
@@ -4964,7 +4904,136 @@
           "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
           "redirect_url":"/azure/operational-excellence/relocation-container-registry",
           "redirect_document_id":false
-        }
-        
+        },
+	{
+	"source_path": "articles/data-catalog/data-catalog-developer-concepts.md",
+	"redirect_url": "/previous-versions/azure/data-catalog/data-catalog-developer-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-dsr.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-dsr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-frequently-asked-questions.yml",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-frequently-asked-questions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-get-started.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-annotate.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-annotate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-big-data.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-big-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-business-glossary.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-business-glossary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-connect.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-connect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-data-profile.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-data-profile",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-discover.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-discover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-documentation.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-documentation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-manage.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-register.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-register",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-save-pin.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-save-pin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-secure-catalog.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-secure-catalog",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-how-to-view-related-data-assets.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-view-related-data-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-keyboard-shortcuts.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-keyboard-shortcuts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-migration-to-microsoft-purview.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-migration-to-microsoft-purview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-samples.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-terminology.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-terminology",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/index.yml",
+      "redirect_url": "/previous-versions/azure/data-catalog/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/overview.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/register-data-assets-tutorial.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/register-data-assets-tutorial",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/troubleshoot-policy-configuration.md",
+      "redirect_url": "/previous-versions/azure/data-catalog/troubleshoot-policy-configuration",
+      "redirect_document_id": false
+    },
+	{
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_document_id": false
+        } 
     ]
 }

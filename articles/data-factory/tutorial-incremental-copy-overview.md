@@ -3,8 +3,7 @@ title: Incrementally copy data from a source data store to a destination data st
 description: These tutorials show you how to incrementally copy data from a source data store to a destination data store. The first one copies data from one table.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
+ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 05/15/2024
 ---

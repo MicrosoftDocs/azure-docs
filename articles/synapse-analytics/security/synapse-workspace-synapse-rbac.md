@@ -2,7 +2,7 @@
 title: Azure Synapse role-based access control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: meenalsri
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 3/07/2022
