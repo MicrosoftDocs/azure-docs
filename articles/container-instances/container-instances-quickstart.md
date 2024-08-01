@@ -166,4 +166,4 @@ To try out options for running containers in an orchestration system on Azure, s
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[container-service]: ../aks/intro-kubernetes.md
+[container-service]: /azure/aks/intro-kubernetes
