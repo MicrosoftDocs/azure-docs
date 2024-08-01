@@ -5,7 +5,7 @@ author: sowmi93
 ms.author: sosivara
 ms.reviewer: whhender
 ms.date: 01/10/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

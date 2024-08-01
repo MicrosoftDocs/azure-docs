@@ -217,4 +217,4 @@ To understand the Azure virtual machine sizes that are required for the Horizon 
 
 
 ## Next steps
-To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).
+To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/docs/vmw-horizon-faqs).
