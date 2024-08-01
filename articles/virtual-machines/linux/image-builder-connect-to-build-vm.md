@@ -7,7 +7,7 @@ ms.reviewer: jushiman
 ms.date: 7/10/2024
 ms.topic: troubleshooting
 ms.service: azure-virtual-machines 
-ms.subservice: image-builderms.subservice: image-builder
+ms.subservice: image-builder
 ---
 
 # How to Connect to the Azure Image Builder Build VM
