@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn to create an internal Azure Load Balancer and test it with two virtual machines. Learn how to configure traffic rules and health probes to distribute traffic across multiple VMs.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 06/28/2024
 ms.author: mbender

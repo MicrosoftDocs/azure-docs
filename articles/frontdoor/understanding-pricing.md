@@ -3,7 +3,7 @@ title: Compare pricing between Azure Front Door tiers
 description: This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium and (classic) tiers.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/30/2023
 ms.author: duau

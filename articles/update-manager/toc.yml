@@ -67,15 +67,15 @@ items:
     items: 
     - name: Migration from Automation Update Management to Azure Update Manager
       items:
-      - name: Overview of migration from Automation Update Management to Azure Update Manager
+      - name: Overview
         href: migration-overview.md
-      - name: Migration using Azure portal
+      - name: Using Azure portal
         href: migration-using-portal.md
-      - name: Migration using automated runbook scripts
+      - name: Using runbook scripts
         href: migration-using-runbook-scripts.md
       - name: Key points to note for automated migration
         href: migration-key-points.md
-      - name: Manual migration guidance
+      - name: Using manual migration
         href: migration-manual.md
     - name: Check update compliance 
       href: view-updates.md

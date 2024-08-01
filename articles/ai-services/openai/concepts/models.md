@@ -296,18 +296,18 @@ These models can only be used with Embedding API requests.
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2.
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` |
-|-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Australia East | ✅ | ✅ | | ✅ |✅ | | |
-| East US  | ✅ | | | | | ✅ | ✅ |
-| East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅|
-| France Central  | ✅ | ✅ | | ✅ |✅ |  | |
-| Japan East | ✅ |  | | | | | |
-| Norway East | |  | | | ✅ |  | |
-| Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅|
-| UK South | ✅  | ✅ | | | ✅ | ✅ |  |
-| West US |  | ✅ | | | ✅ | |✅|
-| West US 3 |  |  | | |✅ | |✅|
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` | `gpt-4o-mini (2024-07-18)` |
+|-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Australia East | ✅ | ✅ | | ✅ |✅ | | | |
+| East US  | ✅ | | | | | ✅ | ✅ |✅|
+| East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅| |
+| France Central  | ✅ | ✅ | | ✅ |✅ |  | | |
+| Japan East | ✅ |  | | | | | | |
+| Norway East | |  | | | ✅ |  | | |
+| Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅| |
+| UK South | ✅  | ✅ | | | ✅ | ✅ |  | |
+| West US |  | ✅ | | | ✅ | |✅| |
+| West US 3 |  |  | | |✅ | |✅| |
 
 ## Model retirement
 
