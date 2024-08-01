@@ -14,10 +14,10 @@ ms.reviewer: mattmcinnes
 >[!NOTE]
 >This VM series is currently in **Preview**. See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
-[!INCLUDE [dcas_cc_v5-summary](./includes/dcas_cc_v5-series-summary.md)]
+[!INCLUDE [dcas_cc_v5-summary](./includes/dcasccv5-series-summary.md)]
 
 ## Host specifications
-[!INCLUDE [dcas_cc_v5-series-specs](./includes/dcas_cc_v5-series-specs.md)]
+[!INCLUDE [dcas_cc_v5-series-specs](./includes/dcasccv5-series-specs.md)]
 
 ## Feature support
 [Trusted Launch](../../trusted-launch.md): Not Supported
