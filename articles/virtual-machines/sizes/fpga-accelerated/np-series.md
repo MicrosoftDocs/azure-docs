@@ -156,7 +156,7 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 **Q:** What are the supported Operating Systems? 
 
-**A:** Xilinx and Microsoft have validated Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, and CentOS 7.8.
+**A:** Xilinx and Microsoft validated Ubuntu 18.04 LTS, Ubuntu 20.04 LTS, and CentOS 7.8.
 
 >Xilinx has created the following marketplace images to simplify the deployment of these VMs: 
 >
@@ -209,7 +209,7 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
  >     
  >- xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
 
-**Q:** What are the differences between on-premise FPGAs and NP VMs?
+**Q:** What are the differences between on-premises FPGAs and NP VMs?
 
 **A:** 
 <br>
@@ -217,7 +217,7 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 <br>
 On Azure NP VMs, only the role endpoint (Device ID 5005), which uses the XOCL driver, is present.
 
-In on-premise FPGAs, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
+In on-premises FPGAs, both the management endpoint (Device ID 5004) and role endpoint (Device ID 5005), which use the XCLMGMT and XOCL drivers respectively, are present.
 
 <br>
 <b>- Regarding XRT: </b>
@@ -232,7 +232,7 @@ To disable Host_Mem(SB): sudo xbutil host_mem --disable
 <br>
 Starting on XRT2021.1:
 
-On-premise FPGA in Linux exposes
+On-premises FPGA in Linux exposes
 [M2M data transfer](https://xilinx.github.io/XRT/master/html/m2m.html).
 <br>
 This feature isn't supported in Azure NP VMs.
@@ -256,6 +256,6 @@ This feature isn't supported in Azure NP VMs.
 
 **Q:** Do Azure NP VMs support FPGA bitstreams with Networking GT Kernel connections?
 
-**A:** No. The FPGA Attestation service performs a series of validations on a design checkpoint file and will generate an error if the user's application contains connections to the FPGA card's QSFP networking ports.
+**A:** No. The FPGA Attestation service performs a series of validations on a design checkpoint file and generates an error if the user's application contains connections to the FPGA card's QSFP networking ports.
 
 [!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

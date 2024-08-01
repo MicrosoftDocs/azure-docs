@@ -530,19 +530,21 @@
           displayName: HB-series, sizes, size, vm size
           href: ./sizes/high-performance-compute/hb-family.md
         - name: HB series
-          href: hb-series.md
           items:
           - name: Overview
             href: hb-series-overview.md
+          - name: HB series
+            href: ./sizes/high-performance-compute/hb-series.md
           - name: Performance
             href: hb-series-performance.md
           - name: HB series retirement
             href: hb-series-retirement.md
         - name: HBv2 series
-          href: hbv2-series.md
           items:
           - name: Overview
             href: hbv2-series-overview.md
+          - name: HBv2 series
+            href: ./sizes/high-performance-compute/hbv2-series.md
           - name: Performance
             href: hbv2-performance.md
         - name: HBv3 series
@@ -550,7 +552,7 @@
           - name: Overview
             href: hbv3-series-overview.md
           - name: HBv3 series
-            href: hbv3-series.md
+            href: ./sizes/high-performance-compute/hbv3-series.md
           - name: Performance
             href: hbv3-performance.md
         - name: HBv4 series
@@ -558,7 +560,7 @@
           - name: Overview
             href: hbv4-series-overview.md
           - name: HBv4 series
-            href: hbv4-series.md
+            href: ./sizes/high-performance-compute/hbv4-series.md
           - name: Performance
             href: hbv4-performance.md
       - name: HC family
@@ -571,7 +573,7 @@
           - name: Overview
             href: hc-series-overview.md
           - name: HC series
-            href: hc-series.md
+            href: ./sizes/high-performance-compute/hc-series.md
           - name: Performance
             href: hc-series-performance.md
       - name: HX family
@@ -584,7 +586,7 @@
           - name: Overview
             href: hx-series-overview.md
           - name: HX series
-            href: hx-series.md
+            href: ./sizes/high-performance-compute/hx-series.md
           - name: Performance
             href: hx-performance.md
       - name: Set up Azure HPC or AI VMs
@@ -620,7 +622,7 @@
       items:
       - name: Overview
         href: ./sizes/retirement-overview.md
-      - name: Previous-gen sizes
+      - name: Previous-gen sizes list
         href: ./sizes/previous-gen-sizes-list.md
       - name: Previous-gen size pages
         items:
