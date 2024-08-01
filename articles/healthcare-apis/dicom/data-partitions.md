@@ -2,7 +2,7 @@
 title: Enable data partitioning for the DICOM service in Azure Health Data Services
 description: Learn how to enable data partitioning for efficient storage and management of medical images for the DICOM service in Azure Health Data Services.
 author: bcarthic
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 03/26/2024

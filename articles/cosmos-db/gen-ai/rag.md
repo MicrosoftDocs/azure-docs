@@ -3,7 +3,7 @@
 title: Retrieval Augmented Generation (RAG) in Azure Cosmos DB
 description: Learn about Retrieval Augmented Generation (RAG) in Azure Cosmos DB
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 07/09/2024

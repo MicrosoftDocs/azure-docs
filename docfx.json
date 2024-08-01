@@ -972,9 +972,7 @@
       "manager": {
         "articles/ai-studio/**/*.md": "nitinme",
         "articles/ai-services/**/*.md": "nitinme",
-        "articles/app-service/**/*.md": "mijacobs",
         "articles/app-service-mobile/**/*.md": "crdun",
-        "articles/app-spaces/**/*.md": "mijacobs",
         "articles/automanage/*md": "akashdubey",
         "articles/azure-arc/servers/**/*.md": "rayoflores",
         "articles/azure-functions/**/*.md": "mijacobs",

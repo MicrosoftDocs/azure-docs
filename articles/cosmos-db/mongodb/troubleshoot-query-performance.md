@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's API for MongoDB query issues.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: troubleshooting
 ms.subservice: mongodb
 ms.date: 04/02/2024
