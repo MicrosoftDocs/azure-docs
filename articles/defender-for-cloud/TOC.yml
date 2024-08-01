@@ -1158,6 +1158,12 @@
           href: episode-forty-six.md
         - name: Vulnerability management in Defender CSPM
           href: episode-forty-seven.md
+        - name: Microsoft CNAPP solution 
+          displayName: CNAPP
+          href: episode-forty-eight.md
+        - name: Microsoft Copilot for Security integration
+          displayName: Copilot, security
+          href: episode-forty-nine.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation
