@@ -1235,7 +1235,7 @@
         "articles/batch/**/*.md": "batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
-        "articles/cloud-shell/**/*.md": "cloud-shell",
+        "articles/cloud-shell/**/*.md": "azure-cloud-shell",
         "articles/ai-studio/**/*.md": "azure-ai-services",
         "articles/ai-services/**/*.md": "azure-ai-services",
         "articles/ai-services/speech-service/*.md": "azure-ai-speech",
