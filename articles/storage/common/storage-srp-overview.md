@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-storage
 ms.topic: overview
-ms.date: 07/31/2024
+ms.date: 08/01/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python, devguide-go
 ---
 
@@ -61,10 +61,10 @@ The following table shows the Azure Storage client libraries for data access:
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **@azure/storage-blob** | [Reference](/javascript/api/@azure/storage-blob) | [NPM](https://www.npmjs.com/package/@azure/storage-blob) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) |
-| **@azure/storage-file-datalake** | [Reference](/javascript/api/@azure/storage-file-datalake) | [NPM](https://www.npmjs.com/package/@azure/storage-file-datalake) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-file-datalake) |
-| **@azure/storage-file-share** | [Reference](/javascript/api/@azure/storage-file-share) | [NPM](https://www.npmjs.com/package/@azure/storage-file-share) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-file-share) |
-| **@azure/storage-queue** | [Reference](/javascript/api/@azure/storage-queue) | [NPM](https://www.npmjs.com/package/@azure/storage-queue) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-queue) |
+| **@azure/storage-blob** | [Reference](/javascript/api/@azure/storage-blob) | [npm](https://www.npmjs.com/package/@azure/storage-blob) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) |
+| **@azure/storage-file-datalake** | [Reference](/javascript/api/@azure/storage-file-datalake) | [npm](https://www.npmjs.com/package/@azure/storage-file-datalake) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-file-datalake) |
+| **@azure/storage-file-share** | [Reference](/javascript/api/@azure/storage-file-share) | [npm](https://www.npmjs.com/package/@azure/storage-file-share) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-file-share) |
+| **@azure/storage-queue** | [Reference](/javascript/api/@azure/storage-queue) | [npm](https://www.npmjs.com/package/@azure/storage-queue) | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-queue) |
 
 To learn more about using the Blob Storage client library for specific data access scenarios, see the [Blob Storage developer guide for JavaScript](../blobs/storage-blob-javascript-get-started.md).
 
@@ -96,7 +96,7 @@ To learn more about using the Blob Storage client library for specific data acce
 
 ---
 
-In most cases, you should use the data plane libraries to work with Azure Storage resources. However, if you need to manage resources, such as creating or deleting storage accounts, managing account keys, or configuring failover scenarios, you need to use the [management plane libraries](#libraries-for-resource-management).
+In most cases, you should use the data plane libraries to work with Azure Storage resources. However, for resource management operations, such as creating or deleting storage accounts, managing account keys, or configuring failover scenarios, you need to use the [management plane libraries](#libraries-for-resource-management).
 
 ## Libraries for resource management
 
