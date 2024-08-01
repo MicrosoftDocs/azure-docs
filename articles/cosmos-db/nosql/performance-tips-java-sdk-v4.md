@@ -164,12 +164,11 @@ By implementing these strategies, developers can ensure their applications remai
 ## Region Scoped Session Consistency
 
 ### Overview
-For more information about consistency settings in general, see [Consistency levels in Azure Cosmos DB](../consistency-levels.md). The Java SDK provides region-scoped [session consistency](../consistency-levels.md#session-consistency) for multi-region write accounts. This feature enhances performance by reducing cross-regional replication latency and minimizing client-side retries by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
+For more information about consistency settings in general, see [Consistency levels in Azure Cosmos DB](../consistency-levels.md). The Java SDK provides an optimization for [session consistency](../consistency-levels.md#session-consistency) for multi-region write accounts, by allowing it to be region-scoped. This enhances performance by mitigating cross-regional replication latency through minimizing client-side retries. This is achieved by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
 
 ### Benefits
-- **Reduced Latency:** By localizing session token validation to the region level, the chances of costly cross-regional retries are significantly reduced.
+- **Reduced Latency:** By localizing session token validation to the region level, the chances of costly cross-regional retries are reduced.
 - **Enhanced Performance:** Minimizes the impact of regional failover and replication lag, offering higher read/write consistency and lower CPU utilization.
-- **Improved Resilience:** Provides better handling of regional outages and network issues, ensuring more consistent and reliable application performance.
 - **Optimized Resource Utilization:** Reduces CPU and network overhead on client applications by limiting the need for retries and cross-regional calls, thus optimizing resource usage.
 - **High Availability:** By maintaining region-scoped session tokens, applications can continue to operate smoothly even if certain regions experience higher latency or temporary failures.
 - **Consistency Guarantees:** Ensures that the session consistency (read your write, monotonic read) guarantees are met more reliably without unnecessary retries.
@@ -179,23 +178,9 @@ For more information about consistency settings in general, see [Consistency lev
 ### Trade-Offs
 - **Increased Memory Usage:** The bloom filter and region-specific session token storage require additional memory, which may be a consideration for applications with limited resources.
 - **Configuration Complexity:** Fine-tuning the expected insertion count and false-positive rate for the bloom filter adds a layer of complexity to the configuration process.
-- **Potential for False Positives:** While the bloom filter minimizes cross-regional retries, there is still a slight chance of false positives impacting the session token validation, although the rate can be controlled.
+- **Potential for False Positives:** While the bloom filter minimizes cross-regional retries, there is still a slight chance of false positives impacting the session token validation, although the rate can be controlled. A false positive means the global session token is resolved, thereby increasing the chance of cross-regional retries if the local region has not caught up to this global session. Session guarantees are met even in the presence of false positives.
 - **Applicability:** This feature is most beneficial for applications with a high cardinality of logical partitions and regular restarts. Applications with fewer logical partitions or infrequent restarts might not see significant benefits.
 
-### Enabling Region-Scoped Session Consistency
-To enable region-scoped session capturing in your application, set the following system property:
-
-```java
-System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
-```
-
-### Configuring Bloom Filter
-Fine-tune the performance by configuring the expected insertions and false positive rate for the bloom filter:
-
-```java
-System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "5000000"); // adjust as needed
-System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.001"); // adjust as needed
-```
 
 ### How It Works
 #### Setting the Session Token
@@ -222,12 +207,36 @@ CosmosClient client = new CosmosClientBuilder()
 // Your operations here
 ```
 
-### Example Configuration
+### Enabling Region-Scoped Session Consistency
+To enable region-scoped session capturing in your application, set the following system property:
+
 ```java
+System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
+```
+
+### Configuring Bloom Filter
+Fine-tune the performance by configuring the expected insertions and false positive rate for the bloom filter:
+
+```java
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "5000000"); // adjust as needed
+System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.001"); // adjust as needed
 System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
 System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "1000000");
 System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.01");
 ```
+
+## Memory implications
+- Below is the retained size (size of the object and whatever it depends on) of the internal session container (managed by the SDK) with varying expected insertions into the bloom filter.
+
+|Expected Insertions|False Positive Rate|Retained Size|
+|-----|------|--|
+|10, 000|0.001|21 KB|
+|100, 000|0.001|183 KB|
+|1 million|0.001|1.8 MB|
+|10 million|0.001|17.9 MB|
+|100 million|0.001|179 MB|
+|1 billion|0.001|1.8 GB|
+
 > [!IMPORTANT]
 > You must be using version 4.60.0 of the Java SDK or higher in order to activate region-scoped session consistency. 
 
