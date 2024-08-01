@@ -32,7 +32,7 @@ You should use a service principal to provide registry access in **headless scen
 * *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml), and others.
 
     > [!TIP]
-    > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](../aks/cluster-container-registry-integration.md).
+    > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](/azure/aks/cluster-container-registry-integration).
   * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
 For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Microsoft Entra identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
