@@ -337,9 +337,3 @@
       href: expressroute-howto-linkvnet-classic.md
     - name: Configure ExpressRoute and S2S coexisting connections
       href: expressroute-howto-coexist-classic.md
-    - name: Create and modify public peering (deprecated)
-      href: about-public-peering.md
-    - name: Configure Network Performance Monitor for ExpressRoute (deprecated)
-      href: how-to-npm.md
-    - name: Move from public peering to Microsoft peering (deprecated)
-      href: how-to-move-peering.md

@@ -4,7 +4,7 @@ description: Use Azure CLI to create a API for Table account and table with auto
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/22/2022

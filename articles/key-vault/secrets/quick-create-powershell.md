@@ -3,7 +3,7 @@ title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell
 description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell, mode-api
@@ -36,7 +36,7 @@ Connect-AzAccount
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac-powershell.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-secrets-officer-powershell.md)]
 
 ## Adding a secret to Key Vault
 

@@ -314,7 +314,7 @@ Using ASIM provides the following benefits:
 
 - **Cross source detection**: Normalized analytic rules work across sources on-premises and in the cloud. The rules detect attacks, such as brute force, or impossible travel across systems, including Okta, AWS, and Azure.
 
-- **Allows source agnostic content**: Covering built-in and custom content by using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer might use to bring in the data, including Microsoft Defender for Endpoint, Windows Events, and Sysmon. We're ready to add [Sysmon for Linux](https://twitter.com/markrussinovich/status/1283039153920368651?lang=en) and WEF when it has been released.
+- **Allows source agnostic content**: Covering built-in and custom content by using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer might use to bring in the data, including Microsoft Defender for Endpoint, Windows Events, and Sysmon. We're ready to add [Sysmon for Linux](https://x.com/markrussinovich/status/1283039153920368651?lang=en) and WEF when it has been released.
 
 - **Support for your custom sources in built-in analytics**
 

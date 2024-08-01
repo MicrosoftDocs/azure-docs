@@ -12,7 +12,7 @@ metadata:
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 05/03/2024
+  ms.date: 07/31/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -41,6 +41,38 @@ highlightedContent:
     - title: Apply Zero Trust principles to encrypting Azure-based network communications
       itemType: architecture
       url: /security/zero-trust/azure-networking-encryption
+
+# productDirectory section (Optional; Remove if not applicable.)
+productDirectory:
+  title: Azure networking scenarios # Optional but good for SEO. Remove if not applicable.
+  summary: Select an Azure networking scenario to learn how Azure can enhance connectivity to your resources, deliver and protect applications, and help secure your environment. # Optional but good for SEO. Remove if not applicable.
+  items:
+    # Card
+    - title: Networking foundation
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/index/networking-foundations.svg
+      summary: Manage and diagnose your network with Azure network foundation services.
+      url: ./foundations/index.yml
+    # Card
+    - title: Load balancing and content delivery
+      imageSrc: ./media/index/load-balancing-and-content-delivery.svg
+      summary: Distribute network traffic to load balance workloads with Azure application delivery services.
+      url: ./load-balancer-content-delivery/index.yml
+    # Card
+    - title: Hybrid connectivity
+      imageSrc: ./media/index/hybrid-connectivity.svg
+      summary: Integrate your on-premises and Azure networks with Azure hybrid connectivity services.
+      url: ./hybrid-connectivity/index.yml
+    # Card
+    - title: Network security
+      imageSrc: ./media/index/network-security.svg
+      summary: Protect your network from cyber security attacks with Azure network security services.
+      url: ./security/index.yml
+    # Card
+    - title: Network monitoring and management
+      imageSrc: ./media/index/network-monitoring-and-management.svg
+      summary: Monitor and manage your network with Azure network monitoring and management services.
+      url: ./monitoring-management/index.yml
 
 # additionalContent section (optional)
 # Card with links style

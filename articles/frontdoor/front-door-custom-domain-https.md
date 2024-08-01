@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door (classic) configuration for a custom domain.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/09/2023
 ms.author: duau

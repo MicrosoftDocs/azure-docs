@@ -55,7 +55,7 @@ items:
     href: security-awareness-ubuntu-support.md
 - name: Samples
   items:
-  - name: Azure Resource Graph queries
+  - name: ARG queries to access Azure Update Manager operations data
     href: sample-query-logs.md
 - name: How-to guides
   items:
@@ -65,8 +65,18 @@ items:
       href: configure-wu-agent.md
   - name: Manage
     items: 
-    - name: Move from Automation Update Management to Azure Update Manager
-      href: guidance-migration-automation-update-management-azure-update-manager.md
+    - name: Migration from Automation Update Management to Azure Update Manager
+      items:
+      - name: Overview
+        href: migration-overview.md
+      - name: Using Azure portal
+        href: migration-using-portal.md
+      - name: Using runbook scripts
+        href: migration-using-runbook-scripts.md
+      - name: Key points to note for automated migration
+        href: migration-key-points.md
+      - name: Using manual migration
+        href: migration-manual.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Automate assessment at scale using Policy
