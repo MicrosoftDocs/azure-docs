@@ -61,8 +61,6 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|
 |microsoftwindowsserver | windowsserverupgrade | * |
-|microsoftwindowsserver | windowsserverhotpatch-previews |  |
-| | microsoftserveroperatingsystems-previews |  |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 |microsoftsqlserver | sql2016sp1-ws2016 | standard |
 | | sql2016sp2-ws2016 | standard|
