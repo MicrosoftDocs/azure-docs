@@ -5,7 +5,7 @@ description: Learn how to configure Palo Alto Networks Cloud NGFW in a Virtual W
 services: virtual-wan
 author: wtnlee
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: wellee
