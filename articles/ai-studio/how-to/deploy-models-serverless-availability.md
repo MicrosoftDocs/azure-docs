@@ -31,28 +31,10 @@ Pay-as-you-go billing is available only to users whose Azure subscription belong
 
 |Model   |Offer Availability Region  | Hub/Project Region for Deployment  |Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
-|Cohere Command R      | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
-<br> 
-Japan <br>
-Qatar      | - East US 
-- East US 2 
-- North Central US 
-- South Central US 
-- Sweden Central 
-- West US 
-- West US 3        | Not available        |
-|Cohere Command R+     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
-<br> 
- Japan <br>
-Qatar        |  | Not available        |
-|Cohere Rerank 3     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
-<br> 
- Japan <br>
-Qatar        |    |  Not available       |
-|Cohere Embed v3    |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
-<br> 
- Japan <br>
-Qatar        |    |  Not available       |
+|Cohere Command R      | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |        | Not available        |
+|Cohere Command R+     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) |  | Not available        |
+|Cohere Rerank 3     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) |    |  Not available       |
+|Cohere Embed v3    |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)  |    |  Not available       |
 
 
 
@@ -67,11 +49,10 @@ Qatar        |    |  Not available       |
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
 |Llama-2-7b
- <br>
-Llama-2-13b <br>
+Llama-2-13b 
 Llama-2-70b     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |     |  Not available       |
-| Llama-2-7b-chat <br>
-Llama-2-7b-chat<br>
+| Llama-2-7b-chat 
+Llama-2-7b-chat
 Llama-2-70b-chat    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |   | Not available   |
 | Llama-3-8B-Instruct    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |   |  Not available  |
 |Llama-3-70B-Instruct     | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |    |   Not available  |
