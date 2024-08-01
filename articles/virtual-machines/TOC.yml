@@ -441,68 +441,68 @@
           displayName: NC-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nc-family.md
         - name: NC series
-          href: nc-series.md
+          href: ./sizes/gpu-accelerated/nc-series.md
         - name: NC series retirement
           href: nc-series-retirement.md
         - name: NCads_H100_v5 series
-          href: ncads-h100-v5.md
+          href: ./sizes/gpu-accelerated/ncadsh100v5-series.md
         - name: NCv2 series
-          href: ncv2-series.md
+          href: ./sizes/gpu-accelerated/ncv2-series.md
         - name: NCv2 series retirement
           href: ncv2-series-retirement.md
         - name: NCv3 series
-          href: ncv3-series.md
+          href: ./sizes/gpu-accelerated/ncv3-series.md
         - name: Ncv3 Nc24rs retirement
           href: ncv3-nc24rs-retirement.md
         - name: Ncv3 NC6s NC12s NC24s retirement
           href: ncv3-nc6s-nc12s-nc24s-retirement.md
         - name: NCasT4_v3 series
-          href: nct4-v3-series.md
+          href: ./sizes/gpu-accelerated/nct4v3-series.md
         - name: NC_A100_v4 series
-          href: nc-a100-v4-series.md
+          href: ./sizes/gpu-accelerated/nca100v4-series.md
       - name: ND family
         items:
         - name: Overview
           displayName: ND-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nd-family.md
         - name: NDasrA100_v4 series
-          href: nda100-v4-series.md
+          href: ./sizes/gpu-accelerated/ndasra100v4-series.md
         - name: NDm_A100_v4 series
-          href: ndm-a100-v4-series.md
+          href: ./sizes/gpu-accelerated/ndma100v4-series.md
         - name: ND series
-          href: nd-series.md
+          href: ./sizes/gpu-accelerated/nd-series.md
         - name: ND series retirement
           href: nd-series-retirement.md
         - name: NDv2 series
-          href: ndv2-series.md
+          href: ./sizes/gpu-accelerated/ndv2-series.md
         - name: ND-H100-v5 series
-          href: nd-h100-v5-series.md
+          href: ./sizes/gpu-accelerated/ndh100v5-series.md
         - name: ND-MI300X-v5 series
-          href: ./sizes/gpu-accelerated/nd-mi300x-v5-series.md
+          href: ./sizes/gpu-accelerated/ndmi300xv5-series.md
       - name: NG family
         items:
         - name: Overview
           displayName: NG-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/ng-family.md
         - name: NGads V620 series
-          href: ngads-v-620-series.md
+          href: ./sizes/gpu-accelerated/ngadsv620-series.md
       - name: NV family
         items:
         - name: Overview
           displayName: NV-series, sizes, size, vm size
           href: ./sizes/gpu-accelerated/nv-family.md
         - name: NV series
-          href: nv-series.md
+          href: ./sizes/gpu-accelerated/nv-series.md
         - name: NV series retirement
-          href: nv-series-retirement.md
+          href: ./sizes/gpu-accelerated/nv-series-retirement.md
         - name: NV series migration guide
-          href: nv-series-migration-guide.md
+          href: ./sizes/gpu-accelerated/nv-series-migration-guide.md
         - name: NVv3 series
-          href: nvv3-series.md
+          href: ./sizes/gpu-accelerated/nvv3-series.md
         - name: NVv4 series
-          href: nvv4-series.md
+          href: ./sizes/gpu-accelerated/nvv4-series.md
         - name: NVadsA10_v5 series
-          href: nva10v5-series.md
+          href: ./sizes/gpu-accelerated/nva10v5-series.md
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
@@ -528,7 +528,7 @@
           displayName: NP-series, sizes, size, vm size
           href: ./sizes/fpga-accelerated/np-family.md
         - name: NP series
-          href: np-series.md
+          href: ./sizes/fpga-accelerated/np-series.md
       - name: FPGA Attestation Service
         href: field-programmable-gate-arrays-attestation.md
     - name: High performance compute

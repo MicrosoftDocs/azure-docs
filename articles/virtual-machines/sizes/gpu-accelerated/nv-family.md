@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### NV-series V1
 [!INCLUDE [nv-series-summary](./includes/nv-series-summary.md)]
 
-[View the full NV-series page](../../nv-series.md).
+[View the full NV-series page](./nv-series.md).
 
 [!INCLUDE [nv-series-specs](./includes/nv-series-specs.md)]
 

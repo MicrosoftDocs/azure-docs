@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### HC-series
 [!INCLUDE [hc-series-summary](./includes/hc-series-summary.md)]
 
-[View the full HC-series page](../../hc-series.md).
+[View the full HC-series page](./hc-series.md).
 
 [!INCLUDE [hc-series-specs](./includes/hc-series-specs.md)]
 

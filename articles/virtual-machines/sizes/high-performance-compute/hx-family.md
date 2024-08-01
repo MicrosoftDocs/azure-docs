@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### HX-series
 [!INCLUDE [hx-series-summary](./includes/hx-series-summary.md)]
 
-[View the full HX-series page](../../hx-series.md).
+[View the full HX-series page](./hx-series.md).
 
 [!INCLUDE [hx-series-specs](./includes/hx-series-specs.md)]
 
