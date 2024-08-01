@@ -95,4 +95,4 @@ Do you have questions about your implementation? Do you want to become an enable
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
 - [Microsoft Azure Attestation](../attestation/overview.md)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

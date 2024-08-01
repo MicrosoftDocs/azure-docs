@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Home page for managed identities for applications.
 author: KarlErickson
 ms.author: jiec
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.custom: devx-track-java

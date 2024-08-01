@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Install Azure Container Storage for use with Azure Kubernetes Service
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster and install the latest production version of Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. In this tutorial, you'll create an [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster and install the latest production version of Azure Container Storage on the cluster. If you already have an AKS cluster deployed, we recommend installing Azure Container Storage [using this QuickStart](container-storage-aks-quickstart.md) instead of following the manual steps in this tutorial.
 
 > [!IMPORTANT]
 > Azure Container Storage is now generally available (GA) beginning with version 1.1.0. The GA version is recommended for production workloads.

@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster with enclave-aware (DCsv2/DCSv3) VM nodes. You'll then run a simple Hello World application in an enclave. You can also provision a cluster and add confidential computing nodes from the Azure portal, but this quickstart focuses on the Azure CLI.
 
-AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [AKS introduction](../aks/intro-kubernetes.md) and the [overview of AKS confidential nodes](confidential-nodes-aks-overview.md).
+AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [AKS introduction](/azure/aks/intro-kubernetes) and the [overview of AKS confidential nodes](confidential-nodes-aks-overview.md).
 
 Features of confidential computing nodes include:
 

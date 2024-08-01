@@ -54,7 +54,7 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well versi
 The following articles contain additional details on working with service principals and ACR:
 
 * [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
-* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](/azure/aks/cluster-container-registry-integration)
 
 <!-- IMAGES -->
 
