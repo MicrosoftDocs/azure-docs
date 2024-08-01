@@ -24,8 +24,8 @@ We recommend built-in quantization because it compresses vector size in memory *
 
 | Approach | Why use this option |
 |----------|---------------------|
-| [Add scalar or binary quantization](#option-1-configure-quantization) | Use quantization to compress native float32 or float16  embeddings to  INT8  (scalar) or Byte (binary). This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like INT8 or Byte produce vector indexes that are less content-rich than those with larger embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in quantization of float32 or float16 fields and can't be used on embeddings that undergo custom quantization. |
-| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as float16, INT16,  INT8, and Byte (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native float32 embeddings produced by most models to float16. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
+| [Add scalar or binary quantization](#option-1-configure-quantization) | Use quantization to compress native float32 or float16  embeddings to  int8  (scalar) or Byte (binary). This option reduces storage in memory and on disk with no degradation of query performance. Smaller data types like int8 or Byte produce vector indexes that are less content-rich than those with larger embeddings. To offset information loss, built-in compression includes options for post-query processing using uncompressed embeddings and oversampling to return more relevant results. Reranking and oversampling are specific features of built-in quantization of float32 or float16 fields and can't be used on embeddings that undergo custom quantization. |
+| [Assign smaller primitive data types to vector fields](#option-2-assign-narrow-data-types-to-vector-fields) | Narrow data types, such as float16, int16,  int8, and Byte (binary) consume less space in memory and on disk, but you must have an embedding model that outputs vectors in a narrow data format. Or, you must have custom quantization logic that outputs small data. A third use case that requires less effort is recasting native float32 embeddings produced by most models to float16. See [Index binary vectors](vector-search-how-to-index-binary-data.md) for details about binary vectors. |
 | [Eliminate optional storage of retrievable vectors](#option-3-set-the-stored-property-to-remove-retrievable-storage) | Vectors returned in a query response are stored separately from vectors used during query execution. If you don't need to return vectors, you can turn off retrievable storage, reducing overall per-field disk storage by up to 50 percent. |
 
 All of these options are defined on an empty index. To implement any of them, use the Azure portal, REST APIs, or an Azure SDK package targeting that API version.
@@ -36,11 +36,13 @@ After the index is defined, you can load and index documents as a separate step.
 
 Quantization is recommended for reducing vector size because it lowers both memory and disk storage requirements for float16 and float32 embeddings. To offset the effects of a smaller index, you can add oversampling and reranking over uncompressed vectors.
 
-Quantization applies to vector fields receiving floats. In the examples in this article, the field's data type is `"Collection(Edm.Single)"` for incoming float32 embeddings, but integrated quantization will reduce the footprint of that data in memory and on disk to either INT8 or binary formats.
+Quantization applies to vector fields receiving float-type vectors. In the examples in this article, the field's data type is `Collection(Edm.Single)` for incoming float32 embeddings, but float16 is also supported. When the vectors are received on a field with compression configured, the engine automatically performs quantization to reduce the footprint of the vector data in memory and on disk. 
 
-- Scalar quantization converts floats into narrow data types, such as INT8.
+Two types of quantization are supported:
 
-- Binary quantization converts floats into binary form, which is necessary for handling data as a packed binary data type. 
+- Scalar quantization compresses floats into narrower data types. AI Search currently supports int8, which is 8 bits, reducing vector index size fourfold.
+
+- Binary quantization converts floats into binary bits, which takes up 1 bit. This results in up to 28 times reduced vector index size.
 
 To use built-in quantization, follow these steps:
 
@@ -185,7 +187,7 @@ It's particularly effective for embeddings with dimensions greater than 1024. Fo
 
 ## Option 2: Assign narrow data types to vector fields
 
-An easy way to reduce vector size is to store embeddings in a smaller data format. Most embedding models output 32-bit floating point numbers, but if you quantize your vectors, or if your embedding model supports it natively, output might be float16, INT16, or INT8, which is significantly smaller than float32. You can accommodate these smaller vector sizes by assigning a narrow data type to a vector field. In the vector index, narrow data types consume less storage.
+An easy way to reduce vector size is to store embeddings in a smaller data format. Most embedding models output 32-bit floating point numbers, but if you quantize your vectors, or if your embedding model supports it natively, output might be float16, int16, or int8, which is significantly smaller than float32. You can accommodate these smaller vector sizes by assigning a narrow data type to a vector field. In the vector index, narrow data types consume less storage.
 
 1. Review the [data types used for vector fields](/rest/api/searchservice/supported-data-types#edm-data-types-for-vector-fields) for recommended usage:
 
@@ -193,7 +195,7 @@ An easy way to reduce vector size is to store embeddings in a smaller data forma
    - `Collection(Edm.Half)` 16-bit floating point (narrow)
    - `Collection(Edm.Int16)` 16-bit signed integer (narrow)
    - `Collection(Edm.SByte)` 8-bit signed integer (narrow)
-   - `Collection(Edm.Byte)` 8-bit signed integer (narrow)
+   - `Collection(Edm.Byte)` 8-bit unsigned integer (only allowed with packed binary data types)
 
 1. From that list, determine which data type is valid for your embedding model's output, or for vectors that undergo custom quantization.
 
