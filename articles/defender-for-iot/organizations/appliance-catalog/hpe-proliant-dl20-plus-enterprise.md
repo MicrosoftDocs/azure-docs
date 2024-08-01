@@ -56,18 +56,18 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 |1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
 |1|	P21106-B21 | INT I350 1 GbE 4p BASE-T Adapter|
 |1|	P45948-B21 | HPE DL20 Gen10+ RPS FIO Enable Kit|
-|2|	865408-B21 | HPE 500W FS Plat Hot Plug LH Power Supply Kit|
+|2|	865408-B21 | HPE 500 W FS Plat Hot Plug LH Power Supply Kit|
 |1|	775612-B21 | HPE 1U Short Friction Rail Kit|
 |1|	512485-B21 | HPE iLO Adv 1 Server License 1 year support|
 |1|	P46114-B21 | HPE DL20 Gen10+ 2x8 LP FIO Riser Kit|
 
 ## Optional Storage Controllers
-Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below have been tested in our lab for compatibility and sustained performance:
+Multi-disk RAID arrays combine multiple physical drives into one logical drive for increased redundancy and performance. The optional modules below were tested in our lab for compatibility and sustained performance:
 
 |Quantity|PN|Description|
 |----|---|----|
 |1| 869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10) |
-|1| P26325-B21 | Broadcom MegaRAID MR216i-a x16 Lanes without Cache NVMe/SAS 12G Controller (RAID5)<br><br>**Note**: This RAID controller occupies the PCIe expansion slot and does not allow expansion of networking port expansion |
+|1| P26325-B21 | Broadcom MegaRAID MR216i-a x16 Lanes without Cache NVMe/SAS 12G Controller (RAID5)<br><br>**Note**: This RAID controller occupies the PCIe expansion slot and doesn't allow expansion of networking port expansion |
 
 ## Optional port expansion
 Optional modules for port expansion include:
@@ -128,7 +128,7 @@ Use the following procedure to set up network options and update the default pas
 ### Setup the BIOS and RAID array
 
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
-In the event that any of the steps below are missing in the BIOS, please make sure that the hardware matches the specifications above.
+If any of the steps below are missing in the BIOS make sure that the hardware matches the specifications above.
 
 HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
 
