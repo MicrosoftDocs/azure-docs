@@ -3,7 +3,7 @@ title: HC size series
 description: Information on and specifications of the HC-series sizes
 author: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: sizes
+ms.subservice: sizes-hpc
 ms.topic: conceptual
 ms.date: 08/01/2024
 ms.author: mattmcinnes

@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### NGads V620-series
 [!INCLUDE [ngads-v620-series-summary](./includes/ngadsv620-series-summary.md)]
 
-[View the full NGads v620-series page](../../ngadsv620-series.md).
+[View the full NGads v620-series page](./ngadsv620-series.md).
 
 [!INCLUDE [ngads-v620-series-specs](./includes/ngadsv620-series-specs.md)]
 
