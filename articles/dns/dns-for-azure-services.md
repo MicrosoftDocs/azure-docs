@@ -7,7 +7,7 @@ manager: kumudD
 tags: azure dns
 
 ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2023
