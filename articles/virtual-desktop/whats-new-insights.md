@@ -19,7 +19,7 @@ The following table shows the latest available version of Azure Virtual Desktop 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 3.3.1 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+| Public | 3.5.0 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
 
 ## How to read version numbers
 
@@ -34,6 +34,23 @@ There are three numbers in each version of Azure Virtual Desktop Insights. Here'
 For example, a release with a version number of 1.2.31 is on the first major release, the second minor release, and patch number 31.
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
+
+## Version 3.5.0
+
+*Published: July 1, 2024*
+
+In this update, we made the following change:
+
+- Connection reliability tab now generally available.
+
+## Version 3.4.0
+
+*Published: May 13, 2024*
+
+In this update, we made the following change:
+
+- Added HCI core count.
+- Updated reliability of users per core calculation.
 
 ## Version 3.3.1
 
