@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 08/01/2024
 ms.custom: devx-track-java
 ---
 
