@@ -31,18 +31,7 @@ This article summarizes what's new in Microsoft Defender for Cloud. It includes 
 
 |Date | Category | Update|
 |--|--|--|
-| August 1 | Upcoming update | [Sensitivity label consent changes](#sensitivity-label-consent-changes) |
 | August 1 | GA | [Enable Microsoft Defender for SQL servers on machines at scale](#enable-microsoft-defender-for-sql-servers-on-machines-at-scale) |
-
-### Sensitivity label consent changes 
-
-**Estimated date for change**: August 29, 2024 
-
-You will no longer need to provide consent to benefit from custom information types and sensitivity labels configured in the Defender portal or Microsoft Purview compliance portal. Currently, customers need to select a dedicated consent button in the Defender portal under the "Information Protection" section within the "Labels" blade. 
-
-With this upcoming change, all custom information types and sensitivity labels will be automatically imported into the Microsoft Defender for Cloud portal.
-
-Learn more about [data sensitivity settings](data-sensitivity-settings.md#import-custom-sensitivity-info-typeslabels).
 
 ### Enable Microsoft Defender for SQL servers on machines at scale
 
