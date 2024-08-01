@@ -1,6 +1,6 @@
 ---
-title: Install Defender for IoT micro agent for Edge
-description: Learn how to install, and authenticate the Defender Micro agent for Edge.
+title: Install Defender for IoT micro agent for Microsoft Edge
+description: Learn how to install, and authenticate the Defender Micro agent for Microsoft Edge.
 ms.date: 02/08/2022
 ms.topic: how-to
 ---
@@ -15,7 +15,7 @@ This article explains how to install, and authenticate the Defender micro agent 
 
 1. Navigate to your IoT Hub or, [create a new IoT hub](../../iot-hub/iot-hub-create-through-portal.md#create-an-iot-hub).
 
-1. [Register an Iot Edge device in IoT Hub](../../iot-edge/how-to-register-device.md) and [retrieve connection strings](../../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
+1. [Register an IoT Edge device in IoT Hub](../../iot-edge/how-to-register-device.md) and [retrieve connection strings](../../iot-edge/how-to-register-device.md#view-registered-devices-and-retrieve-connection-strings).
     
 1. Add the appropriate Microsoft package repository. 
 

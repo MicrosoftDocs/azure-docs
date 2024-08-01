@@ -16,7 +16,7 @@ In this tutorial you'll learn how to:
 > - Create a Log Analytics workspace
 > - Enable geolocation and IP address handling
 
- [!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Prerequisites
 
