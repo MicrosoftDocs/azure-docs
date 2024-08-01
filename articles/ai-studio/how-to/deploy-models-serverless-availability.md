@@ -24,7 +24,71 @@ Certain models in the model catalog can be deployed as a serverless API with pay
 
 ## Region availability
 
-[!INCLUDE [region-availabilitity-serverless-api](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/region-availabilitity-serverless-api.md)]
+Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available (see "offer availability region" in the table in the next section). If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable (see "hub/project region" columns in the table below).
+
+### Cohere models
+
+
+|Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
+|---------|---------|---------|---------|
+|Cohere Command R   |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br>  Japan
+Qatar     |  East US <br>
+East US 2 <br>
+North Central US <br>
+South Central US <br>
+Sweden Central <br>
+West US <br>
+West US 3       |  Not available       |
+|Cohere Command R+   |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br>  Japan
+Qatar         | East US <br>
+East US 2 <br>
+North Central US <br>
+South Central US <br>
+Sweden Central <br>
+West US <br>
+West US 3         |  Not available       |
+|Cohere Rerank 3   |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br>  Japan
+Qatar        |  East US <br>
+East US 2 <br>
+North Central US <br>
+South Central US <br>
+Sweden Central <br>
+West US <br>
+West US 3       |  Not available       |
+|Cohere Embed v3    |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br>  Japan
+Qatar       | East US <br>
+East US 2 <br>
+North Central US <br>
+South Central US <br>
+Sweden Central <br>
+West US <br>
+West US 3        | Not available        |
+
+
+
+### Jais models
+
+
+### Meta Llama models
+
+
+### Microsoft Phi-3 models
+
+
+### Mistral models
+
+
+
+
+### Nixtla models
+
+
+
+
+
+
+
+
 
 ## Alternatives to region availability
 
