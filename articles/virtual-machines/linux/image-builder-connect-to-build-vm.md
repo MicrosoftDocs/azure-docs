@@ -6,8 +6,8 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 7/10/2024
 ms.topic: troubleshooting
-ms.service: virtual-machines
-ms.subservice: image-builder
+ms.service: azure-virtual-machines 
+ms.subservice: image-builderms.subservice: image-builder
 ---
 
 # How to Connect to the Azure Image Builder Build VM
@@ -47,17 +47,17 @@ Azure Bastion provides a secure way to connect to VMs without exposing public IP
 > No changes to existing Network Security Groups (NSGs) are needed when connecting to the Azure Image Builder Build VM using Azure Bastion. 
 
 ### Option 2 (Recommended, if available): Connect to the VM using Azure Serial Console
-Azure Serial Console offers text-based access to VMs running Linux or Windows. Learn more about how to use Azure Serial Console to connect to a VM by reading the [Azure Serial Console documentation](https://learn.microsoft.com/azure/virtual-machines/serial-console).
+Azure Serial Console offers text-based access to VMs running Linux or Windows. Learn more about how to use Azure Serial Console to connect to a VM by reading the [Azure Serial Console documentation](https://learn.microsoftcom/azure/virtual-machines/serial-console).
 
 ###Option 3 (Not Recommended): Use a Public IP Address Resource
 The recommended practice is to use Azure Bastion or Azure Serial Console for connecting to VMs. However, if Bastion or Serial Console cannot be used, you can connect to the Build VM by using public IPs. 
 
 Use the following documentation to connect to a VM using public IPs:
- - [Connect to a Linux VM using Public IP](https://learn.microsoft.com/azure/virtual-machines/linux/connect-to-vm)
+ - [Connect to a Linux VM using Public IP](https://learn.microsoft.com/azure/virtual-machines/linux-vm-connect)
  - [Connect to a Windows VM using Public IP](https://learn.microsoft.com/azure/virtual-machines/windows/connect-rdp)
 
 >[!NOTE]
-> You may need to associate a public IP address to the build VM first and you can do that by following the instructions in the following documentation: [Associate a public IP address to a virtual machine](https://learn.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#associate-an-existing-public-ip-address-to-a-vm). 
+> You may need to associate a public IP address to the build VM first and you can do that by following the instructions in the following documentation: [Associate a public IP address to a virtual machine](https://learn.microsoft.com/azure/virtual-network/public-ip-addresses#associate-an-existing-public-ip-address-to-a-vm). 
 > 
 > You also should ensure network connectivity from the client device (running WinRM/SSH) to the Build VM over the public network. Check and update your Network Security Groups (NSGs) as needed.
 
