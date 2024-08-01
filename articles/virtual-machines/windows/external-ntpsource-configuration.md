@@ -50,6 +50,9 @@ To check current time source in your **PDC**, from an elevated command prompt ru
 14. Link the GPO to the **Domain Controllers** Organizational Unit.
 
 >[!NOTE]
+>If the PDC is a virtual machine then set this value VMICTimeProvider equal to 0
+
+>[!NOTE]
 >It can take up to 15 minutes for these changes to be reflected by the system.
 
 From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the NTP Server you chose.
