@@ -18,7 +18,7 @@ author: sdgilley
 
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In this article, you learn how to create a compute instance in Azure AI Studio. You can create a compute instance in the Azure AI Studio or in the Azure portal. 
+In this article, you learn how to create a compute instance in Azure AI Studio. You can create a compute instance in the Azure AI Studio. 
 
 You need a compute instance to:
 - Use prompt flow in Azure AI Studio. 
