@@ -93,14 +93,15 @@ Workspace gateways need to be in the same Azure region and subscription as the A
 > [!NOTE]
 > Starting in August 2024, workspace gateway support will be rolled out in the following regions. These regions are a subset of those where API Management is available.
 
-* East US 2
-* North Central US
 * West US
+* North Central US
 * UK South
+* France Central 
 * North Europe
 * East Asia
 * Southeast Asia
 * Australia East
+* Japan East
 
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
