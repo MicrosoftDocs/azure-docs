@@ -39,7 +39,7 @@ The following prerequisites before using Azure AI Vision containers on-premises:
 
 ## Connect to the Kubernetes cluster
 
-The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer. You can find more information on deployments in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
+The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](/azure/aks/tutorial-kubernetes-deploy-cluster) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer. You can find more information on deployments in the [Kubernetes documentation](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
 ## Configure Helm chart values for deployment
 
@@ -375,5 +375,5 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 
 <!-- LINKS - internal -->
 [vision-container-host-computer]: computer-vision-how-to-install-containers.md#the-host-computer
-[installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
+[installing-helm-apps-in-aks]: /azure/aks/kubernetes-helm
 [cog-svcs-containers]: ../cognitive-services-container-support.md

@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
     {
       "source_path": "articles/network-watcher/connection-monitor-create-using-template.md",
       "redirect_url": "/previous-versions/azure/network-watcher/connection-monitor-create-using-template",
@@ -4581,11 +4581,6 @@
         {
             "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
-        },
-        {
-            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
-            "redirect_url": "/azure/aks/network-observability-overview",
-            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
