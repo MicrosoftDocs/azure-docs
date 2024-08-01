@@ -14,6 +14,9 @@ recommendations: false
 
 The provisioned throughput capability allows you to specify the amount of throughput you require in a deployment. The service then allocates the necessary model processing capacity and ensures it's ready for you. Throughput is defined in terms of provisioned throughput units (PTU) which is a normalized way of representing the throughput for your deployment. Each model-version pair requires different amounts of PTU to deploy and provide different amounts of throughput per PTU.
 
+> [!NOTE]
+> On July 29th 2024, Microsoft switched to an hourly/reservation PTU offering that offers usability improvements. For more details, see the [PTU migration article](../provisioned-migration.md#whats-changing).
+
 ## What does the provisioned deployment type provide?
 
 - **Predictable performance:** stable max latency and throughput for uniform workloads. 
@@ -47,7 +50,7 @@ An Azure OpenAI Deployment is a unit of management for a specific OpenAI Model. 
 
 ### Provisioned throughput units
 
-Provisioned throughput units (PTU) are units of model processing capacity that you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version.
+Provisioned throughput units (PTU) are units of model processing capacity that you can reserve and deploy for processing prompts and generating completions. The minimum PTU deployment, increments, and processing capacity associated with each unit varies by model type & version. 
 
 ### Deployment types
 

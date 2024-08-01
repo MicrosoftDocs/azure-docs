@@ -72,6 +72,7 @@ Customers will no longer obtain quota by contacting their sales teams. Instead, 
   
 The target is to respond to all quota requests within two business days. However, many requests will be autoapproved and responses can be expected within 30 minutes in these cases.
 
+
 ## New hourly reservation payment model
 
 > [!NOTE]
@@ -103,6 +104,7 @@ Microsoft has introduced a new “Hourly/reservation” payment model for provis
 > **Models released after July 28, 2024 require the use of the Hourly/Reservation payment model.** They are not deployable on Azure OpenAI resources that have active commitments. To deploy models released after July 28, exiting customers must either:
 > - Create deployments on new Azure OpenAI resources without commitments.
 > - Migrate an existing resources off its commitments.
+
 
 ## Hourly reservation model details
 
