@@ -742,10 +742,10 @@ When you deploy the model to a self-hosted online endpoint with **Microsoft Entr
 
 
 ```csharp
-//client = new ChatCompletionsClient(
-//    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-//    new DefaultAzureCredential(includeInteractiveCredentials: true)
-//);
+client = new ChatCompletionsClient(
+    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+    new DefaultAzureCredential(includeInteractiveCredentials: true)
+);
 ```
 
 ### Get the model's capabilities
