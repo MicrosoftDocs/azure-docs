@@ -47,7 +47,7 @@ In this update, we made the following change:
 
 *Published: May 13, 2024*
 
-In this update, we made the following change:
+In this update, we made the following changes:
 
 - Added HCI core count.
 - Updated reliability of users per core calculation.
