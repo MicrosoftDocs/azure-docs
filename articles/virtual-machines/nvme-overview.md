@@ -42,7 +42,7 @@ For v6, Ebsv5, and greater VMs; you need to transition from SCSI to NVMe. For mo
 
 ### VM sizes
 
-Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Da/Ea/Fav6 and newer) typically support only the NVMe storage interface. However, Ebsv5/Ebdsv5 and Lsv2/Lsv3/Lasv3 VMs introduced NVMe as an option for temporary disks.
+Typically, the older generations of general purpose, memory optimized, and compute optimized VMs (D/Ev5 or Fv2 and older) support SCSI. The newer generations (Ebsv5, Da/Ea/Fav6 and newer) typically support only the NVMe storage interface (or some offering supports SCSI and NVMe, both interfaces, Ebsv5 is an example of such offering).  Also, starting from Da/Ea/Fav6 and some of the future offering, we have introduced the NVMe interface for the local SSD disks.
 
 For specifics about which VM generations support which storage types, check the [documentation about VM sizes in Azure](/azure/virtual-machines/sizes).
 

@@ -618,8 +618,6 @@
       items:
       - name: NVMe Overview
         href: nvme-overview.md
-      - name: Enable NVMe FAQ
-        href: enable-nvme-faqs.yml
       - name: Temp NVMe Disks FAQ
         href: enable-nvme-temp-faqs.yml
       - name: Remote NVMe Disks FAQ
