@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 07/15/2024
+ms.date: 08/01/2024
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -62,7 +62,7 @@ The required network ports are as follows:
 
 \*\* LDAP over SSL (port 636) isn't currently supported. Instead, use [LDAP over StartTLS](configure-ldap-over-tls.md) (port 389) to encrypt LDAP traffic.
 
-For information about DNS, see [Understand DNS in Azure NetApp Files](domain-name-system-concept.md). 
+For information about DNS, see [Understand Domain Name Systems in Azure NetApp Files](domain-name-system-concept.md). 
 
 ### Time source requirements 
 

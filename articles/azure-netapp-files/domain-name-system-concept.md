@@ -1,18 +1,18 @@
 ---
-title: Understand DNS requirements in Azure NetApp Files 
+title: Understand Domain Name Systems in Azure NetApp Files 
 description: The Domain Name Systems (DNS) service is a critical component of data access in Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 08/01/202
 ms.author: anfdocs
 ---
-# Understand Domain Name System in Azure NetApp Files 
+# Understand Domain Name Systems in Azure NetApp Files 
 
-The Domain Name Systems (DNS) service is a critical component of data access in Azure NetApp Files when using file protocols that rely on Kerberos for authentication (including SMB and NFSv4.1). Not only does a hostname simplify access to a volume, it protects against scenarios when an IP address changes; instead of informing users of a new IP address, they can simply continue using the hostname. 
+The Domain Name Systems (DNS) service is a critical component of data access in Azure NetApp Files when using file protocols that rely on Kerberos for authentication (including SMB and NFSv4.1). A hostname both simplifies access to a volume and protects against scenarios when an IP address changes; instead of informing users of a new IP address, they can simply continue using the hostname. 
 
-By default Kerberos authentication leverages name-to-IP-address resolution to formulate the Service Principal Name (SPN) used to retrieve the Kerberos ticket. For example, when an SMB share is accessed with a Universal Naming Convention path (UNC) such as \\SMB.CONTOSO.COM, a DNS request is issued for SMB.CONTOSO.COM, and the IP address of the Azure NetApp Files volume is retrieved. If there's no DNS entry present (or is a different name than what is being requested – such as with aliases/CNAMEs), then a proper SPN isn't able to be retrieved and the Kerberos request fails. As a result, access to the volume could be disallowed if the fallback authentication method (such as New Technology LAN Manager [NTLM]) is disabled. 
+By default Kerberos authentication leverages name-to-IP-address resolution to formulate the Service Principal Name (SPN) used to retrieve the Kerberos ticket. For example, when an SMB share is accessed with a Universal Naming Convention path (UNC) such as \\SMB.CONTOSO.COM, a DNS request is issued for SMB.CONTOSO.COM, and the IP address of the Azure NetApp Files volume is retrieved. If there's no DNS entry present (or the present entry is different from what's requested, such as with aliases/CNAMEs), then a proper SPN isn't able to be retrieved and the Kerberos request fails. As a result, access to the volume could be disallowed if the fallback authentication method (such as [New Technology LAN Manager](/windows-server/security/kerberos/ntlm-overview)) is disabled. 
 
 NFSv4.1 Kerberos operates in a similar manner for SPN retrieval, where DNS lookups are integral to the authentication process and can also be used for Kerberos realm discovery. 
 
@@ -22,23 +22,17 @@ Azure NetApp Files supports the use of Active Directory integrated DNS or standa
 
 If an IP address is used in an access request to an Azure NetApp Files volume, then a Kerberos request will operate differently depending on the protocol in use. 
 
+### SMB 
+
 When using SMB, a request for a UNC using \\x.x.x.x by default attempts to use NTLM for authentication. In environments where NTLM is disallowed for security reasons, an SMB request using an IP address isn't able to use Kerberos or NTLM for authentication by default. As a result, access to the Azure NetApp Files volume is denied. In later Windows releases (beginning with Windows 10 version 1507 and Windows Server 2016), [Kerberos clients can be configured to support IPv4 and IPv6 hostnames in SPNs](/windows-server/security/kerberos/configuring-kerberos-over-ip) for SMB communication. 
+
+### NFSv4.1
 
 When using NFSv4.1, a mount request to an IP address using one of the `sec=[krb5/krb5i/krb5p]` options uses reverse-DNS lookups via a pointer record (PTR) to resolve an IP address to a hostname, which is then used to formulate the SPN for ticket retrieval. If you use NFSv4.1 with Kerberos, you should have an A/AAAA and PTR for the Azure NetApp Files volume to cover both hostname and IP address access to mounts. 
 
 ## DNS entries in Azure NetApp Files 
 
-In Azure NetApp Files, DNS entries are created by: 
-
-<!-- "ate" -->
-- **An associated pointer (PTR) record box is checked**: If reverse lookup zones for the subnet exist, then A/AAAA records automatically create PTR records without administrator intervention.
-- **The “Delete this record when it becomes stale” box is checked.** When the DNS record becomes “stale,” DNS deletes the record, provided scavenging for DNS has been enabled.
-- **The DNS record’s “time to live (TTL)” is set to 1 day (24 hours)**. The TTL setting can be modified by the DNS administrator as needed. The TTL on a DNS record determines the length of time a DNS entry exists in a client’s DNS cache.
-
->[!NOTE]
->To view timestamps of when a DNS record was created in Windows Active Directory DNS, navigate to the **View** menu of the DNS Manager then select **Advanced**. 
-
-Azure NetApp Files volumes support dynamic DNS updates if the DNS server supports dynamic DNS. With dynamic DNS, volumes created with hostnames automatically notify the DNS server to create an A/AAAA record. If a reverse lookup zone exists, then DNS also creates a PTR record. If the reverse lookup zone doesn't exist, then a PTR record isn't created automatically, meaning you need to create it manually.
+Azure NetApp Files volumes support dynamic DNS updates if the DNS server supports dynamic DNS. With dynamic DNS, volumes created with hostnames automatically notify the DNS server to create an A/AAAA record. If a [reverse lookup zone](/troubleshoot/windows-server/networking/configure-subnetted-reverse-lookup-zone) exists, then DNS also creates a PTR record. If the reverse lookup zone doesn't exist, then a PTR record isn't created automatically, meaning you need to create it manually.
 
 Hostnames (rather than IP addresses) are used for volume mount paths in specific configurations, which all require DNS for proper functionality:
 
@@ -50,11 +44,18 @@ An IP address is used when an Azure NetApp File volume doesn't require DNS--such
 
 If a DNS entry created by dynamic DNS is deleted on the DNS server, it's recreated within 24 hours by a new dynamic DNS update from Azure NetApp Files.
 
-<!-- When Azure NetApp Files creates a DNS A/AAAA record via dynamic DNS, the following configurations are used: -->
+When Azure NetApp Files creates a DNS A/AAAA record via dynamic DNS, the following configurations are used:
+
+- **An associated PTR record box is checked**: If reverse lookup zones for the subnet exist, then A/AAAA records automatically create PTR records without administrator intervention.
+- **The “Delete this record when it becomes stale” box is checked.** When the DNS record becomes “stale,” DNS deletes the record, provided scavenging for DNS has been enabled.
+- **The DNS record’s “time to live (TTL)” is set to one day (24 hours)**. The TTL setting can be modified by the DNS administrator as needed. The TTL on a DNS record determines the length of time a DNS entry exists in a client’s DNS cache.
+
+>[!NOTE]
+>To view timestamps of when a DNS record was created in Windows Active Directory DNS, navigate to the **View** menu of the DNS Manager then select **Advanced**. 
 
 ## DNS record pruning/scavenging
 
-Most DNS servers provide methods to prune/scavenge expired records. Pruning helps prevent stale records from cluttering DNS servers and creating scenarios where duplicate A/AAAA and/or PTR records exist, which can create unpredictable outcomes for Azure NetApp Files volumes.
+Most DNS servers provide methods to [prune/scavenge expired records](/troubleshoot/windows-server/networking/dns-scavenging-setup). Pruning helps prevent stale records from cluttering DNS servers and creating scenarios where duplicate A/AAAA and/or PTR records exist, which can create unpredictable outcomes for Azure NetApp Files volumes.
 
 If multiple PTR records for the same IP address point to different hostnames, Kerberos requests may fail because the incorrect SPN is being retrieved during DNS lookups. DNS doesn't discern which PTR record belongs to which hostname; instead, reverse lookups perform a round-robin search through each A/AAAA record for each new lookup. For example:
 
@@ -75,11 +76,12 @@ Address:  x.x.x.x
 ```
 
 ## DNS aliases and Canonical Name (CNAME) records
+
 Azure NetApp Files creates a DNS hostname for a volume that has been configured for a protocol that requires DNS for proper functionality, such as SMB, dual protocol or NFSv4.1 with Kerberos. The name created is in the format of the SMB server (computer account) prefix name used when creating the Active Directory connection for the NetApp account with some extra alphanumeric characters to help uniquify multiple volume entries in the same NetApp account as needed. In most cases, multiple volumes that require hostnames and exist in the same NetApp account attempt to use the same hostnames/IP addresses. For example, if the SMB server name is SMB-West.contoso.com, then hostname entries follow the format of SMB-West-XXXX.contoso.com.
 
 In some cases, the name used by Azure NetApp Files may not be user-friendly enough to pass on to end users, or administrators may want to keep more familiar DNS names used when data has been migrated from on-premises storage to Azure NetApp Files (i.e., if the original DNS name was datalake.contoso.com, end users may want to continue using that name).
 
-Azure NetApp Files doesn't natively allow for the specification of DNS hostnames used. If you require an alternate DNS name with the same functionality, you should use a DNS alias/canonical name (CNAME).
+Azure NetApp Files doesn't natively allow for the specification of DNS hostnames used. If you require an alternate DNS name with the same functionality, you should use a [DNS alias/canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide).
 
 Using a CNAME record (rather than an additional A/AAAA record) that points to the Azure NetApp Files volume’s A/AAAA record leverages the same SPN as the SMB server to enable Kerberos access for both the A/AAAA record and CNAME. Consider the example of an A/AAAA record of SMB-West-XXXX.contoso.com. The CNAME record of datalake.contoso.com is configured to point back to A/AAAA record of SMB-West-XXXX.contoso.com. SMB or NFS Kerberos requests made to datalake.contoso.com use the Kerberos SPN for SMB-West-XXXX to provide access to the volume.
 
@@ -98,18 +100,6 @@ Ensure that you meet the following requirements about the DNS configurations:
 * For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](understand-guidelines-active-directory-domain-service-site.md#ad-ds-ldap-discover).  
 * If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
 
+## Next steps
 
-<!-- 
-### DNS requirements 
-
-Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client timeouts.
-
-Azure NetApp Files supports the use of [Active Directory integrated DNS](/windows-server/identity/ad-ds/plan/active-directory-integrated-dns-zones) or standalone DNS servers.    
-
-
-* Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
-When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
-If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.
-
-
--->
+* [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
