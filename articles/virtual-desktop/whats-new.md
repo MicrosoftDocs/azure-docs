@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 07/12/2024
+ms.date: 07/31/2024
 ---
 
 # What's new in Azure Virtual Desktop?
