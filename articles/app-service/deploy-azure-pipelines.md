@@ -20,7 +20,9 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy your web
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You'll use the [Azure Web App task (`AzureWebApp`)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app) to deploy to Azure App Service in your pipeline. For more complicated scenarios such as needing to use XML parameters in your deploy, you can use the [Azure App Service deploy task (AzureRmWebAppDeployment)](/azure/devops/pipelines/tasks/deploy/azure-rm-web-app-deployment).
+You'll use the [Azure Web App task (`AzureWebApp`)](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureWebAppV1/README.md) to deploy to Azure App Service in your pipeline. For more complicated scenarios such as needing to use XML parameters in your deploy, you can use the [Azure App Service deploy task (AzureRmWebAppDeployment)](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureRmWebAppDeploymentV4/README.md).
+
+Tasks/AzureRmWebAppDeploymentV4/README.md
 
 ## Prerequisites
 
