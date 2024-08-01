@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ---
 # Azure Bastion monitoring data reference
 
@@ -84,8 +84,6 @@ The recommended values for this metric's configuration are:
 
 [!INCLUDE [microsoft.network/bastionHosts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-bastionhosts-logs-include.md)]
 
-
-
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
 ### Azure Bastion microsoft.network/bastionHosts
@@ -93,8 +91,6 @@ The recommended values for this metric's configuration are:
 - [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity#columns)
 - [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics#columns)
 - [MicrosoftAzureBastionAuditLogs](/azure/azure-monitor/reference/tables/microsoftazurebastionauditlogs#columns)
-
-## Activity log
 
 [!INCLUDE [horz-monitor-ref-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-activity-log.md)]
 

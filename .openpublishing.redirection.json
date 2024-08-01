@@ -4905,7 +4905,7 @@
         {
             "source_path_from_root":"/articles/bastion/diagnostic-logs.md",
             "redirect_url":"/azure/bastion/monitor-bastion",
-            "redirect_document_id":true
+            "redirect_document_id":false
         },
         {
             "source_path": "articles/data-catalog/data-catalog-developer-concepts.md",

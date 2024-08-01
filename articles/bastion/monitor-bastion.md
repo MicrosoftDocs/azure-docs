@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ---
 
 # Monitor Azure Bastion
@@ -104,5 +104,5 @@ You can set alerts for any metric, log entry, or activity log entry listed in th
 
 ## Related content
 
-- See [Azure Bastion monitoring data reference](monitor-bastoin-reference.md) for a reference of the metrics, logs, and other important values created for Azure Bastion.
+- See [Azure Bastion monitoring data reference](monitor-bastion-reference.md) for a reference of the metrics, logs, and other important values created for Azure Bastion.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
