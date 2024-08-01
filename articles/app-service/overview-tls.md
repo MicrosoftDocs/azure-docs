@@ -25,8 +25,6 @@ Transport Layer Security (TLS) is a widely adopted security protocol designed to
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-
-
 ## Supported TLS Version on App Service?
 
 For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, 1.2, and 1.3.  
@@ -34,6 +32,11 @@ For incoming requests to your web app, App Service supports TLS versions 1.0, 1.
 ### Minimum TLS Version and SCM Minimum TLS Version 
 
 App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM would be set to 1.2 on both portal and API. 
+
+### TLS 1.3
+With TLS 1.3, a [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite-preview) setting is now available. This includes two cipher suites at the top of the cipher suite order:
+- TLS_AES_256_GCM_SHA384  
+- TLS_AES_128_GCM_SHA256 
 
 ### TLS 1.0 and 1.1 
 
@@ -45,20 +48,25 @@ To ensure backward compatibility for TLS 1.0 and TLS 1.1, App Service will conti
 > Incoming requests to web apps and incoming requests to Azure are treated differently. App Service will continue to support TLS 1.0 and 1.1 for incoming requests to the web apps. For incoming requests directly to Azure, for example through ARM or API, it's not recommended to use TLS 1.0 or 1.1.
 >
 
-### TLS 1.3
-With TLS 1.3, a "Minimum TLS Cipher Suite" setting is now available. This includes two cipher suites at the top of the cipher suite order:
-- TLS_AES_256_GCM_SHA384  
-- TLS_AES_128_GCM_SHA256 
+## Minimum TLS cipher suite (preview)
 
 > [!NOTE]
 > Minimum TLS Cipher Suite is supported on Premium SKUs and higher on multi-tenant App Service.
->
 
-#### What are cipher suites and how do they work on App Service? 
+The minimum TLS cipher suite includes a fixed list of cipher suites with an optimal priority order that you cannot change. Reordering or reprioritizing the cipher suites is not recommended as it could expose your web apps to weaker encryption. You also cannot add new or different cipher suites to this list. When you select a minimum cipher suite, the system automatically disables all less secure cipher suites for your web app, without allowing you to selectively disable only some weaker cipher suites.
+
+Follow these steps to change the Minimum TLS cipher suite:
+1. Browse to your app in the [Azure Portal](https://portal.azure.com/)
+1. In the left menu, select **configuration** and then select the **General settings** tab.
+1. Under __Minimum Inbound TLS Cipher Suite__, select **change**, and then select the **Minimum TLS Cipher Suite**.
+1. Select **Ok**.
+1. Select **Save** to save the changes.
+
+### What are cipher suites and how do they work on App Service? 
 
 A cipher suite is a set of instructions that contains algorithms and protocols to help secure network connections between clients and servers. By default, the front-end's OS would pick the most secure cipher suite that is supported by both App Service and the client. However, if the client only supports weak cipher suites, then the front-end's OS would end up picking a weak cipher suite that is supported by them both. If your organization has restrictions on what cipher suites should not be allowed, you may update your web app’s minimum TLS cipher suite property to ensure that the weak cipher suites would be disabled for your web app. 
 
-#### App Service Environment (ASE) V3 with Cluster Setting "FrontEndSSLCipherSuiteOrder"
+### App Service Environment (ASE) V3 with cluster setting "FrontEndSSLCipherSuiteOrder"
 
 For App Service Environments with "FrontEndSSLCipherSuiteOrder" cluster setting, you need to update your settings to include two TLS 1.3 cipher suites (TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256). Once updated, restart your front-end for the change to take effect. You must still include the two required cipher suites as mentioned in the docs. 
 
@@ -68,7 +76,7 @@ End-to-end (E2E) TLS encryption is available in Standard App Service plans and h
 
 Follow these steps to enable end-to-end TLS encryption:
 1. Browse to your app in the [Azure Portal](https://portal.azure.com/)
-1. In the left menu, select **configuration**.
+1. In the left menu, select **configuration** and then select the **General settings** tab.
 1. Under __End-to-end TLS encryption__, select **on**.
 1. Save the changes.
 
