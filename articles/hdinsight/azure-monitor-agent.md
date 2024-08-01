@@ -57,14 +57,14 @@ This document outlines the changes to the Azure Monitor integration and provides
 
 The following sections describe how customers can use the new Azure Monitor Agent integration in different scenarios.  
 
-* The [Activate a new Azure Monitor Agent integration](/log-analytics-migration.md#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration.  
+* The [Activate a new Azure Monitor Agent integration](./log-analytics-migration.md#activate-a-new-azure-monitor-integration) section outlines how to activate and use the new Azure Monitor integration.  
 
 * The [Migrating from Azure Monitor Classic to the new Azure Monitor](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration) Agent Integration section includes additional information for users that depend on the older adults Azure Monitor integration. 
 
 > [!NOTE]
 > Customers using Azure Monitor Classic will no longer work after 31 August, 2024.  
 >
-> Clusters with Image<Image Number> with the latest HDInsight API <API Number> will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using <Image number>. 
+> Clusters with Image **Image Number** with the latest HDInsight API **API Number** will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using **Image number**. 
 
 ### Activate a new Azure Monitor Agent integration 
 
