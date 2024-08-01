@@ -48,4 +48,4 @@ If you have questions about container offerings, please reach out to <acconaks@m
 - [Deploy Confidential container group with Azure Container Instances](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
 - [Microsoft Azure Attestation](../attestation/overview.md)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
-- [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

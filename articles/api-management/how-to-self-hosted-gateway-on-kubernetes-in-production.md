@@ -132,7 +132,7 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 - [Pod Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
 > [!Note]
-> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](./../aks/availability-zones.md).
+> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](/azure/aks/availability-zones).
 
 ### Protecting against pod disruption
 
