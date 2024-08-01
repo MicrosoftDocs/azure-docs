@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/01/202
+ms.date: 08/01/2024
 ms.author: anfdocs
 ---
 # Understand Domain Name Systems in Azure NetApp Files 
@@ -81,7 +81,7 @@ Azure NetApp Files creates a DNS hostname for a volume that has been configured 
 
 In some cases, the name used by Azure NetApp Files may not be user-friendly enough to pass on to end users, or administrators may want to keep more familiar DNS names used when data has migrated from on-premises storage to Azure NetApp Files (i.e., if the original DNS name was datalake.contoso.com, end users may want to continue using that name).
 
-Azure NetApp Files doesn't natively allow for the specification of DNS hostnames used. If you require an alternate DNS name with the same functionality, you should use a [DNS alias/canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns?view=o365-worldwide).
+Azure NetApp Files doesn't natively allow for the specification of DNS hostnames used. If you require an alternate DNS name with the same functionality, you should use a [DNS alias/canonical name (CNAME)](/microsoft-365/admin/dns/create-dns-records-using-windows-based-dns).
 
 Using a CNAME record (rather than an additional A/AAAA record) that points to the Azure NetApp Files volume’s A/AAAA record leverages the same SPN as the SMB server to enable Kerberos access for both the A/AAAA record and CNAME. Consider the example of an A/AAAA record of SMB-West-XXXX.contoso.com. The CNAME record of datalake.contoso.com is configured to point back to A/AAAA record of SMB-West-XXXX.contoso.com. SMB or NFS Kerberos requests made to datalake.contoso.com use the Kerberos SPN for SMB-West-XXXX to provide access to the volume.
 
