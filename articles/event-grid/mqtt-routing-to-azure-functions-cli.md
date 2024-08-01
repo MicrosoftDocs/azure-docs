@@ -7,6 +7,7 @@ author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
 ms.custom: devx-track-azurecli
+ms.service: azure-event-grid
 ---
 
 # Tutorial: Route MQTT messages in Azure Event Grid to Azure Functions using custom topics - Azure CLI

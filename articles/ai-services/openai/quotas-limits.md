@@ -89,7 +89,8 @@ The Usage Limit determines the level of usage above which customers might see la
 
 |Model| Usage Tiers per month |
 |----|----|
-|`GPT-4o` |1.5 Billion tokens |
+|`gpt-4o` |1.5 Billion tokens |
+|`gpt-4o-mini` | 45 Billion tokens |
 
 ## Other offer types
 

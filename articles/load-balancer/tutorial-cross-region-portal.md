@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 07/30/2024
+ms.date: 08/01/2024
 ms.custom: template-tutorial, references_regions
 #Customer intent: As a administrator, I want to deploy a cross-region load balancer for global high availability of my application or service.
 ---
@@ -142,9 +142,6 @@ In this section, you create a cross-region load balancer with a public IP addres
     > Cross region load-balancer deployment is listed to specific home Azure regions. For the current list, see [Home regions in Azure](cross-region-overview.md#home-regions-in-azure) for cross region load balancer.
 
 # [Azure CLI](#tab/azurecli/)
-
-> [!IMPORTANT]
-> To complete these steps, ensure that two regional load balancers with backend pools have been deployed in your subscription.  For more information, see, **[Quickstart: Create a public load balancer to load balance VMs using Azure CLI](quickstart-load-balancer-standard-public-cli.md)**.
 
 ### Create a resource group
 
