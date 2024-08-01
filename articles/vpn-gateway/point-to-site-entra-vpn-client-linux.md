@@ -3,7 +3,7 @@ title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Linux'
 description: Learn how to configure the Linux Azure VPN Client for Microsoft Entra ID authentication for gateways configured to use the Microsoft-registered Azure VPN Client App ID.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/05/2024
