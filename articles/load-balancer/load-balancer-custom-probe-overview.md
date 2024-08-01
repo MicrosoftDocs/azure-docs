@@ -2,7 +2,7 @@
 title: Azure Load Balancer health probes
 description: Azure Load Balancer health probes and configuration for detecting application failures, managing load, and planned downtime. Includes probe properties and SKU comparison.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: mbender

@@ -3,7 +3,7 @@ title: Managed identity
 titleSuffix: Azure Data Factory
 description: Learn about using managed identities in Azure Data Factory. 
 author: nabhishek
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/05/2024

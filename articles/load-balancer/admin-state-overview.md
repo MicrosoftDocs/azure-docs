@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Overview of Administrative State (Admin State) in Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 05/29/2024
 ms.author: mbender
