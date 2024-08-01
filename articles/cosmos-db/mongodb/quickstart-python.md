@@ -21,8 +21,8 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-[API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/csharp) | [MongoDB Package (NuGet)](https://www.nuget.org/packages/MongoDB.Driver)
-packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
+[API for MongoDB reference documentation](https://www.mongodb.com/docs/drivers/python-drivers/) | [pymongo package](https://pypi.org/project/pymongo/)
+ | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
