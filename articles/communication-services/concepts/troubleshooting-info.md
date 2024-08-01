@@ -12,6 +12,7 @@ ms.service: azure-communication-services
 ---
 
 # Troubleshooting in Azure Communication Services
+<a name="calling-sdk-error-codes"></a>
 
 This document helps you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
