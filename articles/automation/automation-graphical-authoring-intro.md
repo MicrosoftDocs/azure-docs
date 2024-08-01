@@ -1,7 +1,7 @@
 ---
 title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
-services: azure-automation
+ms.service: azure-automation
 ms.subservice: process-automation
 ms.date: 10/03/2023
 ms.topic: conceptual 
