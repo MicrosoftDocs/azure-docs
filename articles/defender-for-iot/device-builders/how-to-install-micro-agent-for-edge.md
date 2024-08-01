@@ -73,7 +73,7 @@ This article explains how to install, and authenticate the Defender micro agent 
     
         :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
  
-1. Test the system end-to-end by creating a trigger file on the device. The trigger file will cause a baseline scan in the agent, that will detect the file as a baseline violation. 
+1. Test the system end-to-end by creating a trigger file on the device. The trigger file causes a baseline scan in the agent that detects the file as a baseline violation. 
     
     Create a file on the file system with the following command:
     
@@ -81,7 +81,7 @@ This article explains how to install, and authenticate the Defender micro agent 
     sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
     ```
 
-    A baseline validation failure recommendation will occur in the hub, with a `CceId` of `CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0`: 
+    A baseline validation failure recommendation occurs in the hub, with a `CceId` of `CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0`: 
     
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
 
