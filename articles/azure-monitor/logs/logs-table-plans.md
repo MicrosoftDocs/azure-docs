@@ -80,13 +80,13 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Possible values are `Analytics` and `Basic`.|
 
-**Example**
+#### Example
 
 This example configures the `ContainerLogV2` table for Basic logs.
 
 Container Insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic logs.
 
-**Sample request**
+* **Sample request**
 
     ```http
     PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
@@ -112,26 +112,26 @@ Container Insights uses `ContainerLog` by default. To switch to using `Container
     }
     ```
 
-**Sample response**
+* **Sample response**
 
-This sample is the response for a table changed to Basic logs:
-
-Status code: 200
-
-```http
-{
-    "properties": {
-        "retentionInDays": 30,
-        "totalRetentionInDays": 30,
-        "archiveRetentionInDays": 22,
-        "plan": "Basic",
-        "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
-        "schema": {...}        
-    },
-    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLogV2"
-}
-```
+    This sample is the response for a table changed to Basic logs:
+    
+    Status code: 200
+    
+    ```http
+    {
+        "properties": {
+            "retentionInDays": 30,
+            "totalRetentionInDays": 30,
+            "archiveRetentionInDays": 22,
+            "plan": "Basic",
+            "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
+            "schema": {...}        
+        },
+        "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
+        "name": "ContainerLogV2"
+    }
+    ```
 
 ### [CLI](#tab/cli-1)
 
