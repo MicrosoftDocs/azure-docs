@@ -40,11 +40,11 @@ ms.author: mattmcinnes
 
 
 ###  ND_A100_v4-series
-[!INCLUDE [nd-a100-v4-series-summary](./includes/nda100v4-series-summary.md)]
+[!INCLUDE [nd-a100-v4-series-summary](./includes/ndasra100v4-series-summary.md)]
 
-[View the full ND_A100_v4-series page](./nda100v4-series.md).
+[View the full ND_A100_v4-series page](./ndasra100v4-series.md).
 
-[!INCLUDE [nd-a100-v4-series-specs](./includes/nda100v4-series-specs.md)]
+[!INCLUDE [nd-a100-v4-series-specs](./includes/ndasra100v4-series-specs.md)]
 
 
 ### NDm_A100_v4-series

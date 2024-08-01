@@ -457,7 +457,7 @@
         - name: Ncv3 NC6s NC12s NC24s retirement
           href: ncv3-nc6s-nc12s-nc24s-retirement.md
         - name: NCasT4_v3 series
-          href: ./sizes/gpu-accelerated/nct4v3-series.md
+          href: ./sizes/gpu-accelerated/ncast4v3-series.md
         - name: NC_A100_v4 series
           href: ./sizes/gpu-accelerated/nca100v4-series.md
       - name: ND family
@@ -494,15 +494,15 @@
         - name: NV series
           href: ./sizes/gpu-accelerated/nv-series.md
         - name: NV series retirement
-          href: ./sizes/gpu-accelerated/nv-series-retirement.md
+          href: nv-series-retirement.md
         - name: NV series migration guide
-          href: ./sizes/gpu-accelerated/nv-series-migration-guide.md
+          href: nv-series-migration-guide.md
         - name: NVv3 series
           href: ./sizes/gpu-accelerated/nvv3-series.md
         - name: NVv4 series
           href: ./sizes/gpu-accelerated/nvv4-series.md
         - name: NVadsA10_v5 series
-          href: ./sizes/gpu-accelerated/nva10v5-series.md
+          href: ./sizes/gpu-accelerated/nvadsa10v5-series.md
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
