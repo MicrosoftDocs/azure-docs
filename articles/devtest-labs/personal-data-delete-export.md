@@ -17,14 +17,6 @@ DevTest Labs collects two main pieces of personal data from the user. They are: 
 ### User email address
 DevTest Labs uses the user email address to send auto shutdown email notifications to lab users. The email notifies users of their machine being shut down. The users can either postpone or skip the shutdown if they wish to do so. You configure the email address at the lab level or at the VM level.
 
-**Setting email at the lab:**
-
-![Setting email at the lab level.](./media/personal-data-delete-export/lab-user-email.png)
-
-**Setting email at the VM:**
-
-![Setting email at the VM level.](./media/personal-data-delete-export/vm-user-email.png)
-
 ## Why do we need this personal data?
 The DevTest Labs service uses the personal data for operational purposes. This data is critical for the service to deliver key features. If you set a retention policy on the user email address, lab users do not receive timely auto shutdown email notifications after their email address is deleted from our system. Therefore, this data needs to be retained for as long as the user's resource is active in the Lab.
 
