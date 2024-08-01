@@ -4,7 +4,7 @@ description: Learn how to create a heat map. See how to use the Azure MapsAndroi
 author: sinnypan
 ms.author: sipa
 ms.date: 02/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: devx-track-extended-java
 services: azure-maps

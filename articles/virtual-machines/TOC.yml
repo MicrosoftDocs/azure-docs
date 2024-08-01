@@ -288,23 +288,23 @@
           displayName: DC-series, sizes, size, vm size
           href: ./sizes/general-purpose/dc-family.md
         - name: DCasv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcasv5-series.md
         - name: DCadsv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcadsv5-series.md
         - name: DCas_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcasccv5-series.md
         - name: DCads_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
-          href: dcesv5-dcedsv5-series.md  
+          href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
-          href: dcesv5-dcedsv5-series.md 
+          href: ./sizes/general-purpose/dcedsv5-series.md 
         - name: DCsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcsv3-series.md
         - name: DCdsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcdsv3-series.md
         - name: DCsv2 series
-          href: dcv2-series.md
+          href: ./sizes/general-purpose/dcsv2-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -315,10 +315,12 @@
         - name: Overview
           displayName: F-series, sizes, size, vm size
           href: ./sizes/compute-optimized/f-family.md
-        - name: Fasv6 and Falsv6 series
-          href: fasv6-falsv6-series.md
+        - name: Fasv6-series
+          href: ./sizes/compute-optimized/fasv6-series.md
+        - name: Falsv6 series
+          href: ./sizes/compute-optimized/falsv6-series.md
         - name: Fsv2 series
-          href: fsv2-series.md
+          href: ./sizes/compute-optimized/fsv2-series.md
       - name: FX family
         items:
         - name: Overview
@@ -415,11 +417,11 @@
           displayName: L-series, sizes, size, vm size
           href: ./sizes/storage-optimized/l-family.md
         - name: Lsv2 series
-          href: lsv2-series.md
+          href: ./sizes/storage-optimized/lsv2-series.md
         - name: Lsv3 series
-          href: lsv3-series.md
+          href: ./sizes/storage-optimized/lsv3-series.md
         - name: Lasv3 series
-          href: lasv3-series.md
+          href: ./sizes/storage-optimized/lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
