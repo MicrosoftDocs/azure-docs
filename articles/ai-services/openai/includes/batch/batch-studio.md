@@ -72,13 +72,13 @@ Once your input file is prepared, you first need to upload the file to then be a
 
 Choose your global batch deployment name from the dropdown and select **Create**. The deployment should match the deployment name specified on each line of your `.jsonl` file.
 
-:::image type="content" source="../../media/how-to/global-batch/deployment.png" alt-text="Create a batch job Azure Studio UI experience." lightbox="../../media/how-to/global-batch/deployment.png":::
+:::image type="content" source="../../media/how-to/global-batch/deployment.png" alt-text="Screenshot of the create a batch job Azure Studio UI experience." lightbox="../../media/how-to/global-batch/deployment.png":::
 
 ## Track batch job progress
 
 Once your job is created, you can monitor the job's progress by selecting the Job ID for the most recently created job.
 
-:::image type="content" source="../../media/how-to/global-batch/job-id.png" alt-text="Screenshot that shows the batch job id for a job currently undergoing validation." lightbox="../../media/how-to/global-batch/job-id.png":::
+:::image type="content" source="../../media/how-to/global-batch/job-id.png" alt-text="Screenshot that shows the batch job ID for a job currently undergoing validation." lightbox="../../media/how-to/global-batch/job-id.png":::
 
 You can track job status for your job in the right-hand pane:
 

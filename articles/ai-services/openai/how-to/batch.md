@@ -73,7 +73,7 @@ Refer to the [models page](../concepts/models.md) for the most up-to-date inform
 The following aren't currently supported:
 
 - Integration with the Assistants API.
-- Integration with the on your data feature.
+- Integration with Azure OpenAI On Your Data feature.
 
 ### Global batch deployment
 
@@ -212,10 +212,10 @@ When a job failure occurs, you'll find details about the failure in the `errors`
 | `too_many_tasks` |The number of requests in the input file exceeds the maximum allowed value of 100,000.<br><br>Please ensure your total requests are under 100,000 and resubmit the job.|
 | `url_mismatch` | Either a row in your input file has a URL that doesn’t match the rest of the rows, or the URL specified in the input file doesn’t match the expected endpoint URL. <br><br>Please ensure all request URLs are the same, and that they match the endpoint URL associated with your Azure OpenAI deployment.|
 |`model_not_found`|The Azure OpenAI model deployment name that was specified in the `model` property of the input file wasn't found.<br><br> Please ensure this name points to a valid Azure OpenAI model deployment.|
-| `duplicate_custom_id` | The custom id for this request is a duplicate of the custom id in another request. |
-|`empty_batch` | Please check your input file to ensure that the custom id parameter is unique for each request in the batch.|
+| `duplicate_custom_id` | The custom ID for this request is a duplicate of the custom ID in another request. |
+|`empty_batch` | Please check your input file to ensure that the custom ID parameter is unique for each request in the batch.|
 |`model_mismatch`| The Azure OpenAI model deployment name that was specified in the `model` property of this request in the input file doesn't match the rest of the file.<br><br>Please ensure that all requests in the batch point to the same AOAI model deployment in the `model` property of the request.|
-|`invalid_request`| The schema of the input line is invalid or the deployment SKU is invalid. <br><br>Please ensure the properties of the request in your input file matches the expected input properties, and that the Azure OpenAI deployment SKU is `globalbatch` for batch API requests.|
+|`invalid_request`| The schema of the input line is invalid or the deployment SKU is invalid. <br><br>Please ensure the properties of the request in your input file match the expected input properties, and that the Azure OpenAI deployment SKU is `globalbatch` for batch API requests.|
 
 ### Known issues
 
