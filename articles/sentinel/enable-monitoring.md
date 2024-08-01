@@ -1,42 +1,28 @@
 ---
 title: Turn on auditing and health monitoring in Microsoft Sentinel
 description: Monitor supported data connectors by using the SentinelHealth data table.
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 01/19/2023
+ms.date: 08/01/2024
 ---
 
 # Turn on auditing and health monitoring for Microsoft Sentinel (preview)
 
 Monitor the health and audit the integrity of supported Microsoft Sentinel resources by turning on the auditing and health monitoring feature in Microsoft Sentinel's **Settings** page. Get insights on health drifts, such as the latest failure events or changes from success to failure states, and on unauthorized actions, and use this information to create notifications and other automated actions.
 
-To get health data from the *SentinelHealth* data table, or to get auditing information from the *SentinelAudit* data table, you must first turn on the Microsoft Sentinel auditing and health monitoring feature for your workspace.
+To get health data from the [*SentinelHealth*](health-table-reference.md) data table, or to get auditing information from the [*SentinelAudit*](audit-table-reference.md) data table, you must first turn on the Microsoft Sentinel auditing and health monitoring feature for your workspace. This article instructs you how to turn on these features.
 
-This article instructs you how to turn on these features.
-
-To implement the health and audit feature using API (Bicep/ARM/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings).
-
-To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
+To implement the health and audit feature using API (Bicep/ARM/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
 
 > [!IMPORTANT]
 >
 > The *SentinelHealth* and *SentinelAudit* data tables are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Data tables and resource types
+## Prerequisites
 
-When the feature is turned on, the *SentinelHealth* and *SentinelAudit* data tables are created at the first event generated for the selected resources.
-
-The following resource types are currently supported for health monitoring:
-- Analytics rules (New!)
-- Data connectors
-- Automation rules
-- Playbooks (Azure Logic Apps workflows)
-    > [!NOTE]
-    > When monitoring playbook health, you'll also need to collect Azure Logic Apps diagnostic events from your playbooks in order to get the full picture of your playbook activity. See [**Monitor the health of your automation rules and playbooks**](monitor-automation-health.md) for more information.
-
-Only the analytics rule resource type is currently supported for auditing.
+- The *SentinelHealth* table isn't billable and incurs no charges for ingesting health data. The *SentinelAudit* table is billable, and as in other areas of Microsoft Sentinel, costs incurred depend on the log volume, which may be affected by the number of activities and changes made on related rules. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
 
 ## Turn on auditing and health monitoring for your workspace
 
@@ -81,10 +67,24 @@ _SentinelHealth()
  | take 20
 ```
 
+## Supported data tables and resource types
+
+When the feature is turned on, the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) data tables are created at the first event generated for the selected resources.
+
+Microsoft Sentinel health monitoring currently supports the following types of resources:
+
+- Analytics rules
+- Data connectors
+- Automation rules
+- Playbooks (Azure Logic Apps workflows)
+
+> [!NOTE]
+> When monitoring playbook health, make sure to collect Azure Logic Apps diagnostic events from your playbooks to get the full picture of your playbook activity. For more information, see [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
+
+Only the analytics rule resource type is currently supported for auditing.
+
 ## Next steps
 
 - Learn about [auditing and health monitoring in Microsoft Sentinel](health-audit.md).
-- [Monitor the health of your automation rules and playbooks](monitor-automation-health.md).
 - [Monitor the health of your data connectors](monitor-data-connector-health.md).
 - [Monitor the health and integrity of your analytics rules](monitor-analytics-rule-integrity.md).
-- See more information about the [*SentinelHealth*](health-table-reference.md) and [*SentinelAudit*](audit-table-reference.md) table schemas.
