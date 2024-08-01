@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Train a model by using automated machine learning (deprecated)'
 description: Tutorial on how to train a machine learning model without code in Azure Synapse Analytics (deprecated).
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: whhender, garye

@@ -5,7 +5,7 @@ description: Learn about linked services in Azure Data Factory and Azure Synapse
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

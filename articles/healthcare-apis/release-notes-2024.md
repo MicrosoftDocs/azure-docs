@@ -3,7 +3,7 @@ title: Release notes for 2024 Azure Health Data Services monthly releases
 description: 2024 - Stay updated with the latest features and improvements for the FHIR, DICOM, and MedTech services in Azure Health Data Services in 2024. Read the monthly release notes and learn how to get the most out of healthcare data.
 services: healthcare-apis
 author: shellyhaverkamp
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 07/29/2024

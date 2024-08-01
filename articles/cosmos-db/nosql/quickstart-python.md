@@ -194,7 +194,7 @@ Loop through the results of the query.
 ## Related content
 
 - [.NET Quickstart](quickstart-dotnet.md)
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [Java Quickstart](quickstart-java.md)
 - [Go Quickstart](quickstart-go.md)
 
