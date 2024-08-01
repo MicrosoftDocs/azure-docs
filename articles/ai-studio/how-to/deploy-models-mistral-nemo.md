@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Mistral Nemo chat model with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/01/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -206,9 +206,9 @@ response = client.complete(
 )
 ```
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-#### JSON outputs
+#### Create JSON outputs
 
 Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
@@ -243,7 +243,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Mistral Nemo chat model:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -253,7 +253,7 @@ The following extra parameters can be passed to a Mistral Nemo chat model:
 
 ### Safe mode
 
-Mistral Nemo chat model supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -274,7 +274,7 @@ response = client.complete(
 
 ### Define tools
 
-Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -637,9 +637,9 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-#### JSON outputs
+#### Create JSON outputs
 
 Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
@@ -683,7 +683,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Mistral Nemo chat model:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -693,7 +693,7 @@ The following extra parameters can be passed to a Mistral Nemo chat model:
 
 ### Safe mode
 
-Mistral Nemo chat model supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -719,7 +719,7 @@ var response = await client.path("/chat/completions").post({
 
 ### Define tools
 
-Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -910,10 +910,22 @@ Once you have these prerequisites, install the Azure AI inference library with t
 dotnet add package Azure.AI.Inference --prerelease
 ```
 
-You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, please install the `Azure.Identity` package:
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, install the `Azure.Identity` package:
 
 ```dotnetcli
 dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Reflection;
 ```
 
 > [!TIP]
@@ -1009,28 +1021,29 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 ```csharp
-static async Task RunAsync(ChatCompletionsClient client)
+static async Task StreamMessageAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
-            new ChatRequestUserMessage("How many languages are in the world?")
+            new ChatRequestUserMessage("How many languages are in the world? Write an essay about it.")
         },
+        MaxTokens=4096
     };
 
     StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-    printStream(streamResponse);
+    await PrintStream(streamResponse);
 }
 ```
 
-To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we the call is wrapped in an asynchronous method.
 
 To visualize the output, define an asynchronous method to print the stream in the console.
 
 ```csharp
-static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+static async Task PrintStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
@@ -1050,8 +1063,7 @@ You can visualize how streaming generates content:
 
 
 ```csharp
-// In this case we are using Nito.AsyncEx package
-AsyncContext.Run(() => RunAsync(client));
+StreamMessageAsync(client).GetAwaiter().GetResult();
 ```
 
 #### Explore more parameters supported by the inference client
@@ -1078,9 +1090,9 @@ response = client.Complete(requestOptions);
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-#### JSON outputs
+#### Create JSON outputs
 
 Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
@@ -1089,10 +1101,12 @@ Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_
 requestOptions = new ChatCompletionsOptions()
 {
     Messages = {
-        new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage(
+        new ChatRequestSystemMessage(
             "You are a helpful assistant that always generate responses in JSON format, " +
             "using. the following format: { \"answer\": \"response\" }."
+        ),
+        new ChatRequestUserMessage(
+            "How many languages are in the world?"
         )
     },
     ResponseFormat = new ChatCompletionsResponseFormatJSON()
@@ -1123,7 +1137,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Mistral Nemo chat model:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1133,7 +1147,7 @@ The following extra parameters can be passed to a Mistral Nemo chat model:
 
 ### Safe mode
 
-Mistral Nemo chat model supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1156,7 +1170,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 
 ### Define tools
 
-Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 
@@ -1195,7 +1209,7 @@ In this example, the function's output is that there are no flights available fo
 ```csharp
 static string getFlightInfo(string loc_origin, string loc_destination)
 {
-    return JsonConvert.SerializeObject(new
+    return JsonSerializer.Serialize(new
     {
         info = $"There are no flights available from {loc_origin} to {loc_destination}. You " +
         "should take a train, specially if it helps to reduce CO2 emissions."
@@ -1253,7 +1267,7 @@ foreach (ChatCompletionsToolCall tool in toolsCall)
         string callId = functionTool.Id;
         string toolName = functionTool.Name;
         string toolArgumentsString = functionTool.Arguments;
-        Dictionary<string, object> toolArguments = JsonConvert.DeserializeObject<Dictionary<string, object>>(toolArgumentsString);
+        Dictionary<string, object> toolArguments = JsonSerializer.Deserialize<Dictionary<string, object>>(toolArgumentsString);
 
         // Here you have to call the function defined. In this particular example we use 
         // reflection to find the method we definied before in an static class called 
@@ -1561,9 +1575,9 @@ Explore other parameters that you can specify in the inference client. For a ful
 }
 ```
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
-#### JSON outputs
+#### Create JSON outputs
 
 Mistral Nemo chat model can create JSON outputs. Set `response_format` to `json_object` to enable JSON mode and guarantee that the message the model generates is valid JSON. You must also instruct the model to produce JSON yourself via a system or user message. Also, the message content might be partially cut off if `finish_reason="length"`, which indicates that the generation exceeded `max_tokens` or that the conversation exceeded the max context length.
 
@@ -1642,7 +1656,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Mistral Nemo chat model:
+The following extra parameters can be passed to Mistral Nemo chat model:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1652,7 +1666,7 @@ The following extra parameters can be passed to a Mistral Nemo chat model:
 
 ### Safe mode
 
-Mistral Nemo chat model supports the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
+Mistral Nemo chat model support the parameter `safe_prompt`. You can toggle the safe prompt to prepend your messages with the following system prompt:
 
 > Always assist with care, respect, and truth. Respond with utmost utility yet securely. Avoid harmful, unethical, prejudiced, or negative content. Ensure replies promote fairness and positivity.
 
@@ -1685,7 +1699,7 @@ extra-parameters: pass-through
 
 ### Define tools
 
-Mistral Nemo chat model supports the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you define tools in the following way.
+Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
 The following code example creates a tool definition that is able to look from flight information from two different cities.
 

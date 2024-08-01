@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Phi-3 chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/01/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -24,7 +24,7 @@ The Phi-3 family of small language models (SLMs) is a collection of instruction-
 
 ## Phi-3 chat models
 
-The Phi-3 chat models includes the following models:
+The Phi-3 chat models include the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -287,7 +287,7 @@ response = client.complete(
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -308,7 +308,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -361,7 +361,7 @@ except HttpResponseError as ex:
 
 ## Phi-3 chat models
 
-The Phi-3 chat models includes the following models:
+The Phi-3 chat models include the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -634,7 +634,7 @@ var response = await client.path("/chat/completions").post({
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -660,7 +660,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -719,7 +719,7 @@ catch (error) {
 
 ## Phi-3 chat models
 
-The Phi-3 chat models includes the following models:
+The Phi-3 chat models include the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -805,10 +805,22 @@ Once you have these prerequisites, install the Azure AI inference library with t
 dotnet add package Azure.AI.Inference --prerelease
 ```
 
-You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, please install the `Azure.Identity` package:
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, install the `Azure.Identity` package:
 
 ```dotnetcli
 dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Reflection;
 ```
 
 ## Work with chat completions
@@ -834,10 +846,10 @@ When you deploy the model to a self-hosted online endpoint with **Microsoft Entr
 
 
 ```csharp
-client = new ChatCompletionsClient(
-    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-    new DefaultAzureCredential(includeInteractiveCredentials: true)
-);
+//client = new ChatCompletionsClient(
+//    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+//    new DefaultAzureCredential(includeInteractiveCredentials: true)
+//);
 ```
 
 > [!NOTE]
@@ -917,28 +929,29 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 ```csharp
-static async Task RunAsync(ChatCompletionsClient client)
+static async Task StreamMessageAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
-            new ChatRequestUserMessage("How many languages are in the world?")
+            new ChatRequestUserMessage("How many languages are in the world? Write an essay about it.")
         },
+        MaxTokens=4096
     };
 
     StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-    printStream(streamResponse);
+    await PrintStream(streamResponse);
 }
 ```
 
-To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we the call is wrapped in an asynchronous method.
 
 To visualize the output, define an asynchronous method to print the stream in the console.
 
 ```csharp
-static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+static async Task PrintStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
@@ -958,8 +971,7 @@ You can visualize how streaming generates content:
 
 
 ```csharp
-// In this case we are using Nito.AsyncEx package
-AsyncContext.Run(() => RunAsync(client));
+StreamMessageAsync(client).GetAwaiter().GetResult();
 ```
 
 #### Explore more parameters supported by the inference client
@@ -989,7 +1001,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -1012,7 +1024,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -1071,7 +1083,7 @@ catch (RequestFailedException ex)
 
 ## Phi-3 chat models
 
-The Phi-3 chat models includes the following models:
+The Phi-3 chat models include the following models:
 
 # [Phi-3-mini](#tab/phi-3-mini)
 
@@ -1374,7 +1386,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 > [!WARNING]
 > Phi-3 doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -1407,7 +1419,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Phi-3 chat models:
+The following extra parameters can be passed to Phi-3 chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |

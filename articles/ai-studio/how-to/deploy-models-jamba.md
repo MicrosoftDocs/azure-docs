@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Jamba-Instruct chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/01/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -16,7 +16,7 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 # How to use Jamba-Instruct chat models with Azure AI studio
 
 In this article, you learn about Jamba-Instruct chat models and how to use them with Azure AI studio.
-The Jamba Instruct model is AI21's production-grade Mamba-based large language model (LLM) which leverages AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba Instruct model is built for reliable commercial use with respect to quality and performance.
+The Jamba-Instruct model is AI21's production-grade Mamba-based large language model (LLM) which uses AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba-Instruct model is built for reliable commercial use with respect to quality and performance.
 
 > [!TIP]
 > See our announcements of AI21's Jamba-Instruct model available now on Azure AI Model Catalog through [AI21's blog](https://aka.ms/ai21-jamba-instruct-blog) and [Microsoft Tech Community Blog](https://aka.ms/ai21-jamba-instruct-announcement).
@@ -210,7 +210,7 @@ response = client.complete(
 > [!WARNING]
 > Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -464,7 +464,7 @@ var response = await client.path("/chat/completions").post({
 > [!WARNING]
 > Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -562,10 +562,22 @@ Once you have these prerequisites, install the Azure AI inference library with t
 dotnet add package Azure.AI.Inference --prerelease
 ```
 
-You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, please install the `Azure.Identity` package:
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, install the `Azure.Identity` package:
 
 ```dotnetcli
 dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Reflection;
 ```
 
 ## Work with chat completions
@@ -658,28 +670,29 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 ```csharp
-static async Task RunAsync(ChatCompletionsClient client)
+static async Task StreamMessageAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
-            new ChatRequestUserMessage("How many languages are in the world?")
+            new ChatRequestUserMessage("How many languages are in the world? Write an essay about it.")
         },
+        MaxTokens=4096
     };
 
     StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-    printStream(streamResponse);
+    await PrintStream(streamResponse);
 }
 ```
 
-To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we the call is wrapped in an asynchronous method.
 
 To visualize the output, define an asynchronous method to print the stream in the console.
 
 ```csharp
-static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+static async Task PrintStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
@@ -699,8 +712,7 @@ You can visualize how streaming generates content:
 
 
 ```csharp
-// In this case we are using Nito.AsyncEx package
-AsyncContext.Run(() => RunAsync(client));
+StreamMessageAsync(client).GetAwaiter().GetResult();
 ```
 
 #### Explore more parameters supported by the inference client
@@ -730,7 +742,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 > [!WARNING]
 > Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -1034,7 +1046,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 > [!WARNING]
 > Jamba doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 

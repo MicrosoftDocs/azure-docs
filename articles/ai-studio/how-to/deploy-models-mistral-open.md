@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Mistral-7B and Mixtral-8x7B chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/01/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -23,11 +23,11 @@ Mistral AI offers two categories of models. Premium models including [Mistral La
 
 ## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B chat models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models include the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
-The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
+The Mistral-7B-Instruct Large Language Model (LLM) is an instruct, fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
 * Grouped-Query Attention
 * Sliding-Window Attention
@@ -44,7 +44,7 @@ The following models are available:
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
-Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token using this technique. This enables the model to perform with same speed and cost as 12.9B model.
+Mixtral-8x7B-v0.1 is a decoder-only model with eight distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token with this technique; therefore, the model can perform with the same speed and cost as a 12.9B model.
 
 
 The following models are available:
@@ -54,14 +54,14 @@ The following models are available:
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
-The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
+The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct, fine-tuned version of the Mixtral-8x22B-v0.1. The model is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
 Mixtral 8x22B comes with the following strengths:
 
-* It is fluent in English, French, Italian, German, and Spanish
-* It has strong mathematics and coding capabilities
-* It is natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernisation at scale
-* Its 64K tokens context window allows precise information recall from large documents
+* Fluent in English, French, Italian, German, and Spanish
+* Strong mathematics and coding capabilities
+* Natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernization at scale
+* Pprecise information recall from large documents, due to its 64K tokens context window
 
 
 The following models are available:
@@ -276,7 +276,7 @@ response = client.complete(
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -297,7 +297,7 @@ response = client.complete(
 )
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
+The following extra parameters can be passed to Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -314,11 +314,11 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B ch
 
 ## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B chat models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models include the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
-The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
+The Mistral-7B-Instruct Large Language Model (LLM) is an instruct, fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
 * Grouped-Query Attention
 * Sliding-Window Attention
@@ -335,7 +335,7 @@ The following models are available:
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
-Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token using this technique. This enables the model to perform with same speed and cost as 12.9B model.
+Mixtral-8x7B-v0.1 is a decoder-only model with eight distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token with this technique; therefore, the model can perform with the same speed and cost as a 12.9B model.
 
 
 The following models are available:
@@ -345,14 +345,14 @@ The following models are available:
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
-The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
+The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct, fine-tuned version of the Mixtral-8x22B-v0.1. The model is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
 Mixtral 8x22B comes with the following strengths:
 
-* It is fluent in English, French, Italian, German, and Spanish
-* It has strong mathematics and coding capabilities
-* It is natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernisation at scale
-* Its 64K tokens context window allows precise information recall from large documents
+* Fluent in English, French, Italian, German, and Spanish
+* Strong mathematics and coding capabilities
+* Natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernization at scale
+* Pprecise information recall from large documents, due to its 64K tokens context window
 
 
 The following models are available:
@@ -577,7 +577,7 @@ var response = await client.path("/chat/completions").post({
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -603,7 +603,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
+The following extra parameters can be passed to Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -620,11 +620,11 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B ch
 
 ## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B chat models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models include the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
-The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
+The Mistral-7B-Instruct Large Language Model (LLM) is an instruct, fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
 * Grouped-Query Attention
 * Sliding-Window Attention
@@ -641,7 +641,7 @@ The following models are available:
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
-Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token using this technique. This enables the model to perform with same speed and cost as 12.9B model.
+Mixtral-8x7B-v0.1 is a decoder-only model with eight distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token with this technique; therefore, the model can perform with the same speed and cost as a 12.9B model.
 
 
 The following models are available:
@@ -651,14 +651,14 @@ The following models are available:
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
-The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
+The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct, fine-tuned version of the Mixtral-8x22B-v0.1. The model is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
 Mixtral 8x22B comes with the following strengths:
 
-* It is fluent in English, French, Italian, German, and Spanish
-* It has strong mathematics and coding capabilities
-* It is natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernisation at scale
-* Its 64K tokens context window allows precise information recall from large documents
+* Fluent in English, French, Italian, German, and Spanish
+* Strong mathematics and coding capabilities
+* Natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernization at scale
+* Pprecise information recall from large documents, due to its 64K tokens context window
 
 
 The following models are available:
@@ -696,10 +696,22 @@ Once you have these prerequisites, install the Azure AI inference library with t
 dotnet add package Azure.AI.Inference --prerelease
 ```
 
-You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, please install the `Azure.Identity` package:
+You can also authenticate with Microsoft Entra ID (formerly Azure Active Directory). To use credential providers provided with the Azure SDK, install the `Azure.Identity` package:
 
 ```dotnetcli
 dotnet add package Azure.Identity
+```
+
+Import the following namespaces:
+
+
+```csharp
+using Azure;
+using Azure.Identity;
+using Azure.AI.Inference;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Reflection;
 ```
 
 > [!TIP]
@@ -728,10 +740,10 @@ When you deploy the model to a self-hosted online endpoint with **Microsoft Entr
 
 
 ```csharp
-client = new ChatCompletionsClient(
-    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
-    new DefaultAzureCredential(includeInteractiveCredentials: true)
-);
+//client = new ChatCompletionsClient(
+//    new Uri(Environment.GetEnvironmentVariable("AZURE_INFERENCE_ENDPOINT")),
+//    new DefaultAzureCredential(includeInteractiveCredentials: true)
+//);
 ```
 
 ### Get the model's capabilities
@@ -808,28 +820,29 @@ You can _stream_ the content to get it as it's being generated. Streaming conten
 
 
 ```csharp
-static async Task RunAsync(ChatCompletionsClient client)
+static async Task StreamMessageAsync(ChatCompletionsClient client)
 {
     ChatCompletionsOptions requestOptions = new ChatCompletionsOptions()
     {
         Messages = {
             new ChatRequestSystemMessage("You are a helpful assistant."),
-            new ChatRequestUserMessage("How many languages are in the world?")
+            new ChatRequestUserMessage("How many languages are in the world? Write an essay about it.")
         },
+        MaxTokens=4096
     };
 
     StreamingResponse<StreamingChatCompletionsUpdate> streamResponse = await client.CompleteStreamingAsync(requestOptions);
 
-    printStream(streamResponse);
+    await PrintStream(streamResponse);
 }
 ```
 
-To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we have wrapped the call in an asynchronous method.
+To stream completions, use `CompleteStreamingAsync` method when you call the model. Notice that in this example we the call is wrapped in an asynchronous method.
 
 To visualize the output, define an asynchronous method to print the stream in the console.
 
 ```csharp
-static async void printStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
+static async Task PrintStream(StreamingResponse<StreamingChatCompletionsUpdate> response)
 {
     await foreach (StreamingChatCompletionsUpdate chatUpdate in response)
     {
@@ -849,8 +862,7 @@ You can visualize how streaming generates content:
 
 
 ```csharp
-// In this case we are using Nito.AsyncEx package
-AsyncContext.Run(() => RunAsync(client));
+StreamMessageAsync(client).GetAwaiter().GetResult();
 ```
 
 #### Explore more parameters supported by the inference client
@@ -880,7 +892,7 @@ Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -903,7 +915,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
+The following extra parameters can be passed to Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |
@@ -920,11 +932,11 @@ The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B ch
 
 ## Mistral-7B and Mixtral-8x7B chat models
 
-The Mistral-7B and Mixtral-8x7B chat models includes the following models:
+The Mistral-7B and Mixtral-8x7B chat models include the following models:
 
 # [Mistral-7B-Instruct](#tab/mistral-7b-instruct)
 
-The Mistral-7B-Instruct Large Language Model (LLM) is an instruct fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
+The Mistral-7B-Instruct Large Language Model (LLM) is an instruct, fine-tuned version of the Mistral-7B, a transformer model with the following architecture choices:
 
 * Grouped-Query Attention
 * Sliding-Window Attention
@@ -941,7 +953,7 @@ The following models are available:
 
 The Mixtral-8x7B Large Language Model (LLM) is a pretrained generative Sparse Mixture of Experts. The Mixtral-8x7B outperforms Llama 2 70B on most benchmarks with 6x faster inference.
 
-Mixtral-8x7B-v0.1 is a decoder-only model with 8 distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token using this technique. This enables the model to perform with same speed and cost as 12.9B model.
+Mixtral-8x7B-v0.1 is a decoder-only model with eight distinct groups or the "experts". At every layer, for every token, a router network chooses two of these experts to process the token and combine their output additively. Mixtral has 46.7B total parameters but only uses 12.9B parameters per token with this technique; therefore, the model can perform with the same speed and cost as a 12.9B model.
 
 
 The following models are available:
@@ -951,14 +963,14 @@ The following models are available:
 
 # [Mixtral-8x22B-Instruct](#tab/mistral-8x22b-instruct)
 
-The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct fine-tuned version of the Mixtral-8x22B-v0.1. It is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
+The Mixtral-8x22B-Instruct-v0.1 Large Language Model (LLM) is an instruct, fine-tuned version of the Mixtral-8x22B-v0.1. The model is a sparse Mixture-of-Experts (SMoE) model that uses only 39B active parameters out of 141B, offering unparalleled cost efficiency for its size.
 
 Mixtral 8x22B comes with the following strengths:
 
-* It is fluent in English, French, Italian, German, and Spanish
-* It has strong mathematics and coding capabilities
-* It is natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernisation at scale
-* Its 64K tokens context window allows precise information recall from large documents
+* Fluent in English, French, Italian, German, and Spanish
+* Strong mathematics and coding capabilities
+* Natively capable of function calling; along with the constrained output mode implemented on la Plateforme, this enables application development and tech stack modernization at scale
+* Pprecise information recall from large documents, due to its 64K tokens context window
 
 
 The following models are available:
@@ -1213,7 +1225,7 @@ Explore other parameters that you can specify in the inference client. For a ful
 > [!WARNING]
 > Mistral doesn't support JSON output formatting (`response_format = { "type": "json_object" }`). You can always prompt the model to generate JSON outputs. However, such outputs are not guaranteed to be valid JSON.
 
-If you want to pass a parameter that is not in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
+If you want to pass a parameter that isn't in the list of supported parameters, you can pass it to the underlying model using *extra parameters*. See [Pass extra parameters to the model](#pass-extra-parameters-to-the-model).
 
 ### Pass extra parameters to the model
 
@@ -1246,7 +1258,7 @@ extra-parameters: pass-through
 }
 ```
 
-The following extra parameters can be passed to a Mistral-7B and Mixtral-8x7B chat models:
+The following extra parameters can be passed to Mistral-7B and Mixtral-8x7B chat models:
 
 | Name           | Description           | Type            |
 | -------------- | --------------------- | --------------- |

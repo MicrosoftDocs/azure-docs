@@ -115,7 +115,7 @@ items:
         - name: Mistral Nemo model
           href: how-to/deploy-models-mistral-nemo.md
         - name: Mistral-7B and Mixtral models
-          href: how-to/deploy-models-mistral-oss.md
+          href: how-to/deploy-models-mistral-open.md
       displayName: maas
     - name: TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md

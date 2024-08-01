@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Cohere Embed V3 models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 07/25/2024
+ms.date: 08/01/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -28,7 +28,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -80,7 +80,7 @@ Read more about the [Azure AI inference package and reference](https://aka.ms/az
 
 ## Work with embeddings
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
 
 ### Create a client to consume the model
 
@@ -180,7 +180,7 @@ print("Usage:", response.usage)
 
 Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
 
 
 ```python
@@ -217,7 +217,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -267,7 +267,7 @@ npm install @azure-rest/ai-inference
 
 ## Work with embeddings
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
 
 ### Create a client to consume the model
 
@@ -371,7 +371,7 @@ console.log(response.body.usage);
 
 Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
 
 
 ```javascript
@@ -408,7 +408,7 @@ The Cohere family of models for embeddings includes the following models:
 
 # [Cohere Embed v3 - English](#tab/cohere-embed-v3-english)
 
-Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
+Cohere Embed English is a text representation model used for semantic search, retrieval-augmented generation (RAG), classification, and clustering. Embed English performs well on the HuggingFace (massive text embed) MTEB benchmark and on use-cases for various industries, such as Finance, Legal, and General-Purpose Corpora. Embed English also has the following attributes:
 
 * Embed English has 1,024 dimensions.
 * Context window of the model is 512 tokens
@@ -451,7 +451,7 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 ## Work with embeddings
 
-In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a embeddings model.
+In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with an embeddings model.
 
 ### Create a client to consume the model
 
@@ -582,7 +582,7 @@ The response is as follows, where you can see the model's usage statistics:
 
 Cohere Embed V3 models can generate multiple embeddings for the same input depending on how you plan to use them. This capability allows you to retrieve more accurate embeddings for RAG patterns.
 
-The following example shows how to create embeddings used to create an embedding for a document that will be stored in a vector database:
+The following example shows how to create embeddings that are used to create an embedding for a document that will be stored in a vector database:
 
 
 ```json
@@ -618,7 +618,7 @@ Cohere Embed V3 models can optimize the embeddings based on its use case.
 | Azure AI Inference package for JavaScript | JavaScript        | [Link](https://aka.ms/azsdk/azure-ai-inference/javascript/samples)  |
 | Azure AI Inference package for Python     | Python            | [Link](https://aka.ms/azsdk/azure-ai-inference/python/samples)      |
 | OpenAI SDK (experimental)                 | Python            | [Link](https://aka.ms/samples/cohere-command/openaisdk)             |
-| LangChain                                 | Pyton             | [Link](https://aka.ms/samples/cohere/langchain)                     |
+| LangChain                                 | Python            | [Link](https://aka.ms/samples/cohere/langchain)                     |
 | Cohere SDK                                | Python            | [Link](https://aka.ms/samples/cohere-python-sdk)                    |
 | LiteLLM SDK                               | Python            | [Link](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
 
