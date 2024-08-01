@@ -5,7 +5,7 @@ description: Learn to use the custom roles for MySQL to Azure Database for MySQL
 author: karlaescobar
 ms.author: karlaescobar
 ms.date: 08/07/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - sql-migration-content

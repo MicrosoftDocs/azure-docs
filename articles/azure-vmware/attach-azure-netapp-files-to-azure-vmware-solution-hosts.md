@@ -86,10 +86,6 @@ There are some important best practices to follow for optimal performance of NFS
 - Create Azure NetApp Files volumes using **Standard** network features to enable optimized connectivity from Azure VMware Solution private cloud via ExpressRoute FastPath connectivity.
 - For optimized performance, choose either **UltraPerformance** gateway or **ErGw3Az** gateway, and enable [FastPath](../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath) from a private cloud to Azure NetApp Files volumes virtual network. View more detailed information on gateway SKUs at [About ExpressRoute virtual network gateways](../expressroute/expressroute-about-virtual-network-gateways.md).
 - Based on your performance requirements, select the correct service level needed for the Azure NetApp Files capacity pool. See [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md) to understand the throughput allowed per provisioned TiB for each service level. 
-
-  >[!IMPORTANT]
-  > If you've changed the Azure NetApp Files volumes performance tier after creating the volume and datastore, see [Service level change for Azure NetApp files datastore](#service-level-change-for-azure-netapp-files-datastore) to ensure that volume/datastore metadata is in sync to avoid unexpected behavior in the portal or the API due to metadata mismatch.
-
 - Create one or more volumes based on the required throughput and capacity. See [Performance considerations](../azure-netapp-files/azure-netapp-files-performance-considerations.md) for Azure NetApp Files to understand how volume size, service level, and capacity pool QoS type determines volume throughput. For assistance calculating workload capacity and performance requirements, contact your Azure VMware Solution or Azure NetApp Files field expert. The default maximum number of Azure NetApp Files datastores is 8, but it can be increased to a maximum of 256 by submitting a support ticket. To submit a support ticket, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 -  Ensure that the Azure VMware Solution private cloud and the Azure NetApp Files volumes are deployed within the same [availability zone](../availability-zones/az-overview.md#availability-zones) using the [the availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md) in the same subscription. Information regarding your AVS private cloud's availability zone can be viewed from the overview pane within the AVS private cloud.
  
@@ -129,13 +125,13 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 1. If the VMware extension isn't already installed, install it.
 
     `az extension add --name vmware`
-1. Create a datastore using an existing ANF volume in Azure VMware Solution private cloud cluster.
+1. Create a datastore using an existing Azure NetApp Files volume in Azure VMware Solution private cloud cluster.
 
     `az vmware datastore netapp-volume create --name MyDatastore1 --resource-group MyResourceGroup –-cluster Cluster-1 --private-cloud MyPrivateCloud –-volume-id /subscriptions/<Subscription Id>/resourceGroups/<Resourcegroup name>/providers/Microsoft.NetApp/netAppAccounts/<Account name>/capacityPools/<pool name>/volumes/<Volume name>`
 1. If needed, display the help on the datastores.
 
     `az vmware datastore -h`
-1. Show the details of an ANF-based datastore in a private cloud cluster.
+1. Show the details of an Azure NetApp Files-based datastore in a private cloud cluster.
 
     `az vmware datastore show --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
 1. List all of the datastores in a private cloud cluster.
@@ -148,11 +144,32 @@ To attach an Azure NetApp Files volume to your private cloud using Azure CLI, fo
 
 Cloud Backup for Virtual Machines is a plug-in for Azure VMware Solution that provides backup and restore capabilities for datastores and VMs residing on Azure NetApp Files datastores. With Cloud Backup for Virtual Machines, you can take VM-consistent snapshots for quick recovery points and easily restore VMs and VMDKs residing on Azure NetApp Files datastores. For more information, see [Install Cloud Backup for Virtual Machines](install-cloud-backup-virtual-machines.md).
 
+## Disconnect an Azure NetApp Files-based datastore from your private cloud
+
+You can use the instructions provided to disconnect an Azure NetApp Files-based datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the Azure NetApp Files volume as a datastore, it doesn't delete the data or the Azure NetApp Files volume.
+
+**Disconnect an Azure NetApp Files datastore using the Azure Portal**
+
+1. Select the datastore you want to disconnect from.
+1. Right-click on the datastore and select **disconnect**.
+
+**Disconnect an Azure NetApp Files datastore using Azure CLI**
+
+ `az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+
 ## Service level change for Azure NetApp Files datastore
 
+Under rare circumstances, Azure VMware Solution might not correctly show the Azure NetApp Files volumes used as datastores after changing the service level for the Azure NetApp Files volume. If the necessary metadata updates could not complete successfully, check the activity log for the Azure NetApp Files volume for a message about Datastore metadata update with a status of failure. To correct the mismatch, rerun the datastore creation in the Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume: 
+
+<!-- 
 Based on performance requirements of the datastore, you can change the service level of the Azure NetApp Files volume used for the datastore. Use the instructions provided to [dynamically change the service level of a volume for Azure NetApp Files](../azure-netapp-files/dynamic-change-volume-service-level.md).
 
+
+33## IS ThE FIRST SENTENCE REQUIRED? 
+
 Changing the service level has no effect on the datastore or private cloud. There's no downtime and the volume IP address/mount path remains unchanged. However, the volume resource ID changes as a result of the capacity pool change. To correct any metadata mismatch, rerun the datastore creation in Azure CLI for the existing datastore with the new Resource ID for the Azure NetApp Files volume:
+-->
+
 
 ```azurecli
 az vmware datastore netapp-volume create \
@@ -162,21 +179,9 @@ az vmware datastore netapp-volume create \
     --private-cloud <name of AVS private cloud> \
     --volume-id /subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.NetApp/netAppAccounts/<NetApp account>/capacityPools/<changed capacity pool>/volumes/<volume name>
 ```
+
 >[!IMPORTANT]  
-> The parameters for datastore **name**, **resource-group**, **cluster**, and **private-cloud** must be **exactly the same as those on the existing datastore in the private cloud**. The **volume-id** is the updated Resource ID of the Azure NetApp Files volume after the service level change.
-
-## Disconnect an Azure NetApp Files-based datastore from your private cloud
-
-You can use the instructions provided to disconnect an Azure NetApp Files-based (ANF) datastore using either Azure portal or Azure CLI. There's no maintenance window required for this operation. The disconnect action only disconnects the ANF volume as a datastore, it doesn't delete the data or the ANF volume.
-
-**Disconnect an ANF datastore using the Azure Portal**
-
-1. Select the datastore you want to disconnect from.
-1. Right-click on the datastore and select **disconnect**.
-
-**Disconnect an ANF datastore using Azure CLI**
-
- `az vmware datastore delete --name ANFDatastore1 --resource-group MyResourceGroup --cluster Cluster-1 --private-cloud MyPrivateCloud`
+> The parameters for datastore **name**, **resource-group**, **cluster**, and **private-cloud** (SDDC) must be **exactly the same as those on the existing datastore in the private cloud**. The **volume-id** is the updated Resource ID of the Azure NetApp Files volume after the service level change.
 
 ## Next steps
 
@@ -225,7 +230,7 @@ Now that you attached a datastore on Azure NetApp Files-based NFS volume to your
 
 - **What metrics are available for monitoring?**
 
-    Usage and performance metrics are available for monitoring the Datastore volume. Replication metrics are also available for ANF datastore that can be replicated to another region using Cross Regional Replication. For more information about metrics, see [Metrics for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-metrics.md). 
+    Usage and performance metrics are available for monitoring the Datastore volume. Replication metrics are also available for Azure NetApp Files datastore that can be replicated to another region using Cross Regional Replication. For more information about metrics, see [Metrics for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-metrics.md). 
 
 - **What happens if a new node is added to the cluster, or an existing node is removed from the cluster?**
 
