@@ -2,7 +2,7 @@
 title: Offline feature retrieval using a point-in-time join
 titleSuffix: Azure Machine Learning
 description: Use a point-in-time join for offline feature retrieval.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

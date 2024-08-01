@@ -4,8 +4,9 @@ description: Specifications for the HBv3-series VMs.
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual
-ms.date: 12/7/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
+ms.author: padmalathas
 ---
 
 # HBv3-series

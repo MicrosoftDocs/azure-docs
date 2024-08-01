@@ -46,8 +46,44 @@ Here's example SSML in a request for text to speech with the voice name and the 
 You can use the SSML via the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md).
 
 * **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text to speech.
-    * When you use Speech SDK, don't set Endpoint Id, just like prebuild voice.
+    * When you use Speech SDK, don't set Endpoint ID, just like prebuild voice.
     * When you use REST API, please use prebuilt neural voices endpoint.
+
+## Supported and unsupported SSML elements for personal voice
+
+For detailed information on the supported and unsupported SSML elements for Phoenix and Dragon models, refer to the following table. For instructions on how to use SSML elements, refer to the [SSML document structure and events](speech-synthesis-markup-structure.md).
+
+| Element                 | Description                                                                 | Supported in Phoenix | Supported in Dragon |
+|-------------------------|-----------------------------------------------------------------------------|----------------------|---------------------|
+| `<voice>`               | Specifies the voice and optional effects (`eq_car` and `eq_telecomhp8k`).       | Yes                  | Yes                 |
+| `<mstts:express-as>`    | Specifies speaking styles and roles.                                        | No                 | No                  |
+| `<mstts:ttsembedding>`  | Specifies the `speakerProfileId` property for a personal voice.               | Yes                  | No                  |
+| `<lang xml:lang>`       | Specifies the speaking language.                                            | Yes                  | Yes                 |
+| `<prosody>`             | Adjusts pitch, contour, range, rate, and volume.                            |                      |                     |
+|&nbsp;&nbsp;&nbsp;`pitch` | Indicates the baseline pitch for the text.                                          | No                   | No                  |
+| &nbsp;&nbsp;&nbsp;`contour`| Represents changes in pitch.                                    | No                   | No                  |
+| &nbsp;&nbsp;&nbsp;`range` | Represents the range of pitch for the text.                                       | No                   | No                  |
+| &nbsp;&nbsp;&nbsp;`rate`  | Indicates the speaking rate of the text.                                            | Yes                  | Yes                 |
+| &nbsp;&nbsp;&nbsp;`volume`| Indicates the volume level of the speaking voice.                                           | No                   | No                  |
+| `<emphasis>`            | Adds or removes word-level stress for the text.                             | No                   | No                  |
+| `<audio>`               | Embeds prerecorded audio into an SSML document.                             | Yes                  | No                  |
+| `<mstts:audioduration>` | Specifies the duration of the output audio.                                 | No                   | No                  |
+| `<mstts:backgroundaudio>`| Adds background audio to your SSML documents or mixes an audio file with text to speech. | Yes       | No        |
+| `<phoneme>`             | Specifies phonetic pronunciation in SSML documents.                         |                      |                     |
+| &nbsp;&nbsp;&nbsp;`ipa`   | One of the phonetic alphabets.                                        | Yes                  | No                  |
+| &nbsp;&nbsp;&nbsp;`sapi`  | One of the phonetic alphabets.                 | No                   | No                  |
+| &nbsp;&nbsp;&nbsp;`ups`   | One of the phonetic alphabets.                                      | Yes                  | No                  |
+| &nbsp;&nbsp;&nbsp;`x-sampa`| One of the phonetic alphabets.                      | Yes                  | No                  |
+| `<lexicon>`             | Defines how multiple entities are read in SSML.                             | Yes                  | Yes (only support alias) |
+| `<say-as>`              | Indicates the content type, such as number or date, of the element's text.  | Yes                  | Yes                 |
+| `<sub>`                 | Indicates that the alias attribute's text value should be pronounced instead of the element's enclosed text. | Yes  | Yes |
+| `<math>`                | Uses the MathML as input text to properly pronounce mathematical notations in the output audio. | Yes | No |
+| `<bookmark>`            | Gets the offset of each marker in the audio stream.                         | Yes                  | No                  |
+| `<break>`               | Overrides the default behavior of breaks or pauses between words.           | Yes                  | Yes                 |
+| `<mstts:silence>`       | Inserts pauses before or after text, or between two adjacent sentences.     | Yes                  | No                  |
+| `<mstts:viseme>`        | Defines the position of the face and mouth while a person is speaking.      | Yes                  | No                  |
+| `<p>`                   | Denotes paragraphs in SSML documents.                                       | Yes                  | Yes                 |
+| `<s>`                   | Denotes sentences in SSML documents.                                        | Yes                  | Yes                 |
 
 ## Reference documentation
 

@@ -2,8 +2,7 @@
 title: About keys - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys.
 services: key-vault
-author: mbaldwin
-manager: msmbaldwin
+author: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: keys

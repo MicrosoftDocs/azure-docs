@@ -768,7 +768,7 @@ HBase offers several server-side programming features. If you're using these fea
 
 **HBase**
 
-* [Custom filters](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/filter/Filter.html)
+* [Custom filters](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/filter/package-summary.html)
 
   Various filters are available as default in HBase, but you can also implement your own custom filters. Custom filters may be implemented if the filters available as default on HBase do not meet your requirements.
 

@@ -35,7 +35,9 @@ The following table lists methods to create data collection scenarios using the 
 
 ## Create a DCR
 
-The Azure portal provides a data collection rule wizard for collecting data from virtual machines and for collecting Prometheus metrics from containers. 
+Azure provides a centralized cloud based data collection configuration plan for virtual machines, virtual machine scale sets, On-Prem machines and Prometheus metrics from containers.
+
+This article describes how to create a DCR from scratch. There are other insights solution that provide DCR creation experiences like Sentinel, VM insights, and Application Insights that create DCRs as part of there own workflows. Some time the DCRs created in these by different solution can seem to conflict. There are three tables to which Windows events can be sent to. Sentinel security audit events with go to SecurityEvents, WEF connector events go to the WindowsEvent table. If you use the scratch Windows event collection the results go to the Event table.
 
 To create a data collection rule using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 

@@ -49,6 +49,8 @@ With KAITO version 0.3.0 or later, you can efficiently fine-tune supported MIT a
 
 For guidance on getting started with fine-tuning on KAITO, see the [Kaito Tuning Workspace API documentation][kaito-fine-tuning]. To learn more about deploying language models with KAITO in your AKS clusters, see the [KAITO model GitHub repository][kaito-repo].
 
+[!INCLUDE [open source disclaimer](./includes/open-source-disclaimer.md)]
+
 ## Next steps
 
 To learn more about containerized AI and machine learning workloads on AKS, see the following articles:

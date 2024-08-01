@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 07/23/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
@@ -22,6 +22,9 @@ The network routing preference specifies how network traffic is routed to your a
 ## Configure the routing preference for the default public endpoint
 
 By default, the routing preference for the public endpoint of the storage account is set to Microsoft global network. You can choose between the Microsoft global network and Internet routing as the default routing preference for the public endpoint of your storage account. To learn more about the difference between these two types of routing, see [Network routing preference for Azure Storage](network-routing-preference.md).
+
+> [!WARNING]
+> If your storage account contains or will contain Azure file shares, don't change your routing preference to Internet routing. The default option, Microsoft routing, works with all Azure Files configurations. The Internet routing option doesn't support AD domain join scenarios or Azure File Sync.
 
 ### [Portal](#tab/azure-portal)
 

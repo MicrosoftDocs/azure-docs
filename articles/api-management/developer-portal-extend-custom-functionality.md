@@ -28,6 +28,7 @@ The following table summarizes two options, with links to more detail.
 > [!NOTE]
 > [Self-hosting the developer portal](developer-portal-self-host.md) is an extensibility option for customers who need to customize the source code of the entire portal core. It gives complete flexibility for customizing portal experience, but requires advanced configuration. With self-hosting, you're responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade.
 
+[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
 
 
 ## Use Custom HTML code widget

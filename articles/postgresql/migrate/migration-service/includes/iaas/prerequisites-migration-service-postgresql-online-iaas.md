@@ -47,6 +47,8 @@ If the source PostgreSQL version is less than 9.5, upgrade it to 9.5 or higher b
     - `Set max_wal_senders` to a value greater than 1, should be set to at least the same as max_replication_slots, plus the number of senders already used by your instance.
     - The `wal_sender_timeout` parameter ends replication connections that are inactive longer than the specified number of milliseconds. The default for an on-premises PostgreSQL database is 60000 milliseconds (60 seconds). Setting the value to 0 (zero) disables the timeout mechanism and is a valid setting for migration.
 
+To prevent the Online migration from running out of space, ensure that you have sufficient tablespace space using a provisioned managed disk. To achieve this, disable the server parameter `azure.enable_temp_tablespaces_on_local_ssd` on the Flexible Server for the duration of the migration, and restore it to the original state after the migration.
+
 ### Configure network setup
 
 Network setup is crucial for the migration service to function correctly. Ensure that the source PostgreSQL server can communicate with the target Azure Database for PostgreSQL server. The following network configurations are essential for a successful migration.
