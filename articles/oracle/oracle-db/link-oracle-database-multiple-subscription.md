@@ -9,7 +9,7 @@ ms.date: 08/01/2024
 ms.custom: engagement-fy24
 ---
 
-# Link Oracle Database@Azure to Multiple Azure Subscriptions
+# Link Oracle Database@Azure to multiple Azure subscriptions
 Learn about how to link Oracle Database@Azure to multiple Azure subscriptions.
 
 You can use Oracle Database@Azure within two or more [Azure subscriptions](/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources) within a single Azure account. This feature gives you the ability to isolate projects, environments, and application domains for security and cost allocation, while maintaining a single Azure account for simplified billing and account management. When using two or more Azure subscriptions with Oracle Database@Azure, all Azure subscriptions are linked to the OCI tenancy used for service onboarding.
@@ -21,7 +21,7 @@ You can use Oracle Database@Azure within two or more [Azure subscriptions](/azur
 >[!Note]
 >You can't provision Oracle Database@Azure resources until these Azure resource providers are registered for the subscription you're adding.
 
-## How Multiple Azure Subscriptions Work in Oracle Database@Azure
+## How multiple Azure subscriptions work in Oracle Database@Azure
 During Oracle Database@Azure onboarding, you select an Azure subscription to use initially with the service. In this documentation, the subscription selected during onboarding is referred to as the primary subscription for Oracle Database@Azure. After onboarding is complete and your Azure account is linked to your OCI tenancy, the OCI tenancy has a new, automatically created [compartment](https://docs.oracle.com/en-us/iaas/Content/Identity/compartments/managingcompartments.htm) for the management of the service.
 
 When you add more Azure subscriptions to your Oracle Database@Azure service, the service automatically creates a child compartment within the main Oracle Database@Azure compartment created during onboarding. You don't have to do any manual configuration of your OCI tenancy to add more Azure subscriptions to the service.
