@@ -620,15 +620,13 @@ For more information on Azure DevOps SSH-RSA deprecation,  see [End of SSH-RSA s
 
 ### Configure annotation on Flux extension pods
 
-When configuring a solution other than Azure Firewall, [network and FQDN/application rules](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are required for an AKS cluster. To configure these rules when using the Flux extension, use the following commands.
+When configuring a solution other than Azure Firewall, [network and FQDN/application rules](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters) are required for an AKS cluster. Starting with [`microsoft.flux` v1.11.1](extensions-release.md#flux-gitops), Flux controller pods can now set the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` in their pod specifications. This allows traffic to the API Server's domain name even when a Layer 7 firewall is present, facilitating deployments during extension installation. To configure this annotation when using the Flux extension, use the following commands.
 
 ```azurecli
 # Create flux extension with annotation
 
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --extension-type microsoft.flux --config setKubeServiceHostFqdn=true
-```
-
-```azurecli
+    
 # Update flux extension with annotation
 
 az k8s-extension update --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type <cluster-type> --name flux --config setKubeServiceHostFqdn=true
