@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that is mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that is mapped to an Azure Arc-enabled Kubernetes cluster where you installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure App Service, and Azure Functions on your Kubernetes cluster. 
 
@@ -282,7 +282,7 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
 
    1. Select or create a new Application Insights resource for storing application logs for your logic app.
 
-   1. If you have not done so, set up your Microsoft Entra identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
+   1. Set up your Microsoft Entra identity so that your logic app can authenticate managed API connections. For more information, see the top-level [Prerequisites](#prerequisites).
 
    1. Enter the client ID, tenant ID, object ID, and client secret for your Microsoft Entra identity.
 
@@ -306,7 +306,7 @@ However, if you use Visual Studio Code for development, but you use Azure CLI or
 
 ### Configure connection and app settings in your project
 
-1. In your logic app project's **connections.json** file, find the managed connection's `authentication` object. Replace this object's contents with your app registration information, which you previously generated in the [top-level prerequisites](#prerequisites):
+1. In your logic app project's **connections.json** file, find the `authentication` object for the managed connection. Replace this object's contents with your app registration information, which you previously generated in the [top-level prerequisites](#prerequisites):
 
    ```json
    "authentication": {
@@ -379,7 +379,7 @@ For more information, review the [Microsoft.Web/connections/accesspolicies (ARM 
 
 For this task, use your previously saved client ID as the *application ID*.
 
-1. In the Azure portal, find and open your logic app. On your logic app's menu, under **Workflows**, select **Connections**, which lists all the connections in your logic app's workflows.
+1. In the Azure portal, find and open your logic app. On your logic app menu, under **Workflows**, select **Connections**, which lists all the connections in the workflows for your logic app resource.
 
 1. Under **API Connections**, select a connection, which is `office365` in this example.
 
@@ -763,7 +763,7 @@ az logicapp config appsettings delete --name MyLogicAppName
 
 ### View logic app properties
 
-To view your app's information and properties, run the command, `az logicapp show`, with the following parameters:
+To view your app information and properties, run the command, `az logicapp show`, with the following parameters:
 
 ```azurecli
 az logicapp show --name MyLogicAppName 
