@@ -3,12 +3,13 @@ title: Tutorial - Integrate Microsoft Teams breakout rooms
 titleSuffix: An Azure Communication Services tutorial
 description: Use Azure Communication Services SDKs to access BreakoutRooms
 author: sravanthivelidandla
-ms.author: sravanthivelidandla
+ms.author: insravan
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 07/15/2024
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # BreakoutRooms
@@ -31,21 +32,21 @@ The following tables define support of breakout rooms in Azure Communication Ser
 ## Identities & call types
 The following tables show support of breakout rooms for specific call type and identity. 
 
-|Identities| Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
-|----------------------------------------------|--------|--------|--------|---|---|---|
-|Communication Services user	| ✔️	|   |   |  |	|	
-|Microsoft 365 user	| ✔️	|  |  |	 |  |
+|Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|-----------------------------|---------------|------|--------|---|---|---|
+|Communication Services user	| ✔️	          |   |   |  |	|	 |
+|Microsoft 365 user	          | ✔️	          |   |   |	 |  |  |
 
 ## Operations
 The following tables show support of individual APIs in calling SDK to individual identity types. 
-|Operations| Communication Services user | Microsoft 365 user |
-|----------------------------------------------|--------|--------|
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
 |Get assigned breakout room		| ✔️	| ✔️  |  		
-|Get all breakout rooms	| 	| ✔️[1]  | 
-|Join breakout room | ✔️	| ✔️ |
-|Manage breakout rooms| | |
-|Participate in breakout room chat | | ✔️[2]|
-|Get breakout room settings|✔️ | ✔️|
+|Get all breakout rooms	      | 	| ✔️[1]  | 
+|Join breakout room           | ✔️	| ✔️ |
+|Manage breakout rooms        |      |    |
+|Participate in breakout room chat |    | ✔️[2] |
+|Get breakout room settings|✔️ | ✔️ |
 
 [1] Only Microsoft 365 user with role organizer, co-organizer, or breakout room manager.
 
@@ -53,9 +54,9 @@ The following tables show support of individual APIs in calling SDK to individua
 
 ## SDKs
 The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
-|    | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
-|----|-------------|--------|--------|--------|----------|--------|-----|
-|Is Supported | ✔️|   |   |   |    |   |    |		
+|             | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|-------------|-----|--------|--------|--------|----------|--------|---------|
+|Is Supported | ✔️  |       |         |        |          |        |         |		
 
 ## BreakoutRooms
 ::: zone pivot="platform-web"
