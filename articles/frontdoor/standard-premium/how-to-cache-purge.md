@@ -4,7 +4,7 @@ description: This article helps you understand how to purge cache for an Azure F
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: duau

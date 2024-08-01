@@ -855,11 +855,11 @@
           - name: Enable Defender for SQL servers on machines
             href: defender-for-sql-usage.md
             displayName: hybrid, arc, Azure Defender
+          - name: Enable Defender for SQL servers on machines at scale
+            displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers, sql
+            href: enable-defender-sql-at-scale.md        
           - name: Investigate Defender for SQL security alerts
             href: defender-for-sql-alerts.md
-          - name: Enable Defender for SQL servers on machines at scale
-            displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers
-            href: enable-defender-sql-at-scale.md
           - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning
               process
             href: defender-for-sql-autoprovisioning.md
@@ -1158,6 +1158,12 @@
           href: episode-forty-six.md
         - name: Vulnerability management in Defender CSPM
           href: episode-forty-seven.md
+        - name: Microsoft CNAPP solution 
+          displayName: CNAPP
+          href: episode-forty-eight.md
+        - name: Microsoft Copilot for Security integration
+          displayName: Copilot, security
+          href: episode-forty-nine.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

@@ -15,6 +15,8 @@ In this article, you find a list of built-in alerts and recommendations that are
 
 For more information on how alert customization works in the Defender for IoT service, see [customizable alerts](concept-customizable-security-alerts.md). The specific alerts and recommendations available for customization when using the Defender-IoT-micro-agent for Eclipse ThreadX are detailed in the following tables. 
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Defender-IoT-micro-agent for Eclipse ThreadX supported security alerts
 
 ### Device-related security alerts
