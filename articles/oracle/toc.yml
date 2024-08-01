@@ -35,7 +35,7 @@ items:
       href: oracle-db/provision-troubleshoot-oracle-database.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
-  - name: Oracle Database@Azure FAQ
+  - name: FAQs
     href: oracle-db/faq-oracle-database-azure.md
   
  

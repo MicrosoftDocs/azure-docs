@@ -122,6 +122,7 @@ There are multiple tools available from Oracle: ZDM, Data Guard, Data pump, Gold
 Yes, and it isn't included in the private offer. Discuss with your Oracle representative on how to enable this service in addition to Oracle Database@Azure.
 
 ## Networking
+In this section, we cover questions related to networking for Oracle Database@Azure.
 
 ### What network patterns and network features are supported with Oracle Database@Azure?
 
@@ -140,6 +141,7 @@ None. The OCI connection is primarily utilized for OCI control plane to manage t
 You can deploy your application and database in the same virtual network or a peered VNETs in the same region and availability zone for lowest possible latencies.
 
 ## Management
+In this section, we cover questions related to management for Oracle Database@Azure.
 
 ### Who manages and hosts the data in this partnership with Oracle?
 
@@ -171,15 +173,17 @@ You can manage keys with Oracle Key Vault. Integration with Azure offerings like
 
 ### What type of storage redundancy options are available?
 
-Oracle ASM is the default and only storage management system supported on Exadata systems. Only NORMAL (protection against single disk or an entire storage server failure) and HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Exadata systems. For other details, refer [here](https://docs.oracle.com/en-us/iaas/Content/Database/Concepts/exadataoverview.htm#storage).
+Oracle ASM is the default and only storage management system supported on Exadata systems. Only NORMAL (protection against single disk or an entire storage server failure) and HIGH redundancy (protection against two simultaneous partner disk failures from two distinct storage servers) levels are supported on Exadata systems. For more information, see [Oracle ASM Considerations 
+for Exadata Deployments: 
+On-premises and Cloud](https://www.oracle.com/docs/tech/database/maa-exadata-asm-cloud.pdf).
 
 ### Is tiering storage available for the database within Oracle Database@Azure?
 
 Tiering storage service is available as part of Oracle Database@Azure. The Exadata storage servers provide three levels of tiering--PMem, NVME Flash, and HDD. Compression and partitioning are recommended as part of a storage tiering design. For more information, see [Oracle Exadata Cloud Infrastructure X9M Data Sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata-database-machine/exadata-x9m-ds.pdf).
 
-### Where can I go to get more information/details about capabilities and features corresponding to Oracle Database@Azure?
+### Where can I go to get more information about capabilities and features corresponding to Oracle Database@Azure?
 
-For more information, you can read about Oracle Database@Azure here:
+For more information about Oracle Database@Azure, see the following resources.
 
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
