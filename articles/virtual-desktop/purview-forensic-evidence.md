@@ -21,7 +21,7 @@ Before you can use forensic evidence for Azure Virtual Desktop, you need the fol
 
 - A personal desktop host pool with direct assignment.
 
-- Session hosts running Windows 11, version 23H2 and [Standard D2as v5](../virtual-machines/dasv5-dadsv5-series.md) VM size.
+- Session hosts running Windows 11, version 23H2 and using a VM SKU with minimum 8 vCPU and 16 GB of RAM such as [Standard D2as v5](../virtual-machines/dasv5-dadsv5-series.md).
 
 - Session hosts must be Microsoft [Entra ID-joined](/entra/identity/devices/concept-directory-join) or [Entra ID hybrid-joined](/entra/identity/devices/concept-hybrid-join) and enrolled with Intune.
 
@@ -32,6 +32,8 @@ Before you can use forensic evidence for Azure Virtual Desktop, you need the fol
 To configure forensic evidence for Azure Virtual Desktop:
 
 1. Ensure direct assignment is configured for your personal desktop. See [Configure direct assignment](configure-host-pool-personal-desktop-assignment-type.md#configure-direct-assignment) for more information. 
+
+1. [Connect Microsoft Defender for Endpoint to Intune](/mem/intune/protect/advanced-threat-protection-configure) and [onboard your device](/mem/intune/protect/advanced-threat-protection-configure).
 
 1. Follow the steps in [Get started with insider risk management forensic evidence](/purview/insider-risk-management-forensic-evidence-configure?tabs=purview-portal) to install the Purview client and configure forensic evidence.
 
