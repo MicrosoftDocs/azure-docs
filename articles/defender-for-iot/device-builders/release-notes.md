@@ -15,6 +15,8 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## March 2024
 
 **Updates to Defender for IoT Firmware Analysis:**
