@@ -31,9 +31,9 @@ Before you can use forensic evidence for Azure Virtual Desktop, you need:
 
 To configure forensic evidence for Azure Virtual Desktop:
 
-1. Ensure direct assignment is configured for your personal desktop. See [Configure direct assignment](configure-host-pool-personal-desktop-assignment-type.md#configure-direct-assignment) for more information. 
+1. Ensure a user is assigned to a personal desktop using direct assignment. For more information, see [Configure direct assignment](configure-host-pool-personal-desktop-assignment-type.md#configure-direct-assignment). 
 
-1. [Connect Microsoft Defender for Endpoint to Intune](/mem/intune/protect/advanced-threat-protection-configure) and onboard your device.
+1. You need to onboard your session hosts to Purview. Follow the steps in [Onboard Windows devices into Microsoft Purview](/purview/device-onboarding-overview) to onboard your session hosts.
 
 1. To install the Purview client and configure forensic evidence, follow the steps in [Get started with insider risk management forensic evidence](/purview/insider-risk-management-forensic-evidence-configure?tabs=purview-portal) .
 
