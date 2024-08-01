@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an internal load balancer.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/01/2023
 ms.author: duau

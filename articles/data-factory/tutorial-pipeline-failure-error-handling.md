@@ -1,7 +1,7 @@
 ---
 title: Pipeline failure and error message
 description: Understand how pipeline failure status and error message are determined
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: orchestration
 author: kromerm
 ms.author: makromer

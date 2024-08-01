@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute Overview: Connect over a private connection'
 description: The ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: overview
 ms.date: 07/16/2024
 ms.author: duau

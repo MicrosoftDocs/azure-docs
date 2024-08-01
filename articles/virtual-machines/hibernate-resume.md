@@ -53,7 +53,8 @@ VM sizes with up to 64-GB RAM from the following General Purpose VM series suppo
 
 VM sizes with up to 112-GB RAM from the following GPU VM series support hibernation.
 - [NVv4-series](../virtual-machines/nvv4-series.md) (in preview)
-- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md) (in preview)
+- [NVadsA10v5-series](../virtual-machines/nva10v5-series.md) (in preview). If you are using any UVM-enabled compute applications then we recommned you to idle the application before initiating hibernate action. 
+- 
 
 > [!IMPORTANT]
 > Azure Virtual Machines - Hibernation for GPU VMs is currently in PREVIEW.

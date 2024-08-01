@@ -31,3 +31,4 @@ This glossary provides a brief description of important terms and concepts for t
 | **Micro Agent** | Provides depth security capabilities for IoT devices including security posture and threat detection. | |
 | **Module twin** | Module twins are JSON documents that store module state information including metadata, configurations, and conditions. | [Device twins](#d) <br /> <br />[Defender-IoT-micro-agent twin](#d) |
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]

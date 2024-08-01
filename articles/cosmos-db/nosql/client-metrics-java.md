@@ -4,7 +4,7 @@ description: Learn how to consume Micrometer metrics in the Java SDK for Azure C
 author: TheovanKraay
 ms.author: thvankra
 services: cosmos-db
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 12/14/2023

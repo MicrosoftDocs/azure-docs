@@ -6,7 +6,8 @@ ms.author: dobett
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
-ms.date: 10/18/2023
+  - references_regions
+ms.date: 07/31/2024
 ---
 
 # What is Azure IoT Operations Preview?
@@ -32,7 +33,6 @@ Azure IoT Operations:
 There are two core elements in the Azure IoT Operations Preview architecture:
 
 * **Azure IoT Operations Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
-  * The _data processor_ is a configurable service that can manage the complexities and diversity of industrial data. Use the data processor to make data from disparate sources more understandable, usable, and valuable.
   * The _MQTT broker_ is an edge-native MQTT broker that powers event-driven architectures.
   * The _connector for OPC UA_ handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
 * The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
@@ -62,19 +62,6 @@ Examples of how components in Azure IoT Operations use the MQTT broker include:
 * Data processor pipelines subscribe to MQTT topics to retrieve messages for processing.
 * Northbound cloud connectors subscribe to MQTT topics to fetch messages for forwarding to cloud services.
 
-## Process data
-
-Message processing includes operations such as data normalization, data enrichment, and data filtering. You can use [data processor](process-data/overview-data-processor.md) pipelines to process messages.
-
-A data processor pipeline typically:
-
-1. Subscribes to an MQTT topic to retrieve messages.
-1. Processes the messages by using one or more configurable stages.
-1. Sends the processed messages to a destination such as a Microsoft Fabric data lake for storage and analysis.
-
-> [!NOTE]
-> The data processor is an optional component of Azure IoT Operations. To use it, you must choose to add it when you deploy Azure IoT Operations.
-
 ## Connect to the cloud
 
 To connect to the cloud from Azure IoT Operations, you have the following options:
@@ -85,10 +72,14 @@ The northbound cloud connectors let you connect the MQTT broker directly to clou
 * [Azure Event Hubs or Kafka](connect-to-cloud/howto-configure-kafka.md)
 * [Azure Data Lake Storage](connect-to-cloud/howto-configure-data-lake.md)
 
-The data processor pipeline destinations let you connect to cloud services such as:
+## Process data
 
-* [Microsoft Fabric](process-data/howto-configure-destination-fabric.md)
-* [Azure Data Explorer](process-data/howto-configure-destination-data-explorer.md)
+In Azure IoT operations v0.6.0, the data processor is replaced by dataflows. Dataflows provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations.
+
+> [!NOTE]
+> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure).
+
+<!-- TODO: Fix the previous versions link before we publish -->
 
 ## Visualize and analyze telemetry
 
@@ -104,6 +95,20 @@ To secure communication between devices and the cloud through isolated network e
 ## Validated environments
 
 [!INCLUDE [validated-environments](includes/validated-environments.md)]
+
+## Supported regions
+
+In the 0.6.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
+
+* East US
+* East US 2
+* West US
+* West US 2
+* West Europe
+* North Europe
+
+>[!NOTE]
+>West US 3 was supported in previous versions of Azure IoT Operations, but isn't supported in version 0.6.x.
 
 ## Next step
 
