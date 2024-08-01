@@ -27,13 +27,6 @@ You can view the serverless instance used by compute session in the compute sess
 
 ### Compute session failures using custom base image
 
-#### Compute session start failure with requirements.txt or custom base image
-
-Compute session support to use `requirements.txt` or custom base image in `flow.dag.yaml` to customize the image. We would recommend you to use `requirements.txt` for common case, which will use `pip install -r requirements.txt` to install the packages. If you have dependency more than python packages, you need to follow the [Customize base image]() to create build a new image base on top of prompt flow base image. Then use it in `flow.dag.yaml`. Learn more [how to specify base image in compute session.](./create-manage-compute-session.md#change-the-base-image)
-
-- You can't use arbitrary base image to create Compute session, you need to use the base image provide by prompt flow.
-- Don't pin the version of `promptflow` and `promptflow-tools` in `requirements.txt`, because we already include them in the base image. Using old version of `promptflow` and `promptflow-tools` may cause unexpected behavior.
-
 ## Flow run related issues
 
 ### How to find the raw inputs and outputs of in LLM tool for further investigation?
