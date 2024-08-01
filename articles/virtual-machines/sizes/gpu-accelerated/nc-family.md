@@ -2,7 +2,7 @@
 title: NC family VM size series
 description: List of sizes in the NC family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/06/2024
@@ -32,7 +32,7 @@ ms.author: mattmcinnes
 ### NCads_-_H100_v5-series
 [!INCLUDE [ncads_-_h100_v5-series-summary](./includes/ncadsh100v5-series-summary.md)]
 
-[View the full NCads_-_H100_v5-series page](./ncadsh100-v5.md).
+[View the full NCads_-_H100_v5-series page](./ncadsh100v5-series.md).
 
 [!INCLUDE [ncads_-_h100_v5-series-specs](./includes/ncadsh100v5-series-specs.md)]
 
@@ -56,7 +56,7 @@ ms.author: mattmcinnes
 ### NCasT4_v3-series
 [!INCLUDE [ncast4_v3-series-summary](./includes/ncast4v3-series-summary.md)]
 
-[View the full NCasT4_v3-series page](./nct4v3-series.md).
+[View the full NCasT4_v3-series page](./ncast4v3-series.md).
 
 [!INCLUDE [ncast4_v3-series-specs](./includes/ncast4v3-series-specs.md)]
 

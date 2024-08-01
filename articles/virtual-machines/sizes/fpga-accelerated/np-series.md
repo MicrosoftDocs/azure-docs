@@ -118,7 +118,7 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 **Q:** How to request quota for NP VMs?
 
-**A:** Follow this page [Increase VM-family vCPU quotas](../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, SouthCentral US, West Europe, SouthEast Asia, Japan East, and Canada Central.
+**A:** Follow this page [Increase VM-family vCPU quotas](../../../azure-portal/supportability/per-vm-quota-requests.md). NP VMs are available in East US, West US2, SouthCentral US, West Europe, SouthEast Asia, Japan East, and Canada Central.
 
 **Q:** What version of Vitis should I use? 
 
@@ -126,7 +126,7 @@ Accelerator (GPUs, FPGAs, etc.) info for each size
 
 **Q:** Do I need to use NP VMs to develop my solution? 
 
-**A:** No, you can develop on-premises and deploy to the cloud. Make sure to follow the [attestation documentation](./field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
+**A:** No, you can develop on-premises and deploy to the cloud. Make sure to follow the [attestation documentation](../../field-programmable-gate-arrays-attestation.md) to deploy on NP VMs. 
 
 **Q:** What shell version is supported and how can I get the development files?
 

@@ -24,5 +24,3 @@ Information on Disk Types: [Disk Types](../../disks-types.md)
 Read about the latest announcements, HPC workload examples, and performance results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 
 For a higher level architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
-
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.

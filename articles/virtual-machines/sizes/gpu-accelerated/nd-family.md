@@ -2,7 +2,7 @@
 title: ND family virtual machine size series
 description: List of sizes in the ND family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
@@ -40,11 +40,11 @@ ms.author: mattmcinnes
 
 
 ###  ND_A100_v4-series
-[!INCLUDE [nd-a100-v4-series-summary](./includes/nd-a100-v4-series-summary.md)]
+[!INCLUDE [nd-a100-v4-series-summary](./includes/nda100v4-series-summary.md)]
 
 [View the full ND_A100_v4-series page](./nda100v4-series.md).
 
-[!INCLUDE [nd-a100-v4-series-specs](./includes/nd-a100-v4-series-specs.md)]
+[!INCLUDE [nd-a100-v4-series-specs](./includes/nda100v4-series-specs.md)]
 
 
 ### NDm_A100_v4-series

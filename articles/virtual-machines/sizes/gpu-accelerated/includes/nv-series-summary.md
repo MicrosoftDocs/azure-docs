@@ -11,7 +11,7 @@ ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
 > [!IMPORTANT]
-> NV and NV_Promo series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NV and NV_Promo retirement information](nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](nv-series-migration-guide.md).
+> NV and NV_Promo series Azure virtual machines (VMs) will be retired on September 6, 2023. For more information, see the [NV and NV_Promo retirement information](../../../nv-series-retirement.md). For how to migrate your workloads to other VM sizes, see the [NV and NV_Promo series migration guide](../../../nv-series-migration-guide.md).
 >
 > This retirement announcement doesn't apply to NVv3 and NVv4 series VMs. 
 
