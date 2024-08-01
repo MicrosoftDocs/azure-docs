@@ -37,7 +37,7 @@ Refer to the [Speech service container host computer][speech-container-host-comp
 
 ## Connect to the Kubernetes cluster
 
-The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
+The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](/azure/aks/tutorial-kubernetes-deploy-cluster) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
 
 ## Configure Helm chart values for deployment
 
@@ -237,5 +237,5 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 
 <!-- LINKS - internal -->
 [speech-container-host-computer]: speech-container-howto.md#host-computer-requirements-and-recommendations
-[installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
+[installing-helm-apps-in-aks]: /azure/aks/kubernetes-helm
 [cog-svcs-containers]: ../cognitive-services-container-support.md

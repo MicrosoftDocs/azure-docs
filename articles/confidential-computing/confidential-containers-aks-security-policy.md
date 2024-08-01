@@ -79,4 +79,4 @@ The Kata agent is responsible for enforcing the policy. Microsoft contributed to
 
 ## Next steps
 
-[Deploy a confidential container on AKS](../aks/deploy-confidential-containers-default-policy.md)
+[Deploy a confidential container on AKS](/azure/aks/deploy-confidential-containers-default-policy)
