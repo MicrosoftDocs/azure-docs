@@ -34,7 +34,7 @@ For incoming requests to your web app, App Service supports TLS versions 1.0, 1.
 App Service also allows you to set minimum TLS version for incoming requests to your web app and to SCM site. By default, the minimum TLS version for incoming requests to your web app and to SCM would be set to 1.2 on both portal and API. 
 
 ### TLS 1.3
-With TLS 1.3, a [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite-preview) setting is now available. This includes two cipher suites at the top of the cipher suite order:
+A [Minimum TLS Cipher Suite](#minimum-tls-cipher-suite-preview) setting is available with TLS 1.3. This includes two cipher suites at the top of the cipher suite order:
 - TLS_AES_256_GCM_SHA384  
 - TLS_AES_128_GCM_SHA256 
 
@@ -68,7 +68,7 @@ A cipher suite is a set of instructions that contains algorithms and protocols t
 
 ### App Service Environment (ASE) V3 with cluster setting `FrontEndSSLCipherSuiteOrder`
 
-For App Service Environments with "FrontEndSSLCipherSuiteOrder" cluster setting, you need to update your settings to include two TLS 1.3 cipher suites (TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256). Once updated, restart your front-end for the change to take effect. You must still include the two required cipher suites as mentioned in the docs. 
+For App Service Environments with `FrontEndSSLCipherSuiteOrder` cluster setting, you need to update your settings to include two TLS 1.3 cipher suites (TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256). Once updated, restart your front-end for the change to take effect. You must still include the two required cipher suites as mentioned in the docs. 
 
 ## End-to-end TLS Encryption (preview)
 
