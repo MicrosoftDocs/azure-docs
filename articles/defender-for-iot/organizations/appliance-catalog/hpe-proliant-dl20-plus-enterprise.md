@@ -125,12 +125,12 @@ Use the following procedure to set up network options and update the default pas
 
 1. Change the default password and select **F10: Save**.
 
-### Setup the BIOS and RAID array
+### Set up the BIOS and RAID array
 
 This procedure describes how to configure the BIOS configuration for an unconfigured sensor appliance.
 If any of the steps below are missing in the BIOS make sure that the hardware matches the specifications above.
 
-HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be setup locally or remotely. To setup the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
+HPE BIOS iLO is a system management software designed to give administrators control of HPE hardware remotely. It allows administrators to monitor system performance, configure settings, and troubleshoot hardware issues from a web browser. It can also be used to update system BIOS and firmware. The BIOS can be set up locally or remotely. To set up the BIOS remotely from a management computer, you need to define the HPE IP address and the management computer's IP address on the same subnet.
 
 
 **To configure the HPE BIOS**:
