@@ -3,7 +3,7 @@ title: Memory optimized Dv2 and Dsv2-series VMs - Azure Virtual Machines
 description: Specifications for the Dv2 and DSv2-series VMs.
 author: andysports8
 ms.author: shuji
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/21/2022

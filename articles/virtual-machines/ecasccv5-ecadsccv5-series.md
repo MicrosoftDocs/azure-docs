@@ -4,7 +4,7 @@ description: Specifications for Azure Confidential Computing's Azure ECas_cc_v5 
 author: ananyagarg
 ms.author: ananyagarg
 ms.reviewer: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual 
 ms.date: 03/29/2022
