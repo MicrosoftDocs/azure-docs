@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 08/01/2024
 ms.custom: devx-track-azurecli
 #Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 > This capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure Arc-enabled Logic Apps and the Azure portal, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that's mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+With Azure Arc-enabled Logic Apps, you can create and deploy single-tenant based logic app workflows to a Kubernetes infrastructure that you operate and manage. Your logic apps run in a *custom location* that's mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure App Service, and Azure Functions on your Kubernetes cluster. 
 
@@ -80,7 +80,7 @@ This section describes the common prerequisites across all the approaches and to
 
 ## Create and deploy logic apps
 
-Based on whether you want to use Azure CLI, Visual Studio Code, or the Azure portal, select the matching tab to review the specific prerequisites and steps.
+Based on whether you want to use Azure CLI or Visual Studio Code, select the matching tab to review the specific prerequisites and steps.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -292,23 +292,6 @@ You can create, deploy, and monitor your logic app workflows from end to end in 
       > connections.json file and your managed API connections' access policies for you.
 
 1. When you're done, your logic app is live and running in your Azure Arc-enabled Kubernetes cluster, ready for you to test.
-
-### [Azure portal](#tab/azure-portal)
-
-The portal-based designer's editing capability is currently under development for Azure Arc-enabled Logic Apps. You can create, deploy, and view your logic apps using the portal-based designer, but you can't edit them in the portal after deployment. For now, you can create and edit a logic app project locally in Visual Studio Code, and then deploy using Visual Studio Code, Azure CLI, or automated deployments.
-
-1. In the Azure portal, [create a **Logic App (Standard)** resource](create-single-tenant-workflows-azure-portal.md). However, for the **Publish** destination, select **Docker Container**. For **Region**, select your previously created custom location as your app's location.
-
-   By default, the **Logic App (Standard)** resource runs in single-tenant Azure Logic Apps. However, for Azure Arc-enabled Logic Apps, your logic app resource runs in the custom location that you created for your Kubernetes environment. Also, you don't need to create an App Service plan, which is created for you.
-
-   > [!IMPORTANT]
-   > The resource locations for your logic app, custom location, and Kubernetes environment must all be the same.
-
-1. [Edit and deploy the logic app using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md).
-
-1. After you build and deploy your logic app, you can monitor and view your workflows as usual by using the portal or Application Insights.
-
-   The portal experience for deployed logic apps is currently available in read-only mode, which means you can't change your workflows or app settings. However, you can still view run history, trigger history, and other information about your apps. For now, to update your logic apps, you can use the Azure CLI, Visual Studio Code, or automated deployments.
 
 ---
 
