@@ -1,6 +1,6 @@
 ---
-title: Past due balance email from Azure
-description: Describes how to make payment if your Azure subscription has a past due balance.
+title: Past-due balance email from Azure
+description: Describes how to make payment if your Azure subscription has a past-due balance.
 author: bandersmsft
 ms.reviewer: lishepar
 ms.service: cost-management-billing
@@ -11,9 +11,9 @@ ms.author: banders
 ms.custom: references_regions
 ---
 
-# Resolve past due balance for your pay-as-you-go Azure subscription
+# Resolve past-due balance for your pay-as-you-go Azure subscription
 
-This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account, also called pay-as-you go. If you're unsure of your billing account type, see [Check your billing account type](#check-the-type-of-your-account). 
+This article applies to customers who signed up for Azure online with a credit card and have a Microsoft Online Services Program billing account, also called pay-as-you go. If you're unsure of your billing account type, see [Check your billing account type](#check-the-type-of-your-account).
 
 If you have a Microsoft Customer Agreement billing account, see [Pay Microsoft Customer Agreement bill](../understand/pay-bill.md) instead.
 
@@ -22,15 +22,15 @@ You get an email and see an alert in the Azure portal when your payment isn't re
 If your default payment method is credit card, the [Account Administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the Azure portal. If you pay by invoice (wire transfer), send your payment to the location listed at the bottom of your invoice.
 
 > [!IMPORTANT]
-> * If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
-> * The credit card you use to settle the outstanding charges will become the new default payment method for all subscriptions that were using the failed payment method.
+> - If you have multiple subscriptions using the same credit card and they are all past due, you must pay the entire outstanding balance at once.
+> - The credit card you use to settle the outstanding charges will become the new default payment method for all subscriptions that were using the failed payment method.
 
-## Resolve past due balance in the Azure portal
+## Resolve past-due balance in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Admin.
 1. Search for **Cost Management + Billing**.
-1. Select the past due subscription from the **Overview** page.
-1. In the **Subscription overview** page, select the red past due banner to settle the balance.
+1. Select the past-due subscription from the **Overview** page.
+1. In the **Subscription overview** page, select the red past-due banner to settle the balance.
     > [!NOTE]
     > If you are not the Account Administrator, you will not be able to settle the balance.
     - If your account is in good standing, you don't see any banners.
@@ -39,8 +39,8 @@ If your default payment method is credit card, the [Account Administrator](add-c
 1. In the new **Settle balance** page, select **Select payment method**.
 1. In the new area on the right, select a credit card from the drop-down or add a new one by selecting the blue **Add new payment method** link. This credit card becomes the active payment method for all subscriptions currently using the failed payment method.
      > [!NOTE]
-     > * The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
-     > * If the selected payment method also has outstanding charges for Microsoft services, this will be reflected in the total outstanding balance. You must pay those outstanding charges, too.
+     > - The total outstanding balance reflects outstanding charges across all Microsoft services using the failed payment method.
+     > - If the selected payment method also has outstanding charges for Microsoft services, this will be reflected in the total outstanding balance. You must pay those outstanding charges, too.
 1. Select **Pay**.
 
 ## Settle balance might be Pay now
@@ -83,6 +83,7 @@ Users in the following countries/regions don't see the **Settle balance** option
 ## Troubleshoot declined credit card
 
 If your financial institution declines your credit card charge, contact your financial institution to resolve the issue. Check with your bank to make sure:
+
 - International transactions are enabled on the card.
 - The card has sufficient credit limit or funds to settle the balance.
 - Recurring payments are enabled on the card.
@@ -98,6 +99,7 @@ The service is canceled and your resources are no longer available. Your Azure d
 If you know your payment has been processed but your subscription is still disabled, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Check the type of your account
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## Need help? Contact us.
