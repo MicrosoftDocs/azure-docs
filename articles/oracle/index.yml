@@ -51,3 +51,5 @@ landingContent:
             url: oracle-db/provision-autonomous-oracle-databases.md
           - text: Support for Oracle Database@Azure
             url: oracle-db/oracle-database-support.md
+          - text: Oracle Database@Azure FAQ
+            url: oracle-db/faq-oracle-database-azure.md

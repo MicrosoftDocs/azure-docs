@@ -16,7 +16,7 @@ This article answers frequently asked questions (FAQs) about the Oracle Database
 In this section, we cover general questions about Oracle Database@Azure.
 
 ### How does Oracle Database@Azure work?
-Oracle Database@Azure is enabled by hosting OCI’s infrastructure in Azure and natively integrated with Azure offering low-latency, high-bandwidth connectivity from your mission critical database tier to your application tier and rest of services in Azure. Enterprise critical features like RAC, Data Guard, Golden Gate, managed backups, self-managed RMAN backups, Zero Downtime Migration, on-premises connectivity, and seamless integration with other Azure services are supported. For more information, see [Overview - Oracle Database@Azure | Microsoft Learn](https://learn.microsoft.com/en-us/azure/oracle/oracle-db/database-overview).
+Oracle Database@Azure is enabled by hosting OCI’s infrastructure in Azure and natively integrated with Azure offering low-latency, high-bandwidth connectivity from your mission critical database tier to your application tier and rest of services in Azure. Enterprise critical features like RAC, Data Guard, Golden Gate, managed backups, self-managed RMAN backups, Zero Downtime Migration, on-premises connectivity, and seamless integration with other Azure services are supported. For more information, see [Overview - Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/database-overview).
 
 ### How is Oracle Database@Azure different from OCI Interconnect and Oracle on Azure VMs?
 
@@ -44,7 +44,7 @@ Latency between Azure resources and Oracle Database@Azure is within the Azure re
 
 ### Does Oracle Database@Azure support deploying Base Database (BD), or do I need to migrate to Autonomous Database service?
 
-No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](https://learn.microsoft.com/en-us/training/modules/migrate-oracle-workload-azure-odaa/).
+No, Base Database isn't currently supported with Oracle Database@Azure. You can deploy single instance self-managed databases on Azure VMs or if you need Oracle managed databases with RAC, we recommend Autonomous Databases via Oracle Database@Azure. For more information, see [Autonomous Database | Oracle](https://www.oracle.com/cloud/azure/oracle-database-at-azure/) and [Provision Oracle Autonomous Databases | Microsoft Learn](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/).
 
 ### For the Oracle Database@Azure service, will the automated DBCS DR use Azure backbone or the OCI backbone?
 
@@ -184,7 +184,7 @@ For more information, you can read about Oracle Database@Azure here:
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
 - [Oracle Database@Azure support information](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
-- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/en-us/training/modules/migrate-oracle-workload-azure-odaa/)
+- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
 
 ## Next Steps
@@ -192,5 +192,5 @@ For more information, you can read about Oracle Database@Azure here:
 - [Overview - Oracle Database@Azure](/azure/oracle/oracle-db/database-overview)
 - [Provision and manage Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaaonboard.htm)
 - [Oracle Database@Azure support information](https://mylearn.oracle.com/ou/course/oracle-databaseazure-deep-dive/135849)
-- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/en-us/training/modules/migrate-oracle-workload-azure-odaa/)
+- [Network planning for Oracle Database@Azure](https://learn.microsoft.com/training/modules/migrate-oracle-workload-azure-odaa/)
 - [Groups and roles for Oracle Database@Azure](https://www.oracle.com/cloud/azure/oracle-database-at-azure/)
