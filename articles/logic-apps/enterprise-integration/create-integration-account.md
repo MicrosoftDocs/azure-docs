@@ -1,15 +1,14 @@
 ---
 title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
-services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 06/18/2024
+ms.date: 08/09/2024
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
