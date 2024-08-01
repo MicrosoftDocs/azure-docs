@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: This document discusses how rate limiting works for ExpressRoute circuits over service provider ports. You'll also learn how to monitor the throughput and traffic drop due to rate limiting.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: duau

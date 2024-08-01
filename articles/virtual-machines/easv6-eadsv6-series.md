@@ -3,7 +3,7 @@ title:       'Easv6 and Eadsv6-series - Azure Virtual Machines'
 description: Specifications for the Easv6 and Eadsv6-series VMs.
 author:      iamwilliew 
 ms.author:   wwilliams
-ms.service:  virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic:    conceptual
 ms.date:     01/29/2024

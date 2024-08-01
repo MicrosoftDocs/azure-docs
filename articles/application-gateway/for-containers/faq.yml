@@ -4,7 +4,7 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
   author: greglin
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.subservice: appgw-for-containers
   ms.topic: article
   ms.date: 02/27/2024

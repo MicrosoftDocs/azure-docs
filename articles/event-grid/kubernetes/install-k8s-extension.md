@@ -7,6 +7,7 @@ ms.subservice: kubernetes
 ms.custom: devx-track-azurecli, build-2024
 ms.date: 03/24/2022
 ms.topic: how-to
+ms.service: azure-event-grid
 ---
 
 # Install Event Grid extension on Azure Arc-enabled Kubernetes cluster

@@ -5,7 +5,7 @@ description: Learn how to efficiently query a base container by using predefined
 author: AbhinavTrips
 ms.author: abtripathi
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to

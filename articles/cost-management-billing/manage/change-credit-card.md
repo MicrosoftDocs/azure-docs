@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 07/31/2024
 ms.author: banders
 ---
 
@@ -185,10 +185,58 @@ If your payment method is being used by an MCA billing profile, the following me
 
 To detach a payment method, a list of conditions must be met. If any conditions aren't met, instructions appear explaining how to meet the condition. A link also appears that takes you to the location where you can resolve the condition.
 
-When all the conditions are all satisfied, you can detach the payment method from the billing profile.
+When all the conditions are fully satisfied, you can detach the payment method from the billing profile.
 
 > [!NOTE]
 > When the default payment method is detached, the billing profile is put into an _inactive_ state. Anything deleted in this process will not be able to be recovered. After a billing profile is set to inactive, you must sign up for a new Azure subscription to create new resources.
+
+#### Detach payment method errors
+
+There are several reasons why trying to detach a payment method might fail. If you’re having problems trying to detach (remove) a payment method, it's most likely caused by one of the following reasons.
+
+##### Outstanding charges (past due charges)
+
+You can view your outstanding charges by navigating to **Cost Management + Billing** > select a billing account > under Billing, select **Invoices**, > then in the list of invoices you can view the **Status**. Invoices with **Past Due** status must be paid.
+
+Here’s an example of past due charges.
+
+:::image type="content" source="./media/change-credit-card/past-due.png" alt-text="Screenshot showing Past due invoice." lightbox="./media/change-credit-card/past-due.png":::
+
+After you pay outstanding charges, you can detach your payment method.
+
+#####  Recurring charges set to auto renew
+You can view recurring charges in the Recurring charges page. Navigate to **Cost Management + Billing** > select your billing account > under Billing, select **Recurring charges**. To stop charges from automatically renewing, on the Recurring charges page, select a charge and then one the right side of the row, select the ellipsis symbol (**…**) and then select **Cancel**.
+
+Here’s an example of the Recurring charge page with items that must get canceled.
+
+:::image type="content" source="./media/change-credit-card/recurring-charges.png" alt-text="Screenshot showing the Recurring charges page." lightbox="./media/change-credit-card/recurring-charges.png":::
+
+Examples of recurring charges include:
+
+- Azure support agreements
+- Active Azure subscriptions
+- Reservations set to auto renew
+- Savings plans set to auto renew
+
+After all recurring charges are removed, you can detach your payment method.
+
+#####  Pending charges
+
+You can’t detach your payment method if there are any pending charges. In the Azure portal, pending charges appear with **Due on *date*** status on the Cost Management + Billing > Billing > Invoices page. Let’s look at a typical pending charges example.
+
+1. Assume that a billing cycle begins on June 1.
+2. You use Azure services from June 1 to June 10.
+3. You cancel your subscription on June 10.
+4. You pay your invoice on June 12 for the month of May and are paid in full.
+5. However, you still have pending charges for June 1 to June 10.
+
+In this example, you aren’t billed for your June usage until the following month (August). So, you can’t detach your payment method until you pay the invoice for June, which isn’t available until August.
+
+Here’s an example of a pending charge.
+
+:::image type="content" source="./media/change-credit-card/due-on.png" alt-text="Screenshot showing invoices that have pending charges." lightbox="./media/change-credit-card/due-on.png":::
+
+After you pay all pending charges, you can detach your payment method.
 
 #### To detach a payment method
 
@@ -196,7 +244,7 @@ When all the conditions are all satisfied, you can detach the payment method fro
 1. If all conditions are met, select **Detach**. Otherwise, continue to the next step.
 1. If Detach is unavailable, a list of conditions is shown. Take the actions listed. Select the link shown in the Detach the default payment method area. Here's an example of a corrective action that explains the actions you need to take.  
     :::image type="content" source="./media/change-credit-card/azure-subscriptions.png" alt-text="Example screenshot showing a corrective action needed to detach a payment method for MCA." :::
-1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
+1. When you select the corrective action link, you get redirected to the Azure page where you take action. Take whatever correction action is needed.
 1. If necessary, complete all other corrective actions.
 1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods**. Select **Detach**. At the bottom of the Detach the default payment method page, select **Detach**.
 
@@ -219,7 +267,7 @@ If your payment method is in use by a subscription, do the following steps.
 1. In the Delete a payment method area, select **Delete** if all conditions are met. If Delete is unavailable, continue to the next step.
 1. A list of conditions is shown. Take the actions listed. Select the link shown in the Delete a payment method area.  
     :::image type="content" source="./media/change-credit-card/payment-method-in-use-mosp.png" alt-text="Example screenshot showing that a payment method is in use by a pay-as-you-go subscription." :::
-1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
+1. When you select the corrective action link, you get redirected to the Azure page where you take action. Take whatever correction action is needed.
 1. If necessary, complete all other corrective actions.
 1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods** and delete the payment method.
 
@@ -236,7 +284,7 @@ The following sections answer commonly asked questions about changing your credi
 
 ### Why do I keep getting a "session has expired" error message?
 
-If you get the `Your login session has expired. Please click here to log back in` error message even if you've already logged out and back in, try again with a private browsing session.
+If you already tried signing out and back in, yet you get the error message `Your login session has expired. Please click here to log back in`, try using a private browsing session.
 
 ### How do I use a different card for each subscription?
 
