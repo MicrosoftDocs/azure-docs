@@ -84,7 +84,7 @@ read
 
 ## Review deployed resources
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 When your deployment finishes, you can select the **Go to resource** button to see your new resource. You can also find the resource group by:
 
