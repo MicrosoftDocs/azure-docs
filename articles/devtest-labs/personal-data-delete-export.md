@@ -86,7 +86,7 @@ $storageAccountKeys = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupN
 $Ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKeys[0].Value
 
 # Create blob container
-$containerName = "exportLabResources"
+$containerName = "exportlabresources"
 New-AzStorageContainer -Name $containerName `
                        -Context $Ctx `
                        -Permission Off
