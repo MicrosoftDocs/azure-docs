@@ -5,7 +5,7 @@ description: Learn how to efficiently read and write XML and delimited data usin
 author: sinnypan
 ms.author: sipa
 ms.date: 03/03/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
