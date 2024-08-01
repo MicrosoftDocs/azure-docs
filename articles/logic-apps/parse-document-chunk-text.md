@@ -1,7 +1,7 @@
 ---
 title: Parse document or chunk text
 description: Parse a document or chunk text for Standard workflows in Azure Logic Apps.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
