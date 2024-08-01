@@ -616,6 +616,8 @@
         href: compiling-scaling-applications.md
     - name: Enable NVMe
       items:
+      - name: NVMe Overview
+        href: nvme-overview.md
       - name: Enable NVMe FAQ
         href: enable-nvme-faqs.yml
       - name: Temp NVMe Disks FAQ
@@ -624,6 +626,8 @@
         href: enable-nvme-remote-faqs.yml
       - name: OS Images Supported
         href: enable-nvme-interface.md
+      - name: SCSI to NVMe for Linux VMs
+        href: nvme-linux.md
     - name: Previous generation and retired sizes
       items:
       - name: Overview

@@ -4,7 +4,7 @@ description: Tutorial - Use the Azure Synapse Analytics to create Spark job defi
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.custom: devx-track-dotnet, devx-track-python

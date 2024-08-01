@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article shows you how to set up managed identities with Azure Front Door to access certificates in an Azure Key Vault.
 services: networking
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 12/13/2023
 ms.author: duau

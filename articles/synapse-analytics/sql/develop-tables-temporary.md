@@ -4,7 +4,7 @@ description: Essential guidance for using temporary tables in Synapse SQL.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/02/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---

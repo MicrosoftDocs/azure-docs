@@ -5,7 +5,7 @@ author: whhender
 ms.author: whhender
 ms.reviewer: whhender, wiassaf
 ms.date: 10/16/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.custom: engagement-fy23
