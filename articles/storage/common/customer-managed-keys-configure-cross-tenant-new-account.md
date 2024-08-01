@@ -25,9 +25,9 @@ To learn how to configure customer-managed keys for an existing storage account,
 > [!NOTE]
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
-[!INCLUDE [entra-msi-cross-tenant-cmk-overview](../../../includes/entra-msi-cross-tenant-cmk-overview.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../../includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Create a new storage account encrypted with a key from a different tenant
 

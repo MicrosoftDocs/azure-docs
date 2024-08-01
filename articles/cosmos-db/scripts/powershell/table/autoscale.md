@@ -2,7 +2,7 @@
 title: PowerShell script to create a table with autoscale in Azure Cosmos DB for Table
 description: PowerShell script to create a table with autoscale in Azure Cosmos DB for Table
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.custom: devx-track-azurepowershell
 ms.topic: sample
@@ -14,7 +14,7 @@ ms.reviewer: mjbrown
 # Create a table with autoscale for Azure Cosmos DB - API for Table
 [!INCLUDE[Table](../../../includes/appliesto-table.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

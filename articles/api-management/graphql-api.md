@@ -31,7 +31,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
 
 
 - Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Add a GraphQL API
 

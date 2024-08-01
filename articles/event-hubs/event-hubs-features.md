@@ -40,7 +40,7 @@ Event Hubs ensures that all events sharing a partition key value are stored toge
 
 Published events are removed from an event hub based on a configurable, timed-based retention policy. Here are a few important points:
 
-- The **default** value and **shortest** possible retention period is **1 hour**. Currently, you can set the retention period in hours only in the Azure portal. Resource Manager template, PowerShell, and CLI allow this property to be set only in days. 
+- The **default** value and **shortest** possible retention period is **1 hour**. 
 - For Event Hubs **Standard**, the maximum retention period is **7 days**. 
 - For Event Hubs  **Premium** and **Dedicated**, the maximum retention period is **90 days**.
 - If you change the retention period, it applies to all events including events that are already in the event hub. 

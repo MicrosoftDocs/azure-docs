@@ -23,17 +23,6 @@ HTTP method: **POST**
 * Use the `Start Translation` method to execute an asynchronous batch translation request.
 * The method requires an Azure Blob storage account with storage containers for your source and translated documents.
 
-> [!TIP]
-> This method returns the job `id` parameter for the [get-translation-status](get-translation-status.md), [get-documents-status](get-documents-status.md), [get-document-status](get-document-status.md), and [cancel-translation](cancel-translation.md) request query strings.
-
-* You can find the job `id`  in the POST `start-batch-translation` method response Header `Operation-Location`  URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
-
-|**Response header**|**Response URL**|
-|-----------------------|----------------|
-|Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
-
-* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation jobs and their `id`s.
-
 ## Request URL
 
 > [!IMPORTANT]
@@ -63,7 +52,7 @@ Request headers are:
 
 * Glossaries can be included in the request. If the glossary is invalid or unreachable during translation, an error is indicated in the document status.
 
-* If a file with the same name already exists in the target destination, the job fails. 
+* If a file with the same name already exists in the target destination, the job fails.
 
 * The targetUrl for each target language must be unique.
 
@@ -273,6 +262,17 @@ This sample request shows a single document translated into two target languages
     ]
 }
 ```
+
+> [!TIP]
+> This method returns the job `id` parameter for the [get-translation-status](get-translation-status.md), [get-documents-status](get-documents-status.md), [get-document-status](get-document-status.md), and [cancel-translation](cancel-translation.md) request query strings.
+
+* You can find the job `id`  in the POST `start-batch-translation` method response Header `Operation-Location`  URL value. The alphanumeric string following the `/document/` parameter is the operation's job **`id`**:
+
+    |**Response header**|**Response URL**|
+    |-----------------------|----------------|
+    |Operation-Location   | {document-translation-endpoint}/translator/document/`9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec`?api-version=2024-05-01|
+
+* You can also use a [get-translations-status](../reference/get-translations-status.md) request to retrieve a list of translation jobs and their `id`s.
 
 ## Response status codes
 

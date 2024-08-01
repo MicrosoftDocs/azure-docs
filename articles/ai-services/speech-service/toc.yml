@@ -65,7 +65,9 @@ items:
         href: get-speech-recognition-results.md
       - name: Real-time diarization quickstart
         href: get-started-stt-diarization.md
-    - name: Batch transcription
+    - name: Fast transcription API (Preview)
+      href: fast-transcription-create.md
+    - name: Batch transcription API
       items:
       - name: What is batch transcription?
         href: batch-transcription.md
@@ -314,6 +316,9 @@ items:
         - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
+        - name: Interactive language learning with pronunciation assessment
+          href: language-learning-with-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron, chatting 
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
     - name: Meeting transcription

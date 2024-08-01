@@ -5,9 +5,9 @@ description: Use Azure Pipelines for flexible MLOps automation
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: kritifaujdar
 ms.date: 06/12/2024
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy

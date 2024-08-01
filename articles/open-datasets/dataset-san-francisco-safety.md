@@ -43,7 +43,7 @@ This dataset is stored in the East US Azure region. Allocating compute resources
 | dateTime | timestamp | 6,496,563 | 2020-10-19 12:28:08 2020-07-28 06:40:26 | The date and time when the service request was made or when the fire call was received. |
 | latitude | double | 1,615,369 | 37.777624238929 37.786117211838 | Latitude of the location, using the WGS84 projection. |
 | longitude | double | 1,554,612 | -122.39998111124 -122.419854245692 | Longitude of the location, using the WGS84 projection. |
-| source | string | 9 | Phone Mobile/Open311 | Mechanism or path by which the service request was received; typically “Phone”, “Text/SMS”, “Website”, “Mobile App”, “Twitter”, etc. but terms may vary by system. |
+| source | string | 9 | Phone Mobile/Open311 | Mechanism or path by which the service request was received; typically “Phone”, “Text/SMS”, “Website”, “Mobile App”, “X”, etc. but terms may vary by system. |
 | status | string | 3 | Closed Open | A single-word indicator of the current state of the service request. (Note: GeoReport V2 only permits “open” and “closed”) |
 | subcategory | string | 1,270 | Medical Incident Bulky Items | The human readable name of the service request subtype for 311 cases or call type for 911 fire calls. |
 

@@ -117,7 +117,7 @@ There are steps to follow in both Azure Storage and Azure AI Search, but there a
 1. In Azure AI Search, edit the data source definition to include a "dataDeletionDetectionPolicy" property. For example, the following policy considers a file to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
     ```http
-    PUT https://[service name].search.windows.net/datasources/file-datasource?api-version=2020-06-30
+    PUT https://[service name].search.windows.net/datasources/file-datasource?api-version=2023-11-01
     {
         "name" : "file-datasource",
         "type" : "azurefile",

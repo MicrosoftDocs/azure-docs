@@ -3,7 +3,7 @@ title: Comparison between Azure Front Door and Azure CDN services
 description: This article provides a comparison between the different Azure Front Door tiers and Azure CDN services.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: article
 ms.date: 10/13/2023
 ms.author: duau
@@ -61,7 +61,6 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Private link connection to origin |  | &check; |  |  |  |  |
 | Geo-filtering | &check; | &check; | &check; | &check; | &check; | &check; |
 | Token authentication |  |  |  |  |  | &check; |
-| DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
 | DDOS protection | &check; | &check; | &check; | &check; | &check; | &check; |
 | Domain Fronting Block | &check; | &check; | &check; | &check; | &check; | &check; |
 | **Analytics and reporting** | | | | | | |

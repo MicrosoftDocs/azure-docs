@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 06/19/2024
+ms.date: 07/19/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -191,7 +191,7 @@ After you change the key ID (including changing either the key name or the key v
 > [!WARNING]
 > Remember to update all secrets after key rotation. If you don't update all secrets, the secrets are inaccessible if the keys that were created earlier don't exist or no longer work.
 >
-> After you rotate the key, the previous key (key1) is still cached and shouldn't be deleted. If you want to delete the previous key (key1) immediately, you need to rotate the key twice. Then key2 and key3 are cached, and key1 can be deleted without affecting the existing cluster.
+> KMS uses 2 keys at the same time. After the first key rotation, you need to ensure both the old and new keys are valid (not expired) until the next key rotation. After the second key rotation, the oldest key can be safely removed/expired
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup  --enable-azure-keyvault-kms --azure-keyvault-kms-key-vault-network-access "Public" --azure-keyvault-kms-key-id $NEW_KEY_ID 
@@ -336,7 +336,7 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 > [!NOTE]
 > To change a different key vault with a different mode (whether public or private), you can run `az aks update` directly. To change the mode of an attached key vault, you must first turn off KMS, and then turn it on again by using the new key vault IDs.
 
-The following sections describe how to migrate an attached public key vault to private mode.
+The following sections describe how to migrate an attached public key vault to private mode.  These steps can also be used for migrating from private to public.
 
 ### Turn off KMS on the cluster
 
@@ -346,6 +346,12 @@ Turn off KMS on an existing cluster and release the key vault:
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
 ```
 
+Use the following command to update all secrets. If you don't run this command, secrets that were created earlier are still encrypted with the previous key. For larger clusters, you might want to subdivide the secrets by namespace or create an update script.
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
+```
+
 ### Change the key vault mode
 
 Update the key vault from public to private:
@@ -353,6 +359,8 @@ Update the key vault from public to private:
 ```azurecli-interactive
 az keyvault update --name MyKeyVault --resource-group MyResourceGroup --public-network-access Disabled
 ```
+
+To migrate from private to public set `--public-network-access` to `Enabled` in the command above.
 
 ### Turn on KMS for the cluster by using the updated key vault
 

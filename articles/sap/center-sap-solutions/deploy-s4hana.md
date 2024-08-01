@@ -41,19 +41,17 @@ There are three deployment options that you can select for your infrastructure, 
 
 ## Supported software
 
-Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00 and S/4HANA 2022 ISS 00.
+Azure Center for SAP solutions supports the following SAP software versions: S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00 and S/4HANA 2022 ISS 00. 
 
 The following operating system (OS) software versions are compatible with these SAP software versions:
 
 | Publisher | Image and Image Version | Supported SAP Software Version |
 | --------- | ----------------------- | ------------------------------ |
-| Red Hat | Red Hat Enterprise Linux 8.6 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
-| Red Hat | Red Hat Enterprise Linux 8.4 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
-| Red Hat | Red Hat Enterprise Linux 8.2 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
-| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
-| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP3 - x64 Gen2 latest | S/4HANA 1909 SPS 03, S/4HANA 2020 SPS 03, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
-| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP5 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
-| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP4 - x64 Gen2 latest | S/4HANA 1909 SPS 03 |
+| Red Hat | Red Hat Enterprise Linux 8.6 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 ISS00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| Red Hat | Red Hat Enterprise Linux 8.4 for SAP Applications - x64 Gen2 latest | S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP4 - x64 Gen2 latest | S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 15 SP3 - x64 Gen2 latest | S/4HANA 1909 ISS 00, S/4HANA 2020 ISS 00, S/4HANA 2021 ISS 00, S/4HANA 2022 ISS 00 | 
+| SUSE | SUSE Linux Enterprise Server (SLES) for SAP Applications 12 SP5 - x64 Gen2 latest | S/4HANA 1909 ISS 00 |
 
 - You can use `latest` if you want to use the latest image and not a specific older version. If the *latest* image version is newly released in marketplace and has an unforeseen issue, the deployment might fail. If you are using Portal for deployment, we recommend choosing a different image *sku train* (e.g. 12-SP4 instead of 15-SP3) till the issues are resolved. However, if deploying via API/CLI, you can provide any other *image version* which is available. To view and select the available image versions from a publisher, use below commands
 
@@ -65,7 +63,7 @@ The following operating system (OS) software versions are compatible with these 
     $locName="eastus"
     $pubName="RedHat"
     $offerName="RHEL-SAP-HA"
-    $skuName="82sapha-gen2"
+    $skuName="84sapha-gen2"
     ```
 - Azure Center for SAP solutions now supports deployment of SAP system VMs with custom OS images along with the Azure Marketplace images. For deployment using custom OS images, follow the steps [here](deploy-s4hana.md#using-a-custom-os-image).
   

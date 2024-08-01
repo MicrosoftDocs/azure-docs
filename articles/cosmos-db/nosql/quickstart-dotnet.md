@@ -201,7 +201,7 @@ Parse the paginated results of the query by looping through each page of results
 
 ## Related content
 
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [Java Quickstart](quickstart-java.md)
 - [Python Quickstart](quickstart-python.md)
 - [Go Quickstart](quickstart-go.md)

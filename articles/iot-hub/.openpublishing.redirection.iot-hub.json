@@ -102,8 +102,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-ios-swift-c2d.md",
-      "redirect_url": "/azure/iot-hub/c2d-messaging-ios",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/Azure-Samples/azure-iot-samples-ios",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-ios.md",
+      "redirect_url": "https://github.com/Azure-Samples/azure-iot-samples-ios",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-java-java-file-upload.md",
@@ -302,8 +307,8 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
@@ -677,8 +682,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-c-c-module-twin-getstarted.md",
-      "redirect_url": "/azure/iot-hub/module-twins-c",
-      "redirect_document_id": true
+      "redirect_url": "https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/module-twins-c.md",
+      "redirect_url": "https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-hub/iot-hub-csharp-csharp-module-twin-getstarted.md",
@@ -1421,8 +1431,58 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-through-portal.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-cli.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-using-powershell.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-create-use-iot-toolkit.md",
+      "redirect_url": "/azure/iot-hub/reference-iot-hub-extension",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-rm-rest.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template.md",
-      "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/iot-hub-rm-template-powershell.md",
+      "redirect_url": "/azure/iot-hub/create-hub",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/c2d-messaging-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-cloud-to-device-messaging",
       "redirect_document_id": false
     }
   ]

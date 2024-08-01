@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 06/19/2024
+ms.date: 07/29/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 # Connected Machine agent prerequisites
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
 
@@ -29,32 +29,36 @@ Take extra care when using Azure Arc on systems that are:
 * Restored from backup as a second instance of the server
 * Used to create a "golden image" from which other virtual machines are created
 
-If two agents use the same configuration, you will encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after it has been cloned, restored from backup, or created from a golden image.
+If two agents use the same configuration, you'll encounter inconsistent behaviors when both agents try to act as one Azure resource. The best practice for these situations is to use an automation tool or script to onboard the server to Azure Arc after its cloned, restored from backup, or created from a golden image.
 
 > [!NOTE]
 > For additional information on using Azure Arc-enabled servers in VMware environments, see the [VMware FAQ](vmware-faq.md).
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent does not run on x86 (32-bit) or ARM-based architectures.
+Azure Arc supports the following Windows and Linux operating systems. Only x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent doesn't run on x86 (32-bit) or ARM-based architectures.
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
-* Azure Linux (CBL-Mariner) 1.0, 2.0
+* Azure Linux (CBL-Mariner) 2.0
 * Azure Stack HCI
-* Debian 10, 11, and 12
+* Debian 11, and 12
 * Oracle Linux 7, 8, and 9
 * Red Hat Enterprise Linux (RHEL) 7, 8 and 9
 * Rocky Linux 8 and 9
 * SUSE Linux Enterprise Server (SLES) 12 SP3-SP5 and 15
-* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
+* Ubuntu 18.04, 20.04, and 22.04 LTS
 * Windows 10, 11 (see [client operating system guidance](#client-operating-system-guidance))
 * Windows IoT Enterprise
 * Windows Server 2012, 2012 R2, 2016, 2019, and 2022
   * Both Desktop and Server Core experiences are supported
   * Azure Editions are supported on Azure Stack HCI
 
-The Azure Connected Machine agent hasn't been tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+The Azure Connected Machine agent isn't tested on operating systems hardened by the Center for Information Security (CIS) Benchmark.
+
+> [!NOTE]
+> [Azure Connected Machine agent version 1.44](agent-release-notes.md#version-144---july-2024) is the last version to officially support Debian 10, Ubuntu 16.04, and Azure Linux (CBL-Mariner) 1.0.
+> 
 
 ## Limited support operating systems
 
@@ -63,8 +67,34 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 
 | Operating system | Last supported agent version | End of Arc Support Date | Notes |
 | -- | -- | -- | -- | 
-| Windows Server 2008 R2 SP1 | 1.39 [Download](https://download.microsoft.com/download/1/9/f/19f44dde-2c34-4676-80d7-9fa5fc44d2a8/AzureConnectedMachineAgent.msi)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
-| CentOS 7 and 8 | 1.42 [Download](https://download.microsoft.com/download/9/6/0/9600825a-e532-4e50-a2d5-7f07e400afc1/AzureConnectedMachineAgent.msi)  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
+| CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| Debian 10 | 1.44  | 07/15/2025 |  | 
+| Ubuntu 16.04 | 1.44  | 07/15/2025 |  | 
+| Azure Linux (CBL-Mariner) 1.0 | 1.44  | 07/15/2025 |  | 
+
+### Connect new limited support servers
+
+To connect a new server running a Limited Support operating system to Azure Arc, you will need to make some adjustments to the onboarding script.
+
+For Windows, modify the installation script to specify the version required, using the -AltDownload parameter.
+
+Instead of 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1";
+```
+
+Use 
+
+```pwsh
+    # Install the hybrid agent
+    & "$env:TEMP\install_windows_azcmagent.ps1" -AltDownload https://aka.ms/AzureConnectedMachineAgent-1.39;
+```
+
+For Linux, the relevant package repository will only contain releases that are applicable, so no special considerations are required. 
+
 
 ### Client operating system guidance
 
@@ -114,6 +144,7 @@ You'll need the following Azure built-in roles for different aspects of managing
 * To onboard machines, you must have the [Azure Connected Machine Onboarding](../../role-based-access-control/built-in-roles.md#azure-connected-machine-onboarding) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the resource group where you're managing the servers.
 * To read, modify, and delete a machine, you must have the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) role for the resource group.
 * To select a resource group from the drop-down list when using the **Generate script** method, you'll also need the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group (or another role that includes **Reader** access).
+* When associating a Private Link Scope with an Arc Server, you must have Microsoft.HybridCompute/privateLinkScopes/read permission on the Private Link Scope Resource.
 
 ## Azure subscription and service limits
 

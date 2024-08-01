@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: tbd
 ms.topic: conceptual
-ms.date: 03/28/2023
+ms.date: 06/08/2024
 ---
 
 # Private Link for data ingestion for Managed Prometheus and Azure Monitor workspace

@@ -1,11 +1,13 @@
 ---
 title: Plan Defender for Servers agents and extensions deployment
 description: Plan for agent deployment to protect Azure, AWS, GCP, and on-premises servers with Microsoft Defender for Servers.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: dacurwin
 author: dcurwin
-ms.date: 03/12/2024
+ms.date: 06/25/2024
+#customer intent: As a reader, I want to understand how to plan the deployment of Defender for Servers agents and extensions.
 ---
+
 # Plan agents, extensions, and Azure Arc for Defender for Servers
 
 This article helps you plan your agents, extensions, and Azure Arc resources for your Microsoft Defender for Servers deployment.
@@ -16,10 +18,10 @@ Defender for Servers is one of the paid plans provided by [Microsoft Defender fo
 
 This article is the *fifth* article in the Defender for Servers planning guide. Before you begin, review the earlier articles:
 
-1. [Start planning your deployment](plan-defender-for-servers.md)
-1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md)
-1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md)
-1. [Select a Defender for Servers plan](plan-defender-for-servers-select-plan.md)
+1. [Start planning your deployment](plan-defender-for-servers.md).
+1. [Understand where your data is stored and Log Analytics workspace requirements](plan-defender-for-servers-data-workspace.md).
+1. [Review Defender for Servers access roles](plan-defender-for-servers-roles.md).
+1. [Select a plan for Defender for Servers](plan-defender-for-servers-select-plan.md).
 
 ## Review Azure Arc requirements
 
@@ -61,7 +63,7 @@ The following table describes the agents that are used in Defender for Servers:
 Feature | Log Analytics agent | Azure Monitor agent
 --- | --- | ---
 Foundational CSPM recommendations (free) that depend on the agent: [OS baseline recommendation](apply-security-baseline.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" :::| :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> With the Azure Monitor agent, the Azure Policy [guest configuration extension](../virtual-machines/extensions/guest-configuration.md) is used.
-Foundational CSPM: [System updates recommendations](recommendations-reference.md#compute-recommendations) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | Not yet available.
+Foundational CSPM: [System updates recommendations](recommendations-reference-compute.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | Not yet available.
 Foundational CSPM: [Antimalware/endpoint protection recommendations](endpoint-protection-recommendations-technical.md) (Azure VMs) | :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png" :::
 Attack detection at the OS level and network layer, including fileless attack detection<br/><br/> Plan 1 relies on Defender for Endpoint capabilities for attack detection. | :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> Plan 2| :::image type="icon" source="./media/icons/yes-icon.png" :::<br/><br/> Plan 2
 File integrity monitoring (Plan 2 only)  | :::image type="icon" source="./media/icons/yes-icon.png" ::: | :::image type="icon" source="./media/icons/yes-icon.png" :::
@@ -100,6 +102,8 @@ When you enable Defender for Servers, Defender for Cloud automatically deploys a
 - Machines must meet [minimum requirements](/microsoft-365/security/defender-endpoint/minimum-requirements).
 - Some Windows Server versions have [specific requirements](/microsoft-365/security/defender-endpoint/configure-server-endpoints).
 
+Most Defender for Endpoint services can be reached through `*.endpoint.security.microsoft.com` or through the Defender for Endpoint service tags. Make sure you are [connected to the Defender for Endpoint service and know the requirements for automatic updates and other features.](/defender-endpoint/configure-environment).
+
 ## Verify operating system support
 
 Before you deploy Defender for Servers, verify operating system support for agents and extensions:
@@ -110,7 +114,7 @@ Before you deploy Defender for Servers, verify operating system support for agen
 
 ## Review agent provisioning
 
-When you enable Defender for Cloud plans, including Defender for Servers, you can choose to automatically provision some agents that are relevant for Defender for Servers:
+When you enable plans in Defender for Cloud, including Defender for Servers, you can choose to automatically provision some agents that are relevant for Defender for Servers:
 
 - Log Analytics agent and Azure Monitor agent for Azure VMs
 - Log Analytics agent and Azure Monitor agent for Azure Arc VMs
@@ -146,7 +150,7 @@ You want to configure a custom workspace | Log Analytics agent, Azure Monitor ag
 
 After working through these planning steps, you can start deployment:
 
-- [Enable Defender for Servers](enable-enhanced-security.md) plans
+- [Enable plans in Defender for Servers](enable-enhanced-security.md)
 - [Connect on-premises machines](quickstart-onboard-machines.md) to Azure.
 - [Connect AWS accounts](quickstart-onboard-aws.md) to Defender for Cloud.
 - [Connect GCP projects](quickstart-onboard-gcp.md) to Defender for Cloud.

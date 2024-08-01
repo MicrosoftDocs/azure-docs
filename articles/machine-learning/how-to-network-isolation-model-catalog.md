@@ -3,12 +3,12 @@ title: Use Model Catalog collections with workspace managed virtual network
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Model Catalog in an isolated network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: how-to
-author: tinaem
-ms.author: timanghn
-ms.reviewer: ssalgadodev
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: timanghn
 ms.date: 12/15/2023
 ---
 
@@ -16,7 +16,7 @@ ms.date: 12/15/2023
 
 In this article, you learn how to use the various collections in the Model Catalog within an isolated network. 
 
-Workspace [managed virtual network](./how-to-network-isolation-planning.md) is the recommended way to support network isolation with the Model Catalog. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI. Furthermore, you can configure FQDN rule to approve outbound to non-Azure resources, which is required to use some of the collections in the Model Catalog. See [how to Workspace managed network isolation](./how-to-managed-network.md) to enable workspace managed virtual network.
+Workspace [managed virtual network](./how-to-network-isolation-planning.md) is the only way to support network isolation with the Model Catalog. It provides easily configuration to secure your workspace. After you enable managed virtual network in the workspace level, resources related to workspace in the same virtual network, will use the same network setting in the workspace level. You can also configure the workspace to use private endpoint to access other Azure resources such as Azure OpenAI. Furthermore, you can configure FQDN rule to approve outbound to non-Azure resources, which is required to use some of the collections in the Model Catalog. See [how to Workspace managed network isolation](./how-to-managed-network.md) to enable workspace managed virtual network.
 
 The creation of the managed virtual network is deferred until a compute resource is created or provisioning is manually started. You can use following command to manually trigger network provisioning.
 ```bash

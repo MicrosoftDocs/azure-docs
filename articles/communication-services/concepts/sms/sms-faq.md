@@ -39,12 +39,14 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 
 ### I received an HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
+
 The 202 returned by the service means that the message you queued to be sent wasn't delivered. Use this [Quickstart: Handle SMS events](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the `deliveryStatus` field of your delivery report to verify delivery success or failure.
 
 ### How to send shortened URLs in messages?
-Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
+Shortened URLs are a good way to keep messages short and readable. However, US carriers prohibit the use of free publicly available URL shortener services. This is because the ‘free-public’ URL shorteners are used by bad-actors to evade detection and get their SPAM messages passed through text messaging platforms. When sending messages in the US, we encourage using custom URL shorteners to create URLs with dedicated domain that belongs to your brand. Many US carriers block SMS traffic if they contain publicly available URL shorteners.
 
 To increase the chances of your messages being delivered, the following list shows examples of common URL shorteners you should avoid:
+
 - bit.ly
 - goo.gl
 - tinyurl.com
@@ -58,6 +60,7 @@ To increase the chances of your messages being delivered, the following list sho
 - bc.vc
 
 ## Opt-out handling
+
 ### How does Azure Communication Services handle opt-outs for toll-free numbers?
 
 Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden.
@@ -71,6 +74,10 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers and c
 
 Azure communication service offers an opt-out management service for short codes that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before provisioning your short code, you're asked for your preference to manage opt-outs. If you opt-in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword.
 
+### How does Azure Communication Services handle opt-outs for short codes in United States?
+
+Azure communication service offers an opt-out management service for short codes in US that allows customers to configure responses to mandatory keywords STOP/START/HELP. Before you provision your short code, you're asked for your preference to manage opt-outs. If you opt in, the opt-out management service automatically uses your responses in the program brief for Opt in/ Opt out/ Help keywords in response to STOP/START/HELP keyword. 
+
 *Example:* 
 - **STOP** - If a text message recipient wishes to opt out, they can send `STOP` to the short code. Azure Communication Services sends your configured response for STOP: *"Contoso Alerts: You opted out and will not receive any more messages."*
 - **START** - If the recipient wishes to resubscribe to text messages from a short code, they can send `START` to the short code. Azure Communication Service sends your configured response for START: *“Contoso Promo Alerts: 3 msgs/week. Message & Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.”*
@@ -81,6 +88,10 @@ Azure Communication Services detects `STOP` messages and blocks all further mess
 ### How does Azure Communication Services handle opt outs for alphanumeric sender ID?
 
 Alphanumeric sender ID cannot receive inbound messages or `STOP` messages. Azure Communication Services does not enforce or manage opt-out lists for alphanumeric sender ID. You must provide customers with instructions to opt out using other channels such as, calling support, providing an opt-out link in the message, or emailing support. For more information, see [messaging policy guidelines](./messaging-policy.md#how-we-handle-opt-out-requests-for-sms).
+
+### How does Azure Communication Services handle opt outs for short codes in Canada and United Kingdom?
+
+Azure Communication Services doesn't control or implement opt-out mechanisms for short codes within Canada and the United Kingdom. Recipients of text messages have the option to text ‘STOP’ to unsubscribe or ‘START’ to subscribe to the short code. These requests are relayed as incoming messages to your event grid. It is your responsibility to act on these messages by resubscribing recipients or ceasing message delivery accordingly.
 
 ## Short codes
 
@@ -103,9 +114,6 @@ Once you submit the short code program brief application in the Azure portal, th
 ## Alphanumeric sender ID
 
 > [!IMPORTANT]
-> Effective **November 30, 2023**, unregistered alphanumeric sender IDs sending messages to Australia and Italy phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
-
-> [!IMPORTANT]
 > Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
 
 ### How should an alphanumeric sender ID be formatted?
@@ -123,6 +131,7 @@ Once you submit the short code program brief application in the Azure portal, th
 
 Using an alphanumeric sender ID doesn't require you to purchase any phone number. You can enable alphanumeric sender ID through the Azure portal. See [enable alphanumeric sender ID quickstart](../../quickstarts/sms/enable-alphanumeric-sender-id.md) for instructions.
 
+
 ### Can I send SMS immediately after enabling alphanumeric sender ID?
 
 We recommend waiting for 10 minutes before you start sending messages for best results.
@@ -132,9 +141,6 @@ We recommend waiting for 10 minutes before you start sending messages for best r
 Alphanumeric sender ID replacement with a number may occur when a certain wireless carrier doesn't support alphanumeric sender ID. This is done to ensure high delivery rate.  
 
 ## Toll-Free Verification
-
-> [!IMPORTANT]
-> Effective **November 8, 2023**, unverified toll-free numbers sending messages to US phone numbers will have its traffic **blocked**. At this time, there is no change to limits on sending from pending TFNs. To unblock the traffic, a verification application needs to be submitted and be in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
 
 > [!IMPORTANT]
 > Effective **January 31, 2024**, only fully verified toll-free numbers will be able to send traffic. Unverified toll-free numbers sending messages to US and CA phone numbers will have its traffic **blocked**. 
@@ -168,18 +174,6 @@ New limits are as follows:
 
 > [!IMPORTANT]
 > Unverified SMS traffic that exceeds the daily limit or is filtered for spam has a [4010 error code](../troubleshooting-codes.md) returned for both scenarios.
-
-#### SMS to Canadian phone numbers
-
-Effective **October 1, 2022**, unverified toll-free numbers sending messages to Canadian destinations will have its traffic **blocked**. To unblock the traffic, a verification application needs to be submitted and in [verified status](#what-do-the-different-application-statuses-verified-and-unverified-mean).
-
-### What do the different application statuses (verified and unverified) mean?
- 
-- **Verified** numbers go through the toll-free verification process to be approved. Their traffic is subjected to limited filters. If traffic does trigger any filters, that specific content is blocked but the number isn't automatically blocked.
-- **Unverified** numbers cannot be used to send any SMS traffic. Unverfified numbers have either:
-    1. not submitted a verification application, 
-    2. submitted the verification application and are waiting for a decision, or
-    3. have had their application denied.
 
 ### What happens after I submit the toll-free verification form?
 
@@ -241,7 +235,7 @@ This table shows the maximum number of characters that can be sent per SMS segme
 |Hello world|Text|GSM Standard|GSM-7|160|
 |你好|Unicode|Unicode|UCS-2|70|
 
-### Can I send/receive long messages (>2048 chars)?
+### Can I send/receive long messages (>2,048 chars)?
 
 Azure Communication Services supports sending and receiving of long messages over SMS. However, some wireless carriers or devices may act differently when receiving long messages. We recommend keeping SMS messages to a length of 320 characters and reducing the use of accents to ensure maximum delivery. 
 
@@ -263,10 +257,10 @@ Rate Limits for SMS:
 
 ## Carrier Fees 
 ### What are the carrier fees for SMS?
-US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. Refer to [SMS pricing](../sms-pricing.md) for more details. 
+US and CA carriers charge an added fee for SMS messages sent and/or received from toll-free numbers and short codes. The carrier surcharge is calculated based on the destination of the message for sent messages and based on the sender of the message for received messages. Azure Communication Services charges a standard carrier fee per message segment. Carrier fees are subject to change by mobile carriers. For more information, see [SMS pricing](../sms-pricing.md). 
 
 ### When do we come to know of changes to these surcharges?
-As with similar Azure services, customers are notified at least 30 days prior to the implementation of any price changes. These charges are reflected on our SMS pricing page along with the effective dates. 
+As with similar Azure services, customers are notified at least 30 days before the implementation of any price changes. These charges are reflected on our SMS pricing page along with the effective dates. 
 
 ## Emergency support
 ### Can a customer use Azure Communication Services for emergency purposes?

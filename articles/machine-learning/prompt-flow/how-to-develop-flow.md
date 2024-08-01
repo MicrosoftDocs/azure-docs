@@ -9,9 +9,9 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: jinzhong
-ms.author: jinzhong
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: jinzhong
 ms.date: 10/23/2023
 ---
 # Develop a flow

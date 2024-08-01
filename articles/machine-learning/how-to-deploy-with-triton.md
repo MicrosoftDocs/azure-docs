@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.date: 11/09/2023
 ms.topic: how-to
-author: tinaem
-ms.author: timanghn
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: timanghn
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, sdkv2
 ms.devlang: azurecli
 ---

@@ -53,6 +53,7 @@ You can select one of the three possible virtual hub routing preference configur
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
 * For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes from S2S VPN or SD-WAN NVA connections will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes might continue to prefer the S2S VPN or SD-WAN NVA connections. To prevent this from happening, you need to configure your on-premises device to utilize AS-Path prepending for the routes being advertised to your S2S VPN Gateway and SD-WAN NVA, as you need to ensure the AS-Path length is longer for VPN/NVA routes than ExpressRoute routes.
+* When processing routes from remote hubs, routes learnt from hubs with routing intent private routing policies are always preferred over routes from hubs without routing intent. This is to ensure customer traffic takes the secure path when a secure path is available. To avoid asymmetric routing, enable Routing Intent on all hubs in Virtual WAN.
 
 ## Routing scenarios
 

@@ -36,7 +36,7 @@ To provide high availability for directly connected or Operations Management gro
 
 The computer that runs the Log Analytics gateway requires the agent to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace.
 
-A gateway can be multihomed to up to ten workspaces using the Azure Monitor Agent and [data collection rules](./data-collection-rule-azure-monitor-agent.md). Using the legacy Microsoft Monitor Agent, you can only multihome up to four workspaces as that is the total number of workspaces the legacy Windows agent supports.  
+A gateway can be multihomed to up to ten workspaces using the Azure Monitor Agent and [data collection rules](./azure-monitor-agent-data-collection.md). Using the legacy Microsoft Monitor Agent, you can only multihome up to four workspaces as that is the total number of workspaces the legacy Windows agent supports.  
 
 Each agent must have network connectivity to the gateway so that agents can automatically transfer data to and from the gateway. Avoid installing the gateway on a domain controller. Linux computers that are behind a gateway server cannot use the [wrapper script installation](../agents/agent-linux.md#install-the-agent) method to install the Log Analytics agent for Linux. The agent must be downloaded manually, copied to the computer, and installed manually because the gateway only supports communicating with the Azure services mentioned earlier.
 
@@ -56,7 +56,7 @@ Computers designated to run the Log Analytics gateway must have the following co
 * Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, or Windows Server 2008
 * Microsoft .NET Framework 4.5
 * At least a 4-core processor and 8 GB of memory 
-* An [Azure Monitor agent](./azure-monitor-agent-overview.md) installed with [data collection rule(s)](./data-collection-rule-azure-monitor-agent.md) configured, or the [Log Analytics agent for Windows](../agents/agent-windows.md) configured to report to the same workspace as the agents that communicate through the gateway
+* An [Azure Monitor agent](./azure-monitor-agent-overview.md) installed with [data collection rule(s)](./azure-monitor-agent-data-collection.md) configured, or the [Log Analytics agent for Windows](../agents/agent-windows.md) configured to report to the same workspace as the agents that communicate through the gateway
 
 ### Language availability
 
@@ -201,7 +201,7 @@ After the load balancer is created, a backend pool needs to be created, which di
 ## Configure the Azure Monitor agent to communicate using Log Analytics gateway  
 
 To configure the Azure Monitor agent (installed on the gateway server) to use the gateway to upload data for Windows or Linux:
-1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-overview.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
+1. Follow the instructions to [configure proxy settings on the agent](./azure-monitor-agent-network-configuration.md#proxy-configuration) and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
 2. Add the **configuration endpoint URL** to fetch data collection rules to the allowlist for the gateway  
    `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
    `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  

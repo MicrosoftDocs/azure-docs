@@ -42,8 +42,6 @@
     items:
     - name: Manage your academic grant
       href: hub-overview-page.md
-    - name: Set up a custom tenant
-      href: custom-tenant-set-up-classroom.md
     - name: Create an assignment and allocate credit
       href: create-assignment-allocate-credit.md
     - name: Get support

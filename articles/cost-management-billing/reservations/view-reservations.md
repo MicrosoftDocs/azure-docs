@@ -15,7 +15,7 @@ ms.author: banders
 
 This article explains how reservation permissions work and how users can view and manage Azure reservations in the Azure portal and with Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Who can manage a reservation by default
 

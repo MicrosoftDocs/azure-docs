@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 
 This document will guide you through creating a new Time Series Insights Gen2 Environment.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 

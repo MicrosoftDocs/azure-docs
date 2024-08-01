@@ -177,9 +177,10 @@ To use Azure Linux, you specify the OS SKU by setting `os-sku` to `AzureLinux` d
             name: nvidia-device-plugin-ds
         spec:
           tolerations:
-          - key: nvidia.com/gpu
-            operator: Exists
-            effect: NoSchedule
+          - key: "sku"
+            operator: "Equal"
+            value: "gpu"
+            effect: "NoSchedule"
           # Mark this pod as a critical add-on; when enabled, the critical add-on
           # scheduler reserves resources for critical add-on pods so that they can
           # be rescheduled after a failure.
@@ -224,6 +225,10 @@ The NVIDIA GPU Operator automates the management of all NVIDIA software componen
 
 > [!WARNING]
 > We don't recommend manually installing the NVIDIA device plugin daemon set with clusters using the AKS GPU image.
+
+> [!NOTE]
+> There might be additional considerations to take when using the NVIDIA GPU Operator and deploying on SPOT instances. Please refer to <https://github.com/NVIDIA/gpu-operator/issues/577>
+
 
 ### Use the AKS GPU image (preview)
 

@@ -83,7 +83,7 @@ az storage-mover create --Name $storageMoverName \
 
 ### Prepare your Azure PowerShell environment 
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 The `New-AzStorageMover` cmdlet is used to create new storage mover resource in a resource group. If you haven't yet installed the `Az.StorageMover` module:
 

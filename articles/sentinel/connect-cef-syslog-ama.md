@@ -1,17 +1,21 @@
 ---
-title: Ingest Syslog CEF messages to Microsoft Sentinel - AMA
+title: Ingest syslog CEF messages to Microsoft Sentinel - AMA
 description: Ingest syslog messages from linux machines, devices, and appliances to Microsoft Sentinel using data connectors based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 05/13/2024
-#Customer intent: As a security operator, I want to ingest and filter Syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+ms.date: 06/27/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#Customer intent: As a security operator, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
-# Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
+# Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest Syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
+This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
 > [!NOTE]
 > Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](../azure-monitor/containers/container-insights-syslog.md).
@@ -22,11 +26,18 @@ Before you begin, you must have the resources configured and the appropriate per
 
 ### Microsoft Sentinel prerequisites
 
-For Microsoft Sentinel, install the appropriate solution and make sure you have the permissions to complete the steps in this article.
+Install the appropriate Microsoft Sentinel solution and make sure you have the permissions to complete the steps in this article.
 
-- Install the appropriate solution&mdash;**Syslog** and/or **Common Event Format** from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- Install the appropriate solution from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+- Identify which data connector the Microsoft Sentinel solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA** and whether you need to install the **Syslog** or **Common Event Format** solution. To fulfill this prerequisite, 
+  - In the **Content hub**, select **Manage** on the installed solution and review the data connector listed. 
+  - If either **Syslog via AMA** or **Common Event Format (CEF) via AMA** isn't installed with the solution, identify whether you need to install the **Syslog** or **Common Event Format** solution by finding your appliance or device from one of the following articles:
 
-- Your Azure account must have the following Azure role-based access control (Azure RBAC) roles:
+    - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+    - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+
+    Then install either the **Syslog** or **Common Event Format** solution from the content hub to get the related AMA data connector.
+- Have an Azure account with the following Azure role-based access control (Azure RBAC) roles:
 
   | Built-in role | Scope | Reason |
   | ------------- | ----- | ------ |
@@ -50,13 +61,13 @@ If you're collecting messages from a log forwarder, the following prerequisites 
 
 - For space requirements for your log forwarder, refer to the [Azure Monitor Agent Performance Benchmark](../azure-monitor/agents/azure-monitor-agent-performance.md). You can also review [this blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/designs-for-accomplishing-microsoft-sentinel-scalable-ingestion/ba-p/3741516), which includes designs for scalable ingestion.
 
-- Your log sources, security devices, and appliances, must be configured to send their log messages to the log forwarder's Syslog daemon instead of to their local Syslog daemon.
+- Your log sources, security devices, and appliances, must be configured to send their log messages to the log forwarder's syslog daemon instead of to their local syslog daemon.
 
 ### Machine security prerequisites
 
 Configure the machine's security according to your organization's security policy. For example, configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](../virtual-machines/security-policy.md), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).
 
-If your devices are sending Syslog and CEF logs over TLS because, for example, your log forwarder is in the cloud, you need to configure the Syslog daemon (`rsyslog` or `syslog-ng`) to communicate in TLS. For more information, see:
+If your devices are sending syslog and CEF logs over TLS because, for example, your log forwarder is in the cloud, you need to configure the syslog daemon (`rsyslog` or `syslog-ng`) to communicate in TLS. For more information, see:
 
 - [Encrypt Syslog traffic with TLS – rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
 - [Encrypt log messages with TLS – syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298)
@@ -68,7 +79,7 @@ The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA d
 1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR) by using either of the following methods:
     - [Azure or Defender portal](?tabs=syslog%2Cportal#create-data-collection-rule)
     - [Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
-1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the Syslog daemon to listen for messages from other machines, and to open the necessary local ports.
+1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the syslog daemon to listen for messages from other machines, and to open the necessary local ports.
 
 Select the appropriate tab for instructions.
 
@@ -76,7 +87,7 @@ Select the appropriate tab for instructions.
 
 ### Create data collection rule
 
-To get started, open the data connector in Microsoft Sentinel and create a data connector rule.
+To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data connector rule.
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 
@@ -113,7 +124,7 @@ In the **Resources** tab, select the machines on which you want to install the A
 
 ### Select facilities and severities
 
-Be aware that using the same facility for both Syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication avoidance](cef-syslog-ama-overview.md#data-ingestion-duplication-avoidance).
+Be aware that using the same facility for both syslog and CEF messages might result in data ingestion duplication. For more information, see [Data ingestion duplication avoidance](cef-syslog-ama-overview.md#data-ingestion-duplication-avoidance).
 
 1. In the **Collect** tab, select the minimum log level for each facility. When you select a log level, Microsoft Sentinel collects logs for the selected level and other levels with higher severity. For example, if you select **LOG_ERR**, Microsoft Sentinel collects logs for the **LOG_ERR**, **LOG_CRIT**, **LOG_ALERT**, and **LOG_EMERG** levels.
 
@@ -152,9 +163,9 @@ Create a JSON file for the data collection rule, create an API request, and send
  
 1. Prepare a DCR file in JSON format. The contents of this file is the request body in your API request.
 
-    For an example, see [Syslog/CEF DCR creation request body](api-dcr-reference.md#syslogcef-dcr-creation-request-body). To collect Syslog and CEF messages in the same data collection rule, see the example [Syslog and CEF streams in the same DCR](#syslog-and-cef-streams-in-the-same-dcr).
+    For an example, see [Syslog/CEF DCR creation request body](api-dcr-reference.md#syslogcef-dcr-creation-request-body). To collect syslog and CEF messages in the same data collection rule, see the example [Syslog and CEF streams in the same DCR](#syslog-and-cef-streams-in-the-same-dcr).
 
-    - Verify that the `streams` field is set to `Microsoft-Syslog` for Syslog messages, or to `Microsoft-CommonSecurityLog` for CEF messages.
+    - Verify that the `streams` field is set to `Microsoft-Syslog` for syslog messages, or to `Microsoft-CommonSecurityLog` for CEF messages.
     - Add the filter and facility log levels in the `facilityNames` and `logLevels` parameters. See [Examples of facilities and log levels sections](#examples-of-facilities-and-log-levels-sections).
 
 1. Create an API request in a REST API client of your choosing.
@@ -240,13 +251,13 @@ This example collects events from the `cron`, `daemon`, `local0`, `local3` and `
 
 ### Syslog and CEF streams in the same DCR
 
-This example shows how you can collect Syslog and CEF messages in the same DCR.
+This example shows how you can collect syslog and CEF messages in the same DCR.
 
 The DCR collects CEF event messages for:
 - The `authpriv` and `mark` facilities with the `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
 - The `daemon` facility with the `Warning`, `Error`, `Critical`, `Alert`, and `Emergency` log levels 
 
-It collects Syslog event messages for:
+It collects syslog event messages for:
 - The `kern`, `local0`, `local5`, and `news` facilities with the `Critical`, `Alert`, and `Emergency` log levels 
 - The `mail` and `uucp` facilities with the `Emergency` log level
 
@@ -328,7 +339,7 @@ It collects Syslog event messages for:
 
 ## Run the "installation" script
 
-If you're using a log forwarder, configure the Syslog daemon to listen for messages from other machines, and open the necessary local ports.
+If you're using a log forwarder, configure the syslog daemon to listen for messages from other machines, and open the necessary local ports.
 
 1. From the connector page, copy the command line that appears under **Run the following command to install and apply the CEF collector:**
 
@@ -342,7 +353,7 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
 1. Sign in to the log forwarder machine where you just installed the AMA.
 
 1. Paste the command you copied in the last step to launch the installation script.  
-    The script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the Syslog daemon configuration file according to the daemon type running on the machine:
+    The script configures the `rsyslog` or `syslog-ng` daemon to use the required protocol and restarts the daemon. The script opens port 514 to listen to incoming messages in both UDP and TCP protocols. To change this setting, refer to the syslog daemon configuration file according to the daemon type running on the machine:
     - Rsyslog: `/etc/rsyslog.conf`
     - Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
 
@@ -350,7 +361,16 @@ If you're using a log forwarder, configure the Syslog daemon to listen for messa
 
     > [!NOTE] 
     > To avoid [Full Disk scenarios](../azure-monitor/agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md) where the agent can't function, we recommend that you set the `syslog-ng` or `rsyslog` configuration not to store unneeded logs. A Full Disk scenario disrupts the function of the installed AMA.
-    > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.26/administration-guide/34#TOPIC-1431029).
+    > For more information, see [RSyslog](https://www.rsyslog.com/doc/master/configuration/actions.html) or [Syslog-ng](https://syslog-ng.github.io/).
+
+## Configure the security device or appliance
+
+Get specific instructions to configure your security device or appliance by going to one of the following articles:
+
+- [CEF via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliances and devices for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
+
+Contact the solution provider for more information or where information is unavailable for the appliance or device.
 
 ## Test the connector
 
@@ -406,3 +426,5 @@ Verify that logs messages from your linux machine or security devices and applia
 
 - [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md)
 - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for the Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)

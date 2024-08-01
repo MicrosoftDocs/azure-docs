@@ -55,7 +55,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Apollo Information Systems Corp.](https://www.apollo-is.com/)|
 |[Approved Contact, LLC](https://approvedcontact.com)|
 |[Apps4Rent](https://www.apps4rent.com)|
-|[Apptus](https://apttus.com)|
+|[Apptus](https://conga.com/)|
 |[ArcherPoint, Inc.](https://www.archerpoint.com)|
 |[Arctic IT](https://arcticit.com/)|
 |[Ardalyst Federal LLC](https://ardalyst.com)|
@@ -142,13 +142,11 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Datastrong](https://www.datastrong.com)|
 |[Daymark Solutions Inc.](https://www.daymarksi.com/)|
 |[Deborgem Enterprises Incorporated](https://deborgem.com)|
-|[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
 |[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
-|[DevHawk, LLC](https://www.devhawk.io)|
 |Diamond Capture Associates LLC|
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
@@ -331,7 +329,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Perizer Corp.](https://perizer.com)|
 |[Perrygo Consulting Group, LLC](https://perrygo.com)|
 |Phacil (By Light) |
-|[Pharicode LLC](https://pharicode.com)|
+|[Pharicode LLC](https://glidefast.com/)|
 |Philistin & Heller Group, Inc.|
 |[Picis Envision](https://www.picis.com/en/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
@@ -393,7 +391,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Sieena, Inc.](https://siennatech.com/)|
 |[Simeon Networks](https://simeonnetworks.com)|
 |[SimpleHelix](https://simplehelix.com/)|
-|[Simons Advisors, LLC](https://simonsadvisors.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
 |[SKY Terra Technologies LLC](https://www.skyterratech.com)|

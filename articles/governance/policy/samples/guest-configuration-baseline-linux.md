@@ -10,7 +10,7 @@ ms.custom: generated
 # Linux security baseline
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article details the configuration settings for Linux guests as applicable in the following
 implementations:
@@ -20,7 +20,7 @@ implementations:
 - **Vulnerabilities in security configuration on your machines should be remediated** in Microsoft Defender for Cloud
 
 For more information, see [Azure Policy guest configuration](../concepts/guest-configuration.md) and
-[Overview of the Azure Security Benchmark (V2)](../../../security/benchmarks/overview.md).
+[Overview of the Azure Security Benchmark (V2)](/azure/security/benchmarks/overview).
 
 ## General security controls
 

@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template (ARM template)'
 description: Learn how to create a Synapse workspace by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -15,7 +15,7 @@ ms.date: 02/04/2022
 
 This Azure Resource Manager (ARM) template will create an Azure Synapse workspace with underlying Data Lake Storage. The Azure Synapse workspace is a securable collaboration boundary for analytics processes in Azure Synapse Analytics.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

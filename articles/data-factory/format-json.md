@@ -436,10 +436,10 @@ If this expression were entered for a column named "complexColumn", then it woul
 
 Here are some common connectors and formats related to the JSON format:
 
-- Azure Blob Storage (connector-azure-blob-storage.md)
-- Delimited text format(format-delimited-text.md)
-- OData connector(connector-odata.md)
-- Parquet format(format-parquet.md)
+- [Azure Blob Storage](connector-azure-blob-storage.md)
+- [Delimited text format](format-delimited-text.md)
+- [OData connector](connector-odata.md)
+- [Parquet format](format-parquet.md)
 
 ## Related content
 

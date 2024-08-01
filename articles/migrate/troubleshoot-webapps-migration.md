@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot web apps migration issues
 description: Troubleshoot web apps migration issues
-author: vineetvikram
-ms.author: vivikram
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.date: 02/28/2023
 ms.topic: troubleshooting

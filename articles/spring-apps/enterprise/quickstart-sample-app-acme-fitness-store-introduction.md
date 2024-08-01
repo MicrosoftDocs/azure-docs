@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-apps
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 

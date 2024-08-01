@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 09/19/2022 
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # Create a workspace with data exfiltration protection enabled

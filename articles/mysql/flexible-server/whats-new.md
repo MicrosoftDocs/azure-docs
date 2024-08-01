@@ -24,6 +24,12 @@ This article summarizes new releases and features in the Azure Database for MySQ
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## July 2024
+
+- **Move from private access (virtual network integrated) network to public access or private link**
+
+  Azure Database for MySQL flexible server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. [Learn more](concepts-networking-vnet.md#move-from-private-access-virtual-network-integrated-network-to-public-access-or-private-link)
+  
 ## May 2024
 
 - **Accelerated Logs in Azure Database for MySQL Flexible Server is now Generally Available**

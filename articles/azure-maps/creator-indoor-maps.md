@@ -2,8 +2,8 @@
 title: Work with indoor maps in Azure Maps Creator
 titleSuffix: Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -53,7 +53,6 @@ Creator services create, store, and use various data types that are defined and 
 - Tileset
 - style
 - Map configuration
-- Feature stateset
 - Routeset
 
 ## Upload a drawing package
@@ -81,12 +80,11 @@ Azure Maps Creator provides the following services that support map creation:
 - [Tileset service].
 Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
 - [Custom styling service]. Use the [style] service or [visual style editor] to customize the visual elements of an indoor map.
-- [Feature State service]. Use the Feature State service to support dynamic map styling. Applications can use dynamic map styling to reflect real-time events on spaces provided by the IoT system.
 - [Wayfinding service]. Use the [wayfinding] API to generate a path between two points within a facility. Use the [routeset] API to create the data that the wayfinding service needs to generate paths.
 
 ### Datasets
 
-A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted drawing package. After you create a dataset with the [Dataset service], you can create any number of [tilesets] or [feature statesets].
+A dataset is a collection of indoor map features. The indoor map features represent facilities that are defined in a converted drawing package. After you create a dataset with the [Dataset service], you can create any number of [tilesets].
 
 At any time, developers can use the [Dataset service] to add or remove facilities to an existing dataset. For more information about how to update an existing dataset using the API, see the append options in [Dataset service]. For an example of how to update a dataset, see [Data maintenance].
 
@@ -216,19 +214,6 @@ The following JSON is an example of a default map configuration. See the followi
 - For more information on style Rest API, see [style] in the Maps Creator Rest API reference.
 - For more information on the map configuration Rest API, see [Creator - map configuration Rest API].
 
-### Feature statesets
-
-Feature statesets are collections of dynamic properties (*states*) that are assigned to dataset features, such as rooms or equipment. An example of a *state* can be temperature or occupancy. Each *state* is a key/value pair that contains the name of the property, the value, and the timestamp of the last update.
-
-You can use the [Feature State service] to create and manage a feature stateset for a dataset. The stateset is defined by one or more *states*. Each feature, such as a room, can have one *state* attached to it.
-
-The value of each *state* in a stateset is updated or retrieved by IoT devices or other applications. For example, using the [Feature State Update API], devices measuring space occupancy can systematically post the state change of a room.
-
-An application can use a feature stateset to dynamically render features in a facility according to their current state and respective map style. For more information about using feature statesets to style features in a rendering map, see [Indoor Maps module].
-
->[!NOTE]
->Like tilesets, changing a dataset doesn't affect the existing feature stateset, and deleting a feature stateset doesn't affect the dataset to which it's attached.
-
 ### Wayfinding (preview)
 
 The [Wayfinding service] enables you to provide your customers with the shortest path between two points within a facility. Once you've imported your indoor map data and created your dataset, you can use that to create a [routeset]. The routeset provides the data required to generate paths between two points. The wayfinding service takes into account things such as the minimum width of openings and can optionally exclude elevators or stairs when navigating between levels as a result.
@@ -267,7 +252,7 @@ You can use the [Web Feature service] (WFS) to query datasets. WFS follows the O
 
 ### Alias API
 
-Creator services such as Conversion, Dataset, Tileset and Feature State return an identifier for each resource that's created from the APIs. The [Alias API] allows you to assign an alias to reference a resource identifier.
+Creator services such as Conversion, Dataset, and Tileset return an identifier for each resource that's created from the APIs. The [Alias API] allows you to assign an alias to reference a resource identifier.
 
 ### Indoor Maps module
 
@@ -275,7 +260,7 @@ The [Azure Maps Web SDK] includes the Indoor Maps module. This module offers ext
 
 You can use the Indoor Maps module to create web applications that integrate indoor map data with other [Azure Maps services]. The most common application setups include adding knowledge from other maps - such as road, imagery, weather, and transit - to indoor maps.
 
-The Indoor Maps module also supports dynamic map styling. For a step-by-step walkthrough to implement feature stateset dynamic styling in an application, see [Use the Indoor Map module].
+The Indoor Maps module also supports dynamic map styling for more information, see [Enhance your indoor maps with real-time map feature styling].
 
 ### Azure Maps integration
 
@@ -283,7 +268,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
 
 ### Data maintenance
 
- You can use the Azure Maps Creator List, Update, and Delete API to list, update, and delete your datasets, tilesets, and feature statesets.
+ You can use the Azure Maps Creator List, Update, and Delete API to list, update, and delete your datasets and tilesets.
 
 >[!NOTE]
 >When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render - Get Map Tile] API, the application fails to render that tileset.
@@ -298,16 +283,10 @@ The following example shows how to update a dataset, create a new tileset, and d
 4. Save the new **tilesetId** for the next step.
 5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
-
 <!-----	Internal Links	------->
 [Convert a drawing package]: #convert-a-drawing-package
 [Custom styling service]: #custom-styling-preview
 [Data maintenance]: #data-maintenance
-[feature statesets]: #feature-statesets
 [Indoor Maps module]: #indoor-maps-module
 [Render service]: #render---get-map-tile-api
 [tilesets]: #tilesets
@@ -326,14 +305,11 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Conversion service]: /rest/api/maps-creator/conversion
 [Dataset Create]: /rest/api/maps-creator/dataset/create
 [Dataset service]: /rest/api/maps-creator/dataset
-[Feature State service]: /rest/api/maps-creator/feature-state
-[Feature State Update API]: /rest/api/maps-creator/feature-state/update-states
 [Geofence service]: /rest/api/maps/spatial/postgeofence
 [Tileset Create]: /rest/api/maps-creator/tileset/create
 [Tileset List]: /rest/api/maps-creator/tileset/list
 [Tileset service]: /rest/api/maps-creator/tileset
 [Web Feature service]: /rest/api/maps-creator/wfs
-
 
 <!--- learn.microsoft.com Links ------------>
 [Authorization with role-based access control]: azure-maps-authentication.md#authorization-with-role-based-access-control
@@ -352,9 +328,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Manage Azure Maps Creator]: how-to-manage-creator.md
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [style picker control]: choose-map-style.md#add-the-style-picker-control
-[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
 [Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
-[Use the Indoor Map module]: how-to-use-indoor-module.md
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 
 <!--- HTTP Links ------------>
@@ -363,3 +337,4 @@ The following example shows how to update a dataset, create a new tileset, and d
 [sprites]: https://docs.mapbox.com/help/glossary/sprite/
 [style layers]: https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
+[Enhance your indoor maps with real-time map feature styling]: https://techcommunity.microsoft.com/t5/azure-maps-blog/enhance-your-indoor-maps-with-real-time-map-feature-styling/ba-p/4048929

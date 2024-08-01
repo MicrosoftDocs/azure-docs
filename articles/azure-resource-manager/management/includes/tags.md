@@ -1,5 +1,6 @@
 ---
 ms.service: azure-resource-manager
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/07/2022
 author: mumian

@@ -50,7 +50,7 @@ Shared Access Signatures (SAS) provides you with access control over resources w
 
 ## Shared Access Signature token
 
-You can generate a SAS token to be included when your client application communicates with Event Grid. SAS tokens for Event Grid resources are `Base64` encoded strings with the following format: `r={resource}&e={expiration_utc}&s={signature}`.
+You can generate a SAS token to be included when your client application communicates with Event Grid. SAS tokens for Event Grid resources are `URL` encoded strings with the following format: `r={resource}&e={expiration_utc}&s={signature}`.
 
 - `{resource}` is the URL that represents the Event Grid resource the client accesses.
   - The valid URL format for custom topics, domains, and partner namespaces is `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`.

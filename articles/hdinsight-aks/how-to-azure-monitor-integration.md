@@ -8,6 +8,8 @@ ms.date: 08/29/2023
 
 # How to integrate with Log Analytics
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 This article describes how to enable Log Analytics to monitor & collect logs for cluster pool and cluster operations on HDInsight on AKS. You can enable the integration during cluster pool creation or post the creation.
 Once the integration at cluster pool is enabled, it isn't possible to disable the integration. However, you can disable the log analytics for individual clusters, which are part of the same pool.
 

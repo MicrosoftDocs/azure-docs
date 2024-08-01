@@ -1,7 +1,7 @@
 ---
 title: Manage server - Azure CLI - Azure Database for PostgreSQL
 description: Learn how to manage an Azure Database for PostgreSQL server from the Azure CLI.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.custom: devx-track-azurecli
 ms.topic: how-to
@@ -36,7 +36,7 @@ az account set --subscription <subscription id>
 
 If you have not already created a server, refer to this [quickstart](quickstart-create-server-database-azure-cli.md) to create one.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Scale compute and storage
 

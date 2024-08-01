@@ -2,10 +2,10 @@
 title: Labeling images and text documents
 title.suffix: Azure Machine Learning
 description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
-author: kvijaykannan
-ms.author: vkann
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: vkann
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 08/16/2023
