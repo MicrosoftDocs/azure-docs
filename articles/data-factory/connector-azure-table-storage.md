@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/23/2024
+ms.date: 08/01/2024
 ---
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics
@@ -231,6 +231,7 @@ These properties are supported for an Azure Table Storage linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **AzureTableStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
 >System-assigned managed identity authentication is only supported by Azure integration runtime.
@@ -244,6 +245,10 @@ These properties are supported for an Azure Table Storage linked service:
         "type": "AzureTableStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.table.core.windows.net/"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -269,6 +274,7 @@ These properties are supported for an Azure Table Storage linked service:
 | type | The **type** property must be set to **AzureTableStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -283,6 +289,10 @@ These properties are supported for an Azure Table Storage linked service:
                 "referenceName": "credential1",
                 "type": "CredentialReference"
             }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
