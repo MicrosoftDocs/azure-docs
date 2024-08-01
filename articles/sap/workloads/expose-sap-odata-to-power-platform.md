@@ -13,9 +13,9 @@ ms.author: mapankra
 
 Working with SAP datasets in low code solutions is a common requirement for customers.
 
-This article describes the required configurations and components to interact with SAP datasets via OData and the legacy RFC/BAPI interfaces.
+This article describes the required foundational configurations and components to interact with SAP datasets via OData and the legacy RFC/BAPI interfaces.
 
-The article puts emphasis on end-to-end user mapping between the known Microsoft Entra identity in Power Platform and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
+The article puts emphasis on end-to-end user mapping between the known Microsoft Entra identity in Power Platform and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation. See [this community post]() for more details.
 
 > [!IMPORTANT]
 > SAP Principal Propagation ensures user-mapping to the licensed named SAP user. For any SAP license related questions please contact your SAP representative.
@@ -49,6 +49,7 @@ Learn more from this article on the [Power Platform community]().
 
 > [!NOTE]
 > An existing trust setup between your SAP backend and Entra ID using an enterprise app registration is required. The configuration needs to support the OAuth2SAMLBearer flow. See [this Microsoft learn article](/entra/identity/saas-apps/sap-netweaver-tutorial) and this SAP blog for details on the initial steps.
+>
 > :::image type="content" source="media/expose-sap-odata-to-power-platform/sap-principal-propagation-trust.png" alt-text="Illustration of trust relationship between SAP, Entra ID, and API Management solution to support SAP Principal Propagation." lightbox="media/expose-sap-odata-to-power-platform/sap-principal-propagation-trust.png":::
 
 For the Entra ID token exchange required by SAP ([OAuth2SAMLBearer flow](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/6e/aec739afad4c5c96487c780c0bf82a/frameset.htm)), we recommend using an API Management solution. See [this Microsoft learn article](/azure/api-management/sap-api?tabs=odata#production-considerations) for details on the initial steps with Azure API Management.
@@ -57,8 +58,6 @@ For the Entra ID token exchange required by SAP ([OAuth2SAMLBearer flow](https:/
 
 ## Next steps
 
-[SAP Single Sign-On](https://help.sap.com/docs/SAP_SINGLE_SIGN-ON)
-
 [Work with SAP OData APIs in Azure API Management](../../api-management/sap-api.md)
 
 [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
@@ -66,5 +65,3 @@ For the Entra ID token exchange required by SAP ([OAuth2SAMLBearer flow](https:/
 [Integrate API Management in an internal virtual network with Application Gateway](../../api-management/api-management-howto-integrate-internal-vnet-appgateway.md)
 
 [Understand Azure Application Gateway and Web Application Firewall for SAP](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
-
-[Data loss prevention (DLP) policies](/power-platform/admin/wp-data-loss-prevention)
