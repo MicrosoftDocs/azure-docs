@@ -1,7 +1,7 @@
 ---
 title: Known issues and limitations for Azure Database for PostgreSQL - Single Server and Flexible Server
 description: Lists the known issues that customers should be aware of.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: alkuchar
