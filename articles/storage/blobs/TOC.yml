@@ -529,7 +529,7 @@ items:
     items:
     - name: Monitor Blob storage
       href: monitor-blob-storage.md
-    - name: Monitoring scenarios and best practices
+    - name: Best practices for monitoring
       href: blob-storage-monitoring-scenarios.md
     - name: Use Storage insights
       href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
@@ -1208,7 +1208,7 @@ items:
     - name: Resource Manager template
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
-    - name: Monitoring data
+    - name: Monitoring Blob storage data reference
       href: monitor-blob-storage-reference.md
     - name: Host keys (SFTP) support
       href: secure-file-transfer-protocol-host-keys.md

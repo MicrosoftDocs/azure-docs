@@ -44,20 +44,11 @@ Azure Storage logs capture details in Azure Monitor about requests made against 
 
 ### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates the types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the **Monitoring** section, select **Diagnostic settings**.
-1. Select the Azure Storage service for which you want to log requests. For example, choose **blob** to log requests to Blob Storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Categories**, in the **Logs** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
-1. Under **Destination details**, select **Send to Log Analytics workspace**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image, then select Save.
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-    :::image type="content" source="media\security-restrict-copy-operations\create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests." lightbox="media\security-restrict-copy-operations\create-diagnostic-setting-logs.png":::
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
 ### Query logs for copy requests
 
