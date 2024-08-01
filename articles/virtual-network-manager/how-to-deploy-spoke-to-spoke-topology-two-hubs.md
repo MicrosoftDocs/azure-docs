@@ -1,17 +1,17 @@
 ---
-title: How to deploy Spoke-to-Spoke with two hubs
-description: Learn how to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager.
+title: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager
+description: Learn to manage User Defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/07/2024
-ms.service: virtual-network-manager
+ms.date: 08/02/2024
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 # customer intent: As a network administrator, I want to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager.
 ---
 
-# How to deploy Spoke-to-Spoke topology with two hubs
+# Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager
 
-In this article, you learn how to deploy a Spoke-to-Spoke topology with two hubs using Virtual Network Manager. This scenario is useful when you have a hub and spoke architecture in multiple Azure regions. In the past, customers with firewalls or network virtual appliances performed many manual operations to do cross-hub and spoke in the past. Users needed many user-defined routes(UDRs) to be set up by hand, and when there were changes in spoke virtual networks, such as adding new spoke virtual networks and subnets, they also needed to change user-defined routes and route tables. UDR management with Virtual Network Manager can help you automate these tasks.
+In this article, you learn how to deploy multiple hub-and-spoke topologies, and manage user-defined routes (UDRs) with Azure Virtual Network Manager. This scenario is useful when you have a hub and spoke architecture in multiple Azure regions. In the past, customers with firewalls or network virtual appliances performed many manual operations to do cross-hub and spoke in the past. Users needed many user-defined routes(UDRs) to be set up by hand, and when there were changes in spoke virtual networks, such as adding new spoke virtual networks and subnets, they also needed to change user-defined routes and route tables. UDR management with Virtual Network Manager can help you automate these tasks.
 
 ## Prerequisites
 
@@ -247,10 +247,10 @@ In this step, you confirm the routing configuration by reviewing the route table
 5. Close the route table and subnet window.
 6. Repeat the steps to review the route tables applied to all the subnets in your configuration.
     
-## Adding spoke virtual network to the existing Multi Hub-Spoke topologies
+## Adding a spoke virtual network to an existing multi-hub and spoke topology
 
-                                                                                 
-
+When you add other virtual networks to a network group for spoke virtual networks, the connectivity and routing configurations are automatically applied to the new virtual network. Your network manager automatically detects the new virtual network and applies all applicable configurations. When you remove a virtual network from the network group, any applied configurations are automatically removed. 
+                                                                           
 ## Next steps
 
 > [!div class="nextstepaction"]
