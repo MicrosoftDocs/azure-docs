@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure Database for PostgreSQL
 description: Lists Azure Policy built-in policy definitions for Azure Database for PostgreSQL. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: reference
 ms.author: jonels

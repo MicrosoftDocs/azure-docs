@@ -3,7 +3,7 @@ title: 'Create a NAT gateway - Bicep'
 titleSuffix: Azure NAT Gateway
 description: This quickstart shows how to create a NAT gateway using Bicep.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: nat
 ms.topic: how-to
 ms.date: 07/21/2023

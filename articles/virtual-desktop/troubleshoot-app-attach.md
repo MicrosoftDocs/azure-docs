@@ -48,7 +48,7 @@ To validate that your session hosts have the necessary access to a file share co
       ```powershell
       # Install the CimDiskImage PowerShell module, if it's not already installed.
       If (!(Get-Module -ListAvailable | ? Name -eq CimDiskImage)) {
-          Install-Module CimDiskImage -WhatIf
+          Install-Module CimDiskImage
       }
       
       # Import the CimDiskImage PowerShell module.

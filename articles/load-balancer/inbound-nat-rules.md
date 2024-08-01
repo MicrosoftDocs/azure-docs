@@ -3,7 +3,7 @@ title: Inbound NAT rules
 titleSuffix: Azure Load Balancer
 description: Overview of what is inbound NAT rule, why to use inbound NAT rule, and how to use inbound NAT rule.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: mbender

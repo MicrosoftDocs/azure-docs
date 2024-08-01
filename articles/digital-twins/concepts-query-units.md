@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/01/2022
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -46,6 +46,6 @@ To learn more about querying Azure Digital Twins, visit:
 
 * [Query language](concepts-query-language.md)
 * [Query the twin graph](how-to-query-graph.md)
-* [Query API reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)
+* [Query API reference documentation](/rest/api/digital-twins/dataplane/query/query-twins)
 
 You can find Azure Digital Twins query-related limits in [Azure Digital Twins service limits](reference-service-limits.md).

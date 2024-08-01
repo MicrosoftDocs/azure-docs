@@ -14,4 +14,4 @@ ms.author: eur
 
 | Service | Description | Reference documentation |
 | --- | --- | --- |
-| ![QnA Maker icon](../../../media/service-icons/luis.svg) [QnA maker](../../../qnamaker/index.yml)<br>(deprecated 2022)  | Distill information into easy-to-navigate question and answer applications. | &bullet;&NonBreakingSpace;[QnA maker RubyGems package](https://rubygems.org/gems/azure_cognitiveservices_qnamaker)  |
+| ![QnA Maker icon](~/reusable-content/ce-skilling/azure/media/ai-services/luis.svg) [QnA maker](../../../qnamaker/index.yml)<br>(deprecated 2022)  | Distill information into easy-to-navigate question and answer applications. | &bullet;&NonBreakingSpace;[QnA maker RubyGems package](https://rubygems.org/gems/azure_cognitiveservices_qnamaker)  |

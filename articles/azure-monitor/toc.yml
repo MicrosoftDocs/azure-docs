@@ -230,24 +230,7 @@ items:
         displayName: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Usage (user behavior analytics)
-        items:
-        - name: Overview
-          displayName: user behavior analytics, user behavior, usage, behavioral analytics
-          href: app/usage-overview.md
-        - name: Users, Sessions, Events
-          href: app/usage-segmentation.md
-        - name: Funnels
-          href: app/usage-funnels.md
-        - name: Cohorts
-          href: app/usage-cohorts.md
-        - name: Impact
-          href: app/usage-impact.md
-        - name: Retention
-          href: app/usage-retention.md
-        - name: User Flows
-          href: app/usage-flows.md
-        - name: HEART Framework
-          href: app/usage-heart.md
+        href: app/usage.md
       - name: Release and work item insights
         href: app/release-and-work-item-insights.md
       - name: Transaction Search and Diagnostics
@@ -726,7 +709,7 @@ items:
           - name: SNMP traps
             displayName: data collection rule,Azure Monitor agent
             href: agents/data-collection-snmp-data.md
-          - name: Collect Windows Firewall logs
+          - name: Windows Firewall logs
             displayName: data collection rule,Azure Monitor Agent,firewall logs
             href: agents/data-sources-firewall-logs.md
           - name: Configure a syslog forwarder
@@ -956,6 +939,8 @@ items:
         - name: Manage
           displayName: Prometheus
           href: essentials/azure-monitor-workspace-manage.md
+        - name: Best practices for scaling Azure Monitor workspaces  
+          href: essentials/azure-monitor-workspace-scaling-best-practice.md
         - name: Private endpoints for Azure Monitor workspaces
           href: essentials/azure-monitor-workspace-private-endpoint.md
         - name: Private link for Prometheus data ingestion
@@ -1003,6 +988,13 @@ items:
           items:
           - name: Create a Log Analytics workspace
             href: logs/quick-create-workspace.md
+          - name: Manage access
+            displayName: Manage access to a Log Analytics workspace
+            href: logs/manage-access.md
+          - name: Change pricing tier
+            href: logs/change-pricing-tier.md
+          - name: Set a daily cap
+            href: logs/daily-cap.md
           - name: Move, delete, or recover a Log Analytics workspace
             items:
               - name: Move a workspace
@@ -1026,16 +1018,20 @@ items:
           items:
           - name: View and manage table properties
             href: logs/manage-logs-tables.md
+          - name: Select a table plan
+            displayName: Basic, Analytics, Auxiliary, cost optimization
+            href: logs/logs-table-plans.md
+          - name: Manage data retention
+            href: logs/data-retention-configure.md
+            displayName: Log retention, log archive, cost optimization
           - name: Add or delete tables and columns
             href: logs/create-custom-table.md
-          - name: Set Basic or Analytics log data plan
-            displayName: Basic logs, cost optimization
-            href: logs/basic-logs-configure.md
-        - name: Archive and restore
+          - name: Set up a table with the Auxiliary plan
+            href: logs/create-custom-table-auxiliary.md
+          - name: Manage table-level read access
+            href: logs/manage-table-access.md
+        - name: Search jobs and data restore
           items:
-          - name: Data retention and archive
-            href: logs/data-retention-archive.md
-            displayName: Log retention, log archive, cost optimization
           - name: Run a search job
             href: logs/search-jobs.md
           - name: Restore logs
@@ -1245,7 +1241,7 @@ items:
         href: logs/notebooks-azure-monitor-logs.md
       - name: Standard columns
         href: logs/log-standard-columns.md
-      - name: Query Basic logs
+      - name: Query Basic and Auxliary logs
         href: logs/basic-logs-query.md
       - name: Audit queries
         href: logs/query-audit.md
@@ -1501,8 +1497,6 @@ items:
         href: alerts/alerts-log-alert-query-samples.md
       - name: Log search alert payloads with webhooks
         href: alerts/alerts-log-webhook.md
-  - name: Monitor Logs in Azure CLI
-    href: logs\azure-cli-log-analytics-workspace-sample.md
   - name: Configure workspaces using PowerShell
     href: logs/powershell-workspace-configuration.md
   - name: Azure Resource Graph queries
@@ -1523,8 +1517,6 @@ items:
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: .//security-controls-policy.md
-  - name: Logs Tables reference
-    href: /azure/azure-monitor/reference/
   - name: Self-monitoring data reference
     href: monitor-azure-monitor-reference.md
   - name: Supported metrics
@@ -1541,10 +1533,14 @@ items:
       href: essentials/resource-logs-schema.md
     - name: Activity log schema
       href: essentials/activity-log-schema.md
-  - name: Azure Monitor Log store
+  - name: Azure Monitor Logs
     items:
-    - name: Supported tables for transformations
+    - name: Logs tables reference
+      href: /azure/azure-monitor/reference/
+    - name: Tables that support transformations
       href: logs/tables-feature-support.md
+    - name: Tables that support the Basic table plan
+      href: logs/basic-logs-azure-tables.md
   - name: Windows diagnostics extension schema
     href: agents/diagnostics-extension-schema-windows.md
   - name: Azure Monitor Agent extension versions
@@ -1619,3 +1615,4 @@ items:
       href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor
+
