@@ -40,4 +40,4 @@ You should also consider adding false positive examples to the None intent. For 
 
 ## Related content
 
-[Conversational language understanding overview](../overview.md)
+- [Conversational language understanding overview](../overview.md)

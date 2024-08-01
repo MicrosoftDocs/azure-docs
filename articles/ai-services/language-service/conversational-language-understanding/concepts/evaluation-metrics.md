@@ -174,4 +174,4 @@ After you train your model, you see some guidance and recommendations on how to 
 
 ## Related content
 
-[Train a model in Language Studio](../how-to/train-model.md)
+* [Train a model in Language Studio](../how-to/train-model.md)
