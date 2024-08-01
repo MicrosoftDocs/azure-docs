@@ -224,6 +224,8 @@ These properties are supported for an Azure Files linked service:
 | type | The **type** property must be set to **AzureFileStorage**. | Yes |
 | serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
 | fileShare | Specify the file share. | Yes |
+| snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
 >System-assigned managed identity authentication is only supported by Azure integration runtime.
@@ -237,7 +239,12 @@ These properties are supported for an Azure Files linked service:
         "type": "AzureFileStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.file.core.windows.net/",
-            "fileShare": "<file share name>" 
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -264,6 +271,8 @@ These properties are supported for an Azure Files linked service:
 | serviceEndpoint | Specify the Azure Files service endpoint with the pattern of `https://<accountName>.file.core.windows.net/`. | Yes |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes |
 | fileShare | Specify the file share. | Yes |
+| snapshot | Specify the date of the [file share snapshot](../storage/files/storage-snapshots-files.md) if you want to copy from a snapshot. | No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -278,7 +287,12 @@ These properties are supported for an Azure Files linked service:
                 "referenceName": "credential1",
                 "type": "CredentialReference"
             },
-            "fileShare": "<file share name>"
+            "fileShare": "<file share name>",
+            "snapshot": "<snapshot version>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
