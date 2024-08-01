@@ -8,6 +8,7 @@ ms.date: 01/29/2024
 author: msmarioo
 ms.author: marioo
 ms.subservice: mqtt
+ms.service: azure-event-grid
 ---
 
 # Automotive messaging, data & analytics reference architecture

@@ -5,6 +5,7 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Configure Windows Update settings for Azure Automation Update Management
 

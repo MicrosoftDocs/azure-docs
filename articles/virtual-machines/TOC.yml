@@ -202,34 +202,34 @@
         - name: B-series CPU Credit Model
           href: ./b-series-cpu-credit-model/b-series-cpu-credit-model.md
         - name: Bsv2 series
-          href: bsv2-series.md
+          href: ./sizes/general-purpose/bsv2-series.md
         - name: Basv2 series
-          href: basv2.md
+          href: ./sizes/general-purpose/basv2-series.md
         - name: Bpsv2 series
-          href: bpsv2-arm.md
+          href: ./sizes/general-purpose/bpsv2-series.md
         - name: B series V1
-          href: sizes-b-series-burstable.md
+          href: ./sizes/general-purpose/bv1-series.md
       - name: D family
         items:
         - name: Overview
           displayName: D-series, sizes, size, vm size
           href: ./sizes/general-purpose/d-family.md
         - name: Dsv6 series
-          href: dsv6-ddsv6-series.md
+          href: ./sizes/general-purpose/dsv6-series.md
         - name: Ddsv6 series
-          href: dsv6-ddsv6-series.md
+          href: ./sizes/general-purpose/ddsv6-series.md
         - name: Dlsv6 series
-          href: dlsv6-dldsv6-series.md
+          href: ./sizes/general-purpose/dlsv6-series.md
         - name: Dldsv6 series
-          href: dlsv6-dldsv6-series.md
+          href: ./sizes/general-purpose/dldsv6-series.md
         - name: Dasv6 series
-          href: dasv6-dadsv6-series.md
+          href: ./sizes/general-purpose/dasv6-series.md
         - name: Dadsv6 series
-          href: dasv6-dadsv6-series.md
+          href: ./sizes/general-purpose/dadsv6-series.md
         - name: Dalsv6 series
-          href: dalsv6-daldsv6-series.md
+          href: ./sizes/general-purpose/dalsv6-series.md
         - name: Daldsv6 series
-          href: dalsv6-daldsv6-series.md
+          href: ./sizes/general-purpose/daldsv6-series.md
         - name: Dpsv6 series
           href: ./sizes/general-purpose/dpsv6-series.md
         - name: Dpdsv6 series
@@ -247,9 +247,9 @@
         - name: Ddsv5 series
           href: ./sizes/general-purpose/ddsv5-series.md
         - name: Dasv5 series
-          href: dasv5-dadsv5-series.md
+          href: ./sizes/general-purpose/dasv5-series.md
         - name: Dadsv5 series
-          href: dasv5-dadsv5-series.md
+          href: ./sizes/general-purpose/dadsv5-series.md
         - name: Dpsv5 series
           href: ./sizes/general-purpose/dpsv5-series.md
         - name: Dpdsv5 series
@@ -267,9 +267,9 @@
         - name: Dsv4 series
           href: ./sizes/general-purpose/dsv4-series.md
         - name: Dav4 series
-          href: dav4-dasv4-series.md
+          href: ./sizes/general-purpose/dav4-series.md
         - name: Dasv4 series
-          href: dav4-dasv4-series.md
+          href: ./sizes/general-purpose/dasv4-series.md
         - name: Ddv4 series
           href: ./sizes/general-purpose/ddv4-series.md   
         - name: Ddsv4 series
@@ -288,23 +288,23 @@
           displayName: DC-series, sizes, size, vm size
           href: ./sizes/general-purpose/dc-family.md
         - name: DCasv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcasv5-series.md
         - name: DCadsv5 series
-          href: dcasv5-dcadsv5-series.md
+          href: ./sizes/general-purpose/dcadsv5-series.md
         - name: DCas_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcasccv5-series.md
         - name: DCads_cc_v5 series
-          href: dcasccv5-dcadsccv5-series.md
+          href: ./sizes/general-purpose/dcadsccv5-series.md
         - name: DCesv5 series
-          href: dcesv5-dcedsv5-series.md  
+          href: ./sizes/general-purpose/dcesv5-series.md  
         - name: DCedsv5 series
-          href: dcesv5-dcedsv5-series.md 
+          href: ./sizes/general-purpose/dcedsv5-series.md 
         - name: DCsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcsv3-series.md
         - name: DCdsv3 series
-          href: dcv3-series.md
+          href: ./sizes/general-purpose/dcdsv3-series.md
         - name: DCsv2 series
-          href: dcv2-series.md
+          href: ./sizes/general-purpose/dcsv2-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -315,10 +315,12 @@
         - name: Overview
           displayName: F-series, sizes, size, vm size
           href: ./sizes/compute-optimized/f-family.md
-        - name: Fasv6 and Falsv6 series
-          href: fasv6-falsv6-series.md
+        - name: Fasv6-series
+          href: ./sizes/compute-optimized/fasv6-series.md
+        - name: Falsv6 series
+          href: ./sizes/compute-optimized/falsv6-series.md
         - name: Fsv2 series
-          href: fsv2-series.md
+          href: ./sizes/compute-optimized/fsv2-series.md
       - name: FX family
         items:
         - name: Overview
@@ -415,11 +417,11 @@
           displayName: L-series, sizes, size, vm size
           href: ./sizes/storage-optimized/l-family.md
         - name: Lsv2 series
-          href: lsv2-series.md
+          href: ./sizes/storage-optimized/lsv2-series.md
         - name: Lsv3 series
-          href: lsv3-series.md
+          href: ./sizes/storage-optimized/lsv3-series.md
         - name: Lasv3 series
-          href: lasv3-series.md
+          href: ./sizes/storage-optimized/lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
@@ -616,14 +618,16 @@
         href: compiling-scaling-applications.md
     - name: Enable NVMe
       items:
-      - name: Enable NVMe FAQ
-        href: enable-nvme-faqs.yml
+      - name: NVMe Overview
+        href: nvme-overview.md
       - name: Temp NVMe Disks FAQ
         href: enable-nvme-temp-faqs.yml
       - name: Remote NVMe Disks FAQ
         href: enable-nvme-remote-faqs.yml
       - name: OS Images Supported
         href: enable-nvme-interface.md
+      - name: SCSI to NVMe for Linux VMs
+        href: nvme-linux.md
     - name: Previous generation and retired sizes
       items:
       - name: Overview

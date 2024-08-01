@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: maghan, randolphwest
 ms.date: 11/30/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - sql-migration-content
@@ -225,6 +225,18 @@ This article provides a list of known issues and troubleshooting steps associate
 
   > [!NOTE]  
   > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
+
+## Error code: 2055 - SqlInfoCollectionFailed
+
+- **Message**: `A database operation failed with the following error: 'VIEW SERVER PERFORMANCE STATE permission was denied on object 'server', database 'master'. The user does not have permission to perform this action.`
+
+- **Cause**: The login used for target server(Azure SQL DB) does not has ##MS_ServerStateReader## server role.
+
+- **Recommendation**: Provide ##MS_ServerStateReader## role to the login for Azure SQL Target. 
+Query:
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER login.
+
+Note: This query should be run in context of master DB
 
 ## Error code: 2056 - SqlInfoValidationFailed
 

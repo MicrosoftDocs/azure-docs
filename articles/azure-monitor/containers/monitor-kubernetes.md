@@ -5,7 +5,7 @@ ms.service:  azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/14/2023
+ms.date: 07/30/2024
 ---
 
 # Monitor Kubernetes clusters using Azure services and cloud native tools
