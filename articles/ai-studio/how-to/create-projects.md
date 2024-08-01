@@ -117,8 +117,8 @@ In addition, a number of resources are only accessible by users in your project 
    
    | Data connection | Storage location | Purpose |
    | --- | --- | --- |
-   | workspaceblobstore | {project-GUID}-blobstore | Default container for data upload |
-   | workspaceartifactstore | {project-GUID}-blobstore | Stores components and metadata for your project such as model weights |
+   | workspaceblobstore | {project-GUID}-azureml-blobstore | Default container for data upload |
+   | workspaceartifactstore | {project-GUID}-azureml | Stores components and metadata for your project such as model weights |
    | workspacefilestore | {project-GUID}-code | Hosts files created on your compute and using prompt flow |
 
 > [!NOTE]
