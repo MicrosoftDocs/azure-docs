@@ -10,7 +10,7 @@ ms.topic: article
 ---
 # NVMe Overview
 
-Learn about NVM Express (NVMe) support on virtual machine (VM) created in Azure. NVMe is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times.
+NVM Express (NVMe) is a communication protocol that facilitates faster and more efficient data transfer between servers and storage systems by using nonvolatile memory (NVM). With NVMe, data can be transferred at the highest throughput and with the fastest response times. In this overview, learn about NVMe support on virtual machines (VM) created in Azure.
 
 NVMe offers higher input/output operations per second (IOPS) and higher throughput in megabytes per second (MBps). This capability can significantly improve the performance of both temporary (local) and remote NVMe disk storage with [Azure managed disks](/azure/virtual-machines/managed-disks-overview). Higher performance is especially beneficial for I/O-intensive workloads that require fast data transfer to the Azure managed disks.
 
@@ -74,7 +74,7 @@ To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and 
 
 #### Mark as NVMe capable  
 
-You can create an NVMe-supported VM only by using an image (Platform Image Repository and [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) marked as NVMe.
+You can create NVMe interface enabled VM only by using an image (available in [Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home), or shared in [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) marked as NVMe.
 
 > [!WARNING]
 > If you use an unmarked image, a SCSI-based VM is created, and the VM might not perform as you intended.
