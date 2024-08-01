@@ -5,6 +5,7 @@ services: automation
 ms.date: 01/25/2020
 ms.topic: troubleshooting
 ms.subservice: update-management
+ms.service: azure-automation
 ---
 
 # Troubleshoot Windows update agent issues

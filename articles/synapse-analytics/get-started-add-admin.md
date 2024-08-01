@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to add another administrative us
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/02/2021

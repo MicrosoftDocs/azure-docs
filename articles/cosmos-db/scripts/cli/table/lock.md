@@ -4,7 +4,7 @@ description: Use Azure CLI to create, list, show properties for, and delete reso
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.topic: sample
 ms.date: 06/16/2022

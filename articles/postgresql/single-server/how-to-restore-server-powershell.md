@@ -1,7 +1,7 @@
 ---
 title: Backup and restore - Azure PowerShell - Azure Database for PostgreSQL
 description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using Azure PowerShell.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: alkuchar

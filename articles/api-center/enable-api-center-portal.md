@@ -2,7 +2,7 @@
 title: Self-host the API Center portal
 description: How to self-host the API Center portal, a customer-managed website that enables discovery of the API inventory in your Azure API center.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 04/29/2024
 ms.author: danlep 
