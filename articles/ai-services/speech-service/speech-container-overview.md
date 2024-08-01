@@ -61,7 +61,7 @@ You can use container recipes to create containers that can be reused. Container
 For information about other container services, see the following Azure AI services articles:
 - [Tutorial: Create a container image for deployment to Azure Container Instances](../../container-instances/container-instances-tutorial-prepare-app.md)
 - [Quickstart: Create a private container registry using the Azure CLI](../../container-registry/container-registry-get-started-azure-cli.md)
-- [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md)
+- [Tutorial: Prepare an application for Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-prepare-app)
 
 ## Next steps
 
