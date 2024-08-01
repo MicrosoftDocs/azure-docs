@@ -3,7 +3,7 @@ title: ALB Controller - Backend Health and Metrics
 description: Identify and troubleshoot issues using ALB Controller's backend health & metrics endpoints for Application Gateway for Containers.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 06/03/2024

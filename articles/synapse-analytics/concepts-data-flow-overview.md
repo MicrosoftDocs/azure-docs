@@ -4,7 +4,7 @@ description: An overview of data flows in Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: references_regions
