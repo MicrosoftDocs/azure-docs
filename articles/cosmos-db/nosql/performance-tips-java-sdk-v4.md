@@ -225,8 +225,8 @@ System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_INSERTION_COUNT", "100
 System.setProperty("COSMOS.PK_BASED_BLOOM_FILTER_EXPECTED_FFP_RATE", "0.01");
 ```
 
-## Memory implications
-- Below is the retained size (size of the object and whatever it depends on) of the internal session container (managed by the SDK) with varying expected insertions into the bloom filter.
+### Memory implications
+Below is the retained size (size of the object and whatever it depends on) of the internal session container (managed by the SDK) with varying expected insertions into the bloom filter.
 
 |Expected Insertions|False Positive Rate|Retained Size|
 |-----|------|--|
