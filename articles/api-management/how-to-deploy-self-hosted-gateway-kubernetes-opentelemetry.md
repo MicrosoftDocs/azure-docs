@@ -3,7 +3,7 @@ title: Deploy self-hosted gateway to Kubernetes with OpenTelemetry integration
 description: Learn how to deploy a self-hosted gateway component of Azure API Management on Kubernetes with OpenTelemetry
 author: tomkerkhove
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 12/17/2021
