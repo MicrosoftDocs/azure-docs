@@ -42,8 +42,12 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     Oracle 8.5                       |   Oracle: Oracle-Linuz:ol85-lvm-gen2:latest                      |
 |     Oracle 8.6                       |   Oracle: Oracle-Linux:ol86-lvm-gen2:latest                      |
 |     Oracle 8.7                       |   Oracle: Oracle-Linux:ol87-lvm-gen2:latest                      |
+|     Oracle 8.8                       |   Oracle: Oracle-Linux:ol88-lvm-gen2:latest                      |
+|     Oracle 8.9                       |   Oracle: Oracle-Linux:ol89-lvm-gen2:latest                      |
 |     Oracle 9.0                       |   Oracle: Oracle-Linux:ol9-lvm-gen2:latest                       |
 |     Oracle 9.1                       |   Oracle: Oracle-Linux:ol91-lvm-gen2:latest                      |
+|     Oracle 9.2                       |   Oracle: Oracle-Linux:ol92-lvm-gen2:latest                      |
+|     Oracle 9.3                       |   Oracle: Oracle-Linux:ol93-lvm-gen2:latest                      |
 |     SLES-for-SAP 15.3                |   SUSE:sles-sap-15-sp3:gen2:latest                               |
 |     SLES-for-SAP 15.4                |   SUSE:sles-sap-15-sp4:gen2:latest                               |
 |     SLES 15.4                        |   SUSE:sles-15-sp4:gen2:latest                                   |

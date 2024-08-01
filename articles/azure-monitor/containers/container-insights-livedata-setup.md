@@ -104,7 +104,7 @@ Microsoft Entra client registration must be reconfigured to allow the Azure port
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->If you're creating a new Kubernetes RBAC-enabled cluster, see [Integrate Microsoft Entra ID with Azure Kubernetes Service](../../aks/azure-ad-integration-cli.md) and follow the steps to configure Microsoft Entra authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Container insights matching those specified in step 3.
+>If you're creating a new Kubernetes RBAC-enabled cluster, see [Integrate Microsoft Entra ID with Azure Kubernetes Service](/azure/aks/azure-ad-integration-cli) and follow the steps to configure Microsoft Entra authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Container insights matching those specified in step 3.
 
 ### Client registration reconfiguration
 
@@ -131,7 +131,7 @@ Each Microsoft Entra account must be granted permission to the appropriate APIs 
 >[!IMPORTANT]
 >If the user you grant the Kubernetes RBAC binding for is in the same Microsoft Entra tenant, assign permissions based on `userPrincipalName`. If the user is in a different Microsoft Entra tenant, query for and use the `objectId` property.
 
-For more help in configuring your AKS cluster **ClusterRoleBinding**, see [Create Kubernetes RBAC binding](../../aks/azure-ad-integration-cli.md#create-kubernetes-rbac-binding).
+For more help in configuring your AKS cluster **ClusterRoleBinding**, see [Create Kubernetes RBAC binding](/azure/aks/azure-ad-integration-cli#create-kubernetes-rbac-binding).
 
 ## Next steps
 
