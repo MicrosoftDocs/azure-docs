@@ -5,7 +5,7 @@ author: mvrequa
 ms.date: 06/03/2024
 ms.author: mirequa
 ms.topic: conceptual
-ms.service: cyclecloud
+ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---
 
