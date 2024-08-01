@@ -66,7 +66,7 @@ Follow these steps to change the Minimum TLS cipher suite:
 
 A cipher suite is a set of instructions that contains algorithms and protocols to help secure network connections between clients and servers. By default, the front-end's OS would pick the most secure cipher suite that is supported by both App Service and the client. However, if the client only supports weak cipher suites, then the front-end's OS would end up picking a weak cipher suite that is supported by them both. If your organization has restrictions on what cipher suites should not be allowed, you may update your web app’s minimum TLS cipher suite property to ensure that the weak cipher suites would be disabled for your web app. 
 
-### App Service Environment (ASE) V3 with cluster setting "FrontEndSSLCipherSuiteOrder"
+### App Service Environment (ASE) V3 with cluster setting `FrontEndSSLCipherSuiteOrder`
 
 For App Service Environments with "FrontEndSSLCipherSuiteOrder" cluster setting, you need to update your settings to include two TLS 1.3 cipher suites (TLS_AES_256_GCM_SHA384 and TLS_AES_128_GCM_SHA256). Once updated, restart your front-end for the change to take effect. You must still include the two required cipher suites as mentioned in the docs. 
 
