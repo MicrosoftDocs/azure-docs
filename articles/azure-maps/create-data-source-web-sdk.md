@@ -4,7 +4,7 @@ description: "Find out how to create a data source for a map. Learn about the da
 author: sinnypan
 ms.author: sipa
 ms.date: 12/07/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom:

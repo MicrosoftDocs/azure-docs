@@ -221,7 +221,7 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
     | Assign access to | User, group, or service principal. |
     | Members | The user, group, or application in your directory to which you want to grant access. |
 
-    ![Screenshot that shows the Add role assignment page in the Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the Add role assignment page in the Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 

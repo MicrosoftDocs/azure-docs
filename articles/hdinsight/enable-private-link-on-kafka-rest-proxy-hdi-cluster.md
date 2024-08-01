@@ -1,7 +1,7 @@
 ---
 title: Enable Private Link on an Azure HDInsight Kafka Rest Proxy cluster
 description: Learn how to Enable Private Link on an Azure HDInsight Kafka Rest Proxy cluster. 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.author: piyushgupta
 author: piyush-gupta1999

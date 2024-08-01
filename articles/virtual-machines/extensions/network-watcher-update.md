@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Latest version
 
-[!INCLUDE [Network Watcher agent version](../../../includes/virtual-machines-extensions-network-watcher-agent-version.md)].
+[!INCLUDE [Network Watcher agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)].
 
 ### Identify latest version
 

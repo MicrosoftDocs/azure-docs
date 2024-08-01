@@ -2,7 +2,7 @@
 title: 'ML Studio (classic): Migrate to Azure Machine Learning - Rebuild web service'
 description: Rebuild Studio (classic) web services as pipeline endpoints in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: studio-classic
 ms.custom: UpdateFrequency5
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 03/08/2021
 
 # Rebuild a Studio (classic) web service in Azure Machine Learning
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 In this article, you learn how to rebuild an ML Studio (classic) web service as an **endpoint** in Azure Machine Learning.
 

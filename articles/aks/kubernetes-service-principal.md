@@ -259,7 +259,7 @@ The default expiration time for the service principal credentials is one year. I
 
 **General Azure CLI troubleshooting**
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ### [Azure PowerShell](#tab/azure-powershell)
 

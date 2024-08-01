@@ -4,7 +4,7 @@ description: Use this tutorial to learn how to automate the rotation of a secret
 services: key-vault
 author: msmbaldwin
 tags: 'rotation'
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/30/2024
@@ -155,7 +155,7 @@ Add secret to key vault with validity period for 60 days, storage account resour
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (get-date).AddDays(+1).ToString("yyyy-MM-ddTHH:mm:ssZ")
+tomorrowDate=$(date -u -d "+1 day" +"%Y-%m-%dT%H:%M:%SZ")
 az keyvault secret set --name storageKey --vault-name vaultrotation-kv --value <key1Value> --tags "CredentialId=key1" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 # [Azure PowerShell](#tab/azurepowershell)
@@ -262,7 +262,7 @@ Add secret to key vault with validity period for 60 days, storage account resour
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
-$tomorrowDate = (Get-Date).AddDays(+1).ToString('yyyy-MM-ddTHH:mm:ssZ')
+tomorrowDate=$(date -u -d "+1 day" +"%Y-%m-%dT%H:%M:%SZ")
 az keyvault secret set --name storageKey2 --vault-name vaultrotation-kv --value <key2Value> --tags "CredentialId=key2" "ProviderAddress=<storageAccountResourceId>" "ValidityPeriodDays=60" --expires $tomorrowDate
 ```
 # [Azure PowerShell](#tab/azurepowershell)

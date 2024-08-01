@@ -15,12 +15,16 @@
   items:
   - name: Vector search
     href: search-get-started-vector.md
+  - name: Generative search (RAG)
+    href: search-get-started-rag.md
   - name: Full text search
     href: search-get-started-text.md
-  - name: Semantic reranking
+  - name: Semantic ranking
     href: search-get-started-semantic.md
-  - name: Chat with your data (Azure OpenAI Studio)
-    href:  /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
+  - name: Azure OpenAI Studio
+    items:
+    - name: Chat with your data 
+      href: /azure/ai-services/openai/use-your-data-quickstart?context=/azure/search/context/context
   - name: Portal
     items:
     - name: Keyword search wizard

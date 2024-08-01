@@ -5,8 +5,6 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
-  - name: What is Azure Maps Creator?
-    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -34,8 +32,6 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Create indoor maps
-      href: tutorial-creator-indoor-maps.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)

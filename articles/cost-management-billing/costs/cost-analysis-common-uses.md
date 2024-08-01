@@ -4,11 +4,11 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/21/2024
+ms.date: 07/17/2024
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: jojoh
 ---
 
 # Common cost analysis uses
@@ -22,6 +22,8 @@ Forecast costs are shown in cost analysis areas for area and stacked column view
 In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 
 In the default view, the top chart has the Actual/Amortized cost and forecast cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+
+For more information about forecasting costs, see [Forecasting costs in Cost Analysis](quick-acm-cost-analysis.md#forecasting-costs-in-cost-analysis).
 
 :::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-forecast.png" lightbox="./media/cost-analysis-common-uses/enrollment-forecast.png" alt-text="Screenshot showing Forecast cost in cost analysis.":::
 

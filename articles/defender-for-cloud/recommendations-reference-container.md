@@ -316,8 +316,7 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 **Type**: Kubernetes data plane
 
-### [Role-Based Access Control should be used on Kubernetes Services](https://portal.azure.com/#blade/M
-Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a7c4-2c2665abbaa9)
+### [Role-Based Access Control should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a7c4-2c2665abbaa9)
 
 **Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](../aks/concepts-identity.md#azure-role-based-access-control) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
 (Related policy: [Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fac4a19c2-fa67-49b4-8ae5-0b2e78c49457)).

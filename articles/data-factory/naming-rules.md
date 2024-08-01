@@ -4,7 +4,7 @@ description: Describes naming rules for Data Factory entities.
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024

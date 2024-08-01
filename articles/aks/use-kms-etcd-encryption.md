@@ -4,7 +4,7 @@ description: Learn how to use Key Management Service (KMS) etcd encryption with 
 ms.topic: article
 ms.subservice: aks-security
 ms.custom: devx-track-azurecli
-ms.date: 06/26/2024
+ms.date: 07/19/2024
 ---
 
 # Add Key Management Service etcd encryption to an Azure Kubernetes Service cluster
@@ -344,6 +344,12 @@ Turn off KMS on an existing cluster and release the key vault:
 
 ```azurecli-interactive
 az aks update --name myAKSCluster --resource-group MyResourceGroup --disable-azure-keyvault-kms
+```
+
+Use the following command to update all secrets. If you don't run this command, secrets that were created earlier are still encrypted with the previous key. For larger clusters, you might want to subdivide the secrets by namespace or create an update script.
+
+```azurecli-interactive
+kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
 ### Change the key vault mode

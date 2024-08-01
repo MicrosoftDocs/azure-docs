@@ -63,7 +63,7 @@ productDirectory:
       url: ./computer-vision/index.yml
     # Card
     - title: Custom Vision
-      imageSrc: ./media/service-icons/custom-vision.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/custom-vision.svg
       summary: Customize image recognition for your business.
       url: ./custom-vision-service/index.yml
     # Card
@@ -78,7 +78,7 @@ productDirectory:
       url: ./content-safety/index.yml
     # Card
     - title: Bot Service
-      imageSrc: ./media/service-icons/bot-services.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/bot-services.svg
       summary: Create bots and connect them across channels.
       url: /composer/
     # Card
@@ -88,17 +88,17 @@ productDirectory:
       url: ./document-intelligence/index.yml
     # Card
     - title: Azure AI Search
-      imageSrc: ./media/service-icons/search.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/search.svg
       summary: Bring AI-powered cloud search to your mobile and web applications.
       url: ../search/index.yml
     # Card
     - title: Video Indexer
-      imageSrc: ./media/service-icons/video-indexer.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/video-indexer.svg
       summary: Extract actionable insights from your videos.
       url: /azure/azure-video-indexer/
      # Card
     - title: Immersive Reader
-      imageSrc: ./media/service-icons/immersive-reader.svg
+      imageSrc: ~/reusable-content/ce-skilling/azure/media/ai-services/immersive-reader.svg
       summary: Help users read and comprehend text.
       url: ./immersive-reader/index.yml
       
