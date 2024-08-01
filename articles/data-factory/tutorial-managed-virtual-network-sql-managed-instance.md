@@ -3,8 +3,7 @@ title: Access Microsoft Azure SQL Managed Instance from Data Factory Managed VNE
 description: This tutorial provides steps for using the Azure portal to setup Private Link Service and access SQL Managed Instance from Managed VNET using Private Endpoint.
 author: lrtoyou1223
 ms.author: lle
-ms.service: data-factory
-ms.subservice: tutorials
+ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 08/11/2023
 ---

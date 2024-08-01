@@ -1,7 +1,7 @@
 ---
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
