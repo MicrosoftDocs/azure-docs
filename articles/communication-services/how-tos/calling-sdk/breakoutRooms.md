@@ -9,7 +9,6 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 07/15/2024
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # BreakoutRooms
@@ -22,7 +21,7 @@ In this article, you learn how to implement Microsoft Teams breakout rooms with 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-- Teams meeting organizer needs to have assigned Teams meeting policy that enables breakout rooms.[Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps)
+- Teams meeting organizer needs to have assigned Teams meeting policy that enables breakout rooms.[Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps&preserve-view=true)
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Only Microsoft 365 Users with Organizer, Co-Organizer or Breakout Room manager roles can manage the breakout rooms.
@@ -56,12 +55,11 @@ The following tables show support of individual APIs in calling SDK to individua
 The following tables show support of breakout rooms feature in individual Azure Communication Services SDKs.
 |             | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|-----|--------|--------|--------|----------|--------|---------|
-|Is Supported | ✔️  |       |         |        |          |        |         |		
+|Is Supported | ✔️  |        |         |        |          |        |         |		
 
 ## BreakoutRooms
-::: zone pivot="platform-web"
+
 [!INCLUDE [BreakoutRooms Client-side JavaScript](./includes/breakoutRooms/breakoutRooms-web.md)]
-::: zone-end
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
