@@ -3,7 +3,7 @@ title: Managed identity
 titleSuffix: Azure Synapse
 description: Learn about using managed identities in Azure Synapse. 
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/27/2022

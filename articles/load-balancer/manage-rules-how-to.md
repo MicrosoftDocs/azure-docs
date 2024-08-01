@@ -3,7 +3,7 @@ title: Manage rules for Azure Load Balancer - Azure portal
 description: In this article, learn how to manage rules for Azure Load Balancer using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 02/12/2024
 ms.custom: template-how-to, engagement-fy23

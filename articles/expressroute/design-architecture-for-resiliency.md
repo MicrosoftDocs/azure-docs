@@ -3,7 +3,7 @@ title: Design and architect Azure ExpressRoute for resiliency
 description: Learn how to design and architect Azure ExpressRoute for resiliency to ensure high availability and reliability in your network connections between on-premises and Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 07/16/2024
 ms.author: duau
