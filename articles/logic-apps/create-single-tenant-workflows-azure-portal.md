@@ -1,11 +1,11 @@
 ---
 title: Create example Standard logic app workflow in Azure portal
 description: Create your first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 07/16/2024
+ms.date: 08/15/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
