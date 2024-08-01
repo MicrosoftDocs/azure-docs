@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor Agent migration guide for Azure HDInsight clusters
 description: Learn how to Monitor Agent migration guide for Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 07/31/2024
 ---
