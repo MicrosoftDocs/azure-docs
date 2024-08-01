@@ -10,6 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/01/2024
 ms.custom: devx-track-azurecli, devx-track-python
+zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
@@ -103,25 +104,34 @@ Deploy this project's development container to your environment. Then, use the A
 
 ### Install the client library
 
-The client library is available through NuGet, as the `Microsoft.Azure.Cosmos` package.
-
-1. Open a terminal and navigate to the `/src/web` folder.
+1. Create a `requirements.txt` file in your app directory that lists the [PyMongo](https://www.mongodb.com/docs/drivers/pymongo/) and [python-dotenv](https://pypi.org/project/python-dotenv/) packages.
 
     ```bash
-    cd ./src/web
+    # requirements.txt
+    pymongo
+    python-dotenv
     ```
 
-1. If not already installed, install the `MongoDb.Driver` package using `dotnet add package`.
+1. Create a virtual environment and install the packages.
+
+    ## [Windows](#tab/windows-package)
 
     ```bash
-    dotnet add package MongoDb.Driver
+    # py -3 uses the global python interpreter. You can also use python3 -m venv .venv.
+    py -3 -m venv .venv
+    source .venv/Scripts/activate   
+    pip install -r requirements.txt
     ```
 
-1. Also, install the `Azure.Identity` package if not already installed.
+    ## [Linux/macOS](#tab/linux-package)
 
     ```bash
-    dotnet add package Azure.Identity
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
     ```
+
+    ---
 
 ## Object model
 
