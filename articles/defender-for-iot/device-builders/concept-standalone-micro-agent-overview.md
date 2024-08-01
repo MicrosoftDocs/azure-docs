@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 The Microsoft Defender for IoT security agent allows you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code, and it's available for standard IoT operating systems like Linux and Eclipse ThreadX.
 
 The Microsoft Defender for IoT micro agent provides endpoint visibility into security posture management, threat detection, and integration into Microsoft's other security tools for unified security management.

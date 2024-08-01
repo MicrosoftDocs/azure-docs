@@ -3,7 +3,7 @@ title: Planned maintenance guidance for ExpressRoute
 description: Learn how to plan for ExpressRoute maintenance events.
 author: duongau
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 05/10/2023
 ---
