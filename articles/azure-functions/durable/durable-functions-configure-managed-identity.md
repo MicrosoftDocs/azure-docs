@@ -91,43 +91,39 @@ To find your identity resource, select assign access to **Managed identity** and
 
 ### Add managed identity configuration to your app
 
-Before you can use your app's managed identity, make some changes to the app configuration:
+Before you can use your app's managed identity, make some changes to the app settings:
 
-1. In the Azure portal, on your function app resource menu under **Settings**, select **Configuration**.
+1. In the Azure portal, on your function app resource menu under **Settings**, select **Environment variables**.
 
-1. In the list of settings, select **AzureWebJobsStorage** and select the **Delete** icon.
+1. In the list of settings, find **AzureWebJobsStorage** and select the **Delete** icon.
   [ ![Screenshot of default storage setting.](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png)](./media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-01.png#lightbox)
 
 1. Add a setting to link your Azure storage account to the application.
 
    Use *one of the following methods* depending on the cloud that your app runs in:
 
-   - **Azure cloud**: If your app runs in *public Azure*, add a setting that identifies an Azure storage account name:
+   - **Azure cloud**: If your app runs in *public Azure*, add the setting `AzureWebJobsStorage__accountName` that identifies an Azure storage account name. Example value: `mystorageaccount123`
 
-      - `AzureWebJobsStorage__accountName: < Azure Storage account name >`
+   - **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add the following three settings to provide specific service URIs (or *endpoints*) of the storage account instead of an account name.
 
-         Example: `AzureWebJobsStorage__accountName: mystorageaccount123`
+      - Setting name: `AzureWebJobsStorage__blobServiceUri`
 
-   - **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add a specific service URI (*an endpoint*) for the storage account instead of an account name.
+         Example value: `https://mystorageaccount123.blob.core.windows.net/` 
 
-      - `AzureWebJobsStorage__blobServiceUri: < Service endpoint >`
+      - Setting name: `AzureWebJobsStorage__queueServiceUri`
 
-         Example: `AzureWebJobsStorage__blobServiceUri: https://mystorageaccount123.blob.core.windows.net/` 
+         Example value: `https://mystorageaccount123.queue.core.windows.net/` 
 
-      - `AzureWebJobsStorage__queueServiceUri: < Service endpoint >`
+      - Setting name: `AzureWebJobsStorage__tableServiceUri`
 
-         Example: `AzureWebJobsStorage__queueServiceUri: https://mystorageaccount123.queue.core.windows.net/` 
+         Example value: `https://mystorageaccount123.table.core.windows.net/` 
 
-      - `AzureWebJobsStorage__tableServiceUri: < Service endpoint >`
-
-         Example: `AzureWebJobsStorage__tableServiceUri: https://mystorageaccount123.table.core.windows.net/` 
-
-   You can get the values for these URI variables in the storage account information on the Endpoints tab.
+   You can get the values for these URI variables in the storage account information from the **Endpoints** tab.
 
    ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
    > [!NOTE] 
-   > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option that provides a specific service URI. For more information on using Azure Storage with Azure Government, see the [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md). 
+   > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option that provides specific service URIs instead of just the storage account name. For more information on using Azure Storage with Azure Government, see the [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md). 
 
 1. Finish your managed identity configuration (remember to click "Apply" after making the setting changes): 
 
@@ -142,7 +138,7 @@ Before you can use your app's managed identity, make some changes to the app con
      ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
    > [!NOTE] 
-   > Durable Functions does *not* support `managedIdentityResourceId` when using user-assigned identity. Use `clientId` instead. 
+   > Durable Functions does *not* support `managedIdentityResourceId` today when using user-assigned identity. Use `clientId` instead. 
 
 
 
