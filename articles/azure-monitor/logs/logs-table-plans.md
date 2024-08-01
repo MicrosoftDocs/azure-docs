@@ -155,7 +155,13 @@ For example:
 To configure a table's plan, use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet:
 
 ```powershell
-Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -Plan Basic|Analytics
+Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -TableName TABLE-NAME -Plan Basic|Analytics
+```
+
+For example:
+
+```powershell
+Update-AzOperationalInsightsTable  -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName ContainerLogV2 -Plan Basic
 ```
 
 ---
