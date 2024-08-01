@@ -3,7 +3,7 @@ title: Azure Private Link availability
 description: In this article, learn about which Azure services support Private Link.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 07/10/2024
 ms.custom: template-concept, references_regions
