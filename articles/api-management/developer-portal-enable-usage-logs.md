@@ -4,7 +4,7 @@ description: Enable logs to monitor usage of the developer portal in Azure API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: 
 ms.topic: how-to
 ms.date: 05/23/2024

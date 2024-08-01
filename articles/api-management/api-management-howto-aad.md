@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to enable user sign-in to the API Management developer portal by using Microsoft Entra ID.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 12/08/2023
 ms.author: danlep

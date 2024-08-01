@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: cfowler
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: danlep
