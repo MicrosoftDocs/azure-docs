@@ -236,7 +236,7 @@ We recommend that you follow these verification steps, depending on the type of 
 #### Cause
 
 - During a planned failover, the primary region is temporarily set as read-only in order to allow the secondary region to catch up. If the client attempts a write operation to the primary region while it is in this temporary read-only state, then the client will be receive a BadRequest exception. 
-    - **Example**: Replication role switch in progress, primary replica:&lt;dentity-name&gt;d is ReadOnly  
+    - **Example**: Replication role switch in progress, primary replica:&lt;entity-name&gt; is ReadOnly  
 
 #### Resolution
 - The client must wait for planned failover to complete before write operations will succeed. 
