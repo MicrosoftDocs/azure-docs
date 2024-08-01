@@ -1,96 +1,108 @@
 ---
-title: 'Configure monitoring and metrics using Azure Monitor'
-titleSuffix: Azure Bastion
-description: Learn about Azure Bastion monitoring and metrics using Azure Monitor.
-services: bastion
+title: Monitor Azure Bastion
+description: Start here to learn how to monitor Azure Bastion by using Azure Monitor. Learn about available metrics and logs.
+ms.date: 08/02/2024
+ms.custom: horz-monitor
+ms.topic: conceptual
 author: cherylmc
-
-ms.service: bastion
-ms.topic: how-to
-ms.date: 04/05/2024
 ms.author: cherylmc
-
+ms.service: bastion
 ---
-# How to configure monitoring and metrics for Azure Bastion using Azure Monitor
 
-This article helps you work with monitoring and metrics for Azure Bastion using Azure Monitor.
+# Monitor Azure Bastion
 
->[!NOTE]
->Using **Classic Metrics** is not recommended.
->
+[!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-## About metrics
+[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+For more information about the resource types for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md).
 
-Azure Bastion has various metrics that are available. The following table shows the category and dimensions for each available metric.
+[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
-|**Metric**|**Category**|**Dimension(s)**|
-| --- | --- | --- |
-|Bastion communication status**|[Availability](#availability)|N/A|
-|Total memory|[Availability](#availability)|Instance|
-|Used CPU|[Traffic](#traffic)|Instance
-|Used memory|[Traffic](#traffic)|Instance
-|Session count|[Performance](#performance)|Instance|
+[!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-** Bastion communication status is only applicable for bastion hosts deployed after November 2020.
+For a list of available metrics for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md#metrics).
 
-### <a name="availability"></a>Availability metrics
+[!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-#### <a name="communication-status"></a>Bastion communication status
+For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md#resource-logs).
 
-You can view the communication status of Azure Bastion, aggregated across all instances comprising the bastion host.
+An example entry of successful login from a downloaded json file is shown below for reference:
 
-* A value of **1** indicates that the bastion is available.
-* A value of **0** indicates that the bastion service is unavailable.
+```json
+{ 
+"time":"2019-10-03T16:03:34.776Z",
+"resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+"operationName":"Microsoft.Network/BastionHost/connect",
+"category":"BastionAuditLogs",
+"level":"Informational",
+"location":"eastus",
+"properties":{ 
+   "userName":"<username>",
+   "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+   "clientIpAddress":"131.107.159.86",
+   "clientPort":24039,
+   "protocol":"ssh",
+   "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+   "subscriptionId":"<subscripionID>",
+   "message":"Successfully Connected.",
+   "resourceType":"VM",
+   "targetVMIPAddress":"172.16.1.5",
+   "userEmail":"<userAzureAccountEmailAddress>",
+   "tunnelId":"<tunnelID>"
+},
+"FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
+"Region":"eastus",
+"CustomerSubscriptionId":"<subscripionID>"
+}
+```
 
-:::image type="content" source="./media/metrics-monitor-alert/communication-status.png" alt-text="Screenshot showing communication status.":::
+The following example entry shows an unsuccessful login, such as due to an incorrect username or password:
 
-#### <a name="total-memory"></a>Total memory
+```json
+{ 
+"time":"2019-10-03T16:03:34.776Z",
+"resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+"operationName":"Microsoft.Network/BastionHost/connect",
+"category":"BastionAuditLogs",
+"level":"Informational",
+"location":"eastus",
+"properties":{ 
+   "userName":"<username>",
+   "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+   "clientIpAddress":"131.107.159.86",
+   "clientPort":24039,
+   "protocol":"ssh",
+   "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+   "subscriptionId":"<subscripionID>",
+   "message":"Login Failed",
+   "resourceType":"VM",
+   "targetVMIPAddress":"172.16.1.5",
+   "userEmail":"<userAzureAccountEmailAddress>",
+   "tunnelId":"<tunnelID>"
+},
+"FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
+"Region":"eastus",
+"CustomerSubscriptionId":"<subscripionID>"
+}
+```
 
-You can view the total memory of Azure Bastion, split across each bastion instance.
+[!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-:::image type="content" source="./media/metrics-monitor-alert/total-memory.png" alt-text="Screenshot showing total memory.":::
+[!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
-### <a name="traffic"></a>Traffic metrics
+[!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-#### <a name="used-cpu"></a>Used CPU
+[!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-You can view the CPU utilization of Azure Bastion, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
+[!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-:::image type="content" source="./media/metrics-monitor-alert/used-cpu.png" alt-text="Screenshot showing CPU used.":::
+### Azure Bastion alert rules
 
-#### <a name="used-memory"></a>Used memory
+You can set alerts for any metric, log entry, or activity log entry listed in the [Azure Bastion monitoring data reference](monitor-bastion-reference.md).
 
-You can view memory utilization across each bastion instance, split across each bastion instance. Monitoring this metric helps gauge the availability and capacity of the instances that comprise Azure Bastion.
+[!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
-:::image type="content" source="./media/metrics-monitor-alert/used-memory.png" alt-text="Screenshot showing memory used.":::
+## Related content
 
-### <a name="performance"></a>Performance metrics
-
-#### Session count
-
-You can view the count of active sessions per bastion instance, aggregated across each session type (RDP and SSH). Each Azure Bastion can support a range of active RDP and SSH sessions. Monitoring this metric helps you to understand if you need to adjust the number of instances running the bastion service. For more information about the session count Azure Bastion can support, refer to the [Azure Bastion FAQ](bastion-faq.md).
-
-The recommended values for this metric's configuration are:
-
-* **Aggregation:** Avg
-* **Granularity:** 5 or 15 minutes
-* Splitting by instances is recommended to get a more accurate count
-
-:::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Screenshot showing session count.":::
-
-## <a name="metrics"></a>How to view metrics
-
-1. To view metrics, go to your bastion host.
-1. From the **Monitoring** list, select **Metrics**.
-1. Select the parameters. If no metrics are set, click **Add metric**, and then select the parameters.
-
-   * **Scope:** By default, the scope is set to the bastion host.
-   * **Metric Namespace:** Standard Metrics.
-   * **Metric:** Select the metric that you want to view.
-
-1. Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
-
-## Next steps
-
-Read the [Bastion FAQ](bastion-faq.md).
-  
+- See [Azure Bastion monitoring data reference](monitor-bastoin-reference.md) for a reference of the metrics, logs, and other important values created for Azure Bastion.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
