@@ -26,7 +26,7 @@ For a list of available metrics for Azure Bastion, see [Azure Bastion monitoring
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Bastion, see [Azure Bastion monitoring data reference](monitor-bastion-reference.md#resource-logs).
 
-An example entry of successful login from a downloaded json file is shown below for reference:
+An example entry of successful sign-in from a downloaded json file is shown here for reference:
 
 ```json
 { 
@@ -56,7 +56,7 @@ An example entry of successful login from a downloaded json file is shown below 
 }
 ```
 
-The following example entry shows an unsuccessful login, such as due to an incorrect username or password:
+The following example entry shows an unsuccessful sign-in, such as due to an incorrect username or password:
 
 ```json
 { 
