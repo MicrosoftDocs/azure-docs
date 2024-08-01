@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: conceptual
 ms.custom:
   - ignite-2023
+  - references_regions
 ms.date: 07/31/2024
 ---
 
@@ -94,6 +95,20 @@ To secure communication between devices and the cloud through isolated network e
 ## Validated environments
 
 [!INCLUDE [validated-environments](includes/validated-environments.md)]
+
+## Supported regions
+
+In the 0.6.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
+
+* East US
+* East US 2
+* West US
+* West US 2
+* West Europe
+* North Europe
+
+>[!NOTE]
+>West US 3 was supported in previous versions of Azure IoT Operations, but isn't supported in version 0.6.x.
 
 ## Next step
 
