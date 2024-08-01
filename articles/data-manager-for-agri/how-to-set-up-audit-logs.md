@@ -3,7 +3,7 @@ title: Enable logging for Azure Data Manager for Agriculture
 description: Learn how enable logging and debugging in Azure Data Manager for Agriculture
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 04/10/2023
 ms.custom: template-how-to
