@@ -35,13 +35,13 @@ Using Bicep to create an Azure AI services resource lets you create a multi-serv
 
 ## Review the Bicep file
 
-The Bicep file used in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/main.bicep":::
 
 One Azure resource is defined in the Bicep file. The `kind` field in the Bicep file defines the type of resource.
 
-As needed change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
+As needed, change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you use. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
 
 ## Deploy the Bicep file
 

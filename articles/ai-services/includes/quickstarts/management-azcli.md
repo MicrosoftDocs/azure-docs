@@ -53,7 +53,7 @@ az group create --name ai-services-resource-group --location westus2
 
 ## Create an Azure AI services multi-service resource
 
-To create and subscribe to a new Azure AI services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or SKU) and an Azure location.
+To create and subscribe to a new Azure AI services resource, use the [az cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group you created earlier. When you create your new resource, you'll need to know the kind of service you want to use, along with its pricing tier (or SKU) and an Azure location.
 
 > [!IMPORTANT]
 > Azure provides more than one resource kinds for Azure AI services. Be sure to create one with the `kind` of `AIServices`.

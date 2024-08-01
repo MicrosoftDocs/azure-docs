@@ -29,13 +29,13 @@ This quickstart shows you how to use an Azure Resource Manager template (ARM tem
 
 ## Review the template
 
-The template that you use in this quickstart is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
+The template that you use in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
 One Azure resource is defined in the Bicep file. The `kind` field in the Bicep file defines the type of resource.
 
-As needed change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you are using. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
+As needed, change the `sku` parameter value to the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) instance you want. The `sku` depends on the resource `kind` that you use. For example, use `TextAnalytics` for the Azure AI Language service. The `TextAnalytics` kind uses `S` instead of `S0` for the `sku` value.
 
 ## Deploy the template
 
@@ -129,6 +129,6 @@ az group delete --name $resourceGroupName
 
 * For more information on how to securely work with Azure AI services, see [Authenticate requests to Azure AI services](authentication.md).
 * For a list of Azure AI services, see [What are Azure AI services?](./what-are-ai-services.md).
-* For a list of natural languages that Azure AI services supports, see [Natural language support in Azure AI services](language-support.md).
+* For a list of natural languages that Azure AI services support, see [Natural language support in Azure AI services](language-support.md).
 * To understand how to use Azure AI services on-premises, see [What are Azure AI containers?](cognitive-services-container-support.md).
 * To estimate the cost of using Azure AI services, see [Plan and manage costs for Azure AI Studio](../ai-studio/how-to/costs-plan-manage.md).

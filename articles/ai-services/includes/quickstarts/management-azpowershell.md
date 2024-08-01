@@ -21,7 +21,7 @@ Use this quickstart to create an Azure AI services resource using [Azure PowerSh
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
-* [Azure PowerShell](/powershell/azure/install-azure-powershell)
+* [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 ## Install Azure PowerShell and sign in
 
