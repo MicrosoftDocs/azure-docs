@@ -52,7 +52,7 @@ BCDR is enabled using the OCI managed offering (Backup and Data Guard) and will 
 
 ### How many database servers can be deployed in each rack of Oracle Database@Azure? Is there flexibility in terms of being able to scale up and down as needed from both the consumption and licensing perspective?
 
-Oracle Database@Azure currently runs on X9M hardware and provides a configuration of a minimum of two database servers and three Storage servers. This constitutes a quarter rack configuration. This configuration can be increased to a limit of 32 database servers and 64 Storage servers. You can scale up and down as needed within the Exadata system depending on your SKU. More information about configurations can be found here. For more specifics, see [Oracle Exadata Cloud Infrastructure X9M Data Sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata-database-machine/exadata-x9m-ds.pdf).
+Oracle Database@Azure currently runs on X9M hardware and provides a configuration of a minimum of two database servers and three Storage servers. This constitutes a quarter rack configuration. This configuration can be increased to a limit of 32 database servers and 64 Storage servers. You can scale up and down as needed within the Exadata system depending on your SKU. For more information about configurations, see [Oracle Exadata Database Service on Dedicated Infrastructure Description](https://docs.oracle.com/en-us/iaas/exadatacloud/exacs/exa-service-desc.html#ECSCM-GUID-EC1A62C6-DDA1-4F39-B28C-E5091A205DD3). For more specifics, see [Oracle Exadata Cloud Infrastructure X9M Data Sheet](https://www.oracle.com/a/ocom/docs/engineered-systems/exadata/exadata-cloud-infrastructure-x9m-ds.pdf).
 
 ### What Oracle applications are supported to run on Azure?
 
