@@ -287,6 +287,34 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
 
 :::moniker-end
 
+## Pricing
+
+Starting from this preview, we want to let users train models for longer durations beyond the free training limit, which has been capped at 30 minutes per training instance with 20 free instances per month. Instead of providing such fixed number of free neural model trainings with fixed durations, we will provide a **total free training hour limit** of **10 hours**, and charge for model trainings that exceed 10 hours by the exceeded hour amount. The exceeded hour quantity will be charged at a rate of **$3/hour**. This way, users can train models for as little as 30 minutes to as long as they want. For example, users can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds.
+
+We allow customers to adjust the maximum duration in the `build` operation by specifying `maxTrainingHours`. Each training hour is the amount of compute a single V100 GPU can perform in an hour. By default, a training job may consume at most 0.5 "training hour" (0.5 V100 hours).
+
+```
+POST /documentModels:build
+{
+  ...,
+  "maxTrainingHours": 10
+}
+```
+
+As each build takes different amount of time, we will bill by the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job.  The elapsed time will be converted to V100 equivalent training hours and reported as part of the model.
+
+```
+GET /documentModels/{myCustomModel}
+{
+  "modelId": "myCustomModel",
+  "trainingHours": 0.23,
+  "docTypes": { ... },
+  ...
+}
+```
+
+This new pricing plan will allow users with larger datasets to train for longer durations with the flexibility in the training hours.
+
 ## Next steps
 
 Learn to create and compose custom models:
