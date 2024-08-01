@@ -151,7 +151,7 @@ PS C:\> Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName>
 Validate a completed migration by passing the Basic Load Balancer state file backup and the Standard Load Balancer name
 
 ```powershell
-PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
+PS C:\> Start-AzBasicLoadBalancerUpgrade -validateCompletedMigration -StandardLoadBalancerName <newStandardLBName> -basicLoadBalancerStatePath C:\RecoveryBackups\State_mybasiclb_rg-basiclbrg_20220912T1740032148.json
 ```
 
 ### Example: migrate multiple, related Load Balancers
