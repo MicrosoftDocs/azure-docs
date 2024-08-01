@@ -35,7 +35,11 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the operations experience
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience. Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience.
+
+Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+
+:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the operations experience. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
@@ -43,8 +47,6 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 ## Select your site
 
 After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the portal, an instance represents a cluster where you deployed Azure IoT Operations.
-
-:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 ## Select your instance
 
@@ -209,24 +211,18 @@ If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following examples:
+The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
 
 ```json
 {
-    "Timestamp": "2024-03-08T00:54:58.6572007Z",
-    "MessageType": "ua-deltaframe",
-    "payload": {
-      "temperature": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
-        "Value": 7109
-      },
-      "Tag 10": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
-        "Value": 7109
-      }
+    "temperature": {
+        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
+        "Value": 2696
     },
-    "DataSetWriterName": "thermostat",
-    "SequenceNumber": 4660
+    "Tag 10": {
+        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
+        "Value": 2696
+    }
 }
 ```
 
