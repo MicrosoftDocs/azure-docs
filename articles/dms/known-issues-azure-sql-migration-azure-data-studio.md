@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: maghan, randolphwest
 ms.date: 11/30/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - sql-migration-content
@@ -234,7 +234,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: Provide ##MS_ServerStateReader## role to the login for Azure SQL Target. 
 Query:
-ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER <login>.
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER login.
 
 Note: This query should be run in context of master DB
 
