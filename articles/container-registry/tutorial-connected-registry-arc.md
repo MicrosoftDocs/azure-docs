@@ -3,7 +3,7 @@ title: "Deploy Connected registry Arc extension with HTTPS"
 description: "Secure the Connected registry extension deployment with HTTPS, TLS encryption, and inherent trust distribution."
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 

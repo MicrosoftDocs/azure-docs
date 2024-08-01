@@ -3,7 +3,7 @@ title: "Glossary for Connected registry with Azure Arc"
 description: "Learn the terms and definitions for the Connected registry extension with Azure Arc to secure the extension deployment."
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: glossary #Don't change
 ms.date: 06/18/2024
 #customer intent: As a customer, I want to understand the terms and definitions for the Connected registry extension with Azure Arc to secure the extension deployment.

@@ -7,7 +7,7 @@ ms.author: memladen
 author: toddysm
 ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 #customer intent: To deploy a connected registry resource to an Azure IoT Edge device using the Azure CLI.
 ---
 

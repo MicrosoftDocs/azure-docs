@@ -7,7 +7,7 @@ ms.author: memladen
 author: toddysm
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 # customer intent: To create a connected registry resource in Azure using the Azure CLI.
 ---
 

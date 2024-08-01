@@ -3,7 +3,7 @@ title: "Quickstart: Deploying the Connected registry Arc Extension"
 description: "Learn how to deploy the Connected registry Arc Extension CLI UX with secure-by-default settings for efficient and secure operation of services."
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: quickstart  #Don't change
 ms.date: 05/09/2024
 ai-usage: ai-assisted

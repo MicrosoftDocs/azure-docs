@@ -3,7 +3,7 @@ title: "Sync Connected registry with Azure arc"
 description: "Sync the Connected registry extension with Azure Arc synchronization schedule and window."
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 

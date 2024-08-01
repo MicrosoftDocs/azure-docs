@@ -3,7 +3,7 @@ title: " Upgrade and Rollback Connected registry with Azure arc"
 description: "Upgrade and Roll back the Connected registry extension with Azure Arc for secure the extension deployment."
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
