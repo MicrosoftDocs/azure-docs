@@ -28,7 +28,7 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 
 This article provides onboarding guidance for the following types of clusters. Any differences in the process for each type are noted in the relevant sections.
 
-- [Azure Kubernetes clusters (AKS)](../../aks/intro-kubernetes.md)
+- [Azure Kubernetes clusters (AKS)](/azure/aks/intro-kubernetes)
 - [Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
 
 ## Prerequisites
@@ -40,7 +40,7 @@ This article provides onboarding guidance for the following types of clusters. A
 
 **Managed Prometheus prerequisites**
 
-  - The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
+  - The cluster must use [managed identity authentication](/azure/aks/use-managed-identity).
   - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
     - Microsoft.ContainerService
     - Microsoft.Insights
@@ -659,7 +659,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
 
 ## Verify deployment
-Use the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster) to verify that the agent is deployed properly.
+Use the [kubectl command line tool](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster) to verify that the agent is deployed properly.
 
 ### Managed Prometheus
 

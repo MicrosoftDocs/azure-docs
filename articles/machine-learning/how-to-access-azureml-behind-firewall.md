@@ -168,7 +168,7 @@ For more information on the `hbi_workspace` flag, see the [data encryption](conc
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall needs extra egress network configuration. 
 
 * For Kubernetes with Azure Arc connection, configure the [Azure Arc network requirements](../azure-arc/kubernetes/network-requirements.md) needed by Azure Arc agents. 
-* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](../aks/outbound-rules-control-egress.md#cluster-extensions). 
+* For AKS cluster without Azure Arc connection, configure the [AKS extension network requirements](/azure/aks/outbound-rules-control-egress#cluster-extensions). 
 
 Besides above requirements, the following outbound URLs are also required for Azure Machine Learning,
 
@@ -458,7 +458,7 @@ __Docker images maintained by Azure Machine Learning__
 
 Also, use the information in the [compute with public IP](#scenario-using-compute-cluster-or-compute-instance-with-a-public-ip) section to add IP addresses for `BatchNodeManagement` and `AzureMachineLearning`.
 
-For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](/azure/aks/limit-egress-traffic).
 
 __Monitoring, metrics, and diagnostics__
 

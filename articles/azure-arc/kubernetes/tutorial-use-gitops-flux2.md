@@ -42,7 +42,7 @@ To deploy applications using GitOps with Flux v2, you need:
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](/azure/aks/use-managed-identity).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -150,7 +150,7 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
   > [!IMPORTANT]
   > Ensure that the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
-  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](../../aks/use-managed-identity.md).
+  > For new AKS clusters created with `az aks create`, the cluster is MSI-based by default. For already created SPN-based clusters that need to be converted to MSI, run `az aks update -g $RESOURCE_GROUP -n $CLUSTER_NAME --enable-managed-identity`. For more information, see [Use a managed identity in AKS](/azure/aks/use-managed-identity).
 
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 
@@ -388,7 +388,7 @@ az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connec
 
 #### Using Kubelet identity as authentication method for AKS clusters
 
-For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [precreated kubelet managed identity](../../aks/use-managed-identity.md#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
+For AKS clusters, one of the authentication options to use is kubelet identity. By default, AKS creates its own kubelet identity in the managed resource group. If you prefer, you can use a [precreated kubelet managed identity](/azure/aks/use-managed-identity#use-a-pre-created-kubelet-managed-identity). To do so, add the parameter `--config useKubeletIdentity=true` at the time of Flux extension installation.
 
 ```azurecli
 az k8s-extension create --resource-group <resource-group> --cluster-name <cluster-name> --cluster-type managedClusters --name flux --extension-type microsoft.flux --config useKubeletIdentity=true

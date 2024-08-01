@@ -656,7 +656,7 @@ You might get the following error during the Kubernetes model deployments:
 
 To mitigate this error, you can:
 
-* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](../aks/certificate-rotation.md).
+* Rotate AKS certificate for the cluster. For more information, see [Certificate Rotation in Azure Kubernetes Service (AKS)](/azure/aks/certificate-rotation).
 * The new certificate should be updated to after 5 hours, so you can wait for 5 hours and redeploy it.
 
 
