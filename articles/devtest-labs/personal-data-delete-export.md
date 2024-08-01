@@ -19,22 +19,22 @@ DevTest Labs uses the user email address to send auto shutdown email notificatio
 
 **Setting email at the lab:**
 
-![Setting email at the lab level](./media/personal-data-delete-export/lab-user-email.png)
+![Setting email at the lab level.](./media/personal-data-delete-export/lab-user-email.png)
 
 **Setting email at the VM:**
 
-![Setting email at the VM level](./media/personal-data-delete-export/vm-user-email.png)
+![Setting email at the VM level.](./media/personal-data-delete-export/vm-user-email.png)
 
 ## Why do we need this personal data?
 The DevTest Labs service uses the personal data for operational purposes. This data is critical for the service to deliver key features. If you set a retention policy on the user email address, lab users do not receive timely auto shutdown email notifications after their email address is deleted from our system. Therefore, this data needs to be retained for as long as the user's resource is active in the Lab.
 
 ## How can I have the system to forget my personal data?
-As a lab user, if you like to have this personal data deleted, you can do so by deleting the corresponding resource in the Lab. The DevTest Labs service anonymizes the deleted personal data 30 days after it's deleted by the user.
+As a lab user, you can delete your personal by deleting the corresponding resource in the Lab. The DevTest Labs service anonymizes the deleted personal data 30 days after it's deleted by the user.
 
-For example, If you delete your VM, or removed your email address, the DevTest Labs service anonymizes this data 30 days after the resource is deleted. The 30-day retention policy after deletion is to make sure that we provide an accurate month-over-month cost projection to the lab admin.
+For example, if you delete your VM, or remove your email address, the DevTest Labs service anonymizes this data 30 days after the resource is deleted. The 30-day retention policy after deletion ensures that DevTest Labs provides an accurate month-over-month cost projection to the lab admin.
 
 ## How can I request an export on my personal data?
-You can export personal and lab usage data by using the Azure PowerShell. The data will be exported as a csv file with the date and time of the export requested in the name.
+You can export personal and lab usage data by using Azure PowerShell. DevTest Labs exports the data as a csv file with the date and time of the export requested in the name.
 
 ### Azure PowerShell
 
@@ -116,7 +116,7 @@ $result = Invoke-AzureRmResourceAction -Action 'ExportResourceUsage' -ResourceId
 
 ```
 
-The key components in the above sample are:
+The key components in the previous sample are:
 
 - The Invoke-AzureRmResourceAction command.
 
