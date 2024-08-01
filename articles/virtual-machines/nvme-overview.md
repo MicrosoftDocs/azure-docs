@@ -74,7 +74,7 @@ To create an NVMe-enabled VM, you must first enable the NVMe option on a VM and 
 
 #### Mark as NVMe capable  
 
-You can create NVMe interface enabled VM only by using an image (available in [Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home), or shared in [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli)) marked as NVMe.
+You can create NVMe interface enabled VM only by using an image (available in [Marketplace](https://ms.portal.azure.com/#view/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home), or shared in [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries?tabs=azure-cli) within your company) marked as NVMe.
 
 > [!WARNING]
 > If you use an unmarked image, a SCSI-based VM is created, and the VM might not perform as you intended.
