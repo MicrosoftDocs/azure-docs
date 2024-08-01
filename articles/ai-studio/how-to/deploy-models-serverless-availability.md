@@ -33,8 +33,8 @@ Pay-as-you-go billing is available only to users whose Azure subscription belong
 |---------|---------|---------|---------|
 |Cohere Command R      | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
 <br> 
- Japan <br>
-- Qatar      | East US 
+Japan <br>
+Qatar      | - East US 
 - East US 2 
 - North Central US 
 - South Central US 
@@ -44,33 +44,15 @@ Pay-as-you-go billing is available only to users whose Azure subscription belong
 |Cohere Command R+     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
 <br> 
  Japan <br>
-Qatar        | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3        | Not available        |
+Qatar        |  | Not available        |
 |Cohere Rerank 3     |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
 <br> 
  Japan <br>
-Qatar        | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3        |  Not available       |
+Qatar        |    |  Not available       |
 |Cohere Embed v3    |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)
 <br> 
  Japan <br>
-Qatar        | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3        |  Not available       |
+Qatar        |    |  Not available       |
 
 
 
@@ -78,13 +60,7 @@ West US 3        |  Not available       |
 
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
-| jais-30b-chat    |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3       |  Not available       |
+| jais-30b-chat    |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |   |  Not available       |
 
 ### Meta Llama models
 
@@ -93,39 +69,13 @@ West US 3       |  Not available       |
 |Llama-2-7b
  <br>
 Llama-2-13b <br>
-Llama-2-70b     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-West US <br>
-West US 3       |  Not available       |
+Llama-2-70b     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |     |  Not available       |
 | Llama-2-7b-chat <br>
 Llama-2-7b-chat<br>
-Llama-2-70b-chat    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-West US <br>
-West US 3     | Not available   |
-| Llama-3-8B-Instruct    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3     |  Not available  |
-|Llama-3-70B-Instruct     | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>   |   Not available  |
-|Llama 3.1-405B-Instruct  | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    | East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-West US <br>
-West US 3     |   Not available  |
+Llama-2-70b-chat    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |   | Not available   |
+| Llama-3-8B-Instruct    | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |   |  Not available  |
+|Llama-3-70B-Instruct     | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |    |   Not available  |
+|Llama 3.1-405B-Instruct  | [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)    |     |   Not available  |
 
 
 
@@ -133,38 +83,20 @@ West US 3     |   Not available  |
 
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
-|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3       |  Not available       |
+|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |     |  Not available       |
 
 ### Mistral models
 
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
-|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3       |  Not available       |
+|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |        |  Not available       |
 
 
 ### Nixtla models
 
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
-|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |  East US <br>
-East US 2 <br>
-North Central US <br>
-South Central US <br>
-Sweden Central <br>
-West US <br>
-West US 3       |  Not available       |
+|     |   [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions)     |        |  Not available       |
 
 
 
