@@ -50,7 +50,7 @@ landingContent:
           - text: Provision Oracle Autonomous databases
             url: oracle-db/provision-autonomous-oracle-databases.md
           - text: Link Oracle Database@Azure to multiple Azure subscriptions
-            url: oracle-db/link-oracle-database-multiple-azure-subscriptions.md
+            url: oracle-db/link-oracle-database-multiple-subscription.md
           - text: Support for Oracle Database@Azure
             url: oracle-db/oracle-database-support.md
           - text: FAQs

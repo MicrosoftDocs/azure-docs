@@ -30,13 +30,13 @@ Oracle Database@Azure is enabled by hosting OCI’s infrastructure in Azure and 
 
 There are two services offered as part of Oracle Database@Azure:
 
-- Oracle Exadata Database Service on Dedicated Infrastructure runs on Dedicated Exadata infrastructure in Azure. You get dedicated OCPUs and storage, with isolation being at the node level.
+- Oracle Exadata Database Service on Dedicated Infrastructure runs on Dedicated Exadata infrastructure in Azure. You get dedicated Oracle CPUs (OCPUs) and storage, with isolation being at the node level.
 
 - Oracle Autonomous Database Serverless is the other Oracle Database service offered at Azure and is on shared Exadata infrastructure.
 
 ### What are the Database versions supported on Oracle Database@Azure?
 
-Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on Oracle Database@Azure. This includes 11 g to 19c, similar to Exadata Cloud Service in OCI. Versions older than 19c need upgrade support. For more information, see [Oracle Database Releases That Support Direct Upgrade](https://docs.oracle.com/en-us/iaas/Content/Database/Concepts/adbversions.htm#Direct_Upgrade).
+Oracle versions supported on Oracle Cloud Infrastructure (OCI) are supported on Oracle Database@Azure. This includes 11 g to 19c, similar to Exadata Cloud Service in OCI. Versions older than 19c need upgrade support. For more information, see [Oracle Database Releases That Support Direct Upgrade](https://docs.oracle.com/en/database/oracle/oracle-database/18/upgrd/oracle-database-releases-that-support-direct-upgrade.html).
 
 ### Do you have any documented benchmark latency-wise between Azure resources and Oracle Database@Azure?
 
@@ -126,7 +126,7 @@ In this section, we cover questions related to networking for Oracle Database@Az
 
 ### What network patterns and network features are supported with Oracle Database@Azure?
 
-We support a comprehensive list of connectivity patterns and network features with Oracle Database@Azure and the list evolves as we're continuously releasing new features and capabilities. For more information, see [Network planning for Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/network-planning).
+We support a comprehensive list of connectivity patterns and network features with Oracle Database@Azure and the list evolves as we're continuously releasing new features and capabilities. For more information, see [Network planning for Oracle Database@Azure | Microsoft Learn](oracle-database-network-plan.md).
 
 ### How does Data Guard traffic between Availability Zones in the same region work?
 
@@ -149,7 +149,7 @@ Oracle will manage and host the data on Oracle Cloud Infrastructure hosted in Az
 
 In case you enable backup to Azure, that data reside in the respective Azure storage – Azure NetApp Files, Blob storage.
 
-We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems within Azure datacenters and access enforced assignment policies. For more information on compliance, refer to [Overview - Oracle Database@Azure | Microsoft Learn](/azure/oracle/oracle-db/database-overview) or Oracle compliance website.
+We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems within Azure datacenters and access enforced assignment policies. For more information on compliance, refer to [Overview - Oracle Database@Azure | Microsoft Learn](database-overview.md) or Oracle compliance website.
 
 ### How is data security managed? Is the data encrypted in transit and at rest?
 
