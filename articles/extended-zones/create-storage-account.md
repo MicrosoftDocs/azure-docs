@@ -3,7 +3,7 @@ title: Deploy a storage account in an Azure Extended Zone
 description: Learn how to deploy a storage account in an Azure Extended Zone.
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure
+ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 07/16/2024
 

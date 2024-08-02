@@ -3,7 +3,7 @@ title: "Tutorial: Back up an Azure Extended Zone VM"
 description: Learn how to back up a virtual machine (VM) in Azure Extended Zones using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure
+ms.service: azure-extended-zones
 ms.topic: tutorial
 ms.date: 07/16/2024
 
