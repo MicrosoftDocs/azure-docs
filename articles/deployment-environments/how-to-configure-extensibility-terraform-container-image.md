@@ -17,7 +17,7 @@ In this article, you learn how to build custom Terraform container images to dep
 
 An environment definition comprises at least two files: a template file, like *main.tf*, and a manifest file named *environment.yaml*. You use a container to deploy environment definition that uses Terraform.
 
-The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or DockerHub. You can then reference these images in your environment definitions to deploy your environments.
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
 ## Prerequisites
 
