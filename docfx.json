@@ -1231,7 +1231,7 @@
         "articles/partner-solutions/**/*.md": "partner-services",
         "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/backup/**/*.md": "azure-backup",
-        "articles/baremetal-infrastructure/**/*.md": "baremetal-infrastructure",
+        "articles/baremetal-infrastructure/**/*.md": "azure-baremetal-infrastructure",
         "articles/batch/**/*.md": "azure-batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
