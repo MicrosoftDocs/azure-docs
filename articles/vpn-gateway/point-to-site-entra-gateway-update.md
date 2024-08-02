@@ -3,7 +3,7 @@ title: 'Migrate manually registered Azure VPN client to Microsoft-registered for
 titleSuffix: Azure VPN Gateway
 description: Learn how to update Audience values for P2S VPN gateway connections that use Microsoft Entra ID authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.author: cherylmc
