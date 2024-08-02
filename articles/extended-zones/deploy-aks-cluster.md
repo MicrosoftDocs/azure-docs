@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 07/16/2024
-
+ms.date: 08/02/2024
 ---
 
 # Deploy an Azure Kubernetes Service (AKS) cluster in an Azure Extended Zone

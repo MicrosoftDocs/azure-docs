@@ -5,8 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 06/26/2024
-
+ms.date: 08/02/2024
 ---
 
 # What are Azure Extended Zones (Preview)?
