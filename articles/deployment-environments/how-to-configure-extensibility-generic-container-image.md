@@ -17,7 +17,7 @@ In this article, you learn how to build custom container images to deploy your [
 
 An environment definition comprises at least two files: a template file, like *azuredeploy.json*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the Azure Resource Manager (ARM) and Bicep IaC frameworks. 
 
-The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a public container registry like DockerHub, or a private container registry like Azure Container Registry (ACR). You can then reference these images in your environment definitions to deploy your environments.
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
@@ -134,7 +134,7 @@ docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
 
 ### Push the image to a registry
 
-In order to use custom images, you need to store them in a registry. You can use a public container registry like DockerHub, or the Azure Container Registry (ACR), which is a private registry. 
+In order to use custom images, you need to store them in a registry like Azure Container Registry (ACR) or Docker Hub. 
 
 To use a custom image stored in a public registry, you need to enable anonymous image pull. This way, Azure Deployment Environments can access your custom image to execute in our container.
 
@@ -163,11 +163,11 @@ docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 #### Use ACR with secured access
 
-By default, access to pull or push content from an Azure container registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
+By default, access to pull or push content from an Azure Container Registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
 
 ##### Limit network access
 
-To secure network access to your ACR, you can limit access to your own networks, or disable public network access entirely. If you limit network access, you must enable the firewall exception *Allow trusted Microsoft services to access this container registry*. ADE uses the Azure Container Instances service, which is a trusted Microsoft service. 
+To secure network access to your ACR, you can limit access to your own networks, or disable public network access entirely. If you limit network access, you must enable the firewall exception *Allow trusted Microsoft services to access this container registry*.
 
 To disable access from public networks:
 
