@@ -5,7 +5,7 @@ author: nathan-wisner-ms
 ms.author: nathanwisner
 ms.reviewer: maghan
 ms.date: 06/14/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

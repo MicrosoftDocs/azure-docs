@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include for query API latency note
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 09/21/2021
 ms.author: baanders

@@ -4,7 +4,7 @@ description: This article describes how you can optimize query stats collection 
 author: assaff
 ms.author: assaff
 ms.date: 06/21/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---

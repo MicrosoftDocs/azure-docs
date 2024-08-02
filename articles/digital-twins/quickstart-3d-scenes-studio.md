@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 03/10/2023
 ms.topic: quickstart
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.

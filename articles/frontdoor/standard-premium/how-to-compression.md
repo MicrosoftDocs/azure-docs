@@ -3,7 +3,7 @@ title: Improve performance by compressing files in Azure Front Door
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure Front Door.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: article
 ms.date: 04/21/2024
 ms.author: yuajia

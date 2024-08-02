@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization, build-2023
 ms.reviewer: nigup
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 ms.date: 03/26/2024

@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---

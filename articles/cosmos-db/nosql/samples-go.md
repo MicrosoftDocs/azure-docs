@@ -2,7 +2,7 @@
 title: API for NoSQL Go examples for Azure Cosmos DB
 description: Find Go examples on GitHub for common tasks in Azure Cosmos DB, including CRUD operations.
 author: soferreira
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: golang
 ms.custom: devx-track-go

@@ -5,7 +5,6 @@ description: Use different methods to troubleshoot CI-CD issues in Azure Data Fa
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
-ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting

@@ -3,7 +3,7 @@ title: Troubleshoot Azure Cache for Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Cache for Redis, such as Redis server patching and timeout exceptions.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/02/2023

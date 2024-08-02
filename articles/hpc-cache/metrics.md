@@ -2,7 +2,7 @@
 title: Azure HPC Cache metrics and monitoring
 description: How to see statistics about your Azure HPC Cache
 author: femila
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: femila

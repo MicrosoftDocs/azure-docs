@@ -3,7 +3,7 @@ title: Ensure reliability of your Azure API Management instance
 titleSuffix: Azure API Management
 description: Learn how to use Azure reliability features including availability zones and multiregion deployments to make your Azure API Management service instance resilient to cloud failures.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/08/2024
 ms.author: danlep

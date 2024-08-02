@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: How to configure a custom domain for Azure SignalR Service
 services: signalr
 author: ArchangelSDY
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 08/15/2022
 ms.author: dayshen

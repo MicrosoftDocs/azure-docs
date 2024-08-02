@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 01/10/2023
 ms.topic: conceptual
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Runbook authoring through VS Code in Azure Automation

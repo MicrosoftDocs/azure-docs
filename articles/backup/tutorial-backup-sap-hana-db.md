@@ -3,7 +3,7 @@ title: Tutorial - Back up SAP HANA databases in Azure VMs
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
 ms.date: 01/24/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
