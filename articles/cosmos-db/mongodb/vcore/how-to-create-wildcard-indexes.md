@@ -5,7 +5,7 @@ description: Sample to create wildcard indexes in Azure Cosmos DB for MongoDB vC
 author: abinav2307
 ms.author: abramees
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 6/25/2024
