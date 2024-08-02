@@ -20,7 +20,7 @@ DevTest Labs uses the user email address to send auto shutdown email notificatio
 ## Why do we need this personal data?
 The DevTest Labs service uses the personal data for operational purposes. This data is critical for the service to deliver key features. If you set a retention policy on the user email address, lab users do not receive timely auto shutdown email notifications after their email address is deleted from our system. Therefore, this data needs to be retained for as long as the user's resource is active in the Lab.
 
-## How can I have the system to forget my personal data?
+## How can I have the system forget my personal data?
 As a lab user, you can delete your personal by deleting the corresponding resource in the Lab. The DevTest Labs service anonymizes the deleted personal data 30 days after it's deleted by the user.
 
 For example, if you delete your VM, or remove your email address, the DevTest Labs service anonymizes this data 30 days after the resource is deleted. The 30-day retention policy after deletion ensures that DevTest Labs provides an accurate month-over-month cost projection to the lab admin.
