@@ -3,7 +3,7 @@ title: Migrate data to Azure Cosmos DB for NoSQL account using Striim
 description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB for NoSQL account.
 author: kanshiG
 ms.author: govindk
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/09/2021

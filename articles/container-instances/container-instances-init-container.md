@@ -4,7 +4,7 @@ description: Run init containers in Azure Container Instances to perform setup t
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---

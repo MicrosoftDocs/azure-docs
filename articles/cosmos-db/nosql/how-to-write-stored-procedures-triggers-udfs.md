@@ -2,7 +2,7 @@
 title: Write stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: Learn how to define stored procedures, triggers, and user-defined functions by using the API for NoSQL in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/01/2023

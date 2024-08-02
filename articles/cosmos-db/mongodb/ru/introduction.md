@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB (RU)
 description: Learn about RU-based Azure Cosmos DB for MongoDB, a fully managed MongoDB-compatible database with Instantaneous scalability.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 09/12/2023

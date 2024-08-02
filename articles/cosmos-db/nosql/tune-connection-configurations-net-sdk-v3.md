@@ -2,7 +2,7 @@
 title: Connection configurations for Azure Cosmos DB .NET SDK v3
 description: Learn how to tune connection configurations to improve Azure Cosmos DB database performance for .NET SDK v3
 author: rinatmini
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: how-to

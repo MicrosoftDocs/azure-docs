@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.date: 03/07/2024
 ms.topic: troubleshooting

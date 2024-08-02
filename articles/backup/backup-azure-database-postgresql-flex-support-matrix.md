@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations of Azure Dat
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -1,7 +1,7 @@
 ---
 title: Analyze website logs with Python libraries in Spark - Azure 
 description: This notebook demonstrates how to analyze log data using a custom library with Spark on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, devx-track-python
 ms.topic: how-to
 ms.date: 03/23/2024

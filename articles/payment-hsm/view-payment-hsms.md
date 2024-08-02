@@ -2,7 +2,7 @@
 title: View your Azure Payment HSMs.
 description: View your Azure Payment HSMs.
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial

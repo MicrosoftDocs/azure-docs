@@ -237,7 +237,7 @@ This issue occurs when a cluster egress is locked down.
 
 Ensure that the domains and ports mentioned in the following article are open:
 
-- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 

@@ -4,7 +4,7 @@ description: Get an overview of Azure Key Vault Managed HSM built-in roles that 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: reference
 ms.date: 01/25/2024

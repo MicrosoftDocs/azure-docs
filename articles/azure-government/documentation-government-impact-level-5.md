@@ -213,9 +213,9 @@ You can encrypt disks that support virtual machine scale sets by using Azure Dis
 
 For Containers services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,service-fabric,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
 
-### [Azure Kubernetes Service](../aks/index.yml)
+### [Azure Kubernetes Service](/azure/aks/)
 
-- Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](../aks/azure-disk-customer-managed-keys.md).
+- Configure encryption at rest of content in AKS by [using customer-managed keys in Azure Key Vault](/azure/aks/azure-disk-customer-managed-keys).
 
 ### [Container Instances](../container-instances/index.yml)
 

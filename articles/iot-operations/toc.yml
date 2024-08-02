@@ -93,76 +93,7 @@ items:
           href: connect-to-cloud/howto-configure-data-lake.md
         - name: Send data to Kafka or Azure Event Hubs
           href: connect-to-cloud/howto-configure-kafka.md
-        - name: Send data to Azure Data Explorer from a pipeline
-          href: connect-to-cloud/howto-configure-destination-data-explorer.md
-        - name: Send data to Microsoft Fabric from a pipeline
-          href: connect-to-cloud/howto-configure-destination-fabric.md
-    - name: Process data
-      items:
-      - name: Overview
-        href: process-data/overview-data-processor.md
-      - name: Concepts
-        items:
-        - name: Message structure
-          href: process-data/concept-message-structure.md
-        - name: Supported message formats
-          href: process-data/concept-supported-formats.md
-        - name: Pipeline partitioning
-          href: process-data/concept-partitioning.md
-        - name: Configuration patterns
-          href: process-data/concept-configuration-patterns.md
-      - name: Edit and manage pipelines
-        href: process-data/howto-edit-pipelines.md
-      - name: Read data
-        items:
-        - name: Configure a pipeline MQ data source stage
-          href: process-data/howto-configure-datasource-mq.md
-        - name: Configure a pipeline HTTP endpoint source stage
-          href: process-data/howto-configure-datasource-http.md
-        - name: Configure a pipeline SQL Server source stage
-          href: process-data/howto-configure-datasource-sql.md
-        - name: Configure a pipeline InfluxDB source stage
-          href: process-data/howto-configure-datasource-influxdb.md
-      - name: Process data
-        items:
-        - name: Aggregate data in a pipeline
-          href: process-data/howto-configure-aggregate-stage.md
-        - name: Filter data in a pipeline
-          href: process-data/howto-configure-filter-stage.md
-        - name: Call out to a gRPC endpoint from a pipeline
-          href: process-data/howto-configure-grpc-callout-stage.md
-        - name: Call out to an HTTP endpoint from a pipeline
-          href: process-data/howto-configure-http-callout-stage.md
-        - name: Use last known values in a pipeline
-          href: process-data/howto-configure-lkv-stage.md
-        - name: Transform data in a pipeline
-          href: process-data/howto-configure-transform-stage.md
-      - name: Enrich data
-        items:
-        - name: Pipeline contextualization
-          href: process-data/concept-contextualization.md
-        - name: Configure reference data store
-          href: process-data/howto-configure-reference.md
-        - name: Send data to the reference data store
-          href: process-data/howto-configure-destination-reference-store.md
-        - name: Configure enrich stage
-          href: process-data/howto-configure-enrich-stage.md
-      - name: Send data
-        items:   
-        - name: Send data to a gRPC endpoint
-          href: process-data/howto-configure-destination-grpc.md
-        - name: Send data to an HTTP endpoint
-          href: process-data/howto-configure-destination-http.md
-        - name: Publish data to an MQTT broker
-          href: process-data/howto-configure-destination-mq-broker.md
-      - name: jq guide
-        items:
-        - name: What is jq?
-          href: process-data/concept-jq.md
-        - name: jq paths
-          href: process-data/concept-jq-path.md
-        - name: jq expressions
-          href: process-data/concept-jq-expression.md
+
     - name: Manage layered network
       items:
       - name: Overview
@@ -221,10 +152,14 @@ items:
         href: troubleshoot/troubleshoot.md
       - name: Known issues
         href: troubleshoot/known-issues.md
+      - name: FAQ
+        href: troubleshoot/iot-operations-faq.yml
     - name: Reference # supporting information like APIs, tools, code libraries
       items: 
       - name: Azure IoT Operations Arc Jumpstart scenario
         href: https://aka.ms/ArcJumpstartAIO
+      - name: Azure IoT Operations release notes
+        href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
       - name: REST API

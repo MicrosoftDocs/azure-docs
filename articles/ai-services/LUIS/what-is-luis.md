@@ -15,8 +15,6 @@ ms.manager: nitinme
 
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. LUIS provides access through its [custom portal](https://www.luis.ai), [APIs][endpoint-apis] and [SDK client libraries](client-libraries-rest-api.md).
 
 For first time users, follow these steps to [sign in to LUIS portal](how-to/sign-in.md "sign in to LUIS portal")

@@ -2,7 +2,6 @@
 title: Diagnostics logs and metrics for Workflow Orchestration Manager
 titleSuffix: Azure Data Factory
 description: This article explains how to use diagnostic logs and metrics to monitor the Workflow Orchestration Manager integration runtime.
-ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain

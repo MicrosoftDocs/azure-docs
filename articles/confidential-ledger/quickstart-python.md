@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---
@@ -32,7 +32,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 ### Install the packages
 

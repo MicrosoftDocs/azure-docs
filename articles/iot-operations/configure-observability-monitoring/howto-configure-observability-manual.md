@@ -18,7 +18,10 @@ This article shows how to install and configure Azure IoT Operations observabili
 
 ## Configure your subscription
 
-Run the following code to register providers with the subscription where your cluster is located:
+Run the following code to register providers with the subscription where your cluster is located.
+
+>[!NOTE]
+>This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ```azurecli
 az account set -s <subscription-id>

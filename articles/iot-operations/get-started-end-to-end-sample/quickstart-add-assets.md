@@ -35,7 +35,11 @@ The data that OPC UA servers expose can have a complex structure and can be diff
 
 ## Sign into the operations experience
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience. Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience.
+
+Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+
+:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 > [!IMPORTANT]
 > You must use a work or school account to sign in to the operations experience. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
@@ -43,8 +47,6 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 ## Select your site
 
 After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the portal, an instance represents a cluster where you deployed Azure IoT Operations.
-
-:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 ## Select your instance
 
@@ -177,7 +179,18 @@ Review your asset and tag details and make any adjustments you need before you s
 
 To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
-:::image type="content" source="media/quickstart-add-assets/mqttui-output.png" alt-text="Screenshot of the mqttui topic display showing the temperature telemetry." lightbox="media/quickstart-add-assets/mqttui-output.png":::
+```output
+Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
+{"temperature":{"SourceTimestamp":"2024-07-29T15:02:17.1858435Z","Value":4558},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:17.1858869Z","Value":4558}}
+Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
+{"temperature":{"SourceTimestamp":"2024-07-29T15:02:18.1838125Z","Value":4559},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:18.1838523Z","Value":4559}}
+Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
+{"temperature":{"SourceTimestamp":"2024-07-29T15:02:19.1834363Z","Value":4560},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:19.1834879Z","Value":4560}}
+Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
+{"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
+Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
+{"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
+```
 
 > [!TIP]
 > Data from an asset with a name that starts with _boiler-_ is from an asset that was automatically discovered. This is not the same asset as the thermostat asset you created.
@@ -198,30 +211,24 @@ If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
     kubectl delete pod aio-opc-opc.tcp-1-849dd78866-vhmz6 -n azure-iot-operations
     ```
 
-The sample tags you added in the previous quickstart generate messages from your asset that look like the following examples:
+The sample tags you added in the previous quickstart generate messages from your asset that look like the following example:
 
 ```json
 {
-    "Timestamp": "2024-03-08T00:54:58.6572007Z",
-    "MessageType": "ua-deltaframe",
-    "payload": {
-      "temperature": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543129Z",
-        "Value": 7109
-      },
-      "Tag 10": {
-        "SourceTimestamp": "2023-08-10T00:54:58.2543482Z",
-        "Value": 7109
-      }
+    "temperature": {
+        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
+        "Value": 2696
     },
-    "DataSetWriterName": "thermostat",
-    "SequenceNumber": 4660
+    "Tag 10": {
+        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
+        "Value": 2696
+    }
 }
 ```
 
 ## Discover OPC UA data sources by using Akri services
 
-In the previous section, you saw how to add assets manually. You can also use Akri services to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri services can't detect and create assets that can be ingested into the Azure Device Registry Preview.
+In the previous section, you saw how to add assets manually. You can also use Akri services to automatically discover OPC UA data sources and create Akri instance custom resources that represent the discovered devices. Currently, Akri services can't detect and create assets that can be ingested into the Azure Device Registry Preview. Therefore, you can't currently manage assets discovered by Akri in the Azure portal.
 
 When you deploy Azure IoT Operations, the deployment includes the Akri discovery handler pods. To verify these pods are running, run the following command:
 
@@ -248,10 +255,17 @@ The output from the previous command looks like the following example:
 aio-opc-asset-discovery-wzlnj                   1/1     Running     0              19m
 ```
 
-> [!TIP]
-> There's currently a known issue where the Akri discovery handler pod might not start. If you encounter this issue, see [Troubleshoot Akri services](../troubleshoot/known-issues.md#akri-services).
+To configure the Akri services to discover OPC UA data sources, create an Akri configuration that references your OPC UA source. Run the following command to create the configuration:
 
-To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services:
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/akri-opcua-asset.yaml
+```
+
+The following snippet shows the YAML file that you applied:
+
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
+
+To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services. You might need to wait a few minutes for the configuration to be available:
 
 ```console
 kubectl get akrii -n azure-iot-operations

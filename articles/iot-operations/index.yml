@@ -37,8 +37,6 @@ landingContent:
             url: discover-manage-assets/overview-manage-assets.md
           - text: MQTT broker overview
             url: manage-mqtt-broker/overview-iot-mq.md
-          - text: Process data
-            url: process-data/overview-data-processor.md
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
           - text: Configure observability and monitoring
@@ -55,7 +53,4 @@ landingContent:
             url: connect-to-cloud/howto-configure-data-lake.md
           - text: Send data to Kafka or Azure Event Hubs
             url: connect-to-cloud/howto-configure-kafka.md
-          - text: Send data to Azure Data Explorer from a pipeline
-            url: connect-to-cloud/howto-configure-destination-data-explorer.md
-          - text: Send data to Microsoft Fabric from a pipeline
-            url: connect-to-cloud/howto-configure-destination-fabric.md
+

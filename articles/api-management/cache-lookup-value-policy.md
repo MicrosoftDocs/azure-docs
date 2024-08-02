@@ -4,7 +4,7 @@ description: Reference for the cache-lookup-value policy available for use in Az
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep

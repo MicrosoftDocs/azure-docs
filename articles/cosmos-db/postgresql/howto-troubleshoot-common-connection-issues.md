@@ -4,7 +4,7 @@ description: Learn how to troubleshoot connection issues to Azure Cosmos DB for 
 keywords: postgresql connection,connection string,connectivity issues,transient error,connection error
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 12/17/2021

@@ -182,7 +182,7 @@ If you want to use a different deployment source or build provider for continuou
 
 ## Enable basic authentication for deployments
 
-By default, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
+In some cases, your function app is created with basic authentication access to the `scm` endpoint disabled. This blocks publishing by all methods that can't use managed identities to access the `scm` endpoint. The publishing impacts of having the `scm` endpoint disabled are detailed in [Deployment without basic authentication](../app-service/configure-basic-auth-disable.md#deployment-without-basic-authentication). 
 
 > [!IMPORTANT]
 > When you use basic authenication, credentials are sent in clear text. To protect these credentials, you must only access the `scm` endpoint over an encrypted connection (HTTPS) when using basic authentication. For more information, see [Secure deployment](security-concepts.md#secure-deployment).
@@ -193,7 +193,7 @@ To enable basic authentication to the `scm` endpoint:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your function app.
 
-1. In the app's left menu, select **Configuration** > **General settings**.
+1. In the app's left menu, select **Settings** > **Configuration** > **General settings**.
 
 1. Set **SCM Basic Auth Publishing Credentials** to **On**, then select **Save**.
 

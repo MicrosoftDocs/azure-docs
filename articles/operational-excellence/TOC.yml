@@ -45,7 +45,7 @@
       - name: Azure Cache for Redis
         href: ../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Container Registry
-        href: ../container-registry/manual-regional-move.md?toc=/azure/operational-excellence/toc.json
+        href: relocation-container-registry.md
       - name: Azure Cosmos DB
         href: relocation-cosmos-db.md
       - name: Azure Database for MariaDB Server

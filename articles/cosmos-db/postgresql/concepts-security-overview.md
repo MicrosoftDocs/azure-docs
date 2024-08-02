@@ -3,7 +3,7 @@ title: Security overview - Azure Cosmos DB for PostgreSQL
 description: Information protection and network security for Azure Cosmos DB for PostgreSQL.
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 07/04/2024
