@@ -147,7 +147,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Subscription** | Select the subscription that contains your Azure key vault. |
    | **Azure Key Vault** | Select your Azure key vault. Or, select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
 
-   :::image type="content" source="{source}" alt-text="A screenshot that shows the third tab for deploying Azure IoT Operations from the portal.":::
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-automation.png" alt-text="A screenshot that shows the third tab for deploying Azure IoT Operations from the portal.":::
 
 1. If you didn't prepare your Azure CLI environment as described in the prerequisites, do so now in a terminal of your choice:
 
