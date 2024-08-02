@@ -269,17 +269,15 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 
 **parameters**
 
+:::zone-end
+:::zone target="docs" pivot="v23-10"
+
 | Property Name | Required | Default value | Validation |
 |-|-|-|-|
 | name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 256 | 
 | filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
 | filters[\<index\>].key | yes | n/a | |
 | filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") aren't supported with 'key' composition type. |
-:::zone-end
-:::zone target="docs" pivot="v23-11"
-| filters[\<index\>].tags | no | null | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 0<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 5 |
-:::zone-end
-:::zone target="docs" pivot="v23-10,v23-11"
 | tags | no | {} | |
 | composition_type | no | key | |
 | retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
@@ -288,8 +286,6 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
 Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 ```
-:::zone-end
-:::zone target="docs" pivot="v23-10"
 
 ```json
 {
@@ -343,6 +339,22 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
 
 :::zone-end
 :::zone target="docs" pivot="v23-11"
+
+| Property Name | Required | Default value | Validation |
+|-|-|-|-|
+| name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 256 | 
+| filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
+| filters[\<index\>].key | yes | n/a | |
+| filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") aren't supported with 'key' composition type. |
+| filters[\<index\>].tags | no | null | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 0<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 5 |
+| tags | no | {} | |
+| composition_type | no | key | |
+| retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
+
+```http
+PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
+Content-Type: application/vnd.microsoft.appconfig.snapshot+json
+```
 
 ```json
 {
