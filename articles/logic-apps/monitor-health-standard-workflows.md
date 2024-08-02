@@ -65,6 +65,8 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 
 1. On the **Diagnose and solve problems** page, in the search box, find and select **Health Check feature**.
 
+   :::image type="content" source="media/monitor-health-standard-workflows/health-check.png" alt-text="Screenshot shows Azure portal, page for Diagnose and solve problems, search box with health check entered, and selected option for Health Check feature." lightbox="media/monitor-health-standard-workflows/health-check.png":::
+
 1. In the **Health Check feature** section, select **View Solution**.
 
 1. On the pane that opens, select **Configure and enable health check feature**. 
@@ -106,6 +108,8 @@ After Health Check removes the unhealthy instance, the feature continues to ping
 1. On the logic app menu, select **Diagnose and solve problems**.
 
 1. Under **Troubleshooting categories**, select **Availability and Performance**.
+
+   :::image type="content" source="media/monitor-health-standard-workflows/availability-performance.png" alt-text="Screenshot shows Azure portal, page for Diagnose and solve problems, and selected option for Availability and Performance." lightbox="media/monitor-health-standard-workflows/availability-performance.png":::
 
 1. Find and review the status code section.
 
