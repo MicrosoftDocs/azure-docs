@@ -18,8 +18,6 @@ keywords: "qna maker, low code chat bots, multi-turn conversations"
 
 [!INCLUDE [Custom question answering](../includes/new-version.md)]
 
-[!INCLUDE [Azure AI services rebrand](../../includes/rebrand-note.md)]
-
 QnA Maker is a cloud-based Natural Language Processing (NLP) service that allows you to create a natural conversational layer over your data. It is  used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
 QnA Maker is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.

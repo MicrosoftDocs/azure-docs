@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies, and custom policy combinations.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 07/28/2023
 ms.author: cherylmc

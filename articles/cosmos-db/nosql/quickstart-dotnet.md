@@ -5,7 +5,7 @@ description: Deploy a .NET web application that uses the client library to inter
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, devx-track-extended-azdevcli

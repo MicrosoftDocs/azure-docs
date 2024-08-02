@@ -1,7 +1,7 @@
 ---
 title: Use advanced networking in Azure Lab Services | Microsoft Docs
 description: Create an Azure Lab Services lab plan with advanced networking.  Create two labs and verify they share same virtual network when published.
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: tutorial 
 ms.date: 08/28/2023
 ms.custom: template-tutorial

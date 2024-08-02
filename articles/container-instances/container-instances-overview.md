@@ -4,7 +4,7 @@ description: The Azure Container Instances service offers the fastest and simple
 ms.topic: overview
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, linux-related-content

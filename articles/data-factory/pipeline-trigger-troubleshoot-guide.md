@@ -2,7 +2,6 @@
 title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
-ms.service: azure-data-factory
 ms.date: 05/15/2024
 ms.topic: troubleshooting
 ms.author: susabat

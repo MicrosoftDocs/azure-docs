@@ -5,7 +5,7 @@ description: Learn how you can package a model and deploy it for online inferenc
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: devx-track-python, update-code
 ms.date: 12/08/2023
