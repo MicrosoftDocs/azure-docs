@@ -14,13 +14,11 @@ This article explains how to collect audit logs from your SAP HANA database.
 > [!IMPORTANT]
 > Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-
 ## Prerequisites
 
 SAP HANA logs are sent over Syslog. Make sure that your AMA agent or your Log Analytics agent (legacy) is configured to collect Syslog files. For more information, see:
 
 For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](../connect-cef-syslog-ama.md).
-
 
 ## Collect SAP HANA audit logs
 
@@ -28,6 +26,7 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
     - [SAP HANA Audit Trail - Best Practice](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/35eb4e567d53456088755b8131b7ed1d.html?version=2.0.03)
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
+    - [SAP HANA Security Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/4f7cde1125084ea3b8206038530e96ce.html)
 
 1. Check your operating system Syslog files for any relevant HANA database events.
 
@@ -45,11 +44,12 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
     > [!TIP]
     > Because the facilities where HANA database events are saved can change between different distributions, we recommend that you add all facilities. Check them against your Syslog logs, and then remove any that aren't relevant.
-    >
 
 ## Verify your configuration
 
-In Microsoft Sentinel, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
+### Microsoft Sentinel 
+
+Check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
 
 ```Kusto
 //generated function structure for custom log Syslog
@@ -79,8 +79,11 @@ TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
 T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00:00:00Z')
 ```
 
+### SAP HANA
 
-## Add analytics rules for SAP HANA
+Check configured audit policies. See SAP note [3016478](https://me.sap.com/notes/3016478/E) for details.
+
+## Add analytics rules for SAP HANA in Sentinel
 
 Use the following built-in analytics rules to have Microsoft Sentinel start triggering alerts on related SAP HANA activity:
 
@@ -107,6 +110,8 @@ Learn more about the Microsoft Sentinel solution for SAP® applications:
 Troubleshooting:
 
 - [Troubleshoot your Microsoft Sentinel solution for SAP® applications deployment](sap-deploy-troubleshoot.md)
+- [HANA audit log is not generated in SYSLOG | SAP note](https://me.sap.com/notes/3305033/E)
+- [How to Redirect syslog Auditing for HANA to an alternate location | SAP note](https://me.sap.com/notes/2386609)
 
 Reference files:
 
