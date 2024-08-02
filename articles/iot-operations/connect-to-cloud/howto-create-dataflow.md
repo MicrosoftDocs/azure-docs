@@ -198,7 +198,7 @@ To map the data to another field with optional conversion, you can use the `map`
 |------------------------------------------------|-------------------------------------------|
 | builtInTransformationSettings.map[].inputs[]   | Inputs for the map operation              |
 | builtInTransformationSettings.map[].output     | Output field for the map operation        |
-| builtInTransformationSettings.map[].expresssion | Conversion formula for the map operation  |
+| builtInTransformationSettings.map[].expression | Conversion formula for the map operation  |
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
