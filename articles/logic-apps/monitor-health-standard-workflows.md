@@ -25,7 +25,7 @@ To help your Standard logic app workflows run with high availability and perform
 
 Health Check is an Azure App Service feature that redirects requests away from unhealthy instances and replaces those instances if they stay unhealthy. For a Standard logic app, you can specify a path to a "health" workflow that you create for this purpose and for App Service to ping at regular intervals. For example, the following sample shows the minimum basic version:
 
-:::image type="content" source="media/monitor-workflows-health-check/health-workflow.png" alt-text="Screenshot shows Standard logic app workflow to use as the health workflow." lightbox="media/monitor-workflows-health-check/health-workflow.png":::
+:::image type="content" source="media/monitor-health-standard-workflows/health-workflow.png" alt-text="Screenshot shows Standard logic app workflow to use as the health workflow." lightbox="media/monitor-workflows-health-check/health-workflow.png":::
 
 After you enable Health Check, App Service pings the specified path for all Standard workflow instances at 1-minute intervals. If the logic app requires scale out, Azure immediately creates a new instance. App Service pings the workflow path again to make sure that the new instance is ready.
 
