@@ -276,8 +276,8 @@ Batch endpoints provide a durable API that consumers can use to create batch job
 
 Batch endpoints support two types of inputs:
 
-- [Data inputs](#data-inputs): Pointers to a specific storage location or Azure Machine Learning asset.
-- [Literal inputs](#literal-inputs): Literal values like numbers or strings that you want to pass to the job. 
+- [Data inputs](#explore-data-inputs): Pointers to a specific storage location or Azure Machine Learning asset.
+- [Literal inputs](#explore-literal-inputs): Literal values like numbers or strings that you want to pass to the job. 
 
 The number and type of inputs and outputs depend on the [type of batch deployment](concept-endpoints-batch.md#batch-deployments). Model deployments always require one data input and produce one data output. Literal inputs aren't supported. However, pipeline component deployments provide a more general construct to build endpoints and allow you to specify any number of inputs (data and literal) and outputs.
 
@@ -285,8 +285,8 @@ The following table summarizes the inputs and outputs for batch deployments:
 
 | Deployment type | Number of inputs | Supported input types | Number of outputs | Supported output types |
 | --- | --- | --- | --- | --- |
-| [Model deployment](concept-endpoints-batch.md#model-deployment) | 1 | [Data inputs](#data-inputs) | 1 | [Data outputs](#data-outputs) |
-| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#data-inputs) and [literal inputs](#literal-inputs) | [0..N] | [Data outputs](#data-outputs) |
+| [Model deployment](concept-endpoints-batch.md#model-deployment) | 1 | [Data inputs](#explore-data-inputs) | 1 | [Data outputs](#explore-data-outputs) |
+| [Pipeline component deployment](concept-endpoints-batch.md#pipeline-component-deployment) | [0..N] | [Data inputs](#explore-data-inputs) and [literal inputs](#explore-literal-inputs) | [0..N] | [Data outputs](#explore-data-outputs) |
 
 > [!TIP]
 > Inputs and outputs are always named. The names serve as keys to identify the data and pass the actual value during invocation. Because model deployments always require one input and output, the name is ignored during invocation. You can assign the name that best describes your use case, such as "sales_estimation."
@@ -297,8 +297,8 @@ Data inputs refer to inputs that point to a location where data is placed. Becau
 
 Batch endpoints support reading files located in the following storage options:
 
-- [Azure Machine Learning Data Assets](#input-data-from-a-data-asset), including Folder (`uri_folder`) and File (`uri_file`).
-- [Azure Machine Learning Data Stores](#input-data-from-data-stores), including Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
+- [Azure Machine Learning Data Assets](#use-input-data-from-data-asset), including Folder (`uri_folder`) and File (`uri_file`).
+- [Azure Machine Learning Data Stores](#use-input-data-from-data-stores), including Azure Blob Storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2.
 - [Azure Storage Accounts](#input-data-from-azure-storage-accounts), including Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, and Azure Blob Storage.
 - Local data folders/files (Azure Machine Learning CLI or Azure Machine Learning SDK for Python). However, that operation results in the local data to be uploaded to the default Azure Machine Learning Data Store of the workspace you're working on.
 
@@ -325,9 +325,9 @@ Data outputs refer to the location where the results of a batch job should be pl
 
 ## Create jobs with data inputs
 
-The following examples show how to create jobs, taking data inputs from [data assets](#input-data-from-a-data-asset), [data stores](#input-data-from-data-stores), and [Azure Storage Accounts](#input-data-from-azure-storage-accounts).
+The following examples show how to create jobs, taking data inputs from [data assets](#use-input-data-from-data-asset), [data stores](#use-input-data-from-data-stores), and [Azure Storage Accounts](#input-data-from-azure-storage-accounts).
 
-### Input data from data asset
+### Use input data from data asset
 
 Azure Machine Learning data assets (formerly known as datasets) are supported as inputs for jobs. Follow these steps to run a batch endpoint job by using data stored in a registered data asset in Azure Machine Learning.
 
@@ -491,7 +491,7 @@ Azure Machine Learning data assets (formerly known as datasets) are supported as
     Content-Type: application/json
     ```
 
-### Input data from data stores
+### Use input data from data stores
 
 You can directly reference data from Azure Machine Learning registered data stores with batch deployments jobs. In this example, you first upload some data to the default data store in the Azure Machine Learning workspace and then run a batch deployment on it. Follow these steps to run a batch endpoint job using data stored in a data store.
 
