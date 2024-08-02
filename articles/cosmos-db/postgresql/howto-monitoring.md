@@ -3,7 +3,7 @@ title: How to view metrics - Azure Cosmos DB for PostgreSQL
 description: See how to access database metrics for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 09/24/2022

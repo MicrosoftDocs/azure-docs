@@ -6,7 +6,7 @@ author: jianleishen
 ms.author: jianleishen
 ms.reviewer: joanpo, wiassaf
 ms.date: 01/05/2024
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.custom: has-adal-ref, synapse, devx-track-extended-java

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 03/21/2022

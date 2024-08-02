@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix Azure Cosmos DB service unavailable e
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: troubleshooting
 ms.date: 04/03/2023

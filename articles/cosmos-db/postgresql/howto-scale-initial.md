@@ -3,7 +3,7 @@ title: Initial cluster size - Azure Cosmos DB for PostgreSQL
 description: Pick the right initial size for your use case
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 07/04/2024

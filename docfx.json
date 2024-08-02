@@ -1209,7 +1209,7 @@
         "articles/machine-learning/v1/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.service": {
-        "articles/advisor/**/*.md": "advisor",
+        "articles/advisor/**/*.md": "azure-advisor",
         "articles/aks/**/*.md": "azure-kubernetes-service",
         "articles/ansible/**/*.md": "ansible",
         "articles/app-service/**/*.md": "app-service",
@@ -1283,6 +1283,7 @@
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-health/**/*.md": "service-health",
         "articles/site-recovery/*.md": "site-recovery",
+        "articles/synapse-analytics/**/*": "azure-synapse-analytics",
         "articles/terraform/**/*.md": "terraform",
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
