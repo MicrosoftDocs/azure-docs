@@ -93,9 +93,9 @@ file_id = file.id
 
 ```json
 {
-  "id": "file-31b0f44ef8334259be3a3f3bb793a7b9",
-  "bytes": 821,
-  "created_at": 1721666905,
+  "id": "file-9f3a81d899b4442f98b640e4bc3535dd",
+  "bytes": 815,
+  "created_at": 1722476551,
   "filename": "test.jsonl",
   "object": "file",
   "purpose": "batch",
@@ -124,7 +124,7 @@ while status != "processed":
 **Output:**
 
 ```output
-2024-07-22 12:49:06.816651 File Id: file-31b0f44ef8334259be3a3f3bb793a7b9, Status: processed
+2024-07-31 21:42:53.663655 File Id: file-9f3a81d899b4442f98b640e4bc3535dd, Status: processed
 ```
 
 ## Create batch job
@@ -152,11 +152,11 @@ print(batch_response.model_dump_json(indent=2))
 
 ```json
 {
-  "id": "batch_73445352-d8cf-43c4-b51c-842864923600",
+  "id": "batch_6caaf24d-54a5-46be-b1b7-518884fcbdde",
   "completion_window": "24h",
-  "created_at": 1722450284,
+  "created_at": 1722476583,
   "endpoint": null,
-  "input_file_id": "file-ad5ebc5773534c5885ef4aea871d6b9f",
+  "input_file_id": "file-9f3a81d899b4442f98b640e4bc3535dd",
   "object": "batch",
   "status": "validating",
   "cancelled_at": null,
@@ -165,7 +165,7 @@ print(batch_response.model_dump_json(indent=2))
   "error_file_id": null,
   "errors": null,
   "expired_at": null,
-  "expires_at": 1722536684,
+  "expires_at": 1722562983,
   "failed_at": null,
   "finalizing_at": null,
   "in_progress_at": null,
@@ -184,7 +184,6 @@ print(batch_response.model_dump_json(indent=2))
 Once you have created batch job successfully you can monitor its progress either in the Studio or programatically. When checking batch job progress we recommend waiting at least 60 seconds in between each status call.
 
 ```Python
-# Wait until the uploaded file is in processed state
 import time
 import datetime 
 
@@ -199,15 +198,15 @@ while status not in ("completed", "failed", "canceled"):
 **Output:**
 
 ```output
-2024-07-31 14:26:33.650577 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: validating
-2024-07-31 14:27:34.479144 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: validating
-2024-07-31 14:28:35.522783 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: validating
-2024-07-31 14:29:36.258073 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: validating
-2024-07-31 14:30:36.916150 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: in_progress
-2024-07-31 14:31:37.981857 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: in_progress
-2024-07-31 14:32:38.685983 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: in_progress
-2024-07-31 14:33:39.355531 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: in_progress
-2024-07-31 14:34:39.986518 Batch Id: batch_73445352-d8cf-43c4-b51c-842864923600,  Status: completed
+2024-07-31 21:48:32.556488 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: validating
+2024-07-31 21:49:39.221560 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: in_progress
+2024-07-31 21:50:53.383138 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: in_progress
+2024-07-31 21:52:07.274570 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: in_progress
+2024-07-31 21:53:21.149501 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: finalizing
+2024-07-31 21:54:34.572508 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: finalizing
+2024-07-31 21:55:35.304713 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: finalizing
+2024-07-31 21:56:36.531816 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: finalizing
+2024-07-31 21:57:37.414105 Batch Id: batch_6caaf24d-54a5-46be-b1b7-518884fcbdde,  Status: completed
 ```
 
 The following status values are possible:
@@ -229,33 +228,32 @@ To examine the job status details you can run:
 print(batch_response.model_dump_json(indent=2))
 ```
 
+**Output:**
+
 ```json
 {
-  "id": "batch_f1423441-0935-4a3d-9a96-9c23bedc3289",
+  "id": "batch_6caaf24d-54a5-46be-b1b7-518884fcbdde",
   "completion_window": "24h",
-  "created_at": "2024-07-22T16:51:52.6450839+00:00",
+  "created_at": 1722476583,
   "endpoint": null,
-  "input_file_id": "file-31b0f44ef8334259be3a3f3bb793a7b9",
+  "input_file_id": "file-9f3a81d899b4442f98b640e4bc3535dd",
   "object": "batch",
-  "status": "Completed",
+  "status": "completed",
   "cancelled_at": null,
   "cancelling_at": null,
-  "completed_at": "2024-07-22T17:59:43.6332138+00:00",
-  "error_file_id": "file-de3c3e8b-83b4-4a83-89c3-310f3d677df4",
-  "errors": {
-    "data": [],
-    "object": "list"
-  },
+  "completed_at": 1722477429,
+  "error_file_id": "file-c795ae52-3ba7-417d-86ec-07eebca57d0b",
+  "errors": null,
   "expired_at": null,
-  "expires_at": "2024-07-23T16:51:52.5940767+00:00",
+  "expires_at": 1722562983,
   "failed_at": null,
-  "finalizing_at": "2024-07-22T17:55:27.9985631+00:00",
-  "in_progress_at": "2024-07-22T16:57:43.5157566+00:00",
+  "finalizing_at": 1722477177,
+  "in_progress_at": null,
   "metadata": null,
-  "output_file_id": "file-ccd5d748-f5a4-4846-a0f8-2538d569000a",
+  "output_file_id": "file-3304e310-3b39-4e34-9f1c-e1c1504b2b2a",
   "request_counts": {
-    "completed": 0,
-    "failed": 3,
+    "completed": 3,
+    "failed": 0,
     "total": 3
   }
 }
@@ -266,9 +264,98 @@ Observe that there's both `error_file_id` and a separate `output_file_id`. Use t
 ## Retrieve batch job output file
 
 ```python
-response =client.files.content(batch_reponse.output_file_id)
+import json
 
-print(response.text)
+response = client.files.content(batch_response.output_file_id)
+raw_responses = file_response.text.strip().split('\n')  
+
+for raw_response in raw_responses:  
+    json_response = json.loads(raw_response)  
+    formatted_json = json.dumps(json_response, indent=2)  
+    print(formatted_json)  
+```
+
+**Output:**
+
+For brevity, we are only including a single chat completion response of output. If you follow the steps in this article you should have three responses similar to the one below:
+
+```json
+{
+  "custom_id": "task-0",
+  "response": {
+    "body": {
+      "choices": [
+        {
+          "content_filter_results": {
+            "hate": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "self_harm": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "sexual": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "violence": {
+              "filtered": false,
+              "severity": "safe"
+            }
+          },
+          "finish_reason": "stop",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "content": "Microsoft was founded on April 4, 1975, by Bill Gates and Paul Allen in Albuquerque, New Mexico.",
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1722477079,
+      "id": "chatcmpl-9rFGJ9dh08Tw9WRKqaEHwrkqRa4DJ",
+      "model": "gpt-4o-2024-05-13",
+      "object": "chat.completion",
+      "prompt_filter_results": [
+        {
+          "prompt_index": 0,
+          "content_filter_results": {
+            "hate": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "jailbreak": {
+              "filtered": false,
+              "detected": false
+            },
+            "self_harm": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "sexual": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "violence": {
+              "filtered": false,
+              "severity": "safe"
+            }
+          }
+        }
+      ],
+      "system_fingerprint": "fp_a9bfe9d51d",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 27,
+        "total_tokens": 51
+      }
+    },
+    "request_id": "660b7424-b648-4b67-addc-862ba067d442",
+    "status_code": 200
+  },
+  "error": null
+}
 ```
 
 ### Additional batch commands

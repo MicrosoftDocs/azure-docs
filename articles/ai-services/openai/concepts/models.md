@@ -224,7 +224,6 @@ Global batch is currently supported in the following regions:
 - East US
 - West US
 - Sweden Central
-- South India
 
 ### GPT-4 and GPT-4 Turbo model availability
 
