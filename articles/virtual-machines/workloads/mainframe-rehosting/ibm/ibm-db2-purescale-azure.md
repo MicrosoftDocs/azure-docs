@@ -4,7 +4,7 @@ description: In this article, we show an architecture for running an IBM DB2 pur
 author: swread
 ms.author: sread
 manager: mamccrea
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ms.topic: how-to
 ms.date: 11/09/2018
