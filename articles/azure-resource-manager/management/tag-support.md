@@ -1469,6 +1469,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | cassandraClusters | Yes | Yes |
+> | mongoClusters | Yes | No |
 > | databaseAccountNames | No | No |
 > | databaseAccounts | Yes | Yes |
 > | databaseAccounts / encryptionScopes | No | No |
