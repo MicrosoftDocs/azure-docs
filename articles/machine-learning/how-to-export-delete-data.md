@@ -64,7 +64,7 @@ At the **Storage accounts** page, select the relevant storage account, as shown 
 
 Select **Containers** as shown in this screenshot:
 
-:::image type="content" source="media/how-to-export-delete-data/select-containers.png" lightbox="media/how-to-export-delete-data/select-select-containers.png" alt-text="Screenshot showing selection of Containers at the storage account page.":::
+:::image type="content" source="media/how-to-export-delete-data/select-containers.png" lightbox="media/how-to-export-delete-data/select-containers.png" alt-text="Screenshot showing selection of Containers at the storage account page.":::
 
 Select a specific container, as shown in this screenshot:
 
