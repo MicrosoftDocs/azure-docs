@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Microservices communication using the Service Invocation API"
+title: "Tutorial: Microservices communication using Dapr Service Invocation"
 titleSuffix: "Azure Container Apps"
-description: Enable two sample applications to communicate and leverage the Microservices Service Invocation API, powered by Dapr.
+description: Enable two sample Dapr applications to communicate and leverage Azure Container Apps.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Tutorial: Microservices communication using the Service Invocation API
+# Tutorial: Microservices communication using Dapr Service Invocation
 
-In this tutorial, you create and run two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [the Microservices Service Invocation API](./dapr-overview.md#supported-dapr-apis-components-and-tooling), powered by Dapr. You'll:
+In this tutorial, you create and run two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [the Dapr Service Invocation API](./dapr-overview.md#supported-dapr-apis-components-and-tooling). You'll:
 
 > [!div class="checklist"]
 > * Run the application locally.
@@ -703,6 +703,6 @@ azd down
 
 ## Next steps
 
-- Learn more about [deploying applications to Azure Container Apps](./microservices-dapr.md).
+- Learn more about [deploying Dapr applications to Azure Container Apps](./microservices-dapr.md).
 - [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).

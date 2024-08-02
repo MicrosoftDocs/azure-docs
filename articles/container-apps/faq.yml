@@ -5,7 +5,7 @@ metadata:
   keywords: azure container apps, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
-  ms.service: container-apps
+  ms.service: azure-container-apps
   ms.custom:
     - ignite-2023
   ms.date: 05/15/2024
@@ -80,9 +80,9 @@ sections:
           While Tier 1 components are fully supported, Tier 2 components are supported with best effort. [Learn more.](./dapr-overview.md#supported-dapr-apis-components-and-tooling)
 
       - question: |
-          What does "versionless" Dapr mean?
+          What is the Dapr version release cadence in Azure Container Apps?
         answer: |
-          Instead of relying on Dapr open source's release cadence, the Microservice APIs provided in Azure Container Apps are fully-managed and catered specifically to use in a container apps environment. 
+          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks. 
 
       - question: |
           How can I request a Dapr feature enhancement for Azure Container Apps?

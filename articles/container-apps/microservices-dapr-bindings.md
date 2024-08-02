@@ -1,25 +1,25 @@
 ---
-title: "Tutorial: Event-driven work using Microservices Bindings API"
+title: "Tutorial: Event-driven work using Dapr Bindings"
 titleSuffix: "Azure Container Apps"
-description: Deploy a sample application that leverages the Microservices Bindings API, powered by Dapr.
+description: Deploy a sample application to Azure Container Apps that leverages the Dapr Bindings API.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 04/08/2024
+ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Tutorial: Event-driven work using Microservices Bindings API 
+# Tutorial: Event-driven work using Dapr Bindings 
 
-In this tutorial, you create a microservice to demonstrate how [the Microservices Bindings API](./dapr-overview.md) (powered by Dapr) works with external systems as inputs and outputs. You'll:
+In this tutorial, you create a microservice to demonstrate [Dapr's Bindings API](https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/) to work with external systems as inputs and outputs. You'll:
 > [!div class="checklist"]
 > * Run the application locally with the Dapr CLI. 
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
-The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostgreSQL output binding.
+The service listens to input binding events from a system CRON and then outputs the contents of local data to a PostreSql output binding.
 
 :::image type="content" source="media/microservices-dapr-azd/bindings-quickstart.png" alt-text="Diagram of the binding application.":::
 
@@ -576,7 +576,7 @@ azd down
 
 ## Next steps
 
-- Learn more about [deploying microservices to Azure Container Apps](./microservices-dapr.md).
+- Learn more about [deploying microservices using Dapr to Azure Container Apps](./microservices-dapr.md).
 - [Enable token authentication for Dapr requests.](./dapr-authentication-token.md)
 - Learn more about [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) and [making your applications compatible with `azd`](/azure/developer/azure-developer-cli/make-azd-compatible).
 - [Scale your applications using KEDA scalers](./dapr-keda-scaling.md)

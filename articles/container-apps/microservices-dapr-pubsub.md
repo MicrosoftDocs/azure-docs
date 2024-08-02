@@ -1,23 +1,23 @@
 ---
-title: "Tutorial: Microservices communication using Microservices Publish and Subscribe API"
+title: "Tutorial: Microservices communication using Dapr Publish and Subscribe"
 titleSuffix: "Azure Container Apps"
-description: Enable two sample applications to send and receive messages and leverage the Microservices pub/sub API, powered by Dapr.
+description: Enable two sample applications to send and receive messages and leverage the Dapr pub/sub API.
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Tutorial: Microservices communication using Microservices Publish and Subscribe API
+# Tutorial: Microservices communication using Dapr Publish and Subscribe
 
-In this tutorial, you create publisher and subscriber microservices that leverage [the Microservices Pub/sub API](./dapr-overview.md#supported-dapr-apis-components-and-tooling) (powered by Dapr) to communicate using messages for event-driven architectures. You'll:
+In this tutorial, you create publisher and subscriber microservices that leverage [the Dapr Pub/sub API](./dapr-overview.md#supported-dapr-apis-components-and-tooling) to communicate using messages for event-driven architectures. You'll:
 
 > [!div class="checklist"]
-> * Create a publisher microservice and a subscriber microservice that leverage the pub/sub API to communicate using messages for event-driven architectures. 
+> * Create a publisher microservice and a subscriber microservice that leverage the [Dapr pub/sub API](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/) to communicate using messages for event-driven architectures.  
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with provided Bicep. 
 
 The sample pub/sub project includes:
