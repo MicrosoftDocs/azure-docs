@@ -47,7 +47,7 @@ Azure Bastion provides a secure way to connect to VMs without exposing public IP
 > No changes to existing Network Security Groups (NSGs) are needed when connecting to the Azure Image Builder Build VM using Azure Bastion. 
 
 ### Option 2 (Recommended, if available): Connect to the VM using Azure Serial Console
-Azure Serial Console offers text-based access to VMs running Linux or Windows. Learn more about how to use Azure Serial Console to connect to a VM by reading the [Azure Serial Console documentation](https://learn.microsoftcom/azure/virtual-machines/serial-console).
+Azure Serial Console offers text-based access to VMs running Linux or Windows. Learn more about how to use Azure Serial Console to connect to a VM by reading the [Azure Serial Console documentation](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/windows/serial-console-overview).
 
 ###Option 3 (Not Recommended): Use a Public IP Address Resource
 The recommended practice is to use Azure Bastion or Azure Serial Console for connecting to VMs. However, if Bastion or Serial Console cannot be used, you can connect to the Build VM by using public IPs. 
