@@ -3,7 +3,7 @@ title: Azure Firewall policy rule sets
 description: Azure Firewall policy has a hierarchy of rule collection groups, rule collections, and rules.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 05/09/2024
 ms.author: victorh

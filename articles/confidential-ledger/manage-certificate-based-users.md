@@ -4,7 +4,7 @@ description: Learn how to manage certificate-based users in Azure confidential l
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, devx-track-ts
 ms.topic: how-to
 ---
@@ -22,7 +22,7 @@ The following client libraries are available to manage users:
 
 ## Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 Get the confidential ledger's name and the identity service URI from the Azure portal; it will be needed to create a client to manage the users. The image shows the appropriate properties in the Azure portal.
 

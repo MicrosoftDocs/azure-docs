@@ -4,7 +4,7 @@ description: Learn how to log events to Azure Event Hubs in Azure API Management
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.author: danlep

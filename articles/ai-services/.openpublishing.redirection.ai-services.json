@@ -116,6 +116,11 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/ai-services/openai/how-to/monitoring.md",
+            "redirect_url": "/azure/ai-services/openai/monitor-openai",
+            "redirect_document_id": true
+          },
+          {
             "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
             "redirect_url": "/azure/ai-services/openai/concepts/fine-tuning-considerations",
             "redirect_document_id": true
@@ -316,9 +321,75 @@
             "redirect_document_id": true
           },
           {
-            "source_path_from_root": "/articles/ai-services/openai/how-to/monitoring.md",
-            "redirect_url": "/azure/ai-services/openai/monitor-openai",
+            "source_path_from_root": "/articles/ai-services/speech-service/quickstart-custom-commands-application.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-develop-custom-commands-application.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-setup-speech-sdk.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-send-activity-to-client.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-setup-web-endpoints.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-update-command-from-client.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-update-command-from-web-endpoint.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-deploy-cicd.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-developer-flow-test.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-debug-build-time.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/how-to-custom-commands-debug-runtime.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/custom-commands-references.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/custom-commands-encryption-of-data-at-rest.md",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/speech-service/faq-voice-assistants.yml",
+            "redirect_url": "/azure/ai-services/speech-service/custom-commands",
             "redirect_document_id": false
           }
+
     ]
-  }
+}

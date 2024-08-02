@@ -3,7 +3,7 @@ title: Customize developer portal on WordPress - Azure API Management
 description: Configure a WordPress plugin (preview) for the developer portal in your API Management instance. Use WordPress customizations to enhance the developer portal.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: 
 ms.topic: how-to
 ms.date: 07/18/2024

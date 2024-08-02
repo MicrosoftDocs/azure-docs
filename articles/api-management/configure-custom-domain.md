@@ -5,7 +5,7 @@ description: How to configure a custom domain name and choose certificates for t
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: danlep

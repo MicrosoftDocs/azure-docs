@@ -3,10 +3,11 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: faq
-  ms.service: backup
-  ms.date: 07/20/2023
+  ms.service: azure-backup
+  ms.date: 12/08/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
+  ms.custom: engagement-fy24
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.

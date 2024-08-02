@@ -28,6 +28,8 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
+  - name: Azure RBAC  
+    href: concept-role-based-access-control.md
 - name: How-to guides
   expanded: true
   items:

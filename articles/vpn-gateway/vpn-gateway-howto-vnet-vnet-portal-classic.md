@@ -3,7 +3,7 @@ title: 'Create a connection between VNets: classic: Azure portal'
 description: Learn how to connect classic Azure virtual networks together using PowerShell and the Azure portal.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom:
 ms.topic: how-to
 ms.date: 10/31/2023

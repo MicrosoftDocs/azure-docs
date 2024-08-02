@@ -3,7 +3,7 @@ title: 'CLI (v2) schedule YAML schema for model monitoring'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) schedule YAML schema for model monitoring.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2

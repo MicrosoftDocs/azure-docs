@@ -8,6 +8,7 @@ author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 10/17/2022
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Disaster recovery for Azure Automation

@@ -6,7 +6,7 @@ ms.service: cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ---
 
 # Available sizes for Azure Cloud Services (extended support)
@@ -32,7 +32,7 @@ This article describes the available virtual machine sizes for Cloud Services (e
 
 ## Configure sizes for Cloud Services (extended support)
 
-You can specify the virtual machine size of a role instance as part of the service model in the service definition file. The size of the role determines the number of CPU cores, memory capacity and the local file system size.
+You can specify the virtual machine size of a role instance as part of the service model in the service definition file. The size of the role determines the number of CPU cores, memory capacity, and the local file system size.
 
 For example, setting the web role instance size to `Standard_D2`: 
 
@@ -49,7 +49,7 @@ To change the size of an existing role, change the virtual machine size in the s
 
 ## Get a list of available sizes 
 
-To retrieve a list of available sizes see [Resource Skus - List](/rest/api/compute/resourceskus/list) and apply the following filters:
+To retrieve a list of available sizes, see [Resource Skus - List](/rest/api/compute/resourceskus/list) and apply the following filters:
 
 ```powershell
     # Update the location

@@ -3,13 +3,13 @@ title: HBv2-series VM overview - Azure Virtual Machines | Microsoft Docs
 description: Learn about the HBv2-series VM size in Azure.
 services: virtual-machines
 ms.custom:
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/08/2024
+ms.date: 07/25/2024
 ms.reviewer: cynthn
-ms.author: jushiman
-author: ju-shim
+ms.author: padmalathas
+author: padmalathas
 ---
 
 

@@ -3,7 +3,7 @@ title: Azure Attestation logs
 description: Describes the full logs that are collected for Azure Attestation
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: reference
 ms.date: 01/23/2023
 ms.author: mbaldwin

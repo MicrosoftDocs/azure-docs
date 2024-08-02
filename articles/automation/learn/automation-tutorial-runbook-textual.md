@@ -7,6 +7,7 @@ ms.date: 07/04/2024
 ms.topic: tutorial
 ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
+ms.service: azure-automation
 ---
 
 # Tutorial: Create a PowerShell Workflow runbook in Automation
@@ -111,10 +112,10 @@ Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-t
 
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and add them to the runbook with any related parameters. For this tutorial, you type code directly into the runbook.
 
-Your runbook is currently empty with only the required `Workflow` keyword, the name of the runbook, and the braces that encase the entire workflow.
+Your runbook is currently empty with only the required `workflow` keyword, the name of the runbook, and the braces that encase the entire workflow.
 
 ```powershell
-Workflow MyFirstRunbook-Workflow
+workflow MyFirstRunbook-Workflow
 {
 }
 ```
@@ -122,18 +123,19 @@ Workflow MyFirstRunbook-Workflow
 1. You can use the `Parallel` keyword to create a script block with multiple commands that will run concurrently. Enter the following code *between* the braces:
 
    ```powershell
-   Parallel {
-        Write-Output "Parallel"
-        Get-Date
-        Start-Sleep -s 3
-        Get-Date
-    }
-
-   Write-Output " `r`n"
-   Write-Output "Non-Parallel"
-   Get-Date
-   Start-Sleep -s 3
-   Get-Date
+	parallel
+	{
+		Write-Output "Parallel"
+		Get-Date
+		Start-Sleep -Seconds 3
+		Get-Date
+	}
+	
+	Write-Output " `r`n"
+	Write-Output "Non-Parallel"
+	Get-Date
+	Start-Sleep -Seconds 3
+	Get-Date
    ```
 
 1. Save the runbook by selecting **Save**.
@@ -189,16 +191,16 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    ```powershell
    workflow MyFirstRunbook-Workflow
    {
-   $resourceGroup = "resourceGroupName"
-
-   # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave -Scope Process
-
-   # Connect to Azure with system-assigned managed identity
-   Connect-AzAccount -Identity
-
-   # set and store context
-   $AzureContext = Set-AzContext –SubscriptionId "<SubscriptionID>"
+   	$resourceGroup = "resourceGroupName"
+   	
+   	# Ensures you do not inherit an AzContext in your runbook
+   	Disable-AzContextAutosave -Scope Process
+   	
+   	# Connect to Azure with system-assigned managed identity
+   	Connect-AzAccount -Identity
+   	
+   	# set and store context
+   	$AzureContext = Set-AzContext -SubscriptionId "<SubscriptionID>"
    }
    ```
 
@@ -262,38 +264,42 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     ```powershell
     workflow MyFirstRunbook-Workflow
     {
-       Param(
-           [string]$resourceGroup,
-           [string[]]$VMs,
-           [string]$action
-       )
+    	param
+    	(
+    		[string]$resourceGroup,
+    		[string[]]$VMs,
+    		[string]$action
+    	)
 
-       # Ensures you do not inherit an AzContext in your runbook
-       Disable-AzContextAutosave -Scope Process
+    	# Ensures you do not inherit an AzContext in your runbook
+    	Disable-AzContextAutosave -Scope Process
 
-       # Connect to Azure with system-assigned managed identity
-       Connect-AzAccount -Identity
+    	# Connect to Azure with system-assigned managed identity
+    	Connect-AzAccount -Identity
 
-       # set and store context
-       $AzureContext = Set-AzContext –SubscriptionId "<SubscriptionID>"
+    	# set and store context
+    	$AzureContext = Set-AzContext -SubscriptionId "<SubscriptionID>"
 
-       # Start or stop VMs in parallel
-       if ($action -eq "Start") {
-           ForEach -Parallel ($vm in $VMs)
-           {
-               Start-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
-           }
-       }
-       elseif ($action -eq "Stop") {
-           ForEach -Parallel ($vm in $VMs)
-           {
-               Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
-           }
-       }
-       else {
-           Write-Output "`r`n Action not allowed. Please enter 'stop' or 'start'."
-       }
-       }
+    	# Start or stop VMs in parallel
+    	if ($action -eq "Start")
+    	{
+    		ForEach -Parallel ($vm in $VMs)
+    		{
+    			Start-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
+    		}
+    	}
+    	elseif ($action -eq "Stop")
+    	{
+    		ForEach -Parallel ($vm in $VMs)
+    		{
+    			Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
+    		}
+    	}
+    	else
+    	{
+    		Write-Output "`r`n Action not allowed. Please enter 'stop' or 'start'."
+    	}
+    }
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:

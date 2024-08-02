@@ -3,7 +3,7 @@ title: Azure API Center - Overview
 description: Introduction to key scenarios and capabilities of Azure API Center. API Center inventories an organization's APIs for discovery, reuse, and governance at scale.
 author: dlepow
  
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: overview
 ms.date: 04/15/2024
 ms.author: danlep 
@@ -21,7 +21,7 @@ With an API center, stakeholders throughout your organization - including API pr
 
 ## Benefits
 
-* **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
+* **Create and maintain an organizational inventory​** - Organizations can build a **complete inventory of APIs** available in their organization. Register APIs managed in all of your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
 
 *  **Govern your organization's APIs** - With more complete visibility into the APIs being produced and used within an organization, API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
 

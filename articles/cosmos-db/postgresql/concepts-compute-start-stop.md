@@ -3,7 +3,7 @@ title: Start and stop cluster compute - Azure Cosmos DB for PostgreSQL
 description: Learn about how to start and stop compute on the cluster nodes
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 3/22/2023
