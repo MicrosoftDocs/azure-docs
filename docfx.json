@@ -1268,7 +1268,7 @@
         "articles/jenkins/**/*.md": "jenkins",
         "articles/lab-services/**/*.md": "azure-lab-services",
         "articles/playwright-testing/**/*.md": "playwright-testing",
-        "articles/lighthouse/**/*.md": "lighthouse",
+        "articles/lighthouse/**/*.md": "azure-lighthouse",
         "articles/logic-apps/*.md": "azure-logic-apps",
         "articles/logic-apps/**/*.md": "azure-logic-apps",
         "articles/media-services/**/*.md": "media-services",
