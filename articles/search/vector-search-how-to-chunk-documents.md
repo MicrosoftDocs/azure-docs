@@ -63,9 +63,9 @@ The following examples demonstrate how chunking strategies are applied to [NASA'
 
 ### Text Split skill example
 
-Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is in public preview. Use a preview REST API or an Azure SDK beta package for this scenario.
+Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is generally available.
 
-This section describes the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
+This section describes built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
 
 A sample notebook for this example can be found on the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/data-chunking/textsplit-data-chunking-example.ipynb) repository.
 Set `textSplitMode` to break up content into smaller chunks:

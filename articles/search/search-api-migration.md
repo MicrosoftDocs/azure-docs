@@ -77,9 +77,9 @@ See [Migrate from preview version](semantic-how-to-configure.md#migrate-from-pre
 
 [`2024-07-01`](/rest/api/searchservice/search-service-api-versions#2024-07-01) is a general release. The former preview features are now generally available: integrated chunking and vectorization (Text Split skill, AzureOpenAIEmbedding skill), query vectorizer based on AzureOpenAIEmbedding, vector compression (scalar quantization, binary quantization, stored property, narrow data types).
 
-There are no breaking changes from `2024-05-01-preview`. 
+There are no breaking changes if you upgrade from `2024-05-01-preview` to stable. To use the new stable release, change the API version and test your code.
 
-To use the new stable release, change the API version and test your code.
+There are breaking changes if you upgrade directly from `2023-11-01`. Follow the steps outlined for each newer preview to migrate from `2023-11-01` to `2024-07-01`.
 
 ## Upgrade to 2024-05-01-preview
 

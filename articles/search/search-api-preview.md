@@ -15,9 +15,9 @@ ms.date: 08/05/2024
 
 # Preview features in Azure AI Search
 
-This article identifies all data plane and control plane features in public preview. This list is helpful for checking feature status. It also provides usage guidance and reminders to always upgrade to newer preview API versions as they roll out.
+This article identifies all data plane and control plane features in public preview. This list is helpful for checking feature status. It also explains how to call a preview REST API.
 
-Preview API versions are cumulative and roll up to newer Preview versions. We recommend always using the latest preview APIs for full access to all preview features.
+Preview API versions are cumulative and roll up to the next preview. We recommend always using the latest preview APIs for full access to all preview features.
 
 Preview features are removed from this list if they're retired or transition to general availability. For announcements regarding general availability and retirement, see [Service Updates](https://azure.microsoft.com/updates/?product=search) or [What's New](whats-new.md).
 

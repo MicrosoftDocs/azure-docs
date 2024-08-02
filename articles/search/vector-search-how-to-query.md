@@ -34,6 +34,8 @@ You can also use [Search explorer](search-explorer.md) in the Azure portal if yo
 
 + [A vector index on Azure AI Search](vector-search-how-to-create-index.md). Check for a `vectorSearch` section in your index to confirm a vector index.
 
++ Optionally, [add a vectorizer](vector-search-how-to-configure-vectorizer.md) to your index for built-in text-to-vector or image-to-vector conversion during queries.
+
 + Visual Studio Code with a [REST client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) and sample data if you want to run these examples on your own. To get started with the REST client, see [Quickstart: Azure AI Search using REST](search-get-started-rest.md).
 
 ## Convert a query string input into a vector
@@ -161,41 +163,6 @@ api-key: {{admin-api-key}}
     ]
 }
 ```
-
-### [**2023-07-01-Preview**](#tab/query-vector-query)
-
-> [!IMPORTANT]
-> The vector query syntax for this version is obsolete in later versions. We recommend [upgrading to the latest REST API](search-api-migration.md).
-
-[**2023-07-01-Preview**](/rest/api/searchservice/index-preview) first introduced vector query support to [Search Documents](/rest/api/searchservice/preview-api/search-documents). This version added:
-
-+ `vectors` for specifying a vector to search for, vector fields to search in, and the k-number of nearest neighbors to return.
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings. It's trimmed in this example for readability.
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-10-01-Preview
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "vectors": [{
-        "value": [
-            -0.009154141,
-            0.018708462,
-            . . . 
-            -0.02178128,
-            -0.00086512347
-        ],
-        "fields": "contentVector",
-        "k": 5
-    }],
-    "select": "title, content, category"
-}
-```
-
-The response includes five matches, and each result provides a search score, title, content, and category. In a similarity search, the response always includes `k` matches, even if the similarity is weak. For indexes that have fewer than `k` documents, only those number of documents are returned.
-
-Notice that `select` returns textual fields from the index. Although the vector field is `retrievable` in this example, its content isn't meaningful as a search result, so it's often excluded in the results.
 
 ### [**Azure portal**](#tab/portal-vector-query)
 
@@ -358,37 +325,6 @@ api-key: {{admin-api-key}}
             "k": 5
         }
     ]
-}
-```
-
-### [**2023-07-01-Preview**](#tab/filter-2023-07-01-Preview)
-
-[**2023-07-01-Preview**](/rest/api/searchservice/index-preview) supports post-filtering only.  
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
-
-In this API version, there's no prefilter support or `vectorFilterMode` parameter. The filter criteria are applied after the search engine executes the vector query. The set of `"k"` nearest neighbors is retrieved, and then combined with the set of filtered results. As such, the value of `"k"` predetermines the surface over which the filter is applied. For `"k": 10`, the filter is applied to 10 most similar documents. For `"k": 100`, the filter iterates over 100 documents (assuming the index contains 100 documents that are sufficiently similar to the query).
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2023-07-01-Preview
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "vectors": [
-        {
-            "value": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
-            ],
-            "fields": "contentVector",
-            "k": 10
-        },
-    ],
-    "select": "title, content, category",
-    "filter": "category eq 'Databases'"
 }
 ```
 
