@@ -314,6 +314,11 @@
             "source_path_from_root": "/articles/ai-services/document-intelligence/concept-document-intelligence-studio.md",
             "redirect_url": "/azure/ai-services/document-intelligence/studio-overview",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/ai-services/openai/how-to/monitoring.md",
+            "redirect_url": "/azure/ai-services/openai/monitor-openai",
+            "redirect_document_id": false
           }
     ]
   }
