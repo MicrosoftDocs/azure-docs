@@ -5,7 +5,7 @@ author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
 ms.date: 06/20/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-python

@@ -4,7 +4,7 @@ description: Configure a GraphQL resolver in Azure API Management for a field in
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/02/2024
 ms.author: danlep

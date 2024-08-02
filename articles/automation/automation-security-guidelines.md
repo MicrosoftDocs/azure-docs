@@ -5,6 +5,7 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 10/03/2023
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Security best practices in Azure Automation

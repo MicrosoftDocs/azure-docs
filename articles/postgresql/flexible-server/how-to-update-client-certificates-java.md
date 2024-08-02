@@ -5,7 +5,7 @@ author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.topic: conceptual

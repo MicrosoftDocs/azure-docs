@@ -4,7 +4,7 @@ description: In this tutorial, learn how to restore SAP HANA databases running o
 ms.topic: tutorial
 ms.date: 07/30/2024
 ms.custom: devx-track-azurecli,engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

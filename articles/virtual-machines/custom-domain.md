@@ -2,7 +2,7 @@
 title: Create and use a custom domain
 description: Connect a custom domain to a virtual machine in Azure.
 author: jasonmesser7
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.date: 02/23/2023

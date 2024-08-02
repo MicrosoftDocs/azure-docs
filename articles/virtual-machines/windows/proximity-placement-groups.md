@@ -2,7 +2,7 @@
 title: Create a proximity placement group using Azure PowerShell
 description: Learn about creating and using proximity placement groups using Azure PowerShell. 
 services: virtual-machines
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.date: 3/12/2023

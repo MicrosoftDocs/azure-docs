@@ -8,7 +8,6 @@ ms.custom:
   - build-2024
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.service: azure-event-grid
 ---
 
 

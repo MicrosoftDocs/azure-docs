@@ -3,7 +3,7 @@ title: Create and retrieve attributes of a key in Azure Key Vault – Azure Powe
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/30/2024

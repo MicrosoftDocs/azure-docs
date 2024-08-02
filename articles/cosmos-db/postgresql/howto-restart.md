@@ -4,7 +4,7 @@ description: Learn how to restart all nodes in a cluster from the Azure portal.
 ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 02/17/2023

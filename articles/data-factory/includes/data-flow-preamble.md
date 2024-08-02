@@ -1,6 +1,5 @@
 ---
 author: ssabat
-ms.service: azure-data-factory
 ms.subservice: data-flows
 ms.topic: include
 ms.date: 10/20/2023

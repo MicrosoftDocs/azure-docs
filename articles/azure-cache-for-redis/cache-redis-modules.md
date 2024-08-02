@@ -4,7 +4,7 @@ description: You can use Redis modules with your Azure Cache for Redis instances
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.custom: template-concept

@@ -3,7 +3,7 @@ title: Use a query in Azure Cosmos DB for MongoDB using JavaScript
 description: Learn how to use a query in your Azure Cosmos DB for MongoDB database using the JavaScript SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to

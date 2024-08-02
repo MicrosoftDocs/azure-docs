@@ -3,7 +3,7 @@ title: Transport Layer Security (TLS) - Azure Cosmos DB for PostgreSQL
 description: Instructions and information to configure Azure Cosmos DB for PostgreSQL and associated applications to properly use TLS connections.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 06/05/2023
