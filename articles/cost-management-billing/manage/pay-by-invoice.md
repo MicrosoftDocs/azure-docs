@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/02/2024
 ms.author: banders
 ---
 
@@ -32,6 +32,11 @@ When you switch to pay by wire transfer:
 Users with a Microsoft Customer Agreement must always [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer. Any user with access to the Microsoft Online Services Program (pay-as-you-go) billing profile can submit the request to pay by wire transfer.
 
 Currently, customers who have a Microsoft Online Services Program (pay-as-you-go) account must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer. Any user with access to the Microsoft Customer Agreement billing profile can submit the request to pay by wire transfer.
+
+**Eligibility requirements**: To qualify for wire transfer payments, you must:
+
+- Be an established customer for at least six months and have no outstanding balances
+- Have a subscription cost that exceeds a certain amount (this amount varies by service location)
 
 > [!IMPORTANT]
 > * Pay by wire transfer is only available for customers using Azure on behalf of a company.
