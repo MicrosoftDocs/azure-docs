@@ -189,9 +189,9 @@ To use a custom image stored in a public registry, you need to enable anonymous 
 
 To use a custom image stored in ACR, you need to ensure that ADE has appropriate permissions to access your image. Anonymous pull access is disabled by default in ACR. 
 
-#### Use a public registry with anonymous pull
+To create an instance of the ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli). 
 
-To create a registry, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+#### Use a public registry with anonymous pull
 
 To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 
@@ -218,7 +218,7 @@ To secure network access to your ACR, you can limit access to your own networks,
 
 To disable access from public networks:
 
-1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) or use an existing one.
+1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-azure-cli) or use an existing one.
 1. In the Azure portal, go to the ACR that you want to configure.
 1. On the left menu, under **Settings**, select **Networking**.
 1. On the Networking page, on the **Public access** tab, under **Public network access**, select **Disabled**.
