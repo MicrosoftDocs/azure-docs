@@ -5,7 +5,7 @@ author: kabharati
 ms.author: kabharati
 ms.reviewer: kabharati, maghan
 ms.date: 05/01/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

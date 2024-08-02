@@ -4,7 +4,7 @@ description: Learn how to create and manage the Backup vaults.
 ms.topic: how-to
 ms.date: 02/01/2024
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -2,7 +2,7 @@
 title: Web App Tutorial - Set up Azure API for FHIR
 description: This tutorial walks through an example of deploying a simple web application. This first tutorial describes the prerequisites and the deployment of the Azure API for FHIR
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

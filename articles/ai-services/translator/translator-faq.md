@@ -14,8 +14,6 @@ ms.author: lajanuar
 
 # Frequently asked questions—Translator API
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 ## How does Translator count characters?
 
 Translator counts every code point defined in Unicode as a character. Each translation counts as a separate translation, even if the request was made in a single API call translating to multiple languages. The length of the response doesn't matter and the number of requests, words, bytes, or sentences isn't relevant to character count.

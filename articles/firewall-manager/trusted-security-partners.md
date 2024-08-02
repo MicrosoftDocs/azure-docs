@@ -2,7 +2,7 @@
 title: What are Azure Firewall Manager security partner providers?
 description: Learn about Azure Firewall Manager security partner providers
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: conceptual
 ms.date: 08/03/2021

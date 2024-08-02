@@ -4,7 +4,7 @@ description: This article describes some scenarios for Query Store in Azure Data
 author: markingmyname
 ms.author: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

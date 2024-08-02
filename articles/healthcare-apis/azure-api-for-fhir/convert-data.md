@@ -3,7 +3,7 @@ title: Data conversion for Azure API for FHIR
 description: Use the $convert-data endpoint and customize-converter templates to convert data in Azure API for FHIR.
 services: healthcare-apis
 author: irenepjoseph
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/27/2023

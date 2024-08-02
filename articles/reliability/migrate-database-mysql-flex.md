@@ -2,7 +2,7 @@
 title: Migrate Azure Database for MySQL – Flexible Server to availability zone support 
 description: Learn how to migrate your Azure Database for MySQL – Flexible Server to availability zone support.
 author: VandhanaMehta
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 12/13/2022

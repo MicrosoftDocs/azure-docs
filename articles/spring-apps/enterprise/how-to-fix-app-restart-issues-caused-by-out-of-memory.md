@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Explains how to understand out-of-memory (OOM) issues for Java applications in Azure Spring Apps.
 author: KarlErickson
 ms.author: kaiqianyang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java

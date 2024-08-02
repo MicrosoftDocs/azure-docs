@@ -3,7 +3,7 @@ title: Useful diagnostic queries - Azure Cosmos DB for PostgreSQL
 description: Queries to learn about distributed data and more
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 10/01/2023

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.custom: devx-track-azurecli
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2024
