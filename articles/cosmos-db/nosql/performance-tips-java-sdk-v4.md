@@ -33,7 +33,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 ## Networking
 <a name="collocate-clients"></a>
-* **Collocate clients in same Azure region for performance**
+**Collocate clients in same Azure region for performance**
 <a id="same-region"></a>
 
 When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos DB database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
@@ -61,11 +61,11 @@ In addition to a good foundational setup in the database platform, there are spe
 
 These techniques provide advanced mechanisms to address specific latency and availability challenges, going above and beyond the cross-region retry capabilities that are built into the SDK by default. By proactively managing potential issues at the request and partition levels, these strategies can significantly enhance the resilience and performance of your application, particularly under high-load or degraded conditions.
 
-### Threshold-based Availability Strategy
+### Threshold-based availability atrategy
 
 The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance.
 
-**Example Configuration:**
+**Example configuration:**
 ```java
 int threshold = 500;
 int thresholdStep = 100;
@@ -85,7 +85,7 @@ options.setNonIdempotentWriteRetryPolicy(true, true);
 container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).block();
 ```
 
-**How it Works:**
+**How it works:**
 
 1. **Initial Request:** At time T1, a read request is made to the primary region (for example, East US). The SDK waits for a response for up to 500 milliseconds (the `threshold` value).
   
@@ -98,13 +98,13 @@ container.createItem("id", new PartitionKey("pk"), options, JsonNode.class).bloc
 This strategy can significantly improve latency in scenarios where a particular region is slow or temporarily unavailable, but it may incur more cost in terms of request units when parallel cross-region requests are required.
 
 > [!NOTE]
-> If the first preferred region returns a non-transient error status code (e.g. document not found, authorization error, conflict, etc), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario.
+> If the first preferred region returns a non-transient error status code (e.g., document not found, authorization error, conflict, etc.), the operation itself will fail fast, as availability strategy would not have any benefit in this scenario.
 
-### Partition Level Circuit Breaker
+### Partition level circuit breaker
 
 The partition-level circuit breaker enhances tail latency and write availability by tracking and short-circuiting requests to unhealthy physical partitions. It improves performance by avoiding known problematic partitions and redirecting requests to healthier regions.
 
-**Example Configuration:**
+**Example configuration:**
 
 To enable partition-level circuit breaker:
 ```java
@@ -127,7 +127,7 @@ To set the duration for which a partition can remain unavailable:
 System.setProperty("COSMOS.ALLOWED_PARTITION_UNAVAILABILITY_DURATION_IN_SECONDS", "30");
 ```
 
-**How it Works:**
+**How it works:**
 
 1. **Tracking Failures:** The SDK tracks terminal failures (e.g., 503s, 500s, timeouts) for individual partitions in specific regions.
   
@@ -147,12 +147,12 @@ This mechanism helps to continuously monitor partition health and ensures that r
 
 ### Comparing availability optimizations
 
-- **Threshold-based Availability Strategy**: 
+- **Threshold-based availability strategy**: 
   - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
   - **Cost**: Incurs extra RU (Request Units) costs due to additional cross-region requests.
   - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost (both in terms of RU charge and client CPU pressure) is acceptable. Write operations can also benefit, if opted into non-idempotent write retry policy and the account has multi-region writes.
 
-- **Partition Level Circuit Breaker**: 
+- **Partition level circuit breaker**: 
   - **Benefit**: Improves write availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
   - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
   - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
@@ -161,7 +161,7 @@ Both strategies can be used to enhance write availability and reduce tail latenc
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 
-## Region Scoped Session Consistency
+## Region scoped session consistency
 
 ### Overview
 For more information about consistency settings in general, see [Consistency levels in Azure Cosmos DB](../consistency-levels.md). The Java SDK provides an optimization for [session consistency](../consistency-levels.md#session-consistency) for multi-region write accounts, by allowing it to be region-scoped. This enhances performance by mitigating cross-regional replication latency through minimizing client-side retries. This is achieved by managing session tokens at the region level instead of globally. If consistency in your application can be scoped to a smaller number of regions, by implementing region-scoped session consistency, you can achieve better performance and reliability for read and write operations in multi-write accounts by minimizing cross-regional replication delays and retries. 
@@ -182,19 +182,19 @@ For more information about consistency settings in general, see [Consistency lev
 - **Applicability:** This feature is most beneficial for applications with a high cardinality of logical partitions and regular restarts. Applications with fewer logical partitions or infrequent restarts might not see significant benefits.
 
 
-### How It Works
-#### Setting the Session Token
+### How it works
+#### Set the session token
 1. **Request Completion:** After a request is completed, the SDK captures the session token and associates it with the region and partition key.
 2. **Region-Level Storage:** Session tokens are stored in a nested `ConcurrentHashMap` that maintains mappings between partition key ranges and region-level progress.
 3. **Bloom Filter:** A bloom filter keeps track of which regions have been accessed by each logical partition, helping to localize session token validation.
 
-#### Resolving the Session Token
+#### Resolve the session token
 1. **Request Initialization:** Before a request is sent, the SDK attempts to resolve the session token for the appropriate region.
 2. **Token Check:** The token is checked against the region-specific data to ensure the request is routed to the most up-to-date replica.
 3. **Retry Logic:** If the session token is not validated within the current region, the SDK retries with other regions, but given the localized storage, this is less frequent.
 
 
-### Using the SDK
+### Use the SDK
  Here's how to initialize the CosmosClient with region-scoped session consistency:
 
 ```java
@@ -207,14 +207,14 @@ CosmosClient client = new CosmosClientBuilder()
 // Your operations here
 ```
 
-### Enabling Region-Scoped Session Consistency
+### Enable region-scoped session consistency
 To enable region-scoped session capturing in your application, set the following system property:
 
 ```java
 System.setProperty("COSMOS.SESSION_CAPTURING_TYPE", "REGION_SCOPED");
 ```
 
-### Configuring Bloom Filter
+### Configure bloom filter
 Fine-tune the performance by configuring the expected insertions and false positive rate for the bloom filter:
 
 ```java
@@ -242,7 +242,7 @@ Below is the retained size (size of the object and whatever it depends on) of th
 
 ## Tuning direct and gateway connection configuration
 
-For optimizing direct and gateway mode connection configurations, see how to [tune connection configurations for java sdk v4](tune-connection-configurations-java-sdk-v4.md).
+For optimizing direct and gateway mode connection configurations, see how to [tune connection configurations for Java SDK v4](tune-connection-configurations-java-sdk-v4.md).
 
 ## SDK usage
 * **Install the most recent SDK**
@@ -323,11 +323,11 @@ For more information on Azure Cosmos DB Java SDK v4, look at the [Azure Cosmos D
 
 For various reasons, you should add logging in a thread that is generating high request throughput. If your goal is to fully saturate a container's provisioned throughput with requests generated by this thread, logging optimizations can greatly improve performance.
 
-* ***Configure an async logger***
+* **Configure an async logger**
 
 The latency of a synchronous logger necessarily factors into the overall latency calculation of your request-generating thread. An async logger such as [log4j2](https://logging.apache.org/log4j/log4j-2.3/manual/async.html) is recommended to decouple logging overhead from your high-performance application threads.
 
-* ***Disable netty's logging***
+* **Disable netty's logging**
 
 Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration might not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using Log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
