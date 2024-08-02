@@ -1,33 +1,24 @@
 ---
-title: Dsv3 size series
-description: Information on and specifications of the Dsv3-series sizes
+title: Edsv6 size series
+description: Information on and specifications of the Edsv6-series sizes
 author: mattmcinnes
 ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 07/29/2024
+ms.date: 08/01/2024
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 ---
 
-# Dsv3 sizes series
-[!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
+# Edsv6 sizes series
 
-[!INCLUDE [dsv3-summary](./includes/dsv3-series-summary.md)]
+[!INCLUDE [edsv6-summary](./includes/edsv6-series-summary.md)]
 
 ## Host specifications
-[!INCLUDE [dsv3-series-specs](./includes/dsv3-series-specs.md)]
+[!INCLUDE [edsv6-series-specs](./includes/edsv6-series-specs.md)]
 
 ## Feature support
-
-Premium Storage: Not Supported<br>
-Premium Storage caching: Not Supported<br>
-Live Migration: Supported<br>
-Memory Preserving Updates: Supported<br>
-VM Generation Support: Generation 1<br>
-Accelerated Networking: Supported<br>
-Ephemeral OS Disks: Not Supported<br>
-Nested Virtualization: Supported<br>
+[Premium Storage](../../premium-storage-performance.md): Supported <br>[Premium Storage caching](../../premium-storage-performance.md): Supported <br>[Live Migration](../../maintenance-and-updates.md): Supported <br>[Memory Preserving Updates](../../maintenance-and-updates.md): Supported <br>[Generation 2 VMs](../../generation-2.md): Supported <br>[Generation 1 VMs](../../generation-2.md): Not Supported <br>[Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>[Ephemeral OS Disk](../../ephemeral-os-disks.md): Not Supported <br>[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 
 ## Sizes in series
 
@@ -37,31 +28,36 @@ vCPUs (Qty.) and Memory for each size
 
 | Size Name | vCPUs (Qty.) | Memory (GB) |
 | --- | --- | --- |
-| Standard_D2s_v3 | 2 | 8 |
-| Standard_D4s_v3 | 4 | 16 |
-| Standard_D8s_v3 | 8 | 32 |
-| Standard_D16s_v3 | 16 | 64 |
-| Standard_D32s_v3 | 32 | 128 |
-| Standard_D48s_v3 | 48 | 192 |
-| Standard_D64s_v3 | 64 | 256 |
+| Standard_E2ds_v6 | 2 | 16 |
+| Standard_E4ds_v6 | 4 | 32 |
+| Standard_E8ds_v6 | 8 | 64 |
+| Standard_E16ds_v6 | 16 | 128 |
+| Standard_E20ds_v6 | 20 | 160 |
+| Standard_E32ds_v6 | 32 | 256 |
+| Standard_E48ds_v6 | 48 | 384 |
+| Standard_E64ds_v6 | 64 | 512 |
+| Standard_E96ds_v6 | 96 | 768 |
+| Standard_E128ds_v6 | 128 | 1024 |
 
 #### VM Basics resources
-- [What are vCPUs](../../../virtual-machines/managed-disks-overview.md)
 - [Check vCPU quotas](../../../virtual-machines/quotas.md)
 
-### [Local Storage](#tab/sizestoragelocal)
+### [Local storage](#tab/sizestoragelocal)
 
 Local (temp) storage info for each size
 
-| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2s_v3 | 1 | 16 | 4000 | 32 |  |  |
-| Standard_D4s_v3 | 1 | 32 | 8000 | 64 |  |  |
-| Standard_D8s_v3 | 1 | 64 | 16000 | 128 |  |  |
-| Standard_D16s_v3 | 1 | 128 | 32000 | 256 |  |  |
-| Standard_D32s_v3 | 1 | 256 | 64000 | 512 |  |  |
-| Standard_D48s_v3 | 1 | 384 | 96000 | 768 |  |  |
-| Standard_D64s_v3 | 1 | 512 | 128000 | 1024 |  |  |
+| Size Name | Max Temp Storage Disks (Qty.) | Temp Disk Size (GiB) | Temp Disk Random Read (RR)<sup>1</sup> IOPS | Temp Disk Random Read (RR)<sup>1</sup> Speed (MBps) | Temp Disk Random Write (RW)<sup>1</sup> IOPS | Temp Disk Random Write (RW)<sup>1</sup> Speed (MBps) | Local-Special-Disk-Count | Local-Special-Disk-Size-GB | Local-Special-Disk-RR-IOPS | Local-Special-Disk-RR-MBps |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_E2ds_v6 | 1 | 110 | 37500 | 180 | 15000 | 90 |  |  |  |  |
+| Standard_E4ds_v6 | 1 | 220 | 75000 | 360 | 30000 | 180 |  |  |  |  |
+| Standard_E8ds_v6 | 1 | 440 | 150000 | 720 | 60000 | 360 |  |  |  |  |
+| Standard_E16ds_v6 | 2 | 440 | 300000 | 1440 | 120000 | 720 |  |  |  |  |
+| Standard_E20ds_v6 | 2 | 550 | 375000 | 1800 | 150000 | 900 |  |  |  |  |
+| Standard_E32ds_v6 | 4 | 440 | 600000 | 2880 | 240000 | 1440 |  |  |  |  |
+| Standard_E48ds_v6 | 6 | 440 | 900000 | 4320 | 360000 | 2160 |  |  |  |  |
+| Standard_E64ds_v6 | 4 | 880 | 1200000 | 5760 | 480000 | 2880 |  |  |  |  |
+| Standard_E96ds_v6 | 6 | 880 | 1800000 | 8640 | 720000 | 4320 |  |  |  |  |
+| Standard_E128ds_v6 | 4 | 1760 | 2400000 | 11520 | 960000 | 5760 |  |  |  |  |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -74,19 +70,22 @@ Local (temp) storage info for each size
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - To learn how to get the best storage performance for your VMs, see [Virtual machine and disk performance](../../../virtual-machines/disks-performance.md).
 
-### [Remote Storage](#tab/sizestorageremote)
+### [Remote storage](#tab/sizestorageremote)
 
 Remote (uncached) storage info for each size
 
 | Size Name | Max Remote Storage Disks (Qty.) | Uncached Disk IOPS | Uncached Disk Speed (MBps) | Uncached Disk Burst<sup>1</sup> IOPS | Uncached Disk Burst<sup>1</sup> Speed (MBps) | Uncached Special<sup>2</sup> Disk IOPS | Uncached Special<sup>2</sup> Disk Speed (MBps) | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk IOPS | Uncached Burst<sup>1</sup> Special<sup>2</sup> Disk Speed (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D2s_v3 | 4 | 3200 | 48 | 4000 | 200 |  |  |  |  |
-| Standard_D4s_v3 | 8 | 6400 | 96 | 8000 | 200 |  |  |  |  |
-| Standard_D8s_v3 | 16 | 12800 | 192 | 16000 | 400 |  |  |  |  |
-| Standard_D16s_v3 | 32 | 25600 | 384 | 32000 | 800 |  |  |  |  |
-| Standard_D32s_v3 | 32 | 51200 | 768 | 64000 | 1600 |  |  |  |  |
-| Standard_D48s_v3 | 32 | 76800 | 1152 | 80000 | 2000 |  |  |  |  |
-| Standard_D64s_v3 | 32 | 80000 | 1200 | 80000 | 2000 |  |  |  |  |
+| Standard_E2ds_v6 | 8 | 3750 | 106 | 40000 | 1250 | 4167 | 124 | 44444 | 1463 |
+| Standard_E4ds_v6 | 12 | 6400 | 212 | 40000 | 1250 | 8333 | 248 | 52083 | 1463 |
+| Standard_E8ds_v6 | 24 | 12800 | 424 | 40000 | 1250 | 16667 | 496 | 52083 | 1463 |
+| Standard_E16ds_v6 | 48 | 25600 | 848 | 40000 | 1250 | 33333 | 992 | 52083 | 1463 |
+| Standard_E20ds_v6 | 48 | 32000 | 1060 | 64000 | 1600 | 41667 | 1240 | 83333 | 1872 |
+| Standard_E32ds_v6 | 64 | 51200 | 1696 | 80000 | 1696 | 66667 | 1984 | 104167 | 1984 |
+| Standard_E48ds_v6 | 64 | 76800 | 2544 | 80000 | 2544 | 100000 | 2976 | 104167 | 2976 |
+| Standard_E64ds_v6 | 64 | 102400 | 3392 | 102400 | 3392 | 133333 | 3969 | 133333 | 3969 |
+| Standard_E96ds_v6 | 64 | 153600 | 5088 | 153600 | 5088 | 200000 | 5953 | 200000 | 5953 |
+| Standard_E128ds_v6 | 64 | 204800 | 6782 | 204800 | 6782 | 266667 | 7935 | 266667 | 7935 |
 
 #### Storage resources
 - [Introduction to Azure managed disks](../../../virtual-machines/managed-disks-overview.md)
@@ -94,7 +93,7 @@ Remote (uncached) storage info for each size
 - [Share an Azure managed disk](../../../virtual-machines/disks-shared.md)
 
 #### Table definitions
-- <sup>1</sup>These sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
+- <sup>1</sup>Some sizes support [bursting](../../disk-bursting.md) to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
 - <sup>2</sup>Special Storage refers to either [Ultra Disk](../../../virtual-machines/disks-enable-ultra-ssd.md) or [Premium SSD v2](../../../virtual-machines/disks-deploy-premium-v2.md) storage.
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When you compare disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB.
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
@@ -108,13 +107,16 @@ Network interface info for each size
 
 | Size Name | Max NICs (Qty.) | Max Bandwidth (Mbps) |
 | --- | --- | --- |
-| Standard_D2s_v3 | 2 | 1000 |
-| Standard_D4s_v3 | 2 | 2000 |
-| Standard_D8s_v3 | 4 | 2000 |
-| Standard_D16s_v3 | 8 | 2000 |
-| Standard_D32s_v3 | 8 | 16000 |
-| Standard_D48s_v3 | 8 | 24000 |
-| Standard_D64s_v3 | 8 | 30000 |
+| Standard_E2ds_v6 | 2 | 12500 |
+| Standard_E4ds_v6 | 2 | 12500 |
+| Standard_E8ds_v6 | 4 | 12500 |
+| Standard_E16ds_v6 | 8 | 12500 |
+| Standard_E20ds_v6 | 8 | 12500 |
+| Standard_E32ds_v6 | 8 | 16000 |
+| Standard_E48ds_v6 | 8 | 24000 |
+| Standard_E64ds_v6 | 8 | 30000 |
+| Standard_E96ds_v6 | 8 | 41000 |
+| Standard_E128ds_v6 | 8 | 54000 |
 
 #### Networking resources
 - [Virtual networks and virtual machines in Azure](../../../virtual-network/network-overview.md)

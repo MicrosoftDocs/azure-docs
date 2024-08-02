@@ -2,7 +2,7 @@
 title: Dsv2 size series
 description: Information on and specifications of the Dsv2-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/29/2024
@@ -11,6 +11,7 @@ ms.reviewer: mattmcinnes
 ---
 
 # Dsv2 sizes series
+[!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
 
 [!INCLUDE [dsv2-summary](./includes/dsv2-series-summary.md)]
 
