@@ -26,7 +26,7 @@ In part four of the series, you learn how to:
 
 1. Choose Blob from the **SUB SERVICE** drop-down.
 
-1. Under **METRIC**, select one of the metrics. For a lits of supported metrics, see [Supported metrics for Microsoft.Storage/storageAccounts](monitor-blob-storage-reference.md#supported-metrics-for-microsoftstoragestorageaccounts).
+1. Under **METRIC**, select one of the metrics. For a list of supported metrics, see [Supported metrics for Microsoft.Storage/storageAccounts](monitor-blob-storage-reference.md#supported-metrics-for-microsoftstoragestorageaccounts).
 
     These metrics give you an idea of the latency and throughput of the application. The metrics you configure in the portal are in 1-minute averages. If a transaction finished in the middle of a minute, that minute data is halved for the average. In the application, the upload and download operations were timed and provided you output of the actual amount of time it took to upload and download the files. This information can be used in conjunction with the portal metrics to fully understand throughput.
 
