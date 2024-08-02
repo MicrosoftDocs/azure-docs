@@ -3,7 +3,7 @@ title: Azure SignalR Service data-plane REST API reference
 description: Learn about the REST APIs that Azure SignalR Service supports to manage connections and send messages to connections.
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: reference
 ms.date: 08/02/2024
 ---
