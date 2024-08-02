@@ -1280,7 +1280,7 @@
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
-        "articles/service-fabric/*.md": "service-fabric",
+        "articles/service-fabric/*.md": "azure-service-fabric",
         "articles/service-health/**/*.md": "service-health",
         "articles/site-recovery/*.md": "site-recovery",
         "articles/synapse-analytics/**/*": "azure-synapse-analytics",
