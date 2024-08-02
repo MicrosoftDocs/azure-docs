@@ -261,7 +261,7 @@ items:
         href: monitor-hdinsight.md
       - name: Use Azure Monitor Logs
         href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-      - name: Use selective logging to monitor logs  
+      - name: Use selective logging  
         items: 
           - name: Use selective logging to monitor logs
             href: ./selective-logging-analysis.md    
