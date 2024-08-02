@@ -35,13 +35,15 @@ This feature enables customers to perform in-place upgrades of their MySQL 5.7 s
 
 ## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal for Burstable SKU servers
 
+Performing a major version upgrade for an Azure Database for MySQL Burstable SKU compute tier requires a specialized workflow. This is because major version upgrades are resource-intensive, demanding significant CPU and memory. Burstable SKU instances may struggle under these requirements, potentially causing the upgrade process to fail. Therefore, when upgrading a Burstable SKU, the system first upgrades the compute tier to a General Purpose SKU to ensure sufficient resources are available for the upgrade.
+
 To perform a major version upgrade for an Azure Database for MySQL Burstable SKU compute tier using the Azure portal, follow these steps:
 
-1.	In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server 5.7 server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL flexible server 5.7 server.
     >[!Important]
     > We recommend performing upgrade first on a restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](./how-to-restore-server-portal.md).
 
-2.	On the **Overview** page, in the toolbar, select **Upgrade**.
+2. On the **Overview** page, in the toolbar, select **Upgrade**.
 
     >[!Important]
     > Before upgrading visit link for list of [features removed](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html#mysql-nutshell-removals) in MySQL 8.0.
@@ -50,33 +52,33 @@ To perform a major version upgrade for an Azure Database for MySQL Burstable SKU
 
     :::image type="content" source="./media/how-to-upgrade/1-how-to-upgrade.png" alt-text="Screenshot showing Azure Database for MySQL flexible server Upgrade.":::
 
-3.   Schema Compatibility Validation
+3. Schema Compatibility Validation
 
 Before proceeding with the upgrade, run Oracle's official tool to validate that your current database schema is compatible with MySQL 8.0. This step is crucial to ensure a smooth upgrade process.
 
-4.   Important Information Confirmation
-
-The Burstable SKU major version upgrade will first upgrade the Burstable SKU to General Purpose SKU. This change may incur additional costs.
-Confirm this information to proceed with the major version upgrade.
-5.   Pre-Upgrade Decision
+4. Pre-Upgrade Decision
 
 Before proceeding with the upgrade, you need to:
 
 Choose the compute tier to which you want to upgrade to perform the major version upgrade. By default, the system will upgrade from Burstable SKU to the most basic General Purpose SKU, but you can opt to upgrade to a higher compute tier if needed.
 Automatic Compute Tier Upgrade
+  >[!NOTE]
+  >While your server operates in the "General Purpose" tier during the upgrade, you will only be charged for the actual "General Purpose" resources used during this period.  
+
+5. Post-Upgrade Decision
 
 Decide whether to retain the General Purpose SKU or revert to Burstable SKU after the upgrade. This choice will be prompted during the initial upgrade steps.
 
 The system will automatically upgrade your compute tier from Burstable SKU to the selected General Purpose SKU support the major version upgrade.
 
-6.   Major Version Upgrade
+5. Major Version Upgrade
 
 Once the compute tier is upgraded, the system will initiate the major version upgrade process. Monitor the upgrade progress through the Azure portal. The upgrade process might take some time depending on the size and activity of your database.
 
   >[!Note]
   >If the major version upgrade fails, the compute tier will not automatically revert to the previous Burstable SKU. This is to allow customers to continue the major version upgrade without needing to perform the compute tier upgrade again.
 
-7.  Automatic Reversion
+6. Automatic Reversion
 
 Based on your pre-upgrade decision, the system will either retain the General Purpose SKU or automatically revert to Burstable SKU after the upgrade is complete.
 
