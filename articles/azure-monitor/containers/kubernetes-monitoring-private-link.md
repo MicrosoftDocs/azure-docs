@@ -14,7 +14,7 @@ This article describes how to configure monitoring for your Kubernetes cluster f
 
 > [!NOTE]
 > - See [Connect to a data source privately](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link to query data from your Azure Monitor workspace using Grafana.
-> - See [Use private endpoints for Managed Prometheus and Azure Monitor workspace](azure-monitor-workspace-private-endpoint.md) for details on how to configure private link to query data from your Azure Monitor workspace using workbooks.
+> - See [Use private endpoints for Managed Prometheus and Azure Monitor workspace](../essentials/azure-monitor-workspace-private-endpoint.md) for details on how to configure private link to query data from your Azure Monitor workspace using workbooks.
 
 
 ## Prerequisites
@@ -25,11 +25,11 @@ This article describes how to connect your cluster to an existing Azure Monitor 
 ### Configure DCEs
 Private links for data ingestion for Managed Prometheus are configured on the Data Collection Endpoints (DCE) of the workspace that stores the data. To identify the DCEs associated with your Azure Monitor workspace, select **Data Collection Endpoints** from your Azure Monitor workspace in the Azure portal.
 
-:::image type="content" source="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-endpoints.png" alt-text="A screenshot show the data collection endpoints page for an Azure Monitor workspace." lightbox="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-endpoints.png" :::
+:::image type="content" source="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-endpoints.png" alt-text="A screenshot show the data collection endpoints page for an Azure Monitor workspace." lightbox="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-endpoints.png" :::
 
 If your AKS cluster isn't in the same region as your Azure Monitor workspace, then you need to [create another DCE](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) in the same region as the AKS cluster. In this case, open the data collection rule (DCR ) created when you enabled Managed Prometheus. This DCR will be named **MSPrometheus-\<clusterName\>-\<clusterRegion\>**. The cluster will be listed on the **Resources** page. On the **Data collection endpoint** dropdown, select the DCE in the same region as the AKS cluster.
 
-:::image type="content" source="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" alt-text="A screenshot show the data collection rules page for an Azure Monitor workspace." lightbox="media/private-link-data-ingestion/azure-monitor-workspace-data-collection-rule.png" :::
+:::image type="content" source="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-rule.png" alt-text="A screenshot show the data collection rules page for an Azure Monitor workspace." lightbox="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-rule.png" :::
 
 
 ## Ingestion from a private AKS cluster
