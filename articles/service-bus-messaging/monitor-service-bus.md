@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: spelluru
 ms.author: spelluru 
-ms.service: service-bus-messaging
 ---
 
 # Monitor Azure Service Bus
