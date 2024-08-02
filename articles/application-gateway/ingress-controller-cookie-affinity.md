@@ -3,7 +3,7 @@ title: Enable cookie based affinity with Application Gateway
 description: This article provides information on how to enable cookie-based affinity with an Application Gateway. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: greglin

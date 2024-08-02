@@ -1280,7 +1280,7 @@
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
-        "articles/service-bus-messaging/*.md": "service-bus-messaging",
+        "articles/service-bus-messaging/**/*": "azure-service-bus",
         "articles/service-fabric/*.md": "azure-service-fabric",
         "articles/service-health/**/*.md": "service-health",
         "articles/site-recovery/*.md": "azure-site-recovery",
