@@ -3,7 +3,7 @@
  description: include file
  services: virtual-wan
  author: cherylmc
- ms.service: virtual-wan
+ ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 09/12/2018
  ms.author: cherylmc

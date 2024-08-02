@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to connect your AKS hosted applicat
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: tutorial
 ms.date: 09/18/2023
 #CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.

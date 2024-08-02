@@ -8,7 +8,6 @@ ms.date: 06/17/2021
 ms.topic: quickstart
 ms.custom: mode-other, devx-track-azurecli, build-2024
 ms.devlang: azurecli
-ms.service: azure-event-grid
 ---
 
 # Route cloud events to Webhooks with Azure Event Grid on Kubernetes

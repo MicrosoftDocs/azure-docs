@@ -2,7 +2,6 @@
 title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
@@ -246,7 +245,7 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
 >[!Note]
->Due to the sunset of Idf authentication type by **September 15, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
+>Due to the sunset of Ifd authentication type by **September 15, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
  
 #### Example: Dynamics on-premises with IFD using Active Directory authentication
 

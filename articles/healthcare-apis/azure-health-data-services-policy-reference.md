@@ -4,7 +4,7 @@ description: Explore the index of Azure Policy’s built-in definitions tailored
 ms.date: 04/30/2024
 author: expekesheth
 ms.author: kesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference

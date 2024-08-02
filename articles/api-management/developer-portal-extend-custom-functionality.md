@@ -5,7 +5,7 @@ description: How to customize the managed API Management developer portal with c
 author: dlepow
 ms.author: danlep
 ms.date: 10/27/2023
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.custom: devx-track-extended-azdevcli
 ---

@@ -5,7 +5,7 @@ author: tejaswikolli-web
 ms.topic: overview
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: mvc
 ---
 
