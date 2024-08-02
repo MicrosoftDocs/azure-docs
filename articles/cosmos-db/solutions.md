@@ -5,7 +5,7 @@ description: Review solution accelerators using both Azure Cosmos DB and Azure O
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: wangwilliam
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: best-practice
 ms.date: 02/27/2024
