@@ -97,8 +97,9 @@ This section shows you the basic structure of a vector query. You can use the Az
 [**2024-07-01**](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the stable REST API version for [Search POST](/rest/api/searchservice/documents/search-post). This version supports:
 
 + `vectorQueries` is the construct for vector search.
-+ `kind` set to `vector` for a vector array, or set to `text` if the input is string and [you have a vectorizer](#query-with-integrated-vectorization).
-+ `vector` is query (a vector representation of text or an image).
++ `vectorQueries.kind` set to `vector` for a vector array, or set to `text` if the input is string and [you have a vectorizer](#query-with-integrated-vectorization).
++ `vectorQueries.vector` is query (a vector representation of text or an image).
++ `vectorQueries.weight` (optional) specifies the relative weight of each vector query included in search operations (see [Vector weighting](#vector-weighting)).
 + `exhaustive` (optional) invokes exhaustive KNN at query time, even if the field is indexed for HNSW.
 
 In the following example, the vector is a representation of this string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
@@ -122,6 +123,7 @@ api-key: {{admin-api-key}}
             ],
             "exhaustive": true,
             "fields": "contentVector",
+            "weight": 0.5,
             "k": 5
         }
     ]
@@ -134,10 +136,8 @@ api-key: {{admin-api-key}}
 
 This preview adds:
 
-+ `vectorQueries` is the construct for vector search.
-+ `kind` set to `vector` specifies that the query is a vector array.
-+ `vector` is query (a vector representation of text or an image).
-+ `exhaustive` (optional) invokes exhaustive KNN at query time, even if the field is indexed for HNSW.
++ [`threshold`](#set-thresholds-to-exclude-low-scoring-results-preview) for excluding low scoring results.
++ [`Hybridsearch.MaxTextRecallSize`](hybrid-search-how-to-query.md#set-maxtextrecallsize-and-countandfacetmode-preview) for more control over the inputs to a [hybrid query](hybrid-search-how-to-query.md).
 
 In the following example, the vector is a representation of this string: "what Azure services support full text search". The query targets the `contentVector` field. The query returns `k` results. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
@@ -148,6 +148,10 @@ api-key: {{admin-api-key}}
 {
     "count": true,
     "select": "title, content, category",
+    "hybridSearch": {
+        "maxTextRecallSize": 100,
+        "countAndFacetMode": "countAllResults"
+        }
     "vectorQueries": [
         {
             "kind": "vector",
@@ -158,12 +162,17 @@ api-key: {{admin-api-key}}
                 -0.02178128,
                 -0.00086512347
             ],
-            "exhaustive": true,
             "fields": "contentVector",
-            "k": 5
+            "k": 5,
+            "exhaustive": true,
+            "weight": 2,
+            "threshold": {
+                "kind": "vectorSimilarity",
+                "value": 0.8
+            },
+
         }
     ]
-}
 ```
 
 ### [**Azure portal**](#tab/portal-vector-query)
@@ -172,7 +181,7 @@ Use Search Explorer to formulate a vector query. Search Explorer has a **Query v
 
 Otherwise, if you don't have a vectorizer, you must use **JSON view** and formulate the vector query in JSON, pasting in a vector array as the query input.
 
-1. Sign in to Azure portal and find your search service.
+1. Sign in to the [Azure portal](https://portal.azure.com) and find your search service.
 
 1. Under **Search management** and **Indexes**, select the index.
 
@@ -265,7 +274,7 @@ You can apply filters as exclusion criteria before the query executes, or after 
 
 In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
 
-The filter criteria are applied to a filterable text field (`category `in this example) before the search engine executes the vector query.
+The filter criteria are applied to a filterable text field (`category` in this example) before the search engine executes the vector query.
 
 ```http
 POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
