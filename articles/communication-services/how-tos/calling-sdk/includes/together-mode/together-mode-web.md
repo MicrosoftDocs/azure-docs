@@ -32,7 +32,7 @@ togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
 ```
 
 ### Get Together Mode Stream
-To obtain the Together Mode stream, invoke the specified API. Presently, Together Mode accommodates only a single stream. However, this limitation is expected to evolve in the future.
+You can access together mode streams through the property `togetherModeStream`.
 
 ```js
 const togetherModeStreams = togetherModeFeature.togetherModeStream; 
