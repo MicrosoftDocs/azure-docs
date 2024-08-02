@@ -546,7 +546,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 
       ```powershell
       $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
-      $vhd.Size % 1MB
+      $vhd.Size % 1048576
       0
       $vhd.FileSize - $vhd.Size
       512
