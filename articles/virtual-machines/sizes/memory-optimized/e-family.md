@@ -2,7 +2,7 @@
 title: E family VM size series
 description: List of sizes in the E family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/22/2024
