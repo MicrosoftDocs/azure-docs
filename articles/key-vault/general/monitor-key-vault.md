@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 # Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults.
 ---

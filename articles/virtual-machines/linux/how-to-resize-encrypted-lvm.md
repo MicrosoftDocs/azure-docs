@@ -2,7 +2,7 @@
 title: How to resize disks encrypted using Azure Disk Encryption
 description: This article provides instructions for resizing ADE encrypted disks by using logical volume management.
 author: jofrance
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.custom: linux-related-content
 ms.topic: article

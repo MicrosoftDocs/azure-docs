@@ -5,7 +5,7 @@ description: Use Azure Private Link to connect to Azure Cosmos DB for MongoDB vC
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to

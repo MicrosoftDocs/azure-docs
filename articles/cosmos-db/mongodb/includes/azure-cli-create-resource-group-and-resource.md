@@ -1,6 +1,6 @@
 ---
 author: diberry
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurecli
 ms.topic: include

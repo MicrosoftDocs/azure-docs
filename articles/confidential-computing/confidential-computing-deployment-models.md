@@ -2,8 +2,8 @@
 title: Choose Between Deployment Models
 description: Choose Between Deployment Models
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 4/30/2024
 ms.author: jushiman

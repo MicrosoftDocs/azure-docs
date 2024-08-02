@@ -5,7 +5,7 @@ description: Connect to an Azure Cosmos DB for MongoDB (vCore architecture) acco
 author: kruti-m
 ms.author: krmeht
 ms.reviewer: yongl
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 02/05/2024

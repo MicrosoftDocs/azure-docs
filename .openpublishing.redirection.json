@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
     {
       "source_path": "articles/network-watcher/connection-monitor-create-using-template.md",
       "redirect_url": "/previous-versions/azure/network-watcher/connection-monitor-create-using-template",
@@ -4583,11 +4583,6 @@
             "redirect_url": "/azure/kubernetes-fleet/resource-propagation"
         },
         {
-            "source_path_from_root": "/articles/aks/network-observability-byo-cli.md",
-            "redirect_url": "/azure/aks/network-observability-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/orbital/license-spacecraft.md",
             "redirect_url": "/azure/orbital/initiate-licensing",
             "redirect_document_id": false
@@ -4901,9 +4896,21 @@
             "redirect_document_id": false
         },
         {
-          "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
-          "redirect_url":"/azure/operational-excellence/relocation-container-registry",
-          "redirect_document_id":false
+            "source_path_from_root": "/articles/load-balancer/tutorial-cross-region-cli.md",
+            "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal",
+
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-cross-region-powershell.md",
+            "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal",
+
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/container-registry/manual-regional-move.md",
+            "redirect_url": "/azure/operational-excellence/relocation-container-registry",
+            "redirect_document_id":false
         },
 	{
 	"source_path": "articles/data-catalog/data-catalog-developer-concepts.md",
@@ -5027,13 +5034,13 @@
     },
 	{
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-powershell.md",
-            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-cli.md",
-            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6--portal",
+            "redirect_url": "/azure/virtual-network/ip-services/create-custom-ip-address-prefix-ipv6-portal",
             "redirect_document_id": false
-        } 
+        }
     ]
 }

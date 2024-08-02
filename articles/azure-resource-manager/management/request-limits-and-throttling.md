@@ -130,7 +130,7 @@ Microsoft Compute implements throttling to provide an optimal experience for Vir
 For information about throttling in other resource providers, see:
 
 * [Azure Key Vault throttling guidance](../../key-vault/general/overview-throttling.md)
-* [AKS troubleshooting](../../aks/troubleshooting.md#im-receiving-429---too-many-requests-errors)
+* [AKS troubleshooting](/azure/aks/troubleshooting#im-receiving-429---too-many-requests-errors)
 * [Managed identities](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#are-there-any-rate-limits-that-apply-to-managed-identities)
 
 ## Error code

@@ -3,7 +3,7 @@ title: Azure Payment HSM "fastpathenabled" feature flag and tag
 description: The "fastpathenabled" feature flag and tag, as it relates to Azure Payment HSM and affiliated subscriptions and virtual networks
 services: payment-hsm
 author: cynthiatreger
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: article
 ms.date: 03/25/2023
 ms.author: ctreger

@@ -4,7 +4,7 @@ description: Learn how to configure and use an external Redis-compatible cache i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2022
 ms.author: danlep

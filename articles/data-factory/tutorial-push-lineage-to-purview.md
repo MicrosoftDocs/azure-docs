@@ -3,7 +3,6 @@ title: Push Data Factory lineage data to Microsoft Purview
 description: Learn about how to push Data Factory lineage data to Microsoft Purview
 ms.author: jianleishen
 author: jianleishen
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 05/15/2024

@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: caiqing
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 02/09/2022
 ---

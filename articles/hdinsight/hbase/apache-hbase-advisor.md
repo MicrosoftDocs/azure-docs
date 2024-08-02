@@ -4,7 +4,7 @@ titleSuffix: Azure HDInsight
 description: Optimize Apache HBase for cluster advisor recommendations in Azure HDInsight.
 author: yeturis
 ms.author: sairamyeturi
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 09/15/2023
 #Customer intent: The azure advisories help to tune the cluster/query. This doc gives a much deeper understanding of the various advisories including the recommended configuration tunings.

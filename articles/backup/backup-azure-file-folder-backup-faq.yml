@@ -3,7 +3,7 @@ metadata:
   title: Microsoft Azure Recovery Services (MARS) Agent – FAQ
   description: Addresses common questions about backing up files and folders with Azure Backup.
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 08/14/2023
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
