@@ -69,7 +69,7 @@ Create an SA password in the Kubernetes cluster. Kubernetes can manage sensitive
 The following command creates a password for the SA account:
 
    ```azurecli
-   kubectl create secret generic mssql --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd" -n <namespace name>
+   kubectl create secret generic mssql --from-literal=MSQL_SA_PASSWORD="MyC0m9l&xP@ssw0rd" -n <namespace name>
    ```
 
    Replace `MyC0m9l&xP@ssw0rd` with a complex password.
@@ -186,11 +186,11 @@ In this step, create a manifest to describe the container based on the Azure SQL
                  value: "Developer"
                - name: ACCEPT_EULA
                  value: "Y"
-               - name: SA_PASSWORD
+               - name: MSSQL_SA_PASSWORD
                  valueFrom:
                    secretKeyRef:
                      name: mssql
-                     key: SA_PASSWORD
+                     key: MSSQL_SA_PASSWORD
                - name: MSSQL_AGENT_ENABLED
                  value: "TRUE"
                - name: MSSQL_COLLATION
@@ -225,13 +225,13 @@ In this step, create a manifest to describe the container based on the Azure SQL
 
    * `persistentVolumeClaim`: This value requires an entry for `claimName:` that maps to the name used for the persistent volume claim. This tutorial uses `mssql-data`.
 
-   * `name: SA_PASSWORD`: Configures the container image to set the SA password, as defined in this section.
+   * `name: MSSQL_SA_PASSWORD`: Configures the container image to set the SA password, as defined in this section.
 
      ```yaml
      valueFrom:
        secretKeyRef:
          name: mssql
-         key: SA_PASSWORD
+         key: MSSQL_SA_PASSWORD
      ```
 
      When Kubernetes deploys the container, it refers to the secret named `mssql` to get the value for the password.

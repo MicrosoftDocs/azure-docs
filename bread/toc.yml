@@ -825,6 +825,9 @@ items:
     - name: ExpressRoute
       tocHref: /azure/expressroute/
       topicHref: /azure/expressroute/
+    - name: Extended Zones
+      tocHref: /azure/extended-zones/
+      topicHref: /azure/extended-zones/
     - name: Firewall
       tocHref: /azure/firewall/
       topicHref: /azure/firewall/
