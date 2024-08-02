@@ -186,7 +186,7 @@ Changes made for this version:
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
-For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](/azure/aks/dapr).
 
 ## Azure AI Video Indexer
 

@@ -6,7 +6,7 @@ summary: Learn how Azure Relay service allows you to securely expose services th
 metadata:
   title: Azure Relay documentation
   description: Learn how Azure Relay service allows you to securely expose services that run in your corporate network to the public cloud.
-  ms.service: service-bus-relay
+  ms.service: azure-relay
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru

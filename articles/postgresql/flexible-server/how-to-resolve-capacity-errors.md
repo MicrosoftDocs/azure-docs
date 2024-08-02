@@ -5,7 +5,7 @@ author: sachinpmsft
 ms.author: kabharati
 ms.reviewer: sachinpmsft, maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:

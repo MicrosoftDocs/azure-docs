@@ -4,7 +4,7 @@ description: Known different Site Recovery Deployment Planner Versions fixes and
 services: site-recovery
 author: ankitaduttaMSFT
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 07/08/2024
 ms.author: ankitadutta
 ---

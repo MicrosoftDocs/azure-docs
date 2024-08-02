@@ -764,24 +764,25 @@ If you plan to use __HuggingFace models__ with the hub, add outbound _FQDN_ rule
 Private endpoints are currently supported for the following Azure services:
 
 * AI Studio hub
+* Azure AI Search
+* Azure AI services
+* Azure API Management
+* Azure Container Registry
+* Azure Cosmos DB (all sub resource types)
+* Azure Data Factory
+* Azure Database for MariaDB
+* Azure Database for MySQL
+* Azure Database for PostgreSQL Single Server
+* Azure Database for PostgreSQL Flexible Server
+* Azure Databricks
+* Azure Event Hubs
+* Azure Key Vault
 * Azure Machine Learning
 * Azure Machine Learning registries
-* Azure Storage (all sub resource types)
-* Azure Container Registry
-* Azure Key Vault
-* Azure AI services
-* Azure AI Search
-* Azure SQL Server
-* Azure Data Factory
-* Azure Cosmos DB (all sub resource types)
-* Azure Event Hubs
 * Azure Redis Cache
-* Azure Databricks
-* Azure Database for MariaDB
-* Azure Database for PostgreSQL Single Server
-* Azure Database for MySQL
-* Azure SQL Managed Instance
-* Azure API Management
+* Azure SQL Server
+* Azure Storage (all sub resource types)
+
 
 > [!IMPORTANT]
 > While you can create a private endpoint for Azure AI services and Azure AI Search, the connected services must allow public networking. For more information, see [Connectivity to other services](#connectivity-to-other-services).

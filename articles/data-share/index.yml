@@ -6,7 +6,7 @@ summary: Azure Data Share is a safe and secure service for sharing data with thi
 metadata:
   title: Azure Data Share
   description: Azure Data Share is a safe and secure service for sharing data with third-party organizations.
-  ms.service: data-share
+  ms.service: azure-data-share
   ms.topic: landing-page
   author: sidontha
   ms.author: sidontha

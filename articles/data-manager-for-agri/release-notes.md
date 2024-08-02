@@ -3,7 +3,7 @@ title: Release notes for Microsoft Azure Data Manager for Agriculture Preview
 description: This article provides release notes for Azure Data Manager for Agriculture Preview releases, improvements, bug fixes, and known issues. 
 author: gourdsay 
 ms.author: angour 
-ms.service: data-manager-for-agri 
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual 
 ms.date: 11/16/2023 
 ms.custom: template-concept 

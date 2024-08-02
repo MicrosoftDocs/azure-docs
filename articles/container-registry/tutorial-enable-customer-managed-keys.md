@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Enable a customer-managed key

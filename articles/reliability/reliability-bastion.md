@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: bastion
+ms.service: azure-bastion
 ms.date: 06/24/2024
 ---
 

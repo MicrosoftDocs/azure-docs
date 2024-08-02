@@ -3,7 +3,7 @@ title: Cluster upgrades - Azure Cosmos DB for PostgreSQL
 description: Types of upgrades, and their precautions
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 10/01/2023

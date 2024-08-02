@@ -5,7 +5,7 @@ author: adig
 ms.author: adig
 ms.reviewer: talawren, maghan
 ms.date: 07/19/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:

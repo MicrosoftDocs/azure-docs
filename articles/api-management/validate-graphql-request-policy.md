@@ -4,7 +4,7 @@ description: Reference for the validate-graphql-request policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep

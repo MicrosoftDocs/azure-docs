@@ -3,7 +3,7 @@ title:  "Tutorial: Access lab VM from Teams/Canvas"
 titleSuffix: Azure Lab Services
 description: Learn how to access a VM (student view) in Azure Lab Services from Canvas. 
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: tutorial
