@@ -4,7 +4,6 @@ description: This article provides step-by-step instructions to retrieve the IP 
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 09/19/2023
 ---

@@ -1243,6 +1243,7 @@
         "articles/connectors/*.md": "azure-logic-apps",
         "articles/container-instances/**/*.md": "container-instances",
         "articles/container-registry/**/*.md": "container-registry",
+        "articles/data-factory/**/*": "azure-data-factory",
         "articles/deployment-environments/**/*.md": "deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
