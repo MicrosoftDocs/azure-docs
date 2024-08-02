@@ -9,7 +9,7 @@ ms.service: azure-communication-services
 ---
 
 > [!NOTE]
-> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library).
+> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://aka.ms/acsstorybook).
 
 ## Prerequisites
 
