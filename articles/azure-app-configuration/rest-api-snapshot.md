@@ -5,14 +5,15 @@ author: jimmyca15
 ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 03/21/2023
+ms.date: 08/02/2024
+zone_pivot_groups: data-plane-api-version
+
 ---
+:::zone target="docs" pivot="v23-10,v23-11"
 
 # Snapshot
 
 A snapshot is a resource identified uniquely by its name. See details for each operation.
-
-This article applies to API version 2022-11-01-preview.
 
 ## Operations
 
@@ -48,12 +49,29 @@ This article applies to API version 2022-11-01-preview.
 
 `SnapshotFilter`
 
+:::zone-end
+:::zone target="docs" pivot="v23-10"
+
 ```json
 {
   "key": [string],
   "label": [string]
 }
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+```json
+{
+  "key": [string],
+  "label": [string],
+  "tags": [array<string>]
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
 
 ## Get snapshot
 
@@ -256,8 +274,13 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 | name | yes | n/a | Length <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 256 | 
 | filters | yes | n/a | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 1<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 3 |
 | filters[\<index\>].key | yes | n/a | |
-| tags | no | {} | |
 | filters[\<index\>].label | no | null | Multi-match label filters (E.g.: "*", "comma,separated") aren't supported with 'key' composition type. |
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+| filters[\<index\>].tags | no | null | Count <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 0<br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 5 |
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
+| tags | no | {} | |
 | composition_type | no | key | |
 | retention_period | no | Standard tier <br/>&nbsp;&nbsp;&nbsp;&nbsp; 2592000 (30 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; 604800 (7 days) | Standard tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 7776000 (90 days) <br/> Free tier <br/> &nbsp;&nbsp;&nbsp;&nbsp; minimum: 3600 (1 hour) <br/> &nbsp;&nbsp;&nbsp;&nbsp; maximum: 604800 (7 days) |
 
@@ -265,6 +288,8 @@ GET /snapshot?$select=name,status&api-version={api-version} HTTP/1.1
 PUT /snapshot/{name}?api-version={api-version} HTTP/1.1
 Content-Type: application/vnd.microsoft.appconfig.snapshot+json
 ```
+:::zone-end
+:::zone target="docs" pivot="v23-10"
 
 ```json
 {
@@ -315,6 +340,64 @@ Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-ve
   "retention_period": 2592000
 }
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v23-11"
+
+```json
+{
+  "filters": [                        // required
+    {
+      "key": "app1/*",                // required
+      "label": "prod",                 // optional
+      "tags": ["group=g1", "default=true"]   // optional
+    }
+  ],
+  "tags": {                           // optional
+    "tag1": "value1",
+    "tag2": "value2",
+  },
+  "composition_type": "key",          // optional
+  "retention_period": 2592000         // optional
+}
+```
+
+**Responses:**
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/vnd.microsoft.appconfig.snapshot+json; charset=utf-8
+Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT
+ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
+Operation-Location: {appConfigurationEndpoint}/operations?snapshot={name}&api-version={api-version}
+```
+
+```json
+{
+  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "name": "{name}",
+  "status": "provisioning",
+  "filters": [
+      {
+          "key": "app1/*",
+          "label": "prod",
+          "tags": ["group=g1", "default=true"]
+      }
+  ],
+  "composition_type": "key",
+  "created": "2023-03-20T21:00:03+00:00",
+  "size": 2000,
+  "items_count": 4,
+  "tags": {
+    "t1": "value1",
+    "t2": "value2"
+  },
+  "retention_period": 2592000
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v23-10,v23-11"
 
 The status of the newly created snapshot will be "provisioning".
 Once the snapshot is fully provisioned, the status will update to "ready".
@@ -552,3 +635,5 @@ Use the optional `$select` query string parameter and provide a comma-separated 
 ```http
 GET /kv?snapshot={name}&$select=key,value&api-version={api-version} HTTP/1.1
 ```
+
+:::zone-end

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 08/02/2024
 zone_pivot_groups: data-plane-api-version
 
 ---
@@ -108,6 +108,7 @@ HTTP/1.1 200 OK
 ## List key-values
 
 Optional: ``key`` (If not specified, it implies any key.)
+
 Optional: ``label`` (If not specified, it implies any label.)
 
 :::zone-end
@@ -224,7 +225,7 @@ Use the optional `key` and `label` query string parameters.
 :::zone-end
 :::zone target="docs" pivot="v23-11"
 
-For API Versions greater than `2023-11-01`, filtering by`tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
+For API Versions greater than `2023-11-01`, filtering by `tags` is also supported. Multiple tag filters can be provided as query string parameters in the `tagName=tagValue` format. Tag filters must be an exact match. 
 
 ```http
 GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
