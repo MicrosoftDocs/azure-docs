@@ -3,7 +3,6 @@ metadata:
   title: Frequently asked questions - Azure Event Grid | Microsoft Docs
   description: This article provides a list of frequently asked questions (FAQ) for Azure Event Grid and their answers. 
   ms.topic: faq
-  ms.service: event-grid
   ms.date: 07/29/2022
 title: Event Grid frequently asked questions
 summary: |

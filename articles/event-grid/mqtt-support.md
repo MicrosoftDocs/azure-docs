@@ -9,7 +9,6 @@ ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 
 # MQTT features supported by Azure Event Grid’s MQTT broker feature
