@@ -83,7 +83,7 @@ In the event of a scene change or seat reassignment, the `togetherModeSceneUpdat
 ```js
 const seatUpdate = (participantSeatingMap) => {
     participantSeatingMap.forEach((participantID, seatingCoordinates) => {
-        console.log(`togetherModeEventUpdate===> ${JSON.stringify(seatingCoordinates)} ====> ${participantID}}`)
+        console.log(`User with ID: ${participantID} has new coordinates ${JSON.stringify(seatingCoordinates)} `)
     })
 }
 
