@@ -39,7 +39,7 @@ Cohere Embed 3 - English    |  [Microsoft Managed Countries](/partner-center/mar
 Cohere Embed 3 -  Multilingual    |  [Microsoft Managed Countries](/partner-center/marketplace/tax-details-marketplace#microsoft-managed-countriesregions) <br> Japan <br> Qatar   |East US <br> East US 2 <br> North Central US <br> South Central US <br> Sweden Central <br> West US <br> West US 3    | Not available       |
 
 
-### Jais models
+### JAIS models
 
 |Model  |Offer Availability Region  | Hub/Project Region for Deployment  | Hub Project Region for Fine tuning  |
 |---------|---------|---------|---------|
