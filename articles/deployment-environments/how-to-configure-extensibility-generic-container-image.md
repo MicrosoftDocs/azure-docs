@@ -6,7 +6,7 @@ ms.service: deployment-environments
 ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/28/2024
+ms.date: 08/01/2024
 ms.topic: how-to
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
@@ -141,7 +141,9 @@ To use a custom image stored in a public registry, you need to enable anonymous 
 > [!Caution]
 > Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. 
 
-To use a custom image stored in the ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. With this configuration, you don't have to enable anonymous pull access. 
+To use a custom image stored in the ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. With this configuration, you don't have to enable anonymous pull access.
+
+To create an instance of the ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli). 
 
 #### Use a public registry with anonymous pull
 
@@ -169,7 +171,7 @@ To secure network access to your ACR, you can limit access to your own networks,
 
 To disable access from public networks:
 
-1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-portal?tabs=azure-cli) or use an existing one.
+1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-azure-cli) or use an existing one.
 1. In the Azure portal, go to the ACR that you want to configure.
 1. On the left menu, under **Settings**, select **Networking**.
 1. On the Networking page, on the **Public access** tab, under **Public network access**, select **Disabled**.
