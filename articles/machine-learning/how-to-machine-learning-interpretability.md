@@ -3,8 +3,8 @@ title: Model interpretability
 titleSuffix: Azure Machine Learning
 description: Learn how your machine learning model makes predictions during training and inferencing by using the Azure Machine Learning CLI and Python SDK.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic: how-to
 ms.author: mesameki
 author: mesameki

@@ -2,7 +2,7 @@
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 11/02/2022
 ms.custom: include file

@@ -235,6 +235,10 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
     ```powershell
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"

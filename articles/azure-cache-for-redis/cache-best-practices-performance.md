@@ -3,7 +3,7 @@ title: Best practices for performance testing
 titleSuffix: Azure Cache for Redis
 description: Learn how to test the performance of Azure Cache for Redis.
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 07/01/2024
 ms.author: franlanglois

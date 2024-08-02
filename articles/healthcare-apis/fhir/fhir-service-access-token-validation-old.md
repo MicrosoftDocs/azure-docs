@@ -3,7 +3,7 @@ title: FHIR service access token validation
 description: Access token validation procedure and troubleshooting guide for FHIR service
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/06/2022

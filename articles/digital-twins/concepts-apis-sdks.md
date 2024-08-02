@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/01/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.

@@ -3,7 +3,7 @@ title: Use a VPN with Azure Managed Instance for Apache Cassandra
 description: Discover how to secure your cluster with a VPN when you use Azure Managed Instance for Apache Cassandra.
 author: IriaOsara
 ms.author: iriaosara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 02/08/2024
 ms.devlang: azurecli

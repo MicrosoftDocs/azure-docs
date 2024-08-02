@@ -6,8 +6,8 @@ author: angarg05
 ms.topic: article
 ms.date: 7/15/2022
 ms.author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ---
 
 # Confidential containers on Azure Kubernetes Service(AKS) with Intel SGX enclaves

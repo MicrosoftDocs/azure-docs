@@ -3,7 +3,7 @@ title: 'Tutorial: Secure your hub virtual network using Azure Firewall Manager'
 description: In this tutorial, you learn how to secure your virtual network with Azure Firewall Manager using the Azure portal.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: tutorial
 ms.date: 07/24/2024
 ms.author: victorh

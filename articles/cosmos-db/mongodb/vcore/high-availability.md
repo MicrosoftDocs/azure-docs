@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Learn about availability (HA) of Azure Cosmos DB for MongoDB vCore clusters.
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 06/20/2024

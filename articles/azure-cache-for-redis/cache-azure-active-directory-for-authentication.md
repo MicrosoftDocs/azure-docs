@@ -5,7 +5,7 @@ description: Learn how to use Microsoft Entra ID with Azure Cache for Redis.
 author: flang-msft
 
 ms.custom: references_regions
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 07/17/2024
 ms.author: franlanglois

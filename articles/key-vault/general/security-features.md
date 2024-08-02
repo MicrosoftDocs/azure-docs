@@ -3,7 +3,7 @@ title: Azure Key Vault security overview
 description: An overview of security features and best practices for Azure Key Vault.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/30/2024

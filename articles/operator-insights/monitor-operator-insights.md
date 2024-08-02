@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Operator Insights
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: conceptual
 ms.custom: horz-monitor
 ms.date: 12/15/2023
