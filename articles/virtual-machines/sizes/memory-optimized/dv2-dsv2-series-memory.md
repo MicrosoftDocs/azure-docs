@@ -15,20 +15,19 @@ ms.date: 12/21/2022
 
 [!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
 
-Dv2 and Dsv2-series, a follow-on to the original D-series, features a more powerful CPU. DSv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors. The Dv2-series has the same memory and disk configurations as the D-series.
+Dv2 and Dsv2-series, a follow-on to the original D-series, features a more powerful CPU. DSv2-series sizes run on the third Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors. The Dv2-series has the same memory and disk configurations as the D-series.
 
 ## Dv2-series 11-15
 
-Dv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
+Dv2-series sizes run on the third Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-[ACU](acu.md): 210 - 250<br>
-[Premium Storage](premium-storage-performance.md): Not Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
-[Live Migration](maintenance-and-updates.md): Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](../../premium-storage-performance.md): Not Supported<br>
+[Live Migration](../../maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](../../maintenance-and-updates.md): Supported<br>
+[VM Generation Support](../../generation-2.md): Generation 1<br>
+[Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
+[Ephemeral OS Disks](../../ephemeral-os-disks.md): Not Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
@@ -45,16 +44,15 @@ Dv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice La
 
 ## DSv2-series 11-15
 
-DSv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
+DSv2-series sizes run on the third Generation Intel® Xeon® Platinum 8370C (Ice Lake), the Intel® Xeon® Platinum 8272CL (Cascade Lake), the Intel® Xeon® 8171M 2.1 GHz (Skylake), the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-[ACU](acu.md): 210 - 250 <sup>1</sup><br>
-[Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Live Migration](maintenance-and-updates.md): Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
-[VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Premium Storage](../../premium-storage-performance.md): Supported<br>
+[Premium Storage caching](../../premium-storage-performance.md): Supported<br>
+[Live Migration](../../maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](../../maintenance-and-updates.md): Supported<br>
+[VM Generation Support](../../generation-2.md): Generation 1 and 2<br>
+[Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Ephemeral OS Disks](../../ephemeral-os-disks.md): Supported <br>
 [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br> 
 
@@ -66,27 +64,9 @@ DSv2-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice L
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
-1. The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./premium-storage-performance.md).
+1. Maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM are limited by the number, size, and striping of the attached disks
 2.  Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 3. Constrained core sizes available.  
-4. 25000 Mbps with Accelerated Networking.<br>
+4. 25,000 Mbps with Accelerated Networking.<br>
 
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
-
-## Other sizes and information
-
-- [General purpose](sizes-general.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU optimized](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
-- [Previous generations](sizes-previous-gen.md)
-
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
-
-
-## Next steps
-
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+[!INCLUDE [sizes-footer](../includes/sizes-footer.md)]

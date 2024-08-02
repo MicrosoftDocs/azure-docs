@@ -5106,12 +5106,12 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "articles/virtual-machines/sizes/memory-optimized/d-family.md",
+            "source_path_from_root": "/articles/virtual-machines/sizes/memory-optimized/d-family.md",
             "redirect_url": "/azure/virtual-machines/sizes/previous-gen-sizes-list#memory-optimized-previous-gen-sizes",
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "articles/virtual-machines/dv2-dsv2-series-memory.md",
+            "source_path_from_root": "/articles/virtual-machines/dv2-dsv2-series-memory.md",
             "redirect_url": "/azure/virtual-machines/sizes/memory-optimized/dv2-dsv2-series-memory",
             "redirect_document_id": true
         }

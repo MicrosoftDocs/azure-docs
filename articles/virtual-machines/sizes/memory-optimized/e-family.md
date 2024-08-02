@@ -77,7 +77,7 @@ ms.author: mattmcinnes
 
 [!INCLUDE [edv5-series-specs](./includes/edv5-series-specs.md)]
 
-#### [Edsv5-series](#tab/edv5)
+#### [Edsv5-series](#tab/edsv5)
 [!INCLUDE [edsv5-series-summary](./includes/edsv5-series-summary.md)]
 
 [View the full Edsv5-series page](./edsv5-series.md).
