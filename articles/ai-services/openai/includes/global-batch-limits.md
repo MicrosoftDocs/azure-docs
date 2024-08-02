@@ -26,6 +26,6 @@ The table shows the batch quota limit. Quota values for global batch are represe
 | `gpt-4o-mini` | 1 B | 40 M | 20 M | 2 M | N/A|
 | `gpt-4-turbo`<sup>*</sup> | 300 M | 40 M | 1.35 M | 90 K | N/A |
 | `gpt-4` | 150 M | 5 M | 200 K | 100 K | N/A |
-| `gpt-35-turbo` | 10 B | 100 M | 2 M | 2 M | 50 K |
+| `gpt-35-turbo` | 10 B | 100 M | 5 M | 2 M | 50 K |
 
 B = billion | M = million | K = thousand
