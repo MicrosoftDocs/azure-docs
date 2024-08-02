@@ -1232,7 +1232,7 @@
         "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/backup/**/*.md": "azure-backup",
         "articles/baremetal-infrastructure/**/*.md": "baremetal-infrastructure",
-        "articles/batch/**/*.md": "batch",
+        "articles/batch/**/*.md": "azure-batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/chef/**/*.md": "chef",
         "articles/cloud-shell/**/*.md": "azure-cloud-shell",
