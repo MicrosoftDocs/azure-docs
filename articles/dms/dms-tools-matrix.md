@@ -5,7 +5,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 07/25/2024
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: reference
 ms.custom:
   - mvc

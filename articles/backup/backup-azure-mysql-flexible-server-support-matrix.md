@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations when backing
 ms.topic: conceptual
 ms.date: 03/08/2024
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

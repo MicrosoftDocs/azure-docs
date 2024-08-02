@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Batch workloads by
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: batch
+ms.service: azure-batch
 ms.date: 01/09/2024
 ---
 

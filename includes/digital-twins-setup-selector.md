@@ -3,7 +3,7 @@
  description: include file for selecting between versions of Azure Digital Twins setup article
  services: digital-twins
  author: baanders
- ms.service: digital-twins
+ ms.service: azure-digital-twins
  ms.topic: include
  ms.date: 03/29/2022
  ms.author: baanders

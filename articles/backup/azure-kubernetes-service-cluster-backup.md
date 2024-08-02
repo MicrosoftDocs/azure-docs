@@ -2,7 +2,7 @@
 title: Back up Azure Kubernetes Service by using Azure Backup
 description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure Backup.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 ms.date: 01/03/2024
