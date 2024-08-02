@@ -411,8 +411,14 @@ Most drivers are supported; however, make sure to use the settings for sending t
     - Net::MySQL: Not supported
 
 - Go
-    - go-sql-driver: Supported, add `?tls=true&allowCleartextPasswords=true` to connection string
+  - go-sql-driver: Supported, add `?tls=true&allowCleartextPasswords=true` to connection string
+    
+- PHP
 
+  - mysqli extension: Supported
+  
+  - PDO_MYSQL driver: Supported
+  
 ## Next steps
 
 - Review the concepts for [Microsoft Entra authentication with Azure Database for MySQL flexible server](concepts-azure-ad-authentication.md)
