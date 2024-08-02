@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: axisc
-ms.service: azure-service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 09/28/2021
 ms.author: aschhab

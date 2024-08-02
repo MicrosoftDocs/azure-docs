@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: clemensv
-ms.service: azure-service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 11/24/2020
 ms.author: clemensv

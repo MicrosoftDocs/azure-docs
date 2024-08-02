@@ -2,7 +2,7 @@
 title: "include file"
 description: "include file"
 author: egrootenboer
-ms.service: azure-service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 10/10/2023
 ms.author: egrootenboer

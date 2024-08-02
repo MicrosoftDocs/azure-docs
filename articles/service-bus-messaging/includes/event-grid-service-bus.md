@@ -1,7 +1,7 @@
 ---
  title: include file
  author: spelluru
- ms.service: azure-service-bus-messaging
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/08/2022
  ms.author: spelluru
