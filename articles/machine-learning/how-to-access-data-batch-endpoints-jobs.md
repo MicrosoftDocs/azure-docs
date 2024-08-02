@@ -22,7 +22,7 @@ ms.custom:
 
 Batch endpoints enable you to perform long batch operations over large amounts of data. The data can be located in different places, such as across disperse regions. Certain types of batch endpoints can also receive literal parameters as inputs. 
 
-This article describes how to specify parameter inputs for batch endpoints and create deployment jobs. The process supports working with different types of data. For some examples, see [Understand inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understand-inputs-and-outputs).
+This article describes how to specify parameter inputs for batch endpoints and create deployment jobs. The process supports working with different types of data. For some examples, see [Understand inputs and outputs](#understand-inputs-and-outputs).
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ To successfully invoke a batch endpoint and create jobs, ensure you complete the
 
 ## Create jobs basics
 
-To create a job from a batch endpoint, you invoke the endpoint. Invocation can be done by using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoint that receives a single input data folder for processing. For examples with different inputs and outputs, see [Understand inputs and outputs](how-to-access-data-batch-endpoints-jobs.md#understand-inputs-and-outputs).
+To create a job from a batch endpoint, you invoke the endpoint. Invocation can be done by using the Azure CLI, the Azure Machine Learning SDK for Python, or a REST API call. The following examples show the basics of invocation for a batch endpoint that receives a single input data folder for processing. For examples with different inputs and outputs, see [Understand inputs and outputs](#understand-inputs-and-outputs).
 
 # [Azure CLI](#tab/cli)
  
@@ -704,8 +704,8 @@ To learn more about extra required configuration for reading data from storage a
 
     __Body__
 
-   ```json
-   {
+    ```json
+    {
        "properties": {
            "InputData": {
                "heart_dataset": {
@@ -714,15 +714,15 @@ To learn more about extra required configuration for reading data from storage a
                }
            }
        }
-   }
-   ```
+    }
+    ```
 
-   If your data is a file, change the input type to `JobInputType`:
+    If your data is a file, change the input type to `JobInputType`:
 
-   __Body__
+    __Body__
 
-   ```json
-   {
+    ```json
+    {
        "properties": {
            "InputData": {
                "heart_dataset": {
@@ -731,10 +731,10 @@ To learn more about extra required configuration for reading data from storage a
                }
            }
        }
-   }
-   ```
+    }
+    ```
 
-   ---
+    ---
 
 1. Run the endpoint:
 
