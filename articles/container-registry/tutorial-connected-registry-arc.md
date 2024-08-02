@@ -1,17 +1,17 @@
 ---
-title: "Deploy Connected registry Arc extension with HTTPS"
-description: "Secure the Connected registry extension deployment with HTTPS, TLS encryption, and inherent trust distribution."
+title: "Secure and deploy Connected registry Arc extension"
+description: "Learn to secure the Connected registry Arc extension deployment with HTTPS, TLS, optional no TLS, BYO certificate, and inherent trust."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
-#customer intent: Learn how to deploy the Connected registry extension with HTTPS, TLS encryption, and upgrades/rollbacks to secure the extension deployment. 
+#customer intent: Learn how to secure and deploy the Connected registry extension with HTTPS, TLS encryption, and upgrades/rollbacks to secure the extension deployment. 
 
 ---
 
-# Tutorial: Deploy the Connected registry Arc extension with HTTPS
+# Tutorial: Secure and deploy Connected registry Arc extension
 
 The Connected registry extension deployment can be secured with HTTPS, Transport Layer Security (TLS) encryption, and inherent trust distribution.
 
@@ -22,9 +22,9 @@ Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cl
 In this tutorial, you:
 
 > [!div class="checklist"]
-> - [Deploy Connected registry extension with HTTPS (TLS encryption).](#deploy-connected-registry-extension-with-https-tls-encryption-using-preinstalled-cert-manager-service)
-> - [Deploy Connected registry with kubernetes secret management for TLS encryption.](#deploy-connected-registry-with-kubernetes-secret-management-for-tls-encryption)
-> - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption.](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc-for-tls-encryption)
+> - [Deploy Connected registry extension using pre installed cert-manager.](#deploy-connected-registry-extension-using-pre-installed-cert-manager)
+> - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
+> - [Deploy Connected registry with kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
 > - [Deploy the Connected registry Arc extension with HTTP (no TLS encryption).](#deploy-the-connected-registry-arc-extension-with-http-no-tls-encryption)
 
@@ -57,7 +57,7 @@ To complete this tutorial, you need:
 
 * Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Apply Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service. 
 
-## Deploy Connected registry extension with HTTPS (TLS encryption) using preinstalled cert-manager service
+## Deploy Connected registry extension using pre installed cert-manager
 
 While using a preinstalled cert-manager service on the cluster, you can deploy the Connected registry extension with HTTPS (TLS encryption) by following the steps:
 
@@ -70,18 +70,104 @@ While using a preinstalled cert-manager service on the cluster, you can deploy t
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
     --config service.clusterIP=192.100.100.1 \ 
-    --config trustDistribution.enabled=true \ 
-    --config trustDistribution.skipNodeSelector=true \ 
-    --config cert-manager.enabled=true \
     --config cert-manager.install=false \ 
     --config-protected-file protected-settings-extension.json
     ```
 
-## Deploy Connected registry with kubernetes secret management for TLS encryption 
+## Deploy Connected registry extension using Bring Your Own Certificate (BYOC)
+
+Bring Your Own Certificate (BYOC) allows customers to use their own public certificate and private key pair for HTTPS (TLS encryption) when deploying the Connected registry extension.
+
+>[!NOTE] 
+>BYOC is applicable for customers who bring their own certificate that is already trusted by their Kubernetes nodes. It is not recommended to manually update the nodes to trust the certificates.
+
+Follow the [quickstart][quickstart] and add the public certificate and private key string variable + value pair. 
+
+1. Create self-signed SSL cert with connected-registry service IP as the SAN
+
+```bash
+  mkdir /certs
+```
+
+```bash
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout /certs/mycert.key -x509 -days 365 -out /certs/mycert.crt -addext "subjectAltName = IP:<service IP>"
+```
+
+2. Get base64 encoded strings of these cert files
+
+```bash
+export TLS_CRT=$(cat mycert.crt | base64 -w0) 
+export TLS_KEY=$(cat mycert.key | base64 -w0) 
+```
+
+3. Protected settings file example with secret in JSON format: 
+
+> [!NOTE]
+> The public certificate and private key pair must be encoded in base64 format and added to the protected settings file.
+    
+```json   
+    {
+    "connectionString": "[connection string here]",
+    "tls.crt": $TLS_CRT,
+    "tls.key": $TLS_KEY,
+    "tls.cacrt": $TLS_CRT
+    } 
+```
+
+2. Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the public certificate and private key pair management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the public certificate and private key pair is used instead for encryption.  
+
+3. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
+
+    ```azurecli
+    az k8s-extension create --cluster-name myarck8scluster \
+    --cluster-type connectedClusters \  
+    --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
+    --name myconnectedregistry \ 
+    --resource-group myresourcegroup \
+    --config service.clusterIP=192.100.100.1 \
+    --config cert-manager.enabled=false \
+    --config cert-manager.install=false \ 
+    --config-protected-file protected-settings-extension.json 
+    ```
+
+## Deploy Connected registry with kubernetes secret management
 
 Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string variable + value pair. 
 
-1. Protected settings file example with secret in JSON format: 
+
+1. Create self-signed SSL cert with connected-registry service IP as the SAN
+
+```bash
+	mkdir /certs
+```
+
+```bash
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout /certs/mycert.key -x509 -days 365 -out /certs/mycert.crt -addext "subjectAltName = IP:<service IP>"
+```
+2. Get base64 encoded strings of these cert files
+
+```bash
+export TLS_CRT=$(cat mycert.crt | base64 -w0) 
+export TLS_KEY=$(cat mycert.key | base64 -w0) 
+```
+
+3. Create k8s secret
+
+```bash
+        cat <<EOF | kubectl apply -f -
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: k8secret
+        type: kubernetes.io/tls
+        data:
+          ca.crt: $TLS_CRT
+          tls.crt: $TLS_CRT
+          tls.key: $TLS_KEY
+        EOF
+```
+
+4. Protected settings file example with secret in JSON format: 
 
     ```json
     { 
@@ -103,45 +189,6 @@ Now, you can deploy the Connected registry extension with HTTPS (TLS encryption)
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \
     --config service.clusterIP=192.100.100.1 \
-    --config trustDistribution.enabled=true \ 
-    --config trustDistribution.skipNodeSelector=true \
-    --config cert-manager.enabled=false \
-    --config cert-manager.install=false \ 
-    --config-protected-file protected-settings-extension.json 
-    ```
-
-## Deploy Connected registry extension using Bring Your Own Certificate (BYOC) for TLS encryption
-
-Follow the [quickstart][quickstart] and add the public certificate and private key string variable + value pair. 
-
-1. Protected settings file example with secret in JSON format: 
-
-> [!NOTE]
-> The public certificate and private key pair must be encoded in base64 format and added to the protected settings file.
-    
-```json   
-        {
-
-        "connectionString": "[connection string here]",
-        "tls.crt": "public-cert",
-        "tls.key": "private-key"
-
-        } 
-```
-
-2. Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the public certificate and private key pair management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the public certificate and private key pair is used instead for encryption.  
-
-3. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
-
-    ```azurecli
-    az k8s-extension create --cluster-name myarck8scluster \
-    --cluster-type connectedClusters \  
-    --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
-    --name myconnectedregistry \ 
-    --resource-group myresourcegroup \
-    --config service.clusterIP=192.100.100.1 \
-    --config trustDistribution.enabled=true \
-    --config trustDistribution.skipNodeSelector=true \
     --config cert-manager.enabled=false \
     --config cert-manager.install=false \ 
     --config-protected-file protected-settings-extension.json 
@@ -161,9 +208,8 @@ While using your own kubernetes secret or public certificate and private key pai
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \ 
     --name myconnectedregistry \ 
     --resource-group myresourcegroup \ 
-    --config service.clusterIP==192.100.100.1 \
+    --config service.clusterIP=192.100.100.1 \
     --config trustDistribution.enabled=false \ 
-    --config trustDistribution.skipNodeSelector=false \
     --config cert-manager.enabled=false \
     --config cert-manager.install=false \ 
     --config-protected-file <JSON file path> 

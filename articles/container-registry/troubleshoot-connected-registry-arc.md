@@ -7,7 +7,7 @@ ms.service: azure-container-registry
 ms.topic: troubleshooting-known-issue #Don't change.
 ms.date: 05/09/2024
 
-#customer intent: As a <role>, I want <what> so that <why>.
+#customer intent: As a customer, I want to understand the common issues with the Connected Registry Arc Extension and how to troubleshoot them.
 
 ---
 
@@ -47,9 +47,11 @@ This article provides information about known issues with the Connected Registry
  
 The active selection provides more options to adjust the verbosity of logs when debugging issues with a connected registry. The following options are available:
 
+The connected registry log level is specific to the connected registry's operations and determines the severity of messages that the connected registry handles. This setting is used to manage the logging behavior of the connected registry itself.
+
 - **--log-level** set the log level on the instance. The log level determines the severity of messages that the logger handle. By setting the log level, you can filter out messages that are below a certain severity. For example, if you set the log level to "warning" the logger handles warnings, errors, and critical messages, but it ignores information and debug messages.
 
-The Azure CLI (az) provides several verbosity options for log levels, which can be adjusted to control the amount of output information during its operation:
+The az cli log level controls the verbosity of the output messages during the operation of the Azure CLI. The Azure CLI (az) provides several verbosity options for log levels, which can be adjusted to control the amount of output information during its operation:
 
 - **--verbose** increases the verbosity of the logs. It provides more detailed information than the default setting, which can be useful for identifying issues.
 
