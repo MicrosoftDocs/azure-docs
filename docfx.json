@@ -1247,7 +1247,7 @@
         "articles/deployment-environments/**/*.md": "deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
         "articles/dev-spaces/**/*.md": "azure-dev-spaces",
-        "articles/devtest-labs/**/*.md": "devtest-lab",
+        "articles/devtest-labs/**/*.md": "azure-devtest-labs",
         "articles/defender-for-cloud/*.md": "defender-for-cloud",
         "articles/defender-for-cloud/*.yml": "defender-for-cloud",
         "articles/defender-for-iot/organizations/*.md": "defender-for-iot",
