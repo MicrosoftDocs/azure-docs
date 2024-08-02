@@ -3,7 +3,7 @@ metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
-  ms.service: site-recovery
+  ms.service: azure-site-recovery
   ms.date: 04/10/2024
 
 
