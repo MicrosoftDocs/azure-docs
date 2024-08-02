@@ -4,7 +4,7 @@ description: This article provides steps for creating and configuring a key vaul
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 06/14/2024
 ms.reviewer: mimckitt

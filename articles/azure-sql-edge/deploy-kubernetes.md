@@ -46,7 +46,7 @@ In the following diagram, the node hosting the `azure-sql-edge` container has fa
 - **Kubernetes cluster**
    - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/reference/kubectl/) to manage the cluster.
 
-   - For the purpose of this tutorial, we are using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/tutorial-kubernetes-deploy-cluster.md) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`.
+   - For the purpose of this tutorial, we are using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/tutorial-kubernetes-deploy-cluster) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`.
 
    > [!NOTE]  
    > To protect against node failure, a Kubernetes cluster requires more than one node.
@@ -317,7 +317,7 @@ In this tutorial, you learned how to deploy Azure SQL Edge containers to a Kuber
 
 ## Next steps
 
-- [Introduction to Kubernetes](../aks/intro-kubernetes.md)
+- [Introduction to Kubernetes](/azure/aks/intro-kubernetes)
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
 - [Data Streaming in Azure SQL Edge](stream-data.md)

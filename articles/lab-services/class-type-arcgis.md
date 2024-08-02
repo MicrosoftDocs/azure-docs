@@ -5,7 +5,7 @@ author: nicolela
 ms.topic: how-to
 ms.date: 02/28/2022
 ms.custom: devdivchpfy22
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Set up a lab for ArcMap\ArcGIS Desktop

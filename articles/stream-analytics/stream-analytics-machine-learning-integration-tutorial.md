@@ -1,7 +1,7 @@
 ---
 title: Azure Stream Analytics integration with Machine Learning Studio (classic)
 description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio (classic), using a user-defined function.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: ajetasin
 ms.author: ajetasi
 ms.topic: how-to

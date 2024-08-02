@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in Azure Cosmos DB analytical store using Azure Data Factory and Azure Synapse Analytics.
 ms.author: noelleli
 author: n0elleli
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom:

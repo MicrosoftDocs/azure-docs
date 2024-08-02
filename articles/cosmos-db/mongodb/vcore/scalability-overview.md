@@ -4,7 +4,7 @@ titleSuffix: Overview of compute and storage scalability on Azure Cosmos DB for 
 description: Cost and performance advantages of scalability for Azure Cosmos DB for MongoDB vCore
 author: abinav2307
 ms.author: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/22/2024

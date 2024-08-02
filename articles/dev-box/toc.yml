@@ -29,6 +29,9 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Azure role-based access control
+      displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
+      href: concept-dev-box-role-based-access-control.md
 - name: Plan
   expanded: true
   items:

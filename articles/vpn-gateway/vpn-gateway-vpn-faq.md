@@ -2,7 +2,7 @@
 title: Azure VPN Gateway FAQ
 description: Get answers to frequently asked questions about VPN Gateway connections and configuration settings.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 07/10/2024
 ms.author: cherylmc

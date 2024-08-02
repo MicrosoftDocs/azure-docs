@@ -4,7 +4,7 @@ description: Understand the use of private endpoints for Azure Backup and the sc
 ms.topic: overview
 ms.date: 07/30/2024
 ms.custom:
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

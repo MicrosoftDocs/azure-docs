@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 05/07/2024
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: none, devx-track-azurecli
 ---
 

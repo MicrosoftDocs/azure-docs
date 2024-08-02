@@ -6,7 +6,7 @@ ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/26/2021

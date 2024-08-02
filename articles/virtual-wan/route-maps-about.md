@@ -3,7 +3,7 @@ title: 'About Route-maps'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN Route-maps.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: cherylmc

@@ -2,7 +2,7 @@
 title: 'Tutorial: Create an ExpressRoute association to Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 04/28/2023
 ms.author: cherylmc

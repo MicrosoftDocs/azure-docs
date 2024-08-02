@@ -417,7 +417,7 @@ Snapshot-Debugger|[Debug snapshots on exceptions in .NET apps](snapshot-debugger
 |Subservice| Article | Description |
 |---|---|---|
 Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Updated article to reflect that the user can duplicate an existing alert rule.|
-Alerts|[Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md)|You can enable recommended alert rules when you create an AKS cluster in the Azure portal. |
+Alerts|[Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster by using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)|You can enable recommended alert rules when you create an AKS cluster in the Azure portal. |
 Alerts|[Monitor Log Analytics workspace health](logs/log-analytics-workspace-health.md)|If you have a Log Analytics workspace without any configured alert rules, you can enable recommended alert rules from the **Alerts** page of a Log Analytics workspace.|
 Alerts|[Connect Azure to ITSM tools by using IT Service Management](alerts/itsmc-definition.md)|Updated the workflow for creating ServiceNow ITSM tickets from an Azure Monitor alert. The article now specifies separate workflows for ITSM actions, incidents, and events.|
 Alerts|[Manage your alert rules](alerts/alerts-manage-alert-rules.md)|Recommended alert rules are now enabled for all customers and are no longer in public preview.|
@@ -552,7 +552,7 @@ Application-Insights|[System performance counters in Application Insights](app/p
 Application-Insights|[Sampling in Application Insights](app/sampling.md)|Updated code samples for .NET 6/7.|
 Application-Insights|[Availability alerts](app/availability-alerts.md)|Rewritten with new guidance and screenshots.|
 Change-Analysis|[Tutorial: Track a web app outage by using Change Analysis](change/tutorial-outages.md)|Changed tutorial content to reflect changes to repo and removed and replaced sections.|
-Containers|[Configure Azure CNI networking in Azure Kubernetes Service](../../articles/aks/configure-azure-cni.md)|Added steps to enable IP subnet usage.|
+Containers|[Configure Azure CNI networking in Azure Kubernetes Service](/azure/aks/configure-azure-cni)|Added steps to enable IP subnet usage.|
 Containers|[Reports in Container insights](containers/container-insights-reports.md)|Updated to reflect the steps to enable IP subnet usage.|
 Essentials|[Best practices for data collection rule creation and management in Azure Monitor](essentials/data-collection-rule-best-practices.md)|New article.|
 Essentials|[Configure self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory](essentials/prometheus-self-managed-grafana-azure-active-directory.md)|New article: Configured self-managed Grafana to use Azure Monitor managed service for Prometheus (preview) with Azure Active Directory.|

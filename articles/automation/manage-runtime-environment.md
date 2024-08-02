@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 07/24/2024
 ms.topic: conceptual
 ms.custom: references_regions
+ms.service: azure-automation
 ---
 
 

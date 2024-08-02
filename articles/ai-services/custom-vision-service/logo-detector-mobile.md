@@ -91,7 +91,7 @@ To learn more about how the app handles this data, start with the **GetResources
 
 The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Azure AI Vision service as well. The app uses the Azure AI Vision optical character recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Azure AI Vision is pretrained to perform certain operations on images or videos.
 
-Subscribe to the Azure AI Vision service to get a key and endpoint URL. For help on this step, see [Create a multi-service resource](../multi-service-resource.md?pivots=azportal).
+Subscribe to the Azure AI Vision service to get a key and endpoint URL. For help on this step, see [Create an Azure AI services resource](../multi-service-resource.md?pivots=azportal).
 
 ![The Azure AI Vision service in the Azure portal, with the Quickstart menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
