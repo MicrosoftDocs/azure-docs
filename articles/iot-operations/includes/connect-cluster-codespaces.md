@@ -32,7 +32,7 @@ To connect your cluster to Azure Arc:
 1. Register the required resource providers in your subscription:
 
    >[!NOTE]
-   >This step only needs to be run once per subscription.
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
