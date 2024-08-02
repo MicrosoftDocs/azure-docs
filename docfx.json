@@ -1283,7 +1283,7 @@
         "articles/service-bus-messaging/*.md": "service-bus-messaging",
         "articles/service-fabric/*.md": "service-fabric",
         "articles/service-health/**/*.md": "service-health",
-        "articles/site-recovery/*.md": "site-recovery",
+        "articles/site-recovery/*.md": "azure-site-recovery",
         "articles/synapse-analytics/**/*": "azure-synapse-analytics",
         "articles/terraform/**/*.md": "terraform",
         "articles/virtual-desktop/**/*.md": "virtual-desktop",
