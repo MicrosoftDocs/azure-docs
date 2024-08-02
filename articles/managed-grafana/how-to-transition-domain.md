@@ -1,7 +1,7 @@
 ---
 title: How to transition to using the grafana.azure.com domain
 description: Learn how to verify that your Azure Managed Grafana workspace is using the correct domain for its endpoint
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: msoumar-ms
 ms.author: msoumar

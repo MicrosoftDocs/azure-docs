@@ -3,7 +3,7 @@ title: Enable trace and collect feedback for a flow deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to enable trace and collect feedback during inference time of a flow deployment
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
 ms.topic: how-to

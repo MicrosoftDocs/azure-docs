@@ -6,7 +6,7 @@ services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
@@ -204,7 +204,7 @@ To migrate a custom IP prefix, it must first be deprovisioned from one region. A
 
 ### Are there any special considerations when using IPv6
 
-Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  For more information, see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-powershell.md).
+Yes - there are multiple differences for provisioning and commissioning when using BYOIPv6.  For more information, see [Create a custom IPv6 address prefix - PowerShell](create-custom-ip-address-prefix-ipv6-portal.md).
 
 ### Status messages
 

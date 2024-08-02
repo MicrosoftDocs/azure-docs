@@ -4,7 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn how to resolve connectivity problems when creating clients with Azure Cache for Redis.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual 
 ms.date: 12/12/2023
 ms.custom: template-concept

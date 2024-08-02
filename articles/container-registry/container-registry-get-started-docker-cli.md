@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 10/31/2023
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: H1Hack27Feb2017
 ---
 
@@ -160,7 +160,7 @@ Here you can find more information on the [authentication options](../container-
 
 Now that you know the basics, you're ready to start using your registry! For example, deploy container images from your registry to:
 
-* [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-prepare-app)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
 

@@ -73,7 +73,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - A volume's capacity consumption counts against its pool's provisioned capacity.
 - A volume’s throughput consumption counts against its pool’s available throughput. See [Manual QoS type](#manual-qos-type).
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
-- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 and 1 PiB.
+- Volumes contain a capacity of between 100 GiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 50 TiB and 1 PiB.
 
 ## Large volumes
 

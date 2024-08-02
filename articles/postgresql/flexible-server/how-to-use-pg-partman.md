@@ -5,7 +5,7 @@ ms.author: gapaderla
 author: GayathriPaderla
 ms.reviewer: sbalijepalli, maghan
 ms.date: 05/17/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to

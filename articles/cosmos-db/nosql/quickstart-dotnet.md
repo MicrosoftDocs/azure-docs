@@ -5,7 +5,7 @@ description: Deploy a .NET web application that uses the client library to inter
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, devx-track-extended-azdevcli
@@ -201,7 +201,7 @@ Parse the paginated results of the query by looping through each page of results
 
 ## Related content
 
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [Java Quickstart](quickstart-java.md)
 - [Python Quickstart](quickstart-python.md)
 - [Go Quickstart](quickstart-go.md)

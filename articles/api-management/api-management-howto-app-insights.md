@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to set up a connection to Application Insights and enable logging for APIs in your Azure API Management instance.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/25/2023
 ms.author: danlep

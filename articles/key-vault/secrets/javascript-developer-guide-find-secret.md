@@ -3,7 +3,7 @@ title: Find or list Azure Key Vault secrets with JavaScript
 description: Find a set of secrets or list secrets or secret version in a Key Vault JavaScript.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: how-to
 ms.custom: devx-track-js

@@ -49,26 +49,26 @@ Exceeding provisioned throughput could be one of the reasons. Enable [Server Sid
 
 
 ## System and management operations
-The system view helps show metadata requests count by primary partition. It also helps identify throttled requests. The management operation shows the account activities such as creation, deletion, key, network and replication settings. Request volume per status code over a time period.
+The system view helps show metadata requests count by primary partition. It also helps identify throttled requests. The management operation shows the account activities such as creation, deletion, key, network, and replication settings. Request volume per status code over a time period.
 
 :::image type="content" source="./media/monitor-insights/metadata-requests-status-code.png" alt-text="Screenshot showing request status code based on metadata.":::
 
 - Metric chart for account diagnostic, network and replication settings over a specified period and filtered based on a Keyspace.
 
-:::image type="content" source="./media/monitor-insights/diagnostic-network-replication.png" alt-text="Screenshot of diagnostic network replication for a API for Cassandra account.":::
+:::image type="content" source="./media/monitor-insights/diagnostic-network-replication.png" alt-text="Screenshot of diagnostic network replication for a Cassandra account API.":::
 
 
 - Metric chart to view account key rotation.
 
 You can view changes to primary or secondary password for your API for Cassandra account.
 
-:::image type="content" source="./media/monitor-insights/cosmos-db-account-key.png" alt-text="Screenshot showing Azure Cosmos DB rotation key for a API for Cassandra account.":::
+:::image type="content" source="./media/monitor-insights/cosmos-db-account-key.png" alt-text="Screenshot showing Azure Cosmos DB rotation key for a Cassandra account API.":::
 
 
 ## Storage
 Storage distribution for raw and index storage. Also a count of documents in the API for Cassandra account.
 
-:::image type="content" source="./media/monitor-insights/data-index-usage.png" alt-text="Diagram showing the document count within a API for Cassandra account.":::
+:::image type="content" source="./media/monitor-insights/data-index-usage.png" alt-text="Diagram showing the document count within an API for Cassandra account.":::
 
 Maximum request units consumption for an account over a defined time period.
 
@@ -89,9 +89,9 @@ The chart below shows if your application’s high RU consumption is because of 
 
 :::image type="content" source="./media/monitor-insights/normalized-ru-pk-rangeid.png" alt-text="Screenshot showing normalized request unit consumption by partition key range ID.":::
 
-The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for your  [API for Cassandra codes](./error-codes-solution.md).
+The chart below shows a breakdown of requests by different status code. Understand the meaning of the different codes for your  [API for Cassandra codes](../monitor-reference.md#error-codes-for-cassandra).
 
-:::image type="content" source="./media/monitor-insights/total-request-by-status-code.png" alt-text="Screenshot image of a graph showing the total request by status code for a cassandra api account.":::
+:::image type="content" source="./media/monitor-insights/total-request-by-status-code.png" alt-text="Screenshot image of a graph showing the total request by status code for a Cassandra API account.":::
 
 
 ## Next steps

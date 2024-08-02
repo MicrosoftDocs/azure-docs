@@ -2,7 +2,7 @@
 title: SMART on FHIR - Azure Health Data Services
 description: This tutorial describes how to use a proxy to enable SMART on FHIR applications with the FHIR service.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

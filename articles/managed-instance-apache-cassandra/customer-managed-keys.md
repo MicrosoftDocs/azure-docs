@@ -3,7 +3,7 @@ title: Azure Managed Instance for Apache Cassandra customer-managed keys
 description: Learn how to implement customer-managed keys in Azure Managed Instance for Apache Cassandra by using Azure Key Vault.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli

@@ -4,7 +4,7 @@ description: Printable PDF cheat sheets that helps you use Azure Cosmos DB's SQL
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/28/2019

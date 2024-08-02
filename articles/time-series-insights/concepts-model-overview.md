@@ -18,7 +18,6 @@ This article describes Time Series Model, the capabilities, and how to start bui
 
 > [!TIP]
 >
-> * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
 > * Learn [how to work with Time Series Model](./how-to-edit-your-model.md) using the Azure Time Series Insights Explorer.
 
 ## Summary
@@ -84,8 +83,6 @@ Instances have descriptive information associated with them called *instance pro
 
 After an event source is configured for the Azure Time Series Insights Gen2 environment, instances are automatically discovered and created in a time series model. The instances can be created or updated via the Azure Time Series Insights Explorer by using Time Series Model queries.
 
-The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) provides several live instance examples.
-
 [![Time Series Model instance example](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
 ### Instance properties
@@ -131,8 +128,6 @@ Instances have the following JSON representation:
 Time Series Model *hierarchies* organize instances by specifying property names and their relationships.
 
 You can configure multiple hierarchies in a given Azure Time Series Insights Gen2 environment. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
-
-The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) displays a standard instance and type hierarchy.
 
 [![Time Series Model hierarchy example](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
@@ -220,8 +215,6 @@ The others are classified under *Unparented Instances* because they don't confor
 Time Series Model *types* help you define variables or formulas for doing computations. Types are associated with a specific instance.
 
 A type can have one or more variables. For example, a Time Series Model instance might be of type *Temperature Sensor*, which consists of the variables *avg temperature*, *min temperature*, and *max temperature*.
-
-The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) visualizes several Time Series Model types associated with their respective instances.
 
 [![Time Series Model type example](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 

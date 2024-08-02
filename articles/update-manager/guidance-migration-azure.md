@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 07/05/2024
+ms.date: 07/31/2024
 ms.author: sudhirsneha
 ---
 
@@ -21,8 +21,8 @@ Before initiating migration, you need to understand mapping between System Cente
 | System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
 | System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Guest Config, </br> Azure Automation, </br> Desired State Configuration (DSC), </br> Defender for Cloud | 
 | System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
-| System Center Data Protection Manager (SCDPM) | Arc enabled DPM | 
-| System Center Orchestrator (SCORCH) | Arc enabled DPM | 
+| System Center Data Protection Manager (SCDPM) | Azure Backup | 
+| System Center Orchestrator (SCORCH) | Azure Automation | 
 | System Center Service Manager (SCSM)  | - |
 
 > [!NOTE]

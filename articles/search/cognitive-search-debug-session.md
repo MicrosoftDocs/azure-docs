@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/21/2024
+ms.date: 07/24/2024
 ---
 
 # Debug Sessions in Azure AI Search
@@ -73,6 +73,10 @@ You can open the evaluator from any node or element that shows the **`</>`** sym
 Expression Evaluator gives you full interactive access for testing skill context, inputs, and checking outputs.
 
 :::image type="content" source="media/cognitive-search-debug/expression-evaluator.png" alt-text="Screenshot of Expression Evaluator.":::
+
+## Limitations
+
+Debug sessions feature doesn't support [SharePoint Online indexer](search-howto-index-sharepoint-online.md).
 
 ## Next steps
 

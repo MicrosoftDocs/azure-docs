@@ -247,7 +247,7 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ## Azure Arc-enabled VMware VCenter issues
 
-### errorCode: CreateConfigKvaCustomerError, errorResponse: error getting the vsphere sdk client
+### errorResponse: error getting the vsphere sdk client
 
 For errors with errorCode `CreateConfigKvaCustomerError` and errorResponse `error getting the vsphere sdk client`, these errors occur when your deployment machine is trying to establish a TCP connection to your vCenter address but encounters a problem. You receive this errorCode and errorResponse if your vCenter address is incorrect (403 or 404 error) or if there's a network/proxy/firewall configuration blocking it (connection attempt failed). If you enter your vCenter address as a hostname and receive the error `no such host`, then your deployment machine isn't able to resolve the vCenter hostname via the client DNS. You may receive an error if the deployment machine is able to resolve the vCenter hostname but the deployment machine can't reach the IP address it received from DNS. You may receive an error if the endpoint returned by DNS isn't your vCenter address, or if the traffic was intercepted by proxy. Finally, you may get an error if your deployment machine is able to communicate with your vCenter address, but the username or password is incorrect.
 
@@ -301,6 +301,19 @@ To resolve this issue, manually delete the existing template. Then run [`az arca
 ### Unable to find folders
 
 When deploying Arc resource bridge on VMware, you specify the folder in which the template and VM are created. The selected folder must be a VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
+
+### Cannot retrieve resource
+
+When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the one below when upgrading: 
+
+```
+{\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"Cannot retrieve <resource> 'resource-name': <resource> 'resource-name' not found\\\"\\n }\"\n }"
+```
+You have three options to move the Arc resource bridge VM: 
+
+1. You can move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change
+1. [Run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
+1. Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
 
 ### Insufficient permissions
 
@@ -408,6 +421,6 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 

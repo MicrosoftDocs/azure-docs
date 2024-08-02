@@ -1,5 +1,5 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 ms.topic: include
 author: ntrogh

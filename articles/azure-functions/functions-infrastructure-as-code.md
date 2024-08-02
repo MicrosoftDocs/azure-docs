@@ -113,7 +113,7 @@ This example section creates a Standard general purpose v2 storage account:
 ### [Bicep](#tab/bicep)
 
 ```bicep
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2023-05-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: storageAccountName
   location: location
   kind: 'StorageV2'

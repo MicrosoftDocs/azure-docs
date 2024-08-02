@@ -4,7 +4,7 @@ description: Overview of Azure Key Vault secrets.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: overview
 ms.date: 01/30/2024

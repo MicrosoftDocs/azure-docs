@@ -6,7 +6,7 @@ author: karlaescobar
 ms.author: karlaescobar
 ms.reviewer: maghan
 ms.date: 09/17/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure Stream Analytics job using Terraform'
 description: In this article, you create an Azure Stream Analytics job using Terraform.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 author: TomArcherMsft

@@ -2,7 +2,7 @@
 title: Azure Cosmos DB integrated cache
 description: The Azure Cosmos DB integrated cache is an in-memory cache that helps you ensure manageable costs and low latency as your request volume grows.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 7/19/2024
@@ -142,19 +142,7 @@ The integrated cache has a limited storage capacity determined by the dedicated 
 
 ## Metrics
 
-It's helpful to monitor some key metrics for the integrated cache. These metrics include:
-
-- `DedicatedGatewayCPUUsage` - CPU usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes.
-- `DedicatedGatewayAverageCPUUsage` - (Deprecated) Average CPU usage across all dedicated gateway nodes.
-- `DedicatedGatewayMaximumCPUUsage` - (Deprecated) Maximum CPU usage across all dedicated gateway nodes.
-- `DedicatedGatewayMemoryUsage` - Memory usage with Avg, Max, or Min Aggregation types for data across all dedicated gateway nodes. 
-- `DedicatedGatewayAverageMemoryUsage` - (Deprecated) Average memory usage across all dedicated gateway nodes.
-- `DedicatedGatewayRequests` - Total number of dedicated gateway requests across all dedicated gateway nodes.
-- `IntegratedCacheEvictedEntriesSize` – The average amount of data evicted from the integrated cache due to LRU across all dedicated gateway nodes. This value doesn't include data that expired due to exceeding the `MaxIntegratedCacheStaleness` time.
-- `IntegratedCacheItemExpirationCount` - The average number of items that are evicted from the integrated cache due to cached point reads exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes. 
-- `IntegratedCacheQueryExpirationCount` - The average number of queries that are evicted from the integrated cache due to cached queries exceeding the `MaxIntegratedCacheStaleness` time across all dedicated gateway nodes.
-- `IntegratedCacheItemHitRate` – The proportion of point reads that used the integrated cache (out of all point reads routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
-- `IntegratedCacheQueryHitRate` – The proportion of queries that used the integrated cache (out of all queries routed through the dedicated gateway with session or eventual consistency). This value is an average of integrated cache instances across all dedicated gateway nodes.
+It's helpful to monitor some key `DedicatedGateway` and `IntegratedCache` metrics for the integrated cache. To learn about these metrics, see [Supported metrics for Microsoft.DocumentDB/DatabaseAccounts](monitor-reference.md#supported-metrics-for-microsoftdocumentdbdatabaseaccounts).
 
 All existing metrics are available, by default, from **Metrics** in the Azure portal (not Metrics classic):
 

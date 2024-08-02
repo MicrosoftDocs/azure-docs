@@ -5,7 +5,7 @@ description: Learn how to use and deploy the Azure Functions with Dapr extension
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: paulyuk
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 10/30/2023
 ms.custom: references_regions
