@@ -82,36 +82,22 @@ Activate the new integration by going to your cluster's portal page and scrollin
 1. In the Monitoring section, select Monitor integration.  
 
 1. Then, select Enable and you can choose the Log Analytics workspace that you want your logs to be sent to.  
-
-:::image type="content" source="./media/azure-monitor-agent/monitor-integration.png" alt-text=" Screenshot showing Azure monitor integration." border="true" lightbox="./media/azure-monitor-agent/monitor-integration.png":::
+    :::image type="content" source="./media/azure-monitor-agent/monitor-integration.png" alt-text=" Screenshot showing Azure monitor integration." border="true" lightbox="./media/azure-monitor-agent/monitor-integration.png":::
 
 1. Enable Azure Monitor Agent Integration with Log Analytics and select your workspace (existing workspace when you're migrating from your previous image to newer image) 
 
 1. Once you confirm the workspace selection, precondition steps commence. 
 
-:::image type="content" source="./media/azure-monitor-agent/pre-condition.png" alt-text="Screenshot showing preconditions." border="true" lightbox="./media/azure-monitor-agent/pre-condition.png":::
+    :::image type="content" source="./media/azure-monitor-agent/pre-condition.png" alt-text="Screenshot showing preconditions." border="true" lightbox="./media/azure-monitor-agent/pre-condition.png":::
 
 1. Select Save once precondition steps are complete. 
-
-#### Approach 2: enable Azure monitor agent using Azure PowerShell 
-
-1. Enable system-assigned MSI 
-
-1. Creation of DCR 
-
-1. Association of DCR 
-
-#### Approach 3: enable Azure monitor agent using Azure CLI 
-
-1. Enable system-assigned MSI 
-
-1. Creation of DCR 
-
-1. Association of DCR 
 
 ### Access the new tables 
 
 There are two ways you can access the new tables. 
+
+**Known Issues**
+Logs related to livy jobs are missing some columns in few tables. Reach out to customer support. 
 
 #### Approach 1: 
 
@@ -219,9 +205,7 @@ We also improved the out-of-box dashboards both at the cluster-level. There's a 
 
 For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](./monitor-hdinsight-reference.md#log-table-mapping). 
 
- 
-
-## Next steps
+ ## Next steps
 
 * [Query Azure Monitor Logs to monitor HDInsight clusters](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [Monitor cluster availability with Apache Ambari and Azure Monitor Logs](./hdinsight-cluster-availability.md)
