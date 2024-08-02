@@ -555,13 +555,15 @@ Fields must be attributed as "retrievable" to be included in the results.
 
 + Review the indexes in **Search management** > **Indexes** to view index size all-up and vector index size. A positive vector index size indicates vectors are present.
 
-+ Use [Search Explorer](search-explorer.md) to query an index. Search explorer has two views: Query view (default) and JSON view. 
++ Use [Search Explorer](search-explorer.md) to query an index. Search Explorer has two views: Query view (default) and JSON view. 
 
-  + Use **Query options** > **Hide vector values in search results** for more readable results.
+  + Set **Query options** > **Hide vector values in search results** for more readable results.
 
   + [Use the JSON view for vector queries](vector-search-how-to-query.md). You can either paste in a JSON definition of the vector query you want to execute, or use the built-in text-to-vector or image-to-vector conversion if your index has a [vectorizer assignment](vector-search-how-to-configure-vectorizer.md). For more information about image search, see [Quickstart: Search for images in Search Explorer](search-get-started-portal-image-search.md).
 
   + Use the default Query view for a quick confirmation that the index contains vectors. The query view is for full text search. Although you can't use it for vector queries, you can send an empty search (`search=*`) to check for content. The content of all fields, including vector fields, is returned as plain text.
+
+  + See [Create a vector query](vector-search-how-to-query.md) for more details.
 
 ### [**REST API**](#tab/rest-check-index)
 
