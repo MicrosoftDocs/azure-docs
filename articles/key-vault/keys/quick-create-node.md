@@ -269,7 +269,7 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-1. Create new text file and paste the following code into the **index.ts** file.
+* Create new text file and paste the following code into the **index.ts** file.
     
     :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/key-vault/src/keys.ts" :::
 
