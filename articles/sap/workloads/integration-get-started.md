@@ -51,14 +51,14 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 
 For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
-- [Streamlining SAP Processes with Azure OpenAI, Copilot Studio, and Power Platform](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/streamlining-sap-processes-with-azure-openai-copilot-studio-and/ba-p/4164338)
+- [Streamlining SAP Processes with Azure OpenAI, Copilot Studio, and Power Platform | blog](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/streamlining-sap-processes-with-azure-openai-copilot-studio-and/ba-p/4164338)
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
 - [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
 
 Also see these SAP resources:
 
-- [empower SAP RISE enterprise users with Azure OpenAI in multicloud environment](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
-- [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
+- [empower SAP RISE enterprise users with Azure OpenAI in multicloud environment | blog](https://blogs.sap.com/2023/02/14/empower-sap-rise-enterprise-users-with-chatgpt-in-multi-cloud-environment/)
+- [Consume OpenAI services (GPT) through CAP & SAP BTP, AI Core | github repos](https://github.com/SAP-samples/azure-openai-aicore-cap-api)
 - [SAP SuccessFactors Helps HR Solve Skills Gap with Generative AI | SAP News](https://news.sap.com/2023/05/sap-successfactors-helps-hr-solve-skills-gap-with-generative-ai/)
 
 ### Microsoft Copilot
