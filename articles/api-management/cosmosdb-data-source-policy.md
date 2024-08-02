@@ -4,7 +4,7 @@ description: Reference for the cosmosdb-data-source resolver policy available fo
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurecli
 ms.topic: article
 ms.date: 03/18/2024

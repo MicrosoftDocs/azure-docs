@@ -9,7 +9,6 @@ ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 # Filtering of MQTT Routed Messages
 You can use the Event Grid Subscription’s filtering capability to filter the routed MQTT messages.

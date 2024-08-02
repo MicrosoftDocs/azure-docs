@@ -3,7 +3,7 @@ title: Logs - Azure Cosmos DB for PostgreSQL
 description: How to access database logs for Azure Cosmos DB for PostgreSQL
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 9/21/2022

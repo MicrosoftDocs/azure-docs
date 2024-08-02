@@ -14,10 +14,10 @@ ms.date: 07/04/2024
 
 You can use one Log Analytics workspace to store any type of log required for any purpose. For example:
 
-- High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
-- App and resource data for **troubleshooting** by developers
-- Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
-- Aggregated long-term data trends for **advanced analytics and machine learning** 
+* High-volume, verbose data that requires **cheap long-term storage for audit and compliance**
+* App and resource data for **troubleshooting** by developers
+* Key event and performance data for scaling and alerting to ensure ongoing **operational excellence and security**
+* Aggregated long-term data trends for **advanced analytics and machine learning** 
 
 Table plans let you manage data costs based on how often you use the data in a table and the type of analysis you need the data for. This article explains and how to set a table's plan.
 
@@ -39,8 +39,9 @@ All tables support the Analytics plan and all DCR-based custom tables and [some 
 When you change a table's plan from Analytics to Basic, Azure monitor treats any data that's older than 30 days as long-term retention data based on the total retention period set for the table. In other words, the total retention period of the table remains unchanged, unless you explicitly [modify the long-term retention period](../logs/data-retention-configure.md). 
 
 > [!NOTE]
-> You can switch a table's plan once a week. 
-# [Portal](#tab/portal-1)
+> You can switch a table's plan once a week.
+
+### [Portal](#tab/portal-1)
 
 Analytics is the default table plan of all tables you create in the portal. You can switch between the Analytics and Basic plans, as described in this section. 
 
@@ -62,7 +63,7 @@ To switch a table's plan in the Azure portal:
 
 1. Select **Save**.
 
-# [API](#tab/api-1)
+### [API](#tab/api-1)
 
 To configure a table for Basic logs or Analytics logs, call the [Tables - Update API](/rest/api/loganalytics/tables/create-or-update):
 
@@ -70,16 +71,16 @@ To configure a table for Basic logs or Analytics logs, call the [Tables - Update
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview
 ```
 
+**Request body**
+
+| Name            | Type   | Description                                                  |
+|-----------------|--------|--------------------------------------------------------------|
+| properties.plan | string | The table plan. Possible values are `Analytics` and `Basic`. |
+
 > [!IMPORTANT]
 > Use the bearer token for authentication. Learn more about [using bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
-**Request body**
-
-|Name | Type | Description |
-| --- | --- | --- |
-|properties.plan | string  | The table plan. Possible values are `Analytics` and `Basic`.|
-
-**Example**
+#### Example
 
 This example configures the `ContainerLogV2` table for Basic logs.
 
@@ -91,77 +92,91 @@ Container Insights uses `ContainerLog` by default. To switch to using `Container
 PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
-Use this request body to change to Basic logs:
+* Use this request body to change to Basic logs:
 
-```http
-{
-    "properties": {
-        "plan": "Basic"
+    ```http
+    {
+        "properties": {
+            "plan": "Basic"
+        }
     }
-}
-```
+    ```
 
-Use this request body to change to Analytics Logs:
+* Use this request body to change to Analytics Logs:
 
-```http
-{
-    "properties": {
-        "plan": "Analytics"
+    ```http
+    {
+        "properties": {
+            "plan": "Analytics"
+        }
     }
-}
-```
+    ```
 
 **Sample response**
 
-This sample is the response for a table changed to Basic logs:
+* This sample is the response for a table changed to Basic logs:
+    
+    Status code: 200
+    
+    ```http
+    {
+        "properties": {
+            "retentionInDays": 30,
+            "totalRetentionInDays": 30,
+            "archiveRetentionInDays": 22,
+            "plan": "Basic",
+            "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
+            "schema": {...}        
+        },
+        "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
+        "name": "ContainerLogV2"
+    }
+    ```
 
-Status code: 200
-
-```http
-{
-    "properties": {
-        "retentionInDays": 30,
-        "totalRetentionInDays": 30,
-        "archiveRetentionInDays": 22,
-        "plan": "Basic",
-        "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
-        "schema": {...}        
-    },
-    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLogV2"
-}
-```
-
-# [CLI](#tab/cli-1)
+### [CLI](#tab/cli-1)
 
 To configure a table for Basic logs or Analytics logs, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-update) command and set the `--plan` parameter to `Basic` or `Analytics`.
 
-For example:
+#### Examples
 
-- To set Basic logs:
+* To set Basic logs:
 
     ```azurecli
     az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Basic
     ```
 
-- To set Analytics Logs:
+* To set Analytics Logs:
 
     ```azurecli
     az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To configure a table's plan, use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalinsights/Update-AzOperationalInsightsTable) cmdlet:
 
 ```powershell
-Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -Plan Basic|Analytics
+Update-AzOperationalInsightsTable  -ResourceGroupName RG-NAME -WorkspaceName WORKSPACE-NAME -TableName TABLE-NAME -Plan Basic|Analytics
 ```
+
+#### Examples
+
+* To set Basic logs:
+
+    ```powershell
+    Update-AzOperationalInsightsTable  -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName ContainerLogV2 -Plan Basic
+    ```
+
+* To set Analytics Logs:
+
+    ```powershell
+    Update-AzOperationalInsightsTable  -ResourceGroupName ContosoRG -WorkspaceName ContosoWorkspace -TableName ContainerLogV2 -Plan Analytics
+    ```
 
 ---
 
 ## Related content
 
-- [Manage data retention](../logs/data-retention-configure.md).
-- [Tables that support the Basic table plan in Azure Monitor Logs](basic-logs-azure-tables.md).
+* [Manage data retention](../logs/data-retention-configure.md).
+* [Tables that support the Basic table plan in Azure Monitor Logs](basic-logs-azure-tables.md).
 

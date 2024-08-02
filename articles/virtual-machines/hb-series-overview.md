@@ -1,7 +1,7 @@
 ---
 title: HB-series VM overview - Azure Virtual Machines | Microsoft Docs
 description: Learn about the preview support for the HB-series VM size in Azure.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
 ms.topic: article

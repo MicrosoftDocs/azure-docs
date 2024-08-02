@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 10/31/2023
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: H1Hack27Feb2017
 ---
 

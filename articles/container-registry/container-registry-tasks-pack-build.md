@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: devx-track-js, devx-track-extended-java
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Build and push an image from an app using a Cloud Native Buildpack

@@ -3,11 +3,10 @@ title: Copy data from Netezza
 description: Learn how to copy data from Netezza to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 06/28/2024
 ms.author: jianleishen
 ---
 # Copy data from Netezza by using Azure Data Factory or Synapse Analytics
@@ -84,8 +83,7 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| SecurityLevel | The level of security that the driver uses for the connection to the data store. The driver supports SSL connections with one-way authentication using SSL version 3. <br>Example: `SecurityLevel=preferredSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL. <br/>- **Preferred secured (preferredSecured)**: If the server provides a choice, the driver uses SSL. <br/>- **Only secured (onlySecured)**: The driver doesn't connect unless an SSL connection is available. | No |
-| CaCertFile | The full path to the SSL certificate that's used by the server. Example: `CaCertFile=<cert path>;`| Yes, if SSL is enabled |
+| SecurityLevel | The level of security that the driver uses for the connection to the data store. <br>Example: `SecurityLevel=preferredUnSecured`. Supported values are:<br/>- **Only unsecured** (**onlyUnSecured**): The driver doesn't use SSL.<br/>- **Preferred unsecured (preferredUnSecured) (default)**: If the server provides a choice, the driver doesn't use SSL.  | No |
 
 **Example**
 

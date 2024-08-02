@@ -3,7 +3,7 @@ title: 'Configure NAT on VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure NAT for Azure VPN Gateway.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: cherylmc 

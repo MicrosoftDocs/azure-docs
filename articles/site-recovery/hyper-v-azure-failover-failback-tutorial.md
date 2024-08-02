@@ -1,7 +1,7 @@
 ---
 title: Set up failover of Hyper-V VMs to Azure in Azure Site Recovery 
 description: Learn how to fail over Hyper-V VMs to Azure with Azure Site Recovery.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/15/2023
 ms.custom: MVC

@@ -4,7 +4,7 @@ description: Resolve common private links issues with Key Vault and deep dive in
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 

@@ -3,7 +3,7 @@ title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint
 description: Get started with this tutorial to learn how to connect to a storage account privately via Azure Private Endpoint using the Azure portal.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
 ms.date: 08/30/2023
 ms.author: abell

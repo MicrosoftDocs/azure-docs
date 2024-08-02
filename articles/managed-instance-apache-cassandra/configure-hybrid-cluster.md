@@ -3,7 +3,7 @@ title: Quickstart - Configure a hybrid cluster with Azure Managed Instance for A
 description: This quickstart shows how to configure a hybrid cluster with Azure Managed Instance for Apache Cassandra Client Configurator.
 author: IriaOsara
 ms.author: iriaosara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 10/11/2023
 ms.devlang: azurecli

@@ -3,7 +3,7 @@ title: Quickstart - Use CLI to create Azure Managed Instance for Apache Cassandr
 description: Use this quickstart to create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: mode-api, devx-track-azurecli

@@ -4,7 +4,7 @@ description: Find Node.js examples on GitHub for common tasks in Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: deborahc
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: sample

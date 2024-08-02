@@ -5,7 +5,7 @@ description:  Use MLflow to log metrics and artifacts from machine learning runs
 author: msakande
 ms.author: mopeakande
 ms.reviewer: fasantia
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 02/15/2024
 ms.topic: how-to

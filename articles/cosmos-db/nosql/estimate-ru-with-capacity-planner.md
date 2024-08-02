@@ -2,7 +2,7 @@
 title: Estimate costs using the Azure Cosmos DB capacity planner - API for NoSQL
 description: Learn how to use Azure Cosmos DB capacity planner to estimate the throughput and cost required when using Azure Cosmos DB for NoSQL.
 author: deborahc
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/15/2023

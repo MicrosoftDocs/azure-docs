@@ -5,7 +5,7 @@ author: hariramt
 ms.author: hariramt
 ms.reviewer: shriramm
 ms.date: 06/04/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:

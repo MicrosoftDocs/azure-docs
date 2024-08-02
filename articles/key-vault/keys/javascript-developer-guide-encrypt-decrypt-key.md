@@ -3,7 +3,7 @@ title: Encrypt and decrypt using Azure Key Vault keys with JavaScript
 description: Encrypt and decrypt data with keys in JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
