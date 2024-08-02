@@ -27,7 +27,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/send-view-analyze-data/tutorial-connect-event-grid.md",
-            "redirect_url": "/azure/iot-operations/connect-to-cloud/tutorial-connect-event-grid",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
         },
         {
@@ -428,6 +428,26 @@
         {
             "source_path_from_root": "/articles/iot-operations/process-data/tutorial-overall-equipment-effectiveness.md",
             "redirect_url": "/previous-versions/azure/iot-operations/process-data/tutorial-overall-equipment-effectiveness",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-kafka.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-mqtt-bridge.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/connect-to-cloud/tutorial-connect-event-grid.md",
+            "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
         }
     ]

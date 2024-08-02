@@ -37,6 +37,8 @@ landingContent:
             url: discover-manage-assets/overview-manage-assets.md
           - text: MQTT broker overview
             url: manage-mqtt-broker/overview-iot-mq.md
+          - text: Route and transform data
+            url: connect-to-cloud/overview-dataflow.md
           - text: Manage layered network
             url: manage-layered-network/overview-layered-network.md
           - text: Configure observability and monitoring
@@ -47,10 +49,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Connect to MQTT or Event Grid
-            url: connect-to-cloud/howto-configure-mqtt-bridge.md
-          - text: Send data to a data lake
-            url: connect-to-cloud/howto-configure-data-lake.md
-          - text: Send data to Kafka or Azure Event Hubs
-            url: connect-to-cloud/howto-configure-kafka.md
+          - text: Create a dataflow
+            url: connect-to-cloud/howto-create-dataflow.md
+          - text: Configure dataflow endpoint
+            url: connect-to-cloud/howto-configure-dataflow-endpoint.md
 

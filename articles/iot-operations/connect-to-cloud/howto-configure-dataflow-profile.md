@@ -3,9 +3,9 @@ title: Configure dataflow profile in Azure IoT Operations
 description: How to configure dataflow profile in Azure IoT Operations to change dataflow behavior.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can configure a dataflow profile to control dataflow behavior.
 ---
@@ -50,21 +50,21 @@ spec:
 | `maxInstances`                                  | Number of instances to spread the dataflows across. Optional; automatically determined if not set. |
 | `tolerations`                                   | Node tolerations. Optional; see [Kubernetes Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). |
 | `diagnostics`                                   | Diagnostics settings.                                                       |
-| `diagnostics.logFormat`                         | Format of the logs, e.g., `text`.                                           |
-| `diagnostics.logLevel`                          | Log level, e.g., `info`, `debug`, `error`. Optional; defaults to `info`.    |
+| `diagnostics.logFormat`                         | Format of the logs. For example, `text`.                                           |
+| `diagnostics.logLevel`                          | Log level. For example, `info`, `debug`, `error`. Optional; defaults to `info`.    |
 | `diagnostics.metrics`                           | Metrics settings.                                                           |
-| `diagnostics.metrics.mode`                      | Mode for metrics, e.g., `enabled`.                                          |
+| `diagnostics.metrics.mode`                      | Mode for metrics. For example, `enabled`.                                          |
 | `diagnostics.metrics.cacheTimeoutSeconds`       | Cache timeout for metrics in seconds.                                       |
 | `diagnostics.metrics.exportIntervalSeconds`     | Export interval for metrics in seconds.                                     |
 | `diagnostics.metrics.prometheusPort`            | Port for Prometheus metrics.                                                |
 | `diagnostics.metrics.updateIntervalSeconds`     | Update interval for metrics in seconds.                                     |
 | `diagnostics.traces`                            | Traces settings.                                                            |
-| `diagnostics.traces.mode`                       | Mode for traces, e.g., `enabled`.                                           |
+| `diagnostics.traces.mode`                       | Mode for traces. For example, `enabled`.                                           |
 | `diagnostics.traces.cacheSizeMegabytes`         | Cache size for traces in megabytes.                                         |
 | `diagnostics.traces.exportIntervalSeconds`      | Export interval for traces in seconds.                                      |
 | `diagnostics.traces.openTelemetryCollectorAddress` | Address for the OpenTelemetry collector.                                   |
 | `diagnostics.traces.selfTracing`                | Self-tracing settings.                                                      |
-| `diagnostics.traces.selfTracing.mode`           | Mode for self-tracing, e.g., `enabled`.                                     |
+| `diagnostics.traces.selfTracing.mode`           | Mode for self-tracing. For example, `enabled`.                                     |
 | `diagnostics.traces.selfTracing.frequencySeconds`| Frequency for self-tracing in seconds.                                      |
 | `diagnostics.traces.spanChannelCapacity`        | Capacity of the span channel.                                               |
 
