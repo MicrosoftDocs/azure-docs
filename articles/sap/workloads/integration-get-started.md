@@ -51,6 +51,7 @@ Select an area for resources about how to integrate SAP and Azure in that space.
 
 For more information about integration with [Azure OpenAI service](/azure/ai-services/openai/overview), see the following Azure documentation:
 
+- [Streamlining SAP Processes with Azure OpenAI, Copilot Studio, and Power Platform](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/streamlining-sap-processes-with-azure-openai-copilot-studio-and/ba-p/4164338)
 - [Microsoft AI SDK for SAP](https://microsoft.github.io/aisdkforsapabap/docs/intro)
 - [ABAP SDK for Azure](https://github.com/microsoft/ABAP-SDK-for-Azure)
 
@@ -64,6 +65,7 @@ Also see these SAP resources:
 
 For more information about integration with [Microsoft 365 Copilot](https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/), see the following Microsoft resources:
 
+- [Enhancing Copilot Studio Extensions for SAP by using Adaptive Cards and Principal Propagation](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/enhancing-copilot-studio-extensions-for-sap-by-using-adaptive/ba-p/4187096)
 - [The synergy of market leaders: Exploring Microsoft and SAP’s game-changing collaboration | blog](https://azure.microsoft.com/blog/the-synergy-of-market-leaders-exploring-microsoft-and-saps-game-changing-collaboration/)
 
 Also see these SAP resources:
