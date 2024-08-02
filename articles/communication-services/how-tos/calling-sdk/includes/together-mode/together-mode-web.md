@@ -71,7 +71,7 @@ const togetherModeContainerSize = { width: 500, height: 500 };
 togetherModeFeature.sceneSize = togetherModeContainerSize;
 
 // To get the scene size
-console.log(`Scene Size: ${JSON.stringify(togetherModeFeature.sceneSize )}`)
+console.log(`Current scene has the following size: ${JSON.stringify(togetherModeFeature.sceneSize )}`)
 ```
 
 ### Together Mode Scene and Seat Updated Events
