@@ -23,7 +23,7 @@ The utility works in two steps:
 Do all the setup steps on an Internet connected machine. You need:
 
 - Windows 10 or later, or Windows Server 2019 or later.
-- [PowerShell 7.0 or later.](/powershell/scripting/install/installing-powershell?view=powershell-7.4) This allows for parallel execution that speeds the process up.
+- [PowerShell 7.0 or later.](/powershell/scripting/install/installing-powershell?view=powershell-7.4&preserve-view=true) This allows for parallel execution that speeds the process up.
 - Azcli must be installed to communicate with the [Azure Graph API.](/cli/azure/install-azure-cli-windows?tabs=azure-cli). 
 1. Open PowerShell as administrator:
 2. Run the command: `Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile AzureCLI.msi`.
@@ -239,6 +239,7 @@ You must collect a list of all legacy agents, both MMA and OMS, on all VM, VMSS 
    .\MMAUnistallUtilityScript.psl GetInventory
    ```
 The script will report the total VM, VMSS, or Arc enables servers seen in the subscription. It will take several minutes to run. You will see a progress bar in the console window. Once complete there will be a CSV file called MMAInventory.csv in the local directory with the following format.
+
 |Resource_Group | Resource_Type | Name | Install_Type |Extension_Name |
 |---|---|---|---|---|
 | Linux-AMA-E2E | VM | Linux-ama-e2e-debian9 | Extension | OmsAgentForLinux         |
