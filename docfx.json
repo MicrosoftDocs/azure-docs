@@ -1159,6 +1159,8 @@
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",
         "articles/expressroute/*.yml": "networking",
+        "articles/extended-zones/*.md": "networking",
+        "articles/extended-zones/*.yml": "networking",
         "articles/firewall/*.md": "networking",
         "articles/firewall/*.yml": "networking",
         "articles/firewall-manager/*.md": "networking",
