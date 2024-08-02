@@ -83,7 +83,7 @@ To perform a major version upgrade for an Azure Database for MySQL Burstable SKU
    >[!Note]
    >If you chose to automatically revert to Burstable SKU, the system will revert to the B2S SKU by default.
 
-## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal for none Burstable SKU servers
+## Perform a planned major version upgrade from MySQL 5.7 to MySQL 8.0 using the Azure portal for General Purpose and Business Critical SKU servers
 
 To perform a major version upgrade of an Azure Database for MySQL flexible server 5.7 server using the Azure portal, perform the following steps.
 
