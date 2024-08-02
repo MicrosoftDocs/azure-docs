@@ -626,6 +626,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/nat-gateway/nat-metrics.md",
+      "redirect_url": "/azure/nat-gateway/monitor-nat-gateway",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
       "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
       "redirect_document_id": false
