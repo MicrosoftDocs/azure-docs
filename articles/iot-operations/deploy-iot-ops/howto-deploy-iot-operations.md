@@ -106,7 +106,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
 
-   Use the optional command parameters to customize your deployment. For example:
+   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your deployment, including:
 
      | Parameter | Value | Description |
      | --------- | ----- | ----------- |
