@@ -373,7 +373,7 @@ CarData> db.sampleColl.find({"rental_history.accidents.date":
 
 ### Wildcard indexing while excluding nested fields
 
-Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us exclude indexing all nested fields within document `car_info`.
+Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us to exclude indexing all nested fields within document `car_info`.
 
 ```javascript
 // Excludes all the nested sub-document property 
@@ -413,7 +413,7 @@ CarData> db.sampleColl.find({"car_info.model":"GT Fastback"}).explain()
 
 ### Wildcard indexing while excluding nested objects
 
-Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us exclude nested objects from the document.
+Azure Cosmos DB for MongoDB vCore supports Wildcard indexes. The example allows us to exclude nested objects from the document.
 
 ```javascript
 // Wildcard index excluding nested object
