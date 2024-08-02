@@ -39,7 +39,7 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 ```
 
 ### Start together mode for all participants
-Successful invocation of the start API is restricted to participants holding roles such as organizer, coorganizer, or presenter. Upon calling the start API, the `togetherModeStreamsUpdated` event is raised, resulting in a new video stream with all participants video sharing one background.
+Users with role organizer, co-organizer or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event will receive notification, that allows participants to render together mode. 
 
 ```js
 togetherModeFeature.start();
