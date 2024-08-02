@@ -167,6 +167,7 @@ metadata:
 spec:
   authenticationMethods:
     - method: x509Credentials
+      x509Credentials:
         authorizationAttributes:
           root:
             subject = "CN = Contoso Root CA Cert, OU = Engineering, C = US"
