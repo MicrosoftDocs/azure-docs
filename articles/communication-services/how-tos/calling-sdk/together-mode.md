@@ -12,7 +12,7 @@ ms.custom: template-how-to
 ---
 
 
-# Together Mode
+# Together mode
 In this article, you learn how to implement Microsoft Teams together mode with Azure Communication Services Calling SDKs. This feature enhaces virtual meetings and calls, making them feel more personal. By creating a unified view that places everyone in a shared background, participants can connect seamlessly and collaborate effectively.
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
