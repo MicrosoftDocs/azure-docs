@@ -153,7 +153,7 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
 
 ::: zone pivot="programming-language-javascript"
 
-1. Create new text file and paste the following code into the **index.js** file. 
+* Create new text file and paste the following code into the **index.js** file. 
 
     ```javascript
     const { SecretClient } = require("@azure/keyvault-secrets");

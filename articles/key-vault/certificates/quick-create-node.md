@@ -152,7 +152,7 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
 
 ::: zone pivot="programming-language-javascript"
 
-1. Create new text file and paste the following code into the **index.js** file. 
+* Create new text file and paste the following code into the **index.js** file. 
 
     ```javascript
     const { CertificateClient, DefaultCertificatePolicy } = require("@azure/keyvault-certificates");
