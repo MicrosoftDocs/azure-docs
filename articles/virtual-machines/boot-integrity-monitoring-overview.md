@@ -4,7 +4,7 @@ description: Learn how to use the Guest Attestation extension to secure boot you
 author: Howie425
 ms.author: howieasmerom
 ms.reviewer: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 04/10/2024

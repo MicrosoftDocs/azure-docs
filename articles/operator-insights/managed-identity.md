@@ -4,7 +4,7 @@ description: This article helps you understand managed identity and how it works
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 03/26/2024
 ---

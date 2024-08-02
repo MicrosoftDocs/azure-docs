@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure key vaults, and add key to t
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template

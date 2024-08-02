@@ -9,7 +9,7 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
   ms.date: 07/05/2024

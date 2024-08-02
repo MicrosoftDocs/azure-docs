@@ -6,7 +6,7 @@ services: machine-learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: kritifaujdar
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 06/12/2024
 ms.topic: how-to

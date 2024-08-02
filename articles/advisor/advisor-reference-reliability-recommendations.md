@@ -273,7 +273,7 @@ Learn more about [Kubernetes service - UseStandardpricingtier (Upgrade to Standa
 
 Pod Disruption budgets recommended. Improve service high availability.
 
-Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets).
+Learn more about [Kubernetes service - PodDisruptionBudgetsRecommended (Pod Disruption Budgets Recommended)](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets).
 
 ### Upgrade to the latest agent version of Azure Arc-enabled Kubernetes
 

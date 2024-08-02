@@ -4,7 +4,7 @@ description: Learn how to save MARS agent passphrase securely in Azure Key Vault
 ms.topic: how-to
 ms.date: 07/18/2024
 ms.reviewer: sooryar
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

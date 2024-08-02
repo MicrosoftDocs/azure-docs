@@ -4,7 +4,7 @@ description: Quickstart showing how to an Azure Cosmos DB database and a contain
 author: seesharprun
 ms.author: sidandrews
 tags: azure-resource-manager, bicep
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 04/18/2022

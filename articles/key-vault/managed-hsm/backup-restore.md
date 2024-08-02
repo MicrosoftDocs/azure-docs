@@ -6,7 +6,7 @@ author: msmbaldwin
 tags: azure-key-vault
 ms.custom: devx-track-azurecli
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/09/2024

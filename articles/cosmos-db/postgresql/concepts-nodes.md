@@ -3,7 +3,7 @@ title: Nodes – Azure Cosmos DB for PostgreSQL
 description: Learn about the types of nodes and tables in a cluster.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 09/29/2023

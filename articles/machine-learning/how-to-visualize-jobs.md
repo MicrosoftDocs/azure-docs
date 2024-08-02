@@ -3,7 +3,7 @@ title: Visualize training results in studio (preview)
 titleSuffix: Azure Machine Learning 
 description: Learn how to visualize your machine learning experiment jobs with the Azure Machine Learning studio. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.custom: build-2023
 ms.author: sgilley

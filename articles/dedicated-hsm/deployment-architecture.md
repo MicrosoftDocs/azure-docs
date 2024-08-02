@@ -4,7 +4,7 @@ description: Basic design considerations when using Azure Dedicated HSM as part 
 services: dedicated-hsm
 author: msmbaldwin
 ms.custom: mvc
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.topic: how-to
 ms.author: mbaldwin

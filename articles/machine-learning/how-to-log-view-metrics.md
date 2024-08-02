@@ -6,7 +6,7 @@ services: machine-learning
 ms.author: mopeakande
 author: msakande
 ms.reviewer: fasantia
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 04/26/2024
 ms.topic: how-to
