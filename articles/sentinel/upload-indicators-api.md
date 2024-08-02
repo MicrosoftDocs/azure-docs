@@ -88,7 +88,7 @@ There are two versions of the upload indicators API. Depending on the endpoint, 
 
 #### Request URI 
 API versioning: `api-version=2022-07-01`<br>
-Endpoint: `https://sentinelus.azure-api.net/workspace/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-07-01`<br>
+Endpoint: `https://sentinelus.azure-api.net/workspaces/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-07-01`<br>
 Method: `POST`<br>
 
 #### Request header
