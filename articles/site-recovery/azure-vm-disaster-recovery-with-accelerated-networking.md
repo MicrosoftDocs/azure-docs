@@ -4,7 +4,7 @@ description: Describes how to enable Accelerated Networking with Azure Site Reco
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 03/07/2024
 ms.author: ankitadutta

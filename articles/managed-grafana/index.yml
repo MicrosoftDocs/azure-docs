@@ -6,7 +6,7 @@ summary: Learn how to use Azure Managed Grafana. Access quickstarts, how-to guid
 metadata:
   title: Azure Managed Grafana
   description: Learn about Azure Managed Grafana
-  ms.service: managed-grafana
+  ms.service: azure-managed-grafana
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev

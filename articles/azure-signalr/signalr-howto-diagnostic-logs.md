@@ -2,7 +2,7 @@
 title: Use resource logs to monitor SignalR Service
 description: Learn how to monitor Azure SignalR Service logs with Azure Monitor and how to self-troubleshoot.
 author: wanlwanl
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.author: wanl

@@ -3,7 +3,6 @@ title: Manage the SAP CDC process
 titleSuffix: Azure Data Factory
 description: Learn how to manage your SAP change data capture (CDC) process in Azure Data Factory.
 author: ukchrist
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.date: 05/15/2024

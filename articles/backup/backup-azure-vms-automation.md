@@ -4,7 +4,7 @@ description: Describes how to back up and recover Azure VMs using Azure Backup w
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

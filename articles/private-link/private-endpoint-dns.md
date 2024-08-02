@@ -3,7 +3,7 @@ title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
 author: AbdullahBell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: concept-article
 ms.date: 07/08/2024
 

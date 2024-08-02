@@ -3,7 +3,7 @@ title: Use managed identities to access Azure Cosmos DB from an Azure Stream A
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Cosmos DB output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/20/2023
 ms.custom: subject-rbac-steps

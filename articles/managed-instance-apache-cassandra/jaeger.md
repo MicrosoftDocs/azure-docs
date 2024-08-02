@@ -3,7 +3,7 @@ title: Run Jaeger with Azure Managed Instance for Apache Cassandra
 description: Learn how to integrate Jaeger with Azure Managed Instance for Apache Cassandra for efficient storage monitoring.
 author: IriaOsara
 ms.author: IriaOsara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 12/08/2023
 

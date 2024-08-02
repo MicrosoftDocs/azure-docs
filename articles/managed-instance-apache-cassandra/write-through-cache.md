@@ -3,7 +3,7 @@ title: Write-through cache in Azure Managed Instance for Apache Cassandra
 description: Learn how to use the write-through cache feature in Azure Managed Instance for Apache Cassandra.
 author: IriaOsara
 ms.author: iriaosara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/17/2023
 
