@@ -1209,7 +1209,7 @@
         "articles/machine-learning/v1/*.yml": "ce-skilling-ai-copilot"
       },
       "ms.service": {
-        "articles/advisor/**/*.md": "advisor",
+        "articles/advisor/**/*.md": "azure-advisor",
         "articles/aks/**/*.md": "azure-kubernetes-service",
         "articles/ansible/**/*.md": "ansible",
         "articles/app-service/**/*.md": "app-service",
