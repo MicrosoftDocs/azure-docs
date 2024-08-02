@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 ## What is Message Analysis? 
 
-Message Analysis is an AI feature that analyses the incoming WhatsApp messages to extract insights that assist developers to enhance customer interactions. It detects the language, determines the intent (like a service question or complaint), and identifies key topics.  Message analysis can help businesses understand how well their communication strategies are working and improve their interactions with customers. 
+Message Analysis is an AI feature that analyses the incoming customer messages to extract insights that assist developers to enhance customer interactions. It detects the language, determines the intent (like a service question or complaint), and identifies key topics.  Message analysis can help businesses understand how well their communication strategies are working and improve their interactions with customers. 
 
 ## What can Message Analysis do?  
 

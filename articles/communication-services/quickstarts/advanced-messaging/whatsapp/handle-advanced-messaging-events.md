@@ -73,11 +73,11 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
         :::image type="content" source="./media/handle-advanced-messaging-events/create-event-subscription.png" lightbox="./media/handle-advanced-messaging-events/create-event-subscription.png" alt-text="Screenshot that shows create event subscription properties.":::
    
 
-     -  Optional: Select the AdvancedMessageAnalysisCompleted event, currently in public preview, to receive message analysis events. Instruction on how to enable message analysis can be found at [Enable Message Analysis with Azure OpenAI](../whatsapp/message-analysis-with-azure-openai-quickstart.md)
+     -  Optional: Select the AdvancedMessageAnalysisCompleted event, currently in public preview, to receive message analysis events. Instruction on how to enable message analysis can be found at [Enable Message Analysis with Azure OpenAI](../message-analysis/message-analysis-with-azure-openai-quickstart.md)
        
         [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
         
-        :::image type="content" source="./media/message-analysis/create-event-subscription-message-analysis.png" lightbox="./media/message-analysis/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create message analysis event subscription properties.":::
+        :::image type="content" source="../message-analysis/media/get-started/create-event-subscription-message-analysis.png" lightbox="../message-analysis/media/get-started/create-event-subscription-message-analysis.png" alt-text="Screenshot that shows how to create message analysis event subscription properties.":::
    
 
     -  For endpoint type, select **"Webhook"** and enter the URL for the Event Grid Viewer we created in the **Setup Event Grid Viewer** step with the path `/api/updates` appended. For example: `https://{{site-name}}.azurewebsites.net/api/updates`.
