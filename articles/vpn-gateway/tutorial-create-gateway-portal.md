@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: In this tutorial, learn how to create and manage an Azure VPN gateway by using the Azure portal.
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 07/05/2024
 

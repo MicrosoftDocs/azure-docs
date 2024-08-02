@@ -2,7 +2,7 @@
 title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023

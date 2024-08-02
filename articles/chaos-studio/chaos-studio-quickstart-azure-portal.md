@@ -7,7 +7,7 @@ ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Quickstart: Create and run a chaos experiment by using Azure Chaos Studio

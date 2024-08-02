@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to add a dual stack network to an existing virtual machine using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 07/24/2024

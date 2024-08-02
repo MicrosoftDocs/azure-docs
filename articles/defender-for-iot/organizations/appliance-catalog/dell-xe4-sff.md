@@ -48,7 +48,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |Shock |Bottom/Right half-sine pulse 40G, 2 ms |
 |EMC |Product Safety, EMC and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
 
-## DELL XE4 SFF - Bill of Materials
+## DELL XE4 SFF - Bill of materials
 
 |Type|Description|PN|Quantity|
 |----|---|----|----|

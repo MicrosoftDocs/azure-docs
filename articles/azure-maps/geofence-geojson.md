@@ -4,7 +4,7 @@ description: Learn about Azure Maps geofence data. See how to use the GET Geofen
 author: eriklindeman
 ms.author: eriklind
 ms.date: 02/14/2019
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 ---

@@ -3,7 +3,7 @@ title: Migrate an Azure Cosmos DB account from periodic to continuous backup mod
 description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can apply the benefits of continuous mode.
 author: kanshiG
 ms.author: govindk
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023, devx-track-azurecli
 ms.date: 05/08/2024

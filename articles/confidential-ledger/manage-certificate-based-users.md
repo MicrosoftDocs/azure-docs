@@ -4,7 +4,7 @@ description: Learn how to manage certificate-based users in Azure confidential l
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, devx-track-ts
 ms.topic: how-to
 ---

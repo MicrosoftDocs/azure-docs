@@ -142,7 +142,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure PowerShell](../../multi-service-resource.md?pivots=azpowershell#clean-up-resources)
 
 ## Next steps

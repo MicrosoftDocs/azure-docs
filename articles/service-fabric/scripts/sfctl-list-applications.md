@@ -4,7 +4,7 @@ description: Service Fabric CLI Script Sample - List the applications provisione
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 04/13/2018
 ms.author: atsenthi

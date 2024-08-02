@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: matjazl
 ms.author: chrupa
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
 ---

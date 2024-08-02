@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual

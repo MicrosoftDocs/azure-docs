@@ -1,7 +1,7 @@
 ---
 title: High-performance computing on InfiniBand enabled HB-series and N-series VMs - Azure Virtual Machines
 description: Learn about the features and capabilities of InfiniBand enabled HB-series and N-series VMs optimized for HPC.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: overview
 ms.date: 07/25/2024

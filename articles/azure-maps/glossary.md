@@ -4,7 +4,7 @@ description: A glossary of commonly used terms associated with Azure Maps, Locat
 author: eriklindeman
 ms.author: eriklind
 ms.date: 09/18/2018
-ms.topic: conceptual
+ms.topic: glossary
 ms.service: azure-maps
 services: azure-maps
 ---

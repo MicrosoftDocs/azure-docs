@@ -4,7 +4,7 @@ description: include file
 services: container-registry
 author: dlepow
 
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep

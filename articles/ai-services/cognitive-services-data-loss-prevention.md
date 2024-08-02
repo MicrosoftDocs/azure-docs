@@ -15,8 +15,7 @@ Azure AI services data loss prevention capabilities allow customers to configure
 
 ## Prerequisites
 
-- Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create a multi-service resource](multi-service-resource.md?pivots=azportal).
-    - You can get your subscription key from the [Azure portal](multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource) after [creating your account](https://azure.microsoft.com/free/cognitive-services/).
+Before you make a request, you need an Azure account and an Azure AI services subscription. If you already have an account, go ahead and skip to the next section. If you don't have an account, we have a guide to get you set up in minutes: [Create an Azure AI services multi-service resource](multi-service-resource.md?pivots=azportal).
 
 ## Enabling data loss prevention
 
@@ -43,14 +42,14 @@ There are two parts to enable data loss prevention. First, the resource property
 
     ```azurecli-interactive
     az rest -m get \
-        -u /subscriptions/{subscription ID}}/resourceGroups/{resource group}/providers/Microsoft.CognitiveServices/accounts/{account name}?api-version=2021-04-30 \
+        -u /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.CognitiveServices/accounts/{account name}?api-version=2021-04-30 \
     ```
 
 1. Configure the restrictOutboundNetworkAccess property and update the allowed FqdnList with the approved URLs
 
     ```azurecli-interactive
     az rest -m patch \
-        -u /subscriptions/{subscription ID}}/resourceGroups/{resource group}/providers/Microsoft.CognitiveServices/accounts/{account name}?api-version=2021-04-30 \
+        -u /subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.CognitiveServices/accounts/{account name}?api-version=2021-04-30 \
         -b '{"properties": { "restrictOutboundNetworkAccess": true, "allowedFqdnList": [ "microsoft.com" ] }}'
     ```
 

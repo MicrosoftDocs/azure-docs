@@ -4,7 +4,7 @@ description: Learn how to enable the Synapse Studio connector for collecting and
 author: jejiang
 ms.author: jejiang
 ms.reviewer: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
