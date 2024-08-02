@@ -64,7 +64,7 @@ In this quickstart, you learn how to create an Azure Synapse Analytics workspace
       --location $Region
     ```
 
-1. Get the web and dev URL for the Azure Synapse Analytics workspace:
+1. Get the web and dev URLs for the Azure Synapse Analytics workspace:
 
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
@@ -92,8 +92,8 @@ In this quickstart, you learn how to create an Azure Synapse Analytics workspace
 
 1. After it's deployed, more permissions are required:
 
-- In the Azure portal, assign other users of the workspace to the Contributor role in the workspace. For instructions, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-- Assign other users the appropriate [Synapse role-based access control roles](security/synapse-workspace-synapse-rbac-roles.md) by using Synapse Studio.
+- In the Azure portal, assign other users of the workspace to the Contributor role in the workspace. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+- Assign other users the appropriate [Azure Synapse Analytics role-based access control roles](security/synapse-workspace-synapse-rbac-roles.md) by using Synapse Studio.
 - A member of the Owner role of the Azure Storage account must assign the Storage Blob Data Contributor role to the Azure Synapse Analytics workspace managed service identity and other users.
 
 ## Clean up resources
