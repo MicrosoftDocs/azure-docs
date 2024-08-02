@@ -369,7 +369,7 @@ CarData> db.sampleColl.find({"rental_history.accidents.date":
 ```
 
 > [!NOTE]
-> Indexing a property in a nested array is a partially supported operation and certain operators may lead into error.
+> We are currently enhancing support for nested arrays. In certain edge cases, specific indexing operations may lead to errors.
 
 ### Wildcard indexing while excluding nested fields
 
