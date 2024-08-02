@@ -38,37 +38,22 @@ spec:
     - operationType: builtInTransformation
       name: my-transformation
       builtInTransformationSettings:
-        datasets:
-          - key: erp
-            inputs:
-              - $source.DataSetWriterName
-              - $context(erp).asset
-            condition: $1 == $2
         filter:
           - inputs:
-              - payload.temperature.Value
-              - payload.Tag 10.Value
-            expression: "$1 * $2 < 100000"
+              - 'temperature.Value'
+              - '"Tag 10".Value'
+            expression: "$1*$2<100000"
         map:
           - inputs:
-              - Timestamp
-            output: Timestamp
+              - '*'
+            output: '*'
           - inputs:
-              - payload.temperature.Value
+              - temperature.Value
             output: TemperatureF
             expression: cToF($1)
           - inputs:
-              - 'payload."Tag 10".Value'
+              - '"Tag 10".Value'
             output: 'Tag 10'
-          - inputs:
-              - DataSetWriterName
-            output: Asset
-          - inputs:
-              - $context(erp).location
-            output: Location
-          - inputs:
-              - $context(erp).status
-            output: Status
         serializationFormat: json
     - operationType: destination
       name: my-destination
@@ -263,9 +248,6 @@ To configure a destination for the dataflow, you need to specify the endpoint an
 | destinationSettings.endpointRef | Reference to the *destination* endpoint                                |
 | destinationSettings.dataDestination | Destination for the data                                           |
 
-### Use Asset as destination
-
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the destination for the dataflow. Managing assets is only available in the Azure portal.
 
 ### Configure destination endpoint reference
 
