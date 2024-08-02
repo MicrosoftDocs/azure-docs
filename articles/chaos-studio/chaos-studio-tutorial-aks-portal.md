@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 04/21/2022
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-how-to
 ---
 

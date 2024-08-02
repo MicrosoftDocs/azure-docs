@@ -3,7 +3,7 @@ title: Request a core limit increase
 titleSuffix: Azure Lab Services
 description: Learn how to request a core limit (quota) increase to expand capacity for your labs in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM

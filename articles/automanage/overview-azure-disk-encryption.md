@@ -2,7 +2,7 @@
 title: Azure disk encryption
 description: Learn about Azure disk encryption on Azure Automanaged enabled virtual machines.
 author: mmccrory
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror

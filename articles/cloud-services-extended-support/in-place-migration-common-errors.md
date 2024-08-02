@@ -2,7 +2,7 @@
 title: Common errors and known issues when migrating to Azure Cloud Services (extended support)
 description: Overview of common errors when migrating from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 author: hirenshah1
 ms.author: hirshah

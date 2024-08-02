@@ -5,7 +5,7 @@ description: Learn how to manage access to an Azure load testing resource using 
 author: ninallam
 ms.author: ninallam
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: how-to 
 ms.date: 11/24/2023
 ms.custom: template-how-to

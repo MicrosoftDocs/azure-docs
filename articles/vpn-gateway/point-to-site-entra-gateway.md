@@ -3,7 +3,7 @@ title: 'Configure P2S VPN gateway for Microsoft Entra ID authentication: Microso
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure P2S gateway settings and Microsoft Entra ID authentication using Microsoft-registered Azure VPN Client.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 07/24/2024

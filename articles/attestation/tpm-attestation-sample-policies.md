@@ -3,7 +3,7 @@ title: Examples of an Azure TPM Attestation policy
 description: Examples of Azure Attestation policy for TPM endpoint.
 services: attestation
 author: prsriva
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 10/12/2022
 ms.author: prsriva

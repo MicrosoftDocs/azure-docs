@@ -4,8 +4,9 @@ description: This article shares version history information for the Desired Sta
 ms.date:  02/17/2021
 keywords: dsc, powershell, azure, extension
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Work with Azure Desired State Configuration extension version history

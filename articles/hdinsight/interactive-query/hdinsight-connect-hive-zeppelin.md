@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
 description: In this quickstart, you learn how to use Apache Zeppelin to run Apache Hive queries.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, mode-other
 ms.date: 05/22/2024

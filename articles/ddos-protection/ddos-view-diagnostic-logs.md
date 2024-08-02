@@ -3,7 +3,7 @@ title: 'Tutorial: View Azure DDoS Protection logs in Log Analytics workspace'
 description: Learn how to view DDoS protection diagnostic logs in Log Analytics workspace.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 07/17/2024
 ms.author: abell
