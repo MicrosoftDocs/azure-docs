@@ -184,7 +184,6 @@ print(batch_response.model_dump_json(indent=2))
 Once you have created batch job successfully you can monitor its progress either in the Studio or programatically. When checking batch job progress we recommend waiting at least 60 seconds in between each status call.
 
 ```Python
-# Wait until the uploaded file is in processed state
 import time
 import datetime 
 
