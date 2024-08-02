@@ -3,7 +3,7 @@ title: Manage web traffic - Azure CLI
 description: Learn how to create an application gateway with a Virtual Machine Scale Set to manage web traffic using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin
