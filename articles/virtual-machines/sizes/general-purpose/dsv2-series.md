@@ -11,6 +11,7 @@ ms.reviewer: mattmcinnes
 ---
 
 # Dsv2 sizes series
+[!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
 
 [!INCLUDE [dsv2-summary](./includes/dsv2-series-summary.md)]
 
