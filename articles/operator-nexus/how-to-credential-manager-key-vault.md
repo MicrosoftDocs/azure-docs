@@ -49,6 +49,38 @@ az role assignment create --assignee 05cf5e27-931d-47ad-826d-cb9028d8bd7a --role
 az role assignment create --assignee 3365d4ea-bb16-4bc9-86dd-f2c8cf6f1f56 --role 44f0a1a8-6fea-4b35-980a-8ff50c487c97 --scope /subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.KeyVault/vaults/<Key Vault Name>
 ```
 
+## Get the Principal ID for the Managed Identity
+
+Once a managed identity is configured, use the 2024-05-01-preview API to view the Identity data within the cluster manager.
+
+Example:
+
+```console
+az networkcloud clustermanager show --ids /subscriptions/<Subscription ID>/resourceGroups/<Cluster Manager Resource Group Name>/providers/Microsoft.NetworkCloud/clusterManagers/<Cluster Manager Name>
+```
+
+System-assigned identity example:
+```
+    "identity": {
+        "principalId": "2cb564c1-b4e5-4c71-bbc1-6ae259aa5f87",
+        "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "type": "SystemAssigned"
+    },
+```
+
+User-assigned identity example:
+```
+    "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+            "/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<userAssignedIdentityName>": {
+                "clientId": "e67dd610-99cf-4853-9fa0-d236b214e984",
+                "principalId": "8e6d23d6-bb6b-4cf3-a00f-4cd640ab1a24"
+            }
+        }
+    },
+```
+
 - User associates the Customer Key Vault with the Operator Nexus cluster. The key vault resource ID must be configured in the cluster and enabled to store the secrets of the cluster.
 
 Example:
