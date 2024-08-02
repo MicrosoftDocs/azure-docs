@@ -234,26 +234,6 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
     node index.js
     ```
 
-::: zone-end
-::: zone pivot="programming-language-typescript"
-1. Create new text file and paste the following code into the **index.ts** file. 
-
-    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/key-vault/src/certificates.ts" :::
-
-## Run the sample application
-
-1. Build the TypeScript app:
-
-    ```terminal
-    tsc
-    ```
-
-1. Run the app:
-
-    ```terminal
-    node index.js
-    ```
-::: zone-end
 
 1. The create and get methods return a full JSON object for the certificate:
 
@@ -286,6 +266,61 @@ This code uses the following [Key Vault Certificate classes and methods](/javasc
       }
     }
     ```
+
+
+::: zone-end
+::: zone pivot="programming-language-typescript"
+1. Create new text file and paste the following code into the **index.ts** file. 
+
+    :::code language="typescript" source="~/azure-typescript-e2e-apps/quickstarts/key-vault/src/certificates.ts" :::
+
+## Run the sample application
+
+1. Build the TypeScript app:
+
+    ```terminal
+    tsc
+    ```
+
+1. Run the app:
+
+    ```terminal
+    node index.js
+    ```
+
+1. The create and get methods return a full JSON object for the certificate:
+
+    ```JSON
+    {
+      "keyId": undefined,
+      "secretId": undefined,
+      "name": "YOUR-CERTIFICATE-NAME",
+        "reuseKey": false,
+        "keyCurveName": undefined,
+        "exportable": true,
+        "issuerName": 'Self',
+        "certificateType": undefined,
+        "certificateTransparency": undefined
+      },
+      "properties": {
+        "createdOn": 2021-11-29T20:17:45.000Z,
+        "updatedOn": 2021-11-29T20:17:45.000Z,
+        "expiresOn": 2022-11-29T20:17:45.000Z,
+        "id": "https://YOUR-KEY-VAULT-NAME-ENDPOINT/certificates/YOUR-CERTIFICATE-NAME/YOUR-CERTIFICATE-VERSION",
+        "enabled": false,
+        "notBefore": 2021-11-29T20:07:45.000Z,
+        "recoveryLevel": "Recoverable+Purgeable",
+        "name": "YOUR-CERTIFICATE-NAME",
+        "vaultUrl": "https://YOUR-KEY-VAULT-NAME-ENDPOINT",
+        "version": "YOUR-CERTIFICATE-VERSION",
+        "tags": undefined,
+        "x509Thumbprint": undefined,
+        "recoverableDays": 90
+      }
+    }
+    ```
+
+::: zone-end
 
 
 ## Integrating with App Configuration

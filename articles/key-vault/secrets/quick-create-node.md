@@ -208,7 +208,39 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```terminal
     node index.js
     ```
+1. The create and get methods return a full JSON object for the secret:
 
+    ```JSON
+    {
+        "value": "MySecretValue",
+        "name": "secret1637692472606",
+        "properties": {
+            "createdOn": "2021-11-23T18:34:33.000Z",
+            "updatedOn": "2021-11-23T18:34:33.000Z",
+            "enabled": true,
+            "recoverableDays": 90,
+            "recoveryLevel": "Recoverable+Purgeable",
+            "id": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net/secrets/secret1637692472606/YOUR-VERSION",
+            "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT.vault.azure.net",
+            "version": "YOUR-VERSION",
+            "name": "secret1637692472606"
+        }
+    }
+    ```
+
+    The update method returns the **properties** name/values pairs:
+
+    ```JSON
+    "createdOn": "2021-11-23T18:34:33.000Z",
+    "updatedOn": "2021-11-23T18:34:33.000Z",
+    "enabled": true,
+    "recoverableDays": 90,
+    "recoveryLevel": "Recoverable+Purgeable",
+    "id": "https: //YOUR-KEYVAULT-ENDPOINT/secrets/secret1637692472606/YOUR-VERSION",
+    "vaultUrl": "https: //YOUR-KEYVAULT-ENDPOINT",
+    "version": "YOUR-VERSION",
+    "name": "secret1637692472606"
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 1. Create new text file and paste the following code into the **index.ts** file. 
@@ -228,7 +260,6 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```terminal
     node index.js
     ```
-::: zone-end
 
 1. The create and get methods return a full JSON object for the secret:
 
@@ -263,6 +294,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     "version": "YOUR-VERSION",
     "name": "secret1637692472606"
     ```
+::: zone-end
+
+
 
 
 

@@ -233,6 +233,40 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     node index.js
     ```
 
+1. The create and get methods return a full JSON object for the key:
+
+    ```JSON
+    "key":  {
+      "key": {
+        "kid": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
+        "kty": "YOUR-KEY-TYPE",
+        "keyOps": [ ARRAY-OF-VALID-OPERATIONS ],
+        ... other properties based on key type
+      },
+      "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION",
+      "name": "YOUR-KEY-NAME",
+      "keyOperations": [ ARRAY-OF-VALID-OPERATIONS ],
+      "keyType": "YOUR-KEY-TYPE",
+      "properties": {
+        "tags": undefined,
+        "enabled": true,
+        "notBefore": undefined,
+        "expiresOn": undefined,
+        "createdOn": 2021-11-29T18:29:11.000Z,
+        "updatedOn": 2021-11-29T18:29:11.000Z,
+        "recoverableDays": 90,
+        "recoveryLevel": "Recoverable+Purgeable",
+        "exportable": undefined,
+        "releasePolicy": undefined,
+        "vaultUrl": "https://YOUR-KEY-VAULT-ENDPOINT",
+        "version": "YOUR-KEY-VERSION",
+        "name": "YOUR-KEY-VAULT-NAME",
+        "managed": undefined,
+        "id": "https://YOUR-KEY-VAULT-ENDPOINT/keys/YOUR-KEY-NAME/YOUR-KEY-VERSION"
+      }
+    }
+    ```
+
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
 1. Create new text file and paste the following code into the **index.ts** file.
@@ -252,7 +286,6 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
     ```terminal
     node index.js
     ```
-::: zone-end
 
 1. The create and get methods return a full JSON object for the key:
 
@@ -287,6 +320,9 @@ This code uses the following [Key Vault Secret classes and methods](/javascript/
       }
     }
     ```
+::: zone-end
+
+
 
 ## Integrating with App Configuration
 
