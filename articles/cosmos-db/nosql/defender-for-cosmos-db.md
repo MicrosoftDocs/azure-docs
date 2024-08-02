@@ -1,7 +1,7 @@
 ---
 title: 'Microsoft Defender for Azure Cosmos DB'
 description: Learn how Microsoft Defender provides advanced threat protection on Azure Cosmos DB.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 06/21/2022

@@ -6,7 +6,7 @@ summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure 
 metadata:
   title: Virtual WAN documentation 
   description: Learn about Virtual WAN
-  ms.service: virtual-wan
+  ms.service: azure-virtual-wan
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc

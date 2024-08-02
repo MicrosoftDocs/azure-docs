@@ -3,7 +3,7 @@ title: Visualize experiments with TensorBoard
 titleSuffix: Azure Machine Learning
 description: Launch TensorBoard to visualize experiment job histories and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: amipatel
 author: amibp

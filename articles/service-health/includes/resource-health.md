@@ -1,5 +1,5 @@
 ---
-ms.service: service-health
+ms.service: azure-service-health
 ms.topic: include
 ms.date: 07/07/2022
 author: rboucher

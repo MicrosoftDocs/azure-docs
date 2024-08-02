@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: With this how-to guide, learn how to configure a service for Azure Private 5G Core through the Azure portal. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 01/16/2022
 ms.custom: template-how-to

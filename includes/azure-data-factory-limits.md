@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: chez-charlie
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.topic: include
 ms.date: 03/19/2024
 ms.author: chez

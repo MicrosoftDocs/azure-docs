@@ -3,7 +3,7 @@ title: Copy VM restore points to another region
 description: Learn how to copy virtual machine (VM) restore points to another region.
 author: aarthiv
 ms.author: aarthiv
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 10/31/2023

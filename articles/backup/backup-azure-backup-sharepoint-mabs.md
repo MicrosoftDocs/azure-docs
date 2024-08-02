@@ -3,7 +3,7 @@ title: Back up a SharePoint farm to Azure with MABS
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 ms.topic: how-to
 ms.date: 07/22/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

@@ -3,7 +3,7 @@ title: Configure and view availability zones in Azure Cosmos DB for PostgreSQL
 description: How to set preferred availability zone and check AZs for nodes
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 11/29/2023

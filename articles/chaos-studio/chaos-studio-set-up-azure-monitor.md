@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 09/27/2023
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: ignite-fall-2023
 ---
 

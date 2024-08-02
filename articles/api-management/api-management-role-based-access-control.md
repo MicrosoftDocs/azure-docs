@@ -4,7 +4,7 @@ description: Learn how to use the built-in roles and create custom roles in Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/15/2023
 ms.author: danlep 

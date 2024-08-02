@@ -3,7 +3,7 @@ title: Azure API Management workspaces - breaking changes (June 2024) | Microsof
 description: Azure API Management is updating the workspaces (preview) with breaking changes. If your service uses workspaces, you may need to update workspace configurations.
 services: api-management 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 05/08/2024
 ms.author: danlep

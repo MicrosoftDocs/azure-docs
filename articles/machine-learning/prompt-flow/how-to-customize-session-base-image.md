@@ -3,7 +3,7 @@ title: Customize base image for compute session in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to create base image for compute session in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - build-2024

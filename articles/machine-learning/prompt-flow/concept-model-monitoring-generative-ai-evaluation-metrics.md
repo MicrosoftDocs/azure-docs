@@ -5,7 +5,7 @@ description: Understand the metrics used when monitoring the performance of gene
 services: machine-learning
 author: ZikeiWong
 ms.author: ziqiwang
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.reviewer: scottpolly
 reviewer: s-polly
