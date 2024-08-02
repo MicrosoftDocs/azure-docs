@@ -4,7 +4,7 @@ description: Create an experiment that uses a service-direct fault with the Azur
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 11/10/2021
 ms.custom: template-how-to, devx-track-azurecli

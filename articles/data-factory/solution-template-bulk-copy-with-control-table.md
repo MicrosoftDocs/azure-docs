@@ -3,7 +3,6 @@ title: Bulk copy from a database using control table
 description: Learn how to use a solution template to copy bulk data from a database by using an external control table to store a partition list of source tables by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
-ms.service: azure-data-factory
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

@@ -3,7 +3,7 @@ title: Azure Managed Confidential Consortium Framework application scenarios
 description: An overview of the application scenarios enabled by Azure Managed CCF.
 services: managed-confidential-consortium-framework
 author: msftsettiy
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 09/28/2023
 ms.author: settiy

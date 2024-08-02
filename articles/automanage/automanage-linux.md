@@ -2,7 +2,7 @@
 title: Azure Automanage for Linux
 description: Learn about Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Linux machines.
 author: mmccrory
-ms.service: automanage
+ms.service: azure-automanage
 ms.custom: linux-related-content
 ms.collection: linux
 ms.topic: conceptual

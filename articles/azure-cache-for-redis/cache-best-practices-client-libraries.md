@@ -3,7 +3,7 @@ title: Best practices using client libraries
 titleSuffix: Azure Cache for Redis
 description: Learn about client libraries for Azure Cache for Redis.
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: franlanglois

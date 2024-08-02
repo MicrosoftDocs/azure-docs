@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: reliability-article
 ms.custom: references_regions, subject-reliability
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.date: 02/05/2024
 ---
 

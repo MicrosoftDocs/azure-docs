@@ -3,7 +3,7 @@ title: Best practices for Using and Monitoring the Server Load
 titleSuffix: Azure Cache for Redis
 description: Learn how to use and monitor your server load for Azure Cache for Redis.
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 12/30/2021
 ms.author: franlanglois

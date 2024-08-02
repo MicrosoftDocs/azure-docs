@@ -4,7 +4,7 @@ description: In this quickstart, learn how to back up Azure Database for Postgre
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
 ms.date: 02/25/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

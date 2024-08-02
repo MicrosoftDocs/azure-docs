@@ -4,7 +4,7 @@ description: This article outlines how data is stored and visualized in Azure Op
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 10/23/2023
 

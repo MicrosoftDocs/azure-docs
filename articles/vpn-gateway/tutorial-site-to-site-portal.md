@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to create a VPN Gateway site-to-sit
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 04/16/2024
 

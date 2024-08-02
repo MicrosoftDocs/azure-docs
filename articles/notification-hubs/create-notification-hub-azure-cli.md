@@ -5,7 +5,7 @@ services: notification-hubs
 author: dbradish-microsoft
 manager: barbkess
 editor: sethmanheim
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/27/2020

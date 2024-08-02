@@ -3,7 +3,7 @@ title: Azure SQL Database output from Azure Stream Analytics
 description: This article describes Azure SQL Database as output for Azure Stream Analytics.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/21/2022
 ---

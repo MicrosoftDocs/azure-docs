@@ -3,7 +3,7 @@ title: "Next.js support on Azure Static Web Apps"
 description: "An overview of the support of Next.js on Azure Static Web Apps"
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 04/25/2024
 ms.author: aapowell

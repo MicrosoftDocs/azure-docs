@@ -3,7 +3,7 @@ title: 'User VPN client configuration: certificate authentication - Windows'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure VPN clients on Windows computers for User VPN connections that use certificate authentication.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc

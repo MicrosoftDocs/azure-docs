@@ -2,7 +2,7 @@
 title: Configure dev center environment types
 titleSuffix: Azure Deployment Environments
 description: Learn how to define the environment types available for all projects within a dev center by creating them as dev center environment types.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.author: rosemalcolm
 author: RoseHJM

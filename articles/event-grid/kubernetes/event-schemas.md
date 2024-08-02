@@ -8,7 +8,6 @@ ms.custom:
 ms.author: robece
 ms.date: 05/25/2021
 ms.topic: conceptual
-ms.service: azure-event-grid
 ---
 
 # Event schemas in Event Grid on Kubernetes

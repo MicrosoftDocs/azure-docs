@@ -3,7 +3,7 @@ title: 'Tutorial: Configure Azure DDoS Protection diagnostic logging through por
 description: Learn how to configure Azure DDoS Protection diagnostic logs.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
 ms.date: 07/17/2024
 ms.author: abell

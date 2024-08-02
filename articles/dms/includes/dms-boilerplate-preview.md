@@ -4,7 +4,7 @@ author: "sumitgaurin"
 ms.author: "sgaur"
 manager: "arthiaga"
 ms.reviewer: "arthiaga"
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.subservice: develop
 ms.topic: include
 ms.date: 04/11/2021

@@ -3,7 +3,7 @@ title: What is an Azure Private DNS zone?
 description: Overview of Private DNS zones
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
 ms.date: 10/12/2023
 ms.author: greglin

@@ -27,7 +27,7 @@ The following section walks through a sample image moderation request with cURL.
 
 Choose a sample image to analyze, and download it to your device. 
 
-We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 2,048 x 2,048 pixels. If your format is animated, we'll extract the first frame to do the detection.
+We support JPEG, PNG, GIF, BMP, TIFF, or WEBP image formats. The maximum size for image submissions is 4 MB, and image dimensions must be between 50 x 50 pixels and 7,200 x 7,200 pixels. If your format is animated, we'll extract the first frame to do the detection.
 
 You can input your image by one of two methods: **local filestream** or **blob storage URL**.
 - **Local filestream** (recommended): Encode your image to base64. You can use a website like [codebeautify](https://codebeautify.org/image-to-base64-converter) to do the encoding. Then save the encoded string to a temporary location. 
@@ -79,7 +79,7 @@ The parameters in the request body are defined in this table:
 
 | Name        | Required?     | Description  | Type    |
 | :---------- | ----------- | :------------ | ------- |
-| **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request is refused. The maximum allowed size of the image is 2048 pixels x 2048 pixels, and the maximum file size is 4 MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
+| **content**    | Required | 	The content or blob URL of the image. I can be either base64-encoded bytes or a blob URL. If both are given, the request is refused. The maximum allowed size of the image is 7,200 x 7,200 pixels, and the maximum file size is 4 MB. The minimum size of the image is 50 pixels x 50 pixels. | String  |
 | **categories** | Optional | This is assumed to be an array of category names. See the [Harm categories guide](../../concepts/harm-categories.md) for a list of available category names. If no categories are specified, all four categories are used. We use multiple categories to get scores in a single request. | String  |
 | **outputType** | Optional | Image moderation API only supports `"FourSeverityLevels"`. Output severities in four levels. The value can be `0,2,4,6` | String|
 

@@ -5,7 +5,7 @@ description: Learn about Azure Bastion monitoring and metrics using Azure Monito
 services: bastion
 author: cherylmc
 
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/05/2024
 ms.author: cherylmc
