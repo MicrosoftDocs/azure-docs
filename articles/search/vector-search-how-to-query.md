@@ -26,7 +26,7 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 
 This article uses REST for illustration. For code samples in other languages, see the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) GitHub repository for end-to-end solutions that include vector queries. 
 
-You can also use [Search explorer](search-explorer.md) in the Azure portal if you [configure a vectorizer](vector-search-how-to-configure-vectorizer.md) that converts strings into embeddings.
+You can also use [Search explorer](search-explorer.md) in the Azure portal.
 
 ## Prerequisites
 
@@ -406,17 +406,36 @@ Search results would include a combination of text and images, assuming your sea
 
 ## Query with integrated vectorization
 
-This section shows a vector query that invokes the [integrated vectorization](vector-search-integrated-vectorization.md) that converts a text query into a vector. Use the stable [**2024-07-01**](/rest/api/searchservice/documents/search-post?view=rest-searchservice-2023-10-01-preview&preserve-view=true)  REST API and newer Azure SDK packages for this feature.
+This section shows a vector query that invokes the [integrated vectorization](vector-search-integrated-vectorization.md) that converts a text or [image query](search-get-started-portal-image-search.md) into a vector. We recommend the stable [**2024-07-01**](/rest/api/searchservice/documents/search-post) REST API, Search Explorer, or newer Azure SDK packages for this feature.
 
-A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. To add or check for a vectorizer, see the index definition. 
+A prerequisite is a search index having a [vectorizer configured and assigned](vector-search-how-to-configure-vectorizer.md) to a vector field. The vectorizer provides connection information to an embedding model used at query time. 
 
-:::image type="content" source="media/vector-search-how-to-query/check-vectorizer.png" alt-text="Screenshot of a vectorizer setting in a search index.":::
+### [**Azure portal**](#tab/builtin-portal)
 
-Queries provide text strings instead of vectors:
+Search Explorer supports integrated vectorization at query time. If your index contains vector fields and has a vectorizer, you can use the built-in text-to-vector conversion.
 
-+ `kind` must be set to `text` .
-+ `text` must have a text string. It's passed to the vectorizer assigned to the vector field.
-+ `fields` is the vector field to search.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, and go to your Azure AI Search service.
+
+1. From the left menu, expand **Search management** > **Indexes**, and select your index. Search Explorer is the first tab on the index page.
+
+1. Check **Vector profiles** to confirm you have a vectorizer.
+
+   :::image type="content" source="media/vector-search-how-to-query/check-vectorizer.png" alt-text="Screenshot of a vectorizer setting in a search index.":::
+
+1. In Search Explorer, you can enter a text string into the default search bar in query view. The built-in vectorizer converts your string into a vector, performs the search, and returns results.
+
+   Alternatively, you can select **View** > **JSON view** to view or modify the query. If vectors are present, Search Explorer sets up a vector query automatically. You can use JSON view to select fields used in search and in the response, add filters, or construct more advanced queries like hybrid. A JSON example is provided in the REST API tab of this section.
+
+### [**REST API**](#tab/builtin-2024-07-01)
+
+1. Use [Index - GET](/rest/api/searchservice/indexes/get) to return the index definition and check for the presence of a vectorizer configuration. Look for `vectorizers` in your index definition. It should specify a deployed embedding model.
+
+1. Use [Search - POST](/rest/api/searchservice/documents/search-post) for the query request.
+
+    + `kind` must be set to `text` .
+    + `text` must have a text string. It's passed to the vectorizer assigned to the vector field.
+    + `fields` is the vector field to search.
+    + `k` is the number of vector matches to return.
 
 Here's a simple example of a query that's vectorized at query time. The text string is vectorized and then used to query the descriptionVector field.
 
@@ -471,7 +490,9 @@ api-key: {{admin-api-key}}
 The scored results from all four queries are fused using [RRF ranking](hybrid-search-ranking.md). Secondary [semantic ranking](semantic-search-overview.md) is invoked over the fused search results, but on the `searchFields` only, boosting results that are the most semantically aligned to `"search":"mystery novel set in London"`.
 
 > [!NOTE]
-> Vectorizers are used during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this scenario, the vectorizer is used only at query time to convert a text string to an embedding.
+> Vectorization occurs during indexing and querying. If you don't need data chunking and vectorization in the index, you can skip steps like creating an indexer, skillset, and data source. In this workflow, vectorization is used only at query time to convert a text string or an image into an embedding. You can define a vectorizer in the search index for this step.
+
+---
 
 ## Number of ranked results in a vector query response
 
