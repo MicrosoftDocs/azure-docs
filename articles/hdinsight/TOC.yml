@@ -257,7 +257,7 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
-      - name: Monitor
+      - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
         items: 
         - name: Monitor Logs
