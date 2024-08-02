@@ -5,7 +5,7 @@
 "author": avijitgupta
 "ms.author": avijitgupta
 "ms.reviewer": gahllevy
-"ms.service": cosmos-db
+"ms.service": azure-cosmos-db
 "ms.subservice": mongodb-vcore
 "ms.topic": conceptual
 "ms.date": 07/30/2024
