@@ -116,7 +116,7 @@ spec:
 
 ## Configure transformation
 
-The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they are specified in the configuration. 
+The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
 
 ```yaml
 spec:
@@ -178,13 +178,15 @@ If the dataset has a record with the `asset` field, similar to:
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
 
+For more information, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+
 ### Filter: Filter data based on a condition
 
 To filter the data on a condition, you can use the `filter` stage. The condition is specified as a field in the source data that matches a value.
 
 | Name                                           | Description                               |
 |------------------------------------------------|-------------------------------------------|
-| builtInTransformationSettings.filter.inputs[]   | Inputs to evluate a filter condition               |
+| builtInTransformationSettings.filter.inputs[]   | Inputs to evaluate a filter condition               |
 | builtInTransformationSettings.filter.expression | Condition for the filter evaluation   |
 
 For example, you could use the `temperature` field in the source data to filter the data:
@@ -231,7 +233,7 @@ spec:
           output: location
 ```
 
-To learn more, see the [Dataflow language syntax](concept-dataflow-language.md).
+To learn more, see the [Map data using dataflows](concept-dataflow-mapping.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
 ### Serialize data according to a schema
 
@@ -252,7 +254,6 @@ spec:
       serializationFormat: parquet
       schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
 ```
-
 
 ## Configure destination
 

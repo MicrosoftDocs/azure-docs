@@ -1,16 +1,16 @@
 ---
-title: Dataflow mapping language
+title: Map data using dataflows
 description: Learn about the dataflow mapping language for transforming data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 07/31/2024
+ms.date: 08/02/2024
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
 
-# Dataflow mapping language
+# Map data using dataflows
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -89,7 +89,7 @@ Field references show how to specify paths in the input and output, using dot no
 
 ## Contextualization dataset selectors
 
-These selectors allow mappings to integrate additional data from external databases, referred to as *contextualization datasets*.
+These selectors allow mappings to integrate extra data from external databases, referred to as *contextualization datasets*.
 
 ## Record filtering
 
