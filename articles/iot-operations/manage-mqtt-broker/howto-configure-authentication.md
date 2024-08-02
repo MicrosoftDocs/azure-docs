@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/27/2024
+ms.date: 08/02/2024
 
 #CustomerIntent: As an operator, I want to configure authentication so that I have secure MQTT broker communications.
 ---
@@ -35,8 +35,6 @@ metadata:
   name: authn
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - listener
   authenticationMethods:
   - method: ServiceAccountToken
     serviceAccountToken:
@@ -48,10 +46,9 @@ To change the configuration, modify the `authenticationMethods` setting in this 
 
 ## Relationship between BrokerListener and BrokerAuthentication
 
-BrokerListener and BrokerAuthentication are separate resources, but they're linked together using `listenerRef`. The following rules apply:
+The following rules apply to the relationship between BrokerListener and BrokerAuthentication:
 
-* A BrokerListener can be linked to only one BrokerAuthentication
-* A BrokerAuthentication can be linked to multiple BrokerListeners
+* Each BrokerListener can have multiple ports. Each port can be linked to a BrokerAuthentication resource. 
 * Each BrokerAuthentication can support multiple authentication methods at once
 
 ## Authentication flow
@@ -79,14 +76,15 @@ metadata:
   name: authn
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - listener
   authenticationMethods:
-    - method: custom
+    - method: Custom
+      custom:
         # ...
-    - method: serviceAccountToken
+    - method: ServiceAccountToken
+      serviceAccountToken:
         # ...
     - method: x509Credentials
+      x509Credentials:
         # ...
 ```
 
@@ -102,12 +100,7 @@ If the custom authentication server is unavailable and all subsequent methods de
 
 ## Disable authentication
 
-For testing, disable authentication by changing it in the [BrokerListener resource](howto-configure-brokerlistener.md).
-
-```yaml
-spec:
-  authenticationEnabled: false
-```
+For testing, you can disable authentication by omitting `authenticationRef` in the `ports` setting of a BrokerListener resource.
 
 ## Configure authentication method
 

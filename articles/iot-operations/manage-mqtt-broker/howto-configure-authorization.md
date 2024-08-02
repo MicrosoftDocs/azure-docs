@@ -29,7 +29,6 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 
 | Field Name | Required | Description |
 | --- | --- | --- |
-| listenerRef | Yes | The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace. |
 | authorizationPolicies | Yes | This field defines the settings for the authorization policies, such as *enableCache* and *rules*.|
 | enableCache | No | Whether to enable caching for the authorization policies.  If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`. |
 | rules | No | A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields: *principals* and *brokerResources*. |
@@ -50,8 +49,6 @@ metadata:
   name: "my-authz-policies"
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - "my-listener" # change to match your listener name as needed
   authorizationPolicies:
     enableCache: true
     rules:
@@ -119,8 +116,6 @@ metadata:
   name: "my-authz-policies"
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - "az-mqtt-non-tls-listener"
   authorizationPolicies:
     enableCache: false
     rules:
