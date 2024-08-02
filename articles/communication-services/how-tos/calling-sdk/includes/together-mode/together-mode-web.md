@@ -7,6 +7,12 @@ ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
+**For meeting and group call scenario the following API can be called only by Microsoft 365 users with the following role**
+
+|APIs| Organizer | Presenter | Attendee |
+|----------------------------------------------|--------|--------|--------|
+| start | ✔️ | ✔️  |  |
+
 TogetherMode is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
 ```js
@@ -90,3 +96,12 @@ const seatUpdate = (participantSeatingMap) => {
 togetherModeFeature.on('togetherModeSceneUpdated', seatUpdate);
 togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ```
+
+### Troubleshooting
+## Error Codes and Description
+
+|Error code| Subcode | Result Category | Reason | Resolution |
+|----------------------------------------------|--------|--------|---------|----------|
+|403		| 46303	| ExpectedError  | Participant role is not eligible to call the together mode start API | Ensure the participant calling the together mode start API has organizer, co-organizer or presenter role |
+|403	| 46304 | ExpectedError  | Together mode was started in an unsupported calling scenario  | Ensure together mode is started only in group call or meeting scenarios |
+|403 | 46306	| ExpectedError | Together mode start API was called by a non-microsft M365 user  | Ensure together mode was started by a Microsoft M365 User |
