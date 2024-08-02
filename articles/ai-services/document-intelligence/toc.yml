@@ -177,7 +177,7 @@ items:
   - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
-  - name: 🆕 Batch document analysis 
+  - name: 🆕 Batch documents analysis 
     displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
     href: concept-batch-analysis.md
   - name: Credit card model
