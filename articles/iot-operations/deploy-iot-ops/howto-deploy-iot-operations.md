@@ -121,6 +121,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 1. On the **Basics** tab, provide the following information:
 
    | Parameter | Value |
+   | --------- | ----- |
    | **Subscription** | Select the subscription that contains your Arc-enabled cluster. |
    | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
    | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
@@ -133,6 +134,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 1. On the **Configuration** tab, provide the following information:
 
    | Parameter | Value |
+   | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
    | **MQTT broker configuration** | *Optional*: Replace the default settings for the MQTT broker. For more information, see [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
 
@@ -141,6 +143,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 1. On the **Automation** tab, provide the following information:
 
    | Parameter | Value |
+   | --------- | ----- |
    | **Subscription** | Select the subscription that contains your Azure key vault. |
    | **Azure Key Vault** | Select your Azure key vault. Or, select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
 
