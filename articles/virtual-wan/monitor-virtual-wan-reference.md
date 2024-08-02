@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
 ms.author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ---
 # Azure Virtual WAN monitoring data reference
 

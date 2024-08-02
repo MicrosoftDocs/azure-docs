@@ -4,7 +4,7 @@ description: Learn how to manage transport layer security (TLS) protocols and ci
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/02/2022
 ms.author: danlep

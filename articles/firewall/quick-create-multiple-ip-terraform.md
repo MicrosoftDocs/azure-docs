@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses -
 description: In this quickstart, you learn how to use Terraform to create an Azure Firewall with multiple public IP addresses.
 services: firewall
 author: cshea-msft
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: victorh

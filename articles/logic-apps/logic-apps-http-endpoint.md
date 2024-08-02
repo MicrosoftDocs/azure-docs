@@ -26,7 +26,7 @@ This guide shows how to create a callable endpoint for your workflow by adding t
 
 * A logic app workflow where you want to use the **Request** trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Create a callable endpoint
 

@@ -22,7 +22,7 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
-[!INCLUDE [postman-replacements-bullet](../../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="receive-messages-sap"></a>
 

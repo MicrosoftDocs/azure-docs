@@ -2,7 +2,7 @@
 title: Troubleshoot problems with Maintenance Configurations
 description: This article provides details on known and fixed issues and how to troubleshoot problems with Maintenance Configurations.
 author: ApnaLakshay
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.date: 10/13/2023

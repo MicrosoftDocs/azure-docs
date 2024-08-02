@@ -4,7 +4,7 @@ description: This article shows you how to use API Management to import a Logic 
 services: api-management
 author: dlepow
 manager: cfowler
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: danlep

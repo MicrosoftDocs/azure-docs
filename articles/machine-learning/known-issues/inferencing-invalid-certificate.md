@@ -38,7 +38,7 @@ This error occurs because the certificate for AKS clusters created before Januar
 ## Solutions and workarounds
 
 There are two options to resolve this issue:
-- Rotate the AKS certificate for the cluster. See [Certificate Rotation in Azure Kubernetes Service (AKS) - Azure Kubernetes Service](../../aks/certificate-rotation.md) for more information.
+- Rotate the AKS certificate for the cluster. See [Certificate Rotation in Azure Kubernetes Service (AKS) - Azure Kubernetes Service](/azure/aks/certificate-rotation) for more information.
 - Wait for 5 hours for the certificate to be automatically updated, and the issue should be resolved. 
 
 ## Next steps

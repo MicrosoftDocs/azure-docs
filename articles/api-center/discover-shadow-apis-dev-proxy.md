@@ -2,7 +2,7 @@
 title: Discover shadow APIs using Dev Proxy
 description: Learn how to discover shadow APIs in your apps using Dev Proxy and onboard them to API Center.
 author: waldekmastykarz
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/15/2024
 ms.author: wmastyka 

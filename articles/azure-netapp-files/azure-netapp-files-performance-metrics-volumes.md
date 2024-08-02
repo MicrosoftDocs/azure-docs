@@ -44,7 +44,7 @@ The intent of SSB is to allow organizations and individuals to measure the perfo
 
 #### Installation of SSB 
 
-Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) section in the SSB README file to install for the platform of your choice.
+Follow the Getting started section in the SSB README file to install for the platform of your choice.
 
 ### FIO 
 

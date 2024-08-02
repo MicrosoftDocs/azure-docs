@@ -29,7 +29,7 @@ Both Standard and Consumption logic app workflows offer the SAP *managed* connec
 
 - If you want to upload your generated schemas to a repository, such as an [integration account](../logic-apps-enterprise-integration-create-integration-account.md), make sure that the repository already exists.
 
-[!INCLUDE [postman-replacements-bullet](../../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Generate schemas for an SAP artifact
 

@@ -356,7 +356,7 @@ N/A
 
 ---
 
-## Configure
+## Configure (Preview)
 
 [Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) serve as a management tool for Azure Monitor Agent (AMA) on your machine. The AgentSettings DCR can be used to configure AMA parameters like `DisQuotaInMb`, ensuring your agent is tailored to your specific monitoring needs.
 

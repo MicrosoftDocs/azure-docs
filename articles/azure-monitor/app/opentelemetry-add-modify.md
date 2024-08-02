@@ -2073,7 +2073,7 @@ Use the add [custom property example](#add-a-custom-property-to-a-span), but rep
 ```C#
 // Add the client IP address to the activity as a tag.
 // only applicable in case of activity.Kind == Server
-activity.SetTag("http.client_ip", "<IP Address>");
+activity.SetTag("client.address", "<IP Address>");
 ```
 
 ##### [Java](#tab/java)

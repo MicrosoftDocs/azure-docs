@@ -2,9 +2,9 @@
 title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -75,7 +75,8 @@ The following is the request body to configure backup for all blobs within a sto
   }
 }
 ```
-To configure backup with vaulted backup (preview) enabled, refer the below request body.
+
+To configure backup with vaulted backup enabled, refer the below request body.
 
 ```json
 {backupInstanceDataSourceType is Microsoft.Storage/storageAccounts/blobServices
@@ -153,7 +154,8 @@ The [request body](#prepare-the-request-to-configure-blob-backup) that you prepa
   }
 }
 ```
-#### Example request body for vaulted backup (preview)
+
+#### Example request body for vaulted backup
 
 ```json
 {

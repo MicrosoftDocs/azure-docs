@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn how to make your Dapr components resilient in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 02/22/2024
 ms.author: hannahhunter

@@ -3,7 +3,7 @@ title: System tables – Azure Cosmos DB for PostgreSQL
 description: Metadata for distributed query execution
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
 ms.date: 10/01/2023

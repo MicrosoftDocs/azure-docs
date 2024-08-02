@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides information on how to troubleshoot the redirection issue when Azure Application Gateway is used with Azure App Service
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 04/15/2021
 ms.author: greglin 

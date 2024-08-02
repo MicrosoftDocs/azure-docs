@@ -1,10 +1,10 @@
 ---
 title: Drawing tools interaction types and keyboard shortcuts on map | Microsoft Azure Maps
 description: How to draw and edit shapes using a mouse, touch screen, or keyboard in the Microsoft Azure Maps Web SDK
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/05/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---
@@ -16,12 +16,12 @@ This article outlines all the different ways to draw and edit shapes using a mou
 The drawing manager supports three different ways of interacting with the map, to draw shapes.
 
 - `click` - Coordinates are added when the mouse or touch is clicked.
-- `freehand ` - Coordinates are added when the mouse or touch is dragged on the map.
+- `freehand` - Coordinates are added when the mouse or touch is dragged on the map.
 - `hybrid` - Coordinates are added when the mouse or touch is clicked or dragged.
 
 ## How to draw shapes
 
- Before any shape can be drawn, set the `drawingMode` option of the drawing manager to a supported drawing setting. This setting can be programmed, or invoked by pressing one of the drawing buttons on the toolbar. The drawing mode stays enabled, even after a shape has been drawn, making it easy to draw more shapes of the same type. Programmatically set the drawing mode to an idle state. Or, switch to an idle state by clicking the current drawing modes button on the toolbar.
+ Before any shape can be drawn, set the `drawingMode` option of the drawing manager to a supported drawing setting. This setting can be programmed, or invoked by pressing one of the drawing buttons on the toolbar. The drawing mode stays enabled, even after a shape has been drawn, making it easy to draw more shapes of the same type. Programmatically set the drawing mode to an idle state. Or, switch to an idle state by selecting the current drawing modes button on the toolbar.
 
 The next sections outline all the different ways that shapes can be drawn on the map.
 

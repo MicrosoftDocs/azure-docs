@@ -74,6 +74,8 @@
               href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
             - name: Find existing free-tier accounts
               href: ../scripts/cli/common/free-tier.md
+            - name: Migrate all resources to autoscale
+              href: ../scripts/cli/common/convert-to-autoscale.md
         - name: Azure PowerShell
           items:
             - name: Overview

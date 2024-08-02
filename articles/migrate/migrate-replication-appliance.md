@@ -42,7 +42,7 @@ When you set up the replication appliance using the OVA template provided in the
 **Component** | **Requirement**
 --- | ---
  | **VMware VM appliance**
-PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the replication appliance is running on a VMware VM.
+PowerCLI | [PowerCLI version 6.0](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-F02D0C2D-B226-4908-9E5C-2E783D41FE2D.html) should be installed if the replication appliance is running on a VMware VM.
 NIC type | VMXNET3 (if the appliance is a VMware VM)
  | **Hardware settings**
 CPU cores | 8

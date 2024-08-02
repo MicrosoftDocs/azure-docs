@@ -3,7 +3,7 @@ title:  "Deploy Azure Spring Apps in a virtual network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subject-rbac-steps

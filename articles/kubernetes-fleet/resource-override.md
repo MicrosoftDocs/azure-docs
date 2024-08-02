@@ -168,7 +168,9 @@ spec:
 
 This example replaces the container image in the `Deployment` with the `nginx:1.20.0` image for clusters with the `env: prod` label and the `nginx:latest` image for clusters with the `env: test` label.
 
-## Apply the resource override
+## Apply the cluster resource placement
+
+### [Azure CLI](#tab/azure-cli)
 
 1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate namespaces.
 
@@ -241,6 +243,51 @@ This example replaces the container image in the `Deployment` with the `nginx:1.
     ```
 
     The `ClusterResourcePlacementOverridden` condition indicates whether the resource override was successfully applied to the selected resources. Each cluster maintains its own `Applicable Resource Overrides` list, which contains the resource override snapshot if relevant. Individual status messages for each cluster indicate whether the override rules were successfully applied.
+
+### [Portal](#tab/azure-portal)
+
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
+
+1. Select **Create**.
+
+1. Create a `ClusterResourcePlacement` resource to specify the placement rules for distributing the resource overrides across the cluster infrastructure, as shown in the following example. Make sure you select the appropriate namespaces. When you're ready, select **Add**.
+
+    ```yaml
+    apiVersion: placement.kubernetes-fleet.io/v1beta1
+    kind: ClusterResourcePlacement
+    metadata:
+      name: crp-example
+    spec:
+      resourceSelectors:
+        - group: ""
+          kind: Namespace
+          name: test-namespace
+          version: v1
+      policy:
+        placementType: PickAll
+        affinity:
+          clusterAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              clusterSelectorTerms:
+                - labelSelector:
+                    matchLabels:
+                      env: prod
+                - labelSelector:
+                    matchLabels:
+                      env: test
+    ```
+
+    This example distributes resources within the `test-namespace` across all clusters labeled with `env:prod` and `env:test`. As the changes are implemented, the corresponding `ResourceOverride` configurations will be applied to the designated resources, triggered by the selection of matching deployment resource, `my-deployment`.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/create-resource-propagation-inline.png" lightbox="./media/quickstart-resource-propagation/create-resource-propagation.png" alt-text="A screenshot of the Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+
+1. Verify that the cluster resource placement is created successfully.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/overview-cluster-resource-inline.png" lightbox="./media/quickstart-resource-propagation/overview-cluster-resource.png" alt-text="A screenshot of the Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+
+1. Verify the cluster resource placement applied to the selected resources by selecting the resource from the list and checking the status.
+
+---
 
 ## Next steps
 

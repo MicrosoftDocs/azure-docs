@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 

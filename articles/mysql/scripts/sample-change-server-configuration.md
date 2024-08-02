@@ -3,7 +3,7 @@ title: CLI script - Change server parameters - Azure Database for MySQL
 description: This sample CLI script lists all available server configurations and updates the value of innodb_lock_wait_timeout.
 author: SudheeshGH
 ms.author: sunaray
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample

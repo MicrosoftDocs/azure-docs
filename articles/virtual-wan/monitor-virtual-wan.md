@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: cherylmc
 ms.author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ---
 
 # Monitor Azure Virtual WAN

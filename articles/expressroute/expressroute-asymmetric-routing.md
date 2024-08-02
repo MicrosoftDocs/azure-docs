@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Asymmetric routing'
 description: This article walks you through the issues you might face with asymmetric routing in a network that has multiple links to a destination.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 07/11/2024
 ms.author: duau

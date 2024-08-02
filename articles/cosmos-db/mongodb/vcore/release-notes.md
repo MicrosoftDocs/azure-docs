@@ -5,7 +5,7 @@ description: Includes a list of all feature updates, grouped by release date, fo
 author: avijitgupta
 ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: release-notes
 ms.date: 07/02/2024

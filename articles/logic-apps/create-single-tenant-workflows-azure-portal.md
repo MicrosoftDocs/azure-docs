@@ -55,7 +55,7 @@ In single-tenant Azure Logic Apps, workflows in the same logic app resource and 
 
   If you don't have an Office 365 account, you can use [any other available email connector](/connectors/connector-reference/connector-reference-logicapps-connectors) that can send messages from your email account, for example, Outlook.com. If you use a different email connector, you can still follow the example, and the general overall steps are the same. However, your options might differ in some ways. For example, if you use the Outlook.com connector, use your personal Microsoft account instead to sign in.
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 * If you create your logic app resource and enable [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 

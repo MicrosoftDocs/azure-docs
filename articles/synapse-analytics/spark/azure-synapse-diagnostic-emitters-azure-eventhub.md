@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Synapse Apache Spark dia
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021

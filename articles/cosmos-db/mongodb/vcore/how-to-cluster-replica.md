@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Enable and disable cross-region replication and promote cluster replica in another region for disaster recovery (DR) in Azure Cosmos DB for MongoDB vCore.
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - build-2024

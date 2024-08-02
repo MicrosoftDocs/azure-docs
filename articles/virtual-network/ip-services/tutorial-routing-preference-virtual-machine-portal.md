@@ -4,7 +4,7 @@ description: In this tutorial, learn how to create a VM with a public IP address
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.custom: template-tutorial

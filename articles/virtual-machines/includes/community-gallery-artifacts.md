@@ -3,7 +3,7 @@
  description: include file
  author: sandeepraichura
  ms.author: saraic
- ms.service: virtual-machines
+ ms.service: azure-virtual-machines
  ms.subservice: gallery
  ms.topic: include
  ms.date: 08/30/2023

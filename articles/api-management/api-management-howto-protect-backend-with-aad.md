@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to secure user access to an API in Azure API Management with OAuth 2.0 user authorization and Microsoft Entra ID.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/27/2022
 ms.author: danlep

@@ -5,7 +5,7 @@ description:  Learn how the use of model packages in Azure Machine Learning is u
 author: msakande
 ms.author: mopeakande
 ms.reviewer: cacrest
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.date: 12/08/2023
 ms.topic: concept-article

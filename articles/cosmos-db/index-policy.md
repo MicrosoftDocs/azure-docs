@@ -2,7 +2,7 @@
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - build-2024
@@ -116,6 +116,9 @@ Here are some rules for included and excluded paths precedence in Azure Cosmos D
 
 ## Vector indexes
 
+> [!NOTE]
+>  You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) to specify a vector indexing policy.> 
+
 **Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. Vectors searches will have significantly lower latency, higher throughput, and less RU consumption when leveraging a vector index.  You can specify the following types of vector index policies:
 
 | Type | Description | Max dimensions |
@@ -144,7 +147,10 @@ Here's an example of an indexing policy with a vector index:
     ],
     "excludedPaths": [
         {
-            "path": "/_etag/?"
+            "path": "/_etag/?",
+        },
+        {
+            "path": "/vector/*"
         }
     ],
     "vectorIndexes": [
@@ -156,14 +162,12 @@ Here's an example of an indexing policy with a vector index:
 }
 ```
 
-> [!NOTE]
->  You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](nosql/vector-search.md#enroll-in-the-vector-search-preview-feature) to specify a vector indexing policy.> 
-
 > [!IMPORTANT]
 > A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](nosql/vector-search.md#container-vector-policies).
 > Vector indexes must also be defined at the time of Container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
 
-
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 ## Spatial indexes
 

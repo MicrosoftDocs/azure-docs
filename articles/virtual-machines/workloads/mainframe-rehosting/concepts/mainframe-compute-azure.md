@@ -5,7 +5,7 @@ author: johnjrayborn
 ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 
 ---
@@ -102,7 +102,7 @@ One of the advantages of an Azure–based solution is the ability to scale out. 
 
 - **PaaS scaling.** Azure PaaS offerings scale compute resources. For example, [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) allocates compute resources to meet increases in the volume of requests.
 
-- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](../../../../aks/concepts-clusters-workloads.md) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
+- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](/azure/aks/concepts-clusters-workloads) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
 
 To choose the right method for scaling out compute resources, it’s important to understand how Azure and mainframes differ. The key is how—or if—data is shared by compute resources. In Azure, data (by default) is not typically shared by multiple VMs. If data sharing is required by multiple VMs in a scale-out compute cluster, the shared data must reside in a resource that supports this functionality. On Azure, data sharing involves storage as the following section discusses.
 
