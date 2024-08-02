@@ -1224,7 +1224,7 @@
         "articles/azure-monitor/**/*.md": "azure-monitor",
         "articles/azure-portal/**/*.md": "azure-portal",
         "articles/azure-portal/supportability/**/*.md": "azure-supportability",
-        "articles/azure-relay/*.md": "service-bus-relay",
+        "articles/azure-relay/**/*": "azure-relay",
         "articles/azure-resource-manager/**/*.md": "azure-resource-manager",
         "articles/azure-resource-manager/custom-providers/**/*.md": "azure-custom-providers",
         "articles/azure-resource-manager/managed-applications/**/*.md": "azure-managed-applications",
