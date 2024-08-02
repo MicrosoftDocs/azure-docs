@@ -6,7 +6,6 @@ ms.subservice: process-automation
 ms.date: 10/03/2023
 ms.topic: conceptual 
 ms.custom:
-ms.service: azure-automation
 ---
 
 # Author graphical runbooks in Azure Automation
