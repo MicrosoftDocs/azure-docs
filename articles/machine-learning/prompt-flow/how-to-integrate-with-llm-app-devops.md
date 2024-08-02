@@ -291,6 +291,7 @@ eval_run = Run(
     flow=flow,
     # remote data
     data=data,
+    run=base_run,
     column_mapping={
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
