@@ -2,7 +2,7 @@
 title: Azure to Azure disaster recovery architecture in Azure Site Recovery
 description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 services: site-recovery
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 02/29/2024
 ms.author: ankitadutta
