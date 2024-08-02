@@ -61,7 +61,7 @@ In addition to a good foundational setup in the database platform, there are spe
 
 These techniques provide advanced mechanisms to address specific latency and availability challenges, going above and beyond the cross-region retry capabilities that are built into the SDK by default. By proactively managing potential issues at the request and partition levels, these strategies can significantly enhance the resilience and performance of your application, particularly under high-load or degraded conditions.
 
-### Threshold-based availability atrategy
+### Threshold-based availability strategy
 
 The threshold-based availability strategy can improve tail latency and availability by sending parallel read requests to secondary regions and accepting the fastest response. This approach can drastically reduce the impact of regional outages or high-latency conditions on application performance.
 
