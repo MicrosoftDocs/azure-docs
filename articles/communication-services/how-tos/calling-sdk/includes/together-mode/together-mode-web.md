@@ -46,7 +46,7 @@ togetherModeFeature.start();
 ```
 
 ### Get Participants Seating Positions
-The specified API facilitates the retrieval of seating coordinates for participants. Given that the video of all participants is combined into a single video frame in Together Mode, these coordinates serve as essential positioning information.
+The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use those coordinates to provide an overlay on top of the stream with additional information about participants such as display name or render visual features such as spotlight, hand raised or reactions. 
 
 ```js
 // returns Map<string, TogetherModeSeatingPosition>
