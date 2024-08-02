@@ -73,7 +73,7 @@ The following image shows a standard configuration for a new Automation account.
 
 ### Networking
 
-On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using a [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
+On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using an [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
 
 The following image shows a standard configuration for a new Automation account.
 

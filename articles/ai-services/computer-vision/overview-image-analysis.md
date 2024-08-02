@@ -6,7 +6,7 @@ description: The Image Analysis service uses pretrained AI models to extract man
 author: PatrickFarley
 manager: nitinme
 ms.service: azure-ai-vision
-ms.custom: references_regions, build-2023, build-2023-dataai
+ms.custom: build-2023, build-2023-dataai
 ms.topic: overview
 ms.date: 02/20/2024
 ms.author: pafarley
@@ -49,10 +49,10 @@ You can analyze images to provide insights about their visual features and chara
 |**Model customization** (v4.0 preview only)|You can create and train custom models to do image classification or object detection. Bring your own images, label them with custom tags, and Image Analysis trains a model customized for your use case.|[Model customization](./concept-model-customization.md)|
 |**Read text from images** (v4.0 only)| Version 4.0 preview of Image Analysis offers the ability to extract readable text from images. Compared with the async Computer Vision 3.2 Read API, the new version offers the familiar Read OCR engine in a unified performance-enhanced synchronous API that makes it easy to get OCR along with other insights in a single API call. |[OCR for images](concept-ocr.md)|
 |**Detect people in images** (v4.0 only)|Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. |[People detection](concept-people-detection.md)|
-|**Generate image captions** | Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. <br/><br/>The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It's only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. <br/><br/>Version 4.0 also lets you use dense captioning, which generates detailed captions for individual objects that are found in the image. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image.<br/><br/>:::image type="content" source="Images/description.png" alt-text="Photo of cows with a simple description on the right.":::| [Generate image captions (v3.2)](concept-describing-images.md)<br/>[(v4.0)](concept-describe-images-40.md)|
+|**Generate image captions** | Generate a caption of an image in human-readable language, using complete sentences. Computer Vision's algorithms generate captions based on the objects identified in the image. <br/><br/>The version 4.0 image captioning model is a more advanced implementation and works with a wider range of input images. It's only available in the certain geographic regions. See [Region availability](#region-availability). <br/><br/>Version 4.0 also lets you use dense captioning, which generates detailed captions for individual objects that are found in the image. The API returns the bounding box coordinates (in pixels) of each object found in the image, plus a caption. You can use this functionality to generate descriptions of separate parts of an image.<br/><br/>:::image type="content" source="Images/description.png" alt-text="Photo of cows with a simple description on the right.":::| [Generate image captions (v3.2)](concept-describing-images.md)<br/>[(v4.0)](concept-describe-images-40.md)|
 |**Detect objects** |Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation lists those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. <br/><br/>:::image type="content" source="Images/detect-objects.png" alt-text="Photo of an office with a rectangle drawn around a laptop.":::| [Detect objects (v3.2)](concept-object-detection.md)<br/>[(v4.0)](concept-object-detection-40.md) |
 |**Tag visual features**| Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on.<br/><br/>:::image type="content" source="Images/tagging.png" alt-text="Photo of a skateboarder with tags listed on the right.":::|[Tag visual features (v3.2)](concept-tagging-images.md)<br/>[(v4.0)](concept-tag-images-40.md)|
-|**Get the area of interest / smart crop** |Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. <br/><br/>The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It's only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US. | [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md)<br/>[(v4.0 preview)](concept-generate-thumbnails-40.md)|
+|**Get the area of interest / smart crop** |Analyze the contents of an image to return the coordinates of the *area of interest* that matches a specified aspect ratio. Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. <br/><br/>The version 4.0 smart cropping model is a more advanced implementation and works with a wider range of input images. It's only available in certain geographic regions. See [Region availability](#region-availability). | [Generate a thumbnail (v3.2)](concept-generating-thumbnails.md)<br/>[(v4.0 preview)](concept-generate-thumbnails-40.md)|
 |**Detect brands** (v3.2 only) | Identify commercial brands in images or videos from a database of thousands of global logos. You can use this feature, for example, to discover which brands are most popular on social media or most prevalent in media product placement. |[Detect brands](concept-brand-detection.md)|
 |**Categorize an image** (v3.2 only)|Identify and categorize an entire image, using a [category taxonomy](Category-Taxonomy.md) with parent/child hereditary hierarchies. Categories can be used alone, or with our new tagging models.<br/><br/>Currently, English is the only supported language for tagging and categorizing images. |[Categorize an image](concept-categorizing-images.md)|
 | **Detect faces** (v3.2 only) |Detect faces in an image and provide information about each detected face. Azure AI Vision returns the coordinates, rectangle, gender, and age for each detected face.<br/><br/>You can also use the dedicated [Face API](./overview-identity.md) for these purposes. It provides more detailed analysis, such as facial identification and pose detection.|[Detect faces](concept-detecting-faces.md)|
@@ -76,7 +76,7 @@ The multimodal embeddings APIs enable the _vectorization_ of images and text que
 
 The `2024-02-01` API includes a multi-lingual model that supports text search in 102 languages. The original English-only model is still available, but it cannot be combined with the new model in the same search index. If you vectorized text and images using the English-only model, these vectors won’t be compatible with multi-lingual text and image vectors.
 
-These APIs are only available in the following geographic regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+These APIs are only available in certain geographic regions. See [Region availability](#region-availability).
 
 [Multimodal embeddings](./concept-image-retrieval.md)
 
@@ -90,7 +90,10 @@ Image Analysis 4.0 (preview) offers the ability to remove the background of an i
 |:---------:|:---------:|:---------:|
 |   :::image type="content" source="media/background-removal/person-5.png" alt-text="Photo of a group of people using a tablet.":::  |    :::image type="content" source="media/background-removal/person-5-result.png" alt-text="Photo of a group of people using a tablet; background is transparent.":::     |   :::image type="content" source="media/background-removal/person-5-matte.png" alt-text="Alpha matte of a group of people.":::      |
 
-## Image requirements
+
+## Service limits
+
+### Input requirements
 
 #### [Version 4.0](#tab/4-0)
 
@@ -112,6 +115,32 @@ Image Analysis works on images that meet the following requirements:
 - The dimensions of the image must be greater than 50 x 50 pixels and less than 16,000 x 16,000 pixels
 
 ---
+
+
+### Language support
+
+Different Image Analysis features are available in different languages. See the [Language support](/azure/ai-services/content-safety/language-support) page.
+
+### Region availability
+
+To use the Image Analysis APIs, you must create your Azure AI Vision resource in a supported region. The Image Analysis features are available in the following regions:
+
+|Region | Analyze Image<br>(minus 4.0 Captions) | Analyze Image<br>(including 4.0 Captions) | Product Recognition | Multimodal embeddings | Background removal |
+|---|---|---|---|---|--|
+| East US     | ✅  | ✅ | ✅ | ✅ | ✅ |
+| West US |  ✅ | ✅ |  | ✅ |✅ |
+| West US 2 |  ✅ |  | ✅ | ✅ | |
+| France Central |  ✅ | ✅ |  | ✅ | ✅ |
+| North Europe |  ✅ | ✅ |  | ✅ |✅ |
+| West Europe |  ✅ | ✅ |  | ✅ |✅ |
+| Sweden Central |  ✅ |  |  | ✅ | |
+| Switzerland North |  ✅ |  |  | ✅ | |
+| Australia East |  ✅ |  |  | ✅ | |
+| Southeast Asia |  ✅ | ✅ |  | ✅ |✅ |
+| East Asia |  ✅ | ✅ |  |  | |
+| Korea Central |  ✅ | ✅ |  | ✅ |✅ |
+| Japan East |  ✅ |  |  | ✅ | |
+
 
 ## Data privacy and security
 

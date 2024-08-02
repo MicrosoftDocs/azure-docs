@@ -2,13 +2,13 @@
 title: Troubleshooting Azure Disk Encryption for Linux VMs
 description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: linux
 ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.custom: devx-track-azurepowershell, linux-related-content
+ms.custom: linux-related-content
 ---
 # Azure Disk Encryption for Linux VMs troubleshooting guide
 

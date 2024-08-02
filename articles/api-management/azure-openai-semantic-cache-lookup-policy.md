@@ -5,16 +5,17 @@ services: api-management
 author: dlepow
 
 ms.service: api-management
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 06/25/2024
 ms.author: danlep
 ---
 
 # Get cached responses of Azure OpenAI API requests
 
-[!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `azure-openai-semantic-cache-lookup` policy to perform cache lookup of responses to Azure OpenAI Chat Completion API and Completion API requests from a configured external cache, based on vector proximity of the prompt to previous requests and a specified similarity score threshold. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
 

@@ -16,9 +16,9 @@ This how-to guide shows create a logic app workflow that can receive and handle 
 
 > [!NOTE]
 >
-> The Response action works only when you use the Request trigger.
+> The Response action works only when you use the **Request** trigger.
 
-For example, this list describes some tasks that your workflow can perform when you use the Request trigger and Response action:
+For example, this list describes some tasks that your workflow can perform when you use the **Request** trigger and Response action:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 
@@ -32,13 +32,15 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 * An Azure account and subscription. If you don't have a subscription, you can [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* The logic app workflow where you want to receive the inbound HTTPS request. To start your workflow with a Request trigger, you have to start with a blank workflow. To use the Response action, your workflow must start with the Request trigger.
+* The logic app workflow where you want to receive the inbound HTTPS request. To start your workflow with a **Request** trigger, you have to start with a blank workflow. To use the Response action, your workflow must start with the **Request** trigger.
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="add-request-trigger"></a>
 
 ## Add a Request trigger
 
-The Request trigger creates a manually callable endpoint that handles *only* inbound requests over HTTPS. When the caller sends a request to this endpoint, the Request trigger fires and runs the workflow. For information about how to call this trigger, review [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+The **Request** trigger creates a manually callable endpoint that handles *only* inbound requests over HTTPS. When the caller sends a request to this endpoint, the **Request** trigger fires and runs the workflow. For information about how to call this trigger, review [Call, trigger, or nest workflows with HTTPS endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ## [Consumption](#tab/consumption)
 
@@ -51,7 +53,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save your workflow and is used for sending a request that triggers your workflow. |
-   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the Request trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
+   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the **Request** trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
 
    The following example shows a sample JSON schema:
 
@@ -115,7 +117,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    To generate a JSON schema that's based on the expected payload (data), you can use a tool such as [JSONSchema.net](https://jsonschema.net), or you can follow these steps:
 
-   1. In the Request trigger, select **Use sample payload to generate schema**.
+   1. In the **Request** trigger, select **Use sample payload to generate schema**.
 
       ![Screenshot showing Consumption workflow, Request trigger, and "Use sample payload to generate schema" selected.](./media/connectors-native-reqres/generate-from-sample-payload-consumption.png)
 
@@ -161,7 +163,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
       }
       ```
 
-   1. In the Request trigger's title bar, select the ellipses button (**...**).
+   1. In the **Request** trigger's title bar, select the ellipses button (**...**).
 
    1. In the trigger's settings, turn on **Schema Validation**, and select **Done**.
 
@@ -193,7 +195,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    > [!NOTE]
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
-   > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+   > when making a call to the **Request** trigger, use this encoded version instead: `%25%23`
 
 ## [Standard](#tab/standard)
 
@@ -206,7 +208,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    | Property name | JSON property name | Required | Description |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST URL** | {none} | Yes | The endpoint URL that's generated after you save your workflow and is used for sending a request that triggers your workflow. |
-   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the Request trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
+   | **Request Body JSON Schema** | `schema` | No | The JSON schema that describes the properties and values in the incoming request body. The designer uses this schema to generate tokens for the properties in the request. That way, your workflow can parse, consume, and pass along outputs from the **Request** trigger into your workflow. <br><br>If you don't have a JSON schema, you can generate the schema from a sample payload by using the **Use sample payload to generate schema** capability. |
 
    The following example shows a sample JSON schema:
 
@@ -270,7 +272,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
    To generate a JSON schema that's based on the expected payload (data), you can use a tool such as [JSONSchema.net](https://jsonschema.net), or you can follow these steps:
 
-   1. In the Request trigger, select **Use sample payload to generate schema**.
+   1. In the **Request** trigger, select **Use sample payload to generate schema**.
 
       ![Screenshot showing Standard workflow, Request trigger, and "Use sample payload to generate schema" selected.](./media/connectors-native-reqres/generate-from-sample-payload-standard.png)
 
@@ -316,7 +318,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
       }
       ```
 
-   1. On the designer, select the Request trigger. On the information pane that opens, select the **Settings** tab.
+   1. On the designer, select the **Request** trigger. On the information pane that opens, select the **Settings** tab.
 
    1. Expand **Data Handling**, and set **Schema Validation** to **On**.
 
@@ -348,12 +350,12 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    > [!NOTE]
    >
    > If you want to include the hash or pound symbol (**#**) in the URI
-   > when making a call to the Request trigger, use this encoded version instead: `%25%23`
+   > when making a call to the **Request** trigger, use this encoded version instead: `%25%23`
    >
-   > The URL for the Request trigger is associated with your workflow's storage account. This URL 
+   > The URL for the **Request** trigger is associated with your workflow's storage account. This URL 
    > changes if the storage account changes. For example, with Standard logic apps, if you manually 
    > change your storage account and copy your workflow to the new storage account, the URL for 
-   > the Request trigger also changes to reflect the new storage account. The same workflow has a different URL.
+   > the **Request** trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
 ---
 
@@ -370,7 +372,7 @@ For information about security, authorization, and encryption for inbound calls 
 
 ## Trigger outputs
 
-The following table lists the outputs from the Request trigger:
+The following table lists the outputs from the **Request** trigger:
 
 | JSON property name | Data type | Description |
 |--------------------|-----------|-------------|
@@ -381,7 +383,7 @@ The following table lists the outputs from the Request trigger:
 
 ## Add a Response action
 
-When you use the Request trigger to receive inbound requests, you can model the response and send the payload results back to the caller by using the Response built-in action, which works *only* with the Request trigger. This combination with the Request trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
+When you use the **Request** trigger to receive inbound requests, you can model the response and send the payload results back to the caller by using the Response built-in action, which works *only* with the **Request** trigger. This combination with the **Request** trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
 
 > [!IMPORTANT]
 >
@@ -409,7 +411,7 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 1. On the workflow designer, [follow these general steps to find and add the Response built-in action named **Response**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   For simplicity, the following examples show a collapsed Request trigger.
+   For simplicity, the following examples show a collapsed **Request** trigger.
 
 1. In the action information box, add the required values for the response message.
 
@@ -463,11 +465,13 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 ## Test your workflow
 
-To test your workflow, send an HTTP request to the generated URL. For example, you can use a tool such as [Postman](https://www.getpostman.com/) to send the HTTP request. For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [Request trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+To trigger your workflow, send an HTTP request to the URL generated for the **Request** trigger, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
+
+For more information about the trigger's underlying JSON definition and how to call this trigger, see these topics, [**Request** trigger type](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) and [Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ## Security and authentication
 
-In a Standard logic app workflow that starts with the Request trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
+In a Standard logic app workflow that starts with the **Request** trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by that trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, review [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
 
 For more information about security, authorization, and encryption for inbound calls to your logic app workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 

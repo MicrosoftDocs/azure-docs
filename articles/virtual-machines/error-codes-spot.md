@@ -2,8 +2,8 @@
 title: Error codes for Azure Spot Virtual Machines and scale sets instances
 description: Learn about error codes that you could possibly see when using Azure Spot Virtual Machines and scale set instances.
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: spot
+ms.service: azure-virtual-machines
+ms.subservice: azure-spot-vm
 ms.topic: troubleshooting
 ms.date: 02/28/2023
 ms.author: jushiman

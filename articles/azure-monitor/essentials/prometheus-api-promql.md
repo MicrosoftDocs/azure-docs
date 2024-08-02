@@ -4,7 +4,7 @@ description: Describes how to use the API to Query metrics in an Azure Monitor w
 ms.topic: how-to
 author: EdB-MSFT
 ms.author: edbaynash
-ms.date: 09/28/2022
+ms.date: 05/31/2024
 ms.reviewer: aul
 ---
 

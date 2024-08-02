@@ -77,8 +77,8 @@ items:
             href: mqtt-client-microsoft-entra-token-and-rbac.md
           - name: Transport Layer Security connection with MQTT broker
             href: mqtt-transport-layer-security-flow.md
-        - name: High availability and disaster recovery
-          href: high-availability-disaster-recovery.md 
+        - name: Reliability
+          href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
         - name: Security
           items:
           - name: Security baseline
@@ -280,12 +280,6 @@ items:
       items:
       - name: Email when VM changes
         href: monitor-virtual-machine-changes-logic-app.md
-      - name: Resize uploaded images
-        items:
-        - name: Upload image data in the cloud with Azure Storage
-          href: storage-upload-process-images.md
-        - name: Automate resizing uploaded images using Event Grid
-          href: resize-images-on-storage-blob-upload-event.md
       - name: Trigger Automation runbook
         href: ensure-tags-exists-on-new-virtual-machines.md
       - name: Email when IoT Hub device disconnects
@@ -429,6 +423,10 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
+          - name: SAP
+            href: subscribe-to-sap-events.md
+          - name: Tribal Group
+            href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
             items:
             - name: Graph API event sources
@@ -490,7 +488,7 @@ items:
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
-        href: availability-zones-disaster-recovery.md
+        href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
       - name: Security
         items:
         - name: Security baseline
@@ -596,14 +594,14 @@ items:
         href: subscribe-to-resource-notifications-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
-      - name: Move
+      - name: Relocate
         items:
-        - name: Move system topics across regions
-          href: move-system-topics-across-regions.md
-        - name: Move custom topics across regions
-          href: move-custom-topics-across-regions.md
-        - name: Move domains across regions
-          href: move-domains-across-regions.md
+        - name: Relocate system topics across regions
+          href: ../operational-excellence/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
+        - name: Relocate custom topics across regions
+          href: ../operational-excellence/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
+        - name: Relocate domains across regions
+          href: ../operational-excellence/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
       - name: Secure
         items:
         - name: Publish events securely over a private link

@@ -12,7 +12,7 @@ ms.topic: conceptual
 
 # Optimize Azure Database for PostgreSQL - Flexible Server by using pg_repack
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this article, you learn how to use pg_repack to remove bloat and improve your Azure Database for PostgreSQL flexible server performance. Bloat is the unnecessary data accumulating in tables and indexes due to frequent updates and deletes. Bloat can cause the database size to grow larger than expected and affect query performance. Using pg_repack, you can reclaim the wasted space and reorganize the data more efficiently.
 

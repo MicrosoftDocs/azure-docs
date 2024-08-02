@@ -40,12 +40,12 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Load balancing and content delivery
+      href: load-balancer-content-delivery/index.yml
     - name: Backend connectivity interoperability
       items:
       - name: Preface and Test Setup
         href: connectivity-interoperability-preface.md
-      - name: Test Setup Configuration
-        href: connectivity-interoperability-configuration.md
       - name: Control Plane Analysis
         href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis

@@ -5,7 +5,7 @@ author: sumit-kalra
 ms.author: sukalra
 ms.date: 02/13/2024
 ms.topic: conceptual
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions
 ms.reviewer: mattmcinnes
@@ -101,6 +101,7 @@ The VM Image Builder service is available in the following regions:
 - Sweden Central
 - Poland Central
 - Italy North
+- Israel Central
 
 To access the Azure VM Image Builder public preview in the Fairfax regions (USGov Arizona and USGov Virginia), you must register the *Microsoft.VirtualMachineImages/FairfaxPublicPreview* feature. To do so, run the following command in either PowerShell or Azure CLI:
 

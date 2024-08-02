@@ -13,7 +13,7 @@ ms.custom: mode-other
 
 # Quickstart: Start using Cost analysis
 
-Before you can control and optimize your costs, you first need to understand where they originated – from the underlying resources used to support your cloud projects to the environments they're deployed in and the owners who manage them. Full visibility backed by a thorough tagging strategy is critical to accurately understand your spending patterns and enforce cost control mechanisms.
+Before you can control and optimize your costs, you first need to understand where they originated – from the underlying resources used to support your cloud projects to the environments they get deployed in and the owners who manage them. Full visibility backed by a thorough tagging strategy is critical to accurately understand your spending patterns and enforce cost control mechanisms.
 
 In this quickstart, you use Cost analysis to explore and get quick answers about your costs. You can see a summary of your cost over time to identify trends and break costs down to understand how you're being charged for the services you use. For advanced reporting, use Power BI or export raw cost details.
 
@@ -40,7 +40,7 @@ As you explore the different views, notice that Cost analysis remembers which vi
 
 :::image type="content" source="./media/quick-acm-cost-analysis/pin-to-recent.png" alt-text="Screenshot showing the Pin to recent option." lightbox="./media/quick-acm-cost-analysis/pin-to-recent.png" :::
 
-Views in the **Recommended** list may vary based on what users most commonly use across Azure.
+Views in the **Recommended** list might vary based on what users most commonly use across Azure.
 
 ## Analyze costs with smart views
 
@@ -66,7 +66,7 @@ If you don't have a budget, select the **create** link in the **Budget** KPI and
 
 :::image type="content" source="./media/quick-acm-cost-analysis/create-budget.png" alt-text="Screenshot showing the Create budget - advanced setting link." lightbox="./media/quick-acm-cost-analysis/create-budget.png" :::
 
-Depending on the view and scope you're using, you may also see cost insights below the KPIs. Cost insights show important datapoints about your cost – from discovering top cost contributors to identifying anomalies based on usage patterns. Select the **See insights** link to review and provide feedback on all insights. Here's an insights example.
+Depending on the view and scope you're using, you might also see cost insights below the KPIs. Cost insights show important datapoints about your cost – from discovering top cost contributors to identifying anomalies based on usage patterns. Select the **See insights** link to review and provide feedback on all insights. Here's an insights example.
 
 :::image type="content" source="./media/quick-acm-cost-analysis/see-insights.png" alt-text="Screenshot showing insights." lightbox="./media/quick-acm-cost-analysis/see-insights.png" :::
 
@@ -77,14 +77,14 @@ Lastly, use the table to identify and review your top cost contributors and dril
 This view is where you spend most of your time in Cost analysis. To explore further:
 
 1. Expand rows to take a quick peek and see how costs are broken down to the next level. Examples include resources with their product meters and services with a breakdown of products.
-2. Select the name to drill down and see the next level details in a full view. From there, you can drill down again and again, to get down to the finest level of detail, based on what you're interested in. Examples include selecting a subscription, then a resource group, and then a resource to view the specific product meters for that resource.
-3. Select the shortcut menu (⋯) to see related costs. Examples include filtering the list of resource groups to a subscription or filtering resources to a specific location or tag.
+2. Select the name to drill down and see the next level details in a full view. From there, you can drill down again and again, to get down to the finest level of detail, based on what you have interest in. Examples include selecting a subscription, then a resource group, and then a resource to view the specific product meters for that resource.
+3. To see related costs, select the shortcut menu (⋯). Examples include filtering the list of resource groups to a subscription or filtering resources to a specific location or tag.
 4. Select the shortcut menu (⋯) to open the management screen for that resource, resource group, or subscription. From this screen, you can stop or delete resources to avoid future charges.
 5. Open other smart views to get different perspectives on your costs.
 6. Open a customizable view and apply other filters or group the data to explore further.
 
-> [!NOTE]
-> If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
+>[!NOTE]
+>If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
 
 ## Analyze costs with customizable views
 
@@ -94,7 +94,7 @@ Here's an example of the Accumulated Costs customizable view.
 
 :::image type="content" source="./media/quick-acm-cost-analysis/accumulated-costs-view.png" alt-text="Screenshot showing the Accumulated costs customizable view." lightbox="./media/quick-acm-cost-analysis/accumulated-costs-view.png" :::
 
-After you customize your view to meet your needs, you may want to save and share it with others. To share views with others:
+After you customize your view to meet your needs, you might want to save and share it with others. To share views with others:
 
 1. Save the view on a subscription, resource group, management group, or billing account.
 2. Share a URL with view configuration details, which they can use on any scope they have access to.
@@ -128,11 +128,19 @@ Forecast costs are available from both smart and custom views. In either case, t
 
 Your forecast is a projection of your estimated costs for the selected period. Your forecast changes depending on what data is available for the period, how long of a period you select, and what filters you apply. If you notice an unexpected spike or drop in your forecast, expand the date range, and use grouping to identify large increases or decreases in historical cost. You can filter them out to normalize the forecast. A few key considerations: 
 
-1. Forecasting employs a 'time series linear regression' model, which adjusts to factors such as reserved instance purchases that temporarily affect forecasted costs. Following such purchases, the forecasted costs typically stabilize in alignment with usage trends within a few days. You have the option to filter out these temporary spikes to obtain a more normalized forecasted cost.
+1. Forecasting employs a *time series linear regression* model, which adjusts to factors such as reserved instance purchases that temporarily affect forecasted costs. Following such purchases, the forecasted costs typically stabilize in alignment with usage trends within a few days. You can filter out these temporary spikes to obtain a more normalized forecasted cost.
 
-1. For accurate long-term forecasting, it's essential to have sufficient historical data. New subscriptions or contracts with limited historical data may result in less accurate forecasts. At least 90 days of historical data are recommended for a more precise annual forecast.
+1. For accurate long-term forecasting, it's essential to have sufficient historical data. New subscriptions or contracts with limited historical data might result in less accurate forecasts. At least 90 days of historical data are recommended for a more precise annual forecast.
 
 1. When you select a budget in a custom view, you can also see if or when your forecast would exceed your budget.
+
+Here's a table to help you understand how the forecast duration and lookback period are calculated based on the forecast period:
+
+| Forecast Duration  | Lookback Period     |
+|--------------------|---------------------|
+| Up to 28 days      | 28 days             |
+| Above 28 days      | Same as Forecast Duration |
+| Above 90 days      | 90 days             |
 
 ## More information
 
@@ -149,7 +157,7 @@ If you need advanced reporting outside of cost analysis, like grouping by multip
 - Usage data from exports or APIs
   - See [Choose a cost details solution](../automate/usage-details-best-practices.md) to help you determine if exports from the Azure portal or if cost details from APIs are right for you.
 
-Be sure to [configure subscription anomaly alerts](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert) and set up a [budget](tutorial-acm-create-budgets.md) to help drive accountability and cost control.
+To help drive accountability and cost control, [configure subscription anomaly alerts](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert) and set up a [budget](tutorial-acm-create-budgets.md).
 
 ## Next steps
 

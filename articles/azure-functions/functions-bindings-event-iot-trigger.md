@@ -2,7 +2,7 @@
 title: Azure IoT Hub trigger for Azure Functions
 description: Learn to respond to events sent to an IoT hub event stream in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 03/04/2022
 zone_pivot_groups: programming-languages-set-functions
 ---

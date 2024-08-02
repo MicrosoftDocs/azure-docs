@@ -17,7 +17,7 @@ ms.author: pafarley
 
 [!INCLUDE [Gate notice](../includes/identity-gate-notice.md)]
 
-The [Find Similar](/rest/api/face/face-recognition-operations/find-similar-from-large-face-list) operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
+The [Find Similar](/rest/api/face/face-recognition-operations/find-similar) operation does face matching between a target face and a set of candidate faces, finding a smaller set of faces that look similar to the target face. This is useful for doing a face search by image.
 
 This guide demonstrates how to use the Find Similar feature in the different language SDKs. The following sample code assumes you have already authenticated a Face client object. For details on how to do this, follow a [quickstart](../quickstarts-sdk/identity-client-library.md).
 
@@ -39,22 +39,11 @@ You need to detect faces in images before you can compare them. In this guide, t
 
 The following face detection method is optimized for comparison operations. It doesn't extract detailed face attributes, and it uses an optimized recognition model.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_face_detect_recognize)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FindSimilar.cs?name=snippet_face_detect_recognize)]
 
 The following code uses the above method to get face data from a series of images.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_loadfaces)]
-
-
-#### [JavaScript](#tab/javascript)
-
-The following face detection method is optimized for comparison operations. It doesn't extract detailed face attributes, and it uses an optimized recognition model.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="recognize":::
-
-The following code uses the above method to get face data from a series of images.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="snippet_loadfaces":::
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FindSimilar.cs?name=snippet_loadfaces)]
 
 
 #### [REST API](#tab/rest)
@@ -83,17 +72,11 @@ In this guide, the face detected in the *Family1-Dad1.jpg* image should be retur
 
 The following code calls the Find Similar API on the saved list of faces.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FindSimilar.cs?name=snippet_find_similar)]
 
 The following code prints the match details to the console:
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
-
-#### [JavaScript](#tab/javascript)
-
-The following method takes a set of target faces and a single source face. Then, it compares them and finds all the target faces that are similar to the source face. Finally, it prints the match details to the console.
-
-:::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FindSimilar.cs?name=snippet_find_similar_print)]
 
 
 #### [REST API](#tab/rest)

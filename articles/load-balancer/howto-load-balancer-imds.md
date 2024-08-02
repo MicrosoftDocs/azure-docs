@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Get started learning how to retrieve load balancer metadata using Azure Instance Metadata Service.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/08/2023
+ms.date: 06/28/2024
 ms.author: mbender
 ms.custom: template-how-to
 ---
@@ -23,7 +23,7 @@ ms.custom: template-how-to
 
 ## Schema breakdown
 
-| Data | Description | Version introduced |
+| **Data** | **Description** | **Version introduced** |
 |------|-------------|--------------------|
 | `publicIpAddresses` | The instance level Public or Private IP of the specific Virtual Machine instance | 2020-10-01
 | `inboundRules` | List of load balancing rules or inbound NAT rules using which the Load Balancer directs traffic to the specific Virtual Machine instance. Frontend IP addresses and the Private IP addresses listed here belong to the Load Balancer.  | 2020-10-01

@@ -32,7 +32,7 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 # [**Network security group flow logs**](#tab/nsg)
 
-The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment.
+The following PowerShell script sets up the variables needed to query the network security group flow log blob and list the blocks within the [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block blob. Update the script to contain valid values for your environment, specifically "yourSubscriptionId", "FLOWLOGSVALIDATIONWESTCENTRALUS", "V2VALIDATIONVM-NSG", "yourStorageAccountName", "ml-rg", "000D3AF87856", "11/11/2018 03:00". For example, yourSubscriptionId should be replaced with your subscription ID.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {

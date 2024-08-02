@@ -12,7 +12,7 @@ ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
 # Quickstart: Create a console app with Java and Azure Cosmos DB for MongoDB 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

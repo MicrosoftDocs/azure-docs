@@ -16,7 +16,7 @@ author: eric-urban
 
 # Generate adversarial simulations for safety evaluation
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Large language models are known for their few-shot and zero-shot learning abilities, allowing them to function with minimal data. However, this limited data availability impedes thorough evaluation and optimization when you might not have test datasets to evaluate the quality and effectiveness of your generative AI application. 
 
@@ -37,7 +37,7 @@ from azure.identity import DefaultAzureCredential
 azure_ai_project = {
     "subscription_id": <sub_ID>,
     "resource_group_name": <resource_group_name>,
-    "workspace_name": <workspace_name>,
+    "project_name": <project_name>,
     "credential": DefaultAzureCredential(),
 }
 ```

@@ -24,7 +24,7 @@ This article explains how to set up VNet connectivity for your API Management in
 
 For configurations specific to the *internal* mode, where the endpoints are accessible only within the VNet, see [Deploy your Azure API Management instance to a virtual network - internal mode](./api-management-using-with-internal-vnet.md). 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 

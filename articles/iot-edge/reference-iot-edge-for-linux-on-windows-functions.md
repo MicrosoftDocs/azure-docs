@@ -1,10 +1,10 @@
 ---
-title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
-description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
+title: PowerShell functions for Azure IoT Edge for Linux on Windows
+description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and get status.
 author: PatAltimore
 
-ms.author: fcabrera
-ms.date: 07/28/2022
+ms.author: patricka
+ms.date: 06/10/2024
 ms.topic: reference
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -104,8 +104,8 @@ The JSON configuration file must have the following structure:
 
 - **sharedFOlderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
 - **hostFolderPath**: Relative path (to the parent root folder) of the folder to be shared with the EFLOW VM.
-- **readOnly**: Defines if the shared folder will be writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
-- **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder will be mounted. 
+- **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
+- **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder is mounted. 
 
 ```json
 [
@@ -420,7 +420,7 @@ For more information, use the command `Get-Help Stop-EflowVm -full`.
 
 ## Verify-EflowVm
 
-The **Verify-EflowVm** command is an exposed function that checks whether the IoT Edge for Linux on Windows virtual machine was created. It takes only common parameters, and it will return **True** if the virtual machine was created and **False** if not.
+The **Verify-EflowVm** command is an exposed function that checks whether the IoT Edge for Linux on Windows virtual machine was created. It takes only common parameters, and it returns **True** if the virtual machine was created and **False** if not.
 
 For more information, use the command `Get-Help Verify-EflowVm -full`.
 

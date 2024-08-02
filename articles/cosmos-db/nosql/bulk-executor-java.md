@@ -3,7 +3,7 @@ title: Use bulk executor Java library in Azure Cosmos DB to perform bulk import 
 description: Bulk import and update Azure Cosmos DB documents using bulk executor Java library
 author: TheovanKraay
 ms.author: thvankra
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to
@@ -84,103 +84,6 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
 6. Additionally, there are bulk create methods in the sample, which illustrate how to add response processing, and set execution options:
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItemsWithResponseProcessingAndExecutionOptions)]
-
-
-   <!-- The importAll method accepts the following parameters:
- 
-   |**Parameter**  |**Description**  |
-   |---------|---------|
-   |isUpsert    |   A flag to enable upsert of the documents. If a document with given ID already exists, it's updated.  |
-   |disableAutomaticIdGeneration     |   A flag to disable automatic generation of ID. By default, it is set to true.   |
-   |maxConcurrencyPerPartitionRange    |  The maximum degree of concurrency per partition key range. The default value is 20.  |
-
-   **Bulk import response object definition**
-   The result of the bulk import API call contains the following get methods:
-
-   |**Parameter**  |**Description**  |
-   |---------|---------|
-   |int getNumberOfDocumentsImported()  |   The total number of documents that were successfully imported out of the documents supplied to the bulk import API call.      |
-   |double getTotalRequestUnitsConsumed()   |  The total request units (RU) consumed by the bulk import API call.       |
-   |Duration getTotalTimeTaken()   |    The total time taken by the bulk import API call to complete execution.     |
-   |List\<Exception> getErrors() |  Gets the list of errors if some documents out of the batch supplied to the bulk import API call failed to get inserted.       |
-   |List\<Object> getBadInputDocuments()  |    The list of bad-format documents that were not successfully imported in the bulk import API call. User should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).     |
-
-<!-- 5. After you have the bulk import application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
-
-   ```bash
-   mvn clean package
-   ```
-
-6. After the target dependencies are generated, you can invoke the bulk importer application by using the following command:  
-
-   ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint *<Fill in your Azure Cosmos DB's endpoint>*  -masterKey *<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkImportDb -collectionId bulkImportColl -operation import -shouldCreateCollection -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
-   ```
-
-   The bulk importer creates a new database and a collection with the database name, collection name, and throughput values specified in the App.config file. 
-
-## Bulk update data in Azure Cosmos DB
-
-You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, see [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
-
-1. Defines the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, see the [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
-
-   ```java
-   SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
-   UnsetUpdateOperation descriptionUpdate = new UnsetUpdateOperation("description");
-
-   ArrayList<UpdateOperationBase> updateOperations = new ArrayList<>();
-   updateOperations.add(nameUpdate);
-   updateOperations.add(descriptionUpdate);
-
-   List<UpdateItem> updateItems = new ArrayList<>(cfg.getNumberOfDocumentsForEachCheckpoint());
-   IntStream.range(0, cfg.getNumberOfDocumentsForEachCheckpoint()).mapToObj(j -> {                        
-    return new UpdateItem(Long.toString(prefix + j), Long.toString(prefix + j), updateOperations);
-    }).collect(Collectors.toCollection(() -> updateItems));
-   ```
-
-2. Call the updateAll API that generates random documents to be then bulk imported into an Azure Cosmos DB container. You can configure the command-line configurations to be passed in CmdLineConfiguration.java file.
-
-   ```java
-   BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
-   ```
-
-   The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more information, see the [API documentation](/java/api/com.microsoft.azure.documentdb.bulkexecutor):
-
-   ```java
-   public BulkUpdateResponse updateAll(
-        Collection<UpdateItem> updateItems,
-        Integer maxConcurrencyPerPartitionRange) throws DocumentClientException;
-   ```
-
-   The updateAll method accepts the following parameters:
-
-   |**Parameter** |**Description** |
-   |---------|---------|
-   |maxConcurrencyPerPartitionRange   |  The maximum degree of concurrency per partition key range. The default value is 20.  |
- 
-   **Bulk import response object definition**
-   The result of the bulk import API call contains the following get methods:
-
-   |**Parameter** |**Description**  |
-   |---------|---------|
-   |int getNumberOfDocumentsUpdated()  |   The total number of documents that were successfully updated out of the documents supplied to the bulk update API call.      |
-   |double getTotalRequestUnitsConsumed() |  The total request units (RU) consumed by the bulk update API call.       |
-   |Duration getTotalTimeTaken()  |   The total time taken by the bulk update API call to complete execution.      |
-   |List\<Exception> getErrors()   |       Gets the list of operational or networking issues related to the update operation.      |
-   |List\<BulkUpdateFailure> getFailedUpdates()   |       Gets the list of updates, which could not be completed along with the specific exceptions leading to the failures.|
-
-3. After you have the bulk update application ready, build the command-line tool from source by using the 'mvn clean package' command. This command generates a jar file in the target folder:  
-
-   ```bash
-   mvn clean package
-   ```
-
-4. After the target dependencies are generated, you can invoke the bulk update application by using the following command:
-
-   ```bash
-   java -Xmx12G -jar bulkexecutor-sample-1.0-SNAPSHOT-jar-with-dependencies.jar -serviceEndpoint **<Fill in your Azure Cosmos DB's endpoint>* -masterKey **<Fill in your Azure Cosmos DB's primary key>* -databaseId bulkUpdateDb -collectionId bulkUpdateColl -operation update -collectionThroughput 1000000 -partitionKey /profileid -maxConnectionPoolSize 6000 -numberOfDocumentsForEachCheckpoint 1000000 -numberOfCheckpoints 10
-   ``` -->
 
 ## Performance tips 
 

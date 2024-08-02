@@ -8,9 +8,9 @@ ms.date: 05/01/2023
 ---
 
 APPLIES TO:
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 NoSQL
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 MongoDB
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 Table

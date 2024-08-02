@@ -4,7 +4,7 @@ description: Learn about custom image templates in Azure Virtual Desktop, where 
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 01/05/2024
+ms.date: 05/29/2024
 ---
 
 # Custom image templates in Azure Virtual Desktop
@@ -44,6 +44,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 - Enable [screen capture protection](screen-capture-protection.md).
 - Configure [Teams optimizations](teams-on-avd.md).
 - Configure session timeouts.
+- Disable automatic updates for [MSIX applications](app-attach-setup.md#disable-automatic-updates).
 - Add or remove Microsoft Office applications.
 - Apply Windows Updates.
 

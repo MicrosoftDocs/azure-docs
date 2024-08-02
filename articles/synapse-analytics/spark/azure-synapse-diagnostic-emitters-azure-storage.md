@@ -3,8 +3,8 @@ title: Collect your Apache Spark applications logs and metrics using Azure Stora
 description: This article shows how to use the Synapse Spark diagnostic emitter extension to collect logs, event logs and metrics.cluster and learn how to integrate the Grafana dashboards.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: sngun
-ms.service: synapse-analytics
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021
@@ -15,9 +15,6 @@ ms.date: 08/31/2021
 The Synapse Apache Spark diagnostic emitter extension is a library that enables the Apache Spark application to emit the logs, event logs, and metrics to one or more destinations, including Azure Log Analytics, Azure Storage, and Azure Event Hubs. 
 
 In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs, and metrics to your Azure storage account.
-
-> [!NOTE]
-> This feature is currently unavailable in the [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) runtime but will be supported post-GA.
 
 ## Collect logs and metrics to storage account
 

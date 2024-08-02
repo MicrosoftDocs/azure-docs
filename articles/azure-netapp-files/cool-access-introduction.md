@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/01/2023
+ms.date: 06/06/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -52,6 +52,7 @@ Standard storage with cool access is supported for the following regions:
 * Germany North 
 * Germany West Central
 * Israel Central
+* Italy North 
 * Japan East
 * Japan West 
 * Korea Central

@@ -24,7 +24,7 @@ PBR materials aren't a universal solution, though. There are materials that refl
 The following material properties are exposed in the runtime API, for instance on the [C# PbrMaterial class](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial) or the [C++ PbrMaterial class](/cpp/api/remote-rendering/pbrmaterial), respectively.
 
 * `PbrFlags`: Misc feature flags can be combined in this bit mask to enable the following features:
-  * `TransparentMaterial`:  For PBR materials, there's only one transparency setting: it's enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering method is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency](https://en.wikipedia.org/wiki/Order-independent_transparency) (OIT).
+  * `TransparentMaterial`:  For PBR materials, there's only one transparency setting: it's enabled or not. The opacity is defined by the albedo color's alpha channel. When enabled, a more complex rendering method is invoked to draw semi-transparent surfaces. Azure Remote Rendering implements true [order independent transparency (OIT)](https://en.wikipedia.org/wiki/Order-independent_transparency).
   Transparent geometry is expensive to render. If you only need holes in a surface, for example for the leaves of a tree, it's better to use alpha clipping instead.
 
   ![Spheres rendered with zero to full transparency](./media/transparency.png)

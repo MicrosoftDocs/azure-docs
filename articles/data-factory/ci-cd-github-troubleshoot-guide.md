@@ -245,13 +245,13 @@ Following section isn't valid because package.json folder isn't valid.
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
  
  
-### Extra  left "[" displayed in published JSON file
+### Extra  left `[` displayed in published JSON file
 
 #### Issue
-When publishing with DevOps, there's an extra "[" displayed. The service adds one more "[" in an ARM template in DevOps automatically. You'll see an expression like "[[" in JSON file.
+When publishing with DevOps, there's an extra `[` displayed. The service adds one more `[` in an ARM template in DevOps automatically. You'll see an expression like `[[` in JSON file.
 
 #### Cause
-Because [ is a reserved character for ARM templates, an extra [ is added automatically to escape "[".
+Because `[` is a reserved character for ARM templates, an extra `[` is added automatically to escape `[`.
 
 #### Resolution
 This is normal behavior during the publishing process for CI/CD.
@@ -375,4 +375,4 @@ For more help with troubleshooting, try the following resources:
 *  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [X information about Data Factory](https://x.com/hashtag/DataFactory)

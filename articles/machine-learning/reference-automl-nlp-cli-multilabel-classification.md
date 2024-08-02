@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.topic: reference
 ms.custom: cliv2
 
-ms.author: xiaoxiaoli
-author: xiaoxiaoli
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 12/22/2022
-ms.reviewer: ssalgado
+ms.reviewer: xiaoxiaoli
 ---
 
 # CLI (v2) Automated ML text classification multilabel job YAML schema

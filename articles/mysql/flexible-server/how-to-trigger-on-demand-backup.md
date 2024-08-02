@@ -4,7 +4,7 @@ description: This article provides a step-by-step guide on triggering an on-dema
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 04/17/2024
+ms.date: 06/18/2024
 ms.service: mysql
 ms.subservice: flexible-server
 ms.topic: how-to

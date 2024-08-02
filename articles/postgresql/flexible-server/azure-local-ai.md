@@ -4,7 +4,7 @@ description: Enable RAG patterns with in-database embeddings and vectors on Azur
 author: jojohnso-msft
 ms.author: jojohnso
 ms.reviewer: maghan
-ms.date: 05/08/2024
+ms.date: 05/28/2024
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: overview
@@ -31,10 +31,8 @@ Local embeddings help customers:
 
 Before you can enable azure_local_ai on your Azure Database for PostgreSQL flexible server instance, you need to add it to your allowlist as described in [how to use PostgreSQL extensions](concepts-extensions.md) and check that it was correctly added by running the following SQL statement, `SHOW azure.extensions;`.
 
-> [!IMPORTANT]  
-> Hosting language models in the database requires a large memory footprint. To support this requirement, azure_local_ai is only supported on memory-optimized Azure SKUs.
-
-
+> [!IMPORTANT]
+> Hosting language models in the database requires a large memory footprint. To support this requirement, azure_local_ai is only supported on **memory-optimized** Azure VM SKUs with a minimum of **4 vCores**. Today, if you are using a VM that does not meet the minimum requirements, the azure_local_ai extension will not appear in the list of available extensions in **Server parameters**.
 Select **Server parameters** from the Settings section of the Resource Menu in the Azure Database for PostgreSQL Flexible Server Azure portal page.
 
 :::image type="content" source="media/azure-local-ai/pgsql-server-parameters-2.png" alt-text="Screenshot of PostgreSQL server parameters page.":::

@@ -76,6 +76,6 @@ Set the timer with `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`, which set
 
 * Review [Configure containers](computer-vision-resource-container-config.md) for configuration settings
 * Review [OCR overview](overview-ocr.md) to learn more about recognizing printed and handwritten text
-* Refer to the [Read API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) for details about the methods supported by the container.
+* Refer to the [Read API](/rest/api/computervision/read/read?view=rest-computervision-v3.2-preview&tabs=HTTP) for details about the methods supported by the container.
 * Refer to [Frequently asked questions (FAQ)](FAQ.yml) to resolve issues related to Azure AI Vision functionality.
 * Use more [Azure AI containers](../cognitive-services-container-support.md)

@@ -104,7 +104,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
     | Assign access to | User, group, or service principal |
     | Members | \<Your Azure Function App name> |
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ## Configure schedules overview
 

@@ -2,12 +2,12 @@
 title: Troubleshoot managed feature store errors
 description: Information required to troubleshoot common errors with the managed feature store in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.custom: build-2023, ignite-2023
-author: qjxu
-ms.author: qiax
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: qiax
 ms.topic: troubleshooting-general 
 ms.date: 10/31/2023
 ---

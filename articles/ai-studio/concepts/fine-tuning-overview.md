@@ -7,7 +7,7 @@ ms.service: azure-ai-studio
 ms.custom:
   - build-2024
 ms.topic: conceptual
-ms.date: 5/21/2024
+ms.date: 5/29/2024
 ms.reviewer: eur
 ms.author: eur
 author: eric-urban
@@ -15,7 +15,7 @@ author: eric-urban
 
 # Fine-tune models in Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 When we talk about fine-tuning, we really mean *supervised fine-tuning* not continuous pretraining or Reinforcement Learning through Human Feedback (RLHF). Supervised fine-tuning refers to the process of retraining pretrained models on specific datasets, typically to improve model performance on specific tasks or introduce information that wasn't well represented when the base model was originally trained.
 
@@ -99,7 +99,9 @@ There isn't a single right answer to this question, but you should have clearly 
 
 Now that you know when to leverage fine-tuning for your use-case, you can go to Azure AI Studio to find several models available to fine-tune including:
 - Azure OpenAI models
-- Llama 2 family models
+- Phi-3 family of models
+- Meta Llama 2 family models
+- Meta Llama 3.1 family of models
 
 
 ### Azure OpenAI models
@@ -112,22 +114,39 @@ The following Azure OpenAI models are supported in Azure AI Studio for fine-tuni
 | `gpt-35-turbo` (0613) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 4,096 | Sep 2021 |
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
+| `gpt-4` (0613) <sup>1<sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
 
-`babbage-002` and `davinci-002` are not trained to follow instructions. Querying these base models should only be done as a point of reference to a fine-tuned version to evaluate the progress of your training.
-
-`gpt-35-turbo` - fine-tuning of this model is limited to a subset of regions, and is not available in every region the base model is available.  
+<sup>1<sup> GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 Please note for fine-tuning Azure OpenAI models, you must add a connection to an Azure OpenAI resource with a supported region to your project.
 
+### Phi-3 family models
+The following Phi-3 family models are supported in Azure AI Studio for fine-tuning:
+- `Phi-3-mini-4k-instruct`
+- `Phi-3-mini-128k-instruct`
+- `Phi-3-medium-4k-instruct`
+- `Phi-3-medium-128k-instruct`
+
+Fine-tuning of Phi-3 models is currently supported in projects located in East US2.
+
 ### Llama 2 family models
 The following Llama 2 family models are supported in Azure AI Studio for fine-tuning:
-- `Llama-2-70b`
-- `Llama-2-7b`
-- `Llama-2-13b`
+- `Meta-Llama-2-70b`
+- `Meta-Llama-2-7b`
+- `Meta-Llama-2-13b`
 
-Fine-tuning of Llama 2 models is currently supported in projects located in West US 3.
+Fine-tuning of Llama 2 models is currently supported in projects located in West US3.
+
+### Llama 3.1 family models
+The following Llama 3.1 family models are supported in Azure AI Studio for fine-tuning:
+- `Meta-Llama-3.1-70b-Instruct`
+- `Meta-Llama-3.1-8b-Instruct`
+
+Fine-tuning of Llama 3.1 models is currently supported in projects located in West US3.
 
 ## Related content
 
 - [Learn how to fine-tune an Azure OpenAI model in Azure AI Studio](../../ai-services/openai/how-to/fine-tuning.md?context=/azure/ai-studio/context/context)
 - [Learn how to fine-tune a Llama 2 model in Azure AI Studio](../how-to/fine-tune-model-llama.md)
+- [Learn how to fine-tune a Phi-3 model in Azure AI Studio](../how-to/fine-tune-phi-3.md)
+- [How to deploy Phi-3 family of small language models with Azure AI Studio](../how-to/deploy-models-phi-3.md)

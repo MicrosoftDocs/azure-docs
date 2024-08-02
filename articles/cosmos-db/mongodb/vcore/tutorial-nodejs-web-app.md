@@ -16,7 +16,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Tutorial: Connect a Node.js web app with Azure Cosmos DB for MongoDB (vCore)
 
-[!INCLUDE[MongoDB (vCore)](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this tutorial, you build a Node.js web application that connects to Azure Cosmos DB for MongoDB in vCore architecture. The MongoDB, Express, React.js, Node.js (MERN) stack is a popular collection of technologies used to build many modern web applications. With Azure Cosmos DB for MongoDB (vCore), you can build a new web application or migrate an existing application using MongoDB drivers that you're already familiar with. In this tutorial, you:
 

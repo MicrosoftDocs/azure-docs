@@ -31,7 +31,7 @@ The following prerequisites before using Azure AI Vision containers on-premises:
 
 ### The host computer
 
-[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
@@ -350,7 +350,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container API documentation](../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Next steps
 

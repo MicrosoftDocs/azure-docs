@@ -2,16 +2,21 @@
 title: Compute benchmark scores for Azure Windows VMs
 description: Compare Coremark compute benchmark scores for Azure VMs running Windows Server.
 author:: DavidBerg-MSFT
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 06/25/2024
 ms.author: davberg
 ms.reviewer: ladolan
 ---
 # Compute benchmark scores for Windows VMs
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
+
+> [!NOTE]
+> This page is no longer being maintained and is planned for archival on 12/16/2024.
+> 
+> Azure is no longer publishing CoreMark since the metric has limited ability to inform users of the expected performance of a virtual machine across various attributes. For the most accurate results on a specific virtual machine, Azure recommends users run their workload(s) on that virtual machine to verify performance.
 
 The following CoreMark benchmark scores show compute performance for select Azure VMs running Windows Server 2019. Compute benchmark scores are also available for [Linux VMs](../linux/compute-benchmark-scores.md).
 

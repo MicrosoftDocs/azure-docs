@@ -8,6 +8,8 @@ ms.date: 08/18/2022
 
 # What is reliability in Azure Lab Services?
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes reliability support in Azure Lab Services, and covers regional resiliency with availability zones. For a more detailed overview of reliability in Azure, see [Azure resiliency](../availability-zones/overview.md).
 
 ## Availability zone support

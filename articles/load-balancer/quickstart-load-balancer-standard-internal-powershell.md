@@ -3,19 +3,19 @@ title: 'Quickstart: Create an internal load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using Azure PowerShell
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 05/31/2023
+ms.date: 07/23/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
-# Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell
+# Quickstart: Create an internal load balancer to load balance virtual machines using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create an internal load balancer and two virtual machines.Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+Get started with Azure Load Balancer creating an internal load balancer and two virtual machines with Azure PowerShell. Also, you deploy other resources including Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
-:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer.":::
+:::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
 ## Prerequisites
 
@@ -32,7 +32,11 @@ An Azure resource group is a logical container into which Azure resources are de
 Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name 'CreateIntLBQS-rg' -Location 'eastus'
+$rg = @{
+    Name = 'CreateINTLBQS-rg'
+    Location = 'westus2'
+}
+New-AzResourceGroup @rg
 ```
 
 ## Configure virtual network
@@ -55,8 +59,8 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 ## Create public IP address for NAT gateway and place IP in variable ##
 $gwpublicip = @{
     Name = 'myNATgatewayIP'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'static'
     Zone = 1,2,3
@@ -70,8 +74,8 @@ To create a zonal public IP address in zone 1, use the following command:
 ## Create a zonal public IP address for NAT gateway and place IP in variable ##
 $gwpublicip = @{
     Name = 'myNATgatewayIP'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'static'
     Zone = 1
@@ -95,17 +99,17 @@ $gwpublicip = New-AzPublicIpAddress @gwpublicip
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ```azurepowershell-interactive
 
 ## Create NAT gateway resource ##
 $nat = @{
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myNATgateway'
     IdleTimeoutInMinutes = '10'
     Sku = 'Standard'
-    Location = 'eastus'
+    Location = 'westus2'
     PublicIpAddress = $gwpublicip
 }
 $natGateway = New-AzNatGateway @nat
@@ -128,8 +132,8 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 ## Create the virtual network ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -138,8 +142,8 @@ $vnet = New-AzVirtualNetwork @net
 ## Create public IP address for bastion host. ##
 $bastionip = @{
     Name = 'myBastionIP'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
@@ -147,7 +151,7 @@ $bastionip = New-AzPublicIpAddress @bastionip
 
 ## Create bastion host ##
 $bastion = @{
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myBastion'
     PublicIpAddress = $bastionip
     VirtualNetwork = $vnet
@@ -172,8 +176,8 @@ $rule1 = New-AzNetworkSecurityRuleConfig @nsgrule
 ## Create network security group ##
 $nsg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     SecurityRules = $rule1
 }
 New-AzNetworkSecurityGroup @nsg
@@ -197,7 +201,7 @@ This section details how you can create and configure the following components o
 ## Place virtual network created in previous step into a variable. ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
@@ -236,9 +240,9 @@ $rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myLoadBalancer'
-    Location = 'eastus'
+    Location = 'westus2'
     Sku = 'Standard'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
@@ -276,23 +280,23 @@ $cred = Get-Credential
 ## Place virtual network created in previous step into a variable. ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the load balancer into a variable. ##
 $lb = @{
     Name = 'myLoadBalancer'
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
-$sg = {
+$sg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = $rg.name
 }
-$nsg = Get-AzNetworkSecurityGroup 
+$nsg = Get-AzNetworkSecurityGroup @sg
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
 for ($i=1; $i -le 2; $i++)
@@ -300,8 +304,8 @@ for ($i=1; $i -le 2; $i++)
     ## Command to create network interface for VMs ##
     $nic = @{
     Name = "myNicVM$i"
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Subnet = $vnet.Subnets[0]
     NetworkSecurityGroup = $nsg
     LoadBalancerBackendAddressPool = $bepool
@@ -330,8 +334,8 @@ for ($i=1; $i -le 2; $i++)
 
     ## Create the virtual machine for VMs ##
     $vm = @{
-        ResourceGroupName = 'CreateIntLBQS-rg'
-        Location = 'eastus'
+        ResourceGroupName = $rg.name
+        Location = 'westus2'
         VM = $vmConfig
         Zone = "$i"
     }
@@ -351,7 +355,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 3      Long Running O… AzureLongRunni… Completed     True            localhost            New-AzVM
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -370,9 +374,9 @@ for ($i=1; $i -le 2; $i++)
         Publisher = 'Microsoft.Compute'
         ExtensionType = 'CustomScriptExtension'
         ExtensionName = 'IIS'
-        ResourceGroupName = 'CreateIntLBQS-rg'
+        ResourceGroupName = $rg.name
         VMName = "myVM$i"
-        Location = 'eastus'
+        Location = 'westus2'
         TypeHandlerVersion = '1.8'
         SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
     }
@@ -414,22 +418,22 @@ $cred = Get-Credential
 ## Place the virtual network into a variable. ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreateIntLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the network security group into a variable. ##
-$sg = {
+$sg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreateIntLBQS-rg' @sg
+    ResourceGroupName = $rg.name 
 }
-$nsg = Get-AzNetworkSecurityGroup
+$nsg = Get-AzNetworkSecurityGroup @sg
 
 ## Command to create network interface for VM ##
 $nic = @{
     Name = "myNicTestVM"
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Subnet = $vnet.Subnets[0]
     NetworkSecurityGroup = $nsg
 }
@@ -457,8 +461,8 @@ $vmConfig = New-AzVMConfig @vmsz `
 
 ## Create the virtual machine for VMs ##
 $vm = @{
-    ResourceGroupName = 'CreateIntLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     VM = $vmConfig
 }
 New-AzVM @vm
@@ -491,7 +495,7 @@ To see the load balancer distribute traffic across all three VMs, you can force-
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name 'CreateIntLBQS-rg'
+Remove-AzResourceGroup -Name $rg.name
 ```
 
 ## Next steps

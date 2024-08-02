@@ -41,7 +41,7 @@ When one of the numbers is increased, all numbers after it must change, too. One
 
 In this update, we made the following change:
 
-- Introduced Connection Reliability and Autoscale Reporting public previews.
+- Introduced previews for Connection Reliability and Autoscale Reporting.
 
 ## Version 3.2.2
 
@@ -102,7 +102,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Added reporting support for Shutdown state.
+- Added reporting support for the shutdown state.
 
 ## Version 2.1.0
 
@@ -110,7 +110,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Introduced Azure Monitor Agent support for public preview.
+- Introduced support for the Azure Monitor Agent in preview.
 
 ## Version 2.0.2
 
@@ -160,7 +160,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following change:
 
-- Added FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale* public preview.
+- Added a preview of FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale*.
 
 ## Version 1.4.0
 
@@ -176,7 +176,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- Introduced a public preview of *at scale* reporting for Azure Virtual Desktop Insights to allow the selection of multiple subscriptions, resource groups, and host pools.
+- Introduced a preview of *at scale* reporting for Azure Virtual Desktop Insights to allow the selection of multiple subscriptions, resource groups, and host pools.
 
 ## Version 1.2.2
 

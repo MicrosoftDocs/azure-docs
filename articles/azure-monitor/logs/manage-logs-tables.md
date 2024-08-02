@@ -4,24 +4,20 @@ description: Learn how to manage table settings in a Log Analytics workspace bas
 ms.author: guywild
 ms.reviewer: adi.biran
 ms.topic: conceptual
-ms.date: 11/09/2022
+ms.date: 07/21/2024
 # Customer intent: As a Log Analytics workspace administrator, I want to understand how table properties work and how to view and manage table properties so that I can manage the data and costs related to a Log Analytics workspace effectively.
 
 ---
 
 # Manage tables in a Log Analytics workspace
 
-A Log Analytics workspace lets you collect logs from Azure and non-Azure resources into one space for data analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). The Log Analytics workspace consists of tables, which you can configure to manage your data model and log-related costs. This article explains the table configuration options in Azure Monitor Logs and how to set table properties based on your data analysis and cost management needs.
-
-## Permissions required
-
-You must have `microsoft.operationalinsights/workspaces/tables/write` permissions to the Log Analytics workspaces you manage, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+A Log Analytics workspace lets you collect log data from Azure and non-Azure resources into one space for analysis, use by other services, such as [Sentinel](../../../articles/sentinel/overview.md), and to trigger alerts and actions, for example, using [Azure Logic Apps](../../connectors/connectors-azure-monitor-logs.md). The Log Analytics workspace consists of tables, which you can configure to manage your data model, data access, and log-related costs. This article explains the table configuration options in Azure Monitor Logs and how to set table properties based on your data analysis and cost management needs.
 
 ## Table properties
 
 This diagram provides an overview of the table configuration options in Azure Monitor Logs:
 
-:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, table schema, table plan, and retention and archive." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
+:::image type="content" source="media/manage-logs-tables/azure-monitor-logs-table-management.png" alt-text="Diagram that shows table configuration options, including table type, schema, plan, and interactive and long-term retention." lightbox="media/manage-logs-tables/azure-monitor-logs-table-management.png":::
 
 ### Table type and schema
 
@@ -34,23 +30,29 @@ Your Log Analytics workspace can contain the following types of tables:
 | Azure table    | Logs from Azure resources or required by Azure services and solutions. | Azure Monitor Logs creates Azure tables automatically based on Azure services you use and [diagnostic settings](../essentials/diagnostic-settings.md) you configure for specific resources. Each Azure table has a predefined schema. You can [add columns to an Azure table](../logs/create-custom-table.md#add-or-delete-a-custom-column) to store transformed log data or enrich data in the Azure table with data from another source.|
 | Custom table   | Non-Azure resources and any other data source, such as file-based logs. | You can [define a custom table's schema](../logs/create-custom-table.md) based on how you want to store data you collect from a given data source.                                                                                                                                      |
 | Search results | All data stored in a Log Analytics workspace.                                             | The schema of a search results table is based on the query you define when you [run the search job](../logs/search-jobs.md). You can't edit the schema of existing search results tables.                                                                                        |
-| Restored logs  | Archived logs.                                                         | A restored logs table has the same schema as the table from which you [restore logs](../logs/restore.md). You can't edit the schema of existing restored logs tables.                                                                                          |
+| Restored logs  | Data stored in a specific table in a Log Analytics workspace.                                                         | A restored logs table has the same schema as the table from which you [restore logs](../logs/restore.md). You can't edit the schema of existing restored logs tables.                                                                                          |
 
-### Log data plan
+### Table plan
 
-[Configure a table's log data plan](../logs/basic-logs-configure.md) based on how often you access the data in the table: 
-- The **Analytics** plan makes log data available for interactive queries and use by features and services. 
-- The **Basic** log data plan provides a low-cost way to ingest and retain logs for troubleshooting, debugging, auditing, and compliance. 
+[Configure a table's plan](../logs/logs-table-plans.md) based on how often you access the data in the table: 
+- The **Analytics** plan is suited for continuous monitoring, real-time detection, and performance analytics. This plan makes log data available for interactive multi-table queries and use by features and services for 30 days to two years.  
+- The **Basic** plan is suited for troubleshooting and incident response. This plan offers discounted ingestion and optimized single-table queries for 30 days. 
+- The **Auxiliary** plan is suited for low-touch data, such as verbose logs, and data required for auditing and compliance. This plan offers low-cost ingestion and unoptimized single-table queries for 30 days.
 
-### Retention and archive
+For full details about Azure Monitor Logs table plans, see [Azure Monitor Logs: Table plans](../logs/data-platform-logs.md#table-plans).
 
-Archiving is a low-cost solution for keeping data that you no longer use regularly in your workspace for compliance or occasional investigation. [Set table-level retention](../logs/data-retention-archive.md) to override the default workspace retention and to archive data within your workspace. 
+### Long-term retention
 
-To access archived data, [run a search job](../logs/search-jobs.md) or [restore data for a specific time range](../logs/restore.md).
+Long-term retention is a low-cost solution for keeping data that you don't use regularly in your workspace for compliance or occasional investigation. Use [table-level retention settings](../logs/data-retention-configure.md) to add or extend long-term retention. 
+
+To access data in long-term retention, [run a search job](../logs/search-jobs.md).
 
 ### Ingestion-time transformations
 
 Reduce costs and analysis effort by using data collection rules to [filter out and transform data before ingestion](../essentials/data-collection-transformations.md) based on the schema you define for your custom table.    
+
+> [!NOTE]
+> Tables with the [Auxiliary table plan](data-platform-logs.md) do not currently support data transformation. For more details, see [Auxiliary table plan public preview limitations](create-custom-table-auxiliary.md#public-preview-limitations).
 
 ## View table properties
 
@@ -87,10 +89,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.plan | string  | The table plan. Either `Analytics` or `Basic`. |
-|properties.retentionInDays | integer  | The table's data retention in days. In `Basic Logs`, the value is eight days, fixed. In `Analytics Logs`, the value is between four and 730 days.|
-|properties.totalRetentionInDays | integer  | The table's data retention that also includes the archive period.|
-|properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
+|properties.plan | string  | The table plan. `Analytics`, `Basic`, or `Auxiliary`. |
+|properties.retentionInDays | integer  | The table's interactive retention in days. For `Basic` and `Auxiliiary`, this value is 30 days. For `Analytics`, the value is between four and 730 days.|
+|properties.totalRetentionInDays | integer  | The table's total data retention, including interactive and long-term retention.|
+|properties.archiveRetentionInDays|integer|The table's long-term retention period (read-only, calculated).|
 |properties.lastPlanModifiedDate|String|Last time when the plan was set for this table. Null if no change was ever done from the default settings (read-only).
 
 **Sample request**
@@ -206,7 +208,7 @@ Use the [Update-AzOperationalInsightsTable](/powershell/module/az.operationalins
 
 Learn how to:
 
-- [Set a table's log data plan](../logs/basic-logs-configure.md)
+- [Set a table's log data plan](../logs/logs-table-plans.md)
 - [Add custom tables and columns](../logs/create-custom-table.md)
-- [Set retention and archive](../logs/data-retention-archive.md)
+- [Configure data retention](../logs/data-retention-configure.md)
 - [Design a workspace architecture](../logs/workspace-design.md)

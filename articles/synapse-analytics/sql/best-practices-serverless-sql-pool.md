@@ -3,9 +3,9 @@ title: Best practices for serverless SQL pool
 description: Recommendations and best practices for working with serverless SQL pool.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ms.date: 02/15/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---

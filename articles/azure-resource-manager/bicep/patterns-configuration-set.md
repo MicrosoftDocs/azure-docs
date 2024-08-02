@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom: devx-track-bicep
 ms.date: 06/23/2023
 ---
+
 # Configuration set pattern
 
 Rather than define lots of individual parameters, create predefined sets of values. During deployment, select the set of values to use.

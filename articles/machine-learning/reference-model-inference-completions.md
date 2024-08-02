@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: None
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
@@ -20,12 +19,20 @@ ms.custom:
 Creates a completion for the provided prompt and parameters.
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 ```
 
 | Name | In  | Required | Type | Description |
 | --- | --- | --- | --- | --- |
 | api-version | query | True | string | The version of the API in the format "YYYY-MM-DD" or "YYYY-MM-DD-preview". |
+
+## Request Header
+
+
+| Name | Required | Type | Description |
+| --- | --- | --- | --- |
+| extra-parameters | | string | The behavior of the API when extra parameters are indicated in the payload. Using `pass-through` makes the API to pass the parameter to the underlying model. Use this value when you want to pass parameters that you know the underlying model can support. Using `ignore` makes the API to drop any unsupported parameter. Use this value when you need to use the same payload across different models, but one of the extra parameters may make a model to error out if not supported. Using `error` makes the API to reject any extra parameter in the payload. Only parameters specified in this API can be indicated, or a 400 error is returned. |
+| azureml-model-deployment |     | string | Name of the deployment you want to route the request to. Supported for endpoints that support multiple deployments. |
 
 
 ## Request Body
@@ -36,7 +43,6 @@ POST /completions?api-version=2024-05-01-preview
 | prompt | True |     | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | frequency\_penalty |     | number | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens |     | integer | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
-| model |     | string | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty |     | number | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | seed |     | integer | If specified, the model makes a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
 | stop |     |     | Sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence. |
@@ -50,11 +56,11 @@ POST /completions?api-version=2024-05-01-preview
 | Name | Type | Description |
 | --- | --- | --- |
 | 200 OK | [CreateCompletionResponse](#createcompletionresponse) | OK  |
-| 401 Unauthorized |     | Access token is missing or invalid |
-| 404 Not Found |     | Modality not supported by the model. Check the documentation of the model to see which routes are available. |
-| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string |
-| 429 Too Many Requests |     | You have hit your assigned rate limit and your request need to be paced. |
-| Other Status Codes | [ContentFilterError](#contentfiltererror) | Bad request<br><br>Headers<br><br>x-ms-error-code: string |
+| 401 Unauthorized         | [UnauthorizedError](#unauthorizederror)                 | Access token is missing or invalid<br><br>Headers<br><br>x-ms-error-code: string                                                                           |
+| 404 Not Found            | [NotFoundError](#notfounderror)                         | Modality not supported by the model. Check the documentation of the model to see which routes are available.<br><br>Headers<br><br>x-ms-error-code: string |
+| 422 Unprocessable Entity | [UnprocessableContentError](#unprocessablecontenterror) | The request contains unprocessable content<br><br>Headers<br><br>x-ms-error-code: string                                                                   |
+| 429 Too Many Requests    | [TooManyRequestsError](#toomanyrequestserror)           | You have hit your assigned rate limit and your request need to be paced.<br><br>Headers<br><br>x-ms-error-code: string                                     |
+| Other Status Codes       | [ContentFilterError](#contentfiltererror)               | Bad request<br><br>Headers<br><br>x-ms-error-code: string                                                                                                  |
 
 
 ## Security
@@ -85,7 +91,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-POST /completions?api-version=2024-05-01-preview
+POST /completions?api-version=2024-04-01-preview
 
 {
   "prompt": "This is a very good text",
@@ -198,7 +204,6 @@ The API call fails when the prompt triggers a content filter as configured. Modi
 | --- | --- | --- | --- |
 | frequency\_penalty | number | 0   | Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim. |
 | max\_tokens | integer | 256 | The maximum number of tokens that can be generated in the completion. The token count of your prompt plus `max_tokens` cannot exceed the model's context length. |
-| model | string |     | Kept for compatibility reasons. This parameter is ignored. |
 | presence\_penalty | number | 0   | Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics. |
 | prompt |     | `<\|endoftext\|>` | The prompts to generate completions for, encoded as a string, array of strings, array of tokens, or array of token arrays. Note that `<\|endoftext\|>` is the document separator that the model sees during training, so if a prompt is not specified the model generates as if from the beginning of a new document. |
 | seed | integer |     | If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result.<br><br>Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend. |
@@ -217,7 +222,7 @@ Represents a completion response from the API. Note: both the streamed and nonst
 | --- | --- | --- |
 | choices | [Choices](#choices)\[\] | The list of completion choices the model generated for the input prompt. |
 | created | integer | The Unix timestamp (in seconds) of when the completion was created. |
-| id  | string | A unique identifier for the completion. |
+| ID  | string | A unique identifier for the completion. |
 | model | string | The model used for completion. |
 | object | [TextCompletionObject](#textcompletionobject) | The object type, which is always "text\_completion" |
 | system\_fingerprint | string | This fingerprint represents the backend configuration that the model runs with.<br><br>Can be used with the `seed` request parameter to understand when backend changes have been made that might impact determinism. |

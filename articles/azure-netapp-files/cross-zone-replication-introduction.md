@@ -5,50 +5,18 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
 
-# Understand cross-zone replication of Azure NetApp Files (preview)
+# Understand cross-zone replication of Azure NetApp Files
 
 In many cases resiliency across availability zones is achieved by HA architectures using application-based replication and HA, as explained in [Use availability zones for high availability](use-availability-zones.md). However, simpler, more cost-effective approaches are often considered by using storage-based data replication instead.  
 
 Similar to the Azure NetApp Files [cross-region replication feature](cross-region-replication-introduction.md), the cross-zone replication (CZR) capability provides data protection between volumes in different availability zones. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one availability zone to another Azure NetApp Files volume (destination) in another availability. This capability enables you to fail over your critical application if a zone-wide outage or disaster happens. 
 
-## Supported regions
-
-The preview of cross-zone replication is available in the following regions: 
-
-* Australia East
-* Brazil South 
-* Canada Central 
-* Central India
-* Central US 
-* East Asia
-* East US 
-* East US 2
-* France Central 
-* Germany West Central 
-* Israel Central
-* Japan East
-* Korea Central
-* North Europe
-* Norway East 
-* Qatar Central
-* South Africa North
-* Southeast Asia
-* South Central US 
-* Sweden Central
-* Switzerland North
-* UAE North
-* UK South
-* US Gov Virginia
-* West Europe
-* West US 2 
-* West US 3 
-
-In the future, cross-zone replication is planned for all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
+Cross-zone replication is available in all [AZ-enabled regions](../availability-zones/az-overview.md#azure-regions-with-availability-zones) with [Azure NetApp Files presence](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&regions=all&rar=true).
 
 ## Service-level objectives 
 
@@ -59,6 +27,9 @@ Cross-zone replication supports three replication schedules: 10 minutes, hourly,
 * For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes. 
 * For the hourly replication schedule, the typical RPO is less than two hours. 
 * For the daily replication schedule, the typical RPO is less than two days. 
+
+> [!IMPORTANT]
+> The 10-minute replication schedule isn't supported for [large volumes](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) using cross-zone replication. 
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute. 
 

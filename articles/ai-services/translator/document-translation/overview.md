@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: overview
-ms.date: 05/02/2024
+ms.date: 05/14/2024
 ms.author: lajanuar
 ms.custom: references_regions
 recommendations: false
@@ -21,11 +21,11 @@ recommendations: false
 
 # What is Document Translation?
 
-Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service. You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation operations:
+Document Translation is a cloud-based machine translation feature of the [Azure AI Translator](../translator-overview.md) service. You can translate multiple and complex documents across all [supported languages and dialects](../../language-support.md) while preserving original document structure and data format. The Document translation API supports two translation processes:
 
-* [Asynchronous batch](#asynchronous-batch-translation) document translation supports asynchronous processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with containers for your source and translated documents.
+* [Asynchronous batch translation](#asynchronous-batch-translation) supports the processing of multiple documents and large files. The batch translation process requires an Azure Blob storage account with storage containers for your source and translated documents.
 
-* [Synchronous](#synchronous-translation) document translation supports synchronous processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
+* [Synchronous single file](#synchronous-translation) supports the processing of single file translations. The file translation process doesn't require an Azure Blob storage account. The final response contains the translated document and is returned directly to the calling client.
 
 ## Asynchronous batch translation
 
@@ -49,7 +49,7 @@ You can add Document Translation to your applications using the REST API or a cl
 
 * The [**REST API**](reference/rest-api-guide.md). is a language agnostic interface that enables you to create HTTP requests and authorization headers to translate documents.
 
-* The [**client-library SDKs**](./quickstarts/asynchronous-sdk.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
+* The [**client-library SDKs**](./quickstarts/client-library-sdks.md) are language-specific classes, objects, methods, and code that you can quickly use by adding a reference in your project. Currently Document Translation has programming language support for [**C#/.NET**](/dotnet/api/azure.ai.translation.document) and [**Python**](https://pypi.org/project/azure-ai-translation-document/).
 
 ### Batch supported document formats
 
@@ -159,4 +159,4 @@ Document Translation data residency depends on the Azure region where your Trans
 In our quickstart, you learn how to rapidly get started using Document Translation. To begin, you need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free).
 
 > [!div class="nextstepaction"]
-> [Get Started with Asynchronous batch translation](./quickstarts/asynchronous-rest-api.md) [Get started with synchronous translation](quickstarts/synchronous-rest-api.md)
+> [Get Started with Asynchronous batch translation](./how-to-guides/use-rest-api-programmatically.md) [Get started with synchronous translation](how-to-guides/use-rest-api-programmatically.md)

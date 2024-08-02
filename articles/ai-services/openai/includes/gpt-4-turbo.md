@@ -25,7 +25,7 @@ This is the replacement for the following preview models:
 
 ### Differences from gpt-4 vision-preview
 
-- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision aren't supported for `gpt-4` **Version:** `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
+- Azure AI specific Vision enhancements integration with GPT-4 Turbo with Vision isn't supported for `gpt-4` **Version:** `turbo-2024-04-09`. This includes Optical Character Recognition (OCR), object grounding, video prompts, and improved handling of your data with images.
 
 ### GPT-4 Turbo provisioned managed availability
 
@@ -37,4 +37,4 @@ For information on model regional availability consult the model matrix for [sta
 
 ### Deploying GPT-4 Turbo with Vision GA
 
-To deploy the GA model from the Studio UI, select `GPT-4` and then choose the `turbo-2024-04-09` version from the dropdown menu. The default quota for the `gpt-4-turbo-2024-04-09` model will be the same as current quota for GPT-4-Turbo. See the [regional quota limits.](../concepts/models.md#standard-deployment-model-quota)
+To deploy the GA model from the Studio UI, select `GPT-4` and then choose the `turbo-2024-04-09` version from the dropdown menu. The default quota for the `gpt-4-turbo-2024-04-09` model will be the same as current quota for GPT-4-Turbo. See the [regional quota limits.](../concepts/models.md#standard-and-global-standard-deployment-model-quota)

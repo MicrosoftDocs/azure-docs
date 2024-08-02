@@ -318,7 +318,7 @@ Use the Windows agent.
 
 Perform the following steps to configure the Log Analytics agent for Windows to report to a System Center Operations Manager management group.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)]
 
 1. Sign on to the computer with an account that has administrative rights.
 
@@ -344,7 +344,7 @@ Perform the following steps to configure the Log Analytics agent for Windows to 
 
 Perform the following steps to configure the Log Analytics agent for Linux to report to a System Center Operations Manager management group.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)]
 
 1. Edit the file `/etc/opt/omi/conf/omiserver.conf`.
 

@@ -1,27 +1,25 @@
 ---
-title: How to configure Azure OpenAI Service with managed identities
+title: How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 titleSuffix: Azure OpenAI
 description: Provides guidance on how to set managed identity with Microsoft Entra ID
 ms.service: azure-ai-openai
 ms.topic: how-to 
-ms.date: 04/03/2024
+ms.date: 06/25/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
 ms.custom: devx-track-azurecli
 ---
 
-# How to configure Azure OpenAI Service with managed identities
+# How to configure Azure OpenAI Service with Microsoft Entra ID authentication
 
-More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your OpenAI resource using Microsoft Entra ID.
+More complex security scenarios require Azure role-based access control (Azure RBAC). This document covers how to authenticate to your Azure OpenAI resource using Microsoft Entra ID.
 
 In the following sections, you'll use the Azure CLI to sign in, and obtain a bearer token to call the OpenAI resource. If you get stuck, links are provided in each section with all available options for each command in Azure Cloud Shell/Azure CLI.
 
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to the Azure OpenAI Service in the desired Azure subscription
--   Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the [Request Access to Azure OpenAI Service form](https://aka.ms/oai/access). Open an issue on this repo to contact us if you have an issue.
 
 - [Custom subdomain names are required to enable features like Microsoft Entra ID for authentication.](
 ../../cognitive-services-custom-subdomains.md)

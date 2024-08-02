@@ -34,7 +34,7 @@ In this quickstart, you use the `Gremlin.Net` library to connect to a newly crea
   - Don't have .NET installed? Try this quickstart in [GitHub Codespaces](https://codespaces.new/github/codespaces-blank?quickstart=1).
 - [Azure Command-Line Interface (CLI)](/cli/azure/)
 
-[!INCLUDE[Cloud Shell](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE[Cloud Shell](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Setting up
 

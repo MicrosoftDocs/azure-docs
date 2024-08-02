@@ -12,7 +12,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: kyleikeda
-  ms.date: 03/11/2024
+  ms.date: 06/04/2024
 
 highlightedContent:
 # top-level single cards with predefined symbols
@@ -55,8 +55,8 @@ additionalContent:
               url: /azure/aks/hybrid/azure-hybrid-benefit
             - text: Azure Hybrid Benefit for Azure Stack HCI - Azure Stack HCI
               url: /azure-stack/hci/concepts/azure-hybrid-benefit-hci
-            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: ../../azure-vmware/sql-server-hybrid-benefit.md
+            - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
+              url: ../../azure-vmware/license-sql-windows-in-avs.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
               url: ../../virtual-machines/dedicated-hosts.md
     - title: SQL Server VMs in Azure  # < 60 chars (optional)
@@ -80,8 +80,8 @@ additionalContent:
           links:
             - text: Azure Hybrid Benefit - Azure SQL Database and SQL Managed Instance
               url: /azure/azure-sql/azure-hybrid-benefit
-            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: /azure/azure-vmware/sql-server-hybrid-benefit
+            - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
+              url: ../../azure-vmware/license-sql-windows-in-avs.md
             - text: Enable Azure Hybrid Benefit for SQL Server in Azure VMware Solution
               url: ../../azure-vmware/enable-sql-azure-hybrid-benefit.md
             - text: Run SQL Server VM on an Azure Dedicated Host - SQL Server on Azure VMs
@@ -101,8 +101,8 @@ additionalContent:
               url: /shows/inside-azure-for-it/rhel-subscription-mobility-with-azure-hybrid-benefit-for-linux
         - title: Deployment options
           links:
-            - text: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions
-              url: ../../azure-vmware/sql-server-hybrid-benefit.md
+            - text: License SQL Server, Windows Server, and Linux in Azure VMware Solution
+              url: ../../azure-vmware/license-sql-windows-in-avs.md
             - text: Overview of Azure Dedicated Hosts for virtual machines
               url: ../../virtual-machines/dedicated-hosts.md
     - title: Additional resources  # < 60 chars (optional)

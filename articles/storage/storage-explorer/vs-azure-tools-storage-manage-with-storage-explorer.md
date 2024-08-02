@@ -30,7 +30,7 @@ The following versions of Windows support the latest versions of Storage Explore
 
 Other requirements include:
 - Your Windows installation must support 64-bit applications (starting with Storage Explorer 1.30.0).
-- You must have a x64 .NET 6 runtime installed (starting with Storage Explorer 1.30.0). You can download the latest .NET 6 runtime from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer will install a .NET 8 runtime if you do not already have one installed, but it may not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
 
 # [macOS](#tab/macos)
 

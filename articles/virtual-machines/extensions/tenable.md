@@ -2,16 +2,13 @@
 title: Tenable One-Click Nessus Extension for Azure VMs  
 description: Deploy the Tenable One-Click Nessus Agent to a virtual machine using the Tenable One-Click Nessus VM Extension.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
 ms.date: 07/18/2023
 ---
 # Tenable One-Click Nessus Agent
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Tenable now supports a One-Click deployment of Nessus Agents via Microsoft's Azure portal. This solution provides an easy way to install the latest version of Nessus Agent on Azure virtual machines (VM) (whether Linux or Windows) by either clicking on an icon within the Azure portal or by writing a few lines of PowerShell script. 
 
@@ -24,8 +21,6 @@ Tenable now supports a One-Click deployment of Nessus Agents via Microsoft's Azu
 ### Supported Platforms
 
 Azure VM running any of the following:
-
-* CentOS 7 (x86_64)
 
 * Debian 11 (x86_64)
 

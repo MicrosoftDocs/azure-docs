@@ -4,7 +4,7 @@ description: In this article, you learn about geographical availability and data
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 06/09/2024
 ms.custom: references_regions
 #Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
 ---
@@ -29,6 +29,7 @@ Microsoft Sentinel is a [non-regional service](https://azure.microsoft.com/explo
 - Microsoft Sentinel processes customer data in one of two locations:
     - If the Log Analytics workspace is located in Europe, customer data is processed in Europe.
     - For all other locations, customer data is processed in the US
+- While Microsoft Sentinel is accessible in both the [Microsoft Defender and Azure portals](microsoft-sentinel-defender-portal.md), Microsoft Sentinel data is stored in Azure regions.
 
 ### Supported regions
 

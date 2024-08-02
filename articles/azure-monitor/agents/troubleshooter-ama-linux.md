@@ -13,9 +13,9 @@ ms.reviewer: jeffwo
 # How to use the Linux operating system (OS) Azure Monitor Agent Troubleshooter
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
-The Azure Monitor Agent Troubleshooter (AMA) is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
+The Azure Monitor Agent (AMA) Troubleshooter is designed to help identify issues with the agent and perform general health assessments. It can perform various checks to ensure that the agent is properly installed and connected, and can also gather AMA-related logs from the machine being diagnosed.
 
 > [!Note]
 > The AMA Troubleshooter is an executable that is shipped with the agent for all versions newer than **1.25.1** for Linux.
@@ -36,7 +36,7 @@ sudo python3 -V
 Multiple versions of Python can be installed and aliased – if multiple versions are installed, use:
 
 ```Bash
-ls -ls /usr/bing/python*
+ls -ls /usr/bin/python*
 ```
 
 :::image type="content" source="media/agent-linux/python-multiple-version-check.png" alt-text="Screenshot of command to check multiple versions of Python for Linux." lightbox="media/agent-linux/python-multiple-version-check.png":::

@@ -2,10 +2,10 @@
 title: Submit Spark jobs in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to submit standalone and pipeline Spark jobs in Azure Machine Learning 
-author: ynpandey
-ms.author: yogipandey
-ms.reviewer: franksolomon
-ms.service: machine-learning
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: yogipandey
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to 
 ms.date: 10/05/2023
@@ -169,20 +169,20 @@ To create a job, a standalone Spark job can be defined as a YAML specification f
     - `standard_e32s_v3`
     - `standard_e64s_v3`
   - `runtime_version` - defines the Spark runtime version. The following Spark runtime versions are currently supported:
-    - `3.2`
     - `3.3`
+    - `3.4`
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.2:
-      >   * EOLA Announcement Date: July 8, 2023
-      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
-      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
+      > * Azure Synapse Runtime for Apache Spark 3.3:
+      >   * EOLA Announcement Date: July 12, 2024
+      >   * End of Support Date: March 31, 2025. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.4.
 
   This is an example:
   ```yaml
   resources:
     instance_type: standard_e8s_v3
-    runtime_version: "3.3"
+    runtime_version: "3.4"
   ```
 - `compute` - this property defines the name of an attached Synapse Spark pool, as shown in this example:
   ```yaml
@@ -263,7 +263,7 @@ identity:
 
 resources:
   instance_type: standard_e4s_v3
-  runtime_version: "3.3"
+  runtime_version: "3.4"
 ```
 
 > [!NOTE]
@@ -315,14 +315,14 @@ To create a standalone Spark job, use the `azure.ai.ml.spark` function, with the
     - `Standard_E32S_V3`
     - `Standard_E64S_V3`
   - `runtime_version` - a key that defines the Spark runtime version. The following Spark runtime versions are currently supported:
-    - `3.2.0`   
     - `3.3.0`   
+    - `3.4.0`   
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.2:
-      >   * EOLA Announcement Date: July 8, 2023
-      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
-      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
+      > * Azure Synapse Runtime for Apache Spark 3.3:
+      >   * EOLA Announcement Date: July 12, 2024
+      >   * End of Support Date: March 31, 2025. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.4.
 
 - `compute` - the name of an attached Synapse Spark pool.
 - `inputs` - the inputs for the Spark job. This parameter should pass a dictionary with mappings of the input data bindings used in the job. This dictionary has these values:
@@ -375,7 +375,7 @@ spark_job = spark(
     executor_instances=2,
     resources={
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.3.0",
+        "runtime_version": "3.4.0",
     },
     inputs={
         "titanic_data": Input(
@@ -426,10 +426,11 @@ To submit a standalone Spark job using the Azure Machine Learning studio UI:
     2. Select **Spark runtime version**.
       > [!IMPORTANT]
       > Azure Synapse Runtime for Apache Spark: Announcements
-      > * Azure Synapse Runtime for Apache Spark 3.2:
-      >   * EOLA Announcement Date: July 8, 2023
-      >   * End of Support Date: July 8, 2024. After this date, the runtime will be disabled.
-      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.3.
+      > * Azure Synapse Runtime for Apache Spark 3.3:
+      >   * EOLA Announcement Date: July 12, 2024
+      >   * End of Support Date: March 31, 2025. After this date, the runtime will be disabled.
+      > * For continued support and optimal performance, we advise migrating to Apache Spark 3.4.
+
 3. If you selected **Attached compute**:
     1. Select an attached Synapse Spark pool from the **Select Azure Machine Learning attached compute** menu.
 4. Select **Next**.
@@ -601,7 +602,7 @@ jobs:
 
     resources:
       instance_type: standard_e8s_v3
-      runtime_version: "3.3"
+      runtime_version: "3.4"
 ```
 > [!NOTE]
 > To use an attached Synapse Spark pool, define the `compute` property in the sample YAML specification file shown above, instead of `resources` property.
@@ -684,7 +685,7 @@ def spark_pipeline(spark_input_data):
     spark_step.identity = ManagedIdentityConfiguration()
     spark_step.resources = {
         "instance_type": "Standard_E8S_V3",
-        "runtime_version": "3.3.0",
+        "runtime_version": "3.4.0",
     }
 
 pipeline = spark_pipeline(

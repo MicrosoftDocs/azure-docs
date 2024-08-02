@@ -5,11 +5,11 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 09/18/2023
+ms.date: 07/29/2024
 ms.topic: conceptual
 ---
 
-# Sample queries
+# Sample Azure Resource Graph queries to access Azure Update Manager operations data
 
 The following are some sample queries to help you get started querying the update assessment and deployment information collected from your managed machines. For more information on logs created from operations such as update assessments and installations, see [overview of query logs](query-logs.md).
  
@@ -46,7 +46,7 @@ The following query returns a list of update installations for Windows Server wi
 
 ```kusto
 patchinstallationresources
-| where type has "softwarepatches" and properties !has "version"
+| where type has "softwarepatches" and isnull(properties.version)
 | extend machineName = tostring(split(id, "/", 8)), resourceType = tostring(split(type, "/", 0)), tostring(rgName = split(id, "/", 4)), tostring(RunID = split(id, "/", 10))
 | extend prop = parse_json(properties)
 | extend lTime = todatetime(prop.lastModifiedDateTime), patchName = tostring(prop.patchName), kbId = tostring(prop.kbId), installationState = tostring(prop.installationState), classifications = tostring(prop.classifications)
@@ -61,7 +61,7 @@ The following query returns a list of update installations for Linux with their 
 
 ```kusto
 patchinstallationresources
-| where type has "softwarepatches" and properties has "version"
+| where type has "softwarepatches" and isnotnull(properties.version) and isnull(properties.kbId)
 | extend machineName = tostring(split(id, "/", 8)), resourceType = tostring(split(type, "/", 0)), tostring(rgName = split(id, "/", 4)), tostring(RunID = split(id, "/", 10))
 | extend prop = parse_json(properties)
 | extend lTime = todatetime(prop.lastModifiedDateTime), patchName = tostring(prop.patchName), version = tostring(prop.version), installationState = tostring(prop.installationState), classifications = tostring(prop.classifications)

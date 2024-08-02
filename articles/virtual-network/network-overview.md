@@ -87,7 +87,7 @@ This table lists the methods that you can use to create an IP address.
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Virtual network and subnets
 
@@ -128,6 +128,16 @@ We welcome you to share your feedback about this feature in this [quick survey](
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For more information about how-to configure multiple address prefixes on a subnet, see [Create multiple prefixes for a subnet](how-to-multiple-prefixes-subnet.md). 
+
+> [!IMPORTANT]
+> There are two subnet properties for address space, **AddressPrefix** (string), and **AddressPrefixes** (list). The distinction and usage is explained as follows.
+> - The array property was introduced for dual stack. The property is also used for scenarios with more than one subnet prefixes as discussed previously.
+> - As part of the Azure Portal customer experience update, the **AddressPrefixes** is the default property for subnet address space when a subnet is created via the portal. 
+>     - Any new subnets created via portal will default to the **AddressPrefixes** list parameter.
+> - If customers are using dual-stack in their virtual network or have more than one subnet prefixes, they are updated to use the list property.
+>     - For existing deployments using the string, the current behavior is retained unless there are explicit changes in  your virtual network to use the list property for subnet address prefixes. An example is adding IPv6 address space or another prefix to the subnet.
+> - We recommend that customers should look for both the properties in subnet wherever applicable.
+
 
 ## Network security groups
 
@@ -249,7 +259,7 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard SKU public IP addresses.
 
- [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+ [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 For more information about Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
 

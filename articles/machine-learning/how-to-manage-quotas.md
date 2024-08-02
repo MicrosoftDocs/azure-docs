@@ -5,9 +5,9 @@ description: Learn about the quotas and limits on resources for Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-author: SimranArora904
-ms.author: siarora
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: siarora
 ms.date: 09/15/2023
 ms.topic: how-to
 ms.custom: troubleshooting
@@ -183,7 +183,7 @@ For example, consider a subscription with a US East total VM core limit of 30, a
 
 You can't raise limits for virtual machines above the values shown in the following table.
 
-[!INCLUDE [azure-subscription-limits-azure-resource-manager](../../includes/azure-subscription-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-subscription-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-subscription-limits-azure-resource-manager.md)]
 
 ### Container Instances
 

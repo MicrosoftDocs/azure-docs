@@ -1,8 +1,8 @@
 ---
 title: Back up Azure Managed Disks using Azure PowerShell
 description: Learn how to back up Azure Managed Disks using Azure PowerShell.
-ms.topic: conceptual
-ms.date: 05/09/2024 
+ms.topic: how-to
+ms.date: 07/30/2024 
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -28,7 +28,7 @@ For information on the Azure Disk backup region availability, supported scenario
 
 A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
-Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we will create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault.Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
+Before creating a backup vault, choose the storage redundancy of the data within the vault. Then proceed to create the backup vault with that storage redundancy and the location. In this article, we'll create a backup vault "TestBkpVault" in "westus" region under the resource group "testBkpVaultRG". Use the [New-AzDataProtectionBackupVault](/powershell/module/az.dataprotection/new-azdataprotectionbackupvault) command to create a backup vault. Learn more about [creating a Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
 ```azurepowershell-interactive
 $storageSetting = New-AzDataProtectionBackupVaultStorageSettingObject -Type LocallyRedundant/GeoRedundant -DataStoreType VaultStore
@@ -134,7 +134,7 @@ Once the vault and policy are created, there are 3 critical points that the user
 
 #### Disk to be protected
 
-Fetch the ARM ID of the disk to be protected. This will serve as the identifier of the disk. We will use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
+Fetch the ARM ID of the disk to be protected. This will serve as the identifier of the disk. We'll use an example of a disk named "PSTestDisk" under a resource group "diskrg" under a different subscription.
 
 ```azurepowershell-interactive
 $DiskId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/PSTestDisk"
@@ -190,7 +190,7 @@ To configure backup of managed disks, ensure the following prerequisites:
 
   1. Go to **Backup vault** -> **Identity** and select **Azure role assignments**.
  
-     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments-inline.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments-expanded.png":::
+     :::image type="content" source="./media/backup-managed-disks-ps/select-azure-role-assignments.png" alt-text="Screenshot showing the selection of Azure role assignments." lightbox="./media/backup-managed-disks-ps/select-azure-role-assignments.png":::
 
   1. Verify that the role, resource name, and resource type are correct.
  
@@ -221,7 +221,7 @@ Fetch the relevant backup instance on which the user desires to trigger a backup
 $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "xxxx-xxx-xxx" -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "BackupInstanceName"
 ```
 
-You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the below example, the rule with name 'default' is displayed and we will use that rule for the on-demand backup
+You can specify a retention rule while triggering backup. To view the retention rules in policy, navigate through the policy object for retention rules. In the below example, the rule with name 'default' is displayed and we'll use that rule for the on-demand backup
 
 ```azurepowershell-interactive
 $policyDefn.PolicyRule | fl

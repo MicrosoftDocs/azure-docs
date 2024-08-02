@@ -5,7 +5,7 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 07/26/2024
 ---
 
 # Create Azure Cosmos DB containers and databases with autoscale throughput
@@ -73,6 +73,10 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 | **Capacity planning** |  You have to do capacity planning and provision the exact throughput you need. |    The system automatically takes care of capacity planning and capacity management. |
 | **Pricing** | You pay for the manually provisioned RU/s per hour, using the [standard (manual) RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). | You pay per hour for the highest RU/s the system scaled up to within the hour. <br/><br/> For single write region accounts, you pay for the RU/s used on an hourly basis, using the [autoscale RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>For accounts with multiple write regions, there's no extra charge for autoscale. You pay for the throughput used on hourly basis using the same [multi-region write RU/s per hour rate](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
+
+## Migrate standard provisioned throughput to autoscale
+
+Users that want to migrate a large number of resources from standard provisioned throughput to autoscale can use an Azure CLI script that will migrate every throughput resource in an Azure subscription to autoscale. For more details see, [Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md).
 
 ## Next steps
 

@@ -259,9 +259,29 @@ curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs
 
 ## Retrieve run
 
-```http
-GET https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview
+# [Python 1.x](#tab/python)
+
+```python
+from openai import OpenAI
+client = OpenAI()
+
+run = client.beta.threads.runs.retrieve(
+  thread_id="thread_abc123",
+  run_id="run_abc123"
+)
+
+print(run)
 ```
+
+# [REST](#tab/rest)
+
+```http
+curl https://YOUR_RESOURCE_NAME.openai.azure.com/openai/threads/{thread_id}/runs/{run_id}?api-version=2024-05-01-preview
+  -H "api-key: $AZURE_OPENAI_API_KEY" \
+  -H 'Content-Type: application/json' 
+```
+
+---
 
 Retrieves a run.
 
@@ -437,7 +457,7 @@ When a run has the status: "requires_action" and required_action.type is submit_
 
 |Name | Type | Required | Description |
 |---  |---   |---       |--- |
-| `tool_outputs | array | Required | A list of tools for which the outputs are being submitted. |
+| `tool_outputs` | array | Required | A list of tools for which the outputs are being submitted. |
 
 ### Returns
 
@@ -565,6 +585,7 @@ Represents an execution run on a thread.
 | `tool_choice` | string or object | Controls which (if any) tool is called by the model. `none` means the model won't call any tools and instead generates a message. `auto` is the default value and means the model can pick between generating a message or calling a tool. Specifying a particular tool like `{"type": "file_search"}` or `{"type": "function", "function": {"name": "my_function"}}` forces the model to call that tool. |
 | `max_prompt_tokens` | integer or null | The maximum number of prompt tokens specified to have been used over the course of the run. |
 | `max_completion_tokens` | integer or null | The maximum number of completion tokens specified to have been used over the course of the run. |
+| `usage` | object or null | Usage statistics related to the run. This value will be null if the run is not in a terminal state (for example `in_progress`, `queued`). |
 
 
 ## Run step object

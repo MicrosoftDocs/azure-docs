@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: training
 ms.topic: tutorial
-author: aminsaied
-ms.author: amsaied
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: amsaied
 ms.date: 04/03/2024
 ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q, sdkv1
 ---

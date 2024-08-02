@@ -3,7 +3,7 @@ title: 'Create a hub and spoke topology in Azure - PowerShell'
 description: Learn how to create a hub and spoke network topology for multiple virtual networks with Azure Virtual Network Manager using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 05/07/2024
 ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
@@ -12,8 +12,6 @@ ms.custom: template-concept, engagement-fy23, devx-track-azurepowershell
 # Create a hub and spoke topology in Azure - PowerShell
 
 In this article, you'll learn how to create a hub and spoke network topology with Azure Virtual Network Manager. With this configuration, you select a virtual network to act as a hub and all spoke virtual networks will have bi-directional peering with only the hub by default. You also can enable direct connectivity between spoke virtual networks and enable the spoke virtual networks to use the virtual network gateway in the hub.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Prerequisites
 

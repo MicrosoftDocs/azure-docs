@@ -38,7 +38,7 @@ A model is an object that's trained to do a certain task, in this case conversat
 
 ## Overfitting
 
-Overfitting happens when the model is fixated on the specific examples and is not able to generalize well.
+Overfitting happens when the model is fixated on the specific examples and isn't able to generalize well.
 
 ## Precision
 Measures how precise/accurate your model is. It's the ratio between the correctly identified positives (true positives) and all identified positives. The precision metric reveals how many of the predicted classes are correctly labeled.
@@ -53,14 +53,14 @@ Measures the model's ability to predict actual positive classes. It's the ratio 
 A regular expression entity represents a regular expression. Regular expression entities are exact matches.
 
 ## Schema
-Schema is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want think about which intents and entities should be included in your project
+Schema is defined as the combination of intents and entities within your project. Schema design is a crucial part of your project's success. When creating a schema, you want to think about which intents and entities should be included in your project.
 
 ## Training data
 Training data is the set of information that is needed to train a model.
 
 ## Utterance
 
-An utterance is user input that is short text representative of a sentence in a conversation. It is a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
+An utterance is user input that is short text representative of a sentence in a conversation. It's a natural language phrase such as "book 2 tickets to Seattle next Tuesday". Example utterances are added to train the model and the model predicts on new utterance at runtime
 
 
 ## Next steps

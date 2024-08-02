@@ -55,7 +55,9 @@ The power of this transactional capability becomes apparent when the transfer qu
 If you need to receive from a topic subscription and then send to a queue or topic in the same transaction, the transfer entity must be a topic. In this scenario, start transaction scope on the topic, receive from the subscription with in the transaction scope, and send via the transfer topic to a queue or topic destination. 
 
 > [!NOTE]
-> If a message is sent via a transfer queue in the scope of a transaction, `TransactionPartitionKey` is functionally equivalent to `PartitionKey`. It ensures that messages are kept together and in order as they are transferred. 
+> - If a message is sent via a transfer queue in the scope of a transaction, `TransactionPartitionKey` is functionally equivalent to `PartitionKey`. It ensures that messages are kept together and in order as they are transferred. 
+> - If the destination queue or topic is deleted, a 404 exception is raised.
+
 
 ### See it in code
 

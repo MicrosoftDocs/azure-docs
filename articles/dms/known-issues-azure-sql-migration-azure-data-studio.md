@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: maghan, randolphwest
 ms.date: 11/30/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - sql-migration-content
@@ -45,7 +45,7 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Cause**: Before migrating data, you need to migrate the certificate of the source SQL Server instance from a database that is protected by Transparent Data Encryption (TDE) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](tutorial-transparent-data-encryption-migration-ads.md).
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`
 
@@ -225,6 +225,18 @@ This article provides a list of known issues and troubleshooting steps associate
 
   > [!NOTE]  
   > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
+
+## Error code: 2055 - SqlInfoCollectionFailed
+
+- **Message**: `A database operation failed with the following error: 'VIEW SERVER PERFORMANCE STATE permission was denied on object 'server', database 'master'. The user does not have permission to perform this action.`
+
+- **Cause**: The login used for target server(Azure SQL DB) does not has ##MS_ServerStateReader## server role.
+
+- **Recommendation**: Provide ##MS_ServerStateReader## role to the login for Azure SQL Target. 
+Query:
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER login.
+
+Note: This query should be run in context of master DB
 
 ## Error code: 2056 - SqlInfoValidationFailed
 

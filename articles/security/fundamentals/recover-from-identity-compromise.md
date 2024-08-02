@@ -14,9 +14,9 @@ ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 
 # Recovering from systemic identity compromise
 
-This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization.
+This article describes Microsoft resources and recommendations for recovering from a systemic identity compromise attack against your organization which can occur during a ransomware attack.
 
-The content in this article is based on guidance provided by Microsoft's Detection and Response Team (DART), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the DART team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
+The content in this article is based on guidance provided by Microsoft Incident Response team (formerly DART/CRSP), which works to respond to compromises and help customers become cyber-resilient. For more guidance from the Microsoft Incident Response team, see their [Microsoft security blog series](https://www.microsoft.com/security/blog/microsoft-detection-and-response-team-dart-blog-series/).
 
 Many organizations have transitioned to a cloud-based approach for stronger security on their identity and access management. However, your organization may also have on-premises systems in place and use varying methods of hybrid architecture. This article acknowledges that systemic identity attacks affect cloud, on-premises, and hybrid systems, and provides recommendations and references for all of these environments.
 
@@ -312,7 +312,7 @@ In addition to the recommendations listed earlier in this article, we also recom
 |**Reset passwords**     |   Reset passwords on any [break-glass accounts](../../active-directory/roles/security-emergency-access.md) and reduce the number of break-glass accounts to the absolute minimum required.    |
 |**Restrict privileged access accounts**     |    Ensure that service and user accounts with privileged access are cloud-only accounts, and do not use on-premises accounts that are synced or federated to Microsoft Entra ID.  |
 |**Enforce MFA**     | Enforce Multi-Factor Authentication (MFA) across all elevated users in the tenant. We recommend enforcing MFA across all users in the tenant.       |
-|**Limit administrative access**     |    Implement [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) (PIM) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) (PAM) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
+|**Limit administrative access**     |    Implement [Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) and conditional access to limit administrative access.  <br><br>For Microsoft 365 users, implement [Privileged Access Management (PAM)](https://techcommunity.microsoft.com/t5/microsoft-security-and/privileged-access-management-in-office-365-is-now-generally/ba-p/261751) to limit access to sensitive abilities, such as eDiscovery, Global Admin, Account Administration, and more.    |
 |**Review / reduce delegated permissions and consent grants**     |  Review and reduce all Enterprise Applications delegated permissions or [consent grants](/graph/auth-limit-mailbox-access) that allow any of the following functionalities: <br><br>- Modification of privileged users and roles <br>- Reading, sending email, or accessing all mailboxes <br>- Accessing OneDrive, Teams, or SharePoint content <br>- Adding Service Principals that can read/write to the directory <br>- Application Permissions versus Delegated Access       |
 
 ### On-premises remediation activities

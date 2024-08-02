@@ -6,22 +6,22 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: conceptual
 ms.date: 5/21/2024
-ms.reviewer: msakande 
-reviewer: msakande
-ms.author: fasantia
-author: santiagxf
+ms.reviewer: fasantia 
+reviewer: santiagxf
+ms.author: mopeakande
+author: msakande
 ms.custom: 
  - build-2024
 ---
 
 # Reference: Info | Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 Returns the information about the model deployed under the endpoint.
 
 ```http
-GET /info?api-version=2024-05-01-preview
+GET /info?api-version=2024-04-01-preview
 ```
 
 ## URI Parameters
@@ -75,7 +75,7 @@ Azure Active Directory OAuth2 authentication
 #### Sample Request
 
 ```http
-GET /info?api-version=2024-05-01-preview
+GET /info?api-version=2024-04-01-preview
 ```
 
 #### Sample Response
@@ -85,7 +85,7 @@ Status code: 200
 ```json
 {
   "model_name": "phi3-mini",
-  "model_type": "chat",
+  "model_type": "chat_completion",
   "model_provider_name": "Microsoft"
 }
 ```
@@ -94,29 +94,30 @@ Status code: 200
 
 | Name | Description |
 | --- | --- |
-| [ModelInfo](#modelinfo) |     |
-| [ModelType](#modeltype) | Unique identifier for the profile |
+| [ModelInfo](#modelinfo) | The information about the deployed model.   |
+| [ModelType](#modeltype) | The infernce task associated with the mode. |
 
 
 ### ModelInfo
 
+The information about the deployed model.
 
 | Name | Type | Description |
 | --- | --- | --- |
 | model\_name | string | The name of the model. |
 | model\_provider\_name | string | The provider of the model. |
-| model\_type | [ModelType](#modeltype) | Unique identifier for the profile |
+| model\_type | [ModelType](#modeltype) | The infernce task associated with the mode. |
 
 ### ModelType
 
-Unique identifier for the profile
+The infernce task associated with the mode.
 
 
 | Name | Type | Description |
 | --- | --- | --- |
-| audio\_generation | string |     |
-| chat | string |     |
-| embeddings | string |     |
-| image\_embeddings | string |     |
-| image\_generation | string |     |
-| text\_generation | string |     |
+| audio\_generation | string | A text-to-audio generative model.  |
+| chat_completion | string | A model capable of taking chat-formatted messages and generate responses.    |
+| embeddings | string | A model capable of generating embeddings from a text.    |
+| image\_embeddings | string | A model capable of generating embeddings from an image and text description.  |
+| image\_generation | string | A model capable of generating images from an image and text description.  |
+| text\_generation | string | A text generation model.    |

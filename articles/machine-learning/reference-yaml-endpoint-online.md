@@ -8,11 +8,10 @@ ms.subservice: mlops
 ms.topic: how-to
 ms.custom: cliv2
 
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 11/15/2023
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: sehan
 ---
 
 # CLI (v2) online endpoint YAML schema

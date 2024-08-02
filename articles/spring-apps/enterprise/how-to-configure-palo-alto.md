@@ -4,8 +4,8 @@ description: How to configure Palo Alto for Azure Spring Apps
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.service: spring-apps
-ms.date: 09/17/2021
+ms.service: azure-spring-apps
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 

@@ -3,11 +3,11 @@ title: Create a linked service with Synapse and Azure Machine Learning workspace
 titleSuffix: Azure Machine Learning
 description: Learn how to link Azure Synapse and Azure Machine Learning workspaces, and attach Apache Spark pools for a unified data wrangling experience.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: jhirono
-author: jhirono
+ms.author: meerakurup 
+author: meerakurup 
 ms.reviewer: franksolomon
 ms.date: 02/22/2024
 ms.custom: UpdateFrequency5, devx-track-python, data4ml, synapse-azureml, sdkv1

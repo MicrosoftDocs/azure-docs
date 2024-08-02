@@ -6,7 +6,7 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 05/18/2023
+ms.date: 06/20/2024
 ms.custom: template-overview
 # Customer intent: As a solution builder, I want a high-level overview of the options for scalability, high availability, and disaster recovery in an IoT solution so that I can easily find relevant content for my scenario.
 ---
@@ -21,7 +21,7 @@ The following diagram shows a high-level view of the components in a typical IoT
 
 ## IoT solution scalability
 
-An IoT solution may need to support millions of connected devices. You need to ensure that the components in your solution can scale to meet the demands.
+An IoT solution might need to support millions of connected devices. You need to ensure that the components in your solution can scale to meet the demands.
 
 Use the Device Provisioning Service (DPS) to provision devices at scale. DPS is a helper service for IoT Hub and IoT Central that enables zero-touch device provisioning at scale. To learn more, see [Best practices for large-scale IoT device deployments](../iot-dps/concepts-deploy-at-scale.md).
 
@@ -29,7 +29,7 @@ Use the [Device Update for IoT Hub](..\iot-hub-device-update\understand-device-u
 
 You can scale the IoT Hub service vertically and horizontally. For an automated approach, see the [IoT Hub autoscaler sample](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/). Use IoT Hub routing to handle scaling out the services that IoT Hub delivers messages to. To learn more, see [IoT Hub message routing](../iot-hub/iot-concepts-and-iot-hub.md#message-routing-sends-data-to-other-endpoints).
 
-For a guide to scalability in an IoT Central solution, see [What does it mean for IoT Central to have elastic scale](../iot-central/core/concepts-faq-scalability-availability.md#scalability). If you're using private endpoints with your IoT Central solution, you need to [plan the size of the subnet in your virtual network](../iot-central/core/concepts-private-endpoints.md#plan-the-size-of-the-subnet-in-your-virtual-network).
+For a guide to scalability in an IoT Central solution, see [IoT Central scalability](../iot-central/core/concepts-architecture.md#scalability). If you're using private endpoints with your IoT Central solution, you need to [plan the size of the subnet in your virtual network](../iot-central/core/concepts-private-endpoints.md#plan-the-size-of-the-subnet-in-your-virtual-network).
 
 For devices that connect to an IoT hub directly or to an IoT hub in an IoT Central application, make sure that the devices continue to connect as your solution scales. To learn more, see [Manage device reconnections after autoscale](./concepts-manage-device-reconnections.md) and [Handle connection failures](../iot-central/core/concepts-device-implementation.md#best-practices).
 
@@ -50,14 +50,14 @@ Service limits and quotas:
 
 ## High availability and disaster recovery
 
-IoT solutions are often business-critical. You need to ensure that your solution can continue to operate in the event of a failure. You also need to ensure that you can recover your solution in the event of a disaster.
+IoT solutions are often business-critical. You need to ensure that your solution can continue to operate if a failure occurs. You also need to ensure that you can recover your solution following a disaster.
 
 To learn more about the high availability and disaster recovery capabilities the IoT services in your solution, see the following articles:
 
 - [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md)
 - [Device Provisioning Service](../iot-dps/iot-dps-ha-dr.md)
 - [Azure Digital Twins](../digital-twins/concepts-high-availability-disaster-recovery.md)
-- [Azure IoT Central](../iot-central/core/concepts-faq-scalability-availability.md)
+- [Azure IoT Central high availability and disaster recovery](../iot-central/core/concepts-architecture.md#high-availability-and-disaster-recovery)
 
 The following tutorials and guides provide more detail and guidance:
 

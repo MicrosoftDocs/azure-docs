@@ -5,7 +5,7 @@ author: torreymicrosoft
 ms.author: torreyt
 ms.service: azure-arc
 ms.subservice: azure-arc-site-manager
-ms.topic: issues #Don't change
+ms.topic: troubleshooting-known-issue #Don't change
 ms.date: 04/18/2024
 
 #customer intent: As a customer, I want to understand how to resolve known issues I experience in site manager.
