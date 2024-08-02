@@ -1,7 +1,6 @@
 ---
 description: In this tutorial, you learn how to use the Chat composite on Web
-author: jorgegarc
-
+author: garchiro7
 ms.author: jorgegarc
 ms.date: 5/1/2023
 ms.topic: include
