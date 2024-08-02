@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Monitor Azure Container Registry

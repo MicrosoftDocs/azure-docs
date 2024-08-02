@@ -46,7 +46,7 @@ pip install openai==0.28.1
 
 ## Retrieve key and endpoint
 
-To successfully make a call against the Azure OpenAI service, you'll need the following:
+To successfully make a call against the Azure OpenAI Service, you'll need the following:
 
 |Variable name | Value |
 |--------------------------|-------------|

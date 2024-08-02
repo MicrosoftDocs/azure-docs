@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Add an application certificate to 
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi

@@ -5,7 +5,7 @@ description: Execute parameterized queries in Azure Cosmos DB for NoSQL to provi
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.devlang: nosql

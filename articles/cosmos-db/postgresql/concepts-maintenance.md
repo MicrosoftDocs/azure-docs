@@ -3,7 +3,7 @@ title: Scheduled maintenance - Azure Cosmos DB for PostgreSQL
 description: This article describes the scheduled maintenance feature in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 02/14/2022

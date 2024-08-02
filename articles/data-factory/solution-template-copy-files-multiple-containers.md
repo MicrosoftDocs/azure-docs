@@ -3,7 +3,6 @@ title: Copy files from multiple containers
 description: Learn how to use a solution template to copy files from multiple containers by using Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
-ms.service: azure-data-factory
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

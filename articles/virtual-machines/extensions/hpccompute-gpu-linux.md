@@ -3,7 +3,7 @@ title: NVIDIA GPU Driver Extension - Azure Linux VMs
 description: Microsoft Azure extension for installing NVIDIA GPU drivers on N-series compute VMs running Linux.
 services: virtual-machines
 manager: gwallace
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.collection: linux
 ms.topic: article

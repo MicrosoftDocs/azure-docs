@@ -3,7 +3,7 @@ title: Azure API Management policy reference - validate-status-code | Microsoft 
 description: Reference for the validate-status-code policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep

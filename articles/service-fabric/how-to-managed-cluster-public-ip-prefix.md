@@ -4,7 +4,7 @@ description: This article describes how to enable Public IP address prefix in a 
 ms.topic: how-to
 ms.author: ankurjain
 author: ankurjain
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom:
 services: service-fabric
 ms.date: 07/05/2023

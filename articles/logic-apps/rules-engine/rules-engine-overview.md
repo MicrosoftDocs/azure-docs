@@ -1,7 +1,7 @@
 ---
 title: Decision management with Azure Logic Apps Rules Engine
 description: Learn about decision management and business logic integration with Standard logic app workflows using the Azure Logic Apps Rules Engine.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos

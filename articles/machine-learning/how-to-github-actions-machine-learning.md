@@ -3,7 +3,7 @@ title: GitHub Actions for CI/CD
 titleSuffix: Azure Machine Learning
 description: Learn about how to create a GitHub Actions workflow to train a model on Azure Machine Learning 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: Blackmist
 ms.author: larryfr

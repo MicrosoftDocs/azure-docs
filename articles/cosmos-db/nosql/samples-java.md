@@ -3,7 +3,7 @@
 title: 'Azure Cosmos DB for NoSQL: Java SDK v4 examples'
 description: Find Java examples on GitHub for common tasks using the Azure Cosmos DB for NoSQL, including CRUD operations.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 08/26/2021

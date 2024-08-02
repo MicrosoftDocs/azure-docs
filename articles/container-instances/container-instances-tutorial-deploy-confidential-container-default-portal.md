@@ -4,7 +4,7 @@ description: In this tutorial, you will deploy a confidential container with a d
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ms.custom: mvc

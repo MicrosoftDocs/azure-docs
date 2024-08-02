@@ -1,7 +1,7 @@
 ---
 title: Configuration and Optimization of InfiniBand enabled H-series and N-series Azure Virtual Machines
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article

@@ -5,7 +5,7 @@ author: hibrenda
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: bot-service
+ms.service: azure-ai-bot-service
 ms.date: 01/06/2022 
 ---
 

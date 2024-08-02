@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy and configure Azure Firewall and policy in a hybrid net
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 06/08/2022
 ms.author: victorh
