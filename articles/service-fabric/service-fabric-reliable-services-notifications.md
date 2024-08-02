@@ -105,7 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## Reliable Dictionary notifications
 Reliable Dictionary provides notifications for the following events:
 
-* Rebuild: Called when **ReliableDictionary** has recovered its checkpointed state from a recovered or copied local state or backup. A record of transactions since the most recent checkpooint will then be applied before the rebuild is complete. The application of those records will provide clear, add, update, or remove notifications. 
+* Rebuild: Called when **ReliableDictionary** has recovered to a readable intermediary recovery state from a recovered or copied local state or backup. A record of transactions since the creation of this recovery state will then be applied before the rebuild is complete. The application of those record will provide clear, add, update, and/or remove notifications.
 * Clear: Called when the state of **ReliableDictionary** has been cleared through the **ClearAsync** method.
 * Add: Called when an item has been added to **ReliableDictionary**.
 * Update: Called when an item in **IReliableDictionary** has been updated.
@@ -222,4 +222,4 @@ Here are some things to keep in mind:
 
 
 ## Known Issues
-* In specific situations, some transaction notifications may be skipped during a rebuild. In this case, the correct value is still present and can still be read or iterated; only the notification is missing. 
+* In specific situations, some transaction notifications may be skipped during a rebuild. In this case, the correct value is still present and can still be read or iterated; only the notification is missing. To recover the in-memory state, reliable collections uses a write ahead log that is periodically condensed into a checkpoint file. During restore, first the base state is loaded from checkpoint files which triggers a rebuild notification. Then the transactions saved in the log are applied, each triggering it's own clear, add, update, or remove notification. This issue can arise from a race condition where a new checkpoint is taken quickly after a restore. If the checkpoint completes before the application of the log, the in memory state will be set to the state of the new checkpoint. While this results in the correct state, it means that transactions in the log that were not yet applied will not send notifications. 
