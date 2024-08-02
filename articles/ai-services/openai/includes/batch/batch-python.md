@@ -265,9 +265,98 @@ Observe that there's both `error_file_id` and a separate `output_file_id`. Use t
 ## Retrieve batch job output file
 
 ```python
-response =client.files.content(batch_response.output_file_id)
+import json
 
-print(response.text)
+response =client.files.content(batch_response.output_file_id)
+raw_responses = file_response.text.strip().split('\n')  
+
+for raw_response in raw_responses:  
+    json_response = json.loads(raw_response)  
+    formatted_json = json.dumps(json_response, indent=2)  
+    print(formatted_json)  
+```
+
+**Output:**
+
+For brevity, we are only including a single chat completion response of output. If you follow the steps in this article you should have three responses similar to the one below:
+
+```json
+{
+  "custom_id": "task-0",
+  "response": {
+    "body": {
+      "choices": [
+        {
+          "content_filter_results": {
+            "hate": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "self_harm": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "sexual": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "violence": {
+              "filtered": false,
+              "severity": "safe"
+            }
+          },
+          "finish_reason": "stop",
+          "index": 0,
+          "logprobs": null,
+          "message": {
+            "content": "Microsoft was founded on April 4, 1975, by Bill Gates and Paul Allen in Albuquerque, New Mexico.",
+            "role": "assistant"
+          }
+        }
+      ],
+      "created": 1722477079,
+      "id": "chatcmpl-9rFGJ9dh08Tw9WRKqaEHwrkqRa4DJ",
+      "model": "gpt-4o-2024-05-13",
+      "object": "chat.completion",
+      "prompt_filter_results": [
+        {
+          "prompt_index": 0,
+          "content_filter_results": {
+            "hate": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "jailbreak": {
+              "filtered": false,
+              "detected": false
+            },
+            "self_harm": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "sexual": {
+              "filtered": false,
+              "severity": "safe"
+            },
+            "violence": {
+              "filtered": false,
+              "severity": "safe"
+            }
+          }
+        }
+      ],
+      "system_fingerprint": "fp_a9bfe9d51d",
+      "usage": {
+        "completion_tokens": 24,
+        "prompt_tokens": 27,
+        "total_tokens": 51
+      }
+    },
+    "request_id": "660b7424-b648-4b67-addc-862ba067d442",
+    "status_code": 200
+  },
+  "error": null
+}
 ```
 
 ### Additional batch commands
