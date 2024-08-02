@@ -3,7 +3,7 @@ title: Troubleshoot the Azure Table Storage connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Table Storage connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/20/2023

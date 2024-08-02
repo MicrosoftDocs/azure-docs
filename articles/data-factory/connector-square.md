@@ -4,7 +4,7 @@ description: Learn how to copy data from Square to supported sink data stores by
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

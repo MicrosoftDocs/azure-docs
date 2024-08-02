@@ -4,7 +4,7 @@ description: Learn how to copy data from MongoDB Atlas to supported sink data st
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
