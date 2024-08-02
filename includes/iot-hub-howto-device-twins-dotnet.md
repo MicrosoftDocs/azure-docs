@@ -23,7 +23,7 @@ This section describes how to create a device application that:
 
 ### Connect to a device
 
-The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) object exposes all the methods you require to interact with device twins from the device.
+The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods you require to interact with device twins from the device.
 
 Connect to the device using the device connection string that you gathered in prerequisites using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with the connection protocol.
 
