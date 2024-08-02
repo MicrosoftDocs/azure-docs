@@ -9,9 +9,13 @@ ms.date: 08/02/2024
 # Customer intent: As a developer, I want to monitor the health for my Standard logic app workflows in single-tenant Azure Logic Apps by setting up Health Check, which is an Azure App Service feature.
 ---
 
-# Monitor health for Standard workflows in Azure Logic Apps with Health Check
+# Monitor health for Standard workflows in Azure Logic Apps with Health Check (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+> [!NOTE]
+> This capability is in preview and is subject to the
+> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 To help your Standard logic app workflows run with high availability and performance, set up the Health Check feature on your logic app to monitor workflow health. This feature makes sure that your app stays resilient by providing the following benefits:
 
@@ -23,15 +27,15 @@ To help your Standard logic app workflows run with high availability and perform
 
 ## How does Health Check work in Azure Logic Apps?
 
-Health Check is an Azure App Service feature that redirects requests away from unhealthy instances and replaces those instances if they stay unhealthy. For a Standard logic app, you can specify a path to a "health" workflow that you create for this purpose and for App Service to ping at regular intervals. For example, the following sample shows the minimum basic version:
+Health Check is an Azure App Service feature that redirects requests away from unhealthy instances and replaces those instances if they stay unhealthy. For a Standard logic app, you can specify a path to a "health" workflow that you create for this purpose and for App Service to ping at regular intervals. For example, the following sample shows the basic minimum workflow:
 
 :::image type="content" source="media/monitor-health-standard-workflows/health-workflow.png" alt-text="Screenshot shows Standard logic app workflow to use as the health workflow." lightbox="media/monitor-health-standard-workflows/health-workflow.png":::
 
-After you enable Health Check, App Service pings the specified path for all Standard workflow instances at 1-minute intervals. If the logic app requires scale out, Azure immediately creates a new instance. App Service pings the workflow path again to make sure that the new instance is ready.
+After you enable Health Check, App Service pings the specified workflow path for all logic app instances at 1-minute intervals. If the logic app requires scale out, Azure immediately creates a new instance. App Service pings the workflow path again to make sure that the new instance is ready.
 
-If a workflow on an instance doesn't respond to the ping, App Service determines that the instance is unhealthy and removes that instance from the load balancer rotation in Azure for that specific logic app. With a two-request minimum, you can specify the required number of failed requests to determine that an instance is unhealthy. For more information about overriding default behavior, see [Configuration: Monitor App Service instances using Health Check](../app-service/monitor-instances-health-check.md#configuration).
+If a workflow running on an instance doesn't respond to the ping after 10 requests, App Service determines that the instance is unhealthy and removes the instance for that specific logic app from the load balancer in Azure. With a two-request minimum, you can specify the required number of failed requests to determine that an instance is unhealthy. For more information about overriding default behavior, see [Configuration: Monitor App Service instances using Health Check](../app-service/monitor-instances-health-check.md#configuration).
 
-After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the workflow running on the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#what-app-service-does-with-health-checks).
+After Health Check removes the unhealthy instance, the feature continues to ping the instance. If the instance responds with a healthy status code, inclusively ranging from 200 to 299, Health Check returns the instance to the load balancer. However, if the instance remains unhealthy for one hour, Health Check replaces the instance with a new one. For more information, see [What App Service does with health checks](../app-service/monitor-instances-health-check.md#what-app-service-does-with-health-checks).
 
 ## Prerequisites
 
