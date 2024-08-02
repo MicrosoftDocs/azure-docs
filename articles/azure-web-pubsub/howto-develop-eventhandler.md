@@ -29,7 +29,7 @@ A client always connects to a hub, and you could configure multiple event handle
 
 ### Events
 
-The events includes user events and system events. System events are predefined events that are triggered during the lifetime of a client, and user events are the events triggered when the client sends data, the user event name can be customized using client protocols, [here contains the detailed explanation](concept-service-internals.md#client-protocol).
+The events include user events and system events. System events are predefined events that are triggered during the lifetime of a client, and user events are the events triggered when the client sends data, the user event name can be customized using client protocols, [here contains the detailed explanation](concept-service-internals.md#client-protocol).
 
 Event type | Supported values |
 |--|--|
@@ -44,8 +44,8 @@ Note URL domain name should not contain parameter syntax, for example, `http://{
 
 | Supported parameters | Syntax | Description | Samples |
 |--|--|--|--|
-| Hub parameter | `{hub}` | The value is the hub that the client connects to. | When a client connects to `client/hubs/chat`, an URL template `http://host.com/api/{hub}` evaluates to `http://host.com/api/chat` because for this client, hub is `chat`. |
-| Event parameter | `{event}` | The value of the triggered event. `event` values are listed [here](#events).The event value for abuse protection requests is `validate` as explained [here](#upstream-and-validation). | If there is an URL template `http://host.com/api/{hub}/{event}` configured for event `connect`, When a client connects to `client/hubs/chat`, Web PubSub initiates a POST request to the evaluated URL `http://host.com/api/chat/connect` when the client is connecting, since for this client event, hub is `chat` and the event triggering this event handler setting is `connect`.  |
+| Hub parameter | `{hub}` | The value is the hub that the client connects to. | When a client connects to `client/hubs/chat`, a URL template `http://host.com/api/{hub}` evaluates to `http://host.com/api/chat` because for this client, hub is `chat`. |
+| Event parameter | `{event}` | The value of the triggered event. `event` values are listed [here](#events).The event value for abuse protection requests is `validate` as explained [here](#upstream-and-validation). | If there is a URL template `http://host.com/api/{hub}/{event}` configured for event `connect`, When a client connects to `client/hubs/chat`, Web PubSub initiates a POST request to the evaluated URL `http://host.com/api/chat/connect` when the client is connecting, since for this client event, hub is `chat` and the event triggering this event handler setting is `connect`.  |
 | KeyVault reference parameter | `{@Microsoft.KeyVault(SecretUri=<secretUri>)}` | The **SecretUri** should be the full data-plane URI of a secret in the vault, optionally including a version, e.g., `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`. When using KeyVault reference, you also need to configure the authentication between your Web PubSub service and your KeyVault service, check [here](howto-use-managed-identity.md#use-a-managed-identity-for-key-vault-reference) for detailed steps. | `@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)` |
 
 ### Authentication between service and webhook
