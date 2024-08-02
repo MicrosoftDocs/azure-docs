@@ -129,6 +129,7 @@ az role assignment create \
 1. In the GitHub UI, select **Actions**.
 1. Select **set up a workflow yourself**.
 1. In **Edit new file**, paste the following YAML contents to overwrite the sample code. Accept the default filename `main.yml`, or provide a filename you choose.
+1. If this container instance is part of a CI/CD pipeline, you will need to provide the appropriate tag (e.g. sampleapp:latest) for your image, instead of github.sha hash.
 1. Select **Start commit**, optionally provide short and extended descriptions of your commit, and select **Commit new file**.
 
 ```yml
