@@ -3,7 +3,7 @@ title: Integrate prompt flow with LLM-based application DevOps
 titleSuffix: Azure Machine Learning
 description: Learn about integration of prompt flow with LLM-based application DevOps in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
