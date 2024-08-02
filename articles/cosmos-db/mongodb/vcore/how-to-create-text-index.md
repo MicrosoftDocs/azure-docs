@@ -5,7 +5,7 @@ description: Configure and use text indexes to perform and fine tune text search
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 08/28/2023
@@ -14,7 +14,7 @@ ms.date: 08/28/2023
 
 # Search and query with text indexes in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 One of the key features that Azure Cosmos DB for MongoDB vCore provides is text indexing, which allows for efficient searching and querying of text-based data. The service implements **version 2** text indexes. Version 2 supports case sensitivity but not diacritic sensitivity.
 

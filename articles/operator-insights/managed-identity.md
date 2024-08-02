@@ -4,7 +4,7 @@ description: This article helps you understand managed identity and how it works
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 03/26/2024
 ---
@@ -31,7 +31,7 @@ Azure Operator Insights use a user-assigned managed identity for:
 
 - Encryption with customer-managed keys, also called CMK-based encryption.
 - Integration with Microsoft Purview. The managed identity allows the Data Product to manage the collection and the data catalog within the collection.
-- Authentication to Azure for an [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) on an Azure VM. The managed identity allows the ingestion agent to access a Data Product's Key Vault. See [use a managed identity for authentication](set-up-ingestion-agent.md#use-a-managed-identity-for-authentication).
+- Authentication to Azure for an [Azure Operator Insights ingestion agent](ingestion-agent-overview.md) on an Azure VM. The managed identity allows the ingestion agent to access a Data Product's Key Vault. See [Use a managed identity for authentication](set-up-ingestion-agent.md#use-a-managed-identity-for-authentication).
 
 When you [create a Data Product](data-product-create.md), you set up the managed identity and associate it with the Data Product. To use the managed identity with Microsoft Purview, you must also [grant the managed identity the appropriate permissions in Microsoft Purview](purview-setup.md#access-and-set-up-your-microsoft-purview-account).
 

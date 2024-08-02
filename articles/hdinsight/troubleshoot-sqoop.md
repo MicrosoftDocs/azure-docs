@@ -1,19 +1,20 @@
 ---
 title: Sqoop import/export command fails for some users in ESP clusters - Azure HDInsight
-description: 'Apache Sqoop import/export command fails with "Import Failed: java.io.IOException: The ownership on the staging directory /user/yourusername/.staging is not as expected" error for some users in Azure HDInsight ESP cluster'
-ms.service: hdinsight
+description: Sqoop import/export command fails.
+ms.service: azure-hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 04/26/2023
+ms.date: 05/23/2024
 ---
 
 # Scenario: Sqoop import/export command fails for usernames greater than 20 characters in Azure HDInsight ESP clusters
 
 This article describes a known issue and workaround when using Azure HDInsight ESP (Enterprise Security Pack) enabled clusters using ADLS Gen2 (ABFS) storage account.
 
+'Apache Sqoop import/export command fails with "Import Failed: java.io.IOException: The ownership on the staging directory /user/yourusername/.staging isn't as expected" error for some users in Azure HDInsight ESP cluster'
 ## Issue
 
-When you run sqoop import/export command, it fails with the error for some users:
+When you run sqoop import/export command, it fails with the error for some users
 
 ```
 ERROR tool.ImportTool: Import failed: java.io.IOException:

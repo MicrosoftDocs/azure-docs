@@ -3,7 +3,7 @@ title: Sign container images with Notation and Azure Key Vault using a self-sign
 description: In this tutorial you'll learn to create a self-signed certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 4/23/2023
@@ -11,7 +11,7 @@ ms.date: 4/23/2023
 
 # Sign container images with Notation and Azure Key Vault using a self-signed certificate
 
-Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain tool developed by the [Notary Project](https://notaryproject.dev/), which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
+Signing container images is a process that ensures their authenticity and integrity. This is achieved by adding a digital signature to the container image, which can be validated during deployment. The signature helps to verify that the image is from a trusted publisher and has not been modified. [Notation](https://github.com/notaryproject/notation) is an open source supply chain security tool developed by the [Notary Project community](https://notaryproject.dev/) and backed by Microsoft, which supports signing and verifying container images and other artifacts. The Azure Key Vault (AKV) is used to store certificates with signing keys that can be used by Notation with the Notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach signatures to container images and other artifacts as well as view those signatures.
 
 In this tutorial:
 
@@ -41,16 +41,16 @@ In this tutorial:
     cp ./notation /usr/local/bin
     ```
 
-2. Install the Notation Azure Key Vault plugin `azure-kv` v1.0.2 on a Linux amd64 environment.
+2. Install the Notation Azure Key Vault plugin `azure-kv` v1.2.0 on a Linux amd64 environment.
 
     > [!NOTE]
     > The URL and SHA256 checksum for the Notation Azure Key Vault plugin can be found on the plugin's [release page](https://github.com/Azure/notation-azure-kv/releases).
 
     ```bash
-    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.0.2/notation-azure-kv_1.0.2_linux_amd64.tar.gz --sha256sum f2b2e131a435b6a9742c202237b9aceda81859e6d4bd6242c2568ba556cee20e
+    notation plugin install --url https://github.com/Azure/notation-azure-kv/releases/download/v1.2.0/notation-azure-kv_1.2.0_linux_amd64.tar.gz --sha256sum 06bb5198af31ce11b08c4557ae4c2cbfb09878dfa6b637b7407ebc2d57b87b34
     ```
 
-3. List the available plugins and confirm that the `azure-kv` plugin with version `1.0.2` is included in the list. 
+3. List the available plugins and confirm that the `azure-kv` plugin with version `1.2.0` is included in the list. 
 
     ```bash
     notation plugin ls
@@ -64,6 +64,8 @@ In this tutorial:
 1. Configure AKV resource names.
 
     ```bash
+    AKV_SUB_ID=myAkvSubscriptionId
+    AKV_RG=myAkvResourceGroup
     # Name of the existing AKV used to store the signing keys
     AKV_NAME=myakv
     # Name of the certificate created in AKV
@@ -75,6 +77,8 @@ In this tutorial:
 2. Configure ACR and image resource names.
 
     ```bash
+    ACR_SUB_ID=myAcrSubscriptionId
+    ACR_RG=myAcrResourceGroup
     # Name of the existing registry example: myregistry.azurecr.io
     ACR_NAME=myregistry
     # Existing full domain of the ACR
@@ -95,28 +99,74 @@ az login
 
 To learn more about Azure CLI and how to sign in with it, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
-## Assign access policy in AKV (Azure CLI)
+## Secure access permissions to ACR and AKV
 
-A user principal with the correct access policy permissions is needed to create a self-signed certificate and sign artifacts. This principal can be a user principal, service principal, or managed identity. At a minimum, this principal needs the following permissions:
+When working with ACR and AKV, it’s essential to grant the appropriate permissions to ensure secure and controlled access. You can authorize access for different entities, such as user principals, service principals, or managed identities, depending on your specific scenarios. In this tutorial, the access is authorized to a signed-in Azure user.
 
-- `Create` permissions for certificates
-- `Get` permissions for certificates
-- `Sign` permissions for keys
+### Authorize access to ACR
 
-In this tutorial, the access policy is assigned to a signed-in Azure user. To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+The `AcrPull` and `AcrPush` roles are required for signing container images in ACR.
 
-### Set the subscription that contains the AKV resource
+1. Set the subscription that contains the ACR resource
 
-```bash
-az account set --subscription <your_subscription_id>
-```
+    ```bash
+    az account set --subscription $ACR_SUB_ID
+    ```
 
-### Set the access policy in AKV
+2. Assign the roles
 
-```bash
-USER_ID=$(az ad signed-in-user show --query id -o tsv)
-az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
-```
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "AcrPull" --role "AcrPush" --assignee $USER_ID --scope "/subscriptions/$ACR_SUB_ID/resourceGroups/$ACR_RG/providers/Microsoft.ContainerRegistry/registries/$ACR_NAME"
+    ```
+
+### Authorize access to AKV
+
+In this section, we’ll explore two options for authorizing access to AKV.
+
+#### Use Azure RBAC (Recommended)
+
+The following roles are required for signing using self-signed certificates:
+- `Key Vault Certificates Officer` for creating and reading certificates
+- `Key Vault Certificates User`for reading existing certificates
+- `Key Vault Crypto User` for signing operations
+
+To learn more about Key Vault access with Azure RBAC, see [Use an Azure RBAC for managing access](/azure/key-vault/general/rbac-guide).
+
+1. Set the subscription that contains the AKV resource
+
+    ```bash
+    az account set --subscription $AKV_SUB_ID
+    ```
+
+2. Assign the roles
+
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az role assignment create --role "Key Vault Certificates Officer" --role "Key Vault Crypto User" --assignee $USER_ID --scope "/subscriptions/$AKV_SUB_ID/resourceGroups/$AKV_RG/providers/Microsoft.KeyVault/vaults/$AKV_NAME"
+    ```
+
+#### Assign access policy in AKV (legacy)
+
+The following permissions are required for an identity:
+- `Create` permissions for creating a certificate
+- `Get` permissions for reading existing certificates
+- `Sign` permissions for signing operations
+
+To learn more about assigning policy to a principal, see [Assign Access Policy](/azure/key-vault/general/assign-access-policy).
+
+1. Set the subscription that contains the AKV resource:
+
+    ```bash
+    az account set --subscription $AKV_SUB_ID
+    ```
+
+2. Set the access policy in AKV:
+
+    ```bash
+    USER_ID=$(az ad signed-in-user show --query id -o tsv)
+    az keyvault set-policy -n $AKV_NAME --certificate-permissions create get --key-permissions sign --object-id $USER_ID
+    ```
 
 > [!IMPORTANT]
 > This example shows the minimum permissions needed for creating a certificate and signing a container image. Depending on your requirements, you may need to grant additional permissions.
@@ -200,6 +250,28 @@ The following steps show how to create a self-signed certificate for testing pur
     ```bash
     notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true $IMAGE
     ```
+
+    To authenticate with AKV, by default, the following credential types if enabled will be tried in order:
+ 
+    - [Environment credential](/dotnet/api/azure.identity.environmentcredential)
+    - [Workload identity credential](/dotnet/api/azure.identity.workloadidentitycredential)
+    - [Managed identity credential](/dotnet/api/azure.identity.managedidentitycredential)
+    - [Azure CLI credential](/dotnet/api/azure.identity.azureclicredential)
+    
+    If you want to specify a credential type, use an additional plugin configuration called `credential_type`. For example, you can explicitly set `credential_type` to `azurecli` for using Azure CLI credential, as demonstrated below:
+    
+    ```bash
+    notation sign --signature-format cose --id $KEY_ID --plugin azure-kv --plugin-config self_signed=true --plugin-config credential_type=azurecli $IMAGE
+    ```
+
+    See below table for the values of `credential_type` for various credential types.
+
+    | Credential type              | Value for `credential_type` |
+    | ---------------------------- | -------------------------- |
+    | Environment credential       | `environment`              |
+    | Workload identity credential | `workloadid`               |
+    | Managed identity credential  | `managedid`                |
+    | Azure CLI credential         | `azurecli`                 |
     
 5. View the graph of signed images and associated signatures.
 
@@ -273,6 +345,14 @@ To verify the container image, add the root certificate that signs the leaf cert
 
 ## Next steps
 
-See [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli) and [Ratify on Azure](https://ratify.dev/docs/1.0/quickstarts/ratify-on-azure/) to get started into verifying and auditing signed images before deploying them on AKS. 
+Notation also provides CI/CD solutions on Azure Pipeline and GitHub Actions Workflow:
+
+- [Sign and verify a container image with Notation in Azure Pipeline](/azure/security/container-secure-supply-chain/articles/notation-ado-task-sign)
+- [Sign and verify a container image with Notation in GitHub Actions Workflow](https://github.com/marketplace/actions/notation-actions)
+
+To validate signed image deployment in AKS or Kubernetes:
+
+- [Use Image Integrity to validate signed images before deploying them to your Azure Kubernetes Service (AKS) clusters (Preview)](/azure/aks/image-integrity?tabs=azure-cli)
+- [Use Ratify to validate and audit image deployment in any Kubernetes cluster](https://ratify.dev/)
 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

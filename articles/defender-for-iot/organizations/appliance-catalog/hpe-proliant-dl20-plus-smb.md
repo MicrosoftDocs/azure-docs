@@ -35,7 +35,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |Processor| Intel Xeon E-2334 <br> 3.4 GHz 4C 65 W|
 |Chipset|Intel C256|
 |Memory|1x 8-GB Dual Rank x8 DDR4-3200|
-|Storage|2x 1-TB SATA 6G Midline 7.2 K SFF (2.5 in) – RAID 1 |
+|Storage| 1-TB SATA 6G Midline 7.2 K SFF  |
 |Network controller|On-board: 2x 1 Gb|
 |External| 1 x HPE Ethernet 1-Gb 4-port 366FLR Adapter|
 |On-board| iLO Port Card 1 Gb|
@@ -45,15 +45,14 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-## DL20 Gen10 Plus (NHP 2LFF) - Bill of Materials
+## DL20 Gen10 Plus (NHP 2LFF) - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|
 |1|	P44111-B21 | HPE DL20 Gen10+ NHP 2LFF CTO Server|
 |1|	P45252-B21 | Intel Xeon E-2334 FIO CPU for HPE|
-|2|	P28610-B21 | HPE 1-TB SATA 7.2K SFF BC HDD|
+|1|	P28610-B21 | HPE 1-TB SATA 7.2K SFF BC HDD|
 |1|	P43016-B21 | HPE 8 GB 1Rx8 PC4-3200AA-E Standard Kit|
-|1|	869079-B21 | HPE Smart Array E208i-a SR G10 LH Ctrlr (RAID10)|
 |1|	P21106-B21 | INT I350 1GbE 4p BASE-T Adapter|
 |1|	P45948-B21 | HPE DL20 Gen10+ RPS FIO Enable Kit|
 |1|	865408-B21 | HPE 500W FS Plat Hot Plug LH Power Supply Kit|
@@ -89,7 +88,7 @@ Installation includes:
 
 - Enabling remote access and updating the default administrator password
 - Configuring iLO port on network port 1
-- Configuring BIOS and RAID1 settings
+- Configuring BIOS settings
 - Installing Defender for IoT software
 
 > [!NOTE]
@@ -137,12 +136,6 @@ This procedure describes how to update the HPE BIOS configuration for your OT de
 1. Change **Boot Mode** to **UEFI BIOS Mode**, and then select **F10: Save**.
 
 1. Select **Esc** twice to close the **System Configuration** form.
-
-1. Select **Embedded RAID 1: HPE Smart Array E208i-a SR Gen 10** > **Array Configuration** > **Create Array**.
-
-1. Select **Proceed to Next Form**.
-
-1. In the **Set RAID Level** form, set the level to **RAID 1**.
 
 1. Select **Proceed to Next Form**.
 

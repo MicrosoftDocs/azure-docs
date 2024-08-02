@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Run an ACR task on a dedicated agent pool
@@ -29,7 +29,7 @@ This feature is available in the **Premium** container registry service tier. Fo
 ## Preview limitations
 
 - Task agent pools currently support Linux nodes. Windows nodes aren't currently supported.
-- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, USGov Arizona, USGov Texas, and USGov Virginia.
+- Task agent pools are available in preview in the following regions: West US 2, South Central US, East US 2, East US, Central US, West Europe, North Europe, Canada Central, East Asia, Switzerland North, USGov Arizona, USGov Texas, and USGov Virginia.
 - For each registry, the default total vCPU (core) quota is 16 for all standard agent pools and is 0 for isolated agent pools. Open a [support request][open-support-ticket] for additional allocation.
 - You can't currently cancel a task run on an agent pool.
 
@@ -42,12 +42,12 @@ This feature is available in the **Premium** container registry service tier. Fo
 
 Agent pool tiers provide the following resources per instance in the pool.
 
-|Tier    | Type  |  CPU  |Memory (GB)  |
-|---------|---------|---------|---------|
-|S1     |  standard    | 2       |    3     |
-|S2     |  standard    | 4       |    8     |
-|S3     |  standard    | 8       |   16     |
-|I6     |  isolated    | 64     |   216     |
+| Tier | Type     | CPU | Memory (GB) |
+| ---- | -------- | --- | ----------- |
+| S1   | standard | 2   | 3           |
+| S2   | standard | 4   | 8           |
+| S3   | standard | 8   | 16          |
+| I6   | isolated | 64  | 216         |
 
 
 ## Create and manage a task agent pool
@@ -94,12 +94,12 @@ az acr agentpool update \
 Task agent pools require access to the following Azure services. The following firewall rules must be added to any existing network security groups or user-defined routes.
 
 | Direction | Protocol | Source         | Source Port | Destination          | Dest Port | Used    |
-|-----------|----------|----------------|-------------|----------------------|-----------|---------|
+| --------- | -------- | -------------- | ----------- | -------------------- | --------- | ------- |
 | Outbound  | TCP      | VirtualNetwork | Any         | AzureKeyVault        | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | Storage              | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | EventHub             | 443       | Default |
 | Outbound  | TCP      | VirtualNetwork | Any         | AzureActiveDirectory | 443       | Default |
-| Outbound  | TCP      | VirtualNetwork | Any         | AzureMonitor         | 443       | Default |
+| Outbound  | TCP      | VirtualNetwork | Any         | AzureMonitor         | 443,12000 | Default |
 
 > [!NOTE]
 > If your tasks require additional resources from the public internet, add the corresponding rules. For example, additional rules are needed to run a docker build task that pulls the base images from Docker Hub, or restores a NuGet package.

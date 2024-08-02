@@ -1,19 +1,20 @@
 ---
 title: Troubleshoot high CPU utilization
 description: Learn how to troubleshoot high CPU utilization in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 10/20/2023
 ---
 
 # Troubleshoot high CPU utilization in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Azure Database for MySQL flexible server provides a range of metrics that you can use to identify resource bottlenecks and performance issues on the server. To determine whether your server is experiencing high CPU utilization, monitor metrics such as “Host CPU percent”, “Total Connections”, “Host Memory Percent”, and “IO Percent”. At times, viewing a combination of these metrics will provide insights into what might be causing the increased CPU utilization on your Azure Database for MySQL flexible server instance.
 

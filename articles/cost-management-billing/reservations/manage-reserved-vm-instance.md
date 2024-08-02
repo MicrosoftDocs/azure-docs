@@ -17,7 +17,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
@@ -61,7 +61,7 @@ By default, the following users can view and manage reservations:
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).

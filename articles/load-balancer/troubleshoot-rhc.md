@@ -3,7 +3,7 @@ title: Troubleshoot Azure Load Balancer resource health, frontend, and backend a
 description: Use the available metrics to diagnose your degraded or unavailable Azure Standard Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 02/08/2024
 ms.author: mbender
@@ -15,6 +15,8 @@ ms.custom: FY23 content-maintenance
 This article is a guide to investigate issues impacting the availability of your load balancer frontend IP and backend resources. 
 
 The Resource Health Check (RHC) for the Load Balancer is used to determine the health of your load balancer. It analyzes the Data Path Availability metric over a **2-minute** interval to determine whether the load balancing endpoints, the frontend IP and frontend ports combinations with load balancing rules, are available.
+
+> Note: RHC is not supported for Basic SKU Load Balancer
 
 The below table describes the RHC logic used to determine the health state of your load balancer.
 

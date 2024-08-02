@@ -24,8 +24,7 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-- A Dev Box project in your subscription 
-- Project Admin role permissions to that project
+- A Dev Box project in your subscription
 
 ## Set a dev box limit for your project
 

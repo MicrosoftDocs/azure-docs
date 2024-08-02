@@ -3,9 +3,9 @@ title: Connect API Management instance to a private network | Microsoft Docs
 description: Learn how to integrate an Azure API Management instance in the Standard v2 tier with a virtual network to access backend APIs hosted within the network.
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 03/13/2024
+ms.date: 05/20/2024
 ---
 
 # Integrate an Azure API Management instance with a private VNet for outbound connections
@@ -22,7 +22,9 @@ When an API Management instance is integrated with a virtual network for outboun
 
 - An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
 - A virtual network with a subnet where your API Management backend APIs are hosted
-   - The network must be deployed in the same region and subscription as your API Management instance
+   - The network must be deployed in the same region and subscription as your API Management instance.
+   - The subnet should be dedicated to VNet integration. 
+   - A minimum subnet size of `/26` or `/27` is recommended when creating a new subnet; `/28` can be used with an existing subnet. 
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
 
 ### Permissions
@@ -41,7 +43,7 @@ Ensure that the subscription with the virtual network is registered for the `Mic
 
 ## Delegate the subnet
 
-The subnet used for integration must be delegated to the **Microsoft.Web/serverFarms** service. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
+The subnet used for integration must be delegated to the **Microsoft.Web/serverFarms** service. The subnet can't be delegated to another service. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
 
 :::image type="content" source="media/integrate-vnet-outbound/delegate-subnet.png" alt-text="Screenshot of delegating the subnet to a service in the portal.":::
 

@@ -1,9 +1,9 @@
 ---
-author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/11/2024
+ms.date: 07/15/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -11,7 +11,7 @@ ms.custom: generated
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+[Azure Policy Regulatory Compliance - FedRAMP High](/azure/governance/policy/samples/fedramp-high).
 For more information about this compliance standard, see
 [FedRAMP High](https://www.fedramp.gov/).
 
@@ -25,7 +25,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+[Azure Policy Regulatory Compliance - FedRAMP Moderate](/azure/governance/policy/samples/fedramp-moderate).
 For more information about this compliance standard, see
 [FedRAMP Moderate](https://www.fedramp.gov/).
 
@@ -44,7 +44,7 @@ Microsoft cloud security benchmark, see the
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](/azure/governance/policy/samples/azure-security-benchmark).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -68,7 +68,7 @@ standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](../../../../articles/governance/policy/samples/nist-sp-800-171-r2.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](/azure/governance/policy/samples/nist-sp-800-171-r2).
 For more information about this compliance standard, see
 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
@@ -83,7 +83,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](/azure/governance/policy/samples/nist-sp-800-53-r4).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
@@ -97,7 +97,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](/azure/governance/policy/samples/nist-sp-800-53-r5).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
@@ -111,7 +111,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](../../../../articles/governance/policy/samples/nl-bio-cloud-theme.md).
+[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](/azure/governance/policy/samples/nl-bio-cloud-theme).
 For more information about this compliance standard, see
 [Baseline Information Security Government Cybersecurity - Digital Government (digitaleoverheid.nl)](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/).
 
@@ -123,7 +123,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](../../../../articles/governance/policy/samples/rbi-itf-banks-2016.md).
+[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](/azure/governance/policy/samples/rbi-itf-banks-2016).
 For more information about this compliance standard, see
 [RBI ITF Banks v2016 (PDF)](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/NT41893F697BC1D57443BB76AFC7AB56272EB.PDF).
 
@@ -135,7 +135,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RMIT Malaysia](../../../../articles/governance/policy/samples/rmit-malaysia.md).
+[Azure Policy Regulatory Compliance - RMIT Malaysia](/azure/governance/policy/samples/rmit-malaysia).
 For more information about this compliance standard, see
 [RMIT Malaysia](https://www.bnm.gov.my/documents/20124/963937/Risk+Management+in+Technology+(RMiT).pdf/810b088e-6f4f-aa35-b603-1208ace33619?t=1592866162078).
 

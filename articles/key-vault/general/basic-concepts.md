@@ -4,7 +4,7 @@ description: Learn how Azure Key Vault safeguards cryptographic keys and secrets
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/30/2024
@@ -51,9 +51,9 @@ To do any operations with Key Vault, you first need to authenticate to it. There
 
 ## Encryption of data in transit
 
-Azure Key Vault enforces [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between Azure Key vault and clients. Clients negotiate a TLS connection with Azure Key Vault. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+Azure Key Vault enforces [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) protocol to protect data when it’s traveling between Azure Key vault and clients. Clients negotiate a TLS connection with Azure Key Vault. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
-[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
+[Perfect Forward Secrecy (PFS)](https://en.wikipedia.org/wiki/Forward_secrecy) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
 
 ## Key Vault roles
 

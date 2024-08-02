@@ -2,7 +2,7 @@
 title: Tutorial - Spring Boot application with Azure Cosmos DB for NoSQL and Azure Kubernetes Service
 description: This tutorial demonstrates how to deploy a Spring Boot application to Azure Kubernetes Service and use it to perform operations on data in an Azure Cosmos DB for NoSQL account.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: quickstart
@@ -16,7 +16,7 @@ ms.custom: mode-api, devx-track-azurecli, build-2023, build-2023-dataai
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!NOTE]
-> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still use Azure Kubernetes Service as a destination.
+> For Spring Boot applications, we recommend using Azure Spring Apps. However, you can still use Azure Kubernetes Service as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
 
 In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (API for NoSQL account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
 

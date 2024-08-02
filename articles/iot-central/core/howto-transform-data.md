@@ -504,7 +504,7 @@ This scenario uses the same Azure Functions deployment as the IoT Central device
 | Scope ID | Use the **ID scope** you made a note of previously. |
 | IoT Central SAS Key | Use the shared access signature primary key for the **SaS-IoT-Devices** enrollment group. You made a note of this value previously. |
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json).
 
 Select **Review + Create**, and then **Create**. It takes a couple of minutes to create the Azure function and related resources in the **egress-scenario** resource group.
 

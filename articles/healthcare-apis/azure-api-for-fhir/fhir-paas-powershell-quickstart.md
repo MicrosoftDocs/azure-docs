@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy Azure API for FHIR using PowerShell'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 09/27/2023
@@ -19,9 +19,9 @@ In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShe
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Register the Azure API for FHIR resource provider
 

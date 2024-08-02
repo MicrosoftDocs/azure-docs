@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Adds a network security group to a
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 This sample script creates a network security group rule to allow inbound traffic on port 8081.  The script gets the network security group, creates a new network security configuration rule, and updates the network security group. Customize the parameters as needed.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/). 
 

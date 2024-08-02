@@ -3,18 +3,31 @@ title: Common Azure confidential computing scenarios and use cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: overview
 ms.date: 11/04/2021
 ms.author: jushiman
 ---
-# Use cases and scenarios
-Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
+# Usecases
+
+Using confidential computing technologies, you can harden your virtualized environment from the host, the hypervisor, the host admin, and even your own VM admin. Depending on your threat model, we offer various technologies that enable you to:
+
+- **Prevent unauthorized access**: Run sensitive data in the cloud. Trust that Azure provides the best data protection possible, with little to no change from what gets done today.
+
+- **Meet regulatory compliance**: Migrate to the cloud and keep full control of data to satisfy government regulations for protecting personal information and secure organizational IP.
+
+- **Ensure secure and untrusted collaboration**: Tackle industry-wide work-scale problems by combing data across organizations, even competitors, to unlock broad data analytics and deeper insights.
+
+- **Isolate processing**: Offer a new wave of products that remove liability on private data with blind processing. User data can't even be retrieved by the service provider.
+
+## Scenarios
+
+Confidential computing can apply to various scenarios for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
 ![Screenshot of use cases for Azure confidential computing, including government, financial services, and health care scenarios.](media/use-cases-scenarios/use-cases.png)
 
-This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
+This article provides an overview of several common scenarios. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
 After reading this article, you'll be able to answer the following questions:
 

@@ -3,7 +3,7 @@ title: Deploy a Managed Apache Spark Cluster with Azure Databricks
 description: This quickstart shows how to Deploy a Managed Apache Spark Cluster with Azure Databricks using the Azure portal.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom:
@@ -79,7 +79,7 @@ Follow these steps to create an Azure Databricks cluster in a Virtual Network th
    * **Cluster Name** Enter a name for the cluster.
    * **Databricks Runtime Version** We recommend selecting Databricks runtime version 7.5 or higher, for Spark 3.x support.
 
-   :::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot shows the New Cluster dialog box with a Databricks Runtime Version selected." border="true":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-runtime.png" alt-text="Screenshot shows the New Cluster dialog box with a Databricks Runtime Version selected." border="true":::
 
 1. Expand **Advanced Options** and add the following configuration. Make sure to replace the node IPs and credentials:
 
@@ -93,7 +93,7 @@ Follow these steps to create an Azure Databricks cluster in a Virtual Network th
 
 1. Add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Databricks.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Databricks.":::
 
 ## Clean up resources
 

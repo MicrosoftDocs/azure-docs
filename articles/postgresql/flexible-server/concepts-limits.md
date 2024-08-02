@@ -1,20 +1,20 @@
 ---
 title: Limits in Azure Database for PostgreSQL - Flexible Server
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as the number of connections and storage engine options.
-author: varun-dhawan
-ms.author: varundhawan
-ms.reviewer: kabharati
-ms.service: postgresql
+author: kabharati
+ms.author: kabharati
+ms.reviewer: kabharati, maghan
+ms.date: 05/01/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 2/1/2024
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The following sections describe capacity and functional limits in Azure Database for PostgreSQL flexible server. If you want to learn about resource (compute, memory, or storage) tiers, see the [Compute and storage](concepts-compute-storage.md) article.
+The following sections describe capacity and functional limits in Azure Database for PostgreSQL flexible server. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute ](concepts-compute.md) and [storage ](concepts-storage.md)  articles.
 
 ## Maximum connections
 
@@ -83,8 +83,9 @@ The following sections list considerations for what is and isn't supported in Az
 ### Scale operations
 
 - At this time, scaling up the server storage requires a server restart.
-- You can scale server storage only in 2x increments. For details, see [Compute and storage](concepts-compute-storage.md).
-
+- Server storage can only be scaled in 2x increments, see [Storage](concepts-storage.md) for details.
+- Decreasing server storage size is currently not supported. The only way to do is [dump and restore](../howto-migrate-using-dump-and-restore.md) it to a new Azure Database for PostgreSQL flexible server instance.
+   
 ### Storage
 
 - After you configure the storage size, you can't reduce it. You have to create a new server with the desired storage size, perform a  manual [dump and restore](../howto-migrate-using-dump-and-restore.md) operation, and migrate your databases to the new server.
@@ -136,8 +137,10 @@ The following sections list considerations for what is and isn't supported in Az
 - The new server created during a restore doesn't have the firewall rules that existed on the original server. You need to create firewall rules separately for the new server.
 - Restore to a different subscription isn't supported. As a workaround, you can restore the server within the same subscription and then migrate the restored server to a different subscription.
 
-## Next steps
+## Related content
 
-- Understand [what's available for compute and storage options](concepts-compute-storage.md).
-- Learn about [supported PostgreSQL database versions](concepts-supported-versions.md).
-- Review [how to back up and restore a server in Azure Database for PostgreSQL flexible server by using the Azure portal](how-to-restore-server-portal.md).
+- Understand [what’s available for compute options](concepts-compute.md)
+- Understand [what’s available for Storage options](concepts-storage.md)
+- Learn about [Supported PostgreSQL database versions](concepts-supported-versions.md)
+- Review [how to back up and restore a server in Azure Database for PostgreSQL flexible server using the Azure portal](how-to-restore-server-portal.md)
+

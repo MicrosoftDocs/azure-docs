@@ -3,8 +3,9 @@ title: Create a standalone Azure Automation account
 description: This article tells how to create a standalone Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 04/25/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Create a standalone Azure Automation account
 
@@ -28,7 +29,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 1. Select **+ Create a Resource**.
 1. Search for **Automation**. In the search results, select **Automation**.
 
-   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
+   :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Screenshot of Automation accounts in the portal." lightbox="./media/automation-create-standalone-account/automation-account-portal.png":::
 
 Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
@@ -73,7 +74,7 @@ The following image shows a standard configuration for a new Automation account.
 
 ### Networking
 
-On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using a [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
+On the **Networking** tab, you can configure connectivity to Automation Account - either publicly via public IP addresses or privately using an [Azure Automation Private Link](./how-to/private-link-security.md). Azure Automation Private Link connects one or more private endpoints (and therefore the virtual networks they are contained in) to your Automation Account resource. 
 
 The following image shows a standard configuration for a new Automation account.
 

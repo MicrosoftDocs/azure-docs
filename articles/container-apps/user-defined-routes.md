@@ -3,7 +3,7 @@ title: Container Apps outbound traffic control with Azure Firewall
 description: Use Azure Firewall to route outbound traffic from Container Apps to the internet, private IP addresses, and Azure services.
 services: container-apps
 author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.author: cachai
 ms.topic: article
 ms.date: 08/29/2023
@@ -12,7 +12,7 @@ ms.date: 08/29/2023
 # Control outbound traffic with user defined routes
 
 > [!NOTE]
-> This feature is only supported for the workload profiles environment type. User defined routes only work with an internal Azure Container Apps environment.
+> This feature is only supported for the workload profiles environment type.
 
 This article shows you how to use user defined routes (UDR) with [Azure Firewall](../firewall/overview.md) to lock down outbound traffic from your Container Apps to back-end Azure resources or other network resources.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create server - az postgres up - Azure Database for PostgreSQL - Single Server'
 description: Quickstart guide to create Azure Database for PostgreSQL - Single Server using Azure CLI (command-line interface) up command.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: sunila
@@ -19,13 +19,13 @@ ms.date: 06/24/2022
 
 Azure Database for PostgreSQL is a managed service that enables you to run, manage, and scale highly available PostgreSQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az postgres up](/cli/azure/postgres#az-postgres-up) command to create an Azure Database for PostgreSQL server using the Azure CLI. In addition to creating the server, the `az postgres up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. These defaults help to expedite the development process.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create an Azure Database for PostgreSQL server
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 Install the [db-up](/cli/azure/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 

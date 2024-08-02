@@ -2,7 +2,7 @@
 title: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
 description: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
@@ -20,7 +20,7 @@ This tutorial describes how to create a payment HSM with the host and management
 - [Create a payment HSM with the host and management port in different virtual networks using an ARM template](create-different-vnet-template.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 

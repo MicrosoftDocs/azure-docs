@@ -3,7 +3,7 @@ title: Stream data from confluent cloud Kafka with Azure Stream Analytics
 description: Learn about how to set up an Azure Stream Analytics job as a consumer from confluent cloud kafka
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2023
@@ -147,6 +147,7 @@ Use the following steps to grant special permissions to your stream analytics jo
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to your confluent cloud kafka cluster. Example: pkc-56d1g.eastus.azure.confluent.cloud:9092 |
 | Kafka topic                  | The name of your kafka topic in your confluent cloud kafka cluster.|
 | Security Protocol            | Select **SASL_SSL**. The mechanism supported is PLAIN. |
+| Consumer Group Id          | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
 
 > [!IMPORTANT]

@@ -4,7 +4,7 @@ description: Learn how to create an Azure Front Door Standard/Premium using Azur
 ms.topic: quickstart
 author: duongau
 ms.author: duau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.date: 6/30/2023
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,7 @@ In this quickstart, you learn how to create an Azure Front Door Standard/Premium
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

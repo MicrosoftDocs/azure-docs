@@ -2,8 +2,8 @@
 title: Manage backed up SAP HANA databases on Azure VMs
 description: In this article, you'll learn common tasks for managing and monitoring SAP HANA databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 06/30/2023
-ms.service: backup
+ms.date: 06/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -29,7 +29,11 @@ To run on-demand backups, follow these steps:
 
    ![Screenshot that shows the 'Backup items' link on the Recovery Services vault dashboard.](./media/sap-hana-db-manage/backup-items.png)
 
-1. On the **Backup Items** pane, select the VM that's running the SAP HANA database, and then select **Backup now**.
+1. On the **Backup Items** blade, select the **Backup Management Type** as **SAP HANA in Azure VM**.
+
+   :::image type="content" source="./media/sap-hana-db-manage/select-management-type.png" alt-text="Screenshot shows how to select the backup management type." lightbox="./media/sap-hana-db-manage/select-management-type.png":::
+
+1. On the **Backup Items (SAP HANA in Azure VM)** blade, select the VM that's running the SAP HANA database, and then select **Backup now**.
 
 1. On the **Backup Now** pane, choose the type of backup that you want to perform, and then select **OK**.
 

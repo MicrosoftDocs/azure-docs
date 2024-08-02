@@ -3,9 +3,9 @@ title: Azure Stream Analytics autoscale streaming units
 description: This article explains how you can use different scaling methods for your Stream Analytics job to make sure you have the right number of streaming units.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 05/28/2024
 ---
 
 # Autoscale streaming units 
@@ -94,6 +94,9 @@ The following procedure shows you how to add a condition to automatically increa
 8. Set the **minimum** and **maximum** and **default** number of streaming units. The minimum and maximum streaming units represent the scaling limitations for your job. The **default** value is used in the rare instance that scaling failed. We recommended that you set the **default** value to the number of SUs that the job is currently running with.
 9. Select **Save**.  
     :::image type="content" source="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" alt-text="Screenshot showing the Save option for a rule." lightbox="./media/stream-analytics-autoscale/save-scale-rule-streaming-units-limits.png" :::
+
+> [!NOTE]
+> Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when a scale event triggers the opposite scale event. Refer to [this](/azure/azure-monitor/autoscale/autoscale-flapping) article which describes flapping in autoscale and how to avoid it.
 
 ### Scale to specific number of streaming units
 

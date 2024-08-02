@@ -3,7 +3,7 @@ title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: article
 ms.date: 08/24/2023
 ms.author: victorh 
@@ -12,7 +12,7 @@ ms.author: victorh
 
 You can monitor Web Application Firewall resources using logs. You can save performance, access, and other data or consume it from a resource for monitoring purposes.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Diagnostic logs
 
@@ -219,13 +219,12 @@ The firewall log is generated only if you have enabled it for each application g
 |---------|---------|
 |instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
 |clientIp     |   Originating IP for the request.      |
-|clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the received request.       |
 |ruleSetType     | Rule set type. The available value is OWASP.        |
 |ruleSetVersion     | Rule set version used. Available values are 2.2.9 and 3.0.     |
 |ruleId     | Rule ID of the triggering event.        |
 |message     | User-friendly message for the triggering event. More details are provided in the details section.        |
-|action     |  **Policy Mode:** Detection</br>   - **Detected** - This is the only action for the WAF when in detection mode. All the conditions for a given rule were matched and the request was logged then passed to the backend.</br></br>**Policy Mode:** Prevention</br>   - **Allowed** - All conditions were matched for a given rule and the request was passed to the backend.</br>   - **Blocked** - All of the conditions were matched for a given rule and the request was blocked.</br>   - **Matched** - One/more conditions were matched for a given rule, but the decision to block or pass the request will need further evaluation and will be evaluated based on the final anomaly scoring rule.      |
+|action     |**Policy Mode:** Detection</br>- **Detected** - This is the only action for the WAF when in detection mode. All the conditions for a given rule were matched and the request was logged then passed to the backend.</br></br>**Policy Mode:** Prevention</br>   - **Allowed** - All conditions were matched for a given rule and the request was passed to the backend.</br>   - **Blocked** - All of the conditions were matched for a given rule and the request was blocked.</br>   - **Matched** - One/more conditions were matched for a given rule, but the decision to block or pass the request will need further evaluation and will be evaluated based on the final anomaly scoring rule.<br><br>**Policy Mode:** JS challenge<br>- **JSChallengeIssued**: Issued due to missing/invalid challenge clearance, missing answer.<br><br>This log is created when a client requests access to a web application for the first time and has not been challenged previously. This client receives the JS challenge page and proceeds to compute the JS challenge. Upon successful computation, the client is granted the validity cookie.<br><br>- **JSChallengePass**: Passed due to valid challenge answer.<br><br>This log is created when a client solves the JS challenge and resubmits the request with the correct answer. In this case, Azure WAF validates the cookie and proceeds to process the remaining rules without generating another JS challenge.<br><br>- **JSChallengeValid**: Logged/passthrough due to valid challenge<br><br>This log is created when a client has previously solved a challenge. In this case, Azure WAF logs the request and proceeds to process the remaining rules.<br><br>- **JSChallengeBlock**: Blocked<br><br>This log is created when a JS challenge computation fails.   |
 |site     | Site for which the log was generated. Currently, only Global is listed because rules are global.|
 |details     | Details of the triggering event.        |
 |details.message     | Description of the rule.        |
@@ -247,7 +246,6 @@ The firewall log is generated only if you have enabled it for each application g
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
       "clientIp": "52.161.109.147",
-      "clientPort": "0",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",

@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 01/26/2024
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Azure Chaos Studio version compatibility
@@ -28,7 +28,7 @@ The Chaos Studio agent is tested for compatibility with the following operating 
 | openSUSE Leap 15.2              | ✓ |   |
 | Debian 10 Buster                | ✓ | Installation of `unzip` utility required |
 | Oracle Linux 8.3                | ✓ |   |
-| Ubuntu Server 18.04 LTS         | ✓ |   |
+| Ubuntu Server 20.04/22.04 LTS         | ✓ |   |
 
 The agent isn't currently tested against custom Linux distributions or hardened Linux distributions (for example, FIPS or SELinux).
 

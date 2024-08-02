@@ -1,19 +1,21 @@
 ---
 title: Manage high availability - Azure CLI
 description: This article describes how to configure high availability in Azure Database for PostgreSQL - Flexible Server with the Azure CLI.
-ms.service: postgresql
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: how-to
-ms.date: 6/16/2022
-ms.custom: references_regions, devx-track-azurecli
+ms.custom:
+  - references_regions
+  - devx-track-azurecli
 ---
 
 # Manage high availability in Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The article describes how you can enable or disable high availability configuration at the time of server creation in Azure Database for PostgreSQL flexible server. You can disable high availability after server creation too. 
 

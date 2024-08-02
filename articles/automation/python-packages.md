@@ -3,9 +3,10 @@ title: Manage Python 2 packages in Azure Automation
 description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/21/2023
+ms.date: 07/23/2024
 ms.topic: conceptual
 ms.custom: devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage Python 2 packages in Azure Automation
@@ -20,7 +21,7 @@ For information on managing Python 3 packages, see [Manage Python 3 packages](./
 
     :::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
-2. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. 
+2. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl**  file.
 3. Enter the name and select the **Runtime version** as 2.x.x
 4. Select **Import**.
 

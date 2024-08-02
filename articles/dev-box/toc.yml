@@ -29,6 +29,14 @@ items:
       href: concept-dev-box-network-requirements.md
     - name: Key concepts
       href: concept-dev-box-concepts.md
+    - name: Azure role-based access control
+      displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
+      href: concept-dev-box-role-based-access-control.md
+- name: Plan
+  expanded: true
+  items:
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
 - name: Configure resources
   items:
   - name: Manage a dev center
@@ -41,6 +49,8 @@ items:
     href: how-to-manage-dev-box-definitions.md
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
+  - name: Display names for a project or pool
+    href: how-to-add-project-pool-display-name.md
   - name: Limit number of dev boxes per project
     href: tutorial-dev-box-limits.md      
   - name: Configure Visual Studio caches
@@ -58,11 +68,16 @@ items:
   items:
   - name: Create reusable customizations
     href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
-  - name: Connect with Remote Desktop App
+  - name: Connect with Windows App
+    displayName: connect, access dev box, RDP, iPad 
+    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Connect with Remote Desktop
     displayName: connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
@@ -77,10 +92,14 @@ items:
     href: how-to-dev-box-user.md 
   - name: Configure conditional access policies
     href: how-to-configure-intune-conditional-access-policies.md
+  - name: Configure elevated privilege for dev boxes
+    href: how-to-elevate-privilege-dev-box.md
+    displayName: run as, administrator, Intune, EPM, policy
+  - name: Enable single sign-on for dev boxes
+    href: how-to-enable-single-sign-on.md
+    displayName: SSO
 - name: Manage costs
   items:
-  - name: Determine resource usage and quota
-    href: how-to-determine-your-quota-usage.md
   - name: Request a quota limit increase
     href: how-to-request-quota-increase.md
   - name: Configure Dev Box Hibernation
@@ -89,6 +108,8 @@ items:
     href: how-to-hibernate-your-dev-box.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
+  - name: Configure stop on disconnect
+    href: how-to-configure-stop-on-disconnect.md
   - name: Skip or delay an automatic shutdown
     href: how-to-skip-delay-stop.md
 - name: Reference

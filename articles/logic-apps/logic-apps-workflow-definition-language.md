@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 12/07/2023
+ms.date: 06/13/2024
 ---
 
 # Schema reference guide for the Workflow Definition Language in Azure Logic Apps
@@ -235,7 +235,7 @@ When you're done, the expression appears for the corresponding property in your 
   "inputs": {
     "host": {
       "connection": {
-        "name": "@parameters('$connections')['twitter']['connectionId']"
+        "name": "@parameters('$connections')['x']['connectionId']"
       }
     }
   },
@@ -276,8 +276,7 @@ Here is the general structure for an output definition:
 | <*key-type*> | Yes | int, float, string, securestring, bool, array, JSON object | The type for the output return value |
 | <*key-value*> | Yes | Same as <*key-type*> | The output return value |
 
-To get the output from a workflow run, review your logic app's run history and details in the Azure portal or use the [Workflow REST API](/rest/api/logic/workflows). You can also pass output to external systems, for example, 
-Power BI so that you can create dashboards.
+To get the output from a workflow run, review your logic app's run history and details in the Azure portal or use the [Workflow REST API](/rest/api/logic/workflows). You can also pass output to external systems, for example, Power BI so that you can create dashboards.
 
 <a name="operators"></a>
 
@@ -289,8 +288,8 @@ In [expressions](#expressions) and [functions](#functions), operators perform sp
 |----------|------|
 | `'` | To use a string literal as input or in expressions and functions, wrap the string only with single quotation marks, for example, `'<myString>'`. Do not use double quotation marks (`""`), which conflict with the JSON formatting around an entire expression. For example: <br><br>**Yes**: length('Hello') </br>**No**: length("Hello") <br><br>When you pass arrays or numbers, you don't need wrapping punctuation. For example: <br><br>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
 | `[]` | To reference a value at a specific position (index) in an array or inside a JSON object, use square brackets, for example: <br><br>- To get the second item in an array: <br><br>`myArray[1]` <br><br>- To access the properties inside a JSON object: <br><br>*Example 1*: <br>`setProperty(<object>, '<parent-property>', addProperty(<object>['<parent-property>'], '<child-property>', <value>)` <br><br>*Example 2*: <br>`lastIndexOf(triggerBody()?['subject'],'some string')` |
-| `.` | To reference a property in an object, use the dot operator. For example, to get the `name` property for a `customer` JSON object: <br><br>`"@parameters('customer').name"` |
-| `?` | To reference null properties in an object without a runtime error, use the question mark operator. For example, to handle null outputs from a trigger, you can use this expression: <br><br>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |
+| `.` | To reference a property in an object, use the dot operator. For example, to get the `name` property for a `customer` JSON object: <br><br>`"parameters('customer').name"` |
+| `?` | To reference null properties in an object without a runtime error, use the null-ignore (**?**) operator. For example, to handle null outputs from a trigger, you can use the following expression: <br><br>`coalesce(trigger().outputs?.body?['<someProperty>'], '<property-default-value>')` |
 
 <a name="functions"></a>
 

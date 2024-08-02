@@ -4,11 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running U-SQL scripts on Azure Data Lake Analytics compute service with Azure Data Factory and Synapse Analytics.
 ms.author: abnarain
 author: nabhishek
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Process data by running U-SQL scripts on Azure Data Lake Analytics with Azure Data Factory and Synapse Analytics

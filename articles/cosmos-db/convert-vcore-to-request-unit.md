@@ -4,14 +4,14 @@ description: 'Convert the number of vCores or vCPUs in your nonrelational databa
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 08/26/2021
 ---
 # Convert the number of vCores or vCPUs in your nonrelational database to Azure Cosmos DB RU/s
 [!INCLUDE[NoSQL](includes/appliesto-nosql.md)]
-[!INCLUDE[MongoDB](includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article explains how to estimate Azure Cosmos DB request units (RU/s) when you are considering data migration but all you know is the total vCore or vCPU count in your existing database replica set(s). When you migrate one or more replica sets to Azure Cosmos DB, each collection held in those replica sets will be stored as an Azure Cosmos DB collection consisting of a sharded cluster with a 4x replication factor. You can read more about our architecture in this [partitioning and scaling guide](partitioning-overview.md). Request units are how throughput capacity is provisioned on a collection; you can [read the request units guide](request-units.md) and the RU/s [provisioning guide](set-throughput.md) to learn more. When you migrate a collection, Azure Cosmos DB provisions enough shards to serve your provisioned request units and store your data. Therefore estimating RU/s for collections is an important step in scoping out the scale of your planned Azure Cosmos DB data estate prior to migration. Based on our experience with thousands of customers, we have found this formula helps us arrive at a rough starting-point RU/s estimate from vCores or vCPUs: 
 

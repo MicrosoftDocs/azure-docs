@@ -3,7 +3,7 @@ title: Get Azure Key Vault keys with JavaScript
 description: Get lastest version or any version of key with JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js
@@ -53,8 +53,7 @@ console.log(`Previous key version is ${keyByVersion.properties.version}`);
 
 ## Get all versions of a key
 
-To get all versions of a key in Azure Key Vault, use the [
-listPropertiesOfKeyVersions](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeyversions) method of the KeyClient Class to get an iterable list of key's version's properties. This returns a [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object, which doesn't include the version's value. If you want the version's value, use the version returned in the property to get the key's value with the getKey method.
+To get all versions of a key in Azure Key Vault, use the [`listPropertiesOfKeyVersions`](/javascript/api/@azure/keyvault-keys/keyclient#@azure-keyvault-keys-keyclient-listpropertiesofkeyversions) method of the KeyClient Class to get an iterable list of key's version's properties. This returns a [KeyProperties](/javascript/api/@azure/keyvault-keys/keyproperties) object, which doesn't include the version's value. If you want the version's value, use the version returned in the property to get the key's value with the getKey method.
 
 |Method|Returns value| Returns properties|
 |--|--|--|

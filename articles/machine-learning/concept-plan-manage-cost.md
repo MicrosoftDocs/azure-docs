@@ -6,7 +6,7 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization, build-2023
 ms.reviewer: nigup
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 ms.date: 03/26/2024
@@ -72,7 +72,8 @@ Each VM is billed per hour that it runs. Cost depends on VM specifications. VMs 
 Compute instances also incur P10 disk costs even in stopped state because any user content saved there persists across the stopped state similar to Azure VMs. We're working on making the OS disk size/ type configurable to better control costs. For Azure Virtual Networks, one virtual network is billed per subscription and per region. Virtual networks can't span regions or subscriptions. Setting up private endpoints in a virtual network might also incur charges. If your virtual network uses an Azure Firewall, this might also incur charges. Bandwidth charges reflect usage; the more data transferred, the greater the charge. 
 
 > [!TIP]
-> Using an Azure Machine Learning managed virtual network is free. However, some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules), which incur charges. For more information, see [Managed virtual network isolation](how-to-managed-network.md#pricing).
+> - Using an Azure Machine Learning managed virtual network is free. However, some features of the managed network rely on Azure Private Link (for private endpoints) and Azure Firewall (for FQDN rules), which incur charges. For more information, see [Managed virtual network isolation](how-to-managed-network.md#pricing).
+> - Managed online endpoint uses VMs for the deployments. If you submitted request to create an online deployment and it failed, it may have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigation for the failure, you may delete the failed deployments to save the cost.
 
 ### Costs might accrue after resource deletion
 
@@ -161,6 +162,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 Use the following tips to help you manage and optimize your compute resource costs.
 
 - Configure your training clusters for autoscaling.
+- Configure your managed online endpoints for autoscaling.
 - Set quotas on your subscription and workspaces.
 - Set termination policies on your training job.
 - Use low-priority virtual machines.
@@ -170,13 +172,15 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Parallelize training.
 - Set data retention and deletion policies.
 - Deploy resources to the same region.
-- Delete instances and clusters if you don't plan on using them soon.
+- Delete instances, clusters and/or online deployments if you don't plan on using them soon.
+- Delete failed deployments if computes are created for them.
 
 For more information, see [Manage and optimize Azure Machine Learning costs](how-to-manage-optimize-cost.md).
 
 ## Next steps
 
 - [Manage and optimize Azure Machine Learning costs](how-to-manage-optimize-cost.md)
+- [View managed online endpoint costs](how-to-view-online-endpoints-costs.md)
 - [Manage budgets, costs, and quota for Azure Machine Learning at organizational scale](/azure/cloud-adoption-framework/ready/azure-best-practices/optimize-ai-machine-learning-cost)
 - Learn [how to optimize your cloud investment with Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 - [Quickstart: Start using Cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -1,10 +1,10 @@
 ---
 title: CPU Core quota increase request - Azure HDInsight 
 description: Learn the process to request an increase for the CPU cores allocated to your subscription.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ---
 # Requesting quota increases for Azure HDInsight
 

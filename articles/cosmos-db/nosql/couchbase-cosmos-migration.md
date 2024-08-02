@@ -1,7 +1,7 @@
 ---
 title: 'Migrate from CouchBase to Azure Cosmos DB for NoSQL'
 description: Step-by-Step guidance for migrating from CouchBase to Azure Cosmos DB for NoSQL
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/11/2020
@@ -13,7 +13,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 # Migrate from CouchBase to Azure Cosmos DB for NoSQL
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to a API for NoSQL account in Azure Cosmos DB.
+Azure Cosmos DB is a scalable, globally distributed, fully managed database. It provides guaranteed low latency access to your data. To learn more about Azure Cosmos DB, see the [overview](../introduction.md) article. This article provides instructions to migrate Java applications that are connected to Couchbase to an API for NoSQL account in Azure Cosmos DB.
 
 ## Differences in nomenclature
 
@@ -32,7 +32,7 @@ The following are the key features that work differently in Azure Cosmos DB when
 
 * Azure Cosmos DB scales by using the partitioning or sharding technique. Which means it splits the data into multiple shards/partitions. These partitions/shards are created based on the partition key property that you provide. You can select the partition key to optimize read as well write operations or read/write optimized too. To learn more, see the [partitioning](../partitioning-overview.md) article.
 
-* In Azure Cosmos DB, it is not required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure much simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
+* In Azure Cosmos DB, it isn't required for the top-level hierarchy to denote the collection because the collection name already exists. This feature makes the JSON structure simpler. The following is an example that shows differences in the data model between Couchbase and Azure Cosmos DB:
 
     **Couchbase**: Document ID =  "99FF4444"
 
@@ -95,7 +95,7 @@ The following are the key features that work differently in Azure Cosmos DB when
 
 ## Java SDK support
 
-Azure Cosmos DB has following SDKs to support different Java frameworks:
+Azure Cosmos DB has following software development kits (SDKs) to support different Java frameworks:
 
 * Async SDK
 * Spring Boot SDK
@@ -104,7 +104,7 @@ The following sections describe when to use each of these SDKs. Consider an exam
 
 ## Couchbase as document repository & spring data-based custom queries
 
-If the workload that you are migrating is based on Spring Boot Based SDK, then you can use the following steps:
+If the workload that you're migrating is based on Spring Boot Based SDK, then you can use the following steps:
 
 1. Add parent to the POM.xml file:
 
@@ -170,7 +170,7 @@ Consider the following code snippet, where doc object will have ID and partition
 
 ### Read Operation
 
-You can read the document with or without specifying the partition key. If you don’t specify the partition key, then it is treated as a cross-partition query. Consider the following code samples, first one will perform operation using ID and partition key field. Second example uses a regular field & without specifying the partition key field.
+You can read the document with or without specifying the partition key. If you don’t specify the partition key, then it's treated as a cross-partition query. Consider the following code samples, first one will perform operation using ID and partition key field. Second example uses a regular field & without specifying the partition key field.
 
 * ```_repo.findByIdAndName(objDoc.getId(),objDoc.getName());```
 * ```_repo.findAllByStatus(objDoc.getStatus());```
@@ -192,7 +192,7 @@ You can notice the following changes in your N1QL queries:
 * Instead of "ANY" now you can do a join on subdocument and refer it with a dedicated alias such as "m". Once you have created alias for a subdocument you need to use alias. For example, m.Country.
 
 * The sequence of OFFSET is different in Azure Cosmos DB query, first you need to specify OFFSET then LIMIT. 
-It is recommended not to use Spring Data SDK if you are using maximum custom defined queries as it can have unnecessary overhead at the client side while passing the query to Azure Cosmos DB. Instead we have a direct Async Java SDK, which can be utilized much efficiently in this case.
+It is recommended not to use Spring Data SDK if you're using maximum custom defined queries as it can have unnecessary overhead at the client side while passing the query to Azure Cosmos DB. Instead we have a direct Async Java SDK, which can be utilized much efficiently in this case.
 
 ### Read operation
 
@@ -426,9 +426,7 @@ Then subscribe to mono, refer mono subscription snippet in insert operation. The
 
 ## Data Migration
 
-There are two ways to migrate data.
-
-* **Use Azure Data Factory:** This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
+Use **Azure Data Factory** to migrate data. This is the most recommended method to migrate the data. Configure the source as Couchbase and sink as Azure Cosmos DB for NoSQL, see the Azure [Azure Cosmos DB Data Factory connector](../../data-factory/connector-azure-cosmos-db.md) article for detailed steps.
 
 ## Next Steps
 

@@ -2,8 +2,8 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.service: site-recovery
-ms.date: 07/14/2023
+ms.service: azure-site-recovery
+ms.date: 05/10/2024
 ms.custom: mvc
 ms.author: ankitadutta
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
@@ -95,6 +95,12 @@ AzureSiteRecovery tag | Allows access to the Site Recovery service in any region
 GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site Recovery Mobility agent that's running on VMs enabled for replication.
 
 [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) about required tags and tagging examples.
+
+
+#### Azure Instance Metadata Service (IMDS) connectivity
+
+Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](../virtual-machines/instance-metadata-service.md) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
+
 
 ### Verify VM certificates
 

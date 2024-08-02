@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure HDInsight
-description: Find out about reliability in Azure HDInsight
+description: Find out about reliability in Azure HDInsight.
 author: apurbasroy
 ms.service: azure
 ms.topic: reliability-article
@@ -129,7 +129,7 @@ Improving business continuity using cross region high availability disaster reco
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
 |Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
-|Authentication |Multiuser scenarios in secondary region will incur additional Microsoft Entra Domain Services setups|Avoid multiuser setups in secondary region.|
+|Authentication |Multiuser scenarios in the secondary region incurs extra  Microsoft Entra Domain Services setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations
 
@@ -143,7 +143,7 @@ Improving business continuity using cross region high availability disaster reco
 
 When you create your multi region disaster recovery plan, consider the following recommendations:
 
-* Determine the minimal business functionality you will need if there is a disaster and why. For example, evaluate if you need failover capabilities for the data transformation layer (shown in yellow) *and* the data serving layer (shown in blue), or if you only need failover for the data service layer.
+* Determine the minimal business functionality you need if there is a disaster and why. For example, evaluate if you need failover capabilities for the data transformation layer (shown in yellow) *and* the data serving layer (shown in blue), or if you only need failover for the data service layer.
 
    :::image type="content" source="../hdinsight/media/hdinsight-business-continuity/data-layers.png" alt-text="data transformation and data serving layers":::
 
@@ -192,7 +192,7 @@ functionality. Service incidents in one or more of the following services in a s
     To learn more, see [high availability services supported by Azure HDInsight](../hdinsight/hdinsight-high-availability-components.md).
     
    
-- **Metastore(s): Azure SQL Database**. HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
+- **Metastore(s): Azure SQL Database**. HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](/azure/azure-sql/database/active-geo-replication-overview) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy  automatically becomes read-write capable. For more information, see [Azure SQL Database business continuity](/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview).
 
 
 - **Storage: Azure Data Lake Gen2 or Blob storage**. HDInsight recommends Azure Data Lake Storage Gen2 as the underlying storage layer. [Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/), including Azure Data Lake Storage Gen2, provides an SLA of 99.9%. HDInsight uses the LRS service in which three replicas of data persist within a data center, and replication is synchronous. When there is a replica loss, a replica is served seamlessly.
@@ -208,13 +208,14 @@ functionality. Service incidents in one or more of the following services in a s
 :::image type="content" source="../hdinsight/media/hdinsight-business-continuity/hdinsight-components.png" alt-text="HDInsight components":::
 
 
-## Next steps
+## Related content
 
-To learn more about the items discussed in this article, see:
 
 * [Azure HDInsight business continuity architectures](../hdinsight/hdinsight-business-continuity-architecture.md)
 * [Azure HDInsight highly available solution architecture case study](../hdinsight/hdinsight-high-availability-case-study.md)
 * [What is Apache Hive and HiveQL on Azure HDInsight?](../hdinsight/hadoop/hdinsight-use-hive.md)
 
-> [!div class="nextstepaction"]
-> [Reliability in Azure](availability-zones-overview.md)
+
+* [Reliability for HDInsight on AKS](./reliability-hdinsight-on-aks.md)
+* [Reliability in Azure](./overview.md)
+

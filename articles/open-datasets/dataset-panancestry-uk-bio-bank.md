@@ -1,7 +1,7 @@
 ---
 title: Pan UK-Biobank
 description: Learn how to use the Pan UK-Biobank dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.custom: references_regions
 ms.date: 05/17/2023
@@ -11,7 +11,7 @@ ms.date: 05/17/2023
 
 The [Pan-ancestry genetic analysis of the UK Biobank(Pan-UKBB)](https://pan.ukbb.broadinstitute.org) is a resource to researchers that promotes more inclusive research practices, accelerates scientific discoveries, and improves the health of all people equitably. In genetics research, it's statistically necessary to study groups of individuals together with similar ancestries. In practice, this method has meant that most previous research has excluded individuals with non-European ancestries. The Pan-ancestry of UK-biobank is a resource using one of the most widely accessed sources of genetic data, the UK Biobank, in a manner that is more inclusive than most previous efforts--namely studying groups of individuals with diverse ancestries. The results of this research have many important limitations, which should be carefully considered when researchers use this resource in their work and when they and others interpret subsequent findings.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

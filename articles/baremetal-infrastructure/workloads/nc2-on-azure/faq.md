@@ -6,7 +6,8 @@ description: Questions frequently asked about NC2 on Azure
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 04/01/2023
+ms.date: 05/21/2024
+ms.service: azure-baremetal-infrastructure
 ---
 
 # Frequently asked questions about NC2 on Azure
@@ -15,21 +16,20 @@ This article addresses questions most frequently asked about NC2 on Azure.
 
 ## What is Hyperconverged Infrastructure (HCI)?
 
-Hyper-converged infrastructure (HCI) uses locally-attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
+Hyper-converged infrastructure (HCI) uses locally attached storage resources to combine common data center hardware with intelligent software to create flexible building blocks that replace legacy infrastructure consisting of separate servers, storage networks, and storage arrays. [Video explanation](https://www.youtube.com/watch?v=OPYA5-V0yRo)
 
 ## How can I create a VM on a node?
 
 After a customer provisions a cluster of Nutanix Ready Nodes, they can spin up a VM through the Nutanix Prism Portal.
 This operation should be exactly the same as on-premises in the prism portal.
 
-## Is NC2 on Azure a third party or first party offering?
+## Is NC2 on Azure a Microsoft or non-Microsoft offering?
 
-NC2 on Azure is a 3rd-party offering on Azure Marketplace.
-However, we're working hand in hand with Nutanix to offer the best product experience.
+Both. On Azure Marketplace, Nutanix on Azure as Baremetal is a Microsoft offering; as Nutanix Software, it's a non-Microsoft offering, with a direct engagement by Microsoft for sales and support. This arrangement includes a codeveloped product and joint support model: Nutanix software is supported by Nutanix, and Azure infrastructure is supported by Microsoft. 
 
 ## How will I be billed?
 
-Customers will be billed on a pay-as-you-go basis. Additionally, customers are able to use their existing Microsoft Azure Consumption Contract (MACC).
+Customers are billed on a pay-as-you-go basis. Additionally, customers are able to use their existing Microsoft Azure Consumption Contract (MACC).
 
 ## What software advantages does Nutanix have over competitors?
 
@@ -37,9 +37,9 @@ Data locality
 Shadow Clones (which lead to faster boot time)
 Cluster level microservices that lead to world-class performance
 
-## Will this solution integrate with the rest of the Azure cloud?
+## Does this solution integrate with the rest of the Azure cloud?
 
-Yes! You can use the products and services in Azure that you already have and love.
+Yes. You can use the products and services in Azure that you already have and love.
 
 ## Who supports NC2 on Azure?
 

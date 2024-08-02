@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-translator
 ms.topic: quickstart
-ms.date: 09/19/2023
+ms.date: 06/07/2024
 ms.author: lajanuar
 ms.custom: references_regions, build-2023
 recommendations: false
@@ -48,12 +48,12 @@ If you or an administrator have previously setup a Translator resource with a **
 >
 > * Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Azure AI services (multi-service) resource.
 >
-> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. *See* [Azure AI services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 Document Translation in Language Studio requires the following resources:
 
-* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
+* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Azure AI services resource) with [**system-assigned managed identity**](how-to-guides/create-use-managed-identities.md#enable-a-system-assigned-managed-identity) enabled and a [**Storage Blob Data Contributor**](how-to-guides/create-use-managed-identities.md#grant-storage-account-access-for-your-translator-resource) role assigned. For more information, *see* [**Managed identities for Document Translation**](how-to-guides/create-use-managed-identities.md). Also, make sure the region and pricing sections are completed as follows:
 
@@ -63,7 +63,7 @@ Document Translation in Language Studio requires the following resources:
 
 * An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). An active Azure Blob Storage account is required to use Document Translation in the Language Studio.
 
-Now that you've completed the prerequisites, let's start translating documents!
+Now that you completed the prerequisites, let's start translating documents!
 
 ## Get started
 
@@ -91,7 +91,7 @@ At least one **source document** is required. You can download our [document tra
 
    :::image type="content" source="media/language-studio/initial-configuration.png" alt-text="Screenshot of the initial configuration page.":::
 
-1. In the **Job** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you've selected your source and target language(s), select **Next**:
+1. In the **Job** section, choose the language to **Translate from** (source) or keep the default **Auto-detect language** and select the language to **Translate to** (target). You can select a maximum of 10 target languages. Once you select your source and target languages, select **Next**:
 
    :::image type="content" source="media/language-studio/basic-information.png" alt-text="Screenshot of the language studio basic information page.":::
 
@@ -105,7 +105,7 @@ Your source and target files can be located in your local environment or your Az
 
  1. In the **files and destination** section, choose the files for translation by selecting the **Upload local files** button.
 
- 1. Next, select **&#x2795; Add file(s)**, choose the file(s) for translation, then select **Next**:
+ 1. Next, select **&#x2795; Add file(s)**, choose the files for translation, then select **Next**:
 
    :::image type="content" source="media/language-studio/upload-file.png" alt-text="Screenshot of the select files for translation page.":::
 
@@ -113,7 +113,7 @@ Your source and target files can be located in your local environment or your Az
 
 1. In the **files and destination** section, choose the files for translation by selecting the **Select for Blob storage** button.
 
-1. Next, choose your *source* **Blob container**, find and select the file(s) for translation, then select **Next**:
+1. Next, choose your *source* **Blob container**, find and select the files for translation, then select **Next**:
 
    :::image type="content" source="media/language-studio/select-blob-container.png" alt-text="Screenshot of select files from your blob container.":::
 
@@ -123,7 +123,7 @@ Your source and target files can be located in your local environment or your Az
 
 #### [**Local**](#tab/local-env)
 
-While still in the **files and destination** section, select **Download translated file(s)**. Once you have made your choice, select **Next**:
+While still in the **files and destination** section, select **Download translated file(s)**. Once you make your choice, select **Next**:
 
    :::image type="content" source="media/language-studio/target-file-upload.png" alt-text="Screenshot of the select destination for target files page.":::
 

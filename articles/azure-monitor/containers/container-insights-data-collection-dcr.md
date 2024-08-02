@@ -24,10 +24,11 @@ Specific configuration you can perform with the DCR includes:
 > Complete configuration of data collection in Container insights may require editing of both the DCR and the ConfigMap for the cluster since each method allows configuration of a different set of settings. 
 > 
 > See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for a list of settings and the process to configure data collection using ConfigMap.
+> Customers should not delete or manually edit their DCR resource. 
 
 ## Prerequisites
 
-- AKS clusters must use either System or User Assigned Managed Identity. If cluster is using a Service Principal, you must [upgrade to Managed Identity](../../aks/use-managed-identity.md#enable-managed-identities-on-an-existing-aks-cluster).
+- AKS clusters must use either a system-assigned or user-assigned managed identity. If cluster is using a service principal, you must update the cluster to use a [system-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
 
 

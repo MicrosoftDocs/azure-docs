@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
 ms.author: jburchel
-ms.service: data-factory
 ---
 
 # Azure Data Factory monitoring data reference
@@ -20,12 +19,12 @@ See [Monitor Data Factory](monitor-data-factory.md) for details on the data you 
 ### Supported metrics for Microsoft.DataFactory/datafactories
 The following table lists the metrics available for the Microsoft.DataFactory/datafactories resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DataFactory/datafactories](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datafactory-datafactories-metrics-include.md)]
+[!INCLUDE [microsoft-datafactory-datafactories-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-datafactory-datafactories-metrics-include.md)]
 
 ### Supported metrics for Microsoft.DataFactory/factories
 The following table lists the metrics available for the Microsoft.DataFactory/factories resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.DataFactory/factories](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-datafactory-factories-metrics-include.md)]
+[!INCLUDE [microsoft-datafactory-factories-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-datafactory-factories-metrics-include.md)]
 
 > [!NOTE]
 > Except for _PipelineElapsedTimeRuns_, only events from completed, triggered activity and pipeline runs are emitted. In-progress and debug runs aren't emitted. However, events from all SSIS package executions are emitted, including those that are completed and in progress, regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SQL Server Data Tools, via T-SQL on SQL Server Management Studio, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in Data Factory pipelines.
@@ -60,9 +59,10 @@ The following table lists the metrics available for the Microsoft.DataFactory/fa
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.DataFactory/factories
-[!INCLUDE [Microsoft.DataFactory/factories](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-datafactory-factories-logs-include.md)]
+[!INCLUDE [microsoft-datafactory-factories-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-datafactory-factories-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
+
 ### Data factories
 
 Microsoft.DataFactory/factories

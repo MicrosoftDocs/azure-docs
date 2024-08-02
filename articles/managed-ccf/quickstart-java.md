@@ -4,7 +4,7 @@ description: Learn to use the Azure SDK for Java library for Azure Managed Confi
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-extended-java
 ---
@@ -13,7 +13,7 @@ ms.custom: mode-api, devx-track-extended-java
 
 Azure Managed CCF (Managed CCF) is a new and highly secure service for deploying confidential applications. For more information on Azure Managed CCF, see [About Azure Managed Confidential Consortium Framework](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](/java/api/com.azure.resourcemanager.confidentialledger) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/confidentialledger) | [Package (maven central repository)](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-confidentialledger/1.0.0-beta.3)
 
@@ -29,7 +29,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 ### Install the dependencies
 

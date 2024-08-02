@@ -1,17 +1,18 @@
 ---
 title: Compare deployment options
 description: Detailed comparison of features and capabilities between Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server.
-ms.author: alkuchar
 author: AwdotiaRomanowna
-ms.service: postgresql
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/29/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 02/13/2024
 ---
 
-# Comparison chart - Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server
+# Comparison chart: Azure Database for PostgreSQL - Flexible Server vs. Single Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
 
 ## Overview
 
@@ -54,7 +55,7 @@ The following table provides a list of high-level features and capabilities comp
 | Storage auto-grow | Yes | Yes |
 | Max IOPS | Basic - Variable. GP/MO: up to 18 K  | Up to 80 K |
 | **Networking/Security** | | |
-| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access) |
+| Supported networking | Virtual network, private link, public access | Private access (VNET injection in a delegated subnet), public access |
 | Public access control | Firewall | Firewall |
 | Private link support | Yes | Yes (Preview) |
 | Private VNET injection support | No | Yes |
@@ -117,7 +118,7 @@ The following table provides a list of high-level features and capabilities comp
 | Microsoft Entra ID Support (Microsoft Entra ID) | Yes | Yes |
 | Customer managed encryption key (BYOK) | Yes | Yes |
 | SCRAM Authentication (SHA-256) | No | Yes |
-| Secure Sockets Layer support (SSL) | Yes | Yes |
+| Secure Sockets Layer (SSL) support | Yes | Yes |
 | **Other features** | | |
 | Alerts | Yes | Yes |
 | Microsoft Defender for Cloud | Yes | Yes |

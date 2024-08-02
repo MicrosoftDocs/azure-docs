@@ -2,9 +2,9 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 12/21/2023
+ms.date: 04/25/2024
 ms.custom: references_regions
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -23,7 +23,7 @@ Archive tier supports the following workloads:
 
 | Workloads | Operations |
 | --- | --- |
-| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. |
+| Azure Virtual Machines | Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  <br><br> Age >= 3 months in Vault-standard tier <br><br> Retention left >= 6 months. <br><br> No active daily and weekly dependencies. There are no un-expired daily or weekly recovery points between the recovery point considered for archival and the next monthly or yearly recovery point. |
 | SQL Server in Azure Virtual Machines <br><br> SAP HANA in Azure Virtual Machines | Only full recovery points. Logs and differentials aren't supported. <br><br> Age >= 45 days in Vault-standard tier. <br><br> Retention left >= 6 months. <br><br>  No dependencies. |
 
 A recovery point becomes archivable only if all the above conditions are met.
@@ -117,6 +117,23 @@ If the list of recovery points is blank, then all the eligible/recommended recov
 ### Can I use 'File Recovery' option to restore specific files in Azure VM backup for archived recovery points?
 
 No. Currently, the **File Recovery** option doesn't support restoring specific files from an archived recovery point of an Azure VM backup.
+
+### What are the possible reasons if my VM recovery point was not moved to archive?
+
+Before you move VM recovery points to archive tier, ensure that the following criteria are met:
+
+- The recovery point should be a monthly or yearly recovery point.
+- The age of the recovery point in standard tier needs to be *>= 3 months*.
+- The remaining retention duration should be *>= 6 months*.
+- There should be *no unexpired daily or weekly recovery point* between the recovery point in consideration and the next monthly or yearly recovery point.
+
+To check the type of recovery point, go to the *backup instance*, and then select the *link* to view all recovery points.
+
+:::image type="content" source="./media/archive-tier-support/view-all-vm-recovery-points.png" alt-text="Screenshot shows how to view all recovery points for an Azure VM." lightbox="./media/archive-tier-support/view-all-vm-recovery-points.png":::
+
+You can also filter from the list of all recovery points as per *daily*, *weekly*, *monthly*, and *yearly*.
+ 
+:::image type="content" source="./media/archive-tier-support/filter-vm-recovery-points-by-age.png" alt-text="Screenshot shows how to filter recovery points for an Azure VM by daily, weekly, monthly, and yearly." lightbox="./media/archive-tier-support/filter-vm-recovery-points-by-age.png":::
 
 ## Next steps
 

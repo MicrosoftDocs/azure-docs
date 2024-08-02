@@ -3,7 +3,7 @@ title: Data ingestion with Azure Blob Storage - Azure Cosmos DB for PostgreSQL
 description: How to ingest data using Azure Blob Storage as a staging area 
 ms.author: adamwolk
 author: mulander
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 06/16/2023
@@ -13,18 +13,11 @@ ms.date: 06/16/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article shows how to use the pg_azure_storage PostgreSQL extension to
-manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from
-[Azure Blob
-Storage](https://azure.microsoft.com/services/storage/blobs/#features) (ABS).
-ABS is a cloud-native scalable, durable and secure storage service. These
-characteristics make it a good choice of storing and moving existing data into
-the cloud.
+This article shows how to use the pg_azure_storage PostgreSQL extension to manipulate and load data into your Azure Cosmos DB for PostgreSQL directly from [Azure Blob Storage (ABS)](https://azure.microsoft.com/services/storage/blobs/#features). ABS is a cloud-native scalable, durable and secure storage service. These characteristics make it a good choice of storing and moving existing data into the cloud.
 
 ## Prepare database and blob storage
 
-To load data from Azure Blob Storage, install the `pg_azure_storage` PostgreSQL
-extension in your database:
+To load data from Azure Blob Storage, install the `pg_azure_storage` PostgreSQL extension in your database:
     
 ```sql
 SELECT * FROM create_extension('azure_storage');
@@ -35,10 +28,7 @@ SELECT * FROM create_extension('azure_storage');
 > The pg_azure_storage extension is available only on Azure Cosmos DB for
 > PostgreSQL clusters running PostgreSQL 13 and above.
 
-We've prepared a public demonstration dataset for this article. To use your own
-dataset, follow [migrate your on-premises data to cloud
-storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md)
-to learn how to get your datasets efficiently into Azure Blob Storage.
+We've prepared a public demonstration dataset for this article. To use your own dataset, follow [migrate your on-premises data to cloud storage](../../storage/common/storage-use-azcopy-migrate-on-premises-data.md) to learn how to get your datasets efficiently into Azure Blob Storage.
 
 > [!NOTE]
 >

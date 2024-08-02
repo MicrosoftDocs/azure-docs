@@ -6,9 +6,9 @@ summary: Azure HDInsight is a managed Apache Hadoop service that lets you run Ap
 metadata:
   title: Azure HDInsight
   description: Azure HDInsight is a managed Apache Hadoop cloud service that lets you run Apache Spark, Apache Hive, Apache Kafka, Apache HBase, and more.
-  ms.service: hdinsight
+  ms.service: azure-hdinsight
   ms.topic: landing-page
-  ms.date: 07/12/2023
+  ms.date: 05/09/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

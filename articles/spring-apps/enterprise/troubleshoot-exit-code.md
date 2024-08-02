@@ -2,9 +2,9 @@
 title: Troubleshoot common exit code issues in Azure Spring Apps
 description: Describes how to troubleshoot common exit codes in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: troubleshooting
-ms.date: 08/24/2022
+ms.date: 01/31/2024
 ms.author: kunsun
 ms.custom: devx-track-java
 ---
@@ -23,11 +23,11 @@ This article describes troubleshooting actions you can take when your applicatio
 The exit code indicates the reason the application terminated. The following list describes some common exit codes:
 
 - **0** - The application exited because it ran to completion. Update your server application so that it runs continuously.
-  
+
   Deployed Azure apps in Azure Spring Apps should offer services continuously. An exit code of *0* indicates that the application isn't running continuously. Check your logs and source code.
 
 - **1** - If the application exits with a non-zero exit code, debug the code and related services, and then deploy the application again.
-  
+
   Consider the following possible causes of a non-zero exit code:
 
   - There's something wrong with your Spring Boot configuration.
@@ -35,9 +35,9 @@ The exit code indicates the reason the application terminated. The following lis
     For example, you need a *spring.db.url* parameter to connect to the database, but it's not found in your configuration file.
 
   - You're disconnected from a third-party service.
-  
+
     For example, you need to connect to a Redis service, but the service isn't working or available.
-  
+
   - You don't have sufficient access to a third-party service.
 
     For example, you need to connect to Azure Key Vault to import certificates in your application, but your application doesn't have the necessary permissions to access it.

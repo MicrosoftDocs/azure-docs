@@ -2,12 +2,12 @@
 title: Using multifactor Microsoft Entra authentication
 description: Synapse SQL support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 author: vvasic-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: has-adal-ref
 ---
 

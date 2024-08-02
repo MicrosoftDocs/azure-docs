@@ -1,8 +1,8 @@
 ---
 title: Get started with observability
 description: How to get started with configuring observability features in Azure IoT Operations so that you can monitor your solution.
-author: timlt
-ms.author: timlt
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.custom:
   - ignite-2023

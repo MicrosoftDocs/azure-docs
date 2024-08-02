@@ -9,10 +9,10 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
-  ms.date: 02/21/2024
+  ms.date: 07/05/2024
 landingContent:
   - title: About API for NoSQL 
     linkLists:
@@ -44,8 +44,6 @@ landingContent:
             url: tutorial-dotnet-web-app.md
           - text: Build a Java console app with Async SDK
             url: quickstart-java.md?tabs=async
-          - text: Create a Jupyter notebook
-            url: tutorial-create-notebook.md
       - linkListType: how-to-guide
         links:
           - text: Create an account
@@ -64,8 +62,28 @@ landingContent:
             url: tutorial-deploy-app-bicep-aks.md
           - text: Connect using Apache Spark
             url: tutorial-spark-connector.md
+  - title: Analytics and BI
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Analytics and BI overview
+            url: ../analytics-and-business-intelligence-overview.md
+      - linkListType: concept
+        links:
+          - text: Analytics and BI use cases
+            url: ../analytics-and-business-intelligence-use-cases.md
+          - text: Mirroring in Microsoft Fabric
+            url: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+          - text: Azure Synapse Link
+            url: ../synapse-link.md
+      - linkListType: tutorial
+        links:
           - text: Mirror database to Microsoft Fabric
-            url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            url: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
+      - linkListType: how-to-guide
+        links:
+          - text: Access data using Lighthouse and notebooks
+            url: /fabric/database/mirrored-database/azure-cosmos-db-lakehouse-notebooks?context=/azure/cosmos-db/context/context
   - title: Query items from a container
     linkLists:
       - linkListType: concept
@@ -99,7 +117,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use managed identity to access data
-            url: ../managed-identity-based-authentication.md  
+            url: ../managed-identity-based-authentication.yml  
           - text: Configure role-based access control
             url: ../how-to-setup-rbac.md 
           - text: Configure customer-managed keys

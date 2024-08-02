@@ -18,7 +18,7 @@ ms.author: pafarley
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) with workload .NET desktop development enabled. Or if you don't plan on using Visual Studio IDE, you need the current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet/) installed.
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US or West Europe), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (see [Region availability](/azure/ai-services/content-safety/overview#region-availability)), and supported pricing tier. Then select **Create**.
   * The resource takes a few minutes to deploy. After it finishes, Select **go to resource**. In the left pane, under **Resource Management**, select **Subscription Key and Endpoint**. The endpoint and either of the keys are used to call APIs.
 
 ## Set up application

@@ -1,18 +1,17 @@
 ---
 title: Overview - Oracle Database@Azure 
-description: Learn about Oracle Database@Azure.
+description: Overview - Oracle Database@Azure.
 author: jjaygbay1
-ms.service: virtual-machines
-ms.subservice: oracle
+ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 12/12/2023
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, references_regions
 ms.author: jacobjaygbay
 ---
 
 
-# Overview - Oracle Database@Azure 
+# Overview - Oracle Database@Azure
 
 Oracle Database@Azure is an Oracle database service running on Oracle Cloud Infrastructure (OCI), colocated in Microsoft data centers. This ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
 
@@ -34,21 +33,26 @@ To purchase Oracle Database@Azure, contact [Oracle's sales team](https://go.orac
 
 Billing and payment for the service is done through Azure. Payment for Oracle Database@Azure counts toward your Microsoft Azure Consumption Commitment (MACC). Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). On your regular Microsoft Azure invoices, you can see charges for Oracle Database@Azure alongside charges for your other Azure Marketplace services.
 
+## Compliance
+
+Oracle Database@Azure is an Oracle Cloud database service that runs Oracle Database workloads in a customer's Azure environment. Oracle Database@Azure offers various Oracle Database Services through customer’s Microsoft Azure environment. This service allows customers to monitor database metrics, audit logs, events, logging data, and telemetry natively in Azure. It runs on infrastructure managed by Oracle's Cloud Infrastructure operations team who performs software patching, infrastructure updates, and other operations through a connection to Oracle Cloud.  
+All infrastructure for Oracle Database@Azure is co-located in Azure's physical data centers and uses Azure Virtual Network for networking, managed within the Azure environment. Federated identity and access management for Oracle Database@Azure is provided by Microsoft Entra ID.
+
+For detailed information on the compliance certifications please visit [Microsoft Services Trust Portal](https://servicetrust.microsoft.com/)  and [Oracle compliance website](https://docs.oracle.com/en-us/iaas/Content/multicloud/compliance.htm). If you have further questions about OracleDB@Azure compliance please reach out to your account team and/or get information through [Oracle and Microsoft support for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/multicloud/oaahelp.htm).
+
 ## Available regions
 
 Oracle Database@Azure is available in the following locations. Oracle Database@Azure infrastructure resources must be provisioned in the Azure regions listed.
 
-### United States
+|Azure region|Oracle Exadata Database@Azure|Oracle Autonomous Database@Azure|
+|-------------------------|:-------------:|:--------------:|
+|East US |&check; | &check;|
+|Germany West Central | &check;|&check; |
+|France Central |&check; | |
+|UK South |&check; |&check; |
+|Canada Central |&check; |&check; |
 
-|Azure region|
-|------------|
-|East US (Virginia)|
 
-### Germany
-
-|Azure region|
-|------------|
-|Germany West Central (Frankfurt)|
 
 ## Azure Support scope and contact information
 

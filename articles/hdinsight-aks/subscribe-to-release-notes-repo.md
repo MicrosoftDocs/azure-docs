@@ -8,6 +8,8 @@ ms.date: 11/20/2023
 
 # Subscribe to HDInsight on AKS release notes GitHub repo
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
 Learn how to subscribe to HDInsight on AKS release notes GitHub repo to get email notifications.
 
 ## Prerequisites

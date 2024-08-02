@@ -2,7 +2,7 @@
 title: Provide user access to Azure Deployment Environments projects
 titleSuffix: Azure Deployment Environments
 description: Learn how to configure access to projects for developers by using the Deployment Environments User built-in role.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 12/05/2023
@@ -37,7 +37,7 @@ When you assign a role to specific environment types, the user can perform the a
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -63,7 +63,7 @@ The users can now view the project and all the environment types enabled within 
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |

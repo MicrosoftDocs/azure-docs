@@ -4,9 +4,9 @@ description: What you need to know about large Azure Virtual Machine Scale Sets 
 author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 

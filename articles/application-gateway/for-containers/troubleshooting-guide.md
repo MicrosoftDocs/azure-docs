@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Application Gateway for Containers
-description: Learn how to troubleshoot common issues with Application Gateway for Containers
+description: Learn how to troubleshoot common issues with Application Gateway for Containers.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 02/27/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -26,10 +26,10 @@ Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
-| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.0.0**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.0.0** | app=alb-controller-bootstrap |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.0.2**           | app=alb-controller |
+| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.0.2** | app=alb-controller-bootstrap |
 
-In this example, the ALB controller version is **1.0.0**.
+In this example, the ALB controller version is **1.0.2**.
 
 The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
 
@@ -58,7 +58,7 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
 
     ALB controller uses an election provided by controller-runtime manager to determine an active and standby pod for high availability.
 
-    Copy the name of each alb-controller pod (not the bootstrap pod, in this case, `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
+    Copy the name of each alb-controller pod (not the bootstrap pod, in this case: `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
 
     # [Linux](#tab/active-pod-linux)
 
@@ -78,7 +78,7 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
 
 2. Collect the logs
 
-   Logs from ALB Controller will be returned in JSON format.
+   Logs from ALB Controller are returned in JSON format.
 
     Execute the following kubectl command, replacing the name with the pod name returned in step 1:
 
@@ -111,7 +111,7 @@ Scenarios in which you would notice a 500-error code on Application Gateway for 
 
 #### Symptoms
 
-ApplicationLoadBalancer custom resource status message continually says "Application Gateway for Containers resource `agc-name` is undergoing an update."
+ApplicationLoadBalancer custom resource status message continually says "Application Gateway for Containers resource `Application Gateway for Containers-name` is undergoing an update."
 
 The following logs are repeated by the primary alb-controller pod.
 

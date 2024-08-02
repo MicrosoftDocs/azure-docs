@@ -1,12 +1,12 @@
 ### YamlMime:Landing 
 
-title: Azure API Center (preview) documentation 
-summary: API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
+title: Azure API Center documentation 
+summary: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. Azure API Center enables API discovery, reuse, and governance at scale.
 
 metadata: 
   title: Azure API Center documentation | Microsoft Docs
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
-  ms.service: api-center
+  ms.service: azure-api-center
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
@@ -18,15 +18,21 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About API Center
+  - title: About Azure API Center
     linkLists:
       - linkListType: get-started
         links:
-          - text: What is API Center?
+          - text: What is Azure API Center?
             url: overview.md
           - text: Key concepts
             url: key-concepts.md
-  # Card
+          - text: Frequently asked questions
+            url: frequently-asked-questions.yml
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure API Center
+            url: /training/modules/introduction-to-azure-api-center/
+ # Card
   - title: Manage your API inventory
     linkLists:
       - linkListType: quickstart
@@ -47,19 +53,30 @@ landingContent:
             url: manage-apis-azure-cli.md
           - text: Import APIs from API Management
             url: import-api-management-apis.md
-# Card
+          - text: Build and register APIs - VS Code extension
+            url: use-vscode-extension.md
+ # Card
   - title: Govern APIs
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Analyze APIs using linting rules
             url: enable-api-analysis-linting.md
+      - linkListType: concept
+        links:
+          - text: Use metadata for governance
+            url: metadata.md
   # Card
   - title: Discover APIs
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use VS Code extension
-            url: use-vscode-extension.md
-          - text: Discover APIs with GitHub Copilot Chat
-            url: use-vscode-extension-copilot.md
+          - text: Self-host Azure API Center portal
+            url: enable-api-center-portal.md
+  # Card
+  - title: Related service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure API Management
+            url: ../api-management/api-management-key-concepts.md

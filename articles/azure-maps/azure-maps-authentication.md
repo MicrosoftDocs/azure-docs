@@ -2,8 +2,8 @@
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Microsoft Entra authentication."
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
@@ -425,7 +425,7 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
-[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.md
+[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.yml
 
 [Data]: /rest/api/maps/data
 [Creator]: /rest/api/maps-creator/

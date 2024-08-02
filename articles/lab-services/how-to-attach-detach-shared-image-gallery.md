@@ -3,7 +3,7 @@ title: "Attach/detach a compute gallery to a lab plan"
 titleSuffix: Azure Lab Services
 description: This article describes how to attach or detach an Azure compute gallery to a lab plan in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 03/01/2023
 ---
 
 # Attach or detach an Azure compute gallery to a lab plan in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -89,6 +91,8 @@ If your Azure account is a guest user, your Azure account needs to have the [Dir
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Follow these steps to grant permissions to the Azure Lab Services service principal by using the Azure CLI:
 
 1. Open [Azure Cloud Shell](https://shell.azure.com). Alternately, select the **Cloud Shell** button on the menu bar at the upper right in the [Azure portal](https://portal.azure.com).
@@ -120,6 +124,8 @@ Follow these steps to grant permissions to the Azure Lab Services service princi
         Replace the text placeholders *`<service-principal-object-id>`* and *`<gallery-id>`* with the outcomes of the previous commands.
 
 # [Azure portal](#tab/portal)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you add a role assignment in the Azure portal, the user interface shows the *object ID* of the service principal, which is different from the *application ID*. The object ID for a service principal is different in each Azure subscription. Learn more about [Service principal objects](/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
 

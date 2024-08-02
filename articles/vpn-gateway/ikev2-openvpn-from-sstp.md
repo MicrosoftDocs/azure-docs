@@ -3,9 +3,9 @@ title: 'How to transition to OpenVPN or IKEv2 from SSTP'
 titleSuffix: Azure VPN Gateway
 description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 09/26/2023
+ms.date: 05/15/2024
 ms.author: cherylmc
 
 ---
@@ -55,9 +55,9 @@ You can enable OpenVPN along side with IKEv2 if you desire. OpenVPN is TLS-based
 
 :::image type="content" source="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png" alt-text="Screenshot that shows the Point-to-site configuration page with Open VPN selected." lightbox="./media/ikev2-openvpn-from-sstp/change-tunnel-type.png":::
 
-Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-cert-windows.md).
+Once the gateway has been configured, existing clients won't be able to connect until you [deploy and configure the OpenVPN clients](point-to-site-vpn-client-certificate-windows-openvpn-client.md).
 
-If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-cert-windows.md).
+If you're using Windows 10 or later, you can also use the [Azure VPN Client](point-to-site-vpn-client-certificate-windows-azure-vpn-client.md).
 
 ## <a name="faq"></a>Frequently asked questions
 

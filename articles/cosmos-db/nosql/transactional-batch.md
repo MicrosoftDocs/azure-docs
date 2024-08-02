@@ -3,7 +3,7 @@ title: Transactional batch operations in Azure Cosmos DB using the .NET, Java or
 description: Learn how to use TransactionalBatch in the Azure Cosmos DB .NET, Java SDK or Python SDK to perform a group of point operations that either succeed or fail. 
 author: stefArroyo
 ms.author: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python
 ms.topic: conceptual
@@ -144,7 +144,7 @@ Get or create a container instance:
 
 ```python
 container = database.create_container_if_not_exists(id="batch_container",
-                                                        partition_key=PartitionKey(path='/road_bikes'))
+                                                        partition_key=PartitionKey(path='/category'))
 ```
 In Python, Transactional Batch operations look very similar to the singular operations apis, and are tuples containing (operation_type_string, args_tuple, batch_operation_kwargs_dictionary). Below are sample items that will be used to demonstrate batch operations functionality:
 

@@ -5,10 +5,9 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 02/24/2023
+ms.date: 05/02/2024
 ms.topic: how-to
 ms.author: normesta
-ms.reviewer: klaasl
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -45,17 +44,19 @@ Enable blob inventory reports by adding a policy with one or more rules to your 
    If you select **Blob**, then under **Blob subtype**, choose the types of blobs that you want to include in your report, and whether to include blob versions and/or snapshots in your inventory report.
 
    > [!NOTE]
+   > The option to include blob versions appears only for accounts that don't have the hierarchical namespace feature enabled. 
    > Versions and snapshots must be enabled on the account to save a new rule with the corresponding option enabled.
 
 8. Select the fields that you would like to include in your report, and the format of your reports.
 
 9. Choose how often you want to generate reports.
 
-9. Optionally, add a prefix match to filter blobs in your inventory report.
+10. Optionally, add a prefix match to filter blobs in your inventory report.
 
-10. Select **Save**.
+11. Select **Save**.
 
-    :::image type="content" source="./media/blob-inventory-how-to/portal-blob-inventory.png" alt-text="Screenshot showing how to add a blob inventory rule by using the Azure portal":::
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot showing how to add a blob inventory rule by using the Azure portal.](./media/blob-inventory-how-to/portal-blob-inventory.png)
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -188,8 +189,54 @@ You can add, edit, or remove a policy via the [Azure CLI](/cli/azure/).
 
 ---
 
+## Disable inventory reports
+
+While you can disable individual reports, you can also prevent blob inventory from running at all.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Locate your storage account and display the account overview.
+
+3. Under **Data management**, select **Blob inventory**.
+
+4. Select **Blob inventory settings**, and in the **Blob inventory settings** pane, clear the **Enable blob inventory** checkbox, and then select **Save**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing the Enable blob inventory checkbox in the Azure portal.](./media/blob-inventory-how-to/portal-blob-inventory-disable.png)
+
+   Clearing the **Enable blob inventory** checkbox suspends all blob inventory runs. You can select this checkbox later if you want to resume inventory runs.
+
+## Optionally enable access time tracking
+
+You can choose to enable blob access time tracking. When access time tracking is enabled, inventory reports will include the **LastAccessTime** field based on the time that the blob was last accessed with a read or write operation. To minimize the effect on read access latency, only the first read of the last 24 hours updates the last access time. Subsequent reads in the same 24-hour period don't update the last access time. If a blob is modified between reads, the last access time is the more recent of the two values.
+
+### [Portal](#tab/azure-portal)
+
+To enable last access time tracking with the Azure portal, follow these steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Locate your storage account and display the account overview.
+
+3. Under **Data management**, select **Blob inventory**.
+
+4. Select **Blob inventory settings**, and in the **Blob inventory settings** pane, select the **Enable last access tracking** checkbox.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot showing how to enable last access time tracking of the blob inventory settings by using the Azure portal.](./media/blob-inventory-how-to/portal-blob-inventory-last-access-time.png)
+
+### [PowerShell](#tab/azure-powershell)
+
+[!INCLUDE [azure-storage-set-last-access-time-powershell](../../../includes/azure-storage-set-last-access-time-powershell.md)]
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [azure-storage-set-last-access-time-azure-cli](../../../includes/azure-storage-set-last-access-time-azure-cli.md)]
+
+---
+
 ## Next steps
 
-- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.yml)
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)

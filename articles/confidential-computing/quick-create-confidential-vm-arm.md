@@ -2,8 +2,8 @@
 title: Create an Azure confidential VM with ARM template
 description: Learn how to quickly create and deploy an Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
@@ -302,7 +302,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or [Intel TDX](https://accpublicdocshare.blob.core.windows.net/tdxpublicpreview/TDXpreviewtemplateCMK.json) and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>

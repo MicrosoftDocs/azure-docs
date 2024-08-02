@@ -1,12 +1,13 @@
 ---
 title: Slow query logs
 description: Describes the slow query logs available in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: code-sidd
 ms.author: sisawant
-ms.date: 9/21/2020
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 # Slow query logs in Azure Database for MySQL - Flexible Server
 

@@ -45,7 +45,7 @@ Scenarios for vector search include:
 
 + **Filtered vector search**. A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to text and numeric fields, and are useful for metadata filters, and including or excluding search results based on filter criteria. Although a vector field isn't filterable itself, you can set up a filterable text or numeric field. The search engine can process the filter before or after the vector query executes.
 
-+ **Vector storage**. Azure AI Search stores the data that you query over. Use it as a [pure vector store](vector-store.md) any time you need long-term memory or a knowledge base, or grounding data for [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag), or any app that uses vectors.
++ **Vector database**. Azure AI Search stores the data that you query over. Use it as a [pure vector store](vector-store.md) any time you need long-term memory or a knowledge base, or grounding data for [Retrieval Augmented Generation (RAG) architecture](https://aka.ms/what-is-rag), or any app that uses vectors.
 
 ## How vector search works in Azure AI Search
 
@@ -134,7 +134,7 @@ Within an index definition, you can specify one or more algorithms, and then for
 
 + [Create a vector store](vector-search-how-to-create-index.md) to specify an algorithm in the index and on fields.
 
-+ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true), or Azure SDK beta libraries that target either REST API version.
++ For exhaustive KNN, use [2023-11-01](/rest/api/searchservice/indexes/create-or-update), [2023-10-01-Preview](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview APIs, or Azure SDK beta libraries that target either REST API version.
 
 Algorithm parameters that are used to initialize the index during index creation are immutable and can't be changed after the index is built. However, parameters that affect the query-time characteristics (`efSearch`) can be modified. 
 
@@ -142,7 +142,7 @@ In addition, fields that specify HNSW algorithm also support exhaustive KNN sear
 
 ### Approximate Nearest Neighbors
 
-Approximate Nearest Neighbor search (ANN) is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. 
+Approximate Nearest Neighbor (ANN) search is a class of algorithms for finding matches in vector space. This class of algorithms employs different data structures or data partitioning methods to significantly reduce the search space to accelerate query processing. 
 
 ANN algorithms sacrifice some accuracy, but offer scalable and faster retrieval of approximate nearest neighbors, which makes them ideal for balancing accuracy against efficiency in modern information retrieval applications. You can adjust the parameters of your algorithm to fine-tune the recall, latency, memory, and disk footprint requirements of your search application.
 

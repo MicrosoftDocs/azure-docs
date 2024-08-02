@@ -2,8 +2,6 @@
 title: Operational excellence recommendations
 description: Operational excellence recommendations
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 10/05/2023
 ---
 
@@ -170,7 +168,7 @@ Learn more about [Microsoft App Container App - UseLatestApiVersion (The api ver
 
 This cluster's service principal is expired and the cluster isn't healthy until the service principal is updated
 
-Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](../aks/update-credentials.md).
+Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](/azure/aks/update-credentials).
 
 ### Monitoring addon workspace is deleted
 
@@ -194,7 +192,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and can't take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there isn't enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster can't be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/create-node-pools.md#add-a-node-pool-with-a-unique-subnet).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](/azure/aks/create-node-pools#add-a-node-pool-with-a-unique-subnet).
 
 ### Expired ETCD cert
 
@@ -212,7 +210,7 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster isn't using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](/azure/aks/concepts-storage#ephemeral-os-disk).
 
 ### Outdated Azure Linux (Mariner) OS SKUs Found
 
@@ -224,7 +222,7 @@ Learn more about [Kubernetes service - ClustersWithDeprecatedMarinerSKU (Outdate
 
 This cluster has not enabled the Standard tier that includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
+Learn more about [Kubernetes service - Free and Standard Tier](/azure/aks/free-standard-pricing-tiers).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 
@@ -743,7 +741,7 @@ Learn more about [Volume - Azure NetApp Files AZ Volume SDK version recommendati
 
 The minimum SDK version of 2022-05-01 is recommended for the Azure NetApp Files Cross Zone Replication feature, to enable you to replicate volumes across availability zones within the same region.
 
-Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation (Cross Zone Replication SDK recommendation)](https://aka.ms/anf-sdkversion).
+Learn more about [Volume - Azure NetApp Files Cross Zone Replication SDK recommendation](https://aka.ms/anf-sdkversion).
 
 ### Volume Encryption using Customer Managed Keys with Azure Key Vault SDK Recommendation
 
@@ -761,7 +759,7 @@ Learn more about [Capacity Pool - Azure NetApp Files Cool Access SDK version rec
 
 The minimum SDK version of 2022-xx-xx is recommended for automation of large volume creation, resizing and deletion.
 
-Learn more about [Volume - Large Volumes SDK Recommendation (Large Volumes SDK Recommendation)](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
+Learn more about [Volume - Large Volumes SDK Recommendation](/azure/azure-netapp-files/azure-netapp-files-resource-limits).
 
 ### Prevent hitting subscription limit for maximum storage accounts
 

@@ -25,8 +25,10 @@ If you manage subscriptions in other Microsoft Entra tenants through [Azure Ligh
 
 ## Permissions required
 
-- You must have `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example.
-- To save a query, you must have `microsoft.operationalinsights/querypacks/queries/action` permissions to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example.
+| Action | Permissions required |
+| --- | --- |
+| Check workspace state | `Microsoft.OperationalInsights/workspaces/query/*/read` permissions to the Log Analytics workspaces you query, as provided by the [Log Analytics Reader built-in role](./manage-access.md#log-analytics-reader), for example. |
+| Save a query | `microsoft.operationalinsights/querypacks/queries/action` permissions to the query pack where you want to save the query, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example. |
 
 ## Limitations
 
@@ -130,7 +132,6 @@ Use the `app` expression to retrieve data from a specific classic Application In
 
 `app(`*Identifier*`)`
 
-
 ### Arguments
 
 `*Identifier*`: Identifies the app using one of the formats in the table below.
@@ -164,7 +165,6 @@ union
 
 The `resource` expression is used in a Azure Monitor query [scoped to a resource](scope.md#query-scope) to retrieve data from other resources. 
 
-
 ### Syntax
 
 `resource(`*Identifier*`)`
@@ -177,7 +177,6 @@ The `resource` expression is used in a Azure Monitor query [scoped to a resource
 |:---|:---|:---|
 | Resource | Includes data for the resource. | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
 | Resource Group or Subscription | Includes data for the resource and all resources that it contains.  | resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
-
 
 ### Examples
 

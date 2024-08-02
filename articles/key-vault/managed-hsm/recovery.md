@@ -1,7 +1,7 @@
 ---
 title: Azure Key Vault Managed HSM recovery overview | Microsoft Docs
 description: Managed HSM recovery features are designed to prevent the accidental or malicious deletion of your HSM resource and keys.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to

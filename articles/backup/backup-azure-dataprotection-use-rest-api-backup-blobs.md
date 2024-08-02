@@ -1,10 +1,10 @@
 ---
 title: Back up blobs in a storage account using Azure Data Protection REST API.
 description: In this article, learn how to configure, initiate, and manage backup operations of blobs using REST API.
-ms.topic: conceptual
-ms.date: 10/31/2022
+ms.topic: how-to
+ms.date: 07/24/2024
 ms.assetid: 7c244b94-d736-40a8-b94d-c72077080bbe
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -12,19 +12,15 @@ ms.author: v-abhmallick
 
 # Back up blobs in a storage account using Azure Data Protection via REST API
 
-Azure Backup enables you to easily configure operational backup for protecting block blobs in your storage accounts.
+Azure Backup enables you to easily configure backup for protecting block blobs in your storage accounts.
 
-This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. So, all blobs in the storage account are protected with operational backup.
-
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - Prerequisites
-> - Configure backup
+This article describes how to configure backups for blobs in a storage account via REST API. Backup of blobs is configured at the storage account level. You can now perform [operational](blob-backup-overview.md?tabs=operational-backup) and [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups to protect block blobs in your storage accounts using Azure Backup.
 
 For information on the Azure blob region availability, supported scenarios and limitations, see the [support matrix](blob-backup-support-matrix.md).
 
 ## Prerequisites
+
+Before you back up blobs in a storage account using REST API, ensure that you:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a blob backup policy](backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md)
@@ -33,31 +29,30 @@ For information on the Azure blob region availability, supported scenarios and l
 
 Once you create the vault and policy, you need to consider two critical points to protect all Azure Blobs within a storage account.
 
+- Key entities
+- Permissions
+
 ### Key entities
 
-#### Storage account that contains the blobs for protection
+- **Storage account containing the blobs to be protected**: Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
 
-Fetch the Azure Resource Manager ID of the storage account which contains the blobs to be protected. This serves as the identifier of the storage account.
+  For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
 
-For example, we'll use a storage account named *msblobbackup*, under the resource group *RG-BlobBackup*, in a different subscription and in *west US*.
+  ```http
+  "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup"
+  ```
 
-```http
-"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/RG-BlobBackup/providers/Microsoft.Storage/storageAccounts/msblobbackup"
-```
+- **Backup vault**: The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning the permissions.
 
-#### Backup vault
-
-The Backup vault requires permissions on the storage account to enable backups on blobs present within the storage account. The system-assigned managed identity of the vault is used for assigning the permissions.
-
-For example, we'll use a backup vault called *testBkpVault* in *West US* region under *TestBkpVaultRG* resource group.
+  For example, we'll use a backup vault called *testBkpVault* in *West US* region under *TestBkpVaultRG* resource group.
 
 ### Assign permissions
 
-You need to assign a few permissions via Azure role-based access control (Azure RBAC) to vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+You need to assign a few permissions via Azure role-based access control (Azure RBAC) to the created vault (represented by vault Managed Service Identity) and the relevant storage account. You can do these via Azure portal, PowerShell, or REST API. Learn more about all [related permissions](blob-backup-configure-manage.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
-### Prepare the request to configure backup
+### Prepare the request to configure blob backup
 
-Once you set the relevant permissions to the vault and storage account, and configure the vault and policy, prepare the request to configure backup.
+Once the relevant permissions to the vault and storage account are set, and the vault and policy configuration are done, prepare the request to configure backup.
 
 The following is the request body to configure backup for all blobs within a storage account. The Azure Resource Manager ID (ARM ID) of the storage account and its details are mentioned in the *datasourceinfo* section and the policy information is present in the *policyinfo* section.
 
@@ -81,6 +76,45 @@ The following is the request body to configure backup for all blobs within a sto
 }
 ```
 
+To configure backup with vaulted backup enabled, refer the below request body.
+
+```json
+{backupInstanceDataSourceType is Microsoft.Storage/storageAccounts/blobServices
+backupInstanceResourceType is Microsoft.Storage/storageAccounts
+{
+    "id": null,
+    "name": "{{backupInstanceName}}",
+    "type": "Microsoft.DataProtection/backupvaults/backupInstances",
+    "properties": {
+        "objectType": "BackupInstance",
+        "dataSourceInfo": {
+            "objectType": "Datasource",
+            "resourceID": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceresourcegroup}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceName": "{{backupInstanceName}}",
+            "resourceType": "{{backupInstanceResourceType}}",
+            "resourceUri": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceLocation": "{{location}}",
+            "datasourceType": "{{backupInstanceDataSourceType}}"
+        },
+        "policyInfo": {
+            "policyId": "/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/{{backupVaultRP}}/{{vaultName}}/backupPolicies/{{policyName}}",
+            "name": "{{policyName}}",
+            "policyVersion": "3.2",
+            "policyParameters": {
+                "dataStoreParametersList": [
+                ],
+                "backupDatasourceParametersList" : [
+                    {
+                        "objectType": "BlobBackupDatasourceParameters",
+                        "containersList": ["container1", "container2", "container3", "container4", "container5"]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+
 ### Validate the request to configure backup
 
 To validate if the request to configure backup will be successful, use [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform all required prerequisites and then submit the configuration for backup request.
@@ -97,7 +131,7 @@ For example, this translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-backup) that you prepared earlier is used to give the details of the storage account to be protected.
+The [request body](#prepare-the-request-to-configure-blob-backup) that you prepared earlier is used to give the details of the storage account to be protected.
 
 #### Example request body
 
@@ -118,6 +152,41 @@ The [request body](#prepare-the-request-to-configure-backup) that you prepared e
     },
     "objectType": "BackupInstance"
   }
+}
+```
+
+#### Example request body for vaulted backup
+
+```json
+{
+    "objectType": "ValidateForBackupRequest",
+    "backupInstance": {
+        "objectType": "BackupInstance",
+        "dataSourceInfo": {
+            "objectType": "Datasource",
+            "resourceID": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceName": "{{backupInstanceName}}",
+            "resourceType": "{{backupInstanceResourceType}}",
+            "resourceUri": "/subscriptions/{{backupInstanceSubscriptionId}}/resourceGroups/{{backupInstanceRG}}/providers/{{backupInstanceResourceType}}/{{backupInstanceName}}",
+            "resourceLocation": "{{location}}",
+            "datasourceType": "{{backupInstanceDataSourceType}}"
+        },
+        "policyInfo": {
+            "policyId": "/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/{{backupVaultRP}}/{{vaultName}}/backupPolicies/{{policyName}}",
+            "name": "{{policyName}}",
+            "policyVersion": "3.2",
+            "policyParameters": {
+                "dataStoreParametersList": [
+                ] ,
+                "backupDatasourceParametersList" : [
+                    {
+                        "objectType": "BlobBackupDatasourceParameters",
+                        "containersList": ["container1", "container2", "container3", "container4", "container5"]
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

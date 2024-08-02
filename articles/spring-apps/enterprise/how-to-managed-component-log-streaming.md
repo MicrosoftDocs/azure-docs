@@ -3,7 +3,7 @@ title:  Stream Azure Spring Apps managed component logs in real time
 description: Learn how to use log streaming to view managed component logs in real time.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -16,13 +16,11 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
-This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
-
-For streaming logs of applications in Azure Spring Apps, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md).
+This article describes how to use the Azure CLI to get real-time logs of managed components for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md) and [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md).
 
 ## Prerequisites
 
-- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.19.0 or higher. You can install the extension by using the following command: `az extension add --name spring`.
+- [Azure CLI](/cli/azure/install-azure-cli) with the Azure Spring Apps extension, version 1.24.0 or higher. You can install the extension by using the following command: `az extension add --name spring`.
 
 ## Supported managed components
 
@@ -32,6 +30,7 @@ The following table lists the managed components that are currently supported, a
 |-----------------------------------|----------------------------------------------------------------------------------------------------|
 | Application Configuration Service | `application-configuration-service` <br/> `flux-source-controller` (Supported in ACS Gen2 version) |
 | Spring Cloud Gateway              | `spring-cloud-gateway` <br/> `spring-cloud-gateway-operator`                                       |
+| Spring Cloud Config Server        | `config-server`                                                                                    |
 
 You can use the following command to list all subcomponents:
 
@@ -49,6 +48,7 @@ To stream logs of managed components, you must have the relevant Azure roles ass
 |-----------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------|
 | Application Configuration Service | Azure Spring Apps Application Configuration Service Log Reader Role | `Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action` |
 | Spring Cloud Gateway              | Azure Spring Apps Spring Cloud Gateway Log Reader Role              | `Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action`              |
+| Spring Cloud Config Server        | Azure Spring Apps Spring Cloud Config Server Log Reader Role        | `Microsoft.AppPlatform/Spring/configService/logstream/action`                   |
 
 ### [Azure portal](#tab/azure-Portal)
 
@@ -220,6 +220,27 @@ The command returns logs similar to the following example:
 ...
 ```
 
+#### View tail logs for an instance of config-server
+
+Use the following command to view the tail logs for `config-server`:
+
+```azurecli
+az spring component logs \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-instance-name> \
+    --name config-server \
+    --instance <instance-name>
+```
+
+The command returns logs similar to the following example:
+
+```output
+...
+{"app":"config-server","ts":"2024-05-08T05:38:29.44Z","logger":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","level":"INFO","class":"org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext","method":"prepareWebApplicationContext","file":"ServletWebServerApplicationContext.java","line":291,"thread":"main","message":"Root WebApplicationContext: initialization completed in 3771 ms"}
+{"app":"config-server","ts":"2024-05-08T05:38:31.058Z","logger":"com.microsoft.azure.spring.service.CloudConfigServerApplication","level":"INFO","class":"org.springframework.boot.StartupInfoLogger","method":"logStarted","file":"StartupInfoLogger.java","line":57,"thread":"main","message":"Started CloudConfigServerApplication in 6.888 seconds (process running for 8.986)"}
+...
+```
+
 ---
 
 ### View tail logs for all instances in one command
@@ -289,7 +310,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
    :::image type="content" source="media/how-to-managed-component-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 Use the following command to enable the log stream public endpoint.
 
@@ -325,3 +346,4 @@ The following table shows an example of a basic rule that we recommend. You can 
 - [Troubleshoot VMware Spring Cloud Gateway](./how-to-troubleshoot-enterprise-spring-cloud-gateway.md)
 - [Use Application Configuration Service](./how-to-enterprise-application-configuration-service.md)
 - [Stream Azure Spring Apps application console logs in real time](./how-to-log-streaming.md)
+- [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md)

@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, mode-api
 ---
@@ -15,7 +15,7 @@ Get started with the Microsoft Azure confidential ledger client library for Pyth
 
 Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamper proofing (to ensure all records are kept intact).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
@@ -32,7 +32,7 @@ This quickstart uses the Azure Identity library, along with Azure CLI or Azure P
 
 ### Sign in to Azure
 
-[!INCLUDE [Sign in to Azure](../../includes/confidential-ledger-sign-in-azure.md)]
+[!INCLUDE [Sign in to Azure](~/reusable-content/ce-skilling/azure/includes/confidential-ledger-sign-in-azure.md)]
 
 ### Install the packages
 

@@ -58,7 +58,7 @@ The diagram shows a typical flow of a file sharing scenario for both upload and 
 
 You can follow the tutorial [Upload file to Azure Blob Storage with an Azure Function](/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload) to write the backend code required for file sharing.
 
-Once implemented, you can call this Azure Function inside the `uploadHandler` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
+Once implemented, you can call this Azure Function inside the `handleAttachmentSelection` function to upload files to Azure Blob Storage. For the remaining of the tutorial, we assume you have generated the function using the tutorial for Azure Blob Storage linked previously.
 
 ### Securing your Azure Blob storage container
 
@@ -91,7 +91,7 @@ Use the `npm install` command to install the beta Azure Communication Services U
 
 ```bash
 
-npm install @azure/communication-react@1.13.0-beta.1
+npm install @azure/communication-react@1.16.0-beta.1
 
 ```
 
@@ -100,8 +100,8 @@ you can most consistently use the API from the core libraries in your applicatio
 
 ```bash
 
-npm install @azure/communication-calling@1.21.1-beta.4
-npm install @azure/communication-chat@1.5.0-beta.1
+npm install @azure/communication-calling@1.24.1-beta.2
+npm install @azure/communication-chat@1.6.0-beta.1
 
 ```
 
@@ -121,11 +121,13 @@ You need to replace the variable values for both common variable required to ini
 
 `App.tsx`
 
-```javascript
-import { FileUploadHandler, FileUploadManager } from '@azure/communication-react';
+```typescript
 import { initializeFileTypeIcons } from '@fluentui/react-file-type-icons';
 import {
   ChatComposite,
+  AttachmentUploadTask,
+  AttachmentUploadOptions,
+  AttachmentSelectionHandler,
   fromFlatCommunicationIdentifier,
   useAzureCommunicationChatAdapter
 } from '@azure/communication-react';
@@ -172,12 +174,9 @@ function App(): JSX.Element {
           <ChatComposite
             adapter={chatAdapter}
             options={{
-              fileSharing: {
-                uploadHandler: fileUploadHandler,
-                // If `fileDownloadHandler` is not provided. The file URL is opened in a new tab.
-                downloadHandler: fileDownloadHandler,
-                accept: 'image/png, image/jpeg, text/plain, .docx',
-                multiple: true
+              attachmentOptions: {
+                uploadOptions: uploadOptions,
+                downloadOptions: downloadOptions,
               }
             }} />
         </div>
@@ -190,35 +189,36 @@ function App(): JSX.Element {
   return <h3>Initializing...</h3>;
 }
 
-const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
-  for (const fileUpload of fileUploads) {
+const uploadOptions: AttachmentUploadOptions = {
+  // default is false
+  disableMultipleUploads: false,
+  // define mime types
+  supportedMediaTypes: ["image/jpg", "image/jpeg"]
+  handleAttachmentSelection: attachmentSelectionHandler,
+}
+
+const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTasks) => {
+  for (const task of uploadTasks) {
     try {
-      const { name, url, extension } = await uploadFileToAzureBlob(fileUpload);
-      fileUpload.notifyUploadCompleted({ name, extension, url });
+      const uniqueFileName = `${v4()}-${task.file?.name}`;
+      const url = await uploadFileToAzureBlob(task);
+      task.notifyUploadCompleted(uniqueFileName, url);
     } catch (error) {
       if (error instanceof Error) {
-        fileUpload.notifyUploadFailed(error.message);
+        task.notifyUploadFailed(error.message);
       }
     }
   }
 }
 
-const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
+const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
   // You need to handle the file upload here and upload it to Azure Blob Storage.
   // This is how you can configure the upload
   // Optionally, you can also update the file upload progress.
-  fileUpload.notifyUploadProgressChanged(0.2);
+  uploadTask.notifyUploadProgressChanged(0.2);
   return {
-    name: 'SampleFile.jpg', // File name displayed during download
     url: 'https://sample.com/sample.jpg', // Download URL of the file.
-    extension: 'jpeg' // File extension used for file icon during download.
   };
-
-const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
-      return new URL(fileData.url);
-    }
-  };
-}
 
 ```
 
@@ -229,10 +229,10 @@ To enable Azure Blob Storage upload, we modify the `uploadFileToAzureBlob` metho
 `App.tsx`
 
 ```javascript
-const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
-  const file = fileUpload.file;
+const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
+  const file = uploadTask.file;
   if (!file) {
-    throw new Error("fileUpload.file is undefined");
+    throw new Error("uploadTask.file is undefined");
   }
 
   const filename = file.name;
@@ -258,16 +258,14 @@ const uploadFileToAzureBlob = async (fileUpload: FileUploadManager) => {
     data: formData,
     onUploadProgress: (p) => {
       // Optionally, you can update the file upload progess.
-      fileUpload.notifyUploadProgressChanged(p.loaded / p.total);
+      uploadTask.notifyUploadProgressChanged(p.loaded / p.total);
     },
   });
 
   const storageBaseUrl = "https://<YOUR_STORAGE_ACCOUNT>.blob.core.windows.net";
 
   return {
-    name: filename,
     url: `${storageBaseUrl}/${username}/${filename}`,
-    extension: fileExtension,
   };
 };
 ```
@@ -278,50 +276,92 @@ When an upload fails, the UI Library Chat Composite displays an error message.
 
 ![File Upload Error Bar](./media/file-too-big.png "Screenshot that shows the File Upload Error Bar.")
 
-Here's sample code showcasing how you can fail an upload due to a size validation error by changing the `fileUploadHandler`:
+Here's sample code showcasing how you can fail an upload due to a size validation error:
 
 `App.tsx`
 
 ```javascript
-import { FileUploadHandler } from from '@azure/communication-react';
+import { AttachmentSelectionHandler } from from '@azure/communication-react';
 
-const fileUploadHandler: FileUploadHandler = async (userId, fileUploads) => {
-  for (const fileUpload of fileUploads) {
-    if (fileUpload.file && fileUpload.file.size > 99 * 1024 * 1024) {
+const attachmentSelectionHandler: AttachmentSelectionHandler = async (uploadTasks) => {
+  for (const task of uploadTasks) {
+    if (task.file && task.file.size > 99 * 1024 * 1024) {
       // Notify ChatComposite about upload failure.
       // Allows you to provide a custom error message.
-      fileUpload.notifyUploadFailed('File too big. Select a file under 99 MB.');
+      task.notifyUploadFailed('File too big. Select a file under 99 MB.');
     }
   }
 }
+
+export const attachmentUploadOptions: AttachmentUploadOptions = {
+  handleAttachmentSelection: attachmentSelectionHandler
+};
 ```
 
 ## File downloads - advanced usage
 
-By default, the file `url` provided through `notifyUploadCompleted` method is used to trigger a file download. However, if you need to handle a download in a different way, you can provide a custom `downloadHandler` to ChatComposite. Next, we modify the `fileDownloadHandler` that we declared previously to check for an authorized user before allowing to download the file.
+By default, the UI library will open a new tab pointing to the URL you have set when you `notifyUploadCompleted`. Alternatively, you can have a custom logic to handle attachment downloads via `actionsForAttachment`. Let's take a look of an example.
 
 `App.tsx`
 
 ```javascript
-import { FileDownloadHandler } from "communication-react";
+import { AttachmentDownloadOptions } from "communication-react";
 
-const isUnauthorizedUser = (userId: string): boolean => {
-  // You need to write your own logic here for this example.
+const downloadOptions: AttachmentDownloadOptions = {
+  actionsForAttachment: handler
+}
+
+const handler = async (attachment: AttachmentMetadata, message?: ChatMessage) => {
+   // here we are returning a static action for all attachments and all messages
+   // alternately, you can provide custom menu actions based on properties in `attachment` or `message` 
+   return [defaultAttachmentMenuAction];
 };
 
-const fileDownloadHandler: FileDownloadHandler = async (userId, fileData) => {
-  if (isUnauthorizedUser(userId)) {
-    // Error message is displayed to the user.
-    return { errorMessage: "You don’t have permission to download this file." };
-  } else {
-    // If this function returns a Promise that resolves a URL string,
-    // the URL is opened in a new tab.
-    return new URL(fileData.url);
+const customHandler = = async (attachment: AttachmentMetadata, message?: ChatMessage) => {
+   if (attachment.extension === "pdf") {
+    return [
+      {
+        title: "Custom button",
+        icon: (<i className="custom-icon"></i>),
+        onClick: () => {
+          return new Promise((resolve, reject) => {
+              // custom logic here
+              window.alert("custom button clicked");
+              resolve();
+              // or to reject("xxxxx") with a custom message
+          })
+        }
+      },
+      defaultAttachmentMenuAction
+    ];
+  } else if (message?.senderId === "user1") {
+    return [
+      {
+        title: "Custom button 2",
+        icon: (<i className="custom-icon-2"></i>),
+        onClick: () => {
+          return new Promise((resolve, reject) => {
+            window.alert("custom button 2 clicked");
+            resolve();
+          })
+        }
+      },
+      // you can also override the default action partially
+      {
+        ...defaultAttachmentMenuAction,
+        onClick: () => {
+          return new Promise((resolve, reject) => {
+            window.alert("default button clicked");
+            resolve();
+          })
+        }
+      }
+    ];
   }
-};
+}
 ```
 
-Download errors are displayed to users in an error bar on top of the Chat Composite.
+If there were any issues during the download and the user needs to be notified, we can just `throw` an error with a message in the `onClick` function then the message would be shown in the error bar on top of the Chat Composite.
 
 ![File Download Error](./media/download-error.png "Screenshot that shows the File Download Error.")
 

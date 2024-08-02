@@ -1,19 +1,20 @@
 ---
 title: Profile query performance
 description: Learn how to profile query performance in Azure Database for MySQL - Flexible Server by using EXPLAIN.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 10/20/2023
 ---
 
 # Profile query performance in Azure Database for MySQL - Flexible Server by using EXPLAIN
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 **EXPLAIN** is a handy tool that can help you optimize queries. You can use an EXPLAIN statement to get information about how SQL statements are run. The following shows example output from running an EXPLAIN statement.
 

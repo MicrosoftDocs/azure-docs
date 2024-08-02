@@ -227,13 +227,13 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/ea-portal-rest-apis.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-rest-apis",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-ea-portal-troubleshoot.md",
@@ -292,8 +292,8 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-enterprise-api.md",
-            "redirect_url": "/azure/cost-management-billing/manage/enterprise-api",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md",
@@ -587,8 +587,13 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-mariadb.md",
-            "redirect_url": "/azure/cost-management-billing/reservations/understand-reservation-charges-mariadb",
-            "redirect_document_id": true
+            "redirect_url": "/azure/cost-management-billing/reservations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-reservation-charges-mariadb.md",
+            "redirect_url": "/azure/cost-management-billing/reservations",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges-mysql.md",
@@ -1214,6 +1219,126 @@
             "source_path_from_root": "/articles/cost-management-billing/manage/troubleshoot-sign-in-issue.md",
             "redirect_url": "/azure/cost-management-billing/troubleshoot-subscription/troubleshoot-sign-in-issue",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-allocation.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-allocation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-analysis-showback.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-analysis-showback",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-anomalies.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-anomalies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-budgets.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-budgets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-chargeback.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-chargeback",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-commitment-discounts.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-commitment-discounts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-culture.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-culture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-education.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-education",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-efficiency.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-efficiency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-forecasting.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-forecasting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-frameworks.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-frameworks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-ingestion-normalization.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-ingestion-normalization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-onboarding.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-onboarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-policy.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-policy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-shared-cost.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-shared-cost",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-structure.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-structure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-unit-costs.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-unit-costs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/capabilities-workloads.md",
+            "redirect_url": "/cloud-computing/finops/capabilities-workloads",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/conduct-finops-iteration.md",
+            "redirect_url": "/cloud-computing/finops/conduct-finops-iteration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/cost-optimization-workbook.md",
+            "redirect_url": "/cloud-computing/finops/cost-optimization-workbook",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/overview-finops.md",
+            "redirect_url": "/cloud-computing/finops/overview-finops",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/finops/index.yml",
+            "redirect_url": "/cloud-computing/finops/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-api.md",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/enterprise-rest-apis.md",
+            "redirect_url": "/azure/cost-management-billing/automate/migrate-ea-reporting-arm-apis-overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management/use-reports.md",

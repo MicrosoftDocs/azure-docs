@@ -3,7 +3,7 @@ title: 'Virtual WAN virtual hub routing preference'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN virtual hub routing preference.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/27/2024
 ms.author: cherylmc
@@ -12,7 +12,7 @@ ms.author: cherylmc
 
 A Virtual WAN virtual hub connects to virtual networks (VNets) and on-premises using connectivity gateways, such as site-to-site (S2S) VPN gateway, ExpressRoute (ER) gateway, point-to-site (P2S) gateway, and SD-WAN Network Virtual Appliance (NVA). The virtual hub router provides central route management and enables advanced routing scenarios using route propagation, route association, and custom route tables.
 
-The virtual hub router takes routing decisions using built-in route selection algorithm. To influence routing decisions in virtual hub router towards on-premises, we now have a new Virtual WAN hub feature called **Hub routing preference** (HRP). When a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections for a destination route-prefix in on-premises, the virtual hub router’s route selection algorithm adapts based on the hub routing preference configuration and selects the best routes. For steps, see [How to configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
+The virtual hub router takes routing decisions using built-in route selection algorithm. To influence routing decisions in virtual hub router towards on-premises, we now have a new Virtual WAN hub feature called **Hub routing preference (HRP)**. When a virtual hub router learns multiple routes across S2S VPN, ER and SD-WAN NVA connections for a destination route-prefix in on-premises, the virtual hub router’s route selection algorithm adapts based on the hub routing preference configuration and selects the best routes. For steps, see [How to configure virtual hub routing preference](howto-virtual-hub-routing-preference.md).
 
 ## <a name="selection"></a>Route selection algorithm for virtual hub
 
@@ -53,6 +53,7 @@ You can select one of the three possible virtual hub routing preference configur
 
 * When there are multiple virtual hubs in a Virtual WAN scenario, a virtual hub selects the best routes using the route selection algorithm described above, and then advertises them to the other virtual hubs in the virtual WAN.
 * For a given set of destination route-prefixes, if the ExpressRoute routes are preferred and the ExpressRoute connection subsequently goes down, then routes from S2S VPN or SD-WAN NVA connections will be preferred for traffic destined to the same route-prefixes. When the ExpressRoute connection is restored, traffic destined for these route-prefixes might continue to prefer the S2S VPN or SD-WAN NVA connections. To prevent this from happening, you need to configure your on-premises device to utilize AS-Path prepending for the routes being advertised to your S2S VPN Gateway and SD-WAN NVA, as you need to ensure the AS-Path length is longer for VPN/NVA routes than ExpressRoute routes.
+* When processing routes from remote hubs, routes learnt from hubs with routing intent private routing policies are always preferred over routes from hubs without routing intent. This is to ensure customer traffic takes the secure path when a secure path is available. To avoid asymmetric routing, enable Routing Intent on all hubs in Virtual WAN.
 
 ## Routing scenarios
 

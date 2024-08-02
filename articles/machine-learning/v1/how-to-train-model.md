@@ -3,9 +3,9 @@ title: Train models with the Azure Machine Learning Python SDK (v1) (preview)
 titleSuffix: Azure Machine Learning
 description: Add compute resources (compute targets) to your workspace to use for machine learning training and inference with SDK v1.
 services: machine-learning
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
@@ -357,7 +357,7 @@ compute_target.detach()
 ```
 
 > [!WARNING]
-> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](../../aks/kubernetes-walkthrough.md#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
+> Detaching a cluster **does not delete the cluster**. To delete an Azure Kubernetes Service cluster, see [Use the Azure CLI with AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster). To delete an Azure Arc-enabled Kubernetes cluster, see [Azure Arc quickstart](../../azure-arc/kubernetes/quickstart-connect-cluster.md#clean-up-resources).
 
 ## Notebook examples
 

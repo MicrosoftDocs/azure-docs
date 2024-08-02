@@ -3,7 +3,7 @@ title: 'Tutorial: Build a Node.js web app by using the JavaScript SDK to manage 
 description: Learn how to use Azure Cosmos DB to store and access data from a Node.js Express web application hosted on the Web Apps feature of the Azure App Service.
 author: deborahc
 ms.author: dech
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.topic: tutorial
@@ -55,7 +55,7 @@ Before following the instructions in this article, ensure that you have the foll
 
 Start by creating an Azure Cosmos DB account. If you already have an account or if you use the Azure Cosmos DB Emulator for this tutorial, you can skip to [Create a new Node.js application](#create-new-app).
 
-[!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../includes/cosmos-db-keys.md)]
 
@@ -367,7 +367,7 @@ After you've completed the initial setup and configuration, learn how to write t
 
 Now build the user interface so that a user can interact with the application. The Express application you created in the previous sections uses **Jade** as the view engine.
 
-1. The *layout.jade* file in the **views** directory is used as a global template for other *.jade* files. In this step, you modify it to use Twitter Bootstrap, which is a toolkit used to design a website.
+1. The *layout.jade* file in the **views** directory is used as a global template for other *.jade* files. In this step, you modify it to use Bootstrap, which is a toolkit used to design a website.
 
 1. Open the *layout.jade* file found in the **views** folder and replace the contents with the following code:
 

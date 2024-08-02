@@ -3,7 +3,7 @@ title: Azure Attestation Basic Concepts
 description: Basic concepts of Azure Attestation.
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin
@@ -16,11 +16,11 @@ This article defines some basic concepts related to Microsoft Azure Attestation.
 
 ## JSON Web Token (JWTs)
 
-[JSON Web Token](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+[JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
 
 ## JSON Web Key (JWK)
 
-[JSON Web Key](https://tools.ietf.org/html/rfc7517) (JWK) is a JSON data structure that represents a cryptographic key. This specification also defines a JWK Set JSON data structure that represents a set of JWKs.
+[JSON Web Key (JWK)](https://tools.ietf.org/html/rfc7517) is a JSON data structure that represents a cryptographic key. This specification also defines a JWK Set JSON data structure that represents a set of JWKs.
 
 ## Attestation provider
 

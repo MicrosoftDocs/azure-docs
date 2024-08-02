@@ -3,7 +3,7 @@ title: Your MongoDB app reimagined
 description: Easily transition your MongoDB apps to attain planet scale and high availability while maintaining continuity.
 author: wmwxwa
 ms.author: wangwilliam
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/10/2024
@@ -11,15 +11,15 @@ ms.date: 04/10/2024
 
 # Your MongoDB app reimagined
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
-You have launched an app. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
+You have launched an app using [MongoDB](https://www.mongodb.com/) as its database. Word of mouth spreads slowly, and a small but loyal user base forms. They diligently give you feedback, helping you improve it. As you continue to fix issues and add features, more and more users fall in love with your app, and your users grows like a snowball rolling down a hill. Celebrities and influencers endorse it; teenagers use its name as an everyday verb. Suddenly, your app's usage skyrockets, and you watch in awe as the user count soars, anticipating your creation to become a staple on devices worldwide.
 
 But, timeouts become increasingly frequent, especially when traffic spikes. The rapid growth and unpredictable demand push your infrastructure to its limits, making scalability a pressing issue. Yet overhauling your data pipeline is out of the question given your resource and time constraints.
 
 You chose MongoDB for its flexibility. Now, when you face demanding requirements on scalability, availability, continuity, and cost, Azure Cosmos DB for MongoDB comes to the rescue.
 
-You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose the underlying service to [dynamically scale their ChatGPT service](../introduction.md) – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. While you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, you also reap the following benefits from choosing either of the two available architectures:
+You point your app to the connection string of this fully managed database, which offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. Even OpenAI chose its underlying service to dynamically scale their ChatGPT service – one of the fastest-growing consumer apps ever – enabling high reliability and low maintenance. When you use its API [for MongoDB](introduction.md), you continue to use your existing MongoDB skills and your favorite MongoDB drivers, SDKs, and tools, while reaping the following benefits from choosing either of the two available architectures:
 
 ## Dynamically scale your MongoDB app
 
@@ -67,4 +67,4 @@ You point your app to the connection string of this fully managed database, whic
 ## How to connect a MongoDB application
 
 - [Connect to vCore-based model](vcore/migration-options.md) and [FAQ](vcore/faq.yml)
-- [Connect to RU-based model](connect-account.md) and [FAQ](faq.yml)
+- [Get answers to frequently asked questions about Azure Cosmos DB for MongoDB RU](faq.yml)

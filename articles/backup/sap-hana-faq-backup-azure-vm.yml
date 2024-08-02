@@ -3,8 +3,8 @@ metadata:
   title: FAQ — Back up SAP HANA databases on Azure VMs
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
-  ms.service: backup
-  ms.date: 03/17/2024
+  ms.service: azure-backup
+  ms.date: 05/13/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -123,44 +123,6 @@ sections:
           How can I manage or clean up the HANA catalog for database with the Azure Backup enabled?
         answer: |
           You can prune the HANA catalog using SAP recommended methods, such as BACKUP CATALOG DELETE statements or HANA Studio/Cockpit. Learn more how to [manage operations using SAP native clients](sap-hana-database-manage.md#manage-operations-using-sap-hana-native-clients).
-
-      - question: |
-          How can I use SAP HANA Backup with my HANA Replication set-up?
-        answer: |
-          Currently, Azure Backup doesn't have the capability to understand an HSR set-up. This means that the primary and secondary nodes of the HSR will be treated as two individual, unrelated VMs. You'll first need to configure backup on the primary node. When a fail-over happens, backup must be configured on the secondary node (which now becomes the primary node). There's no automatic fail-over of backup to the other node.
-          
-          To back up data from the active (primary) node at any given point-in-time, you can *switch the protection* to the secondary node that has now become the primary after fail-over.
-          
-          To perform this **switch protection**, follow these steps:
-          
-          - [Stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with retain data) on primary
-          - Run the [pre-registration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the secondary node
-          - [Discover the databases](tutorial-backup-sap-hana-db.md#discover-the-databases) on the secondary node and [configure backups](tutorial-backup-sap-hana-db.md#configure-backup) on them
-          
-          These steps must be performed manually after every fail-over. You can perform these steps through command line / HTTP REST in addition to the Azure portal. To automate these steps, you can use an Azure runbook.
-          
-          Here's a detailed example of how **switch protection** must be performed:
-          
-          In this example, you have two nodes - Node 1 (primary) and Node 2 (secondary) in the HSR set-up.  Backups are configured on Node 1. As mentioned above, don't attempt yet to configure backups on Node 2.
-          
-          When the first failover happens, Node 2 becomes the primary. Then,
-          
-          1. Stop protection of Node 1 (previous primary) with the retain data option.
-          1. Run the pre-registration script on Node 2 (which is now the primary).
-          1. Discover databases on Node 2, assign backup policy, and configure backups.
-          
-          Then a first full backup is triggered on Node 2 and after that completes, log backups start.
-          
-          When the next fail-over happens, Node 1 becomes primary again and Node 2 becomes secondary. Now repeat the process:
-          
-          1. Stop protection of Node 2 with retain data option.
-          1. Run the pre-registration script on Node 1 (which has become the primary again)
-          1. Then [Resume backup](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) on Node 1 with the required policy (as the backups were stopped earlier on Node 1).
-          
-          Then full backup will again be triggered on Node 1 and after that completes, log backups start.
-
-          >[!Note]
-          >[Running the pre-registration script](./tutorial-backup-sap-hana-db.md#prerequisites) with custom backup user as input could help you manage your HSR backups better. This is because it ensures that both the nodes of the HSR setup have the same backup key, thereby reduces the backup sync and failure issues.
 
       - question: |
           What happens if I don’t Stop protection (with retain data) on the secondary/inactive node on the HSR set-up?

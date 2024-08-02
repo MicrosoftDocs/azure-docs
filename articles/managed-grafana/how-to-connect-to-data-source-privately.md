@@ -1,7 +1,7 @@
 ---
 title: How to connect to a data source privately in Azure Managed Grafana
 description: Learn how to connect an Azure Managed Grafana instance to a data source using Managed Private Endpoint
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
@@ -33,6 +33,8 @@ Managed private endpoints work with Azure services that support private link. Us
 - Azure SQL managed instance
 - Azure SQL server
 - Private link services
+- Azure Databricks
+- Azure Database for PostgreSQL flexible servers ([Only for servers that have public access networking](/azure/postgresql/flexible-server/concepts-networking-private-link))
 
 ## Prerequisites
 

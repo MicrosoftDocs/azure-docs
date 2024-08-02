@@ -2,7 +2,7 @@
 title: Create an Azure Payment HSM with Azure Payment HSM
 description: Create an Azure Payment HSM with Azure Payment HSM
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial
@@ -70,7 +70,7 @@ Get-AzProviderFeature -FeatureName "FastPathEnabled" -ProviderNamespace Microsof
 
 - You must have an Azure subscription. You can [create a free account](https://azure.microsoft.com/free/) if you don't have one.
   
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]\
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]\
 
 - You must install the Az.DedicatedHsm PowerShell module:
 

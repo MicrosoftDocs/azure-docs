@@ -3,10 +3,9 @@ title: "Quickstart: Create an Azure Data Factory using Azure CLI"
 description: This quickstart creates an Azure Data Factory, including a linked service, datasets, and a pipeline. You can run the pipeline to do a file copy action.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 
@@ -111,7 +110,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory linked-service create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --linked-service-name AzureStorageLinkedService \
-       --properties @AzureStorageLinkedService.json
+       --properties AzureStorageLinkedService.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `InputDataset.json`:
@@ -140,7 +139,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name InputDataset --factory-name ADFTutorialFactory \
-       --properties @InputDataset.json
+       --properties InputDataset.json
    ```
 
 1. In your working directory, create a JSON file with this content, named `OutputDataset.json`:
@@ -168,7 +167,7 @@ Next, create a linked service and two datasets.
    ```azurecli
    az datafactory dataset create --resource-group ADFQuickStartRG \
        --dataset-name OutputDataset --factory-name ADFTutorialFactory \
-       --properties @OutputDataset.json
+       --properties OutputDataset.json
    ```
 
 ## Create and run the pipeline
@@ -234,7 +233,7 @@ Finally, create and run the pipeline.
    ```azurecli
    az datafactory pipeline create --resource-group ADFQuickStartRG \
        --factory-name ADFTutorialFactory --name Adfv2QuickStartPipeline \
-       --pipeline @Adfv2QuickStartPipeline.json
+       --pipeline Adfv2QuickStartPipeline.json
    ```
 
 1. Run the pipeline by using the [az datafactory pipeline create-run](/cli/azure/datafactory/pipeline#az-datafactory-pipeline-create-run) command:

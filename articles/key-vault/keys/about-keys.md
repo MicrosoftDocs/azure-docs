@@ -2,10 +2,9 @@
 title: About keys - Azure Key Vault
 description: Overview of Azure Key Vault REST interface and developer details for keys.
 services: key-vault
-author: mbaldwin
-manager: msmbaldwin
+author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: overview
 ms.date: 01/30/2024
@@ -23,7 +22,7 @@ Azure Key Vault provides two types of resources to store and manage cryptographi
 ||||
 
 - **Vaults** - Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.
-- **Managed HSMs** - Managed HSM provides single-tenant, zone-resilient (where available), highly available HSMs to store and manage your cryptographic keys. Most suitable for applications and usage scenarios that handle high value keys. Also helps to meet most stringent security, compliance, and regulatory requirements. 
+- **Managed HSMs** - Managed HSM provides single-tenant, highly available HSMs to store and manage your cryptographic keys. Most suitable for applications and usage scenarios that handle high value keys. Also helps to meet most stringent security, compliance, and regulatory requirements. 
 
 > [!NOTE]
 > Vaults also allow you to store and manage several types of objects like secrets, certificates and storage account keys, in addition to cryptographic keys.

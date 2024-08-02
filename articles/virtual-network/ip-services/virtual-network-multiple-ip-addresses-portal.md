@@ -2,10 +2,10 @@
 title: Assign multiple IP addresses to VMs - Azure portal
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure portal.
 services: virtual-network
-ms.date: 08/24/2023
+ms.date: 03/22/2024
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23

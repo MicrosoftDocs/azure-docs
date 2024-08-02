@@ -5,7 +5,7 @@ author: johnjrayborn
 ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 
 ---
@@ -102,7 +102,7 @@ One of the advantages of an Azure–based solution is the ability to scale out. 
 
 - **PaaS scaling.** Azure PaaS offerings scale compute resources. For example, [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) allocates compute resources to meet increases in the volume of requests.
 
-- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](../../../../aks/concepts-clusters-workloads.md) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
+- **Kubernetes clusters.** Applications on Azure can use [Kubernetes clusters](/azure/aks/concepts-clusters-workloads) for compute services for specified resources. Azure Kubernetes Service (AKS) is a managed service that orchestrates Kubernetes nodes, pools, and clusters on Azure.
 
 To choose the right method for scaling out compute resources, it’s important to understand how Azure and mainframes differ. The key is how—or if—data is shared by compute resources. In Azure, data (by default) is not typically shared by multiple VMs. If data sharing is required by multiple VMs in a scale-out compute cluster, the shared data must reside in a resource that supports this functionality. On Azure, data sharing involves storage as the following section discusses.
 
@@ -126,7 +126,7 @@ Each tier can also provide appropriate disaster recovery services. For example, 
 - [IBM CICS and the Coupling Facility: Beyond the Basics](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Creating required users for a Db2 pureScale Feature installation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale Clustered Database Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale Clustered Database Solution](https://www.ibm.com/docs/en/db2/10.1.0?topic=editions-db2-purescale-feature)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### Azure Government

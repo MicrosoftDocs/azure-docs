@@ -57,6 +57,9 @@ Once you verify your query, you can create the alert rule. Select **New alert ru
 
 On the **Condition** tab, the **Log query** is already filled in. The **Measurement** section defines how the records from the log query are measured. If the query doesn't perform a summary, then the only option is to **Count** the number of **Table rows**. If the query includes one or more summarized columns, then you have the option to use the number of **Table rows** or a calculation based on any of the summarized columns. **Aggregation granularity** defines the time interval over which the collected values are aggregated.  For example, if the aggregation granularity is set to 5 minutes, the alert rule evaluates the data aggregated over the last 5 minutes. If the aggregation granularity is set to 15 minutes, the alert rule evaluates the data aggregated over the last 15 minutes. It is important to choose the right aggregation granularity for your alert rule, as it can affect the accuracy of the alert.
 
+> [!NOTE]
+> The combined size of all data in the log alert rule properties cannot exceed 64KB. This can be caused by too many dimensions, the query being too large, too many action groups, or a long description. When creating a large alert rule, remember to optimize these areas. 
+
 :::image type="content" source="media/tutorial-log-alert/alert-rule-condition.png" lightbox="media/tutorial-log-alert/alert-rule-condition.png"alt-text="Alert rule condition":::
 
 ### Configure dimensions

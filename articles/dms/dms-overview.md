@@ -5,7 +5,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 02/08/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: overview
 ms.custom:
   - sql-migration-content
@@ -23,9 +23,9 @@ With Azure Database Migration Service currently we offer two versions:
 
 **Database Migration Service (classic)** via Azure portal, PowerShell and Azure CLI is an older version of the Azure Database Migration Service. It offers database modernization to Azure and support scenarios like – SQL Server, PostgreSQL, MySQL, and MongoDB.
 
-[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](../../includes/deprecation-announcement-dms-classic-sql.md)]
+[!INCLUDE [Azure Database Migration Service (classic) - SQL scenarios retirement announcement](./includes/deprecation-announcement-dms-classic-sql.md)]
 
-[!INCLUDE [database-migration-service-ads](../../includes/database-migration-service-ads.md)]
+[!INCLUDE [database-migration-service-ads](./includes/database-migration-service-ads.md)]
 
 ## Compare versions
 

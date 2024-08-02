@@ -52,7 +52,7 @@ Automation rules are made up of several components:
 
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** or **when an alert is created**. Recall that incidents include alerts, and that both alerts and incidents can be created by analytics rules, of which there are several types, as explained in [Threat detection in Microsoft Sentinel](threat-detection.md).
 
 The following table shows the different possible scenarios that will cause an automation rule to run.
 
@@ -85,11 +85,9 @@ Even without being onboarded to the unified portal, you might anyway decide to u
 - A playbook can be triggered by an alert and send the alert to an external ticketing system for incident creation and management, creating a new ticket for each alert.
 
 > [!NOTE]
-> - Alert-triggered automation is available only for alerts created by [**Scheduled** and **NRT** analytics rules](detect-threats-built-in.md). Alerts created by **Microsoft Security** analytics rules are not supported.
+> - Alert-triggered automation is available only for alerts created by [**Scheduled**, **NRT**, and **Microsoft security** analytics rules](threat-detection.md).
 >
-> - Similarly, alert-triggered automation for alerts created by Microsoft Defender XDR is not available in the unified security operations platform in the Microsoft Defender portal.
->
-> - For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform).
+> - Alert-triggered automation for alerts created by Microsoft Defender XDR is not available in the unified security operations platform. For more information, see [Automation with the unified security operations platform](automation.md#automation-with-the-unified-security-operations-platform).
 
 ### Conditions
 
@@ -101,13 +99,16 @@ When an automation rule is triggered, it checks the triggering incident or alert
 
 For rules defined using the trigger **When an incident is created**, you can define conditions that check the **current state** of the values of a given list of incident properties, using one or more of the following operators:
 
-An incident property's value
 - **equals** or **does not equal** the value defined in the condition.
 - **contains** or **does not contain** the value defined in the condition.
 - **starts with** or **does not start with** the value defined in the condition.
 - **ends with** or **does not end with** the value defined in the condition.
 
-The **current state** in this context refers to the moment the condition is evaluated - that is, the moment the automation rule runs. If more than one automation rule is defined to run in response to the creation of this incident, then changes made to the incident by an earlier-run automation rule are considered the current state for later-run rules.
+For example, if you define **Analytic rule name** as **Contains == Brute force attack against a Cloud PC**, an analytic rule with the **Brute force attack against Azure portal** doesn't meet the condition. However, if you define **Analytic rule name** as **Does not contain == User credentials**, then both the **Brute force attack against a Cloud PC** and **Brute force against Azure portal** analytics rules meet the condition.
+
+> [!NOTE]
+> The **current state** in this context refers to the moment the condition is evaluated - that is, the moment the automation rule runs. If more than one automation rule is defined to run in response to the creation of this incident, then changes made to the incident by an earlier-run automation rule are considered the current state for later-run rules.
+>
 
 #### Incident update trigger
 

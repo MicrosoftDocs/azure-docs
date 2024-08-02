@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 01/04/2024
+ms.date: 05/20/2024
 ---
 
 # Managed connectors in Azure Logic Apps
@@ -521,7 +521,6 @@ For more information, see these topics:
 
 * [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
 * [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
-* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Scale with multiple instances - Azure SignalR Service
 description: In many scaling scenarios, customers often need to create multiple instances and use them together to create a large-scale deployment. For example, sharding requires multiple instances support.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp
@@ -31,7 +31,7 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <Connect
 
 ### Add multiple endpoints from code
 
-A `ServicEndpoint` class describes the properties of an Azure SignalR Service endpoint.
+A `ServiceEndpoint` class describes the properties of an Azure SignalR Service endpoint.
 You can configure multiple instance endpoints when using Azure SignalR Service SDK through:
 ```cs
 services.AddSignalR()

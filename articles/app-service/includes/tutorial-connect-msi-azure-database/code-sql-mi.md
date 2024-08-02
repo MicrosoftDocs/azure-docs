@@ -2,7 +2,7 @@
 author: xfz11
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/26/2023
+ms.date: 04/17/2024
 ms.author: xiaofanzhou
 ---
 
@@ -18,6 +18,10 @@ ms.author: xiaofanzhou
 
     ```csharp
     using Microsoft.Data.SqlClient;
+
+    // AZURE_SQL_CONNECTIONSTRING should be one of the following:
+    // For system-assigned managed identity:"Server=tcp:<server-name>.database.windows.net;Database=<database-name>;Authentication=Active Directory Default;TrustServerCertificate=True"
+    // For user-assigned managed identity: "Server=tcp:<server-name>.database.windows.net;Database=<database-name>;Authentication=Active Directory Default;User Id=<client-id-of-user-assigned-identity>;TrustServerCertificate=True"
     
     string connectionString = 
         Environment.GetEnvironmentVariable("AZURE_SQL_CONNECTIONSTRING")!;
@@ -77,7 +81,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     python -m pip install pyodbc
     ```
 
-1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. Uncomment the part of the code snippet for the authentication type you want to use.
     ```python
     import os;
     import pyodbc
@@ -105,7 +109,7 @@ For more information, see [Connect using Microsoft Entra authentication](/sql/co
     ```bash
     npm install mssql
     ```
-1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. Uncomment the part of the code snippet for the authentication type you want to use.
     ```javascript
     import sql from 'mssql';
     

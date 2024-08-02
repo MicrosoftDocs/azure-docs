@@ -56,7 +56,7 @@ The following environments are supported:
 
 ### Permissions
 
-- Verify you're added to the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.md) role for the target **Application Insights Snapshot**.
+- Verify you're added to the [Application Insights Snapshot Debugger](../../role-based-access-control/role-assignments-portal.yml) role for the target **Application Insights Snapshot**.
 
 ## How Snapshot Debugger works
 
@@ -106,6 +106,19 @@ While the Snapshot Debugger process continues to run and serve traffic to users 
 > No more than 50 snapshots per day can be uploaded.
 
 If you enabled the Snapshot Debugger but you aren't seeing snapshots, see the [Troubleshooting guide](snapshot-debugger-troubleshoot.md).
+
+## Overhead
+
+The Snapshot Debugger is designed for use in production environments. The default settings include rate limits to minimize the impact on your applications. 
+
+However, you may experience small CPU, memory, and I/O overhead associated with the Snapshot Debugger, such as:
+- When an exception is thrown in your application
+- If the exception handler decides to create a snapshot
+- When `TrackException` is called
+
+There is **no additional cost** for storing data captured by Snapshot Debugger.
+
+[See example scenarios in which you may experience Snapshot Debugger overhead.](./snapshot-debugger-troubleshoot.md#snapshot-debugger-overhead-scenarios)
 
 ## Limitations
 
@@ -163,7 +176,7 @@ This section contains the release notes for the `Microsoft.ApplicationInsights.S
 
 For bug reports and feedback, [open an issue on GitHub](https://github.com/microsoft/ApplicationInsights-SnapshotCollector).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### [1.4.6](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.6)
 A point release to address a regression when using .NET 8 applications.

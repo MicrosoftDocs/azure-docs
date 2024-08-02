@@ -3,14 +3,14 @@ title: Deploy models from HuggingFace hub to Azure Machine Learning online endpo
 titleSuffix: Azure Machine Learning
 description: Deploy and score transformers based large language models from the Hugging Face hub. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
-ms.custom: devx-track-python
+ms.custom: devx-track-python, update-code
 ms.topic: how-to
-ms.reviewer: ssalgado
-author: ManojBableshwar
-ms.author: swatig
-ms.date: 05/15/2023
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
+ms.date: 12/15/2023
 ---
 
 # Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference 
@@ -28,7 +28,7 @@ Managed online endpoints in Azure Machine Learning help you deploy models to pow
 
 ## Deploy HuggingFace hub models using Studio 
 
-To find a model to deploy, open the model catalog in Azure Machine Learning studio. Select on the HuggingFace hub collection. Filter by task or license and search the models. Select the model tile to open the model page.
+To find a model to deploy, open the model catalog in Azure Machine Learning studio. Select 'All Filters', then select 'HuggingFace' in the Filter by collections section. Select the model tile to open the model page.
 
 ### Deploy the model
 
@@ -38,8 +38,6 @@ Choose the real-time deployment option to open the quick deploy dialog. Specify 
 * Select the number of instances. One instance is sufficient for testing but we recommend considering two or more instances for production. 
 * Optionally specify an endpoint and deployment name.
 * Select deploy. You're then navigated to the endpoint page which, might take a few seconds. The deployment takes several minutes to complete based on the model size and instance type. 
-
-:::image type="content" source="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" lightbox="media/how-to-deploy-models-from-huggingface/deploy-models-from-huggingface.gif" alt-text="Animation showing the location of the model catalog within the Azure Machine learning studio":::
 
 Note: If you want to deploy to en existing endpoint, select `More options` from the quick deploy dialog and use the full deployment wizard.
 
@@ -83,8 +81,9 @@ ml_client.online_deployments.begin_create_or_update(ManagedOnlineDeployment(
     instance_type="Standard_DS2_v2",
     instance_count=1,
 )).wait()
+endpoint = ml_client.online_endpoints.get(endpoint_name)
 endpoint.traffic = {"demo": 100}
-ml_client.begin_create_or_update(endpoint_name).result()
+ml_client.begin_create_or_update(endpoint).result()
 ```
 
 ### Test the deployed model

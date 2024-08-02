@@ -2,7 +2,7 @@
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux
@@ -15,7 +15,7 @@ ms.author: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs
 
-[Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) allows cloud providers, such as Azure, to:
+[Red Hat Update Infrastructure (RHUI)](https://access.redhat.com/products/red-hat-update-infrastructure) allows cloud providers, such as Azure, to:
 
 - Mirror Red Hat-hosted repository content
 - Create custom repositories with Azure-specific content
@@ -91,12 +91,13 @@ Extended Update Support (EUS) repositories are available to customers who might 
 > [!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you install a package that is usually available from the RHEL Extras channel, you can't install while on EUS. For more information, see [Red Hat Enterprise Linux Extras Product Life Cycle](https://access.redhat.com/support/policy/updates/extras/).
 
-Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
+Support for EUS RHEL7 ended in June 30, 2028. For more information, see [Red Hat Enterprise Linux Extended Maintenance](https://access.redhat.com/support/policy/updates/errata/#Long_Support).
 
 - RHEL 7.4 EUS support ended August 31, 2019
 - RHEL 7.5 EUS support ended April 30, 2020
 - RHEL 7.6 EUS support ended May 31, 2021
 - RHEL 7.7 EUS support ended August 30, 2021
+- RHEL 7.9 EUS support ended June 30, 2028
 - RHEL 8.4 EUS support ended May 31, 2023
 - RHEL 8.6 EUS support ends May 31, 2024
 - RHEL 9.0 EUS support ends May 31, 2024
@@ -107,7 +108,7 @@ Support for EUS RHEL7 ended in August 30, 2021. For more information, see [Red H
 #### [Switching to EUS repositories on RHEL7](#tab/rhel7)
 
 >[!NOTE]
->Support for RHEL7 EUS ended in August 30, 2021. It is not recommended to switch to EUS repositories in RHEL7 anymore.
+>Support for RHEL7 EUS ended in June 30, 2028. It is not recommended to switch to EUS repositories in RHEL7 anymore.
 
 
 #### [Switching to EUS repositories on RHEL8](#tab/rhel8)
@@ -125,7 +126,8 @@ Use the following procedure to lock a RHEL 8.x VM to a particular minor release.
 1. Add EUS repositories.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config' install rhui-azure-rhel8-eus
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
    ```
 
 
@@ -206,7 +208,7 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install rhui-azure-rhel7
+   sudo yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config install rhui-azure-rhel7
    ```
 
 1. Update your RHEL VM.
@@ -234,7 +236,8 @@ To remove the version lock, use the following commands. Run the commands as `roo
 1. Add non-EUS repository.
 
    ```bash
-   sudo dnf --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config' install rhui-azure-rhel8
+   wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+   sudo dnf --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
    ```
 
 1. Update your RHEL VM.

@@ -62,7 +62,7 @@ Use the API to get all the data you need at the highest-level scope available. W
 
 ### Notes about pricing
 
-If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-details).
+If you want to reconcile usage and charges with your price sheet or invoice, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).
 
 ### A single resource might have multiple records for a single day
 
@@ -320,7 +320,7 @@ QPUs consumed by an API call.
 
 List of remaining quotas.
 
-## Next steps
+## Related content
 
 - [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 - [Create and manage exported data](./tutorial-export-acm-data.md) with Exports.

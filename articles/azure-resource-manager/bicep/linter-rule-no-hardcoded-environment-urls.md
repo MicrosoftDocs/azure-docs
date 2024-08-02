@@ -1,9 +1,9 @@
 ---
 title: Linter rule - no hardcoded environment URL
 description: Linter rule - no hardcoded environment URL
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no hardcoded environment URL
@@ -45,7 +45,7 @@ In some cases, you can fix it by getting a property from a resource you've deplo
 param storageAccountName string
 param location string = resourceGroup().location
 
-resource sa 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+resource sa 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {

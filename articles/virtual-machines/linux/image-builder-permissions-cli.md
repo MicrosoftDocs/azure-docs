@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 04/02/2021
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: devx-track-azurecli, linux-related-content
 ---
@@ -170,7 +170,7 @@ netRoleDefName="Azure Image Builder Network Def"$(date +'%s')
 
 # Update the JSON definition using stream editor
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
-sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
+sed -i -e "s/<vnetRgName>/$VnetResourceGroup/g" aibRoleNetworking.json
 sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibRoleNetworking.json
 
 # Create a custom role from the aibRoleNetworking.json description file.

@@ -3,9 +3,9 @@ title: Release notes for dedicated SQL pool (formerly SQL DW)
 description: Release notes for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 3/24/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -226,6 +226,6 @@ For tooling improvements, make sure you have the correct version installed speci
 - [Customer Advisory Team blogs](/archive/blogs/sqlcat/)
 - [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
-- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [X](https://x.com/hashtag/SQLDW)
 - [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Azure glossary](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)

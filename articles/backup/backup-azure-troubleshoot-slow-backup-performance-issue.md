@@ -3,7 +3,7 @@ title: Troubleshoot slow backup of files and folders
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
 ms.topic: troubleshooting
 ms.date: 12/28/2022
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -22,7 +22,7 @@ updates to the Backup agent to fix various issues, add features, and improve per
 
 We also strongly recommend that you review the [Azure Backup service FAQ](backup-azure-backup-faq.yml) to make sure you're not experiencing any of the common configuration issues.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Cause: Backup job running in unoptimized mode
 

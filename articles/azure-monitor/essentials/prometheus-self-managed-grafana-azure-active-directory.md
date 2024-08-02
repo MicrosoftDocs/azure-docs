@@ -4,7 +4,7 @@ description: How to configure Azure Monitor managed service for Prometheus as da
 author: EdB-MSFT 
 ms.topic: conceptual
 ms.author: edbaynash
-ms.date: 11/04/2022
+ms.date: 05/31/2024
 ---
 
 # Configure self-managed Grafana to use Azure Monitor managed service for Prometheus with Microsoft Entra ID.

@@ -4,7 +4,7 @@ description: Learn how to integrate Microsoft Defender for Cloud and Azure Backu
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/30/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -85,7 +85,7 @@ To authorize the API connection to Office 365, follow these steps:
 
 ## Trigger the logic app
 
-You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](../defender-for-cloud/workflow-automation.md).
+You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](../defender-for-cloud/workflow-automation.yml).
 
 ### Trigger manually
 
@@ -104,7 +104,7 @@ To trigger the logic app manually, follow these steps:
 
 ### Trigger using workflow automation via Azure portal
 
-Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](../defender-for-cloud/workflow-automation.md).
+Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](../defender-for-cloud/workflow-automation.yml).
 
 >[!Note]
 >The minimum role required to deploy the workflow automation are:

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/03/2024
+ms.date: 04/17/2024
 ms.author: alkohli
 ---
 
@@ -19,7 +19,7 @@ The following release notes identify critical open issues and resolved issues fo
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they're added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2403** release, which maps to software version **3.2.2642.2453**.
+This article applies to the **Azure Stack Edge 2403** release, which maps to software version **3.2.2642.2487**.
 
 > [!Warning] 
 > In this release, you must update the packet core version to AP5GC 2308 before you update to Azure Stack Edge 2403. For detailed steps, see [Azure Private 5G Core 2308 release notes](../private-5g-core/azure-private-5g-core-release-notes-2308.md).

@@ -6,11 +6,11 @@ summary: Learn how to deploy Azure Firewall, a cloud-based network security serv
 metadata:
   title: Azure Firewall documentation
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 11/09/2023
+  ms.date: 05/30/2024
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -85,6 +85,17 @@ landingContent:
           - text: Deploy Firewall Basic
             url: deploy-firewall-basic-portal-policy.md
 
+  # Card
+  - title: Learn about Azure Firewall integration in Copilot for Security
+    linkLists:
+      - linkListType: concept
+        links:
+         - text: Azure Firewall integration in Microsoft Copilot for Security (preview)
+           url: firewall-copilot.md
+         - text: Azure Firewall integration in Copilot for Security - protect networks at machine speed with Gen AI
+           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-integration-in-copilot-for-security-protect/ba-p/4144614
+
+  
   # Card
   - title: Integrate with Load Balancer
     linkLists:

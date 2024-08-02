@@ -2,14 +2,16 @@
 title: Index lookup tool for flows in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description:  This article introduces the Index Lookup tool for flows in Azure Machine Learning.
-author: e-straight
+author: lgayhardt
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
+ms.custom:
+  - build-2024
 ms.topic: reference
 ms.date: 01/23/2024
-ms.author: eur
-ms.reviewer: lagayhar
+ms.author: lagayhar
+ms.reviewer: eur
 ---
 
 # Index Lookup tool for Azure Machine Learning (Preview)
@@ -152,7 +154,7 @@ The following JSON format response is an example returned by the tool that inclu
 
 ## How to migrate from legacy tools to the Index Lookup tool
 
-The Index Lookup tool looks to replace the three deprecated legacy index tools, the [Vector Index Lookup tool](./vector-index-lookup-tool.md), the [Vector DB Lookup tool](./vector-db-lookup-tool.md) and the [Faiss Index Lookup tool](./faiss-index-lookup-tool.md).
+The Index Lookup tool looks to replace the three deprecated legacy index tools, the Vector Index Lookup tool, the Vector DB Lookup tool and the Faiss Index Lookup tool.
 If you have a flow that contains one of these tools, follow the steps below to upgrade your flow.
 
 ### Upgrade your tools

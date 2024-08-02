@@ -2,7 +2,7 @@
 title: What's new in Azure Virtual WAN?
 description: Learn what's new with Azure Virtual WAN such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: cherylmc
@@ -91,6 +91,9 @@ The following features are currently in gated public preview. After working with
 |1|ExpressRoute connectivity with Azure Storage and the 0.0.0.0/0 route|If you have configured a 0.0.0.0/0 route statically in a virtual hub route table or dynamically via a network virtual appliance for traffic inspection, that traffic will bypass inspection when destined for Azure Storage and is in the same region as the ExpressRoute gateway in the virtual hub. | | As a workaround, you can either use [Private Link](../private-link/private-link-overview.md) to access Azure Storage or put the Azure Storage service in a different region than the virtual hub.|
 |2| Default routes (0/0) won't propagate inter-hub |0/0 routes won't propagate between two virtual WAN hubs. | June 2020 |  None. Note: While the Virtual WAN team has fixed the issue, wherein static routes defined in the static route section of the VNet peering page propagate to route tables listed in "propagate to route tables" or the labels listed in "propagate to route tables" on the VNet connection page, default routes (0/0) won't propagate inter-hub. |
 |3| Two ExpressRoute circuits in the same peering location connected to multiple hubs |If you have two ExpressRoute circuits in the same peering location, and both of these circuits are connected to multiple virtual hubs in the same Virtual WAN, then connectivity to your Azure resources might be impacted. | July 2023 | Make sure each virtual hub has at least 1 virtual network connected to it. This ensures connectivity to your Azure resources. The Virtual WAN team is also working on a fix for this issue. |
+|4| ExpressRoute ECMP Support | Today, ExpressRoute ECMP is not enabled by default for virtual hub deployments. When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. | | To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com. |
+| 5| Virtual WAN hub address prefixes are not advertised to other Virtual WAN hubs in the same Virtual WAN.| You can't leverage Virtual WAN hub-to-hub full mesh routing capabilities to provide connectivity between  NVA orchestration software deployed in a VNET or on-premises connected to a Virtual WAN hub to an Integrated NVA or SaaS solution deployed in a different Virtual WAN hub.  | | If your NVA or SaaS orchestrator is deployed on-premises, connect that on-premises site to all Virtual WAN hubs with NVAs or SaaS solutions deployed in them. If your orchestrator is in an Azure VNET, manage NVAs or SaaS solutions using public IP. Support for Azure VNET orchestrators is on the roadmap.|
+|6| Configuring routing intent to route between connectivity and firewall NVAs in the same Virtual WAN Hub| Virtual WAN routing intent private routing policy does not support routing between a SD-WAN NVA and a Firewall NVA (or SaaS solution) deployed in the same Virtual hub.| | Deploy the connectivity and firewall integrated NVAs in two different hubs in the same Azure region. Alternatively, deploy the connectivity NVA to a spoke Virtual Network connected to your Virtual WAN Hub and leverage the [BGP peering](scenario-bgp-peering-hub.md).|
 
 ## Next steps
 

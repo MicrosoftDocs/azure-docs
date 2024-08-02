@@ -6,7 +6,7 @@ author: karlaescobar
 ms.author: karlaescobar
 ms.reviewer: maghan
 ms.date: 08/07/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
@@ -69,6 +69,7 @@ As you prepare for the migration, be sure to consider the following limitations.
 * Currently, DMS doesn't support migrating the DEFINER clause for objects. All object types with definers on the source are dropped and after the migration, the default definer for all objects that support a definer clause and that are created during schema migration, will be set to the login used to run the migration.
 * Currently, DMS only supports migrating a schema as part of data movement. If nothing is selected for data movement, the schema migration won't occur. Note that selecting a table for schema migration also selects it for data movement.
 * Online migration support is limited to the ROW binlog format.
+* Azure Database for MySQL - Flexible Server does not support mixed case databases, mixed case databases on the source will not be included for an online migration.
 * Online migration now supports DDL statement replication when migrating to a v8.0 or v5.7 Azure Database for MySQL Flexible Server target server.
   * Statement replication is supported for databases, tables, and schema objects (views, routines, triggers) selected for schema migration when configuring an Azure DMS migration activity. Data definition and administration statements for databases, tables, and schema objects that aren’t selected won’t be replicated. Selecting an entire server for migration will replicate statements for any tables, databases, and schema objects that are created on the source server after the initial load has completed.
   * Azure DMS statement replication supports all of the Data Definition statements listed [here](https://dev.mysql.com/doc/refman/8.0/en/sql-data-definition-statements.html), with the exception of the following commands:
@@ -83,6 +84,8 @@ As you prepare for the migration, be sure to consider the following limitations.
     * REPAIR TABLE
     * ANALYZE TABLE
     * CHECKSUM TABLE
+  * Azure DMS statement or binlog replication does not support the following syntax: ‘CREATE TABLE `b` as SELECT * FROM `a`;’. The replication of this DDL will result in the following error: “Only BINLOG INSERT, COMMIT and ROLLBACK statements are allowed after CREATE TABLE with START TRANSACTION statement.”
+* Migration duration can be affected by compute maintenance on the backend, which can reset the progress.
 
 ## Best practices for creating a flexible server for faster data loads using DMS
 

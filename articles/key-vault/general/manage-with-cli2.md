@@ -4,7 +4,7 @@ description: Use this article to automate common tasks in Key Vault by using the
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024
@@ -205,16 +205,16 @@ az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --role Contributor
 
 To authorize the application to access the key or secret in the vault, use the `az keyvault set-policy` command.
 
-For example, if your vault name is ContosoKeyVault, the application has an appID of 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed, and you want to authorize the application to decrypt and sign with keys in your vault, use the following command:
+For example, if your vault name is ContosoKeyVault and you want to authorize the application to decrypt and sign with keys in your vault, use the following command with your application ID:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --key-permissions decrypt sign
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --key-permissions decrypt sign
 ```
 
 To authorize the same application to read secrets in your vault, type the following command:
 
 ```azurecli
-az keyvault set-policy --name "ContosoKeyVault" --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
+az keyvault set-policy --name "ContosoKeyVault" --spn {application-id} --secret-permissions get
 ```
 
 ## Setting key vault advanced access policies

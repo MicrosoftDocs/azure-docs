@@ -5,7 +5,7 @@ description: Answers to the most frequently asked questions about Microsoft Azur
 author: asudbring
 ms.service: virtual-network
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 07/22/2024
 ms.author: allensu
 ---
 
@@ -76,7 +76,7 @@ In addition, you can't add the following address ranges:
 
 ### Can I have public IP addresses in my virtual networks?
 
-Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.yml#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my virtual network?
 
@@ -130,10 +130,10 @@ Unicast is supported in virtual networks. Multicast, broadcast, IP-in-IP encapsu
 
 Azure virtual networks provide DHCP service and DNS to Azure Virtual Machines. However, you can also deploy a DHCP Server in an Azure VM to serve the on-prem clients via a DHCP Relay Agent.
 
-DHCP Server in Azure was previously marked as unsupported since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
+DHCP Server in Azure was previously marked not feasible since the traffic to port UDP/67 was rate limited in Azure. However, recent platform updates have removed the rate limitation, enabling this capability. 
 
 > [!NOTE]
-> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. So, this will result in some timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure, but this should succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. This will result in timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure. The DHCP RENEW will succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ### Can I ping a default gateway in a virtual network?
 
@@ -255,7 +255,7 @@ The address is released from a VM deployed through either deployment model when 
 
 ### Can I manually assign IP addresses to NICs within the VM operating system?
 
-Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config).
+Yes, but we don't recommend it unless it's necessary, such as when you're assigning multiple IP addresses to a virtual machine. For details, see [Assign multiple IP addresses to virtual machines](./ip-services/virtual-network-multiple-ip-addresses-portal.md).
 
 If the IP address assigned to an Azure NIC that's attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
 
@@ -366,7 +366,7 @@ Yes. You can use REST APIs for virtual networks in the [Azure Resource Manager](
 
 Yes. Learn more about using:
 
-* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
+* The Azure portal to deploy virtual networks through the [Azure Resource Manager](manage-virtual-network.yml#create-a-virtual-network) and [classic](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal) deployment models.
 * PowerShell to manage virtual networks deployed through the [Resource Manager](/powershell/module/az.network) deployment model.
 * The Azure CLI or Azure classic CLI to deploy and manage virtual networks deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](/previous-versions/azure/virtual-machines/azure-cli-arm-commands?toc=%2fazure%2fvirtual-network%2ftoc.json#network-resources) deployment models.
 
@@ -429,6 +429,10 @@ No. You can't enable virtual network peering if address spaces overlap.
 ### Can I peer a virtual network to two virtual networks with the Use Remote Gateway option enabled on both peerings?
 
 No. You can enable the **Use Remote Gateway** option on only one peering to one of the virtual networks.
+
+### Can I move a virtual network that has a peering connection to another virtual network?
+
+No. You can't move a virtual network that has a peering connection to another virtual network. You must delete the peering connection before moving the virtual network.
 
 ### How much do virtual network peering links cost?
 
@@ -624,7 +628,6 @@ There is no limit on the total number of service endpoints in a virtual network.
 |Azure Cosmos DB|    64|
 |Azure Event Hubs|    128|
 |Azure Service Bus|    128|
-|Azure Data Lake Storage Gen1|    100|
 
 >[!NOTE]
 > The limits are subject to change at the discretion of the Azure services. Refer to the respective service documentation for details.

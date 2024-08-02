@@ -6,7 +6,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 ms.custom: compute-evergreen
 ---
 
@@ -15,7 +15,7 @@ ms.custom: compute-evergreen
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-In this article, you'll troubleshoot allocation failures where Azure Cloud services (classic) can't deploy because of allocation constraints.
+In this article, you troubleshoot allocation failures where Azure Cloud services (classic) can't deploy because of allocation constraints.
 
 When you deploy instances to a Cloud service (classic) or add new web or worker role instances, Microsoft Azure allocates compute resources.
 
@@ -30,21 +30,21 @@ In Azure portal, navigate to your Cloud service (classic) and in the sidebar sel
 
 ![Image shows the Operation log (classic) blade.](./media/cloud-services-troubleshoot-constrained-allocation-failed/cloud-services-troubleshoot-allocation-logs.png)
 
-When you're inspecting the logs of your Cloud service (classic), you'll see the following exception:
+When you inspect the logs of your Cloud service (classic), you see the following exception:
 
 |Exception Type  |Error Message  |
 |---------|---------|
-|ConstrainedAllocationFailed     |Azure operation '`{Operation ID}`' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region.|
+|ConstrainedAllocationFailed     |Azure operation '`{Operation ID}`' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there's an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Retry later or try reducing the virtual machine (VM) size or number of role instances. Alternatively, if possible, remove the constraints or try deploying to a different region.|
 
 ## Cause
 
 When the first instance is deployed to a Cloud service (in either staging or production), that Cloud service gets pinned to a cluster.
 
-Over time, the resources in this cluster may become fully utilized. If a Cloud service (classic) makes an allocation request for more resources when insufficient resources are available in the pinned cluster, the request will result in an allocation failure. For more information, see the [allocation failure common issues](cloud-services-allocation-failures.md#common-issues).
+Over time, the resources in this cluster may become fully utilized. If a Cloud service (classic) makes an allocation request for more resources when insufficient resources are available in the pinned cluster, the request results in an allocation failure. For more information, see the [allocation failure common issues](cloud-services-allocation-failures.md#common-issues).
 
 ## Solution
 
-Existing cloud services are *pinned* to a cluster. Any further deployments for the Cloud service (classic) will happen in the same cluster.
+Existing cloud services are *pinned* to a cluster. Any further deployments for the Cloud service (classic) happen in the same cluster.
 
 When you experience an allocation error in this scenario, the recommended course of action is to redeploy to a new Cloud service (classic) (and update the *CNAME*).
 
@@ -76,4 +76,4 @@ For more allocation failure solutions and background information:
 > [!div class="nextstepaction"]
 > [Allocation failures - Cloud service (classic)](cloud-services-allocation-failures.md)
 
-If your Azure issue isn't addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.
+If your Azure issue isn't addressed in this article, visit the Azure forums on [the Microsoft Developer Network (MSDN) and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on X](https://x.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.

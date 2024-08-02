@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/04/2022
 ms.topic: quickstart
-ms.service: cache
+ms.service: azure-cache-redis
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java
 ---
@@ -25,7 +25,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ## Create an Azure Cache for Redis
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

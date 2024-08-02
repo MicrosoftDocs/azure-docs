@@ -2,16 +2,14 @@
 title: Dapr Topic trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr topic data changes.
 ms.topic: reference
-ms.date: 11/29/2023
+ms.date: 05/10/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js
+ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Topic trigger for Azure Functions
-
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 Azure Functions can be triggered on a Dapr topic subscription using the following Dapr events.
 

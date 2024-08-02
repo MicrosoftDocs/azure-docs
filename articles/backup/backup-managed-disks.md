@@ -2,8 +2,8 @@
 title: Back up Azure Managed Disks
 description: Learn how to back up Azure Managed Disks from the Azure portal.
 ms.topic: conceptual
-ms.date: 11/03/2022
-ms.service: backup
+ms.date: 05/09/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -70,16 +70,22 @@ A Backup vault is a storage entity in Azure that holds backup data for various n
 
    You can pick **first successful backup** taken daily or weekly, and provide the retention duration that the specific backups are to be retained before they're deleted. This option is useful to retain specific backups of the day or week for a longer duration of time. All other frequent backups can be retained for a shorter duration.
 
-   ![Retention settings](./media/backup-managed-disks/retention-settings.png)
+   ![Retention settings](./media/backup-managed-disks/retention-settings.png) 
 
    >[!NOTE]
-   >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
+   >Azure Backup for Managed Disks uses incremental snapshots which are limited to 500 snapshots per disk. At a point in time you can have 500 snapshots for a disk. Thus, to prevent backup failure the retention duration is limited by the snapshot limit. To allow you to take on-demand backups aside from scheduled backups, backup policy limits the total backups to 450. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk.
+
+   You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
 
 1. Complete the backup policy creation by selecting **Review + create**.
 
+>[!Note]
+>- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
+>- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
+
 ## Configure backup
 
-- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage](../storage/common/storage-redundancy.md) (ZRS) by default in ZRS supported regions.
+- Azure Disk backup supports only the operational tier backup. Copying of backups to the vault storage tier is currently not supported. The Backup vault storage redundancy setting (LRS/GRS) doesn’t apply to the backups stored in the operational tier.              <br>         Incremental snapshots are stored in a Standard HDD storage, irrespective of the selected storage type of the parent disk. For additional reliability, incremental snapshots are stored on [Zone Redundant Storage (ZRS)](../storage/common/storage-redundancy.md) by default in ZRS supported regions.
 
 - Azure Disk backup supports cross-subscription (backup vault in one subscription and the source disk in another) backup and restore. Currently, cross-region backup and restore aren't supported by Azure Disk backup, that is, the backup vault and disk to back up are in different regions.      <br>        So, to use Azure Disk backup, ensure that the backup vault and disk to back up are in the same region.
 

@@ -1,18 +1,20 @@
 ---
-title: 'Quickstart: Create with Azure libraries (SDK) for Python'
+title: "Quickstart: Create with Azure libraries (SDK) for Python"
 description: In this Quickstart, learn how to create an Azure Database for PostgreSQL - Flexible Server instance using Azure libraries (SDK) for Python.
 author: AlicjaKucharczyk
-ms.service: postgresql
-ms.subservice: flexible-server
-ms.custom: devx-track-python-sdk
-ms.topic: quickstart
 ms.author: alkuchar
-ms.date: 01/23/2024
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
+ms.subservice: flexible-server
+ms.topic: quickstart
+ms.custom:
+  - devx-track-python-sdk
 ---
 
 # Quickstart: Use an Azure libraries (SDK) for Python to create an Azure Database for PostgreSQL - Flexible Server instance
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you learn how to use the [Azure libraries (SDK) for Python](/azure/developer/python/sdk/azure-sdk-overview?view=azure-python&preserve-view=true) 
 to create an Azure Database for PostgreSQL flexible server instance.

@@ -2,7 +2,7 @@
 title: Quickstart - Deploy your first web application to Azure Spring Apps
 description: Describes how to deploy a web application to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 10/31/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
@@ -48,7 +48,7 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 - The **Azure portal** option is the easiest and the fastest way to create resources and deploy applications with a single click. This option is suitable for Spring developers who want to quickly deploy applications to Azure cloud services.
 - The **Azure portal + Maven plugin** option provides a more conventional way to create resources and deploy applications step by step. This option is suitable for Spring developers using Azure cloud services for the first time.
-- The **Azure CLI** option is a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
+- The **Azure CLI** option uses a powerful command line tool to manage Azure resources. This option is suitable for Spring developers who are familiar with Azure cloud services.
 
 ::: zone-end
 

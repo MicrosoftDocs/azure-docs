@@ -3,7 +3,7 @@ title: Stream data from Kafka into Azure Stream Analytics
 description: Learn about setting up Azure Stream Analytics as a consumer from Kafka
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/20/2024
 ---
@@ -26,8 +26,8 @@ Azure Stream Analytics lets you connect directly to Kafka clusters to ingest dat
 This article shows how to set up Kafka as an input source for Azure Stream Analytics. There are six steps:
 
 1. Create an Azure Stream Analytics job.
-2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSl security protocols.
-3. Configure Azure Key vault if you are using mTLS or SASL_SSl security protocols.
+2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSL security protocols.
+3. Configure Azure Key vault if you are using mTLS or SASL_SSL security protocols.
 4. Upload certificates as secrets into Azure Key vault.
 5. Grant Azure Stream Analytics permissions to access the uploaded certificate.
 6. Configure Kafka input in your Azure Stream Analytics job.
@@ -49,6 +49,7 @@ The following table lists the property names and their description for creating 
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A named, ordered, and partitioned stream of data that allows for the publish-subscribe and event-driven processing of messages.|
 | Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
+| Consumer Group Id            | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream.                              |
 
 :::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
@@ -58,14 +59,10 @@ The following table lists the property names and their description for creating 
 
 You can use four types of security protocols to connect to your Kafka clusters:
 
-> [!NOTE]
-> For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
-> You must upload certificates as secrets to key vault using Azure CLI.
-
 |Property name   |Description   |
 |----------|-----------|
-|mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM |
+|mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.    |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None | No authentication and  encryption. |
 

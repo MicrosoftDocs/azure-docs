@@ -1,10 +1,10 @@
 ---
 title: Monitor the health of your Microsoft Sentinel automation rules and playbooks
 description: Use the SentinelHealth and AzureDiagnostics data tables to keep track of your automation rules' and playbooks' execution and performance.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 05/20/2024
 ms.service: microsoft-sentinel
 ---
 
@@ -14,33 +14,11 @@ To ensure proper functioning and performance of your security orchestration, aut
 
 Set up notifications of health events for relevant stakeholders, who can then take action. For example, define and send email or Microsoft Teams messages, create new tickets in your ticketing system, and so on.
 
-This article describes how to use Microsoft Sentinel's [health monitoring features](health-audit.md) to keep track of your automation rules and playbooks' health from within Microsoft Sentinel.
-
-## Summary
-
-
-
-
-- **Microsoft Sentinel automation health logs:**
-
-    - This log captures events that record the running of automation rules, and the end result of these runnings - if they succeeded or failed, and if they failed, why. The log records the collective success or failure of the launch of the actions in the rule, and it also lists the playbooks called by the rule.
-    - The log also captures events that record the on-demand (manual or API-based) triggering of playbooks, including the **identities that triggered them**, whether they succeeded or failed, and if they failed, why.
-    - This log *does not include* a record of the execution of the contents of a playbook, only of the success or failure of the launching of the playbook. For a log of the actions taken within a playbook, see the next list below.
-    - These logs are collected in the *SentinelHealth* table in Log Analytics.
-    
-    > [!IMPORTANT]
-    >
-    > The *SentinelHealth* data table is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-- **Azure Logic Apps diagnostics logs:**
-
-    - These logs capture the results of the running of playbooks (also known as Logic Apps workflows) and the actions in them.
-    - These logs provide you with a complete picture of your automation health when used in tandem with the automation health logs.
-    - These logs are collected in the *AzureDiagnostics* table in Log Analytics.
+This article describes how to use Microsoft Sentinel's health monitoring features to keep track of your automation rules and playbooks's health from within Microsoft Sentinel. For more information, see [Auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 
 ## Use the SentinelHealth data table (Public preview)
 
-To get automation health data from the *SentinelHealth* data table, you must first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
+To get automation health data from the *SentinelHealth* data table, first turn on the Microsoft Sentinel health feature for your workspace. For more information, see [Turn on health monitoring for Microsoft Sentinel](enable-monitoring.md).
 
 Once the health feature is turned on, the *SentinelHealth* data table is created at the first success or failure event generated for your automation rules and playbooks.
 
@@ -66,21 +44,27 @@ For more information, see [SentinelHealth table columns schema](health-table-ref
 
 ### Statuses, errors and suggested steps
 
-For **Automation rule run**, you may see the following statuses:
-- Success: rule executed successfully, triggering all actions.
-- Partial success: rule executed and triggered at least one action, but some actions failed.
-- Failure: automation rule did not run any action due to one of the following reasons:
+For the **Automation rule run** status, you may see the following statuses:
+
+- **Success**: rule executed successfully, triggering all actions.
+- **Partial success**: rule executed and triggered at least one action, but some actions failed.
+- *Failure*: automation rule did not run any action due to one of the following reasons:
+
     - Conditions evaluation failed.
     - Conditions met, but the first action failed.
 
-For **Playbook was triggered**, you may see the following statuses:
-- Success: playbook was triggered successfully.
-- Failure: playbook could not be triggered. 
+For the **Playbook was triggered** status, you may see the following statuses:
+
+- **Success**: playbook was triggered successfully.
+- **Failure**: playbook could not be triggered.
+
     > [!NOTE]
     > 
-    > "Success" means only that the automation rule successfully triggered a playbook. It doesn't tell you when the playbook started or ended, the results of the actions in the playbook, or the final result of the playbook. To find this information, query the Logic Apps diagnostics logs (see the instructions later in this article).
+    > **Success** means only that the automation rule successfully triggered a playbook. It doesn't tell you when the playbook started or ended, the results of the actions in the playbook, or the final result of the playbook.
+    >
+    > To find this information, query the Logic Apps diagnostics logs. For more information, see [Get the complete automation picture](#get-the-complete-automation-picture).
 
-#### Error descriptions and suggested actions
+### Error descriptions and suggested actions
 
 | Error description                 | Suggested actions                         |
 | --------------------------------- | ----------------------------------------- |
@@ -106,14 +90,14 @@ For **Playbook was triggered**, you may see the following statuses:
 
 ## Get the complete automation picture
 
-Microsoft Sentinel's health monitoring table allows you to track the triggering of playbooks, but to monitor what happens inside your playbooks and their results when they're run, you must also [turn on diagnostics in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md) to ingest the following events to the *AzureDiagnostics* table:
+Microsoft Sentinel's health monitoring table allows you to track when playbooks are triggered, but to monitor what happens inside your playbooks and their results when they're run, you must also [turn on diagnostics in Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md) to ingest the following events to the *AzureDiagnostics* table:
 
 - {Action name} started
 - {Action name} ended
 - Workflow (playbook) started
 - Workflow (playbook) ended
 
-These added events will give you additional insights into the actions being taken in your playbooks.
+These added events provide additional insights into the actions being taken in your playbooks.
 
 ### Turn on Azure Logic Apps diagnostics
 
@@ -149,10 +133,13 @@ SentinelHealth
 ## Use the health monitoring workbook
 
 The **Automation health** workbook helps you visualize your health data, as well as the correlation between the two types of logs that we just mentioned. The workbook includes the following displays:
+
 - Automation rule health and details
 - Playbook trigger health and details
 - Playbook runs health and details (requires Azure Diagnostic enabled on the Playbook level)
 - Automation details per incident
+
+For example:
 
 :::image type="content" source="media/monitor-automation-health/automation-health-monitoring-workbook.png" alt-text="Screenshot shows the opening panel of the automation health workbook.":::
 

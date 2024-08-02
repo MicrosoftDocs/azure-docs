@@ -1,10 +1,10 @@
-﻿---
+---
 title: Data quality and quality monitoring
 description: This article helps you understand how data quality and quality monitoring work in Azure Operator Insights.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 10/24/2023
 ---
@@ -13,7 +13,7 @@ ms.date: 10/24/2023
 
 Every Data Product working on Azure Operator Insights platform has built-in support for data quality monitoring. Data quality is crucial because it ensures accurate, reliable, and trustworthy information for decision-making. It prevents costly mistakes, builds credibility with customers and regulators, and enables personalized experiences.
 
-Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (first AOI Data Product Storage block in the following image) and after data is processed and made available to customers (AOI Data Product Compute in following image).
+Azure Operator Insights platform monitors data quality when data is ingested into Data Product input storage (the Data Product Input block in the following image) and after data is processed and made available to customers (the Data Product Compute block in the following image).
 
 :::image type="complex" source="media/operator-insights-architecture.svg" alt-text="Diagram of ingestion agents and Data Products for Azure Operator Insights " lightbox="media/operator-insights-architecture.svg":::
     Diagram of the Azure Operator Insights architecture. It shows ingestion by ingestion agents from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI.

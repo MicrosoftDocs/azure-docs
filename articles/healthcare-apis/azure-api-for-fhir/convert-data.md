@@ -3,7 +3,7 @@ title: Data conversion for Azure API for FHIR
 description: Use the $convert-data endpoint and customize-converter templates to convert data in Azure API for FHIR.
 services: healthcare-apis
 author: irenepjoseph
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/27/2023
@@ -141,9 +141,9 @@ Change the status to **On** to enable managed identity in Azure API for FHIR.
 
 1. Assign the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role. 
 
-   [ ![Screen image of Add role assignment page.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox) 
+   [ ![Screen image of Add role assignment page.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png) ](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png#lightbox) 
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.md).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
 
 ### Register the ACR servers in Azure API for FHIR
 

@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 05/01/2024
 # CustomerIntent: As a database adminstrator, I want to fine tune autoscaler for specific regions or partitions so that I can balance an uneven workload.
 ---
 
 # Per-region and per-partition autoscale (preview)
 
-By default, Azure Cosmos DB autoscale scales workloads based on the most active region and partition. For nonuniform workloads that have different workload patterns across regions and partitions, this scaling can cause unnecessary scale-ups. With this improvement to autoscale, the per region and per partition autoscale feature now allows your workloads’ regions and partitions to scale independently based on usage.
+By default, Azure Cosmos DB autoscale scales workloads based on the most active region and partition. For nonuniform workloads that have different workload patterns across regions and partitions, this scaling can cause unnecessary scale-ups. With this improvement to autoscale, also known as "dynamic scaling," the per region and per partition autoscale feature now allows your workloads’ regions and partitions to scale independently based on usage.
 
 > [!IMPORTANT]
-> This feature is only available for Azure Cosmos DB accounts created after **November 15, 2023**.
+> By default, this feature is only available for Azure Cosmos DB accounts created after **November 15, 2023**. For customers who can significantly benefit from dynamic scaling, Azure Cosmos DB is progressively enabling the feature in stages for existing accounts and providing GA support, ahead of broader GA. Customers in this cohort will be notified by email before the enablement. This update won’t impact your account(s) performance, availability, and won't cause downtime or data movement. Please contact your Microsoft representative for questions.
 
 This feature is recommended for autoscale workloads that are nonuniform across regions and partitions. This feature allows you to save costs if you often experience hot partitions and/or have multiple regions. When enabled, this feature applies to all autoscale resources in the account.
 
@@ -54,15 +54,13 @@ This feature is available for new Azure Cosmos DB accounts. To enable this featu
 
     :::image type="content" source="media/autoscale-per-partition-region/enable-feature.png" lightbox="media/autoscale-per-partition-region/enable-feature.png" alt-text="Screenshot of the 'Per Region and Per Partition Autoscale' feature in the Azure portal.":::
 
-> [!IMPORTANT]
-> The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
+    > [!IMPORTANT]
+    > The feature is enabled at the account level, so all containers within the account will automatically have this capability applied. The feature is available for both shared throughput databases and containers with dedicated throughput. Provisioned throughput accounts must switch over to autoscale and then enable this feature, if interested.
 
-## Metrics
+1. Use [Azure Monitor metrics](monitor-reference.md#supported-metrics-for-microsoftdocumentdbdatabaseaccounts) to analyze how the new autoscaling is applied across partitions and regions. Filter to your desired database account and container, then filter or split by the `PhysicalPartitionID` metric. This metric shows all partitions across their various regions.
 
-Use Azure Monitor to analyze how the new autoscaling is being applied across partitions and regions. Filter to your desired database account and container, then filter or split by the `PhysicalPartitionID` metric. This metric shows all partitions across their various regions.
-
-Then, use `NormalizedRUConsumption' to see which partitions are scaling indpendently and which regions are scaling independently if applicable. You can use the 'ProvisionedThroughput' metric to see what throughput value is getting emmitted to our billing service.
+    Then, use `NormalizedRUConsumption` to see which partitions and regions scale independently. You can use the `ProvisionedThroughput` metric to see what throughput value is emitted to our billing service.
 
 ## Requirements/Limitations
 
-Accounts must be created after 11/15/2023 to enable this feature. Support for multi-region write accounts is planned, but not yet supported. 
+Accounts must be created after 11/15/2023 to enable this feature.

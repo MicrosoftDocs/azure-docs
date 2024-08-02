@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about integrating Azure VPN Gateway RADIUS authentication with NPS server for multifactor authentication.
 author: ahmadnyasin  
 manager: dcscontentpm
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: genli
@@ -16,7 +16,7 @@ The article describes how to integrate Network Policy Server (NPS) with Azure VP
 
 ## Prerequisite
 
-To enable MFA, the users must be in Microsoft Entra ID, which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA.  For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc)
+To enable MFA, the users must be in Microsoft Entra ID, which must be synced from either the on-premises or cloud environment. Also, the user must have already completed the auto-enrollment process for MFA. If your MFA is text based (SMS, mobile app verification code etc) and requires the user to enter a code or text in the VPN client UI, the authentication will not succeed and is **not a supported scenario.** For more information, see [Set up my account for two-step verification](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc) 
 
 ## Detailed steps
 

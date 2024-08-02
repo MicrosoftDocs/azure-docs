@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 10/18/2023
 ms.author: danlep
@@ -15,4 +15,4 @@ For more information about working with policies, see:
 + [Set or edit policies](../articles/api-management/set-edit-policies.md)
 + [Reuse policy configurations](../articles/api-management/policy-fragments.md)
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-+ [Author policies using Microsoft Copilot for Azure](../articles/copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
++ [Author policies using Microsoft Copilot in Azure](../articles/copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

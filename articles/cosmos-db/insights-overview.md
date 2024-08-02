@@ -29,6 +29,37 @@ This feature doesn't require you to enable or configure anything. These Azure Co
 >[!NOTE]
 >There's no charge to access this feature. You'll only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
+## View insights from Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
+
+1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
+
+   * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describes some aspect of a system at a particular time. For example, you can view and monitor the [server side latency metric](monitor-server-side-latency.md), [normalized request unit usage metric](monitor-normalized-request-units.md), etc.
+
+   * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. Insights use the same metrics and logs that are collected in Azure Monitor and show an aggregated view for your account.
+
+1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and management operations metrics for every container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
+
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Screenshot of Azure Cosmos DB performance metrics in the Azure portal." lightbox="./media/use-metrics/performance-metrics.png" :::
+
+1. The following metrics are available from the **Insights** pane:
+
+   * **Throughput**. This tab shows the total number of request units consumed or failed (429 response code) because the throughput or storage capacity provisioned for the container has exceeded.
+
+   * **Requests**. This tab shows the total number of requests processed by status code, by operation type, and the count of failed requests (429 response code). Requests fail when the throughput or storage capacity provisioned for the container exceeds.
+
+   * **Storage**. This tab shows the size of data and index usage over the selected time period.
+
+   * **Availability**. This tab shows the percentage of successful requests over the total requests per hour. The Azure Cosmos DB SLAs defines the success rate.
+
+   * **Latency**. This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also view server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
+
+   * **System**. This tab shows how many metadata requests that the primary partition serves. It also helps to identify the throttled requests.
+
+   * **Management Operations**. This tab shows the metrics for account management activities such as account creation, deletion, key updates, network and replication settings.
+
+
 ## View utilization and performance metrics for Azure Cosmos DB
 
 To view the utilization and performance of your storage accounts across all your subscriptions:
@@ -37,7 +68,7 @@ To view the utilization and performance of your storage accounts across all your
 
 1. Search for **Monitor** and select **Monitor**.
 
-    ![Screenshot that shows the Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer-style image.](./media/insights-overview/search-monitor.png)
+    ![Screenshot that shows the Search box with the word "Monitor" and a dropdown that says Services "Monitor" with a speedometer-style image.](~/reusable-content/ce-skilling/azure/media/cosmos-db/search-monitor.png)
 
 1. Select **Azure Cosmos DB**.
 
@@ -137,25 +168,25 @@ The **Overview** tab provides the most common metrics for the selected Azure Cos
 
 You can pin any one of the metric sections to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md) by selecting the pushpin in the upper-right corner of the section.
 
-![Screenshot that shows the metric section pin to dashboard example.](./media/insights-overview/pin.png)
+![Screenshot that shows the metric section pin to dashboard example.](~/reusable-content/ce-skilling/azure/media/cosmos-db/pin.png)
 
 To export your data into the Excel format, select the down arrow to the left of the pushpin.
 
-![Screenshot that shows the Export workbook down arrow.](./media/insights-overview/export.png)
+![Screenshot that shows the Export workbook down arrow.](~/reusable-content/ce-skilling/azure/media/cosmos-db/export.png)
 
 To expand or collapse all dropdown views in the workbook, select the expand arrow to the left of the down arrow.
 
-![Screenshot that shows the Expand workbook arrow.](./media/insights-overview/expand.png)
+![Screenshot that shows the Expand workbook arrow.](~/reusable-content/ce-skilling/azure/media/cosmos-db/expand.png)
 
 ## Customize Azure Cosmos DB insights
 
 This experience is built on top of Azure Monitor workbook templates. You can use **Customize** > **Edit** > **Save** to modify and save a copy of your modified version into a custom workbook.
 
-![Screenshot that shows the Customize button.](./media/insights-overview/customize.png)
+![Screenshot that shows the Customize button.](~/reusable-content/ce-skilling/azure/media/cosmos-db/customize.png)
 
 Workbooks are saved within a resource group. The **My Reports** section is private to you. The **Shared Reports** section is accessible to everyone with access to the resource group. After you save the custom workbook, you must go to the workbook gallery to start it.
 
-![Screenshot that shows the Gallery button.](./media/insights-overview/gallery.png)
+![Screenshot that shows the Gallery button.](~/reusable-content/ce-skilling/azure/media/cosmos-db/gallery.png)
 
 ## Troubleshooting
 

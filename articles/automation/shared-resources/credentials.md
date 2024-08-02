@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.custom: devx-track-python
 ms.date: 05/26/2023
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Manage credentials in Azure Automation
@@ -15,7 +16,7 @@ An Automation credential asset holds an object that contains security credential
 >[!NOTE]
 >Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each Automation account. Azure Automation stores the key in the system-managed Key Vault. Before storing a secure asset, Automation loads the key from Key Vault and then uses it to encrypt the asset. 
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note.md](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## PowerShell cmdlets used to access credentials
 

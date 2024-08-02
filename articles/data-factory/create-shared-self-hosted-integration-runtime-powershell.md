@@ -1,13 +1,12 @@
 ---
 title: Create a shared self-hosted integration runtime with PowerShell
 description: Learn how to create a shared self-hosted integration runtime in Azure Data Factory, so multiple data factories can access the integration runtime.
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Create a shared self-hosted integration runtime in Azure Data Factory
@@ -15,6 +14,9 @@ ms.date: 08/10/2023
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. Then you can use the shared self-hosted integration runtime in another data factory.
+
+> [!NOTE]
+> As you share your self hosted integration runtime among more data factories, increased workload can sometimes lead to longer queue times. If queue times become excessive, you can scale up your node or scale out by adding additional nodes. You can add up to 4 nodes.
 
 ## Create a shared self-hosted integration runtime in Azure Data Factory
 
@@ -58,7 +60,7 @@ To create a shared self-hosted IR using Azure PowerShell, you can take following
 
 ### Prerequisites 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 

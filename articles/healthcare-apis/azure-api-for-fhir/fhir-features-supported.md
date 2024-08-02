@@ -1,9 +1,9 @@
 ---
 title: Supported FHIR features in Azure - Azure API for FHIR
-description: This article explains which features of the FHIR specification that are implemented in Azure API for FHIR
+description: Find out which features of the FHIR specification are implemented in the Azure API for FHIR service.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
@@ -31,8 +31,8 @@ Below is a summary of the supported RESTful capabilities. For more information o
 | update | Yes                | Yes                             |         | 
 | update with optimistic locking | Yes       | Yes       |
 | update (conditional)           | Yes       | Yes       |
-| patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only.
-| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch) only. |
+| patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../fhir/rest-api-capabilities.md#patch-and-conditional-patch) only.        |
+| patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](../fhir/rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | history                        | Yes       | Yes       |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |

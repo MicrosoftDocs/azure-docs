@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 05/17/2023
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
+ms.service: azure-automation
 ---
 
 # Tutorial: Create a Python 3.8 runbook
@@ -130,7 +131,7 @@ When you add these packages, select a runtime version that matches your runbook.
 To use managed identity, ensure that it is enabled:
 
 * To verify if the Managed identity is enabled for the Automation account go to your **Automation account** > **Account Settings** > **Identity** and set the **Status** to **On**.
-* The managed identity has a role assigned to manage the resource. In this example of managing a virtual machine resource, add the "Virtual Machine Contributor" role on the resource group of that contains the Virtual Machine. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+* The managed identity has a role assigned to manage the resource. In this example of managing a virtual machine resource, add the "Virtual Machine Contributor" role on the resource group of that contains the Virtual Machine. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 
 With the manage identity role configured, you can start adding code.
 

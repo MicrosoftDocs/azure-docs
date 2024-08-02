@@ -1,13 +1,13 @@
 ---
 title: Azure Policy definitions effect basics
 description: Azure Policy definitions effect basics determine how compliance is managed and reported.
-ms.date: 04/08/2024
+ms.date: 04/25/2024
 ms.topic: conceptual
 ---
 
 # Azure Policy definitions effect basics
 
-Each policy definition in Azure Policy has a single `effect`. That `effect` determines what happens when the policy rule is evaluated to match. The effects behave differently if they are for a new resource, an updated resource, or an existing resource.
+Each policy definition in Azure Policy has a single `effect` in its `policyRule`. That `effect` determines what happens when the policy rule is evaluated to match. The effects behave differently if they are for a new resource, an updated resource, or an existing resource.
 
 The following are the supported Azure Policy definition effects:
 
@@ -25,13 +25,13 @@ The following are the supported Azure Policy definition effects:
 
 ## Interchanging effects
 
-Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values so that a single definition can be more versatile. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect `auditIfNotExists` require other details in the policy rule that aren't required for policies with effect `audit`. The effects also behave differently. `audit` policies assess a resource's compliance based on its own properties, while `auditIfNotExists policies assess a resource's compliance based on a child or extension resource's properties.
+Sometimes multiple effects can be valid for a given policy definition. Parameters are often used to specify allowed effect values (`allowedValues`) so that a single definition can be more versatile during assignment. However, it's important to note that not all effects are interchangeable. Resource properties and logic in the policy rule can determine whether a certain effect is considered valid to the policy definition. For example, policy definitions with effect `auditIfNotExists` require other details in the policy rule that aren't required for policies with effect `audit`. The effects also behave differently. `audit` policies assess a resource's compliance based on its own properties, while `auditIfNotExists` policies assess a resource's compliance based on a child or extension resource's properties.
 
 The following list is some general guidance around interchangeable effects:
 
 - `audit`, `deny`, and either `modify` or `append` are often interchangeable.
 - `auditIfNotExists` and `deployIfNotExists` are often interchangeable.
-- `Manual` isn't interchangeable.
+- `manual` isn't interchangeable.
 - `disabled` is interchangeable with any effect.
 
 ## Order of evaluation

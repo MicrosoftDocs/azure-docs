@@ -48,6 +48,10 @@ To create a custom neural voice in Speech Studio, follow these steps for one of 
    :::image type="content" source="../../../../media/custom-voice/cnv-train-neural.png" alt-text="Screenshot that shows how to select neural training.":::
 
 1. Select a version of the training recipe for your model. The latest version is selected by default. The supported features and training time can vary by version. Normally, we recommend the latest version. In some cases, you can choose an earlier version to reduce training time. See [Bilingual training](#bilingual-training) for more information about bilingual training and differences between locales.
+
+   > [!NOTE]
+   > Model versions `V2.2021.07`, `V4.2021.10`, `V5.2022.05`, `V6.2022.11`, and `V9.2023.10` will be retired by October 1, 2024. The voice models already created on these retired versions won't be affected.
+   
 1. Select the data that you want to use for training. Duplicate audio names are removed from the training. Make sure that the data you select doesn't contain the same audio names across multiple *.zip* files.
 
    You can select only successfully processed datasets for training. If you don't see your training set in the list, check your data processing status.
@@ -256,7 +260,7 @@ To copy your custom neural voice model to another project:
 
    :::image type="content" source="../../../../media/custom-voice/cnv-model-copy.png" alt-text="Screenshot of the copy to project option.":::
 
-1. Select the **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first.
+1. Select the **Subscription**, **Region**, **Speech resource**, and **Project** where you want to copy the model. You must have a speech resource and project in the target region, otherwise you need to create them first.
 
     :::image type="content" source="../../../../media/custom-voice/cnv-model-copy-dialog.png" alt-text="Screenshot of the copy voice model dialog.":::
 

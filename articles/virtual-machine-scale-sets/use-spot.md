@@ -4,9 +4,9 @@ description: Learn how to create Azure Virtual Machine Scale Sets that use Azure
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
-ms.subservice: spot
-ms.date: 11/22/2022
+ms.service: azure-virtual-machine-scale-sets
+ms.subservice: azure-spot-vm
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
@@ -56,11 +56,11 @@ You can see historical pricing and eviction rates per size in a region in the po
 
 **Chart**:
 
-:::image type="content" source="../virtual-machines/media/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-chart.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a chart.":::
 
 **Table**:
 
-:::image type="content" source="../virtual-machines/media/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/virtual-machines/spot-table.png" alt-text="Screenshot of the region options with the difference in pricing and eviction rates as a table.":::
 
 ## Try & restore 
 

@@ -4,15 +4,15 @@ description: Troubleshooting guide for high CPU utilization.
 author: sarat0681
 ms.author: sbalijepalli
 ms.reviewer: maghan
-ms.date: 01/23/2024
-ms.service: postgresql
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Troubleshoot high CPU utilization in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article shows you how to quickly identify the root cause of high CPU utilization, and possible remedial actions to control CPU utilization when using [Azure Database for PostgreSQL flexible server](overview.md).
 
@@ -49,7 +49,7 @@ The pg_stat_statements extension helps identify queries that consume time on the
 
 For Postgres versions 13 and above, use the following statement to view the top five SQL statements by mean or average execution time:
 
-```postgresql
+```sql
 SELECT userid::regrole, dbid, query, mean_exec_time
 FROM pg_stat_statements
 ORDER BY mean_exec_time
@@ -60,7 +60,7 @@ DESC LIMIT 5;
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by mean or average execution time:
 
-```postgresql
+```sql
 SELECT userid::regrole, dbid, query
 FROM pg_stat_statements
 ORDER BY mean_time
@@ -76,7 +76,7 @@ Execute the following statements to view the top five SQL statements by total ex
 
 For Postgres versions 13 and above, use the following statement to view the top five SQL statements by total execution time:
 
-```postgresql
+```sql
 SELECT userid::regrole, dbid, query
 FROM pg_stat_statements
 ORDER BY total_exec_time
@@ -87,7 +87,7 @@ DESC LIMIT 5;
 
 For Postgres versions 9.6, 10, 11, and 12, use the following statement to view the top five SQL statements by total execution time:
 
-```postgresql
+```sql
 SELECT userid::regrole, dbid, query,
 FROM pg_stat_statements
 ORDER BY total_time
@@ -106,7 +106,7 @@ Long-running transactions can consume CPU resources that can lead to high CPU ut
 
 The following query helps identify connections running for the longest time:
 
-```postgresql
+```sql
 SELECT pid, usename, datname, query, now() - xact_start as duration
 FROM pg_stat_activity
 WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
@@ -119,7 +119,7 @@ A large number of connections to the database is also another issue that might l
 
 The following query gives information about the number of connections by state:
 
-```postgresql
+```sql
 SELECT state, count(*)
 FROM  pg_stat_activity
 WHERE pid <> pg_backend_pid()
@@ -153,7 +153,7 @@ You could consider killing a long running transaction as an option.
 
 To terminate a session's PID, you'll need to detect the PID using the following query:
 
-```postgresql
+```sql
 SELECT pid, usename, datname, query, now() - xact_start as duration
 FROM pg_stat_activity
 WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
@@ -164,7 +164,7 @@ You can also filter by other properties like `usename` (username), `datname` (da
 
 Once you have the session's PID, you can terminate using the following query:
 
-```postgresql
+```sql
 SELECT pg_terminate_backend(pid);
 ```
 
@@ -174,7 +174,7 @@ Keeping table statistics up to date helps improve query performance. Monitor whe
 
 The following query helps to identify the tables that need vacuuming:
 
-```postgresql
+```sql
 select schemaname,relname,n_dead_tup,n_live_tup,last_vacuum,last_analyze,last_autovacuum,last_autoanalyze
 from pg_stat_all_tables where n_live_tup > 0;
 ```
@@ -183,7 +183,7 @@ from pg_stat_all_tables where n_live_tup > 0;
 
 A short-term solution would be to do a manual vacuum analyze of the tables where slow queries are seen:
 
-```postgresql
+```sql
 vacuum analyze <table_name>;
 ```
 

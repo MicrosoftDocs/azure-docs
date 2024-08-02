@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/07/2023
+ms.date: 07/10/2024
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -14,8 +14,6 @@ ms.author: anfdocs
 The **Network Features** functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. You can also modify the network features option on existing volumes. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
 
 This article helps you understand the options and shows you how to configure network features.
-
-See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
 
 ## Options for network features 
 
@@ -35,8 +33,6 @@ Two settings are available for network features:
 
 * Regardless of the network features option you set (*Standard* or *Basic*), an Azure VNet can only have one subnet delegated to Azure NetApp files. See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations). 
  
-* You can create or modify volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
-
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability isn't available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you can't modify the setting.
 
@@ -75,15 +71,13 @@ This section shows you how to set the network features option when you create a 
 
 ## Edit network features option for existing volumes
 
-You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the SMB share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible. 
-
-The edit network features option is available in [all regions that support Standard network features](azure-netapp-files-network-topologies.md#supported-regions). 
+You can edit the network features option of existing volumes from *Basic* to *Standard* network features. The change you make applies to all volumes in the same *network sibling set* (or *siblings*). Siblings are determined by their network IP address relationship. They share the same NIC for mounting the volume to the client or connecting to the remote share of the volume. At the creation of a volume, its siblings are determined by a placement algorithm that aims for reusing the IP address where possible.
 
 >[!IMPORTANT]
 >It's not recommended that you use the edit network features option with Terraform-managed volumes due to risks. You must follow separate instructions if you use Terraform-managed volumes. For more information see, [Update Terraform-managed Azure NetApp Files volume from Basic to Standard](#update-terraform-managed-azure-netapp-files-volume-from-basic-to-standard).
 
 >[!IMPORTANT]
->You should not use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md). Application volume group for SAP HANA only supports Basic network features. 
+> You should only use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md) if you have enrolled in the [extension one preview](application-volume-group-introduction.md#extension-1-features), which adds support for Standard network features. 
 
 > [!NOTE]
 > You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files standard networking features (edit volumes) Request Form](https://aka.ms/anfeditnetworkfeaturespreview)**. The feature can take approximately one week to be enabled after you submit the waitlist request. You can check the status of feature registration by using the following command: 

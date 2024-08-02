@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: azure-ai-translator
 ms.custom: build-2023
 ms.topic: overview
-ms.date: 01/31/2024
+ms.date: 06/19/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -21,6 +21,10 @@ Bookmark this page to stay up to date with release notes, feature enhancements, 
 Translator is a language service that enables users to translate text and documents, helps entities expand their global outreach, and supports preservation of at-risk and endangered languages.
 
 Translator service supports language translation for more than 100 languages. If your language community is interested in partnering with Microsoft to add your language to Translator, contact us via the [Translator community partner onboarding form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOU1aMlNaWFJOOE5YODhRR1FWVzY0QzU1OS4u).
+
+## May 2024
+
+A [single API](document-translation/reference/rest-api-guide.md) is now available for both [asynchronous batch](document-translation/overview.md#asynchronous-batch-translation) and [synchronous single document](document-translation/overview.md#synchronous-translation) translation operations.
 
 ## February 2024
 
@@ -57,16 +61,14 @@ The Document translation API now supports two translation operations:
 
 ## July 2023
 
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
-
 * Document Translation REST API v1.1 is now Generally Available (GA).
 
 ## June 2023
 
 **Documentation updates**
 
-* The [Document Translation SDK overview](document-translation/document-sdk-overview.md) is now available to provide guidance and resources for the .NET/C# and Python SDKs.
-* The [Document Translation SDK quickstart](document-translation/quickstarts/asynchronous-sdk.md) is now available for the C# and Python programming languages.
+* The [Document Translation SDK overview](document-translation/document-sdk-overview.md) is now available to provide guidance and resources for the .NET/C# and Python `SDK`s.
+* The [Document Translation SDK quickstart](document-translation/quickstarts/client-library-sdks.md) is now available for the C# and Python programming languages.
 
 ## May 2023
 
@@ -74,7 +76,8 @@ The Document translation API now supports two translation operations:
 
 ### Text Translation SDK (preview)
 
-* The Text translation SDKs are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
+The Text translation `SDK`s are now available in public preview for C#/.NET, Java, JavaScript/TypeScript, and Python programming languages.
+
 * To learn more, see [Text translation SDK overview](text-sdk-overview.md).
 * To get started, try a [Text Translation SDK quickstart](document-translation/document-sdk-overview.md) using a programming language of your choice.
 
@@ -99,7 +102,7 @@ Custom Translator version v2.0 is generally available and ready for use in your 
 
 ### Document Translation stable GA 1.0.0 release
 
-Document Translation .NET and Python client-library SDKs are now generally available and ready for use in production applications!
+Document Translation .NET and Python client-library `SDK`s are now generally available and ready for use in production applications!
 
 ### [**C#**](#tab/csharp)
 
@@ -165,16 +168,16 @@ Document Translation .NET and Python client-library SDKs are now generally avail
 
 ### Custom Translator portal (v2.0) public preview
 
-* The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
+The [Custom Translator portal (v2.0)](https://portal.customtranslator.azure.ai/) is now in public preview and includes significant changes that makes it easier to create your custom translation systems.
 
-* To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/quickstart.md) for step-by-step instructions.
+To learn more, see our Custom Translator [documentation](custom-translator/overview.md) and try our [quickstart](custom-translator/quickstart.md) for step-by-step instructions.
 
 ## October 2021
 
 ### [Text and document support for more than 100 languages](https://www.microsoft.com/translator/blog/2021/10/11/translator-now-translates-more-than-100-languages/)
 
 * Translator service adds [text and document language support](language-support.md) for the following languages:
-  * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers.  It has three regional language groups: Southern, Eastern, and Northwestern.
+  * **Bashkir**. A Turkic language spoken by approximately 1.4 million native speakers. It has three regional language groups: Southern, Eastern, and Northwestern.
   * **Dhivehi**. Also known as Maldivian, it's an Indo-Iranian language primarily spoken in the island nation of Maldives.
   * **Georgian**. A Kartvelian language that is the official language of Georgia. It has approximately 4 million speakers.
   * **Kyrgyz**. A Turkic language that is the official language of Kyrgyzstan.
@@ -206,7 +209,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Translator service available in containers](https://www.microsoft.com/translator/blog/2021/05/25/translator-service-now-available-in-containers/)
 
-* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) for approval prior to getting started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. *See*, [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
+* **New release**: Translator service is available in containers as a gated preview. [Submit an online request](https://aka.ms/csgate-translator) for approval to get started. Containers enable you to run several Translator service features in your own environment and are great for specific security and data governance requirements. For more information, *See* [Install and run Translator containers (preview)](containers/translator-how-to-install-container.md)
 
 ## February 2021
 
@@ -232,7 +235,7 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for Inuktitut](https://www.microsoft.com/translator/blog/2021/01/27/inuktitut-is-now-available-in-microsoft-translator/)
 
-* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official aboriginal languages in the Northwest Territories.
+* Translator service has [text and document translation language support](language-support.md) for **Inuktitut**, one of the principal Inuit languages of Canada. Inuktitut is one of eight official Aboriginal languages in the Northwest Territories.
 
 ## November 2020
 
@@ -250,13 +253,13 @@ These additions bring the total number of languages supported in Translator to 1
 
 ### [Text and document translation support for Assamese and Axomiya](https://www.microsoft.com/translator/blog/2020/09/29/assamese-text-translation-is-here/)
 
-* Translator service has [text and document translation language support](language-support.md) for **Assamese** also knows as **Axomiya**.  Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
+* Translator service has [text and document translation language support](language-support.md) for **Assamese** also knows as **Axomiya**. Assamese / Axomiya is primarily spoken in Eastern India by approximately 14 million people.
 
 ## August 2020
 
 ### [Introducing virtual networks and private links for translator](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
 
-* **New release**: Virtual network capabilities and Azure private links for Translator are generally available (GA).  Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link. _See_ [Microsoft Translator blog: Virtual Networks and Private Links for Translator are generally available](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
+* **New release**: Virtual network capabilities and Azure private links for Translator are generally available (GA). Azure private links allow you to access Translator and your Azure hosted services over a private endpoint in your virtual network. You can use private endpoints for Translator to allow clients on a virtual network to securely access data over a private link. _See_ [Microsoft Translator blog: Virtual Networks and Private Links for Translator are generally available](https://www.microsoft.com/translator/blog/2020/08/19/virtual-networks-and-private-links-for-translator-are-now-generally-available/)
 
 ### [Custom Translator upgrade to v2](https://www.microsoft.com/translator/blog/2020/08/05/custom-translator-v2-is-now-available/)
 

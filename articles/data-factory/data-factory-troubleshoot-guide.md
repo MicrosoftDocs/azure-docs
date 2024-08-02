@@ -3,11 +3,9 @@ title: General Troubleshooting
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot external control activities in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: nabhishek
-ms.service: data-factory
-ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ms.author: abnarain
 ---
 
@@ -99,7 +97,7 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 <br/> 
 
-- **Message**: `User: `SimpleUserContext{userId=..., name=user@company.com, orgId=...}` is not authorized to access cluster.`
+- **Message**: `User: 'SimpleUserContext{userId=..., name=user@company.com, orgId=...}' is not authorized to access cluster.`
 
 - **Cause**: The user who generated the access token isn't allowed to access the Databricks cluster specified in the linked service.
 
@@ -1076,7 +1074,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The request failed due to an underlying issue such as network connectivity, a DNS failure, a server certificate validation, or a timeout.
 
-- **Recommendation**: Use Fiddler/Postman/Netmon/Wireshark to validate the request.
+- **Recommendation**: Use Fiddler/Netmon/Wireshark to validate the request.
 
     **Using Fiddler**
     
@@ -1190,6 +1188,6 @@ For more troubleshooting help, try these resources:
 * [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 * [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 * [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-* [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+* [X information about Data Factory](https://x.com/hashtag/DataFactory)
 * [Azure videos](https://azure.microsoft.com/resources/videos/index/)
 * [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)

@@ -4,10 +4,9 @@ description: Use the Document Intelligence REST API v3.0 to create a forms proce
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
+ms.custom: ignite-2023, linux-related-content
 ms.topic: include
-ms.date: 03/28/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 
@@ -31,7 +30,7 @@ ms.author: lajanuar
   - [Windows](https://curl.haxx.se/windows/)
   - [Mac or Linux](https://curl.se/)
 
-- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+- An Azure AI services or Document Intelligence resource. Create a <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="Create a Document Intelligence resource." target="_blank">single-service</a> or <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices" title="Create a multiple Document Intelligence resource." target="_blank">multi-service</a>. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 - The key and endpoint from the resource you create to connect your application to the Azure Document Intelligence service.
 
   1. After your resource deploys, select **Go to resource**.

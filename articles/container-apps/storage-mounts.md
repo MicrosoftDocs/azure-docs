@@ -248,7 +248,7 @@ To enable Azure Files storage in your container, you need to set up your environ
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account-1). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration

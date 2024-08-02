@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 02/07/2024
+ms.date: 06/18/2024
 ms.topic: conceptual
 ---
 
@@ -62,7 +62,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 [Azure Backup](../../backup/index.yml):
 
-- Back up and restore customer data [from on-premises workloads, Azure VMs, Azure file shares, and more](../..//backup/backup-overview.md#what-can-i-back-up)
+- Back up and restore customer data using Azure Backup. Currently, the following Azure workloads are supported: Azure Virtual Machines (Azure VM), Azure Files, SQL Server on Azure VMs, SAP HANA on Azure VMs. Workloads which leverage [Backup vault](../../backup/backup-vault-overview.md) (such as Azure Database for PostgreSQL, Azure Blob, Azure Managed Disk, and Azure Kubernetes Services) currently aren't fully supported.
 - View data for all delegated customer resources in [Backup center](../../backup/backup-center-overview.md)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
@@ -80,11 +80,11 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Create Key Vaults in customer tenants
 - Use a managed identity to create Key Vaults in customer tenants
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml):
+[Azure Kubernetes Service (AKS)](/azure/aks/):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 - Deploy and manage clusters in customer tenants
-- [Use Azure Monitor for containers](../../aks/monitor-aks.md) to monitor performance across customer tenants
+- [Use Azure Monitor for containers](/azure/aks/monitor-aks) to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 

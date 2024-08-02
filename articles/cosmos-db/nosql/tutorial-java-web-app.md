@@ -2,7 +2,7 @@
 title: 'Tutorial: Build a Java web app using Azure Cosmos DB and the API for NoSQL'
 description: 'Tutorial: This Java web application tutorial shows you how to use the Azure Cosmos DB and the API for NoSQL to store and access data from a Java application hosted on Azure Websites.'
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: tutorial
@@ -52,7 +52,7 @@ If you're installing these tools for the first time, coreservlets.com provides a
 
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create the Java JSP application](#CreateJSP).
 
-[!INCLUDE [create-dbaccount](../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../includes/cosmos-db-keys.md)]
 

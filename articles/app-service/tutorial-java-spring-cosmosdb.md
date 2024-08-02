@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 > [!NOTE]
-> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination.
+> For Spring applications, we recommend using Azure Spring Apps. However, you can still use Azure App Service as a destination. See [Java Workload Destination Guidance](https://aka.ms/javadestinations) for advice.
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://spring.io/projects/spring-boot) application storing data in [Azure Cosmos DB](../cosmos-db/index.yml) running on [Azure App Service on Linux](overview.md).
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 > * Stream diagnostic logs from App Service
 > * Add additional instances to scale out the sample app
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ yes | cp -rf .prep/* .
 
 Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-1. Login to your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Sign in to your Azure CLI, and optionally set your subscription if you have more than one connected to your sign-in credentials.
 
     ```azurecli
     az login
@@ -91,8 +91,7 @@ cd initial/spring-todo-app
 cp set-env-variables-template.sh .scripts/set-env-variables.sh
 ```
  
-Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure 
-Azure Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Azure Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
+Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Azure Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
 
 ```bash
 export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
@@ -111,7 +110,7 @@ Then run the script:
 source .scripts/set-env-variables.sh
 ```
    
-These environment variables are used in `application.properties` in the TODO list app. The fields in the properties file set up a default repository configuration for Spring Data:
+These environment variables are used in `application.properties` in the TODO list app. The fields in the properties file define a default repository configuration for Spring Data:
 
 ```properties
 azure.cosmosdb.uri=${COSMOSDB_URI}
@@ -309,14 +308,13 @@ az group delete --name <your-azure-group-name> --yes
 [Azure for Java Developers](/java/azure/)
 [Spring Boot](https://spring.io/projects/spring-boot), 
 [Spring Data for Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db), 
-[Azure Cosmos DB](../cosmos-db/introduction.md)
-and
+[Azure Cosmos DB](../cosmos-db/introduction.md) and
 [App Service Linux](overview.md).
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Java in App Service Linux dev guide](configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

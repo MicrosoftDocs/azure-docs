@@ -3,7 +3,7 @@ title: Azure Attestation overview
 description: An overview of Microsoft Azure Attestation, a solution for attesting Trusted Execution Environments (TEEs)
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin
@@ -26,6 +26,24 @@ Azure Attestation supports both platform- and guest-attestation of AMD SEV-SNP b
 
 Azure Attestation provides comprehensive attestation services for multiple environments and distinctive use cases.
 
+### AMD SEV-SNP attestation on Confidential VMs
+
+Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-options.md). CVM offers VM OS disk encryption option with platform-managed keys or customer-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements will be sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
+
+### AMD SEV-SNP attestation on Confidential Containers
+
+Azure [Confidential Containers](../confidential-computing/confidential-containers.md) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-options.md). Confidential containers, hosted on [Azure Container Instances](../container-instances/container-instances-confidential-overview.md) and on [Azure Kubernetes Service (in preview)](/azure/aks/deploy-confidential-containers-default-policy) offer the ability to run groups of containers in an SEV-SNP protected trusted execution environment which isolates that group of containers from the container management control plane and other running containers.  Attestation in confidential containers involves fetching the AMD hardware attestation report directly from the processor.  This can be accomplished with our [SKR sidecar container](https://github.com/microsoft/confidential-sidecar-containers/tree/main/cmd/skr) or compiled directly into your application logic.  The hardware report can then be exchanged with Azure Attestation and [managed-HSM](../key-vault/managed-hsm/overview.md) or Premium [Azure Key Vault (AKV)](../key-vault/general/basic-concepts.md) to retrieve secrets.  You can also provide the hardware report to your own key vault system as desired.
+
+### Trusted Launch attestation
+
+Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [trusted launch](../virtual-machines/trusted-launch.md) for their virtual machines (VMs). When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation periodically for monitoring boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Microsoft Defender for Cloud, through Alerts and Recommendations.
+
+### TPM attestation
+
+[Trusted Platform Modules (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) based attestation is critical to provide proof of a platform's state. A TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements (evidence). Devices with a TPM can rely on attestation to prove that boot integrity isn't compromised and use the claims to detect feature state enablement during boot. 
+
+Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
+
 ### SGX enclave attestation
 
 [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) refers to hardware-grade isolation, which is supported on certain Intel CPU models. SGX enables code to run in sanitized compartments known as SGX enclaves. Access and memory permissions are then managed by hardware to ensure a minimal attack surface with proper isolation.
@@ -41,20 +59,6 @@ Intel® Xeon® Scalable processors only support [ECDSA-based attestation solutio
 [Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developers to build TEE-based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing hardware-based enclave technologies such as SGX and increasing their uptake on Azure.
 
 OE standardizes specific requirements for verification of an enclave evidence. This qualifies OE as a highly fitting attestation consumer of Azure Attestation.
-
-### TPM attestation
-
-[Trusted Platform Modules (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) based attestation is critical to provide proof of a platform's state. A TPM acts as the root of trust and the security coprocessor to provide cryptographic validity to the measurements (evidence). Devices with a TPM can rely on attestation to prove that boot integrity isn't compromised and use the claims to detect feature state enablement during boot. 
-
-Client applications can be designed to take advantage of TPM attestation by delegating security-sensitive tasks to only take place after a platform has been validated to be secure. Such applications can then make use of Azure Attestation to routinely establish trust in the platform and its ability to access sensitive data.
-
-### AMD SEV-SNP attestation
-
-Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (CVM) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-options.md). CVM offers VM OS disk encryption option with platform-managed keys or customer-managed keys and binds the disk encryption keys to the virtual machine's TPM. When a CVM boots up, SNP report containing the guest VM firmware measurements will be sent to Azure Attestation. The service validates the measurements and issues an attestation token that is used to release keys from [Managed-HSM](../key-vault/managed-hsm/overview.md) or [Azure Key Vault](../key-vault/general/basic-concepts.md). These keys are used to decrypt the vTPM state of the guest VM, unlock the OS disk and start the CVM. The attestation and key release process is performed automatically on each CVM boot, and the process ensures the CVM boots up only upon successful attestation of the hardware.
-
-### Trusted Launch attestation
-
-Azure customers can [prevent bootkit and rootkit infections](https://www.youtube.com/watch?v=CQqu_rTSi0Q) by enabling [trusted launch](../virtual-machines/trusted-launch.md) for their virtual machines (VMs). When the VM is Secure Boot and vTPM enabled with guest attestation extension installed, vTPM measurements get submitted to Azure Attestation periodically for monitoring boot integrity. An attestation failure indicates potential malware, which is surfaced to customers via Microsoft Defender for Cloud, through Alerts and Recommendations.
 
 ## Azure Attestation runs in a TEE
 

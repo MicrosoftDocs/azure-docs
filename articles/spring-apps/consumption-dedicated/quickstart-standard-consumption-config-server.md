@@ -3,7 +3,7 @@ title: Quickstart - Enable and disable Cloud Config Server in Azure Spring Apps
 description: Learn how to enable and disable Spring Cloud Config Server in Azure Spring Apps.
 author: KarlErickson
 ms.author: CaihuaRui
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
 ms.custom: devx-track-java, devx-track-extended-java
@@ -35,7 +35,7 @@ az spring config-server git set \
 ```
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../basic-standard/how-to-config-server.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
 
 ## Enable Config Server
 

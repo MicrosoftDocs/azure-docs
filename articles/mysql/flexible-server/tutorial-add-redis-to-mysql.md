@@ -1,13 +1,15 @@
 ---
-title: 'Quickstart: Boost performance with Azure Cache for Redis'
+title: "Quickstart: Boost performance with Azure Cache for Redis"
 description: "This tutorial shows how to add Azure Cache for Redis to boost performance for Azure Database for MySQL - Flexible Server."
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-python
 ms.topic: quickstart
-author: mksuni
-ms.author: sumuth 
-ms.date: 12/07/2022
+ms.custom:
+  - devx-track-python
 ---
 
 # Tutorial: Boost Azure Database for MySQL - Flexible Server performance with Azure Cache for Redis
@@ -53,7 +55,7 @@ INSERT INTO tasks (id,title, completed) VALUES
 
 ## Create a Redis cache
 
-[!INCLUDE [redis-cache-create](../../azure-cache-for-redis/includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Use Redis with Python
 

@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 07/25/2023
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: linux-related-content
 ---
@@ -58,18 +58,14 @@ The deployed proxy VM size is *Standard A1_v2*, in addition to the build VM. The
 ### Image template parameters to support the virtual network
 
 ```json
-"VirtualNetworkConfig": {
-        "name": "",
-        "subnetName": "",
-        "resourceGroupName": ""
+"vnetConfig": {
+        "subnetId": ""
         },
 ```
 
 | Setting | Description |
 |---------|---------|
-| `name` | (Optional) The name of a pre-existing virtual network. |
-| `subnetName` | The name of the subnet within the specified virtual network. You must specify this setting if, and only if, the `name` setting is specified. |
-| `resourceGroupName` | The name of the resource group containing the specified virtual network. You must specify this setting if, and only if, the `name` setting is specified. |
+| `subnetId` | Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed. |
 
 Private Link requires an IP from the specified virtual network and subnet. Currently, Azure doesn’t support network policies on these IPs. Hence, you must disable network policies on the subnet. For more information, see the [Private Link documentation](../../private-link/index.yml).
 

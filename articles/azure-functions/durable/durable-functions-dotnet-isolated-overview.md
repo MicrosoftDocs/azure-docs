@@ -160,6 +160,7 @@ This table isn't an exhaustive list of changes.
 | `IDurableEntityContext.SignalEntity` | `TaskEntityContext.SignalEntity` |
 | `IDurableEntityContext.StartNewOrchestration` | `TaskEntityContext.ScheduleNewOrchestration` |
 | `IDurableEntityContext.DispatchAsync` | `TaskEntityDispatcher.DispatchAsync`. Constructor params removed. |
+| `IDurableOrchestrationClient.GetStatusAsync` | `DurableTaskClient.GetInstanceAsync` |
 
 #### Behavioral changes
 

@@ -9,6 +9,7 @@ ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 
 #Customer intent: As a developer, I want to join a Teams meeting.
 ---
@@ -24,26 +25,21 @@ Azure Communication Services SDKs can allow your users to join regular Microsoft
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
+::: zone pivot="platform-web"
+[!INCLUDE [Join a Teams Meeting Web](./includes/teams-interopability/teams-interopability-web.md)]
+::: zone-end
 
-Join by using a meeting link:
+::: zone pivot="platform-android"
+[!INCLUDE [Join a Teams Meeting Android](./includes/teams-interopability/teams-interopability-android.md)]
+::: zone-end
 
-```js
-const locator = { meetingLink: '<MEETING_LINK>'}
-const call = callAgent.join(locator);
-```
+::: zone pivot="platform-ios"
+[!INCLUDE [Join a Teams Meeting iOS](./includes/teams-interopability/teams-interopability-ios.md)]
+::: zone-end
 
-Join by using meeting coordinates (this is currently in limited preview):
-
-```js
-const locator = {
-    threadId: <thread id>,
-    organizerId: <organizer id>,
-    tenantId: <tenant id>,
-    messageId: <message id>
-}
-const call = callAgent.join(locator);
-```
+::: zone pivot="platform-windows"
+[!INCLUDE [Join a Teams Meeting Windows](./includes/teams-interopability/teams-interopability-windows.md)]
+::: zone-end
 
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)

@@ -4,8 +4,10 @@ titleSuffix: Azure AI Studio
 description: This article introduces you to the Azure OpenAI GPT-4 Turbo with Vision tool for flows in Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
+ms.custom:
+  - build-2024
 ms.topic: how-to
-ms.date: 2/26/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -13,18 +15,14 @@ author: lgayhardt
 
 # Azure OpenAI GPT-4 Turbo with Vision tool in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Azure OpenAI GPT-4 Turbo with Vision tool enables you to use your Azure OpenAI GPT-4 Turbo with Vision model deployment to analyze images and provide textual responses to questions about them.
 
 ## Prerequisites
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">You can create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
-
-    Currently, you must apply for access to this service. To apply for access to Azure OpenAI, complete the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-
-- An [Azure AI hub resource](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in [one of the regions that support GPT-4 Turbo with Vision](../../../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). When you deploy from your project's **Deployments** page, select `gpt-4` as the model name and `vision-preview` as the model version.
+- An [AI Studio hub](../../how-to/create-azure-ai-resource.md) with a GPT-4 Turbo with Vision model deployed in [one of the regions that support GPT-4 Turbo with Vision](../../../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). When you deploy from your project's **Deployments** page, select `gpt-4` as the model name and `vision-preview` as the model version.
 
 ## Build with the Azure OpenAI GPT-4 Turbo with Vision tool
 

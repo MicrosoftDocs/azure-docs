@@ -1,7 +1,7 @@
 ---
 title: MNIST database of handwritten digits
 description: Learn how to use the MNIST database of handwritten digits dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The MNIST database of handwritten digits has a training set of 60,000 examples and a test set of 10,000 examples. The digits have been size-normalized and centered in a fixed-size image.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 This dataset is sourced from [THE MNIST DATABASE of handwritten digits](http://yann.lecun.com/exdb/mnist/). It's a subset of the larger [NIST Hand-printed Forms and Characters Database](https://www.nist.gov/srd/nist-special-database-19) published by [National Institute of Standards and Technology](https://www.nist.gov/).
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Functions with Azure C
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: tutorial
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.
@@ -101,7 +101,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Redis --prereleas
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-keyspace-notifications.png" alt-text="Screenshot of advanced settings for Azure Cache for Redis in the portal.":::
 
-1. Select **Access keys** from the resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
+1. Locate **Access keys** on the Resource menu, and then write down or copy the contents of the **Primary connection string** box. This string is used to connect to the cache.
 
    :::image type="content" source="media/cache-tutorial-functions-getting-started/cache-access-keys.png" alt-text="Screenshot that shows the primary connection string for an access key.":::
 

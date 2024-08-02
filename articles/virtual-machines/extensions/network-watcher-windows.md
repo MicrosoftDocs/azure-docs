@@ -3,12 +3,12 @@ title: Manage Network Watcher Agent VM extension - Windows
 description: Learn about the Network Watcher Agent virtual machine extension on Windows virtual machines and how to deploy it.
 author: halkazwini
 ms.author: halkazwini
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.topic: how-to
 ms.date: 03/31/2024
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
+ms.custom: devx-track-arm-template
 
 #CustomerIntent: As an Azure administrator, I want to learn about Network Watcher Agent VM extension so that I can use Network watcher features to diagnose and monitor my virtual machines (VMs).
 ---

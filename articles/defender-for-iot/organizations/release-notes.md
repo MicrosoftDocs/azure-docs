@@ -38,13 +38,16 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
 | **24.1** | | | |
+| 24.1.4  |06/2024 | Major |05/2025 |
 | 24.1.3  |04/2024 | Major |03/2025 |
 | 24.1.2  |02/2024 | Major |01/2025 |
+| **23.2** | | | |
+| 23.2.0 | 12/2023 | Major | 11/2024 |
 | **23.1** | | | |
 | 23.1.3 | 09/2023 | Patch | 08/2024 |
 | 23.1.2 | 07/2023 | Major | 06/2024 |
 | **22.3** | | | |
-|22.3.10|07/2023|Patch|06/2024|
+|22.3.10 | 07/2023 | Patch | 06/2024 |
 | 22.3.9 | 05/2023 | Patch | 04/2024 |
 | 22.3.8 | 04/2023 | Patch | 03/2024 |
 | 22.3.7 | 03/2023 | Patch | 02/2024 |
@@ -54,7 +57,7 @@ Cloud features may be dependent on a specific sensor version. Such features are 
 | **22.2** | | | |
 | 22.2.9 | 01/2023 | Patch | 12/2023 |
 | 22.2.8 | 11/2022 | Patch | 10/2023 |
-| 22.2.7| 10/2022   | Patch | 09/2023          |
+| 22.2.7| 10/2022  | Patch | 09/2023          |
 | 22.2.6|09/2022 |Patch | 04/2023|
 |22.2.5 |08/2022 | Patch| 04/2023 |
 |22.2.4 |07/2022 |Patch |04/2023 |
@@ -103,6 +106,18 @@ Version numbers are listed only in this article and in the [What's new in Micros
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
 ## Versions 24.1.x
+
+### Version 24.1.4
+
+**Release date**: 06/2024
+
+**Supported until**: 05/2025
+
+This version includes the following updates and enhancements:
+
+- [Malicious URL path alert](whats-new.md#malicious-url-path-alert)
+- The following CVE is resolved in this version:
+  - CVE-2024-38089
 
 ### Version 24.1.3
 

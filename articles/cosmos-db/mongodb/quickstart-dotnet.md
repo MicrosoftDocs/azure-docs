@@ -3,18 +3,20 @@ title: Quickstart - Azure Cosmos DB for MongoDB for .NET with MongoDB driver
 description: Learn how to build a .NET app to manage Azure Cosmos DB for MongoDB account resources in this quickstart.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 07/06/2022
-ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-azurecli, devx-track-dotnet, devx-track-extended-azdevcli
+ms.date: 06/14/2024
+ms.custom: devx-track-csharp, mode-api, devguide-csharp, cosmos-db-dev-journey, devx-track-dotnet, devx-track-extended-azdevcli
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 ---
 
 # Quickstart: Azure Cosmos DB for MongoDB for .NET with the MongoDB driver
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
+
+[!INCLUDE[Developer Quickstart selector](includes/quickstart-dev-selector.md)]
 
 Get started with MongoDB to create databases, collections, and docs within your Azure Cosmos DB resource. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
@@ -23,7 +25,7 @@ packages/Microsoft.Azure.Cosmos) | [Azure Developer CLI](/azure/developer/azure-
 
 ## Prerequisites
 
-[!INCLUDE [Developer Quickstart prerequisites](../nosql/includes/quickstart/dev-prereqs.md)]
+[!INCLUDE [Developer Quickstart prerequisites](includes/quickstart-dev-prereqs.md)]
 
 ## Setting up
 
@@ -41,7 +43,61 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE [dev-setup](../nosql/includes/quickstart/dev-setup.md)]
+::: zone pivot="devcontainer-codespace"
+
+> [!IMPORTANT]
+> GitHub accounts include an entitlement of storage and core hours at no cost. For more information, see [included storage and core hours for GitHub accounts](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+::: zone-end
+
+::: zone pivot="devcontainer-vscode"
+
+::: zone-end
+
+1. Open a terminal in the root directory of the project.
+
+1. Authenticate to the Azure Developer CLI using `azd auth login`. Follow the steps specified by the tool to authenticate to the CLI using your preferred Azure credentials.
+
+    ```azurecli
+    azd auth login
+    ```
+
+1. Use `azd init` to initialize the project.
+
+    ```azurecli
+    azd init --template cosmos-db-mongodb-dotnet-quickstart
+    ```
+
+    > [!NOTE]
+    > This quickstart uses the [azure-samples/cosmos-db-mongodb-dotnet-quickstart](https://github.com/azure-samples/cosmos-db-mongodb-dotnet-quickstart) template GitHub repository. The Azure Developer CLI will automatically clone this project to your machine if it is not already there.
+
+1. During initialization, configure a unique environment name.
+
+    > [!TIP]
+    > The environment name will also be used as the target resource group name. For this quickstart, consider using `msdocs-cosmos-db`.
+
+1. Deploy the Azure Cosmos DB account using `azd up`. The Bicep templates also deploy a sample web application.
+
+    ```azurecli
+    azd up
+    ```
+
+1. During the provisioning process, select your subscription and desired location. Wait for the provisioning process to complete. The process can take **approximately five minutes**.
+
+1. Once the provisioning of your Azure resources is done, a URL to the running web application is included in the output.
+
+    ```output
+    Deploying services (azd deploy)
+    
+      (✓) Done: Deploying service web
+    - Endpoint: <https://[container-app-sub-domain].azurecontainerapps.io>
+    
+    SUCCESS: Your application was provisioned and deployed to Azure in 5 minutes 0 seconds.
+    ```
+
+1. Use the URL in the console to navigate to your web application in the browser. Observe the output of the running app.
+
+    :::image type="content" source="media/quickstart/dev-web-application.png" alt-text="Screenshot of the running web application.":::
 
 ---
 
@@ -75,11 +131,11 @@ Before you start building the application, let's look into the hierarchy of reso
     Hierarchical diagram showing an Azure Cosmos DB account at the top. The account has two child database shards. One of the database shards includes two child collection shards. The other database shard includes a single child collection shard. That single collection shard has three child doc shards.
 :::image-end:::
 
-You'll use the following MongoDB classes to interact with these resources:
+You use the following MongoDB classes to interact with these resources:
 
 - [``MongoClient``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoClient.htm) - This class provides a client-side logical representation for the API for MongoDB layer on Azure Cosmos DB. The client object is used to configure and execute requests against the service.
-- [``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm) - This class is a reference to a database that may, or may not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
-- [``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm) - This class is a reference to a collection that also may not exist in the service yet. The collection is validated server-side when you attempt to work with it.
+- [``MongoDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoDatabase.htm) - This class is a reference to a database that might, or might not, exist in the service yet. The database is validated server-side when you attempt to access it or perform an operation against it.
+- [``Collection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/T_MongoDB_Driver_MongoCollection.htm) - This class is a reference to a collection that also might not exist in the service yet. The collection is validated server-side when you attempt to work with it.
 
 ## Code examples
 
@@ -98,19 +154,19 @@ From the project directory, open the *Program.cs* file. In your editor, add a us
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="using_directives":::
 
-Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string you set earlier.
+Define a new instance of the ``MongoClient`` class using the constructor, and [``Environment.GetEnvironmentVariable``](/dotnet/api/system.environment.getenvironmentvariables) to read the connection string set by the Azure Developer CLI earlier.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs"  id="client_credentials":::
 
 ### Create a database
 
-Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) method to create a new database if it doesn't already exist. This method will return a reference to the existing or newly created database.
+Use the [``MongoClient.GetDatabase``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoClient_GetDatabase.htm) method to create a new database if it doesn't already exist. This method returns a reference to the existing or newly created database.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_database" :::
 
 ### Create a collection
 
-The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) will create a new collection if it doesn't already exist and return a reference to the collection.
+The [``MongoDatabase.GetCollection``](https://mongodb.github.io/mongo-csharp-driver/2.16/apidocs/html/M_MongoDB_Driver_MongoDatabase_GetCollection.htm) creates a new collection if it doesn't already exist and return a reference to the collection.
 
 :::code language="csharp" source="~/azure-cosmos-mongodb-dotnet/001-quickstart/Program.cs" id="new_collection":::
 
@@ -146,7 +202,7 @@ After you insert an item, you can run a query to get all items that match a spec
 
 ## Run the code
 
-This app creates an Azure Cosmos DB MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the steps it has performed.
+This app creates an Azure Cosmos DB MongoDb API database and collection. The example then creates an item and then reads the exact same item back. Finally, the example creates a second item and then performs a query that should return multiple items. With each step, the example outputs metadata to the console about the performed steps.
 
 To run the app, use a terminal to navigate to the application directory and run the application.
 
@@ -195,10 +251,10 @@ Remove-AzResourceGroup @parameters
     > In this quickstart, we recommended the name ``msdocs-cosmos-quickstart-rg``.
 1. Select **Delete resource group**.
 
-   :::image type="content" source="media/quickstart-dotnet/delete-resource-group-option.png" lightbox="media/quickstart-dotnet/delete-resource-group-option.png" alt-text="Screenshot of the Delete resource group option in the navigation bar for a resource group.":::
+   :::image type="content" source="media/quickstart-dotnet/delete-resource-group-option.png" lightbox="media/quickstart-dotnet/delete-resource-group-option.png" alt-text="Screenshot of the 'Delete resource group' option in the navigation bar for a resource group.":::
 
 1. On the **Are you sure you want to delete** dialog, enter the name of the resource group, and then select **Delete**.
 
-   :::image type="content" source="media/quickstart-dotnet/delete-confirmation.png" lightbox="media/quickstart-dotnet/delete-confirmation.png" alt-text="Screenshot of the delete confirmation page for a resource group.":::
+   :::image type="content" source="media/quickstart-dotnet/delete-confirmation.png" lightbox="media/quickstart-dotnet/delete-confirmation.png" alt-text="Screenshot of the deletion confirmation dialog for a resource group.":::
 
 ---

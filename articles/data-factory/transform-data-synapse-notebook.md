@@ -2,8 +2,6 @@
 title: Transform data with Synapse Notebook 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Synapse notebook in Azure Data Factory and Synapse Analytics pipelines.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse
 author: nabhishek
 ms.author: jejiang
@@ -32,7 +30,7 @@ To use a Notebook activity for Synapse in a pipeline, complete the following ste
 6. Retry: Maximum number of retry attempts.
 7. Retry interval (sec): The number of seconds between each retry attempt.
 8. Secure output: When checked, output from the activity won't be captured in logging.
-9. Secure input: The number of seconds between each retry attempt
+9. Secure input: When checked, input from the activity won't be captured in logging.
 
 ## Azure Synapse Analytics (Artifacts) settings
 

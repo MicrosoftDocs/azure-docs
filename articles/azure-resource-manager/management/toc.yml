@@ -26,6 +26,8 @@
       href: tls-support.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-resource-manager-security-baseline?toc=/azure/azure-resource-manager/management/toc.json
+    - name: Service tag
+      href: service-tags.md
     - name: Security controls by Azure Policy
       displayName: regulatory, compliance, standards, domains
       href: ./security-controls-policy.md
@@ -200,8 +202,8 @@
     href: request-limits-and-throttling.md
   - name: Track asynchronous operations
     href: async-operations.md
-  - name: Control plane metrics in Azure Monitor 
-    href: control-plane-metrics.md
+  - name: Monitor Resource Manager
+    href: monitor-resource-manager.md
   - name: Resource group insights
     href: resource-group-insights.md
 - name: Reference
@@ -223,6 +225,8 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
+  - name: Monitoring data reference
+    href: monitor-resource-manager-reference.md
 - name: Resources
   items:
   - name: Frequently asked questions

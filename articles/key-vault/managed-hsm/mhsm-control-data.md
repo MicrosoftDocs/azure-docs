@@ -1,12 +1,12 @@
 ---
 title: Control your cloud data by using Managed HSM
 description: Get an overview of the safeguards and technical measures that help customers meet compliance requirements in Azure Key Vault Managed HSM.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi
 ms.author: nkondamudi
-ms.date: 02/20/2024
+ms.date: 04/26/2024
 ---
 
 # Control your data in the cloud by using Managed HSM
@@ -40,7 +40,7 @@ For added assurance, in Azure Key Vault Premium and Azure Key Vault Managed HSM,
 |  | Azure Key Vault Standard | Azure Key Vault Premium | Azure Key Vault Managed HSM |
 |:-|-|-|-|
 | **Tenancy** | Multitenant | Multitenant | Single-tenant |
-| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 2 | FIPS 140-2 Level 3 |
+| **Compliance** | FIPS 140-2 Level 1 | FIPS 140-2 Level 3 | FIPS 140-2 Level 3 |
 | **High availability** | Automatic | Automatic | Automatic |
 | **Use cases** | Encryption at rest | Encryption at rest | Encryption at rest |
 | **Key controls** | Customer | Customer | Customer |

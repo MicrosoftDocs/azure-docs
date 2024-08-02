@@ -3,12 +3,12 @@ title: Azure DevOps for CI/CD
 titleSuffix: Azure Machine Learning
 description: Use Azure Pipelines for flexible MLOps automation
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-author: fkriti
-ms.author: kritifaujdar
-ms.reviewer: larryfr
-ms.date: 06/06/2023
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: kritifaujdar
+ms.date: 06/12/2024
 ms.topic: how-to
 ms.custom: devops-pipelines-deploy
 ---
@@ -59,7 +59,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
-1. Choose **+ New service connection** and select **Azure Resource Manager**.
+1. Choose **Create service connection** and select **Azure Resource Manager**.
 
 1. Select the default authentication method, **Service principal (automatic)**.
 
@@ -71,7 +71,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 1. In Azure DevOps, select **Project Settings** and open the **Service connections** page.
 
-1. Choose **+ New service connection** and select **Generic**.
+1. Choose **Create service connection** and select **Generic**.
 
 1. Use ```https://management.azure.com``` and provide a service connection name. Don't provide any authentication related information.
 
@@ -82,7 +82,7 @@ You need an Azure Resource Manager connection to authenticate with Azure portal.
 
 ## Step 4: Create a pipeline
 
-1. Go to **Pipelines**, and then select **New pipeline**.
+1. Go to **Pipelines**, and then select **create pipeline**.
 
 1. Do the steps of the wizard by first selecting **GitHub** as the location of your source code.
 

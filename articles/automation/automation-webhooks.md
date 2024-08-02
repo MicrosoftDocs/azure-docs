@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 12/21/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.service: azure-automation
 ---
 
 # Start a runbook from a webhook
@@ -14,7 +15,7 @@ A webhook allows an external service to start a particular runbook in Azure Auto
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
-To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS 1.2 or higher for Azure Automation](automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS 1.2 or higher with webhooks, see [TLS for Azure Automation](automation-managing-data.md#tls-for-azure-automation).
 
 ## Webhook properties
 

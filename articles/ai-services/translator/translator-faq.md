@@ -8,13 +8,11 @@ manager: nitinme
 
 ms.service: azure-ai-translator
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 07/09/2024
 ms.author: lajanuar
 ---
 
 # Frequently asked questions—Translator API
-
-[!INCLUDE [Azure AI services rebrand](../includes/rebrand-note.md)]
 
 ## How does Translator count characters?
 
@@ -30,7 +28,7 @@ Translator counts the following input:
 * An individual letter.
 * Punctuation.
 * A space, tab, markup, or any white-space character.
-* A repeated translation, even if you have previously translated the same text. Every character submitted to the translate function is counted even when the content is unchanged or the source and target language are the same.
+* A repeated translation, even if you previously translated the same text. Every character submitted to the translate function is counted even when the content is unchanged or the source and target language are the same.
 
 For scripts based on graphic symbols, such as written Chinese and Japanese Kanji, the Translator service counts the number of Unicode code points. One character per symbol. Exception: Unicode surrogate pairs count as two characters.
 
@@ -54,7 +52,7 @@ The [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) 
 
 ## Is attribution required when using Translator?
 
-Attribution isn't required when using Translator for text and speech translation. It's recommended that you inform users that the content they're viewing is machine translated.
+Attribution isn't required when using Translator for text and speech translation. We recommended that you inform users that the content they're viewing is machine translated.
 
 If attribution is present, it must conform to the [Translator attribution guidelines](https://www.microsoft.com/translator/business/attribution/).
 
@@ -62,7 +60,7 @@ If attribution is present, it must conform to the [Translator attribution guidel
 
 No, both have their place as essential tools for communication. Use machine translation where the quantity of content, speed of creation, and budget constraints make it impossible to use human translation.
 
-Machine translation has been used as a first pass by several of our [language service provider (LSP)](https://www.microsoft.com/translator/business/partners/) partners, prior to using human translation and can improve productivity by up to 50 percent. For a list of LSP partners, visit the Translator partner page.
+Machine translation os used as a first pass, before using human translation, by several of our [language service provider (LSP)](https://www.microsoft.com/translator/business/partners/) partners and can improve productivity by up to 50 percent. For a list of LSP partners, visit the Translator partner page.
 
 ---
 > [!TIP]

@@ -3,7 +3,7 @@ title: Administrative template for Azure Virtual Desktop
 description: Learn how to use the administrative template (ADMX) for Azure Virtual Desktop with Intune or Group Policy to configure certain settings on your session hosts.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 04/29/2024
 ms.author: daknappe
 ---
 
@@ -60,7 +60,7 @@ To configure the administrative template, select a tab for your scenario and fol
 
 1. In the settings picker, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see settings in the Azure Virtual Desktop subcategory available for you to configure, as shown in the following screenshot:
 
-   :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png" alt-text="Screenshot of the Intune admin center showing Azure Virtual Desktop settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png" alt-text="A screenshot of the Intune admin center showing Azure Virtual Desktop settings." lightbox="media/administrative-template/azure-virtual-desktop-intune-settings-catalog.png":::
 
 1. Once you've configured settings, apply the configuration profile to your session hosts, then restart your session hosts for the settings to take effect.
 
@@ -73,13 +73,13 @@ To configure the administrative template, select a tab for your scenario and fol
 
 1. Copy and paste the **terminalserver-avd.admx** file to the Group Policy Central Store for your domain, for example `\\contoso.com\SYSVOL\contoso.com\Policies\PolicyDefinitions`, where *contoso.com* is your domain name. Then copy the **terminalserver-avd.adml** file to the `en-us` subfolder.
 
-1. Open the **Group Policy Management Console** (GPMC) and create or edit a policy that targets your session hosts.
+1. Open the **Group Policy Management Console (GPMC)** and create or edit a policy that targets your session hosts.
 
 1. To verify that the Azure Virtual Desktop administrative template is available, browse to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**. You should see policy settings for Azure Virtual Desktop available for you to configure, as shown in the following screenshot:
 
-   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
+   :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="A screenshot of the Group Policy Management Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Once you've configured settings, apply the policy to your session hosts, then restart your session hosts for the settings to take effect.
+1. Once you've configured settings, ensure the policy is applied to your session hosts, then refresh Group Policy on the session hosts or restart them for the settings to take effect.
 
 # [Local Group Policy](#tab/local-group-policy)
 
@@ -93,11 +93,11 @@ To configure the administrative template, select a tab for your scenario and fol
 
    :::image type="content" source="media/administrative-template/azure-virtual-desktop-gpo.png" alt-text="Screenshot of the Local Group Policy Editor showing Azure Virtual Desktop policy settings." lightbox="media/administrative-template/azure-virtual-desktop-gpo.png":::
 
-1. Once you've configured settings, restart your session hosts for the settings to take effect.
+1. Once you've configured settings, ensure the policy is applied to your session hosts, then refresh Group Policy on the session hosts or restart them for the settings to take effect.
 
 ---
 
-## Next steps
+## Related content
 
 Learn how to use the administrative template with the following features:
 

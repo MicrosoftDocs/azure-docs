@@ -1,13 +1,13 @@
 ---
 title: Create shared access signature (SAS) tokens for your storage containers and blobs
-description: How to create Shared Access Signature tokens (SAS) for containers and blobs with Microsoft Storage Explorer and the Azure portal.
+description: How to create Shared Access Signature (SAS) tokens for containers and blobs with Microsoft Storage Explorer and the Azure portal.
 ms.topic: how-to
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
-ms.date: 07/18/2023
+ms.date: 07/11/2024
 ms.author: lajanuar
 ---
 
@@ -24,11 +24,9 @@ ms.author: lajanuar
 
 At a high level, here's how SAS tokens work:
 
-* Your application submits the SAS token to Azure Storage as part of a REST API request.
+* First, your application submits the SAS token to Azure Storage as part of a REST API request.
 
-* If the storage service verifies that the SAS is valid, the request is authorized.
-
-* If the SAS token is deemed invalid, the request is declined and the error code 403 (Forbidden) is returned.
+* Next, if the storage service verifies that the SAS is valid, the request is authorized. If, the SAS token is deemed invalid, the request is declined and the error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -58,7 +56,7 @@ To get started, you need:
 
 * An active [Azure account](https://azure.microsoft.com/free/cognitive-services/). If you don't have one, you can [create a free account](https://azure.microsoft.com/free/).
 
-* A [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
+* A [Document Intelligence](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource.
 
 * A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You need to create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
@@ -109,18 +107,18 @@ The Azure portal is a web-based console that enables you to manage your Azure su
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="Screenshot that shows the lack of permissions warning.":::
     >
-     > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
-    > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a role that allows for read, write, and delete permissions for your Azure storage container. *See* [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
+    > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
+    > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.yml?tabs=current) to assign a role that allows for read, write, and delete permissions for your Azure storage container. *See* [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
 1. Specify the signed key **Start** and **Expiry** times.
 
     * When you create a SAS token, the default duration is 48 hours. After 48 hours, you'll need to create a new token.
     * Consider setting a longer duration period for the time you're using your storage account for Document Intelligence Service operations.
     * The value of the expiry time is determined by whether you're using an **Account key** or **User delegation key** **Signing method**:
-      * **Account key**: There's no imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
-      * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information,*see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+      * **Account key**: No imposed maximum time limit; however, best practices recommended that you configure an expiration policy to limit the interval and minimize compromise. [Configure an expiration policy for shared access signatures](/azure/storage/common/sas-expiration-policy).
+      * **User delegation key**: The value for the expiry time is a maximum of seven days from the creation of the SAS token. The SAS is invalid after the user delegation key expires, so a SAS with an expiry time of greater than seven days will still only be valid for seven days. For more information, *see* [Use Microsoft Entra credentials to secure a SAS](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
 
-1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information,*see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
+1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, authorization fails. The IP address or a range of IP addresses must be public IPs, not private. For more information, *see*, [**Specify an IP address or IP range**](/rest/api/storageservices/create-account-sas#specify-an-ip-address-or-ip-range).
 
 1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS token. The default value is HTTPS.
 
@@ -128,7 +126,7 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 
 1. The **Blob SAS token** query string and **Blob SAS URL** appear in the lower area of the window. To use the Blob SAS token, append it to a storage service URI.
 
-1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. They're displayed only once and can't be retrieved after the window is closed.
+1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. The values are displayed only once and can't be retrieved after the window is closed.
 
 1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
@@ -176,7 +174,7 @@ To use your SAS URL with the [REST API](/rest/api/aiservices/document-models/bui
   }
   ```
 
-That's it! You've learned how to create SAS tokens to authorize how clients access your data.
+That's it! You learned how to create SAS tokens to authorize how clients access your data.
 
 ## Next step
 

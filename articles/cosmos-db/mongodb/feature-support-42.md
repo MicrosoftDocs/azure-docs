@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB for MongoDB 4.2 server version supporte
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 10/12/2022
@@ -13,7 +13,7 @@ ms.custom: build-2023
 
 # Azure Cosmos DB for MongoDB (4.2 server version): Supported features and syntax
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB is the Microsoft globally distributed multi-model database service. Azure Cosmos DB offers [multiple database APIs](../choose-api.md). You can communicate with Azure Cosmos DB for MongoDB by using any of the open-source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). Azure Cosmos DB for MongoDB supports the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 

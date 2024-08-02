@@ -6,11 +6,11 @@ summary: Learn how to configure, create, and manage an Azure VPN gateway. Create
 metadata:
   title: VPN Gateway documentation
   description: Learn how to configure, create, and manage an Azure VPN gateway.
-  ms.service: vpn-gateway
+  ms.service: azure-vpn-gateway
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 10/19/2023
+  ms.date: 07/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -49,7 +49,7 @@ landingContent:
             url: tutorial-create-gateway-portal.md
 
   # Card
-  - title: Point-to-site VPNs
+  - title: Point-to-site VPN
     linkLists:
       - linkListType: concept
         links:
@@ -59,17 +59,17 @@ landingContent:
             url: vpn-gateway-about-point-to-site-routing.md
       - linkListType: how-to-guide
         links:
-          - text: Certificate authentication
+          - text: Configure point-to-site VPN Certificate authentication
             url: vpn-gateway-howto-point-to-site-resource-manager-portal.md
-          - text: RADIUS authentication
-            url: point-to-site-how-to-radius-ps.md
-          - text: Microsoft Entra authentication
-            url: openvpn-azure-ad-tenant.md
-          - text: Multiple authentication types
+          - text: Configure point-to-site VPN Microsoft Entra ID authentication
+            url: point-to-site-entra-gateway.md
+          - text: Configure point-to-site VPN using Multiple authentication types
             url: howto-point-to-site-multi-auth.md
+          - text: Configure point-to-site VPN RADIUS authentication
+            url: point-to-site-how-to-radius-ps.md
 
 # Card
-  - title: Site-to-site VPNs
+  - title: Site-to-site VPN
     linkLists:
       - linkListType: tutorial
         links:

@@ -1,8 +1,8 @@
 ---
-title: include file
-description: include file
+title: Azure Event Grid resource logs schema
+description: This article provides schema information for resources logs in Azure Event Grid. 
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: spelluru
@@ -59,5 +59,5 @@ Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
 Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema) or [all the resource log category types collected for Azure Stream Analytics](../monitor-azure-stream-analytics-reference.md#resource-logs).
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../../azure-monitor/platform/resource-logs-schema.md) or [all the resource log category types collected for Azure Stream Analytics](../monitor-azure-stream-analytics-reference.md#resource-logs).
 

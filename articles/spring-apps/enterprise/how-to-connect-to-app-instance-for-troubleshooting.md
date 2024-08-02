@@ -3,9 +3,9 @@ title:  Connect to an app instance for troubleshooting
 description: Learn how to connect to an app instance in Azure Spring Apps for troubleshooting.
 author: KarlErickson
 ms.author: xiangy
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: article
-ms.date: 12/06/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -110,7 +110,7 @@ If your app contains only one instance, use the following command to connect to 
 az spring app connect \
     --service <your-service-instance> \
     --resource-group <your-resource-group> \
-    --name <app-name> 
+    --name <app-name>
 ```
 
 Otherwise, use the following command to specify the instance:

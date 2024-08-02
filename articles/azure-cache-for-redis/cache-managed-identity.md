@@ -4,7 +4,7 @@ titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
 author: flang-msft
 
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 08/29/2022
@@ -148,8 +148,9 @@ Set-AzRedisCache -ResourceGroupName \"MyGroup\" -Name \"MyCache\" -IdentityType 
 
 > [!NOTE]
 > For _export_ to work with a storage account with firewall exceptions, you must:
->- add an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity, and 
->- check [**Allow Azure services on the trusted services list to access this storage account**](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services). 
+>
+>- add an Azure Cache for Redis instance as a storage blob data contributor through system-assigned identity, and
+>- check [**Allow Azure services on the trusted services list to access this storage account**](../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-to-trusted-azure-services).
 
 If you're not using managed identity and instead authorizing a storage account with a key, then having firewall exceptions on the storage account breaks the persistence process and the import-export processes.
 
@@ -191,4 +192,4 @@ If you're not using managed identity and instead authorizing a storage account w
 ## Related content
 
 - [Learn more](cache-overview.md#service-tiers) about Azure Cache for Redis features
-- [What are managed identifies](../active-directory/managed-identities-azure-resources/overview.md)
+- [What are managed identities](../active-directory/managed-identities-azure-resources/overview.md)

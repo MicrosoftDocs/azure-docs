@@ -3,9 +3,9 @@ title: 'Azure private multi-access edge compute'
 description: Learn about the Azure private multi-access edge compute (MEC) solution that brings together a portfolio of Microsoft compute, networking and application services managed from the cloud.
 
 author: niravi-msft
-ms.service: private-multi-access-edge-compute-mec
+ms.service: azure-private-multiaccess-edge-compute
 ms.topic: overview
-ms.date: 06/16/2023
+ms.date: 04/26/2024
 ms.author: kumud
 
 ---
@@ -63,7 +63,7 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 
 ### Application services
 
-**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](/windows/ai/windows-ml-container/iot-edge-runtime).
+**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](/azure/iot-edge/about-iot-edge?view=iotedge-1.5#iot-edge-runtime).
 
 **Azure IoT Hub** Azure IoT Edge Runtime: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
 
@@ -76,4 +76,3 @@ For more information, see [Azure Private 5G Core](../private-5g-core/private-5g-
 - Learn more about [Azure Network Function Manager](/azure/network-function-manager/overview)
 - Learn more about [Azure Kubernetes Service (AKS) hybrid deployment](/azure/aks/hybrid/)
 - Learn more about [Azure Stack Edge](/azure/databox-online/)
-- Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)

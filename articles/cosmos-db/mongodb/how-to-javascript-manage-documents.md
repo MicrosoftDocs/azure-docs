@@ -3,7 +3,7 @@ title: Create a document in Azure Cosmos DB for MongoDB using JavaScript
 description: Learn how to work with a document in your Azure Cosmos DB for MongoDB database using the JavaScript SDK.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: javascript
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.custom: devx-track-js, devguide-js, cosmos-db-dev-journey
 
 # Manage a document in Azure Cosmos DB for MongoDB using JavaScript
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Manage your MongoDB documents with the ability to insert, update, and delete documents.
 

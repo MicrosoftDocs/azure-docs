@@ -1,9 +1,9 @@
 ---
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
-ms.topic: conceptual
-ms.date: 07/19/2022
-ms.service: backup
+ms.topic: how-to
+ms.date: 05/02/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -50,7 +50,8 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
-> [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+>- [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+>- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Azure Backup resource group for Virtual Machines
 

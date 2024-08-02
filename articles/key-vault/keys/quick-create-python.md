@@ -4,7 +4,7 @@ description: Learn how to create, retrieve, and delete keys from an Azure key va
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/03/2023
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.devlang: python
@@ -82,15 +82,15 @@ This quickstart is using the Azure Identity library with Azure CLI or Azure Powe
 
 ### Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-python-qs-rg-kv-creation.md)]
 
 ### Set the KEY_VAULT_NAME environmental variable
 
-[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../../../includes/key-vault-set-environmental-variables.md)]
+[!INCLUDE [Set the KEY_VAULT_NAME environmental variable](../includes/key-vault-set-environmental-variables.md)]
 
 ### Grant access to your key vault
 
-[!INCLUDE [Using RBAC to provide access to a key vault](../../../includes/key-vault-quickstart-rbac.md)]
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Create the sample code
 

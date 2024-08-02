@@ -4,7 +4,7 @@ titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
 author: cherylmc
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: quickstart 
 ms.date: 12/04/2023
 ms.custom: template-quickstart, devx-track-arm-template
@@ -62,7 +62,7 @@ By default, this template creates a Bastion deployment with a resource group, a 
 ## Deploy the template
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 In this section, you deploy Bastion by using the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion directly from your VM.
 

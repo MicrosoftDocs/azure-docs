@@ -68,7 +68,7 @@ This step takes approximately 5 minutes.
 1. Create a new **Azure Data Box** resource in the Azure portal.
 2. Select a subscription enabled for this service and choose transfer type as **Import**. Provide the **Source country** where the data resides and **Azure destination region** for the data transfer.
 3. Select **Data Box Disk**. The maximum solution capacity is 35 TB and you can create multiple disk orders for larger data sizes.  
-4. Enter the order details and shipping information. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
+4. Enter the order details and shipping information. Select either **Hardware encryption** (new) or **Software encryption** from the **Disk encryption type** drop-down list. If the service is available in your region, provide notification email addresses, review the summary, and then create the order.
 
 Once the order is created, the disks are prepared for shipment.
 
@@ -142,13 +142,13 @@ Once the order is created, the device is prepared for shipment.
 
 ## Unpack
 
-This step takes roughly 5 minutes.
+Unpacking your disks should take approximately 5 minutes.
 
-Data Box Disks are mailed in a UPS Express Box. Open the box and check that the box has:
+Data Box Disks are mailed in a UPS Express Box. Inspect the box for any evidence of tampering or obvious damage.
 
-- 1 to 5 bubble-wrapped USB disks.
-- A connecting cable per disk.
-- A shipping label for return shipment.
+After opening, check that the box contains 1 to 5 bubble-wrapped disks. Because hardware encrypted disks can be connected directly to your host's SATA port, orders containing these disks might not contain connecting cables. Orders containing software encrypted disks have one connecting cable for each disk.
+
+Finally, verify that the box contains a shipping label for returning your order.
 
 ## Connect and unlock
 
@@ -159,7 +159,7 @@ This step takes roughly 5 minutes.
 
     1. In the Azure portal, go to **General > Device Details** and get the passkey.
     2. Download and extract operating system-specific Data Box Disk unlock tool on the computer used to copy the data to disks. 
-    3. Run the Data Box Disk Unlock tool and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk.** For more information on how to unlock disks, go to [Unlock disks on Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
+    3. Run the Data Box Disk Unlock tool and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk when using Windows-based hosts.** For more information on how to unlock disks, go to [Unlock disks](data-box-disk-deploy-set-up.md#unlock-disks).
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
 
 ## Copy data and validate

@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Blob storage, and transform data in Blob storage using Azure Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -885,8 +884,6 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Change data capture 
 
 Azure Data Factory can get new or changed files only from Azure Blob Storage by enabling **Enable change data capture ** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice. Please refer to [Change Data Capture](concepts-change-data-capture.md) for details.
- 
-. 
 
 ## Related content
 

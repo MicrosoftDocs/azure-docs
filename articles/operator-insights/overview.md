@@ -4,7 +4,7 @@ description: Azure Operator Insights is an Azure service for monitoring and anal
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: overview 
 ms.date: 01/10/2024
 ---
@@ -28,7 +28,7 @@ The result is that the operator has a lower total cost of ownership but higher i
 
 Azure Operator Insights requires two separate types of resources.
 
-- _Ingestion agents_ in your network collect data from your network and upload them to Data Products in Azure.
+- _Ingestion agents_ in your network or in Azure collect data from your network and upload them to Data Products in Azure.
 - _Data Product_ resources in Azure process the data provided by ingestion agents, enrich it, and make it available to you.
     - You can use prebuilt dashboards provided by the Data Product or build your own in Azure Data Explorer. Azure Data Explorer also allows you to query your data directly, analyze it in Power BI or use it with Logic Apps. For more information, see [Data visualization in Data Products](concept-data-visualization.md).
     - Data Products provide [metrics for monitoring the quality of your data](concept-data-quality-monitoring.md).
@@ -37,6 +37,8 @@ Azure Operator Insights requires two separate types of resources.
 :::image type="complex" source="media/operator-insights-architecture.svg" alt-text="Diagram of ingestion agents and Data Products for Azure Operator Insights " lightbox="media/operator-insights-architecture.svg":::
     Diagram of the Azure Operator Insights architecture. It shows ingestion by ingestion agents from on-premises data sources, processing in a Data Product, and analysis and use in Logic Apps and Power BI.
 :::image-end:::
+
+For more information about the architecture of Azure Operator Insights, see [Architecture of Azure Operator Insights](architecture.md).
 
 We provide the following Data Products.
 
@@ -47,7 +49,7 @@ We provide the following Data Products.
 
 If you prefer, you can provide your own ingestion agent to upload data to your chosen Data Product.
 
-Azure Operator Insights also offers the data product factory (preview) to allow partners and operators to build new Data Products. For more information, see [What is the Azure Operator Insights data product factory (preview)?](data-product-factory.md).
+Azure Operator Insights also offers the data product factory (preview) to allow partners and operators to build new Data Products. For more information, see [the overview of the Azure Operator Insights data product factory](data-product-factory.md).
 
 ## How can I use Azure Operator Insights for end-to-end insights?
 
@@ -56,3 +58,8 @@ Azure Operator Insights provides built-in support for discovering and joining Da
 ## How do I get access to Azure Operator Insights?
 
 Access is currently limited by request. More information is included in the application form. We appreciate your patience as we work to enable broader access to Azure Operator Insights Data Product. Apply for access by [filling out this form](https://aka.ms/AAn1mi6).
+
+## Related content
+
+- Learn about the [architecture of Azure Operator Insights](architecture.md).
+- [Deploy a Data Product](data-product-create.md).

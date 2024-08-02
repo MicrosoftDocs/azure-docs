@@ -32,7 +32,7 @@ Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if yo
 
 ## Prerequisites
 
-* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+* At minimum, you must have the **Contributor** role for the Azure subscription. For more information, read [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 * Create an environment using either the [Azure portal](#create-an-azure-time-series-insights-gen2-environment) or [CLI](how-to-create-environment-using-cli.md).
 

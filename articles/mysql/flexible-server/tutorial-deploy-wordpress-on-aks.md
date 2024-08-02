@@ -1,23 +1,28 @@
 ---
-title: 'Tutorial: Deploy WordPress on AKS cluster by using Azure CLI'
+title: "Tutorial: Deploy WordPress on AKS cluster by using Azure CLI"
 description: Learn how to quickly build and deploy WordPress on AKS with Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-author: mksuni
-ms.author: sumuth
 ms.topic: tutorial
-ms.date: 3/20/2024
-ms.custom: vc, devx-track-azurecli, innovation-engine, linux-related-content
+ms.custom:
+  - vc
+  - devx-track-azurecli
+  - innovation-engine
+  - linux-related-content
 ---
 
 # Tutorial: Deploy WordPress app on AKS with Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262843)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262841)
 
 In this tutorial, you deploy a scalable WordPress application secured via HTTPS on an Azure Kubernetes Service (AKS) cluster with Azure Database for MySQL flexible server using the Azure CLI.
-**[AKS](../../aks/intro-kubernetes.md)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL flexible server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
+**[AKS](/azure/aks/intro-kubernetes)** is a managed Kubernetes service that lets you quickly deploy and manage clusters. **[Azure Database for MySQL flexible server](overview.md)** is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
 > This tutorial assumes a basic understanding of Kubernetes concepts, WordPress, and MySQL.
@@ -269,7 +274,7 @@ az aks create \
     --zones 1 2 3
 ```
 > [!NOTE]
-> When creating an AKS cluster, a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster, a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -519,11 +524,11 @@ echo "You can now visit your web server at https://$FQDN"
 To avoid Azure charges, you should clean up unneeded resources. When you no longer need the cluster, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, and all related resources. 
 
 > [!NOTE]
-> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](/azure/aks/kubernetes-service-principal#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
-- Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
-- Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
+- Learn how to [access the Kubernetes web dashboard](/azure/aks/kubernetes-dashboard) for your AKS cluster
+- Learn how to [scale your cluster](/azure/aks/tutorial-kubernetes-scale)
 - Learn how to manage your [Azure Database for MySQL flexible server instance](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./how-to-configure-server-parameters-cli.md) for your database server

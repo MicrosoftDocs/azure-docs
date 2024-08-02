@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 11/01/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Supported resource types and role assignments for Chaos Studio
@@ -32,3 +32,4 @@ More information about role assignments can be found on the [Azure built-in role
 | Microsoft.Web/sites (service-direct)                             | Microsoft-AppService                      | [Website Contributor](../role-based-access-control/built-in-roles.md#website-contributor)                         |
 | Microsoft.ServiceBus/namespaces (service-direct)                 | Microsoft-ServiceBus                      | [Azure Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner)                         |
 | Microsoft.EventHub/namespaces (service-direct)                   | Microsoft-EventHub                        | [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner)                         |
+| Microsoft.LoadTestService/loadtests (service-direct)             | Microsoft-AzureLoadTest                   | [Load Test Contributor](../role-based-access-control/built-in-roles.md#load-test-contributor)                         |

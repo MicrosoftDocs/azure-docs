@@ -20,7 +20,7 @@ The source stage is the first and required stage in an Azure IoT Data Processor 
 
 ## Prerequisites
 
-- A functioning instance of Data Processor is deployed.
+- A deployed instance of Azure IoT Data Processor Preview that includes the optional Data Processor component.
 - An instance of the Azure IoT MQ Preview broker with all necessary raw data available is operational and reachable.
 
 ## Configure the MQ source
@@ -78,7 +78,7 @@ The following shows an example configuration for the stage:
 | Topic | `azure-iot-operations/data/opc-ua-connector-0/#` |
 | Data format | `JSON` |
 
-This example shows the topic used in the [Quickstart: Use Azure IoT Data Processor Preview pipelines to process data from your OPC UA assets](../get-started/quickstart-process-telemetry.md). This configuration then generates messages that look like the following example:
+This configuration then generates messages that look like the following example:
 
 ```json
 {

@@ -228,7 +228,7 @@ conceptualContent:
           - text: Deploy with GitHub actions
             url: deploy-custom-policies-github-action.md
             itemType: how-to-guide
-          - text: Manage resources using Microsoft Powershell
+          - text: Manage resources using Microsoft PowerShell
             url: manage-custom-policies-powershell.md
             itemType: how-to-guide
 

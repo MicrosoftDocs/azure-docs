@@ -7,7 +7,7 @@ ms.service: azure-operator-nexus
 ms.custom: devx-track-azurecli
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -43,7 +43,7 @@ ms.custom: devx-track-azurecli
 * This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 <!-- LINKS - internal -->
-[kubernetes-concepts]: ../../../aks/concepts-clusters-workloads.md
+[kubernetes-concepts]: /azure/aks/concepts-clusters-workloads
 [az-account]: /cli/azure/account
 [az-group-create]: /cli/azure/group#az-group-create
 [azure-resource-group]: ../../../azure-resource-manager/management/overview.md

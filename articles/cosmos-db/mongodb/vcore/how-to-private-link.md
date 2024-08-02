@@ -5,7 +5,7 @@ description: Use Azure Private Link to connect to Azure Cosmos DB for MongoDB vC
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to
@@ -15,7 +15,7 @@ ms.date: 11/01/2023
 
 # Enable Private access in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 Azure Private Link is a powerful service that allows users to connect to Azure Cosmos DB for MongoDB vCore through a designated private endpoint. This private endpoint consists of private IP addresses located in a subnet within your own virtual network. The endpoint enables you to restrict access to the Azure Cosmos DB for MongoDB vCore product solely over private IPs. The risk of data exfiltration is substantially reduced, by integrating Private Link with stringent NSG policies. For a deeper understanding of private endpoints, consider checking out [What is Azure Private Link?](../../../private-link/private-endpoint-overview.md).
 
@@ -59,6 +59,8 @@ Follow these steps to create a new Azure Cosmos DB for MongoDB vCore cluster wit
     | Name | Enter any name for your private endpoint. If this name is taken, create a unique one. |
     | Network Interface name | Enter any name for your Network Interface. If this name is taken, create a unique one. |
     | Location | Select the region where you want to deploy Private Link. Create the private endpoint in the same location where your virtual network exists.|
+    | Resource type | Select `Microsoft.DocumentDB/mongoClusters`. |
+    | Target resource | Select the Azure Cosmos DB for MongoDB vCore resource you created. |
     | Target subresource | Select the type of subresource for the resource selected previously that your private endpoint should have the ability to access. |
     | Virtual network | Select your virtual network. |
     | Subnet | Select your subnet. |
@@ -88,8 +90,7 @@ To create a private endpoint to a node in an existing cluster, open the
    > default values for the form fields might not be correct. Check them and
    > update if necessary.
 
-3. Select **Next: Resource**. For **Target sub-resource**, choose the target
-   node of the cluster. Usually **coordinator** is the desired node.
+3. Select **Next: Resource**. Choose "Microsoft.DocumentDB/mongoClusters" for **Resource type**, and choose the target cluster for **Resource**. For **Target sub-resource**, choose "MongoCluster".
 
 4. Select **Next: Virtual Network**. Choose the desired **Virtual network** and
    **Subnet**. Under **Private IP configuration**, select **Statically allocate IP address** or keep the default, **Dynamically allocate IP address**.

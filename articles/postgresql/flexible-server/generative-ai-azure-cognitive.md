@@ -4,13 +4,16 @@ description: Create AI applications with sentiment analysis, summarization, or k
 author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
-ms.date: 04/08/2024
-ms.service: postgresql
+ms.date: 05/20/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.collection: ce-skilling-ai-copilot
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ---
 
-# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services (Preview)
+# Integrate Azure Database for PostgreSQL - Flexible Server with Azure Cognitive Services
 
 Azure AI extension gives the ability to invoke the [Azure AI Language Services](../../ai-services/language-service/overview.md#which-language-service-feature-should-i-use) such as sentiment analysis right from within the database.
 
@@ -27,7 +30,7 @@ Azure AI extension gives the ability to invoke the [Azure AI Language Services](
 
 In the Language resource, under **Resource Management** > **Keys and Endpoint** you can find the endpoint, keys, and Location/Region for your language resource. Use the endpoint and key to enable `azure_ai` extension to invoke the model deployment. The Location/Region setting is only required for the translation function.
 
-```postgresql
+```sql
 select azure_ai.set_setting('azure_cognitive.endpoint','https://<endpoint>.cognitiveservices.azure.com');
 select azure_ai.set_setting('azure_cognitive.subscription_key', '<API Key>');
 -- the region setting is only required for the translate function
@@ -40,7 +43,7 @@ select azure_ai.set_setting('azure_cognitive.region', '<Region>');
 
 ### `azure_cognitive.analyze_sentiment`
 
-```postgresql
+```sql
 azure_cognitive.analyze_sentiment(text text, language text DEFAULT NULL::text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.analyze_sentiment(text text[], language text DEFAULT NULL::text, batch_size integer DEFAULT 10, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::text[], batch_size integer DEFAULT 10, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -54,7 +57,7 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -74,11 +77,11 @@ azure_cognitive.analyze_sentiment(text text[], language text[] DEFAULT NULL::tex
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for sentiment analysis if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for sentiment analysis if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for sentiment analysis, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for sentiment analysis, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -92,7 +95,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ### `azure_cognitive.detect_language`
 
-```postgresql
+```sql
 azure_cognitive.detect_language(text text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 ```
@@ -121,11 +124,11 @@ azure_cognitive.detect_language(text text[], batch_size integer DEFAULT 1000, di
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for language detection if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for language detection if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for language detection, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for language detection, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -139,7 +142,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ### `azure_cognitive.extract_key_phrases`
 
-```postgresql
+```sql
 azure_cognitive.extract_key_phrases(text text, language text DEFAULT NULL::text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.extract_key_phrases(text text[], language text DEFAULT NULL::text, batch_size integer DEFAULT 10, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::text[], batch_size integer DEFAULT 10, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -153,7 +156,7 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the languages that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -173,11 +176,11 @@ azure_cognitive.extract_key_phrases(text text[], language text[] DEFAULT NULL::t
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for key phrase extraction if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for key phrase extraction if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for key phrase extraction, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for key phrase extraction, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -191,7 +194,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ### `azure_cognitive.linked_entities`
 
-```postgresql
+```sql
 azure_cognitive.linked_entities(text text, language text DEFAULT NULL::text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.linked_entities(text text[], language text DEFAULT NULL::text, batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[], batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -205,7 +208,7 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -229,11 +232,11 @@ azure_cognitive.linked_entities(text text[], language text[] DEFAULT NULL::text[
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -248,7 +251,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 [Named Entity Recognition (NER) feature in Azure AI](../../ai-services/language-service/named-entity-recognition/overview.md) can identify and categorize entities in unstructured text.
 
-```postgresql
+```sql
 azure_cognitive.recognize_entities(text text, language text DEFAULT NULL::text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.recognize_entities(text text[], language text DEFAULT NULL::text, batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::text[], batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -262,7 +265,7 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `batch_size`
 
@@ -282,11 +285,11 @@ azure_cognitive.recognize_entities(text text[], language text[] DEFAULT NULL::te
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -300,7 +303,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 ### `azure_cognitive.recognize_pii_entities`
 
-```postgresql
+```sql
 azure_cognitive.recognize_pii_entities(text text, language text DEFAULT NULL::text, domain text DEFAULT 'none'::text, disable_service_logs boolean DEFAULT true, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.recognize_pii_entities(text text[], language text DEFAULT NULL::text, domain text DEFAULT 'none'::text, batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT true, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL::text[], domain text DEFAULT 'none'::text, batch_size integer DEFAULT 5, disable_service_logs boolean DEFAULT true, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -314,7 +317,7 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `domain`
 
@@ -338,11 +341,11 @@ azure_cognitive.recognize_pii_entities(text text[], language text[] DEFAULT NULL
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -358,7 +361,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 [Document abstractive summarization](../../ai-services/language-service/summarization/overview.md) produces a summary that might not use the same words in the document but yet captures the main idea.
 
-```postgresql
+```sql
 azure_cognitive.summarize_abstractive(text text, language text DEFAULT NULL::text, sentence_count integer DEFAULT 3, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.summarize_abstractive(text text[], language text DEFAULT NULL::text, sentence_count integer DEFAULT 3, batch_size integer DEFAULT 25, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL::text[], sentence_count integer DEFAULT 3, batch_size integer DEFAULT 25, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -372,7 +375,7 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `sentence_count`
 
@@ -396,11 +399,11 @@ azure_cognitive.summarize_abstractive(text text[], language text[] DEFAULT NULL:
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -412,7 +415,7 @@ For more information, see Cognitive Services Compliance and Privacy notes at htt
 
 [Document extractive summarization](../../ai-services/language-service/summarization/how-to/document-summarization.md) produces a summary extracting key sentences within the document.
 
-```postgresql
+```sql
 azure_cognitive.summarize_extractive(text text, language text DEFAULT NULL::text, sentence_count integer DEFAULT 3, sort_by text DEFAULT 'offset'::text, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.summarize_extractive(text text[], language text DEFAULT NULL::text, sentence_count integer DEFAULT 3, sort_by text DEFAULT 'offset'::text, batch_size integer DEFAULT 25, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::text[], sentence_count integer DEFAULT 3, sort_by text DEFAULT 'offset'::text, batch_size integer DEFAULT 25, disable_service_logs boolean DEFAULT false, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -426,7 +429,7 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 ##### `language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `sentence_count`
 
@@ -454,11 +457,11 @@ azure_cognitive.summarize_extractive(text text[], language text[] DEFAULT NULL::
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 For more information, see Cognitive Services Compliance and Privacy notes at https://aka.ms/cs-compliance, and Microsoft Responsible AI principles at https://www.microsoft.com/ai/responsible-ai.
 
@@ -473,7 +476,7 @@ For example, if invoked with a `text` set to `'PostgreSQL features transactions 
 
 ### `azure_cognitive.translate`
 
-```postgresql
+```sql
 azure_cognitive.translate(text text, target_language text, source_language text DEFAULT NULL::text, text_type text DEFAULT 'Plain'::text, profanity_action text DEFAULT 'NoAction'::text, profanity_marker text DEFAULT 'Asterisk'::text, suggested_source_language text DEFAULT NULL::text, source_script text DEFAULT NULL::text, target_script text DEFAULT NULL::text, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.translate(text text, target_language text[], source_language text DEFAULT NULL::text, text_type text DEFAULT 'Plain'::text, profanity_action text DEFAULT 'NoAction'::text, profanity_marker text DEFAULT 'Asterisk'::text, suggested_source_language text DEFAULT NULL::text, source_script text DEFAULT NULL::text, target_script text[] DEFAULT NULL::text[], timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
 azure_cognitive.translate(text text[], target_language text, source_language text DEFAULT NULL::text, text_type text DEFAULT 'Plain'::text, profanity_action text DEFAULT 'NoAction'::text, profanity_marker text DEFAULT 'Asterisk'::text, suggested_source_language text DEFAULT NULL::text, source_script text DEFAULT NULL::text, target_script text DEFAULT NULL::text, batch_size integer DEFAULT 1000, timeout_ms integer DEFAULT NULL::integer, throw_on_error boolean DEFAULT true, max_attempts integer DEFAULT 1, retry_delay_ms integer DEFAULT 1000)
@@ -483,7 +486,7 @@ azure_cognitive.translate(text text[], target_language text[], source_language t
 > [!NOTE]  
 > Translation is only available in version 0.2.0 of azure_ai extension. To check the version, check the pg_available_extensions catalog view.
 
-```postgresql
+```sql
 select * from pg_available_extensions where name = 'azure_ai';
 ```
 
@@ -497,7 +500,7 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `target_language`
 
-`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language(s) that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
+`text` or `text[]` single value or array of values, depending on the overload of the function used, with the two-letter ISO 639-1 representation of the language that the input is written in. Check [language support](../../ai-services/language-service/concepts/language-support.md) for allowed values.
 
 ##### `source_language`
 
@@ -536,11 +539,11 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ##### `max_attempts`
 
-`integer DEFAULT 1` number of times the extension will retry calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
+`integer DEFAULT 1` number of times the extension retries calling the Azure Language Service endpoint for linked identities if it fails with any retryable error.
 
 ##### `retry_delay_ms`
 
-`integer DEFAULT 1000` amount of time (milliseconds) that the extension will wait, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
+`integer DEFAULT 1000` amount of time (milliseconds) that the extension waits, before calling again the Azure Language Service endpoint for linked identities, when it fails with any retryable error.
 
 
 #### Return type
@@ -551,14 +554,14 @@ For more information on parameters, see [Translator API](../../ai-services/trans
 
 ### Sentiment analysis examples
 
-```postgresql
+```sql
 select b.*
 from azure_cognitive.analyze_sentiment('The book  was not great, It is mediocre at best','en') b
 ```
 
 ### Summarization examples
 
-```postgresql
+```sql
 SELECT
     bill_id,
     unnest(azure_cognitive.summarize_abstractive(bill_text, 'en')) abstractive_summary
@@ -568,7 +571,7 @@ WHERE bill_id = '114_hr2499';
 
 ### Translation examples
 
-```postgresql
+```sql
 -- Translate into Portuguese
 select  a.*
 from azure_cognitive.translate('Language Translation in real time in multiple languages is quite cool', 'pt') a;
@@ -580,7 +583,7 @@ from azure_cognitive.translate('Language Translation in real time in multiple la
 
 ### Personal data detection examples
 
-```postgresql
+```sql
 select
     'Contoso employee with email Contoso@outlook.com is using our awesome API' as InputColumn,
     pii_entities.*
@@ -589,5 +592,5 @@ select
 
 ## Related content
 
-- [Learn more about Azure Open AI integration](generative-ai-azure-openai.md)
+- [Learn more about Azure OpenAI Service integration](generative-ai-azure-openai.md)
 - [Learn more about Azure Machine Learning integration](generative-ai-azure-machine-learning.md)

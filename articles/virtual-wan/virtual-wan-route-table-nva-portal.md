@@ -3,9 +3,8 @@ title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
 author: cherylmc
-
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
@@ -15,7 +14,7 @@ ms.author: cherylmc
 
 This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke virtual network (VNet) via a Network Virtual Appliance (NVA).
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 ## Before you begin
 

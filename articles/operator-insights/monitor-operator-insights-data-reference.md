@@ -5,7 +5,7 @@ author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
 ms.topic: reference
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.custom: horz-monitor
 ms.date: 12/15/2023
 ---
@@ -46,7 +46,7 @@ This section lists all of the Azure Monitor Logs Kusto tables relevant to Azure 
 
 |Log type|Table name|Details|
 |--------|----------|-------|
-|Digestion|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)| Contains `Digestion` logs|
+|Transformation|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)| Contains `Transformation` logs (called `Digestion` in the table)|
 |Ingestion and storage |[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)| Contains `Ingestion`, `IngestionDelete` and `ReadStorage` |
 |Database queries|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)| Contains `DatabaseQuery` |
 
@@ -74,7 +74,7 @@ Azure Operator Insights uses the following schemas for logs.
 
 |Log type|Relates to|Schema link|
 |--------|----------|-----------|
-|Digestion logs|Processing (digestion) of data|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
+|Transformation logs|Processing (called digestion in the schema) of data|[AOIDigestion](/azure/azure-monitor/reference/tables/aoidigestion)|
 |Storage logs|Operations on the Data Product's storage|[AOIStorage](/azure/azure-monitor/reference/tables/aoistorage)|
 |Database query logs|Queries run on the Data Product's database|[AOIDatabaseQuery](/azure/azure-monitor/reference/tables/aoidatabasequery)|
 

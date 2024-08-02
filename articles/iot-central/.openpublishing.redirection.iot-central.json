@@ -352,17 +352,22 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/howto-create-custom-analytics-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/howto-create-custom-analytics.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-create-custom-analytics.md",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/howto-create-custom-analytics.md",
-      "redirect_url": "/azure/iot-central/core/howto-create-custom-analytics/",
+      "redirect_url": "/azure/iot/iot-overview-analyze-visualize/",
       "redirect_document_id": false
     },
     {
@@ -1202,7 +1207,12 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-add-edge-as-leaf-device.md",
-      "redirect_url": "/learn/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/tutorial-connect-iot-edge-device.md",
+      "redirect_url": "/training/modules/connect-iot-edge-device-to-iot-central/",
       "redirect_document_id": false
     },
     {
@@ -1367,8 +1377,13 @@
     },
     {
       "source_path_from_root": "/articles/iot-central/core/concepts-scalability-availability.md",
-      "redirect_url": "/azure/iot-central/core/concepts-faq-scalability-availability",
-      "redirect_document_id": true
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-faq-scalability-availability.md",
+      "redirect_url": "/azure/iot-central/core/concepts-architecture",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/iot-central/preview/concepts-get-connected.md",
@@ -1423,6 +1438,16 @@
     {
       "source_path_from_root": "/articles/iot-central/core/tutorial-industrial-end-to-end.md",
       "redirect_url": "/azure/iot/iot-introduction",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/concepts-iiot-architecture.md",
+      "redirect_url": "/azure/iot/concepts-iot-industrial-solution-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-central/core/howto-upload-file-rest-api.md",
+      "redirect_url": "/azure/iot-central/core/howto-manage-iot-central-with-rest-api",
       "redirect_document_id": false
     }
   ]

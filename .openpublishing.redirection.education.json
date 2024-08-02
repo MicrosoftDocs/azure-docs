@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/education-hub/custom-tenant-set-up-classroom.md",
+            "redirect_url": "/articles/education-hub/about-education-hub.md",
+            "redirect_document_id": false
+        }
+    ]
+    }

@@ -14,7 +14,7 @@ Health Data Services is a set of managed API services based on open standards an
 
 FHIR service is an implementation of the FHIR specification within Health Data Services. It enables you to combine in a single workspace one or more FHIR service instances with optional DICOM and MedTech service instances. Azure API for FHIR is generally available as a stand-alone service offering.
 
-FHIR service in Azure Health Data Services has a limit of 4 TB for structured storage.
+Each FHIR service instance in Azure Health Data Services has a storage limit of 4 TB by default. If you have more data, you can ask Microsoft to increase storage up to 100 TB for your FHIR service. To request storage greater than 4 TB, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) on the Azure portal and use the issue type Service and Subscription limit (quotas).
 
 | **Quota Name** | **Default Limit**| **Maximum Limit** | **Notes** |
 |---|---|---|---|

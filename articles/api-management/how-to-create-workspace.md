@@ -3,7 +3,7 @@ title: Set up a workspace in Azure API Management
 description: Learn how to create a workspace in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.author: danlep
 ms.date: 03/07/2023
 ms.custom:
@@ -45,7 +45,7 @@ After creating a workspace, assign permissions to users to manage the workspace'
 > 
 
 * For a list of built-in workspace roles, see [How to use role-based access control in API Management](api-management-role-based-access-control.md).
-* For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.md?tabs=current).
+* For steps to assign a role, see [Assign Azure roles using the portal](../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 
 ### Assign a service-scoped role

@@ -24,6 +24,11 @@
             "source_path_from_root": "/articles/azure-netapp-files/azure-netapp-files-faqs.md",
             "redirect_url": "/azure/azure-netapp-files/faq-nfs",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/backup-disable.md",
+            "redirect_url": "/azure/azure-netapp-files/backup-configure-manual",
+            "redirect_document_id": false
         }
     ]
 }

@@ -3,7 +3,7 @@ title: Emergency calling for Zoom Phone Cloud Peering with Azure Communications 
 description: Understand Azure Communications Gateway's support for emergency calling with Zoom Phone Cloud Peering
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.custom: template-concept
@@ -26,7 +26,7 @@ Azure Communications Gateway routes emergency calls from Zoom clients to your ne
 You must:
 
 1. Identify the combinations of country codes and emergency short codes that you need to support.
-2. Specify these combinations (prefixed with `+`) when you [deploy Azure Communications Gateway](deploy.md#collect-basic-information-for-deploying-an-azure-communications-gateway), or by editing your existing configuration.
+2. Specify these combinations (prefixed with `+`) when you [deploy Azure Communications Gateway](deploy.md#create-an-azure-communications-gateway-resource), or by editing your existing configuration.
 3. Configure your network to treat calls to these numbers as emergency calls.
 
 If your network can't route emergency calls in the format  `+<country-code><emergency-short-code>`, contact your onboarding team or raise a support request to discuss your requirements for number conversion.

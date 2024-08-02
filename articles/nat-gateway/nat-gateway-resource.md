@@ -5,7 +5,7 @@ author: asudbring
 ms.service: nat-gateway
 ms.topic: article
 ms.custom: FY23 content-maintenance
-ms.date: 07/10/2023
+ms.date: 04/29/2024
 ms.author: allensu
 ---
 
@@ -19,7 +19,7 @@ NAT Gateway uses software defined networking to operate as a distributed and ful
 
 NAT Gateway provides source network address translation (SNAT) for private instances within subnets of your Azure virtual network. When configured on a subnet, the private IPs within your subnets SNAT to a NAT gateway's static public IP addresses to connect outbound to the internet. NAT Gateway also provides destination network address translation (DNAT) for response packets to an outbound originated connection only.
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram of a NAT gateway resource with virtual machines and a Virtual Machine Scale Set.":::
+:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
 
 *Figure: NAT gateway for outbound to internet*
 
@@ -56,6 +56,10 @@ When multiple subnets within a virtual network are attached to the same NAT gate
 SNAT ports serve as unique identifiers to distinguish different connection flows from one another. The **same SNAT port** can be used to connect to **different destination endpoints** at the same time.
 
 **Different SNAT ports** are used to make connections to the **same destination endpoint** in order to distinguish different connection flows from one another. SNAT ports being reused to connect to the same destination are placed on a [reuse cool down timer](#port-reuse-timers) before they can be reused.
+
+:::image type="content" source="./media/nat-gateway-resource/snat-port-allocation.png" alt-text="Diagram of SNAT port allocation.":::
+
+*Figure: SNAT port allocation*
 
 A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. A NAT gateway can scale up to over 1 million SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT Gateway.
 

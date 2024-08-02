@@ -5,7 +5,7 @@ description: How to configure a custom domain name and choose certificates for t
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/13/2023
 ms.author: danlep
@@ -98,7 +98,7 @@ For more information, see [Use managed identities in Azure API Management](api-m
 API Management offers a free, managed TLS certificate for your domain, if you don't wish to purchase and manage your own certificate. The certificate is autorenewed automatically.
 
 > [!NOTE]
-> The free, managed TLS certificate is available for all API Management service tiers. It is currently in preview.
+> The free, managed TLS certificate is in preview. Currently, it's unavailable in the v2 service tiers. 
 
 #### Limitations
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template). 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your deployment contains multiple sites, we recommend upgrading the packet core in a single site first and ensuring the upgrade is successful before upgrading the packet cores in the remaining sites.
 
@@ -24,7 +24,7 @@ If your environment meets the prerequisites, you're familiar with using ARM temp
 
 ## Prerequisites
 
-- You must have a running packet core. Use Azure monitor platform metrics or the packet core dashboards to confirm your packet core instance is operating normally.
+- You must have a running packet core. Refer to [Verify the packet core is running](#verify-the-packet-core-is-running) for details on how to check this.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 - Identify the name of the site that hosts the packet core instance you want to upgrade.
 - If you use Microsoft Entra ID to authenticate access to your local monitoring tools, ensure your local machine has core kubectl access to the Azure Arc-enabled Kubernetes cluster. This requires a core kubeconfig file, which you can obtain by following [Core namespace access](set-up-kubectl-access.md#core-namespace-access).
@@ -49,6 +49,28 @@ In addition, consider the following points for pre- and post-upgrade steps you m
   - If you're currently running a packet core version that the ASE version you're upgrading to doesn't support, it's possible that packet core won't operate normally with the new ASE version. In this case, we recommend planning a maintenance window that allows you time to upgrade both ASE and packet core. Refer to [Update your Azure Stack Edge Pro GPU](../databox-online/azure-stack-edge-gpu-install-update.md) for how long the ASE upgrade will take.
 - Prepare a testing plan with any steps you'll need to follow to validate your deployment post-upgrade. This plan should include testing some registered devices and sessions, and you'll execute it as part of [Verify upgrade](#verify-upgrade).
 - Review [Restore backed up deployment information](#restore-backed-up-deployment-information) and [Verify upgrade](#verify-upgrade) for the post-upgrade steps you'll need to follow to ensure your deployment is fully operational. Make sure your upgrade plan allows sufficient time for these steps.
+
+## Verify the packet core is running
+
+Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md), [packet core dashboards](packet-core-dashboards.md), or Azure Resource Health to confirm your packet core instance is operating normally.
+
+To use Azure Resource Health to confirm the packet core instance is healthy:
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select the **Mobile Network** resource representing the private mobile network.
+
+    :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
+
+1. In the **Resource** menu, select **Sites**.
+1. Select the site containing the packet core instance you're interested in.
+1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
+
+    :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+
+1. Select **Resource Health** under the **Help** section on the left side.
+1. Check that the resource is healthy and there are no unexpected alerts.
+1. If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+1. To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+
 
 ## Upgrade the packet core instance
 
@@ -116,9 +138,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
 ### Verify upgrade
 
-Once the upgrade completes, check if your deployment is operating normally.
-
-1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally.
+1. Follow the steps in [Verify the packet core is running](#verify-the-packet-core-is-running) to confirm that the upgrade has succeeded and packet core is running correctly.
 1. Execute the testing plan you prepared in [Plan for your upgrade](#plan-for-your-upgrade).
 
 ## Rollback

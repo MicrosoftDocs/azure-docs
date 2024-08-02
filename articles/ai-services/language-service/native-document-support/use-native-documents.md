@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-language
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 06/20/2024
 ms.author: lajanuar
 ---
 
@@ -340,25 +340,28 @@ For this project, you need a **source document** uploaded to your **source conta
 
   ```json
   {
-   "kind": "ExtractiveSummarization",
-   "parameters": {
+  "tasks": [
+    {
+      "kind": "ExtractiveSummarization",
+      "parameters": {
         "sentenceCount": 6
-    },
-   "analysisInput":{
-        "documents":[
-            {
-          "source":{
-            "location":"{your-source-blob-SAS-URL}"
-          },
-          "targets":
-            {
-              "location":"{your-target-container-SAS-URL}",
-            }
-            }
-        ]
+      }
     }
+  ],
+  "analysisInput": {
+    "documents": [
+      {
+        "source": {
+          "location": "{your-source-blob-SAS-URL}"
+        },
+        "targets": {
+          "location": "{your-target-container-SAS-URL}"
+        }
+      }
+    ]
   }
-  ```
+}
+```
 
 ### Run the POST request
 
@@ -484,7 +487,7 @@ You receive a 200 (Success) response with JSON output. The **status** field indi
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+* [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 * [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

@@ -115,5 +115,5 @@ In this article, you learned about the different types of alerts available in De
 
 - [Security alerts in Azure Activity log](https://go.microsoft.com/fwlink/?linkid=2114113) - In addition to being available in the Azure portal or programmatically, Security alerts and incidents are audited as events in Azure Activity Log
 - [Reference table of Defender for Cloud alerts](alerts-reference.md)
-- [Respond to security alerts](managing-and-responding-alerts.md#respond-to-a-security-alert)
+- [Respond to security alerts](managing-and-responding-alerts.yml#respond-to-a-security-alert)
 - Learn how to [manage security incidents in Defender for Cloud](incidents.md).

@@ -3,13 +3,12 @@ title: Manage and monitor IoT Central
 description: This article describes how to create, manage, and monitor your IoT Central applications and enable managed identities.
 services: iot-central
 ms.service: iot-central
+ms.custom: devx-track-azurepowershell
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/02/2024
 ms.topic: how-to
-
 #customer intent: As an administrator, I want to learn how to manage and monitor IoT Central applications using Azure portal, Azure CLI, and Azure PowerShell so that I can maintain my set of IoT Central applications.
-
 ---
 
 # Manage and monitor IoT Central applications

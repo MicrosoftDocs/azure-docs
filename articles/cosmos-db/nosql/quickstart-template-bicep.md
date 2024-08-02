@@ -4,7 +4,7 @@ description: Quickstart showing how to an Azure Cosmos DB database and a contain
 author: seesharprun
 ms.author: sidandrews
 tags: azure-resource-manager, bicep
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 04/18/2022
@@ -18,13 +18,13 @@ ms.custom: subject-armqs, mode-arm, devx-track-bicep
 
 Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). This quickstart focuses on the process of deploying a Bicep file to create an Azure Cosmos DB database and a container within that database. You can later store data in this container.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
 An Azure subscription or free Azure Cosmos DB trial account.
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Review the Bicep file
 
@@ -39,6 +39,9 @@ Three Azure resources are defined in the Bicep file:
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Create an Azure Cosmos DB database.
 
 - [Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Create an Azure Cosmos DB container.
+
+> [!IMPORTANT]
+> The Azure Resource Manager provider, `Microsoft.DocumentDB/databaseAccounts`, has maintained the same name for many years. This ensures that templates written years ago are still compatible with the same provider even as the name of the service and sub-services have evolved.
 
 ## Deploy the Bicep file
 

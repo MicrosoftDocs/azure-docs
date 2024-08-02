@@ -15,7 +15,7 @@ ms.reviewer: mmcc
 
 Sampling overrides allow you to override the [default sampling percentage](./java-standalone-config.md#sampling),
 for example:
- * Set the sampling percentage to 0 (or some small value) for noisy health checks.
+* Set the sampling percentage to 0 (or some small value) for noisy health checks.
  * Set the sampling percentage to 0 (or some small value) for noisy dependency calls.
  * Set the sampling percentage to 100 for an important request type (for example, `/login`)
    even though you have the default sampling configured to something lower.
@@ -42,7 +42,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 {
   "connectionString": "...",
   "sampling": {
-    "percentage": 10
+    "percentage": 10,
     "overrides": [
       {
         "telemetryType": "request",
@@ -189,7 +189,8 @@ with the text "exporting span".
 
 >[!Note]
 > Only attributes set at the start of the span are available for sampling,
-so attributes such as `http.status_code` which are captured later on can't be used for sampling.
+so attributes such as `http.response.status_code` or request duration which are captured later on can be filtered through [OpenTelemetry Java extensions](https://opentelemetry.io/docs/languages/java/automatic/extensions/). Here is a [sample extension that filters spans based on request duration](https://github.com/Azure-Samples/ApplicationInsights-Java-Samples/tree/main/opentelemetry-api/java-agent/TelemetryFilteredBaseOnRequestDuration).
+
 
 ## Troubleshooting
 

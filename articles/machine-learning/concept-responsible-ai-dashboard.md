@@ -3,12 +3,12 @@ title: Assess AI systems and make data-driven decisions with Azure Machine Learn
 titleSuffix: Azure Machine Learning
 description: Learn how to use the comprehensive UI and SDK/YAML components in the Responsible AI dashboard to debug your machine learning models and make data-driven decisions.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
-ms.author: mesameki
-author: mesameki
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mesameki
 ms.date: 02/21/2024
 ms.custom: responsible-ml
 ---
@@ -171,6 +171,7 @@ The following people can use the Responsible AI dashboard, and its corresponding
 - The Responsible AI dashboard currently supports numeric or categorical features. For categorical features, the user has to explicitly specify the feature names.  
 - The Responsible AI dashboard currently doesn't support datasets with more than 10K columns.
 - The Responsible AI dashboard currently doesn't support AutoML MLFlow model.
+- The Responsible AI dashboard currently doesn't support registered AutoML models from the UI.
 
 
 ## Next steps

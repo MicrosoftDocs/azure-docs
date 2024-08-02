@@ -1,13 +1,15 @@
 ---
-title: 'Tutorial: Configure audit logs'
-description: 'This tutorial shows you how to configure audit logs by using Azure Database for MySQL - Flexible Server.'
-ms.service: mysql
-ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
-ms.topic: tutorial
+title: "Tutorial: Configure audit logs"
+description: "This tutorial shows you how to configure audit logs by using Azure Database for MySQL - Flexible Server."
 author: code-sidd
 ms.author: sisawant
-ms.date: 10/01/2021
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: tutorial
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Tutorial: Configure audit logs by using Azure Database for MySQL - Flexible Server

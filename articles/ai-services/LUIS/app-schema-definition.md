@@ -30,12 +30,12 @@ When you import and export the app, choose either `.json` or `.lu`.
 
 * Moving to version 7.x, the entities are represented as nested machine-learning entities.
 * Support for authoring nested machine-learning entities with `enableNestedChildren` property on the following authoring APIs:
-    * [Add label](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
-    * [Add batch label](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09)
-    * [Review labels](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c0a)
-    * [Suggest endpoint queries for entities](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2e)
-    * [Suggest endpoint queries for intents](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2d)
-
+    * Add label
+    * Add batch label
+    * Review labels
+    * Suggest endpoint queries for entities
+    * Suggest endpoint queries for intents
+    For more information, see the [LUIS reference documentation](/rest/api/luis/operation-groups).
 ```json
 {
   "luis_schema_version": "7.0.0",

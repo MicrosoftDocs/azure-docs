@@ -3,9 +3,10 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/20/2024
+ms.date: 06/28/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker
@@ -288,6 +289,10 @@ For instance, a runbook with `Get-AzVM` can return all the VMs in the subscripti
 
 ### Use runbook authentication with Hybrid Worker Credentials
 
+**Prerequisite**
+- Hybrid Worker should be deployed and the machine should be in running state before executing a runbook.
+
+**Hybrid Worker Credentials**
 Instead of having your runbook provide its own authentication to local resources, you can specify Hybrid Worker Credentials for a Hybrid Runbook Worker group. To specify a Hybrid Worker Credentials, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
 
 - The user name for the credential must be in one of the following formats:

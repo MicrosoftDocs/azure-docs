@@ -4,7 +4,7 @@ description: Use this tutorial to help you get started with Managed HSM logging.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2024
@@ -34,7 +34,7 @@ To complete the steps in this article, you must have the following items:
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Connect to your Azure subscription
 
@@ -90,9 +90,9 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
 ```json
 [
   {
-    "TenantId": "766eaf62-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "TenantId": "{tenant-id}",
     "time": "2020-08-31T19:52:39.763Z",
-    "resourceId": "/SUBSCRIPTIONS/A1BA9AAA-xxxx-xxxx-xxxx-xxxxxxxxxxxx/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
+    "resourceId": "/SUBSCRIPTIONS/{subscription-id}/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/MANAGEDHSMS/CONTOSOMHSM",
     "operationName": "BackupCreate",
     "operationVersion": "7.0",
     "category": "AuditEvent",
@@ -104,7 +104,7 @@ Individual blobs are stored as text, formatted as a JSON. Let's look at an examp
     },
     "durationMs": 488,
     "callerIpAddress": "X.X.X.X",
-    "identity": "{\"claim\":{\"appid\":\"04b07795-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"b1c52bf0-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
+    "identity": "{\"claim\":{\"appid\":\"{application-id}\",\"http_schemas_microsoft_com_identity\":{\"claims\":{\"objectidentifier\":\"{object-id}\"}},\"http_schemas_xmlsoap_org_ws_2005_05_identity\":{\"claims\":{\"upn\":\"admin@contoso.com\"}}}}",
     "clientInfo": "azsdk-python-core/1.7.0 Python/3.8.2 (Linux-4.19.84-microsoft-standard-x86_64-with-glibc2.29) azsdk-python-azure-keyvault/7.2",
     "correlationId": "8806614c-ebc3-11ea-9e9b-00155db778ad",
     "subnetId": "(unknown)",

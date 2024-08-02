@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn more about what's new in Azure Container Apps.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
@@ -15,6 +15,40 @@ ms.date: 08/30/2023
 # What's new in Azure Container Apps
 
 This article lists significant updates and new features available in Azure Container Apps.
+
+## May 2024 
+
+| Feature | Description |
+| ------- | ------------ |
+| [Generally Available: Azure Functions on Azure Container Apps](../azure-functions/functions-container-apps-hosting.md) | Azure Function’s host, runtime, extensions and Azure Function apps can be deployed as containers into the same compute environment. You can use centralized networking, observability, and configuration boundary for multi-type application development like microservices. |
+| [Public preview: Dynamic sessions](./sessions.md) | This fast, sandboxed, ephemeral compute is suitable for running untrusted code at scale in hostile multi-tenancy scenarios. Each session has full compute isolation using Hyper-V. |
+| [Public preview: Aspire dashboard support](./aspire-dashboard.md) | Access live data about your .NET project and containers in the cloud to evaluate the performance of your applications and debug errors with comprehensive logs, metrics, traces, and more. |
+| [Public Preview: NFS Azure Files volume mount support](./storage-mounts.md) | You can use NFS Azure Files volumes to share data between multiple containers in your application, or to persist data across container restarts. |
+| [Public Preview: Monitor apps with Java metrics](./java-metrics.md) | You can now monitor the performance and health of your apps with Java metrics such as garbage collection and memory usage. |
+| [Public Preview: Set Java log levels](./java-dynamic-log-level.md) | You can now set Java application log levels in Azure Container Apps without redeploying or restarting your apps. |
+
+## March 2024 
+
+| Feature | Description |
+| ------- | ------------ |
+| [Generally Available: Free managed certificates](./custom-domains-managed-certificates.md) | Managed certificates are free and enable you to automatically provision and renew TLS certificates for any custom domain you add to your container app. |
+| [Public Preview: OpenTelemetry Agent support](./opentelemetry-agents.md) | Allows you to use open-source standards to send your app’s data without setting up an OTLP collector yourself. You can use the managed agent to choose where to send logs, metrics, and traces. |
+| [Public preview: Support for Key Vault Certificates](https://azure.microsoft.com/updates/public-preview-support-for-key-vault-certificates/) | Use Azure Key Vault to store and manage your own TLS/SSL certificates for use with Azure Container Apps at the app and environment level.  |
+| [Public Preview: Tomcat support](./java-get-started.md) | Azure Container Apps now supports Apache Tomcat in the code-to-cloud build process.  This means that you can use your existing code, and configuration, to create a cloud-native container app without the hassle. |
+| [Public Preview: JVM memory fit](./java-memory-fit.md) | All Java apps are now calibrated with JVM memory defaults for better performance and reliability in container environment. |
+| [Public Preview: Managed Java components: Eureka Server](./java-eureka-server.md) and [Public Preview: Managed Java components: Config Server](./java-config-server.md)| You can use managed Java components to access platform features for your apps that you would otherwise have to manage yourself. |
+
+## January 2024 
+
+| Feature | Description |
+| ------- | ------------ |
+| [Generally Available: additional TCP ports](./ingress-overview.md#additional-tcp-ports) | Azure Container Apps now support additional TCP ports, enabling applications to accept TCP connections on multiple ports. This feature is in preview. |
+
+## December 2023 
+
+| Feature | Description |
+| ------- | ------------ |
+| [Retirement: ACA preview API versions 2022-06-01-preview and 2022-11-01-preview](https://azure.microsoft.com/updates/retirement-azure-container-apps-preview-api-versions-20230401preview/) | Starting on March 6, 2024, Azure Container Apps control plane API versions 2023-04-01-preview will be retired. Before that date, migrate to the latest stable API version (2023-05-01) or latest preview API version (2023-08-01-preview). |
 
 ## November 2023 
 
@@ -46,7 +80,7 @@ This article lists significant updates and new features available in Azure Conta
 | [Generally Available: Session affinity](./sticky-sessions.md) | Session affinity enables you to route all requests from a single client to the same Container Apps replica. This is useful for stateful workloads that require session affinity. |
 | [Generally Available: Azure Key Vault references for secrets](https://azure.microsoft.com/updates/generally-available-azure-key-vault-references-for-secrets-in-azure-container-apps/) | Azure Key Vault references enable you to source a container app’s secrets from secrets stored in Azure Key Vault. Using the container app's managed identity, the platform automatically retrieves the secret values from Azure Key Vault and injects it into your application's secrets. |
 | [Public preview: additional TCP ports](./ingress-overview.md#additional-tcp-ports) | Azure Container Apps now support additional TCP ports, enabling applications to accept TCP connections on multiple ports. This feature is in preview. |
-| [Public preview: environment level mTLS encryption](./networking.md#mtls) | When end-to-end encryption is required, mTLS will encrypt data transmitted between applications within an environment. |
+| [Public preview: environment level peer-to-peer encryption](./networking.md#peer-to-peer-encryption) | When end-to-end encryption is required, peer-to-peer encryption will encrypt data transmitted between applications within an environment. |
 | [Retirement: ACA preview API versions 2022-06-01-preview and 2022-11-01-preview](https://azure.microsoft.com/updates/retirement-azure-container-apps-preview-api-versions-20220601preview-and-20221101preview/) | Starting on November 16, 2023, Azure Container Apps control plane API versions 2022-06-01-preview and 2022-11-01-preview will be retired. Before that date, migrate to the latest stable API version (2023-05-01) or latest preview API version (2023-04-01-preview). |
 | [Dapr: Stable Configuration API](https://docs.dapr.io/developing-applications/building-blocks/configuration/) | Dapr's Configuration API is now stable and supported in Azure Container Apps. Learn how to do [Dapr integration with Azure Container Apps](./dapr-overview.md)|
 

@@ -4,7 +4,7 @@ description: Use Azure CLI to create an Azure Cosmos DB for NoSQL account, datab
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/22/2022
@@ -19,7 +19,7 @@ The script in this article creates an Azure Cosmos DB for NoSQL account, databas
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - This script requires Azure CLI version 2.0.73 or later.
 

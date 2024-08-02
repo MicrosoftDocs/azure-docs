@@ -5,7 +5,7 @@ description: This article shows you how to import an Azure Function App into Azu
 services: api-management
 author: dlepow
 manager: cfowler
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/16/2021
 ms.author: danlep

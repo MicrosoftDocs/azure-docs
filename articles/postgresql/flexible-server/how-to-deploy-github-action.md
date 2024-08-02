@@ -1,21 +1,22 @@
 ---
 title: "Quickstart: Connect with GitHub Actions"
 description: Use Azure Database for PostgreSQL - Flexible Server from a GitHub Actions workflow.
-author: sunilagarwal
-ms.author: sunila
+author: nachoalonsoportillo
+ms.author: ialonso
 ms.reviewer: maghan
-ms.date: 03/20/2024
-ms.service: postgresql
+ms.date: 05/21/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
-ms.custom: github-actions-azure, mode-other, devx-track-azurecli
+ms.custom:
+  - github-actions-azure
+  - mode-other
+  - devx-track-azurecli
 ---
 
 # Quickstart: Use GitHub Actions to connect to Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
-
-[!INCLUDE [azure-database-for-postgresql-single-server-deprecation](../includes/azure-database-for-postgresql-single-server-deprecation.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL flexible server](https://azure.microsoft.com/services/postgresql/).
 
@@ -26,7 +27,7 @@ You need:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub repository with sample data (`data.sql`). If you don't have a GitHub account, [sign up for free](https://github.com/join).
 - An Azure Database for PostgreSQL flexible server instance.
-    - [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal](../single-server/quickstart-create-server-database-portal.md)
+    - [Quickstart: Create an Azure Database for PostgreSQL - Flexible Server instance in the Azure portal](quickstart-create-server-portal.md)
 
 ## Workflow file overview
 
@@ -45,14 +46,10 @@ The file has two sections:
 
 ## Copy the Azure Database for PostgreSQL flexible server connection string
 
-In the Azure portal, go to your Azure Database for PostgreSQL flexible server instance and open **Settings** > **Connection strings**. Copy the **ADO.NET** connection string. Replace the placeholder values for `your_database` and `your_password`. The connection string looks similar to this.
-
-> [!IMPORTANT]  
-> - For Azure Database for PostgreSQL single server, use ```user=adminusername@servername```  . Note the ```@servername``` is required.
-> - For Azure Database for PostgreSQL flexible server, use ```user= adminusername``` without the  ```@servername```.
+In the Azure portal, go to your Azure Database for PostgreSQL flexible server instance and from the resource menu, under **Settings**, select **Connect**. In that page, use the **Database name** combo box to select the name of the database you want to connect to. Expand the **Connect from your app** section, and copy **ADO.NET** connection string, and replace the placeholder value `{your_password}` with your actual password. The connection string looks similar to this.
 
 ```output
-psql host={servername.postgres.database.azure.com} port=5432 dbname={your_database} user={adminusername} password={your_database_password} sslmode=require
+Server={servername.postgres.database.azure.com};Database={your_database};Port=5432;User Id={adminusername};Password={your_password};Ssl Mode=Require;
 ```
 
 You use the connection string as a GitHub secret.
@@ -227,4 +224,4 @@ When your Azure Database for PostgreSQL flexible server database and repository 
 > [Learn about Azure and GitHub integration](/azure/developer/github/)
 <br/>
 > [!div class="nextstepaction"]
-> [Learn how to connect to the server](../single-server/how-to-connect-query-guide.md)
+> [Learn how to connect to the server](connect-csharp.md)

@@ -3,11 +3,10 @@ title: JSON format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with JSON format in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -436,10 +435,10 @@ If this expression were entered for a column named "complexColumn", then it woul
 
 Here are some common connectors and formats related to the JSON format:
 
-- Azure Blob Storage (connector-azure-blob-storage.md)
-- Delimited text format(format-delimited-text.md)
-- OData connector(connector-odata.md)
-- Parquet format(format-parquet.md)
+- [Azure Blob Storage](connector-azure-blob-storage.md)
+- [Delimited text format](format-delimited-text.md)
+- [OData connector](connector-odata.md)
+- [Parquet format](format-parquet.md)
 
 ## Related content
 

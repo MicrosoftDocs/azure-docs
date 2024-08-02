@@ -2,7 +2,7 @@
 title: Stackify Retrace Azure Linux Agent Extension
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 # Stackify Retrace Linux Agent Extension
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 ## Overview
 

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.custom: devx-track-azurecli
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 01/30/2024
@@ -27,7 +27,7 @@ To complete the steps in this article, you must have the following items:
 * The Azure CLI version 2.25.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 * A managed HSM in your subscription. See [Quickstart: Provision and activate a managed HSM using Azure CLI](quick-create-cli.md) to provision and activate a managed HSM.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Sign in to Azure
 

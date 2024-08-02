@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB
 description: Review a list of best practices for using the Azure Cosmos DB Python SDK in a performant manner.
 author: kushagraThapar
 ms.author: kuthapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-python
 ms.topic: best-practice
@@ -19,7 +19,7 @@ This guide includes best practices for solutions built using the latest version 
 
 ## Account configuration
 
-- Make sure to run your application in the same [Azure region](../distribute-data-globally.md) as your Azure Cosmos DB account, whenever possible to reduce latency. Enable replication in 2+ regions in your accounts for [best availability](../distribute-data-globally.md). For production workloads, enable [service-managed failover](../how-to-manage-database-account.md#configure-multiple-write-regions). In the absence of this configuration, the account experiences loss of write availability for all the duration of the write region outage, as manual failover can't succeed due to lack of region connectivity. For more information on how to add multiple regions using the Python SDK, see the [global distribution tutorial](tutorial-global-distribution.md).
+- Make sure to run your application in the same [Azure region](../distribute-data-globally.md) as your Azure Cosmos DB account, whenever possible to reduce latency. Enable replication in 2+ regions in your accounts for [best availability](../distribute-data-globally.md). For production workloads, enable [service-managed failover](../how-to-manage-database-account.yml). In the absence of this configuration, the account experiences loss of write availability for all the duration of the write region outage, as manual failover can't succeed due to lack of region connectivity. For more information on how to add multiple regions using the Python SDK, see the [global distribution tutorial](tutorial-global-distribution.md).
 
 ## SDK usage
 

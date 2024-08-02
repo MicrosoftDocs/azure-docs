@@ -42,7 +42,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [Portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
+[!INCLUDE [Azure portal instructions for creating an ACI instance](includes/create-container-instances-resource.md)]
 
 # [CLI](#tab/cli)
 
@@ -58,7 +58,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 1. Select the **Overview** and copy the IP address. It will be a numeric IP address such as `55.55.55.55`.
 1. Open a new browser tab and use the IP address, for example, `http://<IP-address>:5000 (http://55.55.55.55:5000`). You will see the container's home page, letting you know the container is running.
 
-    ![Container's home page](../../../includes/media/cognitive-services-containers-api-documentation/container-webpage.png)
+    ![Container's home page](../media/container-webpage.png)
 
 1. Select **Service API Description** to view the swagger page for the container.
 
@@ -70,7 +70,7 @@ All variables in angle brackets, `<>`, need to be replaced with your own values.
 
 # [CLI](#tab/cli)
 
-[!INCLUDE [API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [API documentation](../includes/cognitive-services-containers-api-documentation.md)]
 
 > [!NOTE]
 > If you're running the Text Analytics for health container, use the following URL to submit queries: `http://localhost:5000/text/analytics/v3.2-preview.1/entities/health`

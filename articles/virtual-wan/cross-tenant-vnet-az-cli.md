@@ -5,7 +5,7 @@ description: This article helps you connect cross-tenant virtual networks to a v
 services: virtual-wan
 author: aldairzamoramsft
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 09/12/2023
@@ -16,7 +16,7 @@ ms.author: aldairzamora
 
 This article helps you use Azure Virtual WAN to connect a virtual network to a virtual hub in a different tenant. This architecture is useful if you have client workloads that must be connected to be the same network but are on different tenants. For example, as shown in the following diagram, you can connect a non-Contoso virtual network (the remote tenant) to a Contoso virtual hub (the parent tenant).
 
-:::image type="content" source="./media/cross-tenant-vnet/connectivity.png" alt-text="Diagram that shows a routing configuration with a parent tenant and a remote tenant." :::
+:::image type="content" source="./media/cross-tenant-vnet/connectivity.png" alt-text="Diagram that shows a routing configuration with a parent tenant and a remote tenant." lightbox="./media/cross-tenant-vnet/connectivity.png":::
 
 In this article, you learn how to:
 
@@ -55,7 +55,7 @@ Select **Copy** to copy the blocks of code, paste them into Cloud Shell, and sel
    You can use either Azure CLI or the Azure portal to assign this role. See the following articles for steps:
 
    * [Assign Azure roles using Azure CLI](../role-based-access-control/role-assignments-cli.md)
-   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+   * [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 
 1. Run the following command to add the remote tenant subscription and the parent tenant subscription to the current session of console. If you're signed in to the parent, you need to run the command for only the remote tenant.
 

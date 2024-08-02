@@ -1,19 +1,20 @@
 ---
 title: Troubleshoot connectivity issues
 description: Learn how to troubleshoot connectivity issues in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
 ms.topic: troubleshooting
-ms.date: 07/22/2022
 ---
 
 # Troubleshoot connectivity issues in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 The MySQL Community Edition manages connections using one thread per connection. As a result, each user connection gets a dedicated operating system thread in the mysqld process.
 

@@ -5,7 +5,7 @@ services: service-fabric
 ms.custom: devx-track-azurepowershell
 author: athinanthny
 ms.author: atsenthi
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 03/19/2018
 ---
@@ -14,7 +14,7 @@ ms.date: 03/19/2018
 
 This sample script changes the RDP port range values on the cluster node VMs after the cluster has been deployed.  Azure PowerShell is used so that the underlying VMs do not cycle.  The script gets the `Microsoft.Network/loadBalancers` resource in the cluster's resource group and updates the `inboundNatPools.frontendPortRangeStart` and `inboundNatPools.frontendPortRangeEnd` values. Customize the parameters as needed.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/).
 

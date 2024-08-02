@@ -97,7 +97,7 @@ The relevant HTTP methods for suppression rules in the REST API are:
 
 For details and usage examples, see the [API documentation](/rest/api/defenderforcloud/operation-groups?view=rest-defenderforcloud-2020-01-01&preserve-view=true).
 
-## Next steps
+## Next step
 
 This article described the suppression rules in Microsoft Defender for Cloud that automatically dismiss unwanted alerts.
 

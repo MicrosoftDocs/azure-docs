@@ -1,144 +1,227 @@
 ---
-title: Troubleshoot known issues with Maintenance Configurations
-description: This article provides details on known and fixed issues and how to troubleshoot any problems with Maintenance Configurations.
+title: Troubleshoot problems with Maintenance Configurations
+description: This article provides details on known and fixed issues and how to troubleshoot problems with Maintenance Configurations.
 author: ApnaLakshay
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: lnagpal
 ---
 
-# Troubleshoot issues with Maintenance Configurations
+# Troubleshoot problems with Maintenance Configurations
 
-This article outlines common errors that may arise during the deployment or utilization of Maintenance Configuration for Scheduled Patching, along with strategies to address them effectively.
+This article outlines common problems and errors that might arise during the deployment or use of Maintenance Configurations for scheduled patching on virtual machines (VMs), along with strategies to address them.
 
-### Shutdown and Unresponsive VM when using `dynamic` scope in Guest Maintenance 
+### A VM shuts down and is unresponsive when you use a dynamic scope in guest maintenance
 
-#### Issue
-Scheduled patching doesn't install the patches on the VMs and gives an error `ShutdownOrUnresponsive`
+#### Problem
 
-#### Resolution
-It takes 12 hours to complete the cleanup process for the maintenance configuration assignment so make sure to keep the buffer of 12 hours before recreating the VM with the same name. 
-If a new VM is recreated with the same name before the cleanup, Maintenance Configuration service is unable to trigger the schedule.
-
-### Shutdown and Unresponsive VM when using `static` scope in Guest Maintenance 
-
-#### Issue
-Scheduled patching doesn't install the patches on the VMs and gives an error `ShutdownOrUnresponsive`
+A maintenance configuration doesn't install a scheduled patch on the VMs and gives a `ShutdownOrUnresponsive` error.
 
 #### Resolution
-In a static scope, it's crucial for customers to avoid relying on outdated VM configurations. Instead, they should prioritize re-assigning configurations after recreating instances.
 
-### Schedule Patching stops working after the resource is moved
+It takes 12 hours to complete the cleanup process for the maintenance configuration assignment. Be sure to keep a buffer of 12 hours before you create a VM with the same name.
 
-#### Issue
-If a resource is moved to a different resource group or subscription, then scheduled patching for the resource stops working.
+If you create a VM with the same name before the cleanup, Maintenance Configurations can't trigger the schedule.
 
-#### Resolution 
-Resource move or Maintenance Configuration move capability across resource group or subscription is currently unsupported by the system. The team is working to provide this capability but in the meantime, as a workaround, for the resource you want to move (in static scope)
+### A VM shuts down and is unresponsive when you use a static scope in guest maintenance
 
-1. You need to remove the assignment of it
-2. Move the resource to a different resource group or subscription
-3. Recreate the assignment of it
+#### Problem
 
-In the dynamic scope, the steps are similar, but after removing the assignment in step 1, you simply need to initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, enabling you to proceed with steps 2 and 3.
-
-If you forget/miss any one of the above mentioned steps, you can reassign the resource to original assignment and repeat the steps again sequentially.
-
-### Dynamic Scope creation fails
-
-#### Issue
-Failed to create dynamic scope due to RBAC
+A maintenance configuration doesn't install a scheduled patch on the VMs and gives a `ShutdownOrUnresponsive` error.
 
 #### Resolution
-In order to create a dynamic scope, user must have the permission at the subscription level or at a resource group level. Refer to the [list of permissions list for different resources](../update-manager/overview.md#permissions) for more details.
 
-### Apply Update stuck and Update not progressing
+In a static scope, it's crucial to avoid relying on outdated VM configurations. So, you have to ensure that the VM is up and running while the patch is getting installed. If the VM instance is recreated with the same name then prioritize reassigning configuration after you re-create VM instance.
 
-#### Issue
-**Applies to:** :heavy_check_mark: Dedicated Hosts :heavy_check_mark: VMs 
-User initiated update stuck for long time and update is not progressing
+### Scheduled patching times out or fails
 
-#### Resolution
-If a resource is redeployed to a different cluster, and a pending update request is created using the old cluster value, the request becomes stuck indefinitely. If the status of the apply update operation is closed/not found, then retry after 120 hours. If the issue persists, contact the support team for further mitigation.
+#### Problem
 
-### Dedicated host updates even after Maintenance Configuration is attached
-
-#### Issue
-Dedicated Host update not blocked by Maintenance Configuration and it gets updated even after maintenance configuration is attached
+Scheduled patching fails with a `TimeOut` or `Failed` error after you move a VM by re-creating it with the same name in a different region. The portal might show the same VM twice because the previously created VM is removed from the back end.
 
 #### Resolution
-If a Dedicated Host is recreated with the same name, Maintenance Configuration service retains the old Dedicated Host ID, preventing it from blocking updates. Customers can resolve this issue by removing the Maintenance Configuration and reassigning it. If the issue persists, reach out to the support team for further assistance.
 
-### Install patch operation fails for invalid classification type
+This is a known bug, and we're working on resolving it. If you encounter this problem, contact the support team for assistance.
 
-#### Issue
-Install patch operation failed due to invalid classification type in Maintenance Configuration
+### Unable to delete configuration assignment
 
-#### Resolution
-Due to a previous bug, the system patch operation couldn't perform validation, and an invalid classification type was found in the Maintenance Configuration. The bug is fixed and deployed. To address this issue, customers can update the Maintenance Configuration and set the correct classification type.
+#### Problem
 
-### Schedule didn't trigger
-
-#### Issue
-If a resource has two maintenance configurations with the same trigger time and an install patch configuration, and both are assigned to the same VM/resource, only one maintenance configuration triggers.
+Configuration assignment couldn't be removed or deleted from a particular maintenance configuration
 
 #### Resolution
-Modify the start time of one of the maintenance configurations to mitigate the issue. It's a known system limitation due to which Maintenance Configuration is unable to identify which maintenance configuration triggers. The team is working on solving this limitation. 
 
-### Unable to create dynamic scope (at Resource Group Level)
+Use the following steps to mitigate this issue:
 
-#### Issue
-Dynamic scope validation fails due to a null value in the location
+1. Delete the existing maintenance configuration in which you are encountering this issue.
+1. Create a new maintenance configuration and assign the required set of dynamic scope and VMs as attached in the deleted maintenance configuration.
 
-#### Resolution
-Due to this issue in dynamic scope validation, it results in regression in the validation process. We recommend that customers provide the required set of locations for resource group-level dynamic scope.
+If you want to create new maintenance configuration with the same name as the deleted maintenance configuration, you will have to wait 20 minutes for the cleanup to take place in the backend. The system won't allow the creation of maintenance configuration with the same name if cleanup is not performed in the backend. 
 
-### Dynamic Scope not executed and no resources patched
+### Scheduled patching stops working after the resource is moved
 
-#### Issue
-Dynamic scope flattening failed due to throttling, and the service is unable to determine the list of VMs associated with VM.
+#### Problem
 
-#### Resolution
-This issue might be occurring due to the number of subscriptions per dynamic scope that should be less than 30. Refer to this [page](../virtual-machines/maintenance-configurations.md#service-limits) for more details on the service limits of Dynamic Scoping 
-
-### Dedicated host configuration assignment not cleaned up after Dedicated Host removal
-
-#### Issue
-After deleting the dedicated hosts, configuration assignments attached to dedicated hosts still exists.
+If you move a resource to a different resource group or subscription, scheduled patching for the resource stops working.
 
 #### Resolution
-Before deleting a dedicated host, make sure to delete the maintenance configuration associated with it. If the dedicated host is deleted but still appears on the portal, reach out to the support team. Cleanup processes are currently in place for dedicated hosts, ensuring no impact on customers.
 
-### Unable to provide Multiple tag values for dynamic scope
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a pre requisite, first remove the assignment before following the steps.** 
 
-#### Issue
-Portal users might not be able to provide multiple tag values for dynamic scope
+If you're using a `static` scope:
+
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If you're using a `dynamic` scope:
+
+1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If any of the steps are missed, please move the resource to the previous resource group or subscription ID and reattempt the steps.
+
+> [!NOTE]
+> If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
+
+### Maintenance Configuration didn't trigger on the configured date time
+
+#### Problem
+
+After creating a Maintenance Configuration with a repeat value of either week or month, you expect the schedule to start at the specified date and time and then recur based on the chosen interval. However, the schedule didn't trigger at the start date and time.
 
 #### Resolution
-This is a currently known limitation on the portal. The team is working on making this feature accessible on the portal as well but in the meantime, customers can use CLI/PowerShell to create dynamic scope. The system accepts multiple values for tag using CLI/PowerShell option.
 
-### Maintenance Configuration triggered again with older trigger time
+The Maintenance Configuration first run occurs on the first recurrence value following the specified start date, not necessarily on the start date itself. For example, if the maintenance configuration starts on January 17th (Wednesday) and is set to recur every Monday, the first run of the schedule will be on the first Monday after January 17th, which is January 22nd.
 
-#### Issue
-Maintenance Configuration executed again with the older trigger time, after the update
+### Creation of a dynamic scope fails
 
-#### Resolution 
-There's a known issue in Maintenance Schedule related to the caching of old maintenance policies. If an old policy is cached, and a new instance moves the new policy processing, the old machine may trigger the schedule with the outdated start time. We recommend to update the Maintenance Configuration at least 1 hour before. If the issue persists, reach out to support team for further assistance.
+#### Problem
 
-### Schedule timeout, waiting for an ongoing update to complete the resource
-
-#### Issue
-Maintenance configuration timeout due to the host update window coinciding with the guest (VM) patching window
+You can't create a dynamic scope because of role-based access control (RBAC).
 
 #### Resolution
-In rare cases if platform catchup host update window happens to coincide with the guest (VM) patching window and if the guest patching window doesn't get sufficient time to execute after host update then the system would show **Schedule timeout, waiting for an ongoing update to complete the resource** error since only a single update is allowed by the platform at a time. 
 
-### Unimplemented APIs
+To create a dynamic scope, you must have the permission at the subscription level or at the resource group level. Specifically, following are the requirements you need to take care of.
 
-Following is the list of APIs that aren't yet supported.
+1. The subscription under which dynamic scope is getting created should be registered to Maintenance RP.
+1. It is recommended to have the 'Scheduled Patching Contributor' role to be assigned to the following scopes:
+    1. The subscription/resource group at which the dynamic scope is being created.
+    1. The maintenance configuration scope.
+
+For more information, see the [list of permissions list for various resources here](../update-manager/roles-permissions.md#permissions).
+
+### An update is stuck and not progressing
+
+#### Problem
+
+**Applies to:** :heavy_check_mark: Dedicated Hosts :heavy_check_mark: VMs
+
+If you redeploy a resource to a different cluster, and you create a pending update request by using the old cluster value, the request becomes stuck indefinitely.
+
+#### Resolution
+
+If the status of an operation to apply an update is closed or not found, retry after 120 hours. If the problem persists, contact the support team for assistance.
+
+### A dedicated host is updated after a maintenance configuration is attached
+
+#### Problem
+
+A maintenance configuration doesn't block the update of a dedicated host, and the host is updated even after you attach a maintenance configuration.
+
+#### Resolution
+
+If you re-create a dedicated host with the same name, Maintenance Configurations retains the old dedicated host ID, which prevents it from blocking updates. You can resolve this problem by removing the maintenance configuration and reassigning it. If the problem persists, contact the support team for assistance.
+
+### Patch installation fails for an invalid classification type
+
+#### Problem
+
+Patch installation fails because of an invalid classification type in a maintenance configuration.
+
+A previous bug prevented the system's patch operation from performing validation, and the maintenance configuration contained an invalid classification type.
+
+#### Resolution
+
+The bug is fixed. Update the maintenance configuration and set the correct classification type.
+
+### A schedule isn't triggered
+
+#### Problem
+
+If a resource has two maintenance configurations with the same trigger time and patch installation configuration, and both are assigned to the same VM or resource, only one maintenance configuration is triggered.
+
+#### Resolution
+
+Modify the start time of one of the maintenance configurations to mitigate the problem. This is a workaround to a current system limitation in which Maintenance Configurations can't identify which maintenance configuration to trigger.
+
+### You can't create a dynamic scope for a resource group
+
+#### Problem
+
+Dynamic scope validation fails because of a null value in the location.
+
+#### Resolution
+
+This problem with dynamic scope validation causes regression in the validation process. We recommend that you provide the required set of locations for a dynamic scope at the resource group level.
+
+### A dynamic scope isn't executed and no resources are patched
+
+#### Problem
+
+Dynamic scope flattening fails because of throttling, and the service can't determine which VMs are associated with the VM.
+
+#### Resolution
+
+Make sure that the number of subscriptions per dynamic scope is less than 30. [Learn more about the service limits of dynamic scoping](../virtual-machines/maintenance-configurations.md#service-limits).
+
+### Configuration assignment of a dedicated host isn't cleaned up after the host's removal
+
+#### Problem
+
+After you delete the dedicated hosts, configuration assignments that are attached to dedicated hosts still exist.
+
+#### Resolution
+
+Before you delete a dedicated host, be sure to delete the maintenance configuration that's associated with it. If the dedicated host is deleted but still appears in the portal, contact the support team for assistance. Cleanup processes are currently in place for dedicated hosts, to help prevent any impact on customers.
+
+### You can't provide multiple tag values for dynamic scopes
+
+#### Problem
+
+If you use the Azure portal, you can't provide multiple tag values for dynamic scopes.
+
+#### Resolution
+
+This feature currently isn't available in the portal. As a workaround, you can use the Azure CLI or Azure PowerShell to create a dynamic scope. The system accepts multiple values for tags when you use the Azure CLI or Azure PowerShell option.
+
+### A maintenance configuration is triggered again with an older trigger time
+
+#### Problem
+
+There's a known issue in Maintenance Configurations related to the caching of old maintenance policies. If an old policy is cached, and a new instance moves the new policy processing, the old machine might trigger the schedule with the outdated start time.
+
+#### Resolution
+
+We recommend that you update the maintenance configuration at least 1 hour before the scheduled time. If the problem persists, contact the support team for assistance.
+
+### A maintenance configuration times out while waiting for an ongoing update to finish on a resource
+
+#### Problem
+
+In rare cases, if the host update window happens to coincide with the VM guest patching window, and if the guest patching window doesn't have sufficient time to run after the host update, the system shows this error message: "Schedule timeout, waiting for an ongoing update to complete the resource." The reason is that the platform allows only one update at a time.
+
+#### Resolution
+
+Change the maintenance configuration schedule for the guest update for a time after the ongoing update is finished.
+
+### Maintenance Configurations doesn't support an API
+
+The feature currently doesn't support the following APIs:
+
 + Get Apply Update at Subscription Level
-+ Get Apply Update at Resource Group Level.
++ Get Apply Update at Resource Group Level
 + Get Pending Update at Subscription Level
 + Get Pending Update at Resource Group Level

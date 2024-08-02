@@ -3,7 +3,7 @@ title: Microsoft Entra identity configuration for Azure Health Data Services for
 description: Learn the principles of identity, authentication, and authorization for FHIR service
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/03/2022

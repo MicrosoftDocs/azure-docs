@@ -2,17 +2,115 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 3/13/2024
+ms.date: 7/12/2024
 ms.author: eur
 ---
 
+### August 2024 release
+
+#### Language learning (Preview)
+
+Language learning is now available in public preview. Interactive language learning can make your learning experience more engaging and effective. For more information, see [Interactive language learning with pronunciation assessment](../../language-learning-with-pronunciation-assessment.md).
+
+### July 2024 release
+
+#### Fast Transcription API (Preview)
+
+Fast transcription is now available in public preview. Fast transcription allows you to transcribe audio file to text accurately and synchronously, with a high speed factor. It can transcribe a 30-minutes audio in less than 1 minute. For more information, see the [fast transcription API guide](../../fast-transcription-create.md).
+
+> [!TIP]
+> Try out fast transcription in [Azure AI Studio](https://aka.ms/fasttranscription/studio).
+
+### June 2024 release
+
+#### Speech to text REST API v3.2 general availability
+
+The Speech to text REST API version 3.2 is now generally available. For more information about speech to text REST API v3.2, see the [Speech to text REST API v3.2 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true) and the [Speech to text REST API guide](../../rest-speech-to-text.md). 
+
+> [!NOTE]
+> Preview versions *3.2-preview.1* and *3.2-preview.2* will be removed in September 2024.
+
+[Speech to text REST API](../../rest-speech-to-text.md) v3.1 will be retired on a date to be announced. Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](../../migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](../../migrate-v3-1-to-v3-2.md) migration guides.
+
+
+### May 2024 release
+
+#### Video translation (Preview)
+
+Video translation is now available in public preview. Video translation is a feature in Azure AI Speech that enables you to seamlessly translate and generate videos in multiple languages automatically. This feature is designed to help you localize your video content to cater to diverse audiences around the globe. You can efficiently create immersive, localized videos across various use cases such as vlogs, education, news, enterprise training, advertising, film, TV shows, and more. For more information, see the [video translation overview](../../video-translation-overview.md).
+
+#### Pronunciation Assessment
+
+Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 24 languages generally available (with one new language added), with 7 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
+
+| Language | Locale (BCP-47) | 
+|--|--|
+|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
+|Arabic (Saudi Arabia)|`ar-SA` |
+|Catalan|`ca-ES`<sup>1</sup>|
+|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|Chinese (Taiwanese Mandarin, Traditional)|`zh-TW`<sup>1</sup>|
+|Dutch (Netherlands)|`nl-NL`|
+|English (Australia)|`en-AU`|
+|English (Canada)|`en-CA` |
+|English (India)|`en-IN` |
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|  
+|Finnish (Finland)|`fi-FI`<sup>1</sup>|  
+|French (Canada)|`fr-CA`| 
+|French (France)|`fr-FR`|  
+|German (Germany)|`de-DE`|
+|Hindi (India)|`hi-IN`|
+|Italian (Italy)|`it-IT`|
+|Japanese (Japan)|`ja-JP`|
+|Korean (Korea)|`ko-KR`|
+|Malay (Malaysia)|`ms-MY`|
+|Norwegian Bokmål (Norway)|`nb-NO`|
+|Polish (Poland)|`pl-PL`<sup>1</sup>|
+|Portuguese (Brazil)|`pt-BR`|
+|Portuguese (Portugal)|`pt-PT`<sup>1</sup>|
+|Russian (Russia)|`ru-RU`|
+|Spanish (Mexico)|`es-MX` | 
+|Spanish (Spain)|`es-ES` | 
+|Swedish (Sweden)|`sv-SE`|
+|Tamil (India)|`ta-IN` | 
+|Vietnamese (Vietnam)|`vi-VN` |
+
+<sup>1</sup> The language is in public preview for pronunciation assessment.
+
 ### April 2024 release
+
+#### Automatic multi-lingual speech translation (Preview)
+
+Automatic multi-lingual speech translation is available in public preview. This innovative feature revolutionizes the way language barriers are overcome, offering unparalleled capabilities for seamless communication across diverse linguistic landscapes.
+
+##### Key Highlights
+
+- Unspecified input language: Multi-lingual speech translation can receive audio in a wide range of languages, and there's no need to specify what the expected input language is. It makes it an invaluable feature to understand and collaborate across global contexts without the need for presetting.
+- Language switching: Multi-lingual speech translation allows for multiple languages to be spoken during the same session, and have them all translated into the same target language. There's no need to restart a session when the input language changes or any other actions by you.
+
+##### How it works
+
+- Travel interpreter: multi-lingual speech translation can enhance the experience of tourists visiting foreign destinations by providing them with information and assistance in their preferred language. Hotel concierge services, guided tours, and visitor centers can utilize this technology to cater to diverse linguistic needs.
+- International conferences: multi-lingual speech translation can facilitate communication among participants from different regions who might speak various languages using live translated caption. Attendees can speak in their native languages without needing to specify them, ensuring seamless understanding and collaboration.
+- Educational meetings: In multi-cultural classrooms or online learning environments, multi-lingual speech translation can support language diversity among students and teachers. It allows for seamless communication and participation without the need to specify each student's or instructor's language.
+
+##### How to access
+
+For a detailed introduction, visit [Speech translation overview](../../speech-translation.md). Additionally, you can refer to the code samples at [how to translate speech](../../how-to-translate-speech.md). This new feature is fully supported by all SDK versions from 1.37.0 onwards.
 
 #### Real-time speech to text with diariazation (GA)
 
 Real-time speech to text with diariazation is now generally available.
 
-Check out [Real-time diarization quickstart](../../get-started-stt-diarization.md) to learn more about how to create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation.
+You can create speech to text applications that use diarization to distinguish between the different speakers who participate in the conversation. For more information about real-time diarization, Check out the [real-time diarization quickstart](../../get-started-stt-diarization.md).
+
+#### Speech to text model Update
+
+[Real-time speech to text](../../how-to-recognize-speech.md) has released new models with bilingual capabilities. The `en-IN` model now supports both English and Hindi bilingual scenarios and offers improved accuracy. Arabic locales (`ar-AE`, `ar-BH`, `ar-DZ`, `ar-IL`, `ar-IQ`, `ar-KW`, `ar-LB`, `ar-LY`, `ar-MA`, `ar-OM`, `ar-PS`, `ar-QA`, `ar-SA`, `ar-SY`, `ar-TN`, `ar-YE`) are now equipped with bilingual support for English, enhanced accuracy and call center support. 
+
+[Batch transcription](../../batch-transcription.md) provides models with new architecture for these locales: `es-ES`, `es-MX`, `fr-FR`, `it-IT`, `ja-JP`, `ko-KR`, `pt-BR`, and `zh-CN`. These models significantly enhance readability and entity recognition. 
 
 ### March 2024 release
 
@@ -27,37 +125,6 @@ Check out [What is the Whisper model?](../../whisper-overview.md) to learn more 
 #### Pronunciation Assessment
 
 - Speech [Pronunciation Assessment](../../how-to-pronunciation-assessment.md) now supports 23 languages generally available (with 5 new languages added), with 3 more languages available in public preview. For more information, see the full [language list for Pronunciation Assessment](../../language-support.md?tabs=pronunciation-assessment).
-
-| Language | Locale (BCP-47) | 
-|--|--|
-|Arabic (Egypt)|`ar-EG`<sup>1</sup> |
-|Arabic (Saudi Arabia)|`ar-SA` |
-|Chinese (Cantonese, Traditional)|`zh-HK`<sup>1</sup>|
-|Chinese (Mandarin, Simplified)|`zh-CN`|
-|Dutch (Netherlands)|`nl-NL`<sup>1</sup>|
-|English (Australia)|`en-AU`|
-|English (Canada)|`en-CA` |
-|English (India)|`en-IN` |
-|English (United Kingdom)|`en-GB`|
-|English (United States)|`en-US`|  
-|French (Canada)|`fr-CA`| 
-|French (France)|`fr-FR`|  
-|German (Germany)|`de-DE`|
-|Hindi (India)|`hi-IN`|
-|Italian (Italy)|`it-IT`|
-|Japanese (Japan)|`ja-JP`|
-|Korean (Korea)|`ko-KR`|
-|Malay (Malaysia)|`ms-MY`|
-|Norwegian Bokmål (Norway)|`nb-NO`|
-|Portuguese (Brazil)|`pt-BR`|
-|Russian (Russia)|`ru-RU`|
-|Spanish (Mexico)|`es-MX` | 
-|Spanish (Spain)|`es-ES` | 
-|Swedish (Sweden)|`sv-SE`|
-|Tamil (India)|`ta-IN` | 
-|Vietnamese (Vietnam)|`vi-VN` |
-
-<sup>1</sup> The language is in public preview for pronunciation assessment.
 
 #### Phrase list
 
@@ -76,7 +143,7 @@ How to Use:
 
 Choose es-US (Spanish and English) or fr-CA (French and English) when you call the Speech Service API or try it out on Speech Studio. Feel free to speak either language or mix them together—the model is designed to adapt dynamically, providing accurate and context-aware responses in both languages.
 
-It's time to elevate your communication game with our latest feature release—seamless, multilingual communication at your fingertips!
+It's time to elevate your communication game with our latest feature release—seamless, multi-lingual communication at your fingertips!
 
 #### Speech To text models update
 

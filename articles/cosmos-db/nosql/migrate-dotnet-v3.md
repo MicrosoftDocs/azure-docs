@@ -3,10 +3,10 @@ title: Migrate your application to use the Azure Cosmos DB .NET SDK 3.0 (Microso
 description: Learn how to upgrade your existing .NET application from the v2 SDK to the newer .NET SDK v3 (Microsoft.Azure.Azure Cosmos DB package) for API for NoSQL.
 author: stefArroyo
 ms.author: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 04/26/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
@@ -215,7 +215,7 @@ Some settings in `ConnectionPolicy` have been renamed or replaced by `CosmosClie
 
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
-|`EnableEndpointRediscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointRediscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
+|`EnableEndpointDiscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointDiscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
 |`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP). Direct mode with HTTPS protocol is no longer supported on V3 SDK and the recommendation is to use TCP protocol. |
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
 |`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|

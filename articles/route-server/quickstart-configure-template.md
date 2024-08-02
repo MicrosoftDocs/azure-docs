@@ -1,20 +1,21 @@
 ---
 title: 'Quickstart: Create an Azure Route Server - ARM template'
 description: In this quickstart, you learn how to create an Azure Route Server using Azure Resource Manager template (ARM template).
-services: route-server
 author: halkazwini
-ms.service: route-server
-ms.topic: quickstart
-ms.date: 04/18/2023
 ms.author: halkazwini
-ms.custom: template-quickstart, subject-armqs, mode-arm, template-quickstart, devx-track-arm-template, engagement-fy23
+ms.service: azure-route-server
+ms.topic: quickstart
+ms.date: 04/18/2024
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+
+#CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server in my environment so that it dynamically updates virtual machines (VMs) routing tables with changes in the topology.
 ---
 
 # Quickstart: Create an Azure Route Server using an ARM template
 
 This quickstart helps you learn how to use an Azure Resource Manager template (ARM template) to deploy an Azure Route Server into a new or existing virtual network.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button to open the template in the Azure portal.
 
@@ -99,19 +100,19 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 When you no longer need the resources that you created with the Route Server, delete the resource group to remove the Route Server and all the related resources.
 
-To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
+To delete the resource group, use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## Next steps
+## Next step
 
 In this quickstart, you created a:
 
-* Virtual Network
-* Subnet
-* Route Server
+- Virtual Network
+- Subnet
+- Route Server
 
 After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
 

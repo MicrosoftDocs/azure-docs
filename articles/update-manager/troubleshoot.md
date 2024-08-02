@@ -2,7 +2,7 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 04/03/2024
+ms.date: 07/04/2024
 ms.topic: conceptual
 ms.author: sudhirsneha
 author: SnehaSudhirG
@@ -62,10 +62,22 @@ Periodic assessment isn't getting set correctly during create for specialized, m
 Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
 
 
+## The prerequisite for scheduled patching isn't set correctly and schedules aren't attached when utilizing specific policies during create for specialized, generalized, migrated and restored VMs
+
+
+### Cause
+
+The prerequisite for scheduled patching and attaching schedules isn't being set correctly when utilizing the **Schedule recurring updates using Azure Update Manager** and **Set prerequisite for Scheduling recurring updates on Azure virtual machines** policies during create for specialized, generalized, migrated, and restored VMs because of the way the current *Deploy If Not Exists policy* is designed. Post-creation, the policy will show these resources as non-compliant on the compliance dashboard.
+
+### Resolution
+
+Run a remediation task post create to remediate newly created resources. For more information see, [Remediate non-compliant resources with Azure Policy](../governance/policy/how-to/remediate-resources.md).
+
+
 ## Policy remediation tasks are failing for gallery images and for images with encrypted disks
 
 ### Issue
-There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it is currently not part of the Virtual Machine Contributor role.
+There are remediation failures for VMs which have a reference to the gallery image in the Virtual Machine mode. This is because it requires the read permission to the gallery image and it's currently not part of the Virtual Machine Contributor role.
 
   :::image type="content" source="./media/troubleshoot/policy-remediation-failure-error.png" alt-text="Screenshot that shows the error code for the policy remediation failure. " lightbox="./media/troubleshoot/policy-remediation-failure-error.png":::
 
@@ -74,7 +86,7 @@ The Virtual Machine Contributor role doesn’t have enough permissions.
 
 ### Resolution
 -	For all the new assignments, a recent change is introduced to provide **Contributor** role to the managed identity created during policy assignment for remediation.  Going forward, this will be assigned for any new assignments.
--	For any previous assignments if you are experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
+-	For any previous assignments if you're experiencing failure of remediation tasks, we recommend that you manually assign the contributor role to the managed identity by following the steps listed under [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md)
 -	Also, in scenarios where the Contributor role doesn’t work when the linked resources (gallery image or disk) is in another resource group or subscription, manually provide the managed identity with the right roles and permissions on the scope to unblock remediations by following the steps in [Grant permissions to the managed identity through defined roles](../governance/policy/how-to/remediate-resources.md).
 
 
@@ -87,15 +99,31 @@ The subscriptions in which the Arc-enabled servers are onboarded aren't producin
 #### Resolution
 Ensure that the Arc servers subscriptions are registered to Microsoft.Compute resource provider so that the periodic assessment data is generated periodically as expected. [Learn more](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)
 
-### Maintenance configuration isn't applied when VM is moved to a different subscription
+### Maintenance configuration isn't applied when VM is moved to a different subscription or resource group
 
 #### Issue
 
-When a VM is moved to another subscription, the scheduled maintenance configuration associated to the VM isn't running.
+When a VM is moved to another subscription or resource group, the scheduled maintenance configuration associated to the VM isn't running.
 
 #### Resolution
 
-If you move a VM to a different resource group or subscription, the scheduled patching for the VM stops working as this scenario is currently unsupported by the system. You can delete the older association of the moved VM and create the new association to include the moved VMs in a maintenance configuration.
+The system currently doesn't support moving resources across resource groups or subscriptions. As a workaround, use the following steps for the resource that you want to move. **As a prerequisite, first remove the assignment before following the steps.** 
+
+If you're using a `static` scope:
+
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If you're using a `dynamic` scope:
+
+1. Initiate or wait for the next scheduled run. This action prompts the system to completely remove the assignment, so you can proceed with the next steps.
+1. Move the resource to a different resource group or subscription.
+1. Re-create the resource assignment.
+
+If any of the steps are missed, please move the resource to the previous resource group or subscription ID and reattempt the steps.
+
+> [!NOTE]
+> If the resource group is deleted, recreate it with the same name. If the subscription ID is deleted, reach out to the support team for mitigation.
 
 ### Unable to change the patch orchestration option to manual updates from automatic updates
 
@@ -137,7 +165,7 @@ If you see an `HRESULT` error code, double-click the exception displayed in red 
 |Exception  |Resolution or action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Search the relevant error code in the [Windows Update error code list](https://support.microsoft.com/help/938205/windows-update-error-code-list) to find more information about the cause of the exception.        |
-|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](../automation/update-management/plan-deployment.md#ports) section.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Indicates network connectivity problems. Make sure your machine has network connectivity to Update Management. For a list of required ports and addresses, see the [Network planning](prerequisites.md#network-planning) section.        |
 |`0x8024001E`| The update operation didn't finish because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
 |`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |

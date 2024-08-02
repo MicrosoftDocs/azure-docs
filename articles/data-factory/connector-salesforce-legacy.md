@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/26/2024
+ms.date: 05/11/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics (legacy)
@@ -19,7 +18,7 @@ ms.date: 01/26/2024
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 >[!IMPORTANT]
->The service has released a new Salesforce connector which provides better native Salesforce support, refer to [Salesforce connector](connector-salesforce.md) article on details.
+>The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, please [upgrade your Salesforce connector](connector-salesforce.md#upgrade-the-salesforce-linked-service) before **October 11, 2024**. Refer to this [section](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
 
 ## Supported capabilities
 

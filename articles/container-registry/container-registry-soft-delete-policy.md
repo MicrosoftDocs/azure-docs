@@ -3,7 +3,7 @@ title: "Recover deleted artifacts with soft delete policy in Azure Container Reg
 description: Learn how to enable the soft delete policy in Azure Container Registry to manage and recover the accidentally deleted artifacts as soft deleted artifacts with a set retention period.
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: how-to #Don't change
 ms.date: 01/22/2024
 ms.custom: devx-track-azurecli
@@ -132,7 +132,7 @@ Force restore overwrites the existing tag with the same name in the repository. 
 
 > [!IMPORTANT]
 > Restoring a [manifest list](push-multi-architecture-images.md#manifest-list) won't recursively restore any underlying soft deleted manifests.
-> If you're restoring soft deleted [ORAS artifacts](container-registry-oras-artifacts.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
+> If you're restoring soft deleted [ORAS artifacts](container-registry-manage-artifact.md), then restoring a subject doesn't recursively restore the referrer chain. Also, the subject has to be restored first, only then a referrer manifest is allowed to restore. Otherwise it throws an error.
 
 ## Enable soft delete policy for registry - Portal
 

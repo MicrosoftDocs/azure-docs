@@ -6,7 +6,7 @@ services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.custom:
 ms.topic: conceptual
@@ -59,14 +59,14 @@ The following resources utilize a public IP address prefix:
 Resource|Scenario|Steps|
 |---|---|---|
 |Virtual Machine Scale Sets | You can use a public IP address prefix to generate instance-level IPs in a Virtual Machine Scale Set. Individual public IP resources aren't created. | Use a [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-with-public-ip-prefix) with instructions to use this prefix for public IP configuration as part of the scale set creation. (Zonal properties of the prefix are passed to the instance IPs and aren't shown in the output. For more information, see [Networking for Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)) |
-| Standard load balancers | A public IP address prefix can be used to scale a load balancer by [using all IPs in the range for outbound connections](../../load-balancer/outbound-rules.md#scale). | To associate a prefix to your load balancer: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. When creating the load balancer, select the IP prefix as associated with the frontend of your load balancer. |
+| Standard load balancers | A public IP address prefix can be used to scale a load balancer by [using all IPs in the range for outbound connections](../../load-balancer/outbound-rules.md#scale). Note that the prefix cannot be used for inbound connections, only outbound. | To associate a prefix to your load balancer: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. When creating the load balancer, select the IP prefix as associated with the frontend of your load balancer. |
 | NAT Gateway | A public IP prefix can be used to scale a NAT gateway by using the public IPs in the prefix for outbound connections. | To associate a prefix to your NAT Gateway: </br> 1. [Create a prefix.](manage-public-ip-address-prefix.md) </br> 2. When creating the NAT Gateway, select the IP prefix as the Outbound IP.  (A NAT Gateway can have no more than 16 IPs in total. A public IP prefix of /28 length is the maximum size that can be used.) |
 
 ## Limitations
 
 - You can't specify the set of IP addresses for the prefix (though you can [specify which IP you want from the prefix](manage-public-ip-address-prefix.md#create-a-static-public-ip-address-from-a-prefix)). Azure gives the IP addresses for the prefix, based on the size that you specify.  Additionally, all public IP addresses created from the prefix must exist in the same Azure region and subscription as the prefix. Addresses must be assigned to resources in the same region and subscription.
 
-- You can create a prefix of up to 16 IP addresses for Microsoft owned prefixes. Review [Network limits increase requests](../../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information.
+- You can create a prefix of up to 16 IP addresses for Microsoft owned prefixes. Review [Network limits increase requests](../../azure-portal/supportability/networking-quota-requests.md) and [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for more information if larger prefixes are required.  Also note there is no limit on the number of Public IP Prefixes per region, but the overall number of Public IP addresses per region is limited (each public IP prefix consumes that number of IPs from the public IP address quota for that region).
 
 - The size of the range can't be modified after the prefix has been created.
 

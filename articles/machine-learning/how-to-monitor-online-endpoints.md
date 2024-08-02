@@ -3,10 +3,10 @@ title: Monitor online endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor online endpoints and create alerts with Application Insights.
 services: machine-learning
-ms.service: machine-learning
-ms.reviewer: mopeakande
-author: dem108
-ms.author: sehan
+ms.service: azure-machine-learning
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.subservice: mlops
 ms.date: 10/24/2023
 ms.topic: conceptual
@@ -36,7 +36,7 @@ In this article you learn how to:
 ## Prerequisites
 
 - Deploy an Azure Machine Learning online endpoint.
-- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint.
+- You must have at least [Reader access](../role-based-access-control/role-assignments-portal.yml) on the endpoint.
 
 ## Metrics
 
@@ -67,44 +67,19 @@ Depending on the resource that you select, the metrics that you see will be diff
 
 #### Metrics at endpoint scope
 
-- Request Latency
-- Request Latency P50 (Request latency at the 50th percentile)
-- Request Latency P90 (Request latency at the 90th percentile)
-- Request Latency P95 (Request latency at the 95th percentile)
-- Requests per minute
-- New connections per second
-- Active connection count
-- Network bytes
-
-Split on the following dimensions:
-
-- Deployment
-- Status Code
-- Status Code Class
-
-For example, you can split along the deployment dimension to compare the request latency of different deployments under an endpoint. 
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics-include.md)]
 
 **Bandwidth throttling**
 
 Bandwidth will be throttled if the quota limits are exceeded for _managed_ online endpoints. For more information on limits, see the article on [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints). To determine if requests are throttled:
 - Monitor the "Network bytes" metric
 - The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
+
 For more information, see [Bandwidth limit issues](how-to-troubleshoot-online-endpoints.md#bandwidth-limit-issues).
 
 #### Metrics at deployment scope
 
-- CPU Utilization Percentage
-- Deployment Capacity (the number of instances of the requested instance type)
-- Disk Utilization
-- GPU Memory Utilization (only applicable to GPU instances)
-- GPU Utilization (only applicable to GPU instances)
-- Memory Utilization Percentage
-
-Split on the following dimension:
-
-- Instance Id
-
-For instance, you can compare CPU and/or memory utilization between difference instances for an online deployment. 
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-deployments-metrics-include.md)]
 
 ### Create dashboards and alerts
 
@@ -132,6 +107,9 @@ You can also create custom alerts to notify you of important status updates to y
 
 For more information, see [Create Azure Monitor alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md).
 
+### Enable autoscale based on metrics
+
+You can enable autoscale of deployments using metrics using UI or code. When you use code (either CLI or SDK), you can use Metrics IDs listed in the table of [available metrics](#available-metrics) in condition for triggering autoscaling. For more information, see [Autoscaling online endpoints](how-to-autoscale-endpoints.md).
 
 ## Logs
 

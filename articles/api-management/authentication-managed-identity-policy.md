@@ -4,7 +4,7 @@ description: Reference for the authentication-managed-identity policy available 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep
@@ -47,6 +47,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ### Use managed identity to authenticate with a backend service
 ```xml  
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
+```
+```xml  
+<authentication-managed-identity resource="https://cognitiveservices.azure.com"/> <!--Azure OpenAI-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->

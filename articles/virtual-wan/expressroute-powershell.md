@@ -2,7 +2,7 @@
 title: 'Create an ExpressRoute association to Azure Virtual WAN - PowerShell'
 description: Learn how to create an ExpressRoute association from your branch site to Azure Virtual WAN using PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/21/2023

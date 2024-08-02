@@ -3,7 +3,7 @@ title: Live migration to Azure Managed Instance for Apache Cassandra using Apach
 description: Learn how to migrate to Azure Managed Instance for Apache Cassandra by using Apache Spark and a dual-write proxy.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: tutorial
 ms.date: 11/02/2021
 ---
@@ -19,7 +19,7 @@ This tutorial describes how to migrate data to Azure Managed Instance for Apache
 
 The following image illustrates the approach.
 
-:::image type="content" source="./media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/managed-instance-apache-cassandra/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ The following image illustrates the approach.
 
 We recommend selecting Azure Databricks runtime version 7.5, which supports Spark 3.0.
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
 ## Add Spark dependencies
 
@@ -42,7 +42,7 @@ You need to add the Apache Spark Cassandra Connector library to your cluster to 
 > [!IMPORTANT]
 > If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in this sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](dual-write-proxy-migration.md#run-the-historical-data-load)" and "[validate the source and target](dual-write-proxy-migration.md#validate-the-source-and-target)" below for more details. 
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 

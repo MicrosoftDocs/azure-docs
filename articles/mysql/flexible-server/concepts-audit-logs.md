@@ -3,10 +3,11 @@ title: Audit logs
 description: Describes the audit logs available in Azure Database for MySQL - Flexible Server.
 author: code-sidd
 ms.author: sisawant
-ms.date: 11/21/2022
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.topic: conceptual 
+ms.topic: conceptual
 ---
 
 # Track database activity with Audit Logs in Azure Database for MySQL - Flexible Server

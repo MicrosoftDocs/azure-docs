@@ -4,8 +4,8 @@ description: Learn how data encryption with customer-managed keys for Azure Data
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -16,13 +16,16 @@ ms.topic: conceptual
 
 With data encryption with customer-managed keys for Azure Database for MySQL flexible server, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. With customer managed keys (CMKs), the customer is responsible for and ultimately controls the key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys.
 
+> [!NOTE]  
+> Azure Key Vault Managed HSM (Hardware Security Module) is currently supported for customer-managed keys for Azure Database for MySQL Flexible Server.
+
 ## Benefits
 
 Data encryption with customer-managed keys for Azure Database for MySQL flexible server provides the following benefits:
 
 - You fully control data access by the ability to remove the key and make the database inaccessible
 - Full control over the key lifecycle, including rotation of the key to aligning with corporate policies
-- Central management and organization of keys in Azure Key Vault
+- Central management and organization of keys in Azure Key Vault or Managed HSM
 - Ability to implement separation of duties between security officers, DBA, and system administrators
 
 ## How does data encryption with a customer-managed key work?
@@ -37,6 +40,15 @@ The UMI must have the following access to the key vault:
 - **List**: List the versions of the key stored in a Key Vault.
 - **Wrap Key**: To be able to encrypt the DEK. The encrypted DEK is stored in the Azure Database for MySQL flexible server instance.
 - **Unwrap Key**: To be able to decrypt the DEK. Azure Database for MySQL flexible server needs the decrypted DEK to encrypt/decrypt the data.
+
+If RBAC is enabled, the UMI must also be assigned the following role:
+
+- **Key Vault Crypto Service Encryption User** or the role with the permissions:
+    - Microsoft.KeyVault/vaults/keys/wrap/action
+	- Microsoft.KeyVault/vaults/keys/unwrap/action
+	- Microsoft.KeyVault/vaults/keys/read like "Key Vault Crypto Service Encryption User"
+- For Managed HSM, assign the **Managed HSM Crypto Service Encryption User** role 
+
 
 ### Terminology and description
 
@@ -59,7 +71,7 @@ After logging is enabled, auditors can use Azure Monitor to review Key Vault aud
 
 ## Requirements for configuring data encryption for Azure Database for MySQL flexible server
 
-Before you attempt to configure Key Vault, be sure to address the following requirements.
+Before you attempt to configure Key Vault or Managed HSM, be sure to address the following requirements.
 
 - The Key Vault and Azure Database for MySQL flexible server instance must belong to the same Microsoft Entra tenant. Cross-tenant Key Vault and flexible server interactions need to be supported. You'll need to reconfigure data encryption if you move Key Vault resources after performing the configuration.
 - The Key Vault and Azure Database for MySQL flexible server instance must reside in the same region.
@@ -80,7 +92,7 @@ Before you attempt to configure the CMK, be sure to address the following requir
 
 ## Recommendations for configuring data encryption
 
-As you configure Key Vault to use data encryption using a customer-managed key, keep in mind the following recommendations.
+As you configure Key Vault or Managed HSM to use data encryption using a customer-managed key, keep in mind the following recommendations.
 
 - Set a resource lock on Key Vault to control who can delete this critical resource and prevent accidental or unauthorized deletion.
 - Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management tools. Azure Monitor Log Analytics is one example of a service that's already integrated.
@@ -88,8 +100,8 @@ As you configure Key Vault to use data encryption using a customer-managed key, 
 - If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
 > [!NOTE]
-> * It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information.
-> * RSA key stored in **Azure Key Vault Managed HSM**, is currently not supported.
+> * It is advised to use a key vault from the same region, but if necessary, you can use a key vault from another region by specifying the "enter key identifier" information. The key vault managed HSM must be in the same region as the MySQL flexible server.
+
 
 ## Inaccessible customer-managed key condition
 

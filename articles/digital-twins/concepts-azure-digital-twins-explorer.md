@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 06/29/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -36,6 +36,8 @@ Developers may find this tool especially useful in the following scenarios:
 * Development: Use the explorer to view and validate your twin graph. You can also use it to investigate specific properties of models, twins, and relationships. Make on the spot modifications to your graph and its data. For detailed instructions on how to use each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md). 
 
 The explorer's main purpose is to help you visualize and understand your graph, and update your graph as needed. For large-scale solutions and for work that should be repeated or automated, consider using the [APIs and SDKs](./concepts-apis-sdks.md) to interact with your instance through code instead.
+
+[!INCLUDE [digital-twins-explorer-private-note.md](../../includes/digital-twins-explorer-private-note.md)]
 
 ## How to access
 

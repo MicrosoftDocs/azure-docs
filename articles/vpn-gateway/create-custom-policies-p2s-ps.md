@@ -3,9 +3,9 @@ title: 'Create and set custom IPsec policies for Point-to-Site: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: This article helps you create and set custom IPSec policies for VPN Gateway P2S configurations.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/18/2024
+ms.date: 04/29/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,9 +18,7 @@ If your point-to-site (P2S) VPN environment requires a custom IPsec policy for e
 
 ### Prerequisites
 
-Verify that your environment meets the following prerequisites:
-
-* You have a functioning point-to-site VPN already configured. If you don't, configure one using the steps the **Create a point-to-site VPN**  article using either [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md), or the [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+Verify that you have a functioning point-to-site VPN already configured. If you don't, configure one using the steps the **Create a point-to-site VPN**  article using either [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md), or the [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
 ### Working with Azure PowerShell
 

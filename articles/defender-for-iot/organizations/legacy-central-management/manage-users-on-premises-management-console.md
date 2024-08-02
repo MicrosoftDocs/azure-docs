@@ -122,7 +122,7 @@ Configure an integration between your on-premises management console and Active 
 
 For example, use Active Directory when you have a large number of users that you want to assign Read Only access to, and you want to manage those permissions at the group level.
 
-For more information, see [Active Directory support on sensors and on-premises management consoles](../manage-users-overview.md#active-directory-support-on-sensors-and-on-premises-management-consoles).
+For more information, see [Microsoft Entra ID support on sensors and on-premises management consoles](../manage-users-overview.md#microsoft-entra-id-support-on-sensors-and-on-premises-management-consoles).
 
 **Prerequisites**: This procedure is available for the *support* and *cyberx* users only, or any user with an **Admin** role.
 

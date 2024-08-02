@@ -2,8 +2,8 @@
 title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
 author: angarg05
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: ananyagarg
@@ -14,13 +14,13 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you'll use the Azure CLI to deploy an Azure Kubernetes Service (AKS) cluster with enclave-aware (DCsv2/DCSv3) VM nodes. You'll then run a simple Hello World application in an enclave. You can also provision a cluster and add confidential computing nodes from the Azure portal, but this quickstart focuses on the Azure CLI.
 
-AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [AKS introduction](../aks/intro-kubernetes.md) and the [overview of AKS confidential nodes](confidential-nodes-aks-overview.md).
+AKS is a managed Kubernetes service that enables developers or cluster operators to quickly deploy and manage clusters. To learn more, read the [AKS introduction](/azure/aks/intro-kubernetes) and the [overview of AKS confidential nodes](confidential-nodes-aks-overview.md).
 
 Features of confidential computing nodes include:
 
 - Linux worker nodes supporting Linux containers.
 - Generation 2 virtual machine (VM) with Ubuntu 18.04 VM nodes.
-- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache Memory (EPC). For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
+- Intel SGX capable CPU to help run your containers in confidentiality protected enclave leveraging Encrypted Page Cache (EPC) memory. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 - Intel SGX DCAP Driver preinstalled on the confidential computing nodes. For more information, see [Frequently asked questions for Azure confidential computing](./confidential-nodes-aks-faq.yml).
 
 > [!NOTE]

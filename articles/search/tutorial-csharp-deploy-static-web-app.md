@@ -7,7 +7,7 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 07/18/2023
+ms.date: 04/25/2024
 ms.custom:
   - devx-track-csharp
   - devx-track-dotnet
@@ -15,7 +15,7 @@ ms.custom:
 ms.devlang: csharp
 ---
 
-# 3 - Deploy the search-enabled .NET website
+# Step 3 - Deploy the search-enabled .NET website
 
 [!INCLUDE [tutorial-deploy](includes/tutorial-add-search-website-create-app.md)]
 

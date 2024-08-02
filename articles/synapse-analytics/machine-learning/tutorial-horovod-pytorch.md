@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Distributed training with Horovod and PyTorch'
+title: 'Tutorial: Distributed training with Horovod and PyTorch (deprecated)'
 description: Tutorial on how to run distributed training with the Horovod Estimator and PyTorch
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.date: 02/27/2024
+ms.date: 07/15/2024
 author: midesa
 ms.author: midesa
 ---
 
-# Tutorial: Distributed Training with Horovod Estimator and PyTorch (Preview)
+# Tutorial: Distributed Training with Horovod Estimator and PyTorch (deprecated)
 
 [Horovod](https://github.com/horovod/horovod) is a distributed training framework for libraries like TensorFlow and PyTorch. With Horovod, users can scale up an existing training script to run on hundreds of GPUs in just a few lines of code.
 
@@ -20,11 +20,13 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Create a GPU-enabled Apache Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a GPU-enabled Apache Spark pool in Azure Synapse](../spark/apache-spark-gpu-concept.md). For this tutorial, we suggest using the GPU-Large cluster size with 3 nodes.
 
-> [!WARNING]
-> - The GPU accelerated preview is limited to the [Azure Synapse 3.1 (unsupported)](../spark/apache-spark-3-runtime.md) and [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtimes.
-> - Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-> - End of support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime will be retired and disabled as of July 8, 2024.
+> [!NOTE]
+> The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
 
+> [!CAUTION]
+> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
+> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 ## Configure the Apache Spark session
 

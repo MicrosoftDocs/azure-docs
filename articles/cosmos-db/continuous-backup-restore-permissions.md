@@ -29,7 +29,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -37,7 +37,7 @@ To perform a restore, a user or a principal need the permission to restore (that
     | Assign access to | User, group, or service principal |
     | Members | &lt;User of your choice&gt; |
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot that shows Add role assignment page in Azure portal.":::
 
 1. Repeat step 4 with the **Cosmos DB Operator** role to grant the write permission. When assigning this role from the Azure portal, it grants the restore permission to the whole subscription.
 

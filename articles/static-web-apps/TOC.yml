@@ -13,13 +13,25 @@
       - name: Build your first static web app
         expanded: true
         items:
-          - name: Visual Studio Code
-            href: getting-started.md
-          - name: Azure portal
-            href: get-started-portal.md
-            displayName: github, devops
-          - name: Azure CLI
-            href: get-started-cli.md
+          - name: Web frameworks
+            href: deploy-web-framework.md
+          - name: Developer tools
+            items:
+                - name: Visual Studio Code
+                  href: getting-started.md
+                - name: Azure portal
+                  href: get-started-portal.md
+                  displayName: github, devops
+                - name: Azure CLI
+                  href: get-started-cli.md
+- name: Scenarios
+  items:
+  - name: Build a site with a web framework
+    items:
+    - name: 1 - Pick a web framework
+      href: deploy-web-framework.md
+    - name: 2 - Add authentication
+      href: add-authentication.md
 - name: Frameworks & libraries
   items:
   - name: Overview
@@ -61,7 +73,7 @@
   - name: Build configuration
     href: build-configuration.md
   - name: App settings
-    href: application-settings.md
+    href: application-settings.yml
     displayName: environment variables
   - name: Inject custom code at runtime
     href: snippets.md  
@@ -72,7 +84,7 @@
   - name: Use Azure DNS
     items:
     - name: Delegate your domain to Azure DNS
-      href: azure-dns-zone.md
+      href: /azure/dns/dns-delegate-domain-azure-dns
     - name: Set up a custom domain
       href: custom-domain-azure-dns.md
     - name: Set up the apex domain
@@ -128,7 +140,7 @@
 - name: Security
   items:
   - name: Authentication and authorization
-    href: authentication-authorization.md
+    href: authentication-authorization.yml
   - name: Access user information
     href: user-information.md
   - name: Custom authentication

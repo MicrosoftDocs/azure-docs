@@ -54,3 +54,5 @@ For some customers, adapting to API for Cassandra can be a challenge due to diff
 - Get started with [creating a API for Cassandra account, database, and a table](create-account-java.md) by using a Java application.
 - [Load sample data to the API for Cassandra table](load-data-table.md) by using a Java application.
 - [Query data from the API for Cassandra account](query-data.md) by using a Java application.
+- Receive up to 63% discount on [Azure Cosmos DB prices with Reserved Capacity](../reserved-capacity.md).
+

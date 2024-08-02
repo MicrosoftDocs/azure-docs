@@ -59,7 +59,31 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
             recording_state_callback_url = "<CallbackUri>")
 ```
 
-### 2.1. Only for Unmixed - Specify a user on channel 0
+### 2.1. Start Recording  - Bring Your Own Azure Blob Store
+Start Recording with your own Azure Blob Storage defined to store the recording file once recording is complete.
+
+```python
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+                   recording_content_type = RecordingContent.Audio,
+                   recording_channel_type = RecordingChannel.Unmixed,
+                   recording_format_type = RecordingFormat.Wav,
+                   recording_state_callback_url = "<CallbackUri>",
+                   recording_storage = AzureBlobContainerRecordingStorage(container_url="<YOUR_STORAGE_CONTAINER_URL>"))
+```
+## 2.2. Start recording session with Pause mode enabled using 'StartAsync' API
+> [!NOTE]
+> **Recordings will need to be resumed for recording file to be generated.**
+
+```python
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+            recording_content_type = RecordingContent.Audio,
+            recording_channel_type = RecordingChannel.Unmixed,
+            recording_format_type = RecordingFormat.Wav,
+            pause_on_start = true,
+            recording_state_callback_url = "<CallbackUri>")
+```
+
+### 2.3. Only for Unmixed - Specify a user on channel 0
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants will be assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording will assign channel 0 to the first participant speaking.
 
 ```python
@@ -71,7 +95,7 @@ response =  call_automation_client.start_recording(call_locator=ServerCallLocato
             audio_channel_participant_ordering=[CommunicationUserIdentifier(id="<ACS_USER_MRI>")])
 ```
 
-### 2.2. Only for Unmixed - Specify channel affinity
+### 2.4. Only for Unmixed - Specify channel affinity
 
 ```python
 _channel_affinity = ChannelAffinity(target_participant=CommunicationUserIdentifier("<ACS_USER_MRI>"), channel=0)

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/25/2024
+ms.date: 04/18/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -30,10 +30,10 @@ In this tutorial, you learn about:
 
 ## Prerequisites
 
-Before you configure and set up your Azure Stack Edge Pro R device, make sure that:
+Before you configure and set up your Azure Stack Edge Pro R device, make sure that you:
 
-* You've installed the physical device as detailed in [Install Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-install.md).
-* You've connected to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-connect.md)
+* Install the physical device as detailed in [Install Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-install.md).
+* Connect to the local web UI of the device as detailed in [Connect to Azure Stack Edge Pro R](azure-stack-edge-gpu-deploy-connect.md)
 
 
 ## Configure network
@@ -48,14 +48,14 @@ Follow these steps to configure the network for your device.
     
     <!--![Local web UI "Network settings" tile](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/network-1.png)-->
 
-    On your physical device, there are four network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10/25-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 4 are all data ports. The **Network** page is as shown below.
+    On your physical device, there are four network interfaces. PORT 1 and PORT 2 are 1-Gbps network interfaces. PORT 3 and PORT 4 are all 10/25-Gbps network interfaces. PORT 1 is automatically configured as a management-only port, and PORT 2 to PORT 4 are all data ports. The **Network** page is as shown as follows:
     
     ![Local web UI "Network settings" page](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/network-2.png)
 
    
 3. To change the network settings, select a port and in the right pane that appears, modify the IP address, subnet, gateway, primary DNS, and secondary DNS. 
 
-    - If you select Port 1, you can see that it is preconfigured as static. 
+    - If you select Port 1, you can see that it's preconfigured as static. 
 
         ![Local web UI "Port 1 Network settings"](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/network-3.png)
 
@@ -68,7 +68,7 @@ Follow these steps to configure the network for your device.
    * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
    * If DHCP isn't enabled, you can assign static IPs if needed.
    * You can configure your network interface as IPv4.
-   * Network Interface Card (NIC) Teaming or link aggregation is not supported with Azure Stack Edge.
+   * Network Interface Card (NIC) Teaming or link aggregation isn't supported with Azure Stack Edge.
    * Serial number for any port corresponds to the node serial number.
     <!--* On the 25-Gbps interfaces, you can set the RDMA (Remote Direct Access Memory) mode to iWarp or RoCE (RDMA over Converged Ethernet). Where low latencies are the primary requirement and scalability is not a concern, use RoCE. When latency is a key requirement, but ease-of-use and scalability are also high priorities, iWARP is the best candidate.-->
 
@@ -99,7 +99,7 @@ Follow these steps to add or delete virtual switches and virtual networks.
 
 1. In the local UI, go to **Advanced networking** page.
 
-1. In the **Virtual switch** section, you'll add or delete virtual switches. Select **Add virtual switch** to create a new switch.
+1. In the **Virtual switch** section, you add or delete virtual switches. Select **Add virtual switch** to create a new switch.
 
     ![Add virtual switch page in local UI 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/add-virtual-switch-1.png)
 
@@ -114,7 +114,7 @@ Follow these steps to add or delete virtual switches and virtual networks.
 
 1. You can create more than one switch by following the steps described earlier.
 
-1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
+1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks are also deleted.
 
 You can now create virtual networks and associate with the virtual switches you created.
 
@@ -127,8 +127,8 @@ You can add or delete virtual networks associated with your virtual switches. To
 1. In the **Add virtual network** blade, input the following information:
 
    1. Select a virtual switch for which you want to create a virtual network.
-   1. Provide a **Name** for your virtual network.
-   1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer.
+   1. Provide a **Name** for your virtual network. The name you specify must conform to [Naming rules and restrictions for Azure resources](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
+   1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information about trunk configuration for your switch, refer to the instructions from your physical switch manufacturer.
    1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
    1. Select **Apply**. A virtual network is created on the specified virtual switch.
 
@@ -187,7 +187,7 @@ This is an optional configuration.
 
 1. On the **Web proxy settings** page, take the following steps:
 
-   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs are not supported.
+   1. In the **Web proxy URL** box, enter the URL in this format: `http://host-IP address or FQDN:Port number`. HTTPS URLs aren't supported.
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
     

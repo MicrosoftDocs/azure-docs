@@ -4,7 +4,7 @@ description: This article describes different options available to read and acce
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: build-2023
 ms.topic: conceptual
@@ -42,6 +42,11 @@ Azure Functions is the simplest option if you're just getting started using the 
 Developing with Azure Functions is an easy experience and can be faster than deploying the change feed processor on your own. Triggers can be created using the Azure Functions portal or programmatically using SDKs. Visual Studio and VS Code provide support to write Azure Functions, and you can even use the Azure Functions CLI for cross-platform development. You can write and debug the code on your desktop, and then deploy the function with one button. See [Serverless database computing using Azure Functions](serverless-computing-database.md) and [Using change feed with Azure Functions](change-feed-functions.md) articles to learn more.
 
 ### Change feed processor library
+#### Supported SDKs
+
+|  .Net V3  |   Java    |  Node.JS  |  Python   |
+| --------- | --------- | --------- | --------- |
+|     ✓     |    ✓     |     ✕     |    ✕     |
 
 The change feed processor gives you more control of the change feed and still hides most complexity. The change feed processor library follows the observer pattern, where your processing function is called by the library. The change feed processor will automatically check for changes and, if changes are found, "push" them to the client. If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. The change feed processor will automatically divide the load among the different clients. You won't have to implement any logic for load balancing across multiple clients or any logic to maintain the lease state.
 

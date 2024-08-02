@@ -3,7 +3,7 @@ title:  Start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on H
 description: Learn how to start SQL Client CLI in gateway mode in Apache Flink Cluster 1.17.0 on HDInsight on AKS.
 ms.service: hdinsight-aks
 ms.topic: how-to
-ms.date: 03/07/2024
+ms.date: 04/17/2024
 ---
 
 # Start SQL Client CLI in gateway mode
@@ -46,7 +46,7 @@ In Apache Flink Cluster on HDInsight on AKS, start the SQL Client CLI in gateway
  
 or
  
-./bin/sql-client.sh gateway --endpoint fqdn:443
+./bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
 ```
  
 Get cluster endpoint(host or fqdn) on Azure portal.
@@ -92,12 +92,12 @@ Get cluster endpoint(host or fqdn) on Azure portal.
    1. Run the sql-client.sh in gateway mode on Flink-cli to Flink SQL.
      
          ```
-         bin/sql-client.sh gateway --endpoint <fqdn>:443 
+         bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
          ```
           
          Example
          ```
-         user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ bin/sql-client.sh gateway --endpoint <fqdn:443>
+         user@MININT-481C9TJ:/mnt/c/Users/user/flink-cli$ bin/sql-client.sh gateway --endpoint https://fqdn/sql-gateway
           
                                             ▒▓██▓██▒
                                         ▓████▒▒█▓▒▓███▓▒

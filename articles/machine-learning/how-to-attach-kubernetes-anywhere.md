@@ -3,12 +3,12 @@ title: Introduction to Kubernetes compute target in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning Kubernetes compute enable Azure Machine Learning across different infrastructures in cloud and on-premises
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: ssalgado
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: bozhlin
 ms.custom: devplatv2
 ms.date: 12/22/2023
 #Customer intent: As part of ML Professionals focusing on ML infratrasture setup using self-managed compute, I want to understand what Kubernetes compute target is used for and what benefits it proves.
@@ -18,7 +18,7 @@ ms.date: 12/22/2023
 
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-With Azure Machine Learning CLI/Python SDK v2, Azure Machine Learning introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service** (AKS) cluster or **Azure Arc-enabled Kubernetes** (Arc Kubernetes) cluster to become a Kubernetes compute target in Azure Machine Learning, and use it to train or deploy models. 
+With Azure Machine Learning CLI/Python SDK v2, Azure Machine Learning introduced a new compute target - Kubernetes compute target. You can easily enable an existing **Azure Kubernetes Service (AKS)** cluster or **Azure Arc-enabled Kubernetes (Arc Kubernetes)** cluster to become a Kubernetes compute target in Azure Machine Learning, and use it to train or deploy models. 
 
 :::image type="content" source="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png" alt-text="Diagram illustrating how Azure Machine Learning connects to Kubernetes." lightbox="./media/how-to-attach-kubernetes-to-workspace/machine-learning-anywhere-overview.png":::
  
@@ -37,7 +37,7 @@ Azure Machine Learning Kubernetes compute supports two kinds of Kubernetes clust
 
 With a simple cluster extension deployment on AKS or Arc Kubernetes cluster, Kubernetes cluster is seamlessly supported in Azure Machine Learning to run training or inference workload. It's easy to enable and use an existing Kubernetes cluster for Azure Machine Learning workload with the following simple steps:
 
-1. Prepare an [Azure Kubernetes Service cluster](../aks/learn/quick-kubernetes-deploy-cli.md) or [Arc Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. Prepare an [Azure Kubernetes Service cluster](/azure/aks/learn/quick-kubernetes-deploy-cli) or [Arc Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 1. [Deploy the Azure Machine Learning extension](how-to-deploy-kubernetes-extension.md).
 1. [Attach Kubernetes cluster to your Azure Machine Learning workspace](how-to-attach-kubernetes-to-workspace.md).
 1. Use the Kubernetes compute target from CLI v2, SDK v2, and the Studio UI.

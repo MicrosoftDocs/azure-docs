@@ -2,9 +2,9 @@
 title: Azure Monitor logs data model 
 description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
 ms.topic: how-to
-ms.date: 11/30/2022
-ms.service: backup
-ms.custom: engagement-fy23
+ms.date: 06/29/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -498,6 +498,6 @@ To update your queries to remove dependency on V1 schema, follow these steps:
     | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
     ````
 
-## Next steps
+## Next step
 
 After the data model review is complete, start [creating custom queries](../azure-monitor/visualize/tutorial-logs-dashboards.md) in Azure Monitor logs to build your own dashboard.

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Use Microsoft Purview with an Azure Operator Insights Data Product
 description: In this article, learn how to set up Microsoft Purview to explore an Azure Operator Insights Data Product.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 11/02/2023
 ---
@@ -51,13 +51,13 @@ Select **Select Purview Account** to provide the required values to populate a P
 
 :::image type="content" source="media/purview-setup/purview-collection-id.png" alt-text="A screenshot that emphasizes the collection ID in the Purview collection URL.":::
 
-### Data Product representation in Microsoft Purview
+## Understand Data Product representation in Microsoft Purview
 
-A Data Product is made up of many Azure Services and Data Assets, which are represented as an asset inside the Microsoft Purview compliance portal of the necessary types. The following asset types are represented.
+A Data Product is made up of many Azure Services and Data Assets, which are represented as assets of multiple types inside the Microsoft Purview compliance portals. The following asset types are represented.
 
-#### Data Product
+### Data Product
 
-An overall representation of the AOI Data Product
+An overall representation of the Azure Operator Insights Data Product.
 
 | **Additional fields** | **Description**                               |
 |-----------------------|-----------------------------------------------|
@@ -66,34 +66,34 @@ An overall representation of the AOI Data Product
 | Azure Region          | The region where the Data Product is deployed |
 | Docs                  | A link to documents that explain the data     |
 
-#### AOI Data Lake
+### AOI Data Lake
 
-Also known as Azure Data Lake Storage (ADLS)
+Also known as Azure Data Lake Storage.
 
 | **Additional fields** | **Description**                                    |
 |-----------------------|----------------------------------------------------|
-| DFS Endpoint Address  | Provides access to Parquet files in AOI Data Lake  |
+| DFS Endpoint Address  | Provides access to Parquet files in Azure Operator Insights Data Lake  |
 
-#### AOI Database
+### AOI Database
 
-Also known as Azure Data Explorer (ADX)
+Also known as Azure Data Explorer.
 
 | **Additional fields** | **Description**                                          |
 |-----------------------|----------------------------------------------------------|
-| KQL Endpoint Address  | Provides access to AOI tables for exploration using KQL  |
+| KQL Endpoint Address  | Provides access to Azure Operator Insights tables for exploration using KQL  |
 
-#### AOI Table
+### AOI Table
 
-ADX Tables and Materialized Views
+Azure Data Explorer tables and materialized views.
 
 | **Additional fields** | **Description**                              |
 |-----------------------|----------------------------------------------|
 | Description           | Brief description of each table and view     |
 | Schema                | Contains the table columns and their details |
 
-#### AOI Parquet details
+### AOI Parquet Details
 
-Each ADX Table is an equivalent Parquet file type
+Each Azure Data Explorer table is an equivalent Parquet file type.
 
 | **Additional fields** | **Description**                                                   |
 |-----------------------|-------------------------------------------------------------------|
@@ -101,9 +101,9 @@ Each ADX Table is an equivalent Parquet file type
 | Description           | Identical to the equivalent AOI Table                             |
 | Schema                | Identical to the equivalent AOI Table                             |
 
-#### AOI Column
+### AOI Column
 
-The columns belong to AOI Tables and the equivalent AOI Parquet details
+The columns belong to Azure Operator Insights tables and the equivalent AOI Parquet Details.
 
 | **Additional fields** | **Description**                       |
 |-----------------------|---------------------------------------|

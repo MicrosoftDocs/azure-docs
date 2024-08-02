@@ -4,12 +4,18 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/10/2024
+ms.date: 6/12/2024
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md#host-maintenance-and-lifecycle-management).
+
+## May 2024
+
+Azure VMware Solution is now generally available in the Central India, UAE North, and Italy North regions, increasing the total region count to 33. [Learn more](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-vmware&rar=true&regions=all)
+
+VMware HCX 4.8.2 is now available. [Learn more](architecture-private-clouds.md#vmware-software-versions)
 
 ## April 2024
 
@@ -118,7 +124,7 @@ All new Azure VMware Solution private clouds are being deployed with VMware NSX-
 
 **VMware HCX Enterprise Edition - Default**
 
-VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.5/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
+VMware HCX Enterprise is now available and supported on Azure VMware Solution at no extra cost. VMware HCX Enterprise brings valuable [services](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-32AF32BD-DE0B-4441-95B3-DF6A27733EED.html), like Replicated Assisted vMotion (RAV) and Mobility Optimized Networking (MON). VMware HCX Enterprise is now automatically installed for all new VMware HCX add-on requests, and existing VMware HCX Advanced customers can upgrade to VMware HCX Enterprise using the Azure portal. Learn more on how to [Install and activate VMware HCX in Azure VMware Solution](install-vmware-hcx.md).
 
 **Azure Log Analytics - Monitor Azure VMware Solution**
 

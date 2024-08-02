@@ -7,7 +7,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: include
-ms.date: 11/15/2023
+ms.date: 05/23/2024
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
@@ -15,7 +15,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-| [Document Intelligence REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Azure REST API reference](/rest/api/azure/) |
+| [Document Intelligence REST API](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) | [Azure REST API reference](/rest/api/azure/) |
 
 In this quickstart, you use the following APIs to extract structured data from forms and documents:
 
@@ -31,7 +31,7 @@ In this quickstart, you use the following APIs to extract structured data from f
 
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) Document Intelligence resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
   > [!TIP]
   > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../../active-directory/authentication/overview-authentication.md).
@@ -83,7 +83,7 @@ https://cognitiveservice/formrecognizer/v2/layout/analyzeResults/54f0b076-4e38-4
 
 ### Get layout results
 
-After you've called the **[Analyze Layout](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync)** API, you call the **[Get Analyze Layout Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeLayoutResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze Layout](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)** API, you call the **[Get Analyze Layout Result](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence subscription.
 1. Replace `{key}` with the key you copied from the previous step.
@@ -157,7 +157,7 @@ https://cognitiveservice/formrecognizer/v2.1/prebuilt/invoice/analyzeResults/54f
 
 ### Get invoice results
 
-After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9acb78c40a2533aee83)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **Analyze Invoice** API, you call the **[Get Analyze Invoice Result](/rest/api/aiservices/operation-groups?view=rest-aiservices-v2.1&preserve-view=true)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Document Intelligence key. You can find it on your Document Intelligence resource **Overview** tab.
 1. Replace `{resultId}` with the result ID from the previous step.

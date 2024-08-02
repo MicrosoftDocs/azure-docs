@@ -1,23 +1,25 @@
 ---
-title: 'Tutorial: Deploy Django on AKS cluster by using Azure CLI'
+title: "Tutorial: Deploy Django on AKS cluster by using Azure CLI"
 description: Learn how to quickly build and deploy Django  on AKS with Azure Database for PostgreSQL - Flexible Server.
-ms.service: postgresql
+author: agapovm
+ms.author: maximagapov
+ms.reviewer: maghan
+ms.date: 05/13/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
 ms.topic: tutorial
-ms.date: 02/26/2024
-ms.custom: mvc, devx-track-azurecli
+ms.custom:
+  - mvc
+  - devx-track-azurecli
 ---
 
 # Tutorial: Deploy Django app on AKS with Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 In this quickstart, you deploy a Django application on Azure Kubernetes Service (AKS) cluster with Azure Database for PostgreSQL flexible server using the Azure CLI.
 
-[AKS](../../aks/intro-kubernetes.md) is a managed Kubernetes service that lets you quickly deploy and manage clusters. [Azure Database for PostgreSQL flexible server](overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
+[AKS](/azure/aks/intro-kubernetes) is a managed Kubernetes service that lets you quickly deploy and manage clusters. [Azure Database for PostgreSQL flexible server](overview.md) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings.
 
 > [!NOTE]
 > This quickstart assumes a basic understanding of Kubernetes concepts, Django and PostgreSQL.
@@ -25,7 +27,7 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 ## Pre-requisites
 
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
 - Run [az version](/cli/azure/reference-index?#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az-upgrade). This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
@@ -68,7 +70,7 @@ az aks create --resource-group django-project --name djangoappcluster --node-cou
 After a few minutes, the command completes and returns JSON-formatted information about the cluster.
 
 > [!NOTE]
-> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](../../aks/faq.md#why-are-two-resource-groups-created-with-aks)
+> When creating an AKS cluster a second resource group is automatically created to store the AKS resources. See [Why are two resource groups created with AKS?](/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
 
 ## Connect to the cluster
 
@@ -211,7 +213,7 @@ Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#cre
 > If you are using Azure container registry (ACR), then run the `az aks update` command to attach ACR account with the AKS cluster.
 >
 > ```azurecli-interactive
-> az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
+> az aks update --name djangoappcluster --resource-group django-project --attach-acr <your-acr-name>
 > ```
 
 ## Create Kubernetes manifest file
@@ -318,7 +320,7 @@ django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Now open a web browser to the external IP address of your service (`http://<service-external-ip-address>`) and view the Django application.  
 
 > [!NOTE]
-> - Currently the Django site isn't using HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](../../aks/app-routing.md).
+> - Currently the Django site isn't using HTTPS. For more information about HTTPS and how to configure application routing for AKS, see [Managed NGINX ingress with the application routing add-on](/azure/aks/app-routing).
 
 ## Run database migrations
 
@@ -379,12 +381,12 @@ az group delete --name django-project --yes --no-wait
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and doesn't require removal.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](/azure/aks/kubernetes-service-principal#other-considerations). If you used a managed identity, the identity is managed by the platform and doesn't require removal.
 
 ## Next steps
 
-- Learn how to [access the Kubernetes web dashboard](../../aks/kubernetes-dashboard.md) for your AKS cluster
-- Learn how to [enable continuous deployment](../../aks/deployment-center-launcher.md)
-- Learn how to [scale your cluster](../../aks/tutorial-kubernetes-scale.md)
+- Learn how to [access the Kubernetes web dashboard](/azure/aks/kubernetes-dashboard) for your AKS cluster
+- Learn how to [enable continuous deployment](/azure/aks/deployment-center-launcher)
+- Learn how to [scale your cluster](/azure/aks/tutorial-kubernetes-scale)
 - Learn how to manage your [Azure Database for PostgreSQL flexible server instance](./quickstart-create-server-cli.md)
 - Learn how to [configure server parameters](./howto-configure-server-parameters-using-cli.md) for your database server.

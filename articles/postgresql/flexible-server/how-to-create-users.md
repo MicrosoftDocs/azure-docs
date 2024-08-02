@@ -4,15 +4,15 @@ description: This article describes how you can create new user accounts to inte
 author: kabharati
 ms.author: kabharati
 ms.reviewer: maghan
-ms.date: 02/15/2024
-ms.service: postgresql
+ms.date: 04/30/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
 
 # Create users in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article describes how you can create users within an Azure Database for PostgreSQL flexible server instance.
 
@@ -26,10 +26,10 @@ When you first created your Azure Database for PostgreSQL flexible server instan
 The Azure Database for PostgreSQL flexible server instance is created with the three default roles defined. You can see these roles by running the command: `SELECT rolname FROM pg_roles;`
 
 - azure_pg_admin
-- azure_superuser
+- azuresu
 - your server admin user
 
-Your server admin user is a member of the azure_pg_admin role. However, the server admin account isn't part of the azure_superuser role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
+Your server admin user is a member of the azure_pg_admin role. However, the server admin account isn't part of the azuresu role. Since this service is a managed PaaS service, only Microsoft is part of the super user role.
 
 The PostgreSQL engine uses privileges to control access to database objects, as discussed in the [PostgreSQL product documentation](https://www.postgresql.org/docs/current/static/sql-createrole.html). In Azure Database for PostgreSQL flexible server, the server admin user is granted these privileges:
 

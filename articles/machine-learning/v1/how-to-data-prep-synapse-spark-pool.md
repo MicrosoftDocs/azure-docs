@@ -3,7 +3,7 @@ title: Data wrangling with Apache Spark pools (deprecated)
 titleSuffix: Azure Machine Learning
 description: Learn how to attach and launch Apache Spark pools for data wrangling with Azure Synapse Analytics and Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 author: ynpandey

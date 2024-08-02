@@ -1,7 +1,7 @@
 ---
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ---

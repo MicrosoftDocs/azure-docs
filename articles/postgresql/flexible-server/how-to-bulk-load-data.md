@@ -3,18 +3,19 @@ title: Upload data in bulk
 description: This article discusses best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server.
 author: sarat0681
 ms.author: sbalijepalli
-ms.reviewer: maghan 
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.date: 01/23/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
 ---
 
 
 # Best practices for uploading data in bulk in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article discusses various methods for loading data in bulk in Azure Database for PostgreSQL flexible server, along with best practices for both initial data loads in empty databases and incremental data loads.
 

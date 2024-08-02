@@ -1,25 +1,24 @@
 ---
-title: Replicate Azure VMs running in a proximity placement group
-description: Learn how to replicate Azure VMs running in proximity placement groups by using Azure Site Recovery.
+title: Replicate Azure virtual machines running in a proximity placement group
+description: Learn how to replicate Azure virtual machines running in proximity placement groups by using Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.topic: how-to
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 08/01/2023
+ms.date: 04/29/2024
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article describes how to replicate, fail over, and fail back Azure virtual machines (VMs) running in a proximity placement group to a secondary region.
 
 [Proximity placement groups](../virtual-machines/windows/proximity-placement-groups-portal.md) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
 
-When VMs are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
+When virtual machines are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
 
 ## Disaster recovery with proximity placement groups
 
@@ -29,24 +28,27 @@ Site Recovery replicates the data from one Azure region to another region. It br
 
 ## Considerations
 
-- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If there is am OverconstrainedAllocationRequest error due to which we are unable to bring up the VMs inside a proximity placement group, the failover and failback will still execute, but VMs will be created outside the proximity placement group.
-- If an availability set is pinned to a proximity placement group and VMs in the availability set have an allocation constraint during failback or failover, the VMs will be created outside both the availability set and the proximity placement group.
+- The best effort will be to fail over and fail back the virtual machines into a proximity placement group. If there is am OverconstrainedAllocationRequest error due to which we are unable to bring up the virtual machines inside a proximity placement group, the failover and failback will still execute, but virtual machines will be created outside the proximity placement group.
+- If an availability set is pinned to a proximity placement group and virtual machines in the availability set have an allocation constraint during failback or failover, the virtual machines will be created outside both the availability set and the proximity placement group.
 - Site Recovery for proximity placement groups is not supported for unmanaged disks.
 
 > [!NOTE]
 > Azure Site Recovery does not support failback from managed disks for scenarios of moving from Hyper-V to Azure. Failback from proximity placement groups in Azure to Hyper-V is not supported.
 
-## Set up disaster recovery for VMs in proximity placement groups via the Azure portal
+## Set up disaster recovery for virtual machines in proximity placement groups via the Azure portal
 
 ### Azure to Azure
 
-You can choose to enable replication for a virtual machine through the VM disaster recovery page. Or you can enable replication by going to a pre-created vault, going to the Site Recovery section, and then enabling replication. Let's look at how you can set up Site Recovery VMs inside a proximity placement group through both approaches.
+You can choose to enable replication for a virtual machine through the virtual machine disaster recovery page. Or you can enable replication by going to a pre-created vault, going to the Site Recovery section, and then enabling replication. Let's look at how you can set up Site Recovery virtual machines inside a proximity placement group through both approaches.
 
-To select a proximity placement group in the DR region while enabling replication through the infrastructure as a service (IaaS) VM DR page:
+> [!NOTE]
+> Resource group of the target PPG should be same as that of target virtual machine.
+
+To select a proximity placement group in the DR region while enabling replication through the infrastructure as a service (IaaS) virtual machine DR page:
 
 1. Go to the virtual machine. On the left pane, under **Operations**, select **Disaster Recovery**.
-2. On the **Basics** tab, choose the DR region that you want to replicate the VM to. Go to **Advanced Settings**.
-3. You can see the proximity placement group of your VM and the option to select a proximity placement group in the DR region. Site Recovery also gives you the option of using a new proximity placement group that it creates for you, if you choose to use this default option. 
+2. On the **Basics** tab, choose the DR region that you want to replicate the virtual machine to. Go to **Advanced Settings**.
+3. You can see the proximity placement group of your virtual machine and the option to select a proximity placement group in the DR region. Site Recovery also gives you the option of using a new proximity placement group that it creates for you, if you choose to use this default option. 
  
    Choose the proximity placement group that you want. Then select **Review + Start replication**.
 
@@ -55,46 +57,46 @@ To select a proximity placement group in the DR region while enabling replicatio
 To select a proximity placement group in the DR region while enabling replication through the vault page:
 
 1. Go to your Recovery Services vault, and then go to the **Site Recovery** tab.
-2. Select **+ Enable Site Recovery**. Then select **1: Enable Replication** under **Azure virtual machines** (because you want to replicate an Azure VM).
+2. Select **+ Enable Site Recovery**. Then select **1: Enable Replication** under **Azure virtual machines** (because you want to replicate an Azure virtual machine).
 3. Fill in the required fields on the **Source** tab, and then select **Next**.
-4. Select the list of VMs that you want to enable replication for on the **Virtual machines** tab, and then select **Next**.
+4. Select the list of virtual machines that you want to enable replication for on the **Virtual machines** tab, and then select **Next**.
 5. You can see the option to select a proximity placement group in the DR region. Site Recovery also gives you the option of using a new proximity placement group that it creates for you, if you choose to use this default option. 
 
    Choose the proximity placement group that you want, and then proceed to enabling replication.
 
    :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Screenshot that shows selections for customizing target settings.":::
 
-You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the VM:
+You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the virtual machine:
 
 1. Go to the virtual machine. On the left pane, under **Operations**, select **Disaster Recovery**.
 2. Go to the **Compute** pane and select **Edit**.
-3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the VM to fail over into, and then select **Save**.
+3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the virtual machine to fail over into, and then select **Save**.
 
 ### VMware to Azure
 
-You can set up a proximity placement group for the target VM after you enable replication for the VM. Make sure that you separately create the proximity placement group in the target region according to your requirement. 
+You can set up a proximity placement group for the target virtual machine after you enable replication for the virtual machine. Make sure that you separately create the proximity placement group in the target region according to your requirement. 
 
-You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the VM:
+You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the virtual machine:
 
 1. Select the virtual machine from the vault. On the left pane, under **Operations**, select **Disaster Recovery**.
 2. Go to the **Compute and Network** pane and select **Edit**.
-3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the VM to fail over into, and then select **Save**.
+3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the virtual machine to fail over into, and then select **Save**.
 
-   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Screenshot that shows compute and network selections for VMware to Azure.":::
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Screenshot that shows compute and network selections for virtual machineware to Azure.":::
 
 ### Hyper-V to Azure
 
-You can set up a proximity placement group for the target VM after you enable replication for the VM. Make sure that you separately create the proximity placement group in the target region according to your requirement. 
+You can set up a proximity placement group for the target virtual machine after you enable replication for the virtual machine. Make sure that you separately create the proximity placement group in the target region according to your requirement. 
 
-You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the VM:
+You can easily update your selection of a proximity placement group in the DR region after replication has been enabled for the virtual machine:
 
 1. Select the virtual machine from the vault. On the left pane, under **Operations**, select **Disaster Recovery**.
 2. Go to the **Compute and Network** pane and select **Edit**.
-3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the VM to fail over into, and then select **Save**.
+3. You can see the options to edit multiple target settings, including the target proximity placement group. Choose the proximity placement group that you want the virtual machine to fail over into, and then select **Save**.
 
    :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Screenshot that shows compute and network selections for Hyper-V to Azure.":::
 
-## Set up disaster recovery for VMs in proximity placement groups via PowerShell
+## Set up disaster recovery for virtual machines in proximity placement groups via PowerShell
 
 ### Prerequisites 
 
@@ -125,7 +127,7 @@ You can easily update your selection of a proximity placement group in the DR re
     #Get the resource group that the virtual machine must be created in when it's failed over.
     $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
-    #Specify replication properties for each disk of the VM that will be replicated (create disk replication configuration).
+    #Specify replication properties for each disk of the virtual machine that will be replicated (create disk replication configuration).
     #Make sure to replace the variable $OSdiskName with the OS disk name.
 
     #OS Disk
@@ -162,7 +164,7 @@ You can easily update your selection of a proximity placement group in the DR re
     #Get the resource group that the virtual machine must be created in when it's failed over.
     $RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
-    #Specify replication properties for each disk of the VM that will be replicated (create disk replication configuration).
+    #Specify replication properties for each disk of the virtual machine that will be replicated (create disk replication configuration).
     #Make sure to replace the variable $OSdiskName with the OS disk name.
 
     #OS Disk

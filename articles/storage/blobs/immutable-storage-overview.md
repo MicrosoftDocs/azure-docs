@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 05/01/2024
 ms.author: normesta
 ---
 
@@ -143,7 +143,7 @@ All redundancy configurations support immutable storage. For more information ab
 
 ## Recommended blob types
 
-Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
+Microsoft recommends that you configure immutability policies mainly for block blobs and append blobs. Configuring an immutability policy for a page blob that stores a VHD disk for an active virtual machine is discouraged as writes to the disk will be blocked, or if versioning is enabled, each write is stored as a new version. Microsoft recommends that you thoroughly review the documentation and test your scenarios before locking any time-based policies.
 
 ## Immutable storage with blob soft delete
 
@@ -162,6 +162,10 @@ For more information about blob inventory, see [Azure Storage blob inventory](bl
 > [!NOTE]
 > You can't configure an inventory policy in an account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
 
+## Configuring policies at scale
+
+You can use a _storage task_ to configure a immutability policies at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+
 ## Pricing
 
 There's no extra capacity charge for using immutable storage. Immutable data is priced in the same way as mutable data. If you're using version-level WORM, the bill might be higher because you've enabled versioning, and there's a cost associated with extra versions being stored. Review the versioning pricing policy for more information.  For pricing details on Azure Blob Storage, see the [Azure Storage pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -172,7 +176,7 @@ If you fail to pay your bill and your account has an active time-based retention
 
 ## Feature support
 
-This feature is incompatible with point in time restore and last access tracking. 
+This feature is incompatible with point in time restore and last access tracking. This feature is compatible with customer-managed unplanned failover, however, any changes that are made to the immutable policy after the last sync time (such as locking a time based retention policy, extending it, etc.) will not be synced to the secondary region. Once failover is completed, you can redo the changes to the secondary region to ensure it is up-to-date with your immutability requirements.
 Immutability policies aren't supported in accounts that have Network File System (NFS) 3.0 protocol or the SSH File Transfer Protocol (SFTP) enabled on them.
 
 Some workloads, such as SQL Backup to URL, create a blob and then add to it.   If a container has an active time-based retention policy or legal hold in place, this pattern won't succeed. See the Allow protected append blob writes for more detail.

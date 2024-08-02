@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: tomvcassidy
 ms.author: tomcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ---
 
 # Container Instances monitoring data reference
@@ -20,12 +20,12 @@ See [Monitor Container Instances](monitor-azure-container-instances.md) for deta
 ### Supported metrics for Microsoft.ContainerInstance/containerGroups
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerGroups resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft-containerinstance-containergroups](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containergroups-metrics-include.md)]
+[!INCLUDE [microsoft-containerinstance-containergroups-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerinstance-containergroups-metrics-include.md)]
 
 ### Supported metrics for Microsoft.ContainerInstance/containerScaleSets
 The following table lists the metrics available for the Microsoft.ContainerInstance/containerScaleSets resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-containerinstance-containerscalesets-metrics-include.md)]
+[!INCLUDE [microsoft-containerinstance-containerscalesets-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-containerinstance-containerscalesets-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -38,7 +38,7 @@ The following table lists the metrics available for the Microsoft.ContainerInsta
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.ContainerInstance/containerGroups
-[!INCLUDE [microsoft-containerinstance-containergroups-logs](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-containerinstance-containergroups-logs-include.md)]
+[!INCLUDE [microsoft-containerinstance-containergroups-logs-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-containerinstance-containergroups-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
@@ -95,7 +95,18 @@ The following *_CL* tables represent the legacy Log Analytics integration. Users
 
 ### Azure Monitor Log Analytics tables
 
-The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different. For more information, see [Use diagnostic settings](container-instances-log-analytics.md#using-diagnostic-settings).
+The newer tables require use of a diagnostic setting to route information to Log Analytics. Diagnostic settings for Container Instances in the Azure portal is in public preview. The table names are similar, but without the _CL, and some columns are different.
+
+Once this feature is enabled for a subscription, diagnostic settings can be applied to a container group. Applying diagnostic settings causes a container group to restart.
+
+For example, here's how you can use `New-AzDiagnosticSetting` command to apply a diagnostic settings object to a container group.
+
+```azurepowershell
+$log = @()
+$log += New-AzDiagnosticSettingLogSettingsObject -Enabled $true -Category ContainerInstanceLog -RetentionPolicyDay 7 -RetentionPolicyEnabled $true
+ 
+New-AzDiagnosticSetting -Name test-setting -ResourceId <container-group-resource-id> -WorkspaceId <log-analytics-workspace-id> -Log $log
+```
 
 #### Container Instances
 Microsoft.ContainerInstance/containerGroups

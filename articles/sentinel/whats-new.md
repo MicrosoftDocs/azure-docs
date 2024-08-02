@@ -3,8 +3,8 @@ title: What's new in Microsoft Sentinel
 description: Learn about the latest new features and announcement in Microsoft Sentinel from the past few months.
 author: yelevin
 ms.author: yelevin
-ms.topic: concept
-ms.date: 04/03/2024
+ms.topic: concept-article
+ms.date: 07/30/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,113 @@ The listed features were released in the last three months. For information abou
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## August 2024
+
+- [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
+- [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### New Auxiliary logs retention plan (Preview)
+
+The new **Auxiliary logs** retention plan for Log Analytics tables allows you to ingest large quantities of high-volume logs with supplemental value for security at a much lower cost. Auxiliary logs are available with interactive retention for 30 days, in which you can run simple, single-table queries on them, such as to summarize and aggregate the data. Following that 30-day period, auxiliary log data goes to long-term retention, which you can define for up to 12 years, at ultra-low cost. This plan also allows you to run search jobs on the data in long-term retention, extracting only the records you want to a new table that you can treat like a regular Log Analytics table, with full query capabilities.
+
+To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
+
+For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+
+### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
+
+Microsoft Sentinel now provides the ability to create dynamic summaries using [Azure Monitor summary rules](/azure/azure-monitor/logs/summary-rules), which aggregate large sets of data in the background for a smoother security operations experience across all log tiers.
+
+- Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities.
+- Run high performance Kusto Query Language (KQL) queries on summarized data.
+- Use summary rule results for longer in investigations, hunting, and compliance activities.
+
+For more information, see [Aggregate Microsoft Sentinel data with summary rules](summary-rules.md).
+
+## July 2024
+
+- [SOC optimizations now generally available](#soc-optimizations-now-generally-available)
+- [SAP Business Technology Platform (BTP) connector now generally available](#sap-business-technology-platform-btp-connector-now-generally-available-ga)
+- [Microsoft unified security platform now generally available](#microsoft-unified-security-platform-now-generally-available)
+
+### SOC optimizations now generally available
+
+The SOC optimization experience in both the Azure and Defender portals is now generally available for all Microsoft Sentinel customers, including both data value and threat-based recommendations.
+
+- **Use data value recommendations** to improve your data usage of ingested billable logs, gain visibility to underused logs, and discover the right detections for those logs or the right adjustments to your log tier or ingestion.
+
+- **Use threat-based recommendations** to help identify gaps in coverage against specific attacks based on Microsoft research and mitigate them by ingesting the recommended logs and adding recommended detections.
+
+The [`recommendations`](soc-optimization/soc-optimization-api.md) API is still in Preview. 
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
+### SAP Business Technology Platform (BTP) connector now generally available (GA)
+
+The Microsoft Sentinel Solution for SAP BTP is now generally available (GA). This solution provides visibility into your SAP BTP environment, and helps you detect and respond to threats and suspicious activities.
+
+For more information, see:
+
+- [Microsoft Sentinel Solution for SAP Business Technology Platform (BTP)](sap/sap-btp-solution-overview.md)
+- [Deploy the Microsoft Sentinel solution for SAP BTP](sap/deploy-sap-btp-solution.md)
+- [Microsoft Sentinel Solution for SAP BTP: security content reference](sap/sap-btp-security-content.md)
+
+### Microsoft unified security platform now generally available
+
+Microsoft Sentinel is now generally available within the Microsoft unified security operations platform in the Microsoft Defender portal. The Microsoft unified security operations platform brings together the full capabilities of Microsoft Sentinel, Microsoft Defender XDR, and Microsoft Copilot in Microsoft Defender. For more information, see the following resources:
+
+- Blog post: [General availability of the  Microsoft unified security operations platform](https://aka.ms/unified-soc-announcement)
+- [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md)
+- [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard)
+- [Microsoft Copilot in Microsoft Defender](/defender-xdr/security-copilot-in-microsoft-365-defender)
+
+## June 2024
+
+- [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
+- [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
+
+### Codeless Connector Platform now generally available
+
+The Codeless Connector Platform (CCP), is now generally available (GA). Check out the [announcement blog post](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-create-your-own-codeless-data-connector/ba-p/4174439).
+
+For more information on the CCP enhancements and capabilities, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
+
+### Advanced threat indicator search capability available
+
+Threat intelligence search and filtering capabilities have been enhanced, and the experience now has parity across the Microsoft Sentinel and Microsoft Defender portals. Search supports a maximum of 10 conditions with each containing up to 3 subclauses.
+
+For more information, see the updated screenshot in [View and manage your threat indicators](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
+
+## May 2024
+
+- [Optimize your security operations with SOC optimizations](#optimize-your-security-operations-with-soc-optimizations-preview)
+- [Incident and entity triggers in playbooks are now Generally Available (GA)](#incident-and-entity-triggers-in-playbooks-are-now-generally-available-ga)
+
+### Incident and entity triggers in playbooks are now Generally Available (GA)
+
+The ability to use incident and entity triggers is playbooks is now supported as GA.
+
+:::image type="content" source="media/whats-new/sentinel-triggers-ga.png" alt-text="Screenshot of the Microsoft Sentinel incident and entity options with no preview notice.":::
+
+For more information, see [Create a playbook](tutorial-respond-threats-playbook.md#create-a-playbook).
+
+### Optimize your security operations with SOC optimizations (preview)
+
+Microsoft Sentinel now provides SOC optimizations, which are high-fidelity and actionable recommendations that help you identify areas where you can reduce costs, without affecting SOC needs or coverage, or where you can add security controls and data where its found to be missing.
+
+Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
+
+If your workspace is onboarded to the unified security operations platform, SOC optimizations are also available in the Microsoft Defender portal.
+
+For more information, see:
+
+- [Optimize your security operations](soc-optimization/soc-optimization-access.md)
+- [SOC optimization reference of recommendations](soc-optimization/soc-optimization-reference.md)
+
 
 ## April 2024
 
@@ -165,13 +272,13 @@ Windows DNS events can now be ingested to Microsoft Sentinel using the Azure Mon
 
 ### Reduce false positives for SAP systems with analytics rules
 
-Use analytics rules together with the [Microsoft Sentinel solution for SAP® applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP® systems. The Microsoft Sentinel solution for SAP® applications now includes the following enhancements:
+Use analytics rules together with the [Microsoft Sentinel solution for SAP applications](sap/solution-overview.md) to lower the number of false positives triggered from your SAP systems. The Microsoft Sentinel solution for SAP applications now includes the following enhancements:
 
 - The [**SAPUsersGetVIP**](sap/sap-solution-log-reference.md#sapusersgetvip) function now supports excluding users according to their SAP-given roles or profile.
 
 - The **SAP_User_Config** watchlist now supports using wildcards in the **SAPUser** field to exclude all users with a specific syntax.
 
-For more information, see [Microsoft Sentinel solution for SAP® applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
+For more information, see [Microsoft Sentinel solution for SAP applications data reference](sap/sap-solution-log-reference.md) and [Handle false positives in Microsoft Sentinel](false-positives.md).
 
 ## Next steps
 

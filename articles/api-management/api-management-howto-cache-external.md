@@ -4,7 +4,7 @@ description: Learn how to configure and use an external Redis-compatible cache i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/19/2022
 ms.author: danlep
@@ -45,7 +45,7 @@ To complete this tutorial, you need to:
 
 This section explains how to create an Azure Cache for Redis in Azure. If you already have an Azure Cache for Redis, or another Redis-compatible cache within or outside of Azure, you can <a href="#add-external-cache">skip</a> to the next section.
 
-[!INCLUDE [redis-cache-create](../azure-cache-for-redis/includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## <a name="create-cache"> </a> Deploy Redis cache to Kubernetes
 

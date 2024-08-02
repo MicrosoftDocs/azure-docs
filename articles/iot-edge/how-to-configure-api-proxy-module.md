@@ -5,7 +5,7 @@ description: Learn how to customize the API proxy module for IoT Edge gateway hi
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/06/2023
+ms.date: 06/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -14,7 +14,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure the API proxy module for your gateway hierarchy scenario
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article walks through the configuration options for the API proxy module, so you can customize the module to support your gateway hierarchy requirements.
 
@@ -29,9 +29,7 @@ Without the API proxy, each service module would have to bind to a separate port
 
 ## Deploy the proxy module
 
-The API proxy module is available from the Microsoft Container Registry (MCR): `mcr.microsoft.com/azureiotedge-api-proxy:1.1`.
-
-You can also deploy the API proxy module directly from the Azure Marketplace: [IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview).
+The API proxy module is available from the [Microsoft Container Registry (MCR)](https://mcr.microsoft.com/product/azureiotedge-api-proxy/tags) and the image URI is `mcr.microsoft.com/azureiotedge-api-proxy:latest`. You can deploy the module using the [Azure portal](how-to-deploy-modules-portal.md) or [Azure CLI](how-to-deploy-modules-cli.md).
 
 ## Understand the proxy module
 
@@ -282,7 +280,7 @@ When the API proxy module parses a proxy configuration, it first replaces all en
 
 To update the proxy configuration dynamically, use the following steps:
 
-1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/master/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
+1. Write your configuration file. You can use this default template as a reference: [nginx_default_config.conf](https://github.com/Azure/iotedge/blob/main/edge-modules/api-proxy-module/templates/nginx_default_config.conf)
 1. Copy the text of the configuration file and convert it to base64.
 1. Paste the encoded configuration file as the value of the `proxy_config` desired property in the module twin.
 

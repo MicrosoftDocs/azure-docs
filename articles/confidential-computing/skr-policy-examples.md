@@ -2,16 +2,16 @@
 title: Secure Key Release Policy with Azure Key Vault and Azure Confidential Computing
 description: Examples of AKV SKR policies across offered Azure Confidential Computing Trusted Execution Environments
 author: angarg05
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 3/5/2023
 ms.author: ananyagarg
 ---
 
-# Secure Key Release Policy (SKR) Examples for Confidential Computing (ACC)
+# Secure Key Release policy examples for Azure Confidential Computing
 
-SKR can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE) can be found [here.](../attestation/attestation-token-examples.md)
+Secure Key Release (SKR) can only release exportable marked keys based on the Microsoft Azure Attestation (MAA) generated claims. There's a tight integration on the SKR policy definition to MAA claims. MAA claims by trusted execution environment (TEE) can be found [here.](../attestation/attestation-token-examples.md)
 
 Follow the policy [grammar](../key-vault/keys/policy-grammar.md) for more examples on how you can customize the SKR policies. 
 

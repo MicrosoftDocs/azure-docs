@@ -182,7 +182,6 @@ After making a list of your shares, map each share to the storage account where 
 There are many configurations you can make on a storage account. Use the following checklist to confirm your storage account configurations. You can change the networking configuration after your migration is complete.
 
 > [!div class="checklist"]
-> * Large file shares: Enabled - Large file shares improve performance and allow you to store up to 100 TiB in a share. This setting applies to target storage accounts with Azure file shares.
 > * Firewall and virtual networks: Disabled - don't configure any IP restrictions or limit storage account access to a specific virtual network. The public endpoint of the storage account is used during the migration. All IP addresses from Azure VMs must be allowed. It's best to configure any firewall rules on the storage account after the migration. Configure both your source and target storage accounts this way.
 > * Private Endpoints: Supported - You can enable private endpoints, but the public endpoint is used for the migration and must remain available. This applies to both your source and target storage accounts.
 
@@ -222,7 +221,7 @@ This section discusses considerations around deploying the different resource ty
 You'll likely need to deploy several Azure storage accounts. Each one will hold a smaller number of Azure file shares, as per your deployment plan. Go to the Azure portal to [deploy your planned storage accounts](../common/storage-account-create.md#create-a-storage-account). Consider adhering to the following basic settings for any new storage account.
 
 > [!IMPORTANT]
-> Don't configure network and firewall settings for your storage accounts now. Making those configurations at this point would make a migration impossible. Configure these Azure storage settings after the migration is complete.
+> Don't configure network and firewall settings for your storage accounts before or during your migration. Making those configurations at this point would make a migration impossible. The public endpoint must be accessible on source and target storage accounts. Limiting to specific IP ranges or virtual networks isn't supported. You can change the storage account networking configurations after the migration is complete.
 
 #### Subscription
 
@@ -259,27 +258,6 @@ There are several replication settings available. Only choose from the following
 
 > [!NOTE]
 > Geo redundant storage (GRS) and geo-zone redundant storage aren't supported.
-
-#### Enable 100 TiB capacity file shares
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/storage-files-how-to-create-large-file-share/large-file-shares-advanced-enable.png" alt-text="An image showing the Advanced tab in the Azure portal for creating a storage account.":::
-    :::column-end:::
-    :::column:::
-        Under the **Advanced** section of the new storage account wizard in the Azure portal, you can enable **Large file shares** support in this storage account. If this option isn't available, you most likely selected the wrong redundancy type. Ensure you only select LRS or ZRS for this option to become available.
-    :::column-end:::
-:::row-end:::
-
-Using large file shares has several benefits:
-
-* Performance is greatly increased as compared to the smaller 5 TiB file shares (for example, 10 times the IOPS).
-* Your migration will finish faster.
-* You ensure that a file share has enough capacity to hold all the data you'll migrate into it, including the storage capacity that differential backups require.
-* Future growth is covered.
-
-> [!IMPORTANT]
-> Don't apply special networking to your storage account before or during your migration. The public endpoint must be accessible on source and target storage accounts. Limiting to specific IP ranges or virtual networks isn't supported. You can change the storage account networking configurations after the migration.
 
 ### Azure file shares
 
@@ -775,7 +753,7 @@ When using the StorSimple Data Manager migration service, either an entire migra
 |                                       |*Could not find file &lt;path&gt; </br>Could not find a part of the path*  |The job definition allows you to provide a source sub-path. This error is shown when that path does not exist. For instance: *\Share1 > \Share\Share1* </br> In this example you've specified *\Share1* as a sub-path in the source, mapping to another sub-path in the target. However, the source path does not exist (was misspelled?). Note: Windows is case preserving but not case dependent. Meaning specifying *\Share1* and *\share1* is equivalent. Also: Target paths that don't exist will be automatically created. |
 |                                       |*This request is not authorized to perform this operation*     |This error shows when the source StorSimple storage account or the target storage account with the Azure file share has a firewall setting enabled. You must allow traffic over the public endpoint and not restrict it with further firewall rules. Otherwise the Data Transformation Service will be unable to access either storage account, even if you authorized it. Disable any firewall rules and re-run the job. |
 |**Copying Files**                      |*The account being accessed does not support HTTP*             |Disable internet routing on the target storage account or use the Microsoft routing endpoint.          |
-|                                       |*The specified share is full*                                  |If the target is a premium Azure file share, ensure that you've provisioned sufficient capacity for the share. Temporary over-provisioning is a common practice. If the target is a standard Azure file share, check that the target share has the "large file share" feature enabled. Standard storage is growing as you use the share. However, if you use a legacy storage account as a target, you might encounter a 5 TiB share limit. You will have to manually enable the ["Large file share"](storage-how-to-create-file-share.md#enable-large-file-shares-on-an-existing-account) feature. Fix the limits on the target and re-run the job.           |
+|                                       |*The specified share is full*                                  |If the target is a premium Azure file share, ensure that you've provisioned sufficient capacity for the share. Temporary over-provisioning is a common practice. |
 
 ### Item level errors
 

@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -204,12 +204,10 @@ Azure service: core
 > | Microsoft.Support/register/action | Registers Support Resource Provider |
 > | Microsoft.Support/lookUpResourceId/action | Looks up resource Id for resource type |
 > | Microsoft.Support/checkNameAvailability/action | Checks that name is valid and not in use for resource type |
-> | Microsoft.Support/classifyServices/action | Lists one or all classified services |
 > | Microsoft.Support/operationresults/read | Gets the result of the asynchronous operation |
 > | Microsoft.Support/operations/read | Lists all operations available on Microsoft.Support resource provider |
 > | Microsoft.Support/operationsstatus/read | Gets the status of the asynchronous operation |
 > | Microsoft.Support/services/read | Lists one or all Azure services available for support |
-> | Microsoft.Support/services/classifyProblems/action | Lists one or all classified problems |
 > | Microsoft.Support/services/problemClassifications/read | Lists one or all problem classifications for an Azure service |
 > | Microsoft.Support/supportTickets/read | Lists one or all support tickets |
 > | Microsoft.Support/supportTickets/write | Allows creating and updating a support ticket |

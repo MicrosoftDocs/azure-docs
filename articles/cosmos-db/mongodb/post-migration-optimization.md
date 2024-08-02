@@ -1,7 +1,7 @@
 ---
 title: Post-migration optimization steps with Azure Cosmos DB's API for MongoDB
 description: This doc provides the post-migration optimization techniques from MongoDB to Azure Cosmos DB's APi for MongoDB.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: build-2023, build-2023-dataai
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: gahllevy
 ---
 
 # Post-migration optimization steps when using Azure Cosmos DB's API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your post-migration steps.
@@ -19,7 +19,7 @@ ms.author: gahllevy
 
 This MongoDB post-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are [pre-migration](pre-migration-steps.md), migration, and post-migration, as shown below.
 
-![Diagram of migration steps.](./media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of migration steps.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of post-migration
 
@@ -77,7 +77,7 @@ The processing of cutting-over or connecting your application allows you to swit
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
 :::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
-For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) page.
+For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.yml) page.
 
 ## Tune for optimal performance
 
@@ -88,7 +88,7 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* [Connect a MongoDB application to Azure Cosmos DB](connect-account.md)
+* [Connect a MongoDB application to Azure Cosmos DB](connect-account.yml)
 * [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
 * [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
 * [Expire data with Azure Cosmos DB's API for MongoDB](time-to-live.md)

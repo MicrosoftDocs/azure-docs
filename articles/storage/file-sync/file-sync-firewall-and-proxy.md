@@ -4,7 +4,7 @@ description: Understand Azure File Sync on-premises proxy and firewall settings.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/09/2023
+ms.date: 05/13/2024
 ms.author: kendownie
 ---
 
@@ -42,7 +42,7 @@ Azure File Sync will work through any means available that allow reach into Azur
 
 Azure File Sync supports app-specific and machine-wide proxy settings.
 
-**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the `Set-StorageSyncProxyConfiguration` PowerShell cmdlet.
+**App-specific proxy settings** allow configuration of a proxy specifically for Azure File Sync traffic. App-specific proxy settings are supported on agent version 4.0.1.0 or newer and can be configured during the agent installation or by using the `Set-StorageSyncProxyConfiguration` PowerShell cmdlet. Use the `Get-StorageSyncProxyConfiguration` cmdlet to return any proxy settings that are currently configured. A blank result indicates that there are no proxy settings configured. To remove the existing proxy configuration, use the `Remove-StorageSyncProxyConfiguration` cmdlet.
 
 PowerShell commands to configure app-specific proxy settings:
 
@@ -213,7 +213,7 @@ Because the service tag discovery API might not be updated as frequently as the 
 # from Get-AzLocation.
 $region = "westus2"
 
-# The service tag for Azure File Sync. Do not change unless you're adapting this
+# The service tag for Azure File Sync. Don't change unless you're adapting this
 # script for another service.
 $serviceTag = "StorageSyncService"
 
@@ -228,7 +228,7 @@ $validRegions = Get-AzLocation | `
 
 if ($validRegions -notcontains $region) {
     Write-Error `
-            -Message "The specified region $region is not available. Either Azure File Sync is not deployed there or the region does not exist." `
+            -Message "The specified region $region isn't available. Either Azure File Sync isn't deployed there or the region doesn't exist." `
             -ErrorAction Stop
 }
 

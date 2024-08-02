@@ -20,7 +20,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [conceptual overview of this feature](./concepts-l4-load-balancing.md), which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
 
@@ -29,7 +29,7 @@ You can follow this document to set up layer 4 load balancing for such multi-clu
 * The target Azure Kubernetes Service (AKS) clusters on which the workloads are deployed need to be present on either the same [virtual network](../virtual-network/virtual-networks-overview.md) or on [peered virtual networks](../virtual-network/virtual-network-peering-overview.md).
 
   * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
-  * These target clusters should be using [Azure CNI (Container Networking Interface) networking](../aks/configure-azure-cni.md).
+  * These target clusters should be using [Azure CNI (Container Networking Interface) networking](/azure/aks/configure-azure-cni).
 
 * You must gain access to the Kubernetes API of the hub cluster by following the steps in [Access the Kubernetes API of the Fleet resource](./quickstart-access-fleet-kubernetes-api.md).
 

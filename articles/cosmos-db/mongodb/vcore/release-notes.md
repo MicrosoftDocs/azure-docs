@@ -2,13 +2,13 @@
 title: Service release notes
 titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Includes a list of all feature updates, grouped by release date, for the Azure Cosmos DB for MongoDB vCore service.
-author: seesharprun
+author: avijitgupta
 ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: release-notes
-ms.date: 03/22/2024
+ms.date: 07/02/2024
 #Customer intent: As a database administrator, I want to review the release notes, so I can understand what new features are released for the service.
 ---
 
@@ -16,26 +16,70 @@ ms.date: 03/22/2024
 
 This article contains release notes for the API for MongoDB vCore. These release notes are composed of feature release dates, and feature updates.
 
-## Latest release: March 18, 2024
+## Latest release: July 02, 2024
+
+- Metrics added
+    - Customer Activity.
+    - Requests.
+
+(Preview feature list)
+- Support for accumulators
+    - $mergeObjects.
+- Support for aggregation operator
+    - $let.
+- Geospatial query operators
+    - $minDistance.
+    - $maxDistance.
+
+## Previous releases
+
+### May 06, 2024
+
+- Query operator enhancements.
+  - $geoNear aggregation. This can be enabled through Flag - `Geospatial support for vcore "MongoDB for CosmosDB"` 
+  
+(Preview feature list)
+  - Support for accumulators
+    - $push.
+    - $addToSet.
+    - $tsSecond/$tsIncrement.
+    - $map/$reduce.
+  - Support for date expressions
+    - $dateAdd.
+    - $dateSubtract.
+    - $dateDiff.
+- Creating indexes with large index keys: values larger than 2.7 KB.
+- Geo replicas enabling cross-region disaster recovery and reads scaling.
+- Improved performance of group and distinct.
+- Improved performance for $geoWithin queries with $centerSphere when radius is greater than π.
+
+### April 16, 2024
+
+- Query operator enhancements.
+  - $centerSphere with index pushdown along with support for GeoJSON coordinates.
+  - $graphLookup support.
+
+- Performance improvements.
+  - $exists, { $eq: null}, {$ne: null} by adding new index terms.
+  - scans with $in/$nq/$ne in the index.
+  - compare partial (Range) queries.
+
+### March 18, 2024
 
 - [Private Endpoint](how-to-private-link.md) support enabled on Portal. (GA)
 - [HNSW](vector-search.md) vector index on M40 & larger cluster tiers. (GA)
 - Enable Geo-spatial queries. (Public Preview)
 - Query operator enhancements.
-	- $centerSphere with index pushdown.
-	- $min & $max operator with $project.
-	- $binarySize aggregation operator.
+  - $centerSphere with index pushdown.
+  - $min & $max operator with $project.
+  - $binarySize aggregation operator.
 - Ability to build indexes in background (except Unique indexes). (Public Preview)
-- Significant performance improvements for $ne/$eq/$in queries.
-- Performance improvements up to 30% on Range queries (involving index pushdown).
-
-## Previous releases
 
 ### March 03, 2024
+
 This release contains enhancements to the **Explain** plan and various vector filtering abilities.
 
 - The API for MongoDB vCore allows filtering by metadata columns while performing vector searches.
-
 - The `Explain` plan offers two different modes
 
   | | Description |

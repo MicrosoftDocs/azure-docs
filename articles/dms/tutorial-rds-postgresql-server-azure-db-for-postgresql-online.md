@@ -6,13 +6,15 @@ author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: randolphwest
 ms.date: 04/11/2020
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
 ---
 
 # Tutorial: Migrate RDS PostgreSQL to Azure DB for PostgreSQL online using DMS
+
+[!INCLUDE [postgresql-migration-service](includes/postgresql-migration-service.md)]
 
 You can use Azure Database Migration Service to migrate databases from an RDS PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) while the source database remains online during migration. In other words, migration can be achieved with minimal downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an instance of RDS PostgreSQL 9.6 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -32,7 +34,7 @@ In this tutorial, you learn how to:
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+[!INCLUDE [online-offline](./includes/database-migration-service-offline-online.md)]
 
 This article describes how to perform an online migration from an on-premises instance of PostgreSQL to Azure Database for PostgreSQL.
 
@@ -102,7 +104,7 @@ To complete this tutorial, you need to:
   > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
 ## Create an instance of Azure Database Migration Service
 

@@ -1,7 +1,7 @@
 ---
 title: Human Reference Genomes
 description: Learn how to use the Human Reference Genomes dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -16,7 +16,7 @@ For more information on Hg38 data, see the [GRCh38 report at NCBI](http://www.nc
 
 Other details about the data can be found at [NCBI RefSeq](https://www.ncbi.nlm.nih.gov/refseq/) site.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Data source
 

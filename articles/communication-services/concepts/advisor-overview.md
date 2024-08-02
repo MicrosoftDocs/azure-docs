@@ -30,7 +30,6 @@ The following SDKs are supported for this feature, along with all their supporte
 * Identity
 * Phone Numbers
 * Management
-* Network Traversal
 * Call Automation
 
 ## Next steps
@@ -38,5 +37,5 @@ The following SDKs are supported for this feature, along with all their supporte
 The following documents may be interesting to you:
 
 - [Logging and diagnostics](./analytics/enable-logging.md)
-- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [network traversal](./analytics/logs/network-traversal-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
+- Access logs for [voice and video](./analytics/logs/voice-and-video-logs.md), [chat](./analytics/logs/chat-logs.md), [email](./analytics/logs/email-logs.md), [recording](./analytics/logs/recording-logs.md), [SMS](./analytics/logs/sms-logs.md) and [call automation](./analytics/logs/call-automation-logs.md).
 - [Metrics](./metrics.md)

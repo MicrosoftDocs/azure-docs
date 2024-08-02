@@ -15,7 +15,7 @@ Agentless vulnerability assessment uses the Microsoft Defender Vulnerability Man
 
 ## Compatibility with agent-based vulnerability assessment solutions
 
-Defender for Cloud already supports different agent-based vulnerability scans, including [Microsoft Defender Vulnerability Management](deploy-vulnerability-assessment-defender-vulnerability-management.md) (MDVM), [BYOL](deploy-vulnerability-assessment-byol-vm.md) and [Qualys](deploy-vulnerability-assessment-vm.md). Agentless scanning extends the visibility of Defender for Cloud to reach more devices.
+Defender for Cloud already supports different agent-based vulnerability scans, including [Microsoft Defender Vulnerability Management (MDVM)](deploy-vulnerability-assessment-defender-vulnerability-management.md), [BYOL](deploy-vulnerability-assessment-byol-vm.md). Agentless scanning extends the visibility of Defender for Cloud to reach more devices.
 
 When you enable agentless vulnerability assessment:
 
@@ -26,7 +26,7 @@ When you enable agentless vulnerability assessment:
   - Machines covered by just one of the sources (Defender Vulnerability Management or agentless) show the results from that source.
   - Machines covered by both sources show the agent-based results only for increased freshness.
 
-- If you select **Vulnerability assessment with Qualys or BYOL integrations** - Defender for Cloud shows the agent-based results by default. Results from the agentless scan are shown for machines that don't have an agent installed or from machines that aren't reporting findings correctly.
+- If you select **Vulnerability assessment with BYOL integrations** - Defender for Cloud shows the agent-based results by default. Results from the agentless scan are shown for machines that don't have an agent installed or from machines that aren't reporting findings correctly.
 
     To change the default behavior to always display results from MDVM (regardless if a third-party agent solution), select the [Microsoft Defender Vulnerability Management](auto-deploy-vulnerability-assessment.md#automatically-enable-a-vulnerability-assessment-solution) setting in the vulnerability assessment solution.
 
@@ -68,6 +68,7 @@ You can enable agentless scanning on
 For agentless scanning to cover Azure VMs with CMK encrypted disks, you need to grant Defender for Cloud additional permissions to create a secure copy of these disks. To do so, additional permissions are needed on Key Vaults used for CMK encryption for your VMs.
 
 To manually assign the permissions, follow the below instructions according to your Key Vault type:
+
 - For Key Vaults using non-RBAC permissions, assign "Microsoft Defender for Cloud Servers Scanner Resource Provider" (`0c7668b5-3260-4ad0-9f53-34ed54fa19b2`) these permissions: Key Get, Key Wrap, Key Unwrap.
 - For Key Vaults using RBAC permissions, assign "Microsoft Defender for Cloud Servers Scanner Resource Provider” (`0c7668b5-3260-4ad0-9f53-34ed54fa19b2`) the [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide?preserve-view=true&tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations) built-in role.
 
@@ -121,7 +122,7 @@ After you enable agentless scanning, software inventory and vulnerability inform
 
 ## Test the agentless malware scanner's deployment
 
-Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it may be because there are no threats on your environment. You can test to see that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
+Security alerts appear on the portal only in cases where threats are detected on your environment. If you do not have any alerts it might be because there are no threats on your environment. You can test to see that the device is properly onboarded and reporting to Defender for Cloud by creating a test file.
 
 ### Create a test file for Linux
 
@@ -238,5 +239,6 @@ Learn more about:
 
 - [Agentless scanning](concept-agentless-data-collection.md).
 - [Vulnerability assessment with Microsoft Defender for Endpoint](deploy-vulnerability-assessment-defender-vulnerability-management.md)
-- [Vulnerability assessment with Qualys](deploy-vulnerability-assessment-vm.md)
+
 - [Vulnerability assessment with BYOL solutions](deploy-vulnerability-assessment-byol-vm.md)
+

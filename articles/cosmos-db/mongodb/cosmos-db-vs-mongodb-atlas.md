@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: Compare the features and benefits of Azure Cosmos DB for MongoDB with MongoDB Atlas.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 02/27/2024
@@ -12,7 +12,7 @@ ms.date: 02/27/2024
 
 # Comparing MongoDB Atlas and Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 [Azure Cosmos DB for MongoDB](../introduction.md) provides a powerful fully managed MongoDB compatible database while seamlessly integrating with the Azure ecosystem. This allows developers to reap the benefits of Azure Cosmos DB's robust features such as global distribution, 99.999% high availability SLA, and strong security measures, while retaining the ability to use their familiar MongoDB tools and applications. Developers can remain vendor agnostic, without needing to adapt to a new set of tools or drastically change their current operations. This ensures a smooth transition and operation for MongoDB developers, making Azure Cosmos DB for MongoDB a compelling choice for a scalable, secure, and efficient database solution for their MongoDB workloads.
 
@@ -68,6 +68,6 @@ ms.date: 02/27/2024
 
 ## Next steps
 
-- Follow the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) tutorial to learn how to get your account connection string information.
+- Follow the [Connect a MongoDB application to Azure Cosmos DB](connect-account.yml) tutorial to learn how to get your account connection string information.
 - Follow the [Use Studio 3T with Azure Cosmos DB](connect-using-mongochef.md) tutorial to learn how to create a connection between your Azure Cosmos DB database and MongoDB app in Studio 3T.
 - Follow the [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) tutorial to import your data to an Azure Cosmos DB database.

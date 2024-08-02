@@ -36,7 +36,7 @@ conceptualContent:
         # Card
         - title: Get started with Azure Health Data Services
           links:
-            - url: ./get-started-with-health-data-services.md
+            - url: ./health-data-services-get-started.md
               itemType: how-to-guide
               text: Set up a workspace
             - url: ./healthcare-apis-quickstart.md 
@@ -44,7 +44,7 @@ conceptualContent:
               text: Deploy Azure Health Data Services
             - url: ./register-application.md
               itemType: how-to-guide
-              text: Register your application
+              text: Register an application
             - url: ./authentication-authorization.md
               itemType: how-to-guide
               text: Set up user access and permissions 
@@ -134,7 +134,7 @@ additionalContent:
       items:
         # Card
         - title: Azure Health Data & AI workflows
-          summary: Sample apps and code
+          summary: Sample apps, converters, and code
           url: https://github.com/Azure-Samples/azure-health-data-services-samples
         # Card
         - title: REST API for Azure Health Data Services
@@ -152,5 +152,5 @@ additionalContent:
       items:
         # Card
         - title: Azure API for FHIR
-          summary: This service is being retired on September 30, 2026.
+          summary: This service is retiring on September 30, 2026.
           url: ./azure-api-for-fhir/overview.md

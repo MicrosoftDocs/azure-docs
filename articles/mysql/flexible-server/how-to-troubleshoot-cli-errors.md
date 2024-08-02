@@ -1,13 +1,15 @@
 ---
 title: Troubleshoot CLI errors
 description: This topic gives guidance on troubleshooting common issues with Azure CLI when using Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: troubleshooting
-ms.author: sumuth
-author: mksuni
-ms.date: 08/24/2021
+ms.custom:
+  - devx-track-azurecli
 ---
 
 

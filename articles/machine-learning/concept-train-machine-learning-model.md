@@ -3,13 +3,13 @@ title: 'Build & train models'
 titleSuffix: Azure Machine Learning
 description: Learn how to train models with Azure Machine Learning. Explore the different training methods and choose the right one for your project.
 services: machine-learning
-ms.service: machine-learning
-author: manashgoswami
-ms.author: manashg
-ms.reviewer: ssalgado
+ms.service: azure-machine-learning
+author: ssalgadodev
+ms.author: ssalgado
+ms.reviewer: manashg
 ms.subservice: training
 ms.topic: conceptual
-ms.date: 06/7/2023
+ms.date: 04/29/2024
 ms.custom:
   - devx-track-python
   - devx-track-azurecli
@@ -30,7 +30,7 @@ Azure Machine Learning provides several ways to train your models, from code-fir
     | ----- | ----- |
     | [command()](#submit-a-command) | A **typical way to train models** is to submit a command() that includes a training script, environment, and compute information. |
     | [Automated machine learning](#automated-machine-learning) | Automated machine learning allows you to **train models without extensive data science or programming knowledge**. For people with a data science and programming background, it provides a way to save time and resources by automating algorithm selection and hyperparameter tuning. You don't have to worry about defining a job configuration when using automated machine learning. |
-    | [Machine learning pipeline](#machine-learning-pipeline) | Pipelines are not a different training method, but a **way of defining a workflow using modular, reusable steps** that can include training as part of the workflow. Machine learning pipelines support using automated machine learning and run configuration to train models. Since pipelines are not focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:<br>* You want to **schedule unattended processes** such as long running training jobs or data preparation.<br>* Use **multiple steps** that are coordinated across heterogeneous compute resources and storage locations.<br>* Use the pipeline as a **reusable template** for specific scenarios, such as retraining or batch scoring.<br>* **Track and version data sources, inputs, and outputs** for your workflow.<br>* Your workflow is **implemented by different teams that work on specific steps independently**. Steps can then be joined together in a pipeline to implement the workflow. |
+    | [Machine learning pipeline](#machine-learning-pipeline) | Pipelines aren't a different training method, but a **way of defining a workflow using modular, reusable steps** that can include training as part of the workflow. Machine learning pipelines support using automated machine learning and run configuration to train models. Since pipelines aren't focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:<br>* You want to **schedule unattended processes** such as long running training jobs or data preparation.<br>* Use **multiple steps** that are coordinated across heterogeneous compute resources and storage locations.<br>* Use the pipeline as a **reusable template** for specific scenarios, such as retraining or batch scoring.<br>* **Track and version data sources, inputs, and outputs** for your workflow.<br>* Your workflow is **implemented by different teams that work on specific steps independently**. Steps can then be joined together in a pipeline to implement the workflow. |
 
 + **Designer**: Azure Machine Learning designer provides an easy entry-point into machine learning for building proof of concepts, or for users with little coding experience. It allows you to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
 
@@ -47,9 +47,9 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 ### Submit a command
 
-A generic training job with Azure Machine Learning can be defined using the [command()](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command). The command is then used, along with your training script(s) to train a model on the specified compute target.
+A generic training job with Azure Machine Learning can be defined using the [command()](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command). The command is then used, along with your training scripts to train a model on the specified compute target.
 
-You may start with a command for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the compute parameter in the command that you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
+You are able to start with a command for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the compute parameter in the command that you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook and Python examples of training models](https://github.com/Azure/azureml-examples)
@@ -90,8 +90,8 @@ The Azure training lifecycle consists of:
         - Custom docker steps (see [Deploy a model using a custom Docker base image](./how-to-deploy-custom-container.md))
         - The conda definition YAML (see [Manage Azure Machine Learning environments with the CLI (v2)](how-to-manage-environments-v2.md)))
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
-    1. If it is not found, it looks for a match in the global ACR
-    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+    1. If it isn't found, it looks for a match in the global ACR
+    1. If it isn't found, the system builds a new image (which will be cached and registered with the workspace ACR)
 1. Downloading your zipped project file to temporary storage on the compute node
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`

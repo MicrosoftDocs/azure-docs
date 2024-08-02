@@ -1,12 +1,13 @@
 ---
 title: Zone-redundant HA
 description: Get a conceptual overview of zone-redundant high availability in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: VandhanaMehta
 ms.author: vamehta
-ms.date: 08/26/2021
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # High availability concepts in Azure Database for MySQL - Flexible Server

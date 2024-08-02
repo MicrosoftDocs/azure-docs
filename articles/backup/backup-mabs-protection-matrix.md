@@ -1,10 +1,10 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 04/20/2023
+ms.date: 07/05/2024
 ms.topic: conceptual
-ms.service: backup
-ms.custom: linux-related-content
+ms.service: azure-backup
+ms.custom: linux-related-content, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -13,15 +13,14 @@ ms.author: v-abhmallick
 
 This article lists the various servers and workloads that you can protect with Azure Backup Server. The following matrix lists what can be protected with Azure Backup Server.
 
-Use the following matrix for MABS v4 (and later):
+The following table lists the support matrix for MABS v4 (and later):
 
-* Workloads – The workload type of technology.
-
-* Version – Supported MABS version for the workloads.
-
-* MABS installation – The computer/location where you wish to install MABS.
-
-* Protection and recovery – List the detailed information about the workloads such as supported storage container or supported deployment.
+| Scenario | Description |
+| --- | --- |
+| **Workloads** | The workload type of technology. |
+| **Version** | Supported MABS version for the workloads. |
+| **MABS installation** | The computer/location where you wish to install MABS. |
+| **Protection and recovery** | List the detailed information about the workloads such as supported storage container or supported deployment. |
 
 >[!NOTE]
 >Support for the 32-bit protection agent isn't supported with MABS v4 (and later). See [32-Bit protection agent deprecation](backup-mabs-whats-new-mabs.md#32-bit-protection-agent-deprecation).
@@ -49,7 +48,7 @@ The following sections details the protection support matrix for MABS:
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
 | Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
-| Azure Stack HCI  |       V1, 20H2, 21H2, and 22H2      |    Physical server        <br><br>     Hyper-V / Azure Stack HCI virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives |
+| Azure Stack HCI  |       V1, 20H2, 21H2, 22H2, and 23H2      |    Physical server        <br><br>     Hyper-V / Azure Stack HCI virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
 | VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
 
 >[!NOTE]

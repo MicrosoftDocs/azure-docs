@@ -3,7 +3,7 @@ title: Create an Azure Attestation certificate by using Azure Resource Manager t
 description: Learn how to create an Azure Attestation certificate by using Azure Resource Manager template.
 services: azure-resource-manager
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: mbaldwin
@@ -14,7 +14,7 @@ ms.date: 01/30/2024
 
 [Microsoft Azure Attestation](overview.md) is a solution for attesting Trusted Execution Environments (TEEs). This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create a Microsoft Azure Attestation policy.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

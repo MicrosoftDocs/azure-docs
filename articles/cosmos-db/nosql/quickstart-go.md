@@ -5,12 +5,12 @@ description: Deploy a Go web application that uses the client library to interac
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: golang
 ms.custom: devx-track-go, devx-track-extended-azdevcli
 ms.topic: quickstart-sdk
-ms.date: 01/08/2024
+ms.date: 06/14/2024
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 # CustomerIntent: As a developer, I want to learn the basics of the Go library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
@@ -23,7 +23,7 @@ zone_pivot_groups: azure-cosmos-db-quickstart-env
 
 Get started with the Azure Cosmos DB for NoSQL client library for Go to query data in your containers and perform common operations on individual items. Follow these steps to deploy a minimal solution to your environment using the Azure Developer CLI.
 
-[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos#readme) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
+[API reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/data/azcosmos#readme) | [Package (Go)](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos) | [Azure Developer CLI](/azure/developer/azure-developer-cli/overview)
 
 ## Prerequisites
 
@@ -45,7 +45,61 @@ Deploy this project's development container to your environment. Then, use the A
 
 ::: zone-end
 
-[!INCLUDE[Developer Quickstart setup](includes/quickstart/dev-setup.md)]
+::: zone pivot="devcontainer-codespace"
+
+> [!IMPORTANT]
+> GitHub accounts include an entitlement of storage and core hours at no cost. For more information, see [included storage and core hours for GitHub accounts](https://docs.github.com/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#monthly-included-storage-and-core-hours-for-personal-accounts).
+
+::: zone-end
+
+::: zone pivot="devcontainer-vscode"
+
+::: zone-end
+
+1. Open a terminal in the root directory of the project.
+
+1. Authenticate to the Azure Developer CLI using `azd auth login`. Follow the steps specified by the tool to authenticate to the CLI using your preferred Azure credentials.
+
+    ```azurecli
+    azd auth login
+    ```
+
+1. Use `azd init` to initialize the project.
+
+    ```azurecli
+    azd init --template cosmos-db-nosql-go-quickstart
+    ```
+
+    > [!NOTE]
+    > This quickstart uses the [azure-samples/cosmos-db-nosql-go-quickstart](https://github.com/azure-samples/cosmos-db-nosql-go-quickstart) template GitHub repository. The Azure Developer CLI will automatically clone this project to your machine if it is not already there.
+
+1. During initialization, configure a unique environment name.
+
+    > [!TIP]
+    > The environment name will also be used as the target resource group name. For this quickstart, consider using `msdocs-cosmos-db`.
+
+1. Deploy the Azure Cosmos DB account using `azd up`. The Bicep templates also deploy a sample web application.
+
+    ```azurecli
+    azd up
+    ```
+
+1. During the provisioning process, select your subscription and desired location. Wait for the provisioning process to complete. The process can take **approximately five minutes**.
+
+1. Once the provisioning of your Azure resources is done, a URL to the running web application is included in the output.
+
+    ```output
+    Deploying services (azd deploy)
+    
+      (✓) Done: Deploying service web
+    - Endpoint: <https://[container-app-sub-domain].azurecontainerapps.io>
+    
+    SUCCESS: Your application was provisioned and deployed to Azure in 5 minutes 0 seconds.
+    ```
+
+1. Use the URL in the console to navigate to your web application in the browser. Observe the output of the running app.
+
+    :::image type="content" source="media/quickstart/dev-web-application.png" alt-text="Screenshot of the running web application.":::
 
 ### Install the client library
 
@@ -75,10 +129,10 @@ The client library is available through Go, as the `azcosmos` package.
 
 | Name | Description |
 | --- | --- |
-| [`CosmosClient`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos#CosmosClient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
-| [`CosmosDatabase`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos#CosmosDatabase) | This class represents a database within the account. |
-| [`CosmosContainer`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos#CosmosContainer) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
-| [`PartitionKey`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/cosmos/azcosmos#PartitionKey) | This class represents a logical partition key. This class is required for many common operations and queries. |
+| [`CosmosClient`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#CosmosClient) | This class is the primary client class and is used to manage account-wide metadata or databases. |
+| [`CosmosDatabase`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#CosmosDatabase) | This class represents a database within the account. |
+| [`CosmosContainer`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#CosmosContainer) | This class is primarily used to perform read, update, and delete operations on either the container or the items stored within the container. |
+| [`PartitionKey`](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos#PartitionKey) | This class represents a logical partition key. This class is required for many common operations and queries. |
 
 ## Code examples
 
@@ -148,7 +202,7 @@ Parse the paginated results of the query by looping through each page of results
 ## Related content
 
 - [.NET Quickstart](quickstart-dotnet.md)
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [Java Quickstart](quickstart-java.md)
 - [Python Quickstart](quickstart-python.md)
 

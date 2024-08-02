@@ -4,10 +4,10 @@ description: This article describes how to set up data-out replication for Azure
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/30/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.topic: how-to 
+ms.topic: how-to
 ---
 
 # How to configure Azure Database for MySQL - Flexible Server data-out replication

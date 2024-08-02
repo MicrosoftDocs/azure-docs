@@ -4,24 +4,24 @@ description: Overview of Azure Application Load Balancer Application Gateway for
 services: application-gateway
 author: greglin
 ms.custom: references_regions
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 03/26/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
 # What is Application Gateway for Containers?
 
-Application Gateway for Containers is a new application (layer 7) [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family.
+Application Gateway for Containers is an application layer (layer 7) [load balancing](/azure/architecture/guide/technology-choices/load-balancing-overview) and dynamic traffic management product for workloads running in a Kubernetes cluster. It extends Azure's Application Load Balancing portfolio and is a new offering under the Application Gateway product family.
 
-Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller](../ingress-controller-overview.md) (AGIC), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM).
+Application Gateway for Containers is the evolution of the [Application Gateway Ingress Controller (AGIC)](../ingress-controller-overview.md), a [Kubernetes](/azure/aks) application that enables Azure Kubernetes Service (AKS) customers to use Azure's native Application Gateway application load-balancer. In its current form, AGIC monitors a subset of Kubernetes Resources for changes and applies them to the Application Gateway, utilizing Azure Resource Manager (ARM).
 
 ## How does it work?
 
 Application Gateway for Containers is made up of three components:
 
-- Application Gateway for Containers
+- Application Gateway for Containers resource
 - Frontends
 - Associations
 
@@ -57,6 +57,7 @@ Application Gateway for Containers supports the following features for traffic m
 - Autoscaling
 - Availability zone resiliency
 - Default and custom health probes
+- ECDSA and RSA certificate support
 - Header rewrite
 - HTTP/2
 - HTTPS traffic management:
@@ -71,6 +72,7 @@ Application Gateway for Containers supports the following features for traffic m
   - Methods
   - Ports (80/443)
 - Mutual authentication (mTLS) to backend target
+- Server-sent event (SSE) support
 - Traffic splitting / weighted round robin
 - TLS policies
 - URL redirect
@@ -80,9 +82,9 @@ Application Gateway for Containers supports the following features for traffic m
 
 There are two deployment strategies for management of Application Gateway for Containers:
 
-- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association, and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
+- **Bring your own (BYO) deployment:** In this deployment strategy, deployment and lifecycle of the Application Gateway for Containers resource, Association resource, and Frontend resource is assumed via Azure portal, CLI, PowerShell, Terraform, etc. and referenced in configuration within Kubernetes.
   - **In Gateway API:** Every time you wish to create a new Gateway resource in Kubernetes, a Frontend resource should be provisioned in Azure prior and referenced by the Gateway resource. Deletion of the Frontend resource is responsible by the Azure administrator and isn't deleted when the Gateway resource in Kubernetes is deleted.
-- **Managed by ALB Controller:** In this deployment strategy ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
+- **Managed by ALB Controller:** In this deployment strategy, ALB Controller deployed in Kubernetes is responsible for the lifecycle of the Application Gateway for Containers resource and its sub resources. ALB Controller creates the Application Gateway for Containers resource when an ApplicationLoadBalancer custom resource is defined on the cluster and its lifecycle is based on the lifecycle of the custom resource.
   - **In Gateway API:** Every time a Gateway resource is created referencing the ApplicationLoadBalancer resource, ALB Controller provisions a new Frontend resource and manage its lifecycle based on the lifecycle of the Gateway resource.
 
 ### Supported regions

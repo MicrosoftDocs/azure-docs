@@ -1,8 +1,8 @@
 ---
 title: Move resources to a new subscription or resource group
-description: Use Azure Resource Manager to move resources to a new resource group or subscription.
+description: Describes how to move resources to a new resource group or subscription, and the steps to take to ensure a successful move operation.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 05/31/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -18,6 +18,9 @@ Both the source group and the target group are locked during the move operation.
 If your move requires setting up new dependent resources, you'll experience an interruption in those services until they've been reconfigured.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
+
+> [!NOTE]  
+> You can't move Azure resources to another resource group or another subscription if there's a read-only lock, whether in the source or in the destination. 
 
 ## Changed resource ID
 
@@ -52,7 +55,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [How to associate or add an Azure subscription to Microsoft Entra ID](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md).
+1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml).
 
 1. The resources you want to move must support the move operation. For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
 
@@ -66,7 +69,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
+   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
@@ -105,7 +108,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment. Eventually, the orphaned role assignment is automatically removed, but we recommend removing the role assignment before the move.
 
-    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
+    For information about how to manage role assignments, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml#list-role-assignments-at-a-scope) and [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml).
 
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
@@ -471,6 +474,10 @@ When you get an error message that indicates a resource can't be moved because i
 If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. The check includes those resources directly and indirectly dependent on the virtual network. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move.
 
 When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+
+**Question: Can I move a resource group to a different subscription?**
+
+No, you can't move a resource group to a new subscription. But, you can move all of the resources in the resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies aren't automatically transferred from the original resource group to the destination resource group. You need to reapply these settings to the new resource group. For more information, see [Move resources to new resource group or subscription](./move-support-resources.md).
 
 ## Next steps
 

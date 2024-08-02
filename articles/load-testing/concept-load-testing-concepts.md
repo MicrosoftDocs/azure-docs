@@ -2,12 +2,12 @@
 title: Key concepts for Azure Load Testing
 description: Learn how Azure Load Testing works, and the key concepts behind it.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 author: ninallam
 ms.author: ninallam
 ms.topic: conceptual
 ms.date: 11/24/2023
-ms.custom: template-concept 
+ms.custom: template-concept, build-2024
 ---
 
 # Key concepts for new Azure Load Testing users
@@ -78,14 +78,15 @@ Azure Load Testing lets you [use managed identities](./how-to-use-a-managed-iden
 
 A test describes the load test configuration for your application. You add a test to an existing Azure load testing resource.
 
-A test contains a test plan, which describes the steps to invoke the application endpoint. You can define the test plan in either of two ways:
+A test contains a test plan, which describes the steps to invoke the application endpoint. You can define the test plan in one of three ways:
 
 - [Upload a JMeter test script](./how-to-create-and-run-load-test-with-jmeter-script.md).
+- [Upload a Locust test script](./quickstart-create-run-load-test-with-locust.md).
 - [Specify the list of URL endpoints to test](./quickstart-create-and-run-load-test.md).
 
 Azure Load Testing supports all communication protocols that JMeter supports, not only HTTP-based endpoints. For example, you might want to read from or write to a database or message queue in the test script.
 
-Azure Load Testing currently does not support other testing frameworks than Apache JMeter.
+Azure Load Testing currently does not support other testing frameworks than Apache JMeter and Locust.
 
 The test also specifies the configuration settings for running the load test:
 
@@ -94,9 +95,9 @@ The test also specifies the configuration settings for running the load test:
 - [Fail criteria](./how-to-define-test-criteria.md) to determine when the test should pass or fail.
 - Monitoring settings to configure the list of [Azure app components and resource metrics to monitor](./how-to-monitor-server-side-metrics.md) during the test run.
 
-In addition, you can upload CSV input data files and JMeter configuration files to the test.
+In addition, you can upload CSV input data files and test configuration files to the load test.
 
-When you start a test, Azure Load Testing deploys the JMeter test script, related files, and configuration to the test engine instances. The test engine instances then initiate the JMeter test script to simulate the application load.
+When you start a test, Azure Load Testing deploys the test script, related files, and configuration to the test engine instances. The test engine instances then initiate the test script to simulate the application load.
 
 Each time you start a test, Azure Load Testing creates a [test run](#test-run) and attaches it to the test.
 
@@ -113,11 +114,11 @@ Alternately, you can [download the test logs](./how-to-diagnose-failing-load-tes
 
 ### Test engine
 
-A test engine is computing infrastructure, managed by Microsoft that runs the Apache JMeter test script. The test engine instances run the JMeter script in parallel. You can [scale out your load test](./how-to-high-scale-load.md) by configuring the number of test engine instances. Learn how to configure the number of [virtual users](#virtual-users), or simulate a target number of [requests per second](#requests-per-second-rps).
+A test engine is computing infrastructure, managed by Microsoft that runs the test script. The test engine instances run the test script in parallel. You can [scale out your load test](./how-to-high-scale-load.md) by configuring the number of test engine instances. Learn how to configure the number of [virtual users](#virtual-users), or simulate a target number of [requests per second](#requests-per-second-rps).
 
 The test engines are hosted in the same location as your Azure Load Testing resource. You can configure the Azure region when you create the Azure load testing resource.
 
-While the test script runs, Azure Load Testing collects and aggregates the Apache JMeter worker logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-diagnose-failing-load-test.md).
+While the test script runs, Azure Load Testing collects and aggregates the testing framework logs from all test engine instances. You can [download the logs for analyzing errors during the load test](./how-to-diagnose-failing-load-test.md).
 
 ### App component
 
@@ -140,6 +141,6 @@ During a load test, Azure Load Testing collects metrics about the test execution
 You now know the key concepts of Azure Load Testing to start creating a load test.
 
 - Learn how [Azure Load Testing works](./overview-what-is-azure-load-testing.md#how-does-azure-load-testing-work).
-- Learn how to [Create and run a load test for a website](./quickstart-create-and-run-load-test.md).
+- Learn how to [Create and run a URL-based load test for a website](./quickstart-create-and-run-load-test.md).
 - Learn how to [Identify a performance bottleneck in an Azure application](./tutorial-identify-bottlenecks-azure-portal.md).
 - Learn how to [Set up automated regression testing with CI/CD](./quickstart-add-load-test-cicd.md).

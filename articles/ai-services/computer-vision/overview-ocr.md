@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: azure-ai-vision
 ms.topic: overview
-ms.date: 07/04/2023
+ms.date: 06/26/2024
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
@@ -17,18 +17,20 @@ ms.custom: devx-track-csharp
 
 OCR or Optical Character Recognition is also referred to as text recognition or text extraction. Machine-learning-based OCR techniques allow you to extract printed or handwritten text from images such as posters, street signs and product labels, as well as from documents like articles, reports, forms, and invoices. The text is typically extracted as words, text lines, and paragraphs or text blocks, enabling access to digital version of the scanned text. This eliminates or significantly reduces the need for manual data entry.
 
-## How is OCR related to Intelligent Document Processing (IDP)?
 
-Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Document Intelligence](../../ai-services/document-intelligence/overview.md). Document Intelligence includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Document Intelligence Read OCR](../../ai-services/document-intelligence/concept-read.md).
 
 ## OCR engine
 
-Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). It can extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. With the latest preview, it's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
+Microsoft's **Read** OCR engine is composed of multiple advanced machine-learning based models supporting [global languages](./language-support.md). It can extract printed and handwritten text including mixed languages and writing styles. **Read** is available as cloud service and on-premises container for deployment flexibility. It's also available as a synchronous API for single, non-document, image-only scenarios with performance enhancements that make it easier to implement OCR-assisted user experiences.
 
 > [!WARNING]
-> The Azure AI Vision legacy [OCR API in v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d) and [RecognizeText API in v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/587f2c6a1540550560080311) operations are not recomended for use.
+> The Azure AI Vision legacy [OCR API in v3.2](/rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2) and [RecognizeText API in v2.1](/rest/api/computervision/recognize-printed-text/recognize-printed-text?view=rest-computervision-v2.1) operations are not recommended for use.
 
 [!INCLUDE [read-editions](includes/read-editions.md)]
+
+## How is OCR related to Intelligent Document Processing (IDP)?
+
+Intelligent Document Processing (IDP) uses OCR as its foundational technology to additionally extract structure, relationships, key-values, entities, and other document-centric insights with an advanced machine-learning based AI service like [Document Intelligence](../../ai-services/document-intelligence/overview.md). Document Intelligence includes a document-optimized version of **Read** as its OCR engine while delegating to other models for higher-end insights. If you are extracting text from scanned and digital documents, use [Document Intelligence Read OCR](../../ai-services/document-intelligence/concept-read.md).
 
 ## How to use OCR
 

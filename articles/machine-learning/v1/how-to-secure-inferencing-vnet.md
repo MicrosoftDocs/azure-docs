@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 01/31/2024
 ms.custom: UpdateFrequency5, tracking-python, devx-track-azurecli, sdkv1
 ---
@@ -59,14 +59,14 @@ When your Azure Machine Learning workspace is configured with a private endpoint
 
 * If your AKS cluster is behind of a VNET, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please read tutorial [create a secure workspace](../tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../../aks/private-clusters.md) is __not supported__ with Azure Machine Learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine Learning.
 
 <a id="aksvnet"></a>
 
 ## Azure Kubernetes Service
 
 > [!IMPORTANT]
-> To use an AKS cluster in a virtual network, first follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](../../aks/configure-azure-cni.md#prerequisites).
+> To use an AKS cluster in a virtual network, first follow the prerequisites in [Configure advanced networking in Azure Kubernetes Service (AKS)](/azure/aks/configure-azure-cni#prerequisites).
 
 
 To add AKS in a virtual network to your workspace, use the following steps:
@@ -130,7 +130,7 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-and-where.md).
 
-For more information on using Role-Based Access Control with Kubernetes, see [Use Azure RBAC for Kubernetes authorization](../../aks/manage-azure-rbac.md).
+For more information on using Role-Based Access Control with Kubernetes, see [Use Azure RBAC for Kubernetes authorization](/azure/aks/manage-azure-rbac).
 
 ## Network contributor role
 
@@ -162,7 +162,7 @@ For more information on using Role-Based Access Control with Kubernetes, see [Us
     ```azurecli-interactive
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
-For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](../../aks/internal-lb.md).
+For more information on using the internal load balancer with AKS, see [Use internal load balancer with Azure Kubernetes Service](/azure/aks/internal-lb).
 
 ## Secure VNet traffic
 
@@ -173,13 +173,13 @@ There are two approaches to isolate traffic to and from the AKS cluster to the v
 
 ### Private AKS cluster
 
-By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+By default, AKS clusters have a control plane, or API server, with public IP addresses. You can configure AKS to use a private control plane by creating a private AKS cluster. For more information, see [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 After you create the private AKS cluster, [attach the cluster to the virtual network](how-to-create-attach-kubernetes.md) to use with Azure Machine Learning.
 
 ### Internal AKS load balancer
 
-By default, AKS deployments use a [public load balancer](../../aks/load-balancer-standard.md). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
+By default, AKS deployments use a [public load balancer](/azure/aks/load-balancer-standard). In this section, you learn how to configure AKS to use an internal load balancer. An internal (or private) load balancer is used where only private IPs are allowed as frontend. Internal load balancers are used to load balance traffic inside a virtual network
 
 A private load balancer is enabled by configuring AKS to use an _internal load balancer_. 
 

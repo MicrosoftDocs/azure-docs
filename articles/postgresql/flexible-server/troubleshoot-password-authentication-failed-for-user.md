@@ -1,12 +1,13 @@
 ---
 title: Password authentication failed for user - Azure Database for PostgreSQL - Flexible Server
 description: Provides resolutions for a connection error - password authentication failed for user `<user-name>`.
-ms.service: postgresql
+author: AlicjaKucharczyk
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: troubleshooting-error-codes
-ms.author: alkuchar
-author: AlicjaKucharczyk
-ms.date: 02/02/2024
 ---
 
 # Password authentication failed for user `<user-name>`

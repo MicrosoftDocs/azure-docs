@@ -11,4 +11,4 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> This feature is available only with **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** products. It is not supported on **Azure CDN from Akamai**. For a comparison of CDN features, see [Azure CDN product features](../articles/cdn/cdn-features.md).
+> This feature is available only with **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** products. For a comparison of CDN features, see [Azure CDN product features](../articles/cdn/cdn-features.md).

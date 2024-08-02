@@ -3,7 +3,7 @@ title: Prepare for Operator Connect or Teams Phone Mobile live traffic with Azur
 description: After deploying Azure Communications Gateway, you and your onboarding team must carry out further integration work before you can launch your Teams Phone Mobile or Operator Connect service.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 02/16/2024
 ---
@@ -98,11 +98,8 @@ Integration testing requires setting up your test tenant for Operator Connect or
     1. Select **Create account**. Fill in the fields as required (including **Sync with backend service**) and select **Create**.
     1. Select **View account**.
     1. Select **View numbers** and select **Create numbers**.
-    1. Fill in the fields as required, and then select **Upload**.
+    1. Fill in the fields under **Manual Input** as required, and then select **Create**.
     
-    > [!TIP]
-    > If you are uploading multiple numbers, you can provide configuration for them in a CSV file and upload the file. For instructions, see [Manage an enterprise with Azure Communications Gateway's Number Management Portal (preview)](manage-enterprise-operator-connect.md).
-
     # [Operator Portal](#tab/no-flow-through)
 
     1. Ask your onboarding team for the name of the Calling Profile that you must use for these test numbers. The name typically has the suffix `CommsGw`. We created this Calling Profile for you during the Azure Communications Gateway deployment process.

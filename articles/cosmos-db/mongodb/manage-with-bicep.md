@@ -2,7 +2,7 @@
 title: Create and manage API for MongoDB for Azure Cosmos DB with Bicep
 description: Use Bicep to create and configure API for MongoDB Azure Cosmos DB API.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-bicep
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.reviewer: mjbrown
 
 # Manage Azure Cosmos DB for MongoDB resources using Bicep
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 In this article, you learn how to use Bicep to deploy and manage your Azure Cosmos DB accounts for API for MongoDB, databases, and collections.
 

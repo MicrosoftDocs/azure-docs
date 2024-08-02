@@ -2,12 +2,12 @@
 title: Feature set materialization concepts
 titleSuffix: Azure Machine Learning
 description: Build and use feature set materialization resources.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+author: fbsolo-ms1 
+ms.author: franksolomon 
+ms.reviewer: ynpandey
 ms.date: 12/06/2023
 ms.custom: template-concept, update-code2
 ---
@@ -53,7 +53,7 @@ To avoid the limit, users should run backfill jobs in advance to [fill the gaps]
 
 Before you run a data materialization job, enable the offline and/or online data materializations at the feature set level.
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb?name=enable-accounts-material)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/4.Enable-online-store-run-inference.ipynb?name=enable-accounts-material)]
 
 You can submit the data materialization jobs as a:
 
@@ -75,7 +75,7 @@ User can submit a backfill request with:
 - A list of data materialization status values - Incomplete, Complete, or None
 - A feature window (optional)
 
-[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb?name=backfill-txns-fset)]
+[!notebook-python[] (~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/1.Develop-feature-set-and-register.ipynb?name=backfill-txns-fset)]
 
 After submission of the backfill request, a new materialization job is created for each *data interval* that has a matching data materialization status (Incomplete, Complete, or None). Additionally, the relevant data intervals must fall within the defined *feature window*. If the data materialization status is `Pending` for a *data interval*, no materialization job is submitted for that interval.
 

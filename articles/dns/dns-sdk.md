@@ -6,7 +6,7 @@ services: dns
 author: greg-lindsay
 manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
-ms.service: dns
+ms.service: azure-dns
 ms.devlang: csharp
 ms.topic: article
 ms.date: 11/30/2023
@@ -26,7 +26,7 @@ Typically, programmatic access to Azure resources is granted with a dedicated ac
 
 1. Then create a [resource group](../azure-resource-manager/templates/deploy-portal.md).
 
-1. Use [Azure RBAC](../role-based-access-control/role-assignments-portal.md) to grant the service principal account 'DNS Zone Contributor' permissions to the resource group.
+1. Use [Azure RBAC](../role-based-access-control/role-assignments-portal.yml) to grant the service principal account 'DNS Zone Contributor' permissions to the resource group.
 
 1. If you're using the Azure DNS SDK sample project, edit the 'program.cs' file as followed:
 

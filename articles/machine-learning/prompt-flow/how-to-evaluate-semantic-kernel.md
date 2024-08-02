@@ -3,14 +3,15 @@ title: Evaluate your Semantic Kernel with prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to evaluate Semantic Kernel in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 09/15/2023
 ---
 
@@ -44,12 +45,12 @@ Similar to the integration of Langchain with prompt flow, Semantic Kernel, which
 
 :::image type="content" source="./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png" alt-text="Screenshot of prompt flow with Semantic kernel." lightbox = "./media/how-to-evaluate-semantic-kernel/prompt-flow-end-result.png":::
 
-#### Prerequisites: Setup runtime and connection
+#### Prerequisites: Set up compute session and connection
 
 > [!IMPORTANT]
-> Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your runtime environment for executor. 
+> Prior to developing the flow, it's essential to install the [Semantic Kernel package](/semantic-kernel/get-started/quick-start-guide/?toc=%2Fsemantic-kernel%2Ftoc.json&tabs=python) in your requirements.txt for executor. 
 
-To learn more, see [Customize environment for runtime](./how-to-customize-environment-runtime.md) for guidance.
+To learn more, see [How to manage compute session](./how-to-manage-compute-session.md) for guidance.
 
 > [!IMPORTANT]
 > The approach to consume OpenAI or Azure OpenAI in Semantic Kernel is to obtain the keys you have specified in environment variables or stored in a `.env` file.
@@ -64,7 +65,6 @@ You can then utilize this custom connection to invoke your OpenAI or Azure OpenA
 #### Create and develop a flow
 Once the setup is complete, you can conveniently convert your existing Semantic Kernel planner to a prompt flow by following the steps below:
 1. Create a standard flow.
-1. Select a runtime with Semantic Kernel installed.
 1. Select the *+ Python* icon to create a new Python node.
 1. Name it as your planner name (e.g., *math_planner*).
 1. Select **+** button in *Files* tab to upload any other reference files (for example, *plugins*).
@@ -179,11 +179,8 @@ This will present you with a detailed table, line-by-line comparison of the resu
 > Follow along with our documentations to get started!
 > And keep an eye out for more integrations.
 
-If you’re interested in learning more about how you can use prompt flow to test and evaluate Semantic Kernel, we recommend following along to the articles we created. At each step, we provide sample code and explanations so you can use prompt flow successfully with Semantic Kernel.
+If you're interested in learning more about how you can use Planners in Semantic Kernel, we recommend that you read the following article:
 
-* [Using prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
-* [Create a prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel)
-* [Running batches with prompt flow](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow)
-* [Evaluate your plugins and planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
+* [Learn more about planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
 
 When your planner is fully prepared, it can be deployed as an online endpoint in Azure Machine Learning. This allows it to be easily integrated into your application for consumption. Learn more about how to [deploy a flow as a managed online endpoint for real-time inference](./how-to-deploy-for-real-time-inference.md).

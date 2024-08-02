@@ -28,7 +28,7 @@ An authoring resource lets you create, manage, train, test, and publish your app
 * 1 million authoring transactions 
 * 1,000 testing prediction endpoint requests per month.
 
-You can use the [v3.0-preview LUIS Programmatic APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2f) to manage authoring resources. 
+You can use the [v3.0-preview LUIS Programmatic APIs](/rest/api/luis/apps) to manage authoring resources. 
 
 ## Prediction resource
 
@@ -37,7 +37,7 @@ A prediction resource lets you query your prediction endpoint beyond the 1,000 r
 * The free (F0) prediction resource, which gives you 10,000 prediction endpoint requests monthly.
 * Standard (S0) prediction resource, which is the paid tier. 
 
-You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5f68f4d40a511ce5a7440859) to manage prediction resources.
+You can use the [v3.0-preview LUIS Endpoint API](/rest/api/luis/operation-groups?view=rest-luis-v3.0-preview) to manage prediction resources.
 
 > [!Note]
 > * You can also use a [multi-service resource](../multi-service-resource.md?pivots=azcli) to get a single endpoint you can use for multiple Azure AI services.
@@ -142,7 +142,7 @@ For automated processes like CI/CD pipelines, you can automate the assignment of
     az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
     ```
     
-1. Use the token to request the LUIS runtime resources across subscriptions. Use the API to [get the LUIS Azure account](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c) that your user account has access to.
+1. Use the token to request the LUIS runtime resources across subscriptions. Use the API to [get the LUIS Azure account](/rest/api/luis/azure-accounts/get-assigned) that your user account has access to.
 
     This POST API requires the following values:
 
@@ -153,7 +153,7 @@ For automated processes like CI/CD pipelines, you can automate the assignment of
 
     The API returns an array of JSON objects that represent your LUIS subscriptions. Returned values include the subscription ID, resource group, and resource name, returned as `AccountName`. Find the item in the array that's the LUIS resource that you want to assign to the LUIS app.
 
-1. Assign the token to the LUIS resource by using the [Assign a LUIS Azure accounts to an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32228e8473de116325515) API.
+1. Assign the token to the LUIS resource by using the [Assign a LUIS Azure accounts to an application](/rest/api/luis/azure-accounts/assign-to-app) API.
 
     This POST API requires the following values:
 
@@ -191,7 +191,7 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
     az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
     ```
  
-1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), which your user account has access to.
+1. Use the token to request the LUIS runtime resources across subscriptions. Use the [Get LUIS Azure accounts API](/rest/api/luis/azure-accounts/get-assigned), which your user account has access to.
 
     This POST API requires the following values:
 
@@ -202,7 +202,7 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 
     The API returns an array of JSON objects that represent your LUIS subscriptions. Returned values include the subscription ID, resource group, and resource name, returned as `AccountName`. Find the item in the array that's the LUIS resource that you want to assign to the LUIS app.
 
-1. Assign the token to the LUIS resource by using the [Unassign a LUIS Azure account from an application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be32554f8591db3a86232e1/console) API.
+1. Assign the token to the LUIS resource by using the [Unassign a LUIS Azure account from an application](/rest/api/luis/azure-accounts/remove-from-app) API.
 
     This DELETE API requires the following values:
 
@@ -304,7 +304,6 @@ An app is defined by its Azure resources, which are determined by the owner's su
 
 You can move your LUIS app. Use the following resources to help you do so by using the Azure portal or Azure CLI:
 
-* [Move an app between LUIS authoring resources](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [Move a resource to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Move a resource within the same subscription or across subscriptions](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 

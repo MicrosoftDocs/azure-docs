@@ -52,7 +52,7 @@ Here's a summary of configuration tasks for creating a chart to analyze metrics:
 The resource **scope picker** lets you scope your chart to view metrics for a single resource or for multiple resources. To view metrics across multiple resources, the resources must be within the same subscription and region location. 
 
 > [!NOTE] 
-> You must have _Monitoring Reader_ permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+> You must have _Monitoring Reader_ permission at the subscription level to visualize metrics across multiple resources, resource groups, or a subscription. For more information, see [Assign Azure roles in the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ### Select a single resource
 

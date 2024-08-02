@@ -1,18 +1,19 @@
 ---
 title: Storage autogrow- Azure portal
 description: This article describes how you can configure storage autogrow using the Azure portal in Azure Database for PostgreSQL - Flexible Server.
-ms.service: postgresql
+author: kabharati
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: kabharati
-author: kabharati
-ms.date: 01/23/2024
 ---
 
 # Storage autogrow using Azure portal in Azure Database for PostgreSQL - Flexible Server
 
 
-[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 
 This article describes how you can configure Azure Database for PostgreSQL server storage to grow without impacting the workload.

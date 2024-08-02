@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to create a Private Link service using the Azure portal in this quickstart.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 08/29/2023
 ms.author: abell
@@ -16,7 +16,7 @@ ms.custom: mode-ui, template-quickstart
 
 Get started creating a Private Link service that refers to your service. Give Private Link access to your service or resource deployed behind an Azure Standard Load Balancer. Users of your service have private access from their virtual network.
 
-:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart.":::
+:::image type="content" source="./media/create-private-link-service-portal/private-link-service-qs-resources.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-link-service-portal/private-link-service-qs-resources.png":::
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Get started creating a Private Link service that refers to your service. Give Pr
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-[!INCLUDE [virtual-network-create.md](../../includes/virtual-network-create.md)]
+[!INCLUDE [virtual-network-create.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create.md)]
 
 ### Create load balancer
 
@@ -254,7 +254,7 @@ In this section, you find the IP address of the private endpoint that correspond
 
 1. In the **Overview** page of the private endpoint nic, the IP address of the endpoint is displayed in **Private IP address**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

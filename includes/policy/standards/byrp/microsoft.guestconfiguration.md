@@ -1,9 +1,9 @@
 ---
-author: davidsmatlak
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/11/2024
+ms.date: 07/15/2024
 ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 
@@ -11,7 +11,7 @@ ms.custom: generated
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Australian Government ISM PROTECTED](../../../../articles/governance/policy/samples/australia-ism.md).
+[Azure Policy Regulatory Compliance - Australian Government ISM PROTECTED](/azure/governance/policy/samples/australia-ism).
 For more information about this compliance standard, see
 [Australian Government ISM PROTECTED](https://www.cyber.gov.au/acsc/view-all-content/ism).
 
@@ -32,7 +32,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Canada Federal PBMM](../../../../articles/governance/policy/samples/canada-federal-pbmm.md).
+[Azure Policy Regulatory Compliance - Canada Federal PBMM](/azure/governance/policy/samples/canada-federal-pbmm).
 For more information about this compliance standard, see
 [Canada Federal PBMM](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html).
 
@@ -56,9 +56,9 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - CMMC Level 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+[Azure Policy Regulatory Compliance - CMMC Level 3](/azure/governance/policy/samples/cmmc-l3).
 For more information about this compliance standard, see
-[Cybersecurity Maturity Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/documentation.html).
+[Cybersecurity Maturity Model Certification (CMMC)](https://dodcio.defense.gov/CMMC/).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
@@ -109,7 +109,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP High](../../../../articles/governance/policy/samples/fedramp-high.md).
+[Azure Policy Regulatory Compliance - FedRAMP High](/azure/governance/policy/samples/fedramp-high).
 For more information about this compliance standard, see
 [FedRAMP High](https://www.fedramp.gov/).
 
@@ -142,7 +142,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - FedRAMP Moderate](../../../../articles/governance/policy/samples/fedramp-moderate.md).
+[Azure Policy Regulatory Compliance - FedRAMP Moderate](/azure/governance/policy/samples/fedramp-moderate).
 For more information about this compliance standard, see
 [FedRAMP Moderate](https://www.fedramp.gov/).
 
@@ -174,7 +174,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](../../../../articles/governance/policy/samples/hipaa-hitrust-9-2.md).
+[Azure Policy Regulatory Compliance - HIPAA HITRUST 9.2](/azure/governance/policy/samples/hipaa-hitrust-9-2).
 For more information about this compliance standard, see
 [HIPAA HITRUST 9.2](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html).
 
@@ -212,7 +212,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - IRS 1075 September 2016](../../../../articles/governance/policy/samples/irs-1075-sept2016.md).
+[Azure Policy Regulatory Compliance - IRS 1075 September 2016](/azure/governance/policy/samples/irs-1075-sept2016).
 For more information about this compliance standard, see
 [IRS 1075 September 2016](https://www.irs.gov/pub/irs-pdf/p1075.pdf).
 
@@ -237,7 +237,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
+[Azure Policy Regulatory Compliance - ISO 27001:2013](/azure/governance/policy/samples/iso-27001).
 For more information about this compliance standard, see
 [ISO 27001:2013](https://www.iso.org/standard/iso-iec-27000-family).
 
@@ -262,18 +262,16 @@ Microsoft cloud security benchmark, see the
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+[Azure Policy Regulatory Compliance - Microsoft cloud security benchmark](/azure/governance/policy/samples/azure-security-benchmark).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Identity Management |IM-6 |Use strong authentication controls |[Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |[3.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxNoPasswordForSSH_AINE.json) |
 |Data Protection |DP-3 |Encrypt sensitive data in transit |[Windows machines should be configured to use secure communication protocols](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[4.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/SecureWebProtocol_AINE.json) |
-|Data Protection |DP-4 |Enable data at rest encryption by default |[[Preview]: Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fca88aadc-6e2b-416c-9de2-5a0f01d1693f) |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxVMEncryption_AINE.json) |
-|Data Protection |DP-4 |Enable data at rest encryption by default |[[Preview]: Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3dc5edcd-002d-444c-b216-e123bbfa37c0) |[1.1.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsVMEncryption_AINE.json) |
+|Data Protection |DP-4 |Enable data at rest encryption by default |[Linux virtual machines should enable Azure Disk Encryption or EncryptionAtHost.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fca88aadc-6e2b-416c-9de2-5a0f01d1693f) |[1.2.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxVMEncryption_AINE.json) |
+|Data Protection |DP-4 |Enable data at rest encryption by default |[Windows virtual machines should enable Azure Disk Encryption or EncryptionAtHost.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3dc5edcd-002d-444c-b216-e123bbfa37c0) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsVMEncryption_AINE.json) |
 |Logging and Threat Detection |LT-1 |Enable threat detection capabilities |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
 |Logging and Threat Detection |LT-2 |Enable threat detection for identity and access management |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
-|Logging and Threat Detection |LT-5 |Centralize security log management and analysis |[Linux machines should have Log Analytics agent installed on Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e7fed80-8321-4605-b42c-65fc300f23a3) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxLogAnalyticsAgentInstalled_AINE.json) |
-|Logging and Threat Detection |LT-5 |Centralize security log management and analysis |[Windows machines should have Log Analytics agent installed on Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4078e558-bda6-41fb-9b3c-361e8875200d) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsLogAnalyticsAgentInstalled_AINE.json) |
 |Posture and Vulnerability Management |PV-4 |Audit and enforce secure configurations for compute resources |[Linux machines should meet requirements for the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |[2.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureLinuxBaseline_AINE.json) |
 |Posture and Vulnerability Management |PV-4 |Audit and enforce secure configurations for compute resources |[Windows machines should meet requirements of the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureWindowsBaseline_AINE.json) |
 |Endpoint Security |ES-2 |Use modern anti-malware software |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
@@ -282,7 +280,7 @@ standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](../../../../articles/governance/policy/samples/nist-sp-800-171-r2.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-171 R2](/azure/governance/policy/samples/nist-sp-800-171-r2).
 For more information about this compliance standard, see
 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final).
 
@@ -318,7 +316,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](/azure/governance/policy/samples/nist-sp-800-53-r4).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
 
@@ -351,7 +349,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](../../../../articles/governance/policy/samples/nist-sp-800-53-r5.md).
+[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 5](/azure/governance/policy/samples/nist-sp-800-53-r5).
 For more information about this compliance standard, see
 [NIST SP 800-53 Rev. 5](https://nvd.nist.gov/800-53).
 
@@ -383,7 +381,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](../../../../articles/governance/policy/samples/nl-bio-cloud-theme.md).
+[Azure Policy Regulatory Compliance details for NL BIO Cloud Theme](/azure/governance/policy/samples/nl-bio-cloud-theme).
 For more information about this compliance standard, see
 [Baseline Information Security Government Cybersecurity - Digital Government (digitaleoverheid.nl)](https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/cybersecurity/kaders-voor-cybersecurity/baseline-informatiebeveiliging-overheid/).
 
@@ -409,7 +407,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[PCI DSS 3.2.1](../../../../articles/governance/policy/samples/pci-dss-3-2-1.md).
+[PCI DSS 3.2.1](/azure/governance/policy/samples/pci-dss-3-2-1).
 For more information about this compliance standard, see
 [PCI DSS 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS-QRG-v3_2_1.pdf).
 
@@ -426,7 +424,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for PCI DSS v4.0](../../../../articles/governance/policy/samples/pci-dss-4-0.md).
+[Azure Policy Regulatory Compliance details for PCI DSS v4.0](/azure/governance/policy/samples/pci-dss-4-0).
 For more information about this compliance standard, see
 [PCI DSS v4.0](https://docs-prv.pcisecuritystandards.org/PCI%20DSS/Standard/PCI-DSS-v4_0.pdf).
 
@@ -440,7 +438,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](../../../../articles/governance/policy/samples/rbi-itf-banks-2016.md).
+[Azure Policy Regulatory Compliance - RBI ITF Banks v2016](/azure/governance/policy/samples/rbi-itf-banks-2016).
 For more information about this compliance standard, see
 [RBI ITF Banks v2016 (PDF)](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/NT41893F697BC1D57443BB76AFC7AB56272EB.PDF).
 
@@ -452,11 +450,41 @@ For more information about this compliance standard, see
 |Secure Mail And Messaging Systems | |Secure Mail And Messaging Systems-10.1 |[Windows machines should be configured to use secure communication protocols](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[4.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/SecureWebProtocol_AINE.json) |
 |Audit Log Settings | |Audit Log Settings-17.1 |[Windows machines should meet requirements of the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureWindowsBaseline_AINE.json) |
 
+## Spain ENS
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for Spain ENS](/azure/governance/policy/samples/spain-ens).
+For more information about this compliance standard, see
+[CCN-STIC 884](https://www.ccn-cert.cni.es/es/comunicacion-eventos/comunicados-ccn-cert/9519-disponible-la-guia-ccn-stic-884-perfil-de-cumplimiento-especifico-para-azure-servicio-de-cloud-corporativo).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Protective Measures | mp.com.1 |Protection of communications |[Windows machines should meet requirements for 'Windows Firewall Properties'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F35d9882c-993d-44e6-87d2-db66ce21b636) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsFirewallProperties_AINE.json) |
+|Protective Measures | mp.com.3 |Protection of communications |[Audit Windows machines that do not store passwords using reversible encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fda0f98fe-a24b-4ad5-af69-bd0400233661) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordEncryption_AINE.json) |
+|Operational framework | op.acc.1 |Access control |[Audit Linux machines that do not have the passwd file permissions set to 0644](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6955644-301c-44b5-a4c4-528577de6861) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword121_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Linux machines that allow remote connections from accounts without passwords](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword110_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Linux machines that have accounts without passwords](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6ec09a3-78bf-4f8f-99dc-6c77182d0f99) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword232_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Windows machines that allow re-use of the passwords after the specified number of unique passwords](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5b054a0d-39e2-4d53-bea3-9734cad2c69b) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordEnforce_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Windows machines that do not have the maximum password age set to specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4ceb8dc2-559c-478b-a15b-733fbf1e3738) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsMaximumPassword_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Windows machines that do not have the minimum password age set to specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F237b38db-ca4d-4259-9e47-7882441ca2c0) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsMinimumPassword_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Windows machines that do not have the password complexity setting enabled](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbf16e0bb-31e1-4646-8202-60a235cc7e74) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordComplexity_AINE.json) |
+|Operational framework | op.acc.2 |Access control |[Audit Windows machines that do not restrict the minimum password length to specified number of characters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa2d0e922-65d0-40c4-8f87-ea6da2d307a2) |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordLength_AINE.json) |
+|Operational framework | op.acc.5 |Access control |[Audit Linux machines that do not have the passwd file permissions set to 0644](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6955644-301c-44b5-a4c4-528577de6861) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword121_AINE.json) |
+|Operational framework | op.acc.6 |Access control |[Audit Windows machines that do not store passwords using reversible encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fda0f98fe-a24b-4ad5-af69-bd0400233661) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordEncryption_AINE.json) |
+|Operational framework | op.exp.10 |Operation |[Audit Linux machines that do not have the passwd file permissions set to 0644](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6955644-301c-44b5-a4c4-528577de6861) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword121_AINE.json) |
+|Operational framework | op.exp.6 |Operation |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
+|Operational framework | op.exp.6 |Operation |[Windows machines should configure Windows Defender to update protection signatures within one day](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd96163de-dbe0-45ac-b803-0e9ca0f5764e) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/ACAT_%20UpdateDefenderSignatureDaily_AINE.json) |
+|Operational framework | op.exp.6 |Operation |[Windows machines should enable Windows Defender Real-time protection](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb3248a42-b1c1-41a4-87bc-8bad3d845589) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/ACAT_WindowsDefenderRealtimeProtection_AINE.json) |
+|Operational framework | op.ext.4 |External resources |[Audit Linux machines that allow remote connections from accounts without passwords](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword110_AINE.json) |
+|Operational framework | op.ext.4 |External resources |[Audit Linux machines that have accounts without passwords](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff6ec09a3-78bf-4f8f-99dc-6c77182d0f99) |[3.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxPassword232_AINE.json) |
+|Operational framework | op.mon.1 |System monitoring |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
+
 ## SWIFT CSP-CSCF v2021
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](../../../../articles/governance/policy/samples/swift-csp-cscf-2021.md).
+[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2021](/azure/governance/policy/samples/swift-csp-cscf-2021).
 For more information about this compliance standard, see
 [SWIFT CSP CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
 
@@ -484,7 +512,7 @@ For more information about this compliance standard, see
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2022](../../../../articles/governance/policy/samples/swift-csp-cscf-2022.md).
+[Azure Policy Regulatory Compliance details for SWIFT CSP-CSCF v2022](/azure/governance/policy/samples/swift-csp-cscf-2022).
 For more information about this compliance standard, see
 [SWIFT CSP CSCF v2022](https://www.swift.com/myswift/customer-security-programme-csp).
 
@@ -510,11 +538,32 @@ For more information about this compliance standard, see
 |5. Manage Identities and Segregate Privileges | 5.1 |Enforce the security principles of need-to-know access, least privilege, and separation of duties for operator accounts. |[Audit Windows machines that contain certificates expiring within the specified number of days](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1417908b-4bff-46ee-a2a6-4acc899320ab) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/CertificateExpiration_AINE.json) |
 |5. Manage Identities and Segregate Privileges | 5.4 |Protect physically and logically the repository of recorded passwords. |[Audit Windows machines that do not store passwords using reversible encryption](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fda0f98fe-a24b-4ad5-af69-bd0400233661) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsPasswordEncryption_AINE.json) |
 
+## System and Organization Controls (SOC) 2
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for System and Organization Controls (SOC) 2](/azure/governance/policy/samples/soc-2).
+For more information about this compliance standard, see
+[System and Organization Controls (SOC) 2](/azure/compliance/offerings/offering-soc-2).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |[3.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxNoPasswordForSSH_AINE.json) |
+|Logical and Physical Access Controls | CC6.1 |Logical access security software, infrastructure, and architectures |[Windows machines should be configured to use secure communication protocols](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[4.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/SecureWebProtocol_AINE.json) |
+|Logical and Physical Access Controls | CC6.6 |Security measures against threats outside system boundaries |[Authentication to Linux machines should require SSH keys](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |[3.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/LinuxNoPasswordForSSH_AINE.json) |
+|Logical and Physical Access Controls | CC6.6 |Security measures against threats outside system boundaries |[Windows machines should be configured to use secure communication protocols](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[4.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/SecureWebProtocol_AINE.json) |
+|Logical and Physical Access Controls | CC6.7 |Restrict the movement of information to authorized users |[Windows machines should be configured to use secure communication protocols](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5752e6d6-1206-46d8-8ab1-ecc2f71a8112) |[4.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/SecureWebProtocol_AINE.json) |
+|Logical and Physical Access Controls | CC6.8 |Prevent or detect against unauthorized or malicious software |[Linux machines should meet requirements for the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |[2.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureLinuxBaseline_AINE.json) |
+|Logical and Physical Access Controls | CC6.8 |Prevent or detect against unauthorized or malicious software |[Windows machines should meet requirements of the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureWindowsBaseline_AINE.json) |
+|System Operations | CC7.2 |Monitor system components for anomalous behavior |[Windows Defender Exploit Guard should be enabled on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/WindowsDefenderExploitGuard_AINE.json) |
+|Change Management | CC8.1 |Changes to infrastructure, data, and software |[Linux machines should meet requirements for the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |[2.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureLinuxBaseline_AINE.json) |
+|Change Management | CC8.1 |Changes to infrastructure, data, and software |[Windows machines should meet requirements of the Azure compute security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/AzureWindowsBaseline_AINE.json) |
+
 ## UK OFFICIAL and UK NHS
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - UK OFFICIAL and UK NHS](../../../../articles/governance/policy/samples/ukofficial-uknhs.md).
+[Azure Policy Regulatory Compliance - UK OFFICIAL and UK NHS](/azure/governance/policy/samples/ukofficial-uknhs).
 For more information about this compliance standard, see
 [UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 

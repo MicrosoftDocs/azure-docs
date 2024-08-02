@@ -15,7 +15,7 @@ ms.custom: references_regions
 [!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
 
 
-LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one predection key per region.
+LUIS authoring regions are supported by the LUIS portal. To publish a LUIS app to more than one region, you need at least one prediction key per region.
 
 <a name="luis-website"></a>
 
@@ -40,23 +40,23 @@ Publishing regions are the regions where the application will be used in runtime
 
 
 ## Public apps
-A public app is published in all regions so that a user with a supported predection resource can access the app in all regions.
+A public app is published in all regions so that a user with a supported prediction resource can access the app in all regions.
 
 <a name="publishing-regions"></a>
 
 ## Publishing regions are tied to authoring regions
 
-When you first create our LUIS application, you are required to choose an [authoring region](#luis-authoring-regions). To use the application in runtime, you are required to create a resource in a publishing region.
+When you first create our LUIS application, you're required to choose an [authoring region](#luis-authoring-regions). To use the application in runtime, you're required to create a resource in a publishing region.
 
 Every authoring region has corresponding prediction regions that you can publish your application to, which are listed in the tables below. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region to match the required publishing region.
 
 
 ## Single data residency
 
-Single data residency means that the data does not leave the boundaries of the region.
+Single data residency means that the data doesn't leave the boundaries of the region.
 
 > [!Note]
-> * Make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the runtime region. 
+> * Make sure to set `log=false` for [V3 APIs](/rest/api/luis/prediction/get-slot-prediction) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the runtime region. 
 > * If `log=true`, data is returned to the authoring region for active learning.
 
 ## Publishing to Europe

@@ -1,19 +1,19 @@
 ---
-title: Manage permissions to the consumption URL for Azure Operator Insights
-description: Learn how to add and remove user permissions to the consumption URL for Azure Operator Insights.
+title: Manage permissions to the KQL consumption URL for Azure Operator Insights
+description: Learn how to add and remove user permissions to the KQL consumption URL for Azure Operator Insights.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 1/06/2024
 ---
 
-# Manage permissions to the consumption URL
+# Manage permissions to the KQL consumption URL
 
-Azure Operator Insights enables you to control access to the consumption URL of each Data Product based on email addresses or distribution lists. Use the following steps to configure read-only access to the consumption URL.
+Azure Operator Insights enables you to control access to the KQL consumption URL of each Data Product based on email addresses or distribution lists. Use the following steps to configure read-only access to the consumption URL.
 
-Azure Operator Insights currently supports a single role that gives Read access to all tables and columns on the consumption URL.
+Azure Operator Insights supports a single role that gives Read access to all tables and columns on the consumption URL.
 
 ## Add user access
 

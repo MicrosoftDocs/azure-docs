@@ -5,102 +5,98 @@ description: Learn how to deploy Cohere Command models with Azure AI Studio.
 manager: scottpolly
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 5/21/2024
 ms.reviewer: shubhiraj
 ms.author: mopeakande
 author: msakande
-ms.custom: [references_regions]
+ms.custom: references_regions, build-2024
 ---
 
 # How to deploy Cohere Command models with Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere Command models as a service with pay-as you go billing.
+In this article, you learn how to use Azure AI Studio to deploy the Cohere Command models as serverless APIs with pay-as-you-go token-based billing.
 
-Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available with pay-as-you-go token based billing with Models as a Service. 
+Cohere offers two Command models in [Azure AI Studio](https://ai.azure.com). These models are available as serverless APIs with pay-as-you-go token-based billing. You can browse the Cohere family of models in the [model catalog](model-catalog.md) by filtering on the Cohere collection.
+
+## Cohere Command models 
+
+In this section, you learn about the two Cohere Command models that are available in the model catalog:
+
 * Cohere Command R 
 * Cohere Command R+
 
-You can browse the Cohere family of models in the [Model Catalog](model-catalog.md) by filtering on the Cohere collection.
+You can browse the Cohere family of models in the [Model Catalog](model-catalog-overview.md) by filtering on the Cohere collection.
 
-## Models 
+- **Model Architecture:** Both Command R and Command R+ are auto-regressive language models that use an optimized transformer architecture. After pretraining, the models use supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
 
-In this article, you learn how to use Azure AI Studio to deploy the Cohere models as a service with pay-as-you-go billing.
+- **Languages covered:** The models are optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
 
-### Cohere Command R 
-Command R is a highly performant generative large language model, optimized for various use cases including reasoning, summarization, and question answering. 
+    Pre-training data additionally included the following 13 languages: Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
 
+- **Context length:** Command R and Command R+ support a context length of 128K.
 
-*Model Architecture:* An auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
+- **Input:** Models input text only.
 
-*Languages covered:* The model is optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
+- **Output:** Models generate text only.
 
-Pre-training data additionally included the following 13 languages: Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
+## Deploy as a serverless API
 
-*Context length:* Command R supports a context length of 128K.
+Certain models in the model catalog can be deployed as a serverless API with pay-as-you-go billing. This kind of deployment provides a way to consume models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that organizations need. This deployment option doesn't require quota from your subscription.
 
-*Input:* Models input text only.
-
-*Output:* Models generate text only.
-
-  
-### Cohere Command R+
-Command R+ is a highly performant generative large language model, optimized for various use cases including reasoning, summarization, and question answering. 
-
-
-*Model Architecture:* An auto-regressive language model that uses an optimized transformer architecture. After pretraining, this model uses supervised fine-tuning (SFT) and preference training to align model behavior to human preferences for helpfulness and safety.
-
-*Languages covered:* The model is optimized to perform well in the following languages: English, French, Spanish, Italian, German, Brazilian Portuguese, Japanese, Korean, Simplified Chinese, and Arabic.
-
-Pre-training data additionally included the following 13 languages: Russian, Polish, Turkish, Vietnamese, Dutch, Czech, Indonesian, Ukrainian, Romanian, Greek, Hindi, Hebrew, Persian.
-
-*Context length:* Command R+ supports a context length of 128K.
-
-*Input:* Models input text only.
-
-*Output:* Models generate text only.
-
-
-## Deploy with pay-as-you-go
-
-Certain models in the model catalog can be deployed as a service with pay-as-you-go, providing a way to consume them as an API without hosting them on your subscription, while keeping the enterprise security and compliance organizations need. This deployment option doesn't require quota from your subscription.
-
-The previously mentioned Cohere models can be deployed as a service with pay-as-you-go, and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of this model.
+The previously mentioned Cohere models can be deployed as a service with pay-as-you-go billing and are offered by Cohere through the Microsoft Azure Marketplace. Cohere can change or update the terms of use and pricing of these models.
 
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI hub resource](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Cohere Command is only available with hubs created in these regions:
 
-    > [!IMPORTANT]
-    > For Cohere family models, the pay-as-you-go model deployment offering is only available with AI hubs created in EastUS, EastUS2 or Sweden Central regions.
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
+    
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 
-- An [Azure AI project](../how-to/create-projects.md) in Azure AI Studio.
+- An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
 ### Create a new deployment
 
+The following steps demonstrate the deployment of Cohere Command R, but you can use the same steps to deploy Cohere Command R+ by replacing the model name.
+
 To create a deployment:
 
 1. Sign in to [Azure AI Studio](https://ai.azure.com).
-1. Select **Model catalog** from the **Explore** tab and search for *Cohere*. 
+1. Select **Model catalog** from the left sidebar.
+1. Search for *Cohere*.
+1. Select **Cohere-command-r** to open the Model Details page.
 
-    Alternatively, you can initiate a deployment by starting from your project in AI Studio. From the **Build** tab of your project, select **Deployments** > **+ Create**.
+    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-directly-from-catalog.png" alt-text="A screenshot showing how to access the model details page by going through the model catalog." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-directly-from-catalog.png"::: 
 
-1. In the model catalog, on the model's **Details** page, select **Deploy** and then **Pay-as-you-go**.
+1. Select **Deploy** to open a serverless API deployment window for the model.
+1. Alternatively, you can initiate a deployment by starting from your project in AI Studio. 
 
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model with the pay-as-you-go option." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
+    1. From the left sidebar of your project, select **Components** > **Deployments**.
+    1. Select **+ Create deployment**.
+    1. Search for and select **Cohere-command-r**. to open the Model Details page.
+ 
+       :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png" alt-text="A screenshot showing how to access the model details page by going through the Deployments page in your project." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-start-from-project.png"::: 
 
-1. Select the project in which you want to deploy your model. To deploy the model your project must be in the EastUS, EastUS2 or Sweden Central regions.
+    1. Select **Confirm** to open a serverless API deployment window for the model.
+
+    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png" alt-text="A screenshot showing how to deploy a model as a serverless API." lightbox="../media/deploy-monitor/cohere-command/command-r-deploy-pay-as-you-go.png":::
+
+1. Select the project in which you want to deploy your model. To deploy the model your project must be in the *EastUS2* or *Sweden Central* region.
 1. In the deployment wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use.
-1. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the Resource Group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Select **Subscribe and Deploy**. Currently you can have only one deployment for each model within a project.
-
-    :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-marketplace-terms.png" alt-text="A screenshot showing the terms and conditions of a given model." lightbox="../media/deploy-monitor/cohere-command/command-r-marketplace-terms.png":::
-
-1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select (Currently you can have only one deployment for each model within a project).
+1. Select the **Pricing and terms** tab to learn about pricing for the selected model.
+1. Select the **Subscribe and Deploy** button. If this is your first time deploying the model in the project, you have to subscribe your project for the particular offering. This step requires that your account has the **Azure AI Developer role** permissions on the resource group, as listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering of the model, which allows you to control and monitor spending. Currently, you can have only one deployment for each model within a project.
+1. Once you subscribe the project for the particular Azure Marketplace offering, subsequent deployments of the _same_ offering in the _same_ project don't require subscribing again. If this scenario applies to you, there's a **Continue to deploy** option to select.
 
     :::image type="content" source="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png" alt-text="A screenshot showing a project that is already subscribed to the offering." lightbox="../media/deploy-monitor/cohere-command/command-r-existing-subscription.png":::
 
@@ -110,172 +106,37 @@ To create a deployment:
 
 1. Select **Deploy**. Wait until the deployment is ready and you're redirected to the Deployments page.
 1. Select **Open in playground** to start interacting with the model.
-1. You can return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
-1. You can always find the endpoint's details, URL, and access keys by navigating to the **Build** tab  and selecting **Deployments** from the Components section.
+1. Return to the Deployments page, select the deployment, and note the endpoint's **Target** URL and the Secret **Key**. For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
+1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
-To learn about billing for the Cohere models deployed with pay-as-you-go, see [Cost and quota considerations for Cohere models deployed as a service](#cost-and-quota-considerations-for-models-deployed-as-a-service).
+To learn about billing for the Cohere models deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for models deployed as a serverless API](#cost-and-quota-considerations-for-models-deployed-as-a-serverless-api).
 
 ### Consume the Cohere models as a service
 
 These models can be consumed using the chat API.
 
-1. On the **Build** page, select **Deployments**.
+1. From your **Project overview** page, go to the left sidebar and select **Components** > **Deployments**.
 
 1. Find and select the deployment you created.
 
 1. Copy the **Target** URL and the **Key** value.
 
-1. Cohere exposes two routes for inference with the Command R and Command R+ models. `v1/chat/completions` adheres to the Azure AI Generative Messages API schema, and `v1/chat` supports Cohere's native API schema.
+2. Cohere exposes two routes for inference with the Command R and Command R+ models. The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere API](#cohere-chat-api).
 
-For more information on using the APIs, see the [reference](#chat-api-reference-for-cohere-models-deployed-as-a-service) section.
+For more information on using the APIs, see the [reference](#reference-for-cohere-models-deployed-as-a-service) section.
 
-## Chat API reference for Cohere models deployed as a service
+## Reference for Cohere models deployed as a service
 
-### v1/chat/completions
+Cohere Command R and Command R+ models accept both the [Azure AI Model Inference API](../reference/reference-model-inference-api.md) on the route `/chat/completions` and the native [Cohere Chat API](#cohere-chat-api) on `/v1/chat`. 
 
-#### Request
-```
-    POST /v1/chat/completions HTTP/1.1
-    Host: <DEPLOYMENT_URI>
-    Authorization: Bearer <TOKEN>
-    Content-type: application/json
-```
+### Azure AI Model Inference API
 
-#### v1/chat/completions request schema
+The [Azure AI Model Inference API](../reference/reference-model-inference-api.md) schema can be found in the [reference for Chat Completions](../reference/reference-model-inference-chat-completions.md) article and an [OpenAPI specification can be obtained from the endpoint itself](../reference/reference-model-inference-api.md?tabs=rest#getting-started).
 
-Cohere Command R and Command R+ accept the following parameters for a `v1/chat/completions` response inference call:
+### Cohere Chat API
 
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `messages` | `array` | `None` | Text input for the model to respond to. |
-| `max_tokens` | `integer` | `None` | The maximum number of tokens the model generates as part of the response. Note: Setting a low value might result in incomplete generations. If not specified, generates tokens until end of sequence. |
-| `stop` | `array of strings` | `None` | The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included in the text.|
-| `stream` | `boolean` | `False` | When `true`, the response is a JSON stream of events. The final event contains the complete response, and has an `event_type` of `"stream-end"`. Streaming is beneficial for user interfaces that render the contents of the response piece by piece, as it gets generated. |
-| `temperature` | `float` | `0.3` |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2. |
-| `top_p` | `float` |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
-| `frequency_penalty` | `float` | `0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
-| `presence_penalty` | `float` |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
-| `seed` | `integer` |`None`   |If specified, the backend makes a best effort to sample tokens deterministically, such that repeated requests with the same seed and parameters should return the same result. However, determinism can't be guaranteed.|
-| `tools` | `list[Tool]` | `None` | A list of available tools (functions) that the model might suggest invoking before producing a text response. |
+The following contains details about Cohere Chat API.
 
-`response_format` and `tool_choice` aren't yet supported parameters for the Command R and Command R+ models.
-
-
-
-A System or User Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=system` or `role=user`. |
-|`content` |`string` |Required |Text input for the model to respond to. |
-
-
-An Assistant Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=assistant`|
-|`content` |`string` |Required |The contents of the assistant message. |
-|`tool_calls` |`array` |None |The tool calls generated by the model, such as function calls. |
-
-
-A Tool Message supports the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `role` | `enum` | Required | `role=tool`|
-|`content` |`string` |Required |The contents of the tool message. |
-|`tool_call_id` |`string` |None |Tool call that this message is responding to. |
-
-
-#### v1/chat/completions response schema
-
-The response payload is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | A unique identifier for the completion. |
-| `choices` | `array` | The list of completion choices the model generated for the input messages. |
-| `created` | `integer` | The Unix timestamp (in seconds) of when the completion was created. |
-| `model` | `string` | The model_id used for completion. |
-| `object` | `string` | chat.completion. |
-| `usage` | `object` | Usage statistics for the completion request. |
-
-The `choices` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `index` | `integer` | Choice index. |
-| `messages` or `delta` | `string` | Chat completion result in messages object. When streaming mode is used, delta key is used. |
-| `finish_reason` | `string` | The reason the model stopped generating tokens. |
-
-The `usage` object is a dictionary with the following fields:
-
-| Key | Type | Description |
-| --- | --- | --- |
-| `prompt_tokens` | `integer` | Number of tokens in the prompt. |
-| `completion_tokens` | `integer` | Number of tokens generated in the completion. |
-| `total_tokens` | `integer` | Total tokens. |
-
-
-#### Examples
-
-Request:
-
-```json
-    "messages": [
-        {
-        "role": "user",
-        "content": "What is the weather like in Boston?"
-        },
-            {
-                "role": "assistant",
-                "tool_calls": [
-                        {
-                            "id": "call_ceRrx0tP7bYPTClugKrOgvh4",
-                            "type": "function",
-                            "function": {
-                                "name": "get_current_weather",
-                                "arguments": "{\"location\":\"Boston\"}"
-                            }
-                        }
-                    ]
-            },
-            {
-                "role": "tool",
-                "content": "{\"temperature\":30}",
-                "tool_call_id": "call_ceRrx0tP7bYPTClugKrOgvh4"
-            }
-    ]
-```
-
-Response:
-
-```json
-    {
-        "id": "df23b9f7-e6bd-493f-9437-443c65d428a1",
-        "choices": [
-            {
-                "index": 0,
-                "finish_reason": "stop",
-                "message": {
-                    "role": "assistant",
-                    "content": "Right now, the weather in Boston is cool, with temperatures of around 30°F. Stay warm!"
-                }
-            }
-        ],
-        "created": 1711734274,
-        "model": "command-r",
-        "object": "chat.completion",
-        "usage": {
-            "prompt_tokens": 744,
-            "completion_tokens": 23,
-            "total_tokens": 767
-        }
-    }
-```
-
-### v1/chat 
 #### Request
 
 ```
@@ -300,7 +161,7 @@ Cohere Command R and Command R+ accept the following parameters for a `v1/chat` 
 |`temperature`   |`float`   |`0.3`   |Use a lower value to decrease randomness in the response. Randomness can be further maximized by increasing the value of the `p` parameter. Min value is 0, and max is 2.   |
 |`p`   |`float`   |`0.75`   |Use a lower value to ignore less probable options. Set to 0 or 1.0 to disable. If both p and k are enabled, p acts after k. min value of 0.01, max value of 0.99.|
 |`k`   |`float`   |`0`   |Specify the number of token choices the model uses to generate the next token. If both p and k are enabled, p acts after k. Min value is 0, max value is 500.|
-|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt is constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` are dropped to construct a prompt that fits within the model's context length limit. During this process the order of the documents and chat history are preserved. With `prompt_truncation` set to "OFF", no elements are dropped.|
+|`prompt_truncation`   |`enum string`   |`OFF`   |Accepts `AUTO_PRESERVE_ORDER`, `AUTO`, `OFF`. Dictates how the prompt is constructed. With `prompt_truncation` set to `AUTO_PRESERVE_ORDER`, some elements from `chat_history` and `documents` are dropped to construct a prompt that fits within the model's context length limit. During this process, the order of the documents and chat history are preserved. With `prompt_truncation` set to "OFF", no elements are dropped.|
 |`stop_sequences`  |`array of strings`  |`None`  |The generated text is cut at the end of the earliest occurrence of a stop sequence. The sequence is included the text.  |   
 |`frequency_penalty`   |`float`   |`0`  |Used to reduce repetitiveness of generated tokens. The higher the value, the stronger a penalty is applied to previously present tokens, proportional to how many times they have already appeared in the prompt or prior generation. Min value of 0.0, max value of 1.0.|
 |`presence_penalty`   |`float`   |`0`   |Used to reduce repetitiveness of generated tokens. Similar to `frequency_penalty`, except that this penalty is applied equally to all tokens that have already appeared, regardless of their exact frequencies. Min value of 0.0, max value of 1.0.|
@@ -792,19 +653,29 @@ Response:
 
 ##### More inference examples
 
-| **Sample Type**       | **Sample Notebook**                             |
+| **Package**       | **Sample Notebook**                             |
 |----------------|----------------------------------------|
 | CLI using CURL and Python web requests - Command R   | [command-r.ipynb](https://aka.ms/samples/cohere-command-r/webrequests)|
 | CLI using CURL and Python web requests - Command R+   | [command-r-plus.ipynb](https://aka.ms/samples/cohere-command-r-plus/webrequests)|
 | OpenAI SDK (experimental)    | [openaisdk.ipynb](https://aka.ms/samples/cohere-command/openaisdk)                                    |
 | LangChain      | [langchain.ipynb](https://aka.ms/samples/cohere/langchain)                                |
 | Cohere SDK     | [cohere-sdk.ipynb](https://aka.ms/samples/cohere-python-sdk)                                 |
+| LiteLLM SDK    | [litellm.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/litellm.ipynb) |
+
+##### Retrieval Augmented Generation (RAG) and tool use samples
+**Description** | **Package** | **Sample Notebook**
+--|--|--
+Create a local Facebook AI similarity search (FAISS) vector index, using Cohere embeddings - Langchain|`langchain`, `langchain_cohere`|[cohere_faiss_langchain_embed.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere_faiss_langchain_embed.ipynb)
+Use Cohere Command R/R+ to answer questions from data in local FAISS vector index - Langchain|`langchain`, `langchain_cohere`|[command_faiss_langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_faiss_langchain.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Langchain|`langchain`, `langchain_cohere`|[cohere-aisearch-langchain-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-langchain-rag.ipynb)
+Use Cohere Command R/R+ to answer questions from data in AI search vector index - Cohere SDK| `cohere`, `azure_search_documents`|[cohere-aisearch-rag.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/cohere-aisearch-rag.ipynb)
+Command R+ tool/function calling, using LangChain|`cohere`, `langchain`, `langchain_cohere`|[command_tools-langchain.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/foundation-models/cohere/command_tools-langchain.ipynb)
 
 ## Cost and quotas
 
-### Cost and quota considerations for models deployed as a service
+### Cost and quota considerations for models deployed as a serverless API
 
-Cohere models deployed as a service are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
+Cohere models deployed as a serverless API with pay-as-you-go billing are offered by Cohere through the Azure Marketplace and integrated with Azure AI Studio for use. You can find the Azure Marketplace pricing when deploying the model.
 
 Each time a project subscribes to a given offer from the Azure Marketplace, a new resource is created to track the costs associated with its consumption. The same resource is used to track costs associated with inference; however, multiple meters are available to track each scenario independently.
 
@@ -814,9 +685,10 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 ## Content filtering
 
-Models deployed as a service with pay-as-you-go are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
+Models deployed as a serverless API with pay-as-you-go billing are protected by [Azure AI Content Safety](../../ai-services/content-safety/overview.md). With Azure AI content safety, both the prompt and completion pass through an ensemble of classification models aimed at detecting and preventing the output of harmful content. The content filtering system detects and takes action on specific categories of potentially harmful content in both input prompts and output completions. Learn more about [content filtering here](../concepts/content-filtering.md).
 
-## Next steps
+## Related content
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

@@ -3,9 +3,9 @@ title: 'Deploy Bastion: CLI'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using CLI
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 06/08/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -43,7 +43,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 This section helps you deploy Azure Bastion using Azure CLI.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 1. If you don't already have a virtual network, create a resource group and a virtual network using [az group create](/cli/azure/group#az-group-create) and [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create).
@@ -72,7 +72,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 1. Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a new Azure Bastion resource for your virtual network. It takes about 10 minutes for the Bastion resource to create and deploy.
 
-   The following example deploys Bastion using the **Basic** SKU tier. The SKU determines the features that your Bastion deployment supports. You can also deploy using the **Standard** SKU. If you don't specify a SKU in your command, the SKU defaults to Standard.  For more information, see [Bastion SKUs](configuration-settings.md#skus).
+   The following example deploys Bastion using the **Basic** SKU tier. You can also deploy using other SKUs. The SKU determines the features that your Bastion deployment supports. If you don't specify a SKU in your command, the SKU defaults to Standard. For more information, see [Bastion SKUs](configuration-settings.md#skus).
 
    ```azurecli-interactive
    az network bastion create --name VNet1-bastion --public-ip-address VNet1-ip --resource-group TestRG1 --vnet-name VNet1 --location eastus --sku Basic
@@ -82,7 +82,7 @@ This section helps you deploy Azure Bastion using Azure CLI.
 
 If you don't already have VMs in your virtual network, you can create a VM using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md), or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md) 
 
-You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+You can use any of the following articles, or the steps in the following section, to help you connect to a VM. Some connection types require the Bastion [Standard SKU or higher](configuration-settings.md#skus).
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 

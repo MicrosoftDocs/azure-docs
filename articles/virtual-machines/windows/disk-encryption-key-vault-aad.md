@@ -2,7 +2,7 @@
 title: Create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID (previous release)
 description: In this article, learn how to create and configure a key vault for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
@@ -26,7 +26,7 @@ Creating and configuring a key vault for use with Azure Disk Encryption with Mic
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 
-See the main [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md) article for steps on how to [Install tools and connect to Azure](disk-encryption-key-vault.md#install-tools-and-connect-to-azure).
+See the main [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.yml) article for steps on how to [Install tools and connect to Azure](disk-encryption-key-vault.yml#install-tools-and-connect-to-azure).
 
 > [!Note]
 > The steps in this article are automated in the [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) and [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).

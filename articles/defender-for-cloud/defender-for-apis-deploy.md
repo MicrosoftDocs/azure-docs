@@ -45,9 +45,6 @@ When selecting a plan, consider these points:
 
 To select the best plan for your subscription from the Microsoft Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/), follow these steps and choose the plan that matches your subscriptions’ API traffic requirements:  
 
-> [!NOTE]
-> The Defender for Cloud pricing page will be updated with the pricing information and pricing calculators by end of March 2024. In the meantime, use this document to select the correct Defender for APIs entitlements and enable the plan.
-
 1. Sign into the [portal](https://portal.azure.com/), and in Defender for Cloud, select **Environment settings**.
 
 1. Select the subscription that contains the managed APIs that you want to protect.

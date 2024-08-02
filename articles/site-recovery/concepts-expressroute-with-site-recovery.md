@@ -4,7 +4,7 @@ description: Describes how to use Azure ExpressRoute with the Azure Site Recover
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: ankitadutta
@@ -35,8 +35,8 @@ In case you use proxy at on-premises and wish to use ExpressRoute for replicatio
 - Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user context.
 - Open Internet Explorer in system user context by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Add proxy settings in IE
-- In the bypass list, add the Azure storage URL *.blob.core.windows.net
+- Add proxy settings in Internet Explorer
+- In the bypass list, add the Azure storage URL `*.blob.core.windows.net`
 
 This will ensure that only replication traffic flows through ExpressRoute while the communication can go through proxy.
 

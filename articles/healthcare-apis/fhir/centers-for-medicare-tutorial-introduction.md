@@ -2,7 +2,7 @@
 title: Tutorial - Centers for Medicare and Medicaid Services (CMS) introduction - FHIR service
 description: Introduces a series of tutorials that pertains to the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule.  
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
@@ -38,7 +38,7 @@ The FHIR service has the following capabilities to help you configure your datab
 * [Support for RESTful interactions](fhir-features-supported.md)
 * [Storing and validating profiles](validation-against-profiles.md)
 * [Defining and indexing custom search parameters](how-to-do-custom-search.md)
-* [Converting data](../data-transformation/convert-data.md)
+* [Converting data](convert-data-overview.md)
 
 ## Patient Access API Implementation Guides
 

@@ -2,12 +2,12 @@
 title: How to use Synapse notebooks
 description: In this article, you learn how to create and develop Synapse notebooks to do data preparation and visualization.
 services: synapse analytics 
-author: ruixinxu 
-ms.service: synapse-analytics 
+author: JeneZhang 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual 
 ms.subservice: spark
 ms.date: 05/08/2021
-ms.author: ruxu 
+ms.author: jingzh 
 ms.custom: devx-track-python
 ---
 
@@ -143,7 +143,7 @@ The IntelliSense features are at different levels of maturity for different lang
 
 <h3 id="code-snippets">Code Snippets</h3>
 
-Synapse notebooks provide code snippets that make it easier to enter common used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
+Synapse notebooks provide code snippets that make it easier to enter commonly used code patterns, such as configuring your Spark session, reading data as a Spark DataFrame, or drawing charts with matplotlib etc.
 
 Snippets appear in [Shortcut keys of IDE style IntelliSense](#ide-style-intellisense) mixed with other suggestions. The code snippets contents align with the code cell language. You can see available snippets by typing **Snippet** or any keywords appear in the snippet title in the code cell editor. For example, by typing **read** you can see the list of snippets to read data from various data sources.
 
@@ -240,6 +240,9 @@ The Outlines (Table of Contents) presents the first markdown header of any markd
 
 You can run the code cells in your notebook individually or all at once. The status and progress of each cell is represented in the notebook.
 
+> [!NOTE] 
+> Deleting a notebook will not automatically cancel any jobs that are currently running. If you need to cancel a job, you should visit the Monitoring Hub and cancel it manually.
+
 ### Run a cell
 
 There are several ways to run the code in a cell.
@@ -306,7 +309,7 @@ You can select the **Variables** button on the notebook command bar to open or h
 
 ### Cell status indicator
 
-A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time are shown and kept there for future reference.
+A step-by-step cell execution status is displayed beneath the cell to help you see its current progress. Once the cell run is complete, an execution summary with the total duration and end time is shown and kept there for future reference.
 
 ![Screenshot of cell-status](./media/apache-spark-development-using-notebooks/synapse-cell-status.png)
 
@@ -561,7 +564,7 @@ You can use familiar Jupyter magic commands in Synapse notebooks. Review the fol
 
 
 Available line magics:
-[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+[%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%history](#view-the-history-of-input-commands), [%run](#notebook-reference), [%load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Available cell magics:
 [%%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%%timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%%capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%%writefile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%%sql](#use-multiple-languages), [%%pyspark](#use-multiple-languages), [%%spark](#use-multiple-languages), [%%csharp](#use-multiple-languages), [%%html](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%%configure](#spark-session-configuration-magic-command)
@@ -602,7 +605,7 @@ Notice that [%run](./apache-spark-development-using-notebooks.md) and [mssparkut
 ### Conclusion 
 
 * If disabled, always run **published** version. 
-* If enabled, priority is: edited / new > committed > published. 
+* If enabled, the reference run will always adopt the current version of notebook you can see from the notebook UX.
 
 
 ## Active session management 
@@ -651,6 +654,22 @@ customizedLogger.warning("customized warning message")
 customizedLogger.error("customized error message")
 customizedLogger.critical("customized critical message")
 ```
+
+## View the history of input commands
+
+Synapse notebook support magic command ```%history``` to print the input command history that executed in the current session, comparing to the standard Jupyter Ipython command the ```%history``` works for multiple languages context in notebook. 
+
+``` %history [-n] [range [range ...]] ```
+
+For options:
+- **-n**: Print execution number.
+
+Where range can be:
+- **N**: Print code of **Nth** executed cell.
+- **M-N**: Print code from **Mth** to **Nth** executed cell.
+
+Example:
+- Print input history from 1st to 2nd executed cell: ``` %history -n 1-2 ```
 
 ## Integrate a notebook
 

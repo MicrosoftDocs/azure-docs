@@ -1,13 +1,15 @@
 ---
 title: Use advanced networking in Azure Lab Services | Microsoft Docs
 description: Create an Azure Lab Services lab plan with advanced networking.  Create two labs and verify they share same virtual network when published.
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: tutorial 
 ms.date: 08/28/2023
 ms.custom: template-tutorial
 ---
 
 # Tutorial: Set up lab to lab communication with advanced networking
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [update focused article](includes/lab-services-new-update-focused-article.md)]
 
@@ -42,7 +44,7 @@ In this tutorial, you learn how to:
 
 ## Create a resource group
 
-[!INCLUDE [resource group definition](../../includes/resource-group.md)]
+[!INCLUDE [resource group definition](~/reusable-content/ce-skilling/azure/includes/resource-group.md)]
 
 The following steps show how to use the Azure portal to [create a resource group](../azure-resource-manager/management/manage-resource-groups-portal.md).  For simplicity, you create all resources for this tutorial in the same resource group.  
 

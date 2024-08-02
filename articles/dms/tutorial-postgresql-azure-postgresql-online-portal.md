@@ -6,13 +6,17 @@ author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: randolphwest
 ms.date: 03/31/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
 ---
 
 # Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS (classic) via the Azure portal
+
+[!INCLUDE [postgresql-migration-service](includes/postgresql-migration-service.md)]
+
+For more information about Azure Database Migration Service, see the article [What is Azure Database Migration Service?](./dms-overview.md).
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](../postgresql/index.yml) with minimal downtime to the application. In this tutorial, you migrate the **listdb** sample database from an on-premises instance of PostgreSQL 13.10 to Azure Database for PostgreSQL by using the online migration activity in Azure Database Migration Service.
 
@@ -107,9 +111,9 @@ To complete all the database objects like table schemas, indexes and stored proc
    > [!NOTE]
    > The migration service internally handles the enable/disable of foreign keys and triggers to ensure a reliable and robust data migration. As a result, you do not have to worry about making any modifications to the target database schema.
 
-[!INCLUDE [resource-provider-register](../../includes/database-migration-service-resource-provider-register.md)]
+[!INCLUDE [resource-provider-register](./includes/database-migration-service-resource-provider-register.md)]
 
-[!INCLUDE [instance-create](../../includes/database-migration-service-instance-create.md)]   
+[!INCLUDE [instance-create](./includes/database-migration-service-instance-create.md)]   
 
 
 ## Create a migration project

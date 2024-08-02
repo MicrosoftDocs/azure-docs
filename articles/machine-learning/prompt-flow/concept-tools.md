@@ -3,15 +3,15 @@ title: What are tools in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how tools are the fundamental building blocks of a flow in Azure Machine Learning prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
-ms.date: 06/30/2023
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
+ms.date: 06/28/2024
 ---
 
 # Tools in prompt flow?

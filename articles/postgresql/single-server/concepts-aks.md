@@ -1,7 +1,7 @@
 ---
 title: Connect to Azure Kubernetes Service - Azure Database for PostgreSQL - Single Server
 description: Learn about connecting Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Single Server
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: sunila
@@ -46,8 +46,8 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 A connection pooler minimizes the cost and time associated with creating and closing new connections to the database. The pool is a collection of connections that can be reused.
 
-There are multiple connection poolers you can use with PostgreSQL. One of these is [PgBouncer](https://pgbouncer.github.io/). In the Microsoft Container Registry, we provide a lightweight containerized PgBouncer that can be used in a sidecar to pool connections from AKS to Azure Database for PostgreSQL. Visit the [docker hub page](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) to learn how to access and use this image.
+There are multiple connection poolers you can use with PostgreSQL. One of these is [PgBouncer](https://pgbouncer.github.io/). In the Microsoft Container Registry, we provide a lightweight containerized PgBouncer that can be used in a sidecar to pool connections from AKS to Azure Database for PostgreSQL. Visit the [docker hub page](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) to learn how to access and use this image.
 
 ## Next steps
 
-Create an AKS cluster [using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md).
+Create an AKS cluster [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).

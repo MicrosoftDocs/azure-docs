@@ -1,12 +1,12 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 03/21/2024
+ms.date: 05/13/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: robb
+author: rboucher
 ms.author: robb
-ms.service: cache
+ms.service: azure-cache-redis
 ---
 
 # Azure Cache for Redis monitoring data reference
@@ -23,13 +23,13 @@ For more details and information about the supported metrics for Microsoft.Cache
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redis-metrics-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cache-redis-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Cache/redisEnterprise
 The following table lists the metrics available for the Microsoft.Cache/redisEnterprise resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Cache/redisEnterprise](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redisenterprise-metrics-include.md)]
+[!INCLUDE [Microsoft.Cache/redisEnterprise](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cache-redisenterprise-metrics-include.md)]
 
 <a name="available-metrics-and-reporting-intervals"></a>
 <a name="create-your-own-metrics"></a>
@@ -73,8 +73,10 @@ The following list provides details and more information about the supported Azu
     - **RDB** – when there's an issue related to RDB persistence
     - **Import** – when there's an issue related to Import RDB
     - **Export** – when there's an issue related to Export RDB
-    - **AADAuthenticationFailure** (preview) - when there's an authentication failure using Microsoft Entra access token
-    - **AADTokenExpired** (preview) - when a Microsoft Entra access token used for authentication isn't renewed and it expires.
+    - **AADAuthenticationFailure** - deprecated
+    - **AADTokenExpired** - deprecated
+    - **MicrosoftEntraAuthenticationFailure** - when there's an authentication failure using Microsoft Entra access token
+    - **MicrosoftEntraTokenExpired** - when a Microsoft Entra access token used for authentication isn't renewed and it expires
 - Evicted Keys
   - The number of items evicted from the cache during the specified reporting interval because of the `maxmemory` limit.
   - This number maps to `evicted_keys` from the Redis INFO command.
@@ -96,13 +98,13 @@ The following list provides details and more information about the supported Azu
     - This metric is only emitted _from the geo-primary_ cache instance. On the geo-secondary instance, this metric has no value.
     - This metric is only available in the Premium tier for caches with geo-replication enabled.
   - Geo Replication Full Sync Event Finished
-    - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+    - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/#how-redis-replication-works) for a more detailed explanation.
     - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
     - This metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - This metric is only available in the Premium tier for caches with geo-replication enabled.
 
   - Geo Replication Full Sync Event Started
-    - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
+    - Depicts the start of full synchronization between geo-replicated caches. When there are many writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/latest/operate/oss_and_stack/management/replication/#how-redis-replication-works) for a more detailed explanation.
     - The metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
     - The metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - The metric is only available in the Premium tier for caches with geo-replication enabled.
@@ -131,7 +133,11 @@ The following list provides details and more information about the supported Azu
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
 - Total Keys  
-  - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
+  - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command.
+    
+  > [!IMPORTANT]
+  > Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
+  
 - Total Operations
   - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub, there are no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there are `Total Operations` metrics that reflect the cache usage for pub/sub operations.
 - Used Memory
@@ -145,10 +151,10 @@ The following list provides details and more information about the supported Azu
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Cache/redis
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redis-logs-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cache-redis-logs-include.md)]
 
 ### Supported resource logs for Microsoft.Cache/redisEnterprise/databases
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redisenterprise-databases-logs-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cache-redisenterprise-databases-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

@@ -21,7 +21,7 @@ Use the Custom Vision client library for .NET to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-Reference documentation [(training)](/javascript/api/@azure/cognitiveservices-customvision-training/) [(prediction)](/javascript/api/@azure/cognitiveservices-customvision-prediction/) | Library source code [(training)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-training) [(prediction)](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-customvision-prediction) | Package (npm) [(training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prediction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Samples](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
+Reference documentation [(training)](/javascript/api/@azure/cognitiveservices-customvision-training/) [(prediction)](/javascript/api/@azure/cognitiveservices-customvision-prediction/) | Package (npm) [(training)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-training) [(prediction)](https://www.npmjs.com/package/@azure/cognitiveservices-customvision-prediction) | [Samples](/samples/browse/?products=azure&terms=custom%20vision&languages=javascript)
 
 
 ## Prerequisites

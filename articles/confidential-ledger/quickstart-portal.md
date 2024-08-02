@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger through the Az
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on Azure confidential ledger and examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 In this quickstart, you create a confidential ledger with the [Azure portal](https://portal.azure.com). 
 

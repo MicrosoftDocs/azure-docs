@@ -2,7 +2,7 @@
 title:  Overview of FHIR search in Azure Health Data Services
 description: This article describes an overview of FHIR search that is implemented in Azure Health Data Services
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/18/2022
@@ -118,6 +118,7 @@ For more information, see the HL7 [Composite Search Parameters](https://www.hl7.
 |  `:below` (token) | No                 | No                        |
 |  `:above` (token) | No                 | No                        |
 |  `:not-in` (token) | No                | No                        |
+|  `:identifier` |No                     | No                        |
 
 For search parameters that have a specific order (numbers, dates, and quantities), you can use a [prefix](https://www.hl7.org/fhir/search.html#prefix) before the parameter value to refine the search criteria (for example, `Patient?_lastUpdated=gt2022-08-01` where the prefix `gt` means "greater than"). The FHIR service in Azure Health Data Services supports all prefixes defined in the FHIR standard.
 

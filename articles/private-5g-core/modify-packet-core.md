@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.custom: template-how-to
@@ -32,7 +32,7 @@ If you want to modify a packet core instance's local access configuration, follo
 
 ## Plan a maintenance window
 
-The following changes will trigger components of the packet core software to restart, during which your service will be unavailable for approximately 8-12 minutes:
+The following changes trigger components of the packet core software to restart, during which your service will be unavailable for approximately 8-12 minutes:
 
 - Attaching a new or existing data network to the packet core instance.
 - Changing the following configuration on an attached data network:
@@ -40,24 +40,25 @@ The following changes will trigger components of the packet core software to res
   - Static UE IP pool prefixes
   - Network address and port translation parameters
   - DNS addresses
-- Changing the UE Maximum Transmission Unit (MTU) signaled by the packet core.
+- Changing the UE maximum transmission unit (MTU) signaled by the packet core.
+- Changing the non-access stratum (NAS) encryption type.
 
-The following changes will trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
+The following changes trigger the packet core to reinstall, during which your service will be unavailable for up to two hours:
 
 - Detaching a data network from the packet core instance.
 - Changing the packet core instance's custom location.
-- Changing the N2, N3 or N6 interface configuration on an attached data network.
+- Changing the N2, N3 or N6 interface configuration on an attached data network, including Bidirectional Forwarding Detection (BFD) endpoint configuration.
 
 The following changes require you to manually perform a reinstall, during which your service will be unavailable for up to two hours, before they take effect:
 
-- Changing access network configuration.
+- Changing access network configuration, including Bidirectional Forwarding Detection (BFD) endpoint configuration.
 - Enabling [monitoring UE usage with Event Hubs](ue-usage-event-hub.md).
 
 If you're making any of these changes to a healthy packet core instance, we recommend running this process during a maintenance window to minimize the impact on your service. Changes not listed here should not trigger a service interruption, but we recommend using a maintenance window in case of misconfiguration.
 
 ## Back up deployment information
 
-The following list contains the data that will be lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance. If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you can skip this step and proceed to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
+The following list contains the data that is lost over a packet core reinstall. If you're making a change that requires a reinstall, back up any information you'd like to preserve; after the reinstall, you can use this information to reconfigure your packet core instance. If your packet core instance is in **Uninstalled**, **Uninstalling** or **Failed** state, or if you're connecting an ASE device for the first time, you can skip this step and proceed to [Select the packet core instance to modify](#select-the-packet-core-instance-to-modify).
 
 1. Depending on your authentication method when signing in to the [distributed tracing](distributed-tracing.md) and [packet core dashboards](packet-core-dashboards.md):
     - If you use Microsoft Entra ID, save a copy of the Kubernetes Secret Object YAML file you created in [Create Kubernetes Secret Objects](enable-azure-active-directory.md#create-kubernetes-secret-objects).
@@ -81,6 +82,11 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
+1. Verify the system is healthy before making any changes.
+   - Select **Resource Health** under the **Help** section on the left side.
+   - Check that the resource is healthy and there are no unexpected alerts.
+   - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+   - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 1. Select **Modify packet core**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
@@ -101,6 +107,7 @@ To modify the packet core and/or access network configuration:
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
    - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
    - If you want to enable UE usage monitoring, use the information collected in [Collect UE usage tracking values](collect-required-information-for-a-site.md#collect-ue-usage-tracking-values) to fill out the **Azure Event Hub Namespace**, **Event Hub name** and **User Assigned Managed Identity** values.
+   - If you want to change the non-access stratum (NAS) encryption type, use the **Advanced configuration** tab. You can set up to three levels of preference. For example, you could set the first preference to `NEA2/EEA2`, the second preference to `NEA1/EEA1` and the third preference to `none` to ensure that one of the two encryption algorithms is used and NEA0/EEA0 (null encryption) is not permitted. This prevents UEs that do not support NAS encryption from registering with the network.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to configure a new or existing data network and attach it to the packet core instance, go to [Attach a data network](#attach-a-data-network).
@@ -120,11 +127,8 @@ To configure a new or existing data network and attach it to your packet core in
     :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-attach.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. The option to attach a data network is highlighted.":::
 
 1. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
-
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
-
 1. Select **Attach**.
-1. Repeat the steps above for each additional data network you want to configure.
+1. Repeat the preceding steps for each additional data network you want to configure.
 1. Choose the next step:
    - If you've finished modifying the packet core instance, go to [Submit and verify changes](#submit-and-verify-changes).
    - If you want to make changes to a data network that's already attached to the packet core instance, go to [Modify attached data network configuration](#modify-attached-data-network-configuration).
@@ -140,9 +144,6 @@ To make changes to a data network attached to your packet core instance:
     :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-modify.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data networks tab. A data network is highlighted.":::
 
 1. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields in the **Modify attached data network** window.
-
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-modify-data-network.png" alt-text="Screenshot of the Azure portal showing the Modify attached data network screen.":::
-
 1. Select **Modify**. You should see your changes under the **Data networks** tab.
 1. Go to [Submit and verify changes](#submit-and-verify-changes).
 
@@ -155,7 +156,7 @@ To remove a data network attached to the packet core:
 
 :::image type="content" source="media/modify-packet-core/modify-packet-core-delete-attached-data-network.png" alt-text="Screenshot of the Azure portal showing a selected data network and delete button.":::
 
-This change will require a manual packet core reinstall to take effect, see [Next steps](#next-steps).
+This change requires a manual packet core reinstall to take effect. See [Next steps](#next-steps).
 
 ## Submit and verify changes
 
@@ -168,6 +169,12 @@ This change will require a manual packet core reinstall to take effect, see [Nex
 
     - If you made changes to the packet core configuration, check that the fields under **Connected ASE device**, **Azure Arc Custom Location** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, check that the fields under **Data networks** contain the updated information.
+  
+1. Select **Resource Health** under the **Help** section on the left side.
+
+    - Check that the resource is healthy and there are no unexpected alerts.
+    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
+    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
 
 ## Remove data network resource
 

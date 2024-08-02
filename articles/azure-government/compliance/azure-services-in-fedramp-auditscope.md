@@ -7,7 +7,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/05/2023
+ms.date: 06/26/2024
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: January 2024*
+*Last updated: June 2024*
 
 ### Terminology used
 
@@ -74,7 +74,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Entra Domain Services](../../active-directory-domain-services/index.yml) | &#x2705; | &#x2705; |
 | [Microsoft Entra provisioning service](../../active-directory/app-provisioning/how-provisioning-works.md)| &#x2705; | &#x2705; |
 | [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
-| [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; |
+| [Azure Health Data Services](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; |
 | [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; |
@@ -88,7 +88,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Fluid Relay](../../azure-fluid-relay/index.yml) | &#x2705; | &#x2705; |
 | [Azure for Education](https://azureforeducation.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Information Protection](/azure/information-protection/) | &#x2705; | &#x2705; |
-| [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; |
 | [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; |
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
@@ -214,7 +214,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; |
-| [Power Virtual Agents](/power-virtual-agents/) | &#x2705; | &#x2705; |
+| [Microsoft Copilot Studio](/power-virtual-agents/) | &#x2705; | &#x2705; |
 | [Private Link](../../private-link/index.yml) | &#x2705; | &#x2705; |
 | [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; |
 | [Resource Graph](../../governance/resource-graph/index.yml) | &#x2705; | &#x2705; |
@@ -257,7 +257,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: November 2023*
+*Last updated: June 2024*
 
 ### Terminology used
 
@@ -300,10 +300,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Database for PostgreSQL](../../postgresql/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Databricks](/azure/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Information Protection](/azure/information-protection/) **&ast;&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Kubernetes Service (AKS)](../../aks/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md) and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure OpenAI](../../ai-services/openai/index.yml) | &#x2705; | &#x2705; |  |  |  |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Policy's guest configuration](../../governance/machine-configuration/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](../../openshift/index.yml) | &#x2705; | &#x2705; | &#x2705; |  |  |
@@ -411,7 +412,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Power BI](/power-bi/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Power BI Embedded](/power-bi/developer/embedded/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Data Integrator for Dataverse](/power-platform/admin/data-integrator) (formerly Dynamics 365 Integrator App) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Power Virtual Agents](/power-virtual-agents/) | &#x2705; | &#x2705; | &#x2705; | | |
+| [Microsoft Copilot Studio](/power-virtual-agents/) | &#x2705; | &#x2705; | &#x2705; | | |
 | [Private Link](../../private-link/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Resource Graph](../../governance/resource-graph/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

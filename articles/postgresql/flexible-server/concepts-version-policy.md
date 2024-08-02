@@ -1,12 +1,13 @@
 ---
 title: Versioning policy
 description: Describes the policy around Postgres major and minor versions in Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server.
-ms.service: postgresql
+author: AlicjaKucharczyk
+ms.author: alkuchar
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
-ms.author: alkuchar
-author: AlicjaKucharczyk
-ms.date: 2/1/2024
 ---
 
 # Azure Database for PostgreSQL - Flexible Server versioning policy

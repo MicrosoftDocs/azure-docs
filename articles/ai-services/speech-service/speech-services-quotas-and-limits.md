@@ -2,12 +2,13 @@
 title: Speech service quotas and limits
 titleSuffix: Azure AI services
 description: Quick reference, detailed description, and best practices on the quotas and limits for the Speech service in Azure AI services.
-author: alexeyo26
+author: eric-urban
+ms.author: eur
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: conceptual
-ms.date: 1/22/2024
-ms.author: alexeyo
+ms.date: 5/21/2024
+ms.reviewer: alexeyo
 ---
 
 # Speech service quotas and limits
@@ -41,6 +42,14 @@ You can use real-time speech to text with the [Speech SDK](speech-sdk.md) or the
 | Concurrent request limit - base model endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Concurrent request limit - custom endpoint | 1 <br/><br/>This limit isn't adjustable. | 100 (default value)<br/><br/>The rate is adjustable for Standard (S0) resources. See [more explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#speech-to-text-increase-real-time-speech-to-text-concurrent-request-limit). |
 | Max audio length for [real-time diarization](./get-started-stt-diarization.md). | N/A | 240 minutes per file  |
+
+#### Fast transcription
+
+| Quota | Free (F0) | Standard (S0) |
+|-----|-----|-----|
+| Maximum audio input file size | N/A | 200 MB |
+| Maximum audio length | N/A | 120 minutes per file  |
+| Maximum requests per minute | N/A | 300  |
 
 #### Batch transcription
 
@@ -86,10 +95,10 @@ These limits aren't adjustable. For more information on batch synthesis latency,
 
 | Quota | Free (F0) | Standard (S0) |
 |-----|-----|-----|
-|REST API limit | Not available for F0 | 50 requests per 5 seconds |
-| Max JSON payload size to create a synthesis job  | N/A | 500 kilobytes |
-| Concurrent active synthesis jobs | N/A | 200 |
-| Max number of text inputs per synthesis job | N/A | 1000 |
+|REST API limit | Not available for F0 | 100 requests per 10 seconds |
+| Max JSON payload size to create a synthesis job  | N/A | 2 megabytes |
+| Concurrent active synthesis jobs | N/A | No limit |
+| Max number of text inputs per synthesis job | N/A | 10000 |
 |Max time to live for a synthesis job since it being in the final state  | N/A | Up to 31 days (specified using properties) |
 
 #### Custom neural voice - professional
@@ -115,11 +124,17 @@ The limits in this table apply per Speech resource when you create a personal vo
 | REST API limit (not including speech synthesis) | Not available for F0 | 50 requests per 10 seconds |
 | Max number of transactions per second (TPS) for speech synthesis|Not available for F0  |200 transactions per second (TPS) (default value)  |
 
+#### Batch text to speech avatar 
+
+| Quota | Free (F0)| Standard (S0) |
+|-----|-----|-----|
+| REST API limit  | Not available for F0 | 2 requests per 1 minute  |
+
 #### Real-time text to speech avatar
 
 | Quota | Free (F0)| Standard (S0) |
 |-----|-----|-----|
-| New connections per minute | Not available for F0 | Two new connections per minute |
+| New connections per minute | Not available for F0 | 2 new connections per minute |
 
 #### Audio Content Creation tool
 
@@ -297,3 +312,14 @@ Initiate the increase of the limit for concurrent requests for your resource, or
    - Any other required information.
 1. On the **Review + create** tab, select **Create**.
 1. Note the support request number in Azure portal notifications. You're contacted shortly about your request.
+
+### Text to speech avatar: increase new connections limit
+
+To increase the limit of new connections per minute for text to speech avatar, contact your sales representative to create a [ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) with the following information:
+
+- Speech resource URI
+- Requested new limitation to increase to
+- Justification for the increase
+- Starting date for the increase
+- Ending date for the increase
+- Prebuilt avatar or custom avatar

@@ -6,12 +6,11 @@ summary: Learn how to use Azure Virtual Network Manager to manage virtual networ
 metadata:
   title: Azure Virtual Network Manager documentation 
   description: Learn about Azure Virtual Network Manager
-  ms.service: virtual-network-manager 
+  ms.service: azure-virtual-network-manager
   ms.topic: landing-page 
   author: mbender-ms 
   ms.author: mbender 
-  ms.date: 08/15/2023
-
+  ms.date: 06/26/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -113,7 +112,15 @@ landingContent:
         links:
           - text: Event log options for Azure Virtual Network Manager
             url: concept-event-logs.md
+      - linkListType: overview
+        links:
+          - text: What is Virtual Network Verifier?
+            url: concept-virtual-network-verifier.md
       - linkListType: how-to-guide
         links:
           - text: Configure event logs for Azure Virtual Network Manager
             url: how-to-configure-event-logs.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Verify resource reachability with Virtual Network Verifier
+            url: how-to-verify-reachability-with-virtual-network-verifier.md

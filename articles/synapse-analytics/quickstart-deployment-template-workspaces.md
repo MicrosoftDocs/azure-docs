@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Synapse workspace Azure Resource Manager template (ARM template)'
 description: Learn how to create a Synapse workspace by using Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
@@ -15,7 +15,7 @@ ms.date: 02/04/2022
 
 This Azure Resource Manager (ARM) template will create an Azure Synapse workspace with underlying Data Lake Storage. The Azure Synapse workspace is a securable collaboration boundary for analytics processes in Azure Synapse Analytics.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -25,7 +25,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To create an Azure Synapse workspace, a user must have **Azure Contributor** role and **User Access Administrator** permissions, or the **Owner** role in the subscription. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+To create an Azure Synapse workspace, a user must have **Azure Contributor** role and **User Access Administrator** permissions, or the **Owner** role in the subscription. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). 
 
 ## Review the template
 
@@ -58,7 +58,7 @@ The template defines two resources:
    - **Create**: Select.
 
 1. Once deployed, additional permissions are required. 
-- In the Azure portal, assign other users of the workspace to the **Contributor** role in the workspace. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md). 
+- In the Azure portal, assign other users of the workspace to the **Contributor** role in the workspace. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml). 
 - Assign other users the appropriate **[Synapse RBAC roles](security/synapse-workspace-synapse-rbac-roles.md)** using Synapse Studio.
 - A member of the **Owner** role of the Azure Storage account must assign the **Storage Blob Data Contributor** role to the Azure Synapse workspace MSI and other users.
 

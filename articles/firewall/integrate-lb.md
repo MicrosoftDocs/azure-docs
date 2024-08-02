@@ -3,9 +3,9 @@ title: Integrate Azure Firewall with Azure Standard Load Balancer
 description: You can integrate an Azure Firewall into a virtual network with an Azure Standard Load Balancer (either public or internal).
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 06/14/2024
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 You can integrate an Azure Firewall into a virtual network with an Azure Standard Load Balancer (either public or internal). 
 
-The preferred design is to integrate an internal load balancer with your Azure firewall, as this is a much simpler design. You can use a public load balancer if you already have one deployed and you want to keep it in place. However, you need to be aware of an asymmetric routing issue that can break functionality with the public load balancer scenario.
+The preferred design is to integrate an internal load balancer with your Azure firewall, as this is a simpler design. You can use a public load balancer if you already have one deployed and you want to keep it in place. However, you need to be aware of an asymmetric routing issue that can break functionality with the public load balancer scenario.
 
 For more information about Azure Load Balancer, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -30,7 +30,7 @@ Asymmetric routing is where a packet takes one path to the destination and takes
 When you deploy an Azure Firewall into a subnet, one step is to create a default route for the subnet directing packets through the firewall's private IP address located on the AzureFirewallSubnet. For more information, see [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md#create-a-default-route).
 
 When you introduce the firewall into your load balancer scenario, you want your Internet traffic to come in through your firewall's public IP address. From there, the firewall applies its firewall rules and NATs the packets to your load balancer's public IP address. This is where the problem occurs. Packets arrive on the firewall's public IP address, but return to the firewall via the private IP address (using the default route).
-To avoid this problem, create an additional host route for the firewall's public IP address. Packets going to the firewall's public IP address are routed via the Internet. This avoids taking the default route to the firewall's private IP address.
+To avoid this problem, create another host route for the firewall's public IP address. Packets going to the firewall's public IP address are routed via the Internet. This avoids taking the default route to the firewall's private IP address.
 
 :::image type="content" source="media/integrate-lb/Firewall-LB-asymmetric.png" alt-text="Diagram of asymmetric routing." lightbox="media/integrate-lb/Firewall-LB-asymmetric.png":::
 ### Route table example
@@ -58,7 +58,7 @@ So, you can deploy this scenario similar to the public load balancer scenario, b
 The virtual machines in the backend pool can have outbound Internet connectivity through the Azure Firewall. Configure a user defined route on the virtual machine's subnet with the firewall as the next hop.
 
 
-## Additional security
+## Extra security
 
 To further enhance the security of your load-balanced scenario, you can use network security groups (NSGs).
 

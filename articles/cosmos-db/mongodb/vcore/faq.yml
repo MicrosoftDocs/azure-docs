@@ -1,29 +1,29 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions
-  titleSuffix: Azure Cosmos DB for MongoDB vCore
-  description: Get answers to frequently asked questions about Azure Cosmos DB for MongoDB vCore.
+  titleSuffix: Azure Cosmos DB for MongoDB (vCore)
+  description: Get answers to frequently asked questions about vCore-based Azure Cosmos DB for MongoDB.
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: mjbrown
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: faq
   ms.date: 02/23/2024
-title: Frequently asked questions about Azure Cosmos DB for MongoDB vCore
+title: Frequently asked questions about Azure Cosmos DB for MongoDB in vCore architecture
 summary: |
-  [!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+  [!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 sections:
   - name: General
     questions:
       - question: |
           What options does Azure Cosmos DB offer for MongoDB users?
         answer: |
-          Azure Cosmos DB is a fully managed NoSQL and relational database for modern app development.
+          Azure Cosmos DB is a fully managed NoSQL, relational, and vectore database for modern app development.
 
           Both, the Request Unit (RU) and vCore-based Azure Cosmos DB for MongoDB offering make it easy to use Azure Cosmos DB as if it were a MongoDB database. Both options work without the overhead of complex management and scaling approaches. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. Additionally, both are cloud-native offerings that can be integrated seamlessly with other Azure services to build enterprise-grade modern applications.
       - question: |
-          How do I choose between Azure Cosmos DB for MongoDB RU and Azure Cosmos DB for MongoDB vCore?
+          How do I choose between Azure Cosmos DB for MongoDB (RU) and Azure Cosmos DB for MongoDB (vCore)?
         answer: |
           Here are a few key factors to help you decide between the two options.
 
@@ -39,7 +39,7 @@ sections:
             - You're running applications requiring 99.995% availability.
             - You need native support for storing and searching vector embeddings.
       - question: |
-          Are there billing differences between Azure Cosmos DB for MongoDB RU and Azure Cosmos DB for MongoDB vCore?
+          Are there billing differences between the RU and vCore architectures in Azure Cosmos DB for MongoDB?
         answer: |
           The RU and vCore services have different architectures with important billing differences.
 
@@ -51,8 +51,8 @@ additionalContent: |
 
   - Frequently asked questions about Azure Cosmos DB for MongoDB](../faq.yml)
 
-  - [Get started with Azure Cosmos DB for MongoDB vCore using the Azure portal](quickstart-portal.md)
-  - [Get started with Azure Cosmos DB for MongoDB vCore using Bicep](quickstart-bicep.md)
+  - [Get started with Azure Cosmos DB for MongoDB (vCore) using the Azure portal](quickstart-portal.md)
+  - [Get started with Azure Cosmos DB for MongoDB (vCore) using Bicep](quickstart-bicep.md)
 
   ## Next step
 

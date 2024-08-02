@@ -3,7 +3,7 @@ title: Deploy and configure Azure Firewall using Azure CLI
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurecli
 ms.date: 10/31/2022
 ms.author: victorh
@@ -41,7 +41,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md) or [Azure PowerShell](deploy-ps.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -132,7 +132,7 @@ az vm create \
     --admin-username azureadmin
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 

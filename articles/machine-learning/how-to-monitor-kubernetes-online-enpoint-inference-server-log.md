@@ -3,7 +3,7 @@ title: Monitor Kubernetes Online Endpoint inference server logs
 titleSuffix: Azure Machine Learning
 description: Learn how to monitor inference server logs of Kubernetes online endpoint
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
 author: zetiaatgithub

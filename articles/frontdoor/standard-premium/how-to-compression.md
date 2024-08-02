@@ -3,9 +3,9 @@ title: Improve performance by compressing files in Azure Front Door
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure Front Door.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: article
-ms.date: 03/31/2024
+ms.date: 04/21/2024
 ms.author: yuajia
 ---
 
@@ -122,7 +122,7 @@ If the request supports more than one compression type, brotli compression takes
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure Front Door does gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
 
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door POP, then response sizes greater than 8 MB aren't supported. 
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Front Door POP, then compression isn't supported.
 
 ## Next steps
 

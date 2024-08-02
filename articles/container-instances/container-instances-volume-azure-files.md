@@ -4,7 +4,7 @@ description: Learn how to mount an Azure Files volume to persist state with Azur
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli
@@ -16,6 +16,7 @@ By default, Azure Container Instances are stateless. If the container is restart
 
 ## Limitations
 
+* Azure Storage doesn't support SMB mounting of file share using managed identity
 * You can only mount Azure Files shares to Linux containers. Review more about the differences in feature support  for Linux and Windows container groups in the [overview](container-instances-overview.md#linux-and-windows-containers).
 * Azure file share volume mount requires the Linux container run as *root* .
 * Azure File share volume mounts are limited to CIFS support.
@@ -25,7 +26,7 @@ By default, Azure Container Instances are stateless. If the container is restart
 >
 
 > [!IMPORTANT]
-> If you are deploying container groups into an Azure Virtual Network, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to your Azure Storage Account.
+> If the outbound connection to the internet is blocked in the delegated subnet, you must add a [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to Azure Strorage on your delegated subnet.
 
 ## Create an Azure file share
 

@@ -4,7 +4,7 @@ description: Learn how to create alerts to monitor the health of your key vault.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024
@@ -162,7 +162,9 @@ If you followed all of the preceding steps, you'll receive email alerts when you
 
 ### Example: Log query alert for near expiry certificates
 
-You can set an alert to notify you about certificates which are about to expire.
+You can set an alert to notify you about certificates which are about to expire. 
+> [!NOTE]
+> Near expiry events for certificates are logged 30 days before expiration.
 
 1. Go to **Logs** and paste below query in query window
  

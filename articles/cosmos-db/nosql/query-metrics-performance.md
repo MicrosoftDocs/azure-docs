@@ -2,7 +2,7 @@
 title: Get SQL query performance & execution metrics
 description: Learn how to retrieve SQL query execution metrics and profile SQL query performance of Azure Cosmos DB requests.
 author: ginamr
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 1/5/2023
@@ -75,7 +75,7 @@ while (feedIterator.HasMoreResults)
     FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
 
     // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
-    metrics.Add(response.Diagnostics.GetQueryMetrics());
+    metrics.Add(feedResponse.Diagnostics.GetQueryMetrics());
 }
 
 // Aggregate values across trips for metrics of interest
@@ -108,7 +108,7 @@ while (feedIterator.HasMoreResults)
     FeedResponse<MyClass> feedResponse = await feedIterator.ReadNextAsync();
 
     // Store the ServerSideCumulativeMetrics object to aggregate values after all round trips
-    metrics.Add(response.Diagnostics.GetQueryMetrics());
+    metrics.Add(feedResponse.Diagnostics.GetQueryMetrics());
 }
 
 // Group metrics by partition key range id

@@ -2,7 +2,7 @@
 title: Tutorial - Use Azure Key Vault with a virtual machine in JavaScript | Microsoft Docs
 description: In this tutorial, you configure a virtual machine a JavaScript application to read a secret from your key vault.
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024
@@ -46,11 +46,11 @@ az login
 
 ## Create a resource group and key vault
 
-[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
+[!INCLUDE [Create a resource group and key vault](../includes/key-vault-rg-kv-creation.md)]
 
 ## Populate your key vault with a secret
 
-[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
+[!INCLUDE [Create a secret](../includes/key-vault-create-secret.md)]
 
 ## Create a virtual machine
 

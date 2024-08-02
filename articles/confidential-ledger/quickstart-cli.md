@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger through the Az
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ---
@@ -15,7 +15,7 @@ Azure confidential ledger is a cloud service that provides a high integrity stor
 
 For more information on Azure confidential ledger and examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

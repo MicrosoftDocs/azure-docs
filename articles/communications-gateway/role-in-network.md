@@ -3,7 +3,7 @@ title: Azure Communications Gateway and your network
 description: Azure Communication Gateway sits on the edge of your network. Its interoperability features allow it to adapt to your requirements.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 03/31/2024
 ms.custom: template-concept
@@ -68,7 +68,7 @@ To allow Azure Communications Gateway to identify the correct service for a call
 - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
 - Not required for Operator Connect (because Azure Communications Gateway defaults to Operator Connect for fixed line calls) or Teams Phone Mobile.
 
-You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call.
+You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call. This feature is available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile.
 
 This configuration requires you to use Azure Communication Gateway's browser-based Number Management Portal (preview) or the [Provisioning API (preview)](provisioning-platform.md).
 

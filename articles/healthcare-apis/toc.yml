@@ -20,17 +20,21 @@
       href: ./azure-api-for-fhir/overview.md
     - name: Business continuity & disaster recovery
       href: business-continuity-disaster-recovery.md
-- name: Quickstarts
+    - name: Manage network access security
+      href: network-access-security.md
+- name: Get started
+  expanded: true
   items: 
-    - name: Workspace provisioning
+    - name: Workspace overview
       href: workspace-overview.md
-    - name: Set up a workspace
-      href: get-started-with-health-data-services.md
-    - name: Deploy services via Azure portal
+    - name: Deployment overview
+      href: health-data-services-get-started.md
+    - name: Azure Health Data Services quickstart
       href: healthcare-apis-quickstart.md
-    - name: Deploy services using Bicep
+    - name: Deploy services programatically
       href: deploy-healthcare-apis-using-bicep.md
 - name: How-tos
+  expanded: true
   items: 
     - name: Get an access token
       href: get-access-token.md
@@ -38,19 +42,19 @@
       href: authentication-authorization.md
     - name: Register an application via Azure portal
       href: register-application.md
-    - name: Register an application using scripts
+    - name: Register an application by using scripts
       href: register-application-cli-rest.md
     - name: Grant permissions via Azure portal
       href: configure-azure-rbac.md
-    - name: Grant permissions using scripts
+    - name: Grant permissions by using scripts
       href: configure-azure-rbac-using-scripts.md
     - name: Access Azure Health Data Services
       href: access-healthcare-apis.md
     - name: Configure Private Link
-      href: healthcare-apis-configure-private-link.md
-    - name: Configure Events
+      href: configure-private-link.md
+    - name: Configure events
       href: ./events/events-deploy-portal.md
-    - name: Enable diagnostic logging
+    - name: Enable logging
       href: logging.md
     - name: Built-in policy definitions
       href: azure-health-data-services-policy-reference.md

@@ -2,11 +2,11 @@
 title: Get started with Storage Explorer
 description: Start managing Azure storage resources with Storage Explorer. Download and install Azure Storage Explorer, connect to a storage account or service, and more.
 services: storage
-author: cawaMS
+author: craxal
 ms.service: azure-storage
 ms.topic: article
 ms.date: 11/08/2019
-ms.author: cawa
+ms.author: cralvord
 ---
 
 # Get started with Storage Explorer
@@ -15,7 +15,7 @@ ms.author: cawa
 
 Microsoft Azure Storage Explorer is a standalone app that makes it easy to work with Azure Storage data on Windows, macOS, and Linux.
 
-In this article, you'll learn several ways of connecting to and managing your Azure storage accounts.
+In this article, we demonstrate several ways of connecting to and managing your Azure storage accounts.
 
 :::image type="content" alt-text="Microsoft Azure Storage Explorer" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-overview.png":::
 
@@ -28,9 +28,9 @@ The following versions of Windows support the latest versions of Storage Explore
 * Windows 11
 * Windows 10
 
-Additional requirements include:
-- Starting with Storage Explorer version 1.30.0, your Windows install must support 64-bit applications.
-- Starting with Storage Explorer version 1.30.0, you must have a x64 .NET 6 runtime installed. You can download the latest .NET 6 runtime from [here](https://dotnet.microsoft.com/download/dotnet/6.0).
+Other requirements include:
+- Your Windows installation must support 64-bit applications (starting with Storage Explorer 1.30.0).
+- You must have a .NET 8 runtime installed (starting with Storage Explorer 1.34.0) which matches the architecture of your Storage Explorer install. The Storage Explorer installer will install a .NET 8 runtime if you do not already have one installed, but it may not be the latest version available. It is your responsibility to keep your .NET install up to date. You can download the latest .NET 8 runtime from [here](https://dotnet.microsoft.com/download/dotnet/8.0). 
 
 # [macOS](#tab/macos)
 
@@ -38,7 +38,7 @@ The following versions of macOS support Storage Explorer:
 
 * macOS 10.15 Catalina and later versions
 
-Starting with Storage Explorer version 1.31.0, both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download.
+Both x64 (Intel) and ARM64 (Apple Silicon) versions of Storage Explorer are available for download starting with Storage Explorer 1.31.0.
 
 # [Ubuntu](#tab/linux-ubuntu)
 
@@ -56,11 +56,11 @@ Installing the Storage Explorer snap is recommended, but Storage Explorer is als
 
 For more help installing Storage Explorer on Ubuntu, see [Storage Explorer dependencies](../common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
-# [Red Hat Enterprise Linux](#tab/linux-rhel)
+# [Red Hat Enterprise Linux (RHEL)](#tab/linux-rhel)
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+To run snaps, you need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
 
 Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
@@ -70,14 +70,14 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 For more help installing Storage Explorer on RHEL, see [Storage Explorer dependencies](../common/storage-explorer-troubleshooting.md#storage-explorer-dependencies) in the Azure Storage Explorer troubleshooting guide.
 
-# [SUSE Linux Enterprise Server](#tab/linux-sles)
+# [SUSE Linux Enterprise Server (SLES)](#tab/linux-sles)
 
 > [!NOTE]
 > Storage Explorer has not been tested for SLES. You may try using Storage Explorer on your system, but we cannot guarantee that Storage Explorer will work as expected.
 
 Storage Explorer is available in the [Snap Store](https://snapcraft.io/storage-explorer). The Storage Explorer snap installs all of its dependencies and updates when new versions are published to the Snap Store.
 
-To run snaps, you'll need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
+To run snaps, you need to install `snapd`. For installation instructions, see the [`snapd` installation page](https://snapcraft.io/docs/installing-snapd).
 
 Storage Explorer requires the use of a password manager. You can connect Storage Explorer to your system's password manager by running the following command:
 
@@ -122,7 +122,7 @@ Storage Explorer provides several ways to connect to Azure resources:
     > [!TIP]
     > For more information about Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription or storage account](/azure-stack/user/azure-stack-storage-connect-se).
 
-1. Storage Explorer will open a webpage for you to sign in.
+1. Storage Explorer opens a webpage for you to sign in.
 
 1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
 
@@ -137,14 +137,14 @@ Storage Explorer provides several ways to connect to Azure resources:
 Storage Explorer lets you connect to individual resources, such as an Azure Data Lake Storage Gen2 container, using various authentication methods. Some authentication methods are only supported for certain resource types.
 
 | Resource type    | Microsoft Entra ID | Account Name and Key | Shared Access Signature (SAS)  | Public (anonymous) |
-|------------------|----------|----------------------|--------------------------------|--------------------|
-| Storage accounts | Yes      | Yes                  | Yes (connection string or URL) | No                 |
-| Blob containers  | Yes      | No                   | Yes (URL)                      | Yes                |
-| Gen2 containers  | Yes      | No                   | Yes (URL)                      | Yes                |
-| Gen2 directories | Yes      | No                   | Yes (URL)                      | Yes                |
-| File shares      | No       | No                   | Yes (URL)                      | No                 |
-| Queues           | Yes      | No                   | Yes (URL)                      | No                 |
-| Tables           | Yes      | No                   | Yes (URL)                      | No                 |
+|------------------|--------------------|----------------------|--------------------------------|--------------------|
+| Storage accounts | Yes                | Yes                  | Yes (connection string or URL) | No                 |
+| Blob containers  | Yes                | No                   | Yes (URL)                      | Yes                |
+| Gen2 containers  | Yes                | No                   | Yes (URL)                      | Yes                |
+| Gen2 directories | Yes                | No                   | Yes (URL)                      | Yes                |
+| File shares      | No                 | No                   | Yes (URL)                      | No                 |
+| Queues           | Yes                | No                   | Yes (URL)                      | No                 |
+| Tables           | Yes                | No                   | Yes (URL)                      | No                 |
 
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 
@@ -152,9 +152,9 @@ To connect to an individual resource, select the **Connect** button in the left-
 
 :::image type="content" alt-text="Connect to Azure storage option" source="./media/vs-azure-tools-storage-manage-with-storage-explorer/vs-storage-explorer-connect-button.png":::
 
-When a connection to a storage account is successfully added, a new tree node will appear under **Local & Attached** > **Storage Accounts**.
+When a connection to a storage account is successfully added, a new tree node appears under **Local & Attached** > **Storage Accounts**.
 
-For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node will appear under a group node matching its type. For example, a new connection to an Azure Data Lake Storage Gen2 container will appear under **Blob Containers**.
+For other resource types, a new node is added under **Local & Attached** > **Storage Accounts** > **(Attached Containers)**. The node appears under a group node matching its type. For example, a new connection to an Azure Data Lake Storage Gen2 container appears under **Blob Containers**.
 
 If Storage Explorer couldn't add your connection, or if you can't access your data after successfully adding the connection, see the [Azure Storage Explorer troubleshooting guide](../common/storage-explorer-troubleshooting.md).
 
@@ -172,7 +172,7 @@ Storage Explorer can use your Azure account to connect to the following resource
 
 Microsoft Entra ID is the preferred option if you have data layer access to your resource but no management layer access.
 
-1. Sign in to at least one Azure account using the [steps described above](#sign-in-to-azure).
+1. Sign in to at least one Azure account using the [sign-in steps](#sign-in-to-azure).
 1. In the **Select Resource** panel of the **Connect to Azure Storage** dialog, select **Blob container**, **ADLS Gen2 container**, or **Queue**.
 1. Select **Sign in using Microsoft Entra ID** and select **Next**.
 1. Select an Azure account and tenant. The account and tenant must have access to the Storage resource you want to attach to. Select **Next**.
@@ -247,22 +247,6 @@ If you want to use a different name for your connection, or if your emulator isn
 1. Enter a display name for your connection and the port number for each emulated service you want to use. If you don't want to use to a service, leave the corresponding port blank. Select **Next**.
 1. Review your connection information in the **Summary** panel. If the connection information is correct, select **Connect**.
 
-#### Connect to Azure Data Lake Store by URI
-
-You can access a resource that's not in your subscription. You need someone who has access to that resource to give you the resource URI. After you sign in, connect to Data Lake Store by using the URI. To connect, follow these steps:
-
-1. Under **EXPLORER**, expand **Local & Attached**.
-
-1. Right-click **Data Lake Storage Gen1**, and select **Connect to Data Lake Storage Gen1**.
-
-    ![Connect to Data Lake Store context menu](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
-
-1. Enter the URI, and then select **OK**. Your Data Lake Store appears under **Data Lake Storage**.
-
-    ![Connect to Data Lake Store result](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
-
-This example uses Data Lake Storage Gen1. Azure Data Lake Storage Gen2 is now available. For more information, see [What is Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md).
-
 ## Generate a shared access signature in Storage Explorer<a name="generate-a-sas-in-storage-explorer"></a>
 
 ### Account level shared access signature
@@ -285,7 +269,7 @@ You can get a shared access signature at the service level. For more information
 
 To find a storage resource, you can search in the **EXPLORER** pane.
 
-As you enter text in the search box, Storage Explorer displays all resources that match the search value you've entered up to that point. This example shows a search for **endpoints**:
+As you enter text in the search box, Storage Explorer displays all resources that match the search value you entered up to that point. This example shows a search for **endpoints**:
 
 ![Storage account search][23]
 

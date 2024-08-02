@@ -3,9 +3,9 @@ title: Configure an IP restriction WAF rule for Azure Front Door
 description: Learn how to configure an Azure Web Application Firewall rule to restrict IP addresses for an existing Azure Front Door endpoint.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: article
-ms.date: 11/16/2022
+ms.date: 05/29/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -20,9 +20,11 @@ There are two types of match variables in an IP address match: `RemoteAddr` and 
 
 By default, your web application is accessible from the internet. If you want to limit access to clients from a list of known IP addresses or IP address ranges, you can create an IP matching rule that contains the list of IP addresses as matching values and sets the operator to `Not` (negate is true) and the action to `Block`. After an IP restriction rule is applied, requests that originate from addresses outside this allowed list receive a 403 Forbidden response.
 
-## Configure a WAF policy with the Azure portal
+## Configure a WAF policy
 
-Follow these steps to configure a WAF policy by using the Azure portal.
+#### [Portal](#tab/browser)
+
+Follow these steps to configure a WAF policy using the Azure portal.
 
 ### Prerequisites
 
@@ -41,8 +43,8 @@ Create an Azure Front Door profile by following the instructions described in [Q
    |Subscription     |Select your subscription.|
    |Resource group     |Select the resource group where your Azure Front Door instance is located.|
    |Policy name     |Enter a name for your policy.|
-   |Policy state     |Selected.|
-   |Policy mode|Prevention.|
+   |Policy state     |Selected|
+   |Policy mode|Prevention|
 
 1. Select **Next: Managed rules**.
 
@@ -86,9 +88,9 @@ Create an Azure Front Door profile by following the instructions described in [Q
    > [!NOTE]
    > A private IP address was intentionally used in the custom rule to guarantee the rule would trigger. In an actual deployment, create *allow* and *deny* rules by using IP addresses for your particular situation.
 
-## Configure a WAF policy with the Azure CLI
+#### [CLI](#tab/azure-devops-cli)
 
-Follow these steps to configure a WAF policy by using the Azure CLI.
+Follow these steps to configure a WAF policy using the Azure CLI.
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your CLI environment and create an Azure Front Door profile.
@@ -173,9 +175,10 @@ In this example, the WAF policy is applied to `FrontendEndpoints[0]`. You can li
 > [!Note]
 > You need to set the `WebApplicationFirewallPolicyLink` property only once to link a WAF policy to an Azure Front Door front end. Subsequent policy updates are automatically applied to the front end.
 
-## Configure a WAF policy with Azure PowerShell
+#### [Azure PowerShell](#tab/powershell)
 
-Follow these steps to configure a WAF policy by using Azure PowerShell.
+
+Follow these steps to configure a WAF policy using Azure PowerShell.
 
 ### Prerequisites
 Before you begin to configure an IP restriction policy, set up your PowerShell environment and create an Azure Front Door profile.
@@ -183,7 +186,7 @@ Before you begin to configure an IP restriction policy, set up your PowerShell e
 #### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing Azure resources.
 
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az module.
+You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in to PowerShell by using your Azure credentials and then install the Az PowerShell module module.
 
 1. Connect to Azure by using the following command and then use an interactive dialog to sign in.
     ```
@@ -257,8 +260,11 @@ Link a WAF policy object to an existing front-end host and update Azure Front Do
 > [!NOTE]
 > In this example, the WAF policy is applied to `FrontendEndpoints[0]`. You can link a WAF policy to any of your front ends. You need to set the `WebApplicationFirewallPolicyLink` property only once to link a WAF policy to an Azure Front Door front end. Subsequent policy updates are automatically applied to the front end.
 
-## Configure a WAF policy with a Resource Manager template
-To view the template that creates an Azure Front Door policy and a WAF policy with custom IP restriction rules, go to [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
+#### [Template](#tab/yaml)
+
+To view the Resource Manager template that creates an Azure Front Door policy and a WAF policy with custom IP restriction rules, go to [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip).
+
+---
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Learn about data modeling in NoSQL databases, differences between m
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/24/2022
@@ -529,7 +529,7 @@ What to do?
 
 * The engineering team decided to use Change Feed to populate three new containers: `Customers`, `Orders`, and `Items`. With Change Feed they're normalizing and flattening the data. Unnecessary information is removed from the data model and each container has close to 100 properties, avoiding data loss due to automatic schema inference limits. 
 * These new containers have analytical store enabled and now the Analytics Department is using Synapse Analytics to read the data, reducing the request units usage since the analytical queries are happening in Synapse Apache Spark and serverless SQL pools.
-* Container `CustomersOrdersAndItems` now has tttl set to keep data for six months only, which allows for another request units usage reduction, since there's a minimum of 10 request units per GB in Azure Cosmos DB. Less data, fewer request units.
+* Container `CustomersOrdersAndItems` now has tttl set to keep data for six months only, which allows for another request units usage reduction, since there's a minimum of 1 request units per GB in Azure Cosmos DB. Less data, fewer request units.
 
 
 ## Takeaways

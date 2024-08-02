@@ -3,7 +3,7 @@ title: Configure Container Group Egress with NAT Gateway
 description: Configure NAT gateway for Azure Container Instances workloads that use the NAT gateway's public IP address for static egress
 author: tomvcassidy
 ms.topic: how-to
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy
@@ -26,11 +26,11 @@ You then validate egress from example container groups through the NAT gateway.
 > [!NOTE]
 > The ACI service recommends integrating with a NAT gateway for containerized workloads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 > [!NOTE]
 > To download the complete script, go to [full script](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-instances/nat-gateway.sh).

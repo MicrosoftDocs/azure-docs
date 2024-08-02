@@ -3,7 +3,7 @@ title: 'Deploy a Vue app on Azure Static Web Apps'
 description: Learn to deploy a Vue app to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 08/02/2023
 ms.author: cshoe
@@ -42,13 +42,13 @@ This article uses an Azure DevOps repository to make it easy for you to get star
 
 1. Sign in to Azure DevOps.
 2. Select **New repository**.
-3. In the *Create new project* window, expand **Advanced** menu and make the following selections:
+3. In the *Create new project* window, expand **Advanced** menu, and make the following selections:
 
     | Setting | Value |
     |--|--|
     | Project | Enter **my-first-web-static-app**. |
     | Visibility | Select **Private**. |
-    | Version control | Select **Git**.  |
+    | Version control | Select **Git**. |
     | Work item process | Select the option that best suits your development methods. |
 
 4. Select **Create**.
@@ -75,7 +75,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Keep the default value in the _App artifact location_ box.
+1. Keep the default value in the _Output location_ box.
 
 Select **Review + create**.
 
@@ -107,4 +107,4 @@ Select **Go to resource**.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](./application-settings.md)
+> [Add an API to your application](./add-api.md?tabs=vue)

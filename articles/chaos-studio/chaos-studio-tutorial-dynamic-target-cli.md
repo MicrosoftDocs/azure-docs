@@ -4,7 +4,7 @@ description: Create an experiment that uses dynamic targeting with the Azure CLI
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: template-how-to, devx-track-azurecli
@@ -19,7 +19,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Virtual Machine Scale Sets instance.
 
 ## Open Azure Cloud Shell

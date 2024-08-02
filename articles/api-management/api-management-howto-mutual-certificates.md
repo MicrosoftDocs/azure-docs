@@ -5,7 +5,7 @@ description: Learn how to manage client certificates and secure backend services
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 01/12/2023
 ms.author: danlep 
@@ -36,7 +36,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 * You should have your backend service configured for client certificate authentication. To configure certificate authentication in the Azure App Service, refer to [this article][to configure certificate authentication in Azure WebSites refer to this article]. 

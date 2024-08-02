@@ -2,7 +2,7 @@
 title: Red Hat Enterprise Linux bring-your-own-subscription Azure images | Microsoft Docs
 description: Learn about bring-your-own-subscription images for Red Hat Enterprise Linux on Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: devx-track-azurecli, linux-related-content, devx-track-azurepowershell
 ms.collection: linux
@@ -269,8 +269,8 @@ For steps to apply Azure Disk Encryption, see [Azure Disk Encryption scenarios o
 ## Next steps
 
 - More details about Red Hat Cloud Access are available at the [Red Hat public cloud documentation](https://access.redhat.com/public-cloud)
-- For step-by-step guides and program details for Cloud Access, see the [Red Hat Cloud Access documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).
+- For step-by-step guides and program details for Cloud Access, see the [Red Hat Cloud Access documentation](https://access.redhat.com/documentation/en-us/subscription_central/1-latest/html/red_hat_cloud_access_reference_guide/index).
 - To learn more about the Red Hat Update Infrastructure, see [Azure Red Hat Update Infrastructure](./redhat-rhui.md).
 - To learn more about all the Red Hat images in Azure, see the [documentation page](./redhat-images.md).
 - For information on Red Hat support policies for all versions of RHEL, see the [Red Hat Enterprise Linux life cycle](https://access.redhat.com/support/policy/updates/errata) page.
-- For additional documentation on the RHEL Gold Images, see the [Red Hat documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access#proc_using-gold-images-azure_cloud-access#proc_using-gold-images-azure_cloud-access).
+- For additional documentation on the RHEL Gold Images, see the [Red Hat documentation](https://access.redhat.com/documentation/en-us/subscription_central/1-latest/html/red_hat_cloud_access_reference_guide/understanding-gold-images_cloud-access).

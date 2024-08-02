@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: xiada
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 08/31/2023
 ---
@@ -92,7 +92,7 @@ Use the following steps to create a service instance:
    | **Name**           | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Basic**                         | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**         | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | **Zone Redundant** | Unchecked                         | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
+   | **Zone Redundant** | Unselected                        | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-basics.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-basics.png":::
 
@@ -133,7 +133,7 @@ Use the following steps to connect your service instances:
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Create connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-basics.png" alt-text="Screenshot of the Azure portal that shows the Basics tab of the Created connection pane for connecting to PostgreSQL." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-basics.png":::
 
 1. Configure the **Next: Authentication** tab with the following information:
 
@@ -142,7 +142,7 @@ Use the following steps to connect your service instances:
    - **Username**: *myadmin*
    - **Password**: Enter your password.
 
-   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
+   :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Created connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::
 
 1. Select **Next: Networking**. Use the default option **Configure firewall rules to enable access to target service.**.
 

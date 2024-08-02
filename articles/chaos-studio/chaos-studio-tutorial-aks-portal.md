@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 04/21/2022
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-how-to
 ---
 
@@ -18,24 +18,24 @@ Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-source cha
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-- An AKS cluster with a Linux node pool. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or the [Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- An AKS cluster with a Linux node pool. If you don't have an AKS cluster, see the AKS quickstart that uses the [Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or the [Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 ## Limitations
 
-* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](../aks/private-clusters.md). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](../aks/access-private-cluster.md) feature.
+* You can use Chaos Mesh faults with private clusters by configuring [VNet Injection in Chaos Studio](chaos-studio-private-networking.md). Any commands issued to the private cluster, including the steps in this article to set up Chaos Mesh, need to follow the [private cluster guidance](/azure/aks/private-clusters). Recommended methods include connecting from a VM in the same virtual network or using the [AKS command invoke](/azure/aks/access-private-cluster) feature.
 * AKS Chaos Mesh faults are only supported on Linux node pools.
-* Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
+* Currently, Chaos Mesh faults don't work if the AKS cluster has [local accounts disabled](/azure/aks/manage-local-accounts-managed-azure-ad).
 * If your AKS cluster is configured to only allow authorized IP ranges, you need to allow Chaos Studio's IP ranges. You can find them by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md). 
 
 ## Set up Chaos Mesh on your AKS cluster
 
 Before you can run Chaos Mesh faults in Chaos Studio, you must install Chaos Mesh on your AKS cluster.
 
-1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `$RESOURCE_GROUP` and `$CLUSTER_NAME` with the resource group and name of your cluster resource.
+1. Run the following commands in an [Azure Cloud Shell](../cloud-shell/overview.md) window where you have the active subscription set to be the subscription where your AKS cluster is deployed. Replace `MyManagedCluster` and `MyResourceGroup` with the name of your cluster and resource group.
 
     ```azurecli
-    az aks get-credentials -g $RESOURCE_GROUP -n $CLUSTER_NAME
+    az aks get-credentials --admin --name MyManagedCluster --resource-group MyResourceGroup
     ```
     
     ```bash

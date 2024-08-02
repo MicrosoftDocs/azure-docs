@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.date: 12/28/2023
 ms.topic: quickstart
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 This quickstart shows you how to create an ExpressRoute circuit using PowerShell cmdlets and the Azure Resource Manager deployment model. You can also check the status, update, delete, or deprovision a circuit.
 
-:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell.":::
+:::image type="content" source="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png" alt-text="Diagram of ExpressRoute circuit deployment environment using Azure PowerShell." lightbox="media/expressroute-howto-circuit-portal-resource-manager/environment-diagram.png":::
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ This quickstart shows you how to create an ExpressRoute circuit using PowerShell
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Azure PowerShell installed locally or Azure Cloud Shell
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
 

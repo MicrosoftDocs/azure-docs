@@ -1,19 +1,20 @@
 ---
 title: Manage virtual networks - Azure portal
 description: Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal.
-author: sunilagarwal
-ms.author: sunila
-ms.service: postgresql
+author: GennadNY
+ms.author: gennadyk
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.topic: how-to
-ms.date: 01/23/2024
 ---
 
 # Create and manage virtual networks (VNET Integration) for Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports two types of mutually exclusive network connectivity methods to connect to your Azure Database for PostgreSQL flexible server instance. The two options are:
 

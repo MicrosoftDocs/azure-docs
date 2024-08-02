@@ -4,9 +4,9 @@ description: Learn about GraphQL and how Azure API Management helps you manage G
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 05/05/2024
 ms.author: danlep
 ---
 
@@ -41,12 +41,13 @@ The GraphQL specification explicitly solves common issues experienced by client 
 
 Using a GraphQL API, the client app can specify the data they need to render a page in a query document that is sent as a single request to a GraphQL service. A client app can also subscribe to data updates pushed from the GraphQL service in real time.
 
-## Schema and operation types
+## Schema and types
 
 In API Management, add a GraphQL API from a GraphQL schema, either retrieved from a backend GraphQL API endpoint or uploaded by you. A GraphQL schema describes:
 
 * Data object types and fields that clients can request from a GraphQL API
 * Operation types allowed on the data, such as queries 
+* Other types, such as unions and interfaces, that provide additional flexibility and control over the data
 
 For example, a basic GraphQL schema for user data and a query for all users might look like:
 
@@ -61,7 +62,9 @@ type User {
 }
 ```
 
-API Management supports the following operation types in GraphQL schemas. For more information about these operation types, see the [GraphQL specification](https://spec.graphql.org/October2021/#sec-Subscription-Operation-Definitions).
+### Operation types
+
+API Management supports the following operation types in GraphQL schemas. For more information about these operation types, see the [GraphQL specification](https://spec.graphql.org/October2021/#sec-Root-Operation-Types).
 
 * **Query** - Fetches data, similar to a `GET` operation in REST
 *  **Mutation** - Modifies server-side data, similar to a `PUT` or `PATCH` operation in REST
@@ -69,9 +72,13 @@ API Management supports the following operation types in GraphQL schemas. For mo
 
     For example, when data is modified via a GraphQL mutation, subscribed clients could be automatically notified about the change. 
 
-> [!IMPORTANT]
-> API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
-> 
+    > [!IMPORTANT]
+    > API Management supports subscriptions implemented using  the [graphql-ws](https://github.com/enisdenjo/graphql-ws) WebSocket protocol. Queries and mutations aren't supported over WebSocket.
+    > 
+
+### Other types
+
+API Management supports the [union](https://spec.graphql.org/October2021/#sec-Unions) and [interface](https://spec.graphql.org/October2021/#sec-Interfaces) types in GraphQL schemas.
 
 ## Resolvers
 

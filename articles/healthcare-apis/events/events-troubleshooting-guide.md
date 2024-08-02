@@ -2,12 +2,12 @@
 title: Troubleshoot events - Azure Health Data Services
 description: Learn how to troubleshoot events.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: troubleshooting
 ms.date: 07/12/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 # Troubleshoot events
 
@@ -38,7 +38,7 @@ This article provides resources to troubleshoot events.
 > 
 > * **DicomImageUpdated** - The event emitted after a DICOM image gets updated successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR REST API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
+> For more information about the FHIR service delete types, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
 
 ### Events message structures
 
@@ -48,10 +48,10 @@ Use this resource to learn about the events message structures, required and non
 ### How to's
 
 Use this resource to learn how to deploy events in the Azure portal: 
-* [Deploy events using the Azure portal](events-deploy-portal.md)
+* [Deploy events by using the Azure portal](events-deploy-portal.md)
 
 > [!IMPORTANT]
-> The Event Subscription requires access to whichever endpoint you chose to send Events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
+> The event subscription requires access to the endpoint you chose to send events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
 
 Use this resource to learn how to use events metrics: 
 * [How to use events metrics](events-display-metrics.md)

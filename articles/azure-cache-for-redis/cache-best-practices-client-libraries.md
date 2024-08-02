@@ -3,7 +3,7 @@ title: Best practices using client libraries
 titleSuffix: Azure Cache for Redis
 description: Learn about client libraries for Azure Cache for Redis.
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: franlanglois
@@ -28,7 +28,7 @@ Although we don't own or support any client libraries, we do recommend some libr
 | ioredis             | Node.js |  [Link](https://github.com/luin/ioredis)                     | [More information here](https://ioredis.readthedocs.io/en/stable/API/) |
 
 > [!NOTE]
-> Your application can to connect and use your Azure Cache for Redis instance with any client library that can also communicate with open-source Redis.
+> Your application can use any client library that is compatible with open-source Redis to connect to your Azure Cache for Redis instance.
 
 ## Client library-specific guidance
 

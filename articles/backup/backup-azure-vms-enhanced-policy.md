@@ -2,9 +2,9 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 04/01/2024
+ms.date: 06/11/2024
 ms.reviewer: sharrai
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -21,9 +21,8 @@ Azure Backup now supports _Enhanced policy_ that's needed to support new Azure o
 >- Backups for VMs having [data access authentication enabled disks](../virtual-machines/windows/download-vhd.md?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
 >- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
 >- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
-
-
-
+>- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
+>- You can exclude shared disk with Enhanced policy and backup the other supported disks in the VM.
 
 You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
 
@@ -106,27 +105,26 @@ Also, the output object for this cmdlet contains the following additional fields
 **Step 2: Set the backup schedule objects**
 
 ```azurepowershell
-$startTime = Get-Date -Date "2021-12-22T06:10:00.00+00:00"
-$SchPol.ScheduleRunStartTime = $startTime
-$SchPol.ScheduleInterval = 6
-$SchPol.ScheduleWindowDuration = 12
-$SchPol.ScheduleRunTimezone = "PST"
+$schedulePolicy = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType AzureVM -BackupManagementType AzureVM -PolicySubType Enhanced -ScheduleRunFrequency Hourly
+$timeZone = Get-TimeZone -ListAvailable | Where-Object { $_.Id -match "India" }
+$schedulePolicy.ScheduleRunTimeZone = $timeZone.Id
+$windowStartTime = (Get-Date -Date "2022-04-14T08:00:00.00+00:00").ToUniversalTime()
+$schPol.HourlySchedule.WindowStartTime = $windowStartTime
+$schedulePolicy.HourlySchedule.ScheduleInterval = 4
+$schedulePolicy.HourlySchedule.ScheduleWindowDuration = 23
 
 ```
 
-This sample cmdlet contains the following parameters:
+In this sample cmdlet:
 
-- `$ScheduleInterval`: Defines the difference (in hours) between two successive backups per day. Currently, the acceptable values are *4*, *6*, *8* and *12*.
+- The first command gets a base enhanced hourly SchedulePolicyObject for WorkloadType AzureVM, and then stores it in the $schedulePolicy variable.
+- The second and third command fetches the India timezone and updates the timezone in the $schedulePolicy.
+- The fourth and fifth command initializes the schedule window start time and updates the $schedulePolicy. 
 
-- `$ScheduleWindowStartTime`: The time at which the first backup job is triggered in case of *hourly backups*. The current limits (in policy's timezone) are:
-  - `Minimum: 00:00`
-  - `Maximum:19:30`
+  >[Note]
+  >The start time must be in UTC even if the timezone is not UTC.
 
-- `$ScheduleRunTimezone`: Specifies the timezone in which backups are scheduled. The default schedule is *UTC*.
-
-- `$ScheduleWindowDuration`: The time span (in hours measured from the Schedule Window Start Time) beyond which backup jobs shouldn't be triggered. The current limits are:
-  - `Minimum: 4`
-  - `Maximum:23`
+- The sixth and seventh command updates the interval (in hours) after which the backup will be retriggered on the same day, duration (in hours) for which the schedule will run.
 
 **Step 3: Create the backup retention policy**
 
@@ -262,8 +260,8 @@ Trusted Launch VMs can only be backed up using Enhanced policies.
 >[!Note]
 >- The support for Enhanced policy is available in all Azure Public and US Government regions.
 >- For hourly backups, the last backup of the day is transferred to vault. If backup fails, the first backup of the next day is transferred to vault.
->- Enhanced policy is only available to unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
->- Back up an Azure VM with disks that has public network access disabled is not supported.
+>- Migration to enhanced policy for Azure VMs protected with standard policy is now supported and available in preview.
+>- Backup an Azure VM with disks that have public network access disabled is now supported and generally available.
 
 ## Enable selective disk backup and restore
 

@@ -3,13 +3,13 @@ title: 'Upgrade data management to SDK v2'
 titleSuffix: Azure Machine Learning
 description: Upgrade data management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
-author: SturgeonMi
-ms.author: xunwan
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 04/15/2024
-ms.reviewer: franksolomon
+ms.reviewer: xunwan
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

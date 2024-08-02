@@ -8,7 +8,7 @@ ms.date: 04/04/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other
 ---
 
 # Quickstart: Place interop group calls between Azure Communication Services and Microsoft Teams
@@ -58,7 +58,7 @@ The text boxes are used to enter the Teams user IDs planning to call and add in 
             Hang Up
         </button>
     </div>
-    <script src="./client.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
 ```
@@ -66,9 +66,9 @@ The text boxes are used to enter the Teams user IDs planning to call and add in 
 Replace content of client.js file with following snippet.
 
 ```javascript
-import { CallClient } from "@azure/communication-calling";
-import { Features } from "@azure/communication-calling";
-import { AzureCommunicationTokenCredential } from '@azure/communication-common';
+const { CallClient, Features } = require('@azure/communication-calling');
+const { AzureCommunicationTokenCredential } = require('@azure/communication-common');
+const { AzureLogger, setLogLevel } = require("@azure/logger");
 
 let call;
 let callAgent;
@@ -89,7 +89,7 @@ init();
 hangUpButton.addEventListener("click", async () => {
     await call.hangUp();
     hangUpButton.disabled = true;
-    teamsMeetingJoinButton.disabled = false;
+    placeInteropGroupCallButton.disabled = false;
     callStateElement.innerText = '-';
 });
 
@@ -102,7 +102,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
     const participants = teamsIdsInput.value.split(',').map(id => {
         const participantId = id.replace(' ', '');
         return {
-            microsoftTeamsUserId: `8:orgid:${participantId}`
+            microsoftTeamsUserId: `${participantId}`
         };
     })
 
@@ -127,7 +127,7 @@ placeInteropGroupCallButton.addEventListener("click", () => {
 
 ## Get the Teams user IDs
 
-The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](https://learn.microsoft.com/graph/api/user-get?view=graph-rest-1.0&tabs=http).
+The Teams user IDs can be retrieved using Graph APIs, which is detailed in [Graph documentation](/graph/api/user-get?tabs=http).
 
 ```console
 https://graph.microsoft.com/v1.0/me
@@ -145,7 +145,7 @@ In results get the "id" field.
 Run the following command to bundle your application host on a local webserver:
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
+npx webpack serve --config webpack.config.js
 ```
 
 Open your browser and navigate to http://localhost:8080/. You should see the following screen:

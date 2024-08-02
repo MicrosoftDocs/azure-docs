@@ -3,7 +3,7 @@ title: Azure role-based access control (Azure RBAC) vs. access policies
 description: A comparison of Azure role-based access control (Azure RBAC) and access policies
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024
@@ -32,6 +32,6 @@ To transition your Key Vault data plane access control from access policies to R
 ## Learn more
 
 - [Azure RBAC Overview](../../role-based-access-control/overview.md)
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - [Migrating from an access policy to RBAC](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Azure Key Vault best practices](best-practices.md)

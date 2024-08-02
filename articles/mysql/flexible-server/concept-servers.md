@@ -1,12 +1,13 @@
 ---
 title: Server concepts
 description: This topic provides considerations and guidelines for working with Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: SudheeshGH
 ms.author: sunaray
-ms.date: 05/24/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Server concepts in Azure Database for MySQL - Flexible Server

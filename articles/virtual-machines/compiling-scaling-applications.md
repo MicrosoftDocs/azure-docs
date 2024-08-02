@@ -1,7 +1,7 @@
 ---
 title: Scaling HPC applications - Azure Virtual Machines | Microsoft Docs
 description: Learn how to scale HPC applications on Azure VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
 ms.topic: article
@@ -14,7 +14,7 @@ author: ju-shim
 # Scaling HPC applications
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 

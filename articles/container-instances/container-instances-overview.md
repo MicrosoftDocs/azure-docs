@@ -4,7 +4,7 @@ description: The Azure Container Instances service offers the fastest and simple
 ms.topic: overview
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, linux-related-content
@@ -14,7 +14,7 @@ ms.custom: mvc, linux-related-content
 
 Containers are becoming the preferred way to package, deploy, and manage cloud applications. Azure Container Instances offers the fastest and simplest way to run a container in Azure, without having to manage any virtual machines and without having to adopt a higher-level service.
 
-Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend [Azure Kubernetes Service (AKS)](../aks/index.yml). We recommend reading through the [considerations and limitations](#considerations) and the [FAQs](./container-instances-faq.yml) to understand the best practices when deploying container instances.
+Azure Container Instances is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. For scenarios where you need full container orchestration, including service discovery across multiple containers, automatic scaling, and coordinated application upgrades, we recommend [Azure Kubernetes Service (AKS)](/azure/aks/). We recommend reading through the [considerations and limitations](#considerations) and the [FAQs](./container-instances-faq.yml) to understand the best practices when deploying container instances.
 
 ## Fast startup times
 
@@ -59,7 +59,7 @@ Some features are currently restricted to Linux containers:
 
 * Multiple containers per container group
 * Volume mounting ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
-* [Resource usage metrics](container-instances-monitor.md) with Azure Monitor
+* [Resource usage metrics](monitor-azure-container-instances.md#get-metrics) with Azure Monitor
 * [GPU resources](container-instances-gpu.md) (preview)
 
 For Windows container deployments, use images based on common [Windows base images](./container-instances-faq.yml#what-windows-base-os-images-are-supported-).

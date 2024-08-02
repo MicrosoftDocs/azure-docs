@@ -2,7 +2,7 @@
 title: Share Azure Compute Gallery resources directly with subscriptions and tenants
 description: Learn how to share Azure Compute Gallery resources explicitly with subscriptions and tenants.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/14/2023
@@ -46,10 +46,10 @@ During the preview:
 - A direct shared gallery can't contain encrypted image versions. Encrypted images can't be created within a gallery that is directly shared.
 - Only the owner of a subscription, or a user or service principal assigned to the `Compute Gallery Sharing Admin` role at the subscription or gallery level will be able to enable group-based sharing.
 - You need to create a new gallery,  with the property `sharingProfile.permissions` set to `Groups`. When using the CLI to create a gallery, use the `--permissions groups` parameter. You can't use an existing gallery, the property can't currently be updated.
-- PowerShell, Ansible, and Terraform aren't supported at this time.
+- Only RestAPI, CLI, Portal support is available in preview. PowerShell, Terraform support will come later.
+- While Portal support is available for this feature, consumption of images in portal is only available from the VM/VMSS creation blade only and there's no way to browse direct shared images directly in portal.
 - The image version region in the gallery should be same as the region home region, creating of cross-region version where the home region is different than the gallery is not supported, however once the image is in the home region it can be replicated to other regions
 - Not available in Government clouds
-- For consuming direct shared images in target subscription, Direct shared images can be found from VM/VMSS creation blade only.
 - **Known issue**: When creating a VM from a direct shared image using the Azure portal, if you select a region, select an image, then change the region, you will get an error message: "You can only create VM in the replication regions of this image" even when the image is replicated to that region. To get rid of the error, select a different region, then switch back to the region you want. If the image is available, it should clear the error message.
 
 ## Prerequisites

@@ -1,6 +1,36 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-cloud/multicloud.yml",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference.md",
+            "redirect_url": "/azure/defender-for-cloud/plan-multicloud-security-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference-gcp.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/recommendations-reference-aws.md",
+            "redirect_url": "/azure/defender-for-cloud/security-policy-concept",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/upcoming-changes.md",
+            "redirect_url": "/azure/defender-for-cloud/release-notes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/secret-scanning.md",
+            "redirect_url": "/azure/defender-for-cloud/secrets-scanning-servers",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-cloud/prevent-misconfigurations.md",
             "redirect_url": "/azure/defender-for-cloud/manage-mcsb",
             "redirect_document_id": false
@@ -711,7 +741,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.md",
+            "source_path_from_root": "/articles/security-center/update-regulatory-compliance-packages.yml",
             "redirect_url": "/azure/defender-for-cloud/update-regulatory-compliance-packages",
             "redirect_document_id": true
         },
@@ -721,7 +751,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/security-center/workflow-automation.md",
+            "source_path_from_root": "/articles/security-center/workflow-automation.yml",
             "redirect_url": "/azure/defender-for-cloud/workflow-automation",
             "redirect_document_id": true
         },
@@ -953,6 +983,11 @@
         {
             "source_path_from_root": "/articles/defender-for-cloud/view-and-remediate-vulnerability-assessment-findings.md",
             "redirect_url": "/azure/defender-for-cloud/view-and-remediate-vulnerability-registry-images",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/management-groups-roles.md",
+            "redirect_url": "/azure/governance/management-groups/overview",
             "redirect_document_id": false
         },
         {

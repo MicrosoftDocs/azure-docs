@@ -1,6 +1,4 @@
 ---
-title: REST API include file
-description: include file
 #services: cognitive-services
 manager: nitinme
 ms.service: azure-ai-language
@@ -11,11 +9,11 @@ ms.topic: include
 
 By following this quickstart, you will perform three REST calls in sequence.
 
-- First, you will upload a batch of example utterances which will be used to train the Pizza app model, using the [REST Batch add labels](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09) call.
-- Next, you will begin a training session for the Pizza app, using the [REST Train application version](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) call.
-- Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c46) call.
+- First, you will upload a batch of example utterances, which will be used to train the Pizza app model, using the [REST Batch add labels](/rest/api/luis/examples/batch) call.
+- Next, you will begin a training session for the Pizza app, using the [REST Train application version](/rest/api/luis/train/train-version) call.
+- Lastly, you will get the status of the training session for the Pizza app, using the [REST Get version training status](/rest/api/luis/train/get-status) call.
 
-[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)
+[Reference documentation](/rest/api/luis/operation-groups)
 
 ## Prerequisites
 
@@ -362,7 +360,7 @@ If the entityLabels array is not empty, the `startCharIndex` and `endCharIndex` 
 
 ## Get intent from the prediction endpoint
 
-Use cURL to query the [prediction endpoint](https://aka.ms/luis-apim-v3-prediction) and get a prediction result.
+Use cURL to query the [prediction endpoint](/rest/api/luis/prediction) and get a prediction result.
 
 > [!NOTE]
 > This command uses your prediction endpoint.

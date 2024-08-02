@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 02/28/2023
  ms.author: cherylmc
 
@@ -24,7 +24,7 @@ You can deploy profiles for Azure VPN clients (Windows 10 or later) by using Mic
 
 In the following steps, we use a sample XML for a custom OMA-URI profile for Intune with the following settings:
 
-* [Always On VPN](../articles/vpn-gateway/vpn-gateway-howto-always-on-user-tunnel.md) is configured.
+* [Always On VPN](/azure/vpn-gateway/vpn-gateway-howto-always-on-user-tunnel) is configured.
 * Trusted Network detection enabled.
 
 For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/vpnv2-csp) article.

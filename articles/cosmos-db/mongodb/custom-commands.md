@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: sample
 ms.date: 02/27/2023
@@ -13,7 +13,7 @@ ms.devlang: javascript
 
 # Use MongoDB extension commands to manage data stored in Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The following document contains the custom action commands that are specific to Azure Cosmos DB for MongoDB. These commands can be used to create and obtain database resources that are specific to the [Azure Cosmos DB capacity model](../resource-model.md).
 

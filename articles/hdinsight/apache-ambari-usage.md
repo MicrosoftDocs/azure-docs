@@ -1,14 +1,14 @@
 ---
 title: Apache Ambari usage in Azure HDInsight
 description: Discussion of how Apache Ambari is used in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 06/15/2024
 ---
 
 # Apache Ambari usage in Azure HDInsight
 
-HDInsight uses Apache Ambari for cluster deployment and management. Ambari agents run on every node (headnode, worker node, zookeeper, and edgenode if exists). Ambari server runs only on headnode. Only one instance of Ambari server shall run at one time. This is controlled by HDInsight failover controller. When one of the headnodes is down for reboot or maintenance, the other headnode will become active and Ambari server on the second headnode will be started.
+HDInsight uses Apache Ambari for cluster deployment and management. Ambari agents run on every node provided if headnode, worker node, zookeeper, and edgenode are present. Ambari server runs only on headnode. Only one instance of Ambari server shall run at one time. This is controlled by HDInsight failover controller. When one of the headnodes is down for reboot or maintenance, the other headnode will become active and Ambari server on the second headnode will be started.
 
 All cluster configuration should be done through the [Ambari UI](./hdinsight-hadoop-manage-ambari.md), any local change will be overwritten when the node is restarted.
 

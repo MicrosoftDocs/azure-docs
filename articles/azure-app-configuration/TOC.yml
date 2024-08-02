@@ -31,6 +31,8 @@
           href: quickstart-azure-functions-csharp.md
     - name: Feature management
       items:
+        - name: Manage feature flags
+          href: manage-feature-flags.md
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET/.NET Framework
@@ -41,6 +43,8 @@
           href: quickstart-feature-flag-spring-boot.md
         - name: Azure Functions
           href: quickstart-feature-flag-azure-functions-csharp.md
+        - name: Python app
+          href: quickstart-feature-flag-python.md
         - name: Azure Kubernetes Service
           href: quickstart-feature-flag-azure-kubernetes-service.md
     - name: Service integration
@@ -84,6 +88,8 @@
           href: enable-dynamic-configuration-java-spring-app.md
         - name: Python
           href: enable-dynamic-configuration-python.md
+        - name: JavaScript
+          href: enable-dynamic-configuration-javascript.md
         - name: Azure Kubernetes Service
           href: enable-dynamic-configuration-azure-kubernetes-service.md
     - name: Enable dynamic configuration using push model
@@ -111,25 +117,43 @@
         - name: Pull using Azure Pipelines
           href: pull-key-value-devops-pipeline.md
         - name: Push using GitHub Actions
-          href: concept-github-action.md
+          href: push-kv-github-action.md
         - name: Build project using exported configuration
           href: integrate-ci-cd-pipeline.md
         - name: Deploy to Kubernetes using Helm
           href: integrate-kubernetes-deployment-helm.md
     - name: Feature management
       items:
-        - name: Manage feature flags
-          href: manage-feature-flags.md
         - name: Use feature flags
           items:
             - name: ASP.NET Core
               href: use-feature-flags-dotnet-core.md
             - name: Spring Boot
               href: use-feature-flags-spring-boot.md
-        - name: Use conditional feature flags
-          href: howto-feature-filters-aspnet-core.md
-        - name: Enable a feature for specified users/groups
-          href: howto-targetingfilter-aspnet-core.md
+        - name: Enable conditional features with feature filters
+          items:
+            - name: Overview
+              href: howto-feature-filters.md
+            - name: ASP.NET Core
+              href: howto-feature-filters-aspnet-core.md
+            - name: Python
+              href: howto-feature-filters-python.md
+        - name: Enable features on a schedule
+          items:
+            - name: Overview
+              href: howto-timewindow-filter.md
+            - name: ASP.NET Core
+              href: howto-timewindow-filter-aspnet-core.md
+        - name: Roll out features to targeted audience
+          items:
+            - name: Overview
+              href: howto-targetingfilter.md
+            - name: ASP.NET Core
+              href: howto-targetingfilter-aspnet-core.md
+        - name: Run experiments with variant feature flags
+          items:
+            - name: ASP.NET Core
+              href: run-experiments-aspnet-core.md
     - name: Enable Azure monitoring
       items:
         - name: Monitor App Configuration
@@ -161,6 +185,8 @@
       href: concept-point-time-snapshot.md
     - name: Feature management
       href: concept-feature-management.md
+    - name: Experimentation
+      href: concept-experimentation.md
     - name: Configuration files
       href: concept-config-file.md
     - name: Event handling
@@ -185,7 +211,7 @@
           href: concept-enable-rbac.md
         - name: Assign an Azure Managed Identity
           href: overview-managed-identity.md
-        - name: Disable access key authentication
+        - name: Manage access key authentication
           href: howto-disable-access-key-authentication.md
         - name: Security controls by Azure Policy
           href: ./security-controls-policy.md
@@ -289,12 +315,24 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103727
         - name: Azure SDK for JavaScript
           href: https://go.microsoft.com/fwlink/?linkid=2103664
+        - name: Azure SDK for Go
+          href: https://go.microsoft.com/fwlink/?linkid=2270866
     - name: Feature management
       items:
         - name: .NET
-          href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
+          items: 
+            - name: Feature reference
+              href: ./feature-management-dotnet-reference.md
+            - name: API reference
+              href: /dotnet/api/overview/azure/appconfiguration/featuremanagement
         - name: Java Spring
-          href: https://azure.github.io/azure-sdk-for-java/springboot.html
+          items:
+            - name: API reference
+              href: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - name: Python
+          items:
+            - name: API reference
+              href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
     - name: Deployment
       items:
       - name: ARM template
@@ -330,5 +368,7 @@
           href: /Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553
         - name: Three reasons to use configuration snapshots
           href: https://aka.ms/appconfig/snapshotVideo
+        - name: Five things you might not know about Azure App Configuration
+          href: https://aka.ms/appconfig/fiveThingsVideo
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

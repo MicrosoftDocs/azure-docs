@@ -1,7 +1,7 @@
 ---
 title: US Population by ZIP code
 description: Learn how to use the US Population by ZIP code dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -12,7 +12,7 @@ US population by gender and race for each US ZIP code sourced from 2000 and 2010
 
 This dataset is sourced from United States Census Bureau’s [Decennial Census Dataset APIs](https://www.census.gov/data/developers/data-sets/decennial-census.html). Review [Terms of Service](https://www.census.gov/data/developers/about/terms-of-service.html) and [Policies and Notices](https://www.census.gov/about/policies.html) for the terms and conditions related to the use this dataset.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 

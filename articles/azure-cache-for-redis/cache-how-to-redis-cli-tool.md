@@ -3,7 +3,7 @@ title: Use redis-cli with Azure Cache for Redis
 description: Learn how to use *redis-cli* as a command-line tool for interacting with an Azure Cache for Redis as a client
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 01/04/2024
 ---
@@ -55,31 +55,31 @@ Open up a shell or terminal on a computer with the _Redis package_ installed. If
 1. Use the following command to connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS:
 
     ```console
-    redis-cli.exe -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls
+    redis-cli -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls
     ```
 
 1. Connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance that doesn't use TLS:
 
     ```console
-    redis-cli.exe -p 6379 -h yourcachename.redis.cache.windows.net -a YourAccessKey
+    redis-cli -p 6379 -h yourcachename.redis.cache.windows.net -a YourAccessKey
     ```
 
 1. Connect to a Basic, Standard, or Premium tier Azure Cache for Redis instance using TLS and clustering:
 
     ```console
-    redis-cli.exe -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls -c
+    redis-cli -p 6380 -h yourcachename.redis.cache.windows.net -a YourAccessKey --tls -c
     ```
 
 1. Connect to an Enterprise or Enterprise Flash tier cache instance using Enterprise cluster policy with TLS:
 
     ```console
-    redis-cli.exe -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey --tls
+    redis-cli -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey --tls
     ```
 
 1. Connect to an Enterprise or Enterprise Flash tier cache instance using  OSS cluster policy without TLS:
 
     ```console
-    redis-cli.exe -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey -c
+    redis-cli -p 10000 -h yourcachename.eastus.redisenterprise.cache.azure.net -a YourAccessKey -c
     ```
 
 ### Testing the connection

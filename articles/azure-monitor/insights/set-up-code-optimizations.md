@@ -17,9 +17,11 @@ Setting up Code Optimizations to identify and analyze CPU and memory bottlenecks
 - Connect your web app to Application Insights.
 - Enable the Profiler on your web app.
 
+[You can review your Code Optimizations in the Azure portal.](https://aka.ms/codeoptimizations)
+
 ## Demo video
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vbi9YQgIgC8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+> [!VIDEO https://www.youtube-nocookie.com/embed/vbi9YQgIgC8]
 
 ## Connect your web app to Application Insights
 

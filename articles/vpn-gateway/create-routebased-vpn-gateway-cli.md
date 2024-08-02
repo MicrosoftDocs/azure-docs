@@ -3,7 +3,7 @@ title: 'Create a route-based virtual network gateway: CLI'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a route-based virtual network gateway for a VPN connection to an on-premises network, or to connect virtual networks.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 03/12/2024
@@ -23,7 +23,7 @@ A VPN gateway is just one part of a connection architecture to help you securely
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
 * You can later add different types of connections, as shown on the right side of the diagram. For example, you can create [site-to-site](tutorial-site-to-site-portal.md) and [point-to-site](point-to-site-about.md) connections. To view different design architectures that you can build, see [VPN gateway design](design.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

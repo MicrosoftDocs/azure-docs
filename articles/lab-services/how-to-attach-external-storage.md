@@ -3,7 +3,7 @@ title: Use external file storage
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab that uses external file storage in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -12,8 +12,7 @@ ms.date: 04/25/2023
 
 # Use external file storage in Azure Lab Services
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article covers some of the options for using external file storage in Azure Lab Services. [Azure Files](https://azure.microsoft.com/services/storage/files/) offers fully managed file shares in the cloud, [accessible via SMB 2.1 and SMB 3.0](/azure/storage/files/storage-how-to-use-files-windows). An Azure Files share can be connected either publicly or privately within a virtual network. You can also configure the share to use a lab user’s Active Directory credentials for connecting to the file share. If you're on a Linux machine, you can also use Azure NetApp Files with NFS volumes for external file storage with Azure Lab Services.
 
@@ -27,7 +26,7 @@ The following table lists important considerations for each external storage sol
 | [Azure Files share with private endpoint](#azure-files-share) | <ul><li>Everyone has read/write access.</li><li>Virtual network peering is required.</li><li>Accessible only to VMs on the same network (or a peered network) as the storage account.</li><li>If you're using Linux, lab users have access to the storage account key.</li></ul> |
 | [Azure NetApp Files with NFS volumes](#azure-netapp-files-with-nfs-volumes) | <ul><li>Either read or read/write access can be set for volumes.</li><li>Permissions are set by using a lab VM’s IP address.</li><li>Virtual network peering is required.</li><li>You might need to register to use the Azure NetApp Files service.</li><li>Linux only.</li></ul>
 
-The cost of using external storage isn't included in the cost of using Azure Lab Services.  For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
+The cost of using external storage isn't included in the cost of using Azure Lab Services. For more information about pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Azure Files share
 
@@ -39,13 +38,13 @@ By default, standard file shares can span up to 5 TiB. See [Create an Azure file
 
 - The virtual network for the storage account doesn't have to be connected to the lab virtual network. You can create the file share anytime before the template VM is published.
 - The file share can be accessed from any machine if a user has the storage account key.
-- Linux lab users can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by *sudo*. Because lab users are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. If the storage account endpoint is public, lab users can get access to the file share outside of their lab VM. Consider rotating the storage account key after class has ended, or using private file shares.
+- Linux lab users can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by *sudo*. Because lab users are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. If the storage account endpoint is public, lab users can get access to the file share outside of their lab VM. Consider rotating the storage account key after class ends, or using private file shares.
 
 ### Considerations for using a private endpoint
 
-- This approach requires the file share virtual network to be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
+- This approach requires the file share virtual network to be connected to the lab. To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using virtual network injection](how-to-connect-vnet-injection.md). Virtual network injection must be done during lab plan creation.
 - Access is restricted to traffic originating from the private network, and can’t be accessed through the public internet. Only VMs in the private virtual network, VMs in a network peered to the private virtual network, or machines connected to a VPN for the private network, can access the file share.
-- Linux lab users can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by *sudo*. Because lab users are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. Consider rotating the storage account key after class has ended.
+- Linux lab users can see the storage account key. Credentials for mounting an Azure Files share are stored in `{file-share-name}.cred` on Linux VMs, and are readable by *sudo*. Because lab users are given sudo access by default in Azure Lab Services VMs, they can read the storage account key. Consider rotating the storage account key after class ends.
 
 ### Connect a lab VM to an Azure file share
 
@@ -53,9 +52,9 @@ Follow these steps to create a VM connected to an Azure file share.
 
 1. Create an [Azure Storage account](/azure/storage/files/storage-how-to-create-file-share). On the **Connectivity method** page, choose **public endpoint** or **private endpoint**.
 
-1. If you've chosen the private method, create a [private endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal) in order for the file shares to be accessible from the virtual network.
+1. If using the private method, create a [private endpoint](/azure/private-link/tutorial-private-endpoint-storage-portal) in order for the file shares to be accessible from the virtual network.
 
-1. Create an [Azure file share](/azure/storage/files/storage-how-to-create-file-share). The file share is reachable by the public host name of the storage account if using a public endpoint.  The file share is reachable by private IP address if using a private endpoint.
+1. Create an [Azure file share](/azure/storage/files/storage-how-to-create-file-share). The file share is reachable by the public host name of the storage account if using a public endpoint. The file share is reachable by private IP address if using a private endpoint.
 
 1. Mount the Azure file share in the template VM:
 
@@ -130,7 +129,7 @@ sudo mount -t cifs //$STORAGE_ACCOUNT_NAME.file.core.windows.net/$FILESHARE_NAME
 
 If the template VM that mounts the Azure Files share to the `/mnt` directory is already published, the lab user can either:
 
-- Move the instruction to mount `/mnt` to the top of the `/etc/fstab` file.  
+- Move the instruction to mount `/mnt` to the top of the `/etc/fstab` file. 
 - Modify the instruction to mount `/mnt/{file-share-name}` to a different directory, like `/prm-mnt/{file-share-name}`.
 
 Lab users should run `mount -a` to remount directories.
@@ -145,7 +144,7 @@ For more general information, see [Use Azure Files with Linux](/azure/storage/fi
 - Permission policies are IP-based for each volume
 - If lab users need their own volume that other lab users don't have access to, permission policies must be assigned after the lab is published
 - Azure Lab Services only supports Linux-based lab virtual machines to connect to Azure NetApp Files
-- The virtual network for the Azure NetApp Files capacity pool must be connected to the lab.  To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using vnet injection](how-to-connect-vnet-injection.md).  VNet injection must be done during lab plan creation.
+- The virtual network for the Azure NetApp Files capacity pool must be connected to the lab. To enable advanced networking for labs, see [Connect to your virtual network in Azure Lab Services using virtual network injection](how-to-connect-vnet-injection.md). Virtual network injection must be done during lab plan creation.
 
 To use an Azure NetApp Files share in Azure Lab Services:
 
@@ -164,12 +163,6 @@ To use an Azure NetApp Files share in Azure Lab Services:
         ```bash
         sudo apt update
         sudo apt install nfs-common
-        ```
-
-    - CentOS:
-
-        ```bash
-        sudo yum install nfs-utils
         ```
 
 1. On the template VM, save the following script as `mount_fileshare.sh` to [mount the Azure NetApp Files share](/azure/azure-netapp-files/azure-netapp-files-mount-unmount-volumes-for-virtual-machines).
@@ -200,7 +193,7 @@ To use an Azure NetApp Files share in Azure Lab Services:
     sudo bash -c "echo ""$CAPACITY_POOL_IP_ADDR:/$VOLUME_NAME /$MOUNT_DIRECTORY/$VOLUME_NAME nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0"" >> /etc/fstab"
     ```
 
-1. If all lab users are sharing access to the same Azure NetApp Files volume, you can run the `mount_fileshare.sh` script on the template machine before publishing. If lab users each get their own volume, save the script to be run later by the lab user.
+1. If all lab users are sharing access to the same Azure NetApp Files volume, you can run the `mount_fileshare.sh` script on the template machine before publishing. If lab users each get their own volume, save the script so each lab user can run it later.
 
 1. [Publish](how-to-create-manage-template.md#publish-the-template-vm) the template VM.
 
@@ -210,7 +203,7 @@ To use an Azure NetApp Files share in Azure Lab Services:
 
 1. Lab users must start their VM and run the script to mount the file share. They have to run the script only once.
 
-    The command looks like the following: `./mount_fileshare.sh myvolumename`.
+    Use the command: `./mount_fileshare.sh myvolumename`.
 
 ## Next steps
 

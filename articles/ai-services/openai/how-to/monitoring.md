@@ -6,7 +6,7 @@ ms.author: mbullwin
 ms.service: azure-ai-openai
 ms.topic: how-to
 ms.custom: subject-monitoring
-ms.date: 03/29/2024
+ms.date: 07/12/2024
 ---
 
 # Monitoring Azure OpenAI Service
@@ -56,11 +56,15 @@ The following table summarizes the current subset of metrics available in Azure 
 |Metric|Category|Aggregation|Description|Dimensions|
 |---|---|---|---|---|
 |`Azure OpenAI Requests`|HTTP|Count|Total number of calls made to the Azure OpenAI API over a period of time. Applies to PayGo, PTU, and PTU-managed SKUs.| `ApiName`, `ModelDeploymentName`,`ModelName`,`ModelVersion`, `OperationName`, `Region`, `StatusCode`, `StreamType`|
+| `Active Tokens` | Usage |Sum | Total tokens minus cached tokens over a period of time. Applies to PTU and PTU-managed deployments. Use this metric to understand your TPS or TPM based utilization for PTUs and compare to your benchmarks for target TPS or TPM for your scenarios. | `ModelDeploymentName`,`ModelName`,`ModelVersion` |
 | `Generated Completion Tokens` | Usage | Sum | Number of generated tokens (output) from an Azure OpenAI model. Applies to PayGo, PTU, and PTU-manged SKUs | `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed FineTuned Training Hours` | Usage |Sum| Number of training hours processed on an Azure OpenAI fine-tuned model. |  `ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed Inference Tokens` | Usage | Sum|  Number of inference tokens processed by an Azure OpenAI model. Calculated as prompt tokens (input) + generated tokens. Applies to PayGo, PTU, and PTU-manged SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
 | `Processed Prompt Tokens` | Usage | Sum | Total number of prompt tokens (input) processed on an Azure OpenAI model. Applies to PayGo, PTU, and PTU-managed SKUs.|`ApiName`, `ModelDeploymentName`,`ModelName`, `Region`|
-| `Provision-managed Utilization V2` | Usage | Average | Provision-managed utilization is the utilization percentage for a given provisioned-managed deployment. Calculated as (PTUs consumed/PTUs deployed)*100. When utilization is at or above 100%, calls are throttled and return a 429 error code. | `ModelDeploymentName`,`ModelName`,`ModelVersion`, `Region`, `StreamType`|
+| `Provision-managed Utilization V2` | HTTP | Average | Provision-managed utilization is the utilization percentage for a given provisioned-managed deployment. Calculated as (PTUs consumed/PTUs deployed)*100. When utilization is at or above 100%, calls are throttled and return a 429 error code. | `ModelDeploymentName`,`ModelName`,`ModelVersion`, `Region`, `StreamType`|
+|`Prompt Token Cache Match Rate` | HTTP | Average | **Provisioned-managed only**. The prompt token cache hit ration expressed as a percentage. | `ModelDeploymentName`, `ModelVersion`, `ModelName`, `Region`|
+|`Time to Response` | HTTP | Average | Recommended latency (responsiveness) measure for streaming requests. **Applies to PTU, and PTU-managed deployments**. This metric does not apply to standard pay-go deployments. Calculated as time taken for the first response to appear after a user sends a prompt, as measured by the API gateway. This number increases as the prompt size increases and/or cache hit size reduces. Note: this metric is an approximation as measured latency is heavily dependent on multiple factors, including concurrent calls and overall workload pattern. In addition, it does not account for any client- side latency that may exist between your client and the API endpoint. Please refer to your own logging for optimal latency tracking.| `ModelDepIoymentName`, `ModelName`, and `ModelVersion` |
+
 
 ## Configure diagnostic settings
 

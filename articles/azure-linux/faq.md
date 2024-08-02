@@ -12,7 +12,7 @@
 # Frequently asked questions about the Azure Linux Container Host for AKS
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This article answers common questions about the Azure Linux Container Host.
 
@@ -20,7 +20,7 @@ This article answers common questions about the Azure Linux Container Host.
 
 ### What is Azure Linux?
 
-The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md). Microsoft maintains the Azure Linux Container Host and based it on Azure Linux (also known as *Mariner*), an open-source Linux distribution created by Microsoft.
+The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Microsoft maintains the Azure Linux Container Host and based it on Azure Linux (also known as *Mariner*), an open-source Linux distribution created by Microsoft.
 
 ### What are the benefits of using Azure Linux?
 
@@ -62,7 +62,7 @@ For more information on CVEs, see [Azure Linux Container Host for AKS core conce
 
 ### How does Microsoft notify users of new Azure Linux versions?
 
-Azure Linux releases can be tracked alongside AKS releases on the [AKS release tracker](../../articles/aks/release-tracker.md).
+Azure Linux releases can be tracked alongside AKS releases on the [AKS release tracker](/azure/aks/release-tracker).
 
 ### Does the Azure Linux Container Host support AppArmor?
 

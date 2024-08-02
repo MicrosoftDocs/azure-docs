@@ -3,17 +3,17 @@ title: Publish ML pipelines
 titleSuffix: Azure Machine Learning
 description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-author: xiaoharper
-ms.author: zhanxia
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: zhanxia
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
-# Publish and track machine learning pipelines
+# Publish machine learning pipelines
 
 [!INCLUDE [sdk v1](../includes/machine-learning-sdk-v1.md)]
 
@@ -364,5 +364,5 @@ You can enable it again with `p.enable()`. For more information, see [PublishedP
 ## Next steps
 
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
-- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/) package.
+- See the SDK reference help for the [azureml-pipelines-core](/python/api/azureml-pipeline-core/azureml.pipeline.core) package and the [azureml-pipelines-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) package.
 - See the [how-to](how-to-debug-pipelines.md) for tips on debugging and troubleshooting pipelines.

@@ -3,9 +3,9 @@ title: Move an Azure Spring Apps service instance to another region
 description: Learn how to move an Azure Spring Apps service instance to another region.
 author: KarlErickson
 ms.author: wepa
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 01/27/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23
 ---
 
@@ -168,9 +168,6 @@ After you modify the template, use the following steps to deploy the template an
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the top search box, search for *Deploy a custom template*.
-
-    :::image type="content" source="media/how-to-move-across-regions/search-deploy-template.png" alt-text="Screenshot of Azure portal showing search results." lightbox="media/how-to-move-across-regions/search-deploy-template.png" border="true":::
-
 1. Under **Services**, select **Deploy a custom template**.
 1. Go to the **Select a template** tab, and then select **Build your own template in the editor**.
 1. In the template editor, paste in the *template.json* file you modified earlier, and then select **Save**.
@@ -209,7 +206,7 @@ Wait until the template has deployed successfully. If the deployment fails, view
 Some features aren't exported to the template, or can't be imported with a template. You must manually set up some Azure Spring Apps items on the new instance after the template deployment completes successfully. The following guidelines describe these requirements:
 
 - The JAR files for the previous service aren't deployed directly to the new service instance. To deploy all apps, follow the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps](../basic-standard/quickstart-deploy-apps.md). If there's no active deployment configured automatically, you must configure a production deployment. For more information, see [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
-- Config Server won't be imported automatically. To set up Config Server on your new instance, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../basic-standard/how-to-config-server.md).
+- Config Server won't be imported automatically. To set up Config Server on your new instance, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](how-to-config-server.md).
 - Managed identity is created automatically for the new service instance, but the object ID will be different from the previous instance. For managed identity to work in the new service instance, follow the instructions in [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md).
 - For Monitoring -> Metrics, see [Metrics for Azure Spring Apps](concept-metrics.md). To avoid mixing the data, create a new Log Analytics instance to collect the new data. You should also create a new instance for other monitoring configurations.
 - For Monitoring -> Diagnostic settings and logs, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).

@@ -5,7 +5,7 @@ services: service-fabric
 author: athinanthny
 manager: chackdan
 ms.assetid: 0f9c8bc5-3789-4eb3-8deb-ae6e2200795a
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 01/19/2018
 ms.author: atsenthi
@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 This sample script creates a five-node Service Fabric cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/) and then run `Connect-AzAccount` to create a connection with Azure. 
 

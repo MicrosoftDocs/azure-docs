@@ -3,11 +3,13 @@ title: Manage virtual networks - Azure CLI
 description: Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure CLI.
 author: SudheeshGH
 ms.author: sunaray
-ms.service: mysql
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 1/18/2024
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Create and manage virtual networks for Azure Database for MySQL - Flexible Server using the Azure CLI

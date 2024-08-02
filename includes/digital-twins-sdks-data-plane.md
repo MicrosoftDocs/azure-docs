@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for Azure Digital Twins - control plane SDKs
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 10/5/2023
 ms.author: baanders
@@ -9,12 +9,12 @@ ms.author: baanders
 
 The data plane APIs are the Azure Digital Twins APIs used to manage the elements within your Azure Digital Twins instance. They include operations like creating routes, uploading models, creating relationships, and managing twins, and can be broadly divided into the following categories:
 
-* `DigitalTwinModels` - The DigitalTwinModels category contains APIs to manage the [models](../articles/digital-twins/concepts-models.md) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
-* `DigitalTwins` - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](../articles/digital-twins/concepts-twins-graph.md) and their relationships in an Azure Digital Twins instance.
-* `Query` - The Query category lets developers [find sets of digital twins in the twin graph](../articles/digital-twins/how-to-query-graph.md) across relationships.
-* `Event Routes` - The Event Routes category contains APIs to [route data](../articles/digital-twins/concepts-route-events.md), through the system and to downstream services.
-* `Import Jobs` - The Import Jobs API lets you manage a long running, asynchronous action to [import models, twins, and relationships in bulk](../articles/digital-twins/concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api).
-* `Delete Jobs` - The Delete Jobs API lets you manage a long running, asynchronous action to [delete all models, twins, and relationships in an instance](../articles/digital-twins/concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
+* `DigitalTwinModels` - The DigitalTwinModels category contains APIs to manage the [models](/azure/digital-twins/concepts-models) in an Azure Digital Twins instance. Management activities include upload, validation, retrieval, and deletion of models authored in DTDL.
+* `DigitalTwins` - The DigitalTwins category contains the APIs that let developers create, modify, and delete [digital twins](/azure/digital-twins/concepts-twins-graph) and their relationships in an Azure Digital Twins instance.
+* `Query` - The Query category lets developers [find sets of digital twins in the twin graph](/azure/digital-twins/how-to-query-graph) across relationships.
+* `Event Routes` - The Event Routes category contains APIs to [route data](/azure/digital-twins/concepts-route-events), through the system and to downstream services.
+* `Import Jobs` - The Import Jobs API lets you manage a long running, asynchronous action to [import models, twins, and relationships in bulk](/azure/digital-twins/concepts-apis-sdks#bulk-import-with-the-import-jobs-api).
+* `Delete Jobs` - The Delete Jobs API lets you manage a long running, asynchronous action to [delete all models, twins, and relationships in an instance](/azure/digital-twins/concepts-apis-sdks#bulk-delete-with-the-delete-jobs-api).
 
 To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
 

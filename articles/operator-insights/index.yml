@@ -5,7 +5,7 @@ summary: Learn how to use Azure Operator Insights to analyze network data from m
 metadata:
   title: Azure Operator Insights documentation
   description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
-  ms.service: operator-insights
+  ms.service: azure-operator-insights
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan
@@ -32,6 +32,8 @@ landingContent:
             url: concept-mcc-data-product.md
           - text: Monitoring - Affirmed MCC Data Product
             url: concept-monitoring-mcc-data-product.md
+          - text: Architecture of Azure Operator Insights
+            url: architecture.md
           - text: Business continuity and disaster recovery
             url: business-continuity-disaster-recovery.md
           - text: Data quality and data monitoring 
@@ -42,12 +44,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create an Azure Operator Insights Data Product
+          - text: Deploy an Azure Operator Insights Data Product
             url: data-product-create.md
       - linkListType: how-to-guide
         links:
           - text: Set up the Azure Operator Insights ingestion agent
             url: set-up-ingestion-agent.md
+          - text: Use Azure Data Factory to ingest data
+            url: ingestion-with-data-factory.md
 
   # Card
   - title: Upload data to Azure Operator Insights

@@ -4,18 +4,19 @@ description: Configure autoscale for a Virtual Machine Scale Set using PowerShel
 author: EdB-MSFT
 ms.author: edbaynash
 ms.topic: how-to
-ms.date: 01/05/2023
+ms.date: 04/15/2024
 ms.subservice: autoscale
 ms.custom: devx-track-azurepowershell
 ms.reviewer: akkumari
-# Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my VMSS.
+
+# Customer intent: As a user or dev ops administrator, I want to use powershell to set up autoscale so I can scale my Virtual Machine Scale Set.
 ---
 
 # Configure autoscale with PowerShell
 
-Autoscale settings help ensure that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
+Autoscale ensures that you have the right amount of resources running to handle the fluctuating load of your application. You can configure autoscale using the Azure portal, Azure CLI, PowerShell or ARM or Bicep templates.  
 
-This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell, using the following steps:
+This article shows you how to configure autoscale for a Virtual Machine Scale Set with PowerShell. The configurations use the following steps:
 
 + Create a scale set that you can autoscale
 + Create rules to scale in and scale out

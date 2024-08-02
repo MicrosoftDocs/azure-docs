@@ -30,7 +30,7 @@ Azure RBAC can be assigned to an Azure OpenAI resource. To grant access to an Az
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).
 
 ## Azure OpenAI roles
 
@@ -204,4 +204,4 @@ Possible reasons why the user may **not** have permissions:
 ## Next steps
 
 - Learn more about [Azure-role based access control (Azure RBAC)](../../../role-based-access-control/index.yml).
-- Also check out[assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.md).
+- Also check out[assign Azure roles using the Azure portal](../../../role-based-access-control/role-assignments-portal.yml).

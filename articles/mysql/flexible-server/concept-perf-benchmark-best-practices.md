@@ -1,19 +1,20 @@
 ---
 title: Performance benchmarking
 description: This article describes some considerations and best practices to apply when conducting performance benchmarks on Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: code-sidd
+ms.author: sisawant
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd 
-ms.author: sisawant
-ms.date: 01/27/2023
 ---
 
 # Best practices for benchmarking performance of Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
-[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 Performance is a hallmark of any application, and it's vital to define a clear strategy for analyzing and assessing how a database performs when handling an application's variable workload requirements.
 

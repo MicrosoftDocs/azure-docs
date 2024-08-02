@@ -4,7 +4,7 @@ description: Recommendations to secure images and secrets for Azure Container In
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -34,7 +34,7 @@ Take advantage of solutions to scan container images in a private registry and i
 
 For example, Azure Container Registry optionally [integrates with Microsoft Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) to automatically scan all Linux images pushed to a registry. Microsoft Defender for Cloud's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
 
-Security monitoring and image scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) are also available through the Azure Marketplace.  
+Security monitoring and image scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security-private-offer-primary) are also available through the Azure Marketplace.  
 
 ### Protect credentials
 
@@ -107,7 +107,7 @@ A safe list not only reduces the attack surface but can also provide a baseline 
 
 To help protect containers in one subnet from security risks in another subnet, maintain network segmentation (or nano-segmentation) or segregation between running containers. Maintaining network segmentation may also be necessary to use containers in industries that are required to meet compliance mandates.  
 
-For example, the partner tool [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) provides an automated approach for nano-segmentation. Aqua monitors container network activities in runtime. It identifies all inbound and outbound network connections to/from other containers, services, IP addresses, and the public internet. Nano-segmentation is automatically created based on monitored traffic. 
+For example, the partner tool [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security-private-offer-primary) provides an automated approach for nano-segmentation. Aqua monitors container network activities in runtime. It identifies all inbound and outbound network connections to/from other containers, services, IP addresses, and the public internet. Nano-segmentation is automatically created based on monitored traffic. 
 
 ### Monitor container activity and user access 
 
@@ -130,7 +130,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 
 [Azure Monitor](../azure-monitor/overview.md) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. For example, the activity log tells you when new resources are created or modified. 
 
-  Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minutes down to 1 minute), so you should use it for time-critical alerts and notifications. 
+  Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and [create alerts](monitor-azure-container-instances.md#alerts) based on these metrics.
 
 ### Log all container administrative user access for auditing 
 

@@ -4,7 +4,7 @@ description: Create a database with autoscale and shared collections for API for
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-azurecli
 ms.topic: sample
@@ -13,11 +13,11 @@ ms.date: 02/21/2022
 
 # Create a database with autoscale and shared collections for API for MongoDB for Azure Cosmos DB using Azure CLI
 
-[!INCLUDE[MongoDB](../../../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 The script in this article demonstrates creating a API for MongoDB database with autoscale and 2 collections that share throughput.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -25,7 +25,7 @@ The script in this article demonstrates creating a API for MongoDB database with
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
@@ -33,7 +33,7 @@ The script in this article demonstrates creating a API for MongoDB database with
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

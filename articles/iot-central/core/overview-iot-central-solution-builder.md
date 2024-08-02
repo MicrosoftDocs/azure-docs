@@ -102,7 +102,7 @@ Scenarios that process IoT data outside of IoT Central to extract business value
 
 - Extract business metrics and use artificial intelligence (AI) and machine learning (ML):
   
-  Use IoT data to calculate common business metrics such as *overall equipment effectiveness* (OEE)  and *overall process effectiveness* (OPE). You can also use IoT data to enrich your existing AI and ML assets. For example, IoT Central can help to capture the data you need to build, train, and deploy your models.
+  Use IoT data to calculate common business metrics such as *overall equipment effectiveness (OEE)*  and *overall process effectiveness (OPE)*. You can also use IoT data to enrich your existing AI and ML assets. For example, IoT Central can help to capture the data you need to build, train, and deploy your models.
 
   Use the IoT Central continuous data export feature to publish captured IoT data into an Azure data lake. Then use a connected to Azure Databricks workspace to compute OEE and OPE. Pipe the same data to Azure Machine Learning or Azure Synapse to use their machine learning capabilities.
 
@@ -125,7 +125,6 @@ You can use the data export and rules capabilities in IoT Central to integrate w
 - [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
 - [Transform data for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
-- [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
 ## Integrate with companion applications
 

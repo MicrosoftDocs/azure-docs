@@ -6,14 +6,12 @@ summary: Azure confidential computing offers solutions to enable isolation of yo
 metadata:
   title: Azure confidential computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud.
-  ms.service: virtual-machines
-  ms.subservice: confidential-computing
-  ms.custom:
-    - ignite-2023
+  ms.service: azure-virtual-machines
+  ms.subservice: azure-confidential-computing
   ms.topic: landing-page
   author: michamcr 
   ms.author: mmcrey
-  ms.date: 09/22/2020, 07/13/2022, 02/22/2024
+  ms.date: 02/22/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -30,7 +28,7 @@ landingContent:
             url: overview.md
           - text: What products are available?
             url: overview-azure-products.md
-          - text: Choose your confidential computing offering
+          - text: What can I use this for?
             url: use-cases-scenarios.md 
       - linkListType: quickstart
         links:
@@ -133,7 +131,7 @@ landingContent:
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential VM node pools on AKS
-            url: ..\aks\use-cvm.md
+            url: /azure/aks/use-cvm
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios

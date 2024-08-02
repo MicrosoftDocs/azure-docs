@@ -4,7 +4,7 @@ titleSuffix: Azure Route Server
 description: Learn how Azure Route Server injects routes in virtual networks (VNets) in different topologies.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 03/13/2024
 
@@ -90,6 +90,9 @@ To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in
 The next hop for the `0.0.0.0/0` route is the NVA, so the spoke VNets still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where Route Server 2 is deployed, otherwise it won't be able to create the BGP adjacency.
 
 If traffic from ExpressRoute to the spoke VNets is to be sent to a firewall NVA for inspection, a route table in the GatewaySubnet is still required, otherwise the ExpressRoute virtual network gateway will send packets to the virtual machines using the routes learnt from VNet peering. The routes in this route table should match the spoke prefixes, and the next hop should be the IP address of the firewall NVA (or the load balancer in front of the firewall NVAs, for redundancy). The firewall NVA can be the same as the SDWAN NVA in the diagram above, or it can be a different device such as Azure Firewall, since the SDWAN NVA can advertise routes with the next-hop pointing to other IP addresses. The following diagram shows this design with the addition of Azure Firewall:
+
+> [!NOTE]
+> For any traffic from on-premises destined for Private Endpoints, this traffic will bypass the Firewall NVA or Azure Firewall in the hub. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed.
 
 :::image type="content" source="./media/scenarios/route-injection-split-route-server-with-firewall.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute, an Azure Firewall, and two Route Servers.":::
 

@@ -3,9 +3,9 @@ title: Database connection configuration in Azure Static Web Apps
 description: Configure your static web app to connect to a database.
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 05/28/2024
 ---
 
 # Database connection configuration in Azure Static Web Apps (preview)
@@ -160,7 +160,7 @@ Linking a database to your static web app establishes the production connection 
     | Database Name | Select the name of the database you want to link to your static web app. |
     | Authentication Type | Select the connection type required to connect to your database. |
 
-## Next steps
+## Related content
 
 Add a database to your static web app using one of the following databases:
 
@@ -168,3 +168,6 @@ Add a database to your static web app using one of the following databases:
 - [Azure SQL](database-azure-sql.md)
 - [MySQL](database-mysql.md)
 - [PostgreSQL](database-postgresql.md)
+
+Additionally, you can learn about how to use the [Data API builder](/azure/data-api-builder/how-to-deploy-static-web-app
+) with Azure Static Web Apps.

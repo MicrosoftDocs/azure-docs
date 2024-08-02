@@ -4,7 +4,7 @@ description: Learn how to deploy a container group to a new or existing Azure vi
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurecli
@@ -17,10 +17,9 @@ ms.custom: devx-track-azurecli
 This article shows how to use the [az container create][az-container-create] command in the Azure CLI to deploy container groups to either a new virtual network or an existing virtual network.
 
 > [!IMPORTANT]
-> Before deploying container groups in virtual networks, we suggest checking the limitation first. For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
-
-> [!IMPORTANT]
-> Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [available-regions][available-regions].
+> * Subnets must be delegated before using a virtual network
+> * Before deploying container groups in virtual networks, we suggest checking the limitation first. For networking scenarios and limitations, see [Virtual network scenarios and resources for Azure Container Instances](container-instances-virtual-network-concepts.md).
+> * Container group deployment to a virtual network is generally available for Linux and Windows containers, in most regions where Azure Container Instances is available. For details, see [available-regions][available-regions].
 
 [!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
 
@@ -63,11 +62,10 @@ When you deploy to a new virtual network by using this method, the deployment ca
 
 To deploy a container group to an existing virtual network:
 
-1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources and configuration.
+1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources and configuration.The subnet that you use for container groups can contain only container groups. Before you deploy a container group to a subnet, you must explicitly delegate the subnet before provisioning. Once delegated, the subnet can be used only for container groups. If you attempt to deploy resources other than container groups to a delegated subnet, the operation fails.
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
    * Virtual network name and subnet name
    * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group
-   * Network profile name or ID, which you can obtain using [az network profile list][az-network-profile-list]
 
 ### Example
 

@@ -10,13 +10,12 @@ metadata:
   author: jcodella
   ms.author: jacodel
   ms.reviewer: sidandrews
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
   ms.devlang: nosql
   ms.date: 02/27/2024
-  ms.custom: query-reference
-
+  ms.custom: query-reference, build-2024
 landingContent:
   - title: Array functions
     linkLists:
@@ -266,3 +265,9 @@ landingContent:
             url: is-primitive.md
           - text: IS_STRING
             url: is-string.md
+  - title: Vector functions
+    linkLists:
+      - linkListType: reference
+        links:
+            - text: VectorDistance
+              url: vectordistance.md

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024
@@ -17,7 +17,7 @@ ms.author: mbaldwin
 
 A Key Vault access policy determines whether a given security principal, namely a user, application or user group, can perform different operations on Key Vault [secrets](../secrets/index.yml), [keys](../keys/index.yml), and [certificates](../certificates/index.yml). You can assign access policies using the [Azure portal](assign-access-policy-portal.md), the Azure CLI, or [Azure PowerShell](assign-access-policy-powershell.md).
 
-[!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
+[!INCLUDE [key-vault-access-policy-limits.md](../includes/key-vault-access-policy-limits.md)]
 
 # [Azure portal](#tab/azure-portal)
 

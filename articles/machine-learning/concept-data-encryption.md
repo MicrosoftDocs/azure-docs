@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -39,7 +39,7 @@ For information on regenerating the access keys, see [Regenerate storage account
 
 ### Azure Data Lake Storage
 
-[!INCLUDE [Note](../../includes/data-lake-storage-gen1-rename-note.md)]
+[!INCLUDE [Note](./includes/data-lake-storage-gen1-rename-note.md)]
 
 Azure Data Lake Storage Gen2 is built on top of Azure Blob Storage and is designed for big data analytics in enterprises. Data Lake Storage Gen2 is used as a datastore for Azure Machine Learning. Like Azure Blob Storage, the data at rest is encrypted with Microsoft-managed keys.
 
@@ -117,7 +117,7 @@ For more information on using a customer-managed key with Container Instances, s
 
 ### Azure Kubernetes Service
 
-You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
+You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys).
 
 This process allows you to encrypt both the data and the OS disk of the deployed virtual machines in the Kubernetes cluster.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Review the Java API and SDK including release dates, retirement dates, and changes made between each version of this SDK for Azure Cosmos DB for NoSQL.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: java
@@ -24,7 +24,7 @@ This article covers the Azure Cosmos DB Sync Java SDK v2 for the API for NoSQL. 
 > This is *not* the latest Java SDK for Azure Cosmos DB! We **strongly recommend** using [Azure Cosmos DB Java SDK v4](sdk-java-v4.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and the [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-rxjava-guide.md) guide.
 
 > [!WARNING]  
-> On February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x will be retired. Azure Cosmos DB will cease to provide further maintenance and support for this SDK after retirement. Please follow the instructions here to migrate to Azure Cosmos DB Java SDK v4.
+> As of February 29, 2024 the Azure Cosmos DB Sync Java SDK v2.x is now retired. Azure Cosmos DB no longer provides maintenance or support for this SDK after retirement. Please follow the instructions [here](migrate-java-v4-sdk.md) to migrate to Azure Cosmos DB Java SDK v4.
 
 | | Links |
 |---|---|

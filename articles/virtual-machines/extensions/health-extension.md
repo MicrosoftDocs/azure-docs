@@ -2,7 +2,7 @@
 title: Use Application Health extension with Azure Virtual Machines
 description: Learn how to use the Application Health extension to monitor the health of your applications deployed on Azure virtual machines.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: hilarywang
 author: hilaryw29
@@ -137,6 +137,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -151,7 +152,8 @@ The following JSON shows the schema for the Application Health extension. The ex
             "numberOfProbes": 1
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```
@@ -183,6 +185,7 @@ The following JSON shows the schema for the Rich Health States extension. The ex
 {
   "extensionProfile" : {
      "extensions" : [
+      {
         "name": "HealthExtension",
         "properties": {
           "publisher": "Microsoft.ManagedServices",
@@ -198,7 +201,8 @@ The following JSON shows the schema for the Rich Health States extension. The ex
             "gracePeriod": 600
           }
         }
-     ]
+      }
+    ]
   }
 } 
 ```

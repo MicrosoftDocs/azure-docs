@@ -8,13 +8,13 @@ ms.date: 09/01/2022
 ---
 
 APPLIES TO:
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 NoSQL
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 MongoDB
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 Cassandra
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 Gremlin
-:::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/yes-icon.svg" border="false":::
 Table

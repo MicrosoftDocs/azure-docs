@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 03/01/2024
+ms.date: 05/06/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
@@ -13,12 +13,12 @@ ms.custom: devx-track-azurecli
 
 This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other Cloud resources using Azure CLI and Service Connector. Service Connector lets you quickly connect compute services to cloud services, while managing your connection's authentication and networking settings.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * This quickstart requires version 2.30.0 or higher of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-* This quickstart assumes that you already have an AKS cluster. If you don't have one yet, [create an AKS cluster](../aks/learn/quick-kubernetes-deploy-cli.md).
+* This quickstart assumes that you already have an AKS cluster. If you don't have one yet, [create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 * This quickstart assumes that you already have an Azure Storage account. If you don't have one yet, [create an Azure Storage account](../storage/common/storage-account-create.md).
 
 ## Initial set-up
@@ -61,7 +61,7 @@ Provide the following information as prompted:
 ### [Using a workload identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Azure AD role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra ID role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have the permission, your connection creation will fail. You can ask your subscription owner for the permission or use an access key to create the connection.
 
 Use the Azure CLI command to create a service connection to a Blob Storage with a workload identity, providing the following information:
 

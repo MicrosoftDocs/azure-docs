@@ -1,12 +1,13 @@
 ---
 title: Scheduled maintenance
 description: This article describes the scheduled maintenance feature in Azure Database for MySQL - Flexible Server.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: conceptual
 author: xboxeer
 ms.author: yuzheng1
-ms.date: 05/24/2022
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: conceptual
 ---
 
 # Scheduled maintenance in Azure Database for MySQL - Flexible Server
@@ -16,6 +17,20 @@ ms.date: 05/24/2022
 Azure Database for MySQL flexible server performs periodic maintenance to keep your managed database secure, stable, and up-to-date. During maintenance, the server gets new features, updates, and patches.
 > [!IMPORTANT]
 > Please avoid all server operations (modifications, configuration changes, starting/stopping server) during Azure Database for MySQL flexible server maintenance. Engaging in these activities can lead to unpredictable outcomes, possibly affecting server performance and stability. Wait until maintenance concludes before conducting server operations.
+
+## Maintenance Cycle
+
+### Routine Maintenance
+Our standard maintenance cycle is scheduled no less frequently than every 30 days. This period allows us to ensure system stability and performance while minimizing disruption to your services.
+
+### Critical Maintenance
+In certain scenarios, such as the need to deploy urgent security fixes or updates critical to maintaining availability and data integrity, maintenance may be conducted more frequently. These exceptions are made to safeguard your data and ensure the continuous operation of your services.
+
+### Locating Maintenance Details
+For specific details about what each maintenance update entails, please refer to our release notes. These notes provide comprehensive information about the updates applied during maintenance, allowing you to understand and prepare for any changes impacting your environment.
+
+>[!NOTE]
+> Not all servers will necessarily undergo maintenance during scheduled updates, whether routine or Critical. The Azure MySQL team employs specific criteria to determine which servers require maintenance. This selective approach ensures that maintenance is both efficient and essential, tailored to the unique needs of each server environment, and minimize the downtime of your production. 
 
 ## Select a maintenance window
 
@@ -31,11 +46,6 @@ Notifications about upcoming scheduled maintenance can be:
 
 When specifying preferences for the maintenance schedule, you can pick a day of the week and a time window. If you don't specify, the system will pick times between 11pm and 7am in your server's region time. You can define different schedules for each flexible server in your Azure subscription.
 
-> [!IMPORTANT]
-> Normally there are at least 30 days between successful scheduled maintenance events for a server.
->
-> However, in case of a critical emergency update such as a severe vulnerability, the notification window could be shorter than seven days. The critical update may be applied to your server even if a successful scheduled maintenance was performed in the last 30 days.
-
 You can update scheduling settings at any time. If there is a maintenance scheduled for your Flexible server and you update scheduling preferences, the current rollout will proceed as scheduled and the scheduling settings change will become effective upon its successful completion for the next scheduled maintenance.
 
 You can define system-managed schedule or custom schedule for each flexible server in your Azure subscription.
@@ -43,7 +53,10 @@ You can define system-managed schedule or custom schedule for each flexible serv
 * With system-managed schedule, the system will pick any one-hour window between 11pm and 7am in your server's region time.
 
 > [!IMPORTANT]
-> Previously, a 7-day deployment gap between system-managed and custom-managed schedules was maintained. Due to evolving maintenance demands and the introduction of the [maintenance reschedule feature (Public preview)](#maintenance-reschedule-public-preview), we can no longer guarantee this 7-day gap.
+> Starting from 31st August 2024, Azure Database for MySQL will no longer support custom maintenance windows for burstable SKU instances. This change is due to the need for simplifying maintenance processes, ensuring optimal performance, and our analysis indicating that the number of users utilizing custom maintenance windows on burstable SKUs is minimal. Existing burstable SKU instances with custom maintenance window configurations will remain unaffected; however, users will not be able to modify these custom maintenance window settings moving forward.
+> 
+> For customers requiring custom maintenance windows, we recommend upgrading to General Purpose or Business Critical SKUs to continue using this feature.
+
 
 
 In rare cases, maintenance event can be canceled by the system or may fail to complete successfully. If the update fails, the update is reverted, and the previous version of the binaries is restored. In such failed update scenarios, you may still experience restart of the server during the maintenance window. If the update is canceled or failed, the system will create a notification about canceled or failed maintenance event respectively notifying you. The next attempt to perform maintenance will be scheduled as per your current scheduling settings and you will receive notification about it 5 days in advance.
@@ -61,6 +74,7 @@ To achieve the optimal performance promised by this feature, certain conditions 
 
  - **Primary Keys in All Tables:** Ensuring that every table has a primary key is critical. Lack of primary keys can significantly increase replication lag, impacting the downtime.
  - **Low Workload During Maintenance Times:** Maintenance periods should coincide with times of low workload on the server to ensure the downtime remains minimal. We encourage you to use the [custom maintenance window](how-to-maintenance-portal.md#specify-maintenance-schedule-options) feature to schedule maintenance during off-peak hours.
+ - **Downtime Guarantees：** While we strive to keep the maintenance downtime as low as possible, we do not guarantee that it will always be less than 60 seconds in all circumstances. Various factors, such as high workload or specific server configurations, can lead to longer downtime. In the worst-case scenario, downtime might be similar to that of a standalone server.
 
 ## Maintenance reschedule (Public preview)
 

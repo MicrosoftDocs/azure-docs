@@ -1,7 +1,7 @@
 ---
 title: US Producer Price Index - Commodities
 description: Learn how to use the US Producer Price Index - Commodities dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.date: 04/16/2021
 ---
@@ -10,7 +10,7 @@ ms.date: 04/16/2021
 
 The Producer Price Index (PPI) is a measure of average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for products and services covered.
 
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 About 10,000 PPIs for individual products and groups of products are released each month. PPIs are available for the output of nearly all industries in the goods-producing sectors of the U.S. economy–mining, manufacturing, agriculture, fishing, and forestry–as well as natural gas, electricity, construction, and goods competitive with those made in the producing sectors, such as waste and scrap materials. The PPI program covers approximately 72 percent of the service sector’s output, as measured by revenue reported in the 2007 Economic Census. Data includes industries in the following sectors: wholesale and retail trade; transportation and warehousing; information; finance and insurance; real estate brokering, rental, and leasing; professional, scientific, and technical services; administrative, support, and waste management services; health care and social assistance; and accommodation.
 

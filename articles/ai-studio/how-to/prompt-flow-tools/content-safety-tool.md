@@ -6,8 +6,9 @@ manager: scottpolly
 ms.service: azure-ai-studio
 ms.custom:
   - ignite-2023
+  - build-2024
 ms.topic: how-to
-ms.date: 2/22/2024
+ms.date: 5/21/2024
 ms.reviewer: keli19
 ms.author: lagayhar
 author: lgayhardt
@@ -15,7 +16,7 @@ author: lgayhardt
 
 # Content safety tool for flows in Azure AI Studio
 
-[!INCLUDE [Azure AI Studio preview](../../includes/preview-ai-studio.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 The prompt flow Content Safety tool enables you to use Azure AI Content Safety in Azure AI Studio.
 
@@ -26,9 +27,9 @@ Azure AI Content Safety is a content moderation service that helps detect harmfu
 To create an Azure Content Safety connection:
 
 1. Sign in to [Azure AI Studio](https://studio.azureml.net/).
-1. Go to **AI project settings** > **Connections**.
+1. Go to **Project settings** > **Connections**.
 1. Select **+ New connection**.
-1. Complete all steps in the **Create a new connection** dialog. You can use an Azure AI hub resource or Azure AI Content Safety resource. We recommend that you use an Azure AI hub resource that supports multiple Azure AI services.
+1. Complete all steps in the **Create a new connection** dialog. You can use an Azure AI Studio hub or Azure AI Content Safety resource. We recommend that you use a hub that supports multiple Azure AI services.
 
 ## Build with the Content Safety tool
 
@@ -80,4 +81,3 @@ You can use the following parameters as inputs for this tool.
 ## Next steps
 
 - [Learn more about how to create a flow](../flow-develop.md)
-

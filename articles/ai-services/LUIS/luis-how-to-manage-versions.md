@@ -70,5 +70,5 @@ You can import a `.json` or a `.lu` version of your application.
 
 See the following links to view the REST APIs for importing and exporting applications:
 
-* [Importing applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5892283039e2bb0d9c2805f5)
-* [Exporting applications](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c40)
+* [Importing applications](/rest/api/luis/versions/import)
+* [Exporting applications](/rest/api/luis/versions/export)

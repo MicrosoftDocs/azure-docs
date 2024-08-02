@@ -7,6 +7,7 @@ ms.date: 09/21/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want understand runbooks so that I can use it to automate e-mails.
+ms.service: azure-automation
 ---
 
 # Send an email from an Automation runbook
@@ -99,7 +100,7 @@ Create an Azure Key Vault and [Key Vault access policy](../key-vault/general/ass
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.yml).
 
 1. Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
 

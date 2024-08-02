@@ -3,9 +3,9 @@ title: Upgrade to the latest generation of dedicated SQL pool (formerly SQL DW)
 description: Upgrade Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) to latest generation of Azure hardware and storage architecture.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 02/19/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
@@ -57,7 +57,7 @@ You can now seamlessly upgrade to the dedicated SQL pool (formerly SQL DW) Compu
 
 ### Before you begin
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - Sign in to the [Azure portal](https://portal.azure.com/).
 - Ensure that dedicated SQL pool (formerly SQL DW) is running - it must be to migrate to Gen2
@@ -204,7 +204,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## Restore from an Azure geographical region using PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To recover a database, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet.
 

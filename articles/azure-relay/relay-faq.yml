@@ -3,14 +3,13 @@ metadata:
   title: Azure Relay FAQs | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
-  ms.service: service-bus-relay
   ms.date: 08/10/2023
 title: Azure Relay FAQs
 summary: |
   This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
   
   
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
 
 sections:

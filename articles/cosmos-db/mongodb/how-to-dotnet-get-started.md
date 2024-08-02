@@ -3,7 +3,7 @@ title: Get started with Azure Cosmos DB for MongoDB using .NET
 description: Get started developing a .NET application that works with Azure Cosmos DB for MongoDB. This article helps you learn how to set up a project and configure access to an Azure Cosmos DB for MongoDB database.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: csharp
 ms.topic: how-to
@@ -13,7 +13,7 @@ ms.custom: devx-track-dotnet, devguide-csharp, cosmos-db-dev-journey
 
 # Get started with Azure Cosmos DB for MongoDB using .NET
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article shows you how to connect to Azure Cosmos DB for MongoDB using .NET Core and the relevant NuGet packages. Once connected, you can perform operations on databases, collections, and documents.
 

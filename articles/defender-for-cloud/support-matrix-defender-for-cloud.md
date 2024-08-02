@@ -75,4 +75,4 @@ To learn more about the specific Defender for Cloud features available on Window
 This article explained how Microsoft Defender for Cloud is supported in the Azure, Azure Government, and Microsoft Azure operated by 21Vianet clouds. Now that you're familiar with the Defender for Cloud capabilities supported in your cloud, learn how to:
 
 - [Manage security recommendations in Defender for Cloud](review-security-recommendations.md)
-- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.md)
+- [Manage and respond to security alerts in Defender for Cloud](managing-and-responding-alerts.yml)

@@ -4,15 +4,15 @@ description: Learn about private access networking option in Azure Database for 
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 01/18/2024
-ms.service: mysql
+ms.date: 07/08/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Private Network Access using virtual network integration for Azure Database for MySQL - Flexible Server
 
-[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+[!INCLUDE [applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article describes the private connectivity option for Azure Database for MySQL flexible server. You learn in detail the virtual network concepts for Azure Database for MySQL flexible server to create a server securely in Azure.
 
@@ -29,17 +29,17 @@ Azure Database for MySQL flexible server supports client connectivity from:
 
 Subnets enable you to segment the virtual network into one or more subnetworks and allocate a portion of the virtual network's address space to which you can then deploy Azure resources. Azure Database for MySQL flexible server requires a [delegated subnet](../../virtual-network/subnet-delegation-overview.md). A delegated subnet is an explicit identifier that a subnet can host only Azure Database for MySQL flexible server instances. By delegating the subnet, the service gets direct permissions to create service-specific resources to manage your Azure Database for MySQL flexible server instance seamlessly.
 
-> [!NOTE]
-> The smallest CIDR range you can specify for the subnet to host Azure Database for MySQL flexible server is /29, which provides eight IP addresses. However, the first and last address in any network or subnet can’t be assigned to any individual host. Azure reserves five IP addresses for internal use by Azure networking, including the two IP addresses that can't be assigned to a host. This leaves three available IP addresses for a /29 CIDR range. For Azure Database for MySQL flexible server, it's required to allocate one IP address per node from the delegated subnet when private access is enabled. HA-enabled servers require two IP addresses, and a Non-HA server requires one IP address. It is recommended to reserve at least two IP addresses per Azure Database for MySQL flexible server instance, as high availability options can be enabled later.
+> [!NOTE]  
+> The smallest CIDR range you can specify for the subnet to host Azure Database for MySQL flexible server is /29, which provides eight IP addresses. However, the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IP addresses for internal use by Azure networking, including the two IP addresses that can't be assigned to a host. This leaves three available IP addresses for a /29 CIDR range. For Azure Database for MySQL flexible server, it's required to allocate one IP address per node from the delegated subnet when private access is enabled. HA-enabled servers require two IP addresses, and a Non-HA server requires one IP address. It is recommended to reserve at least two IP addresses per Azure Database for MySQL flexible server instance, as high availability options can be enabled later.
 Azure Database for MySQL flexible server integrates with Azure [Private DNS zones](../../dns/private-dns-privatednszone.md) to provide a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. A private DNS zone can be linked to one or more virtual networks by creating [virtual network links](../../dns/private-dns-virtual-network-links.md)
 
-:::image type="content" source="./media/concepts-networking/vnet-diagram.png" alt-text="Flexible server MySQL VNET":::
+:::image type="content" source="media/concepts-networking-vnet/vnet-diagram.png" alt-text="Screenshot of Flexible server MySQL VNET." lightbox="media/concepts-networking-vnet/vnet-diagram.png":::
 
 In the above diagram,
 
-1. Azure Database for MySQL flexible server instances are injected into a delegated subnet - 10.0.1.0/24 of virtual network **VNet-1**.
-2. Applications deployed on different subnets within the same virtual network can access the Azure Database for MySQL flexible server instances directly.
-3. Applications deployed on a different virtual network **VNet-2** don't have direct access to Azure Database for MySQL flexible server instances. Before they can access an instance, you must perform a [private DNS zone virtual network peering](#private-dns-zone-and-virtual-network-peering).
+1. Azure Databases for MySQL flexible server instances are injected into a delegated subnet - 10.0.1.0/24 of virtual network **VNet-1**.
+1. Applications deployed on different subnets within the same virtual network can access the Azure Database for MySQL flexible server instances directly.
+1. Applications deployed on a different virtual network **VNet-2** don't have direct access to Azure Database for MySQL flexible server instances. Before they can access an instance, you must perform a [private DNS zone virtual network peering](#private-dns-zone-and-virtual-network-peering).
 
 ## Virtual network concepts
 
@@ -118,7 +118,22 @@ You can then use the Azure Database for MySQL flexible server servername (FQDN) 
 - Private DNS integration config can't be changed after deployment.
 - Subnet size (address spaces) can't be increased after resources exist in the subnet.
 
-## Next steps
+## Move from private access (virtual network integrated) network to public access or private link
 
-- Learn how to enable private access (virtual network integration) using the [Azure portal](how-to-manage-virtual-network-portal.md) or [Azure CLI](how-to-manage-virtual-network-cli.md).
-- Learn how to [use TLS](how-to-connect-tls-ssl.md).
+Azure Database for MySQL flexible server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers.
+
+> [!NOTE]  
+> That once the transition is made, it cannot be reversed. The transition involves a downtime of approximately 5-10 minutes for Non-HA servers and about 20 minutes for HA-enabled servers.
+
+The process is conducted in offline mode and consists of two steps:
+
+1. Detaching the server from the virtual network infrastructure.
+1. Establishing a Private Link or enabling public access.
+
+- For guidance on transitioning from Private access network to Public access or Private Link, visit [Move from private access (virtual network integrated) to public access or Private Link with the Azure portal](how-to-network-from-private-to-public.md). This resource offers step-by-step instructions to facilitate the process.
+
+## Related content
+
+- [Azure portal](how-to-manage-virtual-network-portal.md)
+- [Azure CLI](how-to-manage-virtual-network-cli.md)
+- [Use TLS](how-to-connect-tls-ssl.md)

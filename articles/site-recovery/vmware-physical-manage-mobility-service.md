@@ -3,7 +3,7 @@ title: Manage the Mobility agent for VMware/physical servers with Azure Site Rec
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom:
 ms.topic: conceptual
 ms.author: ankitadutta
@@ -13,14 +13,14 @@ ms.date: 03/07/2024
 # Manage the Mobility agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
 >[!TIP]
 >To download installer for a specific OS/Linux distro, refer to the guidance [here](vmware-physical-mobility-service-overview.md#locate-installer-files). To automatically update from portal, you do not need to download the installer. [ASR automatically fetches the installer from configuration server and updates the agent](#update-mobility-service-from-azure-portal).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Update mobility service from Azure portal
 

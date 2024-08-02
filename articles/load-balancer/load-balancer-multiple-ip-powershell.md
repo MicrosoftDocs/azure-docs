@@ -4,9 +4,9 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary IP configurations using Azure PowerShell.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/27/2023
+ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 ---
@@ -18,11 +18,11 @@ ms.custom: template-how-to, devx-track-azurepowershell, engagement-fy23
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, as well as both backend pool IP addresses.
+This article describes how to use Azure Load Balancer with multiple IP addresses on a secondary network interface (NIC). For this scenario, we have two VMs running Windows, each with a primary and a secondary NIC. Each of the secondary NICs has two IP configurations. Each VM hosts both websites contoso.com and fabrikam.com. Each website is bound to one of the IP configurations on the secondary NIC. We use Azure Load Balancer to expose two frontend IP addresses, one for each website, to distribute traffic to the respective IP configuration for the website. This scenario uses the same port number across both frontends, and both backend pool IP addresses.
 
 ## Steps to load balance on multiple IP configurations
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Follow the steps below to achieve the scenario outlined in this article:
 
@@ -61,9 +61,9 @@ Follow the steps below to achieve the scenario outlined in this article:
     $Subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "mySubnet" -VirtualNetwork $myVnet
     ```
 
-    You do not need to associate the secondary IP configurations with public IPs for the purpose of this tutorial. Edit the command to remove the public IP association part.
+    You don't need to associate the secondary IP configurations with public IPs in this tutorial. Edit the command to remove the public IP association part.
 
-6. Complete steps 4 through 6 of this article again for VM2. Be sure to replace the VM name to VM2 when doing this. Note that you do not need to create a virtual network for the second VM. You may or may not create a new subnet based on your use case.
+6. Complete steps 4 through 6 of this article again for VM2. Be sure to replace the VM name to VM2 when doing this. You don't need to create a virtual network for the second VM. You can create a new subnet based on your use case.
 
 7. Create two public IP addresses and store them in the appropriate variables as shown:
 
@@ -127,7 +127,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     $nic2 | Set-AzNetworkInterface
     ```
 
-13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You may host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
+13. Finally, you must configure DNS resource records to point to the respective frontend IP address of the Load Balancer. You can host your domains in Azure DNS. For more information about using Azure DNS with Load Balancer, see [Using Azure DNS with other Azure services](../dns/dns-for-azure-services.md).
 
 ## Next steps
 - Learn more about how to combine load balancing services in Azure in [Using load-balancing services in Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).

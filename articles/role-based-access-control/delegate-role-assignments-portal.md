@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
@@ -38,7 +38,7 @@ Once you know the permissions that delegate needs, you use the following steps t
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Follow the steps to [open the Add role assignment page](role-assignments-portal.md).
+1. Follow the steps to [open the Add role assignment page](role-assignments-portal.yml).
 
 1. On the **Roles** tab, select the **Privileged administrator roles** tab.
 
@@ -73,6 +73,7 @@ There are two ways that you can add a condition. You can use a condition templat
     | Constrain roles | Allow user to only assign roles you select |
     | Constrain roles and principal types | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principal types you select (users, groups, or service principals) |
     | Constrain roles and principals | Allow user to only assign roles you select<br/>Allow user to only assign these roles to principals you select |
+    | Allow all except specific roles | Allow user to assign all roles except the roles you select |
 
 1. In the configure pane, add the required configurations.
 
@@ -135,7 +136,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
     | Attribute | Common operator |
     | --- | --- |
-    | **Role definition ID** | [ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues) |
+    | **Role definition ID** | [ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues)<br/>[ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
     | **Principal ID** | [ForAnyOfAnyValues:GuidEquals](conditions-format.md#foranyofanyvalues) |
     | **Principal type** | [ForAnyOfAnyValues:StringEqualsIgnoreCase](conditions-format.md#foranyofanyvalues) |
 
@@ -162,7 +163,7 @@ If the condition templates don't work for your scenario or if you want more cont
 
 ## Step 5: Delegate assigns roles with conditions
 
-- Delegate can now follow steps to [assign roles](role-assignments-portal.md).
+- Delegate can now follow steps to [assign roles](role-assignments-portal.yml).
 
     :::image type="content" source="./media/shared/groups-constrained.png" alt-text="Diagram of role assignments constrained to specific roles and specific groups." lightbox="./media/shared/groups-constrained.png":::
 
@@ -175,6 +176,38 @@ If the condition templates don't work for your scenario or if you want more cont
     :::image type="content" source="./media/shared/constrained-principals-assign.png" alt-text="Screenshot of role assignments constrained to specific groups." lightbox="./media/shared/constrained-principals-assign.png":::
 
     If the delegate attempts to assign a role that is outside the conditions using an API, the role assignment fails with an error. For more information, see [Symptom - Unable to assign a role](./troubleshooting.md#symptom---unable-to-assign-a-role).
+
+## Edit a condition
+
+There are two ways that you can edit a condition. You can use the condition template or you can use the condition editor.
+
+1. In the Azure portal, open **Access control (IAM)** page for the role assignment that has a condition that you want to view, edit, or delete.
+
+1. Select the **Role assignments** tab and find the role assignment.
+
+1. In the **Condition** column, select **View/Edit**.
+
+    If you don't see the **View/Edit** link, be sure you're looking at the same scope as the role assignment.
+
+    :::image type="content" source="./media/shared/condition-role-assignments-list-edit.png" alt-text="Screenshot of role assignment list with View/Edit link for condition." lightbox="./media/shared/condition-role-assignments-list-edit.png":::
+
+    The **Add role assignment condition** page appears. This page will look different depending on whether the condition matches an existing template.
+
+1. If the condition matches an existing template, select **Configure** to edit the condition.
+    
+    :::image type="content" source="./media/shared/condition-templates-edit.png" alt-text="Screenshot of condition templates with matching template enabled." lightbox="./media/shared/condition-templates-edit.png":::
+
+1. If the condition doesn't match an existing template, use the advanced condition editor to edit the condition.
+
+    For example, to edit a condition, scroll down to the build expression section and update the attributes, operator, or values.
+
+    :::image type="content" source="./media/delegate-role-assignments-portal/condition-editor-build-expression.png" alt-text="Screenshot of condition editor that shows options to edit build expression." lightbox="./media/delegate-role-assignments-portal/condition-editor-build-expression.png":::
+
+    To edit the condition directly, select the **Code** editor type and then edit the code for the condition.
+
+    :::image type="content" source="./media/delegate-role-assignments-portal/condition-editor-code.png" alt-text="Screenshot of condition editor that shows Code editor type." lightbox="./media/delegate-role-assignments-portal/condition-editor-code.png":::
+
+1. When finished, click **Save** to update the condition. 
 
 ## Next steps
 
