@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 manager: erikre
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/14/2022
 ms.author: danlep
