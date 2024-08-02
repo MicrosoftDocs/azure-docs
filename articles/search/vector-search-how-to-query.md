@@ -97,7 +97,7 @@ This section shows you the basic structure of a vector query. You can use the Az
 [**2024-07-01**](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the stable REST API version for [Search POST](/rest/api/searchservice/documents/search-post). This version supports:
 
 + `vectorQueries` is the construct for vector search.
-+ `vectorQueries.kind` set to `vector` for a vector array, or set to `text` if the input is string and [you have a vectorizer](#query-with-integrated-vectorization).
++ `vectorQueries.kind` set to `vector` for a vector array, or set to `text` if the input is a string and [you have a vectorizer](#query-with-integrated-vectorization).
 + `vectorQueries.vector` is query (a vector representation of text or an image).
 + `vectorQueries.weight` (optional) specifies the relative weight of each vector query included in search operations (see [Vector weighting](#vector-weighting)).
 + `exhaustive` (optional) invokes exhaustive KNN at query time, even if the field is indexed for HNSW.
