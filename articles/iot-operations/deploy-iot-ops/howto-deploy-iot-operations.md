@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 07/30/2024
+ms.date: 08/02/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -102,11 +102,17 @@ Use the Azure CLI to deploy Azure IoT Operations to your Arc-enabled Kubernetes 
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
 
-   If you want to name your Azure IoT Operations instance, include the `--name` parameter. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output.
+   Use the optional command parameters to customize your deployment. For example:
 
-   If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
-
-   If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually).
+     | Parameter | Value | Description |
+     | --------- | ----- | ----------- |
+     | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
+     | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config). |
+     | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
+     | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
+     | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+     | `--simulate-pc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
+     | `--sp-app-id`, `--sp-object-id`, `--sp-secret` | Service principal app id, service principal object id, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
 
 1. While the deployment is in progress, you can watch the resources being applied to your cluster.
 
@@ -118,7 +124,7 @@ Use the Azure CLI to deploy Azure IoT Operations to your Arc-enabled Kubernetes 
 
      :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
 
-   * Otherwise, or if you choose to disable the progress interface with `--no-progress`, you can use kubectl commands to view the pods on your cluster:
+   * Otherwise, or if you include the `--no-progress` flag, you can use kubectl commands to view the pods on your cluster:
 
      ```bash
      kubectl get pods -n azure-iot-operations
