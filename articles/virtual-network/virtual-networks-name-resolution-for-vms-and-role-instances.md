@@ -5,7 +5,7 @@ description: Name resolution scenarios for Azure IaaS, hybrid solutions, between
 author: asudbring
 ms.service: virtual-network
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 08/02/2024
 ms.author: allensu
 ms.custom: fasttrack-edit, linux-related-content
 ---
@@ -282,7 +282,7 @@ This section covers VMs, role instances, and web apps.
 
 ### VMs and role instances
 
-Your name resolution needs might go beyond the features provided by Azure. For example, you might need to use Microsoft Windows Server Active Directory domains, resolve DNS names between virtual networks. To cover these scenarios, Azure enables you to use your own DNS servers.
+Your name resolution needs might go beyond the features provided by Azure. For example, you might need to use Microsoft Windows Server Active Directory domains to resolve DNS names between virtual networks. To cover these scenarios, Azure enables you to use your own DNS servers.
 
 DNS servers within a virtual network can forward DNS queries to the recursive resolvers in Azure. This procedure enables you to resolve host names within that virtual network. For example, a domain controller (DC) running in Azure can respond to DNS queries for its domains, and forward all other queries to Azure. Forwarding queries allows VMs to see both your on-premises resources (via the DC) and Azure-provided host names (via the forwarder). Access to the recursive resolvers in Azure is provided via the virtual IP 168.63.129.16.
 
