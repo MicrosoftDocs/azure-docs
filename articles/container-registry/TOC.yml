@@ -295,7 +295,7 @@
       href: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
     - name: Deploy Connected registry Azure arc extension
       items:
-      - name: Deploy Connected registry Arc extension with HTTPS
+      - name: Secure and deploy Connected registry Arc extension
         href: tutorial-connected-registry-arc.md
       - name: Sync Connected registry with Azure arc
         href: tutorial-connected-registry-sync.md
