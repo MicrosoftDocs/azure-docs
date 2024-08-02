@@ -3,7 +3,7 @@ title: Enable multiple namespace support for Application Gateway Ingress Control
 description: This article provides information on how to enable multiple namespace support in a Kubernetes cluster with an Application Gateway Ingress Controller. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
