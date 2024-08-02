@@ -3,7 +3,7 @@ title: Use cross-region copy of virtual machine restore points
 description: Learn how to use cross-region copy of virtual machine (VM) restore points.
 author: aarthiv
 ms.author: aarthiv
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
 ms.date: 11/2/2023

@@ -4,7 +4,7 @@ description: 'Convert the number of vCores or vCPUs in your nonrelational databa
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 08/26/2021

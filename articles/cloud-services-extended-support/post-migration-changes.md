@@ -2,7 +2,7 @@
 title: Azure Cloud Services (extended support) post-migration changes
 description: Overview of post migration changes after migrating to Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 author: tanmaygore
 ms.author: tagore

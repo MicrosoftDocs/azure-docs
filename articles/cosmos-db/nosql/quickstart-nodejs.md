@@ -5,7 +5,7 @@ description: Deploy a Node.js Express web application that uses the client libra
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: javascript
 ms.custom: devx-track-js, devx-track-extended-azdevcli

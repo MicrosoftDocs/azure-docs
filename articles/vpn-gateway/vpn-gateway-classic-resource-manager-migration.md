@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about migrating VPN Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: vpn-gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/02/2023
 ms.author: cherylmc

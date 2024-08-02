@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article explains how to ensure that your origins receive traffic only from Azure Front Door.
 services: front-door
 author: johndowns
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 10/02/2023
 ms.author: jodowns

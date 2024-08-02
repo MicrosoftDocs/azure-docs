@@ -4,7 +4,7 @@ description: Learn to use the Microsoft Azure confidential ledger through Azure 
 author: taicchoumsft
 ms.author: tachou
 ms.date: 11/08/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ---
 

@@ -5,7 +5,7 @@ description: Deploy a Python Flask web application that uses the client library 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.custom: devx-track-python, devx-track-extended-azdevcli

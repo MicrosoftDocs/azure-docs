@@ -5,7 +5,7 @@ author: christinechen2
 ms.author: padmalathas
 ms.reviewer: normesta
 ms.date: 05/09/2024
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: conceptual 
 ---

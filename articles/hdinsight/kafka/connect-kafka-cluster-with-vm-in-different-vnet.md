@@ -1,7 +1,7 @@
 ---
 title: Connect Apache Kafka cluster with VM in different VNet on Azure HDInsight - Azure HDInsight
 description: Learn how to connect Apache Kafka cluster with VM in different VNet on Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/11/2024

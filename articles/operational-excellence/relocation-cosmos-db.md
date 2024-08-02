@@ -2,7 +2,7 @@
 title: Relocate an Azure Cosmos DB NoSQL account to another region
 description: Learn how to relocate an Azure Cosmos DB NoSQL account to another region.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.custom:
