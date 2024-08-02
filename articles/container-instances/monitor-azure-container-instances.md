@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: tomvcassidy
 ms.author: tomcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ---
 
 # Monitor Azure Container Instances
