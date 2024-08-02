@@ -41,8 +41,13 @@ togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
 You can access together mode streams through the property `togetherModeStream`.
 
 ```js
-const togetherModeStreams = togetherModeFeature.togetherModeStream; 
+const togetherModeStreams = togetherModeFeature.togetherModeStream;
 ```
+The following describes the properties of the together mode stream object
+|id		| unique number of the stream |
+|mediaStreamType		| Returns the stream type. For together mode this would be `video` |
+|isReceiving		| Returns a boolean value indicating if video packets are received. This  |
+|size		| 	The stream size. The higher the stream size, the better the video quality. |
 
 ### Start together mode for all participants
 Users with role organizer, co-organizer or presenter can start together mode for everyone in the meeting. When together mode starts, all subscribers to `togetherModeStreamsUpdated` event will receive notification, that allows participants to render together mode. 
