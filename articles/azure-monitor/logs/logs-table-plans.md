@@ -71,14 +71,14 @@ To configure a table for Basic logs or Analytics logs, call the [Tables - Update
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview
 ```
 
-> [!IMPORTANT]
-> Use the bearer token for authentication. Learn more about [using bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
-
 **Request body**
 
-|Name | Type | Description |
-| --- | --- | --- |
-|properties.plan | string  | The table plan. Possible values are `Analytics` and `Basic`.|
+| Name            | Type   | Description                                                  |
+|-----------------|--------|--------------------------------------------------------------|
+| properties.plan | string | The table plan. Possible values are `Analytics` and `Basic`. |
+
+> [!IMPORTANT]
+> Use the bearer token for authentication. Learn more about [using bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
 #### Example
 
@@ -86,14 +86,14 @@ This example configures the `ContainerLogV2` table for Basic logs.
 
 Container Insights uses `ContainerLog` by default. To switch to using `ContainerLogV2` for Container insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic logs.
 
-* **Sample request**
+**Sample request**
 
-    ```http
-    PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
-    ```
-    
-    Use this request body to change to Basic logs:
-    
+```http
+PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
+```
+
+* Use this request body to change to Basic logs:
+
     ```http
     {
         "properties": {
@@ -101,9 +101,9 @@ Container Insights uses `ContainerLog` by default. To switch to using `Container
         }
     }
     ```
-    
-    Use this request body to change to Analytics Logs:
-    
+
+* Use this request body to change to Analytics Logs:
+
     ```http
     {
         "properties": {
@@ -112,9 +112,9 @@ Container Insights uses `ContainerLog` by default. To switch to using `Container
     }
     ```
 
-* **Sample response**
+**Sample response**
 
-    This sample is the response for a table changed to Basic logs:
+* This sample is the response for a table changed to Basic logs:
     
     Status code: 200
     
