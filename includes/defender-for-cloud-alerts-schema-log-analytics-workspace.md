@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: memildin
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: memildin

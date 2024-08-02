@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

@@ -2,7 +2,6 @@
 title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
