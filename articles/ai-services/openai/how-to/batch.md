@@ -47,7 +47,6 @@ Global batch is currently supported in the following regions:
 - East US
 - West US
 - Sweden Central
-- South India
 
 The following models support global batch:
 
