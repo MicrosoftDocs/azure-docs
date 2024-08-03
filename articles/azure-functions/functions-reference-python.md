@@ -36,12 +36,12 @@ As a Python developer, you might also be interested in these topics:
 + [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Features machine learning with [PyTorch](machine-learning-pytorch.md) and [TensorFlow](functions-machine-learning-tensorflow.md). Connect to Azure OpenAI models using [Functions bindings](./functions-bindings-openai.md).
 + [Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/): Use Python functions to automate the management of Azure resources.
 + [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-configuration): Create stateful functions in a serverless environment as part of orchestrated workflows.
-+ [More...](functions-scenarios?pivots=programming-language-python)  
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"   
-+ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Use [Functions bindings](./functions-bindings-openai.md) to connect to and manipulate Azure OpenAI data models, including [text completion](functions-add-openai-text-completion?pivots=programming-language-python).
++ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Use [Functions bindings](./functions-bindings-openai.md) to connect to and manipulate Azure OpenAI data models, including [text completion](functions-add-openai-text-completion.md?pivots=programming-language-python).
 + [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-decorators): Create stateful functions in a serverless environment as part of orchestrated workflows.
-+ [More...](functions-scenarios?pivots=programming-language-python)  
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
 ::: zone-end
 
 ## [Hosting options](#tab/hosting)
