@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 07/11/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -134,4 +134,4 @@ Variances in the visual structure of your documents affect the accuracy of your 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn to create custom models](quickstarts/try-document-intelligence-studio.md#custom-models)
+> [Learn more about custom models](concept-custom.md)

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -115,7 +115,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Document Intelligence Studio: labeling as tables](../quickstarts/try-document-intelligence-studio.md#labeling-as-tables)
+See [Document Intelligence Studio: labeling as tables](../concept-custom-label.md#tabular-fields)
 
 ### [REST API](#tab/rest)
 

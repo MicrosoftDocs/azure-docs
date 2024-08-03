@@ -37,7 +37,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * **West Europe**
 * **North Central US**
 
-* [Read model](concept-read.md) now supports [PDF output](how-to-guides/searchablepdf.md)  to download PDFs with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and large language model ingestion.
+* [Read model](concept-read.md) now supports [PDF output](concept-read.md#searchable-pdf)  to download PDFs with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and large language model ingestion.
 * [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support updating the model in-place. 
@@ -50,7 +50,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * [🆕 Mortgage documents model](concept-mortgage-documents.md)
   * Extract information from Appraisal (Form 1004).
   * Extract information from Validation of Employment (Form 1005).
-* [🆕 Check model](concept-check.md)
+* [🆕 Check model](concept-bank-check.md)
   * Extract payee, amount, date, and other relevant information from checks.​
 * [🆕 Pay Stub model](concept-paystub.md)
   * New prebuilt to process pay stubs to extract wages, hours, deductions, net pay and more.​
