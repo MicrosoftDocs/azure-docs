@@ -6,11 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 08/07/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
-  - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
 

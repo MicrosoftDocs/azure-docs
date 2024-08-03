@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 monikerRange: 'doc-intel-4.0.0 || <=doc-intel-3.1.0'
 ---
@@ -55,7 +55,7 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 
 ## Tabular fields
 
-With the release of API versions v3.0 and  later, custom template models will add support for **cross page** tabular fields (tables):  
+With the release of API versions v3.0 and  later, custom template models add support for **cross page** tabular fields (tables):  
 
 * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
 * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages if you expect to see those variations in documents.
@@ -74,7 +74,7 @@ Template models rely on a defined visual template, changes to the template resul
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>JPEG/JPG, PNG, BMP, TIFF, HEIF | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
+    |Model | PDF |Image: </br>J`PEG/JPG`, `PNG`, `BMP`, `TIFF`, `HEIF` | Microsoft Office: </br> Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML|
     |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview or later)  |
@@ -84,7 +84,7 @@ Template models rely on a defined visual template, changes to the template resul
 
     &#x2731; Microsoft Office files are currently not supported for other models or versions.
 
-* For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
+* For PDF and TIFF, up to 2,000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 
 * The file size for analyzing documents is 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 
@@ -92,7 +92,7 @@ Template models rely on a defined visual template, changes to the template resul
 
 * If your PDFs are password-locked, you must remove the lock before submission.
 
-* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (DPI).
+* The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about `8`-point text at 150 dots per inch (`DPI`).
 
 * For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model.
 

@@ -5,8 +5,6 @@ description: Best practices to interpret the accuracy score from the train model
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/07/2024
 ms.author: lajanuar
@@ -45,7 +43,7 @@ After an analysis operation, review the JSON output. Examine the `confidence` va
 
 * Use forms that have different values in each field.
 
-* For custom models, use a larger set of training documents. This teaches your model to recognize fields with greater accuracy.
+* For custom models, use a larger set of training documents. A larger training set teaches your model to recognize fields with greater accuracy.
 
 ## Accuracy scores for custom models
 
@@ -88,7 +86,7 @@ Variances in the visual structure of your documents affect the accuracy of your 
 
 * Add at least five samples of each type to the training dataset if you expect the model to analyze both types of PDF documents.
 
-* For custom template and neural models, separate visually distinct document types to train different models.
+* Separate visually distinct document types to train different models for custom template and neural models.
   * As a general rule, if you remove all user entered values and the documents look similar, you need to add more training data to the existing model.
   * If the documents are dissimilar, split your training data into different folders and train a model for each variation. You can then [compose](how-to-guides/compose-custom-models.md?view=doc-intel-2.1.0&preserve-view=true#create-a-composed-model) the different variations into a single model.
 

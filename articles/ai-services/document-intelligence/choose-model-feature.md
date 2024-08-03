@@ -5,10 +5,8 @@ description: Choose the best Document Intelligence model for your applications a
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: overview
-ms.date: 02/29/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -50,12 +48,12 @@ The following decision charts highlight the features of each **Document Intellig
 
 | Document type | Data to extract | Your best solution |
 | -----------------|--------------|-------------------|
-|**US W-2 tax form**|You want to extract key information such as salary, wages, and taxes withheld.|[**US tax W-2 model**](concept-tax-document.md)|
-|**US Tax 1098 form**|You want to extract mortgage interest details such as principal, points, and tax.|[**US tax 1098 model**](concept-tax-document.md)|
-|**US Tax 1098-E form**|You want to extract student loan interest details such as lender and interest amount.|[**US tax 1098-E model**](concept-tax-document.md)|
-|**US Tax 1098T form**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information.|[**US tax 1098-T model**](concept-tax-document.md)|
-|**US Tax 1099(Variations) form**|You want to extract information from `1099` forms and its variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB).|[**US tax 1099 model**](concept-tax-document.md)|
-|**US Tax 1040(Variations) form**|You want to extract information from `1040` forms and its variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule EIC, Schedule F, Schedule H, Schedule J, Schedule R, Schedule SE, Schedule Senior).|[**US tax 1040 model**](concept-tax-document.md)|
+|**US Tax W-2 tax**|You want to extract key information such as salary, wages, and taxes withheld.|[**US tax W-2 model**](concept-tax-document.md)|
+|**US Tax 1098**|You want to extract mortgage interest details such as principal, points, and tax.|[**US tax 1098 model**](concept-tax-document.md)|
+|**US Tax 1098-E**|You want to extract student loan interest details such as lender and interest amount.|[**US tax 1098-E model**](concept-tax-document.md)|
+|**US Tax 1098T**|You want to extract qualified tuition details such as scholarship adjustments, student status, and lender information.|[**US tax 1098-T model**](concept-tax-document.md)|
+|**US Tax 1099(Variations)**|You want to extract information from `1099` forms and its variations (A, B, C, CAP, DIV, G, H, INT, K, LS, LTC, MISC, NEC, OID, PATR, Q, QA, R, S, SA, SB).|[**US tax 1099 model**](concept-tax-document.md)|
+|**US Tax 1040(Variations)**|You want to extract information from `1040` forms and its variations (Schedule 1, Schedule 2, Schedule 3, Schedule 8812, Schedule A, Schedule B, Schedule C, Schedule D, Schedule E, Schedule `EIC`, Schedule F, Schedule H, Schedule J, Schedule R, Schedule `SE`, Schedule Senior).|[**US tax 1040 model**](concept-tax-document.md)|
 |**Contract** (legal agreement between parties).|You want to extract contract agreement details such as parties, dates, and intervals.|[**Contract model**](concept-contract.md)|
 |**Health insurance card** or health insurance ID.| You want to extract key information such as insurer, member ID, prescription coverage, and group number.|[**Health insurance card model**](./concept-health-insurance-card.md)|
 |**Credit/Debit card** . |You want to extract key information bank cards such as card number and bank name. | [**Credit/Debit card model**](concept-credit-card.md)|

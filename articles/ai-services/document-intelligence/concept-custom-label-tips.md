@@ -10,7 +10,6 @@ ms.date: 02/29/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
-  - ignite-2023
 monikerRange: '>=doc-intel-3.0.0'
 ---
 
@@ -44,7 +43,7 @@ This article highlights the best methods for labeling custom model datasets in t
 
 ### Search
 
-The Studio now includes a search box for instances when you know you need to find specific words to label, but just don't know where they're located in the document. Simply search for the word or phrase and navigate to the specific section in the document to label the occurrence.
+The Studio now includes a search box for instances when you know you need to find specific words to label, but just don't know where to locate them in the document. Simply search for the word or phrase and navigate to the specific section in the document to label the occurrence.
 
 ### Auto label tables
 

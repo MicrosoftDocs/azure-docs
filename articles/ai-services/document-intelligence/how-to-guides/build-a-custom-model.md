@@ -5,8 +5,6 @@ description: Learn how to build, label, and train a custom model.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: how-to
 ms.date: 05/23/2024
 ms.author: lajanuar
@@ -59,7 +57,7 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
 
     :::image type="content" source="../media/how-to/studio_custom_createproject.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
 
-    1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
+    1. On the `create project` dialog, provide a name for your project, optionally a description, and select continue.
 
     1. On the next step in the workflow, choose or create a Document Intelligence resource before you select continue.
 
