@@ -3,7 +3,7 @@ title: Access data from Azure cloud storage during interactive development
 titleSuffix: Azure Machine Learning
 description: Access data from Azure cloud storage during interactive development
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: fbsolo-ms1
