@@ -62,14 +62,14 @@ If none of these options are successful, an error stating that the app cannot re
       }
    }
    ```
-2. Go to the Azure Storage account resource on Azure Portal, navigate to the **Access Control (IAM)** tab, and click on **Add role assignment**. Find the following roles: 
+2. Go to the Azure Storage account resource on the Azure portal, navigate to the **Access Control (IAM)** tab, and click on **Add role assignment**. Find the following roles: 
    * Storage Queue Data Contributor 
    * Storage Blob Data Contributor 
    * Storage Table Data Contributor 
 
    Assign the roles to yourself by clicking **"+ Select members"** and finding your email in the pop-up window. (This email is the one you use to log into Microsoft applications, Azure CLI, or editors in the Visual Studio family.)
 
-   ![Assign access to user](./media/durable-functions-configure-df-with-credentials/assign-access-user.png)
+   ![Screenshot showing access assignment to user.](./media/durable-functions-configure-df-with-credentials/assign-access-user.png)
 
 ## Identity-based connections for app deployed to Azure
 
@@ -87,7 +87,7 @@ Navigate to your app's Azure Storage resource on the Azure portal and [assign](/
 
 To find your identity resource, select assign access to **Managed identity** and then **+ Select members** 
 
-![Assign access to managed identity](./media/durable-functions-configure-df-with-credentials/assign-access-managed-identity.png)
+![Screenshot showing access assignmnet to managed identity.](./media/durable-functions-configure-df-with-credentials/assign-access-managed-identity.png)
 
 ### Add managed identity configuration to your app
 
@@ -102,7 +102,7 @@ Before you can use your app's managed identity, make some changes to the app set
 
    Use *one of the following methods* depending on the cloud that your app runs in:
 
-   - **Azure cloud**: If your app runs in *public Azure*, add the setting `AzureWebJobsStorage__accountName` that identifies an Azure storage account name. Example value: `mystorageaccount123`
+   - **Azure cloud**: If your app runs in *global Azure*, add the setting `AzureWebJobsStorage__accountName` that identifies an Azure storage account name. Example value: `mystorageaccount123`
 
    - **Non-Azure cloud**: If your application runs in a cloud outside of Azure, you must add the following three settings to provide specific service URIs (or *endpoints*) of the storage account instead of an account name.
 
@@ -123,7 +123,7 @@ Before you can use your app's managed identity, make some changes to the app set
    ![Screenshot of endpoint sample.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-02.png)
 
    > [!NOTE] 
-   > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from public Azure, you must use the option that provides specific service URIs instead of just the storage account name. For more information on using Azure Storage with Azure Government, see the [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md). 
+   > If you are using [Azure Government](../../azure-government/documentation-government-welcome.md) or any other cloud that's separate from global Azure, you must use the option that provides specific service URIs instead of just the storage account name. For more information on using Azure Storage with Azure Government, see the [Develop by using the Storage API in Azure Government](../../azure-government/documentation-government-get-started-connect-to-storage.md). 
 
 1. Finish your managed identity configuration (remember to click "Apply" after making the setting changes): 
 
@@ -135,10 +135,10 @@ Before you can use your app's managed identity, make some changes to the app set
 
      * **AzureWebJobsStorage__clientId**, get this GUID value from your managed identity resource
 
-     ![Screenshot of user identity client id.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
+     ![Screenshot of user identity client ID.](media/durable-functions-configure-df-with-credentials/durable-functions-managed-identity-scenario-03.png)
 
    > [!NOTE] 
-   > Durable Functions does *not* support `managedIdentityResourceId` today when using user-assigned identity. Use `clientId` instead. 
+   > Durable Functions does *not* support `managedIdentityResourceId` when using user-assigned identity. Use `clientId` instead. 
 
 
 
