@@ -62,19 +62,27 @@ In this tutorial, we're demonstrating option 2, starting transcription during an
 | TranscriptionStarted | 200 | 0 | Action completed successfully. |
 | TranscriptionStopped | 200 | 0 | Action completed successfully. |
 | TranscriptionUpdated | 200 | 0 | Action completed successfully. |
-| TranscriptionFailed | 500 | 8578 | Action failed, not able to establish WebSocket connection. |
 | TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
-| TranscriptionFailed | 500 | 8580 | Action failed, transcription service was shut down. |
-| TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
-| TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
+| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
+| TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
+| TranscriptionFailed | 400 | 8605 | Custom speech recognition model for Transcription is not supported. |
+| TranscriptionFailed | 400 | 8523 | Invalid Request, locale is missing. |
+| TranscriptionFailed | 400 | 8523 | Invalid Request, only locale that contain region information are supported. |
+| TranscriptionFailed | 405 | 8520 | Transcription functionality is not supported at this time. |
+| TranscriptionFailed | 405 | 8520 | UpdateTranscription is not supported for connection created with Connect interface. |
+| TranscriptionFailed | 400 | 8528 | Action is invalid, call already terminated. |
+| TranscriptionFailed | 405 | 8520 | Update transcription functionality is not supported at this time. |
+| TranscriptionFailed | 405 | 8522 | Request not allowed when Transcription url not set during call setup. |
+| TranscriptionFailed | 405 | 8522 | Request not allowed when Cognitive Service Configuration not set during call setup. |
+| TranscriptionFailed | 400 | 8501 | Action is invalid when call is not in Established state. |
 | TranscriptionFailed | 401 | 8565 | Action failed due to a Cognitive Services authentication error. Check your authorization input and ensure it's correct. |
 | TranscriptionFailed | 403 | 8565 | Action failed due to a forbidden request to Cognitive Services. Check your subscription status and ensure it's active. |
-| TrasncriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
 | TranscriptionFailed | 429 | 8565 | Action failed, requests exceeded the number of allowed concurrent requests for the cognitive services subscription. |
-| TranscriptionFailed | 400 | 8565 | Action failed due to a request to Cognitive Services timing out. Try again later or check for any issues with the service. |
+| TranscriptionFailed | 500 | 8578 | Action failed, not able to establish WebSocket connection. |
+| TranscriptionFailed | 500 | 8580 | Action failed, transcription service was shut down. |
+| TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
 | TranscriptionFailed | 500 | 9999 | Unknown internal server error. |
 
 
 ## Known issues
-* You may receive duplicate TranscriptionStarted events every time there's a speech input after a long pause of silence or when a new person speaks.
 * For 1:1 calls with ACS users using Client SDKs startTranscription = True isn't currently supported. 
