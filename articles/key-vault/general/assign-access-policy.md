@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

@@ -6,7 +6,7 @@ summary: Learn how to use Azure Digital Twins by creating a digital twin archite
 metadata:
   title: Azure Digital Twins Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
-  ms.service: digital-twins
+  ms.service: azure-digital-twins
   ms.topic: landing-page
   author: baanders
   ms.author: baanders

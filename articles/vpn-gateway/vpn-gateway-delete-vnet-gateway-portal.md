@@ -3,7 +3,7 @@ title: 'Delete a virtual network gateway: portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to delete a virtual network gateway using the Azure portal.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.date: 08/22/2023
 ms.author: cherylmc
 ms.topic: how-to

@@ -4,7 +4,7 @@ description: This article describes how change feed can be used by a retail comp
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to

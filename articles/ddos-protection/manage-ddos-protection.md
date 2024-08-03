@@ -3,7 +3,7 @@ title: 'QuickStart: Create and configure Azure DDoS Network Protection using - A
 description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
 author: AbdullahBell
 ms.author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.date: 07/17/2024
 ms.custom: template-quickstart

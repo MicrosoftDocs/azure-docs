@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 01/23/2024
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
 zone_pivot_groups: python-mode-functions

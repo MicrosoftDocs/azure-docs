@@ -18,6 +18,8 @@ This article applies to:
 - Customers who have a Microsoft Customer Agreement (MCA).
 - Customers who signed up for Azure through the Azure website to create a Microsoft Online Subscription Program account. This type of account is also called a *pay-as-you-go* account.
 
+If you're unsure of your billing account type, see [Check the type of your account](#check-the-type-of-your-account) later in this article.
+
 There are two ways to pay your bill for Azure. You can pay with the default payment method of your billing profile, or you can make a one-time payment with the **Pay now** option.
 
 If you signed up for Azure through a Microsoft representative, your default payment method is always set to *wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
@@ -92,7 +94,7 @@ To make a partial payment:
 9. Select **Pay now**.
 10. Repeat steps 8 to 9 until you fully pay the invoice amount.
 
-## Default payment method
+## Pay by the default payment method
 
 The default payment method of your billing profile can be a credit card, debit card, or wire transfer.
 
@@ -280,9 +282,9 @@ If your default payment method is wire transfer, check your invoice for payment 
 > - [Zambia](/legal/pay/zambia)
 > - [Zimbabwe](/legal/pay/zimbabwe)
 
-## Payment in the Azure portal
+## Pay now in the Azure portal
 
-To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the Billing Account Administrator. The Billing Account Administrator is the user who originally signed up for the MCA account.
+To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the account administrator. The account administrator is the user who originally signed up for the MCA account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Cost Management + Billing**.
@@ -298,9 +300,9 @@ The **Pay now** option might be unavailable if:
 - You have a Microsoft Online Subscription Program account (pay-as-you-go account). You might instead see a **Settle balance** banner. If so, see [Resolve a past-due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
 - Your default payment method and invoice amount don't support the **Pay now** option. Check your invoice for payment instructions.
 
-For a complete list of all the counties/regions where the **Pay now** option is available, see the [article about resolving a past-due balance](../manage/resolve-past-due-balance.md#settle-balance-might-be-pay-now).
+For a complete list of all the counties/regions where the **Pay now** option is available, see [Regional considerations](../manage/resolve-past-due-balance.md#settle-balance-might-be-pay-now).
 
-## Access to a Microsoft Customer Agreement
+## Check the type of your account
 
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 

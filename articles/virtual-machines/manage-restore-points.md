@@ -3,7 +3,7 @@ title: Manage Virtual Machine restore points
 description: Managing Virtual Machine Restore Points
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
 ms.date: 07/05/2022

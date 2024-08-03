@@ -4,7 +4,7 @@ description: In this tutorial, learn how to connect Azure and AWS using an activ
 titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 08/10/2023
 

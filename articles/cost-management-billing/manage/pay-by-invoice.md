@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 08/01/2024
 ms.author: banders
 ---
 
@@ -44,9 +44,7 @@ Currently, customers who have a Microsoft Online Subscription Program (pay-as-yo
 
 ## Submit a request to set up payment by wire transfer
 
-Users in all regions can submit an Azure support request to pay by wire transfer. Currently, only customers in the United States can be automatically approved to change their payment method to wire transfer.
-
-If you're not automatically approved, you can use the following steps to submit an Azure support request. After your request is approved, you can switch to payment by wire transfer in the Azure portal.
+Users in all regions can manually submit an Azure support request to pay by wire transfer. If your request is approved, you can switch to payment by wire transfer in the Azure portal by using the following steps:
 
 1. Sign in to the Azure portal, and then search for and select **Help + support**.  
 
@@ -106,7 +104,7 @@ Use the following steps to switch your Azure subscription to payment by wire tra
 > [!NOTE]
 > After you switch to payment by wire transfer, you can't switch back to a credit card.
 
-1. Go to the Azure portal and sign in as the Account Administrator. Then search for and select **Cost Management + Billing**.  
+1. Go to the Azure portal and sign in as the account administrator. Then search for and select **Cost Management + Billing**.  
 
     :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
 1. Select the subscription that you want to switch to payment by wire transfer.
@@ -126,7 +124,7 @@ Use the following steps to switch a billing profile to wire transfer. Only the p
    :::image type="content" source="./media/pay-by-invoice/billing-profile-payment-methods.png" alt-text="Screenshot that shows the menu item for payment methods." lightbox="./media/pay-by-invoice/billing-profile-payment-methods.png" :::
 1. Under **Other payment methods**, select the ellipsis (**...**), and then select **Make default**.
 
-## Check access to a Microsoft Customer Agreement
+## Check the type of your account
 
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 

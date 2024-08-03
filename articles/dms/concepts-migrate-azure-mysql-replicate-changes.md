@@ -5,7 +5,7 @@ author: adig
 ms.author: adig
 ms.reviewer: maghan
 ms.date: 07/24/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - references_regions

@@ -5,7 +5,7 @@ description: Use the desktop data migration tool to migrate data from JSON, Mong
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: markjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 05/01/2023
