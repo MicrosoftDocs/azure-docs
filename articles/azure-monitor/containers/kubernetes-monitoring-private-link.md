@@ -7,10 +7,9 @@ ms.custom: devx-track-azurecli
 ms.reviewer: aul
 ---
 
-# Enable private link for Kubernetes monitoring
-This article describes how to configure monitoring for your Kubernetes cluster for 
+# Enable private link for Kubernetes monitoring in Azure Monitor
+[Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. An [Azure Monitor Private Link Scope (AMPLS)](../logs/private-link-security.md) connects a private endpoint to a set of Azure Monitor resources to define the boundaries of your monitoring network. This article describes how to configure Container insights and Managed Prometheus to use private link for data ingestion from your Azure Kubernetes Service (AKS) cluster. 
 
-[Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure platform as a service (PaaS) resources to your virtual network by using private endpoints. An [Azure Monitor Private Link Scope (AMPLS)](../logs/private-link-security.md) connects a private endpoint to a set of Azure Monitor resources to define the boundaries of your monitoring network. 
 
 > [!NOTE]
 > - See [Connect to a data source privately](../../../articles/managed-grafana/how-to-connect-to-data-source-privately.md) for details on how to configure private link to query data from your Azure Monitor workspace using Grafana.
@@ -20,14 +19,15 @@ This article describes how to configure monitoring for your Kubernetes cluster f
 ## Prerequisites
 This article describes how to connect your cluster to an existing Azure Monitor Private Link Scope (AMPLS). Create an AMPLS following the guidance in [Configure your private link](../logs/private-link-configure.md).
 
-## Managed Prometheus
+## Managed Prometheus (Azure Monitor workspace)
+Data for Managed Prometheus is stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md), so you must make this workspace accessible over a private link.
 
 ### Configure DCEs
-Private links for data ingestion for Managed Prometheus are configured on the Data Collection Endpoints (DCE) of the workspace that stores the data. To identify the DCEs associated with your Azure Monitor workspace, select **Data Collection Endpoints** from your Azure Monitor workspace in the Azure portal.
+Private links for data ingestion for Managed Prometheus are configured on the Data Collection Endpoints (DCE) of the Azure Monitor workspace that stores the data. To identify the DCEs associated with your Azure Monitor workspace, select **Data Collection Endpoints** from your Azure Monitor workspace in the Azure portal.
 
 :::image type="content" source="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-endpoints.png" alt-text="A screenshot show the data collection endpoints page for an Azure Monitor workspace." lightbox="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-endpoints.png" :::
 
-If your AKS cluster isn't in the same region as your Azure Monitor workspace, then you need to [create another DCE](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) in the same region as the AKS cluster. In this case, open the data collection rule (DCR ) created when you enabled Managed Prometheus. This DCR will be named **MSPrometheus-\<clusterName\>-\<clusterRegion\>**. The cluster will be listed on the **Resources** page. On the **Data collection endpoint** dropdown, select the DCE in the same region as the AKS cluster.
+If your AKS cluster isn't in the same region as your Azure Monitor workspace, then you need to [create another DCE](../essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) in the same region as the AKS cluster. In this case, open the data collection rule (DCR ) created when you enabled Managed Prometheus. This DCR will be named **MSProm-\<clusterName\>-\<clusterRegion\>**. The cluster will be listed on the **Resources** page. On the **Data collection endpoint** dropdown, select the DCE in the same region as the AKS cluster.
 
 :::image type="content" source="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-rule.png" alt-text="A screenshot show the data collection rules page for an Azure Monitor workspace." lightbox="media/kubernetes-monitoring-private-link/azure-monitor-workspace-data-collection-rule.png" :::
 
@@ -55,19 +55,16 @@ Use the following steps to set up remote write for a Kubernetes cluster over a p
 2. Click **Add** and select your Azure Monitor Private Link scope. It takes a few minutes for the settings to propagate. Once completed, data from your private AKS cluster is ingested into your Azure Monitor workspace over the private link.
 
 
-## Container insights
-For Container insights, the cluster needs access to the Log Analytics workspace. 
+## Container insights (Log Analytics workspace)
+Data for Container insights, is stored in a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md), so you must make this workspace accessible over a private link.
+
+> [!NOTE]
+> This section describes how to enable private link for Container insights using CLI. For details on using an ARM template, see [Enable Container insights](./kubernetes-monitoring-enable.md?tabs=arm#enable-container-insights) and note the parameters `useAzureMonitorPrivateLinkScope` and `azureMonitorPrivateLinkScopeResourceId`.
 
 ### Cluster using managed identity authentication
 
-### Prerequisites
-- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
-- The template must be deployed in the same resource group as the cluster.
 
-
-### [CLI](#tab/cli)
-
-#### Existing AKS Cluster 
+### Existing AKS Cluster 
 
 **Use default Log Analytics workspace**
 
@@ -105,52 +102,6 @@ Example:
 az aks create --resource-group "my-resource-group"  --name "my-cluster"  --enable-addons monitoring --workspace-resource-id "/subscriptions/my-subscription/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace" --ampls-resource-id "/subscriptions/my-subscription /resourceGroups/ my-resource-group/providers/microsoft.insights/privatelinkscopes/my-ampls-resource"
 ```
 
-
-### [ARM](#tab/arm)
-
-The following sections provide links to the template and parameter files for enabling private link with Container insights on an AKS and Arc-enabled clusters. 
-
-Edit the values in the parameter file and deploy the template using any valid method for deploying ARM templates. Retrieve the **resource ID** of the resources from the **JSON** View of their **Overview** page.
-
- Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
-
-### Prerequisites
-- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
-- The template must be deployed in the same resource group as the cluster.
-
-### AKS cluster
-
-**Template file:** https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file<br>
-**Parameter file:** https://aka.ms/aks-enable-monitoring-msi-onboarding-template-parameter-file
-
-
-| Parameter | Description |
-|:---|:---|
-| `aksResourceId`| Resource ID of the cluster. |
-| `aksResourceLocation` | Azure Region of the cluster. |
-| `workspaceResourceId`| Resource ID of the  Log Analytics workspace. |
-| `workspaceRegion`	| Region of the Log Analytics workspace. |
-| `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
-| `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
-| `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
-
-### Arc-enabled Kubernetes cluster
-
-**Template file:** https://aka.ms/arc-k8s-azmon-extension-msi-arm-template<br>
-**Parameter file:** https://aka.ms/arc-k8s-azmon-extension-msi-arm-template-params
-
-| Parameter | Description |
-|:---|:---|
-| `clusterResourceId` | Resource ID of the cluster. |
-| `clusterRegion` | Azure Region of the cluster. |
-| `workspaceResourceId` | Resource ID of the  Log Analytics workspace. |
-| `workspaceRegion` | Region of the Log Analytics workspace. |
-| `workspaceDomain`	| Domain of the Log Analytics workspace:<br>`opinsights.azure.com` for Azure public cloud<br>`opinsights.azure.us` for Azure US Government<br>`opinsights.azure.cn` for Azure China Cloud |
-| `resourceTagValues` | Tag values specified for the existing Container insights extension data collection rule (DCR) of the cluster and the name of the DCR. The name will be MSCI-\<clusterName\>-\<clusterRegion\>, and this resource created in an AKS clusters resource group. For first time onboarding, you can set arbitrary tag values. |
-| `useAzureMonitorPrivateLinkScope` | Boolean flag to indicate whether Azure Monitor link scope is used or not. |
-| `azureMonitorPrivateLinkScopeResourceId` | Resource ID of the Azure Monitor Private link scope.   This is only used if `useAzureMonitorPrivateLinkScope` is set to **true**. |
-
----
 
 ## Cluster using legacy authentication
 Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](/azure/aks/private-clusters).

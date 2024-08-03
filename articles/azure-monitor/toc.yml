@@ -429,6 +429,9 @@ items:
       - name: Firewall requirements
         displayName: Container insights, Prometheus
         href: containers/kubernetes-monitoring-firewall.md
+      - name: Private Link
+        displayName: Container insights, Kubernetes
+        href: containers/kubernetes-monitoring-private-link.md
       - name: Agent management
         href: containers/container-insights-manage-agent.md
       - name: Legacy authentication
