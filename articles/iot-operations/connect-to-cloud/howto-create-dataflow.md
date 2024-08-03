@@ -4,8 +4,8 @@ description: Create a dataflow to connect data sources and destinations using Az
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
-ms.topic: conceptual
-ms.date: 07/26/2024
+ms.topic: how-to
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
