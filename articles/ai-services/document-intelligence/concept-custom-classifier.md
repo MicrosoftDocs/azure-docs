@@ -31,7 +31,7 @@ monikerRange: '>=doc-intel-3.1.0'
 
 > [!IMPORTANT]
 >
-> * The `2024-02-29-preview` API, custom classification model won't split documents by default during the analyzing process.
+> * The `2024-07-31-preview` API, custom classification model won't split documents by default during the analyzing process.
 > * You need to explicitly set the ``splitMode`` property to auto to preserve the behavior from previous releases. The default for `splitMode` is `none`.
 > * If your input file contains multiple documents, you need to enable splitting by setting the ``splitMode`` to ``auto``.
 
@@ -59,7 +59,7 @@ Custom classification models can analyze a single- or multi-file documents to id
 
 ✔️ The maximum allowed number of classes is `500`. The maximum allowed number of document samples per class is `100`.
 
-The model classifies each page of the input document to one of the classes in the labeled dataset. To set the threshold for your application, use the confidence score from the response.
+The model classifies each page of the input document, unless specified, to one of the classes in the labeled dataset. You can specify the page numbers to analyze in the input document as well. To set the threshold for your application, use the confidence score from the response. 
 ### Incremental training
 
 With custom models, you need to maintain access to the training dataset to update your classifier with new samples for an existing class, or add new classes. Classifier models now support incremental training where you can reference an existing classifier and append new samples for an existing class or add new classes with samples. Incremental training enables scenarios where data retention is a challenge and the classifier needs to be updated to align with changing business needs. Incremental training is supported with models trained with API version `2024-02-29-preview` and later.
@@ -146,7 +146,7 @@ The classifier attempts to assign each document to one of the classes, if you ex
 
 ## Training a model
 
-Custom classification models are supported by **v4.0:2024-02-29-preview** and **v3.1:2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier. Follow the [how to guide](how-to-guides/build-a-custom-classifier.md) to get started.
+Custom classification models are supported by **v4.0: 2024-02-29-preview, 2024-07-31-preview** and **v3.1: 2023-07-31 (GA)** APIs. [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio) provides a no-code user interface to interactively train a custom classifier. Follow the [how to guide](how-to-guides/build-a-custom-classifier.md) to get started.
 
 When using the REST API, if you organize your documents by folders, you can use the `azureBlobSource` property of the request to train a classification model.
 
@@ -250,7 +250,7 @@ Alternatively, if you have a flat list of files or only plan to use a few select
 ```
 
 As an example, the file list `car-maint.jsonl` contains the following files.
-
+ 
 ```json
 {"file":"classifier/car-maint/Commercial Motor Vehicle - Adatum.pdf"}
 {"file":"classifier/car-maint/Commercial Motor Vehicle - Fincher.pdf"}
@@ -258,6 +258,92 @@ As an example, the file list `car-maint.jsonl` contains the following files.
 {"file":"classifier/car-maint/Commercial Motor Vehicle - Liberty.pdf"}
 {"file":"classifier/car-maint/Commercial Motor Vehicle - Trey.pdf"}
 ```
+
+::: moniker range=">=doc-intel-4.0.0"
+## Overwriting a model
+
+> [!NOTE]
+> Starting with the `2024-07-31-preview` API, custom clasification models support overwriting a model in-place.
+
+You can now update the custom classification in-place. Note that directly overwriting the model would lose you the ability to compare model quality before deciding to replace the existing model. Model overwriting will only be allowed when the `allowOverwrite` property is explicitly specified in the request body. There is no way to recover the ovewritten, original model once this action is performed.
+
+```json
+
+
+{
+  "classifierId": "existingClassifierName",
+  "allowOverwrite": true,  // Default=false
+  ...
+}
+
+```
+
+## Copy a model
+
+> [!NOTE]
+> Starting with the `2024-07-31-preview` API, custom clasification models support copying a model to and from any of the follwing regions:
+> * **East US**
+> * **West US2**
+> * **West Europe**
+>
+> Use the [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) or [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com/studio/document-classifier/projects) to copy a model to another region.
+
+### Generate Copy authorization request
+
+The following HTTP request gets copy authorization from your target resource. You need to enter the endpoint and key of your target resource as headers.
+
+```http
+POST https://myendpoint.cognitiveservices.azure.com/documentintelligence/documentClassifiers:authorizeCopy?api-version=2024-07-31-preview
+Ocp-Apim-Subscription-Key: {<your-key>}
+```
+
+Request body
+
+```json
+{
+  "classifierId": "targetClassifier",
+  "description": "Target classifier description"
+}
+```
+
+You receive a `200` response code with response body that contains the JSON payload required to initiate the copy.
+
+```json
+{
+  "targetResourceId": "/subscriptions/targetSub/resourceGroups/targetRG/providers/Microsoft.CognitiveServices/accounts/targetService",
+  "targetResourceRegion": "targetResourceRegion",
+  "targetClassifierId": "targetClassifier",
+  "targetClassifierLocation": "https://targetEndpoint.cognitiveservices.azure.com/documentintelligence/documentClassifiers/targetClassifier",
+  "accessToken": "accessToken",
+  "expirationDateTime": "timestamp"
+}
+```
+
+### Start Copy operation
+
+The following HTTP request starts the copy operation on the source resource. You need to enter the endpoint and key of your source resource as the url and header. Notice that the request URL contains the classifier ID of the source classifier you want to copy.
+
+```http
+POST {endpoint}/documentintelligence/documentClassifiers/{classifierId}:copyTo?api-version=2024-07-31-preview
+Ocp-Apim-Subscription-Key: {<your-key>}
+```
+
+The body of your request is the response from the previous step.
+
+```json
+{
+  "targetResourceId": "/subscriptions/targetSub/resourceGroups/targetRG/providers/Microsoft.CognitiveServices/accounts/targetService",
+  "targetResourceRegion": "targetResourceRegion",
+  "targetClassifierId": "targetClassifier",
+  "targetClassifierLocation": "https://targetEndpoint.cognitiveservices.azure.com/documentintelligence/documentClassifiers/targetClassifier",
+  "accessToken": "accessToken",
+  "expirationDateTime": "timestamp"
+}
+```
+
+:::moniker-end
+
+
 
 ## Model response
 
@@ -268,6 +354,8 @@ Analyze an input file with the document classification model.
 ```json
 https://{endpoint}/documentintelligence/documentClassifiers/{classifier}:analyze?api-version=2024-02-29-preview
 ```
+
+Starting with the `2024-07-31-preview` API, you can [specify pages](https://review.learn.microsoft.com/en-us/rest/api/documentation-preview/document-classifiers/classify-document?view=azure-rest-preview#uri-parameters) to analyze from the input document using the `pages` query parameter in the request.
 
 :::moniker-end
 
