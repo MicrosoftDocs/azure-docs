@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -135,7 +135,7 @@ Ocp-Apim-Subscription-Key: {<your-key>}
 
 ### Track the target model ID
 
-You can also use the **[Get model](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
+You can also use the **[`Get model`](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [`Generate copy authorization` request](#generate-copy-authorization-request) response.
 
 ```http
 GET https://<your-resource-endpoint>/documentintelligence/documentModels/{modelId}?api-version=2024-02-29-preview" -H "Ocp-Apim-Subscription-Key: <your-key>
@@ -208,7 +208,7 @@ Operation-Location: https://<your-resource-endpoint>.cognitiveservices.azure.com
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
+You can use the [**GET operation**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
@@ -302,7 +302,7 @@ Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_KEY}
 
 ### Track the target model ID
 
-You can also use the **[Get model](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [Generate Copy authorization request](#generate-copy-authorization-request) response.
+You can also use the **[`GET model`](/rest/api/aiservices/document-models/get-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)** API to track the status of the operation by querying the target model. Call the API using the target model ID that you copied down from the [`Generate Copy authorization` request](#generate-copy-authorization-request) response.
 
 ```http
 GET https://{YOUR-ENDPOINT}/formrecognizer/documentModels/{modelId}?api-version=2023-07-31" -H "Ocp-Apim-Subscription-Key: <YOUR-KEY>
@@ -375,7 +375,7 @@ Operation-Location: https://{source-resource}.cognitiveservices.azure.com/formre
 
 ### Track copy operation progress
 
-You can use the [**Get operation**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
+You can use the [**`GET operation`**](/rest/api/aiservices/miscellaneous/get-operation?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) API to list all document model operations (succeeded, in-progress, or failed) associated with your Document Intelligence resource. Operation information only persists for 24 hours. Here's a list of the operations (operationId) that can be returned:
 
 * documentModelBuild
 * documentModelCompose
@@ -445,7 +445,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 ### Track operation progress
 
-Track your progress by querying the **Get Copy Model Result** API against the source resource endpoint.
+Track your progress by querying the **`GET copy model result`** API against the source resource endpoint.
 
 ```http
 GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
@@ -462,7 +462,7 @@ Content-Type: application/json; charset=utf-8
 
 ### Track operation status with modelID
 
-You can also use the **Get Custom Model** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
+You can also use the **`GET custom model`** API to track the status of the operation by querying the target model. Call this API using the target model ID that you copied down in the first step.
 
 ```http
 GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.1/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
@@ -510,7 +510,7 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 | 400 / Bad Request with `"code:" "1002"` | Indicates validation error or badly formed copy request. Common issues include: a) Invalid or modified `copyAuthorization` payload. b) Expired value for `expirationDateTimeTicks` token (`copyAuthorization` payload is valid for 24 hours). c) Invalid or unsupported `targetResourceRegion`. d) Invalid or malformed `targetResourceId` string.
 |*Authorization failure due to missing or invalid authorization claims*.| Occurs when the `copyAuthorization` payload or content is modified from the `copyAuthorization` API. Ensure that the payload is the same exact content that was returned from the earlier `copyAuthorization` call.|
 |*Couldn't retrieve authorization metadata*.| Indicates that the `copyAuthorization` payload is being reused with a copy request. A copy request that succeeds doesn't allow any further requests that use the same `copyAuthorization` payload. If you raise a separate error and you later retry the copy with the same authorization payload, this error gets raised. The resolution is to generate a new `copyAuthorization` payload and then reissue the copy request.|
-|*Data transfer request isn't allowed as it downgrades to a less secure data protection scheme*.| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted specify `x-ms-forms-copy-degrade: true` header with the copy request.|
+|*Data transfer request isn't allowed as it downgrades to a less secure data protection scheme*.| Occurs when copying between an `AEK` enabled resource to a non `AEK` enabled resource. To allow copying encrypted model to the target as unencrypted, specify `x-ms-forms-copy-degrade: true` header with the copy request.|
 |"Couldn't fetch information for Cognitive resource with ID...". | Indicates that the Azure resource indicated by the `targetResourceId` isn't a valid Cognitive resource or doesn't exist. To resolve this issue, verify and reissue the copy request.</br> Ensure the resource is valid and exists in the specified region, such as, `westus2`|
 
 ::: moniker-end

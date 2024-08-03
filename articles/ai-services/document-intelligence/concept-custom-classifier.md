@@ -6,7 +6,7 @@ author: vkurpad
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 07/09/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -263,9 +263,9 @@ As an example, the file list `car-maint.jsonl` contains the following files.
 ## Overwriting a model
 
 > [!NOTE]
-> Starting with the `2024-07-31-preview` API, custom clasification models support overwriting a model in-place.
+> Starting with the `2024-07-31-preview` API, custom classification models support overwriting a model in-place.
 
-You can now update the custom classification in-place. Note that directly overwriting the model would lose you the ability to compare model quality before deciding to replace the existing model. Model overwriting will only be allowed when the `allowOverwrite` property is explicitly specified in the request body. There is no way to recover the ovewritten, original model once this action is performed.
+You can now update the custom classification in-place. Directly overwriting the model would lose you the ability to compare model quality before deciding to replace the existing model. Model overwriting is allowed when the `allowOverwrite` property is explicitly specified in the request body. It's impossible to recover the overwritten, original model once this action is performed.
 
 ```json
 

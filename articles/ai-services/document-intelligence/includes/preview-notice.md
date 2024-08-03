@@ -21,6 +21,3 @@ ms.date: 07/31/2024
 > * **West US2**
 > * **West Europe**
 > * **North Central US**
-
-
-

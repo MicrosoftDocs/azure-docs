@@ -30,28 +30,28 @@ Document Intelligence service is updated on an ongoing basis. Bookmark this page
 
 The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) is currently available only in the following Azure regions. Note that the new document field extraction model in AI Studio is only available in North Central US region:
+* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-07-31-preview&preserve-view=true) is currently available only in the following Azure regions. The new document field extraction model in AI Studio is only available in North Central US region:
 
 * **East US**
 * **West US2**
 * **West Europe**
 * **North Central US**
 
-* [Read model](concept-read.md) now supports [PDF output](how-to-guides/searchablepdf.md) which allows to download the PDF with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and LLM ingestion.
+* [Read model](concept-read.md) now supports [PDF output](how-to-guides/searchablepdf.md)  to download PDFs with embedded text from extraction results, allowing for PDF to be utilized in scenarios such as search and large language model ingestion.
 * [Layout model](concept-layout.md) now supports improved [figure detection](concept-layout.md#figures) where figures from documents can now be downloaded as an image file to be used for further figure understanding.
 * [Custom extraction models](concept-custom.md#custom-extraction-models)
   * Custom extraction models now support updating the model in-place. 
 * [🆕 Custom generative (Document field extraction) model](concept-custom-generative.md)
-  * Document Intelligence now offers new custom generative model which utilizes generative AI to extract fields from unstructured documents or structured forms with a wide variety of visual templates.
+  * Document Intelligence now offers new custom generative model that utilizes generative AI to extract fields from unstructured documents or structured forms with a wide variety of visual templates.
 * [Custom classification model](concept-custom.md#custom-classification-model)
-  * Custom classification model now support updating the model in-place as well.
+  * Custom classification model now supports updating the model in-place as well.
   * Custom classification model adds support for model copy operation to enable backup and disaster recovery.
   * Custom classification model now supports explicitly specifying pages to be classified from an input document.
 * [🆕 Mortgage documents model](concept-mortgage-documents.md)
   * Extract information from Appraisal (Form 1004).
   * Extract information from Validation of Employment (Form 1005).
 * [🆕 Check model](concept-check.md)
-  * Extract payee, amount, date and other relevant information form checks.​
+  * Extract payee, amount, date, and other relevant information from checks.​
 * [🆕 Pay Stub model](concept-paystub.md)
   * New prebuilt to process pay stubs to extract wages, hours, deductions, net pay and more.​
 * [🆕 Bank statement model](concept-bankStatement-US.md)

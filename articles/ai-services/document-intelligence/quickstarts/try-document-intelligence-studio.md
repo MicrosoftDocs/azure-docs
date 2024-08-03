@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 07/09/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 monikerRange: '>=doc-intel-3.0.0'
 ---
@@ -81,7 +81,6 @@ To learn more about each model, *see* our concept pages.
 ### View resource details
 
  To view resource details such as name and pricing tier, select the **Settings** icon in the top-right corner of the Document Intelligence Studio home page and select the **Resource** tab. If you have access to other resources, you can switch resources as well.
-
 
 ## Added prerequisites for custom projects
 

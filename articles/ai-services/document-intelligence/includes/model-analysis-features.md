@@ -23,7 +23,7 @@ ms.author: lajanuar
 |prebuilt-marriageCertificate.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-creditCard | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-check.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
-|prebuilt-paystub | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-payStub.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-bankStatement | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1003 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1004 | ✓|✓ | | | | | | O | O |✓ | O | O | O |

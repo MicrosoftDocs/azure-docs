@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: overview
-ms.date: 05/07/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -162,32 +162,33 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable compensation details.
+    [**US Tax W-2**](#us-tax-w-2-model) | Extract taxable compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+    [**US Tax 1098**](#us-tax-1098-form) | Extract mortgage interest details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098-e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details.
+    [**US Tax 1098-E**](#us-tax-1098-e-form) | Extract student loan interest details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098-t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
+    [**US Tax 1098-T**](#us-tax-1098-t-form) | Extract qualified tuition details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1099.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1099 form**](#us-tax-1099-and-variations-form) | Extract form 1099 variation details.
+    [**US Tax 1099**](#us-tax-1099-and-variations-forms) | Extract `1099` variation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1040.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1040 form**](#us-tax-1040-form) |  Extract form 1040 variation details.
+    [**US Tax 1040**](#us-tax-1040-form) |  Extract `1040` variation details.
    :::column-end:::
 :::row-end:::
 :::moniker-end
 
 :::moniker range="<=doc-intel-3.1.0"
+
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-invoice.png" link="#invoice":::</br>
@@ -219,19 +220,19 @@ Prebuilt models enable you to add intelligent document processing to your apps a
 :::row:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-w2.png" link="#us-tax-w-2-model":::</br>
-    [**US Tax W-2 form**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
+    [**US Tax W-2**](#us-tax-w-2-model) | Extract taxable </br>compensation details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098.png" link="#us-tax-1098-form":::</br>
-    [**US Tax 1098 form**](#us-tax-1098-form) | Extract mortgage interest details.
+    [**US Tax 1098**](#us-tax-1098-form) | Extract mortgage interest details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098-e.png" link="#us-tax-1098-e-form":::</br>
-    [**US Tax 1098-E form**](#us-tax-1098-e-form) | Extract student loan interest details.
+    [**US Tax 1098-E**](#us-tax-1098-e-form) | Extract student loan interest details.
    :::column-end:::
    :::column span="":::
       :::image type="icon" source="media/overview/icon-1098-t.png" link="#us-tax-1098-t-form":::</br>
-    [**US Tax 1098-T form**](#us-tax-1098-t-form) | Extract qualified tuition details.
+    [**US Tax 1098-T**](#us-tax-1098-t-form) | Extract qualified tuition details.
    :::column-end:::
 :::row-end:::
 :::moniker-end
@@ -550,7 +551,7 @@ You can use Document Intelligence to automate document processing in application
 > [!div class="nextstepaction"]
 > [Return to model types](#prebuilt-models)
 
-### US tax 1099 (and variations) form
+### US tax 1099 (and variations) forms
 
 :::image type="content" source="media/overview/analyze-1099.png" alt-text="Screenshot of US 1099 tax form analyzed in the Document Intelligence Studio." lightbox="media/overview/analyze-1099.png":::
 
