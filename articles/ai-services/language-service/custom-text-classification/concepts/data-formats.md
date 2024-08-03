@@ -27,39 +27,40 @@ Your Labels file should be in the `json` format below. This will enable you to [
     "projectFileVersion": "2022-05-01",
     "stringIndexType": "Utf16CodeUnit",
     "metadata": {
-      "projectKind": "CustomMultiLabelClassification",
-      "storageInputContainerName": "{CONTAINER-NAME}",
-      "projectName": "{PROJECT-NAME}",
-      "multilingual": false,
-      "description": "Project-description",
-      "language": "en-us"
+        "projectKind": "CustomMultiLabelClassification",
+        "storageInputContainerName": "{CONTAINER-NAME}",
+        "projectName": "{PROJECT-NAME}",
+        "multilingual": false,
+        "description": "Project-description",
+        "language": "en-us"
     },
     "assets": {
-      "projectKind": "CustomMultiLabelClassification",
-      "classes": [
-        {
-          "category": "Class1"
-        },
-        {
-          "category": "Class2"
-        }
-      ],
-      "documents": [
-          {
-              "location": "{DOCUMENT-NAME}",
-              "language": "{LANGUAGE-CODE}",
-              "dataset": "{DATASET}",
-              "classes": [
-                  {
-                      "category": "Class1"
-                  },
-                  {
-                      "category": "Class2"
-                  }
-              ]
-          }
-      ]
-  }
+        "projectKind": "CustomMultiLabelClassification",
+        "classes": [
+            {
+                "category": "Class1"
+            },
+            {
+                "category": "Class2"
+            }
+        ],
+        "documents": [
+            {
+                "location": "{DOCUMENT-NAME}",
+                "language": "{LANGUAGE-CODE}",
+                "dataset": "{DATASET}",
+                "classes": [
+                    {
+                        "category": "Class1"
+                    },
+                    {
+                        "category": "Class2"
+                    }
+                ]
+            }
+        ]
+    }
+}
 ```
 
 |Key  |Placeholder  |Value  | Example |
@@ -81,43 +82,44 @@ Your Labels file should be in the `json` format below. This will enable you to [
     "projectFileVersion": "2022-05-01",
     "stringIndexType": "Utf16CodeUnit",
     "metadata": {
-      "projectKind": "CustomSingleLabelClassification",
-      "storageInputContainerName": "{CONTAINER-NAME}",
-      "settings": {},
-      "projectName": "{PROJECT-NAME}",
-      "multilingual": false,
-      "description": "Project-description",
-      "language": "en-us"
+        "projectKind": "CustomSingleLabelClassification",
+        "storageInputContainerName": "{CONTAINER-NAME}",
+        "settings": {},
+        "projectName": "{PROJECT-NAME}",
+        "multilingual": false,
+        "description": "Project-description",
+        "language": "en-us"
     },
     "assets": {
-      "projectKind": "CustomSingleLabelClassification",
-      "classes": [
-          {
-              "category": "Class1"
-          },
-          {
-              "category": "Class2"
-          }
-      ],
-      "documents": [
-          {
-              "location": "{DOCUMENT-NAME}",
-              "language": "{LANGUAGE-CODE}",
-              "dataset": "{DATASET}",
-              "class": {
-                  "category": "Class2"
-              }
-          },
-          {
-              "location": "{DOCUMENT-NAME}",
-              "language": "{LANGUAGE-CODE}",
-              "dataset": "{DATASET}",
-              "class": {
-                  "category": "Class1"
-              }
-          }
-      ]
-  }
+        "projectKind": "CustomSingleLabelClassification",
+        "classes": [
+            {
+                "category": "Class1"
+            },
+            {
+                "category": "Class2"
+            }
+        ],
+        "documents": [
+            {
+                "location": "{DOCUMENT-NAME}",
+                "language": "{LANGUAGE-CODE}",
+                "dataset": "{DATASET}",
+                "class": {
+                    "category": "Class2"
+                }
+            },
+            {
+                "location": "{DOCUMENT-NAME}",
+                "language": "{LANGUAGE-CODE}",
+                "dataset": "{DATASET}",
+                "class": {
+                    "category": "Class1"
+                }
+            }
+        ]
+    }
+}
 ```
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
