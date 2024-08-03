@@ -191,6 +191,7 @@ Finally, once the trusted client root CA certificate and the certificate-to-attr
 spec:
   authenticationMethods:
     - method: x509Credentials
+      x509Credentials:
         trustedClientCaCert: client-ca
         attributes:
           secretName: x509-attributes
@@ -268,6 +269,7 @@ Modify the `authenticationMethods` setting in a BrokerAuthentication resource to
 spec:
   authenticationMethods:
     - method: ServiceAccountToken
+      serviceAccountToken:
         audiences:
         - aio-mq
         -  my-audience

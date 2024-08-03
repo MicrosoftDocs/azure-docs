@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/27/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -72,7 +72,7 @@ To inspect the listener, run:
 kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
-The output should look like this, with most metadata removed for brevity:
+The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
 apiVersion: mq.iotoperations.azure.com/v1beta1
@@ -82,6 +82,8 @@ metadata:
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
+  serviceName: aio-mq-dmqtt-frontend
+  serviceType: ClusterIp
   ports:
   - authenticationRef: authn
     port: 8883
@@ -93,18 +95,24 @@ spec:
           kind: Issuer
           name: mq-dmqtt-frontend
       mode: Automatic
-  serviceName: aio-mq-dmqtt-frontend
-  serviceType: ClusterIp
 ```
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
+
+### Update the default BrokerListener
+
+The default BrokerListener uses the service type *ClusterIp*. You can have only one listener per service type. If you want to add more ports to service type *ClusterIp*, you can update the default listener to add more ports. For example, you could add a new port 1883 with no TLS and authentication off with the following kubectl patch command:
+
+```bash
+kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/", "value": {"port": 1883, "protocol": "Mqtt"}}]'
+```
 
 ## Create new BrokerListeners
 
 This example shows how to create a new *BrokerListener* resource for a *Broker* resource named *my-broker*. The *BrokerListener* resource defines a two ports that accept MQTT connections from clients.
 
 - The first port listens on port 1883 with no TLS and authentication off. Clients can connect to the broker without encryption or authentication.
-- The second port listens on port 8883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. TLS is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.
+- The second port listens on port 18883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. TLS is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.
 
 To create these *BrokerListener* resources, apply this YAML manifest to your Kubernetes cluster:
 
@@ -119,17 +127,18 @@ spec:
   serviceType: loadBalancer
   serviceName: my-new-listener
   ports:
-      port: 1883
-      protocol: Mqtt
-      port: 18883
-      authenticationRef: authn
-      protocol: Mqtt
-      tls:
-        automatic:
-          issuerRef:
+  - port: 1883
+    protocol: Mqtt
+  - port: 18883
+    authenticationRef: authn
+    protocol: Mqtt
+    tls:
+      automatic:
+        issuerRef:
             name: e2e-cert-issuer
             kind: Issuer
             group: cert-manager.io
+      mode: Automatic
 ```
 
 ## Related content
