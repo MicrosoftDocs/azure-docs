@@ -41,6 +41,8 @@ A machine learning project typically starts with exploratory data analysis (EDA)
 > pip install -U azureml-fsspec==1.3.1 mltable azure-ai-ml
 > ```
 
+The latest `azure-fsspec` package version can potentially change over time. For more information about the `azure-fsspec` package, visit [this resource](https://pypi.org/project/azureml-fsspec/).
+
 ## Access data from a datastore URI, like a filesystem
 
 An Azure Machine Learning datastore is a *reference* to an *existing* Azure storage account. The benefits of datastore creation and use include:
