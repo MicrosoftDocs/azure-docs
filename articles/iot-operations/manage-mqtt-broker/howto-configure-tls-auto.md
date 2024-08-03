@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/27/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -278,7 +278,7 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
         Data:
             Version: 3 (0x2)
             Serial Number:
-                74:d8:b6:fe:63:5a:7d:24:bd:c2:c0:25:c2:d2:c7:94:66:af:36:89
+                <SERIAL-NUMBER>
             Signature Algorithm: ecdsa-with-SHA256
             Issuer: CN = Azure IoT Operations Quickstart Root CA - Not for Production
             Validity
@@ -289,11 +289,7 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
                 Public Key Algorithm: id-ecPublicKey
                     Public-Key: (256 bit)
                     pub:
-                        04:51:43:93:2c:dd:6b:7e:10:18:a2:0f:ca:2e:7b:
-                        bb:ba:5c:78:81:7b:06:99:b5:a8:11:4f:bb:aa:0d:
-                        e0:06:4f:55:be:f9:5f:9e:fa:14:75:bb:c9:01:61:
-                        0f:20:95:cd:9b:69:7c:70:98:f8:fa:a0:4c:90:da:
-                        5b:1a:d7:e7:6b
+                        <PUBLIC-KEY>
                     ASN1 OID: prime256v1
                     NIST CURVE: P-256
             X509v3 extensions:
@@ -302,12 +298,9 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
                 X509v3 Key Usage: 
                     Certificate Sign
                 X509v3 Subject Key Identifier: 
-                    B6:DD:8A:42:77:05:38:7A:51:B4:8D:8E:3F:2A:D1:79:32:E9:43:B9
+                    <SUBJECT-KEY-IDENTIFIER>
         Signature Algorithm: ecdsa-with-SHA256
-            30:44:02:20:21:cd:61:d7:21:86:fd:f8:c3:6d:33:36:53:e3:
-            a6:06:3c:a6:80:14:13:55:16:f1:19:a8:85:4b:e9:5d:61:eb:
-            02:20:3e:85:8a:16:d1:0f:0b:0d:5e:cd:2d:bc:39:4b:5e:57:
-            38:0b:ae:12:98:a9:8f:12:ea:95:45:71:bd:7c:de:9d
+            [SIGNATURE]
     ```
 
 * By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
@@ -330,7 +323,7 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
       name: aio-ca-issuer
       namespace: azure-iot-operations
       resourceVersion: "2036"
-      uid: c55974c0-e0c3-4d35-8c07-d5a0d3f79162
+      uid: <UID>
     spec:
       ca:
         secretName: aio-ca-key-pair-test-only
