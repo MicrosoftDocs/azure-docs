@@ -54,7 +54,7 @@ To see how data extraction works for the Credit/Debit card service, you need the
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **Credit/Debit Card**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Credit/Debit Card**.
 
 1. You can analyze the sample tax documents or upload your own files.
 

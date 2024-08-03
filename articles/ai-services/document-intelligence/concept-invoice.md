@@ -128,7 +128,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ::: moniker range=">=doc-intel-3.0.0"
 
-1. On the Document Intelligence Studio home page, select **Invoices**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Invoices**.
 
 1. You can analyze the sample invoice or upload your own files.
 

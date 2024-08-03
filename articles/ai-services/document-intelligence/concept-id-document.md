@@ -153,7 +153,7 @@ Extract data, including name, birth date, and expiration date, from ID documents
 > [!NOTE]
 > Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
-1. On the Document Intelligence Studio home page, select **Identity documents**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Identity documents**.
 
 1. You can analyze the sample invoice or upload your own files.
 

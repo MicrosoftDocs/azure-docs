@@ -120,7 +120,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Layout**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Layout**.
 
 1. You can analyze the sample document or upload your own files.
 
