@@ -5,8 +5,6 @@ description: Extract text, tables, selections, titles, section headings, page he
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
 ms.date: 08/07/2024
 ms.author: lajanuar
@@ -120,7 +118,7 @@ See how data, including text, tables, table headers, selection marks, and struct
 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of `Layout` processing a newspaper page in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Layout**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Layout**.
 
 1. You can analyze the sample document or upload your own files.
 
@@ -602,7 +600,7 @@ Here are a few factors to consider when using the Document Intelligence bale ext
 
 * Do your tables span multiple pages? If so, to avoid having to label all the pages, split the PDF into pages before sending it to Document Intelligence. After the analysis, post-process the pages to a single table.
 
-* Refer to [Labeling as tables](quickstarts/try-document-intelligence-studio.md#labeling-as-tables) if you're creating custom models. Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
+* Refer to [Tabular fields](concept-custom-label.md#tabular-fields) if you're creating custom models. Dynamic tables have a variable number of rows for each column. Fixed tables have a constant number of rows for each column.
 
 > [!NOTE]
 >
@@ -840,7 +838,7 @@ Learn how to accelerate your business processes by automating text extraction wi
 Figures (charts, images) in documents play a crucial role in complementing and enhancing the textual content, providing visual representations that aid in the understanding of complex information. The figures object detected by the Layout model has key properties like `boundingRegions` (the spatial locations of the figure on the document pages, including the page number and the polygon coordinates that outline the figure's boundary), `spans` (details the text spans related to the figure, specifying their offsets and lengths within the document's text. This connection helps in associating the figure with its relevant textual context), `elements` (the identifiers for text elements or paragraphs within the document that are related to or describe the figure) and `caption` if there's any.
 
 When *output=figures* is specified during the initial analyze operation, the service generates cropped images for all detected figures that can be accessed via `/analyeResults/{resultId}/figures/{figureId}`.
-`FigureId` will be included in each figure object, following an undocumented convention of `{pageNumber}.{figureIndex}` where `figureIndex` resets to one per page.
+`FigureId` is included in each figure object, following an undocumented convention of `{pageNumber}.{figureIndex}` where `figureIndex` resets to one per page.
 
 > [!NOTE]
 > Starting with *2024-07-31-preview*, the bounding regions for figures and tables cover only the core content and exclude associated caption and footnotes.

@@ -54,7 +54,7 @@ To see how data extraction works for the marriage certificate card service, you 
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **Marriage Certificate**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Marriage Certificate**.
 
 1. You can analyze the sample Marriage certificates or upload your own files.
 
