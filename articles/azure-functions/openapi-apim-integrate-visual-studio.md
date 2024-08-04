@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * Enable API Management integration 
 > * Download the OpenAPI definition file
 
-The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Since you create both the function app and API Management instance as consumption plans, your cost for completing this tutorial is minimal.
+The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Since you create both the function app and API Management instance in a consumption tier, your cost for completing this tutorial is minimal.
 
 ## Prerequisites
 
@@ -117,11 +117,11 @@ In the Turbine.cs project file, replace the contents of the class generated from
 
  ### [Isolated worker model](#tab/isolated-process)
     
-:::code language="csharp" source="~/functions-openapi-turbine-repair-isolated/TurbineRepair/Turbines.cs":::
+:::code language="csharp" source="~/functions-openapi-turbine-repair-isolated/TurbineRepair/Turbine.cs":::
 
 ### [In-process model](#tab/in-process) 
 
-:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Turbines.cs":::
+:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Turbine.cs":::
 
 ---
 
@@ -209,7 +209,7 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. In the function app page, expand **API** and select **API Management**.
 
-1. If the function app isn't already connected to the new API Management instance, select it under **API Management**, select **API** > **OpenAPI Document on Azure Functions**, make sure **Import functions** is checked, and select **Link API**. Make sure that only **Turbine** is selected for import and then **Select**. 
+1. If the function app isn't already connected to the new API Management instance, select it under **API Management**, select **API** > **OpenAPI Document on Azure Functions**, make sure **Import functions** is checked, and select **Link API**. Make sure that only **TurbineRepair** is selected for import and then **Select**. 
 
 1. Select **Go to API Management** at the top of the page, and in the API Management instance, expand **APIs**.
  
