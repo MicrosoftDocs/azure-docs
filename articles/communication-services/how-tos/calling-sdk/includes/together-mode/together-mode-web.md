@@ -105,8 +105,8 @@ togetherModeFeature.on('togetherModeSceneUpdated', seatUpdate);
 togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ```
 
-### Troubleshooting
-## Error Codes/SubCodes and Description
+## Troubleshooting
+### Error Codes/SubCodes and Description
 
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
