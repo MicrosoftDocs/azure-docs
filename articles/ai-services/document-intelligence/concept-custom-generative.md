@@ -17,7 +17,7 @@ monikerRange: '>=doc-intel-4.0.0'
 
 [!INCLUDE [preview-version-notice](includes/preview-notice.md)]
 
-The custom generative model combines the power of document understanding with Large Language Models (LLMs) and the rigor and schema from custom extraction capabilities to enable you to easily automate their data extraction workflows for any type of document, with minimal labeling and with greater accuracy and speed.
+The custom generative model combines the power of document understanding with Large Language Models (LLMs) and the rigor and schema from custom extraction capabilities to enable you to easily automate data extraction workflows for any type of document, with minimal labeling and greater accuracy and speed.
 
 ## Custom generative model key features
 
@@ -33,159 +33,72 @@ The custom generative model combines the power of document understanding with La
 * **Financial Services –** Analyze complex documents like financial reports and asset management reports.
 * **Expense management** - Custom generative can extract expenses, receipts, and invoices with varying different formats and templates.  
 
+## Model Capabilities  
+
+Custom generative currently supported dynamic table with the `2024-07-31-preview` and the following:
+
+| Form fields | Selection marks | Tabular fields | Signature | Region labeling | Overlapping fields |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|Supported| Supported |Supported| Unsupported |Unsupported |Supported|
+
 ## Build mode  
 
-The build custom model operation supports _template_, _neural_ and _generative_ custom models. Previous versions of the REST API and client libraries only supported two build modes - template and neural. For more information, _see_ [Custom model build mode](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-custom?view=doc-intel-4.0.0#build-mode). 
+The build custom model operation supports custom _template_, _neural_ and _generative_ models, _see_ [Custom model build mode](concept-custom?0#build-mode).:
 
-*   **Template:** custom template or custom form model relies on a consistent visual template to extract the labeled data. Structured forms such as questionnaires or applications are examples of consistent visual templates. 
-*   **Neural:** custom neural models uses deep learning models to accurately extract labeled fields from documents, suitable to be trained for extracting fields from structured, semi-structured documents. 
-*   **Generative:** custom generative can process complex documents with variety of formats, templates and unstructured data. 
+* **Custom generative models** can process complex documents in a variety of formats, templates, as well as unstructured data.
+* **Custom neural models** also support complex document processing and also support more variance in page for structured and semi-structured documents.
+* **Custom template models** rely on consistent visual templates, such as questionnaires or applications, to extract the labeled data.
 
-Model Capabilities  
+## Languages and locale support
 
-Custom generative currently supports the following,   
+The custom generative model `2024-07-31-preview` version supports the **en-us** locale. For more information on language support, *see* [Language support - custom models](language-support-custom.md).
 
-Form fields        Selection marks   Tabular fields    Signature           Region labelling    Overlapping Fields 
+## Region support
 
-Supported Supported       Supported\*       Unsupported   Unsupported          Supported 
+The custom generative model `2024-07-31-preview` version is only available in `North Central US`.  
 
-\*- Dynamic table is supported in preview, fixed table support will be made available soon 
+## Input requirements 
 
-Supported languages 
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-Only US English "en-us" is supported during preview. You can see our [Language support - custom models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/language-support-custom?view=doc-intel-4.0.0) page for a complete list of supported languages.   
+## Best Practices  
 
-Supported regions 
+* **Representative data** - Use representative documents that target actual data distribution, to train a high-quality custom generative model. For example, if the target document has partially filled tabular fields, add training documents that have partially filled tables. Or if field is named date, values for this field should be a date as random strings can affect model performance. 
+* **Field naming** - Choose a precise field name that represents the field values. For example, for a field value containing the Transaction Date, consider naming the field _TransactionDate_ instead of Date1. 
+* **Field Description** \- Provide additional contextual information in description to help clarify the field that needs to be extracted. Examples include location in the document, potential field labels it may be associated with, ways to differentiate with other terms that could be ambiguous.  
+* **Dealing with variation** - Custom generative models can generalize across different document templates of the same document type. As a best practice, create a single model for all variations of a document type. Ideally, include a visual template for each type, especially for ones that 
 
-During preview, Custom Generative model building, and analysis will only be available in North Central US.  
+## Service limits
 
-Input requirements 
+* Custom Generative doesn't support fixed table and signature extraction in preview   
+* Inference on the same document could yield slightly different results across calls and this is a known limitation of current GPT models   
+* Confidence scores for each field might vary, recommend testing with your representative data to establish the confidence thresholds for your scenario.   
+* Grounding, especially for tabular fields, is challenging and might not be perfect in some cases.  
+* Latency for large documents is high, this is a known limitation in preview  
+* Compose model doesn't support Custom Generative  
 
-*   For best results, provide at least one clear photo or high-quality scan per document. 
-*   Supported file formats: 
+## Training a model  
 
-**Model** 
+Custom generative models are available in the 2024-07-31-preview version and later models.
 
-**PDF** 
+The build operation to train model supports the ```buildMode``` property, to train a custom generative model, set the ```buildMode``` to ```generative```.
 
-**Image:** 
+```bash
 
-**JPEG/JPG, PNG, BMP, TIFF, HEIF** 
+https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07-31-preview
 
-**Microsoft Office:** 
+{
+  "modelId": "string",
+  "description": "string",
+  "buildMode": "generative",
+  "azureBlobSource":
+  {
+    "containerUrl": "string",
+    "prefix": "string"
+  }
+}
 
-**Word (DOCX), Excel (XLSX), PowerPoint (PPTX), and HTML** 
-
-Read 
-
-✔ 
-
-✔ 
-
-✔ 
-
-Layout 
-
-✔ 
-
-✔ 
-
-✔ (2024-07-31-preview, 2024-02-29-preview, 2023-10-31-preview) 
-
-General Document 
-
-✔ 
-
-✔ 
-
-Prebuilt 
-
-✔ 
-
-✔ 
-
-Custom extraction 
-
-✔ 
-
-✔ 
-
-Custom classification 
-
-✔ 
-
-✔ 
-
-✔ (2024-07-31-preview, 2024-02-29-preview) 
-
-*   For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed). 
-*   The file size for analyzing documents is 500 MB for the paid (S0) tier and 4 MB for free (F0) tier. 
-*   Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels. 
-*   If your PDFs are password-locked, you must remove the lock before submission. 
-*   The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 pixel image. This dimension corresponds to about 8-point text at 150 dots per inch (DPI). 
-*   For custom model training, the maximum number of pages for training data is 500 for the custom template model and 50,000 for the custom neural model. 
-*   For custom extraction model training, the total size of training data is 50 MB for template model and 1G-MB for neural model. 
-*   For custom classification model training, the total size of training data is 1GB with a maximum of 10,000 pages. For 2024-07-31-preview and later, the total size of training data is 2GB with a maximum of 10,000 pages.  
-
-Best Practices  
-
-*   **Representative data** - Use representative documents that target actual data distribution, to train a high-quality custom generative model. For example, if the target document has partially filled tabular fields, add training documents that have partially filled tables. Or if field is named date, values for this field should be a date as random strings can affect model performance. 
-*   **Field naming** - Choose a precise field name that represents the field values. For example, for a field value containing the Transaction Date, consider naming the field _TransactionDate_ instead of Date1. 
-*   **Field Description** \- Provide additional contextual information in description to help clarify the field that needs to be extracted. Examples include location in the document, potential field labels it may be associated with, ways to differentiate with other terms that could be ambiguous.  
-*   **Dealing with variation** - Custom generative models can generalize across different document templates of the same document type. As a best practice, create a single model for all variations of a document type. Ideally, include a visual template for each type, especially for ones that 
-
-Current Limitations 
-
-*   Custom Generative doesn't support fixed table and signature extraction in preview   
-*   Inference on the same document could yield slightly different results across calls and this is a known limitation of current GPT models   
-*   Confidence scores for each field might vary, recommend testing with your representative data to establish the confidence thresholds for your scenario.   
-*   Grounding, especially for tabular fields, is challenging and might not be perfect in some cases.  
-*   Latency for large documents is high, this is a known limitation in preview  
-*   Compose model doesn't support Custom Generative  
-
-Training a model  
-
-Custom generative models are available starting 2024-07-31-preview API and onward  
-
-**Document Type** 
-
-**REST API** 
-
-**SDK** 
-
-**Train and test Models** 
-
-Custom document 
-
-[Document Intelligence 4.0 (2024-07-31-preview)](https://learn.microsoft.com/en-us/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2024-07-31&preserve-view=true&tabs=HTTP) 
-
-[Document Intelligence SDK](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/quickstarts/get-started-sdks-rest-api?view=doc-intel-3.0.0&preserve-view=true) 
-
-[AI Studio](https://formrecognizer.appliedai.azure.com/studio) 
-
-The build operation to train model supports a new "buildMode" property, to train a custom generative model, set the "buildMode" to generative. 
-
-_https://{endpoint}/documentintelligence/documentModels:build?api-version=2024-07-31-preview_ 
-
-_{_ 
-
- _"modelId": "string",_ 
-
- _"description": "string",_ 
-
- _"buildMode": "generative",_ 
-
- _"azureBlobSource":_ 
-
- _{_ 
-
-   _"containerUrl": "string",_ 
-
-   _"prefix": "string"_ 
-
- _}_ 
-
-_}_ 
+```
 
 Next steps 
 

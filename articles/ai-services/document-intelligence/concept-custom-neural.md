@@ -46,9 +46,9 @@ Custom neural models share the same labeling format and strategy as [custom temp
  > [!IMPORTANT]
  > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
 
-Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
+Custom neural models currently support key-value pairs and selection marks and structured fields (tables).
 
-| Form fields | Selection marks | Tabular fields | Signature | Region | Overlapping fields |
+| Form fields | Selection marks | Tabular fields | Signature | Region labeling | Overlapping fields |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
