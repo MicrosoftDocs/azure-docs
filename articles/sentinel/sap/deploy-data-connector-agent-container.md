@@ -306,7 +306,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
-1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--validate this-->
+1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--validate this--> <!--From Naomi - It is not clear how to connect to an SAP system using ASCS. When selecting ABAP server, the solution will not connect to the SAP system, and there is no indication in the documentation what using the Message Server is, since this does not align to the SAP terminology. Update the documentation to align the terminology with SAP terms, and make it clearer what this configuration is used for - use scenarios and examples here.>
 
     - Under **Select an agent**, select the agent you created earlier.
     - Under **System identifier**, select the server type and provide the server details.

@@ -265,7 +265,7 @@ If needed, you can [Remove the user role and any optional CR installed on your A
 
 Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
-For more information, see <!--naomi to find link in sap docs-->
+For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094). <!--need a better link-->
 <!--this is where we'd redirect to from sap auditing-->
 
 ## Deploy optional CRs

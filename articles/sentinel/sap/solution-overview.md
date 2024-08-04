@@ -34,13 +34,11 @@ For example, the following image shows a multi-SID SAP landscape with a split be
 
 The Microsoft Sentinel solution for SAP applications supports the following types of threat detections:
 
-|Type  |Detections  |
-|---------|---------|
-|**Suspicious privileges operations**     |  <li>Privileged user creation <li>Usage of break-glass users<li>Unlocking a user and signing into to it from the same IP<li>Assignment of sensitive roles and admin privileges <li>User unlocks and uses other users <li>Critical authorization assignment        |
-|**Attempts to bypass SAP security mechanisms**     |   <li> Disabling audit logging (HANA and SAP)<li> Execution of sensitive function modules <li> Unlocking blocked transactions<li> Debugging production systems <li> Sensitive tables direct access by RFC <li>RFC execution of sanative function<li> System configuration change,  dynamic ABAP program       |
-|**Backdoor creation  (persistency)**     |      <li> Creation of new internet facing interfaces (ICF)<li> Directly accessing sensitive tables by remote-function-call<li>  Assigning new service handlers to ICF <li>Execution of obsolete programs<li> User unlocks and uses other users     |
-|**Data exfiltration**     |   <li> Multiple files downloads <li>Spool takeovers<li> Allowing access to insecure FTP servers and connections from unauthorized hosts<li> Dynamic RFC Destination <li>HANA DB - user admin actions from database level     |
-|**Initial Access**     |   <li> Brute force<li>   Multiple logons from the same IP<li>   Privileged user logons from unexpected networks <li>SPNego Replay Attack        |
+- **Suspicious privileges operations**, such as privileged user creation or usage of break-glass users
+- **Attempts to bypass SAP security mechanisms**, such as disabling audit logging, or execution of sensitive function modules
+- **Backdoor creation (persistency)**, such as creation of new internet facing interfaces (ICF) or directly accessing sensitive tables by remote-function-call
+- **Data exfiltration**, such as multiple file downloads or spool takeovers
+- **Initial Access**, such as brute force or multiple sign-ins from the same IP
 
 For more information, see [Built-in analytics rules](sap-solution-security-content.md#built-in-analytics-rules).
 
@@ -68,7 +66,7 @@ While the Microsoft Sentinel for SAP solution is free to install, there's an ext
 - The extra hourly charge applies to connected production systems only.
 - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. To do this, Microsoft Sentinel searches for a production entry in the T000 table.
 
-For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md) and [Microsoft Sentinel solution for SAP® applications](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).
+For more information, see [View the roles of your connected production systems](../monitor-sap-system-health.md) and [Microsoft Sentinel solution for SAP applications](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).
 
 <!--do we need this?
 ## Trademark attribution

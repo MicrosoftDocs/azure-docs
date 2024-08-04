@@ -139,9 +139,9 @@
       href: ci-cd-custom-deploy.md
   - name: Protect business applications
     items: 
-    - name: Integrate SAP applications
+    - name: Integrate SAP systems
       items: 
-      - name: Microsoft Sentinel solution for SAP applications
+      - name: SAP applications
         items:
         - name: Overview
           href: sap/solution-overview.md
@@ -159,19 +159,6 @@
             href: sap/preparing-sap.md
           - name: Connect your SAP system
             href: sap/deploy-data-connector-agent-container.md
-          - name: Configure intial solution content
-            href: sap/deployment-solution-configuration.md
-          - name: Optional deployment steps
-            items:
-            - name: Deploy with expert options
-              href: sap/sap-solution-deploy-alternate.md
-            - name: Collect SAP HANA audit logs
-              href: sap/collect-sap-hana-audit-logs.md
-          - name: Update the connector
-            href: sap/update-sap-data-connector.md      
-          - name: Disable the connector agent
-            displayName: disable, stop ingestion, stop
-            href: sap/deployment-overview.md#stop-sap-data-collection
           - name: SAP deployment reference (advanced)
             items:
             - name: SAP solution data reference
@@ -186,6 +173,19 @@
               href: sap/reference-systemconfig-json.md
             - name: Systemconfig.ini file reference (legacy)
               href: sap/reference-systemconfig.md
+        - name: Configure intial solution content
+          href: sap/deployment-solution-configuration.md
+        - name: Optional deployment steps
+          items:
+          - name: Deploy with expert options
+            href: sap/sap-solution-deploy-alternate.md
+          - name: Collect SAP HANA audit logs
+            href: sap/collect-sap-hana-audit-logs.md
+        - name: Update the connector
+          href: sap/update-sap-data-connector.md      
+        - name: Disable the connector agent
+          displayName: disable, stop ingestion, stop
+          href: sap/deployment-overview.md#stop-sap-data-collection
         - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
         - name: Monitor SAP audit logs
@@ -194,17 +194,18 @@
           href: sap/sap-audit-controls-workbook.md   
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
-      - name: SAP BTP solution
+      - name: SAP BTP
         items:
         - name: Overview
           href: sap/sap-btp-solution-overview.md
-        - name: Content overview
+          displayName: BTP
+        - name: Security content reference
           href: sap/sap-btp-security-content.md
         - name: Deploy SAP BTP
           href: sap/deploy-sap-btp-solution.md
     - name: Integrate Microsoft business applications
       items:
-      - name: Dynamics 365 Finance and Operations solution
+      - name: Dynamics 365 Finance and Operations
         items:
         - name: Overview
           href: dynamics-365/dynamics-365-finance-operations-solution-overview.md
@@ -212,7 +213,7 @@
           href: dynamics-365/dynamics-365-finance-operations-security-content.md
         - name: Deploy solution
           href: dynamics-365/deploy-dynamics-365-finance-operations-solution.md
-      - name: Microsoft Power Platform solution
+      - name: Microsoft Power Platform
         items:
         - name: Overview
           href: business-applications/power-platform-solution-overview.md 
