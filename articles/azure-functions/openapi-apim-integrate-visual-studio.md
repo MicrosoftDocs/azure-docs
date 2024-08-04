@@ -1,8 +1,8 @@
 ---
-title: Create serverless APIs in Visual Studio using Azure Functions and API Management
-description: Use Visual Studio to create an HTTP triggered function along with an OpenAPI definition, which enables Azure API Management integration so that other apps and services can call your serverless function-based API.
+title: Create serverless APIs using Azure Functions and API Management
+description: Use Visual Studio to create an HTTP triggered function that uses an OpenAPI definition (formerly swagger) to expose a serverless API using API Management.
 ms.topic: tutorial
-ms.date: 01/18/2023
+ms.date: 08/04/2024
 ---
 
 # Create serverless APIs in Visual Studio using Azure Functions and API Management integration
@@ -16,11 +16,11 @@ In this tutorial, you learn how to:
 > * Install the OpenAPI extension
 > * Add an HTTP trigger endpoint, which includes OpenAPI definitions
 > * Test function APIs locally using built-in OpenAPI functionality
-> * Publish project to a function app in Azure with API Management integration 
-> * Get the access key for the function app and set it in API Management
+> * Publish project to a function app in Azure 
+> * Enable API Management integration 
 > * Download the OpenAPI definition file
 
-The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
+The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Since you create both the function app and API Management instance as consumption plans, your cost for completing this tutorial is minimal.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ The Azure Functions project template in Visual Studio creates a project that you
 
 1. Select **Create** to create the function project. 
 
-Next, you update the project by installing the OpenAPI extension for Azure Functions, which enables the discoverabilty of API endpoints in your app. 
+Next, you update the project by installing the OpenAPI extension for Azure Functions, which enables the discoverability of API endpoints in your app. 
 
 ## Install the OpenAPI extension
 
@@ -77,18 +77,18 @@ To install the OpenAPI extension:
     ```command
     NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
     ```
-    You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
+    You might need to update the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
    
     ### [In-process model](#tab/in-process) 
 
     ```command
     NuGet\Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 1.5.1
     ```
-    You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenApi), based on your version of .NET.
+    You might need to update the [specific version](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenApi), based on your version of .NET.
    
     ---
 
-Next, you can add create your HTTP endpoint function.
+Now, you can add your HTTP endpoint function.
 
 ## Add an HTTP endpoint function
 
@@ -240,7 +240,7 @@ Now that the function key is set, you can call the `turbine` API endpoint to ver
 
 ## Download the OpenAPI definition
 
-If your API works as expected, you can download the OpenAPI definition for the new hosted APIs from API Managment.
+If your API works as expected, you can download the OpenAPI definition for the new hosted APIs from API Management.
 
 1. 1. Under **APIs**, select **OpenAPI Document on Azure Functions**, select the ellipses (**...**), and select **Export**.
    
@@ -260,7 +260,7 @@ Select **Delete resource group**, type the name of your group in the text box to
 
 ## Next steps
 
-You've used Visual Studio 2022 to create a function that is self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
+You've used Visual Studio 2022 to create a function that's self-documenting because of the [OpenAPI Extension](https://github.com/Azure/azure-functions-openapi-extension) and integrated with API Management. You can now refine the definition in API Management in the portal. You can also [learn more about API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
 > [Edit the OpenAPI definition in API Management](../api-management/edit-api.md)
