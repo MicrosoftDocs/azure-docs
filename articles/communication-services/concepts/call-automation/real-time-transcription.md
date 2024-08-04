@@ -35,7 +35,7 @@ Provide context to an agent before the agent picks up the call, this way the age
 Using the transcript generated throughout the call, you can leverage other AI tools to gain live, real-time insights that will help agents and supervisors improve their interactions with customers.
 
 ## Sample flow of real-time transcription using Call Automation
-![Real-time transcription flow](./media/transcription.png)
+![Diagram of real-time transcription flow.](./media/transcription.png)
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to use our Real-time Transcription](../../how-tos/call-automation/real-time-transcription-tutorial.md) to users.
