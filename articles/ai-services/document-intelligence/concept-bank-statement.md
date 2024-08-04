@@ -1,5 +1,5 @@
 ---
-title: Bank Statement US extraction - Document Intelligence (formerly Form Recognizer)
+title: Bank statement US extraction model - Document Intelligence (formerly Form Recognizer)
 titleSuffix: Azure AI services
 description: OCR and machine learning based bank statement US extraction in Document Intelligence extracts key data from bank statements.
 author: laujan
@@ -10,6 +10,7 @@ ms.custom:
 ms.topic: conceptual
 ms.date: 08/07/2024
 ms.author: lajanuar
+ms.custom: references_regions
 monikerRange: '>=doc-intel-4.0.0'
 ---
 
@@ -23,7 +24,7 @@ The Document Intelligence bank statement model combines powerful Optical Charact
 |----------  |---------|--------|
 | Bank statement model|&bullet; v4.0:2024-07-31 (preview)|**`prebuilt-bankStatement.us`**|
 
-## Bank Statement data extraction
+## Bank statement data extraction
 
 A bank statement helps review account's activities during a specified period. It's an official statement that helps in detecting fraud, tracking expenses, accounting errors and record the period's activities. See how data is extracted using the `prebuilt-bankStatement.us` model. You need the following resources:
 
@@ -31,7 +32,7 @@ A bank statement helps review account's activities during a specified period. It
 
 * A [Document Intelligence instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.
 
- :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
+    :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot of keys and endpoint location in the Azure portal.":::
 
 ## Document Intelligence Studio
 
