@@ -184,13 +184,12 @@ If you're working with dynamic networks, you need to handle IP addresses changes
 1. Select **Save** to save your changes.
 
 ## Configure traffic filters (advanced)
-<!-- should this be removed if the alerts arent available? -->
+**Belle remove this??** <!-- should this be removed if the alerts arent available? -->
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. Capture filters are configured via the OT sensor CLI, and allow you to block high-bandwidth traffic at the hardware layer, optimizing both appliance performance and resource usage.
 
 For more information, see:
 
 - [Defender for IoT CLI users and access](references-work-with-defender-for-iot-cli-commands.md)
-- [Traffic capture filters](cli-ot-sensor.md#traffic-capture-filters)
 
 ## Next steps
 
