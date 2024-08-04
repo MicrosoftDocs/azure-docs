@@ -11,6 +11,7 @@ ms.reviewer: mattmcinnes
 ---
 
 # Bv1 sizes series
+[!INCLUDE [previous-gen-header](../includes/sizes-previous-gen-header.md)]
 
 [!INCLUDE [bv1-summary](./includes/bv1-series-summary.md)]
 
