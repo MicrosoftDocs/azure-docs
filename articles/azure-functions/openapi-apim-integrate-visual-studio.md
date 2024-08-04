@@ -183,13 +183,15 @@ Before you can publish your project, you must have a function app in your Azure 
     | **API name** | TurbineRepair | Name for the API. |
     | **Subscription name** | Your subscription | The Azure subscription to use. Accept this subscription or select a new one from the drop-down list. |
     | **Resource group** | Name of your resource group | Select the same resource group as your function app from the drop-down list.   |
-    | **API Management service** | New instance | Select **New** to create a new API Management instance in the serverless tier.   |
+    | **API Management service** | New instance | Select **New** to create a new API Management instance in the same location in the serverless tier. Select **OK** to create the instance.  |
 
     :::image type="content" source="media/openapi-apim-integrate-vs/create-api-management-api.png" alt-text="Create API Management instance with API":::
 
 1. Select **Create** to create the API Management instance with the TurbineRepair API from the function integration.
 
-1. select **Finish**, verify the Publish page says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
+1. Select **Finish** and after the publish profile creation process completes, select **Close**.
+
+1. Verify the Publish page now says **Ready to publish**, and then select **Publish** to deploy the package containing your project files to your new function app in Azure. 
 
     After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
 
@@ -197,25 +199,27 @@ Before you can publish your project, you must have a function app in your Azure 
 
 1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open in Azure portal**. The function app you created is opened in the Azure portal in your default browser. 
 
-1. Under **Functions**, select **Functions** > **TurbineRepair** then select **Function keys**. 
+1. Under **Functions** on the **Overview page**, select > **Turbine** then select **Function keys**. 
 
     :::image type="content" source="media/openapi-apim-integrate-vs/get-function-keys.png" alt-text="Get an access key for the TurbineRepair function":::
 
-1. Under **Function keys**, select **default** and copy the **value**. You can now set this key in API Management so that it can access the function endpoint.
+1. Under **Function keys**, select the *copy to clipboard* icon next to the **default** key. You can now set this key you copied in API Management so that it can access the function endpoint.
 
 ## Configure API Management
 
-1. In the **Publish** tab, select the ellipses (**...**) next to **Hosting** and select **Open API in Azure portal**. The API Management instance you created is opened in the Azure portal in your default browser. This API Management instance is already linked to your function app. 
+1. In the function app page, expand **API** and select **API Management**.
 
-1. Under **APIs**, select **OpenAPI Document on Azure Functions** > **POST Run**, then under **Inbound processing** select **Add policy**.
+1. If the function app isn't already connected to the new API Management instance, select it under **API Management**, select **API** > **OpenAPI Document on Azure Functions**, make sure **Import functions** is checked, and select **Link API**. Make sure that only **Turbine** is selected for import and then **Select**. 
 
-    :::image type="content" source="media/openapi-apim-integrate-vs/apim-add-policy.png" alt-text="Add an inbound policy to the API":::
+1. Select **Go to API Management** at the top of the page, and in the API Management instance, expand **APIs**.
+ 
+1. Under **APIs** > **All APIs**, select **OpenAPI Document on Azure Functions** > **POST Run**, then under **Inbound processing** select **Add policy** > **Set query parameters**.
 
 1. Below **Inbound processing**, in **Set query parameters**, type `code` for **Name**, select **+Value**, paste in the copied function key, and select **Save**. API Management includes the function key when it passes calls through to the function endpoint.
 
     :::image type="content" source="media/openapi-apim-integrate-vs/inbound-processing-rule.png" alt-text="Provide Function credentials to the API inbound processing rule":::
 
-Now that the function key is set, you can call the API to verify that it works when hosted in Azure.
+Now that the function key is set, you can call the `turbine` API endpoint to verify that it works when hosted in Azure.
 
 ## Verify the API in Azure
 
@@ -236,7 +240,7 @@ Now that the function key is set, you can call the API to verify that it works w
 
 ## Download the OpenAPI definition
 
-If your API works as expected, you can download the OpenAPI definition.
+If your API works as expected, you can download the OpenAPI definition for the new hosted APIs from API Managment.
 
 1. 1. Under **APIs**, select **OpenAPI Document on Azure Functions**, select the ellipses (**...**), and select **Export**.
    
