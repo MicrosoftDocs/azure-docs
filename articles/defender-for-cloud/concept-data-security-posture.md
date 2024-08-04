@@ -75,9 +75,7 @@ Changes in sensitivity settings take effect the next time that resources are dis
 
 Sensitive data discovery identifies sensitive resources and their related risk and then helps to prioritize and remediate those risks.
 
-Defender for Cloud considers a resource sensitive if a Sensitive Information Type (SIT) is detected in it and you have configured the SIT to be considered sensitive.
-
-Check out the list of [default sensitive information types](sensitive-info-types.md).
+Defender for Cloud considers a resource sensitive if a Sensitive Information Type (SIT) is detected in it and you have configured the SIT to be considered sensitive. Check out [the list of SITs that are considered sensitive by default](sensitive-info-types.md).
 
 The sensitive data discovery process operates by taking samples of the resource’s data. The sample data is then used to identify sensitive resources with high confidence without performing a full scan of all assets in the resource.
 
