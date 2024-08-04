@@ -12,9 +12,6 @@ ms.author: jushiman
 
 # Time sync for Linux VMs in Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets 
 
 Time sync is important for security and event correlation. Sometimes it's used for distributed transactions implementation. Time accuracy between multiple computer systems is achieved through synchronization. Synchronization can be affected by multiple things, including reboots and network traffic between the time source and the computer fetching the time. 
@@ -60,7 +57,7 @@ Some Azure Marketplace images with Linux are being changed to use chronyd as the
 
 The VMICTimeSync is used in parallel and provides two functions:
 - Immediately updates the Linux VM time-of-day clock after a host maintenance event
-- Instantiates an IEEE 1588 Precision Time Protocol (PTP) hardware clock source as a /dev/ptp device that provides the accurate time-of-day from the Azure host.  Chronyd can be configured to synchronize against this time source (which is the default configuration in the newest Linux images). Linux distributions with kernel version 4.11 or later (or version 3.10.0-693 or later for RHEL/CentOS 7) support the /dev/ptp device.  For earlier kernel versions that don't support /dev/ptp for Azure host time, only synchronization against an external time source is possible.
+- Instantiates an IEEE 1588 Precision Time Protocol (PTP) hardware clock source as a /dev/ptp device that provides the accurate time-of-day from the Azure host.  Chronyd can be configured to synchronize against this time source (which is the default configuration in the newest Linux images). Linux distributions with kernel version 4.11 or later (or version 3.10.0-693 or later for RHEL 7) support the /dev/ptp device.  For earlier kernel versions that don't support /dev/ptp for Azure host time, only synchronization against an external time source is possible.
 
 Of course, the default configuration can be changed. An older image that is configured to use ntpd and an external time source can be changed to use chronyd and the /dev/ptp device for Azure host time.  Similarly, an image using Azure host time via a /dev/ptp device can be configured to use an external NTP time source if required by your application or workload.
 
@@ -86,7 +83,7 @@ hv_vmbus              397185  7 hv_balloon,hyperv_keyboard,hv_netvsc,hid_hyperv,
 ### Check for PTP Clock Source
 
 With newer versions of Linux, a Precision Time Protocol (PTP) clock source corresponding to the Azure host is available as part of the VMICTimeSync provider.
-On older versions of Red Hat Enterprise Linux or CentOS 7.x the [Linux Integration Services](https://github.com/LIS/lis-next) can be downloaded and used to
+On older versions of Red Hat Enterprise Linux 7.x, the [Linux Integration Services](https://github.com/LIS/lis-next) can be downloaded and used to
 install the updated driver. When the PTP clock source is available, the Linux device will be of the form /dev/ptp*x*. 
 
 See which PTP clock sources are available.
@@ -125,7 +122,7 @@ $ sudo udevadm trigger --subsystem-match=ptp --action=add
 
 ### chrony
 
-On Ubuntu 19.10 and later versions, Red Hat Enterprise Linux, and CentOS 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
+On Ubuntu 19.10 (and later versions) and Red Hat Enterprise Linux 8.x, [chrony](https://chrony.tuxfamily.org/) is configured to use a PTP source clock. Instead of chrony, older Linux releases use the Network Time Protocol daemon (ntpd), which doesn't support PTP sources. To enable PTP in those releases, chrony must be manually installed and configured (in chrony.conf) by using the following statement:
 
 ```bash
 refclock PHC /dev/ptp_hyperv poll 3 dpoll -2 offset 0 stratum 2
