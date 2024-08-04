@@ -139,7 +139,7 @@ See how Document Intelligence extracts data, including time and date of transact
 > [!NOTE]
 > Document Intelligence Studio is available with v3.1 and v3.0 APIs and later versions.
 
-1. On the Document Intelligence Studio home page, select **Receipts**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Receipts**.
 
 1. You can analyze the sample receipt or upload your own files.
 

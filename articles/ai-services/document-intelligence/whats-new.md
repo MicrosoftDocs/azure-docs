@@ -6,11 +6,10 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: whats-new
-ms.date: 07/09/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
-  - ignite-2023
 ---
 
 <!-- markdownlint-disable MD024 -->
