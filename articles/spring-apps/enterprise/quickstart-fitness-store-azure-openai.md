@@ -55,7 +55,7 @@ To add AI to the application, create an Azure OpenAI account and deploy language
        --custom-domain <open-ai-service-name>   
    ```
 
-1. Use the following commands to create the model deployments for `text-embedding-ada-002` and `gpt-35-turbo-16k` in your Azure OpenAI service instance:
+1. Use the following commands to create the model deployments for `text-embedding-ada-002` and `gpt-35-turbo-16k` in your Azure OpenAI Service instance:
 
    ```azurecli
    az cognitiveservices account deployment create \
@@ -105,7 +105,7 @@ Use the following steps to create, configure, and deploy the Assist Service appl
        --routes-file azure-spring-apps-enterprise/resources/json/routes/assist-service.json
    ```
 
-1. Use the following command to retrieve the REST API endpoint base URL for the Azure OpenAI service:
+1. Use the following command to retrieve the REST API endpoint base URL for the Azure OpenAI Service:
 
    ```azurecli
    export SPRING_AI_AZURE_OPENAI_ENDPOINT=$(az cognitiveservices account show \
