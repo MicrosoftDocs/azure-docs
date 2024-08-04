@@ -21,7 +21,7 @@ The Microsoft Sentinel solution for SAP applications includes a data connector, 
 
 ### Microsoft Sentinel solution for SAP applications data connector
 
-The Microsoft Sentinel for SAP data connector is an agent that's installed as a container on a Linux virtual machine, physical server, or Kubernetes cluster. The agent collects application logs for all of your SAP SIDs from across the entire SAP system landscape, and then sends those logs to your Log Analytics workspace in Microsoft Sentinel.
+The Microsoft Sentinel for SAP data connector is an agent installed as a container on a Linux virtual machine, physical server, or Kubernetes cluster. The agent collects application logs for all of your SAP SIDs from across the entire SAP system landscape, and then sends those logs to your Log Analytics workspace in Microsoft Sentinel.
 
 For example, the following image shows a multi-SID SAP landscape with a split between production and nonproduction systems, including the SAP Business Technology Platform. All the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
@@ -31,11 +31,11 @@ The agent connects to your SAP system to pull logs and other data from it, then 
 
 Microsoft Sentinel supports a few options for storing your agent configuration information, including your SAP authentication secrets. The decision of which option might depend on where you deploy your VM and which SAP authentication mechanism you use. Supported options are as follows, listed in order of preference:
 
-- An **Azure Key Vault**, accessed through an Azure **system-assigned managed identity**
-- An **Azure Key Vault**, accessed through a Microsoft Entra ID **registered-application service principal**
+- An **Azure Key Vault** accessed through an Azure **system-assigned managed identity**
+- An **Azure Key Vault** accessed through a Microsoft Entra ID **registered-application service principal**
 - A plaintext **configuration file**
 
-You can also always authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. Whle using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
+You can also always authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
 
 ### Microsoft Sentinel solution for SAP applications security content
 
@@ -61,7 +61,7 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 1. [Review the prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md). Some prerequisites require coordination with your infrastructure or SAP BASIS teams.
 
-1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on eachother:
+1. The following steps can happen in parallel as they involve separate teams, and aren't dependent on each other:
 
     1. [Deploy the Microsoft Sentinel solution for SAP applications from the content hub](deploy-sap-security-content.md). This step is handled by the security team on the Azure portal.
 

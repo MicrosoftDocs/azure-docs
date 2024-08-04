@@ -54,7 +54,7 @@ We recommend that your :::image type="icon" source="media/deployment-steps/exper
 
 ### SAP role requirements
 
-To allow the SAP data connector to connect to your SAP system, you must create a SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
+To allow the SAP data connector to connect to your SAP system, you must create an SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
 
 The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
@@ -71,7 +71,7 @@ Experienced SAP administrators might choose to create the role manually and assi
 
 Deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
 
-- **SAP BASIS 7.5 SP12 and above**: Client IP Address information from security audit log
+- **SAP BASIS 7.5 SP12 and higher**: Client IP Address information from security audit log
 - **ANY SAP BASIS version**: DB Table logs, Spool Output log
 
 | SAP BASIS versions | Recommended CR |Notes |

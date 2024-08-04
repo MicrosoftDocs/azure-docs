@@ -27,7 +27,7 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 ## Configure the Microsoft Sentinel role
 
-To allow the SAP data connector to connect to your SAP system, you must create a SAP system role specifically for this purpose. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
 
 The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* change request (CR) on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
@@ -263,7 +263,7 @@ If needed, you can [Remove the user role and any optional CR installed on your A
 
 ## Configure SAP auditing
 
-Some installations of SAP systems may not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
+Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
 For more information, see <!--naomi to find link in sap docs-->
 <!--this is where we'd redirect to from sap auditing-->
@@ -299,11 +299,11 @@ By default, the SAP data connector agent connects to an SAP server using a remot
 
 However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
 
-In a production environment, we strongly recommend that your consult with SAP admnistrators to create a deployment plan for configuring SNC.
+In a production environment, we strongly recommend that your consult with SAP administrators to create a deployment plan for configuring SNC.
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_NETWEAVER_731/a42446bded624585958a36a71903a4a7/c3d2281db19ec347a2365fba6ab3b22b.html?q=SNC). <!--not sure this is the right link for us - it's Java only?-->
 
-If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent. If you're configuring your system to use SNC connections, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). make sure to use the relevant procedure when configuring your SAP data connector agent container.
+If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent. If you're configuring your system to use SNC connections, make sure to also enter the relevant values and use the relevant procedures when [configuring the SAP data connector agent container](deploy-data-connector-agent-container.md). Make sure to use the relevant procedure when configuring your SAP data connector agent container.
 
 ## Remove the user role and any optional CR installed on your ABAP system
 

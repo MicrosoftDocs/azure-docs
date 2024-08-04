@@ -30,25 +30,6 @@ For example, the following image shows a multi-SID SAP landscape with a split be
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
-<!--i don't think we need this section here, it should be covered in the log reference.
-## Supported log sources
-
-The data connector provided with the Microsoft Sentinel solution for SAP applications injests data from the following SAP log sources:
-
-- ABAP Security Audit Log
-- ABAP Change Documents Log
-- ABAP Spool Log
-- ABAP Spool Output Log
-- ABAP Job Log
-- ABAP Workflow Log
-- ABAP DB Table Data
-- SAP User Master Data
-- ABAP CR Log
-- ICM Logs
-- JAVA Webdispacher Logs
-- Syslog
--->
-
 ## Threat detection coverage
 
 The Microsoft Sentinel solution for SAP applications supports the following types of threat detections:
@@ -72,7 +53,7 @@ Investigate SAP incidents just as you would any other incidents in Microsoft Sen
 
 ## Certification
 
-Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP and SAP S/4 on-premises.
+Microsoft Sentinel solution for SAP applications is certified for SAP S/4HANA Cloud, Private Edition RISE with SAP, and SAP S/4 on-premises.
 
 - The integration scenarios include S/4-BC-XAL 1.0/S/4 EXTERNAL ALERT AND MONITORING 1.0 (for S/4).
 - Our certification includes S/4 and SAP Rise S/4 HANA Cloud Private Edition running in any cloud and on-premises.

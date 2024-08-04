@@ -26,13 +26,13 @@ To deploy the Microsoft Sentinel solution for SAP applications from the content 
 - A defined Microsoft Sentinel workspace, and read and write permissions to the workspace. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 - [A Microsoft Sentinel for SAP data connector agent set up.](deploy-data-connector-agent-container.md)
 
-Make sure that you've also reviewed the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
+Make sure that you also review the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
 ## Deploy the solution from the content hub
 
 In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
 
-Deploying the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules. You'll deploy the data connector agent on your SAP system before starting to configure the solution components.
+Deploying the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules. You deploy the data connector agent on your SAP system before starting to configure the solution components.
 
 :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
@@ -59,7 +59,7 @@ When the deployment is finished, display your newly deployed content as follows:
 
 - For a series of [SAP-related analytics rules](sap-solution-security-content.md#built-in-analytics-rules), go to **Configuration** > **Analytics**.
 
-Your data connector won't appear as connected until you [configure your data connector agent container](deploy-data-connector-agent-container.md) to complete the connection.
+Your data connector doesn't appear as connected until you [configure your data connector agent container](deploy-data-connector-agent-container.md) to complete the connection.
 
 ## Next step
 

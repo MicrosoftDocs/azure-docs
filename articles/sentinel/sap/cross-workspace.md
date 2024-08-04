@@ -11,7 +11,7 @@ ms.date: 05/23/2024
 
 # Work with the Microsoft Sentinel solution for SAP applications in multiple workspaces
 
-When you set up your Microsoft Sentinel workspace, you have [multiple architecture options](../design-your-workspace-architecture.md#decision-tree) and factors to consider.  Taking into account geography, regulation, access control, and other factors, you might choose to have multiple Microsoft Sentinel workspaces in your organization.
+When you set up your Microsoft Sentinel workspace, you have [multiple architecture options](../design-your-workspace-architecture.md#decision-tree) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple Microsoft Sentinel workspaces in your organization.
 
 For example, your SAP and SOC teams might be working in separate workspaces. However, your SAP BASIS team has technical knowledge that's critical to successfully and effectively implement the Microsoft Sentinel solution for SAP applications. Therefore, your SAP BASIS team needs access to Microsoft Sentinel data, so that they can work with the SOC team to provide required configurations and incident response procedures.
 

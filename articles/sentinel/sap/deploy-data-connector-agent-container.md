@@ -37,13 +37,13 @@ Before you deploy the data connector agent:
 
 ## Watch a demo video
 
-Watch a video demononstration of the deployment process described in this article.
+Watch a video demonstration of the deployment process described in this article.
 <br>
 > [!VIDEO https://www.youtube.com/embed/bg0vmUvcQ5Q?si=hugWYn1wjlq4seCR]
 
 ## Create a virtual machine and configure access to your credentials
 
-We recommend that you store your SAP and authentication secrets in an Azure key vault. How you access your key vault depends on where your VM is deployed:
+We recommend that you store your SAP and authentication secrets in an Azure key vault. How you access your key vault depends on where your virtual machine (VM) is deployed:
 
 |Deployment method  |Access method  |
 |---------|---------|
@@ -55,7 +55,7 @@ If you can't use a registered application or a service principal, use a configur
 For more information, see:
 
 - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
-- [What are manged identies for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+- [What are manged identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
 Your virtual machine is typically created by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team.
@@ -120,7 +120,7 @@ Your virtual machine is typically created by your :::image type="icon" source="m
     }
     ```
 
-1. Copy the **appId**, **tenant**, and **password** from the output. You'll need these for assigning the key vault access policy and running the deployment script in the coming steps.
+1. Copy the **appId**, **tenant**, and **password** from the output. You need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
 1. Before proceeding any further, create a virtual machine on which to deploy the agent. You can create this machine in Azure, in another cloud, or on-premises.
 
@@ -128,7 +128,7 @@ Your virtual machine is typically created by your :::image type="icon" source="m
 
 ### Create a key vault
 
-This procedure describes how to create a key vault to store your agent configuration information, including your SAP authentication secrets. If you'll be using an existing key vault, skip directly to [step 2](#step2).
+This procedure describes how to create a key vault to store your agent configuration information, including your SAP authentication secrets. If you're using an existing key vault, skip directly to [step 2](#step2).
 
 **To create your key vault**:
 
@@ -219,14 +219,14 @@ This procedure describes how to create a key vault to store your agent configura
 
 Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. We recommend that your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team perform the procedures in this section with help from the :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: **SAP BASIS** team.
 
-1. **Sign in to the newly created VM** on which you are installing the agent, as a user with sudo privileges.
+1. **Sign in to the newly created VM** on which you're installing the agent, as a user with sudo privileges.
 
 1. **Download or transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download)** to the machine.
 
 Continue with one of the following tabs, depending on whether you're using the portal or the command line, to deploy the agent. We recommend that you use deploy the data connector agent from the portal, including the Azure portal, or the Defender portal if you've onboarded your workspace to the unified security operations platform. However:
 
 - Deploying the data connector agent from the portal is available only for use with an Azure key vault.
-- If you've previoiusly installed SAP connector agents with the kickstart scripts or manaully, configuring or managing those agents in the portal isn't supported.
+- If you've previously installed SAP connector agents with the kickstart scripts or manually, configuring or managing those agents in the portal isn't supported.
 
 > [!IMPORTANT]
 > Deploying the container and creating connections to SAP systems from the portal is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -302,7 +302,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
-    Supply additional parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
+    Supply extra parameters to the script as needed to customize the container deployment. For more information on available command line options, see [Kickstart script reference](reference-kickstart.md).
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
@@ -368,7 +368,7 @@ If you're using a configuration file to store your credentials, see [Deploy a da
         ./sapcon-sentinel-kickstart.sh --keymode kvsi --appid aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa --appsecret ssssssssssssssssssssssssssssssssss -tenantid bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb -kvaultname <key vault name>
         ```
 
-    - **To configure secure SNC configuration**, specify the following base paramters:
+    - **To configure secure SNC configuration**, specify the following base parameters:
 
         - `--use-snc`
         - `--cryptolib <path to sapcryptolib.so>`
@@ -452,23 +452,23 @@ If you're using a configuration file to store your credentials, see [Deploy a da
 
 ### Deploy the data connector agent for secure communication with SNC
 
-Use the following procedure to configure the Microsoft Sentinel SAP data connector agent container to use SNC for secure commuinications with your SAP system.
+Use the following procedure to configure the Microsoft Sentinel SAP data connector agent container to use SNC for secure communications with your SAP system.
 
 **Prerequisites**: Make sure that your SAP system is configured to use SNC for secure connections before you start this procedure. For more information, see [SAP documentation](https://help.sap.com/docs/SAP_NETWEAVER_731/a42446bded624585958a36a71903a4a7/c3d2281db19ec347a2365fba6ab3b22b.html?q=SNC). <!--not sure this is the right link for us - it's Java only?-->
 
 **To configure the container for secure communication with SNC**:
 
-1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where the container will be created.
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where you're creating the container.
 
-1. Transfer the client certificate, including both private and public keys to the system where the container will be created.
+1. Transfer the client certificate, including both private and public keys to the system where you're creating the container.
 
     The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
 
-1. Transfer the server certificate (public key only) to the system where the container will be created.
+1. Transfer the server certificate (public key only) to the system where you're creating the container.
 
     The server certificate must be in Base64 *.crt* format.
 
-1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where the container will be created.
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you're creating the container.
 
 1. Get the kickstart script from the Microsoft Sentinel GitHub repository:
 
@@ -501,7 +501,7 @@ We recommend periodically checking on your data connector agent's health and con
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
 
-    SAP logs won't be displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
+    SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
 
     For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
 
