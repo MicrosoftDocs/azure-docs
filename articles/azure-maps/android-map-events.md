@@ -4,7 +4,7 @@ description: Learn which events are fired when users interact with maps. View a 
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.custom: devx-track-extended-java
 services: azure-maps

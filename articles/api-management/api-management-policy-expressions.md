@@ -4,7 +4,7 @@ description: Learn about policy expressions in Azure API Management. See example
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-dotnet
 ms.topic: article
 ms.date: 03/07/2023

@@ -5,7 +5,7 @@ description:  |
   .NET tutorial to create a console application that adds data to Azure Cosmos DB for NoSQL.
 author: StefArroyo
 ms.author: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 06/05/2024

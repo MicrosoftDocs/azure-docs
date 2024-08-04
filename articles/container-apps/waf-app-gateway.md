@@ -3,7 +3,7 @@ title: Protect Azure Container Apps with Application Gateway and Web Application
 description: Learn how to protect Azure Container Apps with Application Gateway Web Application Firewall (WAF)
 services: container-apps
 author: cachai2
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  how-to
 ms.date: 03/31/2023
 ms.author: cachai

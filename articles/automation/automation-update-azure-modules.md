@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 07/17/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Update Azure PowerShell modules in Automation

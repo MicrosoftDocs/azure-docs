@@ -4,7 +4,7 @@ description: Reference for the azure-openai-token-limit policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024

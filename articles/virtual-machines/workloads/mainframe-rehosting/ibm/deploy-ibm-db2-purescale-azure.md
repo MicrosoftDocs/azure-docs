@@ -4,7 +4,7 @@ description: Learn how to deploy an example architecture used recently to migrat
 author: swread
 ms.author: sread
 manager: mamccrea 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ms.custom:
 ms.topic: how-to

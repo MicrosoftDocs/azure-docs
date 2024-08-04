@@ -2,7 +2,7 @@
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning data assets
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, devx-track-azurecli

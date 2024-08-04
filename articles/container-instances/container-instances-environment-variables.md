@@ -4,7 +4,7 @@ description: Learn how to set environment variables in the containers you run in
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 

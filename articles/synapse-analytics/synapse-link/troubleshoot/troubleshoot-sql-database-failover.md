@@ -4,7 +4,7 @@ description: Learn how to troubleshoot and configure Azure Synapse Link for Azur
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: imotiwala 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/17/2022

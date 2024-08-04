@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.date: 07/23/2024
 ms.topic: quickstart
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---

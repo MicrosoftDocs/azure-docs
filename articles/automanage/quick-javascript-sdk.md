@@ -2,7 +2,7 @@
 title: Azure Quickstart SDK for JavaScript
 description: Create configuration profile assignments using the JavaScript SDK for Automanage.
 author: andrsmith
-ms.service: automanage
+ms.service: azure-automanage
 ms.custom: devx-track-js
 ms.topic: quickstart
 ms.date: 08/24/2022

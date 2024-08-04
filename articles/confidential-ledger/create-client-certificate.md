@@ -3,7 +3,7 @@ title: Creating a Client Certificate with Microsoft Azure confidential ledger
 description: Creating a Client Certificate with Microsoft Azure confidential ledger
 services: confidential-ledger
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.custom:
 ms.topic: overview
 ms.date: 04/11/2023

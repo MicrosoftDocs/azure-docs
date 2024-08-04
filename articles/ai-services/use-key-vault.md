@@ -23,7 +23,7 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * [Python 3.7 or later](https://www.python.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -43,7 +43,7 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * [Java Development Kit (JDK) version 8 or above](/azure/developer/java/fundamentals/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 
@@ -53,7 +53,7 @@ Key Vault reduces the risk that secrets may be accidentally leaked, because you 
 * [Current Node.js v14 LTS or later](https://nodejs.org/)
 * [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell)
 * An [Azure Key Vault](../key-vault/general/quick-create-portal.md)
-* [A multi-service resource or a resource for a specific service](./multi-service-resource.md?pivots=azportal)
+* [An Azure AI services resource](./multi-service-resource.md?pivots=azportal)
 
 ::: zone-end
 

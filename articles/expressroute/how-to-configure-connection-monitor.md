@@ -3,7 +3,7 @@ title: 'Configure Connection Monitor for Azure ExpressRoute'
 description: Configure cloud-based network connectivity monitoring for Azure ExpressRoute circuits. This covers monitoring over ExpressRoute private peering and Microsoft peering.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/30/2023
 ms.author: duau

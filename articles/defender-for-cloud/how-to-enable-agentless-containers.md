@@ -34,12 +34,12 @@ Defender CSPM includes [two extensions](/azure/defender-for-cloud/faq-defender-f
 A notification message pops up in the top right corner that verifies that the settings were saved successfully.
 
 > [!NOTE]
-> Agentless discovery for Kubernetes uses AKS trusted access. For more information about about AKS trusted access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](../aks/trusted-access-feature.md).
+> Agentless discovery for Kubernetes uses AKS trusted access. For more information about about AKS trusted access, see [Enable Azure resources to access Azure Kubernetes Service (AKS) clusters using Trusted Access](/azure/aks/trusted-access-feature).
 
 ## Next steps
 
 - Check out [common questions about Defender for Containers](faq-defender-for-containers.yml).
-- Learn more about [Trusted Access](../aks/trusted-access-feature.md).
+- Learn more about [Trusted Access](/azure/aks/trusted-access-feature).
 - Learn how to [view and remediate vulnerability assessment findings for registry images](view-and-remediate-vulnerability-assessment-findings.md).
 - Learn how to [view and remediate vulnerabilities for images running on your AKS clusters](view-and-remediate-vulnerabilities-for-images.md).
 - Learn how to [Test the Attack Path and Security Explorer using a vulnerable container image](how-to-test-attack-path-and-security-explorer-with-vulnerable-container-image.md)

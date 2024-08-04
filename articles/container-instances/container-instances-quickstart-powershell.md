@@ -4,7 +4,7 @@ description: In this quickstart, you use Azure PowerShell to quickly deploy a co
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 04/26/2024
 ms.custom: devx-track-azurepowershell, mvc, mode-api

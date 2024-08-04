@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the Address Resolution Protocol (ARP) tables for an ExpressRoute circuit
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 06/30/2023

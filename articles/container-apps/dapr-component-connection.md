@@ -4,7 +4,7 @@ description: Easily create Dapr components via the Azure Container Apps portal.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: nickgreenf
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to 
 ms.date: 12/20/2023
 ms.custom: template-tutorial, service-connector, build-2023, engagement

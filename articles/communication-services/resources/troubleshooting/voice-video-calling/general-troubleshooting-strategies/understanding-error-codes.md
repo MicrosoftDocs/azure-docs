@@ -30,7 +30,7 @@ The Calling SDK and respective server infrastructure use a unified framework to 
 ## Azure Communication Services Calling End call codes and subcodes
 There are different explanations for why a call ended. Here are the meanings of the end of call codes and subcodes that show how a call can end.
 
-| Subcode | Code | Message  (public preview *) | Result Categories (public preview *) | Advice |
+| Subcode | Code | Message  (public preview) | Result Categories (public preview) | Advice |
 |---------|------|---------|--------------------------------------|--------|
 | 0 | 0 | Call ended successfully by local participant. | Success | |
 | 0 | 487 | Call ended successfully as caller canceled the call. | Success | |

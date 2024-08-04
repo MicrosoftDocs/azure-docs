@@ -4,7 +4,7 @@ description: Understand the security policy implemented to provide self-protecti
 ms.topic: conceptual
 ms.author: magoedte
 author: mgoedtel
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 11/13/2023
 ---
@@ -79,4 +79,4 @@ The Kata agent is responsible for enforcing the policy. Microsoft contributed to
 
 ## Next steps
 
-[Deploy a confidential container on AKS](../aks/deploy-confidential-containers-default-policy.md)
+[Deploy a confidential container on AKS](/azure/aks/deploy-confidential-containers-default-policy)
