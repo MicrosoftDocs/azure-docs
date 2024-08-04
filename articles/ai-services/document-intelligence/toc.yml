@@ -177,13 +177,25 @@ items:
   - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
-  - name: 🆕 Credit card model
+  - name: 🆕 Batch documents analysis 
+    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
+    href: concept-batch-analysis.md
+  - name: 🆕 Pay stub model
+    displayName: compensation, earnings, deductions, taxes, benefits, employer, employee
+    href: concept-pay-stub.md
+  - name: 🆕 Bank check model
+    displayName: routing, account, number, amount, payee, issuer, date
+    href: concept-bank-check.md
+  - name: 🆕 Bank statement model
+    displayName: transactions, deposits, withdrawals, balance, account, number, date
+    href: concept-bank-statement.md  
+  - name: Credit card model
     displayName: debit
     href: concept-credit-card.md
-  - name: 🆕 US mortgage documents
+  - name: US mortgage documents
     displayName: 1003, 1008, closing, disclosure
     href: concept-mortgage-documents.md
-  - name: 🆕 Marriage certificate model
+  - name: Marriage certificate model
     displayName: license
     href: concept-marriage-certificate.md
   - name: Contract model

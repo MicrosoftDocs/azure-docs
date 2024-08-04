@@ -78,7 +78,7 @@ See how data, including customer information, vendor details, and line items, is
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **Tax Documents**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Tax Documents**.
 
 1. You can analyze the sample tax documents or upload your own files.
 
