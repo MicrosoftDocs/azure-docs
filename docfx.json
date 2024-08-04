@@ -1244,7 +1244,7 @@
         "articles/business-process-tracking/*.md": "azure-business-process-tracking",
         "articles/connectors/*.md": "azure-logic-apps",
         "articles/container-instances/**/*.md": "container-instances",
-        "articles/container-registry/**/*.md": "container-registry",
+        "articles/container-registry/**/*.md": "azure-container-registry",
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/deployment-environments/**/*.md": "deployment-environments",
         "articles/dev-box/**/*.md": "dev-box",
