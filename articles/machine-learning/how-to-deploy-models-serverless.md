@@ -3,7 +3,7 @@ title: Deploy models as serverless APIs
 titleSuffix: Azure Machine Learning
 description: Learn to deploy models as serverless APIs, using Azure Machine Learning.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/19/2024
