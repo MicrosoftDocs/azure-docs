@@ -13,7 +13,7 @@ Monitor the health and audit the integrity of supported Microsoft Sentinel resou
 
 To get health data from the [*SentinelHealth*](health-table-reference.md) data table, or to get auditing information from the [*SentinelAudit*](audit-table-reference.md) data table, you must first turn on the Microsoft Sentinel auditing and health monitoring feature for your workspace. This article instructs you how to turn on these features.
 
-To implement the health and audit feature using API (Bicep/ARM/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
+To implement the health and audit feature using API (Bicep/AZURE RESOURCE MANAGER (ARM)/REST), review the [Diagnostic Settings operations](/rest/api/monitor/diagnostic-settings). To configure the retention time for your audit and health events, see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-configure.md).
 
 > [!IMPORTANT]
 >
@@ -30,11 +30,11 @@ To implement the health and audit feature using API (Bicep/ARM/REST), review the
 
 1. Select **Settings** from the banner.
 
-1. Scroll down to the **Auditing and health monitoring** section that appears below, and select it to expand.
+1. Scroll down to the **Auditing and health monitoring** section and select it to expand.
 
 1. Select **Enable** to enable auditing and health monitoring across all resource types and to send the auditing and monitoring data to your Microsoft Sentinel workspace (and nowhere else). 
 
-    Or, select the **Configure diagnostic settings** link to enable health monitoring only for the data collector and/or automation resources, or to configure advanced options, like additional places to send the data.
+    Or, select the **Configure diagnostic settings** link to enable health monitoring only for the data collector and/or automation resources, or to configure advanced options, like more places to send the data.
 
     :::image type="content" source="media/enable-monitoring/enable-health-monitoring.png" alt-text="Screenshot shows how to get to the health monitoring settings.":::
 
@@ -52,7 +52,7 @@ To implement the health and audit feature using API (Bicep/ARM/REST), review the
 
         :::image type="content" source="media/enable-monitoring/diagnostic-settings.png" alt-text="Screenshot of diagnostic settings screen for enabling auditing and health monitoring.":::
 
-        If you require, you may select other destinations to which to send your data, in addition to the Log Analytics workspace.
+        If you require, you might select other destinations to which to send your data, in addition to the Log Analytics workspace.
 
 1. Select **Save** on the top banner to save your new setting.
 

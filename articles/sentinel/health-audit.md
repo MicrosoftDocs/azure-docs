@@ -11,7 +11,7 @@ ms.date: 08/04/2024
 
 Microsoft Sentinel is a critical service for advancing and protecting the security of your organization’s technological and information assets, so you want to be sure that it's always running smoothly and free of interference. 
 
-You want to verify that the service's many moving parts are always functioning as intended, and it isn't being manipulated by unauthorized actions, whether by internal users or otherwise. You may also like to configure notifications of health drifts or unauthorized actions to be sent to relevant stakeholders who can respond or approve a response. For example, you can set conditions to trigger the sending of emails or Microsoft Teams messages to operations teams, managers, or officers, launch new tickets in your ticketing system, and so on.
+You want to verify that the service's many moving parts are always functioning as intended, and it isn't being manipulated by unauthorized actions, whether by internal users or otherwise. You might also like to configure notifications of health drifts or unauthorized actions to be sent to relevant stakeholders who can respond or approve a response. For example, you can set conditions to trigger the sending of emails or Microsoft Teams messages to operations teams, managers, or officers, launch new tickets in your ticketing system, and so on.
 
 This article describes how Microsoft Sentinel’s health monitoring and auditing features let you monitor the activity of some of the service’s key resources and inspect logs of user actions within the service.
 
@@ -28,9 +28,9 @@ Health and audit data are collected in two tables in your Log Analytics workspac
 
 The *SentinelHealth* table doesn't include a record of the execution of a playbook's contents, only whether the playbook was launched successfully. A log of the actions taken within a playbook, which are Logic Apps workflows, are listed in the *AzureDiagnostics* table. The *AzureDiagnostics* provides you with a complete picture of your automation health when used in tandem with the *SentinelHealth* data.
 
-The most common way you'll use this data is by querying these tables. For best results, build your queries on the **pre-built functions** on these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions ensure the maintenance of your queries' backward compatibility in the event of changes being made to the schema of the tables themselves.
+The most common way you use this data is by querying these tables. For best results, build your queries on the **pre-built functions** on these tables, ***_SentinelHealth()*** and ***_SentinelAudit()***, instead of querying the tables directly. These functions ensure the maintenance of your queries' backward compatibility in the event of changes being made to the schema of the tables themselves.
 
-The *SentinelHealth* table isn't billable and incurs no charges for ingesting health data. The *SentinelAudit* table is billable, and as in other areas of Microsoft Sentinel, costs incurred depend on the log volume, which may be affected by the number of activities and changes made on related rules. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
+The *SentinelHealth* table isn't billable and incurs no charges for ingesting health data. The *SentinelAudit* table is billable, and as in other areas of Microsoft Sentinel, costs incurred depend on the log volume, which might be affected by the number of activities and changes made on related rules. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
 
 > [!IMPORTANT]
 >
@@ -63,7 +63,7 @@ To start collecting health and audit data, you need to [enable health and audit 
 
 |Activity  |More information  |
 |---------|---------|
-|**Run queries** on the *SentinelHealth* and *SentinelAudit* data tables from the Microsoft Sentinel **Logs** blade.     |  <li> [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts) <li> [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)<li> [Analytics rules](monitor-analytics-rule-integrity.md#run-queries-to-detect-health-and-integrity-issues)       |
+|**Run queries** on the *SentinelHealth* and *SentinelAudit* data tables from the Microsoft Sentinel **Logs** page.     |  <li> [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts) <li> [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)<li> [Analytics rules](monitor-analytics-rule-integrity.md#run-queries-to-detect-health-and-integrity-issues)       |
 |**Use the auditing and health monitoring workbooks** provided in Microsoft Sentinel.     | <li> [Data connectors](monitor-data-connector-health.md#use-the-health-monitoring-workbook) <li> [Automation rules and playbooks](monitor-automation-health.md#use-the-health-monitoring-workbook) <li> [Analytics rules](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook)    |
 |**Use Microsoft Sentinel's execution management tools** to monitor and optimize scheduled analytics rules' execution    |  <li> [Monitor and optimize the execution of your scheduled analytics rules](monitor-optimize-analytics-rule-execution.md)      |
 |**Export the data into various destinations**, like your Log Analytics workspace, archiving to a storage account, and more.     | <li>  [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)      |
