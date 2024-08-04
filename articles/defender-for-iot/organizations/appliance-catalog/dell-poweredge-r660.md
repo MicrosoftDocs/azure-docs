@@ -13,7 +13,7 @@ The Dell PowerEdge R660 is also available for the on-premises management console
 |Appliance characteristic  | Description|
 |---------|---------|
 |**Hardware profile** | R660 |
-|**Performance** | Max bandwidth: 1 Gbps<br>Max devices: 10,000 |
+|**Performance** | Max bandwidth: 3 Gbps<br>Max devices: 12,000 |
 |**Physical Specifications** | Mounting: 1U with rail kit<br>Ports: 6x RJ45 1 GbE|
 |**Status** | Supported, available as a preconfigured appliance|
 
@@ -32,8 +32,8 @@ The following image shows a view of the Dell PowerEdge R660 back panel:
 |Chassis| 1U rack server|
 |Dimensions| Height: 1.68 in / 42.8 mm <br>Width: 18.97 in / 482.0 cm<br>Depth: 23.04 in / 585.3 mm (without bezel) 23.57 in / 598.9 mm (with bezel)|
 |Processor| Intel Xeon E-2434 3.4 GHz <br>8M Cache<br> 4C/8T, Turbo, HT (55 W) DDR5-4800|
-|Memory|32 GB |
-|Storage| 2.4 TB Hard Drive |
+|Memory| 128 GB |
+|Storage| 7.2 TB Hard Drive |
 |Network controller| - PowerEdge R660 Motherboard with Broadcom 5720 Dual Port 1 Gb On-Board LOM, <br>- PCIe Blank Filler, Low Profile. <br>- Intel Ethernet i350 Quad Port 1 GbE BASE-T Adapter, PCIe Low Profile, V2|
 |Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
