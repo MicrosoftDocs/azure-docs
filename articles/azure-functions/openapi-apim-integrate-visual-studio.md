@@ -7,21 +7,20 @@ ms.date: 01/18/2023
 
 # Create serverless APIs in Visual Studio using Azure Functions and API Management integration
 
-REST APIs are often described using an OpenAPI definition. This file contains information about operations in an API and how the request and response data for the API should be structured.
+REST APIs are often described using an OpenAPI definition (formerly known as Swagger) file. This file contains information about operations in an API and how the request and response data for the API should be structured.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a serverless function project in Visual Studio
+> * Create the code project in Visual Studio
+> * Install the OpenAPI extension
+> * Add an HTTP trigger endpoint, which includes OpenAPI definitions
 > * Test function APIs locally using built-in OpenAPI functionality
 > * Publish project to a function app in Azure with API Management integration 
-> * Get the access key for the function and set it in API Management
+> * Get the access key for the function app and set it in API Management
 > * Download the OpenAPI definition file
 
 The serverless function you create provides an API that lets you determine whether an emergency repair on a wind turbine is cost-effective. Because both the function app and API Management instance you create use consumption plans, your cost for completing this tutorial is minimal.
-
-> [!NOTE]
-> The OpenAPI and API Management integration featured in this article is currently only supported for [in-process](functions-dotnet-class-library.md) C# class library functions. [Isolated worker process](dotnet-isolated-process-guide.md) C# class library functions and all other language runtimes should instead [use Azure API Management integration from the portal](functions-openapi-definition.md). 
 
 ## Prerequisites
 
@@ -29,9 +28,9 @@ The serverless function you create provides an API that lets you determine wheth
 
 + An active [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet/) before you begin.
 
-## Create a Functions project
+## Create the code project
 
-The Azure Functions project template in Visual Studio creates a project that you can publish to a function app in Azure. You'll also create an HTTP triggered function supports OpenAPI definition file (formerly Swagger file) generation.
+The Azure Functions project template in Visual Studio creates a project that you can publish to a function app in Azure. You'll also create an HTTP triggered function from a template that supports OpenAPI definition file (formerly Swagger file) generation.
 
 1. From the Visual Studio menu, select **File** > **New** > **Project**.
 
@@ -39,20 +38,69 @@ The Azure Functions project template in Visual Studio creates a project that you
 
 1. In **Configure your new project**, enter a **Project name** for your project like `TurbineRepair`, and then select **Create**. 
 
-1. For the **Create a new Azure Functions application** settings, use the values in the following table:
+1. For the **Create a new Azure Functions application** settings, select one of these options for **Functions worker**, where the option you choose depends on your chosen process model:
+
+    ### [Isolated worker model](#tab/isolated-process)
+    
+    **.NET 8.0 Isolated (Long Term Support)**: Your C# functions run in the isolated worker model, which is recommended. For more information, see the [isolated worker model guide](dotnet-isolated-process-guide.md). 
+    
+    ### [In-process](#tab/in-process)
+
+    [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
+    **.NET 8.0 (Long Term Support)**: Your C# functions run in the [in-process model](functions-dotnet-class-library.md), which will be retired. To learn more, see the [in-process model guide](functions-dotnet-class-library.md). 
+   
+    ---
+
+1. For the rest of the options, use the values in the following table: 
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Functions worker** | **.NET 6** | This value creates a function project that runs in-process on version 4.x of the Azure Functions runtime, which is required for OpenAPI file generation.    |
-    | **Function template** | **HTTP trigger with OpenAPI** | This value creates a function triggered by an HTTP request, with the ability to generate an OpenAPI definition file.  |
+    | **Function template** | **Empty** | This creates a project without a trigger, which gives you more control over the name of the HTTP triggered function when you add it later.   |
     | **Use Azurite for runtime storage account (AzureWebJobsStorage)**  | **Selected** | You can use the emulator for local development of HTTP trigger functions. Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. |
     | **Authorization level** | **Function** | When running in Azure, clients must provide a key when accessing the endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
+
+1. Select **Create** to create the function project. 
+
+Next, you update the project by installing the OpenAPI extension for Azure Functions, which enables the discoverabilty of API endpoints in your app. 
+
+## Install the OpenAPI extension
+
+To install the OpenAPI extension: 
+
+1. From the **Tools** menu, select **NuGet Package Manager** > **Package Manager Console**. 
+
+1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the OpenAPI extension:
+
+    # [Isolated worker model](#tab/isolated-process)
     
-    ![Azure Functions project settings](./media/openapi-apim-integrate-vs/functions-project-settings.png)
+    ```command
+    NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
+    ```
+    You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
+   
+    # [In-process model](#tab/in-process) 
 
-1. Select **Create** to create the function project and HTTP trigger function, with support for OpenAPI. 
+    ```command
+    NuGet\Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 1.5.1
+    ```
+    You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenApi), based on your version of .NET.
+   
+    ---
 
-Visual Studio creates a project and class named `Function1` that contains boilerplate code for the HTTP trigger function type. Next, you replace this function template code with your own customized code. 
+Next, you can add create your HTTP endpoint function.
+
+## Add an HTTP endpoint function
+
+In a C# class library, the bindings used by the function are defined by applying attributes in the code. To create a function with an HTTP trigger:
+
+1. In **Solution Explorer**, right-click your project node and select **Add** > **New Azure Function**. 
+
+1. Enter **Turbine.cs** for the class, and then select **Add**.
+
+1. Choose the **Http trigger** template, set **Authorization level** to **Function**, and then select **Add**. A Turbine.cs code file is added to your project that defines a new function endpoint with an HTTP trigger.
+
+Now you can replace the HTTP trigger template code with code that implements the Turbine function endpoint, along with attributes that use OpenAPI to define endpoint.
 
 ## Update the function code
 
@@ -65,9 +113,20 @@ The function uses an HTTP trigger that takes two parameters:
 
 The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. Parameters are supplied either in the query string or in the payload of a POST request. 
 
-In the Function1.cs project file, replace the contents of the generated class library code with the following code:
+In the Turbine.cs project file, replace the contents of the class generated from the HTTP trigger template with the following code, which depends on your process model:
+
+ # [Isolated worker model](#tab/isolated-process)
+    
+```command
+NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
+```
+You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
+
+# [In-process model](#tab/in-process) 
 
 :::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Function1.cs":::
+
+---
 
 This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
 
