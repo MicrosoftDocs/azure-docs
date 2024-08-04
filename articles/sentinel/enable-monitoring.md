@@ -22,7 +22,7 @@ To implement the health and audit feature using API (Bicep/ARM/REST), review the
 
 ## Prerequisites
 
-- The *SentinelHealth* table isn't billable and incurs no charges for ingesting health data. The *SentinelAudit* table is billable, and as in other areas of Microsoft Sentinel, costs incurred depend on the log volume, which may be affected by the number of activities and changes made on related rules. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).
+- Before you start, learn more about health monitoring and auditing in Microsoft Sentinel. For more information, see [Auditing and health monitoring in Microsoft Sentinel](health-audit.md).
 
 ## Turn on auditing and health monitoring for your workspace
 
