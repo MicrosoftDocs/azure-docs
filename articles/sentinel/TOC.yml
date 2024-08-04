@@ -158,6 +158,7 @@
           - name: Prepare your SAP environment
             href: sap/preparing-sap.md
           - name: Connect your SAP system
+            displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
           - name: Extra deployment steps
             items:
@@ -167,9 +168,6 @@
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the connector
               href: sap/update-sap-data-connector.md      
-            - name: Stop SAP data collection
-              displayName: disable, stop ingestion, stop
-              href: sap/deployment-overview.md#stop-sap-data-collection
           - name: SAP deployment reference (advanced)
             items:
             - name: SAP solution data reference
