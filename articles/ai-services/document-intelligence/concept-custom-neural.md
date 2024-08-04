@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ms.custom:
   - references_regions
@@ -57,7 +57,7 @@ Custom neural models currently only support key-value pairs and selection marks 
 
 ### Build mode
 
-The build custom model operation supports *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
+The `Build` operation supports *template* and *neural* custom models. Previous versions of the REST API and client libraries only supported a single build mode that is now known as the *template* mode.
 
 Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but can vary in appearance across companies. For more information, *see* [Custom model build mode](concept-custom.md#build-mode).
 
@@ -69,7 +69,7 @@ Neural models support documents that have the same information, but different pa
 
 With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
 
-To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) will fail in the studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
+To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) fails in the Studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
 
 * Complete overlap. The same set of tokens are labeled for two different fields.
 * Partial overlap. Some tokens belong to both fields, but there are tokens that are only part of one field or the other.
@@ -82,9 +82,9 @@ Overlapping fields have some limits:
 
 To use overlapping fields, label your dataset with the overlaps and train the model with the API version ```2024-02-29-preview``` or later.
 
-## Tabular fields adds table, row and cell confidence
+## Tabular fields
 
-With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables):
+With the release of API versions **2022-06-30-preview** and  later, custom neural models will support tabular fields (tables) to analyze table, row, and cell data with added confidence:
 
 * Models trained with API version 2022-08-31, or later will accept tabular field labels.
 * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
@@ -165,7 +165,7 @@ As of October 18, 2022, Document Intelligence custom neural model training will 
 
 * Supported file formats:
 
-    |Model | PDF |Image: </br>jpeg/jpg, png, bmp, tiff, heif | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
+    |Model | PDF |Image: </br>jpeg/`jpg`, `png`, `bmp`, `tiff`, `heif` | Microsoft Office: </br> Word (docx), Excel (xlsx), PowerPoint (pptx), and HTML|
     |--------|:----:|:-----:|:---------------:|
     |Read            | ✔    | ✔    | ✔  |
     |Layout          | ✔  | ✔ | ✔ (2024-02-29-preview, 2023-10-31-preview, or later)  |
@@ -228,7 +228,7 @@ Custom neural models are available in the [v3.0 and later models](v3-1-migration
 |--|--|--|--|
 | Custom document | [Document Intelligence 3.1](/rest/api/aiservices/document-models/analyze-document?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP)| [Document Intelligence SDK](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true)| [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio)
 
-The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
+The `Build` operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
 :::moniker range="doc-intel-4.0.0"
 
@@ -284,6 +284,38 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
   }
 }
 ```
+
+:::moniker-end
+
+:::moniker range="doc-intel-4.0.0"
+
+## Billing
+
+Starting with version `2024-07-31-preview` and later you can receive **10 hours** of free model training. Billing charges are calculated for model trainings that exceed 10 hours. Each training hour is the amount of time to complete a single V100 GPU per hour. By default, a training job can consume at most 0.5 training hour (0.5 V100 hours). You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours`:
+
+```bash
+
+POST /documentModels:build
+{
+  ...,
+  "maxTrainingHours": 10
+}
+```
+
+Build time varies. Billing is calculated for the actual time spent (excluding time in queue), with a minimum of 30 minutes per training job. The elapsed time is converted to V100 equivalent training hours and reported as part of the model.
+
+```bash
+
+GET /documentModels/{myCustomModel}
+{
+  "modelId": "myCustomModel",
+  "trainingHours": 0.23,
+  "docTypes": { ... },
+  ...
+}
+```
+
+This billing structure enables you to train larger data sets for longer durations with flexibility in the training hours.
 
 :::moniker-end
 
