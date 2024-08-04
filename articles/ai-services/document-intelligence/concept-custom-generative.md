@@ -21,7 +21,7 @@ The custom generative model combines the power of document understanding with La
 
 ## Custom generative model key features
 
-* **Automatic labeling**. Utilize large language models (`LLM`s) and extract user-specified fields for various document types and visual templates.
+* **Automatic labeling**. Utilize large language models (LLM) and extract user-specified fields for various document types and visual templates.
 * **Improved Generalization**. Extract data from unstructured data and varying document templates with higher accuracy.
 * **Grounded results**. Localize the data extracted in documents and ensure the response is generated from the content and enables human review workflows.
 * **High confidence scores**. Use confidence scores and quickly filter high quality extracted data for downstream processing and lower manual review time.
@@ -33,9 +33,9 @@ The custom generative model combines the power of document understanding with La
 * **Financial Services**. Analyze complex documents like financial reports and asset management reports.
 * **Expense management**. The custom generative model can extract expenses, receipts, and invoices with varying formats and templates.  
 
-## Model Capabilities  
+## Model capabilities  
 
-Custom generative currently support dynamic table with the `2024-07-31-preview` and the following fields:
+The Custom generative model currently supports dynamic table with the `2024-07-31-preview` and the following fields:
 
 | Form fields | Selection marks | Tabular fields | Signature | Region labeling | Overlapping fields |
 |:--:|:--:|:--:|:--:|:--:|:--:|
@@ -61,14 +61,14 @@ The custom generative model `2024-07-31-preview` version is only available in `N
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-## Best Practices  
+## Best practices  
 
-* **Representative data**. Use representative documents that target actual data distribution, to train a high-quality custom generative model. For example, if the target document includes partially filled tabular fields, add training documents that consist of partially filled tables. Or if field is named date, values for this field should be a date as random strings can affect model performance.
+* **Representative data**. Use representative documents that target actual data distribution, and train a high-quality custom generative model. For example, if the target document includes partially filled tabular fields, add training documents that consist of partially filled tables. Or if field is named date, values for this field should be a date as random strings can affect model performance.
 * **Field naming**. Choose a precise field name that represents the field values. For example, for a field value containing the Transaction Date, consider naming the field _TransactionDate_ instead of `Date1`.
 * **Field Description**. Provide more contextual information in description to help clarify the field that needs to be extracted. Examples include location in the document, potential field labels it may be associated with, ways to differentiate with other terms that could be ambiguous.  
 * **Variation**. Custom generative models can generalize across different document templates of the same document type. As a best practice, create a single model for all variations of a document type. Ideally, include a visual template for each type, especially for ones that 
 
-## Service limits
+## Service guidance
 
 * The Custom Generative preview model doesn't currently support fixed table and signature extraction.
 * Inference on the same document could yield slightly different results across calls and is a known limitation of current `GPT` models.
@@ -79,7 +79,7 @@ The custom generative model `2024-07-31-preview` version is only available in `N
 
 ## Training a model  
 
-Custom generative models are available with the 2`024-07-31-preview` version and later models.
+Custom generative models are available with the `2024-07-31-preview` version and later models.
 
 The `build operation` to train model supports the ```buildMode``` property, to train a custom generative model, set the ```buildMode``` to ```generative```.
 
