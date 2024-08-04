@@ -78,7 +78,7 @@ The following table describes each metric in the **Logon analysis** area:
 
 The areas under **Anomaly detection - filtering out noisy failed login attempts** show login failure data for SAP systems and users. To see only data flagged by, select **Anomalous only** next to **Failed logons** on the right.
 
-For more information, see [Monitor SAP audit logs with Microsoft Sentinel](configure-audit-log-rules.md). <!--fix xref-->
+For more information, see [Detect anomalies with audit log monitoring rules (Preview)](deployment-solution-configuration.md#detect-anomalies-with-audit-log-monitoring-rules-preview).
 
 For example:
 
@@ -124,7 +124,7 @@ The **Audit log alerts** tab shows data about the SAP Audit log events that the 
 
 The **Audit log alerts** tab shows the severity and audit trends for each SAP system and user. All areas in this tab show data flagged by anomaly detection only. For all events, select **All** next to **Failed logons** on the right.
 
-For more information, see [Monitor SAP audit logs with Microsoft Sentinel](configure-audit-log-rules.md). <!--fix xref-->
+For more information, see [Detect anomalies with audit log monitoring rules (Preview)](deployment-solution-configuration.md#detect-anomalies-with-audit-log-monitoring-rules-preview).
 
 For example:
 
