@@ -14,11 +14,11 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Security | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: Infrastructure | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: | Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
+Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
 
 ## Azure prerequisites
 
-Typically, Azure prerequisites are managed by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** teams.
+Typically, Azure prerequisites are managed by your **security** teams.
 
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
@@ -29,7 +29,7 @@ Typically, Azure prerequisites are managed by your :::image type="icon" source="
 
 ## System prerequisites
 
-Typically, system prerequisites are managed by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** teams.
+Typically, system prerequisites are managed by your **infrastructure** teams.
 
 | Prerequisite | Description |
 | ---- | ----------- |
@@ -43,7 +43,7 @@ Typically, system prerequisites are managed by your :::image type="icon" source=
 
 ## SAP prerequisites
 
-We recommend that your :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
+We recommend that your **SAP BASIS** team verify and ensure SAP system prerequisites. We strongly recommend that any management of your SAP system is carried out by an experienced SAP system administrator.
 
 | Prerequisite | Description |
 | ---- | ----------- |

@@ -21,7 +21,7 @@ This article describes how to deploy the container that hosts the SAP data conne
 
 :::image type="content" source="media/deployment-steps/deploy-data-connector.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Deploy your data agent container step." border="false" :::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: | :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 

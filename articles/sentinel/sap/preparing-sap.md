@@ -17,7 +17,7 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 :::image type="content" source="media/deployment-steps/prepare-sap-environment.png" alt-text="Diagram of the deployment flow for the Microsoft Sentinel solution for SAP applications, with the preparing SAP step highlighted." border="false":::
 
-:::image type="icon" source="media/deployment-steps/expert.png" border="false"::: The procedures in this article are typically performed by your **SAP BASIS** team.
+The procedures in this article are typically performed by your **SAP BASIS** team.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 

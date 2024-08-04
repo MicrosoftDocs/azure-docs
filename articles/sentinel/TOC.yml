@@ -149,27 +149,27 @@
           href: sap/cross-workspace.md
         - name: Deploy the SAP integration
           items: 
-          - name: Overview
+          - name: Deployment overview
             href: sap/deployment-overview.md
           - name: Deployment prerequisites
             href: sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
-          - name: Deploy the solution for SAP applications
+          - name: Install the solution for SAP applications
             href: sap/deploy-sap-security-content.md
           - name: Prepare your SAP environment
             href: sap/preparing-sap.md
           - name: Connect your SAP system
             href: sap/deploy-data-connector-agent-container.md
-          - name: Optional deployment steps
+          - name: Extra deployment steps
             items:
             - name: Deploy with expert options
               href: sap/sap-solution-deploy-alternate.md
             - name: Collect SAP HANA audit logs
               href: sap/collect-sap-hana-audit-logs.md
-          - name: Update the connector
-            href: sap/update-sap-data-connector.md      
-          - name: Disable the connector agent
-            displayName: disable, stop ingestion, stop
-            href: sap/deployment-overview.md#stop-sap-data-collection
+            - name: Update the connector
+              href: sap/update-sap-data-connector.md      
+            - name: Disable the connector agent
+              displayName: disable, stop ingestion, stop
+              href: sap/deployment-overview.md#stop-sap-data-collection
           - name: SAP deployment reference (advanced)
             items:
             - name: SAP solution data reference

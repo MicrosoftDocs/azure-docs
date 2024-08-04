@@ -14,7 +14,7 @@ The Microsoft Sentinel solution for SAP applications includes the SAP data conne
 
 :::image type="content" source="media/deployment-steps/install-solution.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Install solution content step." border="false":::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: | Content in this article is relevant for your **security** team.
+Content in this article is relevant for your **security** team.
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
