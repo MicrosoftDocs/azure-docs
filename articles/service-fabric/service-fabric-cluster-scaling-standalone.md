@@ -4,7 +4,7 @@ description: Learn about scaling Service Fabric standalone clusters in or out an
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
