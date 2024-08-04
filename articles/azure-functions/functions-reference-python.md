@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 05/16/2024
+ms.date: 07/30/2024
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 zone_pivot_groups: python-mode-functions
@@ -16,22 +16,41 @@ This guide is an introduction to developing Azure Functions by using Python. The
 > This article supports both the v1 and v2 programming model for Python in Azure Functions.
 > The Python v1 model uses a *functions.json* file to define functions, and the new v2 model lets you instead use a decorator-based approach. This new approach results in a simpler file structure, and it's more code-centric. Choose the **v2** selector at the top of the article to learn about this new programming model. 
 
-As a Python developer, you might also be interested in one of the following articles:
+As a Python developer, you might also be interested in these topics:
+
+## [Get started](#tab/get-started)
 
 ::: zone pivot="python-mode-configuration"
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration): Create your first Python app using Visual Studio Code.
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration): Create your first Python app from the command prompt using Azure Functions Core Tools.
++ [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
+::: zone-end  
+::: zone pivot="python-mode-decorators"
++ [Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators): Create your first Python app using Visual Studio Code.
++ [Terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators): Create your first Python app from the command prompt using Azure Functions Core Tools.
++ [Samples](/samples/browse/?products=azure-functions&languages=python): Review some existing Python apps in the Learn samples browser.  
+::: zone-end  
+## [Scenarios](#tab/scenarios)
 
-| Getting started | Concepts| Scenarios&nbsp;and&nbsp;samples |
-|--|--|--|
-| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-configuration)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-configuration)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+::: zone pivot="python-mode-configuration"   
++ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Features machine learning with [PyTorch](machine-learning-pytorch.md) and [TensorFlow](functions-machine-learning-tensorflow.md). Connect to Azure OpenAI models using [Functions bindings](./functions-bindings-openai.md).
++ [Automation](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/): Use Python functions to automate the management of Azure resources.
++ [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-configuration): Create stateful functions in a serverless environment as part of orchestrated workflows.
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
+::: zone-end  
+::: zone pivot="python-mode-decorators"   
++ [Machine learning & AI](functions-scenarios.md?pivots=programming-language-python#machine-learning-and-ai): Use [Functions bindings](./functions-bindings-openai.md) to connect to and manipulate Azure OpenAI data models, including [text completion](functions-add-openai-text-completion.md?pivots=programming-language-python).
++ [Serverless workflows](./durable/quickstart-python-vscode.md?&pivots=python-mode-decorators): Create stateful functions in a serverless environment as part of orchestrated workflows.
++ [More...](functions-scenarios.md?pivots=programming-language-python)  
 ::: zone-end
 
-::: zone pivot="python-mode-decorators" 
+## [Hosting options](#tab/hosting)
 
-| Getting started | Concepts| Samples |
-| --- | --- | --- |
-| <ul><li>[Create Python functions by using Visual Studio Code](./create-first-function-vs-code-python.md?pivots=python-mode-decorators)</li><li>[Create Python functions by using a terminal or command prompt](./create-first-function-cli-python.md?pivots=python-mode-decorators)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <li>[Code Examples](functions-bindings-triggers-python.md)</li> | 
++ [Flex Consumption plan](./flex-consumption-plan.md): Linux-based serverless hosting option that features full support for managed identities, virtual networks, and flexible deployments. This plan is currently in preview.
++ [Container hosting options](container-concepts.md): Run and deploy your Python functions on Linux in a Docker container, including integrated [Azure Container Apps hosting](functions-container-apps-hosting.md).
++ [Compare hosting options...](functions-scale.md) 
 
-::: zone-end
+---
 
 ## Development options
 

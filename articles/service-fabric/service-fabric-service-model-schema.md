@@ -4,7 +4,7 @@ description: A description of the XML schema of the Service Fabric service model
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.date: 07/11/2022
 ---
 

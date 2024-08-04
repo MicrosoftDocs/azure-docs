@@ -4,7 +4,7 @@ description: This article shows how to build, deploy, and debug .NET Core Servic
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022

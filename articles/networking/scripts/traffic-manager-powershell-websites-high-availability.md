@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Route traffic for high availabilit
 services: traffic-manager
 author: greg-lindsay
 manager: Kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.devlang: powershell
 ms.topic: article
 ms.date: 04/27/2023
