@@ -1,6 +1,6 @@
 ---
 title: CLI command reference from OT network sensors- Microsoft Defender for IoT - new2
-description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors.
+description: Learn about the CLI commands available from Microsoft Defender for IoT OT network sensors - new2.
 ms.date: 12/19/2023
 ms.topic: reference
 ---
