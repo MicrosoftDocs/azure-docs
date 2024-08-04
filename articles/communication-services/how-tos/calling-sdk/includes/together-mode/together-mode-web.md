@@ -106,8 +106,6 @@ togetherModeFeature.on('togetherModeSeatingUpdated', seatUpdate);
 ```
 
 ## Troubleshooting
-### Error Codes/SubCodes and Description
-
 |code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
 |403		| 46303	| ExpectedError  | Participant's role is not eligible to call the together mode start API | Ensure the participant calling the together mode start API has organizer, coorganizer, or presenter role |
