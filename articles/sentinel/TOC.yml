@@ -167,7 +167,7 @@
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the connector
               href: sap/update-sap-data-connector.md      
-            - name: Disable the connector agent
+            - name: Stop SAP data collection
               displayName: disable, stop ingestion, stop
               href: sap/deployment-overview.md#stop-sap-data-collection
           - name: SAP deployment reference (advanced)

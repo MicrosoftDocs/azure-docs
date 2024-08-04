@@ -58,7 +58,7 @@ For more information, see:
 - [What are manged identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
-Your virtual machine is typically created by your :::image type="icon" source="media/deployment-steps/infrastructure.png" border="false"::: **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team.
+Your virtual machine is typically created by your **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your **security** team.
 
 ## [Managed identity](#tab/managed-identity)
 
@@ -217,7 +217,7 @@ This procedure describes how to create a key vault to store your agent configura
 
 ## Deploy the data connector agent
 
-Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. We recommend that your :::image type="icon" source="media/deployment-steps/security.png" border="false"::: **security** team perform the procedures in this section with help from the :::image type="icon" source="media/deployment-steps/expert.png" border="false"::: **SAP BASIS** team.
+Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. We recommend that your **security** team perform the procedures in this section with help from the **SAP BASIS** team.
 
 1. **Sign in to the newly created VM** on which you're installing the agent, as a user with sudo privileges.
 
@@ -314,6 +314,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     When you're done, select  **Next: Authentication**.
 
     For example: <!--can we get a screenshot with an example?-->
+
     :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area's System settings tab.":::
 
 1. On the **Authentication** tab, enter the following details:
@@ -488,12 +489,9 @@ For more information about options that are available in the kickstart script, s
 
 ## Check health and connectivity
 
-We recommend periodically checking on your data connector agent's health and connectivity. For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md) and watch the following video:
+We recommend periodically checking on your data connector agent's health and connectivity.
 
-<br><br>
-> [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
-
-1. To confirm your connection, go to the **Microsoft Sentinel for SAP** data connector page and check the connection status. For example:
+1. To confirm your data connector agent's connection, go to the **Microsoft Sentinel for SAP** data connector page and check the connection status. For example:
 
     :::image type="content" source="./media/deploy-sap-security-content/sap-data-connector.png" alt-text="Screenshot that shows the Microsoft Sentinel for SAP data connector page." lightbox="media/deploy-sap-security-content/sap-data-connector.png":::
 
@@ -504,6 +502,10 @@ We recommend periodically checking on your data connector agent's health and con
     SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
 
     For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
+
+For more information, see [Monitor the health and role of your SAP systems](../monitor-sap-system-health.md) and watch the following video:
+<br>
+> [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
 
 ## Stop log ingestion and disable the connector
 
