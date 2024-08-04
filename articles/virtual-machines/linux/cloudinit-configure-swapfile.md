@@ -18,7 +18,7 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 
 ## Create swap partition for Ubuntu based images
 
-By default on Azure, Ubuntu gallery images do not create swap partitions. To enable swap partition configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
+By default on Azure, Ubuntu gallery images don't create swap partitions. To enable swap partition configuration during VM provisioning time using cloud-init - please see the [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) on the Ubuntu wiki.
 
 ## Create swap partition for RHEL based images
 
@@ -41,7 +41,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
 
-The mount is created with the `nofail` option to ensure that the boot process continues even if the mount is not completed successfully.
+The mount is created with the `nofail` option to ensure that the boot process continues even if the mount isn't completed successfully.
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -95,7 +95,7 @@ DefaultEnvironment="CLOUD_CFG=/etc/cloud/cloud.cfg.d/00-azure-swap.cfg"
 > [!NOTE]
 > The name of the file is totally arbitrary, it can be replaced with any particular name of your preference, it just needs the .cfg suffix and make sure to reflect the changes in the CLOUD_CFG parameter line as well.
 
-After the changes are done, the machine needs to be deallocated or re-deployed for the changes to take effect.
+After the changes are done, the machine needs to be deallocated or redeployed for the changes to take effect.
 
 
 ## Verify swap partition was created

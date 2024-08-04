@@ -18,9 +18,9 @@ This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io)
 
 ## Update a VM with cloud-init
 
-For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there is no need to specify `apt`, `zypper` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use.
+For security purposes, you may want to configure a VM to apply the latest updates on first boot. As cloud-init works across different Linux distros, there's no need to specify `apt`, `zypper` or `yum` for the package manager. Instead, you define `package_upgrade` and let the cloud-init process determine the appropriate mechanism for the distro in use.
 
-For this example, we will be using the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
+For this example, we use the Azure Cloud Shell. To see the upgrade process in action, create a file named *cloud_init_upgrade.txt* and paste the following configuration. You can use any editor you wish. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
 Copy the text below and paste it into the `cloud_init_upgrade.txt` file. Make sure that the whole cloud-init file is copied correctly, especially the first line.
 
@@ -70,7 +70,7 @@ sudo yum check-update
 
 As cloud-init checked for and installed updates on boot, there should be no additional updates to apply.
 
-- You can see the update process, number of altered packages as well as the installation of `httpd` by running the following command and review the output.
+- You can see the update process, number of altered packages, and the installation of `httpd` by running the following command and review the output.
 
 ```bash
 sudo yum history
