@@ -57,7 +57,7 @@ To see how data extraction works for the mortgage documents service, you need th
 
 ## Document Intelligence Studio
 
-1. On the Document Intelligence Studio home page, select **mortgage**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Mortgage**.
 
 1. You can analyze the sample mortgage documents or upload your own files.
 
