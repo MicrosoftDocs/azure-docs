@@ -17,7 +17,7 @@ This article details the security content available for the Microsoft Sentinel S
 
 Available security content includes built-in workbooks and analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
+Content in this article is intended for your **security** team.
 
 ## Built-in workbooks
 

@@ -19,7 +19,7 @@ For example:
 
 :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP -Security Audit log and Initial Access workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
 
-:::image type="icon" source="media/deployment-steps/security.png" border="false"::: Content in this article is relevant for your security team.
+Content in this article is intended for your **security** team.
 
 ## Prerequisites
 

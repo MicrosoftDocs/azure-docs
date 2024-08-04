@@ -18,6 +18,8 @@ Microsoft Defender XDR correlates millions of individual signals to identify act
 
 When you add a new SAP system to Microsoft Sentinel, your default configuration includes attack disruption functionality in the unified security operations platform. This article describes how to ensure that your SAP system is ready to support automatic attack disruption for SAP in the Microsoft Defender portal.
 
+Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
+
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Attack disruption for SAP and the unified security operations platform
