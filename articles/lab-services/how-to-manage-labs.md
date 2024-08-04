@@ -2,7 +2,7 @@
 title: View and manage labs
 description: Learn how to create a lab, configure a lab, view all the labs, or delete a lab. 
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to

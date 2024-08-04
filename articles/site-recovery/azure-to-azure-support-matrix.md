@@ -3,7 +3,7 @@ title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/15/2024
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23, references_regions, linux-related-content
@@ -54,7 +54,7 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 >
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
 >
-> - New Zealand is not a supported region for Azure Site Recovery as a source or target region.
+> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault is not supported in New Zealand.
 
 
 ## Cache storage

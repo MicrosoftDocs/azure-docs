@@ -3,7 +3,7 @@ title: Azure Firewall DNS settings
 description: You can configure Azure Firewall with DNS server and DNS proxy settings.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 06/21/2024
 ms.author: victorh 

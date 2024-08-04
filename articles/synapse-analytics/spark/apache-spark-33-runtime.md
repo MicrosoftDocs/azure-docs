@@ -4,7 +4,7 @@ description: New runtime is GA and ready for production workloads. Spark 3.3.1, 
 author: ekote
 ms.author: eskot
 ms.reviewer: whhender, whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022

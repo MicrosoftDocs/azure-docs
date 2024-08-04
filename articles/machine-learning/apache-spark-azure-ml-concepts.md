@@ -3,7 +3,7 @@ title: "Apache Spark in Azure Machine Learning"
 titleSuffix: Azure Machine Learning
 description: This article explains the options for accessing Apache Spark in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: conceptual
 author: fbsolo-ms1 

@@ -4,7 +4,7 @@ description: This article is an overview of Web Application Firewall (WAF) geoma
 services: web-application-firewall
 ms.topic: article
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 09/05/2023
 ms.author: victorh
 ---

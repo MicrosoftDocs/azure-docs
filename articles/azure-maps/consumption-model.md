@@ -4,7 +4,7 @@ description: "Learn about the consumption models that Azure Maps supports: combu
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 ---

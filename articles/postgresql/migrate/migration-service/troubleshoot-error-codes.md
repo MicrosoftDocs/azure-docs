@@ -5,7 +5,7 @@ author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: maghan
 ms.date: 06/19/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: error-reference
 ms.custom:

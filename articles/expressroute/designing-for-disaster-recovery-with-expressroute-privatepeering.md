@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Designing for disaster recovery'
 description: This page provides architectural recommendations for disaster recovery while using Azure ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 06/15/2023
 ms.author: duau

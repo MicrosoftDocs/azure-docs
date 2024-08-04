@@ -4,7 +4,7 @@ description: In this article, get started with an overview of the Azure DNS Priv
 services: dns
 ms.custom: references_regions
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: overview
 ms.date: 07/01/2024
 ms.author: greglin

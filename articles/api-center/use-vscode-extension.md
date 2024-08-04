@@ -2,7 +2,7 @@
 title: Interact with API inventory using VS Code extension
 description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/15/2024
 ms.author: danlep 

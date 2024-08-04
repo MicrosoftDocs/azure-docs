@@ -24,6 +24,8 @@ You'll need:
 - **Azure Region** - The Cluster Manager should be created in the same Azure region as the Network Fabric Controller.
 This Azure region should be used in the `Location` field of the Cluster Manager and all associated Operator Nexus instances.
 
+## Limitations
+- **Naming** - Naming rules can be found [here](../azure-resource-manager/management/resource-name-rules.md#microsoftnetworkcloud).
 
 ## Global arguments
 

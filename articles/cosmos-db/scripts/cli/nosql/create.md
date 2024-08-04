@@ -4,7 +4,7 @@ description: Create a API for NoSQL database and container for Azure Cosmos DB
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-azurecli
 ms.topic: sample

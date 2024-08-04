@@ -4,7 +4,7 @@ description: Learn how to use Azure Confidential Ledger using the client library
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, devx-track-dotnet

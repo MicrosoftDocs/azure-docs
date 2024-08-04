@@ -3,7 +3,7 @@ title: Manage user-assigned managed identities for an application in Azure Sprin
 description: How to manage user-assigned managed identities for applications.
 author: KarlErickson
 ms.author: jiec
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

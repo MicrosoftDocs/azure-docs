@@ -3,7 +3,7 @@ title: 'Tutorial: Shard data on worker nodes - Azure Cosmos DB for PostgreSQL'
 description: This tutorial shows how to create distributed tables and visualize their data distribution with Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc
 ms.devlang: azurecli

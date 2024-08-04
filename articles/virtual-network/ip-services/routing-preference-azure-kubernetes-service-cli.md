@@ -5,7 +5,7 @@ description: Use this tutorial to learn how to configure routing preference for 
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
 ms.custom: template-tutorial, devx-track-azurecli

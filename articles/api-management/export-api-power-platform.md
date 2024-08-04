@@ -4,7 +4,7 @@ description: Learn how to export an API from API Management as a custom connecto
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: danlep
