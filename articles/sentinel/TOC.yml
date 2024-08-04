@@ -159,6 +159,17 @@
             href: sap/preparing-sap.md
           - name: Connect your SAP system
             href: sap/deploy-data-connector-agent-container.md
+          - name: Optional deployment steps
+            items:
+            - name: Deploy with expert options
+              href: sap/sap-solution-deploy-alternate.md
+            - name: Collect SAP HANA audit logs
+              href: sap/collect-sap-hana-audit-logs.md
+          - name: Update the connector
+            href: sap/update-sap-data-connector.md      
+          - name: Disable the connector agent
+            displayName: disable, stop ingestion, stop
+            href: sap/deployment-overview.md#stop-sap-data-collection
           - name: SAP deployment reference (advanced)
             items:
             - name: SAP solution data reference
@@ -175,23 +186,14 @@
               href: sap/reference-systemconfig.md
         - name: Configure intial solution content
           href: sap/deployment-solution-configuration.md
-        - name: Optional deployment steps
-          items:
-          - name: Deploy with expert options
-            href: sap/sap-solution-deploy-alternate.md
-          - name: Collect SAP HANA audit logs
-            href: sap/collect-sap-hana-audit-logs.md
-        - name: Update the connector
-          href: sap/update-sap-data-connector.md      
-        - name: Disable the connector agent
-          displayName: disable, stop ingestion, stop
-          href: sap/deployment-overview.md#stop-sap-data-collection
         - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
-        - name: Monitor SAP audit logs
-          href: sap/sap-audit-log-workbook.md
-        - name: Monitor SAP audit controls
-          href: sap/sap-audit-controls-workbook.md   
+        - name: Monitor SAP systems
+          items:
+          - name: Monitor SAP audit logs
+            href: sap/sap-audit-log-workbook.md
+          - name: Monitor SAP audit controls
+            href: sap/sap-audit-controls-workbook.md   
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
       - name: SAP BTP
