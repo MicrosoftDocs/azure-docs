@@ -1,7 +1,7 @@
 ---
-title: Azure AI Document Intelligence (formerly Form Recognizer) custom generative field extraction
+title: Use AI Studio to build and train an Azure AI Document Intelligence custom generative model
 titleSuffix: Azure AI services
-description: Utilize custom generative AI model to extract user-specified fields from documents across a wide variety of visual templates.
+description: How to build and train a custom generative AI model with AI Studio to extract user-specified fields from documents across a wide variety of visual templates.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -13,7 +13,7 @@ ms.author: lajanuar
 monikerRange: '>=doc-intel-4.0.0'
 ---
 
-# Build and train a custom generative model
+# Build and train a custom generative model with AI Studio
 
 Document Intelligence custom models require as few as five training documents to get started. If you have at least five documents, let's get started training and testing the custom generative model.
 
@@ -33,7 +33,7 @@ You can choose one of the following options to authorize access to your Document
 
 **✔️ Managed Identity**. A managed identity is a service principal that creates a Microsoft Entra identity and specific permissions for an Azure managed resource. Managed identities enable you to run your Document Intelligence application without having to embed credentials in your code. Managed identities are a safer way to grant access to storage data and replace the requirement for you to include shared access signature tokens (SAS) with your source and result URLs.
 
-To learn more, *see* [Managed identities for Document Intelligence](managed-identities.md).
+To learn more, *see* [Managed identities for Document Intelligence](../managed-identities.md).
 
   :::image type="content" source="../media/managed-identities/rbac-flow.png" alt-text="Screenshot of managed identity flow (role-based access control).":::
 
@@ -47,7 +47,7 @@ To learn more, *see* [Managed identities for Document Intelligence](managed-iden
 * Your **source** container or blob must designate **read**, **write**, **list**, and **delete** access.
 * Your **result** container or blob must designate **write**, **list**, **delete** access.
 
-To learn more, *see* [**Create SAS tokens**](create-sas-tokens.md).
+To learn more, *see* [**Create SAS tokens**](../create-sas-tokens.md).
 
 ### Training data
 

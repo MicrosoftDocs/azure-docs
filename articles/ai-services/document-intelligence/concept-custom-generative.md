@@ -1,7 +1,7 @@
 ---
 title: Azure AI Document Intelligence (formerly Form Recognizer) custom generative field extraction
 titleSuffix: Azure AI services
-description: Utilize custom generative AI model to extract user-specified fields from documents across a wide variety of visual templates.
+description: Custom generative AI model extracts user-specified fields from documents across a wide variety of visual templates.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
@@ -43,7 +43,7 @@ Custom generative currently supported dynamic table with the `2024-07-31-preview
 
 ## Build mode  
 
-The `build custom model` operation supports custom _template_, _neural_ and _generative_ models, _see_ [Custom model build mode](concept-custom?0#build-mode):
+The `build custom model` operation supports custom _template_, _neural_ and _generative_ models, _see_ [Custom model build mode](concept-custom.md#build-mode):
 
 * **Custom generative models** can process complex documents in various formats, templates, and unstructured data.
 * **Custom neural models** also support complex document processing and also support more variance in page for structured and semi-structured documents.
