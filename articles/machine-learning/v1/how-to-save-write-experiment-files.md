@@ -6,7 +6,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 manager: danielsc
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/31/2024
