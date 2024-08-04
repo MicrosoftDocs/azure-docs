@@ -4,7 +4,7 @@ description: Learn about the data product factory (preview) for Azure Operator I
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: overview
 
 #CustomerIntent: As a partner developing a Data Product, I want to understand what the data product factory is so that I can use it.

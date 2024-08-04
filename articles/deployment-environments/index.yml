@@ -6,7 +6,7 @@ summary: Learn how to configure self-serve environments that developers can use 
 metadata:
   title: Azure Deployment Environments documentation
   description: Learn how to configure self-serve environments that developers can use to deploy their code with Azure Deployment Environments. Tutorials, quickstarts, how-to guides, and more.
-  ms.service: deployment-environments
+  ms.service: azure-deployment-environments
   ms.custom:
     - build-2023
     - ignite-2023

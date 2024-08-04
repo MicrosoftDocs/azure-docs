@@ -2,7 +2,6 @@
 title: Add a Kubernetes secret to pull an image from a private container registry
 titleSuffix: Azure Data Factory
 description: This article explains how to add a Kubernetes secret to pull a custom image from a private container registry with Workflow Orchestration Manager in Data Factory for Microsoft Fabric.
-ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain

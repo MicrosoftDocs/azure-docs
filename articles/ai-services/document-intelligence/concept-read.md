@@ -90,7 +90,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 :::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot of Read processing in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Read**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Read**.
 
 1. You can analyze the sample document or upload your own files.
 

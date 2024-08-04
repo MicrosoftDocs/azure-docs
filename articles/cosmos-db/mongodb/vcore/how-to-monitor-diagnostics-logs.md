@@ -5,7 +5,7 @@ description: Observe and query diagnostic logs from Azure Cosmos DB for MongoDB 
 author: sajeetharan
 ms.author: sasinnat
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: how-to

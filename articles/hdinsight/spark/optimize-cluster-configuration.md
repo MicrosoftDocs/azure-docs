@@ -1,7 +1,7 @@
 ---
 title: Optimize Apache Spark cluster configuration - Azure HDInsight
 description: Learn how to configure your Apache Spark cluster to maximize throughput on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 01/04/2024
 ---

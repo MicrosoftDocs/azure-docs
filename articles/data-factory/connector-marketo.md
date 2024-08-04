@@ -2,7 +2,6 @@
 title: Copy data from Marketo (Preview) 
 description: Learn how to copy data from Marketo to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

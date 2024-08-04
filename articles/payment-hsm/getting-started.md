@@ -4,7 +4,7 @@ description: Information to begin using Azure Payment HSM
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: article
 ms.date: 01/30/2024
 ms.author: mbaldwin

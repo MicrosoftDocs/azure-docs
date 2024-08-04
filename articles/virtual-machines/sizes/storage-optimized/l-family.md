@@ -2,7 +2,7 @@
 title: L family VM size series
 description: List of sizes in the L family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/18/2024
@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### Lsv2-series
 [!INCLUDE [lsv2-series-summary](./includes/lsv2-series-summary.md)]
 
-[View the full Lsv2-series page](../../lsv2-series.md).
+[View the full Lsv2-series page](./lsv2-series.md).
 
 [!INCLUDE [lsv2-series-specs](./includes/lsv2-series-specs.md)]
 
@@ -32,7 +32,7 @@ ms.author: mattmcinnes
 ### Lsv3-series
 [!INCLUDE [lsv3-series-summary](./includes/lsv3-series-summary.md)]
 
-[View the full Lsv3-series page](../../lsv3-series.md).
+[View the full Lsv3-series page](./lsv3-series.md).
 
 [!INCLUDE [lsv3-series-specs](./includes/lsv3-series-specs.md)]
 
@@ -40,7 +40,7 @@ ms.author: mattmcinnes
 ### Lasv3-series
 [!INCLUDE [lasv3-series-summary](./includes/lasv3-series-summary.md)]
 
-[View the full Lasv3-series page](../../lasv3-series.md).
+[View the full Lasv3-series page](./lasv3-series.md).
 
 [!INCLUDE [lasv3-series-specs](./includes/lasv3-series-specs.md)]
 

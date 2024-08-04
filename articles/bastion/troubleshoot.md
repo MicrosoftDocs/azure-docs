@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Bastion'
 description: Learn how to troubleshoot Azure Bastion.
 services: bastion
 author: isamorris
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: troubleshooting
 ms.date: 01/11/2024
 ms.author: isamorris

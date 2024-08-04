@@ -4,7 +4,7 @@ description: Learn why a cluster can become read-only, and what to do
 keywords: postgresql connection,read only
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 05/24/2023

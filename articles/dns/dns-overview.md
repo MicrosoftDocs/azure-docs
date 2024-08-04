@@ -2,7 +2,7 @@
 title: What is Azure DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: overview
 ms.date: 11/30/2023
 ms.author: greglin

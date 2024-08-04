@@ -3,7 +3,7 @@ title: Monitor and analyze jobs in studio
 titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment jobs with the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.author: sgilley
 author: sdgilley

@@ -4,7 +4,7 @@ description: Learn how to front your API Management instance with Azure Front Do
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/27/2022
 ms.author: danlep

@@ -5,7 +5,7 @@ description: Free tier on vCore-based Azure Cosmos DB for MongoDB.
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 11/08/2023

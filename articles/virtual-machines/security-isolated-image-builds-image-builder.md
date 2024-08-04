@@ -6,7 +6,7 @@ ms.topic: sample
 author: kof-f
 ms.author: jushiman
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ---
 

@@ -68,7 +68,7 @@ The Operator Nexus service offers a built-in policy definition that is recommend
 Operator Nexus Arc-connected Nexus Kubernetes do not yet have built-in policy definitions available. However, you can create custom policy definitions to meet your organization's security and compliance requirements or utilize built-in policy definitions for AKS clusters.
 
 - [Understand Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md)
-- [Azure Policy Built-in definitions for AKS](../aks/policy-reference.md)
+- [Azure Policy Built-in definitions for AKS](/azure/aks/policy-reference)
 
 ### Customizing Policies for Nexus Kubernetes cluster
 
@@ -82,7 +82,7 @@ Whether you are securing Nexus BMM resources or Nexus Kubernetes clusters, the p
 1. **Identify Suitable Policies**:
 
    - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus compute machines should meet security baseline** policy.
-   - For Nexus Kubernetes clusters, explore [built-in AKS policies](../aks/policy-reference.md) or create custom policy definitions to meet specific security and compliance needs.
+   - For Nexus Kubernetes clusters, explore [built-in AKS policies](/azure/aks/policy-reference) or create custom policy definitions to meet specific security and compliance needs.
    - Review [Azure Policy Built-in definitions](../governance/policy/samples/built-in-policies.md) and [Azure Policy for Kubernetes clusters](../governance/policy/concepts/policy-for-kubernetes.md) for more insights.
 
 2. **Assign Policies**:
