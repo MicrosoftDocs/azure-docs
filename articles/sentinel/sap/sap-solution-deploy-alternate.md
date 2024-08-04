@@ -49,7 +49,7 @@ az keyvault create \
 az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
-For more information, see [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md).
+For more information, see .
 -->
 
 ## Manually add SAP data connector agent Azure Key Vault secrets
@@ -106,7 +106,7 @@ az keyvault secret set \
   --description SECRET_AZURE_LOG_WS_PUBLIC_KEY --vault-name $kvname
 ```
 
-For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
+For more information, see the [Quickstart: Create a key vault using the Azure CLI](../../key-vault/general/quick-create-cli.md) and the [az keyvault secret](/cli/azure/keyvault/secret) CLI documentation.
 
 ## Perform an expert / custom installation
 

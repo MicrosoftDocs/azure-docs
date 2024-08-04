@@ -37,6 +37,7 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 - At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
 <!--don't we also need the rules configured? as in [Monitor SAP audit logs with Microsoft Sentinel](configure-audit-log-rules.md)-->
+
 ## Supported filters
 
 The **SAP - Security Audit log and Initial Access** workbook supports the following filters to help you focus on the data you need:
