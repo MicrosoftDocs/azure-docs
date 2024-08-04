@@ -72,14 +72,14 @@ To install the OpenAPI extension:
 
 1. In the console, run the following [Install-Package](/nuget/tools/ps-ref-install-package) command to install the OpenAPI extension:
 
-    # [Isolated worker model](#tab/isolated-process)
+    ### [Isolated worker model](#tab/isolated-process)
     
     ```command
     NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
     ```
     You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
    
-    # [In-process model](#tab/in-process) 
+    ### [In-process model](#tab/in-process) 
 
     ```command
     NuGet\Install-Package Microsoft.Azure.WebJobs.Extensions.OpenApi -Version 1.5.1
@@ -115,16 +115,13 @@ The function then calculates how much a repair costs, and how much revenue the t
 
 In the Turbine.cs project file, replace the contents of the class generated from the HTTP trigger template with the following code, which depends on your process model:
 
- # [Isolated worker model](#tab/isolated-process)
+ ### [Isolated worker model](#tab/isolated-process)
     
-```command
-NuGet\Install-Package Microsoft.Azure.Functions.Worker.Extensions.OpenApi -Version 1.5.1
-```
-You might need to updated the [specific version](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenApi), based on your version of .NET.
+:::code language="csharp" source="~/functions-openapi-turbine-repair-isolated/TurbineRepair/Turbines.cs":::
 
-# [In-process model](#tab/in-process) 
+### [In-process model](#tab/in-process) 
 
-:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Function1.cs":::
+:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Turbines.cs":::
 
 ---
 
