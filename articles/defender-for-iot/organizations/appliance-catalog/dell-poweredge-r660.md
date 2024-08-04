@@ -19,11 +19,11 @@ The Dell PowerEdge R660 is also available for the on-premises management console
 
 The following image shows a view of the Dell PowerEdge R660 front panel:
 
-:::image type="content" source="media/dell-poweredge-r660/dell-r660-front.png" alt-text="Photograph of the Dell PowerEdge R360 front panel." border="false":::
+:::image type="content" source="media/dell-poweredge-r660/dell-r660-front.png" alt-text="Photograph of the Dell PowerEdge R660 front panel." border="false":::
 
 The following image shows a view of the Dell PowerEdge R660 back panel:
 
-:::image type="content" source="media/dell-poweredge-r660/dell-r660-back.png" alt-text="Photograph of the Dell PowerEdge R360 back panel." border="false":::
+:::image type="content" source="media/dell-poweredge-r660/dell-r660-back.png" alt-text="Photograph of the Dell PowerEdge R660 back panel." border="false":::
 
 ## Specifications
 
