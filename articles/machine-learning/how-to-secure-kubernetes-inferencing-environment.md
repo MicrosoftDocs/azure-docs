@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: Blackmist
 ms.author: larryfr
 ms.reviewer: bozhlin
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/31/2022
 ms.topic: how-to
