@@ -248,7 +248,7 @@ If you have unexpected issues not listed in this article, try the following step
 
 ### Retrieving an audit log fails with warnings
 
-If you attempt to retrieve an audit log without the [required configurations](configure-audit.md) and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+If you attempt to retrieve an audit log without the [required configurations](preparing-sap.md#configure-sap-auditing) and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched

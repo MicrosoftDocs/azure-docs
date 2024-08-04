@@ -75,14 +75,13 @@ We recommend that you involve all relevant teams when planning your deployment t
 
 - [Collect SAP HANA audit logs](collect-sap-hana-audit-logs.md)
 - [Deploy SAP connector manually](sap-solution-deploy-alternate.md)
-- [Select SAP ingestion profiles](select-ingestion-profiles.md)
 
 ## Stop SAP data collection
 
 If you need to stop Microsoft Sentinel from collecting your SAP data, use the following procedures:
 
 - [Stop log ingestion and disable the connector](deploy-data-connector-agent-container.md#stop-log-ingestion-and-disable-the-connector)
-- [Remove the user role and the optional CR installed on your ABAP system](preparing-sap.md#remove-the-user-role-and-the-optional-cr-installed-on-your-abap-system)
+- [Remove the user role and the optional CR installed on your ABAP system](preparing-sap.md#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system)
 
 ## Related content
 
