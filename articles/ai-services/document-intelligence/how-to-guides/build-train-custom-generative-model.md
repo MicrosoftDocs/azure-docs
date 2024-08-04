@@ -101,15 +101,15 @@ Once you have your Azure blob storage containers, upload your training data to y
 
 Once the schema is saved, all the uploaded training documents are analyzed and field values are automatically extracted. Field values are listed on the screen for review. The autoextracted fields are tagged as **Predicted**.
 
-    :::image type="content" source="../media/ai-studio/extraction-project-labeled-data.png" alt-text="Screenshot of extraction project labeled data.":::
+   :::image type="content" source="../media/ai-studio/extraction-project-labeled-data.png" alt-text="Screenshot of extraction project labeled data.":::
 
 Review the predicted values. If the field value is incorrect or isn't extracted, you can hover over the predicted field. Select the edit button to make the changes:
 
-    :::image type="content" source="../media/ai-studio/extraction-project-edit-button.png" alt-text="Screenshot of the extraction project edit button.":::
+   :::image type="content" source="../media/ai-studio/extraction-project-edit-button.png" alt-text="Screenshot of the extraction project edit button.":::
 
 Once change are made, the predicted tag displays **`Corrected`**:
 
-    :::image type="content" source="../media/ai-studio/extraction-project-corrected-indicator.png" alt-text="Screenshot of the extraction project corrected indicator.":::
+   :::image type="content" source="../media/ai-studio/extraction-project-corrected-indicator.png" alt-text="Screenshot of the extraction project corrected indicator.":::
 
 Continue reviewing the predicted fields. After the labels are reviewed and corrected for all the training documents, proceed to build your model.
 
@@ -120,7 +120,7 @@ Continue reviewing the predicted fields. After the labels are reviewed and corre
 
 With your dataset labeled, you're ready to train your model. Select the **`Build model`**. On the Build model dialog page, provide a unique model name and, optionally, a description. The modelID accepts a string data type.
 
-    :::image type="content" source="../media/ai-studio/build-extraction-model.png" alt-text="Screenshot of the build an extraction model page.":::
+   :::image type="content" source="../media/ai-studio/build-extraction-model.png" alt-text="Screenshot of the build an extraction model page.":::
 
 Select **`Build`** to initiate the training process. Generative models train instantly! Refresh the page to select the model once status is changed to **succeeded**.
 
@@ -128,11 +128,11 @@ Select **`Build`** to initiate the training process. Generative models train i
 
 Once the model training is complete, you can test your model by selecting **`Test`** button on the CustomGenerative page.
 
-    :::image type="content" source="../media/ai-studio/custom-generative-page.png" alt-text="Screenshot of the custom generative page.":::
+   :::image type="content" source="../media/ai-studio/custom-generative-page.png" alt-text="Screenshot of the custom generative page.":::
 
 Upload your test files and select **`Run Analysis`** to extract field values from the documents. With the **`Analyze`** option, you can choose to run and analysis on the current document or all documents.
 
-    :::image type="content" source="../media/ai-studio/custom-generative-test-models-page.png" alt-text="Screenshot of the custom generative test models page.":::
+   :::image type="content" source="../media/ai-studio/custom-generative-test-models-page.png" alt-text="Screenshot of the custom generative test models page.":::
 
 Validate your model accuracy by evaluating the results for each field.
 
