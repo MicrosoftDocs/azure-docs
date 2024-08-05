@@ -4,7 +4,7 @@ description: Learn about workspaces (preview) in Azure API Management. Workspace
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 01/25/2024
 ms.author: danlep

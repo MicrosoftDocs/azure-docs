@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.date: 07/02/2024

@@ -3,7 +3,7 @@ title: Ingress in Azure Container Apps
 description: Ingress options for Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: cshoe

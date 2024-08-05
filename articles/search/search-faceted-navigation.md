@@ -191,7 +191,7 @@ In application code, the pattern is to use facet query parameters to return the 
 
 ### Facet and filter combination
 
-The following code snippet from the `JobsSearch.cs` file in the NYCJobs demo adds the selected Business Title to the filter if you select a value from the Business Title facet.
+The following code snippet from the `JobsSearch.cs` file in the [NYCJobs demo](/samples/azure-samples/search-dotnet-asp-net-mvc-jobs/search-dotnet-asp-net-mvc-jobs/) adds the selected Business Title to the filter if you select a value from the Business Title facet.
 
 ```cs
 if (businessTitleFacet != "")

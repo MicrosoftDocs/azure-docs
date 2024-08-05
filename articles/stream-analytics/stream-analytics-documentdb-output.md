@@ -3,7 +3,7 @@ title: Azure Stream Analytics output to Azure Cosmos DB
 description: This article describes how to use Azure Stream Analytics to save output to Azure Cosmos DB for JSON output.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 03/29/2024
 ---

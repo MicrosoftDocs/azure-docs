@@ -5,6 +5,8 @@ ms.date: 07/11/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
+ms.collection: 
+  - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my colud-based code executions. 
 ---

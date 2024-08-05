@@ -111,7 +111,7 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+SHA256 | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### Create an account to access servers
 
@@ -194,7 +194,7 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### 3. Create an appliance
 

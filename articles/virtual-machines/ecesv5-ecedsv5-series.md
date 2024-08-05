@@ -4,7 +4,7 @@ description: Specifications for Azure Confidential Computing's ECesv5 and ECedsv
 author: michamcr
 ms.author: mmcrey
 ms.reviewer: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
   - ignite-2023

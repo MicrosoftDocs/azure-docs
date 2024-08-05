@@ -4,7 +4,7 @@ description: Learn how to add a custom CA certificate in Azure API Management. Y
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/01/2021
 ms.author: danlep 

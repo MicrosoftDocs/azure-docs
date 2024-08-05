@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Azure Synapse Link for SQL
   description: FAQ for Azure Synapse Link for SQL
   author: dearandyxu
-  ms.service: synapse-analytics
+  ms.service: azure-synapse-analytics
   ms.topic: faq
   ms.subservice: synapse-link
   ms.date: 11/09/2022

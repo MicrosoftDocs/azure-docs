@@ -74,6 +74,10 @@ For more information and instructions, see [Add and manage app attach and MSIX
 
 Here's what changed in May 2024: 
 
+### Windows multi-session 11 with Microsoft 365 Apps gallery images now pre-install new Microsoft Teams 
+
+Windows multi-session 11 with Microsoft 365 Apps images in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows Enterprise multi-session 11 23H2 and 22H2.  
+
 ### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
 
 You can now use Microsoft Intune to configure client device redirection settings for Windows App and the Remote Desktop app in preview. IT admins can configure different redirection scenarios based on group membership and whether the device is managed by Intune or unmanaged. Additional capabilities include the ability to check and restrict access to Azure Virtual Desktop based on criteria such as OS version, allowed app (Windows App or the Remote Desktop app), allowed app version number, whether a threat is detected by Mobile Threat Defense (MTD), the device is jailbroken/rooted, and more.

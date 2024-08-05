@@ -3,7 +3,7 @@ title: "Troubleshoot `descriptors cannot not be created directly`"
 titleSuffix: Azure Machine Learning
 description: Troubleshooting steps when you get the "descriptors cannot not be created directly" message.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 author: Blackmist
 ms.author: larryfr

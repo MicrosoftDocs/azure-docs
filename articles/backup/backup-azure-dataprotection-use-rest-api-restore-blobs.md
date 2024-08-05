@@ -2,7 +2,7 @@
 title: Restore blobs in a storage account using Azure Data Protection REST API
 description: In this article, learn how to restore blobs of a storage account using REST API.
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 ms.custom: engagement-fy24
 ms.assetid: 9b8d21e6-3e23-4345-bb2b-e21040996afd
 author: AbhishekMallick-MS
@@ -25,7 +25,7 @@ To illustrate the restoration steps in this article, we'll refer to blobs in a s
 
 ## Prepare for Azure Blobs restore
 
-You can now do the restore operation for *operational backup* and *vaulted backup (preview)* for Azure Blobs.
+You can now do the restore operation for *operational backup* and *vaulted backup* for Azure Blobs.
 
 **Choose a backup tier**:
 
@@ -201,7 +201,7 @@ The key points to remember in this scenario are:
 }
 ```
 
-# [Vaulted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-restore-restapi.md](../../includes/blob-vaulted-backup-restore-restapi.md)]
 

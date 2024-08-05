@@ -3,7 +3,7 @@ title: Python SDK release notes
 titleSuffix: Azure Machine Learning
 description: Learn about the latest updates to Azure Machine Learning Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: UpdateFrequency5, devx-track-python
 ms.topic: reference

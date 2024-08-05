@@ -3,7 +3,7 @@ title: Tutorial - Use Azure Key Vault with a virtual machine in .NET
 description: In this tutorial, you configure a virtual machine an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024
@@ -111,18 +111,8 @@ xxxxxxxx-xx-xxxxxx   xxxxxxxx-xxxx-xxxx   SystemAssigned
 ---
 
 ## Assign permissions to the VM identity
-Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy) command:
 
-# [Azure CLI](#tab/azure-cli)
-```azurecli
-az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions  get list set delete
-```
-# [Azure PowerShell](#tab/azurepowershell)
-
-```azurepowershell
-Set-AzKeyVaultAccessPolicy -ResourceGroupName <YourResourceGroupName> -VaultName '<your-unique-key-vault-name>' -ObjectId '<VMSystemAssignedIdentity>' -PermissionsToSecrets  get,list,set,delete
-```
----
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
 
 ## Sign in to the virtual machine
 

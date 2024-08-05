@@ -1,7 +1,7 @@
 ---
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: include
 ms.date: 01/08/2024

@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Add IPv6 support using Azure PowerShell'
 description: Learn how to add IPv6 support to connect to Azure deployments using Azure PowerShell.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/11/2023

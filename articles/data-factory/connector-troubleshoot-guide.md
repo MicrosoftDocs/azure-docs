@@ -3,7 +3,6 @@ title: Troubleshoot connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/20/2023
@@ -250,9 +249,9 @@ The errors below are general to the copy activity and could occur with any conne
 
 #### Error code: 11775
 
-- **Message**: `Failed to connect to your instance of Azure Database for PostgreSQL flexible server.`
+- **Message**: `Failed to connect to your instance of Azure Database for PostgreSQL flexible server. '%'`
  
-- **Cause**: User or password provided are incorrect. The encryption method selected is not compatible with the configuration of the server. The network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected.
+- **Cause**: Exact cause depends on the text returned in `'%'`. If it is **The operation has timed out**, it can be because the instance of PostgreSQL is stopped or because the network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected. User or password provided are incorrect. If it is **28P01: password authentication failed for user "*youruser*"**, it means that the user provided doesn't exist in the instance or that the password is incorrect. If it is **28000: no pg_hba.conf entry for host "*###.###.###.###*", user "*youruser*", database "*yourdatabase*", no encryption**, it means that the encryption method selected is not compatible with the configuration of the server.
 
 - **Recommendation**: Confirm that the user provided exists in your instance of PostgreSQL and that the password corresponds to the one currently assigned to that user. Make sure that the encryption method selected is accepted by your instance of PostgreSQL, based on its current configuration. If the network connectivity method of your instance is configured for Private access (VNet integration), use a Self-Hosted Integration Runtime (IR) to connect to it. If it is configured for Public access (allowed IP addresses), it is recommended to use an Azure IR with managed virtual network and deploy a managed private endpoint to connect to your instance. When it is configured for Public access (allowed IP addresses) a less recommended alternative consists in creating firewall rules in your instance to allow traffic originating on the IP addresses used by the Azure IR you're using.
 
@@ -265,4 +264,4 @@ For more troubleshooting help, try these resources:
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

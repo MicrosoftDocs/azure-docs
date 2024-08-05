@@ -5,7 +5,7 @@ description: Learn how to plug Google Tag Manager into your managed or self-host
 author: dlepow
 ms.author: danlep
 ms.date: 03/25/2021
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
