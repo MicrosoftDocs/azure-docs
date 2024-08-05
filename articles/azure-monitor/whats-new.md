@@ -19,6 +19,36 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## [2024](#tab/2024)
 
+## July 2024
+
+|Subservice | Article | Description |
+|---|---|---|
+|Agents|[Collect firewall logs with Azure Monitor Agent (Preview)](agents/data-sources-firewall-logs.md)|New article that explains how to collect Windows Firewall logs with Azure Monitor Agent.|
+|Agents|[AMA agent data field differences from MMA](agents/azure-monitor-agent-data-field-differences.md)|New article that describes differences between the data collected by Log Analytics agent and Azure Monitor Agent. This information is important when you migrate from the legacy agent to Azure Monitor Agent, especially for migrating queries.|
+|Application-Insights|[Migrate from .NET Application Insights SDKs to Azure Monitor OpenTelemetry](app/opentelemetry-dotnet-migrate.md)|Migrate .NET applications from the SDK Classic API to OpenTelemetry using our new step-by-step guide.|
+|Application-Insights|[Configure Azure Monitor OpenTelemetry](app/opentelemetry-configuration.md)|The .NET example under Set the Cloud Role Name and the Cloud Role Instance now shows how to configure all signals.|
+|Application-Insights|[Configure Azure Monitor OpenTelemetry](app/opentelemetry-configuration.md)|Node.js guidance is available for using each of the credential classes.|
+|Application-Insights|[Monitor Azure Functions with Azure Monitor Application Insights](app/monitor-functions.md)|New configuration guidance added for Functions both on and off a consumption plan.|
+|Application-Insights|[Configure Azure Monitor OpenTelemetry](app/opentelemetry-configuration.md)|Updated instructions and code sample for using Entra with Python.|
+|Containers|[Monitor Kubernetes clusters using Azure services and cloud native tools](containers/monitor-kubernetes.md)|Updated to reference Prometheus experience for Container insights.|
+|Essentials|[Azure monitoring REST API walkthrough](essentials/rest-api-walkthrough.md)|Get an API token  using Python, JavaScript C# and Azure CLI.|
+|Essentials|[Best practices for scaling Azure Monitor Workspaces with Azure Monitor managed service for Prometheus](essentials/azure-monitor-workspace-scaling-best-practice.md)|New article: Best practices for Azure Monitor workspaces with  Azure Managed Prometheus|
+|Logs|[Log Analytics workspace overview](logs/log-analytics-workspace-overview.md)|Public preview of the Auxiliary table plan - a new low-cost plan for verbose logs used in compliance and security scenarios. We've also upgraded the Basic table plan to include 30 days of interactive retention and full KQL on a single table.|
+|Logs|[Enhance data and service resilience in Azure Monitor Logs with availability zones](logs/availability-zones.md)|Added availability zone support in Spain Central.|
+|Operations-Manager-Managed-Instance|[Monitor Azure and Off-Azure Virtual machines with Azure Monitor SCOM Managed Instance extensions](scom-manage-instance/monitor-arc-enabled-vm-with-scom-managed-instance.md)|Added new monitor doc|
+|Operations-Manager-Managed-Instance|[Monitor Off-Azure Virtual machines with Azure Monitor SCOM Managed Instance](scom-manage-instance/monitor-off-azure-vm-with-scom-managed-instance.md)|added new docs|
+|Optimization-Insights|[Monitor and analyze runtime behavior with Code Optimizations (Preview)](insights/code-optimizations.md)|Clarify expected CPU/memory overhead when using Profiler/Code Optimizations|
+|Profiler|[Cant not read file: https://docs.microsoft.com/azure/azure-monitor/profiler/includes/profiler-overhead](profiler/includes/profiler-overhead.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Profiler|[View Application Insights Profiler data](profiler/profiler-data.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Profiler|[Profile production applications in Azure with Application Insights Profiler](profiler/profiler-overview.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Profiler|[Configure Application Insights Profiler](profiler/profiler-settings.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Profiler|[Troubleshoot Application Insights Profiler](profiler/profiler-troubleshooting.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Profiler|[Enable Profiler for Azure App Service apps](profiler/profiler.md)|Clarify expected CPU/memory overhead when using Profiler|
+|Snapshot-Debugger|[ Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](snapshot-debugger/snapshot-debugger-troubleshoot.md)|Clarify expected CPU/memory overhead when using Snapshot Debugger|
+|Snapshot-Debugger|[Debug exceptions in .NET applications using Snapshot Debugger](snapshot-debugger/snapshot-debugger.md)|Clarify expected CPU/memory overhead when using Snapshot Debugger|
+
+
+
 ## June 2024
 
 |Subservice | Article | Description |
