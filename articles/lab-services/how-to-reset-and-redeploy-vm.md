@@ -2,7 +2,7 @@
 title: Troubleshoot a lab VM
 description: Learn how you can troubleshoot your lab VM in Azure Lab Services by redeploying the VM to another hardware node, or by reimaging the lab VM to its initial state.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog

@@ -2,7 +2,7 @@
 title: Monitor Azure Synapse Link for SQL Server 2022 through Synapse Studio and Azure Monitor
 description: Learn how to monitor your Azure Synapse Link for SQL Server 2022 link connections.
 author: shaween18
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/10/2022

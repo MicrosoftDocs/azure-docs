@@ -3,7 +3,7 @@ title: Monitor Azure Route Server
 description: Learn how to monitor your Azure Route Server using Azure Monitor and understand available metrics.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 05/02/2024
 

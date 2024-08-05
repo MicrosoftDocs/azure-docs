@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to obtain kubectl files that can be used to monitor your deployment and obtain diagnostics.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 07/07/2023
 ms.custom: template-how-to 

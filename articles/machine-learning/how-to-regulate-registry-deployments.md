@@ -3,7 +3,7 @@ title: Regulate deployments in Model Catalog using policies
 titleSuffix: Azure Machine Learning
 description: Learn about using the Azure Machine Learning built-in policy to deny registry model deployments 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: how-to
 ms.author: ssalgado

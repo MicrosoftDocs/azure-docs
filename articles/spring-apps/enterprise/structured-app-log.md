@@ -2,7 +2,7 @@
 title: Structured application log for Azure Spring Apps | Microsoft Docs
 description: This article explains how to generate and collect structured application log data in Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: karler

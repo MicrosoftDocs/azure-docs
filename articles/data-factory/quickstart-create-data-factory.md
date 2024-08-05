@@ -2,8 +2,6 @@
 title: Create an Azure Data Factory
 description: Learn how to create a data factory using UI from the Azure portal.
 author: jonburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: quickstart
 ms.date: 10/20/2023
 ms.author: xupzhou

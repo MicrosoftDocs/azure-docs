@@ -9,17 +9,16 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 08/05/2024
 ---
 
-# Chunking large documents for vector search solutions in Azure AI Search
+# Chunk large documents for vector search solutions in Azure AI Search
 
 Partitioning large documents into smaller chunks can help you stay under the maximum token input limits of embedding models. For example, the maximum length of input text for the [Azure OpenAI](/azure/ai-services/openai/how-to/embeddings) embedding models is 8,191 tokens. Given that each token is around four characters of text for common OpenAI models, this maximum limit is equivalent to around 6,000 words of text. If you're using these models to generate embeddings, it's critical that the input text stays under the limit. Partitioning your content into chunks ensures that your data can be processed by the embedding models used to populate vector stores and text-to-vector query conversions. 
 
-This article describes several approaches for data chunking. Chunking is only required if source documents are too large for the maximum input size imposed by models.
+Chunking is only required if source documents are too large for the maximum input size imposed by models.
 
-> [!NOTE]
-> If you're using the generally available version of [vector search](vector-search-overview.md), data chunking and embedding requires external code, such as library or a custom skill. A new feature called [integrated vectorization](vector-search-integrated-vectorization.md), currently in preview, offers internal data chunking and embedding. Integrated vectorization takes a dependency on indexers, skillsets, the Text Split skill, and the AzureOpenAiEmbedding skill (or a custom skill). If you can't use the preview features, the examples in this article provide an alternative path forward.
+We recommend [integrated vectorization](vector-search-integrated-vectorization.md) for built-in data chunking and embedding. Integrated vectorization takes a dependency on indexers, skillsets, the Text Split skill, and an embedding skill. If you can't use integrated vectorization, this article describes some approaches for chunking your content.
 
 ## Common chunking techniques
 
@@ -47,7 +46,7 @@ When it comes to chunking data, think about these factors:
 
 ### How chunking fits into the workflow
 
-If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization (preview)](vector-search-integrated-vectorization.md), a default chunking strategy using the [text split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
+If you have large documents, you must insert a chunking step into indexing and query workflows that breaks up large text. When using [integrated vectorization](vector-search-integrated-vectorization.md), a default chunking strategy using the [Text Split skill](./cognitive-search-skill-textsplit.md) is applied. You can also apply a custom chunking strategy using a [custom skill](cognitive-search-custom-skill-web-api.md). Some libraries that provide chunking include:
 
 + [LangChain Text Splitters](https://python.langchain.com/docs/modules/data_connection/document_transformers/)
 + [Semantic Kernel TextChunker](/dotnet/api/microsoft.semantickernel.text.textchunker)
@@ -58,15 +57,15 @@ Most libraries provide common chunking techniques for fixed size, variable size,
 
 The following examples demonstrate how chunking strategies are applied to [NASA's Earth at Night e-book](https://github.com/Azure-Samples/azure-search-sample-data/blob/main/nasa-e-book/earth_at_night_508.pdf) PDF file:
 
-+ [Text Split skill (preview](#text-split-skill-example)
++ [Text Split skill](#text-split-skill-example)
 + [LangChain](#langchain-data-chunking-example)
 + [Custom skill](cognitive-search-custom-skill-scale.md)
 
 ### Text Split skill example
 
-Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is in public preview. Use a preview REST API or an Azure SDK beta package for this scenario.
+Integrated data chunking through [Text Split skill](cognitive-search-skill-textsplit.md) is generally available.
 
-This section describes the built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
+This section describes built-in data chunking using a skills-driven approach and [Text Split skill parameters](cognitive-search-skill-textsplit.md#skill-parameters). 
 
 A sample notebook for this example can be found on the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples/blob/main/demo-python/code/data-chunking/textsplit-data-chunking-example.ipynb) repository.
 Set `textSplitMode` to break up content into smaller chunks:

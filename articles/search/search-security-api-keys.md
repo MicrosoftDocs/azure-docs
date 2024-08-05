@@ -52,7 +52,7 @@ Here's an example of admin API key usage on a create index request:
 
 ```http
 ### Create an index
-POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{adminApiKey}}
 
@@ -71,7 +71,7 @@ Here's an example of query API key usage on a Search Documents (GET) request:
 
 ```http
 ### Query an index
-GET /indexes/my-new-index/docs?search=*&api-version=2023-11-01&api-key={{queryApiKey}}
+GET /indexes/my-new-index/docs?search=*&api-version=2024-07-01&api-key={{queryApiKey}}
 ```
 
 > [!NOTE]  

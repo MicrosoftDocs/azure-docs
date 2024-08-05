@@ -5,7 +5,7 @@ description: Deploy a Java Spring Web application that uses the client library t
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.custom: devx-track-extended-java, devx-track-extended-azdevcli
@@ -198,7 +198,7 @@ Fetch all of the results of the query using `repository.getItemsByCategory`. Loo
 ## Related content
 
 - [.NET Quickstart](quickstart-dotnet.md)
-- [JavaScript/Node.js Quickstart](quickstart-nodejs.md)
+- [Node.js Quickstart](quickstart-nodejs.md)
 - [java Quickstart](quickstart-java.md)
 - [Go Quickstart](quickstart-go.md)
 

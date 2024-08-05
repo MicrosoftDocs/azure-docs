@@ -170,7 +170,7 @@ If you're indexing content from Azure Blob Storage, and the container includes b
 In this situation, you can [set configuration options](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) to allow indexer processing to continue in the event of problems with individual documents.
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2023-11-01
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -202,7 +202,7 @@ The blob indexer [finds and extracts text from blobs in a container](search-howt
 
 
 ```http
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2023-11-01
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

@@ -3,8 +3,8 @@ title: Use Azure Spot Virtual Machines
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
-ms.subservice: spot
+ms.service: azure-virtual-machines
+ms.subservice: azure-spot-vm
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.reviewer: cynthn

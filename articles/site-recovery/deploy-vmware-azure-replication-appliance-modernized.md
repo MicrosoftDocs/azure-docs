@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: ankitadutta

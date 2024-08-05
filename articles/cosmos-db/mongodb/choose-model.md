@@ -5,7 +5,7 @@ description: Choose whether the RU-based or vCore-based option for Azure Cosmos 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 09/12/2023

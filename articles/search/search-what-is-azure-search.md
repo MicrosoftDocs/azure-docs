@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/29/2024
+ms.date: 08/05/2024
 ---
 
 # What's Azure AI Search?
@@ -18,7 +18,7 @@ Azure AI Search ([formerly known as "Azure Cognitive Search"](whats-new.md#new-s
 Information retrieval is foundational to any app that surfaces text and vectors. Common scenarios include catalog or document search, data exploration, and increasingly feeding query results to prompts based on your proprietary grounding data for conversational and copilot search. When you create a search service, you work with the following capabilities:
 
 + A search engine for [vector search](vector-search-overview.md) and [full text](search-lucene-query-architecture.md) and [hybrid search](hybrid-search-overview.md) over a search index 
-+ Rich indexing with [integrated data chunking and vectorization (preview)](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional applied AI](cognitive-search-concept-intro.md) for content extraction and transformation
++ Rich indexing with [integrated data chunking and vectorization](vector-search-integrated-vectorization.md), [lexical analysis](search-analyzers.md) for text, and [optional applied AI](cognitive-search-concept-intro.md) for content extraction and transformation
 + Rich query syntax for [vector queries](vector-search-how-to-query.md), text search, [hybrid queries](hybrid-search-how-to-query.md), fuzzy search, autocomplete, geo-search and others
 + Azure scale, security, and reach
 + Azure integration at the data layer, machine learning layer, Azure AI services and Azure OpenAI

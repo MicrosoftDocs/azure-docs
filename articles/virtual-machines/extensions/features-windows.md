@@ -2,7 +2,7 @@
 title: Azure VM extensions and features for Windows
 description: Learn what extensions are available for Azure virtual machines on Windows, grouped by what they provide or improve.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT

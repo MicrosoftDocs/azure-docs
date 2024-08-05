@@ -10,8 +10,6 @@ items:
     href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
-  - name: What's new in Azure AI Studio?
-    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
@@ -188,6 +186,8 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs

@@ -4,7 +4,7 @@ description: Learn how to configure a policy for a Service Fabric service setup 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---

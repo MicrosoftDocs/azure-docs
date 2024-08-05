@@ -3,7 +3,7 @@ title: Azure Attestation overview
 description: An overview of Microsoft Azure Attestation, a solution for attesting Trusted Execution Environments (TEEs)
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin
@@ -32,7 +32,7 @@ Azure [Confidential VM](../confidential-computing/confidential-vm-overview.md) (
 
 ### AMD SEV-SNP attestation on Confidential Containers
 
-Azure [Confidential Containers](../confidential-computing/confidential-containers.md) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-options.md). Confidential containers, hosted on [Azure Container Instances](../container-instances/container-instances-confidential-overview.md) and on [Azure Kubernetes Service (in preview)](../aks/deploy-confidential-containers-default-policy.md) offer the ability to run groups of containers in an SEV-SNP protected trusted execution environment which isolates that group of containers from the container management control plane and other running containers.  Attestation in confidential containers involves fetching the AMD hardware attestation report directly from the processor.  This can be accomplished with our [SKR sidecar container](https://github.com/microsoft/confidential-sidecar-containers/tree/main/cmd/skr) or compiled directly into your application logic.  The hardware report can then be exchanged with Azure Attestation and [managed-HSM](../key-vault/managed-hsm/overview.md) or Premium [Azure Key Vault (AKV)](../key-vault/general/basic-concepts.md) to retrieve secrets.  You can also provide the hardware report to your own key vault system as desired.
+Azure [Confidential Containers](../confidential-computing/confidential-containers.md) is based on [AMD processors with SEV-SNP technology](../confidential-computing/virtual-machine-options.md). Confidential containers, hosted on [Azure Container Instances](../container-instances/container-instances-confidential-overview.md) and on [Azure Kubernetes Service (in preview)](/azure/aks/deploy-confidential-containers-default-policy) offer the ability to run groups of containers in an SEV-SNP protected trusted execution environment which isolates that group of containers from the container management control plane and other running containers.  Attestation in confidential containers involves fetching the AMD hardware attestation report directly from the processor.  This can be accomplished with our [SKR sidecar container](https://github.com/microsoft/confidential-sidecar-containers/tree/main/cmd/skr) or compiled directly into your application logic.  The hardware report can then be exchanged with Azure Attestation and [managed-HSM](../key-vault/managed-hsm/overview.md) or Premium [Azure Key Vault (AKV)](../key-vault/general/basic-concepts.md) to retrieve secrets.  You can also provide the hardware report to your own key vault system as desired.
 
 ### Trusted Launch attestation
 

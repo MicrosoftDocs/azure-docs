@@ -3,7 +3,7 @@ title: Configure a multi-region cluster for Apache Cassandra
 description: This quickstart shows how to configure a multi-region cluster with Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment

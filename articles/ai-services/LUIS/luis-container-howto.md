@@ -147,13 +147,13 @@ Before packaging a LUIS application, you must have the following:
 
 ### Export app package from LUIS portal
 
-The LUIS [portal](https://www.luis.ai) provides the ability to export the trained or published app's package.
+The LUIS [Azure portal](https://www.luis.ai) provides the ability to export the trained or published app's package.
 
 ### Export published app's package from LUIS portal
 
 The published app's package is available from the **My Apps** list page.
 
-1. Sign on to the LUIS [portal](https://www.luis.ai).
+1. Sign on to the LUIS [Azure portal](https://www.luis.ai).
 1. Select the checkbox to the left of the app name in the list.
 1. Select the **Export** item from the contextual toolbar above the list.
 1. Select **Export for container (GZIP)**.
@@ -166,7 +166,7 @@ The published app's package is available from the **My Apps** list page.
 
 The versioned app's package is available from the **Versions** list page.
 
-1. Sign on to the LUIS [portal](https://www.luis.ai).
+1. Sign on to the LUIS [Azure portal](https://www.luis.ai).
 1. Select the app in the list.
 1. Select **Manage** in the app's navigation bar.
 1. Select **Versions** in the left navigation bar.

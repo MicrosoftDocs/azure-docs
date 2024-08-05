@@ -2,7 +2,7 @@
 title: Create a container in Azure Cosmos DB for NoSQL
 description: Learn how to create a container in Azure Cosmos DB for NoSQL by using Azure portal, .NET, Java, Python, Node.js, and other SDKs.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 01/03/2022

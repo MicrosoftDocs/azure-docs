@@ -2,8 +2,8 @@
 title: How to secure a single page application with user sign-in
 titleSuffix: Azure Maps
 description: How to configure a single page application that supports Microsoft Entra single-sign-on with Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps

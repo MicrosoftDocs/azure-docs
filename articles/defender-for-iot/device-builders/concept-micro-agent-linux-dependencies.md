@@ -10,6 +10,8 @@ ms.date: 01/01/2023
 
 This article describes the different Linux OS dependencies for the Defender for IoT micro agent.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Linux dependencies
 
 The table below shows the Linux dependencies for each component.

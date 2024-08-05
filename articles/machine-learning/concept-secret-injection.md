@@ -3,7 +3,7 @@ title: What is secret injection in online endpoints (preview)?
 titleSuffix: Azure Machine Learning
 description: Learn about secret injection as it applies to online endpoints in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: concept-article
 author: msakande

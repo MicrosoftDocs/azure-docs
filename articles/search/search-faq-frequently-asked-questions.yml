@@ -115,7 +115,7 @@ sections:
       - question: |
           Can Azure AI Search vectorize my content or queries?
         answer: |
-          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now in public preview. 
+          [Built-in integrated vectorization](vector-search-integrated-vectorization.md) is now generally available. 
 
       - question: |
           Does my search service support vector search?
@@ -141,7 +141,7 @@ sections:
           
           * Add a "vectorSearch" section to the index schema specifying the configuration used by vector search fields, including the parameters of the Approximate Nearest Neighbor algorithm used, like HNSW.
           
-          * Use [**2023-11-01**](/rest/api/searchservice) or later, oor an Azure SDK to create or update the index, load documents, and issue queries.
+          * Use the latest stable version[**2024-07-01**](/rest/api/searchservice), or an Azure SDK to create or update the index, load documents, and issue queries.
 
   - name: Queries
     questions:
