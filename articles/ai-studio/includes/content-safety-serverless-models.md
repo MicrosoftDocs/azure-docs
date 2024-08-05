@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 ms.service: azure-ai-studio
 ms.topic: include
 ms.date: 07/12/2024
