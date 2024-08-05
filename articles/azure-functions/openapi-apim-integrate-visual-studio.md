@@ -65,9 +65,9 @@ The function uses an HTTP trigger that takes two parameters:
 
 The function then calculates how much a repair costs, and how much revenue the turbine could make in a 24-hour period. Parameters are supplied either in the query string or in the payload of a POST request. 
 
-In the Function1.cs project file, replace the contents of the generated class library code with the following code:
+In the Turbine.cs project file, replace the contents of the generated class library code with the following code:
 
-:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Function1.cs":::
+:::code language="csharp" source="~/functions-openapi-turbine-repair/TurbineRepair/Turbine.cs":::
 
 This function code returns a message of `Yes` or `No` to indicate whether an emergency repair is cost-effective. It also returns the revenue opportunity that the turbine represents and the cost to fix the turbine.
 

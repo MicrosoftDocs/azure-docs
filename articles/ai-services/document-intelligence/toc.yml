@@ -72,6 +72,15 @@ items:
   - name: Create a Document Intelligence resource
     displayName: endpoint, key, portal
     href:  create-document-intelligence-resource.md
+  - name: 🆕 Build and train a custom generative model
+    displayName: ai studio, neural, template, custom
+    href: how-to-guides/build-train-custom-generative-model.md  
+  - name: Check my usage and estimate the cost
+    displayName: price, metrics, dashboard, check, estimate
+    href: how-to-guides/estimate-cost.md
+  - name: Create SAS tokens for storage containers
+    displayName: blob, delegation, shared, explorer
+    href:  create-sas-tokens.md
   - name: "SDK Migration guides: 2023-10-31-preview"
     items:
     - name: ".NET/C# SDK"
@@ -85,12 +94,6 @@ items:
   - name: "Migration guide: 2023—07—31 latest (GA)"
     displayName: get started, confidence, bounding box, boundingBox, polygon, analyze, AnalyzeResult, train, build, sas, compose, copy
     href: v3-1-migration-guide.md
-  - name: Check my usage and estimate the cost
-    displayName: price, metrics, dashboard, check, estimate
-    href: how-to-guides/estimate-cost.md
-  - name: Create SAS tokens for storage containers
-    displayName: blob, delegation, shared, explorer
-    href:  create-sas-tokens.md
   - name: Custom models
     items:
     - name: Build a custom extraction model
@@ -177,6 +180,12 @@ items:
   - name: 🆕 Retrieval-Augmented Generation (RAG)
     displayName: RAG, LLM, semantic, chunk, LangChain, language model
     href: concept-retrieval-augmented-generation.md
+  - name: 🆕Custom generative model
+    displayName: ai studio, neural, template, custom
+    href: concept-custom-generative.md
+  - name: 🆕 Batch documents analysis 
+    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
+    href: concept-batch-analysis.md
   - name: 🆕 Pay stub model
     displayName: compensation, earnings, deductions, taxes, benefits, employer, employee
     href: concept-pay-stub.md
@@ -186,9 +195,6 @@ items:
   - name: 🆕 Bank statement model
     displayName: transactions, deposits, withdrawals, balance, account, number, date
     href: concept-bank-statement.md
-  - name: 🆕 Batch documents analysis
-    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
-    href: concept-batch-analysis.md
   - name: Credit card model
     displayName: debit
     href: concept-credit-card.md
