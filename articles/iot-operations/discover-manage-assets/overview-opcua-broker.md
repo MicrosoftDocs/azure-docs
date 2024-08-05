@@ -36,6 +36,7 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 
 - Simultaneous connections to multiple OPC UA servers configured by using Kubernetes `AssetEndpointProfile` custom resources (CRs).
 - Publish OPC UA data value changes in OPC UA PubSub format with JSON encoding.
+- Publish message headers as user properties in the MQTT message. The headers in the messages published by the connector for OPC UA are based on the [CloudEvents specification for OPC UA](https://github.com/cloudevents/spec/blob/main/cloudevents/extensions/opcua.md).
 - Publish OPC UA events with predefined event fields.
 - Asset definition by using Kubernetes Asset CRs
 - Payload compression including `gzip` and `brotli`.
