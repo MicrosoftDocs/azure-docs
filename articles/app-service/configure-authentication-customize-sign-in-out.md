@@ -26,7 +26,7 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/aad">Log in with Microsoft Entra</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
-<a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/x">Log in with X</a>
 <a href="/.auth/login/apple">Log in with Apple</a>
 ```
 

@@ -2558,7 +2558,7 @@ Secure enterprise search connector for reliably indexing content from Symantec E
 
 By [Accenture](https://www.accenture.com)
 
-The Twitter connector crawls content from any twitter account. It performs full and incremental crawls, supports authentication using Twitter user, consumer key and consumer secret key.
+The Twitter connector crawls content from any X account. It performs full and incremental crawls, supports authentication using X user, consumer key and consumer secret key.
 
 [More details](https://contentanalytics.digital.accenture.com/display/aspire40/Twitter+Connector)
 
