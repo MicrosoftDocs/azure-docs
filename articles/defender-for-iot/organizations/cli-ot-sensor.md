@@ -306,7 +306,7 @@ Use the following command to rerun the OT monitoring software configuration wiza
 For example, with the **admin** user:
 
 ```bash
-shell>/# sudo dpkg-reconfigure iot-sensor
+shell> sudo dpkg-reconfigure iot-sensor
 ```
 
 The configuration wizard starts automatically after you run this command.
