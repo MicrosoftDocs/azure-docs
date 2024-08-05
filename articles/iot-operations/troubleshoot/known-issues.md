@@ -36,6 +36,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - You can't update the Broker custom resource after the initial deployment. You can't make configuration changes to cardinality, memory profile, or disk buffer.
 
+  As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
+
 - You can't configure the size of a disk-backed buffer unless your chosen storage class supports it.
 
 - Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
@@ -45,6 +47,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 - You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
 
 - You may encounter timeout errors in the Kafka connector and Event Grid connector logs. Despite this, the connector will continue to function and forward messages.
+
+- Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
 
 ## Azure IoT Layered Network Management Preview
 
@@ -64,9 +68,15 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - If you deploy an `AssetEndpointProfile` into the cluster and the connector for OPC UA can't connect to the configured endpoint on the first attempt, then the connector for OPC UA never retries to connect.
 
-    As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the `AssetEndpointProfile` and deploy it again.
+  As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the `AssetEndpointProfile` and deploy it again.
 
 - If you create an asset by using the operations experience web UI, the subject property for any messages sent by the asset is set to the `externalAssetId` value. In this case, the `subject` is a GUID rather than a friendly asset name.
+
+- If your broker tries to connect to an untrusted server, it throws a `rejected to write to PKI` error. You can also encounter this error in assets and asset endpoint profiles.
+
+  As a workaround, add the server's certificate to the trusted certificates store as described in [Configure the trusted certificates list](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
+
+  Or, you can [Optionally configure your AssetEndpointProfile without mutual trust established](../discover-manage-assets/howto-configure-opc-plc-simulator.md#optionally-configure-your-assetendpointprofile-without-mutual-trust-established). This workaround should not be used in production environments.
 
 ## OPC PLC simulator
 
@@ -101,9 +111,9 @@ If the OPC PLC simulator isn't sending data to the MQTT broker after you create 
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
 
-## Data flows
+## Dataflows
 
-- By default, data flows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`. For example:
+- By default, dataflows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that store the name of the asset sending the message. To include user properties in the Kafka message, update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`. For example:
 
     ```yaml
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -126,6 +136,12 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
         systemAssignedManagedIdentitySettings:
           audience: https://<NAMESPACE>.servicebus.windows.net
     ```
+
+- Currently, you can't track a value by using the last known value flag, `?$last`, in your dataflows configuration. Until a bug fix is in place, the workaround to is to deploy Azure IoT Operations version 0.5.1 and use data processor.
+
+- Dataflows profile scaling iwth `instanceCount` is limited to `1` for Azure IoT Operations version 0.6.x.
+
+- Configuration using Azure Resource Manager isn't supported. Instead, configure dataflows using `kubectl` and YAML files as documented.
 
 ## Akri services
 
