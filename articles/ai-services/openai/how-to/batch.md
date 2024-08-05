@@ -15,7 +15,7 @@ zone_pivot_groups: openai-fine-tuning-batch
 
 # Getting started with Azure OpenAI global batch deployments (preview)
 
-The Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Process asynchronous groups of requests with separate quota, a 24-hour turnaround time, at [50% less cost than global standard](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). With batch processing, rather than send one request at a time you send a large number of requests in a single file. Global batch requests have a separate enqueued token quota avoiding any disruption of your online workloads.  
+The Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Process asynchronous groups of requests with separate quota, with 24-hour target turnaround, at [50% less cost than global standard](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). With batch processing, rather than send one request at a time you send a large number of requests in a single file. Global batch requests have a separate enqueued token quota avoiding any disruption of your online workloads.  
 
 Key use cases include:
 
@@ -36,7 +36,7 @@ Key use cases include:
 > [!IMPORTANT]
 > We aim to process batch requests within 24 hours; we do not expire the jobs that take longer. You can [cancel](#cancel-batch) the job anytime. When you cancel the job, any remaining work is cancelled and any already completed work is returned. You will be charged for any completed work.
 >
-> Data may be processed outside of the resource’s Azure geography, but data storage remains in its Azure geography. [Learn more about data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).  
+> Data stored at rest remains in the designated Azure geography, while data may be processed for inferencing in any Azure OpenAI location. [Learn more about data residency](https://azure.microsoft.com/explore/global-infrastructure/data-residency/).  
 
 ## Global batch support
 
@@ -80,7 +80,7 @@ In the Studio UI the deployment type will appear as `Global-Batch`.
 :::image type="content" source="../media/how-to/global-batch/global-batch.png" alt-text="Screenshot that shows the model deployment dialog in Azure OpenAI Studio with Global-Batch deployment type highlighted." lightbox="../media/how-to/global-batch/global-batch.png":::
 
 > [!TIP]
-> Each line of your input file for batch processing requires the unique **deployment name** that you chose during model deployment to be present. This value wil be assigned to the `model` attribute. This is different from OpenAI where the concept of model deployments does not exist.
+> Each line of your input file for batch processing has a model attribute that requires a global batch deployment name. For a given input file, all names must be the same deployment name. This is different from OpenAI where the concept of model deployments does not exist.
 
 ::: zone pivot="programming-language-ai-studio"
 
