@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philema
-ms.custom: subject-rbac-steps, kr2b-contr-experiment, devx-track-azurecli
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Secure an Azure Maps account with a SAS token
