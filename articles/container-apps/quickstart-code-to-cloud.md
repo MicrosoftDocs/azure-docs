@@ -3,7 +3,7 @@ title: "Quickstart: Build and deploy your app from your local filesystem to Azur
 description: Build your container app from local source and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

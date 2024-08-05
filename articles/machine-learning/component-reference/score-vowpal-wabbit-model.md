@@ -2,7 +2,7 @@
 title: "Score Vowpal Wabbit Model"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Score Vowpal Wabbit Model component to generate scores for a set of input data, using an existing trained Vowpal Wabbit model.  
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 
