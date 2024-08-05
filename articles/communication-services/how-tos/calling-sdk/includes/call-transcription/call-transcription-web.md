@@ -25,7 +25,7 @@ You can check state of the transcription in the property `isTranscriptionActive`
 const isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive;
 ```
 
-You can subscribe to event, that is triggered when state of transcription changes:
+You can subscribe to event that is triggered when state of transcription changes:
 
 ```js
 const isTranscriptionActiveChangedHandler = () => {
