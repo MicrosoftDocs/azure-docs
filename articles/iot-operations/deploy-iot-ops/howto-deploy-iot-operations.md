@@ -106,11 +106,17 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
    ```
 
-   If you want to name your Azure IoT Operations instance, include the `--name` parameter. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output.
+   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your deployment, including:
 
-   If you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group, add the `--disable-rsync-rules` feature flag. This flag disables the resource sync rules on the deployment.
-
-   If you want to use an existing service principal and app registration instead of allowing `init` to create new ones, include the `--sp-app-id,` `--sp-object-id`, and `--sp-secret` parameters. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually).
+     | Parameter | Value | Description |
+     | --------- | ----- | ----------- |
+     | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
+     | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+     | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
+     | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
+     | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+     | `--simulate-pc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
+     | `--sp-app-id`,<br>`--sp-object-id`,<br>`--sp-secret` | Service principal app ID, service principal object ID, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
 
 ### [Azure portal](#tab/portal)
 
@@ -176,7 +182,7 @@ While the deployment is in progress, you can watch the resources being applied t
 
   :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
 
-* Otherwise, or if you choose to disable the progress interface with `--no-progress`, you can use kubectl commands to view the pods on your cluster:
+* Otherwise, or if you choose to disable the progress interface with `--no-progress` added to the `init` command, you can use kubectl commands to view the pods on your cluster:
 
   ```bash
   kubectl get pods -n azure-iot-operations

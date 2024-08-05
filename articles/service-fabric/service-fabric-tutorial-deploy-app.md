@@ -4,7 +4,7 @@ description: Learn how to deploy an existing application to a newly created Azur
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 05/17/2024
 ---

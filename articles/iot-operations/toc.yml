@@ -31,6 +31,8 @@ items:
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets
         href: discover-manage-assets/howto-secure-assets.md
+      - name: Message format
+        href: discover-manage-assets/concept-opcua-message-format.md
       - name: OPC UA (connect to your assets)
         items:
         - name: OPC UA broker overview
@@ -69,31 +71,24 @@ items:
         href: manage-mqtt-broker/howto-configure-authorization.md
       - name: Test connection
         href: manage-mqtt-broker/howto-test-connection.md
-      - name: Connect to cloud services
+    - name: Process and route data
+      items:
+      - name: Overview
+        href: connect-to-cloud/overview-dataflow.md
+      - name: Concepts
         items:
-        - name: What are dataflows?
-          href: connect-to-cloud/overview-dataflow.md
-        - name: Configure dataflow endpoint
-          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-        - name: Create a dataflow
-          href: connect-to-cloud/howto-create-dataflow.md
-        - name: Configure dataflow profile
-          href: connect-to-cloud/howto-configure-dataflow-profile.md
-        - name: Dataflow language design
-          href: connect-to-cloud/concept-dataflow-language.md
-        - name: MQTT to Event Grid tutorial
-          href: connect-to-cloud/tutorial-dataflow-mqtt-event-grid.md
-        - name: Asset to Event Grid tutorial
-          href: connect-to-cloud/tutorial-dataflow-asset-event-grid.md
-        - name: Connect to MQTT or Event Grid
-          href: connect-to-cloud/howto-configure-mqtt-bridge.md
-        - name: Bridge MQTT data between IoT MQ and Azure Event Grid
-          href: connect-to-cloud/tutorial-connect-event-grid.md
-        - name: Send data to a data lake
-          href: connect-to-cloud/howto-configure-data-lake.md
-        - name: Send data to Kafka or Azure Event Hubs
-          href: connect-to-cloud/howto-configure-kafka.md
-
+        - name: Map data
+          href: connect-to-cloud/concept-dataflow-mapping.md
+        - name: Convert data
+          href: connect-to-cloud/concept-dataflow-conversions.md
+        - name: Enrich data
+          href: connect-to-cloud/concept-dataflow-enrich.md
+      - name: Configure endpoints
+        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+      - name: Create a dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
+      - name: Configure dataflow profile
+        href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:
       - name: Overview

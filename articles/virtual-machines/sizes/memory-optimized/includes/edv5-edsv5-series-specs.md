@@ -4,7 +4,7 @@ description: Include file containing specifications of Edv5 and Edsv5-series VM 
 services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 04/18/2024
 ms.author: mattmcinnes

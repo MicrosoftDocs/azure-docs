@@ -265,6 +265,9 @@ The following snippet shows the YAML file that you applied:
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/akri-opcua-asset.yaml":::
 
+> [!IMPORTANT]
+> There's currently a known issue where the configuration for the asset endpoint contains an invalid setting. To work around this issue, you need to remove the `"securityMode":"none"` setting from the configuration for the `opc-ua-broker-opcplc-000000-50000` asset endpoint. To learn more, see [Connector for OPC UA](../troubleshoot/known-issues.md#akri-services).
+
 To verify the configuration, run the following command to view the Akri instances that represent the OPC UA data sources discovered by Akri services. You might need to wait a few minutes for the configuration to be available:
 
 ```console

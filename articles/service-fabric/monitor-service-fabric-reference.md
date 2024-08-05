@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ---
 
 # Azure Service Fabric monitoring data reference

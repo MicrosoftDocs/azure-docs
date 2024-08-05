@@ -3,7 +3,7 @@ title: Containers in Azure Container Apps
 description: Learn how containers are managed and configured in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe

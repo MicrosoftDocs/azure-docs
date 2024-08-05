@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: how-to 
-ms.date: 05/16/2023
+ms.date: 08/02/2024
 ---
 
 # Enable token authentication for Dapr requests

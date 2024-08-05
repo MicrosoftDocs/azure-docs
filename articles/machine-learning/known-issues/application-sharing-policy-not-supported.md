@@ -5,7 +5,7 @@ description: Configuring the applicationSharingPolicy property for a compute ins
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/14/2023
 ms.custom: known-issue

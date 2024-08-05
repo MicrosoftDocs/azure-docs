@@ -3,9 +3,9 @@ title: Configure dataflow endpoints
 description: Configure dataflow endpoints to create connection points for data sources.
 author: PatAltimore
 ms.author: patricka
-ms.subservice: azure-mqtt-broker
+ms.subservice: azure-data-flows
 ms.topic: conceptual
-ms.date: 07/23/2024
+ms.date: 07/26/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -146,6 +146,16 @@ authentication:
   x509CredentialsSettings:
     certificateSecretName: <your x509 secret name>
 ```
+
+> [!IMPORTANT]
+> When using X.509 authentication with Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
+> 
+> - **Enable MQTT** checked
+> - **Enable alternative client authentication name sources** checked
+>   - Select **Certificate Subject Name** the dropdown.
+> - Set **Maximum client sessions per authentication name** to **3** or more
+> 
+> The alternative client authentication and max client sessions options allows dataflows to use client certificate subject name for authentication instead of MQTT CONNECT Username. This is important so that dataflows can spawn multiple instances and still be able to connect. To learn more, see [Event Grid MQTT client certificate authentication](../../event-grid/mqtt-client-certificate-authentication.md) [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
 System-assigned managed identity:
 
@@ -288,6 +298,9 @@ spec:
     kafkaAcks: all
     copyMqttProperties: enabled
 ```
+
+> [!IMPORTANT]
+> By default, data flows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`.
 
 ## Endpoint types for destinations only
 

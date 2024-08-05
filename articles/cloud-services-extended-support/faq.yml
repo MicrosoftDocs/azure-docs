@@ -3,7 +3,7 @@ metadata:
   title: Frequently asked questions for Azure Cloud Services (extended support)
   description: Frequently asked questions for Azure Cloud Services (extended support)
   ms.topic: faq
-  ms.service: cloud-services-extended-support
+  ms.service: azure-cloud-services-extended-support
   author: hirshah
   ms.author: hirshah
   ms.reviewer: mimckitt
