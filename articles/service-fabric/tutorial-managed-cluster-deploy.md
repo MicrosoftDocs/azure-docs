@@ -4,7 +4,7 @@ description: In this tutorial, you deploy a Service Fabric managed cluster for t
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 03/12/2024
 ---

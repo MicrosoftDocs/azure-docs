@@ -3,7 +3,7 @@ title: "Deploy pipelines with batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to create a batch deploy a pipeline component and invoke it.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande
