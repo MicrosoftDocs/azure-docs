@@ -3,7 +3,7 @@ title: Troubleshoot SerializationError
 titleSuffix: Azure Machine Learning
 description: Troubleshooting steps when you get the "cannot import name 'SerializationError'" message.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 author: Blackmist
 ms.author: larryfr

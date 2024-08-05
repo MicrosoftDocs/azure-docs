@@ -4,7 +4,7 @@ description: Learn how to scale your Service Fabric managed clusters to zero nod
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 05/24/2024

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to migrate your tests from Network performance monitor to the new Connection monitor in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/12/2024
 

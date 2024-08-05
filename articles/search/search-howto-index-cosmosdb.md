@@ -38,7 +38,7 @@ The data source definition specifies the data to index, credentials, and policie
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
     ```http
-    POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+    POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -163,7 +163,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that store data:
 
     ```http
-    POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
     Content-Type: application/json
     api-key: [Search service admin key]
     {
@@ -211,7 +211,7 @@ Once the index and data source have been created, you're ready to create the ind
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
-    POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+    POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
     Content-Type: application/json
     api-key: [search service admin key]
     {
@@ -243,7 +243,7 @@ An indexer runs automatically when it's created. You can prevent this by setting
 To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2023-11-01
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2024-07-01
   Content-Type: application/json  
   api-key: [admin key]
 ```
@@ -345,7 +345,7 @@ The `softDeleteColumnName` must be a top-level field in the index. Using nested 
 The following example creates a data source with a soft-deletion policy:
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: [Search service admin key]
 
