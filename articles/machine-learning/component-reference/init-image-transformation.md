@@ -3,7 +3,7 @@ title: "Init Image Transformationply Image Transformation"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Init Image Transformation component in Azure Machine Learning designer to initialize image transformation.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

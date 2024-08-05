@@ -4,7 +4,7 @@ description: This article describes the resource scaling in Azure Database for P
 author: varun-dhawan
 ms.author: varundhawan
 ms.date: 07/23/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---

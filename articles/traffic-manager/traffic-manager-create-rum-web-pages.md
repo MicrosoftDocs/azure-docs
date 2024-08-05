@@ -4,7 +4,7 @@ description: In this article, learn how to set up your web pages to send Real Us
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 04/06/2021
 ms.author: greglin

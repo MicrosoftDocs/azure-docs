@@ -4,7 +4,7 @@ description: Here's how to enable managed identities support in a new Azure Serv
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/11/2022
 ---
