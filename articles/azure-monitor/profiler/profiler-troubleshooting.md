@@ -50,6 +50,16 @@ Check that a firewall or proxies aren't blocking your access to [this webpage](h
 
 Profiling data is uploaded only when it can be attached to a request that happened while Profiler was running. Profiler collects data for two minutes each hour. You can also trigger Profiler by [starting a profiling session](./profiler-settings.md#profile-now).
 
+> [!NOTE]
+> Please be advised that the Profiler depends on Application Insights telemetry to detect application requests during a session. It is essential to ensure that there is Request data available; otherwise, profiler data upload will be skipped.
+>   
+> In the event that the profiler data upload is skipped due to the absence of Request data, a log entry will be generated with the following message:
+>   
+> "Upload trace was canceled as no activity detected from target iKey."
+>   
+> Make sure to verify the presence of Request data.
+
+
 Profiler writes trace messages and custom events to your Application Insights resource. You can use these events to see how Profiler is running.
 
 Search for trace messages and custom events sent by Profiler to your Application Insights resource.
