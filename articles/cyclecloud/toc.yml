@@ -227,9 +227,9 @@
     - name: Current Release - v8.x
       href: release-notes.md
     - name: Previous Release - v7.x
-      href: release-notes-previous.md
+      href: /previous-versions/azure/cyclecloud/release-notes-previous
     - name: Older Releases
-      href: release-notes-archive.md
+      href: /previous-versions/azure/cyclecloud/release-notes-archive
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy
