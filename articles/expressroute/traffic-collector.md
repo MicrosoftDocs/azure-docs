@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 10/09/2023
 ms.author: duau

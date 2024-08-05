@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to set up user accounts with username and password authentication to the developer portal in Azure API Management.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 08/30/2022
 ms.author: danlep

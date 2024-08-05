@@ -3,7 +3,7 @@ title: Build scalable apps - Azure Cosmos DB for PostgreSQL
 description: How to build relational apps that scale
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023, build-2023-dataai
 ms.topic: quickstart

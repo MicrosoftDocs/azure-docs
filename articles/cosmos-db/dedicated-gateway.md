@@ -4,7 +4,7 @@ description: A dedicated gateway is compute that is a front-end to your Azure Co
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/29/2022

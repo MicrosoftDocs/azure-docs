@@ -1,6 +1,6 @@
 ---
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 description: include for accessing Azure Digital Twins Explorer
 ms.topic: include
 ms.date: 10/03/2022

@@ -5,7 +5,7 @@ titleSuffix: Azure Machine Learning
 author: ssalgadodev
 ms.author: ssalgado
 ms.reviewer: bozhlin
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 02/05/2024
 ms.topic: how-to
@@ -54,7 +54,7 @@ Azure Machine Learning inference router handles autoscaling for all model deploy
 > [!IMPORTANT]
 > * **Do not enable Kubernetes Horizontal Pod Autoscaler (HPA) for model deployments**. Doing so would cause the two auto-scaling components to compete with each other. Azureml-fe is designed to auto-scale models deployed by Azure Machine Learning, where HPA would have to guess or approximate model utilization from a generic metric like CPU usage or a custom metric configuration.
 > 
-> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](../aks/cluster-autoscaler.md).
+> * **Azureml-fe does not scale the number of nodes in an AKS cluster**, because this could lead to unexpected cost increases. Instead, **it scales the number of replicas for the model** within the physical cluster boundaries. If you need to scale the number of nodes within the cluster, you can manually scale the cluster or [configure the AKS cluster autoscaler](/azure/aks/cluster-autoscaler).
 
 Autoscaling can be controlled by `scale_settings` property in deployment YAML. The following example demonstrates how to enable autoscaling:
 
@@ -125,7 +125,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
 ![Diagram of the connectivity requirements for inferencing with Azure Kubernetes Services.](./media/how-to-attach-kubernetes-to-workspace/azureml-kubernetes-network.png)
 
-For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](/azure/aks/limit-egress-traffic).
 
 For accessing Azure Machine Learning services behind a firewall, see [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 

@@ -24,7 +24,7 @@ In this tutorial, part five of five, you learn how to:
 > * Deploy Kured in an Azure Linux Container Host cluster.
 
 > [!NOTE]
-> Any upgrade operation, whether performed manually or automatically, upgrades the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker](../../articles/aks/release-tracker.md).
+> Any upgrade operation, whether performed manually or automatically, upgrades the node image version if not already on the latest. The latest version is contingent on a full AKS release, and can be determined by visiting the [AKS release tracker](/azure/aks/release-tracker).
 
 ## Prerequisites
 
@@ -55,13 +55,13 @@ To set the auto-upgrade channel on existing cluster, update the `--auto-upgrade-
 az aks update --resource-group testAzureLinuxResourceGroup --name testAzureLinuxCluster --auto-upgrade-channel stable
 ```
 
-For more information on upgrade channels, see [Using cluster auto-upgrade](../../articles/aks/auto-upgrade-cluster.md).
+For more information on upgrade channels, see [Using cluster auto-upgrade](/azure/aks/auto-upgrade-cluster).
 
 ## Enable automatic package upgrades
 
 Similar to setting your clusters to auto-upgrade, you can use the same set once and forget mechanism for package upgrades by enabling the node-os upgrade channel. If automatic package upgrades are enabled, the dnf-automatic systemd service runs daily and installs any updated packages that have been published.
 
-To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example, which automatically enables package upgrades. Note that for some settings of [Node OS Upgrade Channel](../../articles/aks/auto-upgrade-node-image.md), `dnf-automatic` is disabled by default.
+To set the node-os upgrade channel on existing cluster, update the `--node-os-upgrade-channel` parameter, similar to the following example, which automatically enables package upgrades. Note that for some settings of [Node OS Upgrade Channel](/azure/aks/auto-upgrade-node-image), `dnf-automatic` is disabled by default.
 
 ```azurecli-interactive
 az aks update --resource-group testAzureLinuxResourceGroup --name testAzureLinuxCluster --node-os-upgrade-channel Unmanaged
@@ -71,7 +71,7 @@ az aks update --resource-group testAzureLinuxResourceGroup --name testAzureLinux
 
 To protect your clusters, security updates are automatically applied to Azure Linux nodes. These updates include OS security fixes, kernel updates, and package upgrades. Some of these updates require a node reboot to complete the process. AKS doesn't automatically reboot these nodes to complete the update process.
 
-We recommend enabling an automatic reboot daemon, such as [Kured](https://kured.dev/docs/), so that your cluster can reboot nodes that have taken kernel updates. To deploy the Kured DaemonSet in an Azure Linux Container Host cluster, see [Deploy Kured in an AKS cluster](../../articles/aks/node-updates-kured.md#deploy-kured-in-an-aks-cluster).
+We recommend enabling an automatic reboot daemon, such as [Kured](https://kured.dev/docs/), so that your cluster can reboot nodes that have taken kernel updates. To deploy the Kured DaemonSet in an Azure Linux Container Host cluster, see [Deploy Kured in an AKS cluster](/azure/aks/node-updates-kured#deploy-kured-in-an-aks-cluster).
 
 ## Clean up resources
 

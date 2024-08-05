@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 07/17/2024
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
+ms.service: azure-automation
 ---
 
 # Runtime environment (preview) in Azure Automation

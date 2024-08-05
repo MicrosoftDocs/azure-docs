@@ -6,7 +6,7 @@ ms.reviewer: None
 author: ssalgadodev
 ms.author: ssalgado
 ms.custom: subject-cost-optimization
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 08/01/2023

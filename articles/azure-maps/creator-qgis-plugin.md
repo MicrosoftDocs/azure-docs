@@ -82,7 +82,7 @@ Some layers have a drop-down containing multiple layers within it, followed by t
 
 :::image type="content" source="./media/creator-indoor-maps/qgis/layers-example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
 
-This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
+This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. Since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
 
 > [!NOTE]
 > The geometry geometryCollection is not supported by QGIS.
@@ -139,7 +139,7 @@ To edit a feature property using the attribute table
     ![A screenshot showing the attribute table.](./media/creator-indoor-maps/qgis/attribute-table.png)
 
     > [!NOTE]
-    > The attribute table shows each feature, with their properties, in a tabular form. It can be accessed by right-clicking on any layer in the **Layers** panel then selecting **Open Attribute Table**.
+    > The attribute table shows each feature, with their properties, in a tabular form. Right-click to access any layer in the **Layers** panel then select **Open Attribute Table**.
 
 1. Toggle edit mode on.
 

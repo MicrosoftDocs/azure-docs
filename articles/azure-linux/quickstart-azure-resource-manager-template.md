@@ -31,7 +31,7 @@ Get started with the Azure Linux Container Host by using an Azure Resource Manag
 
 - If you don't already have kubectl installed, install it through Azure CLI using `az aks install-cli` or follow the [upstream instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 - To create an AKS cluster using a Resource Manager template, you provide an SSH public key. If you need this resource, see the following section; otherwise skip to the [Review the template](#review-the-template) section.
-- The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../../articles/aks/concepts-identity.md).
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity).
 - To deploy a Bicep file or ARM template, you need write access on the resources you're deploying and access to all operations on the Microsoft.Resources/deployments resource type. For example, to deploy a virtual machine, you need Microsoft.Compute/virtualMachines/write and Microsoft.Resources/deployments/* permissions. For a list of roles and permissions, see [Azure built-in roles](../../articles/role-based-access-control/built-in-roles.md).
 
 ### Create an SSH key pair 
@@ -243,14 +243,14 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ### Deploy the application
 
-A [Kubernetes manifest file](../../articles/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
+A [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
 
 In this quickstart, you use a manifest to create all objects needed to run the [Azure Vote application](https://github.com/Azure-Samples/azure-voting-app-redis). This manifest includes two Kubernetes deployments:
 
 * The sample Azure Vote Python applications.
 * A Redis instance.
 
-Two [Kubernetes Services](../../articles/aks/concepts-network-services.md) are also created:
+Two [Kubernetes Services](/azure/aks/concepts-network-services) are also created:
 
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
@@ -347,7 +347,7 @@ Two [Kubernetes Services](../../articles/aks/concepts-network-services.md) are a
         app: azure-vote-front
     ```
 
-    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../../articles/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 

@@ -3,7 +3,7 @@
  description: include file
  services: expressroute
  author: duongau
- ms.service: expressroute
+ ms.service: azure-expressroute
  ms.topic: include
  ms.date: 03/13/2023
  ms.author: duau

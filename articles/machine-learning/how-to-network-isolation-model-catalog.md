@@ -3,7 +3,7 @@ title: Use Model Catalog collections with workspace managed virtual network
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Model Catalog in an isolated network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: how-to
 author: ssalgadodev

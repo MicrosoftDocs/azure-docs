@@ -4,7 +4,7 @@ description: Learn how to create a Service Fabric managed cluster with an Azure 
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 04/23/2024

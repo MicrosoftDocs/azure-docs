@@ -3,7 +3,7 @@ title: Configure private network access for backend storage in your virtual netw
 description: Learn how to configure private network access to backend storage in your virtual network.
 author: KarlErickson
 ms.author: haozhan
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 07/25/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -79,11 +79,11 @@ A centralized DNS management architecture is documented in the hub and spoke net
 - When a private endpoint is created, the corresponding DNS records are automatically added to the centralized private DNS zone.
 - DNS records are managed according to the lifecycle of the private endpoint, meaning they are automatically removed when the private endpoint is deleted.
 
-The following sections explain how to enable central DNS resolution for Azure Storage blobs by using [Azure Policy](/azure/governance/policy/overview), assuming you already have the private DNS zone `privatelink.blob.core.windows.net` set up in the central virtual network. The same principles apply to Azure Storage files and other Azure services that support Private Link.
+The following sections explain how to enable central DNS resolution for Azure Storage blobs by using [Azure Policy](../../governance/policy/overview.md), assuming you already have the private DNS zone `privatelink.blob.core.windows.net` set up in the central virtual network. The same principles apply to Azure Storage files and other Azure services that support Private Link.
 
 ### Policy definition
 
-In addition to the private DNS zone, you need to create a custom Azure Policy definition. For more information, see [Tutorial: Create a custom policy definition](/azure/governance/policy/tutorials/create-custom-policy-definition). This definition automatically creates the required DNS record in the central private DNS zone when you create a private endpoint.
+In addition to the private DNS zone, you need to create a custom Azure Policy definition. For more information, see [Tutorial: Create a custom policy definition](../../governance/policy/tutorials/create-custom-policy-definition.md). This definition automatically creates the required DNS record in the central private DNS zone when you create a private endpoint.
 
 The following policy is triggered when you create a private endpoint resource with a service-specific `groupId`. The `groupId` is the ID of the group obtained from the remote resource or service that this private endpoint should connect to. In this example, the `groupId` for Azure Storage blobs is `blob`. For more information on the `groupId` for other Azure services, see the tables in [Azure Private Endpoint private DNS zone values](../../private-link/private-endpoint-dns.md), under the **Subresource** column.
 
@@ -192,7 +192,7 @@ The policy then triggers a deployment of a `privateDNSZoneGroup` within the priv
 
 After you deploy the policy definition, assign the policy at the subscription hosting the Azure Spring Apps service instances and specify the central private DNS zone as the parameter.
 
-The central private DNS zone and Azure Spring Apps service instance might be hosted in the different subscriptions. In this case, remember to assign the [Private DNS Zone Contributor role](/azure/dns/dns-protect-private-zones-recordsets) in the subscription and resource group where the private DNS zones are hosted to the managed identity created by the `DeployIfNotExists` policy assignment that's responsible to create and manage the private endpoint DNS record in the private DNS zone. For more information, see the [Configure the managed identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) section of [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal).
+The central private DNS zone and Azure Spring Apps service instance might be hosted in the different subscriptions. In this case, remember to assign the [Private DNS Zone Contributor role](../../dns/dns-protect-private-zones-recordsets.md#the-private-dns-zone-contributor-role) in the subscription and resource group where the private DNS zones are hosted to the managed identity created by the `DeployIfNotExists` policy assignment that's responsible to create and manage the private endpoint DNS record in the private DNS zone. For more information, see the [Configure the managed identity](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal#configure-the-managed-identity) section of [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md?tabs=azure-portal).
 
 After you finish the configurations, when you enable or disable the private storage access feature, the DNS records for private endpoints are automatically registered - and removed after a private endpoint is deleted - in the corresponding private DNS zone.
 

@@ -5,7 +5,7 @@ summary: Learn how to use Azure Operator Insights to analyze network data from m
 metadata:
   title: Azure Operator Insights documentation
   description: Learn about Azure Operator Insights for analyzing network data from multiple sources.
-  ms.service: operator-insights
+  ms.service: azure-operator-insights
   ms.topic: landing-page
   author: rcdun
   ms.author: rdunstan

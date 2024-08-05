@@ -2,8 +2,8 @@
 title: Remediate noncompliant Azure Automation State Configuration servers
 description: This article tells how to reapply configurations on demand to servers where configuration state has drifted.
 services: automation
-ms.service: automation
-ms.subservice: dsc
+ms.service: azure-automation
+ms.subservice: desired-state-config
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 07/17/2019

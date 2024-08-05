@@ -1,7 +1,7 @@
 ---
 title: "Share gallery images across tenants using an app registration"
 description: Learn how to share Azure Compute Gallery images across Azure tenants using an app registration.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/02/2023

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Functions with Azure C
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: tutorial
 ms.date: 04/12/2024
 #CustomerIntent: As a developer, I want a introductory example of using Azure Cache for Redis triggers with Azure Functions so that I can understand how to use the functions with a Redis cache.

@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal
 author: KarlErickson
 ms.author: guitarsheng
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/10/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

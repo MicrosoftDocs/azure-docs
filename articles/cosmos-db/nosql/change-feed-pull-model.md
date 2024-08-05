@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cosmos DB change feed pull model to read
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: csharp
 ms.topic: conceptual
@@ -64,14 +64,16 @@ FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(Ch
 > [!TIP]
 > Prior to version `3.34.0`, latest version mode can be used by setting `ChangeFeedMode.Incremental`. Both `Incremental` and `LatestVersion` refer to latest version mode of the change feed and applications that use either mode will see the same behavior.
 
-All versions and deletes mode is in preview and can be used with preview .NET SDK versions >= `3.32.0-preview`. Here's an example for obtaining `FeedIterator` in all versions and deletes mode that returns dynamic objects:
+All versions and deletes mode is in preview and can be used with preview .NET SDK versions >= `3.32.0-preview`. Here's an example for obtaining `FeedIterator` in all versions and deletes mode that returns `User` objects:
 
 ```csharp
-FeedIterator<dynamic> InteratorWithDynamic = container.GetChangeFeedIterator<dynamic>(ChangeFeedStartFrom.Now(), ChangeFeedMode.AllVersionsAndDeletes);
+FeedIterator<ChangeFeedItem<User>> InteratorWithPOCOS = container.GetChangeFeedIterator<ChangeFeedItem<User>>(ChangeFeedStartFrom.Now(), ChangeFeedMode.AllVersionsAndDeletes);
 ```
 
 > [!NOTE]
 > In latest version mode, you receive objects that represent the item that changed, with some [extra metadata](change-feed-modes.md#parse-the-response-object). All versions and deletes mode returns a different data model. For more information, see [Parse the response object](change-feed-modes.md#parse-the-response-object-1).
+>
+> You can get the complete sample for [latest version mode](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/CFPullModelLatestVersionMode) or [all versions and deletes mode](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/CFPullModelAllVersionsAndDeletesMode).
 
 ### Consume the change feed via streams
 

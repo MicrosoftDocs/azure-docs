@@ -3,7 +3,7 @@ title: How to deploy TimeGEN-1 model with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy TimeGEN-1 with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 5/21/2024

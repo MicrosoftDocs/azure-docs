@@ -3,7 +3,7 @@ title: Access an app in Azure Spring Apps in a virtual network
 description: Shows how to access an app in Azure Spring Apps in a virtual network.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/09/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

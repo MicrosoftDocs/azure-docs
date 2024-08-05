@@ -5,7 +5,7 @@ author: johnjrayborn
 ms.author: johnray
 ms.date: 04/02/2019
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: mainframe-rehosting
 ---
 

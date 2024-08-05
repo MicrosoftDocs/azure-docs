@@ -1,6 +1,6 @@
 ---
 author: baanders
-ms.service: digital-twins
+ms.service: azure-digital-twins
 description: include for uploading a file for bulk import to Azure Blob Storage
 ms.topic: include
 ms.date: 01/26/2023

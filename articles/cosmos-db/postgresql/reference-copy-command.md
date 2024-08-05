@@ -3,7 +3,7 @@ title: COPY command on Azure Cosmos DB for PostgreSQL
 description: Reference documentation on usage of COPY command
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: reference
 ms.date: 06/16/2023

@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 07/26/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
 ---
@@ -151,7 +151,7 @@ You can configure and change a flow log after you create it. For example, you ca
 
     :::image type="content" source="./media/vnet-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/vnet-flow-logs-portal/change-flow-log.png":::
 
-1. Select **Save** to apply the changes.
+1. Select **Save** to apply the changes or **Cancel** to exit without saving them.
 
 ## List all flow logs
 
@@ -179,7 +179,7 @@ You can view the details of a flow log in a subscription or a group of subscript
 
     :::image type="content" source="./media/vnet-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/vnet-flow-logs-portal/flow-log-settings.png":::
 
-1. Select **Discard** to close the settings page without making changes.
+1. Select **Cancel** to close the settings page without making changes.
 
 ## Download a flow log
 

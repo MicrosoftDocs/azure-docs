@@ -20,7 +20,7 @@ Microsoft Defender for Cloud includes a bundle of recommendations that are avail
 
 ## Prerequisites
 
-- Add the [Required FQDN/application rules for Azure policy](../aks/outbound-rules-control-egress.md#azure-policy).
+- Add the [Required FQDN/application rules for Azure policy](/azure/aks/outbound-rules-control-egress#azure-policy).
 - (For non AKS clusters) [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 ## Enable Kubernetes data plane hardening

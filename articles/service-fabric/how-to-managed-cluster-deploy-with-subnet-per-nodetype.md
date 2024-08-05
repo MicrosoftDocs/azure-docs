@@ -1,10 +1,10 @@
 ---
 title: Deploy a Service Fabric managed cluster with a subnet per NodeType
-description: This article provides the configuration necessary to deploy a Service Fabric managed cluster with different subnets per secondary NodeType.
+description: This article provides the configuration necessary to deploy a Service Fabric managed cluster with different subnets per NodeType.
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 05/17/2024
@@ -12,7 +12,9 @@ ms.date: 05/17/2024
 
 # Deploy a Service Fabric managed cluster with a subnet per NodeType
 
-Service Fabric managed clusters now supports different subnets per secondary NodeType in a [Bring-Your-Own-Virtual-Network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network). With different subnets per NodeType, customers can have specific applications deployed to specific subnets and utilize traffic management via Network Security Group (NSG) rules. Customers can expect increased network isolation for their deployments through this configuration.
+Service Fabric managed clusters now supports different subnets per NodeType in a [Bring-Your-Own-Virtual-Network scenario](how-to-managed-cluster-networking.md#bring-your-own-virtual-network). With different subnets per NodeType, customers can have specific applications deployed to specific subnets and utilize traffic management via Network Security Group (NSG) rules. Customers can expect increased network isolation for their deployments through this configuration. This feature works on both primary and secondary NodeTypes.
+
+
 
 ## Prerequisites
 
