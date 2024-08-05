@@ -9,7 +9,7 @@ ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
-zone_pivot_groups: acs-plat-ios-android-windows
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Display call transcription state on the client
