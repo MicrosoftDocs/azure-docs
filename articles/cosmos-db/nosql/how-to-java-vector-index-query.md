@@ -5,7 +5,7 @@ description: Add vector data Azure Cosmos DB for NoSQL and then query the data e
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023

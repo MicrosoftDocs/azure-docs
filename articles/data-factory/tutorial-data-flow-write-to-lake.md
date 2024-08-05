@@ -3,7 +3,6 @@ title: Best practices for writing to files to data lake with data flows
 description:  This tutorial provides best practices for writing to files to data lake with data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/15/2024

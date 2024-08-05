@@ -3,7 +3,7 @@ title: Back up and restore keys with Azure Key Vault
 description: Back up, delete, restore, and purge keys with Azure Key Vault and the client SDK. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js

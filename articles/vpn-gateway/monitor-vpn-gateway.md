@@ -2,7 +2,7 @@
 title: 'Monitoring Azure VPN Gateway'
 description: Learn how to view VPN Gateway metrics using Azure Monitor.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/25/2022
 ms.author: cherylmc

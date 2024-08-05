@@ -3,7 +3,7 @@ title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023

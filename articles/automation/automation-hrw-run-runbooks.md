@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 06/28/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Run Automation runbooks on a Hybrid Runbook Worker

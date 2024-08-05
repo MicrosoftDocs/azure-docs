@@ -3,7 +3,7 @@ title: Sensor partner integration in Azure Data Manager for Agriculture
 description: Provides guidance to set up your sensors as a partner
 author: gourdsay
 ms.author: angour
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 05/23/2024
 ms.custom: template-how-to
