@@ -47,6 +47,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 
+[1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4
 [1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3
 [1.0.2]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.2
 [Azure Maps Drawing Tools Samples]: https://samples.azuremaps.com/?search=Drawing
