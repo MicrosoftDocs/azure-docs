@@ -106,7 +106,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login

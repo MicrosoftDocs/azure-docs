@@ -22,7 +22,7 @@ In this tutorial, you create and run two microservices that communicate securely
 
 The sample service invocation project includes:
 1. A `checkout` service that uses HTTP proxying on a loop to invoke a request on the `order-processor` service.  
-1. A `order-processor` service that receives the request from the `checkout` service.  
+1. An `order-processor` service that receives the request from the `checkout` service.  
 
 :::image type="content" source="media/microservices-dapr-azd/service-invocation-quickstart.png" alt-text="Diagram of the service invocation services.":::
 

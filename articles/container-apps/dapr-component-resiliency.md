@@ -91,7 +91,7 @@ resource myPolicyDoc 'Microsoft.App/managedEnvironments/daprComponents/resilienc
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login

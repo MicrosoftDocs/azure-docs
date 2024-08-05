@@ -7,7 +7,7 @@ ms.author: hannahhunter
 ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 08/05/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
@@ -21,8 +21,8 @@ In this tutorial, you create publisher and subscriber microservices that leverag
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with provided Bicep. 
 
 The sample pub/sub project includes:
-1. A message generator (publisher) `checkout` service that generates messages of a specific topic.
-1. An (subscriber) `order-processor` service that listens for messages from the `checkout` service of a specific topic. 
+1. A message generator `checkout` service (publisher) that generates messages of a specific topic.
+1. An `order-processor` service (subscriber) that listens for messages from the `checkout` service of a specific topic. 
 
 :::image type="content" source="media/microservices-dapr-azd/pubsub-quickstart.png" alt-text="Diagram of the pub/sub sample.":::
 
