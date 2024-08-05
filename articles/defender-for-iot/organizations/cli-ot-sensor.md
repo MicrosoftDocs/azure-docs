@@ -55,9 +55,7 @@ shell> system sanity
 System is UP! (medium)
 ```
 
-### Restart and shutdown
-
-#### Restart an appliance
+### Restart an appliance
 
 Use the following commands to restart the OT sensor appliance.
 
@@ -73,7 +71,7 @@ For example, for the *admin* user:
 shell> system reboot
 ```
 
-#### Shut down an appliance
+### Shut down an appliance
 
 Use the following commands to shut down the OT sensor appliance.
 
@@ -89,9 +87,7 @@ For example, for the *admin* user:
 shell> system shutdown
 ```
 
-### Software versions
-
-#### Show installed software version
+### Show installed software version
 
 Use the following commands to list the Defender for IoT software version installed on your OT sensor.
 
@@ -107,13 +103,11 @@ shell> system version
 Version: 22.2.5.9-r-2121448
 ```
 
-#### Update sensor software from CLI
+### Update sensor software from CLI
 
-For more information, see [Update your sensors](update-ot-software.md#update-ot-sensors).
+For more information, see [Update your sensors](update-ot-software.md#update-ot-sensors). <!-- is this needed? Is the information on this link correct? -->
 
-### Date, time, and NTP
-
-#### Show current system date/time
+### Show current system date/time
 
 Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
 
@@ -131,7 +125,7 @@ Thu Sep 29 18:38:23 UTC 2022
 shell>
 ```
 
-#### Turn on NTP time sync
+### Turn on NTP time sync
 
 Use the following commands to turn on synchronization for the appliance time with an NTP server.
 
@@ -154,7 +148,7 @@ shell> ntp enable 129.6.15.28
 shell>
 ```
 
-#### Turn off NTP time sync
+### Turn off NTP time sync
 
 Use the following commands to turn off the synchronization for the appliance time with an NTP server.
 
@@ -286,7 +280,7 @@ When you change the password for the *admin* the password is changed for both SS
 |---------|---------|---------|
 |**admin**  |   `system password` |  `<username>`     |
 
-The following example shows the *admin* user's changing the password to `jI8iD9kE6hB8qN0h`:
+The following example shows the *admin* user's changing the password. The new password does not appear on the screen when you type it, make sure to write to make a note of it and ensure that it is correctly typed when asked to reenter the password.
 
 ```bash
 shell>system password user1
@@ -297,9 +291,7 @@ shell>
 
 ## Network configuration
 
-### Network settings
-
-#### Change networking configuration or reassign network interface roles
+### Change networking configuration or reassign network interface roles
 
 Use the following command to rerun the OT monitoring software configuration wizard, which helps you define or reconfigure the following OT sensor settings:
 
@@ -320,7 +312,7 @@ shell>/# sudo dpkg-reconfigure iot-sensor
 The configuration wizard starts automatically after you run this command.
 For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
-#### Validate and show network interface configuration
+### Validate and show network interface configuration
 
 Use the following commands to validate and show the current network interface configuration on the OT sensor.
 
@@ -343,11 +335,9 @@ monitor interfaces mapping: local_listener=adiot0
 shell>
 ```
 
-### Network connectivity
+### Check network connectivity from the OT sensor
 
-#### Check network connectivity from the OT sensor
-
-Use the following commands to send a ping message from the OT sensor.
+Use the following command to send a ping message from the OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -356,9 +346,7 @@ Use the following commands to send a ping message from the OT sensor.
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 network host accessible from the management port on your OT sensor.
 
-### Physical interfaces
-
-#### Locate a physical port by blinking interface lights
+### Locate a physical port by blinking interface lights
 
 Use the following command to locate a specific physical interface by causing the interface lights to blink.
 
@@ -375,9 +363,9 @@ shell> network blink eth0
 Blinking interface for 20 seconds ...
 ```
 
-#### List connected physical interfaces
+### List connected physical interfaces
 
-Use the following commands to list the connected physical interfaces on your OT sensor.
+Use the following command to list the connected physical interfaces on your OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
