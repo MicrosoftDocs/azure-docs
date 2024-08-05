@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 07/30/2024
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

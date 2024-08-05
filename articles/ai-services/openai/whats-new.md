@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 07/31/2024
+ms.date: 08/02/2024
 recommendations: false
 ---
 
@@ -19,6 +19,10 @@ recommendations: false
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
 
 ## July 2024
+
+### GPT-4o mini is now available for fine-tuning
+
+GPT-4o mini fine-tuning is [now available in public preview](./concepts/models.md#fine-tuning-models) in Sweden Central and in North Central US.
 
 ### Assistants File Search tool is now billed
 

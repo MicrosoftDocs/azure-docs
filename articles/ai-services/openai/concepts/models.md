@@ -276,8 +276,9 @@ These models can only be used with Embedding API requests.
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
 | `gpt-4` (0613) <sup>**1**</sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
+| `gpt-4o-mini` <sup>**1**</sup> (2024-07-18) | North Central US <br> Sweden Central | Input: 128,000 <br> Output: 16,384  <br> Training example context length: 64,536 | Oct 2023 |
 
-**<sup>1</sup>** GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
+**<sup>1</sup>** GPT-4 and GPT-4o mini fine-tuning is currently in public preview. See our [GPT-4 & GPT-4o mini fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 ### Whisper models
 
@@ -296,18 +297,18 @@ These models can only be used with Embedding API requests.
 
 For Assistants you need a combination of a supported model, and a supported region. Certain tools and capabilities require the latest models. The following models are available in the Assistants API, SDK, Azure AI Studio and Azure OpenAI Studio. The following table is for pay-as-you-go. For information on Provisioned Throughput Unit (PTU) availability, see [provisioned throughput](./provisioned-throughput.md). The listed models and regions can be used with both Assistants v1 and v2.
 
-| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` |
-|-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| Australia East | ✅ | ✅ | | ✅ |✅ | | |
-| East US  | ✅ | | | | | ✅ | ✅ |
-| East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅|
-| France Central  | ✅ | ✅ | | ✅ |✅ |  | |
-| Japan East | ✅ |  | | | | | |
-| Norway East | |  | | | ✅ |  | |
-| Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅|
-| UK South | ✅  | ✅ | | | ✅ | ✅ |  |
-| West US |  | ✅ | | | ✅ | |✅|
-| West US 3 |  |  | | |✅ | |✅|
+| Region | `gpt-35-turbo (0613)` | `gpt-35-turbo (1106)`| `fine tuned gpt-3.5-turbo-0125` | `gpt-4 (0613)` | `gpt-4 (1106)` | `gpt-4 (0125)` | `gpt-4o (2024-05-13)` | `gpt-4o-mini (2024-07-18)` |
+|-----|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| Australia East | ✅ | ✅ | | ✅ |✅ | | | |
+| East US  | ✅ | | | | | ✅ | ✅ |✅|
+| East US 2 | ✅ |  | ✅ | ✅ |✅ | |✅| |
+| France Central  | ✅ | ✅ | | ✅ |✅ |  | | |
+| Japan East | ✅ |  | | | | | | |
+| Norway East | |  | | | ✅ |  | | |
+| Sweden Central | ✅ |✅ | ✅ |✅ |✅| |✅| |
+| UK South | ✅  | ✅ | | | ✅ | ✅ |  | |
+| West US |  | ✅ | | | ✅ | |✅| |
+| West US 3 |  |  | | |✅ | |✅| |
 
 ## Model retirement
 

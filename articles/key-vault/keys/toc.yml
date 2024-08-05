@@ -18,8 +18,8 @@ items:
     href: quick-create-portal.md
   - name: .NET
     href: quick-create-net.md
-  - name: Node.js
-    href: quick-create-node.md
+  - name: JavaScript
+    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-javascript
     displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Python
     href: quick-create-python.md
@@ -27,6 +27,9 @@ items:
     href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
+  - name: TypeScript
+    href: quick-create-node.md?tabs=azure-cli%2Cwindows&pivots=programming-language-typescript
+    displayName: az ad sp create-for-rbac, az keyvault set-policy     
   - name: Bicep
     displayName: Azure Resource Manager, ARM
     href: quick-create-bicep.md
@@ -44,31 +47,31 @@ items:
     href: hsm-protected-keys-byok.md
   - name: Import HSM-protected keys (nCipher)
     href: hsm-protected-keys-ncipher.md
-- name: Develop with Key Vault	
-  items: 	
-  - name: JavaScript	
-    items: 	
-    - name: Get Started	
-      href: javascript-developer-guide-get-started.md	
-    - name: Manage keys	
-      items: 	
-      - name: Create, update, rotate key	
-        href: javascript-developer-guide-create-update-rotate-key.md	
-      - name: Get key	
-        href: javascript-developer-guide-get-key.md	
-      - name: Enable and disable key	
-        href: javascript-developer-guide-enable-disable-key.md	
-      - name: List keys	
-        href: javascript-developer-guide-list-key-version.md	
-      - name: Import key	
-        href: javascript-developer-guide-import-key.md	
-      - name: Backup, delete, and restore key	
-        href: javascript-developer-guide-backup-delete-restore-key.md	
-    - name: Use keys	
-      items:    	
-      - name: Encrypt and decrypt key	
-        href: javascript-developer-guide-encrypt-decrypt-key.md	
-      - name: Sign and verify with key	
+- name: Develop with Key Vault
+  items: 
+  - name: JavaScript
+    items: 
+    - name: Get Started
+      href: javascript-developer-guide-get-started.md
+    - name: Manage keys
+      items: 
+      - name: Create, update, rotate key
+        href: javascript-developer-guide-create-update-rotate-key.md
+      - name: Get key
+        href: javascript-developer-guide-get-key.md
+      - name: Enable and disable key
+        href: javascript-developer-guide-enable-disable-key.md
+      - name: List keys
+        href: javascript-developer-guide-list-key-version.md
+      - name: Import key
+        href: javascript-developer-guide-import-key.md
+      - name: Backup, delete, and restore key
+        href: javascript-developer-guide-backup-delete-restore-key.md
+    - name: Use keys
+      items:    
+      - name: Encrypt and decrypt key
+        href: javascript-developer-guide-encrypt-decrypt-key.md
+      - name: Sign and verify with key
         href: javascript-developer-guide-sign-verify-key.md
 - name: Samples
   items:

@@ -3,7 +3,7 @@ title: Export API from Azure API Management to Postman for testing and monitorin
 description: Learn how to export an API definition from API Management to Postman and use Postman for API testing and monitoring
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/11/2022
 ms.author: danlep

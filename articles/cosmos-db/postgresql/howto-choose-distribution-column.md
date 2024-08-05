@@ -3,7 +3,7 @@ title: Choose distribution columns – Azure Cosmos DB for PostgreSQL
 description: Learn how to choose distribution columns in common scenarios in Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2022

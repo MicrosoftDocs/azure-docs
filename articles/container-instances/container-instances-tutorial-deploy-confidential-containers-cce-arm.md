@@ -4,7 +4,7 @@ description: Learn how to create an Azure Resource Manager template for a confid
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 05/23/2023
 ms.custom: mvc, devx-track-arm-template

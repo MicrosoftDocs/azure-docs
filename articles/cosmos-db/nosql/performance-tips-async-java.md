@@ -2,7 +2,7 @@
 title: Performance tips for Azure Cosmos DB Async Java SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB database performance for Async Java SDK v2
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: java
 ms.topic: how-to

@@ -2,7 +2,7 @@
 title: Previous-gen and retired VM sizes
 description: Overview of the retirement process for virtual machine size series and information on previous-gen sizes.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: overview
 ms.date: 02/02/2024

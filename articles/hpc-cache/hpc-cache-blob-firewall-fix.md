@@ -2,7 +2,7 @@
 title: Work around storage firewall settings
 description: A storage account network firewall setting can cause failure when creating an Azure Blob storage target in Azure HPC Cache. This article gives a workaround for the limitation until a software fix is in place.
 author: femila
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: femila

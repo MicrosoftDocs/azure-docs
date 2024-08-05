@@ -3,7 +3,7 @@ title: Enable private access - Azure Cosmos DB for PostgreSQL
 description: See how to set up private link in a cluster for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 09/24/2022

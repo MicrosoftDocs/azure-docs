@@ -5,7 +5,7 @@ description: Learn how to use Azure Virtual WAN to create a User VPN (point-to-s
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/24/2023

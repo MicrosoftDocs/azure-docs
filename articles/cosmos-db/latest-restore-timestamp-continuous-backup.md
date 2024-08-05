@@ -3,7 +3,7 @@ title: Latest restorable timestamp use cases, examples for an Azure Cosmos DB co
 description: The latest restorable timestamp API provides the latest restorable timestamp for containers on accounts with continuous mode backup. Using this API, you can get the restorable timestamp to trigger live account restore or monitor the data that is being backed up.
 author: kanshiG
 ms.author: govindk
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 03/21/2024
 ms.topic: how-to

@@ -4,7 +4,7 @@ description: Reference for network configuration settings when deploying Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 11/29/2023
 ms.author: danlep

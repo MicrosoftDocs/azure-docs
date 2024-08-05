@@ -4,7 +4,7 @@ description: Describes the elements in the XML schema of the Service Fabric serv
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/11/2022

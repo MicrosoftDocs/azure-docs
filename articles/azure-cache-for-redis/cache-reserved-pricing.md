@@ -4,7 +4,7 @@ description: Prepay for Azure Cache for Redis compute resources with reservation
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 08/19/2022
 

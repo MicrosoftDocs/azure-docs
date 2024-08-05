@@ -5,7 +5,7 @@ author: prasha-microsoft
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.date: 01/23/2024 
 ---
 

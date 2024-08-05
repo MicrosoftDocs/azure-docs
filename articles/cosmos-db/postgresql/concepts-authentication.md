@@ -3,7 +3,7 @@ title: PostgreSQL and Microsoft Entra ID authentication - Azure Cosmos DB for Po
 description: Learn about the concepts of native PostgreSQL and Microsoft Entra ID authentication with Azure Cosmos DB for PostgreSQL
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 02/06/2024

@@ -5,7 +5,7 @@ description: This quickstart shows how to create a load balancer by using an Azu
 services: load-balancer
 author: mbender-ms
 manager: KumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 10/25/2023
 ms.author: mbender

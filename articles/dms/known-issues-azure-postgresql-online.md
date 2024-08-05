@@ -6,7 +6,7 @@ author: apduvuri
 ms.author: adityaduvuri
 ms.reviewer: randolphwest, maghan
 ms.date: 02/20/2020
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - sql-migration-content

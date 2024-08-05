@@ -3,7 +3,7 @@ title: Create a cluster with private access - Azure Cosmos DB for PostgreSQL
 description: Use Azure CLI to create a virtual network and virtual machine, then connect the VM to a cluster private endpoint.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: devx-track-azurecli
 ms.topic: tutorial

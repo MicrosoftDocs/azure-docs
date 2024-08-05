@@ -3,7 +3,7 @@ title: Load test private endpoints
 titleSuffix: Azure Load Testing
 description: Learn how to deploy Azure Load Testing in a virtual network (virtual network injection) to test private application endpoints and hybrid deployments.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom: devx-track-azurecli
 ms.author: ninallam
 author: ninallam

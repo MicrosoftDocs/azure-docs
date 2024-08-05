@@ -1,6 +1,6 @@
 ---
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: include
 ms.date: 05/05/2021
 ms.author: msmbaldwin

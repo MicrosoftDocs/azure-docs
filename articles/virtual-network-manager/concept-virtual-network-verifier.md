@@ -4,7 +4,7 @@ description: Learn how Virtual Network Verifier helps you verify your network po
 author: mbender-ms
 ms.author: mbender
 ms.topic: concept-article
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 05/20/2024
 ---
 
