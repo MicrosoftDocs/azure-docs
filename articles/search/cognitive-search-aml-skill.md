@@ -10,19 +10,19 @@ ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: reference
-ms.date: 06/26/2024
+ms.date: 08/05/2024
 ---
 
 # AML skill in an Azure AI Search enrichment pipeline
 
 > [!IMPORTANT]
-> This skill is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview REST APIs support this skill.
+> Support for indexer connections to the Azure AI Studio model catalog is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Preview REST APIs support this skill.
 
 The **AML** skill allows you to extend AI enrichment with a custom [Azure Machine Learning (AML)](../machine-learning/overview-what-is-azure-machine-learning.md) model. Once an AML model is [trained and deployed](../machine-learning/concept-azure-machine-learning-architecture.md#workspace), an **AML** skill integrates it into AI enrichment.
 
 Like other built-in skills, an **AML** skill has inputs and outputs. The inputs are sent to your deployed AML online endpoint as a JSON object, which outputs a JSON payload as a response along with a success status code. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. The response is expected to have the outputs specified by your **AML** skill. Any other response is considered an error and no enrichments are performed.
 
-The **AML** skill is a preview feature, but depending on the endpoint, you can call it in a skillset that targets a stable API version. For example, a skillset that's created using 2023-11-01 stable API can include an **AML** skill even though it's a preview feature.
+The **AML** skill can be called with the 2024-07-01 stable API version or the 2024-05-01-preview API version for connections to the model catalog in Azure AI Studio.
 
 Starting in 2024-05-01-preview REST API and in the Azure portal (which also targets the 2024-05-01-preview), Azure AI Search introduced the [Azure AI Studio model catalog vectorizer](vector-search-vectorizer-azure-machine-learning-ai-studio-catalog.md) for query time connections to the model catalog in Azure AI Studio. If you want to use that vectorizer for queries, the **AML** skill is the *indexing counterpart* for generating embeddings using a model in the Azure AI Studio model catalog. 
 

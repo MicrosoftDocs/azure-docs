@@ -4,7 +4,7 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
   author: greg-lindsay
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.topic: faq
   ms.date: 07/15/2024
   ms.author: greglin

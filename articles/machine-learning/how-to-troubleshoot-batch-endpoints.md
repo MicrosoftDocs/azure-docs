@@ -3,7 +3,7 @@ title: Troubleshoot batch endpoints
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and diagnose errors with batch endpoints jobs, including examining logs for scoring jobs and solution steps for common issues.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: troubleshooting-general
 author: msakande
