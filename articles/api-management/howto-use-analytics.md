@@ -1,11 +1,11 @@
 ---
 title: Use API analytics in Azure API Management | Microsoft Docs
-description: Use analytics in Azure API Management to understand and categorize the usage of your APIs and API performance. Analytics is provided using an Azure workbook.
+description: Use analytics in Azure API Management to understand and categorize the usage of APIs and API performance. Analytics uses an Azure Monitor-based dashboard.
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.author: danlep
 ---
 
@@ -22,7 +22,7 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 
 * API Management provides analytics using an [Azure Monitor-based dashboard](../azure-monitor/visualize/workbooks-overview.md). The dashboard aggregates data in an Azure Log Analytics workspace. 
 
-* In the classic API Management service tiers, your API Management instance also includes *built-in (classic) analytics* in the Azure portal, and analytics data can be accessed using the API Management REST API. Similar data is shown in the Azure Monitor-based dashboard and built-in analytics.
+* In the classic API Management service tiers, your API Management instance also includes *legacy built-in analytics* in the Azure portal, and analytics data can be accessed using the API Management REST API. Closely similar data is shown in the Azure Monitor-based dashboard and built-in analytics.
 
 > [!IMPORTANT]
 > * The Azure Monitor-based dashboard is the recommended way to access analytics data.
@@ -66,9 +66,9 @@ After a Log Analytics workspace is configured, access the Azure Monitor-based da
 1. Select a time range for data.
 1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
 
-## Built-in (classic) analytics
+## Legacy built-in analytics
 
-In certain API Management service tiers, built-in (classic) analytics (also called *legacy analytics*) is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
+In certain API Management service tiers, built-in analytics (also called *legacy analytics* or *classic analytics*) is also available in the Azure portal, and analytics data can be accessed using the API Management REST API. 
 
 ### Built-in analytics - portal
 
@@ -78,7 +78,7 @@ To access the built-in (classic) analytics in the Azure portal:
 1. In the left-hand menu, under **Monitoring**, select **Analytics (classic)**. 
 1. Select a time range for data, or enter a custom time range.
 1. Select a report category for analytics data, such as **Timeline**, **Geography**, and so on.
-1. Optionally, filter the report by one or more additional categories.
+1. Optionally, filter the report by one or more other categories.
 
 ### Analytics - REST API
 
@@ -91,3 +91,4 @@ Available operations return report records by API, geography, API operations, pr
 * For an introduction to Azure Monitor features in API Management, see [Tutorial: Monitor published APIs](api-management-howto-use-azure-monitor.md)
 * For detailed HTTP logging and monitoring, see [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md).
 * Learn about integrating [Azure API Management with Azure Application Insights](api-management-howto-app-insights.md).
+* Learn about [Built-in API analytics dashboard retirement (March 2027)](breaking-changes/analytics-dashboard-retirement-march-2027.md)
