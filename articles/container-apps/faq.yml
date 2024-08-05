@@ -65,7 +65,7 @@ sections:
 
           - **Business reasoning for scaling**: You might be eligible for a quota increase request if the platform limits are blocking your workload demands. Scale limits overrides are evaluated on a per-case basis.
 
-  - name: Dapr
+  - name: Microservice APIs powered by Dapr
     questions:
       - question: |
           What Dapr features and APIs are available in Azure Container Apps?
@@ -82,12 +82,12 @@ sections:
       - question: |
           What is the Dapr version release cadence in Azure Container Apps?
         answer: |
-          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks.
+          Dapr's typical release timeline is up to six weeks after [the Dapr OSS release](https://docs.dapr.io/operations/support/support-release-policy/). The latest Dapr version is made available in Azure Container Apps after rigorous testing. Rolling out to all regions can take roughly up to two weeks. 
 
       - question: |
           How can I request a Dapr feature enhancement for Azure Container Apps?
         answer:
-          You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
+
           You can submit a feature request via the [Azure Container Apps GitHub repository](https://github.com/microsoft/azure-container-apps/issues/new/choose). Make sure to include "Dapr" in the feature request title.
   
   - name: Dockerless deployments
