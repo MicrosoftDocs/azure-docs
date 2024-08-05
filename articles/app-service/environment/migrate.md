@@ -149,7 +149,7 @@ If your migration includes a custom domain suffix, for App Service Environment v
 After completing the previous steps, you should continue with migration as soon as possible.
 
 > [!IMPORTANT]
-> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, you have to wait until the scaling event completes before starting the migration. You should disable auto-scaling before starting the migration to avoid this issue. If you need to scale your environment after the migration, you can do so once the migration is complete.
 >
 
 Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. The service window might be extended in rare cases where manual intervention by the service team is required. During migration, scaling and environment configurations are blocked and the following events occur:
@@ -183,7 +183,7 @@ Ensure that there are no locks on your virtual network, resource group, resource
 
 Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
-Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, your migration is blocked until the scaling event completes. You should disable auto-scaling before starting the migration to avoid this issue.
 
 ::: zone pivot="experience-azcli"
 
