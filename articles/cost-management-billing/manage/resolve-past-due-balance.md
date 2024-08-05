@@ -50,38 +50,38 @@ If your default payment method is credit card, the [account administrator](add-c
 
 Users in the following countries/regions don't have the **Settle balance** option. Instead, they use the [Pay now](../understand/pay-bill.md#pay-now-in-the-azure-portal) option to pay their bill.
 
-- `AT` - Austria
-- `AU` - Australia
-- `BE` - Belgium
-- `BG` - Bulgaria
-- `CA` - Canada
-- `CH` - Switzerland
-- `CZ` - Czech Republic
-- `DE` - Germany
-- `DK` - Denmark
-- `EE` - Estonia
-- `ES` - Spain
-- `FI` - Finland
-- `FR` - France
-- `GB` - United Kingdom
-- `GR` - Greece
-- `HR` - Croatia
-- `HU` - Hungary
-- `IE` - Ireland
-- `IT` - Italy
-- `JP` - Japan
-- `KR` - South Korea
-- `LT` - Lithuania
-- `LV` - Latvia
-- `NL` - Netherlands
-- `NO` - Norway
-- `NZ` - New Zealand
-- `PL` - Poland
-- `PT` - Portugal
-- `RO` - Romania
-- `SE` - Sweden
-- `SK` - Slovakia
-- `TW` - Taiwan
+- `AT`: Austria
+- `AU`: Australia
+- `BE`: Belgium
+- `BG`: Bulgaria
+- `CA`: Canada
+- `CH`: Switzerland
+- `CZ`: Czech Republic
+- `DE`: Germany
+- `DK`: Denmark
+- `EE`: Estonia
+- `ES`: Spain
+- `FI`: Finland
+- `FR`: France
+- `GB`: United Kingdom
+- `GR`: Greece
+- `HR`: Croatia
+- `HU`: Hungary
+- `IE`: Ireland
+- `IT`: Italy
+- `JP`: Japan
+- `KR`: South Korea
+- `LT`: Lithuania
+- `LV`: Latvia
+- `NL`: Netherlands
+- `NO`: Norway
+- `NZ`: New Zealand
+- `PL`: Poland
+- `PT`: Portugal
+- `RO`: Romania
+- `SE`: Sweden
+- `SK`: Slovakia
+- `TW`: Taiwan
 
 ## Troubleshoot a declined credit card
 

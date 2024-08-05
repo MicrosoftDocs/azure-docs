@@ -26,7 +26,7 @@ To view the payment history for your billing account, you must have at least the
 
 To view your payment history, you can go to the **Payment history** pane under a billing account or a specific billing profile.
 
-To view payment history at billing account level:
+To view payment history at a billing account level:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for **Cost Management + Billing** and select it.
@@ -44,7 +44,7 @@ To view payment history at a billing profile level:
 
    :::image type="content" source="./media/view-payment-history/payment-history-window.png" alt-text="Screenshot that shows the pane that shows payment history." lightbox="./media/view-payment-history/payment-history-window.png" :::
 
-To download an invoice, select the invoice ID.
+   To download an invoice, select the invoice ID.
 
 ## Related content
 

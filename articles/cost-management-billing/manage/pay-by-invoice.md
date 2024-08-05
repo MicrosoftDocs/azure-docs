@@ -19,7 +19,7 @@ This article applies to you if you meet one of these conditions:
 - You have a Microsoft Customer Agreement.
 - You signed up for Azure through the Azure website to create a Microsoft Online Subscription Program account. This type of account is also called a *pay-as-you-go* account.
 
-If you signed up for Azure through a Microsoft representative, your default payment method is already set to *wire transfer*. You don't need to follow the steps in this article.
+If you signed up for Azure through a Microsoft representative, your default payment method is already set to wire transfer. You don't need to follow the steps in this article.
 
 When you switch to payment by wire transfer:
 
@@ -34,10 +34,10 @@ Users who have a Microsoft Customer Agreement must [submit an Azure support requ
 
 Currently, customers who have a Microsoft Online Subscription Program (pay-as-you-go) account must [submit an Azure support request](#submit-a-request-to-set-up-payment-by-wire-transfer) to set up payment by wire transfer. Any user who has access to the Microsoft Customer Agreement billing profile can submit the request to pay by wire transfer.
 
-**Eligibility requirements**: To qualify for wire transfer payments, you must:
+To qualify for wire transfer payments, you must:
 
-- Be an established customer for at least six months and have no outstanding balances
-- Have a subscription cost that exceeds a certain amount (this amount varies by service location)
+- Be an established customer for at least six months and have no outstanding balances.
+- Have a subscription cost that exceeds a certain amount. This amount varies by service location.
 
 > [!IMPORTANT]
 > - Payment by wire transfer is available only for customers who use Azure on behalf of a company.
@@ -68,7 +68,7 @@ Users in all regions can manually submit an Azure support request to pay by wire
     - Microsoft account ID for account admins. This ID should be a company domain.
     - Commerce account ID. To find this ID in the Azure portal:
       1. Search for **Cost Management** and select it (not **Cost Management + Billing**). It's a green hexagon-shaped symbol.
-      1. On the left menu, select **Properties**. If you don't see **Properties** on the left menu, at the top of the pane under **Scope**, select **Go to billing account**.
+      1. On the left menu, select **Properties**. If **Properties** doesn't appear on the left menu, go to the top of the pane under **Scope**, and then select **Go to billing account**.
 
          On the **Properties** pane that opens, your billing account ID appears as a GUID value. That's your commerce account ID.
     - Company name and address, as registered under VAT or government website.
@@ -78,7 +78,7 @@ Users in all regions can manually submit an Azure support request to pay by wire
     - Year when the company was established.
     - Any prior business with Microsoft.
     - Contact name, phone, and email. You must add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department.
-    - Justification about why you want to use wire transfer instead of a credit card for payment.
+    - Justification for why you want to use wire transfer instead of a credit card for payment.
     - File upload. Attach legal documentation that shows the company name and company address. Your information in the Azure portal (that is, the information for the Azure account) should match the legal information registered in the legal document. You can provide one of the following examples:
       - A certificate of incorporation signed by the company's legal representatives.
       - Any government-issued document that has the company name and address, such as a tax certification.
@@ -120,7 +120,7 @@ Use the following steps to switch your Azure subscription to payment by wire tra
 Use the following steps to switch a billing profile to wire transfer. Only the person who signed up for Azure can change the default payment method of a billing profile.
 
 1. Go to the Azure portal, and then search for and select **Cost Management + Billing**.
-1. On the left the menu, select **Billing profiles**.  
+1. On the left menu, select **Billing profiles**.  
 
     :::image type="content" source="./media/pay-by-invoice/billing-profile.png" alt-text="Screenshot that shows the menu item for billing profiles." lightbox="./media/pay-by-invoice/billing-profile.png" :::
 1. Select a billing profile.

@@ -19,7 +19,7 @@ In the Azure portal, you can change your default payment method to a new credit 
 - For a Microsoft Online Subscription Program (pay-as-you-go) account, you must be an [account administrator](add-change-subscription-administrator.md#whoisaa).
 - For a Microsoft Customer Agreement (MCA) account, you must have the correct [MCA permissions](understand-mca-roles.md).
 
-The supported payment methods for Azure are credit cards, debit cards, and wire transfer. Azure doesn't support virtual or prepaid cards. To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
+The supported payment methods for Azure are credit card, debit card, and wire transfer. Azure doesn't support virtual or prepaid cards. To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
 
 > [!NOTE]
 > Most countries/regions accept credit cards and debit cards. Here's some specific information:
@@ -65,7 +65,7 @@ To change your subscription's default credit card to a new one:
 You can replace a subscription's default credit card to one that's already saved to your account by using the following steps. This procedure changes the credit card for all other subscriptions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
-1. Search for and **Cost Management + Billing**.  
+1. Search for and select **Cost Management + Billing**.  
 
     :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing." lightbox="./media/change-credit-card/search.png" :::
 1. Select the subscription where you want to add the credit card.
@@ -91,7 +91,7 @@ If your credit card is renewed and the number stays the same, use the following 
 1. Select **Payment methods**.
 
     :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot of the pane for managing payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. For the credit card that you want to edit, select the ellipsis (**...**) at the end of the row. Select **Edit**.
+1. For the credit card that you want to edit, select the ellipsis (**...**) at the end of the row. Then select **Edit**.
 
     :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot that shows the Edit command for a credit card." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. Update the credit card details.  
@@ -191,7 +191,7 @@ To delete a payment method for a Microsoft Customer Agreement:
 
 ### Detach an MCA payment method
 
-If an MCA billing profile is using your payment method, the following message appears.
+If a Microsoft Customer Agreement billing profile is using your payment method, the following message appears.
 
 :::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example screenshot showing that a Microsoft Customer Agreement account is using a payment method." :::
 
@@ -207,7 +207,7 @@ When you fully satisfy all the conditions, you can detach the payment method fro
 
 #### Detach payment method errors
 
-There are several reasons why trying to detach a payment method might fail. If you're having problems trying to detach (remove) a payment method, one of the following reasons is likely the cause.
+If you're having problems trying to detach (remove) a payment method, one of the following reasons is likely the cause.
 
 ##### Outstanding charges
 
@@ -263,7 +263,7 @@ To view pending charges:
 1. Search for and select **Cost Management + Billing**.
 1. Select your billing account.
 1. Under **Billing**, select **Invoices**.
-1. On the **Invoices** pane, check for charges that appear with a **Due on *date*** status. These are pending charges.
+1. On the **Invoices** pane, check for charges that appear with a **Due on *date*** status. These items are pending charges.
 
    :::image type="content" source="./media/change-credit-card/due-on.png" alt-text="Screenshot of invoices that have pending charges." lightbox="./media/change-credit-card/due-on.png":::
 

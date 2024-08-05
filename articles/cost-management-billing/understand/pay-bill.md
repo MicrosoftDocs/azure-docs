@@ -11,7 +11,7 @@ ms.date: 05/06/2024
 ms.author: banders
 ---
 
-# Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program bill
+# Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 
 This article applies to:
 
@@ -22,14 +22,14 @@ If you're unsure of your billing account type, see [Check the type of your accou
 
 There are two ways to pay your bill for Azure. You can pay with the default payment method of your billing profile, or you can make a one-time payment with the **Pay now** option.
 
-If you signed up for Azure through a Microsoft representative, your default payment method is always set to *wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
+If you signed up for Azure through a Microsoft representative, your default payment method is always set to wire transfer. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
 
 If you have a Microsoft Online Subscription Program account, your default payment method is credit card. Normally, payments are automatically deducted from your credit card. But you can also make one-time payments manually by credit card.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
 
 > [!NOTE]
-> Regardless of the payment method selected to complete your payment, you must specify the invoice number in the payment details.
+> Regardless of the payment method that you select to complete your payment, you must specify the invoice number in the payment details.
 
 Here's a table that summarizes payment methods for agreement types:
 
@@ -72,7 +72,7 @@ After you submit the payment, allow time for the payment to appear in the Azure 
 
 #### How am I refunded if I made a payment with UPI or NetBanking?
 
-Refunds are treated as a regular charge. They're refunded to your bank account.
+Refunds are treated as a regular charge. They go to your bank account.
 
 ## Partial payment for Azure global in China
 
