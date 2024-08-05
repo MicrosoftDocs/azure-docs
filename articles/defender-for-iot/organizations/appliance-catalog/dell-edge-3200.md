@@ -37,7 +37,7 @@ The following image shows a view of the Dell Edge Gateway 3200 back panel:
 |Management|iDRAC Group Manager, Disabled |
 |Rack support| Wall mount/ DIN rail support |
 
-## Dell Edge Gateway 3200 - Bill of Materials
+## Dell Edge Gateway 3200 - Bill of materials
 
 |type|Description|
 |----|----|
