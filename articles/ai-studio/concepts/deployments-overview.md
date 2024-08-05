@@ -44,7 +44,7 @@ With Azure OpenAI Service, you can get access to the latest OpenAI models that h
 
 ### Open models
 
-The model catalog offers access to a large variety of models across modalities. You can deploy certain models in the model catalog as a service with pay-as-you-go pricing. This capability provides a way to consume the models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that your organization needs.
+The model catalog offers access to a large variety of models across modalities. You can deploy certain models in the model catalog as a service with pay-as-you-go billing. This capability provides a way to consume the models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that your organization needs.
 
 #### Deploy models with MaaS
 
