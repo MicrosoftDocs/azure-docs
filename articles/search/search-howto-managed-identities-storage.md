@@ -73,7 +73,7 @@ For connections made using a system-assigned managed identity, the only change t
 Provide a `ResourceId` that has no account key or password. The `ResourceId` must include the subscription ID of the storage account, the resource group of the storage account, and the storage account name.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 
 {
     "name" : "blob-datasource",
@@ -98,7 +98,7 @@ Provide a `ResourceId` that has no account key or password. The `ResourceId` mus
 Provide an `identity` using the syntax shown in the following example.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 
 {
     "name" : "blob-datasource",

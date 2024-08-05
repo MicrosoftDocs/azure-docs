@@ -3,7 +3,7 @@ title: Java on Azure Container Apps overview
 description: Learn about the tools and resources needed to run Java applications on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/16/2024

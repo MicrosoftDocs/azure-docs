@@ -12,7 +12,7 @@ ms.author: mbaldwin
 
 # Certification and compliance
 
-Azure maintains the largest compliance portfolio in the industry. For details, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/). Each offering description provides an up to-date-scope statement and links to useful downloadable resources.
+Azure maintains the largest compliance portfolio in the industry. For details, see [Microsoft Azure Compliance Offerings](/compliance/regulatory/offering-home). Each offering description provides an up to-date-scope statement and links to useful downloadable resources.
 
 Azure payment HSM meets following compliance standards:
 
