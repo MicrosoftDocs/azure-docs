@@ -27,7 +27,7 @@ You need to collect consent from all participants in the call before you can tra
 The following tables define support of call transcription in Azure Communication Services.
 
 ## Identities & call types
-The following tables show support of breakout rooms for specific call type and identity. 
+The following tables show support of transcription for specific call type and identity. 
 
 |Identities                   | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 |-----------------------------|---------------|------|----------|------------|------------------------|--------------------------|
