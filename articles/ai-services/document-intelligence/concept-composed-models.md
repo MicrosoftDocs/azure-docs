@@ -31,7 +31,7 @@ ms.author: lajanuar
 ::: moniker-end
 
 > [!IMPORTANT]
-> Model compose behavior is changing for api-version=2024-07-31-preview and later, for more info refer to [Composed Models Updated](concept-compose-models-updated.md). The following behavior only applies to v3.1 and previous versions
+> Model compose behavior is changing for api-version=2024-07-31-preview and later. The following behavior only applies to v3.1 and previous versions
 
 **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. When a document is submitted for analysis using a composed model, the service performs a classification to decide which custom model best represents the submitted document.
 

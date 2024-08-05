@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
 ms.topic: conceptual
-ms.date: 02/29/2024
+ms.date: 08/07/2024
 ms.author: vikurpad
 ms.custom:
   - references_regions
@@ -75,5 +75,5 @@ When creating a field, select the right subtype to minimize post processing, for
 * Learn more about custom template models:
 
   > [!div class="nextstepaction"]
-  > [Custom models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/concept-custom?view=doc-intel-4.0.0)
+  > [Custom models](concept-custom-template.md)
 

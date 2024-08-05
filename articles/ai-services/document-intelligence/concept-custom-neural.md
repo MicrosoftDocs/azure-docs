@@ -84,9 +84,9 @@ To use overlapping fields, label your dataset with the overlaps and train the mo
 
 With the release of API versions **2022-06-30-preview** and later, custom neural models support tabular fields (tables) to analyze table, row, and cell data with added confidence:
 
-    * Models trained with API version 2022-06-30-preview, or later will accept tabular field labels.
-    * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
-    * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
+* Models trained with API version 2022-06-30-preview, or later will accept tabular field labels.
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
+* The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
 2. Tabular fields support **cross page tables** by default:
 
@@ -106,7 +106,7 @@ With the release of API versions **2022-06-30-preview** and later, custom neural
 
 ### Supported languages and locales
 
-*See* our [Language Support—custom models](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/language-support-custom?view=doc-intel-4.0.0&tabs=printed#custom-neural) for a complete list of supported languages.
+*See* our [Language Support—custom models](language-support-custom.md#custom-neural) for a complete list of supported languages.
 
 ## Supported regions
 
