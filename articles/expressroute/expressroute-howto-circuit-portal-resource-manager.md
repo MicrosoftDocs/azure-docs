@@ -74,7 +74,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | Enable Rate Limiting | Select this option to regulate the distribution of bandwidth across your ExpressRoute circuits. For more information, see [Rate limiting for ExpressRoute Direct circuits](rate-limit.md) |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
     | SKU | Select between **Local**, **Standard, and **Premium** SKU. The SKU determines the connectivity scope of your ExpressRoute circuit. For more information, see [What are the differences between circuit SKU?](expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus). |
-    | Billing model | Select the billing model for the outbound data charge. You can select between **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. For more information, see [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/) details. |
+    | Billing model | Select the billing model for the outbound data charge. You can select between **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. For more information, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) details. |
 
     > [!IMPORTANT]
     > * The peering location indicates the [physical location](expressroute-locations.md) where you're peering with Microsoft. This field **isn't** linked to **Region** property, which refers to the location of the Azure Network Resource Provider. While they're not related, it's good practice to select a Network Resource Provider closest to the peering location of the ExpressRoute circuit.
