@@ -2,7 +2,7 @@
 title: Adapt your R script to run in production
 titleSuffix: Azure Machine Learning
 description: 'Learn how to modify your existing R scripts to run in production on Azure Machine Learning'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/11/2023
 ms.topic: how-to

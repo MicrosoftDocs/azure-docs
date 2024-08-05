@@ -3,7 +3,7 @@ title: 'Comparing Container Apps with other Azure container options'
 description: Understand when to use Azure Container Apps and how it compares to other container options including Azure Container Instances, Azure App Service, Azure Functions, and Azure Kubernetes Service.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 07/12/2024
 ms.author: cshoe

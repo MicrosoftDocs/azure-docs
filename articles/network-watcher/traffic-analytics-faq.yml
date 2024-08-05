@@ -5,7 +5,7 @@ metadata:
   description: Find answers to the most frequently asked questions (FAQ) about traffic analytics in Azure Network Watcher.
   author: halkazwini
   ms.author: halkazwini
-  ms.service: network-watcher
+  ms.service: azure-network-watcher
   ms.topic: faq
   ms.date: 07/08/2024
 title: Traffic analytics frequently asked questions (FAQ)
