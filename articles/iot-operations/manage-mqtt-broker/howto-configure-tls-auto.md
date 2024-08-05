@@ -175,7 +175,7 @@ For production, check cert-manager documentation to see which issuer works best 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and Issuer for the frontends. The following is an example of a BrokerListener resource that enables TLS on port 8884 with automatic certificate management.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: my-new-tls-listener

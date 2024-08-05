@@ -75,7 +75,7 @@ kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: listener
@@ -117,7 +117,7 @@ This example shows how to create a new *BrokerListener* resource for a *Broker* 
 To create these *BrokerListener* resources, apply this YAML manifest to your Kubernetes cluster:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: my-test-listener

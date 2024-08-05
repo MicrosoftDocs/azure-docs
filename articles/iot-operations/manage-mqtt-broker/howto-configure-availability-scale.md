@@ -108,7 +108,7 @@ kubectl delete broker broker -n azure-iot-operations
 Then, create a YAML file with desired settings. For example, the following YAML file configures the broker with name `broker` in namespace `azure-iot-operations` with `medium` memory profile and `distributed` mode with two frontend replicas and two backend chains with two partitions and two workers each. Also, the [encryption of internal traffic option](#configure-encryption-of-internal-traffic) is disabled.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: broker
@@ -178,7 +178,7 @@ The following table lists the properties of the broker advanced settings that in
 Here's an example of a *Broker* with advanced settings:
 
 ```yml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: broker
@@ -243,7 +243,7 @@ You can configure diagnostics using the *Broker* custom resource definition (CRD
 Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: Broker
 metadata:
   name: broker

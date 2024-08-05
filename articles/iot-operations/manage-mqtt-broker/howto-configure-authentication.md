@@ -29,7 +29,7 @@ kubectl get brokerauthentication authn -n azure-iot-operations -o yaml
 The output shows the default BrokerAuthentication resource, with metadata removed for brevity:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata:
   name: authn
@@ -70,7 +70,7 @@ The authentication flow ends when:
 With multiple authentication methods, MQTT broker has a fallback mechanism. For example:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata: 
   name: authn
@@ -152,7 +152,7 @@ BinaryData
 X509 attributes can be specified in the *BrokerAuthentication* resource. For example, every client that has a certificate issued by the root CA `CN = Contoso Root CA Cert, OU = Engineering, C = US` or an intermediate CA `CN = Contoso Intermediate CA` receives the attributes listed.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthentication
 metadata: 
   name: authn

@@ -43,7 +43,7 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -110,7 +110,7 @@ Attribute annotations must begin with `aio-mq-broker-auth/` to distinguish them 
 As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
@@ -156,7 +156,7 @@ kubectl edit brokerauthorization my-authz-policies
 To disable authorization, set `authorizationEnabled: false` in the BrokerListener resource. When the policy is set to allow all clients, all [authenticated clients](./howto-configure-authentication.md) can access all operations.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "my-listener"
