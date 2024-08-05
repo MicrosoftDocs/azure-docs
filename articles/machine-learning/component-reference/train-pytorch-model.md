@@ -3,7 +3,7 @@ title: "Train PyTorch Model"
 titleSuffix: Azure Machine Learning
 description: Use the Train PyTorch Models component in Azure Machine Learning designer to train models from scratch, or fine-tune existing models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 
