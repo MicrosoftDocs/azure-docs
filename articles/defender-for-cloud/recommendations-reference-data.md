@@ -296,13 +296,6 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Low
 
-### [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link)
-
-**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Azure Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/private-link-overview.md). (Related policy: Cognitive Services should use private link).
-
-**Severity**: Medium
-
-
 ### [Diagnostic logs in Azure Data Lake Store should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ad5bbaeb-7632-5edf-f1c2-752075831ce8)
 
 **Description**: Enable logs and retain them for up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.

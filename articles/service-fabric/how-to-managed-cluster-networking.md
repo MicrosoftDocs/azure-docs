@@ -4,7 +4,7 @@ description: Learn how to configure your Service Fabric managed cluster for NSG 
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/11/2022

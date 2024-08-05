@@ -1,7 +1,7 @@
 ---
 title: Create a collection in Azure Cosmos DB for MongoDB
 description: Learn how to create a collection in Azure Cosmos DB for MongoDB by using Azure portal, .NET, Java, Node.js, and other SDKs.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 04/07/2022

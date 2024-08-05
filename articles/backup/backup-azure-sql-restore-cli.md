@@ -2,25 +2,18 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/18/2023
-ms.service: backup
-ms.custom: devx-track-azurecli
+ms.date: 07/30/2024
+ms.service: azure-backup
+ms.custom: devx-track-azurecli, engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Restore SQL databases in an Azure VM using Azure CLI
 
-\Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to restore a backed-up SQL database on an Azure VM using Azure CLI. You can also perform these actions using the [Azure portal](restore-sql-database-azure-vm.md).
+Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to restore a backed-up SQL database on an Azure VM using Azure CLI. You can also perform these actions using the [Azure portal](restore-sql-database-azure-vm.md).
 
 Use [Azure Cloud Shell](../cloud-shell/overview.md) to run CLI commands.
-
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> * View restore points for a backed-up database
-> * Restore a database
 
 This article assumes you've an SQL database running on Azure VM that's backed-up using Azure Backup. If you've used [Back up an SQL database in Azure using CLI](backup-azure-sql-backup-cli.md) to back up your SQL database, then you're using the following resources:
 
@@ -396,7 +389,6 @@ Add the parameter `--target-subscription-id` that enables you to provide the tar
 
 ```
 
-## Next steps
+## Next step
 
-* Learn how to [manage SQL databases that are backed up using Azure CLI](backup-azure-sql-manage-cli.md).
-* Learn how to [restore an SQL database running in Azure VM using the Azure portal](./restore-sql-database-azure-vm.md).
+* [Manage SQL databases that are backed up using Azure CLI](backup-azure-sql-manage-cli.md).

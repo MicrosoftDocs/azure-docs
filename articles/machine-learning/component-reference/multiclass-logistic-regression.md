@@ -3,7 +3,7 @@ title:  "Multiclass Logistic Regression: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Multiclass Logistic Regression component in Azure Machine Learning designer to predict multiple values.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

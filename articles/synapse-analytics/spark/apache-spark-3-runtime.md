@@ -4,7 +4,7 @@ description: Supported versions of Spark, Scala, Python, and .NET for Apache Spa
 author: ekote
 ms.author: eskot 
 ms.reviewer: whhender, whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/28/2022

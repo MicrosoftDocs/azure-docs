@@ -2,7 +2,6 @@
 title: Get started and try out your first data factory pipeline
 description: Get started with your first data factory to copy data from one blob storage to another.
 author: pennyzhou-msft
-ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: bicep
 ms.topic: quickstart

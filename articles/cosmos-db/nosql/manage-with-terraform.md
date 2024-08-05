@@ -2,7 +2,7 @@
 title: Create and manage Azure Cosmos DB with terraform
 description: Use terraform to create and configure Azure Cosmos DB for NoSQL 
 author: ginsiucheng
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-terraform
 ms.topic: how-to

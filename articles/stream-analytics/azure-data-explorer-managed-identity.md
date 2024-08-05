@@ -3,7 +3,7 @@ title: Use managed identities to access Azure Data Explorer from an Azure Stream
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Data Explorer output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.custom: subject-rbac-steps

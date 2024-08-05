@@ -4,7 +4,7 @@ description: How to add a drawing toolbar to a map using Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
 ms.date: 06/05/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---

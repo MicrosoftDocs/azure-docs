@@ -3,7 +3,7 @@ title: Azure Functions scale and hosting
 description: Compare the various options you need to consider when choosing a hosting plan in which to run your function app in Azure Functions.
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: limits-and-quotas
-ms.date: 06/27/2024
+ms.date: 07/16/2024
 ms.custom: H1Hack27Feb2017, devdivchpfy22, build-2023, build-2024
 ---
 # Azure Functions hosting options
@@ -75,12 +75,12 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 | **[Flex Consumption plan]** | [Per-function scaling](./flex-consumption-plan.md#per-function-scaling). Event-driven scaling decisions are calculated on a per-function basis, which provides a more deterministic way of scaling the functions in your app. With the exception of HTTP, Blob storage (Event Grid), and Durable Functions, all other function trigger types in your app scale on independent instances. All HTTP triggers in your app scale together as a group on the same instances, as do all Blob storage (Event Grid) triggers. All Durable Functions triggers also share instances and scale together. | Limited only by total memory usage of all instances across a given region. For more information, see [Instance memory](flex-consumption-plan.md#instance-memory).  | 
 | **[Premium plan]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | **Windows:** 100<br/>**Linux:** 20-100<sup>2</sup>| 
 | **[Dedicated plan]**<sup>3</sup> | Manual/autoscale |10-30<br/>100 (ASE)| 
-| **[Container Apps]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | 10-300<sup>4</sup>  |
+| **[Container Apps]** | [Event driven](event-driven-scaling.md). Scale out automatically, even during periods of high load. Azure Functions infrastructure scales CPU and memory resources by adding more instances of the Functions host, based on the number of events that its functions are triggered on. | 300-1000<sup>4</sup>  |
 
 1. During scale-out, there's currently a limit of 500 instances per subscription per hour for Linux apps on a Consumption plan.  <br/>
 2. In some regions, Linux apps on a Premium plan can scale to 100 instances. For more information, see the [Premium plan article](functions-premium-plan.md#region-max-scale-out). <br/>
 3. For specific limits for the various App Service plan options, see the [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
-4. On Container Apps, you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which is honored as long as there's enough cores quota available.
+4. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal you're limited to 300 instances.
 
 ## Cold start behavior
 

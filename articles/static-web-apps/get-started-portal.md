@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 05/17/2024
 ms.topic: quickstart
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 zone_pivot_groups: devops-or-github
 ---
 

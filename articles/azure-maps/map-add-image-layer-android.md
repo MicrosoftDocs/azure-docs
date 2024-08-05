@@ -4,7 +4,7 @@ description: Learn how to add images to a map. See how to use the Azure Maps And
 author: sinnypan
 ms.author: sipa
 ms.date: 02/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: android-sdk
 ms.custom: devx-track-extended-java

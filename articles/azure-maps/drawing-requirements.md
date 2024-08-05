@@ -5,7 +5,7 @@ description: Learn about the drawing package requirements to convert your facili
 author: faterceros
 ms.author: aterceros
 ms.date: 03/21/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 ms.subservice: creator
 zone_pivot_groups: drawing-package-version

@@ -3,7 +3,6 @@ metadata:
   title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
   description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
   ms.topic: faq
-  ms.service: event-hubs
   ms.date: 11/28/2023
 title: Event Hubs frequently asked questions
 summary: |
@@ -193,6 +192,11 @@ sections:
           How many partitions do I need?
         answer: |
           [!INCLUDE [event-hubs-partition-count](./includes/event-hubs-partition-count.md)]
+          
+      - question: |  
+          Can partition count be increased in the Standard tier of Event Hubs?
+        answer: |
+          No, it's not possible because partitions are immutable in the Standard tier. Dynamic addition of partitions is available only in premium and dedicated tiers of Event Hubs.
           
   - name: Pricing
     questions:

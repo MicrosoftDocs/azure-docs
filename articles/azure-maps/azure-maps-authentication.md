@@ -2,8 +2,8 @@
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Microsoft Entra authentication."
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps

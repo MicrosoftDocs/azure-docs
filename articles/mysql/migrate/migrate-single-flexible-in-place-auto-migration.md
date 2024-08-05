@@ -5,7 +5,7 @@ author: adig
 ms.author: adig
 ms.reviewer: talawren, maghan
 ms.date: 07/19/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -17,10 +17,10 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU** and **no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
-
 > [!IMPORTANT]
 > Some Single Server instances might require mandatory inputs to perform a successful in-place automigration. Review the migration details in the Migration blade on Azure portal to provide those inputs. Failure to provide mandatory inputs 7 days before the scheduled migration will lead to re-scheduling of the migration to a later date.
+
+**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU** and **no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -33,7 +33,7 @@ The in-place migration provides a highly resilient and self-healing offline migr
 
 ## Eligibility
 
-If you own a Single Server workload with no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
+If you own a Single Server workload with no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
 ## Configure migration alerts
 
@@ -56,11 +56,20 @@ Following described are the ways to review your migration schedule once you rece
 - For Single Servers scheduled for automigration, a new **Migration blade** is lighted on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
 - If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month.
 - If your Single Server has **General Purpose SKU**, you have the other option to enable **High Availability** when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule.
-- If your Single Server has **private endpoints**, perform the following **mandatory** steps when reviewing the migration schedule at least 7 days before the scheduled migration:
-  - **Review** the private endpoints listed to be migrated. Ensure they are marked as **Ready to Migrate**. If they are marked as ineligible, select the appropriate subscription and private DNS Zone.
-  - Select the **confirmation checkbox** after performing the listed prerequisite checks for migrating private endpoints.
-  - Select the **Authenticate** button to authenticate ARM connection required to migrate the private endpoints from source to target server.
-  - Select on **Save** to save all the above steps.
+- If your Single Server instance has one or more of **Private Link, Customer Managed Key (CMK) and Microsoft Entra Admin enabled**, the in-place auto-migration requires mandatory inputs for the private endpoints, CMK and Microsoft Entra Admin to be migrated from your Single Server instance to the target Flexible Server instance. The user inputs must be provided 7 days prior to the scheduled migration window. If the user inputs are not provided before the migration details are locked, your migration will be re-scheduled to a later point-in-time. After providing all inputs, ensure to **Save** the configuration in the auto-migration wizard. Steps to provide user input :
+
+  - Navigate to the **Migration blade** of your Single Server instance and select **edit** scheduled migration.
+  - In the **Auto-migration details section** click on **Authenticate** button to authenticate and save ARM API connection to migrate your server.
+  - If your server has **Microsoft Entra Admin** configured, you can provide inputs under the Microsoft Entra Admin section in the auto-migration wizard :
+    - Migrating Microsoft Entra admin for target server requires an **Identity** to be added to Azure Database for MySQL – Flexible Server. The Identity requires the following privileges – **User.Read.All, GroupMember.Read.All and Application.Read.All** to be granted. Please select an appropriate **user assigned managed identity**.  
+  - If your server has **Customer Managed Key** configured, you can provide inputs under the Data Encryption section in the auto-migration wizard :
+    - Migrating customer managed key encryption requires an **Identity** to be added to Azure Database for MySQL – Flexible Server. Please select an appropriate **user assigned managed identity**. The listed **key identifier/key** would be migrated from the source to target server and should be granted the following privileges – **Get, Wrap Key, Unwrap Key** in order to access the key vault.
+  - If your Single Server has **private endpoints**, perform the following **mandatory** steps when reviewing the migration schedule at least 7 days before the scheduled migration:
+    - **Review** the private endpoints listed to be migrated. Ensure they are marked as **Ready to Migrate**. If they are marked as ineligible, select the appropriate subscription and private DNS Zone.
+      - Custom Private DNS Zone are not supported by auto-migration. The Private DNS Zone must be **privatelink.mysql.database.azure.com**.
+      - The private endpoints **connection approval method** should be set as **auto-approval** and not manual approval. Manual approval private endpoints are not supported by auto-migration.
+    - Select the **confirmation checkbox** after performing the listed prerequisite checks for migrating private endpoints.
+
   > [!NOTE]  
   > If the mandatory inputs for migration are not provided at least 7 days before the scheduled migration, the migration is rescheduled to a later date.
 

@@ -2,7 +2,7 @@
 title: 'Deep learning (deprecated)'
 description: This article provides a conceptual overview of the deep learning and data science capabilities available through Apache Spark on Azure Synapse Analytics.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 07/15/2024

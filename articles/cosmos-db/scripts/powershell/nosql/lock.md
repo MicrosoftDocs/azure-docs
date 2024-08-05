@@ -4,7 +4,7 @@ description: Create resource lock for Azure Cosmos DB for NoSQL database and con
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/12/2020

@@ -313,7 +313,7 @@
       href: ./concepts/policy-for-kubernetes.md
     - name: Secure AKS with Azure Policy
       displayName: aks, psp, rego, opa
-      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Key Vault integration
     items:
     - name: Integrate Key Vault with Azure Policy

@@ -3,7 +3,7 @@ title: Manage authentication in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
 author: pbrasil
-ms.author: peterbr
+ms.author: peterbr 
 ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
