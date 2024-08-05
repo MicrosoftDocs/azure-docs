@@ -5,7 +5,7 @@ description: Learn how to upload a blob to your Azure Storage account using the 
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/28/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
