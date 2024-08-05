@@ -50,7 +50,6 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 Use the following steps in both Microsoft Sentinel and your SAP HANA system to verify that your system is configured as expected.
 
 ### Microsoft Sentinel 
-
 In Microsoft Sentinel's **Logs** page, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
 
 ```Kusto
