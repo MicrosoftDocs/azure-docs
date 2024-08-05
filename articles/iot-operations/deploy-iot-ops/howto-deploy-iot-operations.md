@@ -21,7 +21,7 @@ Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI.
   * Arc extensions
   * Custom locations
   * Resource sync rules
-  * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
+  * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and data flows.
 
 * An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ, Akri, and OPC UA connector.
 
@@ -319,7 +319,7 @@ The `delete` command removes:
 * Arc extensions
 * Custom locations
 * Resource sync rules
-* Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
+* Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and data flows.
 
 ```azurecli
 az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>

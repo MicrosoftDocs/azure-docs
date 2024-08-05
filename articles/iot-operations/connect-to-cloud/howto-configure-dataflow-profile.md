@@ -1,20 +1,20 @@
 ---
-title: Configure dataflow profile in Azure IoT Operations
-description: How to configure dataflow profile in Azure IoT Operations to change dataflow behavior.
+title: Configure data flow profile in Azure IoT Operations
+description: How to configure a data flow profile in Azure IoT Operations to change a data flow behavior.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 08/03/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can configure a dataflow profile to control dataflow behavior.
+#CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
 ---
 
-# Configure dataflow profile
+# Configure data flow profile
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
+By default, when you deploy Azure IoT Operations, a data flow profile is created with default settings. You can configure the data flow profile to suit your needs.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -47,7 +47,7 @@ spec:
 
 | Field Name                                      | Description                                                                 |
 |-------------------------------------------------|-----------------------------------------------------------------------------|
-| `maxInstances`                                  | Number of instances to spread the dataflows across. Optional; automatically determined if not set. |
+| `maxInstances`                                  | Number of instances to spread the data flow across. Optional; automatically determined if not set. |
 | `tolerations`                                   | Node tolerations. Optional; see [Kubernetes Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). |
 | `diagnostics`                                   | Diagnostics settings.                                                       |
 | `diagnostics.logFormat`                         | Format of the logs. For example, `text`.                                           |
@@ -70,7 +70,7 @@ spec:
 
 ## Default settings
 
-The default settings for a dataflow profile are:
+The default settings for a data flow profile are:
 
 * Instances: (null)
 * Log level: Info
@@ -79,14 +79,14 @@ The default settings for a dataflow profile are:
 
 ## Scaling
 
-To manually scale the dataflow profile, specify the maximum number of instances you want to run.
+To manually scale the data flow profile, specify the maximum number of instances you want to run.
 
 ```yaml
 spec:
   maxInstances: 3
 ```
 
-If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
+If not specified, Azure IoT Operations automatically scales the data flow profile based on the data flow configuration. The number of instances is determined by the number of data flows and the shared subscription configuration.
 
 ## Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
 

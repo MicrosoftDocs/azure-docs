@@ -1,22 +1,22 @@
 ---
-title: Create a dataflow using Azure IoT Operations
-description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
+title: Create a data flow using Azure IoT Operations
+description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 08/03/2024
 
-#CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
+#CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
 ---
 
-# Create a dataflow
+# Create a data flow
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
+A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a data flow, you must [configure data flow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
+The following is an example of a data flow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -64,16 +64,16 @@ spec:
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the [dataflow profile](howto-configure-dataflow-profile.md)           |
-| mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
-| operations[]                | Operations performed by the dataflow                                       |
+| profileRef                  | Reference to the [data flow profile](howto-configure-data flow-profile.md)           |
+| mode                        | Mode of the data flow. *enabled* or *disabled*                              |
+| operations[]                | Operations performed by the data flow                                       |
 | operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
 
-Review the following sections to learn how to configure the operation types of the dataflow.
+Review the following sections to learn how to configure the operation types of the data flow.
 
 ## Configure source
 
-To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a dataflow configuration with a source endpoint and data source.
+To configure a source for the data flow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a data flow configuration with a source endpoint and data source.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -101,7 +101,7 @@ spec:
 
 ## Configure transformation
 
-The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
+The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the data flow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
 
 ```yaml
 spec:
@@ -163,7 +163,7 @@ If the dataset has a record with the `asset` field, similar to:
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
 
-For more information, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+For more information, see [Enrich data using data flows](concept-dataflow-enrich.md) and [Convert data using data flows](concept-dataflow-conversions.md).
 
 ### Filter: Filter data based on a condition
 
@@ -218,7 +218,7 @@ spec:
           output: location
 ```
 
-To learn more, see the [Map data using dataflows](concept-dataflow-mapping.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+To learn more, see the [Map data using data flows](concept-dataflow-mapping.md) and [Convert data using data flows](concept-dataflow-conversions.md).
 
 ### Serialize data according to a schema
 
@@ -242,7 +242,7 @@ spec:
 
 ## Configure destination
 
-To configure a destination for the dataflow, you need to specify the endpoint and a path (topic or table) for the destination.
+To configure a destination for the data flow, you need to specify the endpoint and a path (topic or table) for the destination.
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
@@ -360,13 +360,13 @@ The full list of parameters that can be used in the path includes:
 | `$subscription(<topic>)` | The value of a single message from the specified topic. |
 
 
-## Test dataflow
+## Test a data flow
 
-After configuring the dataflow, you can test it by sending test data and viewing the outcome.
+After configuring the data flow, you can test it by sending test data and viewing the outcome.
 
 ### Send test data
 
-To send test data to the dataflow, you can use the Azure IoT Operations portal, Azure CLI, or call the REST API.
+To send test data to the data flow, you can use the Azure IoT Operations portal, Azure CLI, or call the REST API.
 
 ```bash
 az iotops dataflow send-test-data --dataflow-name my-dataflow --data '{

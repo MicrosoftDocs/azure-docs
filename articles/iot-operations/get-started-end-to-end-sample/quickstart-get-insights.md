@@ -25,7 +25,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using a dataflow](quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using a data flow](quickstart-upload-telemetry-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a **premium workspace** with **Contributor** or above permissions.
 

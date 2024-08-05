@@ -26,7 +26,7 @@ You can write configurations for various use cases, such as:
 
 ### Data Processing and Routing
 
-Dataflows enable the ingestion, processing and the routing of the messages to specified sinks. You can specify:
+Dataflows enable the ingestion, processing, and the routing of the messages to specified sinks. You can specify:
 
 - **Sources:** Where messages are ingested from
 - **Destinations:** Where messages are drained to
