@@ -3,7 +3,7 @@ title: Machine Learning pipeline YAML (v1)
 titleSuffix: Azure Machine Learning
 description: Learn how to define a machine learning pipeline using a YAML file. YAML pipeline definitions are used with the machine learning extension for the Azure CLI (v1).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

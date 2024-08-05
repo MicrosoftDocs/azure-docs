@@ -7,7 +7,7 @@ ms.author: greglin
 
 ms.date: 02/18/2023
 ms.topic: quickstart
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.custom: template-quickstart, mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

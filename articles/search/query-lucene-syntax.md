@@ -24,7 +24,7 @@ To use full Lucene syntax, set the queryType to `full` and pass in a query expre
 The following example is a search request constructed using the full syntax. This particular example shows in-field search and term boosting. It looks for hotels where the category field contains the term `budget`. Any documents containing the phrase `"recently renovated"` are ranked higher as a result of the term boost value (3).  
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2023-11-01
+POST /indexes/hotels-sample-index/docs/search?api-version=2024-07-01
 {
   "queryType": "full",
   "search": "category:budget AND \"recently renovated\"^3",

@@ -3,7 +3,7 @@ title: 'Tutorial: Run GitHub Actions runners and Azure Pipelines agents with Azu
 description: Learn to create self-hosted CI/CD runners and agents with jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 06/01/2023

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher packet capture tool, supported resources, available configurations, limits, and considerations.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/23/2024
 

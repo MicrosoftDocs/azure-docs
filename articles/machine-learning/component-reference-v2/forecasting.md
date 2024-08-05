@@ -3,7 +3,7 @@ title:  "AutoML Forecasting Component in Microsoft Azure Machine Learning Design
 titleSuffix: Azure Machine Learning
 description: Learn how to use the AutoML Forecasting component in Azure Machine Learning to create a classifier using ML Table data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: rasavage

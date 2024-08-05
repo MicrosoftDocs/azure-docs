@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Release notes for the Azure Machine Learning compute instance images
 author: deeikele
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: deeikele
 ms.reviewer: fsolomon
