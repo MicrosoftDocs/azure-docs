@@ -27,7 +27,7 @@ This document contains information about new features and other changes to the M
 
 #### Bug fixes (3.3.0)
 - Skip existing sources when copying user layers.
-- **\[BREAKING\]** Address the incorrect ordering of latitude and longitude values in Position.fromLatLng().
+- **\[BREAKING\]** Address the incorrect ordering of latitude and longitude values in `Position.fromLatLng()`.
 - Fix hidden accessible element visible issue on control buttons.
 
 ### [3.2.1] (May 13, 2024)
