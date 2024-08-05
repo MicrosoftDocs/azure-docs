@@ -3,7 +3,7 @@ title: Release notes for Azure HDInsight on AKS
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: hdinsight-aks
 ms.topic: conceptual
-ms.date: 07/24/2024
+ms.date: 08/05/2024
 ---
 
 # Azure HDInsight on AKS release notes
@@ -29,7 +29,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: July 30, 2024
+### Release date: Aug 05, 2024
 
 **This release applies to the following**
 
@@ -84,7 +84,7 @@ Spark 3.4 update brings a range of new features includes
 | -------- | -------- |
 |Trino | 440 |
 |Flink | 1.17.0 |
-|Apache Spark | 3.3.1 |
+|Apache Spark | 3.4 |
 
 **Supported Java and Scala versions**
 
