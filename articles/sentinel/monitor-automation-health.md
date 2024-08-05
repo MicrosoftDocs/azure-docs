@@ -48,7 +48,7 @@ For the **Automation rule run** status, you may see the following statuses:
 
 - **Success**: rule executed successfully, triggering all actions.
 - **Partial success**: rule executed and triggered at least one action, but some actions failed.
-- *Failure*: automation rule did not run any action due to one of the following reasons:
+- **Failure**: automation rule did not run any action due to one of the following reasons:
 
     - Conditions evaluation failed.
     - Conditions met, but the first action failed.
@@ -69,6 +69,7 @@ For the **Playbook was triggered** status, you may see the following statuses:
 | Error description                 | Suggested actions                         |
 | --------------------------------- | ----------------------------------------- |
 | **Could not add task: *\<TaskName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
+| **Could not add task: *\<TaskName>*.**<br>Incident already contains the maximum allowed number of tasks. | If this task is required, see if there are any tasks that can be removed or consolidated, then try again. |
 | **Could not modify property: *\<PropertyName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
 | **Could not modify property: *\<PropertyName>*.**<br>Too many requests, exceeding throttling limits. |  |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Incident/alert was not found. | If the error occurred when trying to trigger a playbook on demand, make sure the incident/alert exists and try again. |
