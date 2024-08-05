@@ -1291,11 +1291,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/firewall-manager/multiple-public-ip-powershell.md",
-      "redirect_url": "/previous-versions/azure/firewall-manager/multiple-public-ip-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/data-catalog/data-catalog-developer-concepts.md",
       "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-developer-concepts",
       "redirect_document_id": false

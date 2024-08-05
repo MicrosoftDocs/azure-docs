@@ -52,7 +52,7 @@ The metrics dashboard can be used to better understand the performance and healt
 
   :::image type="content" source="./media/nat-metrics/detailed-metrics.png" alt-text="Screenshot of the view detailed metrics.":::
 
-For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](monitor-nat-gateway-reference#how-to-use-nat-gateway-metrics).
+For more information on what each metric is showing you and how to analyze these metrics, see [How to use NAT gateway metrics](monitor-nat-gateway-reference.md#how-to-use-nat-gateway-metrics).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure NAT Gateway, see [Azure NAT Gateway monitoring data reference](monitor-nat-gateway-reference.md).
@@ -125,9 +125,9 @@ Set up an alert on the **SNAT connection count** metric to notify you of connect
 
 ### What type of metrics are available for NAT gateway?
 
-The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
+The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](monitor-nat-gateway-reference.md#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
 
-Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric.
+Refer to the dimensions column in the [metrics overview](monitor-nat-gateway-reference.md#metrics) table to see which dimensions are available for each NAT gateway metric.
 
 ### How do I store NAT gateway metrics long-term?
 

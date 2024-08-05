@@ -12,7 +12,7 @@ ms.service: nat-gateway
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor Azure NAT Gateway](monitor-monitor-nat-gateway.md) for details on the data you can collect for Azure NAT Gateway and how to use it.
+See [Monitor Azure NAT Gateway](monitor-nat-gateway.md) for details on the data you can collect for Azure NAT Gateway and how to use it.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
 
