@@ -14,7 +14,7 @@ Bicep provides a function called `readEnvironmentVariable()` that allows you to 
 
 `getSecret(subscriptionId, resourceGroupName, keyVaultName, secretName, secretVersion)`
 
-Returns a secret from an [Azure Key Vault](../../key-vault/secrets/about-secrets.md). Use this function to pass a secret to a secure string parameter of a Bicep file.
+Returns a secret from an [Azure Key Vault](/azure/key-vault/secrets/about-secrets). Use this function to pass a secret to a secure string parameter of a Bicep file.
 
 > [!NOTE]
 > You can also use the [keyVaultName.getSecret(secretName)](./bicep-functions-resource.md#getsecret) function from within a `.bicep` file.

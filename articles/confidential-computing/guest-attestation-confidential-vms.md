@@ -30,7 +30,7 @@ The major components and services involved in guest attestation are:
 - The workload
 - The guest attestation library
 - Hardware (for reporting). For example, AMD-SEVSNP.
-- The [Microsoft Azure Attestation service](../attestation/overview.md)
+- The [Microsoft Azure Attestation service](/azure/attestation/overview)
 - JSON web token response
 
 :::image type="complex" source="./media/guest-attestation-confidential-vms/attestation-workflow.png" lightbox="./media/guest-attestation-confidential-vms/attestation-workflow.png" alt-text="Diagram of guest attestation scenario for a confidential VM.":::

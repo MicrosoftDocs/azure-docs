@@ -173,7 +173,7 @@ All production scenarios should use [service principals][service-principal-auth]
 
 #### Create a key vault
 
-If you don't already have a vault in [Azure Key Vault](../key-vault/index.yml), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
 
 ```azurecli
 AKV_NAME=$ACR_NAME-vault

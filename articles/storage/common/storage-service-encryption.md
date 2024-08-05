@@ -95,7 +95,7 @@ The following table shows which client libraries support which versions of clien
 
 ## Next steps
 
-- [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- [What is Azure Key Vault?](/azure/key-vault/general/overview)
 - [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md)
 - [Encryption scopes for Blob Storage](../blobs/encryption-scope-overview.md)
 - [Provide an encryption key on a request to Blob Storage](../blobs/encryption-customer-provided-keys.md)

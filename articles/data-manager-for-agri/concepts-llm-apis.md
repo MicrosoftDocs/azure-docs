@@ -30,7 +30,7 @@ Our copilot templates make generative AI in agriculture a reality.
 
 - An instance of [Azure Data Manager for Agriculture](quickstart-install-data-manager-for-agriculture.md)
 - An instance of [Azure OpenAI Service](../ai-services/openai/how-to/create-resource.md) created in your Azure subscription
-- [Azure Key Vault](../key-vault/general/quick-create-portal.md)
+- [Azure Key Vault](/azure/key-vault/general/quick-create-portal)
 - [Azure Container Registry](../container-registry/container-registry-get-started-portal.md)
 
 ## High-level architecture

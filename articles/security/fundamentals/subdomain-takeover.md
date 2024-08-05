@@ -134,7 +134,7 @@ The **Microsoft Defender for App Service** plan includes dangling DNS detection.
 
 Microsoft Defender for Cloud's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 
-Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md).
+Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction).
 
 ### Use Azure DNS alias records
 
@@ -201,7 +201,7 @@ Subscription 'A' and subscription 'B' are the only subscriptions belonging to Mi
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
-- [Enable Microsoft Defender for App Service](../../defender-for-cloud/enable-enhanced-security.md) - to receive alerts when dangling DNS entries are detected
+- [Enable Microsoft Defender for App Service](/azure/defender-for-cloud/enable-enhanced-security) - to receive alerts when dangling DNS entries are detected
 
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

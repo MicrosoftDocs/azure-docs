@@ -20,8 +20,8 @@ You can use your own encryption key to protect the data in your storage account.
 
 You must use one of the following Azure key stores to store your customer-managed keys:
 
-- [Azure Key Vault](../../key-vault/general/overview.md)
-- [Azure Key Vault Managed Hardware Security Module (HSM)](../../key-vault/managed-hsm/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Key Vault Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/overview)
 
 You can either create your own keys and store them in the key vault or managed HSM, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault or managed HSM can be in different Microsoft Entra tenants, regions, and subscriptions.
 
@@ -48,7 +48,7 @@ The managed identity that is associated with the storage account must have these
 - *unwrapkey*
 - *get*
 
-For more information about key permissions, see [Key types, algorithms, and operations](../../key-vault/keys/about-keys-details.md#key-access-control).
+For more information about key permissions, see [Key types, algorithms, and operations](/azure/key-vault/keys/about-keys-details#key-access-control).
 
 Azure Policy provides a built-in policy to require that storage accounts use customer-managed keys for Blob Storage and Azure Files workloads. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 
@@ -68,7 +68,7 @@ You can switch between customer-managed keys and Microsoft-managed keys at any t
 
 ### Key vault requirements
 
-The key vault or managed HSM that stores the key must have both soft delete and purge protection enabled. Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see [About keys](../../key-vault/keys/about-keys.md).
+The key vault or managed HSM that stores the key must have both soft delete and purge protection enabled. Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see [About keys](/azure/key-vault/keys/about-keys).
 
 Using a key vault or managed HSM has associated costs. For more information, see [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 
@@ -99,7 +99,7 @@ You can configure customer-managed keys with an Azure Key Vault Managed HSM for 
 
 ## Update the key version
 
-Following cryptographic best practices means rotating the key that is protecting your storage account on a regular schedule, typically at least every two years. Azure Storage never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md).
+Following cryptographic best practices means rotating the key that is protecting your storage account on a regular schedule, typically at least every two years. Azure Storage never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
 
 After the key is rotated in the key vault, the customer-managed keys configuration for your storage account must be updated to use the new key version. Customer-managed keys support both automatic and manual updating of the key version for the key that is protecting the account. You can decide which approach you want to use when you configure customer-managed keys, or when you update your configuration.
 

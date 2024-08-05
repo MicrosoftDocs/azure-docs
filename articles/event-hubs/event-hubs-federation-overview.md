@@ -166,7 +166,7 @@ Azure Functions has prebuilt, scalable triggers and output bindings for [Azure E
 For building log projections, Azure Functions supports output bindings for
 [Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md) and [Azure Table Storage](../azure-functions/functions-bindings-storage-table-output.md).
 
-Azure Functions can run under a [Azure managed identity](../active-directory/managed-identities-azure-resources/overview.md) and with that, it can hold the configuration values for credentials in tightly access-controlled storage inside of [Azure Key Vault](../key-vault/general/overview.md).
+Azure Functions can run under a [Azure managed identity](../active-directory/managed-identities-azure-resources/overview.md) and with that, it can hold the configuration values for credentials in tightly access-controlled storage inside of [Azure Key Vault](/azure/key-vault/general/overview).
 
 Azure Functions furthermore allows the replication tasks to directly integrate with Azure virtual networks and [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) for all Azure messaging services, and it is readily integrated with [Azure Monitor](../azure-monitor/overview.md).
 

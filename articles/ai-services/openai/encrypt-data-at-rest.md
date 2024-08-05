@@ -26,7 +26,7 @@ By default, your subscription uses Microsoft-managed encryption keys. There's al
 
 Customer-managed keys (CMK), also known as Bring your own key (BYOK), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
 
-You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+You must use Azure Key Vault to store your customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Azure AI services resource and the key vault must be in the same region and in the same Microsoft Entra tenant, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
 To enable customer-managed keys, the key vault containing your keys must meet these requirements:
 
@@ -35,7 +35,7 @@ To enable customer-managed keys, the key vault containing your keys must meet th
 - The key vault must use [legacy access policies](/azure/key-vault/general/assign-access-policy).
 - You must grant the Azure OpenAI resource's system-assigned managed identity the following permissions on your key vault: *get key*, *wrap key*, *unwrap key*.
 
-Only RSA and RSA-HSM keys of size 2048 are supported with Azure AI services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/general/about-keys-secrets-certificates.md).
+Only RSA and RSA-HSM keys of size 2048 are supported with Azure AI services encryption. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
 
 ### Enable your Azure OpenAI resource's managed identity
 
@@ -180,4 +180,4 @@ When you previously enabled customer managed keys this also enabled a system ass
 
 ## Next steps
 
-* [Learn more about Azure Key Vault](../../key-vault/general/overview.md)
+* [Learn more about Azure Key Vault](/azure/key-vault/general/overview)

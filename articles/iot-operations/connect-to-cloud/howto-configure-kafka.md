@@ -366,7 +366,7 @@ spec:
       kubernetes: {}
 ```
 
-To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](../../key-vault/certificates/tutorial-import-certificate.md) and then specify the reference with `vaultCert`. 
+To use Azure Key Vault instead, make sure the [certificate and private key are properly imported](/azure/key-vault/certificates/tutorial-import-certificate) and then specify the reference with `vaultCert`. 
 
 Use the previous YAML example and change the authentication section to the following:
 

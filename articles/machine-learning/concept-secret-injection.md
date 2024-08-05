@@ -35,7 +35,7 @@ Using this approach requires you to do the following tasks:
 - Assign the right roles to the endpoint identity so that it can read secrets from the secret stores.
 - Implement the scoring logic for the deployment so that it uses the endpoint's managed identity to retrieve the secrets from the secret stores.
 
-While this approach of using a managed identity is a secure way to retrieve and inject secrets, [secret injection via the secret injection feature](#secret-injection-via-the-secret-injection-feature) further simplifies the process of retrieving secrets for [workspace connections](prompt-flow/concept-connections.md) and [key vaults](../key-vault/general/overview.md).
+While this approach of using a managed identity is a secure way to retrieve and inject secrets, [secret injection via the secret injection feature](#secret-injection-via-the-secret-injection-feature) further simplifies the process of retrieving secrets for [workspace connections](prompt-flow/concept-connections.md) and [key vaults](/azure/key-vault/general/overview).
 
 
 ## Managed identity associated with the endpoint

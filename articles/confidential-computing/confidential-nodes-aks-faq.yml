@@ -134,7 +134,7 @@ sections:
 
       - question: Will only signed and trusted images be loaded in the enclave for confidential computing?
         answer: |
-          Not natively during enclave initialization but yes through attestation process signature can be validated. Ref [here](../attestation/basic-concepts.md#benefits-of-policy-signing). 
+          Not natively during enclave initialization but yes through attestation process signature can be validated. Ref [here](/azure/attestation/basic-concepts#benefits-of-policy-signing). 
 
       - question: Is container signing possible to bring code integrity protection to confidential containers?
         answer: |

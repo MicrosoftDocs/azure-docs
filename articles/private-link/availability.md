@@ -99,7 +99,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](../key-vault/general/private-link-service.md)   |
+|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](/azure/key-vault/general/private-link-service)   |
 |Azure App Configuration | All public regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
 |Azure Application Gateway | All public regions      |  | GA  </br> [Azure Application Gateway Private Link](../application-gateway/private-link.md) |
 

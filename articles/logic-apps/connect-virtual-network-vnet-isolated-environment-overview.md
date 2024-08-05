@@ -111,7 +111,7 @@ To access on-premises systems and data sources that don't have ISE connectors, a
 
 By default, Azure Storage uses Microsoft-managed keys to encrypt your data. Azure Logic Apps relies on Azure Storage to store and automatically [encrypt data at rest](../storage/common/storage-service-encryption.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
-For more control over the encryption keys used by Azure Storage, ISE supports using and managing your own key using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". However, this capability is available *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
+For more control over the encryption keys used by Azure Storage, ISE supports using and managing your own key using [Azure Key Vault](/azure/key-vault/general/overview). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key". However, this capability is available *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
 * Customer-managed key support for an ISE is available only in the following regions:
 

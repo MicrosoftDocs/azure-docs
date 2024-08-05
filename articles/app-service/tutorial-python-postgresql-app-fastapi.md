@@ -158,7 +158,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2. Verify connection settings
 
-The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](../key-vault/certificates/quick-create-python.md).
+The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](/azure/key-vault/certificates/quick-create-python).
 
 :::row:::
     :::column span="2":::

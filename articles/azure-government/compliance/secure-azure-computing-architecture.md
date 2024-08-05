@@ -107,9 +107,9 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various SCCA requirements:
 
     - [Azure Monitor](../../azure-monitor/overview.md)
-    - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
+    - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-    - [Azure Key Vault](../../key-vault/general/overview.md)
+    - [Azure Key Vault](/azure/key-vault/general/overview)
     - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)

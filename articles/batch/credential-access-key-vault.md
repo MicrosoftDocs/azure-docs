@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 > [!WARNING]
 > Batch account certificates as detailed in this article are [deprecated](batch-certificate-migration-guide.md). To securely access Azure Key Vault, simply use [Pool managed identities](managed-identity-pools.md) with the appropriate access permissions configured for the user-assigned managed identity to access your Key Vault. If you need to provision certificates on Batch nodes, please utilize the available Azure Key Vault VM extension in conjunction with pool Managed Identity to install and manage certificates on your Batch pool. For more information on deploying certificates from Azure Key Vault with Managed Identity on Batch pools, see [Enable automatic certificate rotation in a Batch pool](automatic-certificate-rotation.md).
 
-In this article, you'll learn how to set up Batch nodes with certificates to securely access credentials stored in [Azure Key Vault](../key-vault/general/overview.md).
+In this article, you'll learn how to set up Batch nodes with certificates to securely access credentials stored in [Azure Key Vault](/azure/key-vault/general/overview).
 
 To authenticate to Azure Key Vault from a Batch node, you need:
 
@@ -47,7 +47,7 @@ The URLs for the application aren't important, since we're only using them for K
 
 ## Grant rights to Key Vault
 
-The service principal created in the previous step needs permission to retrieve the secrets from Key Vault. Permission can be granted either through the [Azure portal](../key-vault/general/assign-access-policy-portal.md) or with the PowerShell command below.
+The service principal created in the previous step needs permission to retrieve the secrets from Key Vault. Permission can be granted either through the [Azure portal](/azure/key-vault/general/assign-access-policy-portal) or with the PowerShell command below.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -90,6 +90,6 @@ These are the credentials to use in your script.
 
 ## Next steps
 
-- Learn more about [Azure Key Vault](../key-vault/general/overview.md).
+- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).
 - Review the [Azure Security Baseline for Batch](security-baseline.md).
 - Learn about Batch features such as [configuring access to compute nodes](pool-endpoint-configuration.md), [using Linux compute nodes](batch-linux-nodes.md), and [using private endpoints](private-connectivity.md).

@@ -121,7 +121,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 ### 3. Security
 ![Screenshot of security configurations on Azure portal.][BasicSecurityConfigs]
 
-To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](../key-vault/index.yml) (and enabled the key vault for deployment), then use the **Custom** option
+To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your [key vault](/azure/key-vault/) (and enabled the key vault for deployment), then use the **Custom** option
 
 #### Basic Option
 Follow the screens to add or reuse an existing key vault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.

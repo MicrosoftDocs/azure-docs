@@ -32,7 +32,7 @@ If this has happened to your organization, you are in a race against the attacke
 
 - **Attackers with administrative control of an environment's identity infrastructure** can use that control to create, modify, or delete identities and identity permissions in that environment.
 
-    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](../../key-vault/keys/hsm-protected-keys.md), the attack includes access to that trusted SAML token-signing certificate.
+    In an on-premises compromise, if trusted SAML token-signing certificates are *not* stored in an [HSM](/azure/key-vault/keys/hsm-protected-keys), the attack includes access to that trusted SAML token-signing certificate.
 
 - **Attackers can then use the certificate to forge SAML tokens** to impersonate any of the organization's existing users and accounts without requiring access to account credentials, and without leaving any traces.
 

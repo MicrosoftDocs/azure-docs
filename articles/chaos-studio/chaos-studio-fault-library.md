@@ -105,7 +105,7 @@ This section applies to the `Microsoft.EventHub/namespaces` resource type. [Lear
 
 ## Key Vault
 
-This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](../key-vault/general/basic-concepts.md).
+This section applies to the `Microsoft.KeyVault/vaults` resource type. [Learn more about Key Vault](/azure/key-vault/general/basic-concepts).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|

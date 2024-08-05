@@ -35,13 +35,13 @@ Learn how to use the Azure CLI to set up and manage data encryption for your Azu
    ```
 
 * In order to use an existing key vault, it must have the following properties to use as a customer-managed key:
-  * [Soft delete](../../key-vault/general/soft-delete-overview.md)
+  * [Soft delete](/azure/key-vault/general/soft-delete-overview)
 
       ```azurecli-interactive
       az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
       ```
 
-  * [Purge protected](../../key-vault/general/soft-delete-overview.md#purge-protection)
+  * [Purge protected](/azure/key-vault/general/soft-delete-overview#purge-protection)
 
       ```azurecli-interactive
       az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

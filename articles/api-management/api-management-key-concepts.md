@@ -119,7 +119,7 @@ API Management integrates with many complementary Azure services to create enter
 
 * **[Azure API Center](../api-center/overview.md)** to build a complete inventory of APIs​ in the organization - regardless of their type, lifecycle stage, or deployment location​ - for API discovery, reuse, and governance
 * **[Copilot in Azure](../copilot/overview.md)** to help author API Management policies or explain already configured policies​
-* **[Azure Key Vault](../key-vault/general/overview.md)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* **[Azure Key Vault](/azure/key-vault/general/overview)** for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
 * **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
 * **[Virtual networks](virtual-network-concepts.md)**, **[private endpoints](private-endpoint.md)**, **[Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)**, and **[Azure Front Door](front-door-api-management.md)** for network-level protection​

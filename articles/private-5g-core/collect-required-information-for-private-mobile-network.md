@@ -56,8 +56,8 @@ If you want to provision SIMs as part of deploying your private mobile network:
 Note that once the SIM group is created, the encryption type cannot be changed.
     - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](../security/fundamentals/encryption-atrest.md).
     - Customer-managed keys (CMK) that you must manually configure.  
-    You must create a Key URI in your [Azure Key Vault](../key-vault/index.yml) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key.
-         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](../key-vault/keys/how-to-configure-key-rotation.md).
+    You must create a Key URI in your [Azure Key Vault](/azure/key-vault/) and a [User-assigned identity](../active-directory/managed-identities-azure-resources/overview.md) with read, wrap, and unwrap access to the key.
+         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
          - The SIM group accesses the key via the user-assigned identity.
          - For more information on configuring CMK for a SIM group, see [Configure customer-managed keys](/azure/cosmos-db/how-to-setup-cmk).
 

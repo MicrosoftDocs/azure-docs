@@ -34,7 +34,7 @@ In this article:
 ## Prerequisites
 
 * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
-* Create or use an [Azure Key Vault.](../key-vault/general/quick-create-cli.md)
+* Create or use an [Azure Key Vault.](/azure/key-vault/general/quick-create-cli)
 * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 > [!NOTE]
@@ -139,7 +139,7 @@ Here are the requirements for certificates issued by a CA:
 
 ### Create a certificate issued by a CA
 
-Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](../key-vault/certificates/create-certificate-signing-request.md). 
+Create a certificate signing request (CSR) by following the instructions in [create certificate signing request](/azure/key-vault/certificates/create-certificate-signing-request). 
 
 > [!IMPORTANT]
 > When merging the CSR, make sure you merge the entire chain that brought back from the CA vendor.
@@ -149,7 +149,7 @@ Create a certificate signing request (CSR) by following the instructions in [cre
 To import the certificate:
 
 1. Get the certificate file from CA vendor with entire certificate chain.
-2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](../key-vault/certificates/tutorial-import-certificate.md).
+2. Import the certificate into Azure Key Vault by following the instructions in [import a certificate](/azure/key-vault/certificates/tutorial-import-certificate).
 
 > [!NOTE]
 > If the certificate does not contain a certificate chain after creation or importing, you can obtain the intermediate and root certificates from your CA vendor. You can ask your vendor to provide you with a PEM file that contains the intermediate certificates (if any) and root certificate. This file can then be used at step 5 of [signing container images](#sign-a-container-image-with-notation-cli-and-akv-plugin).
@@ -382,7 +382,7 @@ To learn more about assigning policy to a principal, see [Assign Access Policy](
 
 - What should I do if the certificate is expired? 
   
-  If the certificate has expired, it invalidates the signature. To resolve this issue, you should renew the certificate and sign container images again. Learn more about [Renew your Azure Key Vault certificates](../key-vault/certificates/overview-renew-certificate.md).
+  If the certificate has expired, it invalidates the signature. To resolve this issue, you should renew the certificate and sign container images again. Learn more about [Renew your Azure Key Vault certificates](/azure/key-vault/certificates/overview-renew-certificate).
 
 - What should I do if the root certificate is expired? 
 

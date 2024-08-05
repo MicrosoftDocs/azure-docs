@@ -387,7 +387,7 @@ items:
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage
-      href: ../../defender-for-cloud/defender-for-storage-introduction.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: /azure/defender-for-cloud/defender-for-storage-introduction?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Data protection
     items:
     - name: Data protection

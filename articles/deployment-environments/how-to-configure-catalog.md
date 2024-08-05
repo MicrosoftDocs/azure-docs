@@ -216,7 +216,7 @@ If your organization's policies require you to keep your Key Vault private from 
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
-To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ### Store the personal access token in the key vault
 
@@ -422,7 +422,7 @@ If your organization's policies require you to keep your Key Vault private from 
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
-To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md).
+To learn how to allow trusted Microsoft services to bypass the firewall, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 ### Store the personal access token in the key vault
 

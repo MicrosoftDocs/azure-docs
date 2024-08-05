@@ -66,8 +66,8 @@ You have to reassign the identity back to registry explicitly.
 
 ## Accidental deletion of a key vault or key
 
-Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
+Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](/azure/key-vault/general/soft-delete-overview) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
 
 ## Next steps
 
-For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md).
+For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](/azure/key-vault/general/key-vault-recovery).

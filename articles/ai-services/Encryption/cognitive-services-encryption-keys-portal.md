@@ -102,4 +102,4 @@ Each virtual machine also has a local temporary disk for OS operations. If you w
 ## Next steps
 
 * [Azure AI services Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk) is still required for Speech and Content Moderator.
-* [What is Azure Key Vault](../../key-vault/general/overview.md)?
+* [What is Azure Key Vault](/azure/key-vault/general/overview)?

@@ -20,7 +20,7 @@ In this article, you learn how to create an Azure Database for PostgreSQL flexib
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
 - Azure managed identity in region where the Azure Database for PostgreSQL flexible server instance will be created. 
-- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](/azure/key-vault/general/quick-create-portal) to create Key Vault and generate key. 
 
 
 > [!NOTE]  

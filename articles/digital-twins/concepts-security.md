@@ -89,7 +89,7 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Managed identity for accessing other resources
 
-Setting up an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Microsoft Entra protected resources, such as [Azure Key Vault](../key-vault/general/overview.md). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+Setting up an [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md) *managed identity* for an Azure Digital Twins instance can allow the instance to easily access other Microsoft Entra protected resources, such as [Azure Key Vault](/azure/key-vault/general/overview). The identity is managed by the Azure platform, and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 Azure Digital Twins supports both types of managed identities, *system-assigned* and *user-assigned*. 
 

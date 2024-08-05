@@ -15,7 +15,7 @@ ms.custom: mode-other
 
 Azure Data Factory encrypts data at rest, including entity definitions and any data cached while runs are in progress. By default, data is encrypted with a randomly generated Microsoft-managed key that is uniquely assigned to your data factory. For extra security guarantees, you can now enable Bring Your Own Key (BYOK) with customer-managed keys feature in Azure Data Factory. When you specify a customer-managed key, Data Factory uses __both__ the factory system key and the CMK to encrypt customer data. Missing either would result in Deny of Access to data and factory.
 
-Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Microsoft Entra tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+Azure Key Vault is required to store customer-managed keys. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. Key vault and Data Factory must be in the same Microsoft Entra tenant and in the same region, but they may be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ## About customer-managed keys
 
@@ -37,7 +37,7 @@ There are two ways of adding Customer Managed Key encryption to data factories. 
 
 ### Enable Soft Delete and Do Not Purge on Azure Key Vault
 
-Using customer-managed keys with Data Factory requires two properties to be set on the Key Vault, __Soft Delete__ and __Do Not Purge__. These properties can be enabled using either PowerShell or Azure CLI on a new or existing key vault. To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md)
+Using customer-managed keys with Data Factory requires two properties to be set on the Key Vault, __Soft Delete__ and __Do Not Purge__. These properties can be enabled using either PowerShell or Azure CLI on a new or existing key vault. To learn how to enable these properties on an existing key vault, see [Azure Key Vault recovery management with soft delete and purge protection](/azure/key-vault/general/key-vault-recovery)
 
 If you are creating a new Azure Key Vault through Azure portal, __Soft Delete__ and __Do Not Purge__ can be enabled as follows:
 
@@ -54,7 +54,7 @@ Make sure Azure Key Vault and Azure Data Factory are in the same Microsoft Entra
 
 ### Generate or upload customer-managed key to Azure Key Vault
 
-You can either create your own keys and store them in a key vault. Or you can use the Azure Key Vault APIs to generate keys. Only RSA keys are supported with Data Factory encryption. RSA-HSM  is also supported. For more information, see [About keys, secrets, and certificates](../key-vault/general/about-keys-secrets-certificates.md).
+You can either create your own keys and store them in a key vault. Or you can use the Azure Key Vault APIs to generate keys. Only RSA keys are supported with Data Factory encryption. RSA-HSM  is also supported. For more information, see [About keys, secrets, and certificates](/azure/key-vault/general/about-keys-secrets-certificates).
 
   :::image type="content" source="media/enable-customer-managed-key/03-create-key.png" alt-text="Screenshot showing how to generate Customer-Managed Key.":::
 

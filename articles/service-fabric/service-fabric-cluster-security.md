@@ -93,7 +93,7 @@ Set the Administrator and User client roles when you create the cluster. Assign 
 
 ## X.509 certificates and Service Fabric
 
-X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](/dotnet/framework/wcf/feature-details/working-with-certificates). You use [Key Vault](../key-vault/general/overview.md) to manage certificates for Service Fabric clusters in Azure.
+X.509 digital certificates commonly are used to authenticate clients and servers. They also are used to encrypt and digitally sign messages. Service Fabric uses X.509 certificates to secure a cluster and provide application security features. For more information about X.509 digital certificates, see [Working with certificates](/dotnet/framework/wcf/feature-details/working-with-certificates). You use [Key Vault](/azure/key-vault/general/overview) to manage certificates for Service Fabric clusters in Azure.
 
 Some important things to consider:
 

@@ -62,7 +62,7 @@ The **AS2 (v2)** connector has no triggers. The following table describes the ac
   | Consumption | - **AS2 (v2)** connector: Connection required, but no link required <br>- **AS2** connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=consumption#link-account), but no connection required |
   | Standard | - **AS2 (v2)** connector: [Link required](./enterprise-integration/create-integration-account.md?tabs=standard#link-account), but no connection required <br>- **AS2** connector: Connection required, but no link required |
 
-* If you use [Azure Key Vault](../key-vault/general/overview.md) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
+* If you use [Azure Key Vault](/azure/key-vault/general/overview) for certificate management, check that your vault keys permit the **Encrypt** and **Decrypt** operations. Otherwise, the encoding and decoding actions fail.
 
   1. In the [Azure portal](https://portal.azure.com), open your key vault. On the key vault menu, under **Settings**, select **Keys**.
 

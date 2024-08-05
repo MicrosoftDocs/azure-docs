@@ -25,7 +25,7 @@ In this tutorial:
 ## Prerequisites
 
 * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
-* Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md) for managing certificates
+* Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli) for managing certificates
 * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or Run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install Notation CLI and AKV plugin

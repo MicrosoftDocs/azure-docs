@@ -32,24 +32,24 @@ Enabling Microsoft Defender for Cloud on your Operator Nexus subscription is sim
 2. In the search box at the top, enter “Defender for Cloud.”
 3. Select Microsoft Defender for Cloud under Services.
 
-When the Defender for Cloud [overview page](../defender-for-cloud/overview-page.md) opens, you have successfully activated Defender for Cloud on your subscription. The overview page is an interactive dashboard user experience that provides a comprehensive view of your Operator Nexus security posture. It displays security alerts, coverage information, and much more. Using this dashboard, you can assess the security of your workloads and identify and mitigate risks.
+When the Defender for Cloud [overview page](/azure/defender-for-cloud/overview-page) opens, you have successfully activated Defender for Cloud on your subscription. The overview page is an interactive dashboard user experience that provides a comprehensive view of your Operator Nexus security posture. It displays security alerts, coverage information, and much more. Using this dashboard, you can assess the security of your workloads and identify and mitigate risks.
 
 After activating Defender for Cloud, you have the option to enable Defender for Cloud’s enhanced security features that provide important server and workload protections:
-- [Defender for Servers](../defender-for-cloud/tutorial-enable-servers-plan.md)
+- [Defender for Servers](/azure/defender-for-cloud/tutorial-enable-servers-plan)
 - [Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) – made available through Defender for Servers
-- [Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md)
+- [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)
  
 ## Set up a Defender for Servers plan to protect your bare metal servers
 
-To take advantage of the added security protection of your on-premises bare metal machine (BMM) compute servers that's provided by Microsoft Defender for Endpoint, you can enable and configure a [Defender for Servers plan](../defender-for-cloud/plan-defender-for-servers-select-plan.md) on your Operator Nexus subscription.
+To take advantage of the added security protection of your on-premises bare metal machine (BMM) compute servers that's provided by Microsoft Defender for Endpoint, you can enable and configure a [Defender for Servers plan](/azure/defender-for-cloud/plan-defender-for-servers-select-plan) on your Operator Nexus subscription.
 
 ### Prerequisites
 
 - Defender for Cloud must be enabled on your subscription.
 
 To set up a Defender for Servers plan:
-1. [Turn on the Defender for Servers plan feature](../defender-for-cloud/tutorial-enable-servers-plan.md#enable-the-defender-for-servers-plan) under Defender for Cloud.
-2. [Select one of the Defender for Servers plans](../defender-for-cloud/tutorial-enable-servers-plan.md#select-a-defender-for-servers-plan).
+1. [Turn on the Defender for Servers plan feature](/azure/defender-for-cloud/tutorial-enable-servers-plan#enable-the-defender-for-servers-plan) under Defender for Cloud.
+2. [Select one of the Defender for Servers plans](/azure/defender-for-cloud/tutorial-enable-servers-plan#select-a-defender-for-servers-plan).
 3. While on the *Defender plans* page, click the Settings link for Servers under the “Monitoring coverage” column. The *Settings & monitoring* page will open.
     * Ensure that **Log Analytics agent/Azure Monitor agent** is set to Off.
     * Ensure that **Endpoint protection** is set to Off.
@@ -65,7 +65,7 @@ Once Defender for Endpoint is enabled by Microsoft Support, its configuration is
 
 ## Set up the Defender for Containers plan to protect your Azure Kubernetes Service cluster workloads
 
-You can protect the on-premises Kubernetes clusters that run your operator workloads by enabling and configuring the [Defender for Containers](../defender-for-cloud/defender-for-containers-introduction.md) plan on your subscription.
+You can protect the on-premises Kubernetes clusters that run your operator workloads by enabling and configuring the [Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) plan on your subscription.
 
 ### Prerequisites
 
@@ -73,7 +73,7 @@ You can protect the on-premises Kubernetes clusters that run your operator workl
 
 To set up the Defender for Containers plan:
 
-1. Turn on the [Defender for Containers plan feature](../defender-for-cloud/tutorial-enable-containers-azure.md#enable-the-defender-for-containers-plan) under Defender for Cloud.
+1. Turn on the [Defender for Containers plan feature](/azure/defender-for-cloud/tutorial-enable-containers-azure#enable-the-defender-for-containers-plan) under Defender for Cloud.
 2. While on the *Defender plans* page, click the Settings link for Containers under the “Monitoring coverage” column. The *Settings & monitoring* page will open.
     * Ensure that **DefenderDaemonSet** is set to Off.
     * Ensure that **Azure Policy for Kubernetes** is set to Off.

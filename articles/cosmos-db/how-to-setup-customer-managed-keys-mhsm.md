@@ -56,14 +56,14 @@ az keyvault update-hsm --enable-purge-protection true --hsm-name $hsmName --reso
 
 ```
 
-For more information about the CLI commands available for managed HSM, refer to the following [Azure Key Vault](../key-vault/general/overview.md) 
+For more information about the CLI commands available for managed HSM, refer to the following [Azure Key Vault](/azure/key-vault/general/overview) 
 
 
 
 ## Creating the encryption key and assigning the correspondent roles
 
-Once the Managed HSM [has been activated,](../key-vault/managed-hsm/quick-create-cli.md#activate-your-managed-hsm)
- the key that is going to be used for the CMK account needs to be created. For this, the role “Managed HSM Crypto User” is assigned to the administrator. To read more about how RBAC (role based access control) works with Managed HSM, refer to the following articles: [Managed HSM local RBAC built-in roles - Azure Key Vault | Microsoft Learn](../key-vault/managed-hsm/built-in-roles.md) and [Azure Managed HSM access control | Microsoft Learn](../key-vault/managed-hsm/access-control.md)
+Once the Managed HSM [has been activated,](/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm)
+ the key that is going to be used for the CMK account needs to be created. For this, the role “Managed HSM Crypto User” is assigned to the administrator. To read more about how RBAC (role based access control) works with Managed HSM, refer to the following articles: [Managed HSM local RBAC built-in roles - Azure Key Vault | Microsoft Learn](/azure/key-vault/managed-hsm/built-in-roles) and [Azure Managed HSM access control | Microsoft Learn](/azure/key-vault/managed-hsm/access-control)
 
 ```azurecli-interactive
 objectId = az ad signed-in-user show --query id -o tsv

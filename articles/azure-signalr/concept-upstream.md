@@ -55,7 +55,7 @@ The upstream endpoint URL isn't encrypted. You can secure sensitive upstream end
 To enable managed identity in your SignalR service instance and grant it Key Vault access:
 
 1. Add a system-assigned identity or user-assigned identity. See [How to add managed identity in Azure portal](./howto-use-managed-identity.md#add-a-system-assigned-identity).
-2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](../key-vault/general/assign-access-policy-portal.md)
+2. Grant secret read permission for the managed identity in the Access policies in the Key Vault. See [Assign a Key Vault access policy using the Azure portal](/azure/key-vault/general/assign-access-policy-portal)
 
 3. Replace your sensitive text with the below syntax in the upstream endpoint URL Pattern:
    ```

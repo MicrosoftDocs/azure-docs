@@ -57,7 +57,7 @@ The format of your first line of the command with an example endpoint would appe
 If you want to run this command in a normal Windows command prompt you would need to alter the text to remove the `\` and line breaks.
 
 > [!IMPORTANT]
-> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
+> For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information about credential security, see the Azure AI services [security](../../security-features.md) article.
 
 ## Output
 

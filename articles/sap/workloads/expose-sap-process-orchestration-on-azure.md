@@ -172,7 +172,7 @@ To determine which integration scenarios described in this article best fit your
 
 - Modern [authentication mechanisms like OAuth2](../../api-management/sap-api.md#production-considerations), where applicable
 
-- A managed key store like [Azure Key Vault](../../key-vault/general/overview.md) for all involved credentials, certificates, and keys
+- A managed key store like [Azure Key Vault](/azure/key-vault/general/overview) for all involved credentials, certificates, and keys
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 

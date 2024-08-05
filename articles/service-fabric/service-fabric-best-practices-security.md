@@ -15,7 +15,7 @@ For more information about [Azure Security Best Practices](../security/index.yml
 
 ## Key Vault
 
-[Azure Key Vault](../key-vault/index.yml) is the recommended secrets management service for Azure Service Fabric applications and clusters.
+[Azure Key Vault](/azure/key-vault/) is the recommended secrets management service for Azure Service Fabric applications and clusters.
 > [!NOTE]
 > If certificates/secrets from a Key Vault are deployed to a Virtual Machine Scale Set as a Virtual Machine Scale Set Secret, then the Key Vault and Virtual Machine Scale Set must be co-located.
 
@@ -26,7 +26,7 @@ An Azure Key Vault certificate can be either created or imported into a Key Vaul
 - Create a self-signed certificate to create a public-private key pair and associate it with a certificate. The certificate will be signed by its own key. 
 - Create a new certificate manually to create a public-private key pair and generate an X.509 certificate signing request. The signing request can be signed by your registration authority or certification authority. The signed x509 certificate can be merged with the pending key pair to complete the KV certificate in Key Vault. Although this method requires more steps, it does provide you with greater security because the private key is created in and restricted to Key Vault. This is explained in the diagram below. 
 
-Review [Azure Keyvault Certificate Creation Methods](../key-vault/certificates/create-certificate.md) for additional details.
+Review [Azure Keyvault Certificate Creation Methods](/azure/key-vault/certificates/create-certificate) for additional details.
 
 ## Deploy Key Vault certificates to Service Fabric cluster virtual machine scale sets
 

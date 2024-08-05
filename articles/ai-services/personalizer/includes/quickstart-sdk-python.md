@@ -66,7 +66,7 @@ Follow these steps to set up the Personalizer script.
 1. Paste your key and endpoint into the code where indicated. Your endpoint has the form `https://<your_resource_name>.cognitiveservices.azure.com/`.
 
     > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). For more information, see the Azure AI services [security](../../security-features.md).
+    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure method to store and access your credentials like [Azure Key Vault](/azure/key-vault/general/overview). For more information, see the Azure AI services [security](../../security-features.md).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Personalizer/quickstart-sdk/personalizer-quickstart.py?name=snippet_1)]
 

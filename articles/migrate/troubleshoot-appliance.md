@@ -133,7 +133,7 @@ This issue usually happens when the Azure user account used to register the appl
 ### Remediation
 
 1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
-1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](../key-vault/general/assign-access-policy-portal.md).
+1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](/azure/key-vault/general/assign-access-policy-portal).
 1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Migrate: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md).
 1. If you have the required permissions and connectivity, retry the registration on the appliance after some time.
 

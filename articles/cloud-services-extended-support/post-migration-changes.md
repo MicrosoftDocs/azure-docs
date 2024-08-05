@@ -39,7 +39,7 @@ Customers need to update their tooling and automation to start using the new API
 - Recreate rules and policies required to manage and scale cloud services 
     - [Auto Scale rules](configure-scaling.md) aren't migrated. After migration, recreate the auto scale rules.  
     - [Alerts](enable-alerts.md) aren't migrated. After migration, recreate the alerts.
-    - The Key Vault is created without any access policies. To view or manage your certificates, [create appropriate policies](../key-vault/general/assign-access-policy-portal.md) on the Key Vault. Certificates are visible under settings on the tab called secrets.
+    - The Key Vault is created without any access policies. To view or manage your certificates, [create appropriate policies](/azure/key-vault/general/assign-access-policy-portal) on the Key Vault. Certificates are visible under settings on the tab called secrets.
 
 
 ## Changes to Certificate Management Post Migration 

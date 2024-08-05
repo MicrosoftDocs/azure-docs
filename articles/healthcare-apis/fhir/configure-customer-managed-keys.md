@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Configure customer-managed keys for the FHIR service
 
-By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
+By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
 Customer-managed keys enable you to:
 
@@ -24,7 +24,7 @@ Customer-managed keys enable you to:
 
 - Verify you're assigned the [Azure Contributor](../../role-based-access-control/role-assignments-steps.md) RBAC role, which lets you create and modify Azure resources. 
 
-- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
+- Add a key for the FHIR service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
    - The key is versioned.
   

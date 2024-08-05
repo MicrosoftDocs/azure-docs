@@ -138,7 +138,7 @@
       href: monitor-gitops-flux-2.md
     - name: Enforce threat protection using Microsoft Defender for Cloud
       displayName: security
-      href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
+      href: /azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: In-cluster policy enforcements using Azure Policy
       displayName: compliance
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json#install-azure-policy-extension-for-azure-arc-enabled-kubernetes
