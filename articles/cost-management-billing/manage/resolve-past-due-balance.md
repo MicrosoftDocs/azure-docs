@@ -19,7 +19,7 @@ If you have a Microsoft Customer Agreement billing account, see [Pay your Micros
 
 If your payment isn't received or if we can't process your payment, you get an email and see an alert in the Azure portal. Both inform you that your subscription is past due and provide a link to the **Settle balance** pane in the portal.
 
-If your default payment method is credit card, the [account administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the portal. If you pay by invoice (wire transfer), send your payment to the location listed at the bottom of your invoice.
+If your default payment method is credit card, the [account administrator](add-change-subscription-administrator.md#whoisaa) can settle the outstanding charges in the portal. If you pay by invoice (wire transfer), send your payment to the location shown at the bottom of your invoice.
 
 > [!IMPORTANT]
 > If you have multiple subscriptions that use the same credit card and they're all past due, you must pay the entire outstanding balance at once.
