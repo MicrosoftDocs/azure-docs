@@ -3,7 +3,7 @@ title: Access secrets from online deployment using secret injection (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to use secret injection with online endpoint and deployment to access secrets like API keys.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 author: msakande
 ms.author: mopeakande

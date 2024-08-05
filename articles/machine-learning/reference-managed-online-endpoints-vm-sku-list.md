@@ -3,7 +3,7 @@ title: Managed online endpoints VM SKU list
 titleSuffix: Azure Machine Learning
 description: Lists the VM SKUs that can be used for managed online endpoints in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 author: msakande

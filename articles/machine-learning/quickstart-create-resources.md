@@ -3,7 +3,7 @@ title: "Tutorial: Create workspace resources"
 titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley

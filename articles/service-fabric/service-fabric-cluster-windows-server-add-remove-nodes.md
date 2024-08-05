@@ -4,7 +4,7 @@ description: Learn how to add or remove nodes to an Azure Service Fabric cluster
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

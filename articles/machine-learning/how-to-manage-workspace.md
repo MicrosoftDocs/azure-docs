@@ -3,7 +3,7 @@ title: Manage workspaces in portal or Python SDK (v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning workspaces in the Azure portal or with the SDK for Python (v2).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: deeikele
