@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 08/05/2024
 ms.author: franlanglois
 ms.custom: references_regions
 ---
@@ -61,20 +61,20 @@ Also, Azure Cache for Redis provides more replica nodes in the Premium tier. A [
 
 ## Zone redundancy
 
-Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
+Applicable tiers: **Standard (preview)**, **Premium (preview)**, **Enterprise**, **Enterprise Flash**
 
 Recommended for: **High availability**, **Disaster recovery - intra region**
 
-Azure Cache for Redis supports zone redundant configurations in the Premium and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/availability-zones-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
+Azure Cache for Redis supports zone redundant configurations in the Standard (preview), Premium (preview), and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/availability-zones-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
 
 If a cache is configured to use two or more zones as described earlier in the article, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
 
 > [!IMPORTANT]
-> You can now enable _Automatic Zone Allocation_ for all caches in applicable tiers and regions. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
+> You can now enable _automatic zone allocation_ for all caches in applicable tiers and regions. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
 
 ### Standard and Premium tiers
 
-The following diagram illustrates the zone redundant configuration for the Premium tier:
+The following diagram illustrates the zone redundant configuration for the Standard and Premium tiers:
 
 :::image type="content" source="media/cache-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
 
