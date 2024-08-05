@@ -47,7 +47,7 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
 ## Verify your configuration
 
-Use the following steps in both Microsoft Sentinel and your SAP HANA system to verify that your system is configured as expected.
+Use the following steps in both Microsoft Sentinel and your SAP HANA database to verify that your system is configured as expected.
 
 ### Microsoft Sentinel 
 In Microsoft Sentinel's **Logs** page, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
@@ -82,7 +82,7 @@ T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00
 
 ### SAP HANA
 
-In your SAP HANA system, check your configured audit policies. For more information, see [SAP Note 3016478](https://me.sap.com/notes/3016478/E).
+In your SAP HANA database, check your configured audit policies. For more information on the required SQL statements, see [SAP Note 3016478](https://me.sap.com/notes/3016478/E).
 
 ## Add analytics rules for SAP HANA in Microsoft Sentinel
 
