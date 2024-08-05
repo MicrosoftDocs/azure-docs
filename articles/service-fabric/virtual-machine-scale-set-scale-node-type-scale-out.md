@@ -4,7 +4,7 @@ description: Learn how to scale out a Service Fabric cluster by adding a Virtual
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

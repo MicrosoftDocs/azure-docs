@@ -3,7 +3,7 @@ title: "Tutorial: Model development on a cloud workstation"
 titleSuffix: Azure Machine Learning
 description: Learn how to get started prototyping and developing machine learning models on an Azure Machine Learning cloud workstation. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: devx-track-python
 ms.topic: tutorial

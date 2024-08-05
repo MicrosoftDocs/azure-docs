@@ -3,7 +3,7 @@ title: Updating Data into Cosmos DB for MongoDB
 description: Learn how to get started with updating data in Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: tutorial
 ms.date: 01/24/2023

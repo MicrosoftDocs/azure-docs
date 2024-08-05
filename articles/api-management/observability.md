@@ -4,7 +4,7 @@ description: Overview of all API observability and monitoring options in Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 07/12/2024
 ms.author: danlep

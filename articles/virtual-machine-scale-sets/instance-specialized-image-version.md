@@ -3,7 +3,7 @@ title: Create a scale set from a specialized image version using the Azure CLI
 description: Create a scale set using a specialized image version in an Azure Compute Gallery using the Azure CLI.
 author: sandeepraichura
 ms.author: saraic
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.date: 06/14/2024

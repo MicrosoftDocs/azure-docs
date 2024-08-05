@@ -4,7 +4,7 @@ description: Use Azure CLI to create an Azure Cosmos DB for NoSQL account, datab
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 06/22/2022

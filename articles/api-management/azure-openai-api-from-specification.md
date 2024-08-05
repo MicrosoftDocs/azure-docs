@@ -1,7 +1,7 @@
 ---
 title: Import an Azure OpenAI API as REST API - Azure API Management
 description: How to import an Azure OpenAI API as a REST API from the Azure OpenAI Service or from an OpenAPI specification.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to

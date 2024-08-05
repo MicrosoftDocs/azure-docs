@@ -5,7 +5,7 @@ services: dedicated-hsm
 author: msmbaldwin
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli, mode-api

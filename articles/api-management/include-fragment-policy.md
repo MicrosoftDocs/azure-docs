@@ -4,7 +4,7 @@ description: Reference for the include-fragment policy available for use in Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/23/2024
 ms.author: danlep

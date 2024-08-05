@@ -4,7 +4,7 @@ description: Learn how to use named values in Azure API Management policies. Nam
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/11/2024
 ms.author: danlep

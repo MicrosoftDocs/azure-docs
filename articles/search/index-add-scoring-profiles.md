@@ -57,13 +57,13 @@ The following definition shows a simple profile named "geo". This example boosts
 To use this scoring profile, your query is formulated to specify scoringProfile parameter in the request. If you're using the REST API, queries are specified through GET and POST requests. In the following example, "currentLocation" has a delimiter of a single dash (`-`). It's followed by longitude and latitude coordinates, where longitude is a negative value.
 
 ```http
-GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2023-11-01
+GET /indexes/hotels/docs?search+inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2024-07-01
 ```
 
 Notice the syntax differences when using POST. In POST, "scoringParameters" is plural and it's an array.
 
 ```http
-POST /indexes/hotels/docs&api-version=2023-11-01
+POST /indexes/hotels/docs&api-version=2024-07-01
 {
     "search": "inn",
     "scoringProfile": "geo",

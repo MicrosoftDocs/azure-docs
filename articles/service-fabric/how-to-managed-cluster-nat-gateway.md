@@ -4,7 +4,7 @@ description: Use a NAT gateway on your Service Fabric managed cluster to provide
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/24/2023
 ---

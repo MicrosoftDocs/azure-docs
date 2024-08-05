@@ -3,7 +3,7 @@ title: Creating an ingress controller with a new Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
 ms.date: 07/28/2023

@@ -5,7 +5,7 @@ description: Learn about SQL bitwise operators supported by Azure Cosmos DB.
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql

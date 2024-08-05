@@ -1,7 +1,7 @@
 ---
 title: HDInsight Interactive Query Autoscale(bchedule-based) guide and best practices
 description: LLAP Autoscale Guide and Best Practices 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 author: yeturis
 ms.author: sairamyeturi

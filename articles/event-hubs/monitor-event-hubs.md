@@ -4,7 +4,6 @@ description: Learn how to use Azure Monitor to view, analyze, and create alerts 
 ms.date: 06/20/2024
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: conceptual
-ms.service: azure-event-hubs
 ---
 
 # Monitor Azure Event Hubs

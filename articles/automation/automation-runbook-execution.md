@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 06/27/2024
 ms.topic: conceptual
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Runbook execution in Azure Automation

@@ -3,7 +3,7 @@ title: Application Gateway Ingress Controller troubleshooting
 description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024

@@ -4,7 +4,7 @@ description: Learn more about the features of the API gateway component of Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: concept-article

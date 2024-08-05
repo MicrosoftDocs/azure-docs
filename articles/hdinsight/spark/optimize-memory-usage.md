@@ -1,7 +1,7 @@
 ---
 title: Optimize memory usage in Apache Spark - Azure HDInsight
 description: Learn how to optimize memory usage in Apache Spark on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 09/15/2023
 ---

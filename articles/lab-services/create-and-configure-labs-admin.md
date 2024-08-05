@@ -3,7 +3,7 @@ title: Configure regions for labs
 description: Learn how to change the region of a lab. 
 author: ntrogh
 ms.author: nicktrog
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: how-to 
 ms.date: 06/17/2022
 ms.custom: template-how-to 

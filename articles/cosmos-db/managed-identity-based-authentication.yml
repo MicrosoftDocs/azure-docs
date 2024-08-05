@@ -8,7 +8,7 @@ metadata:
   ms.author: sidandrews
   ms.reviewer: justipat
   ms.date: 06/25/2024
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: how-to
   ms.custom:

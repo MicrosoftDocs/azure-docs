@@ -4,7 +4,7 @@ description: This article describes how to upgrade and scale an Azure API Manage
 author: dlepow
 
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/02/2024
 ms.author: danlep

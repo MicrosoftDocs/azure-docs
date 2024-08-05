@@ -5,7 +5,7 @@ description: Generate suggestions from natural language prompts to write NoSQL q
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - ignite-2023

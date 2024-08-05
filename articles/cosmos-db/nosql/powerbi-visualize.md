@@ -2,7 +2,7 @@
 title: Power BI tutorial for Azure Cosmos DB
 description: Use this Power BI tutorial to import JSON, create insightful reports, and visualize data using the Azure Cosmos DB.
 author: Rodrigossz
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/28/2022
