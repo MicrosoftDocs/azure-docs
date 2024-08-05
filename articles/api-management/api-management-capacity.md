@@ -4,7 +4,7 @@ description: This article explains what the capacity metric is and how to make i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.author: danlep

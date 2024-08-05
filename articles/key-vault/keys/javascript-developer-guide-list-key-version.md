@@ -3,7 +3,7 @@ title: List keys using Azure Key Vault keys with JavaScript
 description: List keys in JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js

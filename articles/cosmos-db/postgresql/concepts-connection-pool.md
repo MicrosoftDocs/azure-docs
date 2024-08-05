@@ -3,7 +3,7 @@ title: Connection pooling – Azure Cosmos DB for PostgreSQL
 description: Use PgBouncer to scale client database connections.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 06/06/2023

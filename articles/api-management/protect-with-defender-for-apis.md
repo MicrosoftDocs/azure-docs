@@ -4,7 +4,7 @@ description: Learn how to enable advanced API security features in Azure API Man
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: danlep

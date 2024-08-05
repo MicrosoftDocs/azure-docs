@@ -4,7 +4,7 @@ description: This article describes how to set up rules to control autoscale beh
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/06/2024
 ms.author: danlep

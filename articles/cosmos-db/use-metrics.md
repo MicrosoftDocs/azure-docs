@@ -4,7 +4,7 @@ description: Learn how to use metrics and insights in Azure Cosmos DB to debug c
 ms.author: esarroyo
 author: StefArroyo
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/14/2023

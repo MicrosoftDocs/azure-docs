@@ -4,7 +4,7 @@ description: This article describes how to debug queries locally using job diagr
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
 ---

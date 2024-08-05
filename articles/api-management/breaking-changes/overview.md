@@ -4,7 +4,7 @@ description: A list of all the upcoming breaking changes and feature retirements
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/15/2024
 ms.author: danlep

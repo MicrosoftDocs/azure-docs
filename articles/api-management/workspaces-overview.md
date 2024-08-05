@@ -4,7 +4,7 @@ description: Learn about Azure API Management workspaces. With workspaces, decen
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/19/2024
 ms.author: danlep

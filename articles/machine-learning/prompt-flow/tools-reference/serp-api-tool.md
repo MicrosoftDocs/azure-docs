@@ -3,7 +3,7 @@ title: SerpAPI tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: SerpAPI is a Python tool that provides a wrapper to the SerpAPI Google Search Engine Results API and the SerpAPI Bing Search Engine Results API.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - devx-track-python

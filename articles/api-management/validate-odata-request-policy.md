@@ -4,7 +4,7 @@ description: Reference for the validate-odata-request policy available for use i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: article

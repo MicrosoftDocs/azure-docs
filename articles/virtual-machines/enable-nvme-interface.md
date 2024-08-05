@@ -10,9 +10,6 @@ ms.custom: template-how-to-pattern
 
 # Supported OS images for remote NVMe
 
-> [!NOTE]
-> This article references CentOS, a Linux distribution that reached the end of support. Consider your use and plan accordingly. For more information, see the [guidance for CentOS end of support](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The following lists provide up-to-date information on which OS images are tagged as supported for remote NVM Express (NVMe).
 
 > [!IMPORTANT]
@@ -29,7 +26,6 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     Almalinux 8.x (currently 8.7)    |   almalinux: almalinux:8-gen2: latest                            |
 |     Almalinux 9.x (currently 9.1)    |   almalinux: almalinux:9-gen2: latest                            |
 |     Debian 11                        |   Debian: debian-11:11-gen2: latest                              |
-|     CentOS 7.9                       |   openlogic: centos:7_9-gen2: latest                             |
 |     RHEL 7.9                         |   RedHat: RHEL:79-gen2: latest                                   |
 |     RHEL 8.6                         |   RedHat: RHEL:86-gen2: latest                                   |
 |     RHEL 8.7                         |   RedHat: RHEL:87-gen2: latest                                   |
@@ -42,8 +38,12 @@ For more information about enabling the NVMe interface on virtual machines creat
 |     Oracle 8.5                       |   Oracle: Oracle-Linuz:ol85-lvm-gen2:latest                      |
 |     Oracle 8.6                       |   Oracle: Oracle-Linux:ol86-lvm-gen2:latest                      |
 |     Oracle 8.7                       |   Oracle: Oracle-Linux:ol87-lvm-gen2:latest                      |
+|     Oracle 8.8                       |   Oracle: Oracle-Linux:ol88-lvm-gen2:latest                      |
+|     Oracle 8.9                       |   Oracle: Oracle-Linux:ol89-lvm-gen2:latest                      |
 |     Oracle 9.0                       |   Oracle: Oracle-Linux:ol9-lvm-gen2:latest                       |
 |     Oracle 9.1                       |   Oracle: Oracle-Linux:ol91-lvm-gen2:latest                      |
+|     Oracle 9.2                       |   Oracle: Oracle-Linux:ol92-lvm-gen2:latest                      |
+|     Oracle 9.3                       |   Oracle: Oracle-Linux:ol93-lvm-gen2:latest                      |
 |     SLES-for-SAP 15.3                |   SUSE:sles-sap-15-sp3:gen2:latest                               |
 |     SLES-for-SAP 15.4                |   SUSE:sles-sap-15-sp4:gen2:latest                               |
 |     SLES 15.4                        |   SUSE:sles-15-sp4:gen2:latest                                   |

@@ -4,7 +4,7 @@ description: Learn how to use metrics, alerts, activity logs, and resource logs 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
 ms.date: 05/15/2024

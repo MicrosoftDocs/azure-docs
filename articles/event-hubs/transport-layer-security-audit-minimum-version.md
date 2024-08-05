@@ -4,7 +4,6 @@ titleSuffix: Event Hubs
 description: Configure Azure Policy to audit compliance of Azure Event Hubs for using a minimum version of Transport Layer Security (TLS).
 author: EldertGrootenboer
 
-ms.service: azure-event-hubs
 ms.topic: article
 ms.date: 04/25/2022
 ms.author: egrootenboer

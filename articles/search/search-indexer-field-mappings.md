@@ -176,7 +176,7 @@ Only URL-safe characters can appear in an Azure AI Search document key (so that 
 The following example specifies the base64Encode function on `metadata_storage_name` to handle unsupported characters.
 
 ```http
-PUT /indexers?api-version=2023-11-01
+PUT /indexers?api-version=2024-07-01
 {
   "dataSourceName" : "my-blob-datasource ",
   "targetIndexName" : "my-search-index",
@@ -200,7 +200,7 @@ A document key (both before and after conversion) can't be longer than 1,024 cha
 There are times when you need to use an encoded version of a field like `metadata_storage_path` as the key, but also need an unencoded version for full text search. To support both scenarios, you can map `metadata_storage_path` to two fields: one for the key (encoded), and a second for a path field that we can assume is attributed as `searchable` in the index schema.
 
 ```http
-PUT /indexers/blob-indexer?api-version=2023-11-01
+PUT /indexers/blob-indexer?api-version=2024-07-01
 {
     "dataSourceName" : " blob-datasource ",
     "targetIndexName" : "my-target-index",

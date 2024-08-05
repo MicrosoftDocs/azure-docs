@@ -1,7 +1,7 @@
 ---
 title: Set up inbound private endpoint for Azure API Management
 description: Learn how to restrict inbound access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to

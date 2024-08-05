@@ -4,7 +4,7 @@ description: Reference for the jsonp policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/23/2024
 ms.author: danlep

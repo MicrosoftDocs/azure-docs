@@ -3,7 +3,7 @@ title: Set up a workspace in Azure API Management
 description: Learn how to create a workspace and a workspace gateway in Azure API Management. Workspaces allow decentralized API development teams to own and productize their own APIs.
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.author: danlep
 ms.date: 07/10/2024
 ms.custom:

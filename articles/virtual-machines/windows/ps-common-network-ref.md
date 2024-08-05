@@ -2,7 +2,7 @@
 title: Common PowerShell commands for Azure Virtual Networks
 description: Common PowerShell commands to get you started creating a virtual network and its associated resources for VMs.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: networking
 ms.topic: how-to
 ms.date: 07/17/2017

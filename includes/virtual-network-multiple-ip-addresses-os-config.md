@@ -5,15 +5,12 @@
  author: asudbring
  ms.service: virtual-network
  ms.topic: include
- ms.date: 09/06/2022
+ ms.date: 08/02/2024
  ms.author: allensu
  ms.custom: include file
 ---
 
 ## <a name="os-config"></a>Add IP addresses to a VM operating system
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 Connect and sign in to a VM you created with multiple private IP addresses. You must manually add all the private IP addresses, including the primary, that you added to the VM. Complete the following steps for your VM operating system.
 
@@ -363,7 +360,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 
 </details>
 
-### Red Hat Enterprise Linux, CentOS, and others
+### Red Hat Enterprise Linux and others
 
 <details>
   <summary>Expand</summary>
@@ -469,7 +466,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
         ether 60:45:bd:7d:70:4a  txqueuelen 1000  (Ethernet)
     ```
 
-#### Validation (Red Hat, CentOS, and others)
+#### Validation (Red Hat and others)
 
 To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated with it, use the following command:
 

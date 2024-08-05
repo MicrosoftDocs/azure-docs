@@ -4,7 +4,7 @@ description: Learn how to send resource logs and event data from container group
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 04/09/2024
 ---

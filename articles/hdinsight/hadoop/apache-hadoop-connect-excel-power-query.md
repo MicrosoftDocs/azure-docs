@@ -1,7 +1,7 @@
 ---
 title: Connect Excel to Apache Hadoop with Power Query - Azure HDInsight
 description: Learn how to take advantage of business intelligence components and use Power Query for Excel to access data stored in Hadoop on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 06/14/2024

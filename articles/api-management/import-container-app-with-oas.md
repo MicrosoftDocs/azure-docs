@@ -4,7 +4,7 @@ description: This article shows you how to use Azure API Management to import a 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 11/03/2021
 ms.author: danlep

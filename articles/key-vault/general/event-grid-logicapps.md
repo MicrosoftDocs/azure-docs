@@ -4,7 +4,7 @@ description: Guide to use Logic Apps to respond to Key Vault secrets changes
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

@@ -3,7 +3,7 @@ title: Autoscale AKS pods with Azure Application Gateway metrics
 description: This article provides instructions on how to scale your AKS backend pods using Application Gateway metrics and Azure Kubernetes Metric Adapter
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
 ms.date: 10/26/2023
