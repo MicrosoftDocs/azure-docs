@@ -92,9 +92,6 @@ The following standards are available in Defender for Cloud:
 | | | Sarbanes Oxley Act (SOX)|
 | | | SOC 2|
 
-![image](https://github.com/user-attachments/assets/c186b2f1-add3-48e3-9a1b-043843f1c59d)
-
-
 ## Related content
 
 - [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
