@@ -16,6 +16,17 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.3.0] (Aug 5, 2024)
+
+#### New features (3.3.0)
+- Update Copyrigt control.
+- Enhance base layer class by adding abstract `getOptions` and `setOptions` functions.
+
+#### Bug fixes (3.3.0)
+- Skip existing sources when copying user layers.
+- Address the incorrect ordering of latitude and longitude values in Position class.
+- Fix hidden accessible element visible issue on control buttons.
+
 ### [3.2.1] (May 13, 2024)
 
 #### New features (3.2.1)
