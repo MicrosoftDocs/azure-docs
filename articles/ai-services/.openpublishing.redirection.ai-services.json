@@ -118,7 +118,7 @@
           {
             "source_path_from_root": "/articles/ai-services/openai/how-to/monitoring.md",
             "redirect_url": "/azure/ai-services/openai/monitor-openai",
-            "redirect_document_id": true
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/ai-services/openai/how-to/prepare-dataset.md",
