@@ -83,7 +83,7 @@ T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00
 
 Check configured audit policies. See SAP note [3016478](https://me.sap.com/notes/3016478/E) for details.
 
-## Add analytics rules for SAP HANA in Sentinel
+## Add analytics rules for SAP HANA in Microsoft Sentinel
 
 Use the following built-in analytics rules to have Microsoft Sentinel start triggering alerts on related SAP HANA activity:
 
