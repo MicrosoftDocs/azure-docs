@@ -22,11 +22,9 @@ This diagram shows Azure NAT Gateway for outbound to the internet.
 
 :::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
 
-[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)] -->
+[!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
-## Network Insights
-
-[Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource. 
+[Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource.
 
 ### View the topology of your Azure architectural setup
 
@@ -36,7 +34,7 @@ To view a topological map of your setup in Azure:
 
 1. On the landing page for **Insights**, there's a topology map of your NAT gateway setup. This map shows the relationship between the different components of your network (subnets, virtual machines, public IP addresses). 
 
-1. Hover over any component in the topology map to view configuration information.
+1. To view configuration information, hover over any component in the topology map.
 
    :::image type="content" source="./media/nat-metrics/nat-insights.png" alt-text="Screenshot of the Insights section of NAT gateway.":::
 
@@ -74,10 +72,6 @@ NAT gateway metrics can be found in the following locations in the Azure portal.
 - Azure Monitor page under **Metrics**.
 
   :::image type="content" source="./media/nat-metrics/azure-monitor.png" alt-text="Screenshot of the metrics section of Azure Monitor.":::
-
-<!-- ## OPTIONAL [TODO-replace-with-service-name] metrics
-If your service uses any non-Azure Monitor based metrics, add the following include and more information.
-[!INCLUDE [horz-monitor-custom-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-non-monitor-metrics.md)] -->
 
 [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
 
@@ -123,24 +117,24 @@ Set up an alert on the **SNAT connection count** metric to notify you of connect
 
 ## Metrics FAQ
 
-### What type of metrics are available for NAT gateway?
+- What type of metrics are available for NAT gateway?
 
-The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](monitor-nat-gateway-reference.md#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
+  The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](monitor-nat-gateway-reference.md#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
 
-Refer to the dimensions column in the [metrics overview](monitor-nat-gateway-reference.md#metrics) table to see which dimensions are available for each NAT gateway metric.
+  To see which dimensions are available for each NAT gateway metric, see the dimensions column in the [metrics overview table](monitor-nat-gateway-reference.md#metrics).
 
-### How do I store NAT gateway metrics long-term?
+- How do I store NAT gateway metrics long-term?
 
-All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
+  All [platform metrics are stored](/azure/azure-monitor/essentials/data-platform-metrics#retention-of-metrics) for 93 days. If you require long term access to your NAT gateway metrics data, NAT gateway metrics can be retrieved by using the [metrics REST API](/rest/api/monitor/metrics/list). For more information on how to use the API, see the [Azure monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough).  
 
-> [!NOTE]
-> Diagnostic Settings [doesn’t support the export of multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations) to another location, such as Azure Storage and Log Analytics.
->
-> To retrieve NAT gateway metrics, use the metrics REST API.
+  > [!NOTE]
+  > Diagnostic Settings [doesn’t support the export of multi-dimensional metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#exporting-platform-metrics-to-other-locations) to another location, such as Azure Storage and Log Analytics.
+  >
+  > To retrieve NAT gateway metrics, use the metrics REST API.
 
-### How do I interpret metrics charts?
+- How do I interpret metrics charts?
 
-Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing or interpreting charts in Azure metrics explorer. 
+  Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metrics-troubleshoot) if you run into issues with creating, customizing, or interpreting charts in Azure metrics explorer.
 
 ## Related content
 

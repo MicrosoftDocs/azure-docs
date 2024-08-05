@@ -37,7 +37,7 @@ The following sections detail how to use each NAT gateway metric to monitor, man
 
 ### Bytes
 
-The **Bytes** metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection. 
+The **Bytes** metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection.
 
 Use this metric to:
 
@@ -78,7 +78,7 @@ Use this metric to:
 
 Possible reasons for dropped packets:
 
-- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
+- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. For more information, see the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity).
 
 ### SNAT connection count
 
@@ -102,7 +102,7 @@ You can use this metric to:
 
 Possible reasons for failed connections:
 
-- A pattern of failed connections can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
+- A pattern of failed connections can happen for various reasons. For more information, see the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity).
 
 > [!NOTE]
 > When NAT gateway is attached to a subnet and public IP address, the Azure platform verifies NAT gateway is healthy by conducting health checks. These health checks appear in NAT gateway's SNAT Connection Count metrics. The amount of health check related connections may vary as the health check service is optimized, but is negligible and doesn’t impact NAT gateway’s ability to connect outbound.
