@@ -20,7 +20,7 @@ Current: 98 (1470/0)
 
 # How customer-managed planned failover (preview) works
 
-Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large scale disasters, and nonstorage related outages.
+Customer managed planned failover can be useful in scenarios such as disaster and recovery planning and testing, proactive remediation of anticipated large-scale disasters, and nonstorage related outages.
 
 During the planned failover process, your storage account's primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary while the original secondary region is promoted and becomes the new primary. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
