@@ -1,16 +1,14 @@
 ---
-title: US Tax document data extraction – Document Intelligence (formerly Form Recognizer)
+title: Document Intelligence (formerly Form Recognizer) US tax documents data extraction
 titleSuffix: Azure AI services
-description: Automate US tax document data extraction with Document Intelligence`s US tax document models.
+description: Automate US tax document data extraction with Document Intelligence US tax document models.
 author: laujan
 manager: nitinme
 ms.service: azure-ai-document-intelligence
-ms.custom:
-  - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
-monikerRange: `>=doc-intel-3.0.0`
+monikerRange: ">=doc-intel-3.0.0"
 ---
 
 <!-- markdownlint-disable MD033 -->
@@ -174,10 +172,9 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 |`LocalTaxInfos.*.LocalIncomeTax`|`number`|Local income tax amount in USD. Part of IRS W2 tax field 19|1234567.89|
 |`LocalTaxInfos.*.LocalityName`|`string`|Locality name. Part of IRS W2 tax field 20|Redmond|
 
-
 ## Field extraction 1098
 
-The following are the fields extracted from a 1098 tax form in the JSON output response. The 1098-T and 1098-E forms are also supported. 
+The following are the fields extracted from a 1098 tax form in the JSON output response. The 1098-T and 1098-E forms are also supported.
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
@@ -214,7 +211,7 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`TaxYear`|`string`|Tax Year extracted from 1099-NEC.|2022|
-|`Payer`|`object`|    An object that contains the payer`s TIN, Name, Address, and PhoneNumber||
+|`Payer`|`object`| An object that contains the payer`s TIN, Name, Address, and PhoneNumber||
 |`Payer.TIN`|`string`|Payer tax identification number.|123-45-6789|
 |`Payer.Name`|`string`|Payer full name as written on the form.|John Smith|
 |`Payer.Address`|`address`|Payer address.|123 Microsoft Way, Redmond Washington 98052|
@@ -234,6 +231,7 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 |`StateTaxesWithheld.*.Box7`|`number`|Box 7 extracted from 1099-NEC.|123456|
 
 ## Field extraction 1099-Combo
+
 The following are the fields extracted from a 1099-Combo tax form in the JSON output response. The other variations of 1099 are also supported.
 
 | Field | Type | Description | Example |
