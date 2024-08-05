@@ -54,7 +54,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
   * Extract payee, amount, date, and other relevant information from checks.​
 * [🆕 Pay Stub model](concept-pay-stub.md)
   * New prebuilt to process pay stubs to extract wages, hours, deductions, net pay and more.​
-* [🆕 Bank statement model](concept-bank-statement-US.md)
+* [🆕 Bank statement model](concept-bank-statement.md)
   * New prebuilt to extract account information including beginning and ending balances, transaction details from bank statements.​
 * [🆕 US Tax model](concept-tax-document.md)
   * New unified US tax model that can extract from forms such as W-2, 1098, 1099, and 1040.
