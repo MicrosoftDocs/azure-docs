@@ -87,7 +87,7 @@ Navigate to your app's Azure Storage resource on the Azure portal and [assign](/
 
 To find your identity resource, select assign access to **Managed identity** and then **+ Select members** 
 
-![Screenshot showing access assignmnet to managed identity.](./media/durable-functions-configure-df-with-credentials/assign-access-managed-identity.png)
+![Screenshot showing access assignment to managed identity.](./media/durable-functions-configure-df-with-credentials/assign-access-managed-identity.png)
 
 ### Add managed identity configuration to your app
 
