@@ -5,7 +5,7 @@ author: andyhoward
 ms.date: 06/20/2023
 ms.author: anhoward
 ms.topic: conceptual
-ms.service: cyclecloud
+ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---
 

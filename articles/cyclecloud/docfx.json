@@ -48,7 +48,7 @@
       ],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "ms.service": "cyclecloud",
+      "ms.service": "azure-cyclecloud",
       "ms.topic": "conceptual"
     },
     "fileMetadata": {
@@ -63,93 +63,6 @@
         "**overview.md": "overview"
       },
       "exclude_monikers": {
-        "release-notes-archive.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes-previous.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-0.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-1.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-2.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-3.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-4.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-5-5.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-6-0.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-6-1.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-0.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-1.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-2.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-3.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-4.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-7-5.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-8-0.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-0.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-1.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-10.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-11.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-2.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-3.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-4.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-5.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-6.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-7.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-8.md": [
-          "cyclecloud-7"
-        ],
-        "release-notes/7-9-9.md": [
-          "cyclecloud-7"
-        ]
       }
     },
     "template": [],
