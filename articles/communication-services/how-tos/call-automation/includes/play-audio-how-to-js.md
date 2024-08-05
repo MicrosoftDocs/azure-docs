@@ -124,6 +124,45 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .playToAll([ playSource ]);
 ```
 
+### Support for barge-in
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+
+```javascript
+// Interrupt media with text source 
+//Option1:
+
+const playSource: TextSource = { text: "Interrupt prompt", voiceName: "en-US-NancyNeural", kind: "textSource" };
+
+const interruptOption: PlayToAllOptions = { 
+loop: false, 
+interruptCallMediaOperation: true, 
+operationContext: "interruptOperationContext", 
+operationCallbackUrl: process.env.CALLBACK_URI + "/api/callbacks" 
+}; 
+
+await callConnectionMedia.playToAll([playSource], interruptOption); 
+
+/*
+// Interrupt media with file source 
+
+Option2: 
+
+const playSource: FileSource = { 
+url: MEDIA_URI + "MainMenu.wav", 
+kind: "fileSource" 
+}; 
+
+const interruptOption: PlayToAllOptions = { 
+loop: false, 
+interruptCallMediaOperation: true, 
+operationContext: "interruptOperationContext", 
+operationCallbackUrl: process.env.CALLBACK_URI + "/api/callbacks" 
+}; 
+
+await callConnectionMedia.playToAll([playSource], interruptOption); 
+*/
+```
+
 ## Play audio - Specific participant
 
 In this scenario, audio is played to a specific participant.
@@ -155,7 +194,7 @@ If you're playing the same audio file multiple times, your application can provi
 const playSource: FileSource = { url: audioUri, playsourcacheid: "<playSourceId>", kind: "fileSource" }; 
 await callAutomationClient.getCallConnection(callConnectionId) 
 .getCallMedia() 
-.play([ playSource ], [ targetParticipant ]); 
+.play([ playSource ], [ targetParticipant ]);
 ```
 
 ## Handle play action event updates 
@@ -175,6 +214,12 @@ if (event.type === "Microsoft.Communication.PlayCompleted") {
 ```javascript
 if (event.type === "Microsoft.Communication.PlayFailed") { 
     console.log("Play failed: data=%s", JSON.stringify(eventData)); 
+} 
+```
+### Example of how you can deserialize the *PlayStarted* event:
+```javascript
+if (event.type === "Microsoft.Communication.PlayStarted") { 
+    console.log("Play started: data=%s", JSON.stringify(eventData)); 
 } 
 ```
 

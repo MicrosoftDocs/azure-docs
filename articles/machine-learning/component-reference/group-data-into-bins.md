@@ -3,7 +3,7 @@ title: "Group Data into Bins: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Group Data into Bins component to group numbers or change the distribution of continuous data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

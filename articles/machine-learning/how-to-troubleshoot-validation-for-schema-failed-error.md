@@ -3,7 +3,7 @@ title: Troubleshoot Validation For Schema Failed Error
 titleSuffix: Azure Machine Learning
 description: Troubleshooting steps when you get the "Validation for schema failed" error message in Azure Machine Learning v2 CLI 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 author: sdgilley
 ms.author: sgilley

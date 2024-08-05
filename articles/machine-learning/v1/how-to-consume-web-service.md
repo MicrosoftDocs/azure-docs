@@ -3,7 +3,7 @@ title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
 description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.author: larryfr
 author: Blackmist

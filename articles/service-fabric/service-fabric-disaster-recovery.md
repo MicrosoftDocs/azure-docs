@@ -4,7 +4,7 @@ description: Azure Service Fabric offers capabilities to deal with disasters. Th
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---
