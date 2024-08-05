@@ -46,7 +46,7 @@ With Azure OpenAI Service, you can get access to the latest OpenAI models that h
 
 The model catalog offers access to a large variety of models across modalities. You can deploy certain models in the model catalog as a service with pay-as-you-go billing. This capability provides a way to consume the models as an API without hosting them on your subscription, while keeping the enterprise security and compliance that your organization needs.
 
-#### Deploy models with MaaS
+#### Deploy models as serverless APIs
 
 The model as a service (MaaS) deployment option doesn't require a quota from your subscription. You use a serverless API deployment and are billed per token in a pay-as-you-go fashion. [Learn how to deploy and consume the Llama 2 model family with MaaS](../how-to/deploy-models-llama.md).
 
