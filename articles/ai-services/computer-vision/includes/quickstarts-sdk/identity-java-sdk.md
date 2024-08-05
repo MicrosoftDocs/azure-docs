@@ -59,7 +59,7 @@ Get started with facial recognition using the Face client library for Java. Foll
           <artifactId>httpclient</artifactId>
           <version>4.5.13</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
           <groupId>com.google.code.gson</groupId>
           <artifactId>gson</artifactId>
