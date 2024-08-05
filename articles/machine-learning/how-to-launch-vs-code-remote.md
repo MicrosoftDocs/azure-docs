@@ -1,5 +1,5 @@
 ---
-title: 'Launch Visual Studio Code integrated with Azure Machine Learning (preview)'
+title: 'Launch Visual Studio Code integrated with Azure Machine Learning'
 titleSuffix: Azure Machine Learning
 description: Connect to an Azure Machine Learning compute instance in Visual Studio Code to run interactive Jupyter Notebook and remote development workloads.
 services: machine-learning
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: lebaro
-ms.date: 07/12/2024
+ms.date: 08/05/2024
 monikerRange: 'azureml-api-1 || azureml-api-2'
 #Customer intent: As a data scientist, I want to connect to an Azure Machine Learning compute instance in Visual Studio Code to access my resources and run my code.
 ---

@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: lebaro
-ms.date: 07/12/2024
+ms.date: 08/05/2024
 #Customer intent: As a data scientist, I want to use Jupyter notebooks and tools while working from a VS Code remote connection to my Azure Machine Learning compute instance.
 ---
 
@@ -80,6 +80,6 @@ While there are a few ways to connect and manage kernels in VS Code, connecting 
 
 We recommend not trying to work on the same files in both applications at the same time as you may have conflicts you need to resolve. We'll save your current file in the studio before navigating to VS Code. You can execute many of the actions provided in the Azure Machine Learning studio in VS Code instead, using a YAML-first approach. You may find you prefer to do certain actions (for example, editing and debugging files) in VS Code, and other actions (for example, Creating a training job) in the Azure Machine Learning studio. You should find you can seamlessly navigate back and forth between the two.
 
-## Next steps
+## Next step
 
 For more information on managing Jupyter kernels in VS Code, see [Jupyter kernel management](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management).

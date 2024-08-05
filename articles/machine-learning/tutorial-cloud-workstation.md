@@ -10,7 +10,7 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: lebaro
-ms.date: 07/25/2024
+ms.date: 08/05/2024
 #Customer intent: As a data scientist, I want to know how to prototype and develop machine learning models on a cloud workstation.
 ---
 
