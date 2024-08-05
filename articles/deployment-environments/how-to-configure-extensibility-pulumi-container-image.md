@@ -194,7 +194,7 @@ You can use Pulumi to create an Azure Container Registry and publish your image 
 
 #### Create an Azure Container Registry and publish your image manually via CLI
 
-In order to use custom images, you need to store them in a container registry. Azure Container Instances (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access.
+In order to use custom images, you need to store them in a container registry. Azure Container Registry (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access.
 
 It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
 
@@ -268,6 +268,7 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 
 > [!Tip]
 > This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
+
 When you're ready to push your image to your registry, run the following command:
 
 ```docker
