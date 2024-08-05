@@ -73,17 +73,17 @@ The following standards are available in Defender for Cloud:
 | Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)|
 | Canada Federal PBMM | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)|
 | CIS Azure Foundations | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls|
-| CIS Azure Kubernetes Service (AKS)| California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
-| CMMC | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark|
-| FedRAMP ‘H’ & ‘M’ | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark|
-| HIPAA/HITRUST | CSA Cloud Controls Matrix (CCM) | CRI Profile|
-| ISO/IEC 27001 | GDPR | CSA Cloud Controls Matrix (CCM)|
-| New Zealand ISM Restricted | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)|
-| NIST SP 800-171 | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)|
-| NIST SP 800-53 | NIST Cybersecurity Framework (CSF) | GDPR|
-| PCI DSS | NIST SP 800-172 | ISO/IEC 27001|
-| RMIT Malaysia | PCI DSS | ISO/IEC 27002|
-| SOC 2 | | ISO/IEC 27017|
+| CIS Azure Kubernetes Service (AKS Benchmark) | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
+| CMMC |CIS Amazon Elastic Kubernetes Service (EKS) Benchmark| CIS Google Cloud Platform Foundation Benchmark|
+| FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Kubernetes Engine (GKE) Benchmark|
+| HIPAA/HITRUST | CRI Profile | CRI Profile|
+| ISO/IEC 27001 | CSA Cloud Controls Matrix (CCM) | CSA Cloud Controls Matrix (CCM)|
+| New Zealand ISM Restricted | GDPR | Cybersecurity Maturity Model Certification (CMMC)|
+| NIST SP 800-171 | ISO/IEC 27001 | FFIEC Cybersecurity Assessment Tool (CAT)|
+| NIST SP 800-53 | ISO/IEC 27002 | GDPR|
+| PCI DSS | NIST Cybersecurity Framework (CSF) | ISO/IEC 27001|
+| RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27002|
+| SOC 2 | PCI DSS | ISO/IEC 27017|
 | SWIFT CSP CSCF | | NIST Cybersecurity Framework (CSF)|
 | UK OFFICIAL and UK NHS | | NIST SP 800-53 |
 | | | NIST SP 800-171|
