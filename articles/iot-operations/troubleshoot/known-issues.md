@@ -19,6 +19,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - You must use the Azure CLI interactive login `az login` when you deploy Azure IoT Operations. If you don't, you might see an error such as _ERROR: AADSTS530003: Your device is required to be managed to access this resource_.
 
+- When you use the `az iot ops delete` command to uninstall Azure IoT Operations, some custom Akri resources might not be deleted from the cluster. These Akri instances can cause issues if you redeploy Azure IoT Operations to the same cluster. You should manually delete any Akri instance custom resources from the cluster before you redeploy Azure IoT Operations.
+
 - If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
 
   To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
@@ -64,6 +66,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
     As a workaround, first fix the connection problem. Then either restart all the pods in the cluster with pod names that start with "aio-opc-opc.tcp", or delete the `AssetEndpointProfile` and deploy it again.
 
+- If you create an asset by using the operations experience web UI, the subject property for any messages sent by the asset is set to the `externalAssetId` value. In this case, the `subject` is a GUID rather than a friendly asset name.
+
 ## OPC PLC simulator
 
 If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQTT broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
@@ -97,37 +101,55 @@ If the OPC PLC simulator isn't sending data to the MQTT broker after you create 
 kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 ```
 
-## Data processor
+## Data flows
 
-- If you see deployment errors with data processor pods, make sure that when you created your Azure Key Vault you chose **Vault access policy** as the **Permission model**.
+- By default, data flows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`. For example:
 
-- If the data processor extension fails to uninstall, run the following commands and try the uninstall operation again:
-
-    ```bash
-    kubectl delete pod  aio-dp-reader-worker-0 --grace-period=0 --force -n azure-iot-operations
-    kubectl delete pod  aio-dp-runner-worker-0 --grace-period=0 --force -n azure-iot-operations
+    ```yaml
+    apiVersion: connectivity.iotoperations.azure.com/v1beta1
+    kind: DataflowEndpoint
+    metadata:
+      name: kafka-target
+      namespace: azure-iot-operations
+    spec:
+      endpointType: kafkaSettings
+      kafkaSettings:
+        host: "<NAMESPACE>.servicebus.windows.net:9093"
+        batching:
+          latencyMs: 0
+          maxMessages: 100
+        tls:
+          mode: Enabled
+        copyMqttProperties: enabled
+      authentication:
+        method: SystemAssignedManagedIdentity
+        systemAssignedManagedIdentitySettings:
+          audience: https://<NAMESPACE>.servicebus.windows.net
     ```
-
-- If edits you make to a pipeline aren't applied to messages, run the following commands to propagate the changes:
-
-    ```bash
-    kubectl rollout restart deployment aio-dp-operator -n azure-iot-operations 
-    
-    kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations 
-    
-    kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-    ```
-
-- It's possible a momentary loss of communication with MQTT broker pods can pause the processing of data pipelines. You might also see errors such as `service account token expired`. If you notice this happening, run the following commands:
-
-    ```bash
-    kubectl rollout restart statefulset aio-dp-runner-worker -n azure-iot-operations
-    kubectl rollout restart statefulset aio-dp-reader-worker -n azure-iot-operations
-    ```
-
-- If data is corrupted in the Microsoft Fabric lakehouse table that your data processor pipeline is writing to, make sure that no other processes are writing to the table. If you write to the Microsoft Fabric lakehouse table from multiple sources, you might see corrupted data in the table.
 
 ## Akri services
+
+When Akri services generate an asset endpoint for a discovered asset, the configuration may contain an invalid setting that prevents the asset from connecting to the MQTT broker. To resolve this issue, edit the `AssetEndpointProfile` configuration and remove the `"securityMode":"none"` setting from thr `additionalConfiguration` property. For example, the configuration for the `opc-ua-broker-opcplc-000000-50000` asset endpoint generated in the quickstarts should look like the following example:
+
+```yml
+apiVersion: deviceregistry.microsoft.com/v1beta1
+kind: AssetEndpointProfile
+metadata:
+  creationTimestamp: "2024-08-05T11:41:21Z"
+  generation: 2
+  name: opc-ua-broker-opcplc-000000-50000
+  namespace: azure-iot-operations
+  resourceVersion: "233018"
+  uid: f9cf479f-7a77-49b5-af88-18d509e9cdb0
+spec:
+  additionalConfiguration: '{"applicationName":"opc-ua-broker-opcplc-000000-50000","keepAliveMilliseconds":10000,"defaults":{"publishingIntervalMilliseconds":1000,"queueSize":1,"samplingIntervalMilliseconds":1000},"subscription":{"maxItems":1000,"lifetimeMilliseconds":360000},"security":{"autoAcceptUntrustedServerCertificates":true,"securityPolicy":"http://opcfoundation.org/UA/SecurityPolicy#None"},"session":{"timeoutMilliseconds":60000,"keepAliveIntervalMilliseconds":5000,"reconnectPeriodMilliseconds":500,"reconnectExponentialBackOffMilliseconds":10000}}'
+  targetAddress: "\topc.tcp://opcplc-000000:50000"
+  transportAuthentication:
+    ownCertificates: []
+  userAuthentication:
+    mode: Anonymous
+  uuid: opc-ua-broker-opcplc-000000-50000
+```
 
 A sporadic issue might cause the `aio-opc-asset-discovery` pod to restart with the following error in the logs: `opcua@311 exception="System.IO.IOException: Failed to bind to address http://unix:/var/lib/akri/opcua-asset.sock: address already in use.`.
 

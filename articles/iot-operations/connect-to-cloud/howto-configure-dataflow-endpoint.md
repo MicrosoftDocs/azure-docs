@@ -299,6 +299,9 @@ spec:
     copyMqttProperties: enabled
 ```
 
+> [!IMPORTANT]
+> By default, data flows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`.
+
 ## Endpoint types for destinations only
 
 ### Azure Data Lake (ADLSv2)

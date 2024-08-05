@@ -30,12 +30,12 @@ The Akri services enable you to detect and create assets in the address space of
     kubectl get pods -n azure-iot-operations
     ```
 
-    The output includes lines that show the Akri agent and discovery handler pods are running:
+    The output includes a line that shows the Akri agent and discovery pods qre running:
 
     ```output
     NAME                                             READY   STATUS    RESTARTS   AGE
-    aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17m
-    akri-opcua-asset-discovery-daemonset-dwn2q       1/1     Running   0          8m28s
+    aio-akri-agent-daemonset-hwpc7                   1/1     Running   0          17mk0s
+    aio-opc-asset-discovery-wzlnj                    1/1     Running   0          8m28s
     ```
 
 ## Configure the OPC UA discovery handler
@@ -78,6 +78,9 @@ The following example demonstrates discovery of an OPC PLC server. You can add t
     kubectl apply -f opcua-configuration.yaml -n azure-iot-operations
     ```
 
+> [!TIP]
+> In a default Azure IoT Operations deployment, the OPC UA discovery handler is already configured to discover the simulated PLC server. If you want to discover assets connected to additional OPC UA servers, you can add them to the configuration file.
+
 ## Verify the configuration
 
 To confirm that the asset discovery container is configured and running:
@@ -85,58 +88,36 @@ To confirm that the asset discovery container is configured and running:
 1. Use the following command to check the pod logs:
 
     ```bash
-    kubectl logs <insert aio-akri-opcua-asset-discovery pod name> -n azure-iot-operations
+    kubectl logs <insert aio-opc-asset-discovery pod name> -n azure-iot-operations
     ```
 
-    A log from the `aio-akri-opcua-asset-discovery` pod indicates after a few seconds that the discovery handler registered itself with the Akri services:
+    A log from the `aio-opc-asset-discovery` pod indicates after a few seconds that the discovery handler registered itself with the Akri services:
 
-    ```output
-    2023-06-07 10:45:27.395 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Akri OPC UA Asset Detection (0.2.0-alpha.203+Branch.main.Sha.cd4045345ad0d148cca4098b68fc7da5b307ce13) is starting with the process id: 1
-    2023-06-07 10:45:27.695 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Got IP address of the pod from POD_IP environment variable.
-    2023-06-07 10:45:28.695 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Registered with Akri system with Name opcua-asset for http://10.1.0.92:80 with type: Network as shared: True
-    2023-06-07 10:45:28.696 +00:00 info: OpcUaAssetDetection.Akri.Program[0]      Press CTRL+C to exit
+    ```2024-08-01T15:04:12.874Z aio-opc-asset-discovery-4nsgs - Akri OPC UA Asset Discovery (1.0.0-preview-20240708+702c5cafeca2ea49fec3fb4dc6645dd0d89016ee) is starting with the process id: 1
+    2024-08-01T15:04:12.948Z aio-opc-asset-discovery-4nsgs - OPC UA SDK 1.5.374.70 from 07/20/2024 07:37:16
+    2024-08-01T15:04:12.973Z aio-opc-asset-discovery-4nsgs - OPC UA SDK informational version: 1.5.374.70+1ee3beb87993019de4968597d17cb54d5a4dc3c8
+    2024-08-01T15:04:12.976Z aio-opc-asset-discovery-4nsgs - Akri agent registration enabled: True
+    2024-08-01T15:04:13.475Z aio-opc-asset-discovery-4nsgs - Hosting starting
+    2024-08-01T15:04:13.547Z aio-opc-asset-discovery-4nsgs - Overriding HTTP_PORTS '8080' and HTTPS_PORTS ''. Binding to values defined by URLS instead 'http://+:8080'.
+    2024-08-01T15:04:13.774Z aio-opc-asset-discovery-4nsgs - Now listening on: http://:8080
+    2024-08-01T15:04:13.774Z aio-opc-asset-discovery-4nsgs - Application started. Press Ctrl+C to shut down.
+    2024-08-01T15:04:13.774Z aio-opc-asset-discovery-4nsgs - Hosting environment: Production
+    2024-08-01T15:04:13.774Z aio-opc-asset-discovery-4nsgs - Content root path: /app
+    2024-08-01T15:04:13.774Z aio-opc-asset-discovery-4nsgs - Hosting started
+    2024-08-01T15:04:13.881Z aio-opc-asset-discovery-4nsgs - Registering with Agent as HTTP endpoint using own IP from the environment variable POD_IP: 10.42.0.245
+    2024-08-01T15:04:14.875Z aio-opc-asset-discovery-4nsgs - Registered with the Akri agent with name opcua-asset for http://10.42.0.245:8080 with type Network and shared True
+    2024-08-01T15:04:14.877Z aio-opc-asset-discovery-4nsgs - Successfully re-registered OPC UA Asset Discovery Handler with the Akri agent
+    2024-08-01T15:04:14.877Z aio-opc-asset-discovery-4nsgs - Press CTRL+C to exit 
     ```
 
     After about a minute, the Akri services issue the first discovery request based on the configuration:
 
     ```output
-    2023-06-07 12:49:17.344 +00:00 dbug: Grpc.AspNetCore.Server.ServerCallHandler[10]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Reading message.
-    2023-06-07 12:49:18.046 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Got discover request opcuaDiscoveryMethod:
-            - asset:
-                endpointUrl: "opc.tcp://opcplc-000000:50000"
-                useSecurity: false
-                autoAcceptUntrustedCertificates: true
-           from ipv6:[::ffff:10.1.7.47]:39708
-    2023-06-07 12:49:20.238 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Start asset discovery
-    2023-06-07 12:49:20.242 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Discovering OPC UA endpoint opc.tcp://opcplc-000000:50000 using Asset Discovery
-    ...
-    2023-06-07 14:20:03.905 +00:00 info: OpcUa.Common.Dtdl.DtdlGenerator[6901]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Created DTDL_2 model for boiler_1 with 35 telemetries in 0 ms
-    2023-06-07 14:20:04.208 +00:00 info: OpcUa.AssetDiscovery.Akri.CustomResources.CustomResourcesManager[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Generated 1 asset CRs from discoveryUrl opc.tcp://opcplc-000000:50000
-    2023-06-07 14:20:04.208 +00:00 info: OpcUa.Common.Client.OpcUaClient[1005]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Session ns=8;i=1828048901 is closing
-    ...
-    2023-06-07 14:20:05.002 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Sending response to caller ...
-    2023-06-07 14:20:05.003 +00:00 dbug: Grpc.AspNetCore.Server.ServerCallHandler[15]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Sending message.
-    2023-06-07 14:20:05.004 +00:00 info: OpcUa.AssetDiscovery.Akri.Services.DiscoveryHandlerService[0]
-          => SpanId:603279c62c9ccbb0, TraceId:15ad328e1e803c55bc6731266aae8725, ParentId:0000000000000000 => ConnectionId:0HMR7AMCHHG2G => RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HMR7AMCHHG2G:00000001
-          Sent successfully
+    2024-08-01T15:04:15.280Z aio-opc-asset-discovery-4nsgs [opcuabroker@311 SpanId:6d3db9751eebfadc, TraceId:e5594cbaf3993749e92b45c88c493377, ParentId:0000000000000000 ConnectionId:0HN5I7CQJPJL0 RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HN5I7CQJPJL0:00000001] - Reading message.
+    2024-08-01T15:04:15.477Z aio-opc-asset-discovery-4nsgs [opcuabroker@311 SpanId:6d3db9751eebfadc, TraceId:e5594cbaf3993749e92b45c88c493377, ParentId:0000000000000000 ConnectionId:0HN5I7CQJPJL0 RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HN5I7CQJPJL0:00000001] - Received discovery request from ipv6:[::ffff:10.42.0.241]:48638
+    2024-08-01T15:04:15.875Z aio-opc-asset-discovery-4nsgs [opcuabroker@311 SpanId:6d3db9751eebfadc, TraceId:e5594cbaf3993749e92b45c88c493377, ParentId:0000000000000000 ConnectionId:0HN5I7CQJPJL0 RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HN5I7CQJPJL0:00000001] - Start asset discovery
+    2024-08-01T15:04:15.882Z aio-opc-asset-discovery-4nsgs [opcuabroker@311 SpanId:6d3db9751eebfadc, TraceId:e5594cbaf3993749e92b45c88c493377, ParentId:0000000000000000 ConnectionId:0HN5I7CQJPJL0 RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HN5I7CQJPJL0:00000001] - Discovering OPC UA     opc.tcp://opcplc-000000:50000 using Asset Discovery
+    2024-08-01T15:04:15.882Z aio-opc-asset-discovery-4nsgs [opcuabroker@311 SpanId:6d3db9751eebfadc, TraceId:e5594cbaf3993749e92b45c88c493377, ParentId:0000000000000000 ConnectionId:0HN5I7CQJPJL0 RequestPath:/v0.DiscoveryHandler/Discover RequestId:0HN5I7CQJPJL0:00000001] - Selected AutoAcceptUntrustedCertificates mode: False
     ```
 
     After the discovery is complete, the discovery handler sends the result back to the Akri services to create an Akri instance custom resource with asset information and observable variables. The discovery handler repeats the discovery every 10 minutes to detect any changes on the server.
@@ -150,8 +131,8 @@ To confirm that the asset discovery container is configured and running:
     The output from the previous command looks like the following example. You might need to wait for a few seconds for the Akri instance to be created:
 
     ```output
-    NAMESPACE              NAME                      CONFIG             SHARED   NODES            AGE
-    azure-iot-operations   akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["my-aio-vm"]   35m
+    NAME                      CONFIG             SHARED   NODES                          AGE
+    akri-opcua-asset-dbdef0   akri-opcua-asset   true     ["k3d-k3s-default-server-0"]   24h
     ```
 
     The connector for OPC UA supervisor watches for new Akri instance custom resources of type `opc-ua-asset`, and generates the initial asset types and asset custom resources for them. You can modify asset custom resources by adding settings such as extended publishing for more data points, or connector for OPC UA observability settings.
