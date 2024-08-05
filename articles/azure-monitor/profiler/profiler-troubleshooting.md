@@ -57,7 +57,7 @@ Profiling data is uploaded only when it can be attached to a request that happen
 >   
 > "Upload trace was canceled as no activity detected from target iKey."
 >   
-> Make sure to verify the presence of Request data.
+> Verify that request data is present.
 
 
 Profiler writes trace messages and custom events to your Application Insights resource. You can use these events to see how Profiler is running.
