@@ -44,9 +44,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Elastic SAN performance
+          - text: How Elastic SAN performance works with VMs
             url: elastic-san-performance.md
-          - text: Scale targets
+          - text: Scale targets for Azure Elastic SAN
             url: elastic-san-scale-targets.md
-          - text: Best practices
+          - text: Optimize the performance of your Elastic SAN
             url: elastic-san-best-practices.md
