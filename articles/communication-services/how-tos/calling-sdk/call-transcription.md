@@ -34,7 +34,7 @@ The following tables show support of breakout rooms for specific call type and i
 |Communication Services user	| ✔️	          |      |          |            |	  ✔️                  |	✔️                       |
 |Microsoft 365 user	          | ✔️	          |      |          |            |    ✔️                  | ✔️                      |
 
-# Operations
+## Operations
 The following tables show support of individual APIs in calling SDK to individual identity types. 
 
 |Operations                   | Communication Services user | Microsoft 365 user |
@@ -46,7 +46,7 @@ The following tables show support of individual APIs in calling SDK to individua
 ## SDKs
 The following tables show support of transcription in individual Azure Communication Services SDKs.
 
-|             | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+| Platforms   | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 |-------------|-----|--------|-----|--------|---------|------------|---------|
 |Is Supported | ✔️  |  ✔️   | ✔️ | ✔️     | ✔️     | ✔️         |  ✔️    |		
 
