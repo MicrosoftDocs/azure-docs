@@ -48,7 +48,7 @@ Like [fine-tuning](../../how-to/fine-tuning.md), global batch uses files in JSON
 
 The `custom_id` is required to allow you to identify which individual batch request corresponds to a given response. Responses won't be returned in identical order to the order defined in the `.jsonl` batch file.
 
-`model` should be set to match the **model deployment name** of the global batch model you wish to target for inference responses.
+`model` attribute should be set to match the name of the Global Batch deployment you wish to target for inference responses.
 
 ### Create input file
 

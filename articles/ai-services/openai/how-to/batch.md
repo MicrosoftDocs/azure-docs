@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: 
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/04/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -53,7 +53,6 @@ The following models support global batch:
 | Model | Version | Supported |
 |---|---|
 |`gpt-4o` | 2024-05-13 |Yes (text + vision) |
-|`gpt-4o-mini` | 2024-07-18 |Yes (text + vision) |
 |`gpt-4` | turbo-2024-04-09 | Yes (text only) |
 |`gpt-4` | 0613 | Yes |
 | `gpt-35-turbo` | 0125 | Yes |
@@ -81,7 +80,7 @@ In the Studio UI the deployment type will appear as `Global-Batch`.
 :::image type="content" source="../media/how-to/global-batch/global-batch.png" alt-text="Screenshot that shows the model deployment dialog in Azure OpenAI Studio with Global-Batch deployment type highlighted." lightbox="../media/how-to/global-batch/global-batch.png":::
 
 > [!TIP]
-> Each line of your input file for batch processing requires the unique **deployment name** that you chose during model deployment to be present. This value wil be assigned to the `model` parameter. This is different from OpenAI where the concept of model deployments does not exist.
+> Each line of your input file for batch processing requires the unique **deployment name** that you chose during model deployment to be present. This value wil be assigned to the `model` attribute. This is different from OpenAI where the concept of model deployments does not exist.
 
 ::: zone pivot="programming-language-ai-studio"
 
@@ -132,7 +131,7 @@ In the Studio UI the deployment type will appear as `Global-Batch`.
 
 ### Can images be used with the batch API?
 
-This capability is limited to certain multi-modal models. Currently only GPT-4o and GPT-4o mini support images as part of batch requests. Images can be provided as input either via [image url or a base64 encoded representation of the image](#input-format). Images for batch are currently not supported with GPT-4 Turbo.
+This capability is limited to certain multi-modal models. Currently only GPT-4o support images as part of batch requests. Images can be provided as input either via [image url or a base64 encoded representation of the image](#input-format). Images for batch are currently not supported with GPT-4 Turbo.
 
 ### Can I use the batch API with fine-tuned models?
 
