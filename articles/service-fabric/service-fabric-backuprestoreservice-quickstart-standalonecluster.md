@@ -4,7 +4,7 @@ description: Use a standalone Service Fabric's periodic backup and restore featu
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

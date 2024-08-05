@@ -2,7 +2,7 @@
 title: "Train Vowpal Wabbit Model"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Vowpal Wabbit Model component to create a machine learning model by using an instance of Vowpal Wabbit.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

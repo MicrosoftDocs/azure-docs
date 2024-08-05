@@ -28,7 +28,7 @@ Although the simple parser is based on the [Apache Lucene Simple Query Parser](h
 This example shows a simple query, distinguished by `"queryType": "simple"` and valid syntax. Although query type is set below, it's the default and can be omitted unless you're reverting from an alternative type. The following example is a search over independent terms, with a requirement that all matching documents include "pool".
 
 ```http
-POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2023-11-01
+POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2024-07-01
 {
   "queryType": "simple",
   "search": "budget hotel +pool",

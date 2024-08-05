@@ -41,7 +41,7 @@ When one of the numbers is increased, all numbers after it must change, too. One
 
 In this update, we made the following change:
 
-- Connection reliability tab now generally available.
+- Connection reliability is generally available.
 
 ## Version 3.4.0
 
@@ -49,8 +49,8 @@ In this update, we made the following change:
 
 In this update, we made the following changes:
 
-- Added HCI core count.
-- Updated reliability of users per core calculation.
+- Added Azure Stack HCI core count.
+- Updated the reliability of the calculation for users per core.
 
 ## Version 3.3.1
 
@@ -58,7 +58,7 @@ In this update, we made the following changes:
 
 In this update, we made the following change:
 
-- Introduced previews for Connection Reliability and Autoscale Reporting.
+- Introduced previews for connection reliability and autoscale reporting.
 
 ## Version 3.2.2
 

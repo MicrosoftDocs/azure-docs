@@ -3,7 +3,7 @@ title: Microservices with Azure Containers Apps
 description: Build a microservice in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/23/2022
 ms.author: cshoe
