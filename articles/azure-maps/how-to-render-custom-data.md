@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 06/20/2024
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-render
+ms.subservice: render
 ---
 
 # Render custom data on a raster map

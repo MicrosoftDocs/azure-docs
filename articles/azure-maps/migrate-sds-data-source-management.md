@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-spatial
+ms.subservice: spatial
 ---
 
 # Migrate Bing Maps Data Source Management and Query API

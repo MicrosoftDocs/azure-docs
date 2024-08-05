@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-rest
+ms.subservice: rest-sdk
 ms.custom: devx-track-extended-java
 ---
 

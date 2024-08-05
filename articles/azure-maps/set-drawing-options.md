@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 06/15/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # Use the drawing tools module

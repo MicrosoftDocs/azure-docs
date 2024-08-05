@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 05/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-search
+ms.subservice: search
 ---
 
 # Migrate Bing Maps Geocode Dataflow API

@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 08/15/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-creator
+ms.subservice: creator
 ---
 
 # Create indoor map with the onboarding tool

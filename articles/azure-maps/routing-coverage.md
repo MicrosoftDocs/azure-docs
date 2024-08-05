@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-routing
+ms.subservice: routing
 zone_pivot_groups: azure-maps-coverage
 ---
 

@@ -6,7 +6,7 @@ ms.author: eriklind
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # Tutorial: Migrate a web app from Google Maps

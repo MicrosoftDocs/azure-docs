@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-render
+ms.subservice: render
 ---
 
 # Zoom levels and tile grid

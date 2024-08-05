@@ -6,7 +6,7 @@ ms.author: fsiddiqui
 ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-weather
+ms.subservice: weather
 ---
 
 # Weather services in Azure Maps

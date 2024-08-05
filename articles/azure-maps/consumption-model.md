@@ -6,7 +6,7 @@ ms.author: skamma
 ms.date: 05/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 

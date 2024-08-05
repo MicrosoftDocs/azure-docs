@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-creator
+ms.subservice: creator
 ms.custom: mvc
 ---
 

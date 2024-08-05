@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 8/6/2019
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # How to use image templates

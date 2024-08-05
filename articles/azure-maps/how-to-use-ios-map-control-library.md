@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-ios
+ms.subservice: ios-sdk
 ---
 
 # Get started with Azure Maps iOS SDK (Preview)

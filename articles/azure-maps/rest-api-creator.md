@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 02/05/2024
 ms.topic: reference
 ms.service: azure-maps
-ms.subservice: service-creator
+ms.subservice: creator
 ---
 
 # Creator Rest API

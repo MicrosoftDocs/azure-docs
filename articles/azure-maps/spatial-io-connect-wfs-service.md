@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 06/20/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # Connect to a WFS service

@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-search
+ms.subservice: search
 ---
 
 # Best practices for Azure Maps Search service

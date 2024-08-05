@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-routing
+ms.subservice: routing
 ---
 
 # Migrate Bing Maps Calculate a Truck Route API

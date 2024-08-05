@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 09/14/2023
 ms.topic: tutorial
 ms.service: azure-maps
-ms.subservice: service-spatial
+ms.subservice: spatial
 ms.custom: mvc
 ---
 

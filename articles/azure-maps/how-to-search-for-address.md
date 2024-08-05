@@ -6,7 +6,7 @@ ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-routing
+ms.subservice: routing
 ---
 
 # Search for a location using Azure Maps Search services

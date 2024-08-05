@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 3/16/2022
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-render
+ms.subservice: render
 ---
 
 # Show the correct copyright attribution

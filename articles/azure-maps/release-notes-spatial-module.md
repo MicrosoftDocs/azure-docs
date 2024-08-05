@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 5/23/2023
 ms.topic: reference
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # Spatial IO Module release notes

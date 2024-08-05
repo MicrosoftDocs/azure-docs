@@ -7,7 +7,7 @@ ms.author: eriklind
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # How to use the Azure Maps Spatial IO module

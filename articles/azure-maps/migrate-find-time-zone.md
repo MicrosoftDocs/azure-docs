@@ -7,7 +7,7 @@ ms.author: eriklind
 ms.date: 04/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-ms.subservice: service-timezone
+ms.subservice: timezone
 ---
 
 

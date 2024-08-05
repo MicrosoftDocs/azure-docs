@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 05/23/2023
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: sdk-web
+ms.subservice: web-sdk
 ---
 
 # Drawing tools events

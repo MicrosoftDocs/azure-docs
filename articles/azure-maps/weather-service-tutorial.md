@@ -7,7 +7,7 @@ ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
-ms.subservice: service-weather
+ms.subservice: weather
 ms.custom: mvc, devx-track-python
 ---
 

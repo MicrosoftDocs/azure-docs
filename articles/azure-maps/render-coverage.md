@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 09/21/2023
 ms.topic: conceptual
 ms.service: azure-maps
-ms.subservice: service-render
+ms.subservice: render
 ---
 
 # Azure Maps render coverage
