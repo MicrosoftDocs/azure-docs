@@ -20,7 +20,7 @@ Azure AI Studio supports deploying large language models (LLMs), flows, and web 
 
 The process of interacting with a deployed model is called *inferencing*. Inferencing involves applying new input data to a model to generate outputs.
 
-You can use inferencing in various applications. For example, you can use a chat completion model to automatically complete words or phrases that a person is typing in real time. You can use a chat model to generate a response to "Can you create an itinerary for a single-day visit in Seattle?". The possibilities are endless.
+You can use inferencing in various applications. For example, you can use a chat completion model to automatically complete words or phrases that a person is typing in real time. You can also use a chat model to generate a response to the question "Can you create an itinerary for a single-day visit in Seattle?" The possibilities are endless.
 
 ## Deploying models
 
