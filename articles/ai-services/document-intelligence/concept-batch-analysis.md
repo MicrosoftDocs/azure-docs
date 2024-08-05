@@ -22,13 +22,13 @@ The batch analysis API allows you to bulk process multiple documents using one a
 
 The following models support batch analysis:
 
-* [Read](concept-read.md). Extract text lines, words, detected languages, and handwritten style from forms and document.
+* [**Read**](concept-read.md). Extract text lines, words, detected languages, and handwritten style from forms and document.
 
-* [Layout](concept-layout.md). Extract text, tables, selection marks, and structure information from forms and documents.
+* [**Layout**](concept-layout.md). Extract text, tables, selection marks, and structure information from forms and documents.
 
-* [Custom Template](concept-custom-template.md). Train models to extract key-value pairs, selection marks, tables, signature fields, and regions from structured forms.
+* [**Custom Template**](concept-custom-template.md). Train models to extract key-value pairs, selection marks, tables, signature fields, and regions from structured forms.
 
-* [Custom Neural](concept-custom-neural.md). Train models to extract specified data fields from structured, semi-structured, and unstructured documents.
+* [**Custom Neural**](concept-custom-neural.md). Train models to extract specified data fields from structured, semi-structured, and unstructured documents.
 
 * **Custom Generative**. Train models to extract specified data from complex objects such as nested tables, abstractive/generative fields, and truly unstructured formats.
 

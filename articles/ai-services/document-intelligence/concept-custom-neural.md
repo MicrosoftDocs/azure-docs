@@ -44,9 +44,9 @@ Custom neural models share the same labeling format and strategy as [custom temp
  > [!IMPORTANT]
  > Starting with API version ```2024-02-29-preview``` custom neural models add support for overlapping fields and table cell confidence.
 
-Custom neural models currently only support key-value pairs and selection marks and structured fields (tables), future releases include support for signatures.
+Custom neural models currently support key-value pairs and selection marks and structured fields (tables).
 
-| Form fields | Selection marks | Tabular fields | Signature | Selected Region | Overlapping fields |
+| Form fields | Selection marks | Tabular fields | Signature | Region labeling | Overlapping fields |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Supported <sup>1</sup> | Supported <sup>2</sup> |
 
@@ -63,6 +63,10 @@ Neural models support documents that have the same information, but different pa
 
 With the release of API versions ````2024-02-29-preview```` and later, custom neural models support overlapping fields:
 
+## Overlapping fields
+
+With the release of API versions **2024-02-29-preview** and  later, custom neural models will support overlapping fields:
+
 To use the overlapping fields, your dataset needs to contain at least one sample with the expected overlap. To label an overlap, use **region labeling** to designate each of the spans of content (with the overlap) for each field. Labeling an overlap with field selection (highlighting a value) fails in the Studio as region labeling is the only supported labeling tool for indicating field overlaps. Overlap support includes:
 
 * Complete overlap. The same set of tokens are labeled for two different fields.
@@ -78,7 +82,7 @@ To use overlapping fields, label your dataset with the overlaps and train the mo
 
 ## Tabular fields
 
-With the release of API versions **2022-06-30-preview** and  later, custom neural models support tabular fields (tables) to analyze table, row, and cell data with added confidence:
+With the release of API versions **2022-06-30-preview** and later, custom neural models support tabular fields (tables) to analyze table, row, and cell data with added confidence:
 
     * Models trained with API version 2022-06-30-preview, or later will accept tabular field labels.
     * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
@@ -273,7 +277,7 @@ https://{endpoint}/formrecognizer/documentModels/{modelId}:copyTo?api-version=20
 
 ## Billing
 
-Starting with version `2024-07-31-preview` and later you can receive **10 hours** of free model training. Billing charges are calculated for model trainings that exceed 10 hours at a rate of **$3/hour**. Each training hour is the amount of time to complete a single V100 GPU per hour. By default, a training job can consume at most 0.5 training hour (0.5 V100 hours). You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours`:
+Starting with version `2024-07-31-preview` and later you can receive **10 hours** of free model training. Billing charges are calculated for model trainings that exceed 10 hours. You can choose to spend all of 10 free hours on a single build with a large set of data, or utilize it across multiple builds by adjusting the maximum duration value for the `build` operation by specifying `maxTrainingHours`:
 
 ```bash
 
