@@ -11,10 +11,21 @@ ms.date: 03/29/2024
 
 # What's new in Resource Mover
 
-The [Azure Resource Mover](overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated on a regular basis.
+[Azure Resource Mover](overview.md) is constantly improving and releasing new features that simplify moving workloads in Azure. These new features expand the current capability of region-to-region migration by supporting more resource types or adding in new move capabilities. 
+You can learn more about the new releases by bookmarking this page or by subscribing to updates [here](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR85jvyZFzJ9Fij7HO6nPfn5UNFc3QTJXNFMwNFhKMDUwOEhOTzdFQzFEMi4u). 
+
+## Updates (March-2024)
 
 
-## What's new for Resource Mover
+Azure Resource Mover now supports moving resources from one subscription to another, in addition to moving Azure VMs across regions. This helps you consolidate, organize, manage, and bill your resources more effectively. You can use the "Edit target subscription" option on the move resources blade, along with options to add/remove resources, prepare, initiate move, discard, and commit move. After adding resources, click **Edit target subscription** to move them to a different subscription from the source.
+
+
+
+### Capability to move Azure virtual machines to another subscription and region in one attempt is in private preview
+
+Azure Resource Mover now lets you move resources from one subscription to another and across regions in private preview. This helps you consolidate, organize, manage, and bill your resources more effectively. You can use the "Edit target subscription" option on the move resources blade, along with options to add/remove resources, prepare, initiate move, discard, and commit move. After adding resources, select **Edit target subscription** to move them to a different subscription from the source.
+
+To try out this feature, please sign up by filling out [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR85jvyZFzJ9Fij7HO6nPfn5UNlVBMzBON1ZWUEhTTjYwRDRCOUMzV09BMy4u).
 
 ### Updates (September-2020)
 
