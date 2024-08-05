@@ -27,7 +27,7 @@ This document contains information about new features and other changes to the M
 
 #### Bug fixes (3.3.0)
 - Skip existing sources when copying user layers.
-- Address the incorrect ordering of latitude and longitude values in Position class.
+- **\[BREAKING\]** Address the incorrect ordering of latitude and longitude values in Position.fromLatLng().
 - Fix hidden accessible element visible issue on control buttons.
 
 ### [3.2.1] (May 13, 2024)
@@ -616,6 +616,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
 [3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1
 [3.2.0]: https://www.npmjs.com/package/azure-maps-control/v/3.2.0
 [3.1.2]: https://www.npmjs.com/package/azure-maps-control/v/3.1.2
