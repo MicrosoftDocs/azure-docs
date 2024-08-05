@@ -201,7 +201,7 @@ To assign the AcrPull role to the Project Environment Type:
 
    The project environment type displays like the following example:
 
-   :::image type="content" source="media/how-to-configure-extensibility-generic-container-image/container-registry-access-control-pet.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted.":::
+   :::image type="content" source="media/how-to-configure-extensibility-generic-container-image/container-registry-access-control.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted.":::
 
 In this configuration, ADE uses the Managed Identity for the PET, whether system assigned or user assigned.
 
