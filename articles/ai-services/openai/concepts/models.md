@@ -202,6 +202,28 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 - eastus
 
+
+### Global batch model availability
+
+### Region and model support
+
+The following models support global batch:
+
+| Model | Version | Input format |
+|---|---|
+|`gpt-4o` | 2024-05-13 |text + image |
+|`gpt-4` | turbo-2024-04-09 | text |
+|`gpt-4` | 0613 | text |
+| `gpt-35-turbo` | 0125 | text |
+| `gpt-35-turbo` | 1106 | text |
+| `gpt-35-turbo` | 0613 | text |
+
+Global batch is currently supported in the following regions:
+
+- East US
+- West US
+- Sweden Central
+
 ### GPT-4 and GPT-4 Turbo model availability
 
 #### Public cloud regions

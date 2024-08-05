@@ -2082,7 +2082,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
-
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
