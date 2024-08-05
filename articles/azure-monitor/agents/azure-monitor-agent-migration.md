@@ -141,7 +141,6 @@ A SCOM Admin Management Pack exists and can help you remove the workspace config
 - Sentinel: Windows Firewall logs aren't generally available (GA) yet.
 - SQL Assessment Solution: This is now part of SQL best practice assessment. The deployment policies require one Log Analytics Workspace per subscription, which isn't the best practice recommended by the AMA team.
 - Microsoft Defender for cloud: Some features for the new agent-less solution are in development. Your migration maybe impacted if you use File Integrity Monitoring (FIM), Endpoint protection discovery recommendations, OS Misconfigurations (Azure Security Benchmark (ASB) recommendations) and Adaptive Application controls.
-- Container Insights: The Windows version is in public preview.
 
 
 ## Next steps

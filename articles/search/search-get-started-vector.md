@@ -8,7 +8,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: quickstart
-ms.date: 07/04/2024
+ms.date: 08/05/2024
 ---
 
 # Quickstart: Vector search by using REST
@@ -20,7 +20,7 @@ In Azure AI Search, a [vector store](vector-store.md) has an index schema that d
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!NOTE]
-> The stable **2023-11-01** REST API version depends on external solutions for data chunking and embedding. If you want to evaluate the [built-in data chunking and vectorization (public preview)](vector-search-integrated-vectorization.md) features, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
+> This quickstart omits the vectorization step and provides embeddings in sample documents. If you want to add [built-in data chunking and vectorization](vector-search-integrated-vectorization.md) over your own content, try the [**Import and vectorize data** wizard](search-get-started-portal-import-vectors.md) for an end-to-end walkthrough.
 
 ## Prerequisites
 

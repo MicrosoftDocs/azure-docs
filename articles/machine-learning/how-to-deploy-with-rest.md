@@ -3,7 +3,7 @@ title: Deploy models by using online endpoints with REST APIs
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy models by using online endpoints with REST APIs, including creation of assets, training jobs, and hyperparameter tuning sweep jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

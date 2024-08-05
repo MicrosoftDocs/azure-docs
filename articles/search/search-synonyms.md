@@ -36,7 +36,7 @@ To create a synonym map, do so programmatically. The portal doesn't support syno
 Use the [Create Synonym Map (REST API)](/rest/api/searchservice/create-synonym-map) to create a synonym map.
 
 ```http
-POST /synonymmaps?api-version=2023-11-01
+POST /synonymmaps?api-version=2024-07-01
 {
     "name": "geo-synonyms",
     "format": "solr",
@@ -155,7 +155,7 @@ If the synonym map exists on the search service, it's used on the next query, wi
 Use the [Create or Update Index (REST API)](/rest/api/searchservice/indexes/create-or-update) to modify a field definition.
 
 ```http
-POST /indexes?api-version=2023-11-01
+POST /indexes?api-version=2024-07-01
 {
     "name":"hotels-sample-index",
     "fields":[
