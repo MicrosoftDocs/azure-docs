@@ -1,12 +1,12 @@
 ---
-title: Azure Monitor Agent migration guide for Azure HDInsight clusters
-description: Learn how to Monitor Agent migration guide for Azure HDInsight clusters.
+title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
+description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 07/31/2024
 ---
 
-# Azure Monitor Agent migration guide for Azure HDInsight clusters
+# Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 
 Azure HDInsight is an enterprise-ready, managed-cluster service. This service runs open-source analytics frameworks like Apache Spark, Hadoop, HBase, and Kafka on Azure. Azure HDInsight integrated with other Azure services to enable customers to better manage their big data analytics applications.
 
@@ -34,14 +34,14 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 
 * Resource-based table grouping and default queries.
 
-* Improved security with Managed Identity for the Azure Monitor agent workspaces.
+* Improved security with System Managed Identity for the Azure Monitor agent workspaces.
 
 * Automated [DCR](/azure/azure-monitor/essentials/data-collection-rule-overview) resource creation for the existing tables. 
 
 > [!NOTE] 
-> New Azure Monitor Agent integration (including DCR and System Identity Authentication) is in Public Preview across all regions where HDInsight is available. 
+>  Azure Monitor Agent (AMA) integration (including DCR and System Identity Authentication) is avaiable all regions where HDInsight is available. 
 
-## Benefits of the new Azure Monitor Agent integration
+## Benefits of Azure Monitor Agent (AMA) integration
 
 This document outlines the changes to the Azure Monitor integration and provides best-practices for using the new tables. 
 
@@ -63,7 +63,7 @@ The following sections describe how customers can use the new Azure Monitor Agen
 
 > [!NOTE]
 > Customers using Azure Monitor Classic will no longer work after 31 August, 2024.  
->
+> Customers using New Azure Monitor experience (preview) are required to migrate to Azure Monitor Agent (AMA) before Jaunary 31, 2025.
 > Clusters with Image **Image Number** with the latest HDInsight API **API Number** will have ability to enable the Azure Monitor Agent integration, and this will be the default setup for customers using **Image number**. 
 
 ### Activate a new Azure Monitor Agent integration 
