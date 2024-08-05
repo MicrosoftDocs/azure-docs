@@ -350,4 +350,4 @@ For more information on how to use prompt flow evaluators, including how to make
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Augment the model with data for retrieval augmented generation (RAG)](../tutorials/copilot-sdk-build-rag)
+> [Augment the model with data for retrieval augmented generation (RAG)](../tutorials/copilot-sdk-build-rag.md)
