@@ -3,7 +3,7 @@ title: Azure TPM VBS attestation usage
 description: Learn about how to apply TPM and VBS attestation
 services: attestation
 author: prsriva
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 09/05/2022
 ms.author: prsriva

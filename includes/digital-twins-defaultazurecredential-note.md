@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for adding a note about the known issue with DefaultAzureCredential
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 2/21/2022
 ms.author: baanders

@@ -3,7 +3,7 @@ title: Manage storage account keys with Azure Key Vault and the Azure CLI
 description: Storage account keys provide seamless integration between Azure Key Vault and key-based access to an Azure storage account.
 ms.topic: tutorial
 services: key-vault
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin

@@ -3,8 +3,8 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: faq
-  ms.service: backup
-  ms.date: 12/08/2023
+  ms.service: azure-backup
+  ms.date: 08/05/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
   ms.custom: engagement-fy24
@@ -119,9 +119,9 @@ sections:
         answer: |
           Yes.
           
-          - You can back up Windows Server or Windows machines up to three times a day using MARS backup. You can set the scheduling policy to daily or weekly schedules.
+          - You can back up Windows Server or Windows machines up to three times a day by MARS backup. You can set the scheduling policy to daily or weekly schedules.
           - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
-          - You can back up Azure VMs once a day using Standard backup policy.
+          - You can back up Azure VMs once a day by Standard backup policy.
           
       - question: |
           What operating systems are supported for backup?

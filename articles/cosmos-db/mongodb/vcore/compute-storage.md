@@ -4,7 +4,7 @@ titleSuffix: Supported compute and storage configurations on Azure Cosmos DB for
 description: Supported compute and storage configurations for Azure Cosmos DB for MongoDB vCore clusters
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/07/2024

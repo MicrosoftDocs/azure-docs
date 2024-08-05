@@ -5,7 +5,7 @@ description: Open-source vector database functionalities, examples, challenges, 
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 04/02/2024

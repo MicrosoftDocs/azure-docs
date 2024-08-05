@@ -3,7 +3,7 @@ title: Use a workspace in Azure API Management
 description: Members of a workspace in Azure API Management can collaborate to manage and productize their own APIs.
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.author: danlep
 ms.date: 03/10/2023
 ---

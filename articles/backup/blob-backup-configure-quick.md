@@ -3,7 +3,7 @@ title: Quickstart - Configure vaulted backup for Azure Blobs using Azure Backup
 description: In this quickstart, learn how to configure vaulted backup for Azure Blobs.
 ms.topic: quickstart
 ms.date: 07/24/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

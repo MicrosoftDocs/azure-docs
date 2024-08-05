@@ -4,7 +4,7 @@ description: How to enable logging for Azure Key Vault, which saves information 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

@@ -3,7 +3,7 @@ title: Migrate to a new ExpressRoute circuit
 description: Learn how to migrate your ExpressRoute circuit from one circuit to another with minimum service interruption.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 10/06/2023
 ms.author: duau

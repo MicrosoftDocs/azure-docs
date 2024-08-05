@@ -4,7 +4,7 @@ description: Historic query analysis is one of the crucial needs of data enginee
 author: mariyaali
 ms.author: mariyaali
 ms.reviewer: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 10/28/2021
 ms.custom: template-concept

@@ -1,8 +1,8 @@
 ---
 title: New and upcoming changes in recommendations and alerts
 description: Get release notes for new and upcoming changes in recommendations and alerts in Microsoft Defender for Cloud. 
-ms.topic: conceptual
-ms.date: 03/18/2024
+ms.topic: overview
+ms.date: 07/30/2024
 #customer intent: As a Defender for Cloud admin, I want to stay up to date on the latest new and changed security recommendations and alerts.
 ---
 
@@ -23,9 +23,8 @@ This article summarizes what's new in security recommendations and alerts in Mic
 
 - Review a complete list of multicloud security recommendations and alerts:
   - [AI recommendations](/azure/defender-for-cloud/recommendations-reference-ai)
-    
   - [Compute recommendations](recommendations-reference-compute.md)
-    
+
   - [Container recommendations](recommendations-reference-container.md)
   - [Data recommendations](recommendations-reference-data.md)
   - [DevOps recommendations](recommendations-reference-devops.md)
@@ -49,6 +48,22 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|August 2|Recommendation|Preview|[Azure DevOps projects should have creation of classic pipelines disabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816)|
+|August 2|Recommendation|Preview|[GitHub organizations should block Copilot suggestions that match public code](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98e858ed-6e88-4698-b538-f51b31ad57f6)|
+|August 2|Recommendation|Preview|[GitHub organizations should enforce multifactor authentication for outside collaborators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a9621d26-9d8c-4cd6-8ad0-84501eb88f17)|
+|August 2|Recommendation|Preview|[GitHub repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/20be7df7-9ebb-4fb4-95a9-3ae19b78b80a)|
+|July 31|Recommendation|Preview|[Privileged roles should not have permanent access at the subscription and resource group level](/azure/defender-for-cloud/recommendations-reference-identity-access)|
+|July 31|Recommendation|Preview|[Service Principals should not be assigned with administrative roles at the subscription and resource group level](/azure/defender-for-cloud/recommendations-reference-identity-access)|
+|July 31|Recommendation|Update|[Azure AI Services resources should use Azure Private Link](/azure/defender-for-cloud/release-notes-recommendations-alerts)|
+|July 31|Recommendation|GA|[[EDR solution should be installed on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey06e3a6db-6c0c-4ad9-943f-31d9d73ecf6c)|
+|July 31|Recommendation|GA|[[EDR solution should be installed on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/77d09952-2bc2-4495-8795-cc8391452f85)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-ec2shttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey77d09952-2bc2-4495-8795-cc8391452f85)|
+|July 31|Recommendation|GA|[[EDR solution should be installed on GCP Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/68e595c1-a031-4354-b37c-4bdf679732f1)](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey68e595c1-a031-4354-b37c-4bdf679732f1)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dc5357d0-3858-4d17-a1a3-072840bff5be)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeydc5357d0-3858-4d17-a1a3-072840bff5be)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on EC2s](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/695abd03-82bd-4d7f-a94c-140e8a17666c)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2shttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkey695abd03-82bd-4d7f-a94c-140e8a17666c)|
+|July 31|Recommendation|GA|[[EDR configuration issues should be resolved on GCP virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f36a15fb-61a6-428c-b719-6319538ecfbc)](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machineshttpsportalazurecomblademicrosoft_azure_securityrecommendationsbladeassessmentkeyf36a15fb-61a6-428c-b719-6319538ecfbc)|
+| July 31 | Recommendation | Upcoming deprecation | [Adaptive network hardening recommendations should be applied on internet facing virtual machines](recommendations-reference-networking.md#adaptive-network-hardening-recommendations-should-be-applied-on-internet-facing-virtual-machines)  |
+| July 31 | Alert | Upcoming deprecation | [Traffic detected from IP addresses recommended for blocking](alerts-azure-network-layer.md#traffic-detected-from-ip-addresses-recommended-for-blocking) |
+| July 30 |Recommendation | Preview | [AWS Bedrock should use AWS PrivateLink](recommendations-reference-ai.md#aws-bedrock-should-use-aws-privatelink) |
 |July 22|Recommendation|Update|[(Enable if required) Azure AI Services resources should encrypt data at rest with a customer-managed key (CMK)](/azure/defender-for-cloud/recommendations-reference-ai)|
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should require minimum two-reviewer approval for code pushes](recommendations-reference-devops.md#preview-azure-devops-repositories-should-require-minimum-two-reviewer-approval-for-code-pushes) |
 | June 28     | Recommendation                 | GA                                                           | [Azure DevOps repositories should not allow requestors to approve their own Pull Requests](recommendations-reference-devops.md#preview-azure-devops-repositories-should-not-allow-requestors-to-approve-their-own-pull-requests) |
@@ -92,7 +107,7 @@ New and updated recommendations and alerts are added to the table in date order.
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on EC2s](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-ec2s) |
-| March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on EC2s]                   |
+| March 18    | Recommendation                 | GA                                                           | EDR solution should be installed on EC2s              |
 | March 18    | Recommendation                 | GA                                                           | [EDR configuration issues should be resolved on GCP virtual machines](recommendations-reference-compute.md#edr-configuration-issues-should-be-resolved-on-gcp-virtual-machines) |
 | March 18    | Recommendation                 | GA                                                           | [EDR solution should be installed on GCP virtual machines](recommendations-reference-compute.md#edr-solution-should-be-installed-on-gcp-virtual-machines) |
 | End March   | Recommendation                 | Deprecation                                                  | [Endpoint protection should be installed on machines](recommendations-reference-deprecated.md#endpoint-protection-should-be-installed-on-machines)  . |
@@ -155,3 +170,4 @@ New and updated recommendations and alerts are added to the table in date order.
 ## Related content
 
 For information about new features, see [What's new in Defender for Cloud features](release-notes.md).
+

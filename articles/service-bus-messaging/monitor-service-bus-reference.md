@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
 ms.author: spelluru 
-ms.service: service-bus-messaging
 ---
 # Azure Service Bus monitoring data reference
 

@@ -5,7 +5,7 @@ description: Review various options to migrate your data from other MongoDB sour
 author: sandeep-nair
 ms.author: sandnair
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 11/17/2023

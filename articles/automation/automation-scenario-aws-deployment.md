@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Deploy an Amazon Web Services VM with a runbook
