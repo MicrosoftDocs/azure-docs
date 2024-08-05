@@ -18,7 +18,16 @@ For more information about the related Microsoft Sentinel solution for each of t
 
 ## Apache HTTP Server
 
-Configure Apache HTTP Server to send log messages to the `ApacheHTTPServer_CL` table in your Microsoft Sentinel workspace by way of the Azure Monitor Agent. Use the following information to help you configure the data collection rule.
+Follow these steps to ingest log messages from Apache HTTP Server:
+
+1. Create the `ApacheHTTPServer_CL` table in your Microsoft Sentinel workspace. The table must contain only the following two fields:
+
+    | Field | Type |
+    | ----- | ---- |
+    | **TimeGenerated** | DateTime |
+    | **Message** | String |
+
+1. Create a data collection rule (DCR)
 
 - Table name: `ApacheHTTPServer_CL`
 - Log files in ready-to-collect format: Yes
