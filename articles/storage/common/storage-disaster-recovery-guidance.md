@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 08/05/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -93,22 +93,6 @@ The following table summarizes the resulting redundancy configuration at every s
 
 ### Customer-managed planned failover (preview)
 
-> [!IMPORTANT]
-> Customer-managed planned failover is currently in PREVIEW and limited to the following regions:
->
-> - France Central 
-> - France South 
-> - India Central 
-> - India West 
-> - East Asia
-> - Southeast Asia 
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> 
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify `AllowSoftFailover` as the feature name. The provider name for this preview feature is **Microsoft.Storage**.
-
-[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
-
 Planned failover can be utilized in multiple scenarios including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
 
 During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
@@ -117,35 +101,11 @@ Data loss isn't expected during the planned failover and failback process as lon
 
 To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the planned failover and failback processes. For details about how this process works, see [How customer-managed (planned) failover works](storage-failover-customer-managed-planned.md).
 
+[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
+
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+
 ### Customer-managed (unplanned) failover
-
-<!--Although both types of customer-managed failover work in a similar manner, there are primarily two ways in which they differ:
-
-- The management of the redundancy configurations within the primary and secondary regions (LRS or ZRS).
-- The status of the geo-redundancy configuration at each stage of the failover and failback process.
-
-The following table compares the redundancy state of a storage account after a failover of each type:
-
-| Result of failover on...                | Customer-managed planned failover (preview)  | Customer-managed (unplanned) failover                                               |
-|-----------------------------------------|----------------------------------------------|-------------------------------------------------------------------------|
-| ...the secondary region                 | The secondary region becomes the new primary | The secondary region becomes the new primary                            |
-| ...the original primary region          | The original primary region becomes the new secondary |The copy of the data in the original primary region is deleted  |
-| ...the account redundancy configuration | The storage account is converted to GRS      | The storage account is converted to LRS                                 |
-| ...the geo-redundancy configuration     | Geo-redundancy is retained                   | Geo-redundancy is lost                                                  |
-
-The following table summarizes the resulting redundancy configuration at every stage of the failover and failback process for each type of failover:
-
-| Original <br> configuration           | After <br> failover | After re-enabling <br> geo redundancy | After <br> failback | After re-enabling <br> geo redundancy |
-|---------------------------------------|---------------------|---------------------------------------|---------------------|---------------------------------------|
-| **Customer-managed planned failover** |                     |                                       |                     |                                       |
-| GRS                                   | GRS                 | n/a <sup>2</sup>                      | GRS                 | n/a <sup>2</sup>                      |
-| GZRS                                  | GRS                 | n/a <sup>2</sup>                      | GZRS                | n/a <sup>2</sup>                      |
-| **Customer-managed (unplanned) failover**                              |                     |                                       |                     |                                       |
-| GRS                                   | LRS                 | GRS <sup>1</sup>                      | LRS                 | GRS <sup>1</sup>                      |
-| GZRS                                  | LRS                 | GRS <sup>1</sup>                      | ZRS                 | GZRS <sup>1</sup>                     |
-
-<sup>1</sup> Geo-redundancy is lost during unplanned failover and must be manually reconfigured.<br>
-<sup>2</sup> Geo-redundancy is retained during a unplanned failover and doesn't need to be manually reconfigured.-->
 
 If the data endpoints for the storage services in your storage account become unavailable in the primary region, you can initiate an unplanned failover to the secondary region. After the failover is complete, the secondary region becomes the new primary and users can proceed to access data there.
 
