@@ -600,9 +600,6 @@ items:
   - name: Data Lake Storage Gen1
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
-  - name: Dedicated HSM
-    tocHref: /azure/dedicated-hsm/
-    topicHref: /azure/dedicated-hsm/
   - name: Azure Data Manager for Energy
     tocHref: /azure/energy-data-services
     topicHref: /azure/energy-data-services
@@ -953,40 +950,12 @@ items:
     - name: Benchmarks
       tocHref: /azure/security/benchmarks/
       topicHref: /azure/security/benchmarks/
-    - name: Key Vault
-      tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault
-      items:
-      - name: General
-        tocHref: /azure/key-vault/general/
-        topicHref: /azure/key-vault/general/
-      - name: Certificates
-        tocHref: /azure/key-vault/certificates/
-        topicHref: /azure/key-vault/certificates/
-      - name: Keys
-        tocHref: /azure/key-vault/keys/
-        topicHref: /azure/key-vault/keys/
-      - name: Secrets
-        tocHref: /azure/key-vault/secrets/
-        topicHref: /azure/key-vault/secrets/
-      - name: Managed HSM
-        tocHref: /azure/key-vault/managed-hsm/
-        topicHref: /azure/key-vault/managed-hsm/
-    - name: Microsoft Defender for Cloud
-      tocHref: /azure/defender-for-cloud/
-      topicHref: /azure/defender-for-cloud/
     - name: Microsoft Sentinel
       tocHref: /azure/sentinel/
       topicHref: /azure/sentinel/
     - name: Microsoft Defender for IoT
       tocHref: /azure/defender-for-iot/
       topicHref: /azure/defender-for-iot/
-    - name: Attestation
-      tocHref: /azure/attestation/
-      topicHref: /azure/attestation/
-    - name: Confidential Ledger
-      tocHref: /azure/confidential-ledger/
-      topicHref: /azure/confidential-ledger/
     - name: Microsoft Defender External Attack Surface Management
       tocHref: /azure/external-attack-surface-management/
       topicHref: /azure/external-attack-surface-management/
