@@ -51,7 +51,7 @@ Check that a firewall or proxies aren't blocking your access to [this webpage](h
 Profiling data is uploaded only when it can be attached to a request that happened while Profiler was running. Profiler collects data for two minutes each hour. You can also trigger Profiler by [starting a profiling session](./profiler-settings.md#profile-now).
 
 > [!NOTE]
-> Please be advised that the Profiler depends on Application Insights telemetry to detect application requests during a session. It is essential to ensure that there is Request data available; otherwise, profiler data upload will be skipped.
+> Please be advised that the Profiler depends on Application Insights telemetry to detect application requests during a session. It is essential to ensure that there is request data available; otherwise, the profiler data upload will be skipped.
 >   
 > In the event that the profiler data upload is skipped due to the absence of Request data, a log entry will be generated with the following message:
 >   
