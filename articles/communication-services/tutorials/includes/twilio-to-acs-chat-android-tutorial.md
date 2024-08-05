@@ -170,7 +170,7 @@ chatAsyncClient = new ChatClientBuilder()
 ```
 
 ### Object model
-The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
+The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for Java.
 
 | Name                                   | Description                                                                                                                                                                           |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

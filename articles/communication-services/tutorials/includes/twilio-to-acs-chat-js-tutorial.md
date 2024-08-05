@@ -93,6 +93,7 @@ console.log('Azure Communication Chat client created!');
 
 #### Twilio
 This is how you start a chat thread in Twilio Conversations.
+Use `FriendlyName` to give human-readable name for this conversation.
 
 ```JavaScript
 let conversation = await client.createConversation({
@@ -252,7 +253,8 @@ Use `sendMessage` method to send a message to a thread identified by threadId.
 
 - Use `senderDisplayName` to specify the display name of the sender;
 - Use `type` to specify the message type, such as 'text' or 'html';
-- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment: true' in metadata so that recipient's application can parse that and display accordingly.
+This is how you accomplish the "Media" property in Twilio.
+- Use `metadata` optionally to include any other data you want to send along with the message. This field provides a mechanism for developers to extend chat message functionality and add custom information for your use case. For example, when sharing a file link in the message, you might want to add 'hasAttachment: true' in metadata so that recipient's application can parse that and display accordingly. Please refer to the [following tutorial](../file-sharing-tutorial-acs-chat.md).
 
 `SendChatMessageResult` is the response returned from sending a message, it contains an ID, which is the unique ID of the message.
 
