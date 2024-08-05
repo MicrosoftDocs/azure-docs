@@ -297,10 +297,10 @@ The invoice status shows **paid** within 24 hours.
 
 The **Pay now** option might be unavailable if:
 
-- You have a Microsoft Online Subscription Program account (pay-as-you-go account). You might instead see a **Settle balance** banner. If so, see [Resolve a past-due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
+- You have a Microsoft Online Subscription Program account (pay-as-you-go account). You might instead see a **Settle balance** banner. If so, see [Resolve a past-due balance](../manage/resolve-past-due-balance.md#resolve-a-past-due-balance-in-the-azure-portal).
 - Your default payment method and invoice amount don't support the **Pay now** option. Check your invoice for payment instructions.
 
-For a complete list of all the counties/regions where the **Pay now** option is available, see [Regional considerations](../manage/resolve-past-due-balance.md#settle-balance-might-be-pay-now).
+For a complete list of all the counties/regions where the **Pay now** option is available, see [Regional considerations](../manage/resolve-past-due-balance.md#regional-considerations).
 
 ## Check the type of your account
 

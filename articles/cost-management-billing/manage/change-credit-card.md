@@ -67,7 +67,7 @@ You can replace a subscription's default credit card to one that's already saved
 1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
 1. Search for and **Cost Management + Billing**.  
 
-    :::image type="content" source="./media/change-credit-card/search.png" alt-text=""Screenshot that shows a search for Cost Management and Billing." lightbox="./media/change-credit-card/search.png" :::
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing." lightbox="./media/change-credit-card/search.png" :::
 1. Select the subscription where you want to add the credit card.
 1. Select **Payment methods**.
 
@@ -116,7 +116,7 @@ If you have a Microsoft Customer Agreement, your credit card is associated with 
 1. Select a billing profile.
 1. On the left menu, select **Payment methods**.  
 
-    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods in the Azure portal." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. In the **Default payment method** section, select **Replace**.  
 
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot that shows the Replace option." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
@@ -130,7 +130,7 @@ If you have a Microsoft Customer Agreement, your credit card is associated with 
 1. Select the subscription where you want to add the credit card.
 1. Select **Payment methods**.  
 
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot that shows the pane for viewing payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot that shows the pane for viewing payment methods in the portal." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
 1. In the upper-left corner, select **Add payment method**. A form for adding a credit card appears.
 1. Enter details for the credit card.  
 
@@ -148,7 +148,7 @@ You can edit credit card details (such as updating the expiration date) in the A
 1. Select a billing profile.
 1. On the left menu, select **Payment methods**.  
 
-    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods in the portal." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. In the **Your credit cards**  section, find the credit card that you want to edit.
 1. Select the ellipsis (**...**) at the end of the row.  
 
