@@ -14,6 +14,12 @@ services: azure-maps
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
+## [1.0.4]
+
+### Bug fixes (1.0.4)
+
+- Fix source not synced in DrawingManager after a style change.
+
 ## [1.0.3]
 
 ### Other changes (1.0.3)
