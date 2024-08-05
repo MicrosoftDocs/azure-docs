@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/13/2023
+ms.date: 06/24/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -23,6 +23,9 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 >
 >* The Gateway's default domain name
 >* Any of the Gateway's configured custom domain names
+
+> [!NOTE]
+> Currently, custom domain names aren't supported in a [workspace gateway](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
