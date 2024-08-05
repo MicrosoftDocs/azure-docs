@@ -1,5 +1,5 @@
 ---
-title: PayStub - Document Intelligence (formerly Form Recognizer)
+title: Document Intelligence (formerly Form Recognizer) pay stub model
 titleSuffix: Azure AI services
 description: Automate compensation and earnings information from pay slips and stubs.
 author: laujan
@@ -13,7 +13,7 @@ monikerRange: '>=doc-intel-4.0.0'
 
 <!-- markdownlint-disable MD033 -->
 
-# Document Intelligence payStub model
+# Document Intelligence pay stub model
 
 The Document Intelligence pay stub model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract compensation and earnings data from pay slips. The API analyzes documents and files with payroll related information; extracts key information and returns a structured JSON data representation.
 
