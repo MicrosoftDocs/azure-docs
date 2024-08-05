@@ -110,6 +110,8 @@ In the 0.6.x public preview release, Azure IoT Operations supports clusters that
 >[!NOTE]
 >West US 3 was supported in previous versions of Azure IoT Operations, but isn't supported in version 0.6.x.
 
+This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
+
 ## Next step
 
 Try the [Quickstart: Get started with an end-to-end sample](get-started-end-to-end-sample/quickstart-deploy.md).
