@@ -28,16 +28,16 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
     - [SAP HANA Security Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/4f7cde1125084ea3b8206038530e96ce.html)
 
-1. Check your operating system Syslog files for any relevant HANA database events.
+2. Check your operating system Syslog files for any relevant HANA database events.
 
-1. Sign into your HANA database operating system as a user with sudo privileges.
+3. Sign into your HANA database operating system as a user with sudo privileges.
 
-1. Install an agent on your machine and confirm that your machine is connected. For more information, see:
+4. Install an agent on your machine and confirm that your machine is connected. For more information, see:
 
     - [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal)
     - [Log Analytics Agent](../../azure-monitor/agents/agent-linux.md) (legacy)
 
-1. Configure your agent to collect Syslog data. For more information, see:
+5. Configure your agent to collect Syslog data. For more information, see:
 
     - [Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog)
     - [Log Analytics Agent](/azure/azure-monitor/agents/data-sources-syslog) (legacy)
@@ -97,6 +97,11 @@ For more information, see [Microsoft Sentinel solution for SAP® applications: s
 
 ## Related content
 
+Learn more about the Microsoft Sentinel Solution for SAP BTP:
+
+- [Deploy Microsoft Sentinel solution for SAP® applications](deploy-sap-btp-solution.md)
+- [Microsoft Sentinel Solution for SAP BTP: security content reference](sap-btp-security-content.md)
+
 Learn more about the Microsoft Sentinel solution for SAP® applications:
 
 - [Deploy Microsoft Sentinel solution for SAP® applications](deployment-overview.md)
@@ -123,4 +128,3 @@ Reference files:
 - [Systemconfig.ini file reference](reference-systemconfig.md)
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
-
