@@ -4,7 +4,7 @@ description: Identify issues that are affecting Azure Machine Learning features.
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting    
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/04/2023
 ms.custom:  
