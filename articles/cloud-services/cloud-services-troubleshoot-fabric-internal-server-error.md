@@ -6,7 +6,7 @@ author: hirenshah1
 ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.date: 02/21/2023
+ms.date: 07/24/2024
 ms.custom: compute-evergreen
 ---
 
@@ -14,7 +14,7 @@ ms.custom: compute-evergreen
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-In this article, you'll troubleshoot allocation failures where the fabric controller cannot allocate when deploying an Azure Cloud service (classic).
+In this article, you troubleshoot allocation failures where the fabric controller can't allocate when deploying an Azure Cloud service (classic).
 
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources.
 
@@ -29,7 +29,7 @@ In Azure portal, navigate to your Cloud service (classic) and in the sidebar sel
 
 ![Image shows the Operation log (classic) blade.](./media/cloud-services-troubleshoot-fabric-internal-server-error/cloud-services-troubleshoot-allocation-logs.png)
 
-When you're inspecting the logs of your Cloud service (classic), you'll see the following exception:
+When you inspect the logs of your Cloud service (classic), you see the following exception:
 
 |Exception  |Error Message  |
 |---------|---------|
@@ -54,9 +54,9 @@ Follow the guidance for allocation failures in the following scenarios.
 
 ### Not pinned to a cluster
 
-The first time you deploy a Cloud service (classic), the cluster hasn't been selected yet, so the cloud service isn't *pinned*. Azure may have a deployment failure because:
+The first time you deploy a Cloud service (classic), the cluster is unselected, so the cloud service isn't *pinned*. Azure may have a deployment failure because:
 
-- You've selected a particular size that isn't available in the region.
+- You selected a particular size that isn't available in the region.
 - The combination of sizes that are needed across different roles isn't available in the region.
 
 When you experience an allocation error in this scenario, the recommended course of action is to check the available sizes in the region and change the size you previously specified.
@@ -70,7 +70,7 @@ When you experience an allocation error in this scenario, the recommended course
 
 ### Pinned to a cluster
 
-Existing cloud services are *pinned* to a cluster. Any further deployments for the Cloud service (classic) will happen in the same cluster.
+Existing cloud services are *pinned* to a cluster. Any further deployments for the Cloud service (classic) happen in the same cluster.
 
 When you experience an allocation error in this scenario, the recommended course of action is to redeploy to a new Cloud service (classic) (and update the *CNAME*).
 
@@ -102,4 +102,4 @@ For more allocation failure solutions and background information:
 > [!div class="nextstepaction"]
 > [Allocation failures - Cloud service (classic)](cloud-services-allocation-failures.md)
 
-If your Azure issue isn't addressed in this article, visit the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on Twitter](https://twitter.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.
+If your Azure issue isn't addressed in this article, visit the Azure forums on [the Microsoft Developer Network (MSDN) and Stack Overflow](https://azure.microsoft.com/support/forums/). You can post your issue in these forums, or post to [@AzureSupport on X](https://x.com/AzureSupport). You also can submit an Azure support request. To submit a support request, on the [Azure support](https://azure.microsoft.com/support/options/) page, select *Get support*.

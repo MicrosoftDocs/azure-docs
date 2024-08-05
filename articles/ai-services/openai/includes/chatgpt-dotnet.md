@@ -15,8 +15,6 @@ ms.date: 11/15/2023
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to the Azure OpenAI service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
 - An Azure OpenAI Service resource with either the `gpt-35-turbo` or the `gpt-4` models deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
 
@@ -50,26 +48,22 @@ using static System.Environment;
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    DeploymentName = "gpt-35-turbo", //This must match the custom deployment name you chose for your model
-    Messages =
-    {
-        new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
-        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
-Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
 
-Console.WriteLine(response.Value.Choices[0].Message.Content);
-
-Console.WriteLine();
+Console.WriteLine($"{completion.Role}: {completion.Content[0].Text}");
 ```
 
 > [!IMPORTANT]
@@ -82,7 +76,7 @@ dotnet run program.cs
 ## Output
 
 ```output
-Yes, many of the Azure AI services support customer managed keys. Some examples include Text Analytics, Speech Services, and Translator. However, it's important to note that not all services support customer managed keys, so it's best to check the documentation for each individual service to see if it is supported.
+Assistant : Yes, many other Azure AI services also support customer managed keys, including Azure Cognitive Services, Azure Machine Learning, and Azure Databricks. By using customer managed keys, you can retain complete control over your encryption keys and provide an additional layer of security for your AI assets.
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *program.cs* with the code in the next example.
@@ -92,35 +86,37 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
+using OpenAI.Chat;
 using static System.Environment;
 
 string endpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
 string key = GetEnvironmentVariable("AZURE_OPENAI_API_KEY");
 
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(key));
+AzureOpenAIClient azureClient = new(
+    new Uri(endpoint),
+    new AzureKeyCredential(key));
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
-{
-    DeploymentName= "gpt-35-turbo", //This must match the custom deployment name you chose for your model
-    Messages =
-    {
-        new ChatRequestSystemMessage("You are a helpful assistant."),
-        new ChatRequestUserMessage("Does Azure OpenAI support customer managed keys?"),
-        new ChatRequestAssistantMessage("Yes, customer managed keys are supported by Azure OpenAI."),
-        new ChatRequestUserMessage("Do other Azure AI services support this too?"),
-    },
-    MaxTokens = 100
-};
+// This must match the custom deployment name you chose for your model
+ChatClient chatClient = azureClient.GetChatClient("gpt-35-turbo");
 
-await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
+var chatUpdates = chatClient.CompleteChatStreamingAsync(
+    [
+        new SystemChatMessage("You are a helpful assistant that talks like a pirate."),
+        new UserChatMessage("Does Azure OpenAI support customer managed keys?"),
+        new AssistantChatMessage("Yes, customer managed keys are supported by Azure OpenAI"),
+        new UserChatMessage("Do other Azure AI services support this too?")
+    ]);
+
+await foreach(var chatUpdate in chatUpdates)
 {
     if (chatUpdate.Role.HasValue)
     {
-        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        Console.Write($"{chatUpdate.Role} : ");
     }
-    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+    
+    foreach(var contentPart in chatUpdate.ContentUpdate)
     {
-        Console.Write(chatUpdate.ContentUpdate);
+        Console.Write(contentPart.Text);
     }
 }
 ```
@@ -132,7 +128,7 @@ await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatComple
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

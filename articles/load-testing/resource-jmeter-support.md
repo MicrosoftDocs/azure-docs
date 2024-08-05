@@ -3,7 +3,7 @@ title: Supported Apache JMeter features
 titleSuffix: Azure Load Testing
 description: Learn which Apache JMeter features are supported in Azure Load Testing. You can upload an existing JMeter script to create and run a load test.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
 ms.author: ninallam
 author: ninallam

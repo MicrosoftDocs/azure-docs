@@ -5,16 +5,13 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 03/30/2023
+ms.date: 07/17/2024
 # customer intent: As an SAP admin, I want to know how to deploy the Microsoft Sentinel solution for SAP BTP so that I can plan a deployment.
 ---
 
 # Deploy the Microsoft Sentinel solution for SAP BTP
 
 This article describes how to deploy the Microsoft Sentinel solution for SAP Business Technology Platform (BTP) system. The Microsoft Sentinel solution for SAP BTP monitors and protects your SAP BTP system. It collects audit logs and activity logs from the BTP infrastructure and BTP-based apps, and then detects threats, suspicious activities, illegitimate activities, and more. [Read more about the solution](sap-btp-solution-overview.md).
-
-> [!IMPORTANT]
-> The Microsoft Sentinel solution for SAP BTP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -105,7 +102,7 @@ You also can retrieve the logs via the UI:
 
 We recommend that you periodically rotate the BPT subaccount client secrets. The following sample script demonstrates the process of updating an existing data connector with a new secret fetched from Azure Key Vault.
 
-Before you start, collect the values you'll need for the scripts parameters, including:
+Before you start, collect the values you need for the scripts parameters, including:
 
  - The subscription ID, resource group, and workspace name for your Microsoft Sentinel workspace.
  - The key vault and the name of the key vault secret.

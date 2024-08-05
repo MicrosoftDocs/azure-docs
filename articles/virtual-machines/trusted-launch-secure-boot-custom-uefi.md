@@ -3,7 +3,7 @@ title: Secure Boot UEFI keys
 description: Customers can bind UEFI keys (db/dbx/pk/kek) for drivers/kernel modules that are signed by using a private key that's owned by an Azure partner's or customer's third-party vendors.
 author: Howie425
 ms.author: howieasmerom
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 04/10/2024

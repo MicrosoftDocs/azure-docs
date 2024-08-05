@@ -3,7 +3,7 @@ title: 'About Azure Point-to-Site VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 05/23/2024
@@ -149,18 +149,15 @@ The tables in this section show the values for the default policies. However, th
 
 |**Policies** |
 |---| 
-|TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
 |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 |
+|TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 |
+|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384|
 |TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 |
-|TLS_RSA_WITH_AES_128_GCM_SHA256 |
-|TLS_RSA_WITH_AES_256_GCM_SHA384 |
-|TLS_RSA_WITH_AES_128_CBC_SHA256 |
-|TLS_RSA_WITH_AES_256_CBC_SHA256 |
+|**TLS_AES_256_GCM_SHA384 |
+|**TLS_AES_128_GCM_SHA256 |
+
+**Only supported on TLS1.3 with OpenVPN
+
 
 ## <a name="configure"></a>How do I configure a P2S connection?
 

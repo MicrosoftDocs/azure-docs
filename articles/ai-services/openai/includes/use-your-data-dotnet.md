@@ -29,57 +29,37 @@ string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 
+#pragma warning disable AOAI001
+AzureOpenAIClient azureClient = new(
+    new Uri(azureOpenAIEndpoint),
+    new AzureKeyCredential(azureOpenAIKey));
+ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
-var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
-
-var chatCompletionsOptions = new ChatCompletionsOptions()
+ChatCompletionOptions options = new();
+options.AddDataSource(new AzureSearchChatDataSource()
 {
-    Messages =
-    {
-        new ChatRequestUserMessage("What are my available health plans?"),
-    },
-    AzureExtensionsOptions = new AzureChatExtensionsOptions()
-    {
-        Extensions =
-        {
-            new AzureCognitiveSearchChatExtensionConfiguration()
-            {
-                SearchEndpoint = new Uri(searchEndpoint),
-                Key = searchKey,
-                IndexName = searchIndex,
-            },
-        }
-    },
-    DeploymentName = deploymentName
-};
+    Endpoint = new Uri(searchEndpoint),
+    IndexName = searchIndex,
+    Authentication = DataSourceAuthentication.FromApiKey(searchKey),
+});
 
-Response<ChatCompletions> response = client.GetChatCompletions(chatCompletionsOptions);
+ChatCompletion completion = chatClient.CompleteChat(
+    [
+        new UserChatMessage("What are my available health plans?"),
+    ], options);
 
-ChatResponseMessage responseMessage = response.Value.Choices[0].Message;
+Console.WriteLine(completion.Content[0].Text);
 
-Console.WriteLine($"Message from {responseMessage.Role}:");
-Console.WriteLine("===");
-Console.WriteLine(responseMessage.Content);
-Console.WriteLine("===");
+AzureChatMessageContext onYourDataContext = completion.GetAzureMessageContext();
 
-Console.WriteLine($"Context information (e.g. citations) from chat extensions:");
-Console.WriteLine("===");
-foreach (ChatResponseMessage contextMessage in responseMessage.AzureExtensionsContext.Messages)
+if (onYourDataContext?.Intent is not null)
 {
-    string contextContent = contextMessage.Content;
-    try
-    {
-        var contextMessageJson = JsonDocument.Parse(contextMessage.Content);
-        contextContent = JsonSerializer.Serialize(contextMessageJson, new JsonSerializerOptions()
-        {
-            WriteIndented = true,
-        });
-    }
-    catch (JsonException)
-    {}
-    Console.WriteLine($"{contextMessage.Role}: {contextContent}");
+    Console.WriteLine($"Intent: {onYourDataContext.Intent}");
 }
-Console.WriteLine("===");
+foreach (AzureChatCitation citation in onYourDataContext?.Citations ?? [])
+{
+    Console.WriteLine($"Citation: {citation.Content}");
+}
 ```
 
 > [!IMPORTANT]
@@ -92,30 +72,16 @@ dotnet run program.cs
 ## Output
 
 ```output
-Answer from assistant:
-===
-The available health plans in the Contoso Electronics plan and benefit packages are the Northwind Health Plus and Northwind Standard plans [^1^].
-===
-Context information (e.g. citations) from chat extensions:
-===
-tool: {
-  "citations": [
-    {
-      "content": "...",
-      "id": null,
-      "title": "...",
-      "filepath": "...",
-      "url": "...",
-      "metadata": {
-        "chunking": "orignal document size=1011. Scores=3.6390076 and None.Org Highlight count=38."
-      },
-      "chunk_id": "2"
-    },
-    ...
-  ],
-  "intent": "[\u0022What are my available health plans?\u0022]"
-}
-===
+Contoso Electronics offers two health plans: Northwind Health Plus and Northwind Standard [doc1]. Northwind Health Plus is a comprehensive plan that provides coverage for medical, vision, and dental services, prescription drug coverage, mental health and substance abuse coverage, and coverage for preventive care services. It also offers coverage for emergency services, both in-network and out-of-network. On the other hand, Northwind Standard is a basic plan that provides coverage for medical, vision, and dental services, prescription drug coverage, and coverage for preventive care services. However, it does not offer coverage for emergency services, mental health and substance abuse coverage, or out-of-network services [doc1].
+
+Intent: ["What are the available health plans?", "List of health plans available", "Health insurance options", "Types of health plans offered"]
+
+Citation:
+Contoso Electronics plan and benefit packages
+
+Thank you for your interest in the Contoso electronics plan and benefit packages. Use this document to
+
+learn more about the various options available to you...// Omitted for brevity
 ```
 
 This will wait until the model has generated its entire response before printing the results. Alternatively, if you want to asynchronously stream the response and print the results, you can replace the contents of *Program.cs* with the code in the next example.
@@ -125,7 +91,8 @@ This will wait until the model has generated its entire response before printing
 ```csharp
 using Azure;
 using Azure.AI.OpenAI;
-using System.Text.Json;
+using Azure.AI.OpenAI.Chat;
+using OpenAI.Chat;
 using static System.Environment;
 
 string azureOpenAIEndpoint = GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT");
@@ -135,39 +102,53 @@ string searchEndpoint = GetEnvironmentVariable("AZURE_AI_SEARCH_ENDPOINT");
 string searchKey = GetEnvironmentVariable("AZURE_AI_SEARCH_API_KEY");
 string searchIndex = GetEnvironmentVariable("AZURE_AI_SEARCH_INDEX");
 
+#pragma warning disable AOAI001
 
-var client = new OpenAIClient(new Uri(azureOpenAIEndpoint), new AzureKeyCredential(azureOpenAIKey));
+AzureOpenAIClient azureClient = new(
+    new Uri(azureOpenAIEndpoint),
+    new AzureKeyCredential(azureOpenAIKey));
+ChatClient chatClient = azureClient.GetChatClient(deploymentName);
 
-var chatCompletionsOptions = new ChatCompletionsOptions()
+ChatCompletionOptions options = new();
+options.AddDataSource(new AzureSearchChatDataSource()
 {
-    DeploymentName = deploymentName,
-    Messages =
-    {
-        new ChatRequestUserMessage("What are my available health plans?"),
-    },
-    AzureExtensionsOptions = new AzureChatExtensionsOptions()
-    {
-        Extensions =
-        {
-            new AzureCognitiveSearchChatExtensionConfiguration()
-            {
-                SearchEndpoint = new Uri(searchEndpoint),
-                Key = searchKey,
-                IndexName = searchIndex,
-            },
-        }
-    }
-};
-await foreach (StreamingChatCompletionsUpdate chatUpdate in client.GetChatCompletionsStreaming(chatCompletionsOptions))
+    Endpoint = new Uri(searchEndpoint),
+    IndexName = searchIndex,
+    Authentication = DataSourceAuthentication.FromApiKey(searchKey),
+});
+
+var chatUpdates = chatClient.CompleteChatStreamingAsync(
+    [
+        new UserChatMessage("What are my available health plans?"),
+    ], options);
+
+AzureChatMessageContext onYourDataContext = null;
+await foreach (var chatUpdate in chatUpdates)
 {
     if (chatUpdate.Role.HasValue)
     {
-        Console.Write($"{chatUpdate.Role.Value.ToString().ToUpperInvariant()}: ");
+        Console.WriteLine($"{chatUpdate.Role}: ");
     }
-    if (!string.IsNullOrEmpty(chatUpdate.ContentUpdate))
+
+    foreach (var contentPart in chatUpdate.ContentUpdate)
     {
-        Console.Write(chatUpdate.ContentUpdate);
+        Console.Write(contentPart.Text);
     }
+
+    if (onYourDataContext == null)
+    {
+        onYourDataContext = chatUpdate.GetAzureMessageContext();
+    }
+}
+
+Console.WriteLine();
+if (onYourDataContext?.Intent is not null)
+{
+    Console.WriteLine($"Intent: {onYourDataContext.Intent}");
+}
+foreach (AzureChatCitation citation in onYourDataContext?.Citations ?? [])
+{
+    Console.Write($"Citation: {citation.Content}");
 }
 ```
 

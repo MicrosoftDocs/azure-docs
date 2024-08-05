@@ -3,7 +3,7 @@ title: Azure Communications Gateway limits, quotas and restrictions
 description: Understand the limits and quotas associated with the Azure Communications Gateway
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway 
+ms.service: azure-communications-gateway
 ms.topic: reference
 ms.date: 10/10/2023
 ---

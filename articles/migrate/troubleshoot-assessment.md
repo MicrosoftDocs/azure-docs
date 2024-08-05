@@ -68,7 +68,7 @@ The operation took longer than expected either due to network latency issues or 
 
 - Ensure that there is no network latency between the appliance and the server. It is recommended to have the appliance and source server on the same domain to avoid latency issues.
 
-- Connect to the impacted server from the appliance and run the commands documented here to check if they return null or empty data.
+- Connect to the impacted server from the appliance and run the commands documented [here](discovered-metadata.md#linux-server-metadata) to check if they return null or empty data.
 
 - If the issue persists, submit a Microsoft support case providing the appliance machine ID (available in the footer of the appliance configuration manager).
 
@@ -203,7 +203,7 @@ The error details will be mentioned with the error.
 
 #### Recommended Action
 
-Ensure that port 443 is open on the ESXi host on which the server is running. Learn more on how to remediate the issue.
+Ensure that port 443 is open on the ESXi host on which the server is running. [Learn more](troubleshoot-discovery.md#error-9014-httpgetrequesttoretrievefilefailed) on how to remediate the issue.
 
 ### Error Code: 9015: The vCenter Server user account provided for server discovery doesn't have guest operations privileges enabled.
 
@@ -213,7 +213,7 @@ The required privileges of guest operations haven't been enabled on the vCenter 
 
 #### Recommended Action
 
-Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. Learn more on how to set up the vCenter Server account with required privileges.
+Ensure that the vCenter Server user account has privileges enabled for **Virtual Machines** > **Guest Operations** to interact with the server and pull the required data. [Learn more](./vmware/tutorial-discover-vmware.md#create-an-account-to-access-vcenter-server) on how to set up the vCenter Server account with required privileges.
 
 ### Error Code: 9022: The access is denied to run the Get-WmiObject cmdlet on the server.
 

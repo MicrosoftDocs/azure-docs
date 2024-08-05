@@ -2,8 +2,8 @@
 title: 'Tutorial: Implement IoT spatial analytics'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 09/14/2023
 ms.topic: tutorial
 ms.service: azure-maps

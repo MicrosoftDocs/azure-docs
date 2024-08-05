@@ -3,8 +3,8 @@ title: Application Gateway TCP/TLS proxy overview (Preview)
 description: This article provides an overview of Azure Application Gateway's TCP/TLS (layer 4) proxy service. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
+ms.service: azure-application-gateway
+ms.topic: concept-article
 ms.date: 03/12/2024
 ms.author: greglin
 ---

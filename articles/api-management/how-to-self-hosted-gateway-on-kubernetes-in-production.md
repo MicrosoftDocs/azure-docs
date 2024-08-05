@@ -3,7 +3,7 @@ title: Self-hosted gateway on Kubernetes in production | Azure API Management
 description: Learn about guidance to run an API Management self-hosted gateway on Kubernetes for production workloads
 author: tomkerkhove
 manager: mrcarlosdev
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
@@ -132,7 +132,7 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 - [Pod Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
 > [!Note]
-> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](./../aks/availability-zones.md).
+> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](/azure/aks/availability-zones).
 
 ### Protecting against pod disruption
 

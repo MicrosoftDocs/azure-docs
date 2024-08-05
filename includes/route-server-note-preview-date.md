@@ -1,7 +1,7 @@
 ---
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: include
 ms.date: 06/17/2022
 ---

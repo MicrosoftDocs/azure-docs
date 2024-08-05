@@ -3,7 +3,7 @@ title:  "Tutorial: Access lab VM from Teams/Canvas"
 titleSuffix: Azure Lab Services
 description: Learn how to access a VM (student view) in Azure Lab Services from Canvas. 
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: tutorial
@@ -11,6 +11,8 @@ ms.date: 07/04/2023
 ---
 
 # Tutorial: Access a lab VM from Teams or Canvas
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this tutorial, you learn how to access a lab virtual machine by using the Azure Lab Services app in Teams or Canvas. After you start the lab VM, you can then remotely connect to the lab VM by using secure shell (SSH).
 
@@ -29,6 +31,8 @@ In this tutorial, you learn how to access a lab virtual machine by using the Azu
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 When you access a lab in Microsoft Teams, you're automatically registered for the lab, based on your team membership in Microsoft Teams. 
 
 To access your lab in Teams:
@@ -44,6 +48,8 @@ To access your lab in Teams:
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet by the lab creator, or if the Teams membership information still needs to synchronize.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you access a lab in [Canvas](https://www.instructure.com/canvas), you're automatically registered for the lab, based on your course membership in Canvas. Azure Lab Services supports test users in Canvas and the ability for the educator to act as another user.
 

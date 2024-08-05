@@ -2,10 +2,10 @@
 title: Use Azure Maps Drawing Error Visualizer
 titleSuffix:  Microsoft Azure Maps Creator
 description: This article demonstrates how to visualize warnings and errors returned by the Creator Conversion API.
-author: brendansco 
-ms.author: brendanc 
+author: faterceros
+ms.author: aterceros
 ms.date: 02/17/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 
@@ -30,7 +30,7 @@ This tutorial uses the [Postman] application, but you can choose a different API
     > [!IMPORTANT]
     > Make sure to make a note of the unique identifier (`udid`) value, you will need it. The `udid` is how you reference the drawing package you uploaded into your Azure storage account from your source code and HTTP requests.
 
-2. Now that the drawing package is uploaded, use `udid` for the uploaded package to convert the package into map data. For steps on how to convert a package, see [Convert a drawing package].
+2. Now that the drawing package is uploaded, use `udid` for the uploaded package to convert the package into map data.
 
     >[!NOTE]
     >If your conversion process succeeds, you will not receive a link to the Error Visualizer tool.
@@ -89,14 +89,10 @@ The _ConversionWarningsAndErrors.json_ contains a list of your drawing package e
 Learn more by reading:
 
 > [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
-> [!div class="nextstepaction"]
 > [Creator for indoor maps]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Conversion API]: /rest/api/maps-creator/conversion
-[Convert a drawing package]: tutorial-creator-indoor-maps.md#convert-a-drawing-package
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator resource]: how-to-manage-creator.md
 [Drawing package requirements]: drawing-requirements.md
@@ -104,4 +100,3 @@ Learn more by reading:
 [How to create data registry]: how-to-create-data-registries.md
 [Postman]: https://www.postman.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[What is Azure Maps Creator?]: about-creator.md

@@ -5,8 +5,9 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 05/20/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: conceptual

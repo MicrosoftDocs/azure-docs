@@ -4,7 +4,7 @@ description: This article provides steps for creating and configuring a key vaul
 author: ju-shim
 ms.author: jushiman
 ms.topic: tutorial
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: disks
 ms.date: 06/14/2024
 ms.reviewer: mimckitt
@@ -28,7 +28,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [disk-encryption-key-vault](../../includes/disk-encryption-key-vault.md)]
+[!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
 ## Next steps
 

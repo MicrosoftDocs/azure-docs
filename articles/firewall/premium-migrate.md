@@ -2,7 +2,7 @@
 title: Migrate to Azure Firewall Premium
 description: Learn how to migrate from Azure Firewall Standard to Azure Firewall Premium.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 03/30/2022

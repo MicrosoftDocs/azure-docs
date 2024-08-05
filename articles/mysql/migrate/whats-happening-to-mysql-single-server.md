@@ -1,11 +1,11 @@
 ---
 title: What's happening to Azure Database for MySQL single server?
 description: The Azure Database for MySQL - Single Server service is being deprecated.
-author: markingmyname
-ms.author: maghan
-ms.reviewer: adig, talawren
+author: adig
+ms.author: adig
+ms.reviewer: talawren, maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: single-server
 ms.topic: overview
 ms.custom:
@@ -41,13 +41,14 @@ Learn how to migrate from Azure Database for MySQL - Single Server to Azure Data
 For more information on migrating from Single Server to Flexible Server using other migration tools, visit [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md).
 
 > [!NOTE]  
-> In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
+> In-place auto-migration from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for select Single Server database workloads. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details. If you own a Single Server workload with no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for auto-migration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u). All other Single Server workloads are recommended to use user-initiated migration tooling offered by Azure - Azure DMS, Azure Database for MySQL Import to migrate. Learn more about in-place auto-migration [here](../migrate/migrate-single-flexible-in-place-auto-migration.md).
 
 ## Prerequisite checks when migration from Single to Flexible Server
 
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's TLS version from v1.0 or v1.1 to TLS v1.2 before the migration as the older TLS versions have been deprecated for Flexible Server.
 - If your source Azure Database for MySQL Single Server utilizes nondefault ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned nondefault ports aren't supported on Flexible Server.
+- Service tags (SQL) in Outbound Rules are not supported on Azure Database for MySQL Flexible Server. Please use Fully Qualified Domain name(FQDN) in Outbound Rules when configuring the firewall settings for the Flexible Server.
 
 ## What happens post sunset date (September 16, 2024)?
 
@@ -121,19 +122,21 @@ When you migrate from Azure Database for MySQL - Single Server to Flexible Serve
 
 **Q. What happens to my existing Azure Database for MySQL single server instances?**
 
-**A.** Your existing Azure Database for MySQL single server workloads continues to function as before and will be officially supported until the sunset date. However, no new updates are released for Single Server and we strongly advise you to start migrating to Azure Database for MySQL Flexible Server at the earliest. Post the sunset date, your Single Server instance, along with its data files, will be [force-migrated](./whats-happening-to-mysql-single-server.md#forced-migration-post-sunset-date) to an appropriate Flexible Server instance in a phased manner.
+**A.** Your existing Azure Database for MySQL single server workloads continues to function as before and is officially supported until the sunset date. However, no new updates are released for Single Server and we strongly advise you to start migrating to Azure Database for MySQL Flexible Server at the earliest. Post the sunset date, your Single Server instance, along with its data files, will be [force-migrated](./whats-happening-to-mysql-single-server.md#forced-migration-post-sunset-date) to an appropriate Flexible Server instance in a phased manner.
 
 **Q. Can I choose to continue running Single Server beyond the sunset date?**
 
 **A.** Unfortunately, we don't plan to support Single Server beyond the sunset date of **September 16, 2024**, and hence we strongly advise that you start planning your migration as soon as possible. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance in a phased manner. This might lead to limited feature availability as certain advanced functionality can't be force-migrated without customer inputs to the Flexible Server instance. Read more about steps to reconfigure such features post force-migration to minimize the potential impact [here](./whats-happening-to-mysql-single-server.md#action-required-post-forced-migration). If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server.
 
 **Q. My single server is deployed in a region that doesn't support flexible server. What will happen to my server post sunset date?**
+
 **A.** If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server. We strongly recommend that you use one of the following options to migrate before the sunset date to avoid any disruptions in business continuity:
 
 - Use Azure DMS to perform a cross-region migration to Flexible Server in a suitable Azure region.
 - Migrate to MySQL Server hosted on a VM in the region, if you're unable to change regions due to compliance issues.
 
 **Q. Post sunset date, will there be any data loss for my Single Server?**
+
 **A.** No, there won't be any data loss incurred for your Single Server instance. Post the sunset date, your Single Server instance, along with its data files, will be force-migrated to an appropriate Flexible Server instance. If your server is in a region where Azure Database for MySQL - Flexible Server isn't supported, then post the sunset date, your Single Server instance is available with limited operations to access data and to be able to migrate to Flexible Server in an appropriate region.
 
 **Q. After the Single Server retirement announcement, what if I still need to create a new single server to meet my business needs?**
@@ -238,3 +241,5 @@ We know migrating services can be a frustrating experience, and we apologize in 
 - [Frequently Asked Questions about DMS (classic) migrations](../../dms/faq-mysql-single-to-flex.md)
 - [Select the right tools for migration to Azure Database for MySQL](../migrate/how-to-decide-on-right-migration-tools.md)
 - [What is Flexible Server](../flexible-server/overview.md)
+
+

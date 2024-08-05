@@ -4,7 +4,7 @@ description: Use this guide to learn how to configure automated the rotation of 
 services: key-vault
 author: msmbaldwin
 tags: 'rotation'
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 02/20/2024

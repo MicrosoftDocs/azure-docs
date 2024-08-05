@@ -111,7 +111,9 @@ Azure Synapse Link isn't recommended if you're looking for traditional data ware
 
 ## Limitations
 
-* Azure Synapse Link for Azure Cosmos DB is supported for NoSQL and MongoDB APIs. It is not supported for Cassandra or Table APIs and remains in preview for Gremlin API.
+* Azure Synapse Link for Azure Cosmos DB is supported for NoSQL, Gremlin and MongoDB APIs. It is not supported for Cassandra or Table APIs.
+
+* Data Explorer in Synapse Workspaces doesn't list Gremlin graphs in the tree view. But you can still run queries.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 

@@ -3,11 +3,11 @@ title: Enabling Azure Synapse workspace features
 description: This document describes how a user can enable the Azure Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW).  
 author: sowmi93
 ms.author: sosivara
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 03/07/2022
-ms.reviewer: wiassaf, sngun
+ms.reviewer: wiassaf, whhender
 ---
 
 # Enable Azure Synapse workspace features for a dedicated SQL pool (formerly SQL DW)

@@ -5,7 +5,7 @@ description: Learn about network security groups. Network security groups help y
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/27/2023
 ms.author: allensu
 ms.reviewer: kumud

@@ -3,7 +3,7 @@ title: Set up a lab with Adobe Creative Cloud
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services for digital arts and media classes that use Adobe Creative Cloud.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 02/17/2023
 ---
 
 # Set up a lab for Adobe Creative Cloud in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mode-ui
+ms.collection: ce-skilling-ai-copilot
 ms.date: 06/13/2024
 #Customer intent: As a developer, I want to create my first example Consumption logic app workflow that runs in multitenant Azure Logic Apps using the Azure portal.
 ---
@@ -102,17 +103,16 @@ To create and manage a Consumption logic app workflow using other tools, see the
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for storing your app's information. This example deploys the sample logic app to the **West US** region in Azure. |
    | **Enable log analytics** | Yes | **No** | This option appears and applies only when you select the **Consumption** logic app type. <br><br>Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. |
 
-   When you're done, your settings look similar to the following example:
-
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
-
    > [!NOTE]
    >
-   > If you selected an Azure region that supports availability zone redundancy, the **Zone redundancy** 
-   > section is automatically enabled. This preview section offers the choice to enable availability zone 
-   > redundancy for your logic app. However, currently supported Azure regions don't include **West US**, 
-   > so you can ignore this section for this example. For more information, see 
+   > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
+   > [Azure regions that support availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support). 
+   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
+
+   After you finish, your settings look similar to the following example:
+
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png" alt-text="Screenshot shows Azure portal and logic app resource creation page with details for new logic app." lightbox="media/quickstart-create-example-consumption-workflow/create-logic-app-settings.png":::
 
 1. When you're ready, select **Review + Create**.
 
@@ -201,7 +201,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png" alt-text="Screenshot shows open dynamic content list and selected option, See more." lightbox="media/quickstart-create-example-consumption-workflow/dynamic-content-see-more.png":::
 
-         When you're done, the email subject looks like the following example:
+         After you finish, the email subject looks like the following example:
 
          :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
@@ -231,7 +231,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
 ## Test your workflow
 
-To check that the workflow runs correctly, you can either wait for the trigger to fire based on your specifed schedule, or you can manually run the workflow.
+To check that the workflow runs correctly, you can either wait for the trigger to fire based on your specified schedule, or you can manually run the workflow.
 
 * On the designer toolbar, from the **Run** menu, select **Run**.
 
@@ -251,7 +251,7 @@ If you don't receive emails from the workflow as expected:
 
 ## Clean up resources
 
-When you're done with this quickstart, delete the sample logic app resource and any related resources by deleting the resource group that you created for this example.
+When you complete this quickstart, delete the sample logic app resource and any related resources by deleting the resource group that you created for this example.
 
 1. In the Azure search box, enter **resource groups**, and select **Resource groups**.
 

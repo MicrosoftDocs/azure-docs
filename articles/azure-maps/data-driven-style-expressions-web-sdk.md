@@ -4,7 +4,7 @@ description: Learn about data-driven style expressions. See how to use these exp
 author: sinnypan
 ms.author: sipa
 ms.date: 4/4/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ms.custom:

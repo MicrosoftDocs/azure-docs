@@ -1,9 +1,9 @@
 ---
 title: Apache Spark guidelines on Azure HDInsight
 description: Learn guidelines for using Apache Spark in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 07/12/2023
+ms.date: 07/12/2024
 ---
 
 # Apache Spark guidelines
@@ -14,7 +14,7 @@ This article provides various guidelines for using Apache Spark on Azure HDInsig
 
 | Option | Documents |
 |---|---|
-| VSCode | [Use Spark & Hive Tools for Visual Studio Code](../hdinsight-for-vscode.md) |
+| Visual Studio Code | [Use Spark & Hive Tools for Visual Studio Code](../hdinsight-for-vscode.md) |
 | Jupyter Notebooks | [Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight](./apache-spark-load-data-run-query.md) |
 | IntelliJ | [Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for an HDInsight cluster](./apache-spark-intellij-tool-plugin.md) |
 | IntelliJ | [Tutorial: Create a Scala Maven application for Apache Spark in HDInsight using IntelliJ](./apache-spark-create-standalone-application.md) |
@@ -55,7 +55,6 @@ This article provides various guidelines for using Apache Spark on Azure HDInsig
 | Option | Documents |
 |---|---|
 | Azure Data Lake Storage Gen2 | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-| Azure Data Lake Storage Gen1 | [Use Azure Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md) |
 | Azure Blob Storage | [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md) |
 
 ## Next steps

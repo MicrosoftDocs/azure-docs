@@ -3,7 +3,7 @@ title: 'Configure custom alerts to monitor advertised routes - Azure ExpressRout
 description: This article shows you how to use Azure Automation and Logic Apps to monitor the number of routes advertised from the ExpressRoute gateway to on-premises networks.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023

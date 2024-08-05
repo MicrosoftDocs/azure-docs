@@ -3,7 +3,7 @@ title: "Deploy and run language models in batch endpoints"
 titleSuffix: Azure Machine Learning
 description: Learn how to use batch deployments to process text with large language models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 author: msakande

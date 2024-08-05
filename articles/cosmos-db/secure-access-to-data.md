@@ -3,7 +3,7 @@ title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including primary keys, read-only keys, users, and permissions.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 05/26/2022
@@ -221,7 +221,7 @@ To add Azure Cosmos DB account reader access to your user account, have a subscr
     | Assign access to | User, group, or service principal. |
     | Members | The user, group, or application in your directory to which you want to grant access. |
 
-    ![Screenshot that shows the Add role assignment page in the Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows the Add role assignment page in the Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 

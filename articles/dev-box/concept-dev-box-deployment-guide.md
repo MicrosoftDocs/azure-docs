@@ -108,6 +108,8 @@ When you have the following requirements, you need to use Azure network connecti
 
 When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security.
 
+Network planning should include an estimate of the number of IP addresses you'll need, and their distribution across VNETs. Additional free IP addresses are necessary for the Azure Network connection health check. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
+
 Learn more about [Microsoft Dev Box networking requirements](./concept-dev-box-network-requirements.md?tabs=W365).
 
 ### Step 3: Configure security groups for role-based access control

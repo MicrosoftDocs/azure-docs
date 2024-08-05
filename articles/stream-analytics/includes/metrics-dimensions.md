@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 07/10/2023
 ms.author: spelluru
@@ -11,8 +11,6 @@ ms.custom: "include file"
 ---
 
 
-
-Stream Analytics has [many metrics](../stream-analytics-job-metrics.md) available to monitor a job's health. To troubleshoot performance problems with your job, you can split and filter metrics by using the following dimensions. 
 
 | Dimension                 | Definition                               | 
 | ---------------------- | ---------------------------------------- | 

@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article explains the concept of what an origin and origin group is in a Front Door configuration.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 04/04/2023
 ms.author: duau
@@ -49,6 +49,9 @@ An origin refers to the application deployment that Azure Front Door retrieves c
 * **Priority**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](routing-methods.md#priority).
 
 * **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](routing-methods.md#weighted).
+
+> [!IMPORTANT]
+> When an origin is **disabled**, both routing and health probes to the origin are also disabled.
 
 ### Origin host header
 

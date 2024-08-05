@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure API for FH
 ms.date: 02/06/2024
 author: expekesheth
 ms.author: kesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference

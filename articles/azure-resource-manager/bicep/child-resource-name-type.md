@@ -66,7 +66,24 @@ A nested resource declaration must appear at the top level of syntax of the pare
 
 When defined within the parent resource type, you format the type and name values as a single segment without slashes. The following example shows a storage account with a child resource for the file service, and the file service has a child resource for the file share. The file service's name is set to `default` and its type is set to `fileServices`. The file share's name is set `exampleshare` and its type is set to `shares`.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+
+  resource service 'fileServices' = {
+    name: 'default'
+
+    resource share 'shares' = {
+      name: 'exampleshare'
+    }
+  }
+}
+```
 
 The full resource types are still `Microsoft.Storage/storageAccounts/fileServices` and `Microsoft.Storage/storageAccounts/fileServices/shares`. You don't provide `Microsoft.Storage/storageAccounts/` because it's assumed from the parent resource type and version. The nested resource may optionally declare an API version using the syntax `<segment>@<version>`. If the nested resource omits the API version, the API version of the parent resource is used. If the nested resource specifies an API version, the API version specified is used.
 
@@ -101,7 +118,26 @@ When defined outside of the parent resource, you format the type and with slashe
 
 The following example shows a storage account, file service, and file share that are all defined at the root level.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" highlight="10,12,15,17":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+  name: 'default'
+  parent: storage
+}
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+  name: 'exampleshare'
+  parent: service
+}
+```
 
 Referencing the child resource symbolic name works the same as referencing the parent.
 
@@ -109,7 +145,30 @@ Referencing the child resource symbolic name works the same as referencing the p
 
 You can also use the full resource name and type when declaring the child resource outside the parent. You don't set the parent property on the child resource. Because the dependency can't be inferred, you must set it explicitly.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/fullnamedeclaration.bicep" highlight="10,11,17,18":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+  name: 'examplestorage/default'
+  dependsOn: [
+    storage
+  ]
+}
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+  name: 'examplestorage/default/exampleshare'
+  dependsOn: [
+    service
+  ]
+}
+```
 
 > [!IMPORTANT]
 > Setting the full resource name and type isn't the recommended approach. It's not as type safe as using one of the other approaches. For more information, see [Linter rule: use parent property](./linter-rule-use-parent-property.md).

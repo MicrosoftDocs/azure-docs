@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: Use Azure Cosmos DB for MongoDB to store and query massive amounts of data using popular open-source drivers.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 06/02/2024

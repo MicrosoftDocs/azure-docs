@@ -3,7 +3,7 @@ title: Troubleshoot guidance
 titleSuffix: Azure Machine Learning
 description: This article addresses frequent questions prompt flow usage.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
@@ -270,6 +270,10 @@ If you encounter an error like "Access denied to list workspace secret", check w
 ## Authentication and identity related issues
 
 ### How do I use credential-less datastore in prompt flow?
+
+To use credential-less storage in Azure AI studio. You need basically do following things:
+- Change the data store auth type to None.
+- Grant project MSI and user blob/file data contributor permission on storage.
 
 #### Change auth type of datastore to None
 

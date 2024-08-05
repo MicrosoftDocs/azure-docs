@@ -4,7 +4,7 @@
  services: virtual-machines
  author: vermagit
  ms.topic: include
- ms.service: virtual-machines
+ ms.service: azure-virtual-machines
  ms.subservice: hpc
  ms.date: 03/04/2023
  ms.author: amverma

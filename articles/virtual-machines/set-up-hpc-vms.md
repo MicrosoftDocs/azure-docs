@@ -3,10 +3,10 @@ title: Set up Azure HPC or AI VMs
 description: How to set up an Azure HPC or AI virtual machine with NVIDIA or AMD GPUs using the Azure portal.
 author: sherrywangms 
 ms.author: sherrywang 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: how-to
-ms.date: 03/10/2023
+ms.date: 07/25/2024
 ---
 
 # Set up Azure HPC or AI VMs
