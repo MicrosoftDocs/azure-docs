@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Cohere Command chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Cohere Command chat models with Azure AI studio
+# How to use Cohere Command chat models
 
-In this article, you learn about Cohere Command chat models and how to use them with Azure AI studio.
+In this article, you learn about Cohere Command chat models and how to use them.
 The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 
 
@@ -62,6 +62,9 @@ The following models are available:
 
 ---
 
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
@@ -92,9 +95,6 @@ pip install azure-ai-inference
 ```
 
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
-
-> [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -139,8 +139,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: Cohere-command-r-plus
-Model type": chat-completions
-Model provider name": Cohere
+Model type: chat-completions
+Model provider name: Cohere
 ```
 
 ### Create a chat completion request
@@ -284,7 +284,7 @@ response = client.complete(
 )
 ```
 
-### Define tools
+### Use tools
 
 Cohere Command chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -497,6 +497,9 @@ The following models are available:
 
 ---
 
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
@@ -525,9 +528,6 @@ Once you have these prerequisites, install the Azure Inference library for JavaS
 ```bash
 npm install @azure-rest/ai-inference
 ```
-
-> [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -572,8 +572,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: Cohere-command-r-plus
-Model type": chat-completions
-Model provider name": Cohere
+Model type: chat-completions
+Model provider name: Cohere
 ```
 
 ### Create a chat completion request
@@ -738,7 +738,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Define tools
+### Use tools
 
 Cohere Command chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -946,6 +946,9 @@ The following models are available:
 
 ---
 
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
@@ -998,9 +1001,6 @@ using System.Text.Json.Serialization;
 using System.Reflection;
 ```
 
-> [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
-
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
@@ -1040,8 +1040,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: Cohere-command-r-plus
-Model type": chat-completions
-Model provider name": Cohere
+Model type: chat-completions
+Model provider name: Cohere
 ```
 
 ### Create a chat completion request
@@ -1207,7 +1207,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-### Define tools
+### Use tools
 
 Cohere Command chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -1420,6 +1420,9 @@ The following models are available:
 
 ---
 
+> [!TIP]
+> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Cohere Command chat models with Azure AI studio, you need the following prerequisites:
@@ -1441,9 +1444,6 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 * To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
-
-> [!TIP]
-> Additionally, Cohere supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [Cohere documentation](https://docs.cohere.com/reference/about) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -1738,7 +1738,7 @@ extra-parameters: pass-through
 }
 ```
 
-### Define tools
+### Use tools
 
 Cohere Command chat models support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 

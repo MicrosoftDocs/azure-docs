@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Mistral Nemo chat model with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,13 +13,16 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Mistral Nemo chat model with Azure AI studio
+# How to use Mistral Nemo chat model
 
-In this article, you learn about Mistral Nemo chat model and how to use them with Azure AI studio.
+In this article, you learn about Mistral Nemo chat model and how to use them.
 Mistral AI offers two categories of models. Premium models including [Mistral Large and Mistral Small](deploy-models-mistral.md), available as serverless APIs with pay-as-you-go token-based billing. Open models including [Mistral Nemo](deploy-models-mistral-nemo.md), [Mixtral-8x7B-Instruct-v01, Mixtral-8x7B-v01, Mistral-7B-Instruct-v01, and Mistral-7B-v01](deploy-models-mistral-open.md); available to also download and run on self-hosted managed endpoints.
 
 
 ::: zone pivot="programming-language-python"
+
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Prerequisites
 
@@ -51,9 +54,6 @@ pip install azure-ai-inference
 ```
 
 Read more about the [Azure AI inference package and reference](https://aka.ms/azsdk/azure-ai-inference/python/reference).
-
-> [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -98,8 +98,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: Mistral-Nemo
-Model type": chat-completions
-Model provider name": MistralAI
+Model type: chat-completions
+Model provider name: MistralAI
 ```
 
 ### Create a chat completion request
@@ -272,7 +272,7 @@ response = client.complete(
 )
 ```
 
-### Define tools
+### Use tools
 
 Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -442,6 +442,9 @@ except HttpResponseError as ex:
 
 ::: zone pivot="programming-language-javascript"
 
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
@@ -470,9 +473,6 @@ Once you have these prerequisites, install the Azure Inference library for JavaS
 ```bash
 npm install @azure-rest/ai-inference
 ```
-
-> [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -517,8 +517,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: Mistral-Nemo
-Model type": chat-completions
-Model provider name": MistralAI
+Model type: chat-completions
+Model provider name: MistralAI
 ```
 
 ### Create a chat completion request
@@ -717,7 +717,7 @@ var response = await client.path("/chat/completions").post({
 });
 ```
 
-### Define tools
+### Use tools
 
 Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -882,6 +882,9 @@ catch (error) {
 
 ::: zone pivot="programming-language-csharp"
 
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
@@ -934,9 +937,6 @@ using System.Text.Json.Serialization;
 using System.Reflection;
 ```
 
-> [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
-
 ## Work with chat completions
 
 In this section, you use the [Azure AI model inference API](https://aka.ms/azureai/modelinference) with a chat completions model for chat.
@@ -976,8 +976,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: Mistral-Nemo
-Model type": chat-completions
-Model provider name": MistralAI
+Model type: chat-completions
+Model provider name: MistralAI
 ```
 
 ### Create a chat completion request
@@ -1174,7 +1174,7 @@ response = client.Complete(requestOptions, extraParams: ExtraParameters.PassThro
 Console.WriteLine($"Response: {response.Value.Choices[0].Message.Content}");
 ```
 
-### Define tools
+### Use tools
 
 Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 
@@ -1344,6 +1344,9 @@ catch (RequestFailedException ex)
 
 ::: zone pivot="programming-language-rest"
 
+> [!TIP]
+> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
+
 ## Prerequisites
 
 To use Mistral Nemo chat model with Azure AI studio, you need the following prerequisites:
@@ -1365,9 +1368,6 @@ Models deployed with the [Azure AI model inference API](https://aka.ms/azureai/m
 
 * To construct the requests, you need to pass in the endpoint URL. The endpoint URL has the form `https://your-host-name.your-azure-region.inference.ai.azure.com`, where `your-host-name`` is your unique model deployment host name and `your-azure-region`` is the Azure region where the model is deployed (for example, eastus2).
 * Depending on your model deployment and authentication preference, you need either a key to authenticate against the service, or Microsoft Entra ID credentials. The key is a 32-character string.
-
-> [!TIP]
-> Additionally, MistralAI supports the use of a tailored API for use with specific features of the model. To use the model-provider specific API, check [MistralAI documentation](https://docs.mistral.ai/) or see the [inference examples](#more-inference-examples) section to code examples.
 
 ## Work with chat completions
 
@@ -1703,7 +1703,7 @@ extra-parameters: pass-through
 }
 ```
 
-### Define tools
+### Use tools
 
 Mistral Nemo chat model support the use of tools, which can be an extraordinary resource when you need to offload specific tasks from the language model and instead rely on a more deterministic system or even a different language model. The Azure AI Model Inference API allows you to define tools in the following way.
 

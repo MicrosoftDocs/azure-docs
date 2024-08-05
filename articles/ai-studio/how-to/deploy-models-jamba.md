@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Jamba-Instruct chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Jamba-Instruct chat models with Azure AI studio
+# How to use Jamba-Instruct chat models
 
-In this article, you learn about Jamba-Instruct chat models and how to use them with Azure AI studio.
+In this article, you learn about Jamba-Instruct chat models and how to use them.
 The Jamba-Instruct model is AI21's production-grade Mamba-based large language model (LLM) which uses AI21's hybrid Mamba-Transformer architecture. It's an instruction-tuned version of AI21's hybrid structured state space model (SSM) transformer Jamba model. The Jamba-Instruct model is built for reliable commercial use with respect to quality and performance.
 
 > [!TIP]
@@ -99,8 +99,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: Jamba-Instruct
-Model type": chat-completions
-Model provider name": AI21
+Model type: chat-completions
+Model provider name: AI21
 ```
 
 ### Create a chat completion request
@@ -341,8 +341,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: Jamba-Instruct
-Model type": chat-completions
-Model provider name": AI21
+Model type: chat-completions
+Model provider name: AI21
 ```
 
 ### Create a chat completion request
@@ -625,8 +625,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: Jamba-Instruct
-Model type": chat-completions
-Model provider name": AI21
+Model type: chat-completions
+Model provider name: AI21
 ```
 
 ### Create a chat completion request

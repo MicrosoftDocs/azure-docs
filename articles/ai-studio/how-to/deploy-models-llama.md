@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Meta Llama chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Meta Llama chat models with Azure AI studio
+# How to use Meta Llama chat models
 
-In this article, you learn about Meta Llama chat models and how to use them with Azure AI studio.
+In this article, you learn about Meta Llama chat models and how to use them.
 Meta Llama 2 and 3 models and tools are a collection of pretrained and fine-tuned generative text models ranging in scale from 7 billion to 70 billion parameters. The model family also includes fine-tuned versions optimized for dialogue use cases with reinforcement learning from human feedback (RLHF).
 
 
@@ -163,8 +163,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: Meta-Llama-3.1-405B-Instruct
-Model type": chat-completions
-Model provider name": Meta
+Model type: chat-completions
+Model provider name: Meta
 ```
 
 ### Create a chat completion request
@@ -488,8 +488,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: Meta-Llama-3.1-405B-Instruct
-Model type": chat-completions
-Model provider name": Meta
+Model type: chat-completions
+Model provider name: Meta
 ```
 
 ### Create a chat completion request
@@ -851,8 +851,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: Meta-Llama-3.1-405B-Instruct
-Model type": chat-completions
-Model provider name": Meta
+Model type: chat-completions
+Model provider name: Meta
 ```
 
 ### Create a chat completion request

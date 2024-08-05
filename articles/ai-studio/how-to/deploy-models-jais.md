@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Jais chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Jais chat models with Azure AI studio
+# How to use Jais chat models
 
-In this article, you learn about Jais chat models and how to use them with Azure AI studio.
+In this article, you learn about Jais chat models and how to use them.
 JAIS 30b Chat is an autoregressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset and translated some open-source English instructions into Arabic.
 
 * **Context length:** JAIS supports a context length of 8K.
@@ -100,8 +100,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: jais-30b-chat
-Model type": chat-completions
-Model provider name": G42
+Model type: chat-completions
+Model provider name: G42
 ```
 
 ### Create a chat completion request
@@ -342,8 +342,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: jais-30b-chat
-Model type": chat-completions
-Model provider name": G42
+Model type: chat-completions
+Model provider name: G42
 ```
 
 ### Create a chat completion request
@@ -626,8 +626,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: jais-30b-chat
-Model type": chat-completions
-Model provider name": G42
+Model type: chat-completions
+Model provider name: G42
 ```
 
 ### Create a chat completion request

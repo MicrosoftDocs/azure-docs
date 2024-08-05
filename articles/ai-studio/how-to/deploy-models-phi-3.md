@@ -4,7 +4,7 @@ titleSuffix: Azure AI studio
 description: Learn how to use Phi-3 chat models with Azure AI studio.
 ms.service: azure-ai-studio
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 08/05/2024
 ms.reviewer: kritifaujdar
 reviewer: fkriti
 ms.author: mopeakande
@@ -13,9 +13,9 @@ ms.custom: references_regions, generated
 zone_pivot_groups: azure-ai-model-catalog-samples-chat
 ---
 
-# How to use Phi-3 chat models with Azure AI studio
+# How to use Phi-3 chat models
 
-In this article, you learn about Phi-3 chat models and how to use them with Azure AI studio.
+In this article, you learn about Phi-3 chat models and how to use them.
 The Phi-3 family of small language models (SLMs) is a collection of instruction-tuned generative text models.
 
 
@@ -173,8 +173,8 @@ print("Model provider name:", model_info.model_provider)
 
 ```console
 Model name: Phi-3-mini-4k-Instruct
-Model type": chat-completions
-Model provider name": Microsoft
+Model type: chat-completions
+Model provider name: Microsoft
 ```
 
 ### Create a chat completion request
@@ -508,8 +508,8 @@ console.log("Model provider name: ", model_info.body.model_provider_name)
 
 ```console
 Model name: Phi-3-mini-4k-Instruct
-Model type": chat-completions
-Model provider name": Microsoft
+Model type: chat-completions
+Model provider name: Microsoft
 ```
 
 ### Create a chat completion request
@@ -881,8 +881,8 @@ Console.WriteLine($"Model provider name: {modelInfo.Value.ModelProviderName}");
 
 ```console
 Model name: Phi-3-mini-4k-Instruct
-Model type": chat-completions
-Model provider name": Microsoft
+Model type: chat-completions
+Model provider name: Microsoft
 ```
 
 ### Create a chat completion request
