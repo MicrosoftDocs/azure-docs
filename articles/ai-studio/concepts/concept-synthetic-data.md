@@ -15,8 +15,6 @@ ms.custom: references_regions
 
 # Synthetic data generation in Azure AI Studio
 
-In Azure AI Studio, you can use synthetic data generation to efficiently produce predictions for your datasets.
-
 In Azure AI Studio, you can use synthetic data generation to efficiently produce predictions for your datasets. This article introduces you to the concept of synthetic data generation and how you can use it in machine learning.
 
 ## What is synthetic data generation?
