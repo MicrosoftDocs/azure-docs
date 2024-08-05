@@ -1,16 +1,16 @@
 ---
-title: Enrich data using data flows
-description: Use contextualization datasets to enrich data in Azure IoT Operations data flows.
+title: Enrich data using dataflows
+description: Use contextualization datasets to enrich data in Azure IoT Operations dataflows.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 08/03/2024
 
-#CustomerIntent: As an operator, I want to understand how to create a data flow to enrich data sent to endpoints.
+#CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
 ---
 
-# Enrich data using data flows
+# Enrich data using dataflows
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 

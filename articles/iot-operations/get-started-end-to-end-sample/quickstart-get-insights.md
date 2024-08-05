@@ -25,7 +25,7 @@ Before you begin this quickstart, you must complete the following quickstarts:
 
 - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md)
 - [Quickstart: Add OPC UA assets to your Azure IoT Operations Preview cluster](quickstart-add-assets.md)
-- [Quickstart: Send asset telemetry to the cloud using a data flow](quickstart-upload-telemetry-to-cloud.md)
+- [Quickstart: Send asset telemetry to the cloud using a dataflow](quickstart-upload-telemetry-to-cloud.md)
 
 You also need a Microsoft Fabric subscription. In your subscription, you need access to a **premium workspace** with **Contributor** or above permissions.
 
@@ -63,7 +63,7 @@ After completing this flow, the Azure event hub is visible in the eventstream li
 
 :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
-#### Verify data flow
+#### Verify dataflow
 
 Follow these steps to check your work so far, and make sure data is flowing into the eventstream.
 

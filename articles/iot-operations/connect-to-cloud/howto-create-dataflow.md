@@ -1,22 +1,22 @@
 ---
-title: Create a data flow using Azure IoT Operations
-description: Create a data flow to connect data sources and destinations using Azure IoT Operations.
+title: Create a dataflow using Azure IoT Operations
+description: Create a dataflow to connect data sources and destinations using Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 08/03/2024
 
-#CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
+#CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
 
-# Create a data flow
+# Create a dataflow
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a data flow, you must [configure data flow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
+A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow using the Azure IoT Operations portal or by creating a *Dataflow* custom resource. Before creating a dataflow, you must [configure dataflow endpoints for the data sources and destinations](howto-configure-dataflow-endpoint.md).
 
-The following is an example of a data flow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
+The following is an example of a dataflow configuration with an MQTT source endpoint, transformations, and a Kafka destination endpoint:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -59,21 +59,21 @@ spec:
       name: my-destination
       destinationSettings:
         endpointRef: kafka
-        dataDestination: factory/$topic.2
+        dataDestination: factory
 ```
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the [data flow profile](howto-configure-dataflow-profile.md)           |
-| mode                        | Mode of the data flow. *enabled* or *disabled*                              |
-| operations[]                | Operations performed by the data flow                                       |
+| profileRef                  | Reference to the [dataflow profile](howto-configure-dataflow-profile.md)           |
+| mode                        | Mode of the dataflow. *enabled* or *disabled*                              |
+| operations[]                | Operations performed by the dataflow                                       |
 | operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
 
-Review the following sections to learn how to configure the operation types of the data flow.
+Review the following sections to learn how to configure the operation types of the dataflow.
 
 ## Configure source
 
-To configure a source for the data flow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a data flow configuration with a source endpoint and data source.
+To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint. For example, MQTT or Kafka topics. The following is an example of a dataflow configuration with a source endpoint and data source.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -88,7 +88,7 @@ spec:
       sourceSettings:
         endpointRef: mq-source
         dataSources:
-        - $share/group/azure-iot-operations/data/thermostat
+        - azure-iot-operations/data/thermostat
 ```
 
 | Name                        | Description                                                                        |
@@ -101,7 +101,7 @@ spec:
 
 ## Configure transformation
 
-The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the data flow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
+The transformation operation is where you can transform the data from the source before sending it to the destination. Transformations are optional. If you don't need to make changes to the data, don't include the transformation operation in the dataflow configuration. Multiple transformations are chained together in stages regardless of the order they're specified in the configuration. 
 
 ```yaml
 spec:
@@ -163,7 +163,7 @@ If the dataset has a record with the `asset` field, similar to:
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
 
-For more information, see [Enrich data using data flows](concept-dataflow-enrich.md) and [Convert data using data flows](concept-dataflow-conversions.md).
+For more information, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
 ### Filter: Filter data based on a condition
 
@@ -218,31 +218,11 @@ spec:
           output: location
 ```
 
-To learn more, see the [Map data using data flows](concept-dataflow-mapping.md) and [Convert data using data flows](concept-dataflow-conversions.md).
-
-### Serialize data according to a schema
-
-If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
-
-| Name                                              | Description                                          |
-|---------------------------------------------------|------------------------------------------------------|
-| builtInTransformationSettings.serializationFormat | Format of the serialization                          |
-| builtInTransformationSettings.schemaRef           | Reference to the schema used for the transformation  |
-
-For example, you could serialize the data in Parquet format using the schema:
-
-```yaml
-spec:
-  operations:
-  - operationType: builtInTransformation
-    builtInTransformationSettings:
-      serializationFormat: parquet
-      schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
-```
+To learn more, see the [Map data using dataflows](concept-dataflow-mapping.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
 ## Configure destination
 
-To configure a destination for the data flow, you need to specify the endpoint and a path (topic or table) for the destination.
+To configure a destination for the dataflow, you need to specify the endpoint and a path (topic or table) for the destination.
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
@@ -271,7 +251,7 @@ Once you have the endpoint, you can configure the path for the destination. If t
 - operationType: destination
   destinationSettings:
     endpointRef: eventgrid
-    dataDestination: factory/$topic.2
+    dataDestination: factory
 ```
 
 For storage endpoints like Microsoft Fabric, use the path to specify the table name.
@@ -283,111 +263,3 @@ For storage endpoints like Microsoft Fabric, use the path to specify the table n
     dataDestination: telemetryTable
 ```
 
-#### Dynamic output path
-
-You can use dynamic path segments to reference properties or metadata from the source message. For example, you can use `$topic` to reference the topic from the source data.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$topic.2
-```
-
-If the source is an MQTT broker, with messages coming from topic `thermostats/+/temperature/` , the output path is dynamically resolved. For example, if the source topic is `thermostats/1/temperature/` , the output path is `factory/1` . To use the full source topic, you can use `$topic` without the index.
-
-To use data from the MQTT or Kafka payload in the output path, you can use JSON path expressions.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$payload.temperature.value
-```
-
-If the payload is a JSON object like `{"temperature": {"value": 25}}` , the output path is `factory/25` .
-
-You can also use system properties like `timestamp` , `clientId` , and `messageId` .
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$systemProperties.timestamp
-```
-
-You can also use user properties.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$userProperties.customer
-```
-
-If the user property isn't present in the source data, the part of the path referencing the user property is empty. For example, if the user property `customer` isn't present in the source data, the output path is `factory/` .
-
-If you specified an *enrich* stage during transformation, you can use the enriched data in the output path.
-
-```yaml
-spec:
-  operations:
-  - operationType: destination
-    destinationSettings:
-      endpointRef: eventgrid
-      dataDestination: factory/$context(assetDataset).location
-```
-
-Lastly, you can use `$subscription(example/topic)` to subscribe to a topic from the source endpoint and use the result in the path. This is useful when you want to use the value from a specific topic in the output path, like for meta Unified Namespace (UNS) topics.
-
-```yaml
-spec:
-  operations:
-  - operationType: destination
-    destinationSettings:
-      endpointRef: eventgrid
-      dataDestination: factory/$subscription(meta/thermostat/uns)
-```
-
-Here, if the message from the `meta/thermostat/uns` topic is `thermostats/1/temperature/` , the output path is `factory/thermostats/1/temperature/` .
-
-The full list of parameters that can be used in the path includes:
-
-| Parameter | Description |
-| --- | --- |
-| `$topic` | The full input topic. |
-| `$topic.<index>` | A segment of the input topic. The index starts at 1. |
-| `$systemProperties.<property>` | A system property of the message. |
-| `$userProperties.<property>` | A user property of the message. |
-| `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
-| `$context(<dataset>).<property>` | A property from the contextualization dataset specified in *enrich* stage. |
-| `$subscription(<topic>)` | The value of a single message from the specified topic. |
-
-
-## Test a data flow
-
-After configuring the data flow, you can test it by sending test data and viewing the outcome.
-
-### Send test data
-
-To send test data to the data flow, you can use the Azure IoT Operations portal, Azure CLI, or call the REST API.
-
-```bash
-az iotops dataflow send-test-data --dataflow-name my-dataflow --data '{
-  "assetName": "thermostat",
-  "temperature": 25
-}'
-```
-
-### View outcome
-
-And the outcome can be viewed as a response:
-
-```output
-{
-  "status": "success",
-  "message": "Data sent successfully",
-  "data": {
-    "deviceId": "thermostat",
-    "customer": "Contoso",
-    "temperatureCelsius": 25,
-    "temperatureKelvin": 298
-  }
-}
-```
