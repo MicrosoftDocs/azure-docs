@@ -3,7 +3,7 @@ title: Prebuilt Docker images
 titleSuffix: Azure Machine Learning
 description: 'Prebuilt Docker images for inference (scoring) in Azure Machine Learning'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.author: mopeakande
 author: msakande

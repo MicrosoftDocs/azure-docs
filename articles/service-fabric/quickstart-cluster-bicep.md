@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.date: 06/22/2022
 ms.topic: quickstart
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-bicep
 ---
 

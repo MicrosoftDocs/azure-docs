@@ -30,7 +30,7 @@ You must meet the following prerequisites before using Azure AI Health Insights 
 
 The host that runs the Docker container on your premises, should be an x64-based computer. It can also be a Docker hosting service in Azure, such as:
 
-* [Azure Kubernetes Service](../../articles/aks/index.yml).
+* [Azure Kubernetes Service](/azure/aks/).
 * [Azure Container Instances](../../articles/container-instances/index.yml).
 * A [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure-stack/operator). For more information, see [Deploy Kubernetes to Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 

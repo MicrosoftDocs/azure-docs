@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/21/2023
+ms.date: 08/01/2024
 ms.author: anfdocs
 ---
 # Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files
@@ -60,28 +60,9 @@ The required network ports are as follows:
 
 \* Active Directory DNS only 
 
-
 \*\* LDAP over SSL (port 636) isn't currently supported. Instead, use [LDAP over StartTLS](configure-ldap-over-tls.md) (port 389) to encrypt LDAP traffic.
 
-### DNS requirements 
-
-Azure NetApp Files SMB, dual-protocol, and Kerberos NFSv4.1 volumes require reliable access to Domain Name System (DNS) services and up-to-date DNS records. Poor network connectivity between Azure NetApp Files and DNS servers can cause client access interruptions or client timeouts. Incomplete or incorrect DNS records for AD DS or Azure NetApp Files can cause client access interruptions or client timeouts.
-
-Azure NetApp Files supports the use of [Active Directory integrated DNS](/windows-server/identity/ad-ds/plan/active-directory-integrated-dns-zones) or standalone DNS servers.    
-
-Ensure that you meet the following requirements about the DNS configurations:
-* If you're using standalone DNS servers: 
-    * Ensure that DNS servers have network connectivity to the Azure NetApp Files delegated subnet hosting the Azure NetApp Files volumes.
-    * Ensure that network ports UDP 53 and TCP 53 are not blocked by firewalls or NSGs.
-* Ensure that [the SRV records registered by the AD DS Net Logon service](https://social.technet.microsoft.com/wiki/contents/articles/7608.srv-records-registered-by-net-logon.aspx) have been created on the DNS servers.
-* Ensure the PTR records for the AD DS domain controllers used by Azure NetApp Files have been created on the DNS servers in the same domain as your Azure NetApp Files configuration.
-* Azure NetApp Files doesn’t automatically delete pointer records (PTR) associated with DNS entries when a volume is deleted. PTR records are used for reverse DNS lookups, which map IP addresses to hostnames. They are typically managed by the DNS server's administrator.
-When you create a volume in Azure NetApp Files, you can associate it with a DNS name. However, the management of DNS records, including PTR records, is outside the scope of Azure NetApp Files. Azure NetApp Files provides the option to associate a volume with a DNS name for easier access, but it doesn't manage the DNS records associated with that name. 
-If you delete a volume in Azure NetApp Files, the associated DNS records (such as the A records for forwarding DNS lookups) need to be managed and deleted from the DNS server or the DNS service you are using.
-* Azure NetApp Files supports standard and secure dynamic DNS updates. If you require secure dynamic DNS updates, ensure that secure updates are configured on the DNS servers.
-* If dynamic DNS updates are not used, you need to manually create an A record and a PTR record for the AD DS computer account(s) created in the AD DS **Organizational Unit** (specified in the Azure NetApp Files AD connection) to support Azure NetApp Files LDAP Signing, LDAP over TLS, SMB, dual-protocol, or Kerberos NFSv4.1 volumes.
-* For complex or large AD DS topologies, [DNS Policies or DNS subnet prioritization may be required to support LDAP enabled NFS volumes](#ad-ds-ldap-discover).  
-* If DNS scavenging is enabled (where stale DNS entries are automatically pruned based on timestamp/age) and dynamic DNS was used to create the DNS records for the Azure NetApp Files volume, the scavenger process might inadvertently prune the records for the volume. This pruning can lead to a service outage for name-based queries. Until this issue is resolved, manually create DNS A/AAAA and PTR entries for the Azure NetApp Files volume if DNS scavenging is enabled.
+For information about DNS, see [Understand Domain Name Systems in Azure NetApp Files](domain-name-system-concept.md). 
 
 ### Time source requirements 
 
@@ -239,3 +220,4 @@ Azure NetApp Files SMB, dual-protocol, and NFSv4.1 Kerberos volumes support cros
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Errors for SMB and dual-protocol volumes](troubleshoot-volumes.md#errors-for-smb-and-dual-protocol-volumes)
 * [Access SMB volumes from Microsoft Entra joined Windows virtual machines](access-smb-volume-from-windows-client.md)
+* [Understand DNS in Azure NetApp Files](domain-name-system-concept.md). 

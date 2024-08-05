@@ -3,7 +3,7 @@ title: Reliability in Azure Private 5G Core
 description: Find out about reliability in Azure Private 5G Core. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.date: 01/31/2022

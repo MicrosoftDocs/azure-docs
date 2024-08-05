@@ -7,7 +7,7 @@ ms.author: duau
 manager: KumudD
 ms.date: 10/02/2023
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: template-tutorial, mode-ui, engagement-fy23
 #Customer intent: As an IT admin, I want to manage user traffic to ensure high availability of web applications.
 ---

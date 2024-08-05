@@ -3,7 +3,7 @@ title: Real User Measurements with Visual Studio App Center - Azure Traffic Mana
 description: Set up your mobile application developed using Visual Studio App Center to send Real User Measurements to Traffic Manager
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.devlang: java
 ms.topic: how-to
 ms.date: 07/13/2023

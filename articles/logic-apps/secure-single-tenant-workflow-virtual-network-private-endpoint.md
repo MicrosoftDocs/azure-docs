@@ -37,7 +37,7 @@ For more information, review the following documentation:
   - [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
   - [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="set-up-inbound"></a>
 

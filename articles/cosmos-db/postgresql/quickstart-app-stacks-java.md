@@ -3,7 +3,7 @@ title: Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQ
 description: See how to create a Java app that connects and runs SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: devx-track-extended-java
 ms.topic: quickstart

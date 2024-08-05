@@ -159,7 +159,7 @@ The following example illustrates a resource log that includes common properties
 | Resource | String | Resource ID. For example: `/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group-name>/providers/Microsoft.Search/searchServices/<your-search-service-name>` |
 | Category | String | "OperationLogs". This value is a constant. OperationLogs is the only category used for resource logs. |
 | OperationName | String |  The name of the operation (see the [full list of operations](#resource-log-search-ops)). An example is `Query.Search` |
-| OperationVersion | String | The api-version used on the request. For example: `2023-11-01` |
+| OperationVersion | String | The api-version used on the request. For example: `2024-07-01` |
 | ResultType | String |"Success". Other possible values: Success or Failure |
 | ResultSignature | Int | An HTTP result code. For example: `200` |
 | DurationMS | Int | Duration of the operation in milliseconds. |
@@ -176,7 +176,7 @@ The following properties are specific to Azure AI Search.
 | Description_s | String | The operation's endpoint. For example: `GET /indexes('content')/docs` |
 | Documents_d | Int | Number of documents processed. |
 | IndexName_s | String | Name of the index associated with the operation. |
-| Query_s | String | The query parameters used in the request. For example: `?search=beach access&$count=true&api-version=2023-11-01` |
+| Query_s | String | The query parameters used in the request. For example: `?search=beach access&$count=true&api-version=2024-07-01` |
 
 <a name="resource-log-search-ops"></a>
 

@@ -3,7 +3,7 @@ title: Configure custom DNS settings for container group in Azure Container Inst
 description: Configure a public or private DNS configuration for a container group
 author: tomvcassidy
 ms.topic: how-to
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.author: tomcassidy

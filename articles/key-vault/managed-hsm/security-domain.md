@@ -1,7 +1,7 @@
 ---
 title: About the security domain in Azure Key Vault Managed HSM
 description: Get an overview of the Azure Key Vault Managed HSM security domain, a set of artifacts you must have to recover a managed HSM.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 author: msmbaldwin

@@ -4,7 +4,7 @@ description: Learn about aggregating and collecting events using WAD for monitor
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 07/14/2022
@@ -59,7 +59,7 @@ Now that you're aggregating events in Azure Storage, [set up Azure Monitor logs]
 ## Deploy the Diagnostics extension through Azure Resource Manager
 
 ### Create a cluster with the diagnostics extension
-To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template. We provide a sample five-VM cluster Resource Manager template with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+To create a cluster by using Resource Manager, you need to add the Diagnostics configuration JSON to the full Resource Manager template. We provide a Resource Manager template for a five-VM cluster with Diagnostics configuration added to it as part of our Resource Manager template samples. You can see it at this location in the Azure Samples gallery: [Five-node cluster with Diagnostics Resource Manager template sample](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 To see the Diagnostics setting in the Resource Manager template, open the azuredeploy.json file and search for **IaaSDiagnostics**. To create a cluster by using this template, select the **Deploy to Azure** button available at the previous link.
 
@@ -191,14 +191,14 @@ After you modify the template.json file as described, republish the Resource Man
 
 ### Update storage quota
 
-Since the tables populated by the extension grows until the quota is hit, you may want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotaInMB` field under `DiagnosticMonitorConfiguration`
+Since the tables populated by the extension grow until the quota is hit, you might want to consider decreasing the quota size. The default value is 50 GB and is configurable in the template under the `overallQuotaInMB` field under `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
 ```
 
 ## Log collection configurations
-Logs from additional channels are also available for collection, here are some of the most common configurations you can make in the template for clusters running in Azure.
+Logs from additional channels are also available for collection. Here are some of the most common configurations you can make in the template for clusters running in Azure.
 
 * Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](./service-fabric-diagnostics-event-generation-operational.md).
   
@@ -299,7 +299,7 @@ To collect performance counters or event logs, modify the Resource Manager templ
 
 ## Collect Performance Counters
 
-To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. See [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) for steps on modifying your `WadCfg` to collect specific performance counters. Reference [Service Fabric Performance Counters](service-fabric-diagnostics-event-generation-perf.md) for a list of performance counters that we recommend collecting.
+To collect performance metrics from your cluster, add the performance counters to your "WadCfg > DiagnosticMonitorConfiguration" in the Resource Manager template for your cluster. See [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) for steps on modifying your `WadCfg` to collect specific performance counters. Reference [Performance metrics](monitor-service-fabric-reference.md#performance-metrics) for a list of performance counters that we recommend collecting.
   
 If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource.
 

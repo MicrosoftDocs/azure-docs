@@ -3,9 +3,9 @@ title: Deploy Azure API Management instance to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy a Premium tier Azure API Management instance to multiple Azure regions to improve API gateway availability.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 07/29/2024
 ms.author: danlep
 ---
 
@@ -168,7 +168,7 @@ This section provides considerations for multi-region deployments when the API M
 
 ### IP addresses
 
-* A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is required for management traffic on port `3443`.
+* A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is used for management traffic on port `3443`.
 
     * **External VNet mode** - The public IP addresses are also required to route public HTTP traffic to the API gateways.
 
@@ -178,7 +178,7 @@ This section provides considerations for multi-region deployments when the API M
 
 * **External VNet mode** - Routing of public HTTP traffic to the regional gateways is handled automatically, in the same way it is for a non-networked API Management instance.
 
-* **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Example solutions include Azure Application Gateway and Azure Traffic Manager.
+* **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. 
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Create an Azure Attestation certificate by using Bicep
 description: Learn how to create an Azure Attestation certificate by using Bicep.
 services: azure-resource-manager
 author: mumian
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao

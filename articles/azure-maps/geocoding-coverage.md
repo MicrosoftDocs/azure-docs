@@ -2,8 +2,8 @@
 title: Geocoding coverage in Microsoft Azure Maps Search service
 titleSuffix: Microsoft Azure Maps
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr
 ms.date: 11/30/2021
 ms.topic: reference
 ms.service: azure-maps

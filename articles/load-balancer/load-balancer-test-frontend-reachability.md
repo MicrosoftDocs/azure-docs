@@ -3,7 +3,7 @@ title: Test reachability of Azure Public Load Balancer frontends with ping and t
 description: Learn how to test Azure Public Load Balancer frontend IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender

@@ -4,7 +4,6 @@ description: This article talks about recommended deployment patterns with Workf
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 10/17/2023
 ---

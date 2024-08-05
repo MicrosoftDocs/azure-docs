@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides guidance on how to configure Application Gateway with Azure App Service
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/05/2022

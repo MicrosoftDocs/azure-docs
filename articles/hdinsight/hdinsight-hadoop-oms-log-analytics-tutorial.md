@@ -1,7 +1,7 @@
 ---
 title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
 ms.date: 05/10/2024
@@ -159,6 +159,9 @@ For the log table mappings from the classic Azure Monitor integration to the new
 
 
 #### [Classic Azure Monitor experience](#tab/previous)
+
+> [!Important]
+> On 31 August 2024, Azure is retiring the Classic Azure Monitor experience on HDInsight.
 
 ## Prerequisites
 

@@ -4,7 +4,7 @@ description: How to resolve issues with device redirections in Azure Virtual Des
 services: virtual-desktop
 author: Heidilohr
 
-ms.service: virtual-desktop
+ms.service: azure-virtual-desktop
 ms.topic: troubleshooting
 ms.date: 11/14/2023
 ms.author: helohr

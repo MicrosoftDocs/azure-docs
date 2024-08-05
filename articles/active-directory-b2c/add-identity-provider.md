@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 # Add an identity provider to your Azure Active Directory B2C tenant
 
-You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, Twitter, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
+You can configure Azure AD B2C to allow users to sign in to your application with credentials from external social or enterprise identity providers (IdP). Azure AD B2C supports external identity providers like Facebook, Microsoft account, Google, X, and any identity provider that supports OAuth 1.0, OAuth 2.0, OpenID Connect, and SAML protocols.
 
 With external identity provider federation, you can offer your consumers the ability to sign in with their existing social or enterprise accounts, without having to create a new account just for your application.
 
@@ -51,6 +51,6 @@ You typically use only one identity provider in your applications, but you have 
 * [Salesforce](identity-provider-salesforce.md)
 * [Salesforce (SAML protocol)](identity-provider-salesforce-saml.md)
 * [SwissID](identity-provider-swissid.md)
-* [Twitter](identity-provider-twitter.md)
+* [X](identity-provider-twitter.md)
 * [WeChat](identity-provider-wechat.md)
 * [Weibo](identity-provider-weibo.md)

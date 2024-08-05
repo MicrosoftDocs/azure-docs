@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/08/2021
+ms.date: 07/15/2024
 ms.author: anfdocs
 ---
 # Cost model for Azure NetApp Files 

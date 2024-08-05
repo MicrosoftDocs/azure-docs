@@ -4,7 +4,7 @@ description: Learn how to use metrics and insights in Azure Cosmos DB to debug c
 ms.author: esarroyo
 author: StefArroyo
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/14/2023
@@ -18,36 +18,6 @@ ms.custom: devx-track-csharp
 Azure Cosmos DB provides insights for throughput, storage, consistency, availability, and latency. The Azure portal provides an aggregated view of these metrics. You can also view Azure Cosmos DB metrics from Azure Monitor API. The dimension values for the metrics such as container name are case-insensitive. Therefore, you need to use case-insensitive comparison when doing string comparisons on these dimension values. To learn how to view metrics from Azure monitor, see [Monitor Azure Cosmos DB](./monitor.md).
 
 This article walks through common use cases and how Azure Cosmos DB insights can be used to analyze and debug these issues. By default, the metric insights are collected every five minutes and are kept for seven days.
-
-## View insights from Azure portal
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos DB account.
-
-1. You can view your account metrics either from the **Metrics** pane or the **Insights** pane.
-
-   * **Metrics:** This pane provides numerical metrics that are collected at regular intervals and describes some aspect of a system at a particular time. For example, you can view and monitor the [server side latency metric](monitor-server-side-latency.md), [normalized request unit usage metric](monitor-normalized-request-units.md), etc.
-
-   * **Insights:** This pane provides a customized monitoring experience for Azure Cosmos DB. Insights use the same metrics and logs that are collected in Azure Monitor and show an aggregated view for your account.
-
-1. Open the **Insights** pane. By default, the Insights pane shows the throughput, requests, storage, availability, latency, system, and management operations metrics for every container in your account. You can select the **Time Range**, **Database**, and **Container** for which you want to view insights. The **Overview** tab shows RU/s usage, data usage, index usage, throttled requests, and normalized RU/s consumption for the selected database and container.
-
-   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Screenshot of Azure Cosmos DB performance metrics in the Azure portal." lightbox="./media/use-metrics/performance-metrics.png" :::
-
-1. The following metrics are available from the **Insights** pane:
-
-   * **Throughput**. This tab shows the total number of request units consumed or failed (429 response code) because the throughput or storage capacity provisioned for the container has exceeded.
-
-   * **Requests**. This tab shows the total number of requests processed by status code, by operation type, and the count of failed requests (429 response code). Requests fail when the throughput or storage capacity provisioned for the container exceeds.
-
-   * **Storage**. This tab shows the size of data and index usage over the selected time period.
-
-   * **Availability**. This tab shows the percentage of successful requests over the total requests per hour. The Azure Cosmos DB SLAs defines the success rate.
-
-   * **Latency**. This tab shows the read and write latency observed by Azure Cosmos DB in the region where your account is operating. You can visualize latency across regions for a geo-replicated account. You can also view server-side latency by different operations. This metric doesn't represent the end-to-end request latency.
-
-   * **System**. This tab shows how many metadata requests that the primary partition serves. It also helps to identify the throttled requests.
-
-   * **Management Operations**. This tab shows the metrics for account management activities such as account creation, deletion, key updates, network and replication settings.
 
 The following sections explain common scenarios where you can use Azure Cosmos DB metrics.
 

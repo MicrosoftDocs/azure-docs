@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: Compare the features and benefits of Azure Cosmos DB for MongoDB with MongoDB Atlas.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
 ms.date: 02/27/2024

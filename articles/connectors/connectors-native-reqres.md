@@ -34,7 +34,7 @@ To run your workflow by sending an outgoing or outbound request instead, use the
 
 * The logic app workflow where you want to receive the inbound HTTPS request. To start your workflow with a **Request** trigger, you have to start with a blank workflow. To use the Response action, your workflow must start with the **Request** trigger.
 
-[!INCLUDE [postman-replacements-bullet](../../includes/postman-replacements-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="add-request-trigger"></a>
 

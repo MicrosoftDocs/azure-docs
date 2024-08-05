@@ -4,7 +4,7 @@ description: This article is the main page for Azure Cosmos DB for MongoDB vCore
 author: Gary3207Lee
 ms.author: yongl
 ms.reviewer: krmeht
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom: devx-track-python
 ms.topic: how-to

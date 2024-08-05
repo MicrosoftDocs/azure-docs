@@ -2,7 +2,7 @@
 title: Designing resilient applications with Azure Cosmos DB SDKs
 description: Learn how to build resilient applications using the Azure Cosmos DB SDKs and what all are the expected error status codes to retry on.
 author: ealsur
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 05/05/2022
 ms.author: maquaran
 ms.subservice: nosql
@@ -109,6 +109,12 @@ For further implementation details regarding a language see:
 From the client perspective, any retries will affect the end to end latency of an operation. When your application P99 latency is being affected, understanding the retries that are happening and how to address them is important.
 
 Azure Cosmos DB SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dotnet-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4.md#capture-the-diagnostics).
+
+## How can I mitigate retry latency?
+
+Depending on the [circumstances](troubleshoot-sdk-availability.md), in most cases the SDK will route requests to either the local region, the write region (in a single-region write scenario) or the first region in the [preferred regions](tutorial-global-distribution.md#preferred-locations) list. This prioritization minimizes latency in healthy scenarios by primarily connecting to the nearest or most optimal data center.
+
+However, this prioritization also means that requests which are going to result in failure will always be tried in one specific region first for a given error scenario. If failover to another region is preferred in that scenario, this is typically handled at the infrastructure (traffic manager) layer rather than at the SDK level. Proper setup and configuration of your infrastructure can ensure that traffic is rerouted efficiently during regional outages, thereby mitigating the latency that can come with cross-region retries in an outage scenario. For more detailed information on setting up infrastructure-level failover, you can refer to [Azure Traffic Manager documentation](../../traffic-manager/index.yml). Some SDKs support implementing similar failover strategies directly at the SDK level. For example, see [high availability for Java SDK](performance-tips-java-sdk-v4.md#high-availability).
 
 ## What about regional outages?
 

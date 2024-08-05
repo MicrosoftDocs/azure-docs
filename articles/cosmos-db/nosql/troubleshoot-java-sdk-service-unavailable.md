@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Cosmos DB service unavailable exceptions with the Java v4 SDK
 description: Learn how to diagnose and fix Azure Cosmos DB service unavailable exceptions with the Java v4 SDK.
 author: kushagrathapar
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-extended-java
 ms.date: 02/03/2022

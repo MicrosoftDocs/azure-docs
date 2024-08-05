@@ -3,7 +3,7 @@ title: Safe rollout for online endpoints
 titleSuffix: Azure Machine Learning
 description: Roll out newer versions of ML models without disruption.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: msakande
 ms.author: mopeakande
