@@ -168,6 +168,32 @@ Expanding `result_detail` for a given category shows detailed results.
 
         `BMC` -> `Configuration` -> `Licenses`
 
+* Firmware Version Checks
+    * Firmware version checks were introduced in release 3.9. The following example shows the expected log for release versions before 3.9.
+
+  ```json
+      {
+          "system_info": {
+              "system_info_result": "Pass",
+              "result_log": [
+                  "Firmware validation not supported in release 3.8"
+              ]
+          },
+      }
+  ```
+
+    * Firmware versions are determined based on the `cluster version` value in the cluster object. The following example shows a failed check due to indeterminate cluster version. If this problem is encountered, verify the version in the cluster object.
+
+  ```json
+      {
+          "system_info": {
+              "system_info_result": "Fail",
+              "result_log": [
+                  "Unable to determine firmware release"
+              ]
+          },
+      }
+  ```
 
 ### Drive info category
 
@@ -412,6 +438,17 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
+    * Virtual disk errors typically indicate a RAID cleanup false positive condition and are logged due to the timing of raid cleanup and system power off pre HWV. The following example shows an LC log critical error on virtual disk 238. If multiple errors are encountered blocking deployment, delete cluster, wait two hours, then reattempt cluster deployment. If the failures aren't deployment blocking, wait two hours then run BMM replace.
+
+    ```json
+        {
+            "field_name": "LCLog_Critical_Alarms",
+            "comparison_result": "Fail",
+            "expected": "No Critical Errors",
+            "fetched": "104473 2024-07-26T16:05:19-05:00 Virtual Disk 238 on RAID Controller in SL 3 has failed."
+        }
+    ```
+
     * To check LC logs in BMC webui:
 
         `BMC` -> `Maintenance` -> `Lifecycle Log`
@@ -561,6 +598,24 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. If iDRAC pings check that passwords match.
+
+### Special considerations
+
+* Servers Failing Multiple Health and Network Checks
+    * Raid deletion is performed during cluster deploy and cluster delete actions for all releases inclusive of 3.12.
+    * If we observe servers getting powered off during hardware validation with multiple failed health and network checks, we need to reattempt cluster deployment.
+    * If issues persist, raid deletion needs to be performed manually on `control` nodes in the cluster.
+
+    * To clear raid in BMC webui:
+
+        `BMC` -> `Storage` -> `Virtual Disks` -> `Action` -> `Delete` -> `Apply Now`
+
+    * To clear raid with racadm:
+
+        ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD raid deletevd:Disk.Virtual.239:RAID.SL.3-1
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD jobqueue create RAID.SL.3-1 --realtime
+        ```
 
 ## Adding servers back into the Cluster after a repair
 
