@@ -343,8 +343,6 @@ The body of your request is the response from the previous step.
 
 :::moniker-end
 
-
-
 ## Model response
 
 Analyze an input file with the document classification model.
