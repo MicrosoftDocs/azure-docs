@@ -21,7 +21,7 @@ There are several ways to authenticate API requests to Azure OpenAI. We highly r
 
 ### Microsoft Entra ID
 
-There are several ways to authenticate with the Azure OpenAI service using Microsoft Entra ID tokens. The default way is to use the `DefaultAzureCredential` class from the `@azure/identity` package, but your application might be using a different credential class. For the purposes of this guide, we assume that you are using the `DefaultAzureCredential` class. A credential can be created as follows:
+There are several ways to authenticate with the Azure OpenAI Service using Microsoft Entra ID tokens. The default way is to use the `DefaultAzureCredential` class from the `@azure/identity` package, but your application might be using a different credential class. For the purposes of this guide, we assume that you are using the `DefaultAzureCredential` class. A credential can be created as follows:
 
 ```typescript
 import { DefaultAzureCredential } from "@azure/identity";
@@ -85,7 +85,7 @@ If not set, the API version defaults to the last known one before the release of
 There are key differences between the `OpenAIClient` and `AssistantsClient` clients and the `AzureOpenAI` client:
 
 - Operations are represented as a flat list of methods in both `OpenAIClient` and `AssistantsClient`, for example `client.getChatCompletions`. In `AzureOpenAI`, operations are grouped in nested groups, for example `client.chat.completions.create`.
-- `OpenAIClient` and `AssistantsClient` rename many of the names used in the Azure OpenAI service API. For example, snake case is used in the API but camel case is used in the client. In `AzureOpenAI`, names are kept the same as in the Azure OpenAI service API.
+- `OpenAIClient` and `AssistantsClient` rename many of the names used in the Azure OpenAI Service API. For example, snake case is used in the API but camel case is used in the client. In `AzureOpenAI`, names are kept the same as in the Azure OpenAI Service API.
 
 ## Migration examples
 
@@ -110,7 +110,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { maxTo
 Note the following:
 - The `getChatCompletions` method has been replaced with the `chat.completions.create` method.
 - The `messages` parameter is now passed in the options object with the `messages` property.
-- The `maxTokens` property has been renamed to `max_tokens` and the `deploymentName` parameter has been removed. Generally, the names of the properties in the `options` object are the same as in the Azure OpenAI service API, following the snake case convention instead of the camel case convention used in the `AssistantsClient`. This is true for all the properties across all requests and responses in the `AzureOpenAI` client.
+- The `maxTokens` property has been renamed to `max_tokens` and the `deploymentName` parameter has been removed. Generally, the names of the properties in the `options` object are the same as in the Azure OpenAI Service API, following the snake case convention instead of the camel case convention used in the `AssistantsClient`. This is true for all the properties across all requests and responses in the `AzureOpenAI` client.
 - The `deploymentName` parameter isn't needed if the client was created with the `deployment` option. If the client was not created with the `deployment` option, the `model` property in the option object should be set with the deployment name.
 
 ### Streaming chat completions
@@ -175,7 +175,7 @@ const result = await client.getChatCompletions(deploymentName, messages, { azure
 
 - `"@azure/openai/types"` is imported which adds Azure-specific definitions (for example, `data_sources`) to the client types.
 - The `azureExtensionOptions` property has been replaced with the inner `data_sources` property.
-- The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI service API.
+- The `parameters` property has been added to wrap the parameters of the extension, which mirrors the schema of the Azure OpenAI Service API.
 - Camel case properties have been replaced with snake case properties.
 
 ### Audio transcription
@@ -557,7 +557,7 @@ The following table explores several type names from `@azure/openai` and shows t
 
 ## Azure types
 
-`AzureOpenAI` connects to the Azure OpenAI service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI service. TypeScript users will need to import `"@azure/openai/types"` from `@azure/openai@2.0.0-beta.1` which will merge Azure-specific definitions into existing types. Examples in [the Migration examples](#migration-examples) section show how to do this.
+`AzureOpenAI` connects to the Azure OpenAI Service and can call all the operations available in the service. However, the types of the requests and responses are inherited from the `OpenAI` and are not yet updated to reflect the additional features supported exclusively by the Azure OpenAI Service. TypeScript users will need to import `"@azure/openai/types"` from `@azure/openai@2.0.0-beta.1` which will merge Azure-specific definitions into existing types. Examples in [the Migration examples](#migration-examples) section show how to do this.
 
 ## Next steps
 
