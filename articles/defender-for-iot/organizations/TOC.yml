@@ -363,6 +363,8 @@
         items:
         - name: HPE ProLiant DL360
           href: appliance-catalog/hpe-proliant-dl360.md
+        - name: Dell PowerEdge R660
+          href: appliance-catalog/dell-poweredge-r660.md  
       - name: Large enterprises
         items:
         - name: HPE ProLiant DL20 Gen11 (4SFF)
