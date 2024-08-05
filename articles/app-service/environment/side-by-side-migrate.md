@@ -184,7 +184,7 @@ After completing the previous steps, you should continue with migration as soon 
 There's no application downtime during the migration, but as in the IP generation step, you can't scale, modify your existing App Service Environment, or deploy apps to it during this process.
 
 > [!IMPORTANT]
-> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, you have to wait until the scaling event completes before starting the migration. You should disable auto-scaling before starting the migration to avoid this issue. If you need to scale your environment after the migration, you can do so once the migration is complete.
 >
 
 This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
@@ -236,7 +236,7 @@ Ensure that no Azure policies are blocking actions that are required for the mig
 
 Since your App Service Environment v3 is in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet that your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](../../virtual-network/manage-virtual-network.yml).
 
-Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, your migration is blocked until the scaling event completes. You should disable auto-scaling before starting the migration to avoid this issue.
 
 Follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
 
