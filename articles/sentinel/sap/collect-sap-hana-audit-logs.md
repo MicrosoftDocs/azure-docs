@@ -49,7 +49,7 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
 ### Microsoft Sentinel 
 
-Check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
+In Microsoft Sentinel's **Logs** page, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
 
 ```Kusto
 //generated function structure for custom log Syslog
