@@ -116,10 +116,6 @@ Yes. Storage account [network security rules](../common/storage-network-security
 
 <a name='do-static-websites-support-azure-active-directory-azure-ad'></a>
 
-##### Why am I unable to access static websites in a storage account when a private endpoint is enabled for the blob in the storage account.?
-
-Enabling a private endpoint for blobs in a storage account restricts access to that storage account to only resources within the same virtual network. Consequently, this restriction prevents external access to the static website hosted in the storage account, making the static website content inaccessible. The private endpoint configuration limits access to all storage account resources, including the static website content, to resources within the same virtual network where the private endpoint is enabled. The resolution would be to create a private endpoint specifically for the static website.
-
 ##### Do static websites support Microsoft Entra ID?
 
 No. A static website only supports anonymous read access for files in the **$web** container.
@@ -143,6 +139,10 @@ A 404 error can happen if you refer to a file name by using an incorrect case. F
 ##### Why isn't the root directory of the website not redirecting to the default index page?
 
 In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
+
+##### Why am I unable to access static websites in a storage account when a private endpoint is enabled for the blob in the storage account.?
+
+Enabling a private endpoint for blobs in a storage account restricts access to that storage account to only resources within the same virtual network. Consequently, this restriction prevents external access to the static website hosted in the storage account, making the static website content inaccessible. The private endpoint configuration limits access to all storage account resources, including the static website content, to resources within the same virtual network where the private endpoint is enabled. The resolution would be to create a private endpoint specifically for the web. The static website needs a dedicated private end point for the $web domain.
 
 ## Next steps
 
