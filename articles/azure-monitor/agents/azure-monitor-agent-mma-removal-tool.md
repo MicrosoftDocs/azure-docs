@@ -44,7 +44,7 @@ Next you must set your subscription.
 Az account set --subscription {subscription_id or “subscription_name”}
    ```
 ## Step 2 Copy the script
-You will use the following script for agent removal. Open a file in your local directory named MMAUnistallUtilityScript.psl and copy the script into the file.
+You will use the following script for agent removal. Open a file in your local directory named MMAUnistallUtilityScript.ps1 and copy the script into the file.
    ``` PowerShell
    # This is per subscription, the customer has to set the az subscription before running this.
 # az login
@@ -236,7 +236,7 @@ switch ($args.Count)
 ## Step 3 Get inventory
 You must collect a list of all legacy agents, both MMA and OMS, on all VM, VMSS and Arc enabled server in the subscription. Run the script you downloaded to your file to product and inventory of legacy agents in your subscription.
    ``` PowerShell
-   .\MMAUnistallUtilityScript.psl GetInventory
+   .\MMAUnistallUtilityScript.ps1 GetInventory
    ```
 The script will report the total VM, VMSS, or Arc enables servers seen in the subscription. It will take several minutes to run. You will see a progress bar in the console window. Once complete there will be a CSV file called MMAInventory.csv in the local directory with the following format.
 
@@ -248,7 +248,7 @@ The script will report the total VM, VMSS, or Arc enables servers seen in the su
 ## Step 4 Uninstall inventory
 This script iterates through the list of VM, VMSS, and Arc enabled servers and uninstalls the legacy agent. If the VM, VMSS, or Arc enabled server is not running you will not be able to remove the agent. 
    ``` PowerShell
-   .\mmaUnistallUtilityScript.psl UninstallMMAExtension
+   .\MMAUnistallUtilityScript.ps1 UninstallMMAExtension
    ```
 Once the script is complete you will be able to see the removal status for your VM, VMSS and Arc enabled servers in the MMAInventory.csv file.
 
