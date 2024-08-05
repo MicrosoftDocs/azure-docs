@@ -4,7 +4,7 @@ description: Service Fabric clusters run on Windows Server and Linux, which mean
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
 ms.date: 07/11/2022

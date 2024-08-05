@@ -2,7 +2,7 @@
 title: Azure PowerShell samples - Get Azure Cloud Service (extended support) details
 description: Sample scripts for retrieving information about an Azure Cloud Services (extended support) deployment
 ms.topic: sample
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
