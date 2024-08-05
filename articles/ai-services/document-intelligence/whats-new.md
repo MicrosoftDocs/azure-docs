@@ -54,7 +54,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
   * Extract payee, amount, date, and other relevant information from checks.​
 * [🆕 Pay Stub model](concept-paystub.md)
   * New prebuilt to process pay stubs to extract wages, hours, deductions, net pay and more.​
-* [🆕 Bank statement model](concept-bankStatement-US.md)
+* [🆕 Bank statement model](concept-bank-statement-US.md)
   * New prebuilt to extract account information including beginning and ending balances, transaction details from bank statements.​
 * [🆕 US Tax model](concept-tax-document.md)
   * New unified US tax model that can extract from forms such as W-2, 1098, 1099, and 1040.
@@ -62,7 +62,7 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
   * [Query fields](concept-add-on-capabilities.md#query-fields) AI quality of extraction is improved with the latest model.
 * [🆕 Batch API](concept-batchapi.md)
   * Document Intelligence now adds support for batch analysis operation to support analyzing a set of documents to simplify developer experience and improve service efficiency.
-* [🆕 Model compose with custom classifiers](concept-compose-models-updated.md)
+* [🆕 Model compose with custom classifiers](concept-composed-models.md)
   * Document Intelligence now adds support for composing model with an explicit custom classification model. 
 
 
