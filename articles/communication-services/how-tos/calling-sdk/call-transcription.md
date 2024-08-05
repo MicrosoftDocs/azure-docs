@@ -28,6 +28,10 @@ When using call transcription you may want to let your users know that a call is
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+::: zone pivot="platform-web"
+[!INCLUDE [Call transcription client-side Web](./includes/call-transcription/call-transcription-web.md)]
+::: zone-end
+
 ::: zone pivot="platform-android"
 [!INCLUDE [Call transcription client-side Android](./includes/call-transcription/call-transcription-android.md)]
 ::: zone-end
