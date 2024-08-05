@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 05/29/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -64,16 +64,14 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * UAE North
 * UK South 
 * UK West
-* US Gov Arizona*
-* US Gov Texas*
-* US Gov Virginia*
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2
 * West US 3
  
-\* Double encryption at rest in US Gov regions is only supported with platform-managed keys, not customer-managed keys.
-
 ## Considerations
 
 * Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. 

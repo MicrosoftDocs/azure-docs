@@ -129,7 +129,7 @@ To view the command output in JSON format, add `--json` to the end of your comma
 
 **General Azure CLI troubleshooting**
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 

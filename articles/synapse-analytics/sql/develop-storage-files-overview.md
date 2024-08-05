@@ -2,7 +2,7 @@
 title: Access files on storage in serverless SQL pool
 description: Describes querying storage files using serverless SQL pool in Azure Synapse Analytics.
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020

@@ -5,7 +5,7 @@ description: Learn how to delete and restore a blob with TypeScript in your Azur
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/21/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: typescript

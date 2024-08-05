@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to rebalance data in a cluster us
 ms.custom: kr2b-contr-experiment
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/30/2023

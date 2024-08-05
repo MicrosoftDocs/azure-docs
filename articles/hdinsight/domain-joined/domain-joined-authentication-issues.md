@@ -1,18 +1,18 @@
 ---
 title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 05/09/2024
+ms.date: 07/09/2024
 ---
 
 # Authentication issues in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Microsoft Entra first, and then get a Kerberos ticket from Microsoft Entra Domain Services. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
+On secure clusters backed by Azure Data Lake Gen2, when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway tries to obtain an OAuth token from Microsoft Entra first, and then get a Kerberos ticket from Microsoft Entra Domain Services. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
 
-When the authentication fails, you gets prompted for credentials. If you cancel this dialog, the error message is printed. Here are some of the common error messages:
+When the authentication fails, you get prompted for credentials. If you cancel this dialog, the error message is printed. Here are some of the common error messages:
 
 ## invalid_grant or unauthorized_client, 50126
 
@@ -118,7 +118,7 @@ Sign in denied.
 
 ### Cause
 
-To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Microsoft Entra Domain Services, and so on. Password hashes sync only when the user changes password. When you create the Microsoft Entra Domain Services instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
+To get to this stage, your OAuth authentication isn't an issue, but Kerberos authentication is. If this cluster backed by ADLS, OAuth sign-in succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign-in isn't attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Microsoft Entra Domain Services, and so on. Password hashes sync only when the user changes password. When you create the Microsoft Entra Domain Services instance, it will start syncing passwords that are changed after the creation. It can't retroactively sync passwords that were set before its inception.
 
 ### Resolution
 
@@ -128,7 +128,7 @@ Try to SSH into a You need to try to authenticate (kinit) using the same user cr
 
 ---
 
-## kinit fails
+## Kinit fails
 
 ### Issue
 
@@ -154,7 +154,7 @@ Ways to find `sAMAccountName`:
 
 ---
 
-## kinit fails with Preauthentication failure
+## Kinit fails with Preauthentication failure
 
 ### Issue
 
@@ -194,13 +194,13 @@ User receives error message `Error fetching access token`.
 
 ### Cause
 
-This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token has expired.
+This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token expired.
 
 ### Resolution
 
 * For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
 
-* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` for the user the user is trying to login as
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbTicketAndOAuth.sh <upn>` user is trying to log in as
 
 ---
 

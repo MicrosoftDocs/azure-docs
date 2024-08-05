@@ -2,7 +2,7 @@
 title: Azure CLI prerequisites for Azure HPC Cache
 description: Setup steps before you can use Azure CLI to create or modify an Azure HPC Cache
 author: femila
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/08/2020

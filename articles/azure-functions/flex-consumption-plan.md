@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 06/15/2024
+ms.date: 07/26/2024
 ms.custom: references_regions, build-2024
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
@@ -113,10 +113,10 @@ This table shows the language stack versions that are currently supported for Fl
 
 Currently in preview each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota has been reached and the apps would stop scaling:
 
-+ You have one 2048GB app scaled to 100 and a second 2048GB app scaled to 150 instances
-+ You have one 2048GB app that scaled out to 250 instances
-+ You have one 4096GB app that scaled out to 125 instances
-+ You have one 4096GB app scaled to 100 and one 2048GB app scaled to 50 instances
++ You have one 2,048 MB app scaled to 100 and a second 2,048 MB app scaled to 150 instances
++ You have one 2,048 MB app that scaled out to 250 instances
++ You have one 4,096 MB app that scaled out to 125 instances
++ You have one 4,096 MB app scaled to 100 and one 2,048 MB app scaled to 50 instances
 
 This quota can be increased to allow your Flex Consumption apps to scale further, depending on your requirements. If your apps require a larger quota please create a support ticket.
 
@@ -138,8 +138,6 @@ Keep these other considerations in mind when using Flex Consumption plan during 
   + Continuous deployment using Azure DevOps Tasks (`AzureFunctionApp@2`)
   + Continuous deployment using GitHub Actions (`functions-action@v1`) 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`.
-+ **Authorization**: EasyAuth isn't currently supported. Unauthenticated callers currently aren't blocked when EasyAuth is enabled in a Flex Consumption plan app.
-+ **CORS**: [Cross-origin resource sharing (CORS) settings](functions-how-to-use-azure-function-app-settings.md#cors) are currently ignored for Flex Consumption apps.  
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
  
 ## Related articles 

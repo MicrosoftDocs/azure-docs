@@ -6,7 +6,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 06/20/2024
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---
@@ -23,7 +23,7 @@ The following tutorial explains how to migrate an existing application to connec
 
 ### Sign-in to Azure locally
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
 
 ### Migrate the app code to use passwordless connections
 
@@ -173,7 +173,7 @@ Once your application is configured to use passwordless connections and runs loc
 
 ### Create the managed identity
 
-[!INCLUDE [create-managed-identity](../../../includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
+[!INCLUDE [create-managed-identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/create-user-assigned-managed-identity.md)]
 
 #### Associate the managed identity with your web app
 
@@ -200,7 +200,7 @@ Complete the following steps in the Azure portal to associate an identity with y
 
 # [Azure CLI](#tab/azure-cli-associate)
 
-[!INCLUDE [associate-managed-identity-cli](../../../includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
+[!INCLUDE [associate-managed-identity-cli](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/associate-managed-identity-cli.md)]
 
 ---
 
@@ -219,7 +219,7 @@ az cosmosdb sql role assignment create \
     --role-definition-id <your-custom-role-id>
 ```
 
-[!INCLUDE [Code changes to use user-assigned managed identity](../../../includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
+[!INCLUDE [Code changes to use user-assigned managed identity](~/reusable-content/ce-skilling/azure/includes/passwordless/migration-guide/passwordless-user-assigned-managed-identity.md)]
 
 ### Test the app
 

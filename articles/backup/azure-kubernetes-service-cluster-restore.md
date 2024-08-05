@@ -2,7 +2,7 @@
 title: Restore Azure Kubernetes Service (AKS) using Azure Backup
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure Backup.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 ms.date: 12/29/2023
@@ -25,6 +25,8 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) in the target AKS cluster. Also, you must [enable Trusted Access](azure-kubernetes-service-cluster-manage-backups.md#register-the-trusted-access) between the Backup vault and the AKS cluster.
 
+- In case you are trying to restore a backup stored in Vault Tier, you need to provide a storage account in input as a staging location. Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one vault to staging storage account across tenants. Ensure that the staging storage account for the restore has the **AllowCrossTenantReplication** property set to **true**. 
+
 For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
 ## Restore the AKS clusters
@@ -35,7 +37,7 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/start-kubernetes-cluster-restore.png" alt-text="Screenshot shows how to start the restore process.":::
 
-2. On the next page, click **Select backup instance**, and then select the *instance* that you want to restore.
+2. On the next page, select **Select backup instance**, and then select the *instance* that you want to restore.
 
    If the instance is available in both *Primary* and *Secondary Region*, select the *region to restore* too, and then select **Continue**.
 
@@ -70,7 +72,7 @@ To restore the backed-up AKS cluster, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/select-resources-to-restore-page.png" alt-text="Screenshot shows the Select Resources to restore page.":::
 
-6. If you seleted a recovery point for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
+6. If you selected a recovery point for restore from *Vault-standard datastore*, then provide a *snapshot resource group* and *storage account* as the staging location.
 
    :::image type="content" source="./media/azure-kubernetes-service-cluster-restore/restore-parameters.png" alt-text="Screenshot shows the parameters to add for restore from Vault-standard storage.":::
 

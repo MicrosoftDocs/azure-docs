@@ -61,9 +61,9 @@ curl -X PUT "<your_endpoint>/contentsafety/text/categories/survival-advice?api-v
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
-        \"categoryName\": \"survival-advice\",
-        \"definition\": \"text prompts about survival advice in camping/wilderness situations\",
-        \"sampleBlobUrl\": \"https://<your-azure-storage-url>/example-container/survival-advice.jsonl\"
+            \"categoryName\": \"survival-advice\",
+            \"definition\": \"text prompts about survival advice in camping/wilderness situations\",
+            \"sampleBlobUrl\": \"https://<your-azure-storage-url>/example-container/survival-advice.jsonl\"
         }"
 ```
 
@@ -95,9 +95,9 @@ curl -X POST "<your_endpoint>/contentsafety/text:analyzeCustomCategory?api-versi
      -H "Ocp-Apim-Subscription-Key: <your_api_key>" \
      -H "Content-Type: application/json" \
      -d "{
-        \"text\": \"<Example text to analyze>\",
-        \"categoryName\": \"survival-advice\", 
-        \"version\": 1
+            \"text\": \"<Example text to analyze>\",
+            \"categoryName\": \"survival-advice\", 
+            \"version\": 1
         }"
 ```
 

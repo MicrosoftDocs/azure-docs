@@ -3,7 +3,7 @@ title: Monitor Azure Attestation
 description: Monitoring Azure Attestation 
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 10/16/2023
 ms.author: mbaldwin 

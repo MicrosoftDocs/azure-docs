@@ -5,7 +5,7 @@ author: achudnovskij
 ms.author: anchudno
 ms.reviewer: maghan
 ms.date: 06/20/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:
@@ -112,7 +112,7 @@ DROP ROLE rolename;
 ## Create a role using Microsoft Entra object identifier
 
 ```sql
-pg_catalog.pgaadauth_create_principal(roleName text, objectId text, objectType text, isAdmin boolean, isMfa boolean)
+pg_catalog.pgaadauth_create_principal_with_oid(roleName text, objectId text, objectType text, isAdmin boolean, isMfa boolean)
 ```
 
 #### Arguments

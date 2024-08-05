@@ -4,7 +4,7 @@ description: In this article, learn how to deploy an Azure Operator Insights Dat
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.

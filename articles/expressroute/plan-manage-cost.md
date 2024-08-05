@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure ExpressRoute by us
 author: duongau
 ms.author: duau
 ms.custom: subject-cost-optimization
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/28/2023
 ---

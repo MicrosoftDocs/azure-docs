@@ -5,7 +5,7 @@ description: Learn how to enhance AI-based applications using Retrieval-Augmente
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/08/2024
@@ -71,7 +71,7 @@ OpenAI is a leader in AI research, providing various models for language generat
 
 ### Embedding models vs. Language generation models
 
-|      | **Text Embedding Model**      | **Language Model**                                                                                                            |
+| **Category**              | **Text Embedding Model**      | **Language Model**                                                                                                            |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | **Purpose**               | Converting text into vector embeddings.                                                                               | Understanding and generating natural language.                                                                                |
 | **Function**              | Transforms textual data into high-dimensional arrays of numbers, capturing the semantic meaning of the text.          | Comprehends and produces human-like text based on given input.                                                                |

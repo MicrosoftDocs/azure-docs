@@ -23,7 +23,7 @@ You might observe one of several authentication errors, depending on the program
 - ValueError: can't construct SpeechConfig with the given arguments (or a variation of this message). This error could be observed, for example, when you run one of the Speech SDK for Python quickstarts without setting environment variables. You might also see it when you set the environment variables to something invalid such as your key or region. 
 - Exception with an error code: 0x5. This access denied error could be observed, for example, when you run one of the Speech SDK for C# quickstarts without setting environment variables.
 
-For baseline authentication troubleshooting tips, see [validate your resource key](#validate-your-resource-key) and [validate an authorization token](#validate-an-authorization-token). For more information about confirming credentials, see [get the keys for your resource](../multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource).
+For baseline authentication troubleshooting tips, see [validate your resource key](#validate-your-resource-key) and [validate an authorization token](#validate-an-authorization-token). 
 
 ### Validate your resource key
 

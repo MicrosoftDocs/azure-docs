@@ -3,7 +3,7 @@ title: Manage firewall rules - Azure Cosmos DB for PostgreSQL
 description: Create and manage firewall rules for Azure Cosmos DB for PostgreSQL using the Azure portal.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 09/24/2022

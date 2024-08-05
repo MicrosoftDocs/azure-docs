@@ -2,10 +2,7 @@
 title: Configure Transport Layer Security (TLS) for a Service Bus client application
 titleSuffix: Service Bus
 description: Configure a client application to communicate with Azure Service Bus using a minimum version of Transport Layer Security (TLS).
-services: service-bus
 author: EldertGrootenboer
-
-ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/26/2022
 ms.author: egrootenboer

@@ -70,7 +70,7 @@ In this section you'll, give your Azure AI Search service permission to read dat
 
 1. Select **Add > Add role assignment**.
 
-   :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Role** tab, select the appropriate **Reader** role.
 
@@ -97,7 +97,7 @@ When you're connecting with a system-assigned managed identity, the only change 
 Here's an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2023-11-01
+POST https://[service name].search.windows.net/datasources?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -151,7 +151,7 @@ The index specifies the fields in a document, attributes, and other constructs t
 Here's a [Create Index](/rest/api/searchservice/indexes/create) REST API call with a searchable `booktitle` field:   
 
 ```http
-POST https://[service name].search.windows.net/indexes?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexes?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -171,7 +171,7 @@ An indexer connects a data source with a target search index, and provides a sch
 Here's a [Create Indexer](/rest/api/searchservice/indexers/create) REST API call with an Azure SQL indexer definition. The indexer runs when you submit the request.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

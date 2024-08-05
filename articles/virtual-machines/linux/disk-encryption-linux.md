@@ -2,7 +2,7 @@
 title: Azure Disk Encryption scenarios on Linux VMs
 description: This article provides instructions on enabling Microsoft Azure Disk Encryption for Linux VMs for various scenarios
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: linux
 ms.topic: conceptual
@@ -421,6 +421,9 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
     1. Click **Deploy to Azure** from the [Disable disk encryption on running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/decrypt-running-linux-vm-without-aad) template.
     2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
     3.  Click **Purchase** to disable disk encryption on a running Linux VM.
+
+> [!WARNING]
+> Once decryption has begun, it is advisable not to interfere with the process.
 
 ### Remove the encryption extension
 

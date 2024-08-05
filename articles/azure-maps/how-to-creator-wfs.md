@@ -2,8 +2,8 @@
 title: Query datasets using the Web Feature Service
 titleSuffix: Microsoft Azure Maps Creator
 description: How to Query datasets with Web Feature Service (WFS) 
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 03/03/2023
 ms.topic: how-to
 ms.service: azure-maps

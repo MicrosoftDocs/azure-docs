@@ -3,7 +3,7 @@ title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 6/19/2023
+ms.date: 7/30/2024
 ms.reviewer: nolavime
 ---
 
@@ -26,7 +26,7 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include Washington, Vancouver, Utah, Tokyo, San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 

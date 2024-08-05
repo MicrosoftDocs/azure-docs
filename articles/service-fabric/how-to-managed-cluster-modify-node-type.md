@@ -4,7 +4,7 @@ description: This article walks through how to modify a managed cluster node typ
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/17/2024
 ---
@@ -224,7 +224,7 @@ The cluster begins upgrading automatically. You see the additional nodes when co
 You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration) clusters, managed cluster nodes aren't upgraded by default, in order to prevent unintended disruptions to your cluster.
 
 > [!NOTE]
-> Automatic OS image upgrade is supported for both platform and gallery based OS images.
+> Automatic OS image upgrade is supported for both marketplace and custom images.
 
 To enable automatic OS upgrades:
 

@@ -248,6 +248,9 @@ relabelings:
   targetLabel: instance
 ```
 
+> [!NOTE]
+> If you have relabeling configs, ensure that the relabeling does not filter out the targets, and the labels configured correctly match the targets.
+
 ### Metric Relabelings
 
 Metric relabelings are applied after scraping and before ingestion. Use the `metricRelabelings` section to filter metrics after scraping. The following examples show how to do so.
@@ -479,7 +482,8 @@ If you are using `basic_auth` setting in your prometheus configuration, please f
 
 1. Create a secret in the **kube-system** namespace named **ama-metrics-mtls-secret**
 
-The value for password1 is **base64encoded**
+The value for password1 is **base64encoded**.
+
 The key *password1* can be anything, but just needs to match your scrapeconfig *password_file* filepath.
 
 ```yaml
@@ -494,10 +498,11 @@ data:
 ```
 The **ama-metrics-mtls-secret** secret is mounted on to the ama-metrics containers at path - **/etc/prometheus/certs/**  and is made available to the process that is scraping prometheus metrics. The key( ex - password1) in the above example will be the file name and the value is base64 decoded and added to the contents of the file within the container and the prometheus scraper uses the contents of this file to get the value that is used as the password used to scrape the endpoint.
 
-2. In the configmap for the custom scrape configuration use the following setting -
+2. In the configmap for the custom scrape configuration use the following setting. The username field should contain the actual username string. The password_file field should contain the path to a file that contains the password.
+
 ```yaml
 basic_auth:
-  username: admin
+  username: <username string>
   password_file: /etc/prometheus/certs/password1
 
 ```

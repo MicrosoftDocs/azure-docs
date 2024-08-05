@@ -3,7 +3,7 @@ title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 05/06/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

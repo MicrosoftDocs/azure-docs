@@ -13,7 +13,7 @@ ms.custom: template-reference
 
 Azure Operator Nexus offers a group of on-premises cloud solutions. One of the on-premises offerings allows telco operators to run the network functions in a near-edge environment.
 
-In a near-edge environment (also known as an instance), the compute servers (also known as bare-metal machines) represent the physical machines on the rack. They run the CBL-Mariner operating system and provide support for running high-performance workloads.
+In a near-edge environment (also known as an instance), the compute servers (also known as bare-metal machines) represent the physical machines on the rack. They run the Azure Linux operating system and provide support for running high-performance workloads.
 
 <!-- ## Available SKUs
 
