@@ -80,7 +80,7 @@ In the Studio UI the deployment type will appear as `Global-Batch`.
 :::image type="content" source="../media/how-to/global-batch/global-batch.png" alt-text="Screenshot that shows the model deployment dialog in Azure OpenAI Studio with Global-Batch deployment type highlighted." lightbox="../media/how-to/global-batch/global-batch.png":::
 
 > [!TIP]
-> Each line of your input file for batch processing has a model attribute that requires a global batch deployment name. For a given input file, all names must be the same deployment name. This is different from OpenAI where the concept of model deployments does not exist.
+> Each line of your input file for batch processing has a `model` attribute that requires a global batch **deployment name**. For a given input file, all names must be the same deployment name. This is different from OpenAI where the concept of model deployments does not exist.
 
 ::: zone pivot="programming-language-ai-studio"
 
