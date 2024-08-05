@@ -3,9 +3,9 @@ title: What's new in Azure Site Recovery
 description: Provides a summary of the latest updates in the Azure Site Recovery service.
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
-ms.date: 03/07/2024
+ms.date: 07/15/2024
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -27,6 +27,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | 9.62.7096.1 | 9.62.7096.1 | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
 [Rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 9.61.7016.1 | 9.61.7016.1 | 9.61.7016.1 | 5.24.0317.5 | 2.0.9917.0 
 [Rollup 72](https://support.microsoft.com/topic/update-rollup-72-for-azure-site-recovery-kb5036010-aba602a9-8590-4afe-ac8a-599141ec99a5) | 9.60.6956.1 | NA | 9.60.6956.1 | 5.24.0117.5 | 2.0.9917.0 
 [Rollup 71](https://support.microsoft.com/topic/update-rollup-71-for-azure-site-recovery-kb5035688-4df258c7-7143-43e7-9aa5-afeef9c26e1a) | 9.59.6930.1 | NA | 9.59.6930.1 | NA | NA
@@ -35,11 +36,25 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 [Learn more](service-updates-how-to.md) about update installation and support.
 
+## Updates (July 2024)
+
+### Update Rollup 74
+
+[Update rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery.
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11, SLES 12, SLES 15, and RHEL 9 Linux distros. <br><br/> Added capacity reservation support for  Virtual Machine Scale Sets Flex machines protected using Site Recovery. <br><br/> Added support to enable replication for newly added data disks that are added to a VMware virtual machine, which already has disaster recovery enabled. [Learn more](./vmware-azure-enable-replication-added-disk.md)
+
+
 ## Updates (April 2024)
 
 ### Update Rollup 73
 
-[Update rollup 72](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) provides the following updates:
+[Update rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) provides the following updates:
 
 **Update** | **Details**
 --- | ---

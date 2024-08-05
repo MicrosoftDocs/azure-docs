@@ -9,7 +9,7 @@ metadata:
   author: jonels-msft
   ms.author: jonels
   ms.reviewer: garyhope
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: postgresql
   ms.topic: landing-page
 

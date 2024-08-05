@@ -2,7 +2,7 @@
 title: Remove an Azure Site Recovery replication appliance
 description: Learn how to remove an Azure Site Recovery replication appliance using the Azure portal.
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 07/04/2024
 ms.author: ankitadutta
@@ -30,7 +30,25 @@ If all the appliance components are in a critical state and there's no connectiv
 Before you delete the Azure Site Recovery replication appliance, ensure that you *disable replication of all servers* using the Azure Site Recovery replication appliance. To do this, go to Azure portal, select the Recovery Services vault > *Replicated items* blade. Select the servers you want to stop replicating, select **Stop replication**, and confirm the action.
 
 
-### Delete an unhealthy appliance
+## Verify account permissions
+
+If you just created your free Azure account, you're the administrator of your subscription and you have the permissions you need. If you're not the subscription administrator, work with the administrator to assign the permissions you need. To enable replication for a new virtual machine, you must have permission to:
+
+- Create a virtual machine in the selected resource group.
+- Create a virtual machine in the selected virtual network.
+- Write to an Azure storage account.
+- Write to an Azure managed disk.
+
+To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
+
+## VMware account permissions
+
+**Task** | **Role/Permissions** | **Details**
+--- | --- | ---
+**VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+**Full replication, failover, failback** |  Create a role (Azure_Site_Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure_Site_Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots, Create snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs and networks).
+
+## Delete an unhealthy appliance
 
 You can only delete the Azure Site Recovery replication appliance from the Azure portal if all components are in a critical state and the appliance is no longer accessible.
 

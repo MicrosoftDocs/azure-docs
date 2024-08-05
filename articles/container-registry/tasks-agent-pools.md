@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Run an ACR task on a dedicated agent pool

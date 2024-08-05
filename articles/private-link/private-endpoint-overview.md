@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: abell

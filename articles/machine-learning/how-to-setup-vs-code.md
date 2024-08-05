@@ -6,7 +6,7 @@ services: machine-learning
 ms.reviewer: None
 author: ssalgadodev
 ms.author: ssalgado
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/16/2024
 ms.topic: how-to

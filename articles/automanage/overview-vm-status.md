@@ -2,7 +2,7 @@
 title: Check an Automanaged VM status
 description: Learn about Azure Automanage configuration profile statuses for virtual machines.
 author: mmccrory
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror

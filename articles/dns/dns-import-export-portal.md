@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure portal.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.date: 06/07/2024
 ms.author: greglin
 ms.topic: how-to

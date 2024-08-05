@@ -1,7 +1,7 @@
 ---
 title: 'Azure HDInsight: Azure CLI samples'
 description: Azure CLI examples for common tasks in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: sample
 ms.date: 09/19/2023
 ms.custom: devx-track-azurecli

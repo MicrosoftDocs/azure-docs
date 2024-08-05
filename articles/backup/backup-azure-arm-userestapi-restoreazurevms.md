@@ -2,7 +2,7 @@
 title: Restore Azure VMs using REST API
 description: In this article, learn how to manage to restore operations of Azure Virtual Machine Backup using REST API.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.date: 04/24/2024
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 author: AbhishekMallick-MS
@@ -472,7 +472,7 @@ The response is returned in the following format:
 
 #### Step 2:
 
-Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to authorize your request to access replicated restore points in the secondary region:
+Use the Get Access Token API to authorize your request to access replicated restore points in the secondary region:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20

@@ -4,21 +4,21 @@ description: Learn about cluster versions in Azure Service Fabric and platform v
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: linux-related-content
 services: service-fabric
-ms.date: 06/24/2024
+ms.date: 07/31/2024
 ---
 
 # Service Fabric supported versions
-The tables in this article outline the Service Fabric and platform versions that are actively supported.
+The tables in this article outline the Service Fabric and platform versions that are actively supported. For a general summary of key announcements for each version, see the [Service Fabric versions page](service-fabric-versions.md). For more in-depth release notes, follow the link in the desired version's row in the following [listed versions tables](#listed-versions).
 
 > [!NOTE]
 > For a list of all the available Service Fabric runtime versions in available for your subscription, follow the guidance in the [Check for supported cluster versions section of the Manage Service Fabric Cluster Upgrades guide](service-fabric-cluster-upgrade-version-azure.md#check-for-supported-cluster-versions).
 >
 > For the procedure to upgrade your Service Fabric runtime version, see [Upgrade the Service Fabric version that runs on your cluster](service-fabric-cluster-upgrade-windows-server.md).
 
-Use the following Windows/Linux tab selector to view the corresponding listed Service Fabric runtime versions for Windows and Linux.
+Use the following **Windows/Linux tab selector** to view the corresponding listed Service Fabric runtime versions for Windows and Linux.
 
 # [Windows](#tab/windows)
 

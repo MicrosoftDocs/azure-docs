@@ -38,7 +38,7 @@ The following image shows a view of the Dell PowerEdge R360 back panel:
 |Management|iDRAC Group Manager, Disabled|
 |Rack support| ReadyRails Sliding Rails With Cable Management Arm|
 
-## Dell PowerEdge R360 - Bill of Materials
+## Dell PowerEdge R360 - Bill of materials
 
 |Quantity|PN|Description|
 |----|---|----|

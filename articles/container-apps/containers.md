@@ -3,7 +3,7 @@ title: Containers in Azure Container Apps
 description: Learn how containers are managed and configured in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -17,7 +17,7 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 
 Azure Container Apps supports:
 
-- Any Linux-based x86-64 (`linux/amd64`) container image with no required base image
+- Any Linux-based x86-64 (`linux/amd64`) container image
 - Containers from any public or private container registry
 - [Sidecar](#sidecar-containers) and [init](#init-containers) containers
 
@@ -33,7 +33,7 @@ Jobs features include:
 
 ## Configuration
 
-The following code is an example of the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section of a container app resource template.  The excerpt shows the available configuration options when setting up a container.
+Most container apps have a single container. In advanced scenarios, an app may also have sidecar and init containers. In a container app definition, the main app and its sidecar containers are listed in the `containers` array in the [`properties.template`](azure-resource-manager-api-spec.md#propertiestemplate) section, and init containers are listed in the `initContainers` array. The following excerpt shows the available configuration options when setting up an app's containers.
 
 ```json
 {
@@ -134,40 +134,37 @@ The following code is an example of the `containers` array in the [`properties.t
 | `name` | Friendly name of the container. | Used for reporting and identification. |
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
-| `env` | An array of key/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
-| `resources.cpu` | The number of CPUs allocated to the container. | With the [Consumption plan](plans.md), values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to 2<br>• can be any decimal number (with a max of two decimal places)<br><br> For example, `1.25` is valid, but `1.555` is invalid.<br> The default is 0.25 CPUs per container.<br><br>When you use the Consumption workload profile on the Dedicated plan, the same rules apply, except CPUs must be less than or equal to 4.<br><br>When you use the [Dedicated plan](plans.md), the maximum CPUs must be less than or equal to the number of cores available in the profile where the container app is running. |
-| `resources.memory` | The amount of RAM allocated to the container. | With the [Consumption plan](plans.md), values must adhere to the following rules:<br><br>• greater than zero<br>• less than or equal to `4Gi`<br>• can be any decimal number (with a max of two decimal places)<br><br>For example, `1.25Gi` is valid, but `1.555Gi` is invalid.<br>The default is `0.5Gi` per container.<br><br>When you use the Consumption workload on the [Dedicated plan](plans.md), the same rules apply except memory must be less than or equal to `8Gi`.<br><br>When you use the Dedicated plan, the maximum memory must be less than or equal to the amount of memory available in the profile where the container app is running. |
-| `volumeMounts` | An array of volume mount definitions. | You can define a temporary volume or multiple permanent storage volumes for your container.  For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
-| `probes`| An array of health probes enabled in the container. | This feature is based on Kubernetes health probes. For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
+| `env` | An array of name/value pairs that define environment variables. | Use `secretRef` instead of the `value` field to refer to a secret. |
+| `resources.cpu` | The number of CPUs allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
+| `resources.memory` | The amount of RAM allocated to the container. | See [vCPU and memory allocation requirements](#allocations) |
+| `volumeMounts` | An array of volume mount definitions. | You can define a temporary or permanent storage volumes for your container. For more information about storage volumes, see [Use storage mounts in Azure Container Apps](storage-mounts.md).|
+| `probes`| An array of health probes enabled in the container. | For more information about probes settings, see [Health probes in Azure Container Apps](health-probes.md).|
 
-<a id="allocations"></a>
+### <a name="allocations"></a>vCPU and memory allocation requirements
 
-When you use either the Consumption plan or a Consumption workload on the Dedicated plan, the total CPU and memory allocations requested for all the containers in a container app must add up to one of the following combinations.
+When you use the Consumption plan, the total CPU and memory allocated to all the containers in a container app must add up to one of the following combinations.
 
-| vCPUs (cores) | Memory | Consumption plan | Consumption workload profile |
-|---|---|---|---|
-| `0.25` | `0.5Gi` | ✔ | ✔ |
-| `0.5` | `1.0Gi` | ✔ | ✔ |
-| `0.75` | `1.5Gi` | ✔ | ✔ |
-| `1.0` | `2.0Gi` | ✔ | ✔ |
-| `1.25` | `2.5Gi` | ✔ | ✔ |
-| `1.5` | `3.0Gi` | ✔ | ✔ |
-| `1.75` | `3.5Gi` | ✔ | ✔ |
-| `2.0` | `4.0Gi` | ✔ | ✔ |
-| `2.25` | `4.5Gi` |  | ✔ |
-| `2.5` | `5.0Gi` |  | ✔ |
-| `2.75` | `5.5Gi` |  | ✔ |
-| `3.0` | `6.0Gi` |  | ✔ |
-| `3.25` | `6.5Gi` |  | ✔ |
-| `3.5` | `7.0Gi` |  | ✔ |
-| `3.75` | `7.5Gi` |  | ✔ |
-| `4.0` | `8.0Gi` |  | ✔ |
+| vCPUs (cores) | Memory |
+|---|---|
+| `0.25` | `0.5Gi` | 
+| `0.5` | `1.0Gi` | 
+| `0.75` | `1.5Gi` | 
+| `1.0` | `2.0Gi` | 
+| `1.25` | `2.5Gi` | 
+| `1.5` | `3.0Gi` | 
+| `1.75` | `3.5Gi` | 
+| `2.0` | `4.0Gi` | 
+| `2.25` | `4.5Gi` |
+| `2.5` | `5.0Gi` |
+| `2.75` | `5.5Gi` |
+| `3.0` | `6.0Gi` |
+| `3.25` | `6.5Gi` |
+| `3.5` | `7.0Gi` |
+| `3.75` | `7.5Gi` |
+| `4.0` | `8.0Gi` |
 
-- The total of the CPU requests in all of your containers must match one of the values in the *vCPUs* column.
-
-- The total of the memory requests in all your containers must match the memory value in the memory column in the same row of the CPU column.
-
-When you use the Consumption profile on the Dedicated plan, the total CPU and memory allocations requested for all the containers in a container app must be less than or equal to the cores and memory available in the profile.
+> [!NOTE]
+> Apps using the Consumption plan in a *Consumption only* environment are limited to a maximum of 2 cores and 4Gi of memory.
 
 ## Multiple containers
 
@@ -175,9 +172,9 @@ In advanced scenarios, you can run multiple containers in a single container app
 
 For most microservice scenarios, the best practice is to deploy each service as a separate container app.
 
-The multiple containers in the same container app share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md).
+Multiple containers in the same container app share hard disk and network resources and experience the same [application lifecycle](./application-lifecycle-management.md).
 
-There are two ways to run multiple containers in a container app: [sidecar containers](#sidecar-containers) and [init containers](#init-containers).
+There are two ways to run additional containers in a container app: [sidecar containers](#sidecar-containers) and [init containers](#init-containers).
 
 ### Sidecar containers
 
@@ -200,13 +197,13 @@ You can define one or more [init containers](https://kubernetes.io/docs/concepts
 Init containers are defined in the `initContainers` array of the container app template. The containers run in the order they're defined in the array and must complete successfully before the primary app container starts.
 
 > [!NOTE]
-> Init containers support [image pulls using managed identities](#managed-identity-with-azure-container-registry), but processes running in init containers don't have access to managed identities.
+> Init containers in apps using the Dedicated plan or running in a *Consumption only* environment can't access managed identity at run time.
 
 ## Container registries
 
 You can deploy images hosted on private registries by providing credentials in the Container Apps configuration.
 
-To use a container registry, you define the required fields in `registries` array in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template.  The `passwordSecretRef` field identifies the name of the secret in the `secrets` array name where you defined the password.
+To use a container registry, you define the registry in the `registries` array in the [`properties.configuration`](azure-resource-manager-api-spec.md) section of the container app resource template.  The `passwordSecretRef` field identifies the name of the secret in the `secrets` array name where you defined the password.
 
 ```json
 {
@@ -229,16 +226,16 @@ The following example shows how to configure Azure Container Registry credential
   "configuration": {
     "secrets": [
       {
-        "name": "acr-password",
-        "value": "my-acr-password"
+        "name": "docker-hub-password",
+        "value": "my-docker-hub-password"
       }
     ],
     ...
     "registries": [
       {
-        "server": "myacr.azurecr.io",
+        "server": "docker.io",
         "username": "someuser",
-        "passwordSecretRef": "acr-password"
+        "passwordSecretRef": "docker-hub-password"
       }
     ]
   }
@@ -252,7 +249,7 @@ The following example shows how to configure Azure Container Registry credential
 
 You can use an Azure managed identity to authenticate with Azure Container Registry instead of using a username and password. For more information, see [Managed identities in Azure Container Apps](managed-identity.md).
 
-When assigning a managed identity to a registry, use the managed identity resource ID for a user-assigned identity, or `system` for the system-assigned identity.
+To use managed identity with a registry, the identity must be enabled in the app and it must be assigned `acrPull` role in the registry. To configure the registry, use the managed identity resource ID for a user-assigned identity, or `system` for the system-assigned identity in the `identity` property of the registry. Don't configure a username and password when using managed identity.
 
 ```json
 {

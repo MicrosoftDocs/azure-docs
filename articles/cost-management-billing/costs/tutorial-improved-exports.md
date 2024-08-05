@@ -3,7 +3,7 @@ title: Tutorial - Improved exports experience - Preview
 description: This tutorial helps you create automatic exports for your actual and amortized costs in the Cost and Usage Specification standard (FOCUS) format.
 author: jojohpm
 ms.author: jojoh
-ms.date: 06/17/2024
+ms.date: 07/17/2024
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -153,7 +153,10 @@ For a comprehensive reference of all available datasets, including the schema fo
 
 - Cost and usage details (actual) - Select this option to export standard usage and purchase charges.
 - Cost and usage details (amortized) - Select this option to export amortized costs for purchases like Azure reservations and Azure savings plan for compute.
-- Cost and usage details (FOCUS) - Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. This format reduces data processing time and storage and compute charges for exports. The management group scope isn't supported for Cost and usage details (FOCUS) exports.
+- Cost and usage details (FOCUS) - Select this option to export cost and usage details using the open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format. It combines actual and amortized costs. 
+  - This format reduces data processing time and storage and compute charges for exports. 
+  - The management group scope isn't supported for Cost and usage details (FOCUS) exports. 
+  - You can use the FOCUS-formatted export as the input for a Microsoft Fabric workspace for FinOps. For more information, see [Create a Fabric workspace for FinOps](/cloud-computing/finops/fabric/create-fabric-workspace-finops).
 - Cost and usage details (usage only) - Select this option to export standard usage charges without purchase information. Although you can't use this option when creating new exports, existing exports using this option are still supported.
 - Price sheet – Select this option to export your download your organization's Azure pricing.
 - Reservation details – Select this option to export the current list of all available reservations.

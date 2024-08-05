@@ -1,6 +1,6 @@
 ---
 author: peterclu
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: include
 ms.date: 04/22/2021
 ms.author: peterlu

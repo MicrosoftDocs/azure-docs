@@ -142,6 +142,6 @@ az resource delete --ids /subscriptions/{subscriptionId}/providers/Microsoft.Cog
 ---
 
 
-## See also
-* [Create a multi-service resource](multi-service-resource.md)
-* [Create a new resource using an ARM template](create-account-resource-manager-template.md)
+## Related content
+* [Create an Azure AI services resource](multi-service-resource.md)
+* [Create an Azure AI services resource using an ARM template](create-account-resource-manager-template.md)

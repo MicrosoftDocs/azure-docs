@@ -17,8 +17,8 @@ In this example, write your credentials to environment variables on the local ma
 
 To set the environment variable for your key and endpoint, open a console window and follow the instructions for your operating system and development environment.
 
-1. To set the `VISION_KEY` environment variable, replace `your-key` with one of the keys for your resource.
-2. To set the `VISION_ENDPOINT` environment variable, replace `your-endpoint` with the endpoint for your resource.
+1. To set the `VISION_KEY` environment variable, replace `<your_key>` with one of the keys for your resource.
+2. To set the `VISION_ENDPOINT` environment variable, replace `<your_endpoint>` with the endpoint for your resource.
 
 #### [Windows](#tab/windows)
 

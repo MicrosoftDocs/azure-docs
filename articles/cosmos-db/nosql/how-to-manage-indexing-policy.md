@@ -2,7 +2,7 @@
 title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/08/2023
@@ -105,7 +105,7 @@ In addition to including or excluding paths for individual properties, you can a
 > You must enroll in the [Azure Cosmos DB NoSQL Vector Index preview feature](vector-search.md#enroll-in-the-vector-search-preview-feature) to use vector search in Azure Cosmos DB for NoSQL.> 
 
 >[!IMPORTANT]
-> A vector indexing policy must be on the path defined in the container's vector policy. [Learn more about container vector policies](vector-search.md#container-vector-policies).)
+> A vector indexing policy must be on the same path defined in the container's vector policy. [Learn more about container vector policies](vector-search.md#container-vector-policies).)
 
 ```json
 {
@@ -119,6 +119,9 @@ In addition to including or excluding paths for individual properties, you can a
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector/*"
         }
     ],
     "vectorIndexes": [
@@ -129,6 +132,10 @@ In addition to including or excluding paths for individual properties, you can a
     ]
 }
 ```
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
+
 
 You can define the following types of vector index policies:
 

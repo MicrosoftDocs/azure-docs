@@ -7,7 +7,7 @@ author: Blackmist
 ms.author: larryfr
 ms.reviewer: larryfr
 ms.topic: reference
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 09/13/2023
 ms.metadata: product-dependency

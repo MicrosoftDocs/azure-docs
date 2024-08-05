@@ -4,7 +4,7 @@ description: Use triggers in Azure Image Builder to set up automatic image build
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.topic: how-to
 ms.date: 11/10/2023

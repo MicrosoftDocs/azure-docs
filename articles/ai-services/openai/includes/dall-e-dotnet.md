@@ -18,13 +18,9 @@ Use this guide to get started generating images with the Azure OpenAI SDK for C#
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to Azure OpenAI Service in the desired Azure subscription.
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - The [.NET 7 SDK](https://dotnet.microsoft.com/download/dotnet/7.0)
 - An Azure OpenAI resource created in the East US region. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true). If you need assistance, open an issue on this repo to contact Microsoft.
 
 ## Setup
 
@@ -118,7 +114,7 @@ https://dalleproduse.blob.core.windows.net/private/images/b7ac5e55-f1f8-497a-8d0
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource. Before deleting the resource, you must first delete any deployed models.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

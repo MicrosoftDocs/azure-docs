@@ -123,5 +123,5 @@ To update the image after the app is create, see [Change the Docker image of a c
 - [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
 - [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
 - [Configure a Linux Python app](configure-language-python.md)
-- [Configure a Java app](configure-language-java.md?pivots=platform-linux)
+- [Configure a Java app](configure-language-java-deploy-run.md?pivots=platform-linux)
 - [Configure a custom container](configure-custom-container.md?pivots=container-linux)

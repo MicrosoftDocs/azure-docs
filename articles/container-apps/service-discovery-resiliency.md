@@ -4,7 +4,7 @@ titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 11/06/2023
 ms.author: hannahhunter

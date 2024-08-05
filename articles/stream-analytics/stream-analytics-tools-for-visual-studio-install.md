@@ -4,7 +4,7 @@ description: This article describes installation requirements and how to set up 
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/22/2018
 ---

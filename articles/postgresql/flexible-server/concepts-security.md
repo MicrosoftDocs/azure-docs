@@ -4,8 +4,8 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 05/23/2024
-ms.service: postgresql
+ms.date: 08/02/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -51,7 +51,7 @@ When you're running Azure Database for PostgreSQL - Flexible Server, you have tw
 
 ## Microsoft Defender for Cloud support
 
-**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-reference.md#alerts-for-open-source-relational-databases) on anomalous activities so that you can detect potential threats and respond to them as they occur.
+**[Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)** detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Defender for Cloud provides [security alerts](../../defender-for-cloud/alerts-open-source-relational-databases.md) on anomalous activities so that you can detect potential threats and respond to them as they occur.
 When you enable this plan, Defender for Cloud provides alerts when it detects anomalous database access and query patterns and suspicious database activities.
 
 These alerts appear in Defender for Cloud's security alerts page and include:
@@ -135,9 +135,7 @@ oid            | 24827
 ```
 
 > [!IMPORTANT]
-> Important to note that number of superuser only permissions, such as creation of certain **[binary-coercible implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html)**, are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role. 
-> A **[binary-coercible cast](https://www.postgresql.org/docs/current/sql-createcast.html)** is a type of cast that does not require any function to perform the conversion, because the source and target types have the same internal representation
-> Non binary-coercible casts, including containing options WITH `IN OUT` and `WITH FUNCTION` are supported.
+> Recently, we have enabled the ability to create **[CAST commands](https://www.postgresql.org/docs/current/sql-createcast.html)** in Azure Database for PostgreSQL Flexible Server. Please be aware that currently, the functionality is operating as expected with the exception of the DROP statement. In other words, it is currently not possible to drop a CAST once it has been created. We are actively working on adding this functionality and anticipate its availability in the near future.
 
 
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.

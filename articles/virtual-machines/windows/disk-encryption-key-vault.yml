@@ -6,7 +6,7 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 02/20/2024
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.subservice: security
   ms.topic: how-to
   ms.collection: windows
@@ -64,7 +64,7 @@ procedureSection:
       Connect-AzAccount
       ```
 
-      [!INCLUDE [disk-encryption-key-vault](../../../includes/disk-encryption-key-vault.md)]
+      [!INCLUDE [disk-encryption-key-vault](~/reusable-content/ce-skilling/azure/includes/disk-encryption-key-vault.md)]
  
 relatedContent:
   - text: Azure Disk Encryption prerequisites CLI script

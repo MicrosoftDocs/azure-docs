@@ -4,7 +4,7 @@ description: Learn about soft delete for Azure Files and how you can use it for 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/07/2024
+ms.date: 07/10/2024
 ms.author: kendownie
 services: storage
 ---
@@ -19,7 +19,7 @@ Azure Files offers soft delete, which allows you to recover your file share when
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) (preview)|
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
 
 ## How soft delete works
 

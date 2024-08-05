@@ -3,7 +3,7 @@ title: Provision autoscale throughput in Azure Cosmos DB for NoSQL
 description: Learn how to provision autoscale throughput at the container and database level in Azure Cosmos DB for NoSQL using Azure portal, CLI, PowerShell, and various other SDKs. 
 author: deborahc
 ms.author: dech
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/01/2022

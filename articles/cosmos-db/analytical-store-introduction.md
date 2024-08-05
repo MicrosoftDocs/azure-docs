@@ -487,6 +487,11 @@ FROM OPENROWSET('CosmosDB',
                 HTAP) WITH (_id VARCHAR(1000)) as HTAP
 ```
 
+##### Working with MongoDB `id` field
+
+The `id` property in MongoDB containers is automatically overridden with the Base64 representation of the "_id" property both in analytical store. The "id" field is intended for internal use by MongoDB applications. Currently, the only workaround is to rename the "id" property to something other than "id". 
+
+
 #### Full fidelity schema for API for NoSQL or Gremlin accounts
 
 It's possible to use full fidelity Schema for API for NoSQL accounts, instead of the default option, by setting the schema type when enabling Synapse Link on an Azure Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:

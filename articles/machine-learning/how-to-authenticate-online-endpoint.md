@@ -3,7 +3,7 @@ title: Authenticate clients for online endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to authenticate clients for an Azure Machine Learning online endpoint.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 author: msakande
 ms.author: mopeakande

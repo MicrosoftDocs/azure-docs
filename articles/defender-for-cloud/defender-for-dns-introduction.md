@@ -32,7 +32,7 @@ Microsoft Defender for DNS detects suspicious and anomalous activities such as:
 - **DNS attacks** - communication with malicious DNS resolvers
 - **Communication with domains used for malicious activities** such as phishing and crypto mining
 
-A full list of the alerts provided by Microsoft Defender for DNS is on the [alerts reference page](alerts-reference.md#alerts-for-dns).
+A full list of the alerts provided by Microsoft Defender for DNS is on the [alerts reference page](alerts-dns.md).
 
 ## Dependencies
 

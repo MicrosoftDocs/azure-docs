@@ -1,7 +1,7 @@
 ---
 title: Provision throughput on Azure Cosmos DB for MongoDB resources
 description: Learn how to provision container, database, and autoscale throughput in Azure Cosmos DB for MongoDB resources. You will use Azure portal, CLI, PowerShell and various other SDKs.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: how-to
 ms.date: 11/17/2021

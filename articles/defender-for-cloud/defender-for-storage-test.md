@@ -79,7 +79,7 @@ To simulate a malware upload using an EICAR test file, follow these steps:
 
 1. b. Select on the alert’s **View full details** button to see all the related details.
 
-1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+1. Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Testing sensitive data threat detection
 
@@ -145,7 +145,7 @@ To test the sensitive data threat detection feature by uploading test data that 
 
         :::image type="content" source="media/defender-for-storage-test/sensitive-data-alert.png" alt-text="Screenshot showing how to see an alert for a test file in Malware Scanning.":::
 
-Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Testing activity monitoring
 
@@ -189,7 +189,7 @@ To test the activity monitoring feature by simulating access from a Tor exit nod
 
     1. Select on the alert’s **View full details** button to see all the related details.
 
-Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-for-azure-storage).
+Learn more about Defender for Storage security alerts in the [reference table for all security alerts in Microsoft Defender for Cloud](alerts-azure-storage.md).
 
 ## Next steps
 

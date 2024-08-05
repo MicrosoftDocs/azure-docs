@@ -1,7 +1,7 @@
 ---
 title: Add control functions to optimize rules
 description: Learn how to optimize rules execution by adding control functions to rules using Microsoft Rules Composer.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos

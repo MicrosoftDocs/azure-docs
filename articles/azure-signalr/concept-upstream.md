@@ -2,7 +2,7 @@
 title: Upstream endpoints in Azure SignalR Service
 description: Introduction to upstream endpoints settings and upstream message protocols.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 12/09/2022
 ms.author: lianwei

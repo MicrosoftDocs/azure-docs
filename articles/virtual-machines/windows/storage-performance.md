@@ -2,7 +2,7 @@
 title: Optimize performance on Lsv3, Lasv3, and Lsv2-series Windows VMs
 description: Learn how to optimize performance for your solution on the Lsv2-series Windows virtual machines (VMs) on Azure.
 author: sasha-melamed
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: how-to
 ms.date: 06/01/2022

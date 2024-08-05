@@ -1,44 +1,18 @@
 ---
-title: Manage the pre and post maintenance configuration events (preview) in Azure Update Manager
+title: Manage the pre and post maintenance configuration events in Azure Update Manager
 description: The article provides the steps to manage the pre and post maintenance events in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/09/2024
+ms.date: 07/24/2024
 ms.topic: how-to
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
 
-# Manage pre and post events maintenance configuration events (preview)
+# Manage pre and post events maintenance configuration events
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers :heavy_check_mark: Azure VMs.
 
-This article describes on how to register your subscription and manage pre and post events in Azure Update Manager.
-
-## Register your subscription for public preview
-
-To self-register your subscription for public preview, follow these steps:
-
-#### [Azure portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **More services**.
-1. On the **All services** page, search for **Preview features**.
-1. On the **Preview Features** page, search and select **Pre and Post Events**.
-1. Select the feature and then select **Register** to register the subscription.
-   
-   :::image type="content" source="./media/tutorial-using-functions/register-feature.png" alt-text="Screenshot that shows how to register the preview feature." lightbox="./media/tutorial-using-functions/register-feature.png"::: 
-
-#### [Azure CLI](#tab/cli)
-
-```azurecli-interactive
-az feature register --name InGuestPatchPrePostMaintenanceActivity --namespace Microsoft.Maintenance
-```
-
-#### [PowerShell](#tab/ps)
-
-```azurepowershell-interactive
-Register-AzProviderFeature -FeatureName "InGuestPatchPrePostMaintenanceActivity" -ProviderNamespace "Microsoft.Maintenance"
-```
----
+This article describes on how to manage pre and post events in Azure Update Manager.
 
 ## Manage pre and post events
 
@@ -253,7 +227,7 @@ To delete pre and post events, follow these steps:
 ---
 
 ## Next steps
--  For an overview of pre and post events (preview) in Azure Update Manager, refer [here](pre-post-scripts-overview.md)
+-  For an overview of pre and post events in Azure Update Manager, refer [here](pre-post-scripts-overview.md)
 - To learn on how to create pre and post events, see [pre and post maintenance configuration events](pre-post-events-schedule-maintenance-configuration.md).
 - To learn how to use pre and post events to turn on and off your VMs using Webhooks, refer [here](tutorial-webhooks-using-runbooks.md).
 - To learn how to use pre and post events to turn on and off your VMs using Azure Functions, refer [here](tutorial-using-functions.md).

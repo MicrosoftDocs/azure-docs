@@ -5,7 +5,7 @@ description: Learn about data modeling in NoSQL databases, differences between m
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/24/2022
