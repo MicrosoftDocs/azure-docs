@@ -85,7 +85,7 @@ items:
         href: connect-to-cloud/howto-configure-dataflow-endpoint.md
       - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
-      - name: Configure data flow profile
+      - name: Configure a data flow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:

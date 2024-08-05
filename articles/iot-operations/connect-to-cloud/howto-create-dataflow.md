@@ -64,7 +64,7 @@ spec:
 
 | Name                        | Description                                                                |
 |-----------------------------|----------------------------------------------------------------------------|
-| profileRef                  | Reference to the [data flow profile](howto-configure-data flow-profile.md)           |
+| profileRef                  | Reference to the [data flow profile](howto-configure-dataflow-profile.md)           |
 | mode                        | Mode of the data flow. *enabled* or *disabled*                              |
 | operations[]                | Operations performed by the data flow                                       |
 | operationType               | Type of operation. *source*, *destination*, or *builtInTransformation*     |
