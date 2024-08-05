@@ -28,7 +28,7 @@ First, you might ask:
 
 - "What models can I deploy?"
 
-   Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, and Meta.
+   Azure AI Studio supports deploying some of the most popular large language and vision foundation models curated by Microsoft, Hugging Face, Meta, and more.
 - "How do I choose the right model?"
 
    Azure AI Studio provides a [model catalog](../how-to/model-catalog-overview.md) where you can search and filter models based on your use case. You can also test a model in a sample playground before deploying it to your project.
