@@ -3,7 +3,7 @@ title: Create a job with Azure Container Apps
 description: Learn to create an on-demand or scheduled job in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 08/17/2023

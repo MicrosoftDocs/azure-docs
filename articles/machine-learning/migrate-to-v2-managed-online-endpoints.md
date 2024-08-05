@@ -3,7 +3,7 @@ title: Upgrade steps for Azure Container Instances web services to managed onlin
 titleSuffix: Azure Machine Learning
 description: Upgrade steps for Azure Container Instances web services to managed online endpoints in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 author: msakande

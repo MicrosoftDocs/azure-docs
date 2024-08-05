@@ -3,7 +3,7 @@ title: Configure settings for the Config Server for Spring component in Azure Co
 description: Learn how to configure a Config Server for Spring component for your container app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/23/2024

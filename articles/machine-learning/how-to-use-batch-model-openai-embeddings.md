@@ -3,7 +3,7 @@ title: 'Run OpenAI models in batch endpoints'
 titleSuffix: Azure Machine Learning
 description: In this article, learn how to use batch endpoints with OpenAI models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 author: msakande

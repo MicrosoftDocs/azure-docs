@@ -3,7 +3,7 @@ title: "Tutorial: Connect to a managed Eureka Server for Spring in Azure Contain
 description: Learn to use a managed Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/15/2024

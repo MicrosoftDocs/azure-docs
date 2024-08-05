@@ -7,15 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/14/2024
+ms.date: 08/05/2024
 ms.custom:
   - references_regions
 ---
 
 # Quickstart: Search for images by using Search Explorer in the Azure portal
-
-> [!IMPORTANT]
-> Image vectors are supported in stable API versions, but the wizard and vectorizers are in preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). By default, the wizard targets the [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
 
 This quickstart shows you how to get started with image search by using the **Import and vectorize data** wizard in the Azure portal. It also shows how to use Search Explorer to run image-based queries.
 
@@ -33,9 +30,7 @@ Sample data consists of image files in the [azure-search-sample-data](https://gi
 
   The service tier determines how many blobs you can index. We used the Free tier to create this walkthrough and limited the content to 10 JPG files.
 
-+ Azure Storage to store image files as blobs. Use Azure Blob Storage, a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
-
-  Don't use Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace). This version of the wizard doesn't support Data Lake Storage Gen2.
++ Azure Storage to store image files as blobs. Use Azure Blob Storage or Azure Data Lake Storage Gen2 (a storage account with a hierarchical namespace), a standard performance (general-purpose v2) account. Access tiers can be hot, cool, and cold.
 
 All of the preceding resources must have public access enabled so that the portal nodes can access them. Otherwise, the wizard fails. After the wizard runs, you can enable firewalls and private endpoints on the integration components for security. For more information, see [Secure connections in the import wizards](search-import-data-portal.md#secure-connections).
 
@@ -141,7 +136,7 @@ When the wizard completes the configuration, it creates the following objects:
 
 + A data source connection to Blob Storage.
 
-+ An index with vector fields, text fields, vectorizers, vector profiles, and vector algorithms. You can't modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true).
++ An index with vector fields, text fields, vectorizers, vector profiles, and vector algorithms. You can't modify the default index during the wizard workflow. Indexes conform to the [2024-05-01-preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2024-05-01-preview&preserve-view=true) so that you can use preview features.
 
 + A skillset with the following five skills:
 
