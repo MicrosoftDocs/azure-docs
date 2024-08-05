@@ -32,14 +32,7 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 Use the `npm install` command to install the below Communication Services SDKs for JavaScript.
 
 ```console
-npm install @azure/communication-common --save
-
-npm install @azure/communication-identity --save
-
-npm install @azure/communication-signaling --save
-
 npm install @azure/communication-chat --save
-
 ```
 
 The `--save` option lists the library as a dependency in your **package.json** file.
