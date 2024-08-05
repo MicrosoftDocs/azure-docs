@@ -3,7 +3,7 @@ title: "What is a component"
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning components to build machine learning pipelines.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: lagayhar
 author: lgayhardt
