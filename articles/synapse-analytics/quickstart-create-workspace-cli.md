@@ -25,7 +25,7 @@ In this quickstart, you learn how to create an Azure Synapse Analytics workspace
 - [Azure Data Lake Storage Gen2 storage account](../storage/common/storage-account-create.md).
 
     > [!IMPORTANT]
-    > An Azure Synapse Analytics workspace needs to be able to read and write to the selected Data Lake Storage Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace**  at the creation of the storage account, as described on the [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account) page.
+    > An Azure Synapse Analytics workspace needs to be able to read and write to the selected Data Lake Storage Gen2 account. In addition, for any storage account that you link as the primary storage account, you must have enabled **hierarchical namespace** at the creation of the storage account, as described in [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -88,7 +88,7 @@ In this quickstart, you learn how to create an Azure Synapse Analytics workspace
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"
     ```
     
-    [![Screenshot that shows the Azure Synapse Analytics workspace web.](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png) ](media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png#lightbox)
+    :::image type="content" source="media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png" alt-text="Screenshot that shows the Azure Synapse Analytics workspace web." lightbox="media/quickstart-create-synapse-workspace-cli/create-workspace-cli-1.png":::
 
 1. After it's deployed, more permissions are required:
 

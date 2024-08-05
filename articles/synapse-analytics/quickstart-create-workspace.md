@@ -21,11 +21,12 @@ This quickstart describes the steps to create an Azure Synapse Analytics workspa
 1. In the search results, under **Services**, select **Azure Synapse Analytics**.
 1. Select **Add** to create a workspace.
 1. On the **Basics** tab, give the workspace a unique name. We use **mysworkspace** in this document.
-1. You need an ADLSGEN2 account to create a workspace. The simplest choice is to create a new one. If you want to reuse an existing one, you need to perform extra configuration.
-1. Option 1: Create a new ADLSGEN2 account:
-    1. Under **Select Data Lake Storage Gen 2** > **Account Name**, select **Create New**. Provide a global unique name, such as **contosolake**.
-    1. Under **Select Data Lake Storage Gen 2** > **File system name**, select **File System** and name it **users**.
-1. Option 2: See the instructions in [Prepare an existing storage account for use with Azure Synapse Analytics](#prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics).
+1. You need an Azure Data Lake Storage Gen2 account to create a workspace. The simplest choice is to create a new one. If you want to reuse an existing one, you need to perform extra configuration:
+
+   - Option 1: Create a new Data Lake Storage Gen2 account:
+       1. Under **Select Data Lake Storage Gen 2** > **Account Name**, select **Create New**. Provide a global unique name, such as **contosolake**.
+       1. Under **Select Data Lake Storage Gen 2** > **File system name**, select **File System** and name it **users**.
+   - Option 2: See the instructions in [Prepare an existing storage account for use with Azure Synapse Analytics](#prepare-an-existing-storage-account-for-use-with-azure-synapse-analytics).
 1. Your Azure Synapse Analytics workspace uses this storage account as the primary storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder named */synapse/workspacename*.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
 
@@ -42,7 +43,7 @@ After your Azure Synapse Analytics workspace is created, you have two ways to op
 ## Prepare an existing storage account for use with Azure Synapse Analytics
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Go to an existing ADLSGEN2 storage account.
+1. Go to an existing Data Lake Storage Gen2 storage account.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
