@@ -180,7 +180,7 @@ docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
 
 ## Push the Docker image to a registry
 
-In order to use custom images, you need to store them in a container registry. Azure Container Instances (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access.
+In order to use custom images, you need to store them in a container registry. Azure Container Registry (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access.
 
 It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
 
