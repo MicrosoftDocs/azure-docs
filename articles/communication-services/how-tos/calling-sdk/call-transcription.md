@@ -10,16 +10,11 @@ ms.topic: how-to
 ms.date: 08/10/2021
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android-windows
-
-#Customer intent: As a developer, I want to display the call transcription state on the client.
 ---
 
 # Display call transcription state on the client
 
-> [!NOTE]
-> Call transcription state is only available from Teams meetings. Currently there's no support for call transcription state for Azure Communication Services to Azure Communication Services calls.
-
-When using call transcription you may want to let your users know that a call is being transcribe. Here's how.
+You need to collect consent from all participants in the call before you can transcribe them. Microsoft Teams allows users to start transcription in the meetings or calls. You would receive event when transcription has started on you can check the transcription state, if transcription started before you joined the call or meeting.
 
 ## Prerequisites
 
