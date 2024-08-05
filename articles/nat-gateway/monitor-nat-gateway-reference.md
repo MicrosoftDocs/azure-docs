@@ -78,7 +78,7 @@ Use this metric to:
 
 Possible reasons for dropped packets:
 
-- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose. 
+- Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
 
 ### SNAT connection count
 
@@ -98,13 +98,13 @@ You can use this metric to:
 
 - Evaluate the volume of connections passing through NAT gateway.
 - Determine if you're nearing the connection limit of NAT gateway.
-- Help assess if you're experiencing a pattern of failed outbound connections. 
+- Help assess if you're experiencing a pattern of failed outbound connections.
 
 Possible reasons for failed connections:
 
 - A pattern of failed connections can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose.
 
->[!NOTE]
+> [!NOTE]
 > When NAT gateway is attached to a subnet and public IP address, the Azure platform verifies NAT gateway is healthy by conducting health checks. These health checks appear in NAT gateway's SNAT Connection Count metrics. The amount of health check related connections may vary as the health check service is optimized, but is negligible and doesn’t impact NAT gateway’s ability to connect outbound.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
