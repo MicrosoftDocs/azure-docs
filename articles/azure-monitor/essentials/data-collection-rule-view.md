@@ -52,6 +52,8 @@ The **Resources** view lists all Azure resources that match the selected filter,
 
 :::image type="content" source="media/data-collection-rule-view/resources-view.png" alt-text="Screenshot of resources view in the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view.png":::
 
+**View DCRs for a resource**
+
 The **Data collection rules** column represents the number of DCRs that are associated with each resource. Click this value to open a new pane listing the DCRs associated with the resource. 
 
 :::image type="content" source="media/data-collection-rule-view/resources-view-associations.png" alt-text="Screenshot of the DCR associations for a resource in the resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-associations.png":::
@@ -59,15 +61,17 @@ The **Data collection rules** column represents the number of DCRs that are asso
 > [!IMPORTANT]
 > Not all DCRs are associated with resources. For example, DCRs used with the [Logs ingestion API](../logs/logs-ingestion-api-overview.md) are specified in the API call and do not use associations. These DCRs still appear in the view, but will have a **Resource Count** of 0.
 
-Using the **Resources** view, you can create new associations to one or more DCRs for a particular resource. Select the resource and then click **Associate to existing data collection rules**.
+**Create new DCR or associations with existing DCR**
+
+Using the **Resources** view, you can create a new DCR for the selected resources or associate them with an existing DCR. Select the resources and then click one of the following options.
+
+| Option | Description |
+|:---|:---|
+| Create a data collection rule | Launch the process to create a new DCR. The selected resources are automatically added as resources for the new DCR. See [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md) for details on this process. |
+| Associate with existing data collection rule | Associate the selected resources with one or more existing DCRs. This opens a list of DCRs that can be associated with the current resource. This list only includes DCRs that are valid for the particular resource. For example, if the resource is a VM with the Azure Monitor agent (AMA) installed, only DCRs that process AMA data are listed.  |
 
 :::image type="content" source="media/data-collection-rule-view/resources-view-associate.png" alt-text="Screenshot of the create association button in the resources view in  the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-associate.png":::
 
-This opens a list of DCRs that can be associated with the current resource. This list only includes DCRs that are valid for the particular resource. For example, if the resource is a VM with the Azure Monitor agent (AMA) installed, only DCRs that process AMA data are listed. 
-
-:::image type="content" source="media/data-collection-rule-view/resources-view-create-associations.png" alt-text="Screenshot of the create associations view in the resources view in the preview experience for DCRs in the Azure portal." lightbox="media/data-collection-rule-view/resources-view-create-associations.png":::
-
-Click **Review & Associate** to create the association.
 
 
 ## Azure Policy
