@@ -4,7 +4,7 @@ description: In this tutorial, you will connect to a Service Fabric managed clus
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 07/14/2022
 ---

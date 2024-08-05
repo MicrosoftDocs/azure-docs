@@ -118,7 +118,7 @@ For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.doc
 
 Once enriched content exists in storage, any tool or technology that connects to Azure Storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
-+ [Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) or Storage browser (preview) in Azure portal to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
++ [Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) or Storage browser  in the Azure portal to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 

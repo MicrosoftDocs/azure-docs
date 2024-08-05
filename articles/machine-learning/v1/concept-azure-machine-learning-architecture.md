@@ -3,7 +3,7 @@ title: 'Architecture & key concepts (v1)'
 titleSuffix: Azure Machine Learning
 description: This article gives you a high-level understanding of the architecture, terms, and concepts that make up Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley

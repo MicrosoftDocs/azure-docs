@@ -4,7 +4,7 @@ description: In this quickstart, you create your first Windows container applica
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 07/11/2022
