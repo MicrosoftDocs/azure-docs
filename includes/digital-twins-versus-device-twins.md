@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for Azure Digital Twins - differences between digital twins and IoT Hub device twins
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 1/20/2021
 ms.author: baanders

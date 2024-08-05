@@ -4,7 +4,7 @@ description: See how to use Azure Cloud Shell to connect to Azure Cosmos DB for 
 ms.author: jonels
 author: jonels-msft
 recommendations: false
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart

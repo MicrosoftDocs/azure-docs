@@ -3,7 +3,7 @@ title: Materialized views in Azure Managed Instance for Apache Cassandra
 description: Learn how to enable materialized views in Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 02/15/2022
 ---

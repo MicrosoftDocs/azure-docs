@@ -4,7 +4,7 @@ description: Get an overview of Azure Cosmos DB change feed modes.
 author: jcocchi
 ms.author: jucocchi
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 07/25/2024

@@ -5,7 +5,7 @@ author: ekote
 ms.author: eskot
 ms.reviewer: maghan, whhender, whhender
 ms.date: 03/08/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: reference
 ms.custom: devx-track-python

@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn how to deploy Azure Gateway Load Balancer for higher scalability and performance on outbound connections when using network virtual appliances.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 10/24/2023
 ms.custom: template-tutorial

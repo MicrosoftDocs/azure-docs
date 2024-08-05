@@ -3,7 +3,7 @@ title: Guidelines for deploying MLflow models
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model to the deployment targets supported by Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 author: msakande
 ms.author: mopeakande

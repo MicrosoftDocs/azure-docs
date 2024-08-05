@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Designing for high availability'
 description: This page provides architectural recommendations for high availability while using Azure ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 06/15/2023
 ms.author: duau

@@ -3,7 +3,7 @@ title: 'Tutorial: Design for microservices - Azure Cosmos DB for PostgreSQL'
 description: This tutorial shows how to design for microservices with Azure Cosmos DB for PostgreSQL.
 ms.author: adamwolk
 author: mulander
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 09/30/2023

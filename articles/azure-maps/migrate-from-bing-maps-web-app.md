@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps

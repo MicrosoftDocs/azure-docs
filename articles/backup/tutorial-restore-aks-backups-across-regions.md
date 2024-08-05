@@ -3,7 +3,7 @@ title: Tutorial - Enable Vault Tier protection for Azure Kubernetes Cluster (AKS
 description: Learn how to enable Vault Tier protection for AKS clusters and restore backups in secondary region using Azure Backup.
 ms.topic: tutorial
 ms.date: 12/25/2023
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS

@@ -304,12 +304,16 @@ When deploying Arc resource bridge on VMware, you specify the folder in which th
 
 ### Cannot retrieve resource
 
-When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If you want to change the path, you need to delete and redeploy the Arc resource bridge. When upgrading Arc resource bridge, if you moved the appliance VM, you may hit an error similar to: 
+When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the one below when upgrading: 
 
 ```
 {\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"Cannot retrieve <resource> 'resource-name': <resource> 'resource-name' not found\\\"\\n }\"\n }"
 ```
-You can either move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change or delete and redeploy the Arc resource bridge.
+You have three options to move the Arc resource bridge VM: 
+
+1. You can move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change
+1. [Run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
+1. Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
 
 ### Insufficient permissions
 
@@ -417,6 +421,6 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 

@@ -4,7 +4,7 @@ description: Find Python examples on GitHub for common tasks in Azure Cosmos DB,
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: rosouz
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample

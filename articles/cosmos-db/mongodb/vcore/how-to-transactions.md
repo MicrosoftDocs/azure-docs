@@ -5,7 +5,7 @@ description: Support atomicity, consistency, isolation, and durability with tran
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 08/28/2023

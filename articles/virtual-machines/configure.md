@@ -1,7 +1,7 @@
 ---
 title: Configuration and Optimization of InfiniBand enabled H-series and N-series Azure Virtual Machines
 description: Learn about configuring and optimizing the InfiniBand enabled H-series and N-series VMs for HPC.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom: linux-related-content
 ms.topic: article
@@ -12,9 +12,6 @@ author: ju-shim
 ---
 
 # Configure and optimize VMs
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
@@ -89,12 +86,9 @@ For SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances), Alma
 
 Additionally, more details on what's included in the [Ubuntu-HPC VM images](#ubuntu-hpc-vm-images) and [AlmaLinux-HPC VM images](#almalinux-hpc-vm-images), and how to deploy them are in [Azure HPC VM images](azure-hpc-vm-images.md).
 
-> [!NOTE]
-> We used to support CentOS-HPC VM images. Due to phasing out of CentOS (currently the only supported version CentOS 7 will continue to receive community security patches and bug fix updates until June 2024), we are not releasing any new CentOS HPC images to Azure marketplace. CentOS/RHEL users are suggested to use our AlmaLinux-HPC images alternatives in Azure marketplace, which have the same set of drivers installed as other HPC images.
+### RHEL VM images
 
-### RHEL/CentOS VM images
-
-The base RHEL or CentOS-based non-HPC VM images on the Marketplace can be configured for use on the SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances). Learn more about [enabling InfiniBand](./extensions/enable-infiniband.md) and [setting up MPI](setup-mpi.md) on the VMs.
+The base RHEL-based non-HPC VM images on the Marketplace can be configured for use on the SR-IOV enabled [RDMA capable VMs](sizes-hpc.md#rdma-capable-instances). Learn more about [enabling InfiniBand](./extensions/enable-infiniband.md) and [setting up MPI](setup-mpi.md) on the VMs.
 
 ### Ubuntu VM images
 
@@ -115,7 +109,7 @@ The following are some optional optimization settings for improved performance o
 
 ### Update LIS
 
-If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](./linux/endorsed-distros.md) can be installed or updated on supported OS distros, especially is deploying using a custom image or an older OS version such as CentOS/RHEL 6.x or earlier version of 7.x.
+If necessary for functionality or performance, [Linux Integration Services (LIS) drivers](./linux/endorsed-distros.md) can be installed or updated on supported OS distros, especially is deploying using a custom image or an older OS version such as RHEL 6.x or earlier version of 7.x.
 
 ```bash
 wget https://aka.ms/lis

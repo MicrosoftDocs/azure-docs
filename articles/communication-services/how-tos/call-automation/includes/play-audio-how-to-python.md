@@ -84,6 +84,20 @@ To play audio to participants using audio files, you need to make sure the audio
 
 ``` python
 play_source = FileSource(url=audioUri)
+
+#Play multiple audio files
+#file_source1 = FileSource(MAIN_MENU_PROMPT_URI) 
+#file_source2 = FileSource(MAIN_MENU_PROMPT_URI) 
+#
+# play_sources = [file_source1, file_source2]
+# 
+# call_connection_client.play_media_to_all(
+#     play_source=play_sources,
+#     interrupt_call_media_operation=False,
+#     operation_context="multiplePlayContext",
+#     operation_callback_url=CALLBACK_EVENTS_URI,
+#     loop=False
+# )
 ```
 
 ### Play source - Text-To-Speech 
@@ -100,7 +114,21 @@ play_source = TextSource(
 play_to = [target_participant]
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
-) 
+)
+
+#Multiple text prompts
+#play_source1 = TextSource(text="Hi, This is multiple play source one call media test.", source_locale="en-US", voice_kind=VoiceKind.FEMALE) 
+#play_source2 = TextSource(text="Hi, This is multiple play source two call media test.", source_locale="en-US", voice_kind=VoiceKind.FEMALE)
+#
+#play_sources = [play_source1, play_source2]
+#
+#call_connection_client.play_media_to_all(
+#    play_source=play_sources,
+#    interrupt_call_media_operation=False,
+#    operation_context="multiplePlayContext",
+#    operation_callback_url=CALLBACK_EVENTS_URI,
+#    loop=False
+#)
 ```
 
 ``` python
@@ -112,6 +140,20 @@ play_to = [target_participant]
 call_automation_client.get_call_connection(call_connection_id).play_media(
     play_source=play_source, play_to=play_to
 )
+
+#Play multiple text prompts
+#play_source1 = TextSource(text="Hi, This is multiple play source one call media test.", voice_name=SPEECH_TO_TEXT_VOICE) 
+#play_source2 = TextSource(text="Hi, This is multiple play source two call media test.", voice_name=SPEECH_TO_TEXT_VOICE)
+#
+#play_sources = [play_source1, play_source2]
+#
+#call_connection_client.play_media_to_all(
+#    play_source=play_sources,
+#    interrupt_call_media_operation=False,
+#    operation_context="multiplePlayContext",
+#    operation_callback_url=CALLBACK_EVENTS_URI,
+#    loop=False
+#)
 ```
 
 ### Play source - Text-To-Speech with SSML 
@@ -173,6 +215,33 @@ call_automation_client.get_call_connection(call_connection_id).play_media(
 )
 ```
 
+### Support for barge-in
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+
+```python
+# Interrupt media with text source
+# Option 1
+play_source = TextSource(text="This is interrupt call media test.", voice_name=SPEECH_TO_TEXT_VOICE)
+call_connection_client.play_media_to_all(
+    play_source, 
+    interrupt_call_media_operation=True, 
+    operation_context="interruptContext", 
+    operation_callback_url=CALLBACK_EVENTS_URI, 
+    loop=False
+)
+
+# Interrupt media with file source
+# Option 2
+#play_source = FileSource(MAIN_MENU_PROMPT_URI)
+#call_connection_client.play_media_to_all(
+#    play_source, 
+#    interrupt_call_media_operation=True, 
+#    operation_context="interruptContext", 
+#    operation_callback_url=CALLBACK_EVENTS_URI, 
+#    loop=False
+#)
+```
+
 ## Play audio - Specific participant
 
 Play a prerecorded audio file to a specific participant in the call.
@@ -225,6 +294,14 @@ Your application receives action lifecycle event updates on the callback URL tha
 if event.type == "Microsoft.Communication.PlayCompleted":
 
     app.logger.info("Play completed, context=%s", event.data.get("operationContext"))
+```
+
+### Example of how you can deserialize the *PlayStarted* event:
+
+```python 
+if event.type == "Microsoft.Communication.PlayStarted":
+
+    app.logger.info("Play started, context=%s", event.data.get("operationContext"))
 ```
 
 ### Example of how you can deserialize the *PlayFailed* event:

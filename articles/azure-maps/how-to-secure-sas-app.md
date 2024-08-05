@@ -2,8 +2,8 @@
 title: How to secure an Azure Maps application with a SAS token
 titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps

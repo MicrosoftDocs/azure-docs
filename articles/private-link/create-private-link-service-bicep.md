@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: In this quickstart, you use Bicep to create a private link service.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/12/2024
 ms.author: abell

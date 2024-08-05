@@ -2,7 +2,7 @@
 title: Ephemeral OS disks
 description: Learn more about ephemeral OS disks for Azure VMs.
 author: Aarthi-Vijayaraghavan
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.custom:
 ms.topic: how-to
 ms.date: 07/23/2020

@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB for MongoDB 4.0 server version supporte
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: release-notes
 ms.date: 10/12/2022

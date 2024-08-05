@@ -3,7 +3,7 @@ title: Perform actions using Backup center in Azure Backup
 description: This article explains how to perform actions using Backup center
 ms.topic: how-to
 ms.date: 03/21/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
