@@ -48,7 +48,7 @@ The model catalog offers access to a large variety of models across modalities. 
 
 #### Deploy models as serverless APIs
 
-The model as a service (MaaS) deployment option doesn't require a quota from your subscription. You use a serverless API deployment and are billed per token in a pay-as-you-go fashion. [Learn how to deploy and consume the Llama 2 model family with MaaS](../how-to/deploy-models-llama.md).
+Model deployment as a serverless API doesn't require a quota from your subscription. This option allows you to deploy your model as a service (MaaS). You use a serverless API deployment and are billed per token in a pay-as-you-go fashion. For more information about deploying a model as a serverless API, see [Deploy models as serverless APIs](../how-to/deploy-models-serverless.md).
 
 #### Deploy models with a hosted, managed infrastructure
 
