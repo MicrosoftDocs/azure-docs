@@ -7,23 +7,24 @@ ms.author: hannahhunter
 ms.service: azure-container-apps
 ms.custom: devx-track-dotnet, devx-track-js, devx-track-python
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 08/02/2024
 zone_pivot_group_filename: container-apps/dapr-zone-pivot-groups.json
 zone_pivot_groups: dapr-languages-set
 ---
 
-# Tutorial: Microservices communication using Dapr Service Invocation 
+# Tutorial: Microservices communication using Dapr Service Invocation
 
-In this tutorial, you'll:
+In this tutorial, you create and run two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [the Dapr Service Invocation API](./dapr-overview.md#supported-dapr-apis-components-and-tooling). You'll:
+
 > [!div class="checklist"]
-> * Create and run locally two microservices that communicate securely using auto-mTLS and reliably using built-in retries via [Dapr's Service Invocation API](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/). 
+> * Run the application locally.
 > * Deploy the application to Azure Container Apps via the Azure Developer CLI with the provided Bicep. 
 
 The sample service invocation project includes:
-1. A `checkout` service that uses Dapr's HTTP proxying capability on a loop to invoke a request on the `order-processor` service.  
-1. A `order-processor` service that receives the request from the `checkout` service.  
+1. A `checkout` service that uses HTTP proxying on a loop to invoke a request on the `order-processor` service.  
+1. An `order-processor` service that receives the request from the `checkout` service.  
 
-:::image type="content" source="media/microservices-dapr-azd/service-invocation-quickstart.png" alt-text="Diagram of the Dapr service invocation services.":::
+:::image type="content" source="media/microservices-dapr-azd/service-invocation-quickstart.png" alt-text="Diagram of the service invocation services.":::
 
 ## Prerequisites
 
@@ -40,7 +41,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs) to your local machine.
+1. Clone the [sample applications](https://github.com/Azure-Samples/svc-invoke-dapr-nodejs) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/svc-invoke-dapr-nodejs.git
@@ -52,7 +53,7 @@ Before deploying the application to Azure Container Apps, start by running the `
    cd svc-invoke-dapr-nodejs
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
 Start by running the `order-processor` service.
 
@@ -67,7 +68,7 @@ Start by running the `order-processor` service.
    npm install
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
    ```bash
    dapr run --app-port 5001 --app-id order-processor --app-protocol http --dapr-http-port 3501 -- npm start
@@ -85,7 +86,7 @@ Start by running the `order-processor` service.
    npm install
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
    ```bash
    dapr run  --app-id checkout --app-protocol http --dapr-http-port 3500 -- npm start
@@ -147,9 +148,9 @@ Start by running the `order-processor` service.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -175,7 +176,7 @@ In a new terminal window, navigate into the sample's root directory.
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -260,7 +261,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/svc-invoke-dapr-python) to your local machine.
+1. Clone the [sample applications](https://github.com/Azure-Samples/svc-invoke-dapr-python) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/svc-invoke-dapr-python.git
@@ -272,7 +273,7 @@ Before deploying the application to Azure Container Apps, start by running the `
    cd svc-invoke-dapr-python
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
 Start by running the `order-processor` service.
 
@@ -287,7 +288,7 @@ Start by running the `order-processor` service.
    pip3 install -r requirements.txt
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
    ```bash
    dapr run --app-port 8001 --app-id order-processor --app-protocol http --dapr-http-port 3501 -- python3 app.py
@@ -305,7 +306,7 @@ Start by running the `order-processor` service.
    pip3 install -r requirements.txt
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
    ```bash
    dapr run  --app-id checkout --app-protocol http --dapr-http-port 3500 -- python3 app.py
@@ -367,9 +368,9 @@ Start by running the `order-processor` service.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -395,7 +396,7 @@ Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/develop
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
@@ -479,7 +480,7 @@ Before deploying the application to Azure Container Apps, start by running the `
 
 ### Prepare the project
 
-1. Clone the [sample Dapr application](https://github.com/Azure-Samples/svc-invoke-dapr-csharp) to your local machine.
+1. Clone the [sample applications](https://github.com/Azure-Samples/svc-invoke-dapr-csharp) to your local machine.
 
    ```bash
    git clone https://github.com/Azure-Samples/svc-invoke-dapr-csharp.git
@@ -491,9 +492,9 @@ Before deploying the application to Azure Container Apps, start by running the `
    cd svc-invoke-dapr-csharp
    ```
 
-### Run the Dapr applications using the Dapr CLI
+### Run the applications using the Dapr CLI
 
-Start by running the `order-processor` callee service with Dapr.
+Start by running the `order-processor` callee service.
 
 1. From the sample's root directory, change directories to `order-processor`.
 
@@ -506,7 +507,7 @@ Start by running the `order-processor` callee service with Dapr.
    dotnet build
    ```
 
-1. Run the `order-processor` service with Dapr.
+1. Run the `order-processor` service.
 
    ```bash
    dapr run --app-port 7001 --app-id order-processor --app-protocol http --dapr-http-port 3501 -- dotnet run
@@ -524,7 +525,7 @@ Start by running the `order-processor` callee service with Dapr.
    dotnet build
    ```
 
-1. Run the `checkout` service with Dapr.
+1. Run the `checkout` service.
 
    ```bash
    dapr run  --app-id checkout --app-protocol http --dapr-http-port 3500 -- dotnet run
@@ -586,9 +587,9 @@ Start by running the `order-processor` callee service with Dapr.
 
 1. Press <kbd>Cmd/Ctrl</kbd> + <kbd>C</kbd> in both terminals to exit out of the service-to-service invocation.
 
-## Deploy the Dapr application template using Azure Developer CLI
+## Deploy the application template using Azure Developer CLI
 
-Deploy the Dapr application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
+Deploy the application to Azure Container Apps using [`azd`](/azure/developer/azure-developer-cli/overview).
 
 ### Prepare the project
 
@@ -614,7 +615,7 @@ In a new terminal window, navigate into the [sample's](https://github.com/Azure-
    | Azure Location  | The Azure location for your resources. |
    | Azure Subscription | The Azure subscription for your resources. |
 
-1. Run `azd up` to provision the infrastructure and deploy the Dapr application to Azure Container Apps in a single command.
+1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
 
    ```azdeveloper
    azd up
