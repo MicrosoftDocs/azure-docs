@@ -24,13 +24,13 @@ The Akri services enable you to detect and create assets in the address space of
 ## Prerequisites
 
 - Install Azure IoT Operations Preview. To install Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
-- Verify that the the Akri services pods are properly configured by running the following command:
+- Verify that the Akri services pods are properly configured by running the following command:
 
     ```bash
     kubectl get pods -n azure-iot-operations
     ```
 
-    The output includes a line that shows the Akri agent and discovery pods qre running:
+    The output includes a line that shows the Akri agent and discovery pods are running:
 
     ```output
     NAME                                             READY   STATUS    RESTARTS   AGE
