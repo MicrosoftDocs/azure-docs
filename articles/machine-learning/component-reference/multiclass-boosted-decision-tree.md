@@ -3,7 +3,7 @@ title:  "Multiclass Boosted Decision Tree: Component Reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Multiclass Boosted Decision Tree component in Azure Machine Learning to create a classifier using labeled data.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

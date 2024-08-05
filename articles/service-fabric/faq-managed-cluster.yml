@@ -5,7 +5,7 @@ metadata:
   ms.topic: faq
   ms.author: tomcassidy
   author: tomvcassidy
-  ms.service: service-fabric
+  ms.service: azure-service-fabric
   services: service-fabric
   ms.date: 03/12/2024
 title: Service Fabric managed clusters frequently asked questions

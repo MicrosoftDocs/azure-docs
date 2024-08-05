@@ -5,7 +5,7 @@ ms.date: 07/31/2024
 ms.topic: reference
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 hide_comments: true
 hideEdit: true
