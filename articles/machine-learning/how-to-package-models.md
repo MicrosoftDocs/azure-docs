@@ -33,7 +33,7 @@ Before following the steps in this article, make sure you have the following pre
 * A model to package. This example, uses an MLflow model registered in the workspace.
 
     > [!CAUTION]
-    > Model packaging is not supported for models in the Azure AI model catalog, including large language models or text generation models. Models in the Azure AI model catalog are optimized for inference on Azure AI deployment targets and are not suitable for packaging. 
+    > Model packaging is not supported for models in the Azure AI model catalog, including large language models. Models in the Azure AI model catalog are optimized for inference on Azure AI deployment targets and are not suitable for packaging. 
 
 ## About this example
 
