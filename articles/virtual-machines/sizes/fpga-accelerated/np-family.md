@@ -2,7 +2,7 @@
 title: NP family VM size series
 description: List of sizes in the NP family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/06/2024

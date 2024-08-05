@@ -101,7 +101,7 @@ Call [Create Data Source](/rest/api/searchservice/create-data-source) to set the
 
 ```http
 ### Create a data source
-POST {{baseUrl}}/datasources?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/datasources?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -128,7 +128,7 @@ Call [Create Skillset](/rest/api/searchservice/skillsets/create) to specify whic
 
 ```http
 ### Create a skillset
-POST {{baseUrl}}/skillsets?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/skillsets?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -317,7 +317,7 @@ The largest component of an index is the fields collection, where data type and 
 
 ```http
 ### Create an index
-POST {{baseUrl}}/indexes?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -410,7 +410,7 @@ Expect this step to take several minutes to complete. Even though the data set i
 
 ```http
 ### Create and run an indexer
-POST {{baseUrl}}/indexers?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexers?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 
@@ -501,7 +501,7 @@ To find out whether the indexer is still running, call [Get Indexer Status](/res
 
 ```http
 ### Get Indexer Status (wait several minutes for the indexer to complete)
-GET {{baseUrl}}/indexers/cog-search-demo-idxr/status?api-version=2023-11-01  HTTP/1.1
+GET {{baseUrl}}/indexers/cog-search-demo-idxr/status?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
 ```
@@ -518,7 +518,7 @@ Now that you've created an index that contains AI-generated content, call [Searc
 
 ```http
 ### Query the index\
-POST {{baseUrl}}/indexes/cog-search-demo-idx/docs/search?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes/cog-search-demo-idx/docs/search?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
   
@@ -533,7 +533,7 @@ Filters can help you narrow results to items of interest:
 
 ```http
 ### Filter by organization
-POST {{baseUrl}}/indexes/cog-search-demo-idx/docs/search?api-version=2023-11-01  HTTP/1.1
+POST {{baseUrl}}/indexes/cog-search-demo-idx/docs/search?api-version=2024-07-01  HTTP/1.1
   Content-Type: application/json
   api-key: {{apiKey}}
   

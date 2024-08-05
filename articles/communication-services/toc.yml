@@ -522,6 +522,8 @@ items:
         href: how-tos/call-automation/play-action.md
       - name: Gather user input with recognize action 
         href: how-tos/call-automation/recognize-action.md
+      - name: Get Real-time Transcription of call audio
+        href: how-tos/call-automation/real-time-transcription-tutorial.md  
       - name: How to secure webhook endpoint
         href: how-tos/call-automation/secure-webhook-endpoint.md
       - name: Handling Call Automation Events with EventProcessor
@@ -946,6 +948,8 @@ items:
         href: concepts/call-automation/play-action.md
       - name: Gather user input 
         href: concepts/call-automation/recognize-action.md
+      - name: Get Real-Time Audio Insights using Transcriptions
+        href: concepts/call-automation/real-time-transcription.md     
       - name: Ring Microsoft Teams users
         href: concepts/call-automation/call-automation-teams-interop.md
     - name: Call recording
