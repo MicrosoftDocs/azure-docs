@@ -140,7 +140,7 @@ When you create a client SDK instance in your functions, you should get the conn
 When you create a client SDK instance in your functions, you should get the connection info required by the client from [Environment variables](functions-reference-python.md#environment-variables).
 ::: zone-end
 
-## Define connections
+## Connections
 
 As a security best practice, Azure Functions takes advantage of the application settings functionality of Azure App Service to help you more securely store strings, keys, and other tokens required to connect to other services. Application settings in Azure are stored encrypted and can be accessed at runtime by your app as environment variable `name` `value` pairs. For triggers and bindings that require a connection property, you set the application setting name instead of the actual connection string. You can't configure a binding directly with a connection string or key. 
 
@@ -150,20 +150,9 @@ The default configuration provider uses environment variables. These variables a
 
 ### Connection values
 
-When an application setting stores connection information, the format of the setting name depends on whether the setting represents a connection string or part of an [identity-based connection](#configure-an-identity-based-connection).
-
-#### [Identity-based connection](#tab/identity)
-
-#### [Connection string](#tab/connection-string) 
-
-
----
-
 When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string depend on the service to which you connect.
 
-However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores (`__`). The group is referenced by setting the connection name to this prefix. By convention, identity-based connections use a double underscore to indicate hierarchy instead of a colon (`:`) because double underscore is supported on both Windows and Linux.
-
-
+However, a connection name can also refer to a collection of multiple configuration items, useful for configuring [identity-based connections](#configure-an-identity-based-connection). Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
 
 For example, the `connection` property for an Azure Blob trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
 
@@ -307,31 +296,28 @@ Here's an example of `local.settings.json` properties required for identity-base
 
 #### Connecting to host storage with an identity
 
-Functions uses the default storage account to enable core behaviors, such as coordinating singleton execution of timer triggers and default app key storage. The connection string for this storage account is set in [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage). However, you can configure your function app to use an identity instead of a connection string when connecting to the default storage account.
+The Azure Functions host uses the storage connection set in [`AzureWebJobsStorage`](functions-app-settings.md#azurewebjobsstorage) to enable core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This connection can also be configured to use an identity.
 
 > [!CAUTION]
-> Other Functions components in Functions rely on `AzureWebJobsStorage` for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
+> Other components in Functions rely on `AzureWebJobsStorage` for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs, Event Hubs, and Durable Functions. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 >
 > In addition, your function app might be reusing `AzureWebJobsStorage` for other storage connections in their triggers, bindings, and/or function code. Make sure that all uses of `AzureWebJobsStorage` are able to use the identity-based connection format before changing this connection from a connection string.
 
-These app settings are used to define an identity-based connection `AzureWebJobsStorage`:
+To use an identity-based connection for `AzureWebJobsStorage`, configure the following app settings:
 
-| Setting  | Description  | Example value  |
+| Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account isn't in a sovereign cloud and doesn't have a custom DNS. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. | <storage_account_name> |
 | `AzureWebJobsStorage__blobServiceUri`| The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
 | `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 | `AzureWebJobsStorage__tableServiceUri` | The data plane URI of a table service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.table.core.windows.net |
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
-When you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.[blob|queue|file|table].core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service are inferred for this account. This doesn't work when the storage account is in a sovereign cloud or has a custom DNS.
+If you're configuring `AzureWebJobsStorage` using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.[blob|queue|file|table].core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The endpoints for each storage service are inferred for this account. This doesn't work when the storage account is in a sovereign cloud or has a custom DNS.
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-
-| `AzureWebJobsStorage__credential` | Recommended only when specifying a user-assigned managed identity, when it should be set to `managedidentity`. This is only valid when hosted in the Azure Functions service. | managedidentity |
-| `AzureWebJobsStorage__clientId` | When `credential` is set to "managedidentity", this property specifies the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity will be used. This property is used differently in [local development scenarios](#local-development-with-identity-based-connections), when `credential` should not be set. | 02f9a4bc-0a67-4691-a732-aa51cfc04d8e |
+| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account isn't in a sovereign cloud and doesn't have a custom DNS. This syntax is unique to `AzureWebJobsStorage` and can't be used for other identity-based connections. | <storage_account_name> |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 
