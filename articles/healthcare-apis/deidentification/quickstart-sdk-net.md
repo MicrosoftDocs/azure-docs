@@ -14,7 +14,7 @@ ms.date: 08/05/2024
 
 Get started with the Azure Health Deidentification client library for .NET to deidentify your health data. Follow these steps to install the package and try out example code for basic tasks.
 
-[API reference documentation](https://review.learn.microsoft.com/en-us/dotnet/api/azure.health.deidentification) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Health.Deidentification) | [Additional Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md)
+[API reference documentation](https://review.learn.microsoft.com/en-us/dotnet/api/azure.health.deidentification) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Health.Deidentification) | [More Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md)
 
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Get started with the Azure Health Deidentification client library for .NET to de
 
 ### Create an Azure Deidentification Service
 
-An Azure Deidentification Service provides you with an endpoint URL. This can be utilized as a Rest API or with an SDK.
+An Azure Deidentification Service provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
 
 1. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 2. Create Deidentification Service Resource
@@ -93,7 +93,7 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
 
 Before you can create the client, you need to find your **Deidentification Service Endpoint Url**.
 
-You can do this with the Azure CLI
+You can do find the endpoint url with the Azure CLI
 
 ```bash
 az resource show -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-type microsoft.healthdataaiservices/deidservices --query properties.serviceUrl --output tsv
@@ -136,13 +136,13 @@ DeidentificationResult result = await client.DeidentifyAsync(content);
 
 This function allows you to deidentify all files, filtered via prefix, within an Azure Blob Storage Account.
 
-To create the job we need the url to the blob endpoint of the Azure Storage Account.
+To create the job, we need the url to the blob endpoint of the Azure Storage Account.
 
 ```bash
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
 ```
 
-Now we can create the job. Here I used `folder1/` as the prefix. Any files that match this prefix will be deidentified and output with the `output_files/` prefix.
+Now we can create the job. Here I used `folder1/` as the prefix. Any files that match this prefix are deidentified and output with the `output_files/` prefix.
 
 ```csharp
 using Azure;
@@ -159,7 +159,7 @@ job = client.CreateJob(WaitUntil.Started, "my-job-1", job).Value;
 
 ### Get the status of a Deidentification Job
 
-Once a job has been created, you can view the status and other details of the job.
+Once a job is created, you can view the status and other details of the job.
 
 ```csharp
 DeidentificationJob job = client.GetJob("my-job-1").Value;
@@ -206,7 +206,7 @@ See [Sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdata
 
 ## Next steps
 
-We have learned:
+We learned:
 - How to create a Deidentification Service and assign a role on a storage account.
 - How to create a Deidentification Client
 - How to deidentify strings and create jobs on documents within a storage account.
