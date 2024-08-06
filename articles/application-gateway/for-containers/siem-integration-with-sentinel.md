@@ -15,17 +15,16 @@ ms.author: greglin
 By creating a SIEM integration with Application Gateway for Containers and Azure Sentinel, you streamline the security data collection across your digital environment. By following our QuickStart guide, you effortlessly set up Microsoft Sentinel to work in tandem with the Application Gateway for Container Access Logs. This setup allows you to monitor, detect, and examine potential threats and alerts generated from logs with precision. Additionally, by incorporating a solution from the content hub and configuring a data connector, you start importing access logs into Microsoft Sentinel without a hitch. To cap it off, you establish analytical rules, conduct test alerts, and utilize visualization tools for alerts, ensuring comprehensive oversight of your security landscape. 
 
 In this QuickStart guide, you set up: 
-1. Integrate a log analytics workspace.
-2. Configure a data connector into Microsoft Sentinel.
-3. Establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
-
-  ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel-arch.png)
+- Integrate a log analytics workspace.
+- Configure a data connector into Microsoft Sentinel.
+- Establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
+  [ ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel-arch.png) ](./media/siem-integration-with-sentinel/sentinel-arch.png#lightbox)
 
 ## Learn About The Services
-1. [What is Azure Sentinel?](../../sentinel/overview.md)
-   1. Why use Sentinel:  Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products and platforms such as Log Analytics Workspace.
-2. [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
-   1. Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
+- [What is Azure Sentinel?](../../sentinel/overview.md)
+  - Why use Sentinel:  Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products and platforms such as Log Analytics Workspace.
+- [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+  - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
    
 ## Prerequisites
 
@@ -37,23 +36,22 @@ In this QuickStart guide, you set up:
 
 1. [Enable Azure Sentinel Workspace](../../sentinel/overview.md).
 2. Send Logs to Log Analytics Workspace:
-   - In **Search resources, service, and docs**, type **Application Gateways for Containers**.
-   - Go to your selected Application Gateway for Container Resource.
-   - Go to Diagnostic Setting under Monitoring:
-      -  Select a name, check box **allLogs** which include the Application Gateway for Container Access Logs.
-      -  Select **Send to Log analytics Workspace** with your desired subscription and your log analytics workspace.
-
-        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logging.png)
+   1. In **Search resources, service, and docs**, type **Application Gateways for Containers**.
+   2. Go to your selected Application Gateway for Container Resource.
+   3. Go to Diagnostic Setting under Monitoring:
+      1. Select a name, check box **allLogs** which include the Application Gateway for Container Access Logs.
+      2. Select **Send to Log analytics Workspace** with your desired subscription and your log analytics workspace.
+      [ ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logging.png) ](./media/siem-integration-with-sentinel/logging.png#lightbox)
 
         > [!NOTE]
         > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
     
-4. View data ingested to Microsoft Sentinel:
-    - In **Search resources, service, and docs**, type **Azure Sentinel**.
-    - Go to your selected Sentinel Resource.
-    - Select **Logs**.
-    - On the left-side bar, go to **Tables** where a section called **LogManagement** appear with digested access logs. 
-    - Preview all logs by hovering over access logs and click **Run**.
+3. View data ingested to Microsoft Sentinel:
+   1. In **Search resources, service, and docs**, type **Azure Sentinel**.
+   2. Go to your selected Sentinel Resource.
+   3. Select **Logs**.
+   4. On the left-side bar, go to **Tables** where a section called **LogManagement** appear with digested access logs.
+   5. Preview all logs by hovering over access logs and click **Run**.
       ![A screenshot of Log Management.](./media/siem-integration-with-sentinel/log-management.png)
       
 ## Create Analytics Rule
@@ -66,9 +64,9 @@ In this QuickStart guide, you set up:
   ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
 
 6. Create rule query based on your access logs:
-    - Example Scenario: A user sends encrypted data through a specific URL.
-    - Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
-    - Create query:
+   1. Example Scenario: A user sends encrypted data through a specific URL.
+   2. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
+   3. Create query:
         
       ```bash
       # Example Query
@@ -82,8 +80,8 @@ In this QuickStart guide, you set up:
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
 
 8. Set Query Scheduling:
-        - Run for every 5 hours.
-        - Look up data for every 5 hours.
+    1. Run for every 5 hours.
+    2. Look up data for every 5 hours.
 9. **Review + Create**.
 
 
@@ -109,18 +107,18 @@ In this QuickStart guide, you set up:
  3. Click **View Full Details**.
  4. Select **Investigate**.
 
-    ![A screenshot of investigate.](./media/siem-integration-with-sentinel/investigate.png)
+    [ ![A screenshot of investigate.](./media/siem-integration-with-sentinel/investigate.png) ](./media/siem-integration-with-sentinel/investigate.png#lightbox)
 
      > [!Note]
      > The **Investigate** option will only show up if the incident has any linked entities.
 
 5. In Investigate, you can visualize the associated entities and similar alerts.
   
-   [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/mapping.png)](./media/siem-integration-with-sentinel/mapping.png#lightbox)
+   [![A screenshot of monitoring metrics.](./media/siem-integration-with-sentinel/mapping.png) ](./media/siem-integration-with-sentinel/mapping.png#lightbox)
 
 6. Click on the entity to view **Insights** and delve deeper into the investigation.
 
-   ![A screenshot of the insights.](./media/siem-integration-with-sentinel/insights.png)
+   [ ![A screenshot of the insights.](./media/siem-integration-with-sentinel/insights.png) ](./media/siem-integration-with-sentinel/insights.png#lightbox)
 
 
 [Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
