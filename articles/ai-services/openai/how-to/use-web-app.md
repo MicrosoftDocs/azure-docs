@@ -20,8 +20,8 @@ Along with Azure OpenAI Studio, APIs, and SDKs, you can use the available standa
 
 ## Important considerations
 
-- Publishing creates an Azure App Service instance in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) that you select. When you're done with your app, you can delete it from the Azure portal.
-- GPT-4 Turbo with Vision models are not supported.
+- Publishing creates an Azure App Service instance in your subscription. It might incur costs depending on the [pricing plan](https://azure.microsoft.com/pricing/details/app-service/windows/) that you select. When finished with your app, you can delete it from the Azure portal.
+- GPT-4 Turbo with Vision models aren't supported.
 - By default, the app is deployed with the Microsoft identity provider already configured. The identity provider restricts access to the app to members of your Azure tenant. To add or modify authentication:
     1. Go to the [Azure portal](https://portal.azure.com/#home) and search for the app name that you specified during publishing. Select the web app, and then select **Authentication** on the left menu. Then select **Add identity provider**.
 
@@ -29,7 +29,7 @@ Along with Azure OpenAI Studio, APIs, and SDKs, you can use the available standa
 
     1. Select Microsoft as the identity provider. The default settings on this page restrict the app to your tenant only, so you don't need to change anything else here. Select **Add**.
 
-    Now users will be asked to sign in with their Microsoft Entra account to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any way other than verifying that the user is a member of your tenant.
+    Now users are asked to sign in with their Microsoft Entra account to access your app. You can follow a similar process to add another identity provider if you prefer. The app doesn't use the user's sign-in information in any way other than verifying that the user is a member of your tenant.
 
 ## Web app customization
 
@@ -39,7 +39,7 @@ When you're customizing the app, we recommend:
 
 - Resetting the chat session (clear chat) if users change any settings. Notify the users that their chat history will be lost.
 
-- Clearly communicating how each setting that you implement will affect the user experience.
+- Clearly communicating how each setting that you implement affects the user experience.
 
 - Updating the app settings for each of your deployed apps to use new API keys after you rotate keys for your Azure OpenAI or Azure AI Search resource.
 
@@ -82,30 +82,30 @@ After you turn on chat history, your users can show and hide it in the upper-rig
 
 ## Deleting your Cosmos DB instance
 
-Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option turned on in the studio, your users are notified of a connection error but can continue to use the web app without access to the chat history.
+Deleting your web app doesn't delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option turned on in the studio, your users aren'tified of a connection error but can continue to use the web app without access to the chat history.
 
-## Enabling Entra ID authentication between services
+## Enabling Microsoft Entra ID authentication between services
 
-To enable Entra ID for intra-service authentication for your web app, please follow these steps.
+To enable Microsoft Entra ID for intra-service authentication for your web app, follow these steps.
 
 ### Enable managed identity on your Azure OpenAI resource and Azure App Service
 
-You can enable managed identity for the Azure OpenAI resource and the Azure App Service by navigating to "Identity" and turning on the system assigned managed identity in the Azure Portal for each resource.
+You can enable managed identity for the Azure OpenAI resource and the Azure App Service by navigating to "Identity" and turning on the system assigned managed identity in the Azure portal for each resource.
 
 
-![Screenshot that shows the application identity configuration in the Azure Portal](../media/use-your-data/openai-managed-identity.png)
+![Screenshot that shows the application identity configuration in the Azure portal](../media/use-your-data/openai-managed-identity.png)
 
-Note: If you are using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource.  If using an embedding model on a different resource from the one used for inference, you will also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model as well.
+Note: If you are using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource. If using an embedding model deployed to a different resource from the one used for inference, you also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model.
 
-### Enable role-based access control on your Azure Search resource (optional)
+### Enable role-based access control (RBAC) on your Azure Search resource (optional)
 
-If using On Your Data with Azure Search you should follow this step.
+If using On Your Data with Azure Search, you should follow this step.
 
-To enable authentication to an Azure Search resource, you will need to enable role-based access control on the resource.  Learn more about [enabling RBAC roles](../../../search/search-security-enable-roles.md) for your resources.
+To enable your Azure OpenAI resource to access your Azure Search resource, you need to enable role-based access control on your Azure Search resource. Learn more about [enabling RBAC roles](../../../search/search-security-enable-roles.md) for your resources.
 
 ### Assign RBAC roles to enable intra-service communication
 
-The following table summarizes the RBAC role assignments needed for the Azure OpenAI resource used for inference, the Azure OpenAI resource used for embeddings (if using a separate resource for this purpose), Azure Search resource (if using) and the Azure App Service.
+The following table summarizes the RBAC role assignments needed for the Azure OpenAI resource used for inference, the Azure OpenAI resource used for embeddings (if using a separate resource for this purpose), Azure Search resource (if using), and the Azure App Service.
 
 | Role                             | Assignee                 | Resource                  |
 | -------------------------------- | ------------------------ | ------------------------- |
@@ -120,16 +120,16 @@ To assign these roles, follow [these instructions](../../../role-based-access-co
 
 In the webapp application settings, navigate to "Environment Variables" and make the following changes:
 
-* Remove the environment variable `AZURE_OPENAI_KEY`, as it is no longer needed.  
-* If using On Your Data with Azure Search and are using Entra ID authentication between Azure OpenAI and Azure Search, you should also delete the `AZURE_SEARCH_KEY` environment variables for the data source access keys as well.
+* Remove the environment variable `AZURE_OPENAI_KEY`, as it's no longer needed.
+* If using On Your Data with Azure Search and are using Microsoft Entra ID authentication between Azure OpenAI and Azure Search, you should also delete the `AZURE_SEARCH_KEY` environment variables for the data source access keys as well.
 
-If using an embedding model deployed to the same resource as your model used for inference, there are no additional settings changes required.  
+If using an embedding model deployed to the same resource as your model used for inference, there are no other settings changes required.
 
-However, if you're using an embedding model deployed to a different resource, please make the following additional changes to your app's environment variables:
-* Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API for the resource you're using for embeddings, e.g. `https://<your embedding AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings`
-* Delete the `AZURE_OPENAI_EMBEDDING_KEY` variable to use Entra ID authentication. 
+However, if you're using an embedding model deployed to a different resource, make the following additional changes to your app's environment variables:
+* Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API for the resource you're using for embeddings, for example, `https://<your embedding AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings`
+* Delete the `AZURE_OPENAI_EMBEDDING_KEY` variable to use Microsoft Entra ID authentication. 
 
-Once all of the environment variable changes are completed, restart the webapp to begin using Entra ID authentication between services in the webapp.  It will take a few minutes after restarting for any settings changes to take effect.
+Once all of the environment variable changes are completed, restart the webapp to begin using Microsoft Entra ID authentication between services in the webapp. It will take a few minutes after restarting for any settings changes to take effect.
 
 ## Related content
 
