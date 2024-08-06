@@ -163,7 +163,9 @@ If the dataset has a record with the `asset` field, similar to:
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available `filter` and `map` stages.
 
-For more information, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
+You can load sample data into the distributed state store (DSS) using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
+
+For more information about condition syntax, see [Enrich data using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
 ### Filter: Filter data based on a condition
 

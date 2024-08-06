@@ -22,7 +22,7 @@ You can write configurations for various use cases, such as:
 - Transform data and send it to the cloud
 - Send data to the cloud or edge without transformation
 
-Dataflows are not limited to the region where the Azure IoT Operations instance is deployed. You can use dataflows to send data to any cloud endpoint in any region.
+Dataflows aren't limited to the region where the Azure IoT Operations instance is deployed. You can use dataflows to send data to cloud endpoints in different regions.
 
 ## Key features
 
