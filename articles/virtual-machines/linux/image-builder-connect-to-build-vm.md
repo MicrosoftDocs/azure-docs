@@ -49,7 +49,7 @@ Azure Bastion provides a secure way to connect to VMs without exposing public IP
 ### Option 2 (Recommended, if available): Connect to the VM using Azure Serial Console
 Azure Serial Console offers text-based access to VMs running Linux or Windows. Learn more about how to use Azure Serial Console to connect to a VM by reading the [Azure Serial Console documentation](https://learn.microsoft.com/troubleshoot/azure/virtual-machines/windows/serial-console-overview).
 
-###Option 3 (Not Recommended): Use a Public IP Address Resource
+### Option 3 (Not Recommended): Use a Public IP Address Resource
 The recommended practice is to use Azure Bastion or Azure Serial Console for connecting to VMs. However, if Bastion or Serial Console cannot be used, you can connect to the Build VM by using public IPs. 
 
 Use the following documentation to connect to a VM using public IPs:
