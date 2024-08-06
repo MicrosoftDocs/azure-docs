@@ -57,7 +57,7 @@ App Service Environment has the following network information at creation:
 | Virtual IP (VIP) | The VIP type used. The two possible values are internal and external. |
 | Inbound address | The inbound address is the address at which your apps are reached. If you have an internal VIP, it's an address in your App Service Environment subnet. If the address is external, it's a public-facing address. |
 | Worker outbound addresses | The apps use this or these addresses, when making outbound calls to the internet. |
-| Platform outbound addresses | The platform use this address, when making outbound calls to the internet. An example is pulling certificates for custom domain suffix from Key Vault if a private endpoint is not used. |
+| Platform outbound addresses | The platform uses this address, when making outbound calls to the internet. An example is pulling certificates for custom domain suffix from Key Vault if a private endpoint isn't used. |
 
 You can find details in the **IP Addresses** portion of the portal, as shown in the following screenshot:
 
@@ -74,7 +74,7 @@ You can bring your own inbound address to your App Service Environment. If you c
 
 ## Ports and network restrictions
 
-For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports, you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
+For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
 
 > [!NOTE]
 > Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the impact to be seen.
@@ -141,7 +141,7 @@ The following sections describe the DNS considerations and configuration that ap
 
 ### DNS configuration to your App Service Environment
 
-If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, when you create your App Service Environment, if you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you have two options when you create your App Service Environment. If you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
 
 If you want to use your own DNS server, add the following records:
 
