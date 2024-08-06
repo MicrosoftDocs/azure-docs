@@ -402,7 +402,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
 6. Select **VNet-Spoke** for the virtual network and the subnet is **SN-Workload**.
 7. For **Public IP**, select **None**. 
 9. Select **Next:Management**.
-1. Select, **Next : Monitoring**.
+1. Select **Next : Monitoring**.
 1. For **Boot diagnostics**, Select **Disable**.
 1. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
@@ -443,7 +443,7 @@ This is a virtual machine that you use to connect using Remote Desktop to the pu
 6. Select **VNet-Onprem** for virtual network and the subnet is **SN-Corp**.
 8. Select **Next:Management**.
 1. Select **Next : Monitoring**.
-1. For **Boot diagnostics**, Select **Disable**.
+1. For **Boot diagnostics**, select **Disable**.
 1. Select **Review+Create**, review the settings on the summary page, and then select **Create**.
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
