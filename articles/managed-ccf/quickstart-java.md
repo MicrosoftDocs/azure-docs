@@ -4,7 +4,7 @@ description: Learn to use the Azure SDK for Java library for Azure Managed Confi
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-extended-java
 ---

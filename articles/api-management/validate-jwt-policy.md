@@ -4,9 +4,9 @@ description: Reference for the validate-jwt policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -111,7 +111,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

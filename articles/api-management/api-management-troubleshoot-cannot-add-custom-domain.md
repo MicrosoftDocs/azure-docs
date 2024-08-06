@@ -5,7 +5,7 @@ description: Learn how to troubleshoot the issue in which you can't add a custom
 services: api-management
 author: genlin
 manager: dcscontentpm
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr

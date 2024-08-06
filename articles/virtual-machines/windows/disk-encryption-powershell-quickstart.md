@@ -3,7 +3,7 @@ title: Create and encrypt a Windows VM with Azure PowerShell
 description: In this quickstart, you learn how to use Azure PowerShell to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.collection: windows
 ms.topic: quickstart

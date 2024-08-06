@@ -4,7 +4,7 @@ description: Overview of the Azure Synapse Analytics security white paper series
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.date: 01/14/2022
 ---

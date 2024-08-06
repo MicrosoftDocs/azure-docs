@@ -17,7 +17,7 @@ This article describes core concepts of Nexus Kubernetes Cluster, a managed Kube
 
 Kubernetes is a rapidly evolving platform that manages container-based applications and their associated networking and storage components.
 Kubernetes focuses on the application workloads, not the underlying infrastructure components. It provides a declarative approach to
-deployments, backed by a robust set of APIs for management operations. See [What is Kubernetes](../aks/concepts-clusters-workloads.md#what-is-kubernetes) to learn about Kubernetes.
+deployments, backed by a robust set of APIs for management operations. See [What is Kubernetes](/azure/aks/concepts-clusters-workloads#what-is-kubernetes) to learn about Kubernetes.
 
 ## Nexus Kubernetes Service
 
@@ -28,7 +28,7 @@ Like any Kubernetes cluster, Nexus Kubernetes cluster has two components:
 * Control plane: provides core Kubernetes services and manages the life cycle of application workloads.
 
 * Nodes: To run your applications and supporting services, you need a Kubernetes node. It provides the container runtime environment.
-Each NKS cluster has at least one node. Node is hosted in virtual machine (VM) that runs the [Kubernetes node components](../aks/concepts-clusters-workloads.md#nodes). 
+Each NKS cluster has at least one node. Node is hosted in virtual machine (VM) that runs the [Kubernetes node components](/azure/aks/concepts-clusters-workloads#nodes). 
 VM is created as part of NKS cluster deployment on Nexus instance. There are two types of node pools in Nexus Kubernetes Clusters
 
   * When you create an AKS cluster, you define the initial number of nodes and their size (SKU), which creates a system node pool. System node pools host critical system pods.

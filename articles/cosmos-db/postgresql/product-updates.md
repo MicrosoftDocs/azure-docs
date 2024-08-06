@@ -4,7 +4,7 @@ description: Release notes, new features, and features in preview
 ms.author: nlarin
 author: niklarin
 ms.custom: mvc, references_regions
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 07/07/2024

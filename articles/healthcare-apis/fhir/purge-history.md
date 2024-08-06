@@ -2,7 +2,7 @@
 title: Purge history operation for Azure Health Data Services FHIR service
 description: This article describes the $purge-history operation for the FHIR service.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/06/2022

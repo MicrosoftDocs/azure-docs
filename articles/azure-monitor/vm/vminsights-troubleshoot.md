@@ -9,7 +9,7 @@ ms.custom: references_regions
 
 ---
 
-# Troubleshoot VM insights
+# Troubleshoot VM Insights
 
 This article provides troubleshooting information to help you with problems that you might experience when you try to enable or use the VM Insights feature in Azure Monitor.
 
@@ -17,9 +17,9 @@ This article provides troubleshooting information to help you with problems that
 
 When you onboard an Azure virtual machine (VM) from the Azure portal, the following actions occur:
 
-- A default Log Analytics workspace is created if you selected that option.
-- The Azure Monitor Agent is installed on the virtual machine through an extension, if the agent is already installed.
-- The Dependency Agent is installed on the virtual machine through an extension, if it's required.
+* A default Log Analytics workspace is created if you selected that option.
+* The Azure Monitor Agent is installed on the virtual machine through an extension, if the agent isn't already installed.
+* The Dependency Agent is installed on the virtual machine through an extension, if it's required.
 
 During the onboarding process, each of these steps is verified and a notification status appears in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. It takes another 5 to 10 minutes for data to become available to view in the portal.
 
@@ -155,8 +155,8 @@ Heartbeat
 
 If no data appears or if the computer didn't send a heartbeat recently, you might have problems with your agent. For agent troubleshooting information, see these articles:
 
-- [Troubleshoot issues with the Log Analytics agent for Windows](../agents/agent-windows-troubleshoot.md)
-- [Troubleshoot issues with the Log Analytics agent for Linux](../agents/agent-linux-troubleshoot.md)
+* [Troubleshoot issues with the Log Analytics agent for Windows](../agents/agent-windows-troubleshoot.md)
+* [Troubleshoot issues with the Log Analytics agent for Linux](../agents/agent-linux-troubleshoot.md)
 
 ## Virtual machine doesn't appear in the Map view
 
@@ -178,13 +178,13 @@ Use the log query in the [Performance view has no data](#performance-view-has-no
 
 If the virtual machine is in the **Map** view and the Dependency Agent is installed and running, but the kernel driver didn't load, check the log file at the following locations:
 
-| Operating system | Log |
-|:---|:---|
-| Windows | C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log |
-| Linux | /var/opt/microsoft/dependency-agent/log/service.log |
+| Operating system | Log                                                          |
+|:-----------------|:-------------------------------------------------------------|
+| Windows          | C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log |
+| Linux            | /var/opt/microsoft/dependency-agent/log/service.log          |
 
 The last lines of the file should indicate why the kernel didn't load. For example, the kernel might not be supported on Linux if you updated your kernel.
 
 ## Related content
 
-- For more information on installing VM Insights agents, see [Enable VM Insights overview](vminsights-enable-overview.md)
+* For more information on installing VM Insights agents, see [Enable VM Insights overview](vminsights-enable-overview.md)

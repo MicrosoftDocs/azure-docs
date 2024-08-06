@@ -4,7 +4,7 @@ description: Learn how to add and remove user permissions to the KQL consumption
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 1/06/2024
 ---

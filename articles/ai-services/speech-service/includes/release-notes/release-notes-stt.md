@@ -6,6 +6,12 @@ ms.date: 7/12/2024
 ms.author: eur
 ---
 
+### August 2024 release
+
+#### Language learning (Preview)
+
+Language learning is now available in public preview. Interactive language learning can make your learning experience more engaging and effective. For more information, see [Interactive language learning with pronunciation assessment](../../language-learning-with-pronunciation-assessment.md).
+
 ### July 2024 release
 
 #### Fast Transcription API (Preview)

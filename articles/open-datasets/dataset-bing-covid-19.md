@@ -1,7 +1,7 @@
 ---
 title: Bing COVID-19
 description: Learn how to use the Bing COVID-19 dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.reviewer: franksolomon
 ms.date: 06/11/2024

@@ -5,7 +5,7 @@ ms.author: zhenxilin
 author: alexlzx
 ms.topic: conceptual
 ms.date: 12/27/2022
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ---
 
 # Develop and debug Azure Stream Analytics jobs locally

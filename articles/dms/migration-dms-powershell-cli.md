@@ -5,7 +5,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolph.west
 ms.date: 04/26/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - devx-track-azurepowershell

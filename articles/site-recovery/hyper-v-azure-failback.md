@@ -4,7 +4,7 @@ description: How to fail back Hyper-V VMs to an on-premises site from Azure with
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 12/14/2023
 ms.author: ankitadutta

@@ -31,11 +31,11 @@ items:
     items:
       - name: Schedule updates dynamically and at scale using dynamic scope
         href: tutorial-dynamic-grouping-for-scheduled-patching.md
-  - name: Pre and Post Events (preview)
+  - name: Pre and Post Events
     items:
-      - name: Create pre and post events (preview) using a webhook with Automation Runbooks
+      - name: Create pre and post events using a webhook with Automation Runbooks
         href: tutorial-webhooks-using-runbooks.md
-      - name: Create pre and post events (preview) using Azure Functions
+      - name: Create pre and post events using Azure Functions
         href: tutorial-using-functions.md
 - name: Concepts
   items:
@@ -43,7 +43,7 @@ items:
     href: updates-maintenance-schedules.md
   - name: Assessment options
     href: assessment-options.md
-  - name: Overview of Pre and Post Events (preview)
+  - name: Overview of Pre and Post Events
     href: pre-post-scripts-overview.md
   - name: Access Azure Update Manager operations data using Azure Resource Graph
     href: query-logs.md 
@@ -65,8 +65,18 @@ items:
       href: configure-wu-agent.md
   - name: Manage
     items: 
-    - name: Move from Automation Update Management to Azure Update Manager
-      href: guidance-migration-automation-update-management-azure-update-manager.md
+    - name: Migration from Automation Update Management to Azure Update Manager
+      items:
+      - name: Overview
+        href: migration-overview.md
+      - name: Using Azure portal
+        href: migration-using-portal.md
+      - name: Using runbook scripts
+        href: migration-using-runbook-scripts.md
+      - name: Key points to note for automated migration
+        href: migration-key-points.md
+      - name: Using manual migration
+        href: migration-manual.md
     - name: Check update compliance 
       href: view-updates.md
     - name: Automate assessment at scale using Policy
@@ -85,11 +95,11 @@ items:
         href: manage-dynamic-scoping.md
       - name: Schedule patching configuration on Azure VMs for business continuity
         href: prerequsite-for-schedule-patching.md
-    - name: Pre and Post Events (preview)
+    - name: Pre and Post Events
       items:
-      - name: Create pre and post events (preview)
+      - name: Create pre and post events 
         href: pre-post-events-schedule-maintenance-configuration.md
-      - name: Manage pre and post events (preview)
+      - name: Manage pre and post events 
         href: manage-pre-post-events.md  
     - name: Manage updates for Azure VMs using REST API
       href: manage-vms-programmatically.md

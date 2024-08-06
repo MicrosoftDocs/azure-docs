@@ -73,28 +73,28 @@ $headers = @{
 To return a list of all search indexes, set the endpoint to the indexes collection.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes?api-version=2023-11-01&$select=name'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes?api-version=2024-07-01&$select=name'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 To return a specific index definition, provide its name in the path. The encryptionKey property is at the end.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/<YOUR-INDEX-NAME>?api-version=2023-11-01'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/<YOUR-INDEX-NAME>?api-version=2024-07-01'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 To return synonym maps, set the endpoint to the synonyms collection and then send the request.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms?api-version=2023-11-01&$select=name'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms?api-version=2024-07-01&$select=name'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 
 The following example returns a specific synonym map definition, including the encryptionKey property is towards the end of the definition.
 
 ```powershell
-$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-MAP-NAME>?api-version=2023-11-01'
+$uri= 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/synonyms/<YOUR-SYNONYM-MAP-NAME>?api-version=2024-07-01'
 Invoke-RestMethod -Uri $uri -Headers $headers | ConvertTo-Json
 ```
 

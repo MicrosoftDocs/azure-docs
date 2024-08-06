@@ -4,7 +4,7 @@ description: Learn how to monitor access to your key vaults by enabling logging 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

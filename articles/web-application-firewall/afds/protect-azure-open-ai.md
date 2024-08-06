@@ -3,7 +3,7 @@ title: Protect Azure OpenAI using Azure Web Application Firewall on Azure Front 
 description: Learn how to Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 author: sowmyam2019
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
 ---

@@ -6,7 +6,7 @@ author: mumian
 ms.author: jgao
 ms.date: 10/31/2023
 ms.topic: quickstart
-ms.service: container-registry
+ms.service: azure-container-registry
 tags: azure-resource-manager, bicep
 ms.custom: mode-api, devx-track-bicep
 ---

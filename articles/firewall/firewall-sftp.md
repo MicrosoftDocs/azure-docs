@@ -3,7 +3,7 @@ title: Access a storage account using SFTP over an Azure Firewall static public 
 description: In this article, you use Azure PowerShell to deploy Azure Firewall to access a storage account container via SFTP.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: harjsing 

@@ -7,6 +7,7 @@ ms.date: 09/23/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 #Customer intent: As a developer, I want to use Runbooks to deploy ARM templates so that I can increase efficiency.
+ms.service: azure-automation
 ---
 
 # Deploy an Azure Resource Manager template in an Automation PowerShell runbook

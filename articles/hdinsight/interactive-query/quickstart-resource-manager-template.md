@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create Interactive Query cluster using template - Azure HDInsight'
 description: This quickstart shows how to use Resource Manager template to create an Interactive Query cluster in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 01/04/2024

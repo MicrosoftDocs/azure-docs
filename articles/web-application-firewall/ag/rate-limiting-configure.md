@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: Learn how to configure rate limit custom rules for Application Gateway WAF v2.
 services: web-application-firewall
 author: joeolerich
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 11/01/2023
 ms.author: victorh

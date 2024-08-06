@@ -43,7 +43,7 @@ The following image describes the hardware elements on the HPE ProLiant DL360 ba
 |**Rack support**     | HPE 1U Gen10 SFF easy install rail kit        |
 
 
-## HPE DL360 BOM
+## HPE DL360 - Bill of materials
 
 |PN	|Description	|Quantity|
 |-------------- | --------------| --------- |
