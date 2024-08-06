@@ -10,7 +10,7 @@ ms.date: 04/18/2023
 ---
 
 # Troubleshoot outdated kernel versions in Azure Linux Container Host node images
-During migration or when adding new node pools to your Azure Linux Container Host, you may encounter issues with outdated kernel versions. [Azure Kubernetes Service (AKS)](../../articles/aks/intro-kubernetes.md) releases a new Azure Linux node-image every week, which is used for new node pools and as the starting image for scaling up. However, older node pools may not be updating their kernel versions as expected.
+During migration or when adding new node pools to your Azure Linux Container Host, you may encounter issues with outdated kernel versions. [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) releases a new Azure Linux node-image every week, which is used for new node pools and as the starting image for scaling up. However, older node pools may not be updating their kernel versions as expected.
 
 To check the KERNEL-VERSION of your node pools run: 
 
@@ -33,7 +33,7 @@ There are two primary causes for this issue:
 
 ## Solution
 
-You can enable automatic upgrades using [GitHub Actions](../../articles/aks/node-upgrade-github-actions.md) and reboot the nodes to resolve this issue.
+You can enable automatic upgrades using [GitHub Actions](/azure/aks/node-upgrade-github-actions) and reboot the nodes to resolve this issue.
 
 ### Enable automatic node-image upgrades by using Azure CLI
 
@@ -68,10 +68,10 @@ To enable automatic node-image upgrades when using a Terraform template, you can
 -->
 ### Reboot the nodes
 
-When updating the kernel version, you need to reboot the node to use the new kernel version. We recommend that you set up the [kured daemonset](../../articles/aks/node-updates-kured.md). [Kured](https://github.com/kubereboot/kured) to monitor your nodes for the `/var/run/reboot-required` file, drain the workload, and reboot the nodes.
+When updating the kernel version, you need to reboot the node to use the new kernel version. We recommend that you set up the [kured daemonset](/azure/aks/node-updates-kured). [Kured](https://github.com/kubereboot/kured) to monitor your nodes for the `/var/run/reboot-required` file, drain the workload, and reboot the nodes.
 
 ## Workaround: Manual upgrades
-If you need a quick workaround, you can manually upgrade the node-image on a cluster using [az aks nodepool upgrade](../../articles/aks/node-image-upgrade.md#upgrade-a-specific-node-pool). This can be done by running 
+If you need a quick workaround, you can manually upgrade the node-image on a cluster using [az aks nodepool upgrade](/azure/aks/node-image-upgrade#upgrade-a-specific-node-pool). This can be done by running 
 
 ```azurecli
 az aks nodepool upgrade \

@@ -63,11 +63,11 @@ In Azure RBAC, to grant access, you assign an Azure role.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Virtual Machine Contributor** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select yourself or another user.
 

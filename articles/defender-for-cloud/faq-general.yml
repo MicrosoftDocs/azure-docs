@@ -41,7 +41,7 @@ sections:
           * Virtual Machine Scale Sets
           * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#security-benefits-for-azure-services)
 
-          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and [multicloud resources](multicloud.yml), including Amazon AWS and Google Cloud.
+          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and multicloud resources, including Amazon AWS and Google Cloud.
           
           
       - question: |
@@ -140,8 +140,6 @@ sections:
           - Containers sharing sensitive host namespaces should be avoided
           - Containers should listen on allowed ports only
           - Default IP Filter Policy should be Deny
-          - EDR configuration issues should be resolved on virtual machines
-          - EDR solution should be installed on Virtual Machines
           - File integrity monitoring should be enabled on machines
           - Immutable (read-only) root filesystem should be enforced for containers
           - IoT Devices - Open Ports On Device
@@ -359,7 +357,7 @@ sections:
 
           :::image type="content" source="media/faq-general/change-region.png" alt-text="Screenshot that shows a change in region.":::
         
-          When configuring permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
+          When you configure permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
           
           :::image type="content" source="media/faq-general/permission-types.png" alt-text="Screenshot that shows selecting permission types.":::
 
@@ -371,7 +369,7 @@ sections:
       - question: |
           How does onboarding an AWS organization or management account to Microsoft Defender for Cloud work?
         answer: |
-          Onboarding an organization or a management account to Microsoft Defender for Cloud initiates the process of [deploying a StackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html). The SteckSet includes the necessary roles and permissions. The StackSet also propagates the required permissions across all accounts within the organization. 
+          Onboarding an organization or a management account to Microsoft Defender for Cloud initiates the process of [deploying a StackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html). The StackSet includes the necessary roles and permissions. The StackSet also propagates the required permissions across all accounts within the organization. 
           
           The included permissions allow Microsoft Defender for Cloud to deliver the selected security features through the created connector in Defender for Cloud. The permissions also allow Defender for Cloud to continuously monitor all accounts that might be added using the auto-provisioning service.
           

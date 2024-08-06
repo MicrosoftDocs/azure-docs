@@ -3,12 +3,12 @@ title: Incorporate images into prompt flow (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to incorporate images into prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.topic: how-to
-ms.author: jinzhong
-author: zhongj
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: jinzhong
 ms.date: 12/18/2023
 ---
 

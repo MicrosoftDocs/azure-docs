@@ -6,10 +6,10 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.reviewer: laobri
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 07/09/2024
 ms.custom: UpdateFrequency5, sdkv1, devx-track-python
 ---
 
@@ -33,7 +33,7 @@ The private packages are used through [Environment](/python/api/azureml-core/azu
 
 ## Use small number of packages for development and testing
 
-For a small number of private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
+For a few private packages for a single workspace, use the static [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method. This approach allows you to quickly add a private package to the workspace, and is well suited for development and testing purposes.
 
 Point the file path argument to a local wheel file and run the ```add_private_pip_wheel``` command. The command returns a URL used to track the location of the package within your Workspace. Capture the storage URL and pass it the `add_pip_package()` method.
 
@@ -89,7 +89,7 @@ The environment is now ready to be used in training runs or web service endpoint
 
 You can consume packages from an Azure storage account within your organization's firewall. The storage account can hold a curated set of packages or an internal mirror of publicly available packages.
 
-To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). You must also [place the Azure Container Registry (ACR) behind the VNet](../how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). You must also [place the Azure Container Registry (ACR) behind the virtual network](../how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > You must complete this step to be able to train or deploy models using the private package repository.

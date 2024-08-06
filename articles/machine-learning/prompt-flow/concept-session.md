@@ -3,15 +3,15 @@ title: Compute session in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how in Azure Machine Learning prompt flow, the execution of flows is facilitated by using compute session.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: conceptual
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 06/26/2024
 ---
 

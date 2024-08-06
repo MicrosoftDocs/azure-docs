@@ -1,7 +1,7 @@
 ---
 title: Update Azure Storage account access key in Azure HDInsight 
 description: Learn how to update Azure Storage account access key in Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/23/2024
 ---
@@ -44,7 +44,14 @@ Use [Script Action](hdinsight-hadoop-customize-cluster-linux.md#script-action-to
 The preceding script directly updates the access key on the cluster side only and doesn't renew a copy on the HDInsight Resource provider side. Therefore, the script action hosted in the storage account will fail after the access key is rotated.
 
 Workaround:
-Use [SAS URIs](hdinsight-storage-sharedaccesssignature-permissions.md) for script actions or make the scripts publicly accessible.
+
+1. Use/create another storage account in the same region.
+1. Upload the script you want to run to this storage account.
+1. Created SAS URI for the script with read access.
+1. If your cluster is in your own virtual network, make sure your virtual network allows the access to the storage account file/script.
+1. Use this SAS URI to run script action.
+
+   :::image type="content" source="./media/hdinsight-rotate-storage-keys/script-action.png" alt-text="Screenshot showing script action." border="true" lightbox="./media/hdinsight-rotate-storage-keys/script-action.png":::
 
 ## Next steps
 

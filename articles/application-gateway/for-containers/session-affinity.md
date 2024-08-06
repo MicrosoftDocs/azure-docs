@@ -3,9 +3,9 @@ title: Session affinity overview for Azure Application Gateway for Containers
 description: Learn how to configure session affinity for Azure Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 5/9/2024
 ms.author: greglin
 ---

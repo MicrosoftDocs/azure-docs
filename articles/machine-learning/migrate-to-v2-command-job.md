@@ -3,13 +3,13 @@ title: 'Upgrade script run to SDK v2'
 titleSuffix: Azure Machine Learning
 description: Upgrade how to run a script from SDK v1 to SDK v2
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-author: balapv
-ms.author: balapv
+author: sdgilley
+ms.author: sgilley
 ms.date: 09/16/2022
-ms.reviewer: sgilley
+ms.reviewer: balapv
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

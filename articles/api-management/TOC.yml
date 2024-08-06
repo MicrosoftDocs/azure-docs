@@ -108,8 +108,10 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
-    - name: VNet injection - network requirements
+    - name: VNet injection (service) - requirements
       href: virtual-network-injection-resources.md
+    - name: VNet integration (workspace gateway) - requirements
+      href: virtual-network-workspaces-resources.md  
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
     - name: Deploy to a VNet - internal
@@ -132,8 +134,6 @@
       href: workspaces-overview.md
     - name: Create a workspace
       href: how-to-create-workspace.md
-    - name: Use a workspace
-      href: api-management-in-workspace.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator
@@ -397,6 +397,8 @@
       href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
+    - name: Customize developer portal on WordPress
+      href: developer-portal-wordpress-plugin.md
   - name: Self-host the developer portal
     items:
     - name: Create self-hosted portal
@@ -663,10 +665,12 @@
       href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
-    - name: Workspaces breaking changes (June 2024)
+    - name: Workspaces preview breaking changes (June 2024)
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
+    - name: Workspaces preview breaking changes, part 2 (March 2025)
+      href: breaking-changes/workspaces-breaking-changes-march-2025.md
     - name: Git configuration retirement (March 2025)
       href: breaking-changes/git-configuration-retirement-march-2025.md
     - name: Direct management API retirement (March 2025)

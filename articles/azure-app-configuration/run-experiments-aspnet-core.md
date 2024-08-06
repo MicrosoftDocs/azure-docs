@@ -6,6 +6,7 @@ description: In this tutorial, you learn how to set up experiments in an App Con
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
+ms.devlang: csharp
 ms.custom:
   - build-2024
 ms.topic: tutorial
@@ -496,4 +497,12 @@ Any edit to a variant feature flag generates a new version of the experimentatio
 
 ## Next step
 
+To learn more about the experimentation concepts, refer to the following document.
+
+> [!div class="nextstepaction"]
 > [Experimentation](./concept-experimentation.md)
+
+For the full feature rundown of the .NET feature management library, continue to the following document.
+
+> [!div class="nextstepaction"]
+> [.NET Feature Management](./feature-management-dotnet-reference.md)

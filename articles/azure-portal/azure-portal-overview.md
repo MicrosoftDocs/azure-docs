@@ -1,7 +1,7 @@
 ---
 title: What is the Azure portal?
 description: The Azure portal is a graphical user interface that you can use to manage your Azure services. Learn how to navigate and find resources in the Azure portal.
-ms.date: 07/02/2024
+ms.date: 07/18/2024
 ms.topic: overview
 ---
 
@@ -82,9 +82,6 @@ When you save a command as a favorite, it appears in a **Favorites** folder near
 :::image type="content" source="media/azure-portal-overview/service-menu-favorites.png" alt-text="Screenshot of the Favorites folder in a service menu.":::
 
 Your menu group selections are preserved by resource type and throughout sessions. For example, if you add a favorite command while working with a VM, that command will appear in your **Favorites** if you later work with a different VM. Specific menu groups will also appear collapsed or expanded based on your previous selections.
-
-> [!NOTE]
-> We're in the process of rolling out the new service menu experience to all customers. If you don't see these options in the service menu, check back soon. We'll remove this note once all customers are seeing the new experience.
 
 ## Dashboard
 

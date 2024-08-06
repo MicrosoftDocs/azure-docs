@@ -18,7 +18,7 @@ Follow this guide to use Azure AI Content Safety Groundedness detection to check
 ## Prerequisites
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/) 
-* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, supported region (East US, East US2, West US, Sweden Central), and supported pricing tier. Then select **Create**.
+* Once you have your Azure subscription, <a href="https://aka.ms/acs-create"  title="Create a Content Safety resource"  target="_blank">create a Content Safety resource </a> in the Azure portal to get your key and endpoint. Enter a unique name for your resource, select your subscription, and select a resource group, [supported region](./overview.md#region-availability), and supported pricing tier. Then select **Create**.
 * The resource takes a few minutes to deploy. After it does, go to the new resource. In the left pane, under **Resource Management**, select **API Keys and Endpoints**. Copy one of the subscription key values and endpoint to a temporary location for later use.
 * (Optional) If you want to use the _reasoning_ feature, create an Azure OpenAI Service resource with a GPT model deployed.
 * [cURL](https://curl.haxx.se/) or [Python](https://www.python.org/downloads/) installed.
@@ -45,7 +45,7 @@ This section walks through a sample request with cURL. Paste the command below i
       "domain": "Generic",
       "task": "QnA",
       "qna": {
-           "query": "How much does she currently get paid per hour at the bank?"
+        "query": "How much does she currently get paid per hour at the bank?"
       },
       "text": "12/hour",
       "groundingSources": [
@@ -108,11 +108,13 @@ To test a summarization task instead of a question answering (QnA) task, use the
 
 ```json
 {
-    "domain": "Medical",
-    "task": "Summarization",
-    "text": "Ms Johnson has been in the hospital after experiencing a stroke.",
-    "groundingSources": ["Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."],
-    "reasoning": false
+  "domain": "Medical",
+  "task": "Summarization",
+  "text": "Ms Johnson has been in the hospital after experiencing a stroke.",
+  "groundingSources": [
+    "Our patient, Ms. Johnson, presented with persistent fatigue, unexplained weight loss, and frequent night sweats. After a series of tests, she was diagnosed with Hodgkin’s lymphoma, a type of cancer that affects the lymphatic system. The diagnosis was confirmed through a lymph node biopsy revealing the presence of Reed-Sternberg cells, a characteristic of this disease. She was further staged using PET-CT scans. Her treatment plan includes chemotherapy and possibly radiation therapy, depending on her response to treatment. The medical team remains optimistic about her prognosis given the high cure rate of Hodgkin’s lymphoma."
+  ],
+  "reasoning": false
 }
 ```
 
@@ -140,13 +142,13 @@ After you submit your request, you'll receive a JSON response reflecting the Gro
 
 ```json
 {
-    "ungroundedDetected": true,
-    "ungroundedPercentage": 1,
-    "ungroundedDetails": [
-        {
-            "text": "12/hour."
-        }
-    ]
+  "ungroundedDetected": true,
+  "ungroundedPercentage": 1,
+  "ungroundedDetails": [
+    {
+      "text": "12/hour."
+    }
+  ]
 }
 ```
 
@@ -176,7 +178,7 @@ In order to use your Azure OpenAI GPT4-Turbo (1106-preview) resource to enable t
 In your request to the Groundedness detection API, set the `"reasoning"` body parameter to `true`, and provide the other needed parameters:
     
 ```json
- {
+{
   "reasoning": true,
   "llmResource": {
     "resourceType": "AzureOpenAI",
@@ -203,7 +205,7 @@ This section walks through a sample request with cURL. Paste the command below i
       "domain": "Generic",
       "task": "QnA",
       "qna": {
-           "query": "How much does she currently get paid per hour at the bank?"
+        "query": "How much does she currently get paid per hour at the bank?"
       },
       "text": "12/hour",
       "groundingSources": [
@@ -291,24 +293,24 @@ After you submit your request, you'll receive a JSON response reflecting the Gro
 
 ```json
 {
-    "ungroundedDetected": true,
-    "ungroundedPercentage": 1,
-    "ungroundedDetails": [
-        {
-            "text": "12/hour.",
-            "offset": {
-                "utf8": 0,
-                "utf16": 0,
-                "codePoint": 0
-            },
-            "length": {
-                "utf8": 8,
-                "utf16": 8,
-                "codePoint": 8
-            },
-            "reason": "None. The premise mentions a pay of \"10/hour\" but does not mention \"12/hour.\" It's neutral. "
-        }
-    ]
+  "ungroundedDetected": true,
+  "ungroundedPercentage": 1,
+  "ungroundedDetails": [
+    {
+      "text": "12/hour.",
+      "offset": {
+        "utf8": 0,
+        "utf16": 0,
+        "codePoint": 0
+      },
+      "length": {
+        "utf8": 8,
+        "utf16": 8,
+        "codePoint": 8
+      },
+      "reason": "None. The premise mentions a pay of \"10/hour\" but does not mention \"12/hour.\" It's neutral. "
+    }
+  ]
 }
 ```
 
@@ -334,7 +336,7 @@ The JSON objects in the output are defined here:
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
+- [Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
 - [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
 ## Next steps

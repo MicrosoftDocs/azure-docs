@@ -3,14 +3,14 @@ title: How to deploy models to Azure Container Instances with CLI (v1)
 titleSuffix: Azure Machine Learning
 description: 'Use CLI (v1) to deploy your Azure Machine Learning models as a web service using Azure Container Instances.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, cliv1, sdkv1
-ms.author: bozhlin
-author: bozhong68
-ms.reviewer: larryfr
-ms.date: 11/04/2022
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: bozhlin
+ms.date: 07/10/2024
 ---
 
 # Deploy a model to Azure Container Instances with CLI (v1)
@@ -21,12 +21,12 @@ ms.date: 11/04/2022
 Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Container Instances (ACI). Use Azure Container Instances if you:
 
 - prefer not to manage your own Kubernetes cluster
-- Are OK with having only a single replica of your service, which may impact uptime
+- Are OK with having only a single replica of your service, which might affect uptime
 
 For information on quota and region availability for ACI, see [Quotas and region availability for Azure Container Instances](../../container-instances/container-instances-quotas.md) article.
 
 > [!IMPORTANT]
-> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](how-to-troubleshoot-deployment-local.md)
+> It is highly advised to debug locally before deploying to the web service, for more information, see [Debug Locally](how-to-troubleshoot-deployment-local.md)
 >
 > You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml)
 
@@ -52,7 +52,7 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 ## Limitations
 
-When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a VNet is not supported. Instead, consider using a [Managed online endpoint with network isolation](../how-to-secure-online-endpoint.md).
+When your Azure Machine Learning workspace is configured with a private endpoint, deploying to Azure Container Instances in a virtual network isn't supported. Instead, consider using a [Managed online endpoint with network isolation](../how-to-secure-online-endpoint.md).
 
 ## Deploy to ACI
 
@@ -103,11 +103,11 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
 | `location` | `location` | The Azure region to deploy this Webservice to. If not specified the Workspace location will be used. More details on available regions can be found here: [ACI Regions](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=container-instances) |
 | `authEnabled` | `auth_enabled` | Whether to enable auth for this Webservice. Defaults to False |
-| `sslEnabled` | `ssl_enabled` | Whether to enable SSL for this Webservice. Defaults to False. |
+| `sslEnabled` | `ssl_enabled` | Whether to enable TLS for this Webservice. Defaults to False. |
 | `appInsightsEnabled` | `enable_app_insights` | Whether to enable AppInsights for this Webservice. Defaults to False |
-| `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if SSL is enabled |
-| `sslKey` | `ssl_key_pem_file` | The key file needed if SSL is enabled |
-| `cname` | `ssl_cname` | The cname for if SSL is enabled |
+| `sslCertificate` | `ssl_cert_pem_file` | The cert file needed if TLS is enabled |
+| `sslKey` | `ssl_key_pem_file` | The key file needed if TLS is enabled |
+| `cname` | `ssl_cname` | The CNAME for if TLS is enabled |
 | `dnsNameLabel` | `dns_name_label` | The dns name label for the scoring endpoint. If not specified a unique dns name label will be generated for the scoring endpoint. |
 
 The following JSON is an example deployment configuration for use with the CLI:

@@ -3,15 +3,15 @@ title: 'CLI (v2) registry YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) registry YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2, build-2023
 
-author: fkriti
-ms.author: kritifaujdar
+author: Blackmist
+ms.author: larryfr
 ms.date: 04/29/2024
-ms.reviewer: larryfr
+ms.reviewer: kritifaujdar
 ---
 
 # CLI (v2) registry YAML schema

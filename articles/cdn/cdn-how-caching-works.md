@@ -109,6 +109,9 @@ Not all resources can be cached. The following table shows what resources can be
 
 For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it received a GET request.
 
+> [!NOTE]
+> Requests that include authorization header will not be cached.
+
 ## Default caching behavior
 
 The following table describes the default caching behavior for the Azure Content Delivery Network products and their optimizations.

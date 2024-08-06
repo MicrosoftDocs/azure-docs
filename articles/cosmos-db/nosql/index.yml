@@ -9,7 +9,7 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: markjbrown
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: nosql
   ms.topic: landing-page
   ms.date: 07/05/2024
@@ -44,8 +44,6 @@ landingContent:
             url: tutorial-dotnet-web-app.md
           - text: Build a Java console app with Async SDK
             url: quickstart-java.md?tabs=async
-          - text: Create a Jupyter notebook
-            url: tutorial-create-notebook.md
       - linkListType: how-to-guide
         links:
           - text: Create an account

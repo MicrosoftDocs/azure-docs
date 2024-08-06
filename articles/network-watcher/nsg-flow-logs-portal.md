@@ -4,9 +4,9 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 07/25/2024
 
 #CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher NSG flow logs so that I can analyze it later.
 ---
@@ -25,13 +25,15 @@ In this article, you learn how to create, change, disable, or delete an NSG flow
 
 - A network security group. If you need to create a network security group, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal).
 
-- An Azure storage account. If you need to create a storage account, see [Create a storage account using PowerShell](../storage/common/storage-account-create.md?tabs=azure-portal).
+- An Azure storage account. If you need to create a storage account, see [Create a storage account using the Azure portal](../storage/common/storage-account-create.md?tabs=azure-portal).
 
 ## Register Insights provider
 
 *Microsoft.Insights* provider must be registered to successfully log traffic flowing through a network security group. If you aren't sure if the *Microsoft.Insights* provider is registered, you can check its status by following these steps:
 
 1. In the search box at the top of the portal, enter *subscriptions*. Select **Subscriptions** from the search results.
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/subscriptions.png" alt-text="Screenshot that shows how to search for Subscriptions in the Azure portal." lightbox="./media/nsg-flow-logs-portal/subscriptions.png":::
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -55,78 +57,78 @@ Create a flow log for your network security group. This NSG flow log is saved in
 
     :::image type="content" source="./media/nsg-flow-logs-portal/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-logs.png":::
 
-1. Enter or select the following values in **Create a flow log**:
+1. On the **Basics** tab of **Create a flow log**, enter or select the following values:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select the Azure subscription of your network security group that you want to log. |
-    | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myNSG**. Then, select **Confirm selection**. |
-    | Flow Log Name | Enter a name for the flow log or leave the default name. **myNSG-myResourceGroup-flowlog** is the default name for this example. |
+    | Flow log type | Select **Network security group** then select **+ Select target resource**. <br> Select the network security group that you want to flow log, then select **Confirm selection**. |
+    | Flow Log Name | Enter a name for the flow log or leave the default name. Azure portal uses ***{ResourceName}-{ResourceGroupName}-flowlog*** as a default name for the flow log. **myNSG-myResourceGroup-flowlog** is the default name used in this article. |
     | **Instance details** |   |
     | Subscription | Select the Azure subscription of your storage account. |
-    | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs. Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
+    | Storage accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
+    | Retention (days) | Enter a retention time for the logs (this option is only available with [Standard general-purpose v2](../storage/common/storage-account-overview.md?toc=/azure/network-watcher/toc.json#types-of-storage-accounts) storage accounts).  Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-basics.png" alt-text="Screenshot of creating an NSG flow log in the Azure portal.":::
 
     > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+
+1. To enable traffic analytics, select **Next: Analytics** button, or select the **Analytics** tab. Enter or select the following values:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Flow logs version | Select the version of the network security group flow log, available options are: **Version 1** and **Version 2**.  The default version is version 2. For more information, see [Flow logging for network security groups](nsg-flow-logs-overview.md). |
+    | Enable traffic analytics | Select the checkbox to enable traffic analytics for your flow log. |
+    | Traffic analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
+    | Subscription | Select the Azure subscription of your Log Analytics workspace. |
+    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+
+    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
+
+    > [!NOTE]
+    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json)
 
 1. Select **Review + create**.
 
 1. Review the settings, and then select **Create**.
 
-## Create a flow log and traffic analytics workspace
+## Enable or disable traffic analytics
 
-Create a flow log for your network security group and enable traffic analytics. The NSG flow log is saved in an Azure storage account.
+Enable traffic analytics for a flow log to analyze the flow log data. Traffic analytics provides insights into your traffic patterns. You can enable or disable traffic analytics for a flow log at any time.
+
+To enable traffic analytics for a flow log, follow these steps:
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
-1. In **Network Watcher | Flow logs**, select **+ Create** or **Create flow log** blue button.
+1. In **Network Watcher | Flow logs**, select the flow log that you want to enable traffic analytics for.
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/flow-logs.png" alt-text="Screenshot of Flow logs page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-logs.png":::
+1. In **Flow logs settings**, check the **Enable traffic analytics** checkbox.
 
-1. Enter or select the following values in **Create a flow log**:
+    :::image type="content" source="./media/nsg-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/enable-traffic-analytics.png":::
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **Project details** |   |
-    | Subscription | Select the Azure subscription of your network security group that you want to log. |
-    | Network security group | Select **+ Select resource**. <br> In **Select network security group**, select **myNSG**. Then, select **Confirm selection**. |
-    | Flow Log Name | Enter a name for the flow log or leave the default name. By default, Azure portal creates *{network-security-group}-{resource-group}-flowlog* flow log in **NetworkWatcherRG** resource group. |
-    | **Instance details** |   |
-    | Subscription | Select the Azure subscription of your storage account. |
-    | Storage Accounts | Select the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
-    | Retention (days) | Enter a retention time for the logs. Enter *0* if you want to retain the flow logs data in the storage account forever (until you delete it from the storage account). For information about pricing, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). |
-
-    :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-basics.png" alt-text="Screenshot of the Basics tab of Create a flow log in the Azure portal.":::
-
-    > [!NOTE]
-    > If the storage account is in a different subscription, the network security group and storage account must be associated with the same Azure Active Directory tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
-
-1. Select **Next: Analytics** button, or select **Analytics** tab. Then enter or select the following values:
+1. Select the following values:
 
     | Setting | Value |
     | ------- | ----- |
-    | Flow Logs Version | Select the flow log version. Version 2 is selected by default when you create a flow log using the Azure portal. For more information about flow logs versions, see [Log format of NSG flow logs](nsg-flow-logs-overview.md#log-format). |
-    | **Traffic Analytics** |   |
-    | Enable Traffic Analytics | Select the checkbox to enable traffic analytics for your flow log. |
-    | Traffic Analytics processing interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
     | Subscription | Select the Azure subscription of your Log Analytics workspace. |
-    | Log Analytics Workspace | Select your Log Analytics workspace. By default, Azure portal creates and selects *DefaultWorkspace-{subscription-id}-{region}* Log Analytics workspace in *defaultresourcegroup-{Region}* resource group. |
+    | Log Analytics workspace | Select your Log Analytics workspace. By default, Azure portal creates ***DefaultWorkspace-{SubscriptionID}-{Region}*** Log Analytics workspace in ***defaultresourcegroup-{Region}*** resource group. |
+    | Traffic logging interval  | Select the processing interval that you prefer, available options are: **Every 1 hour** and **Every 10 mins**. The default processing interval is every one hour. For more information, see [Traffic analytics](traffic-analytics.md). |
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/enable-traffic-analytics.png" alt-text="Screenshot of enabling traffic analytics for a flow log in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-portal/enable-traffic-analytics-settings.png" alt-text="Screenshot that shows configurations of traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/enable-traffic-analytics-settings.png":::
 
-1. Select **Review + create**.
+1. Select **Save** to apply the changes.
 
-1. Review the settings, and then select **Create**.
+To disable traffic analytics for a flow log, take the previous steps 1-3, then uncheck the **Enable traffic analytics** checkbox and select **Save**.
 
-## Change a flow log
+:::image type="content" source="./media/nsg-flow-logs-portal/disable-traffic-analytics.png" alt-text="Screenshot that shows how to disable traffic analytics for an existing flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-traffic-analytics.png":::
 
-You can change the properties of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
+## Change flow log settings
+
+You can change the settings of a flow log after you create it. For example, you can change the flow log version or disable traffic analytics.
 
 1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
@@ -136,14 +138,21 @@ You can change the properties of a flow log after you create it. For example, yo
 
 1. In **Flow logs settings**, you can change any of the following settings:
 
-    - **Flow Logs Version**: Change the flow log version. Available versions are: version 1 and version 2. Version 2 is selected by default when you create a flow log using the Azure portal. For more information about flow logs versions, see [Log format of NSG flow logs](nsg-flow-logs-overview.md#log-format).
-    - **Storage Account**: Change the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**.
-    - **Retention (days)**: Change the retention time in the storage account. Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete the data from the storage account).
-    - **Traffic Analytics**: Enable or disable traffic analytics for your flow log. For more information, see [Traffic Analytics](traffic-analytics.md).
-    - **Traffic Analytics processing interval**: Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md).
-    - **Log Analytics workspace**: Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). 
+    | Setting | Value |
+    | ------- | ----- |
+    | **Storage account** |   |
+    | Subscription | Change the Azure subscription of the storage account that you want to use. |
+    | Storage account | Change the storage account that you want to save the flow logs to. If you want to create a new storage account, select **Create a new storage account**. |
+    | Retention (days) | Change the retention time in the storage account. Enter *0* if you want to retain the flow logs data in the storage account forever (until you manually delete the data from the storage account). |
+    | **Traffic analytics** |   |
+    | Enable traffic analytics | Enable or disable traffic analytics by checking or unchecking the checkbox. |
+    | Subscription | Change the Azure subscription of the Log Analytics workspace that you want to use. |
+    | Log analytics workspace | Change the Log Analytics workspace that you want to save the flow logs to (if traffic analytics is enabled). |
+    | Traffic logging interval | Change the processing interval of traffic analytics (if traffic analytics is enabled). Available options are: one hour and 10 minutes. The default processing interval is every one hour. For more information, see [Traffic Analytics](traffic-analytics.md). |
 
-    :::image type="content" source="./media/nsg-flow-logs-portal/change-flow-log.png" alt-text="Screenshot of Flow logs settings page in the Azure portal where you can change some settings." lightbox="./media/nsg-flow-logs-portal/change-flow-log.png":::
+    :::image type="content" source="./media/nsg-flow-logs-portal/change-flow-log.png" alt-text="Screenshot that shows how to edit flow log's settings in the Azure portal where you can change some virtual network flow log settings." lightbox="./media/nsg-flow-logs-portal/change-flow-log.png":::
+
+1. Select **Save** to apply the changes or **Cancel** to exit without saving them.
 
 ## List all flow logs
 
@@ -170,6 +179,8 @@ You can view the details of a flow log in a subscription or a group of subscript
 1. In **Flow logs settings**, you can view the settings of the flow log resource.
 
     :::image type="content" source="./media/nsg-flow-logs-portal/flow-log-settings.png" alt-text="Screenshot of Flow logs settings page in the Azure portal." lightbox="./media/nsg-flow-logs-portal/flow-log-settings.png":::
+
+1. Select **Cancel** to close the settings page without making changes.
 
 ## Download a flow log
 
@@ -198,7 +209,7 @@ You can temporarily disable an NSG flow log without deleting it. Disabling a flo
     :::image type="content" source="./media/nsg-flow-logs-portal/disable-flow-log.png" alt-text="Screenshot shows how to disable a flow log in the Azure portal." lightbox="./media/nsg-flow-logs-portal/disable-flow-log.png":::
 
 > [!NOTE]
-> If traffic analytics is enabled for a flow log, it must disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-a-flow-log).
+> If traffic analytics is enabled for a flow log, it must be disabled before you can disable the flow log. To disable traffic analytics, see [Change a flow log](#change-flow-log-settings).
 
 ## Delete a flow log
 

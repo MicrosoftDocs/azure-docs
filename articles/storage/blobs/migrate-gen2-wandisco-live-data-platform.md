@@ -126,7 +126,7 @@ LiveData Plane for Azure consistently replicates data changes across all environ
 
 ## Test drive or Trial
 
-From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=Overview), you have two options:
+From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview), you have two options:
 
 - The **Get It Now** button launches the service in your subscription. From there, you may use your own Hadoop cluster or WANdisco's Trial cluster.
 
@@ -134,13 +134,13 @@ From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.m
 
 ## Next Steps
 
-- [Plan and create a migration in LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma).
+- [Plan and create a migration in LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview).
 
 ## See also
 
-- [LiveData Migrator for Azure on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=Overview)
+- [LiveData Migrator for Azure on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview)
 
-- [LiveData Migrator for Azure plans and pricing](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPricee)
+- [LiveData Migrator for Azure plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview)
 
 - [LiveData Platform for Azure Frequently Asked Questions](https://docs.wandisco.com/live-data-platform/docs/faq/)
 

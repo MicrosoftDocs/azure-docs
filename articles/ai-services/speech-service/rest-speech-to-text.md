@@ -21,17 +21,18 @@ Speech to text REST API is used for [batch transcription](batch-transcription.md
 > Speech to text REST API v3.0 will be retired on April 1st, 2026. For more information about upgrading, see the Speech to text REST API [v3.0 to v3.1](migrate-v3-0-to-v3-1.md) and [v3.1 to v3.2](migrate-v3-1-to-v3-2.md) migration guides.
 
 > [!div class="nextstepaction"]
+> [See the Speech to text REST API 2024-05-15 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-2024-05-15-preview&preserve-view=true)
+
+> [!div class="nextstepaction"]
 > [See the Speech to text REST API v3.2 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.2&preserve-view=true)
 
 > [!div class="nextstepaction"]
 > [See the Speech to text REST API v3.1 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.1&preserve-view=true)
 
-> [!div class="nextstepaction"]
-> [See the Speech to text REST API v3.0 reference documentation](/rest/api/speechtotext/operation-groups?view=rest-speechtotext-v3.0&preserve-view=true)
-
 Use Speech to text REST API to:
 
-- [Custom speech](custom-speech-overview.md): With custom speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
+- [Fast transcription](fast-transcription-create.md): Transcribe audio files with returning results synchronously and much faster than real-time audio. Use the fast transcription API ([/speechtotext/transcriptions:transcribe](/rest/api/speechtotext/transcriptions/transcribe)) in the scenarios that you need the transcript of an audio recording as quickly as possible with predictable latency, such as quick audio or video transcription or video translation.
+- [Custom speech](custom-speech-overview.md): Upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
 - [Batch transcription](batch-transcription.md): Transcribe audio files as a batch from multiple URLs or an Azure container. 
 
 Speech to text REST API includes such features as:

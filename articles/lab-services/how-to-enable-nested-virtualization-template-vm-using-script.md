@@ -3,7 +3,7 @@ title: Enable nested virtualization
 titleSuffix: Azure Lab Services
 description: Learn how to enable nested virtualization on a template VM in Azure Lab Services to create multi-VM labs.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
@@ -12,6 +12,8 @@ ms.date: 03/04/2024
 ---
 
 # Enable nested virtualization in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Nested virtualization supports a lab in Azure Lab Services that contains a multiple virtual machine (VM) environment. You can prepare a lab template for your multiple VM environment. Users don't need to enable nested virtualization on their lab VM or install the nested VMs on it. When you publish the lab, each lab user has a lab VM that already contains the nested virtual machines.
 
@@ -37,6 +39,8 @@ To enable nested virtualization on the template VM, first connect to the VM by u
 > We recommend that you use nested virtualization with Windows 11. You can take advantage of the 'Default Switch' created when you install Hyper-V on a Windows client OS. You should use nested virtualization on Windows Server operating systems when you require additional control over the network settings.
 
 # [PowerShell](#tab/powershell)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 You can use a PowerShell script to set up nested virtualization on a template VM in Azure Lab Services. The following steps guide you through how to use the [Lab Services Hyper-V scripts](https://github.com/Azure/LabServices/tree/main/ClassTypes/PowerShell/HyperV). The script is intended for Windows 11.
 
@@ -69,6 +73,8 @@ You can use a PowerShell script to set up nested virtualization on a template VM
 The template VM is now configured for use with nested virtualization. You can [create VMs](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v?tabs=hyper-v-manager) inside it. Use the switch specified by the script when creating new Hyper-V VMs.
 
 # [Windows tools](#tab/windows)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 You can set up nested virtualization on a template VM in Azure Lab Services by using Windows features and tools directly. The following steps describe how to manually set up a Lab Services machine template with Hyper-V. These steps are intended for Windows 11.
 

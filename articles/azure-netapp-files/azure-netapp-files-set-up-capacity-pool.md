@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Create a capacity pool for Azure NetApp Files
@@ -70,25 +70,25 @@ Creating a capacity pool enables you to create volumes within it.
 
     * **Encryption type** <a name="encryption_type"></a>      
         Specify whether you want the volumes in this capacity pool to use **single** or **double** encryption. See [Azure NetApp Files double encryption at rest](double-encryption-at-rest.md) for details.   
-
+        
         > [!IMPORTANT] 
         > Azure NetApp Files double encryption at rest supports [Standard network features](azure-netapp-files-network-topologies.md#configurable-network-features), but not Basic network features. See [considerations](double-encryption-at-rest.md#considerations) for using Azure NetApp Files double encryption at rest.  
         >
         > After the capacity pool is created, you can’t modify the setting (switching between `single` or `double`) for the encryption type.  
 
-        Azure NetApp Files double encryption at rest is currently in preview. If using this feature for the first time, you need to register the feature first.  
-
-        1. Register the feature: 
-            ```azurepowershell-interactive
-            Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
-            ```
-        2. Check the status of the feature registration. `RegistrationState` may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing. 
-            ```azurepowershell-interactive
-            Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
-            ```   
-        You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.  
-
     :::image type="content" source="./media/shared/azure-netapp-files-new-capacity-pool.png" alt-text="Screenshot showing the New Capacity Pool window.":::
+
+    Azure NetApp Files double encryption at rest is currently in preview. If using this feature for the first time, you need to register the feature first.  
+
+    1. Register the feature: 
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
+        ```
+    2. Check the status of the feature registration. `RegistrationState` may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing. 
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFDoubleEncryption
+        ```   
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 4. Select **Create**.
 

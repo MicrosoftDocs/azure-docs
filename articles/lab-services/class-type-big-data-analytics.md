@@ -3,7 +3,7 @@ title: Set up big data analytics lab
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to teach the big data analytics using Docker deployment of Hortonworks Data Platform (HDP).
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 04/25/2023
 ---
 
 # Set up a lab for big data analytics in Azure Lab Services using Docker deployment of HortonWorks Data Platform
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

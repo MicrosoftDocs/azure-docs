@@ -3,7 +3,7 @@ title: TLS termination with Azure Key Vault certificates
 description: Learn how you can integrate Azure Application Gateway with Key Vault for server certificates that are attached to HTTPS-enabled listeners.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 02/02/2024
 ms.author: greglin
@@ -69,7 +69,7 @@ Define access policies to use the user-assigned managed identity with your Key V
 2. Select the Key Vault that contains your certificate.
 3. If you're using the permission model **Vault access policy**: Select **Access Policies**, select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
-   If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
+   If you're using **Azure role-based access control** follow the article [Assign a managed identity access to a resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource) and assign the user-assigned managed identity the **Key Vault Secrets User** role to the Azure Key Vault.
 
 ### Verify Firewall Permissions to Key Vault
 

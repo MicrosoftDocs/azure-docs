@@ -2,10 +2,10 @@
 title: Set up a text labeling project
 titleSuffix: Azure Machine Learning
 description: Learn how to create a project and use the data labeling tool to label text in the project. Specify either a single label or multiple labels to apply to each piece of text.
-author: kvijaykannan
-ms.author: vkann
-ms.reviewer: sgilley
-ms.service: machine-learning
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: vkann
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/01/2024

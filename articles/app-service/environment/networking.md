@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 04/23/2024
+ms.date: 08/06/2024
 ms.author: madsd
 ---
 
@@ -52,10 +52,12 @@ App Service Environment has the following network information at creation:
 |--------------|-------------|
 | App Service Environment virtual network | The virtual network deployed into. |
 | App Service Environment subnet | The subnet deployed into. |
-| Domain suffix | The domain suffix that is used by the apps made. |
+| Domain suffix | The default domain suffix that is used by the apps. |
+| Custom domain suffix | (optional) The custom domain suffix that is used by the apps. |
 | Virtual IP (VIP) | The VIP type used. The two possible values are internal and external. |
 | Inbound address | The inbound address is the address at which your apps are reached. If you have an internal VIP, it's an address in your App Service Environment subnet. If the address is external, it's a public-facing address. |
-| Default outbound addresses | The apps use this address, by default, when making outbound calls to the internet. |
+| Worker outbound addresses | The apps use this or these addresses, when making outbound calls to the internet. |
+| Platform outbound addresses | The platform uses this address, when making outbound calls to the internet. An example is pulling certificates for custom domain suffix from Key Vault if a private endpoint isn't used. |
 
 You can find details in the **IP Addresses** portion of the portal, as shown in the following screenshot:
 
@@ -72,7 +74,11 @@ You can bring your own inbound address to your App Service Environment. If you c
 
 ## Ports and network restrictions
 
-For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports, you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
+For your app to receive traffic, ensure that inbound network security group (NSG) rules allow the App Service Environment subnet to receive traffic from the required ports. In addition to any ports you'd like to receive traffic on, you should ensure that Azure Load Balancer is able to connect to the subnet on port 80. This port is used for health checks of the internal virtual machine. You can still control port 80 traffic from the virtual network to your subnet.
+
+> [!NOTE]
+> Changes to NSG rules can take up to 14 days to take effect due to HTTP connection persistence. If you make a change that blocks platform/management traffic, it could take up to 14 days for the impact to be seen.
+>
 
 It's a good idea to configure the following inbound NSG rule:
 
@@ -87,6 +93,7 @@ The minimal requirement for App Service Environment to be operational is:
 |* / 80|Inbound|AzureLoadBalancer|App Service Environment subnet range|Allow internal health ping traffic|
 
 If you use the minimum required rule, you might need one or more rules for your application traffic. If you're using any of the deployment or debugging options, you must also allow this traffic to the App Service Environment subnet. The source of these rules can be the virtual network, or one or more specific client IPs or IP ranges. The destination is always the App Service Environment subnet range.
+
 The internal health ping traffic on port 80 is isolated between the Load balancer and the internal servers. No outside traffic can reach the health ping endpoint.
 
 The normal app access ports inbound are as follows:
@@ -100,6 +107,7 @@ The normal app access ports inbound are as follows:
 
 > [!NOTE]
 > For FTP access, even if you want to disallow standard FTP on port 21, you still need to allow traffic from the LoadBalancer to the App Service Environment subnet range on port 21, as this is used for internal health ping traffic for the ftp service specifically.
+>
 
 ## Network routing
 
@@ -133,7 +141,7 @@ The following sections describe the DNS considerations and configuration that ap
 
 ### DNS configuration to your App Service Environment
 
-If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, when you create your App Service Environment, if you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you have two options when you create your App Service Environment. If you select having Azure DNS private zones configured automatically, then DNS is configured in your virtual network. If you choose to configure DNS manually, you need to either use your own DNS server or configure Azure DNS private zones. To find the inbound address, go to the App Service Environment portal, and select **IP Addresses**. 
 
 If you want to use your own DNS server, add the following records:
 

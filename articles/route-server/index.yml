@@ -6,7 +6,7 @@ summary: Learn how to use Azure Route Server to simplify dynamic routing between
 metadata:
   title: Azure Route Server documentation 
   description: Learn about Azure Route Server
-  ms.service: route-server 
+  ms.service: azure-route-server
   ms.topic: landing-page 
   author: halkazwini 
   ms.author: halkazwini 
@@ -44,8 +44,8 @@ landingContent:
             url: quickstart-configure-template.md
       - linkListType: tutorial
         links:
-          - text: Create and configure Route Server and Quagga NVA
-            url: tutorial-configure-route-server-with-quagga.md          
+          - text: Create and peer Route Server with NVA
+            url: peer-route-server-with-virtual-appliance.md          
 
   # Card
   - title: Learn about Route Server architecture

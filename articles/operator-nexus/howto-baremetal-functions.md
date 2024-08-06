@@ -5,7 +5,7 @@ author: eak13
 ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 07/19/2024
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
@@ -103,7 +103,7 @@ az networkcloud baremetalmachine uncordon \
 
 ## Reimage a BMM
 
-You can restore the runtime version on a BMM by executing the `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't affect the tenant workload files on this BMM.
+You can restore the runtime version on a BMM by executing `reimage` command. This process **redeploys** the runtime image on the target BMM and executes the steps to rejoin the cluster with the same identifiers. This action doesn't impact the tenant workload files on this BMM. In the event of a write or edit action being performed on the node via BMM access, this 'reimage' action is required to restore Microsoft support and the changes will be lost, restoring the node to it's expected state.
 As a best practice, make sure the BMM's workloads are drained using the [`cordon`](#make-a-bmm-unschedulable-cordon)
 command, with `evacuate "True"`, before executing the `reimage` command.
 

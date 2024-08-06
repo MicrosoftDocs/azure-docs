@@ -4,7 +4,7 @@ description: Information on Azure Payment HSM certification and compliance
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: mbaldwin
@@ -12,7 +12,7 @@ ms.author: mbaldwin
 
 # Certification and compliance
 
-Azure maintains the largest compliance portfolio in the industry. For details, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/). Each offering description provides an up to-date-scope statement and links to useful downloadable resources.
+Azure maintains the largest compliance portfolio in the industry. For details, see [Microsoft Azure Compliance Offerings](/compliance/regulatory/offering-home). Each offering description provides an up to-date-scope statement and links to useful downloadable resources.
 
 Azure payment HSM meets following compliance standards:
 

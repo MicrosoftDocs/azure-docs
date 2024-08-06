@@ -363,22 +363,28 @@
         items:
         - name: HPE ProLiant DL360
           href: appliance-catalog/hpe-proliant-dl360.md
+        - name: Dell PowerEdge R660
+          href: appliance-catalog/dell-poweredge-r660.md  
       - name: Large enterprises
         items:
         - name: HPE ProLiant DL20 Gen11 (4SFF)
           href: appliance-catalog/hpe-proliant-dl20-gen-11.md
         - name: Dell Edge 5200 (Rugged MIL-STD-810G)
           href: appliance-catalog/dell-edge-5200.md
+        - name: Dell PowerEdge R360
+          href: appliance-catalog/dell-poweredge-r360-e1800.md
         - name: Dell PowerEdge R350
           href: appliance-catalog/dell-poweredge-r350-e1800.md
       - name: Production line
         items:
         - name: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
           href: appliance-catalog/hpe-proliant-dl20-gen-11-nhp-2lff.md
-        - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
-          href: appliance-catalog/ys-techsystems-ys-fit2.md
         - name: DELL XE4 SFF
           href: appliance-catalog/dell-xe4-sff.md
+        - name: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+          href: appliance-catalog/ys-techsystems-ys-fit2.md
+        - name: Dell Edge Gateway 3200
+          href: appliance-catalog/dell-edge-3200.md
       - name: Virtual appliances
         items:
         - name: OT sensor (VMware ESXi) 

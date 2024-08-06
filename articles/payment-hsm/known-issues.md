@@ -4,7 +4,7 @@ description: Azure Payment HSM known issues
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: article
 ms.date: 01/31/2024
 ms.author: mbaldwin

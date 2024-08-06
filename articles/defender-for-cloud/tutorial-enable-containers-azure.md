@@ -19,7 +19,7 @@ You can learn more about Defender for Container's pricing on the [pricing page](
 
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 
-- Ensure the [required Fully Qualified Domain Names (FQDN)/application](../aks/limit-egress-traffic.md) endpoints are configured for outbound access so the Defender sensor can connect to Microsoft Defender for Cloud to send security data and events.
+- Ensure the [required Fully Qualified Domain Names (FQDN)/application](/azure/aks/limit-egress-traffic) endpoints are configured for outbound access so the Defender sensor can connect to Microsoft Defender for Cloud to send security data and events.
 
     > [!NOTE]
     > By default, AKS clusters have unrestricted outbound (egress) internet access.

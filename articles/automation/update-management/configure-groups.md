@@ -3,8 +3,9 @@ title: Use dynamic groups with Azure Automation Update Management
 description: This article tells how to use dynamic groups with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/22/2021
+ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Use dynamic groups with Update Management

@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing how to set up an Event Grid endpoint and route
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 7/21/2021
 ms.author: baanders

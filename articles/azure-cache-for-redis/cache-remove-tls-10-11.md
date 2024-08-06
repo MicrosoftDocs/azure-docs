@@ -2,7 +2,7 @@
 title: Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 description: Learn how to remove TLS 1.0 and 1.1 from your application when communicating with Azure Cache for Redis
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: franlanglois
@@ -28,7 +28,7 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
-- _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances won't be updated at this point. You can't set the _MinimiumTLSVersion_ to 1.0 or 1.1 for your existing cache.
+- _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances won't be updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
 - _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting November 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVerion_ for all caches to 1.2.
 
 | Date             | Description                                                                                                                                                                                                                                                                    |

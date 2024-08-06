@@ -1,6 +1,6 @@
 ---
 title: "Available extensions for Azure Arc-enabled Kubernetes clusters"
-ms.date: 06/12/2024
+ms.date: 08/01/2024
 ms.topic: how-to
 description: "See which extensions are currently available for Azure Arc-enabled Kubernetes clusters and view release notes."
 ---
@@ -132,6 +132,25 @@ The most recent version of the Flux v2 extension and the two previous versions (
 > [!NOTE]
 > When a new version of the `microsoft.flux` extension is released, it may take several days for the new version to become available in all regions.
 
+### 1.11.1 (August 2024)
+
+Flux version: [Release v2.3.0](https://github.com/fluxcd/flux2/releases/tag/v2.3.0)
+
+- source-controller: v1.3.0
+- kustomize-controller: v1.3.0
+- helm-controller: v1.0.1
+- notification-controller: v1.3.0
+- image-automation-controller: v0.32.1
+- image-reflector-controller: v0.38.0
+
+Changes made for this version:
+
+- Update flux OSS controllers.
+- Resolved the continuous restart issue of the Fluent Bit sidecar in `fluxconfig-agent` and `fluxconfig-controller`.
+- Addressed security vulnerabilities in `fluxconfig-agent` and `fluxconfig-controller` by updating the Go packages.
+- Enabled workload identity for the Kustomize controller. For setup instructions, see [Workload identity in AKS clusters](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2#workload-identity-in-aks-clusters).
+- Flux controller pods can now set the annotation `kubernetes.azure.com/set-kube-service-host-fqdn` in their pod specifications. This allows traffic to the API Server's domain name even when a Layer 7 firewall is present, facilitating deployments during extension installation. For more details, see [Configure annotation on Flux extension pods](/azure/azure-arc/kubernetes/tutorial-use-gitops-flux2#configure-annotation-on-flux-extension-pods).
+
 ### 1.10.0 (June 2024)
 
 Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
@@ -163,26 +182,11 @@ Changes made for this version:
 - The log-level parameters for controllers (including `fluxconfig-agent` and `fluxconfig-controller`) are now customizable. For more information, see [Configurable log-level parameters](tutorial-use-gitops-flux2.md#configurable-log-level-parameters).
 - Helm chart changes to expose new SSH host key algorithm to connect to Azure DevOps. For more information, see [Azure DevOps SSH-RSA deprecation](tutorial-use-gitops-flux2.md#azure-devops-ssh-rsa-deprecation).
 
-### 1.8.4 (April 2024)
-
-Flux version: [Release v2.1.2](https://github.com/fluxcd/flux2/releases/tag/v2.1.2)
-
-- source-controller: v1.2.5
-- kustomize-controller: v1.1.1
-- helm-controller: v0.36.2
-- notification-controller: v1.1.0
-- image-automation-controller: v0.36.1
-- image-reflector-controller: v0.30.0
-
-Changes made for this version:
-
-- Updated source-controller to v1.2.5 [to address security vulnerability](https://github.com/advisories/GHSA-v554-xwgw-hc3w)
-
 ## Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes
 
 [Dapr](https://dapr.io/) is a portable, event-driven runtime that simplifies building resilient, stateless, and stateful applications that run on the cloud and edge and embrace the diversity of languages and developer frameworks. The Dapr extension eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters.
 
-For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](../../aks/dapr.md).
+For more information, see [Dapr extension for AKS and Arc-enabled Kubernetes](/azure/aks/dapr).
 
 ## Azure AI Video Indexer
 

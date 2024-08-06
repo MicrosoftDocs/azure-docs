@@ -489,6 +489,8 @@ Anyone with access to view the request can view its details. In the request deta
 
 :::image type="content" source="./media/direct-ea-administration/request-details.png" alt-text="Screenshot showing request details to view Accept ownership URL." lightbox="./media/direct-ea-administration/request-details.png" :::
 
+> [!NOTE]
+> You can now view the **Service tenant ID** for subscriptions billed to your account on the **Azure Subscriptions** page under __Cost Management + Billing.__
 ## Cancel a subscription
 
 Only account owners can cancel their own subscriptions.
@@ -667,9 +669,8 @@ The Azure EA customer is opted out of the extended term, and the Azure EA enroll
 
 **Transferred**<br>
 Enrollments where all associated accounts and services were transferred to a new enrollment appear with a transferred status.
- > [!NOTE]
- > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
-
+> [!NOTE]
+> Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 ## Related content
 
 - If you need to create an Azure support request for your EA enrollment, see [How to create an Azure support request for an Enterprise Agreement issue](../troubleshoot-billing/how-to-create-azure-support-request-ea.md).

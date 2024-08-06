@@ -3,14 +3,14 @@ title: 'CLI (v2) schedule YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) job schedule YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: cloga
-ms.author: lochen
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/17/2023
-ms.reviewer: lagayhar
+ms.reviewer: lochen
 ---
 
 # CLI (v2) job schedule YAML schema

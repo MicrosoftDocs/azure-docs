@@ -3,14 +3,13 @@ title: How to deploy Phi-3 family of small language models with Azure Machine Le
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy Phi-3 family of small language models with Azure Machine Learning.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 07/01/2024
-ms.author: kritifaujdar
-author: fkriti
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.author: mopeakande
+author: msakande
+ms.reviewer: kritifaujdar
 ms.custom: [references_regions]
 ---
 

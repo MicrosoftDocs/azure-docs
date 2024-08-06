@@ -10,6 +10,8 @@ ms.date: 08/07/2023
 
 # Migrate from lab accounts to lab plans
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Lab plans replace lab accounts in Azure Lab Services. This article lists the steps needed to migrate your lab accounts to lab plans. Lab plans bring improvements in performance, reliability, and scalability. Lab plans also give you more flexibility for managing labs, using capacity, and tracking costs.
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]

@@ -3,7 +3,7 @@ title: "One-vs-All Multiclass"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the One-vs-All Multiclass component in Azure Machine Learning designer to create an ensemble of binary classification models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

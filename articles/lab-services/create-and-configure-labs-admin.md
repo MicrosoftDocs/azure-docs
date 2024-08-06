@@ -3,13 +3,15 @@ title: Configure regions for labs
 description: Learn how to change the region of a lab. 
 author: ntrogh
 ms.author: nicktrog
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: how-to 
 ms.date: 06/17/2022
 ms.custom: template-how-to 
 ---
 
 # Configure regions for labs
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article shows you how to configure the locations where you can create labs by enabling or disabling regions associated with the lab plan. Enabling a region allows lab creators to create labs within that region. You cannot create labs in disabled regions. 
 

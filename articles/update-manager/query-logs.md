@@ -1,16 +1,16 @@
 ---
-title: Query logs and results from Update Manager
-description: This article provides details on how you can review logs and search results from Azure Update Manager by using Azure Resource Graph.
+title: Query resources with Azure Resource Graph in Azure Update Manager
+description: This article provides details on how Access Azure Update Manager operations data using Azure Resource Graph.
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 11/21/2023
+ms.date: 08/02/2024
 ms.topic: conceptual
 ---
 
-# Overview of query logs in Azure Update Manager
+# Access Azure Update Manager operations data using Azure Resource Graph
 
-Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update history of the last 30 days from the resources.
+Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
 
 This article describes the structure of the logs from Update Manager and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
@@ -36,7 +36,7 @@ The table `patchassessmentresources` includes resources related to machine patch
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource. |
+| `TAGS` | Intentionally left blank for future use. |
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
@@ -88,7 +88,7 @@ The table `patchinstallationresources` includes resources related to machine pat
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource.	|
+| `TAGS` | Intentionally left blank for future use.	|
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
@@ -148,7 +148,7 @@ The table `maintenanceresources` includes resources related to maintenance confi
 | `SKU` | Intentionally left blank for future use. |
 | `PLAN` | Intentionally left blank for future use. |
 | `PROPERTIES` | Captures details of operation in JSON format. More information follows this table.|
-| `TAGS` | Azure tags defined for the Azure VM or Azure Arc-enabled servers resource.	|
+| `TAGS` | Intentionally left blank for future use.	|
 | `IDENTITY` | Intentionally left blank for future use. |
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
@@ -175,5 +175,5 @@ If the property for the resource type is `configurationassignments`, it includes
 
 ## Next steps
 
-- For details of sample queries, see [Sample query logs](sample-query-logs.md).
-- To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- For sample queries to access Azure Update Manager operations data, see [Sample Azure Resource Graph queries to access Azure Update Manager operations data](sample-query-logs.md).
+- To troubleshoot issues with Azure Update Manager, see [Troubleshoot issues with Azure Update Manager](troubleshoot.md).
