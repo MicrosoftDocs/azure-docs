@@ -257,7 +257,7 @@ test-deploy-rwx-fdb8f49c-86pv4   1/1     Running   0          18s     10.245.224
 test-deploy-rwx-fdb8f49c-9zsjf   1/1     Running   0          18s     10.245.126.74    nexus-cluster-6a8c4018-agentpool1-md-27nw4   <none>           <none>
 test-deploy-rwx-fdb8f49c-wdgw7   1/1     Running   0          18s     10.245.231.75    nexus-cluster-6a8c4018-agentpool2-md-vhhv6   <none>           <none>
 ```
-It can observed from the below output that all pods are writing into the same PVC.
+It can be observed from the below output that all pods are writing into the same PVC.
 ```
 # kubectl exec test-deploy-rwx-fdb8f49c-86pv4 -- cat /mnt/hostname.txt
 Thu Nov  9 21:51:41 UTC 2023 -- test-deploy-rwx-fdb8f49c-86pv4
