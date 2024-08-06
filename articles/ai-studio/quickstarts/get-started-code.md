@@ -1,18 +1,19 @@
 ---
 title: Get started building a chat app using the prompt flow SDK
 titleSuffix: Azure AI Studio
-description: This article provides instructions on how to set up your development environment for Azure AI SDKs.
+description: This article provides instructions on how to build a custom chat app in Python using the prompt flow SDK.
 manager: nitinme
 ms.service: azure-ai-studio
 ms.custom: build-2024, devx-track-azurecli, devx-track-python
 ms.topic: how-to
-ms.date: 5/30/2024
+ms.date: 8/6/2024
 ms.reviewer: dantaylo
 ms.author: eur
 author: eric-urban
 ---
 
 # Build a custom chat app in Python using the prompt flow SDK
+
 [!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this quickstart, we walk you through setting up your local development environment with the prompt flow SDK. We write a prompt, run it as part of your app code, trace the LLM calls being made, and run a basic evaluation on the outputs of the LLM.
@@ -62,9 +63,9 @@ To grant yourself access to the Azure AI Services resource that you're using:
 
 1. Continue through the wizard and select **Review + assign** to add the role assignment. 
 
-## Install the Azure CLI and login 
+## Install the Azure CLI and sign in 
 
-Now we install the Azure CLI and login from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
+You install the Azure CLI and sign in from your local development environment, so that you can use your user credentials to call the Azure OpenAI service.
 
 In most cases you can install the Azure CLI from your terminal using the following command: 
 # [Windows](#tab/windows)
@@ -89,7 +90,7 @@ brew update && brew install azure-cli
 
 You can follow instructions [How to install the Azure CLI](/cli/azure/install-azure-cli) if these commands don't work for your particular operating system or setup.
 
-After you install the Azure CLI, login using the ``az login`` command and sign-in using the browser:
+After you install the Azure CLI, sign in using the ``az login`` command and sign-in using the browser:
 ```
 az login
 ```
@@ -131,7 +132,7 @@ source .venv/bin/activate
 
 ---
 
-Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you'll be using the Python interpreter contained in the ```.venv``` folder of your application.
+Activating the Python environment means that when you run ```python``` or ```pip``` from the command line, you then use the Python interpreter contained in the ```.venv``` folder of your application.
 
 > [!NOTE]
 > You can use the ```deactivate``` command to exit the python virtual environment, and can later reactivate it when needed.
@@ -181,7 +182,7 @@ Your AI services endpoint and deployment name are required to call the Azure Ope
 
 ## Create a basic chat prompt and app
 
-First create a prompt template file, for this we'll use **Prompty** which is the prompt template format supported by prompt flow.
+First create a **Prompty** file, which is the prompt template format supported by prompt flow.
 
 Create a ```chat.prompty``` file and copy the following code into it:
 
@@ -350,4 +351,4 @@ For more information on how to use prompt flow evaluators, including how to make
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Augment the model with data for retrieval augmented generation (RAG)](../tutorials/copilot-sdk-build-rag.md)
+> [Add data and use retrieval augmented generation (RAG) to build a copilot](../tutorials/copilot-sdk-build-rag.md)
