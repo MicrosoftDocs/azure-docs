@@ -42,12 +42,12 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP030     | Error | The output type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP031     | Error | The parameter type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | BCP032     | Error | The value must be a compile-time constant. |
-| <a id='BCP033' />[BCP033](./diagnostics/bcp033.md) | Error | Expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
-| BCP034     | Error | The enclosing array expected an item of type "{expectedType}", but the provided item was of type "{actualType}". |
-| <a id='BCP035' />[BCP035](./diagnostics/bcp035.md) | Error | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
-| <a id='BCP036' />[BCP036](./diagnostics/bcp036.md) | Error | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
-| <a id='BCP037' />[BCP037](./diagnostics/bcp037.md) | Error | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
-| <a id='BCP040' />[BCP040](./diagnostics/bcp040.md) | Error | String interpolation is not supported for keys on objects of type &lt;type-definition>. |
+| <a id='BCP033' />[BCP033](./diagnostics/bcp033.md) | Error/Warning | Expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
+| BCP034     | Error/Warning | The enclosing array expected an item of type "{expectedType}", but the provided item was of type "{actualType}". |
+| <a id='BCP035' />[BCP035](./diagnostics/bcp035.md) | Error/Warning | The specified &lt;data-type> declaration is missing the following required properties: &lt;property-name>. |
+| <a id='BCP036' />[BCP036](./diagnostics/bcp036.md) | Error/Warning | The property &lt;property-name> expected a value of type &lt;data-type> but the provided value is of type &lt;data-type>. |
+| <a id='BCP037' />[BCP037](./diagnostics/bcp037.md) | Error/Warning | The property &lt;property-name> is not allowed on objects of type &lt;type-definition>. |
+| <a id='BCP040' />[BCP040](./diagnostics/bcp040.md) | Error/Warning | String interpolation is not supported for keys on objects of type &lt;type-definition>. |
 | BCP041     | Error | Values of type "{valueType}" cannot be assigned to a variable. |
 | BCP043     | Error | This is not a valid expression. |
 | BCP044     | Error | Cannot apply operator "{operatorName}" to operand of type "{type}". |
@@ -58,8 +58,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP049     | Error | The array index must be of type "{LanguageConstants.String}" or "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP050     | Error | The specified path is empty. |
 | BCP051     | Error | The specified path begins with "/". Files must be referenced using relative paths. |
-| BCP052     | Error | The type "{type}" does not contain property "{badProperty}". |
-| BCP053     | Error | The type "{type}" does not contain property "{badProperty}". Available properties include {ToQuotedString(availableProperties)}. |
+| BCP052     | Error/Warning | The type "{type}" does not contain property "{badProperty}". |
+| BCP053     | Error/Warning | The type "{type}" does not contain property "{badProperty}". Available properties include {ToQuotedString(availableProperties)}. |
 | BCP054     | Error | The type "{type}" does not contain any properties. |
 | BCP055     | Error | Cannot access properties of type "{wrongType}". An "{LanguageConstants.Object}" type is required. |
 | BCP056     | Error | The reference to name "{name}" is ambiguous because it exists in namespaces {ToQuotedString(namespaces)}. The reference must be fully qualified. |
@@ -78,23 +78,23 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP070     | Error | Argument of type "{argumentType}" is not assignable to parameter of type "{parameterType}". |
 | BCP071     | Error | Expected {expected}, but got {argumentCount}. |
 | <a id='BCP072' />[BCP072](./diagnostics/bcp072.md) | Error | This symbol cannot be referenced here. Only other parameters can be referenced in parameter default values. |
-| <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | Error | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
+| <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | Error/Warning | The property &lt;property-name> is read-only. Expressions cannot be assigned to read-only properties. |
 | BCP074     | Error | Indexing over arrays requires an index of type "{LanguageConstants.Int}" but the provided index was of type "{wrongType}". |
 | BCP075     | Error | Indexing over objects requires an index of type "{LanguageConstants.String}" but the provided index was of type "{wrongType}". |
 | BCP076     | Error | Cannot index over expression of type "{wrongType}". Arrays or objects are required. |
-| BCP077     | Error | The property "{badProperty}" on type "{type}" is write-only. Write-only properties cannot be accessed. |
-| BCP078     | Error | The property "{propertyName}" requires a value of type "{expectedType}", but none was supplied. |
+| BCP077     | Error/Warning | The property "{badProperty}" on type "{type}" is write-only. Write-only properties cannot be accessed. |
+| BCP078     | Error/Warning | The property "{propertyName}" requires a value of type "{expectedType}", but none was supplied. |
 | BCP079     | Error | This expression is referencing its own declaration, which is not allowed. |
 | BCP080     | Error | The expression is involved in a cycle ("{string.Join("\" -> \"", cycle)}"). |
-| BCP081     | Error | Resource type "{resourceTypeReference.FormatName()}" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. |
+| BCP081     | Warning | Resource type "{resourceTypeReference.FormatName()}" does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. |
 | BCP082     | Error | The name "{name}" does not exist in the current context. Did you mean "{suggestedName}"? |
-| BCP083     | Error | The type "{type}" does not contain property "{badProperty}". Did you mean "{suggestedProperty}"? |
+| BCP083     | Error/Warning | The type "{type}" does not contain property "{badProperty}". Did you mean "{suggestedProperty}"? |
 | BCP084     | Error | The symbolic name "{name}" is reserved. Please use a different symbolic name. Reserved namespaces are {ToQuotedString(namespaces.OrderBy(ns => ns))}. |
 | BCP085     | Error | The specified file path contains one ore more invalid path characters. The following are not permitted: {ToQuotedString(forbiddenChars.OrderBy(x => x).Select(x => x.ToString()))}. |
 | BCP086     | Error | The specified file path ends with an invalid character. The following are not permitted: {ToQuotedString(forbiddenPathTerminatorChars.OrderBy(x => x).Select(x => x.ToString()))}. |
 | BCP087     | Error | Array and object literals are not allowed here. |
-| BCP088     | Error | The property "{property}" expected a value of type "{expectedType}" but the provided value is of type "{actualStringLiteral}". Did you mean "{suggestedStringLiteral}"? |
-| BCP089     | Error | The property "{property}" is not allowed on objects of type "{type}". Did you mean "{suggestedProperty}"? |
+| BCP088     | Error/Warning | The property "{property}" expected a value of type "{expectedType}" but the provided value is of type "{actualStringLiteral}". Did you mean "{suggestedStringLiteral}"? |
+| BCP089     | Error/Warning | The property "{property}" is not allowed on objects of type "{type}". Did you mean "{suggestedProperty}"? |
 | BCP090     | Error | This module declaration is missing a file path reference. |
 | BCP091     | Error | An error occurred reading file. {failureMessage} |
 | BCP092     | Error | String interpolation is not supported in file paths. |
@@ -118,13 +118,13 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP110     | Error | The type "{type}" does not contain function "{name}". Did you mean "{suggestedName}"? |
 | BCP111     | Error | The specified file path contains invalid control code characters. |
 | BCP112     | Error | The "{LanguageConstants.TargetScopeKeyword}" cannot be declared multiple times in one file. |
-| BCP113     | Error | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeTenant}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include tenant: tenant(), named management group: managementGroup(&lt;name>), named subscription: subscription(&lt;subId>), or named resource group in a named subscription: resourceGroup(&lt;subId>, &lt;name>). |
-| BCP114     | Error | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeManagementGroup}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current management group: managementGroup(), named management group: managementGroup(&lt;name>), named subscription: subscription(&lt;subId>), tenant: tenant(), or named resource group in a named subscription: resourceGroup(&lt;subId>, &lt;name>). |
-| BCP115     | Error | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeSubscription}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current subscription: subscription(), named subscription: subscription(&lt;subId>), named resource group in same subscription: resourceGroup(&lt;name>), named resource group in different subscription: resourceGroup(&lt;subId>, &lt;name>), or tenant: tenant(). |
-| BCP116     | Error | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeResourceGroup}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current resource group: resourceGroup(), named resource group in same subscription: resourceGroup(&lt;name>), named resource group in a different subscription: resourceGroup(&lt;subId>, &lt;name>), current subscription: subscription(), named subscription: subscription(&lt;subId>) or tenant: tenant(). |
+| BCP113     | Warning | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeTenant}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include tenant: tenant(), named management group: managementGroup(&lt;name>), named subscription: subscription(&lt;subId>), or named resource group in a named subscription: resourceGroup(&lt;subId>, &lt;name>). |
+| BCP114     | Warning | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeManagementGroup}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current management group: managementGroup(), named management group: managementGroup(&lt;name>), named subscription: subscription(&lt;subId>), tenant: tenant(), or named resource group in a named subscription: resourceGroup(&lt;subId>, &lt;name>). |
+| BCP115     | Warning | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeSubscription}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current subscription: subscription(), named subscription: subscription(&lt;subId>), named resource group in same subscription: resourceGroup(&lt;name>), named resource group in different subscription: resourceGroup(&lt;subId>, &lt;name>), or tenant: tenant(). |
+| BCP116     | Warning | Unsupported scope for module deployment in a "{LanguageConstants.TargetScopeTypeResourceGroup}" target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current resource group: resourceGroup(), named resource group in same subscription: resourceGroup(&lt;name>), named resource group in a different subscription: resourceGroup(&lt;subId>, &lt;name>), current subscription: subscription(), named subscription: subscription(&lt;subId>) or tenant: tenant(). |
 | BCP117     | Error | An empty indexer is not allowed. Specify a valid expression. |
 | BCP118     | Error | Expected the "{" character, the "[" character, or the "if" keyword at this location. |
-| BCP119     | Error | Unsupported scope for extension resource deployment. Expected a resource reference. |
+| BCP119     | Warning | Unsupported scope for extension resource deployment. Expected a resource reference. |
 | BCP120     | Error | This expression is being used in an assignment to the "{propertyName}" property of the "{objectTypeName}" type, which requires a value that can be calculated at the start of the deployment. |
 | BCP121     | Error | Resources: {ToQuotedString(resourceNames)} are defined with this same name in a file. Rename them or split into different modules. |
 | BCP122     | Error | Modules: {ToQuotedString(moduleNames)} are defined with this same name and this same scope in a file. Rename them or split into different modules. |
@@ -138,12 +138,12 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP130     | Error | Decorators are not allowed here. |
 | BCP132     | Error | Expected a declaration after the decorator. |
 | BCP133     | Error | The unicode escape sequence is not valid. Valid unicode escape sequences range from \\u{0} to \\u{10FFFF}. |
-| BCP134     | Error | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} is not valid for this module. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
-| BCP135     | Error | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} is not valid for this resource type. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
+| BCP134     | Warning | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} is not valid for this module. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
+| BCP135     | Warning | Scope {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(suppliedScope))} is not valid for this resource type. Permitted scopes: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(supportedScopes))}. |
 | BCP136     | Error | Expected a loop item variable identifier at this location. |
 | BCP137     | Error | Loop expected an expression of type "{LanguageConstants.Array}" but the provided value is of type "{actualType}". |
 | BCP138     | Error | For-expressions are not supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties. |
-| BCP139     | Error | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
+| BCP139     | Warning | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
 | BCP140     | Error | The multi-line string at this location is not terminated. Terminate it with "'''. |
 | BCP141     | Error | The expression cannot be used as a decorator as it is not callable. |
 | BCP142     | Error | Property value for-expressions cannot be nested. |
@@ -175,19 +175,19 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP171     | Error | Resource type "{resourceType}" is not a valid child resource of parent "{parentResourceType}". |
 | BCP172     | Error | The resource type cannot be validated due to an error in parent resource "{resourceName}". |
 | BCP173     | Error | The property "{property}" cannot be used in an existing resource declaration. |
-| BCP174     | Error | Type validation is not available for resource types declared containing a "/providers/" segment. Please instead use the "scope" property. |
+| BCP174     | Warning | Type validation is not available for resource types declared containing a "/providers/" segment. Please instead use the "scope" property. |
 | BCP176     | Error | Values of the "any" type are not allowed here. |
 | BCP177     | Error | This expression is being used in the if-condition expression, which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
 | BCP178     | Error | This expression is being used in the for-expression, which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
-| BCP179     | Error | Unique resource or deployment name is required when looping. The loop item variable "{itemVariableName}" or the index variable "{indexVariableName}" must be referenced in at least one of the value expressions of the following properties in the loop body: {ToQuotedString(expectedVariantProperties)} |
+| BCP179     | Warning | Unique resource or deployment name is required when looping. The loop item variable "{itemVariableName}" or the index variable "{indexVariableName}" must be referenced in at least one of the value expressions of the following properties in the loop body: {ToQuotedString(expectedVariantProperties)} |
 | BCP180     | Error | Function "{functionName}" is not valid at this location. It can only be used when directly assigning to a module parameter with a secure decorator. |
 | BCP181     | Error | This expression is being used in an argument of the function "{functionName}", which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
 | BCP182     | Error | This expression is being used in the for-body of the variable "{variableName}", which requires values that can be calculated at the start of the deployment.{variableDependencyChainClause}{violatingPropertyNameClause}{accessiblePropertiesClause} |
 | BCP183     | Error | The value of the module "params" property must be an object literal. |
 | BCP184     | Error | File '{filePath}' exceeded maximum size of {maxSize} {unit}. |
-| BCP185     | Error | Encoding mismatch. File was loaded with '{detectedEncoding}' encoding. |
+| BCP185     | Warning | Encoding mismatch. File was loaded with '{detectedEncoding}' encoding. |
 | BCP186     | Error | Unable to parse literal JSON value. Please ensure that it is well-formed. |
-| BCP187     | Error | The property "{property}" does not exist in the resource or type definition, although it might still be valid.{TypeInaccuracyClause} |
+| BCP187     | Warning | The property "{property}" does not exist in the resource or type definition, although it might still be valid.{TypeInaccuracyClause} |
 | BCP188     | Error | The referenced ARM template has errors. Please see [https://aka.ms/arm-template](https://aka.ms/arm-template) for information on how to diagnose and fix the template. |
 | BCP189     | Error | (allowedSchemes.Contains(ArtifactReferenceSchemes.Local, StringComparer.Ordinal), allowedSchemes.Any(scheme => !string.Equals(scheme, ArtifactReferenceSchemes.Local, StringComparison.Ordinal))) switch { (false, false) => "Module references are not supported in this context.", (false, true) => $"The specified module reference scheme \"{badScheme}\" is not recognized. Specify a module reference using one of the following schemes: {FormatSchemes()}", (true, false) => $"The specified module reference scheme \"{badScheme}\" is not recognized. Specify a path to a local module file.", (true, true) => $"The specified module reference scheme \"{badScheme}\" is not recognized. Specify a path to a local module file or a module reference using one of the following schemes: {FormatSchemes()}"} |
 | BCP190     | Error | The artifact with reference "{artifactRef}" has not been restored. |
@@ -225,10 +225,69 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP222     | Error | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The Template Spec version "{templateSpecVersion}" exceeds the maximum length of {maximumLength} characters. |
 | BCP223     | Error | {BuildInvalidTemplateSpecReferenceClause(aliasName, referenceValue)} The Template Spec version "{templateSpecVersion}" is invalid. Valid characters are alphanumeric, ".", "_", "-", "(", or ")", but the Template Spec name cannot end with ".". |
 | BCP224     | Error | {BuildInvalidOciArtifactReferenceClause(aliasName, badRef)} The digest "{badDigest}" is not valid. The valid format is a string "sha256:" followed by exactly 64 lowercase hexadecimal digits. |
-| BCP225     | Error | The discriminator property "{propertyName}" value cannot be determined at compilation time. Type checking for this object is disabled. |
+| BCP225     | Warning | The discriminator property "{propertyName}" value cannot be determined at compilation time. Type checking for this object is disabled. |
 | BCP226     | Error | Expected at least one diagnostic code at this location. Valid format is "#disable-next-line diagnosticCode1 diagnosticCode2 ...". |
 | BCP227     | Error | The type "{resourceType}" cannot be used as a parameter or output type. Extensibility types are currently not supported as parameters or outputs. |
 | BCP229     | Error | The parameter "{parameterName}" cannot be used as a resource scope or parent. Resources passed as parameters cannot be used as a scope or parent of a resource. |
+| BCP230 | Warning | The referenced module uses resource type "{resourceTypeReference.FormatName()}" which does not have types available. Bicep is unable to validate resource properties prior to deployment, but this will not block the resource from being deployed. |
+| BCP231 | Error | Using resource-typed parameters and outputs requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.ResourceTypedParamsAndOutputs)}". |
+| BCP232 | Error | Unable to delete the module with reference "{moduleRef}" from cache.                                                                     |
+| BCP233 | Error | Unable to delete the module with reference "{moduleRef}" from cache: {message}                                                           |
+| BCP234 | Warning | The ARM function "{armFunctionName}" failed when invoked on the value [{literalValue}]: {message}                                         |
+| BCP235 | Error | Specified JSONPath does not exist in the given file or is invalid.                                                                       |
+| BCP236 | Error | Expected a new line or comma character at this location.                                                                                 |
+| BCP237 | Error | Expected a comma character at this location.                                                                                             |
+| BCP238 | Error | Unexpected new line character after a comma.                                                                                             |
+| BCP239 | Error | Identifier "{name}" is a reserved Bicep symbol name and cannot be used in this context.                                                  |
+| BCP240 | Error | The "parent" property only permits direct references to resources. Expressions are not supported.                                        |
+| BCP241 | Warning | The "{functionName}" function is deprecated and will be removed in a future release of Bicep. Please add a comment to https://github.com/Azure/bicep/issues/2017 if you believe this will impact your workflow. |
+| BCP242 | Error | Lambda functions may only be specified directly as function arguments.                                                                   |
+| BCP243 | Error | Parentheses must contain exactly one expression.                                                                                         |
+| BCP244 | Error | {minArgCount == maxArgCount ? $"Expected lambda expression of type "{lambdaType}" with {minArgCount} arguments but received {actualArgCount} arguments." : $"Expected lambda expression of type "{lambdaType}" with between {minArgCount} and {maxArgCount} arguments but received {actualArgCount} arguments."} |
+| BCP245 | Warning | Resource type "{resourceTypeReference.FormatName()}" can only be used with the 'existing' keyword.                                        |
+| BCP246 | Warning | Resource type "{resourceTypeReference.FormatName()}" can only be used with the 'existing' keyword at the requested scope. Permitted scopes for deployment: {ToQuotedString(LanguageConstants.GetResourceScopeDescriptions(writableScopes))}. |
+| BCP247 | Error | Using lambda variables inside resource or module array access is not currently supported. Found the following lambda variable(s) being accessed: {ToQuotedString(variableNames)}. |
+| BCP248 | Error | Using lambda variables inside the "{functionName}" function is not currently supported. Found the following lambda variable(s) being accessed: {ToQuotedString(variableNames)}. |
+| BCP249 | Error | Expected loop variable block to consist of exactly 2 elements (item variable and index variable), but found {actualCount}.               |
+| BCP250 | Error | Parameter "{identifier}" is assigned multiple times. Remove or rename the duplicates.                                                    |
+| BCP256 | Error | The using declaration is missing a bicep template file path reference.                                                                   |
+| BCP257 | Error | Expected a Bicep file path string. This should be a relative path to another bicep file, e.g. 'myModule.bicep' or '../parent/myModule.bicep' |
+| BCP258 | Warning | The following parameters are declared in the Bicep file but are missing an assignment in the params file: {ToQuotedString(identifiers)}.  |
+| BCP259 | Error | The parameter "{identifier}" is assigned in the params file without being declared in the Bicep file.                                     |
+| BCP260 | Error | The parameter "{identifier}" expects a value of type "{expectedType}" but the provided value is of type "{actualType}".                   |
+| BCP261 | Error | A using declaration must be present in this parameters file.                                                                             |
+| BCP262 | Error | More than one using declaration are present                                                                                              |
+| BCP263 | Error | The file specified in the using declaration path does not exist                                                                          |
+| BCP264 | Error | Resource type "{resourceTypeName}" is declared in multiple imported namespaces ({ToQuotedStringWithCaseInsensitiveOrdering(namespaces)}), and must be fully-qualified. |
+| BCP265 | Error | The name "{name}" is not a function. Did you mean "{knownFunctionNamespace}.{knownFunctionName}"?                                         |
+| BCP266 | Error | Expected a metadata identifier at this location.                                                                                         |
+| BCP267 | Error | Expected a metadata declaration after the decorator.                                                                                      |
+| BCP268 | Error | Invalid identifier: "{name}". Metadata identifiers starting with '_' are reserved. Please use a different identifier.                     |
+| BCP269 | Error | Function "{functionName}" cannot be used as a metadata decorator.                                                                         |
+| BCP271 | Error | Failed to parse the contents of the Bicep configuration file "{configurationPath}" as valid JSON: {parsingErrorMessage.TrimEnd('.')}.     |
+| BCP272 | Error | Could not load the Bicep configuration file "{configurationPath}": {loadErrorMessage.TrimEnd('.')}.                                       |
+| BCP273 | Error | Failed to parse the contents of the Bicep configuration file "{configurationPath}": {parsingErrorMessage.TrimEnd('.')}.                    |
+| BCP274 | Warning | Error scanning "{directoryPath}" for bicep configuration: {scanErrorMessage.TrimEnd('.')}.                                                |
+| BCP275 | Error | Unable to open file at path "{directoryPath}". Found a directory instead.                                                                 |
+| BCP276 | Error | A using declaration can only reference a Bicep file.                                                                                      |
+| BCP277 | Error | A module declaration can only reference a Bicep File, an ARM template, a registry reference or a template spec reference.                 |
+| BCP278 | Error | This parameters file references itself, which is not allowed.                                                                             |
+| BCP279 | Error | Expected a type at this location. Please specify a valid type expression or one of the following types: {ToQuotedString(LanguageConstants.DeclarationTypes.Keys)}. |
+| BCP285 | Error | The type expression could not be reduced to a literal value.                                                                              |
+| BCP286 | Error | This union member is invalid because it cannot be assigned to the '{keystoneType}' type.                                                  |
+| BCP287 | Error | '{symbolName}' refers to a value but is being used as a type here.                                                                        |
+| BCP288 | Error | '{symbolName}' refers to a type but is being used as a value here.                                                                        |
+| BCP289 | Error | The type definition is not valid.                                                                                                         |
+| BCP290 | Error | Expected a parameter or type declaration after the decorator.                                                                             |
+| BCP291 | Error | Expected a parameter or output declaration after the decorator.                                                                           |
+| BCP292 | Error | Expected a parameter, output, or type declaration after the decorator.                                                                    |
+| BCP293 | Error | All members of a union type declaration must be literal values.                                                                           |
+| BCP294 | Error | Type unions must be reducible to a single ARM type (such as 'string', 'int', or 'bool').                                                  |
+| BCP295 | Error | The '{decoratorName}' decorator may not be used on targets of a union or literal type. The allowed values for this parameter or type definition will be derived from the union or literal type automatically. |
+| BCP296 | Error | Property names on types must be compile-time constant values.                                                                             |
+| BCP297 | Error | Function "{functionName}" cannot be used as a type decorator.                                                                             |
+| BCP298 | Error | This type definition includes itself as required component, which creates a constraint that cannot be fulfilled.                          |
+| BCP299 | Error | This type definition includes itself as a required component via a cycle ("{string.Join("\" -> \"", cycle)}").                            |
 | BCP300     | Error | Expected a type literal at this location. Please specify a concrete value or a reference to a literal type. |
 | BCP301     | Error | The type name "{reservedName}" is reserved and may not be attached to a user-defined type. |
 | BCP302     | Error | The name "{name}" is not a valid type. Please specify one of the following types: {ToQuotedString(validTypes)}. |
@@ -243,23 +302,23 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP315     | Error | An object type may have at most one additional properties declaration. |
 | BCP316     | Error | The "{LanguageConstants.ParameterSealedPropertyName}" decorator may not be used on object types with an explicit additional properties type declaration. |
 | BCP317     | Error | Expected an identifier, a string, or an asterisk at this location. |
-| BCP318     | Error | The value of type "{possiblyNullType}" may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail. If you do not know whether the value will be null and the template would handle a null value for the overall expression, use a `.?` (safe dereference) operator to short-circuit the access expression if the base expression's value is null: {accessExpression.AsSafeAccess().ToString()}. If you know the value will not be null, use a non-null assertion operator to inform the compiler that the value will not be null: {SyntaxFactory.AsNonNullable(expression).ToString()}. |
+| BCP318     | Warning | The value of type "{possiblyNullType}" may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail. If you do not know whether the value will be null and the template would handle a null value for the overall expression, use a `.?` (safe dereference) operator to short-circuit the access expression if the base expression's value is null: {accessExpression.AsSafeAccess().ToString()}. If you know the value will not be null, use a non-null assertion operator to inform the compiler that the value will not be null: {SyntaxFactory.AsNonNullable(expression).ToString()}. |
 | BCP319     | Error | The type at "{errorSource}" could not be resolved by the ARM JSON template engine. Original error message: "{message}" |
 | BCP320     | Error | The properties of module output resources cannot be accessed directly. To use the properties of this resource, pass it as a resource-typed parameter to another module and access the parameter's properties therein. |
-| BCP321     | Error | Expected a value of type "{expectedType}" but the provided value is of type "{actualType}". If you know the value will not be null, use a non-null assertion operator to inform the compiler that the value will not be null: {SyntaxFactory.AsNonNullable(expression).ToString()}. |
+| BCP321     | Warning | Expected a value of type "{expectedType}" but the provided value is of type "{actualType}". If you know the value will not be null, use a non-null assertion operator to inform the compiler that the value will not be null: {SyntaxFactory.AsNonNullable(expression).ToString()}. |
 | BCP322     | Error | The `.?` (safe dereference) operator may not be used on instance function invocations. |
 | BCP323     | Error | The `[?]` (safe dereference) operator may not be used on resource or module collections. |
 | BCP325     | Error | Expected a type identifier at this location. |
 | BCP326     | Error | Nullable-typed parameters may not be assigned default values. They have an implicit default of 'null' that cannot be overridden. |
-| <a id='BCP327' />[BCP327](./diagnostics/bcp327.md) | Error | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
-| <a id='BCP328' />[BCP328](./diagnostics/bcp328.md) | Error | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
-| BCP329     | Error | The provided value can be as small as {sourceMin} and may be too small to assign to a target with a configured minimum of {targetMin}. |
-| BCP330     | Error | The provided value can be as large as {sourceMax} and may be too large to assign to a target with a configured maximum of {targetMax}. |
+| <a id='BCP327' />[BCP327](./diagnostics/bcp327.md) | Warning | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
+| <a id='BCP328' />[BCP328](./diagnostics/bcp328.md) | Warning | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
+| BCP329     | Warning | The provided value can be as small as {sourceMin} and may be too small to assign to a target with a configured minimum of {targetMin}. |
+| BCP330     | Warning | The provided value can be as large as {sourceMax} and may be too large to assign to a target with a configured maximum of {targetMax}. |
 | BCP331     | Error | A type's "{minDecoratorName}" must be less than or equal to its "{maxDecoratorName}", but a minimum of {minValue} and a maximum of {maxValue} were specified. |
-| <a id='BCP332' />[BCP332](./diagnostics/bcp332.md) | Error | The provided value (whose length will always be greater than or equal to &lt;string-length>) is too long to assign to a target for which the maximum allowable length is &lt;max-length>. |
-| <a id='BCP333' />[BCP333](./diagnostics/bcp333.md) | Error | The provided value (whose length will always be less than or equal to &lt;string-length>) is too short to assign to a target for which the minimum allowable length is &lt;min-length>. |
-| BCP334     | Error | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
-| BCP335     | Error | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
+| <a id='BCP332' />[BCP332](./diagnostics/bcp332.md) | Error/Warning | The provided value (whose length will always be greater than or equal to &lt;string-length>) is too long to assign to a target for which the maximum allowable length is &lt;max-length>. |
+| <a id='BCP333' />[BCP333](./diagnostics/bcp333.md) | Error/Warning | The provided value (whose length will always be less than or equal to &lt;string-length>) is too short to assign to a target for which the minimum allowable length is &lt;min-length>. |
+| BCP334     | Warning | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
+| BCP335     | Warning | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
 | BCP337     | Error | This declaration type is not valid for a Bicep Parameters file. Specify a "{LanguageConstants.UsingKeyword}", "{LanguageConstants.ParameterKeyword}" or "{LanguageConstants.VariableKeyword}" declaration. |
 | BCP338     | Error | Failed to evaluate parameter "{parameterName}": {message} |
 | BCP339     | Error | The provided array index value of "{indexSought}" is not valid. Array index should be greater than or equal to 0. |
@@ -299,7 +358,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP378       | Error | The OCI artifact provider alias "{aliasName}" in the {BuildBicepConfigurationClause(configFileUri)} is invalid. The "registry" property cannot be null or undefined. |
 | BCP379       | Error | The OCI artifact provider alias name "{aliasName}" does not exist in the {BuildBicepConfigurationClause(configFileUri)}. |
 | BCP380       | Error | Artifacts of type: "{artifactType}" are not supported. |
-| BCP381       | Error | Declaring provider namespaces with the "import" keyword has been deprecated. Please use the "provider" keyword instead. |
+| BCP381       | Warning | Declaring provider namespaces with the "import" keyword has been deprecated. Please use the "provider" keyword instead. |
 | BCP383       | Error | The "{typeName}" type is not parameterizable. |
 | BCP384       | Error | The "{typeName}" type requires {requiredArgumentCount} argument(s). |
 | BCP385       | Error | Using resource-derived types requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.ResourceDerivedTypes)}". |
@@ -309,8 +368,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP389       | Error | The type "{wrongType}" does not declare an additional properties type. |
 | BCP390       | Error | The array item type access operator ('[*]') can only be used with typed arrays. |
 | BCP391       | Error | Type member access is only supported on a reference to a named type. |
-| BCP392       | Error | "The supplied resource type identifier "{resourceTypeIdentifier}" was not recognized as a valid resource type name." |
-| BCP393       | Error | "The type pointer segment "{unrecognizedSegment}" was not recognized. Supported pointer segments are: "properties", "items", "prefixItems", and "additionalProperties"." |
+| BCP392       | Warning | "The supplied resource type identifier "{resourceTypeIdentifier}" was not recognized as a valid resource type name." |
+| BCP393       | Warning | "The type pointer segment "{unrecognizedSegment}" was not recognized. Supported pointer segments are: "properties", "items", "prefixItems", and "additionalProperties"." |
 | BCP394       | Error | Resource-derived type expressions must derefence a property within the resource body. Using the entire resource body type is not permitted. |
 | BCP395       | Error | Declaring provider namespaces using the '&lt;providerName>@&lt;version>' expression has been deprecated. Please use an identifier instead. |
 | BCP396       | Error | The referenced provider types artifact has been published with malformed content. |
@@ -318,6 +377,12 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP398       | Error | "Provider {name} is incorrectly configured in the {BuildBicepConfigurationClause(configFileUri)}. It is configured as built-in in the "{RootConfiguration.ProvidersConfigurationKey}" section, but no built-in provider exists." |
 | BCP399       | Error | Fetching az types from the registry requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.DynamicTypeLoading)}". |
 | BCP400       | Error | Fetching types from the registry requires enabling EXPERIMENTAL feature "{nameof(ExperimentalFeaturesEnabled.ProviderRegistry)}". |
+| BCP401       | Error | The spread operator \"{spread.Ellipsis.Text}\" is not permitted in this location. |
+| BCP402       | Error | The spread operator \"{spread.Ellipsis.Text}\" can only be used in this context for an expression assignable to type \"{requiredType}\". |
+| BCP403       | Error/Warning | The enclosing array expects elements of type \"{expectedType}\", but the array being spread contains elements of incompatible type \"{actualType}\". |
+| BCP404       | Error | The \"{LanguageConstants.ExtendsKeyword}\" declaration is missing a bicepparam file path reference"). |
+| BCP405       | Error | More than one \"{LanguageConstants.ExtendsKeyword}\" declaration are present") |
+| BCP406       | Error | The \"{LanguageConstants.ExtendsKeyword}\" keyword is not supported" |
 
 ## Next steps
 
