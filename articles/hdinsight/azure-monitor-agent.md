@@ -132,7 +132,7 @@ The second way to access the new tables is through Cluster portal access.
 
 :::image type="content" source="./media/azure-monitor-agent/list-of-tables.png" alt-text="Screenshot showing list of tables." border="true" lightbox="./media/azure-monitor-agent/list-of-tables.png":::
 
-**Use the new tables**
+### Use the new tables
 
 Default queries to use with new tables 
 
@@ -142,33 +142,33 @@ These integrations can help you use the new tables:
 
 :::image type="content" source="./media/azure-monitor-agent/list-of-queries.png" alt-text="Screenshot showing list of queries." border="true" lightbox="./media/azure-monitor-agent/list-of-queries.png":::
 
-**Create your own queries**
+### Create your own queries
 
 You can enter your own queries in the Logs query editor. Queries used on the old tables won't be valid on the new tables as many of the new tables have new, refined schemas. The default queries are great references for shaping queries on the new tables. 
 
-**Insights**
+### Insights
 
 Insights are cluster-specific visualization dashboards made using [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview). These dashboards give you detailed graphs and visualizations of how your cluster is running. The dashboards have sections for each cluster type, YARN, system metrics, and component logs. You can access your cluster's dashboard by visiting your cluster's page in the portal, scrolling down to the Monitoring section, and selecting the Insights pane. The dashboard loads automatically if enabled the new integration. Allow a few seconds for the graphs to load as they query the logs. 
 
 :::image type="content" source="./media/azure-monitor-agent/dashboard.png" alt-text="Screenshot showing the dashboard." border="true" lightbox="./media/azure-monitor-agent/dashboard.png":::
 
-**Custom Azure workbooks**
+### Custom Azure workbooks
 
 You can create your own Azure workbooks with custom graphs and visualizations. In your cluster's portal page, scroll down to the Monitoring section and select the Workbooks pane in the menu on the left. You can either start using a blank template or use one of the templates under the HDInsight Clusters section. There's a template for each cluster type. Templates are useful if you want to save specific customizations that the default HDInsight Insights don't provide. Feel free to send in requests for new features in the HDInsight Insights if you feel they're lacking something. 
 
-**Alerts**
+### Alerts
 
 You can add custom alerts to your clusters and workspaces in the Log query editor. Go to the Logs query editor by selecting the Logs pane from either your cluster or workspace portal. Run a query and then select New Alert Rule as shown in the following screenshot. For more information, read about [configuring alerts](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
 
 :::image type="content" source="./media/azure-monitor-agent/new-alert-rule.png" alt-text="Screenshot showing new alert rules." border="true" lightbox="./media/azure-monitor-agent/new-alert-rule.png":::
 
-**Migrate to the new Azure Monitor Agent Integration**
+### Migrate to the new Azure Monitor Agent Integration
 
 If you're using the classic Azure Monitor integration, you need to make some adjustments to the new table formats after you switch to the new Azure Monitor integration. 
 
 To enable the new Azure Monitor integration, follow the steps outlined in the Activate a new [Azure Monitor Agent integration](./log-analytics-migration.md#activate-a-new-azure-monitor-integration) section. 
 
-**Run queries in Log Analytics**
+### Run queries in Log Analytics
 
 Since the new table format is different from the previous one, your queries need to be reworked so you can use our new tables. Once you enable the new Azure Monitor integration, you can browse the tables and schemas to identify the fields that are used in your old queries. 
 
@@ -176,14 +176,14 @@ We provide a [mapping table](./log-analytics-migration.md#appendix-table-mappi
 
 **Default queries:** We created default queries that show how to use the new tables for common situations. The default queries also show what information is available in each table. You can access the default queries by following the instructions in the [Default queries to use with new tables](./log-analytics-migration.md#default-queries-to-use-with-new-tables) section in this article. 
 
-**Update dashboards for HDInsight clusters**
+### Update dashboards for HDInsight clusters
 
 If you build multiple dashboards to monitor your HDInsight clusters, you need to adjust the query behind the table once you enable the new Azure Monitor integration. The table name or the field name might change in the new integration, but all the information you have in old integration is included. 
 
 Refer to the [mapping table](log-analytics-migration.md#appendix-table-mapping) between the old table/schema to the new table/schema to update the query behind the dashboards
 
 
-**Out-of-box dashboards**
+### Out-of-box dashboards
 
 We also improved the out-of-box dashboards both at the cluster-level. There's a button on the top right of every graph that allows you to see the underlying query that produces the information. The graph is a great way to familiarize yourself with how the new tables can be queried effectively. 
 
