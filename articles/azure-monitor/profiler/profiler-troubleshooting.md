@@ -78,7 +78,8 @@ Search for trace messages and custom events sent by Profiler to your Application
 
 Even when the Profiler is enabled, it may not capture or upload traces, especially in these situations:
 
-1. No incoming requests to your application - you can manually invoke your application or create an [availability test](https://learn.microsoft.com/azure/azure-monitor/app/availability), or a [load test](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing). 
+1. **No incoming requests to your application:**   
+     You can manually invoke your application or create an [availability test](../app/availability.md), or a [load test](../../load-testing/overview-what-is-azure-load-testing.md). 
 
 1. No incoming telemetry acknowledged by Application Insights - if there is traffic coming to your application - validate that there are incoming requests showing in Application Insights [Live Metrics](https://learn.microsoft.com/azure/azure-monitor/app/live-stream). If the `Incoming Requests` charts are empty (no data or showing zero) - please [troubleshoot Application Insights](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/telemetry/asp-net-troubleshoot-no-data). If you are hosting your .NET application on Azure App Service - follow [this is specific troubleshooting](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps-net#troubleshooting).
 
