@@ -12,7 +12,7 @@ ms.reviewer: lualderm
 
 # Diagnostic settings in Azure Monitor
 
-This article provides details on creating and configuring diagnostic settings to send Azure platform metrics, resource logs and the activity log to different destinations.
+This article provides details on creating and configuring diagnostic settings to send Azure platform metrics, resource logs, and the activity log to different destinations.
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
@@ -134,12 +134,13 @@ The following table provides unique requirements for each destination including 
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You must enable **Allow trusted Microsoft services** to bypass this firewall setting in Event Hubs so that the Azure Monitor diagnostic settings service is granted access to your Event Hubs resources.|
 | Partner solutions | The solutions vary by partner. Check the [Azure Native ISV Services documentation](../../partner-solutions/overview.md) for details.|
 
-> [!CAUTION]
-> If you want to store diagnostic logs in a Log Analytics workspace, there are two points to consider to avoid seeing duplicate data in Application Insights:
-> * The destination can't be the same Log Analytics workspace that your Application Insights resource is based on.
-> * The Application Insights user can't have access to both workspaces. Set the Log Analytics access control mode to Requires workspace permissions. Through Azure role-based access control, ensure the user only has access to the Log Analytics workspace the Application Insights resource is based on.
->
-> These steps are necessary because Application Insights accesses telemetry across Application Insight resources, including Log Analytics workspaces, to provide complete end-to-end transaction operations and accurate application maps. Because diagnostic logs use the same table names, duplicate telemetry can be displayed if the user has access to multiple resources that contain the same data.
+### Diagnostic logs for Application Insights
+
+If you want to store diagnostic logs for Application Insights in a Log Analytics workspace, don't send the logs to the same workspace that the Application Insights resource is based on. This configuration can cause duplicate telemetry to be displayed because Application Insights is already storing this data. Send your Application Insights logs to a different Log Analytics workspace.
+
+When sending Application Insights logs to a different workspace, be aware that Application Insights accesses telemetry across Application Insight resources, including multiple Log Analytics workspaces. Restrict the Application Insights user's access to only the Log Analytics workspace linked with the Application Insights resource. Set the access control mode to **Requires workspace permissions** and manage permissions through Azure role-based access control to ensure that Application Insights only has access to the Log Analytics workspace that the Application Insights resource is based on.
+
+ 
 
 ## Controlling costs
 

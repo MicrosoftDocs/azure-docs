@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: conceptual
-ms.date: 07/31/2024
+ms.date: 08/06/2024
 ms.author: mbullwin
 ---
 
@@ -48,10 +48,13 @@ The following sections provide you with a quick guide to the default quotas and 
 | Assistants token limit | 2,000,000 token limit |
 | GPT-4o max images per request (# of images in the messages array/conversation history) | 10 |
 | GPT-4 `vision-preview` & GPT-4 `turbo-2024-04-09` default max tokens | 16 <br><br> Increase the `max_tokens` parameter value to avoid truncated responses. GPT-4o max tokens defaults to 4096. |
+| Max number of customer headers in API requests | 10 |
 
 ## Regional quota limits
 
 [!INCLUDE [Quota](./includes/model-matrix/quota.md)]
+
+[!INCLUDE [Quota](./includes/global-batch-limits.md)]
 
 ## gpt-4o rate limits
 

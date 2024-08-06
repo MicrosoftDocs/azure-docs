@@ -17,6 +17,7 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Screenshot of API analytics in the portal." lightbox="media/howto-use-analytics/analytics-report-portal.png":::
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## About API analytics
 
