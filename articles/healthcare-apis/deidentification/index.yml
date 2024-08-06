@@ -30,7 +30,7 @@ landingContent:
         links:
           - text: Deploy the Deidentification service
             url: quickstart.md
-          - text: Azure Health Deidentification client library for .NET
+          - text: Azure Health De-identification client library for .NET
             url: quickstart-sdk-net.md
 
   - title: How-tos
