@@ -68,7 +68,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 # [Azure portal](#tab/azureportal)
 
-# [Unified Model)](#tab/azureportal/unified)
+# [Unified Model](#tab/azureportal/unified)
 
 The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.
 
@@ -495,8 +495,6 @@ It's possible to commission the global custom IP prefix prior to the regional cu
 
 # [Unified Model](#tab/azurepowershell/unified)
 
-# [Unified Model](#tab/azurepowershell/unified)
-
 The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.
 
 > [!NOTE]
@@ -660,7 +658,7 @@ It's possible to commission the global custom IP prefix prior to the regional cu
 
 > [!IMPORTANT]
 > As the global custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
-
+---
 
 ---
 ## Next steps
