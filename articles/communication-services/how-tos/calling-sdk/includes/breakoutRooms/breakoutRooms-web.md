@@ -142,7 +142,7 @@ breakoutRooms.forEach((room)=>{
 
 ### Join breakout room
 
-If the `assignedBreakoutRoom` has property `autoMoveParticipantToBreakoutRoom` set to `true`, then the user is automatically moved to the breakout room when the property `state` is set to `open`. 
+If the `assignedBreakoutRoom` has property `autoMoveParticipantToBreakoutRoom` set to `true`, then the user is automatically moved to the breakout room when the property `state` is set to `open`. If `autoMoveParticipantToBreakoutRoom` is set to `false`, then use the following code to join breakout room.
 This triggers `breakoutRoomsUpdated` event with class `JoinBreakoutRoomsEvent` that has property `type` set as `join`. You can use the instance of a class `call` in property `data` to manage breakout room call. 
 
 ```js
