@@ -357,7 +357,7 @@ Consider these limitations when you develop your functions in the [Azure portal]
 + In-portal editing is supported only for JavaScript, PowerShell, Python, and C# Script functions.
 + In-portal editing isn't supported in the preview release of the [Flex Consumption plan](flex-consumption-plan.md#considerations).
 + When you deploy code to a function app from outside the Azure portal, you can no longer edit any of the code for that function app in the portal. In this case, just continue using [local development](functions-develop-local.md).
-+ For Python, development with custom modules is not currently supported in the portal. To add modules to your function app, you can leverage different development tooling.
++ For Python, development with custom modules isn't currently supported in the portal. To add custom modules to your function app, you must [develop your app locally](functions-develop-local.md).
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
