@@ -169,7 +169,7 @@ This mapping creates an array containing the minimum, maximum, average, and mean
 * Handling missing fields in the input by providing an alternative value.
 * Conditionally removing a field based on its presence.
 
-Example mapping using *missing value*`:
+Example mapping using *missing value*:
 
 ```json
 {
