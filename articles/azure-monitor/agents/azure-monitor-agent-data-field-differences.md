@@ -32,7 +32,7 @@ This table collects Events from the Windows Event log. There are two other table
 
 |LAW Field | Difference | Reason| Additional Information |
 |---|---|---|---|
-| UserName | MMA enriches the event with the username before sending the event for ingestion. AMA doesn't do the same enrichment. | The AMA enrichment isn't implemented yet. | AMA principles dictate that the event data should remain unchanged by default. Adding and enriched field adds possible processing errors and additional costs for storage. In this case, the customer demand for the field is very high and work is underway to add the username. |
+| UserName | MMA enriches the event with the username before sending the event for ingestion. AMA doesn't do the same enrichment. | The AMA enrichment isn't implemented yet. | AMA principles dictate that the event data should remain unchanged by default. Adding and enriched field adds possible processing errors and extra costs for storage. In this case, the customer demand for the field is very high and work is underway to add the username. |
 
 ### Perf Table for Performance Counters
 
@@ -40,8 +40,8 @@ The Perf table collects performance counters from Windows and Linux agents. It o
 
 | LAW Field    | Difference | Reason | Additional Information |
 |--------------|------------|--------|------------------------|
-| InstanceName | Reported as **_Total** by OMS<br>Reported as **total** by AMA | | Where `ObjectName == "Logical Disk"` and `CounterName == "% Used Space"`, the InstanceName value is reported as **_Total** for records ingested by the OMS agent, whereas it's reported as **total** for records ingested by the Azure Monitor Agent (AMA).\* |
-| CounterValue | Is rounded to the nearest whole number by OMS but not rounded by AMA | | Where `ObjectName == "Logical Disk"` and `CounterName == "% Used Space"`, the CounterValue is value is rounded to the nearest whole number for records ingested by the OMS agent but not rounded for records ingested by the Azure Monitor Agent (AMA).\* |
+| InstanceName | Reported as **_Total** by OMS<br>Reported as **total** by AMA | | Where `ObjectName == "Logical Disk"` and `CounterName == "% Used Space"`, the `InstanceName` value is reported as **_Total** for records ingested by the OMS agent, and as **total** for records ingested by the Azure Monitor Agent (AMA).\* |
+| CounterValue | Is rounded to the nearest whole number by OMS but not rounded by AMA | | Where `ObjectName == "Logical Disk"` and `CounterName == "% Used Space"`, the `CounterValue` value is rounded to the nearest whole number for records ingested by the OMS agent but not rounded for records ingested by the Azure Monitor Agent (AMA).\* |
 
 \* Doesn't apply to records ingested by the Microsoft Monitoring Agent (MMA) on Windows.
 
