@@ -25,6 +25,24 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
+- The machine running the Az CLI commands must have internet access to `https://<region>.obo.arc.azure.com:8084/`.
+  
+- Enable the [network requirements for Arc-enabled Kubernetes](network-requirements.md)
+  
+- Enable these endpoints for outbound access:
+
+  | Endpoint | Port |
+  |----------------|-------|
+  |`*.servicebus.windows.net` | 443 |
+  |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
+
+  > [!NOTE]
+  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
+
+[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
+
+
+
 ### [Azure CLI](#tab/azure-cli)
 
 
@@ -63,18 +81,6 @@ Before you begin, review the [conceptual overview of the cluster connect feature
   ```
 
 ---
-
-- In addition to meeting the [network requirements for Arc-enabled Kubernetes](network-requirements.md), enable these endpoints for outbound access:
-
-  | Endpoint | Port |
-  |----------------|-------|
-  |`*.servicebus.windows.net` | 443 |
-  |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
-
-  > [!NOTE]
-  > To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<location>`. Within this command, the region must be specified for the `<location>` placeholder.
-
-[!INCLUDE [arc-region-note](../includes/arc-region-note.md)]
 
 ## Set up authentication
 
