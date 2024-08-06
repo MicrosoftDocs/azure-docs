@@ -68,7 +68,7 @@ Create a new Python file named _quickstart.py_. Open the new file in your prefer
     import http.client
     import json
 
-    endpoint = "<my-custom-subdomain>.cognitiveservices.azure.com"
+    endpoint = "<your_custom_subdomain>.cognitiveservices.azure.com"
     conn = http.client.HTTPSConnection(endpoint)
     payload = json.dumps({
       "domain": "Generic",
