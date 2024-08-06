@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Publish built-in apps in Azure Virtual Desktop (classic)
 
