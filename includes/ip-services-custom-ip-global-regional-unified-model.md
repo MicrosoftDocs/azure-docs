@@ -1,7 +1,7 @@
 ---
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: include
 ms.date: 06/04/2024
