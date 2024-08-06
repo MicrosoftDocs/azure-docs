@@ -6,14 +6,13 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 08/01/2023
 ms.author: pafarley
-ms.custom: references_regions
 ---
 
 ## Prerequisites
 
 This guide assumes you've followed the steps in the [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) page. This means:
 
-* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
+* You have <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a key and endpoint URL.
 * You have the appropriate SDK package installed and you have a running [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40) application. You can modify this quickstart application based on code examples here.
 
 ## Create and authenticate the client
@@ -25,33 +24,33 @@ To authenticate with the Image Analysis service, you need a Computer Vision key 
 
 Start by creating an [ImageAnalysisClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient) object. For example:
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_client)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_client)]
 
 
 ## Select the image to analyze
 
-You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#image-requirements) for supported image formats.
+You can select an image by providing a publicly accessible image URL, or by reading image data into the SDK's input buffer. See [Image requirements](../../overview-image-analysis.md?tabs=4-0#input-requirements) for supported image formats.
 
 ### Image URL
 
 Create an `imageUrl` string to hold the publicly accessible URL of the image you want to analyze.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_url)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_url)]
 
 ### Image buffer
 
 Alternatively, you can pass in the image as memory buffer using a [BinaryData](/java/api/com.azure.core.util.binarydata) object. For example, read from a local image file you want to analyze.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_file)]
 
 ## Select visual features
 
 The Analysis 4.0 API gives you access to all of the service's image analysis features. Choose which operations to do based on your own use case. See the [overview](/azure/ai-services/computer-vision/overview-image-analysis) for a description of each feature. The example in this section adds all of the [available visual features](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures), but for practical usage you likely need fewer.
 
 > [!IMPORTANT]
-> The visual features [Captions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-caption) and [DenseCaptions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-dense-captions) are only supported in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> The visual features [Captions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-caption) and [DenseCaptions](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-dense-captions) are only supported in certain Azure regions. See [Region availability](./../../overview-image-analysis.md#region-availability).
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_features)]
 
 <!--
 ### Set model name when using a custom model
@@ -71,17 +70,17 @@ Use an [ImageAnalysisOptions](/java/api/com.azure.ai.vision.imageanalysis.models
 - **Gender neutral captions**: If you're extracting captions or dense captions (using [VisualFeatures.CAPTION](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-caption) or [VisualFeatures.DENSE_CAPTIONS](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-dense-captions)), you can ask for gender neutral captions. Gender neutral captions are optional, with the default being gendered captions. For example, in English, when you select gender neutral captions, terms like **woman** or **man** are replaced with **person**, and **boy** or **girl** are replaced with **child**.
 - **Crop aspect ratio**: An aspect ratio is calculated by dividing the target crop width by the height. Supported values are from 0.75 to 1.8 (inclusive). Setting this property is only relevant when [VisualFeatures.SMART_CROPS](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-smart-crops) was selected as part the visual feature list. If you select [VisualFeatures.SMART_CROPS](/java/api/com.azure.ai.vision.imageanalysis.models.visualfeatures#com-azure-ai-vision-imageanalysis-models-visualfeatures-smart-crops) but don't specify aspect ratios, the service returns one crop suggestion with an aspect ratio it sees fit. In this case, the aspect ratio is between 0.5 and 2.0 (inclusive).
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_options)]
 
 ## Call the analyzeFromUrl method
 
 This section shows you how to make an analysis call to the service.
 
-Call the [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method on the [ImageAnalysisClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a [ImageAnalysisAsyncClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient) object instead, and call its [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient#method-summary) method which is non-blocking.
+Call the [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method on the [ImageAnalysisClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient) object, as shown here. The call is synchronous, and will block until the service returns the results or an error occurred. Alternatively, you can use a [ImageAnalysisAsyncClient](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient) object instead, and call its [analyzeFromUrl](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisasyncclient#method-summary) method, which is non-blocking.
 
 To analyze from an image buffer instead of URL, call the [analyze](/java/api/com.azure.ai.vision.imageanalysis.imageanalysisclient#method-summary) method instead, and pass in the `imageData` as the first argument.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_call)]
 
 <!--
 ### Get results using custom model
@@ -98,7 +97,7 @@ The code is similar to the standard model case. The only difference is that resu
 
 The following code shows you how to parse the results from the **analyzeFromUrl** and **analyze** operations.
 
-[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
+[!Code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/4-0/ImageAnalysisHowTo.java?name=snippet_results)]
 
 ## Troubleshooting
 
@@ -172,7 +171,7 @@ ImageAnalysisClient client = new ImageAnalysisClientBuilder()
 
 The enum [HttpLogDetailLevel](/java/api/com.azure.core.http.policy.httplogdetaillevel) defines the supported logging levels.
 
-By default, when logging, certain HTTP header and query parameter values are redacted. It is possible to override this default by specifying which headers and query parameters are safe to log:
+By default, when logging, certain HTTP header and query parameter values are redacted. It's possible to override this default by specifying which headers and query parameters are safe to log:
 
 ```java
 ImageAnalysisClient client = new ImageAnalysisClientBuilder()

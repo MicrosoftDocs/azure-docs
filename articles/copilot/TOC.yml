@@ -6,6 +6,8 @@
   items:
   - name: Capabilities
     href: capabilities.md
+  - name: Example prompts
+    href: example-prompts.md
   - name: Responsible AI FAQ
     href: responsible-ai-faq.md
 - name: How-to guides
@@ -22,7 +24,7 @@
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
     href: build-infrastructure-deploy-workloads.md
-  - name: Use guided deployments
+  - name: Use interactive deployments
     href: use-guided-deployments.md
   - name: Get monitoring information
     href: get-monitoring-information.md

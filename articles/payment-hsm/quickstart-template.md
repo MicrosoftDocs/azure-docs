@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
 ms.topic: quickstart
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.custom: mvc, mode-other, devx-track-arm-template, devx-track-azurepowershell, devx-track-azurecli
 #Customer intent: As a security admin who is new to Azure, I want to create a payment HSM using an Azure Resource Manager template.
 ---
@@ -19,11 +19,11 @@ This quickstart describes how to create a payment HSM with the host and manageme
 - [Create a payment HSM with host and management port in different virtual network using an ARM template](create-different-vnet.md)
 - [Create HSM resource with host and management port with IP addresses in different virtual networks using ARM template](create-different-ip-addresses.md)
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Create a resource group with the Azure CLI](../../includes/payment-hsm/specialized-service.md)]
+[!INCLUDE [Specialized service](./includes/specialized-service.md)]
 
 - You must register the "Microsoft.HardwareSecurityModules" and "Microsoft.Network" resource providers, as well as the Azure Payment HSM features. Steps for doing so are at [Register the Azure Payment HSM resource provider and resource provider features](register-payment-hsm-resource-providers.md).
 

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `30`          |
 | Allowed values | `30`                |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [authentication_timeout](https://www.postgresql.org/docs/12/runtime-config-connection.html#GUC-AUTHENTICATION-TIMEOUT) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`               |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [db_user_namespace](https://www.postgresql.org/docs/12/runtime-config-connection.html#GUC-DB-USER-NAMESPACE)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`               |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [krb_caseins_users](https://www.postgresql.org/docs/12/runtime-config-connection.html#GUC-KRB-CASEINS-USERS)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                     |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [krb_server_keyfile](https://www.postgresql.org/docs/12/runtime-config-connection.html#GUC-KRB-SERVER-KEYFILE)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -80,12 +80,12 @@ ms.topic: include
 | Attribute      | Value                                                      |
 |----------------|------------------------------------------------------------|
 | Category       | Connections and Authentication / Authentication |
-| Description    | Determines the algorithm to use to encrypt the password..                          |
+| Description    | Determines the algorithm to use to encrypt the password.                           |
 | Data type      | enumeration |
 | Default value  | `md5`         |
 | Allowed values | `md5,scram-sha-256` |
 | Parameter type | dynamic        |
-| Documentation  |               |
+| Documentation  | [password_encryption](https://www.postgresql.org/docs/12/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

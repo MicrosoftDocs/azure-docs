@@ -3,7 +3,7 @@ title: Create a radio access network insights resource
 description: Learn how to set up your radio access network insights resource
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 5/28/2024
 
@@ -20,7 +20,7 @@ Each RAN insights resource is associated with one physical site resource and is 
     - Check if the network is ready by verifying that a device / user equipment (UE) connected to the network through the RAN can transmit and receive data. If this doesn't work, fix any problems before trying to activate the RAN insights feature.  
 - Deploy a compatible version of the RAN EMS from your RAN partner. You'll need to verify with your RAN partner that your RAN EMS contains a Microsoft-compatible External Metrics Agent (EMA) to send metrics to Azure. If not, your partner will need to install a metrics agent on the EMS you're using. Information on how and where to establish the connection between Azure and the EMS is specific to the RAN vendor, so contact them for details.  
 -  Access to RAN insights for your Azure Subscription. Contact your Microsoft representative and ask them to register your Azure subscription for access to RAN insights. 
-- Ensure you're registered with resource providers listed. Follow [Resource providers and resource types](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) for steps on how to register. 
+- Ensure you're registered with resource providers listed. Follow [Resource providers and resource types](/azure/azure-resource-manager/management/resource-providers-and-types) for steps on how to register. 
     - Microsoft.insights  
     - Microsoft.NetworkAnalytics 
     - Microsoft.KeyVault  
@@ -64,7 +64,7 @@ This tab holds important details, such as:
 - Eventhub name – name of the event hub 
 - Keyvault – URL for key vault containing connection string 
 
-If you're unable to access the information in the MIE key vault URL then you may not have the correct credentials. If so, you need to take the necessary steps to grant access for the required role. Refer to [Azure RBAC documentation | Microsoft Learn](https://learn.microsoft.com/azure/role-based-access-control/) for steps on how to do this. 
+If you're unable to access the information in the MIE key vault URL then you may not have the correct credentials. If so, you need to take the necessary steps to grant access for the required role. Refer to [Azure RBAC documentation | Microsoft Learn](/azure/role-based-access-control/) for steps on how to do this. 
     :::image type="content" source="media/ran-insights/ran-insights-key-vault-not-working.png" alt-text="Screenshot of the Azure portal showing operation not allowed for key vault.":::
 
 

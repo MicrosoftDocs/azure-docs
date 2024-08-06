@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `-1`                                                                       |
 | Allowed values | `-1-2097151`     |
 | Parameter type | dynamic        |
-| Documentation  | [autovacuum_work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html)       |
+| Documentation  | [autovacuum_work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `posix`                                                                    |
 | Allowed values | `posix`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [dynamic_shared_memory_type](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-DYNAMIC-SHARED-MEMORY-TYPE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -48,10 +48,10 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Multiple of work_mem to use for hash tables.                                                                                                                                        |
 | Data type      | numeric     |
-| Default value  | `2`           |
+| Default value  | `2`                                                                        |
 | Allowed values | `2`              |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [hash_mem_multiplier](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `try`                                                                      |
 | Allowed values | `on,off,try`     |
 | Parameter type | static         |
-| Documentation  | [huge_pages](https://www.postgresql.org/docs/16/runtime-config-resource.html)                |
+| Documentation  | [huge_pages](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-HUGE-PAGES)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-huge_pages](./server-parameters-azure-notes-huge_pages.md)]
@@ -82,10 +82,10 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | The size of huge page that should be requested.                                                                                                                                     |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [huge_page_size](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-HUGE-PAGE-SIZE)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `65536`                                                                    |
 | Allowed values | `65536`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [logical_decoding_work_mem](https://www.postgresql.org/docs/16/runtime-config-logging.html#GUC-LOGICAL-DECODING-WORK-MEM)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `1024-2097151`   |
 | Parameter type | dynamic        |
-| Documentation  | [maintenance_work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html)      |
+| Documentation  | [maintenance_work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-maintenance_work_mem](./server-parameters-azure-notes-maintenance_work_mem.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `0`                                                                        |
 | Allowed values | `0-262143`       |
 | Parameter type | static         |
-| Documentation  | [max_prepared_transactions](https://www.postgresql.org/docs/16/runtime-config-resource.html) |
+| Documentation  | [max_prepared_transactions](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `2048`                                                                     |
 | Allowed values | `2048`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [max_stack_depth](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-MAX-STACK-DEPTH)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -167,10 +167,10 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Amount of dynamic shared memory reserved at startup.                                                                                                                                |
 | Data type      | integer     |
-| Default value  | `0`           |
+| Default value  | `0`                                                                        |
 | Allowed values | `0`              |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [min_dynamic_shared_memory](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-MIN-DYNAMIC-SHARED-MEMORY)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -184,10 +184,10 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the number of shared memory buffers used by the server. Unit is 8kb. Allowed values are inside the range of 10% - 75% of available memory.                                     |
 | Data type      | integer     |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.                                                                   |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `16-1073741823`  |
 | Parameter type | static         |
-| Documentation  | [shared_buffers](https://www.postgresql.org/docs/16/runtime-config-resource.html)            |
+| Documentation  | [shared_buffers](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-SHARED-BUFFERS)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-shared_buffers](./server-parameters-azure-notes-shared_buffers.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `mmap`                                                                     |
 | Allowed values | `mmap`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [shared_memory_type](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-SHARED-MEMORY-TYPE)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -218,10 +218,10 @@ ms.topic: include
 | Category       | Resource Usage / Memory |
 | Description    | Sets the maximum number of temporary buffers used by each database session.                                                                                                         |
 | Data type      | integer     |
-| Default value  | `1024`        |
+| Default value  | `1024`                                                                     |
 | Allowed values | `100-1073741823` |
 | Parameter type | dynamic        |
-| Documentation  | [temp_buffers](https://www.postgresql.org/docs/16/runtime-config-resource.html)              |
+| Documentation  | [temp_buffers](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-TEMP-BUFFERS)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `4096`                                                                     |
 | Allowed values | `4096-2097151`   |
 | Parameter type | dynamic        |
-| Documentation  | [work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html)                  |
+| Documentation  | [work_mem](https://www.postgresql.org/docs/16/runtime-config-resource.html#GUC-WORK-MEM)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-work_mem](./server-parameters-azure-notes-work_mem.md)]

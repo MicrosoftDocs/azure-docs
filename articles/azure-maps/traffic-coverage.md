@@ -2,8 +2,8 @@
 title: Traffic coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn about traffic coverage in Azure Maps. See whether information on traffic flow and incidents is available in various regions throughout the world.
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 03/24/2022
 ms.topic: conceptual
 ms.service: azure-maps

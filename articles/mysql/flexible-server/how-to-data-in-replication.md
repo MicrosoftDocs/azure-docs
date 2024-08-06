@@ -4,10 +4,9 @@ description: This article describes how to set up data-in replication for Azure 
 author: VandhanaMehta
 ms.author: vamehta
 ms.reviewer: maghan
-ms.date: 12/30/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom:
 ms.topic: how-to
 ---
 
@@ -80,89 +79,90 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
     1. After the server is restarted, verify that binary logging is enabled by running the same query as before:
 
-    ```sql
-    SHOW VARIABLES LIKE 'log_bin';
-    ```
+       ```sql
+       SHOW VARIABLES LIKE 'log_bin';
+       ```
 
    #### [GTID based replication](#tab/shell)
 
    The Master server needs to be started with GTID mode enabled by setting the gtid_mode variable to ON. It's also essential that the enforce_gtid_consistency variable is enabled to make sure that only the statements, which are safe for MySQL GTIDs Replication are logged.
 
+   ```sql
    SET @@GLOBAL.ENFORCE_GTID_CONSISTENCY = ON;
-
    SET @@GLOBAL.GTID_MODE = ON;
-
+   ```
+   
    If the master server is another Azure Database for MySQL flexible server instance, then these server parameters can also be updated from the portal by navigating to server parameter page.
 
 
 1. Configure the source server settings.
 
-      Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL flexible server.
+   Data-in replication requires the parameter `lower_case_table_names` to be consistent between the source and replica servers. This parameter is 1 by default in Azure Database for MySQL flexible server.
 
-      ```sql
-      SET GLOBAL lower_case_table_names = 1;
-      ```
+   ```sql
+   SET GLOBAL lower_case_table_names = 1;
+   ```
 
-5. Create a new replication role and set up permission.
+1. Create a new replication role and set up permission.
 
-      Create a user account on the source server that is configured with replication privileges. This can be done through SQL commands or a tool such as MySQL Workbench. Consider whether you plan on replicating with SSL, as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your source server.
+   Create a user account on the source server that is configured with replication privileges. This can be done through SQL commands or a tool such as MySQL Workbench. Consider whether you plan on replicating with SSL, as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your source server.
 
-      In the following commands, the new replication role created can access the source from any machine, not just the machine that hosts the source itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   In the following commands, the new replication role created can access the source from any machine, not just the machine that hosts the source itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
-#### [SQL Command](#tab/command-line)
+   #### [SQL Command](#tab/command-line)
 
-**Replication with SSL**
+   **Replication with SSL**
 
-To require SSL for all user connections, use the following command to create a user:
+   To require SSL for all user connections, use the following command to create a user:
 
-```sql
-CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
-```
+   ```sql
+   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+   ```
 
-**Replication without SSL**
+   **Replication without SSL**
 
-If SSL isn't required for all connections, use the following command to create a user:
+   If SSL isn't required for all connections, use the following command to create a user:
 
-```sql
-CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
-```
+   ```sql
+   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+   ```
 
-#### [MySQL Workbench](#tab/mysql-workbench)
+   #### [MySQL Workbench](#tab/mysql-workbench)
 
-To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel, and then select **Add Account**.
+   To create the replication role in MySQL Workbench, open the **Users and Privileges** panel from the **Management** panel, and then select **Add Account**.
 
-:::image type="content" source="./media/how-to-data-in-replication/users-privileges.png" alt-text="Users and Privileges":::
+   :::image type="content" source="./media/how-to-data-in-replication/users-privileges.png" alt-text="Users and Privileges":::
 
-Type in the username into the **Login Name** field.
+   Type in the username into the **Login Name** field.
 
-:::image type="content" source="./media/how-to-data-in-replication/sync-user.png" alt-text="Sync user":::
+   :::image type="content" source="./media/how-to-data-in-replication/sync-user.png" alt-text="Sync user":::
 
-Select the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then select **Apply** to create the replication role.
+   Select the **Administrative Roles** panel and then select **Replication Slave** from the list of **Global Privileges**. Then select **Apply** to create the replication role.
 
-:::image type="content" source="./media/how-to-data-in-replication/replication-slave.png" alt-text="Replication Slave":::
+   :::image type="content" source="./media/how-to-data-in-replication/replication-slave.png" alt-text="Replication Slave":::
 
 1. Set the source server to read-only mode.
 
-Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the source will be unable to process any write transactions. Evaluate the impact to your business and schedule the read-only window in an off-peak time if necessary.
+   Before starting to dump out the database, the server needs to be placed in read-only mode. While in read-only mode, the source will be unable to process any write transactions. Evaluate the impact to your business and schedule the read-only window in an off-peak time if necessary.
 
-```sql
-FLUSH TABLES WITH READ LOCK;
-SET GLOBAL read_only = ON;
-```
+   ```sql
+   FLUSH TABLES WITH READ LOCK;
+   SET GLOBAL read_only = ON;
+   ```
 
 1. Get binary log file name and offset.
 
    Run the [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) command to determine the current binary log file name and offset.
 
    ```sql
-      show master status;
+   show master status;
    ```
 
-The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
+   The results should appear similar to the following. Make sure to note the binary file name for use in later steps.
 
-:::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::
+   :::image type="content" source="./media/how-to-data-in-replication/master-status.png" alt-text="Master Status Results":::
 
 ---
 
@@ -170,9 +170,9 @@ The results should appear similar to the following. Make sure to note the binary
 
 1. Determine which databases and tables you want to replicate into Azure Database for MySQL flexible server and perform the dump from the source server.
 
-    You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
+   You can use mysqldump to dump databases from your primary server. For details, refer to [Dump & Restore](../concepts-migrate-dump-restore.md). It's unnecessary to dump the MySQL library and test library.
 
-2. Set source server to read/write mode.
+1. Set source server to read/write mode.
 
    After the database has been dumped, change the source MySQL server back to read/write mode.
 
@@ -180,10 +180,11 @@ The results should appear similar to the following. Make sure to note the binary
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
-[!NOTE]
-> Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. The same will be used at the later stage to set GTID on the replica server
 
-3. Restore dump file to new server.
+   >[!NOTE]
+   > Before the server is set back to read/write mode, you can retrieve the GTID information using global variable GTID_EXECUTED. This will be used at the later stage to set GTID on the replica server.
+
+1. Restore dump file to new server.
 
    Restore the dump file to the server created in Azure Database for MySQL flexible server. Refer to [Dump & Restore](../concepts-migrate-dump-restore.md) for how to restore a dump file to a MySQL server. If the dump file is large, upload it to a virtual machine in Azure within the same region as your replica server. Restore it to the Azure Database for MySQL flexible server instance from the virtual machine.
 
@@ -194,9 +195,9 @@ The results should appear similar to the following. Make sure to note the binary
 
 1. Skip the step if using bin-log position-based replication
 
-2. GTID information from the dump file taken from the source is required to reset GTID history of the target (replica) server.
+1. GTID information from the dump file taken from the source is required to reset GTID history of the target (replica) server.
 
-3.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
+1.	Use this GTID information from the source to execute GTID reset on the replica server using the following CLI command:
 
     ```azurecli-interactive
     az mysql flexible-server gtid reset --resource-group  <resource group> --server-name <replica server name> --gtid-set <gtid set from the source server> --subscription <subscription id>
@@ -215,7 +216,7 @@ For more details refer [GTID Reset](/cli/azure/mysql/flexible-server/gtid).
 
    All Data-in replication functions are done by stored procedures. You can find all procedures at [Data-in replication Stored Procedures](../reference-stored-procedures.md). The stored procedures can be run in the MySQL shell or MySQL Workbench.
 
-To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure Database for MySQL server.
+   To link two servers and start replication, login to the target replica server in the Azure Database for MySQL service and set the external instance as the source server. This is done by using the `mysql.az_replication_change_master` or `mysql.az_replication_change_master_with_gtid` stored procedure on the Azure Database for MySQL server.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', <master_port>, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -225,13 +226,13 @@ To link two servers and start replication, login to the target replica server in
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', <master_port>,'<master_ssl_ca>');
    ```
 
-- master_host: hostname of the source server
-   - master_user: username for the source server
-   - master_password: password for the source server
-   - master_port: port number on which source server is listening for connections. (3306 is the default port on which MySQL is listening)
-   - master_log_file: binary log file name from running `show master status`
-   - master_log_pos: binary log position from running `show master status`
-   - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
+      - master_host: hostname of the source server
+      - master_user: username for the source server
+      - master_password: password for the source server
+      - master_port: port number on which source server is listening for connections. (3306 is the default port on which MySQL is listening)
+      - master_log_file: binary log file name from running `show master status`
+      - master_log_pos: binary log position from running `show master status`
+      - master_ssl_ca: CA certificate's context. If not using SSL, pass in empty string.
 
    It's recommended to pass this parameter in as a variable. For more information, visit the following examples.
 
@@ -287,9 +288,9 @@ To link two servers and start replication, login to the target replica server in
    show slave status;
    ```
 
-  To know the correct status of replication, refer to replication metrics - **Replica IO Status** and **Replica SQL Status** under monitoring page.
+   To know the correct status of replication, refer to replication metrics - **Replica IO Status** and **Replica SQL Status** under monitoring page.
 
-  If the `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates.
+   If the `Seconds_Behind_Master` is "0", replication is working well. `Seconds_Behind_Master` indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates.
 
 ## Other useful stored procedures for Data-in replication operations
 

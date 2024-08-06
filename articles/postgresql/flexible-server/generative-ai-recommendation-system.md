@@ -5,16 +5,17 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---
 
 # Recommendation System with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This hands-on tutorial shows you how to build a recommender application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Recommendations have applications in different domains – service providers frequently tend to provide recommendations for products and services they offer based on prior history and contextual information collected from the customer and environment. 
 

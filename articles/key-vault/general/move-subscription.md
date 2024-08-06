@@ -4,7 +4,7 @@ description: Guidance on moving a key vault to a different subscription.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 # Moving an Azure Key Vault to another subscription
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 

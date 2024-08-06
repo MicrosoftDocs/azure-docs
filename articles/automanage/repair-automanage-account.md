@@ -1,7 +1,7 @@
 ---
 title: Repair a broken Azure Automanage Account
 description: If you've recently moved a subscription that contains an Automanage Account to a new tenant, you need to reconfigure it. In this article, you'll learn how.
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: devx-track-azurecli, subject-rbac-steps
@@ -79,7 +79,7 @@ If you're using an ARM template or the Azure CLI, you'll need the Principal ID (
     | Assign access to | User, group, or service principal  |
     | Members          | \<Name of your Automanage account> |
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Repeat steps 2 through 4, selecting the **Resource Policy Contributor** role.
 

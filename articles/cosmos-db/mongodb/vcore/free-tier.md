@@ -5,7 +5,7 @@ description: Free tier on vCore-based Azure Cosmos DB for MongoDB.
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 11/08/2023
@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 # Build applications for free with Azure Cosmos DB for MongoDB (vCore) Free Tier
 
-[!INCLUDE[MongoDB (vCore)](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 Azure Cosmos DB for MongoDB (vCore) now introduces a new SKU, the "Free Tier," enabling users to explore the platform without any financial commitments. The free tier lasts for the lifetime of your account, boasting command and feature parity with a regular Azure Cosmos DB for MongoDB (vCore) account.
 

@@ -147,7 +147,7 @@ sections:
           What do I do if I have locked resource groups, subscriptions, or clusters?
         answer: |
           We suggest that you unlock the locked resource group/subscription/cluster, make the relevant requests manually, and then relock the resource group/subscription/cluster by doing the following:
-          1. Enable the feature flag manually via CLI by using [Trusted Access](../aks/trusted-access-feature.md).
+          1. Enable the feature flag manually via CLI by using [Trusted Access](/azure/aks/trusted-access-feature).
               ``` CLI
               “az feature register --namespace "Microsoft.ContainerService" --name "TrustedAccessPreview” 
               ```
@@ -165,7 +165,7 @@ sections:
       - question: |
           Are you using an updated version of AKS?
         answer: |
-          Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](../aks/supported-kubernetes-versions.md?tabs=azure-cli).
+          Learn more about [supported Kubernetes versions in Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions?tabs=azure-cli).
 
       - question: |
           What's the refresh interval for Agentless discovery of Kubernetes?

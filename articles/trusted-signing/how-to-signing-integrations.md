@@ -51,7 +51,7 @@ To download and install SignTool:
 
 1. Download the latest version of SignTool and Windows Build Tools NuGet at [Microsoft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/).
 
-1. Install SignTool from the Windows SDK (minimum version: 10.0.2261.755).
+1. Install SignTool from the Windows SDK (minimum version: 10.0.2261.755, 20348 Windows SDK version is not supported with our dlib).
 
 Another option is to use the latest *nuget.exe* file to download and extract the latest Windows SDK Build Tools NuGet package by using PowerShell:
 
@@ -101,7 +101,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    {
      "Endpoint": "<Trusted Signing account endpoint>",
      "CodeSigningAccountName": "<Trusted Signing account name>",
-     "CertificateProfileName": "<certificate profile name>",
+     "CertificateProfileName": "<Certificate profile name>",
      "CorrelationId": "<Optional CorrelationId value>"
    }
    ```

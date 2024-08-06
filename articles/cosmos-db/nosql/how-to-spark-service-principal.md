@@ -4,8 +4,9 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to use a Microsoft Entra service principal to authenticate to Azure Cosmos DB for NoSQL from Spark.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
+ms.custom: devx-track-python
 ms.topic: how-to
 ms.date: 04/01/2024
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r-csharp

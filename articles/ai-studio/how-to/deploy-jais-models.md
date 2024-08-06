@@ -14,7 +14,7 @@ ms.custom: references_regions, build-2024
 
 # How to deploy JAIS with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to use Azure AI Studio to deploy the JAIS model as serverless APIs with pay-as-you-go token-based billing.
 
@@ -25,18 +25,24 @@ You can find the JAIS model in the [Model Catalog](model-catalog.md) by filterin
 ### Prerequisites
 
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions will not work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
-- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md).
+- An [Azure AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for JAIS is only available with hubs created in these regions:
 
-    > [!IMPORTANT]
-    > For JAIS models, the serverless API model deployment offering is only available with hubs created in East US 2 or Sweden Central region.
+     * East US
+     * East US 2
+     * North Central US
+     * South Central US
+     * West US
+     * West US 3
+     * Sweden Central
 
+    For a list of  regions that are available for each of the models supporting serverless API endpoint deployments, see [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md).
 - An [AI Studio project](../how-to/create-projects.md) in Azure AI Studio.
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
 
 ### JAIS 30b Chat
 
-JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is finetuned with both Arabic and English prompt-response pairs. The finetuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
+JAIS 30b Chat is an auto-regressive bi-lingual LLM for **Arabic** & **English**. The tuned versions use supervised fine-tuning (SFT). The model is fine-tuned with both Arabic and English prompt-response pairs. The fine-tuning datasets included a wide range of instructional data across various domains. The model covers a wide range of common tasks including question answering, code generation, and reasoning over textual content. To enhance performance in Arabic, the Core42 team developed an in-house Arabic dataset as well as translating some open-source English instructions into Arabic.
 
 *Context length:* JAIS supports a context length of 8K.
 
@@ -277,3 +283,4 @@ Models deployed as a service with pay-as-you-go billing are protected by [Azure 
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

@@ -4,7 +4,7 @@ description: Learn how to manage access permissions for Azure Key Vault Managed 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 ms.date: 01/30/2024

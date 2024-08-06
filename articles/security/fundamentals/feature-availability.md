@@ -7,7 +7,7 @@ ms.author: terrylan
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 08/31/2023
+ms.date: 06/27/2024
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -173,7 +173,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA (activity monitoring)              |
 | <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
 | <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
-| <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | Public Preview | Public Preview                 |
+| <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | GA | GA                                  |
 | **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
 | <li> [Just-in-time VM access](../../defender-for-cloud/just-in-time-access-overview.md)                                                                                                 | GA             | GA                             |
 | <li> [File integrity monitoring](../../defender-for-cloud/file-integrity-monitoring-overview.md)                                                                                 | GA             | GA                             |

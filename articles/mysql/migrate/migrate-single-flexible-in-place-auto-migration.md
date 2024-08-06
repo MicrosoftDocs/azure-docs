@@ -3,9 +3,9 @@ title: In-place automigration
 description: This tutorial describes how to configure notifications, review migration details and FAQs for an Azure Database for MySQL Single Server instance schedule for in-place automigration to Flexible Server.
 author: adig
 ms.author: adig
-ms.reviewer: maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.reviewer: talawren, maghan
+ms.date: 07/19/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -17,7 +17,10 @@ ms.custom:
 
 [!INCLUDE [applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
-**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU**, data storage used **<= 20 GiB** and **no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
+> [!IMPORTANT]
+> Some Single Server instances might require mandatory inputs to perform a successful in-place automigration. Review the migration details in the Migration blade on Azure portal to provide those inputs. Failure to provide mandatory inputs 7 days before the scheduled migration will lead to re-scheduling of the migration to a later date.
+
+**In-place automigration** from Azure Database for MySQL – Single Server to Flexible Server is a service-initiated in-place migration during planned maintenance window for Single Server database workloads with **Basic, General Purpose or Memory Optimized SKU** and **no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled**. The eligible servers are identified by the service and are sent an advance notification detailing steps to review migration details.
 
 The in-place migration provides a highly resilient and self-healing offline migration experience during a planned maintenance window, with less than **5 mins** of downtime. It uses backup and restore technology for faster migration time. This migration removes the overhead to manually migrate your server and ensure you can take advantage of the benefits of Flexible Server, including better price & performance, granular control over database configuration, and custom maintenance windows. Following described are the key phases of the migration:
 
@@ -25,14 +28,14 @@ The in-place migration provides a highly resilient and self-healing offline migr
 - **DNS switch and cutover** are performed successfully within the planned maintenance window with minimal downtime, allowing maintenance of the same connection string post-migration. Client applications seamlessly connect to the target flexible server without any user driven manual updates. In addition to both connection string formats (Single and Flexible Server) being supported on migrated Flexible Server, both username formats – username@server_name and username are also supported on the migrated Flexible Server.
 - The **migrated Flexible Server is online** and can now be managed via Azure portal/CLI. Stopped Single Server is deleted seven days after the migration.
 
-> [!NOTE]  
+> [!NOTE]
 > If your Single Server instance has General Purpose V1 storage, your scheduled instance will undergo an additional restart operation 12 hours prior to the scheduled migration time. This restart operation serves to enable the log_bin server parameter needed to upgrade the instance to General Purpose V2 storage before undergoing the in-place auto-migration.
 
 ## Eligibility
 
-If you own a Single Server workload with data storage used <= 100 GiB and no complex features (CMK, Microsoft Entra ID, Read Replica, Private Link) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
+If you own a Single Server workload with no complex features (Read Replica, Virtual Network, Double Infra encryption, Service endpoint/VNet Rules) enabled, you can now nominate yourself (if not already scheduled by the service) for automigration by submitting your server details through this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4lhLelkCklCuumNujnaQ-ZUQzRKSVBBV0VXTFRMSDFKSUtLUDlaNTA5Wi4u).
 
-## Configure migration alerts and review migration schedule
+## Configure migration alerts
 
 Servers eligible for in-place automigration are sent an advance notification by the service.
 
@@ -42,15 +45,33 @@ Following described are the ways to check and configure automigration notificati
 - Configure **service health alerts** to receive in-place migration schedule and progress notifications via email/SMS by following steps [here](../single-server/concepts-planned-maintenance-notification.md#to-receive-planned-maintenance-notification).
 - Check the in-place migration **notification on the Azure portal** by following steps [here](../single-server/concepts-planned-maintenance-notification.md#check-planned-maintenance-notification-from-azure-portal).
 
+## Review migration schedule
+
 Following described are the ways to review your migration schedule once you receive the in-place automigration notification:
 
 > [!NOTE]  
-> The migration schedule will be locked 7 days prior to the scheduled migration window after which you'll be unable to reschedule.
+> The migration schedule is locked 7 days prior to the scheduled migration window after which you'll be unable to reschedule.
 
 - The **Single Server overview page** for your instance displays a portal banner with information about your migration schedule.
 - For Single Servers scheduled for automigration, a new **Migration blade** is lighted on the portal. You can review the migration schedule by navigating to the Migration blade of your Single Server instance.
 - If you wish to defer the migration, you can defer by a month at a time by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month.
 - If your Single Server has **General Purpose SKU**, you have the other option to enable **High Availability** when reviewing the migration schedule. As High Availability can only be enabled during create time for a MySQL Flexible Server, it's highly recommended that you enable this feature when reviewing the migration schedule.
+- If your Single Server instance has one or more of **Private Link, Customer Managed Key (CMK) and Microsoft Entra Admin enabled**, the in-place auto-migration requires mandatory inputs for the private endpoints, CMK and Microsoft Entra Admin to be migrated from your Single Server instance to the target Flexible Server instance. The user inputs must be provided 7 days prior to the scheduled migration window. If the user inputs are not provided before the migration details are locked, your migration will be re-scheduled to a later point-in-time. After providing all inputs, ensure to **Save** the configuration in the auto-migration wizard. Steps to provide user input :
+
+  - Navigate to the **Migration blade** of your Single Server instance and select **edit** scheduled migration.
+  - In the **Auto-migration details section** click on **Authenticate** button to authenticate and save ARM API connection to migrate your server.
+  - If your server has **Microsoft Entra Admin** configured, you can provide inputs under the Microsoft Entra Admin section in the auto-migration wizard :
+    - Migrating Microsoft Entra admin for target server requires an **Identity** to be added to Azure Database for MySQL – Flexible Server. The Identity requires the following privileges – **User.Read.All, GroupMember.Read.All and Application.Read.All** to be granted. Please select an appropriate **user assigned managed identity**.  
+  - If your server has **Customer Managed Key** configured, you can provide inputs under the Data Encryption section in the auto-migration wizard :
+    - Migrating customer managed key encryption requires an **Identity** to be added to Azure Database for MySQL – Flexible Server. Please select an appropriate **user assigned managed identity**. The listed **key identifier/key** would be migrated from the source to target server and should be granted the following privileges – **Get, Wrap Key, Unwrap Key** in order to access the key vault.
+  - If your Single Server has **private endpoints**, perform the following **mandatory** steps when reviewing the migration schedule at least 7 days before the scheduled migration:
+    - **Review** the private endpoints listed to be migrated. Ensure they are marked as **Ready to Migrate**. If they are marked as ineligible, select the appropriate subscription and private DNS Zone.
+      - Custom Private DNS Zone are not supported by auto-migration. The Private DNS Zone must be **privatelink.mysql.database.azure.com**.
+      - The private endpoints **connection approval method** should be set as **auto-approval** and not manual approval. Manual approval private endpoints are not supported by auto-migration.
+    - Select the **confirmation checkbox** after performing the listed prerequisite checks for migrating private endpoints.
+
+  > [!NOTE]  
+  > If the mandatory inputs for migration are not provided at least 7 days before the scheduled migration, the migration is rescheduled to a later date.
 
 ## Prerequisite checks for in-place automigration
 
@@ -60,6 +81,7 @@ Review the following prerequisites to ensure a successful in-place automigration
 - For Single Server instance with **SSL enabled**, ensure you have all three certificates (**[BaltimoreCyberTrustRoot](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt.pem), [DigiCertGlobalRootG2 Root CA](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and [DigiCertGlobalRootCA Root CA](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)**) available in the trusted root store. Additionally, if you have the certificate pinned to the connection string create a combined CA certificate with all three certificates before scheduled automigration to ensure business continuity post-migration.
 - The MySQL engine doesn't guarantee any sort order if there's no 'SORT' clause present in queries. Post in-place automigration, you might observe a change in the sort order. If preserving sort order is crucial, ensure your queries are updated to include 'SORT' clause before the scheduled in-place automigration.
 - If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's .NET client driver version to 8.0.32 to avoid any encoding incompatibilities post migration to Flexible Server.
+- If your source Azure Database for MySQL Single Server has engine version v8.x, ensure to upgrade your source server's TLS version from v1.0 or v1.1 to TLS v1.2 before the migration as the older TLS versions have been deprecated for Flexible Server.
 - If your source Azure Database for MySQL Single Server has firewall rule names exceeding 80 characters, rename them to ensure length of name is fewer than 80 characters. (The firewall rule name length supported on Flexible Server is 80 characters whereas on Single Server the allowed length is 12 8 characters.)
 - If your source Azure Database for MySQL Single Server utilizes nondefault ports such as 3308,3309 and 3310, change your connectivity port to 3306 as the above mentioned nondefault ports aren't supported on Flexible Server.
 
@@ -71,6 +93,7 @@ The compute tier and SKU for the target flexible server is provisioned based on 
 | --- | --- | :---: | :---: |
 | Basic | 1 | Burstable | Standard_B1s |
 | Basic | 2 | Burstable | Standard_B2s |
+| General Purpose | 2 | GeneralPurpose | Standard_D2ds_v4 |
 | General Purpose | 4 | GeneralPurpose | Standard_D4ds_v4 |
 | General Purpose | 8 | GeneralPurpose | Standard_D8ds_v4 |
 | General Purpose | 16 | GeneralPurpose | Standard_D16ds_v4 |
@@ -95,16 +118,16 @@ Here's the info you need to know post in-place migration:
 > Post-migration do no restart the stopped Single Server instance as it might hamper your client's and application connectivity.
 
 - Copy the following properties from the source Single Server to target Flexible Server post in-place migration operation is completed successfully:
-  - Monitoring page settings (Alerts, Metrics, and Diagnostic settings)
+  - Monitoring page settings (Alerts, Metrics, and Diagnostic settings) and Locks settings
   - Any Terraform/CLI scripts you host to manage your Single Server instance should be updated with Flexible Server references.
 - For Single Server instance with Query store enabled, the server parameter 'slow_query_log' on target instance is set to ON to ensure feature parity when migrating to Flexible Server. Note, for certain workloads this could affect performance and if you observe any performance degradation, set this server parameter to 'OFF' on the Flexible Server instance.
 - For Single Server instance with Microsoft Defender for Cloud enabled, the enablement state is migrated. To achieve parity in Flexible Server post automigration for properties you can configure in Single Server, consider the details in the following table:
 
-| Property | Configuration |
+| **Property** | **Configuration** |
 | --- | --- |
-| properties.disabledAlerts | You can disable specific alert types by using the Microsoft Defender for Cloud platform. For more information, see the article [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md). |
-| properties.emailAccountAdmins, properties.emailAddresses | You can centrally define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, see the article [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md). |
-| properties.retentionDays, properties.storageAccountAccessKey, properties.storageEndpoint | The Microsoft Defender for Cloud platform exposes alerts through Azure Resource Graph. You can export alerts to a different store and manage retention separately. For more about continuous export, see the article [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md?tabs=azure-portal). |
+| Suppress specific alert types | Disable specific alert types with the Microsoft Defender for Cloud platform. For more information, visit [Suppress alerts from Microsoft Defender for Cloud guide](../../defender-for-cloud/alerts-suppression-rules.md).<br /><br />Single Server users can use the API property:<br />`properties.disabledAlerts` |
+| Email notifications | Define email notification for Microsoft Defender for Cloud Alerts for all resources in a subscription. For more information, visit [Configure email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md).<br /><br />Single Server users can use the API properties:<br />`properties.emailAccountAdmins`,<br />`properties.emailAddresses` |
+| Export alerts for further processing and/or archiving | Alerts are stored in the Microsoft Defender for Cloud platform and exposed through the Azure Resource Graph.<br />You can export alerts to a different store and manage retention separately. For more information, visit [Set up continuous export in the Azure portal - Microsoft Defender for Cloud](../../defender-for-cloud/continuous-export.md).<br /><br />Single Server users can use the API properties:<br />`properties.retentionDays`,<br />`properties.storageAccountAccessKey`,<br />`properties.storageEndpoint` |
 
 ## Frequently Asked Questions (FAQs)
 
@@ -125,7 +148,7 @@ Here's the info you need to know post in-place migration:
 
 **Q. How can I defer the scheduled migration?​**
 
-**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month. The migration details will be locked seven days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.
+**A.** You can review the migration schedule by navigating to the Migration blade of your Single Server instance. If you wish to defer the migration, you can defer by a month at the most by navigating to the Migration blade of your single server instance on the Azure portal and rescheduling the migration by selecting another migration window within a month. The migration details are locked seven days prior to the scheduled migration window after which you're unable to reschedule. This in-place migration can be deferred monthly until 16 September 2024.
 
 **Q. What username and connection string would be supported for the migrated Flexible Server? ​​**
 

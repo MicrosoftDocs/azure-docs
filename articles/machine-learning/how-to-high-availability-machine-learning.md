@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: larryfr
-author: blackmist
+author: Blackmist
 ms.reviewer: andyaviles
-ms.date: 04/17/2024
+ms.date: 06/28/2024
 monikerRange: 'azureml-api-2'
 ---
 

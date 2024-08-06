@@ -1,7 +1,7 @@
 ---
 title: Azure Key Vault recovery overview | Microsoft Docs
 description: Key Vault Recovery features are designed to prevent the accidental or malicious deletion of your key vault and secrets, keys, and certificate stored inside key-vault.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to

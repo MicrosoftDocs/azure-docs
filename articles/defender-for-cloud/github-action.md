@@ -28,8 +28,6 @@ Microsoft Security DevOps uses the following Open Source tools:
 
 - [Connect your GitHub repositories](quickstart-onboard-github.md).
 
-- Follow the guidance to set up [GitHub Advanced Security](https://docs.github.com/en/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization) to view the DevOps posture assessments in Defender for Cloud.
-
 - Open the [Microsoft Security DevOps GitHub action](https://github.com/marketplace/actions/security-devops-action) in a new window.
 
 - Ensure that [Workflow permissions are set to Read and Write](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository) on the GitHub repository. This includes setting "id-token: write" permissions in the GitHub Workflow for federation with Defender for Cloud.
@@ -63,20 +61,20 @@ Microsoft Security DevOps uses the following Open Source tools:
     on:
       push:
         branches:
-          - master
+          - main
 
     jobs:
       sample:
         name: Microsoft Security DevOps
 
-        # MSDO runs on windows-latest.
-        # ubuntu-latest also supported
+        # Windows and Linux agents are supported
         runs-on: windows-latest
     
         permissions:
           contents: read
           id-token: write
           actions: read
+          # Write access for security-events is only required for customers looking for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
           security-events: write
     
         steps:
@@ -85,7 +83,7 @@ Microsoft Security DevOps uses the following Open Source tools:
         - uses: actions/checkout@v3
 
           # Run analyzers
-        - name: Run Microsoft Security DevOps Analysis
+        - name: Run Microsoft Security DevOps
           uses: microsoft/security-devops-action@latest
           id: msdo
         # with:
@@ -95,48 +93,43 @@ Microsoft Security DevOps uses the following Open Source tools:
           # languages: string. Optional. A comma-separated list of languages to analyze. Example: 'javascript,typescript'. Defaults to all.
           # tools: string. Optional. A comma-separated list of analyzer tools to run. Values: 'bandit', 'binskim', 'checkov', 'eslint', 'templateanalyzer', 'terrascan', 'trivy'.
 
-          # Upload alerts to the Security tab
-        - name: Upload alerts to Security tab
-          uses: github/codeql-action/upload-sarif@v2
-          with:
-            sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+          # Upload alerts to the Security tab - required for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
+        # - name: Upload alerts to Security tab
+        #  uses: github/codeql-action/upload-sarif@v3
+        #  with:
+        #    sarif_file: ${{ steps.msdo.outputs.sarifFile }}
 
-          # Upload alerts file as a workflow artifact
-        - name: Upload alerts file as a workflow artifact
-          uses: actions/upload-artifact@v3
-          with:  
-            name: alerts
-            path: ${{ steps.msdo.outputs.sarifFile }}
+          # Upload alerts file as a workflow artifact - required for MSDO results to appear in the codeQL security alerts tab on GitHub (Requires GHAS)
+        # - name: Upload alerts file as a workflow artifact
+        #  uses: actions/upload-artifact@v3
+        #  with:  
+        #    name: alerts
+        #    path: ${{ steps.msdo.outputs.sarifFile }}
     ```
-
-    > [!NOTE]
-    >  **For additional tool configuration options and instructions, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)**
+   > [!NOTE]
+   >  **For additional tool configuration options and instructions, see [the Microsoft Security DevOps wiki](https://github.com/microsoft/security-devops-action/wiki)**
 
 1. Select **Start commit**
 
-    :::image type="content" source="media/msdo-github-action/start-commit.png" alt-text="Screenshot showing you where to select start commit.":::
+   :::image type="content" source="media/msdo-github-action/start-commit.png" alt-text="Screenshot showing you where to select start commit.":::
+   
+1. Select **Commit new file**. Note that the process can take up to one minute to complete.
 
-1. Select **Commit new file**.
-
-    :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you how to commit a new file.":::
-
-    The process can take up to one minute to complete.
+   :::image type="content" source="media/msdo-github-action/commit-new.png" alt-text="Screenshot showing you how to commit a new file.":::
 
 1. Select **Actions** and  verify the new action is running.
 
-    :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running." lightbox="media/msdo-github-action/verify-actions.png":::
+   :::image type="content" source="media/msdo-github-action/verify-actions.png" alt-text="Screenshot showing you where to navigate to, to see that your new action is running." lightbox="media/msdo-github-action/verify-actions.png":::
 
 ## View Scan Results
 
 **To view your scan results**:
 
-1. Sign in to [GitHub](https://www.github.com).
+1. Sign in to Azure.
 
-1. Navigate to **Security** > **Code scanning alerts** > **Tool**.
+1. Navigate to Defender for Cloud > DevOps Security.
 
-1. From the dropdown menu, select **Filter by tool**.
-
-Code scanning findings will be filtered by specific MSDO tools in GitHub. These code scanning results are also pulled into Defender for Cloud recommendations.
+1. From the DevOps security blade, you should begin seeing the same MSDO security results developers see in their CI logs within minutes for the associated repository. Customers with GitHub Advanced Security will see the findings ingested from these tools as well.
 
 ## Learn more
 
@@ -144,7 +137,7 @@ Code scanning findings will be filtered by specific MSDO tools in GitHub. These 
 
 - Learn how to [deploy apps from GitHub to Azure](/azure/developer/github/deploy-to-azure).
 
-## Related content
+## Next steps
 
 Learn more about [DevOps security in Defender for Cloud](defender-for-devops-introduction.md).
 

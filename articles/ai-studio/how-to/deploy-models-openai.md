@@ -16,11 +16,11 @@ author: msakande
 
 # How to deploy Azure OpenAI models with Azure AI Studio
 
-[!INCLUDE [Feature preview](../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn to create Azure OpenAI model deployments in Azure AI Studio.
 
-Azure OpenAI service offers a diverse set of models with different capabilities and price points. When you deploy Azure OpenAI models in Azure AI Studio, you can consume the deployments, using prompt flow or another tool. Model availability varies by region. To learn more about the details of each model see [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
+Azure OpenAI Service offers a diverse set of models with different capabilities and price points. When you deploy Azure OpenAI models in Azure AI Studio, you can consume the deployments, using prompt flow or another tool. Model availability varies by region. To learn more about the details of each model see [Azure OpenAI Service models](../../ai-services/openai/concepts/models.md).
 
 To modify and interact with an Azure OpenAI model in the [Azure AI Studio](https://ai.azure.com) playground, first you need to deploy a base Azure OpenAI model to your project. Once the model is deployed and available in your project, you can consume its REST API endpoint as-is or customize further with your own data and other components (embeddings, indexes, and more).  
 

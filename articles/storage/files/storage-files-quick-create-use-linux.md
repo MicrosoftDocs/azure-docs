@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 05/10/2024
+ms.date: 06/11/2024
 ms.author: kendownie
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
@@ -186,7 +186,7 @@ If you encounter a warning that the authenticity of the host can't be establishe
 
 ## Mount the NFS share
 
-Now that you've created an NFS share, to use it you have to mount it on your Linux client.
+Now that you've created an NFS share, you have to mount it on your Linux client. Using Azure Storage Explorer isn't supported for NFS Azure file shares, either standalone or from within the Azure portal. To view the files in the share, you must mount the share.
 
 1. Select **Home** and then **Storage accounts**.
 

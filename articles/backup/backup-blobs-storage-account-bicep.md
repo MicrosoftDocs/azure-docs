@@ -2,13 +2,13 @@
 title: Quickstart - Back up blobs in a storage account
 description: Learn how to back up blobs in a storage account with a Bicep template.
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.date: 05/30/2024
+ms.custom: devx-track-bicep
+ms.date: 07/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Quickstart: Back up a storage account with Blob data using Azure Backup via a Bicep template (preview)
+# Quickstart: Back up a storage account with Blob data using Azure Backup via a Bicep template
 
 This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using a Bicep template.
 

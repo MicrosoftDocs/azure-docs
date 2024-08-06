@@ -3,7 +3,7 @@ title: Create an Azure Attestation certificate by using Bicep
 description: Learn how to create an Azure Attestation certificate by using Bicep.
 services: azure-resource-manager
 author: mumian
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: jgao
@@ -14,7 +14,7 @@ ms.date: 03/08/2022
 
 [Microsoft Azure Attestation](overview.md) is a solution for attesting Trusted Execution Environments (TEEs). This quickstart focuses on the process of deploying a Bicep file to create a Microsoft Azure Attestation policy.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

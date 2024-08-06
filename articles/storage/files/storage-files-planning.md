@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/10/2024
+ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -130,9 +130,9 @@ Azure Files has a multi-layered approach to ensuring your data is backed up, rec
 
 ### Soft delete
 
-Soft delete is a storage-account level setting for SMB file shares that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
+Soft delete is a storage-account level setting that allows you to recover your file share when it's accidentally deleted. When a file share is deleted, it transitions to a soft deleted state instead of being permanently erased. You can configure the amount of time soft deleted shares are recoverable before they're permanently deleted, and undelete the share anytime during this retention period. 
 
-Soft delete is enabled by default for new storage accounts from January 2021 onward, and we recommend leaving it on for most SMB file shares. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all. Soft delete doesn't work for NFS shares, even if it's enabled for the storage account.
+Soft delete is enabled by default for new storage accounts. If you have a workflow where share deletion is common and expected, you might decide to have a short retention period or not have soft delete enabled at all.
 
 For more information about soft delete, see [Prevent accidental data deletion](./storage-files-prevent-file-share-deletion.md).
 

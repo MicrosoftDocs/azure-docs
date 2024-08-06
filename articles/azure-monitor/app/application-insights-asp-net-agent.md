@@ -116,7 +116,7 @@ We've also provided manual download instructions in case you don't have internet
 
 To get started, you need a connection string. For more information, see [Connection strings](sdk-connection-string.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ### Run PowerShell as Admin with an elevated execution policy
 
@@ -336,7 +336,7 @@ This tab describes the following cmdlets, which are members of the [Az.Applicati
 > - To get started, you need a connection string. For more information, see [Create a resource](create-workspace-resource.md).
 > - This cmdlet requires that you review and accept our license and privacy statement.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 > [!IMPORTANT]
 > This cmdlet requires a PowerShell session with Admin permissions and an elevated execution policy. For more information, see [Run PowerShell as administrator with an elevated execution policy](?tabs=detailed-instructions#run-powershell-as-admin-with-an-elevated-execution-policy).
@@ -661,9 +661,9 @@ In this example;
 - **DemoWebApp333** has been manually instrumented using the Application Insights SDK. Application Insights Agent detected the SDK and doesn't monitor this site.
 
 
-- `AppAlreadyInstrumented : true` indicates that the web app running on that specific w3wp.exe process is already instrumented using a manual SDK in code and the instrumentation shipped by the on-premises agent is not in effect. 
+- The presence of `AppAlreadyInstrumented : true` signifies that the Application Insights agent identified a [conflicting dll](/troubleshoot/azure/azure-monitor/app-insights/agent/status-monitor-v2-troubleshoot) loaded in the web application, assumed that the web app is manually instrumented, and the agent has backed-off and is not instrumenting this process.
 
-- `Instrumented : true` indicates that the web app running on that specific w3wp.exe process was successfully instrumented by the on-premises agent. 
+- `Instrumented : true` indicates that the Application Insights agent successfully instrumented the web app running in the specified w3wp.exe process.
 
 ##### Example: PowerShell module information
 
@@ -1037,7 +1037,7 @@ Example Web.config:
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/status-monitor-v2-troubleshoot).
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Next steps
 

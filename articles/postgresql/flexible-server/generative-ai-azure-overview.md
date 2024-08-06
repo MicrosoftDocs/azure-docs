@@ -5,9 +5,10 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 05/20/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
   - build-2024
@@ -15,7 +16,7 @@ ms.custom:
 
 # Azure AI extension on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server extension for Azure AI enables you to use large language models (LLMS) and build rich generative AI applications within the database.  The Azure AI extension enables the database to call into various Azure AI services including [Azure OpenAI](../../ai-services/openai/overview.md) and [Azure Cognitive Services](https://azure.microsoft.com/products/ai-services/cognitive-search/) simplifying the development process allowing seamless integration into those services. 
 

@@ -4,7 +4,7 @@ description: The parameters and headers common to all operations that you might 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/30/2024

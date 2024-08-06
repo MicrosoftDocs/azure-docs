@@ -3,7 +3,7 @@ title: 'Tutorial: Communication between microservices in Azure Container Apps'
 description: Learn how to communicate between microservices deployed in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/13/2022
@@ -233,7 +233,7 @@ az containerapp create \
   --image $ACR_NAME.azurecr.io/albumapp-ui  \
   --target-port 3000 \
   --env-vars API_BASE_URL=https://$API_BASE_URL \
-  --ingress 'external' \
+  --ingress external \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
 ```

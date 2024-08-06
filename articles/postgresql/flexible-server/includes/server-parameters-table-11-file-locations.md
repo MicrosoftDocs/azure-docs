@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `/datadrive/pg/data/postgresql.conf` |
 | Allowed values | `/datadrive/pg/data/postgresql.conf` |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [config_file](https://www.postgresql.org/docs/11/runtime-config-file-locations.html#GUC-CONFIG-FILE)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `/datadrive/pg/data`                 |
 | Allowed values | `/datadrive/pg/data`                 |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [data_directory](https://www.postgresql.org/docs/11/runtime-config-file-locations.html#GUC-DATA-DIRECTORY)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  |                                      |
 | Allowed values |                                      |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [external_pid_file](https://www.postgresql.org/docs/11/runtime-config-file-locations.html#GUC-EXTERNAL-PID-FILE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `/datadrive/pg/data/pg_hba.conf`     |
 | Allowed values | `/datadrive/pg/data/pg_hba.conf`     |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [hba_file](https://www.postgresql.org/docs/11/runtime-config-file-locations.html#GUC-HBA-FILE)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `/datadrive/pg/data/pg_ident.conf`   |
 | Allowed values | `/datadrive/pg/data/pg_ident.conf`   |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [ident_file](https://www.postgresql.org/docs/11/runtime-config-file-locations.html#GUC-IDENT-FILE)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

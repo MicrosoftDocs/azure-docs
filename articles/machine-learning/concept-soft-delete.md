@@ -3,12 +3,12 @@ title: 'Workspace soft deletion'
 titleSuffix: Azure Machine Learning
 description: Soft delete allows you to recover workspace data after accidental deletion 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: deeikele
-author: deeikele
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 01/22/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 #Customer intent: As an IT pro, understand how to enable data protection capabilities, to protect against accidental deletion.

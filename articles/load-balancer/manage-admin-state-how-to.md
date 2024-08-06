@@ -3,10 +3,10 @@ title: Manage Administrative State in Azure Load Balancer
 description: Learn how to manage the admin state for a backend pool instance in Azure Load Balancer. You can set, update, or remove the admin state using the Azure portal, Azure PowerShell, or Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 05/30/2024
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Manage Administrative (Admin) State in Azure Load Balancer

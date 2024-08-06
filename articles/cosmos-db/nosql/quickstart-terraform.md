@@ -5,7 +5,7 @@ author: ginsiucheng
 ms.author: mjbrown
 tags: azure-resource-manager, terraform
 ms.custom: devx-track-terraform
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: quickstart
 ms.date: 09/22/2022
@@ -21,7 +21,7 @@ Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scal
 
 An Azure subscription or free Azure Cosmos DB trial account
 
-- [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 Terraform should be installed on your local computer. Installation instructions can be found [here](https://learn.hashicorp.com/tutorials/terraform/install-cli).
 

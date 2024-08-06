@@ -4,19 +4,21 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: Use Azure Cosmos DB for MongoDB to store and query massive amounts of data using popular open-source drivers.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: overview
-ms.date: 09/12/2023
+ms.date: 06/02/2024
 ---
 
 # What is Azure Cosmos DB for MongoDB?
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 Azure Cosmos DB is a fully managed NoSQL, relational, and vector database for modern app development. It offers single-digit millisecond response times, automatic and instant scalability, and guaranteed speed at any scale. It is the database that ChatGPT relies on to [dynamically scale](../introduction.md) with high reliability and low maintenance.
 
-Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB.
+Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a MongoDB database. You can use your existing MongoDB skills and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the connection string for your account using the API for MongoDB. 
+
+Azure Cosmos DB for MongoDB provides an SLA that covers the full stack: the database and the underlying infrastructure. Unlike third-party MongoDB services such as MongoDB Atlas, which only cover the database and exclude services, hardware, or software provided by the cloud platform.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWXr4T]
 
@@ -24,12 +26,13 @@ Azure Cosmos DB for MongoDB makes it easy to use Azure Cosmos DB as if it were a
 
 Cosmos DB for MongoDB has numerous benefits compared to other MongoDB service offerings such as MongoDB Atlas. 
 
-### vCore Architecture
+### vCore architecture (recommended)
 
-[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, efficient scaling, and seamless integration with Azure services.
+[A fully managed MongoDB-compatible service](./vcore/introduction.md) with dedicated instances for new and existing MongoDB apps. This architecture offers a familiar vCore architecture for MongoDB users, instantaneous scaling, and seamless native integration with Azure services.
 
 - **Native Vector Search**: Seamlessly integrate your AI-based applications with your data that's stored in Azure Cosmos DB for MongoDB vCore. This integration is an all-in-one solution, unlike other vector search solutions that send your data between service integrations.  
 
+- **Instantaneous scalability**: With Autoscale, your database scales instantaneously with zero warmup period. Other MongoDB offerings such as MongoDB Atlas can take hours to scale up and up to days to scale down.
 - **Flat pricing with Low total cost of ownership**: Enjoy a familiar pricing model for Azure Cosmos DB for MongoDB vCore, based on compute (vCores & RAM) and storage (disks).
 
 - **Elevate querying with Text Indexes**: Enhance your data querying efficiency with our text indexing feature. Seamlessly navigate full-text searches across MongoDB collections, simplifying the process of extracting valuable insights from your documents.

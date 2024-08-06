@@ -3,16 +3,16 @@ title: ALB Controller - Backend Health and Metrics
 description: Identify and troubleshoot issues using ALB Controller's backend health & metrics endpoints for Application Gateway for Containers.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
-ms.date: 02/27/2024
+ms.date: 06/03/2024
 ms.author: greglin
 ---
 
 # ALB Controller - Backend Health and Metrics
 
-Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting.  To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
+Understanding backend health of your Kubernetes services and pods is crucial in identifying issues and assistance in troubleshooting. To help facilitate visibility into backend health, ALB Controller exposes backend health and metrics endpoints in all ALB Controller deployments.
 
 ALB Controller's backend health exposes three different experiences:
 
@@ -20,7 +20,7 @@ ALB Controller's backend health exposes three different experiences:
 2. Summarized backend health by Kubernetes service
 3. Detailed backend health for a specified Kubernetes service
 
-ALB Controller's metric endpoint exposes both metrics and summary of backend health.  This endpoint enables exposure to Prometheus.
+ALB Controller's metric endpoint exposes both metrics and summary of backend health. This endpoint enables exposure to Prometheus.
 
 Access to these endpoints can be reached via the following URLs:
 
@@ -35,26 +35,44 @@ Any clients or pods that have connectivity to this pod and port may access these
 
 ### Discovering backend health
 
-Run the following kubectl command to identify your ALB Controller pod and its corresponding IP address.
+The ALB Controller exposes backend health on the ALB controller pod that is acting as primary.
+
+To find the primary pod, run the following command:
 
 ```bash
-kubectl get pods -n azure-alb-system -o wide
+CONTROLLER_NAMESPACE='azure-alb-system'
+kubectl get lease -n $CONTROLLER_NAMESPACE alb-controller-leader-election -o jsonpath='{.spec.holderIdentity}' | awk -F'_' '{print $1}'
 ```
 
-Example output:
+# [Access backend health via Kubectl command](#tab/backend-health-kubectl-access)
 
-| NAME                                       | READY | STATUS  | RESTARTS |  AGE | IP         | NODE                             | NOMINATED NODE | READINESS GATES |
-| ------------------------------------------ | ----- | ------- | -------- | ---- | ---------- | -------------------------------- | -------------- | --------------- |
-| alb-controller-74df7896b-gfzfc             | 1/1   | Running | 0        |  60m | 10.1.0.247 | aks-userpool-21921599-vmss000000 | \<none\>         | \<none\>          |
-| alb-controller-bootstrap-5f7f8f5d4f-gbstq  | 1/1   | Running | 0        |  60m | 10.1.1.183 | aks-userpool-21921599-vmss000001 | \<none\>         | \<none\>          |
+For indirect access via kubectl utility, you can create a listener that proxies traffic to the pod.
+
+```bash
+kubectl port-forward <pod-name> -n $CONTROLLER_NAMESPACE 8000 8001
+```
+
+Once the kubectl command is listening, open another terminal (or cloud shell session) and execute curl to 127.0.0.1 to be redirected to the pod.
+
+```bash
+curl http://127.0.0.1:8000
+```
+
+# [Access backend health via controller pod directly](#tab/backend-health-direct-access)
+
+Run the following kubectl command to identify the IP address of the primary ALB Controller pod.
+
+```bash
+kubectl get pod <alb controller pod name from previous step> -n $CONTROLLER_NAMESPACE -o jsonpath="{.status.podIP}"
+```
 
 Once you have the IP address of your alb-controller pod, you may validate the backend health service is running by browsing to http://\<pod-ip\>:8000.
 
-For example, the following command may be run:
-
 ```bash
-curl http://10.1.0.247:8000
+curl http://<your-pod-ip>:8000
 ```
+
+---
 
 Example response:
 
@@ -188,9 +206,9 @@ Example output:
 
 ## Metrics
 
-ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus.
+ALB Controller currently surfaces metrics following [text based format](https://prometheus.io/docs/instrumenting/exposition_formats/#text-based-format) to be exposed to Prometheus. Access to these logs are available on port 8001 of the primary alb controller pod `http://\<alb-controller-pod-ip\>:8001/metrics`.
 
-The following Application Gateway for Containers specific metrics are currently available today:
+The following metrics are exposed today:
 
 | Metric Name | Description                                                                           |
 | ----------- | ------------------------------------------------------------------------------------- |

@@ -2,9 +2,10 @@
 title: Quickstart - Create your Azure API center - Azure CLI
 description: In this quickstart, use the Azure CLI to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
+ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 04/19/2024
+ms.daate: 06/27/2024
 ms.author: danlep 
 ---
 
@@ -47,12 +48,12 @@ az group create --name MyGroup --location eastus
 
 ## Create an API center
 
-Create an API center using the [`az apic service create`](/cli/azure/apic/service#az-apic-service-create) command. 
+Create an API center using the [`az apic create`](/cli/azure/apic/#az-apic-create) command. 
 
 The following example creates an API center called *MyApiCenter* in the *MyGroup* resource group. In this example, the API center is deployed in the *West Europe* location. Substitute an API center name of your choice and enter one of the [available locations](overview.md#available-regions) for your API center.
 
 ```azurecli-interactive
-az apic service create --name MyApiCenter --resource-group MyGroup --location westeurope
+az apic create --name MyApiCenter --resource-group MyGroup --location westeurope
 ```
 
 Output from the command looks similar to the following. By default, the API center is created in the Free plan.
@@ -64,9 +65,12 @@ Output from the command looks similar to the following. By default, the API cent
   "location": "westeurope",
   "name": "myapicenter",
   "resourceGroup": "mygroup",
+  "sku": {
+    "name": "Free"
+  },
   "systemData": {
-    "createdAt": "2024-04-22T21:40:35.2541624Z",
-    "lastModifiedAt": "2024-04-22T21:40:35.2541624Z"
+    "createdAt": "2024-06-22T21:40:35.2541624Z",
+    "lastModifiedAt": "2024-06-22T21:40:35.2541624Z"
   },
   "tags": {},
   "type": "Microsoft.ApiCenter/services"

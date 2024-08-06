@@ -3,7 +3,8 @@ title: Set dynamic logger level to troubleshoot Java applications in Azure Conta
 description: Learn how to use dynamic logger level settings to debug your Java applications running on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-extended-java
 ms.topic: how-to
 ms.date: 05/10/2024
 ms.author: cshoe

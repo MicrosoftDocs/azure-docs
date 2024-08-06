@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -27,7 +27,7 @@ This article shows how to delete blobs using the [Azure Storage client module fo
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to delete a blob, or to restore a soft-deleted blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Blob](/rest/api/storageservices/delete-blob#authorization) and [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization).
+The authorization mechanism must have the necessary permissions to delete a blob, or to restore a soft-deleted blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Blob (REST API)](/rest/api/storageservices/delete-blob#authorization) and [Undelete Blob (REST API)](/rest/api/storageservices/undelete-blob#authorization).
 
 ## Delete a blob
 

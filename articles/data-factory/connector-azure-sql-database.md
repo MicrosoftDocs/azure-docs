@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data to and from Azure SQL Database, and transform data in Azure SQL Database using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/06/2024
+ms.date: 06/17/2024
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -1090,6 +1089,14 @@ derivedColumn1 sink(allowSchemaDrift: true,
 ## Upgrade the Azure SQL Database version
 
 To upgrade the Azure SQL Database version, in **Edit linked service** page, select **Recommended** under **Version** and configure the linked service by referring to [Linked service properties for the recommended version](#recommended-version).
+
+## Differences between the recommended and the legacy version
+
+The table below shows the differences between Azure SQL Database using the recommended and the legacy version.
+
+| Recommended version | Legacy version | 
+|:--- |:--- |
+| Support TLS 1.3 via `encrypt` as `strict`. | TLS 1.3 is not supported.| 
 
 ## Related content
 

@@ -6,7 +6,7 @@ summary: Learn how to use Managed HSM to create and maintain keys that access an
 metadata:
   title: Azure Managed HSM documentation
   description: Learn how to use u to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
-  ms.service: key-vault
+  ms.service: azure-key-vault
   ms.subservice: managed-hsm
   ms.topic: landing-page
   author: msmbaldwin

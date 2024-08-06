@@ -1,8 +1,8 @@
 ---
 title: Connect your GCP project
-description: Defend your GCP resources by using Microsoft Defender for Cloud.
+description: Defend your GCP resources by using Microsoft Defender for Cloud. Protect your workloads and enhance your cloud security with our comprehensive solution.
 ms.topic: install-set-up-deploy
-ms.date: 01/16/2024
+ms.date: 07/17/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -25,7 +25,7 @@ When you onboard to Defender for Cloud, the GCloud template is used to create th
 
 The authentication process works as follows:
 
-:::image type="content" source="media/concept-gcp-connector/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/concept-gcp-connector/authentication-process.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/authentication-process.png" alt-text="A diagram of the Defender for Cloud GCP connector authentication process." lightbox="media/quickstart-onboard-gcp/authentication-process.png":::
 
 1. Microsoft Defender for Cloud's CSPM service acquires a Microsoft Entra token. The token is signed by Microsoft Entra ID using the RS256 algorithm and is valid for 1 hour.
 
@@ -45,7 +45,7 @@ To complete the procedures in this article, you need:
 
 - Access to a GCP project.
 
-- **Contributor** permission on the relevant Azure subscription, and **Owner** permission on the GCP organization or project.
+- Contributor level permission for the relevant Azure subscription.
 
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
@@ -63,15 +63,27 @@ There are four parts to the onboarding process that take place when you create t
 
 In the first section, you need to add the basic properties of the connection between your GCP project and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/concept-gcp-connector/single-project-details.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/single-project-details.png" alt-text="Screenshot of the organization details page of the GCP project onboarding process." lightbox="media/quickstart-onboard-gcp/single-project-details.png":::
 
 Here you name your connector, select a subscription and resource group, which is used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
+
+You also select a location and add the organization ID for your project.
+
+You can also set a scan interval between 1 to 24 hours.
+
+Some data collectors run with fixed scan intervals and are not affected by custom interval configurations. The following table shows the fixed scan intervals for each excluded data collector:
+
+| Data collector name | Scan interval |
+|--|--|
+| ComputeInstance <br> ArtifactRegistryRepositoryPolicy <br> ArtifactRegistryImage <br> ContainerCluster <br> ComputeInstanceGroup <br> ComputeZonalInstanceGroupInstance <br> ComputeRegionalInstanceGroupManager <br> ComputeZonalInstanceGroupManager <br> ComputeGlobalInstanceTemplate | 1 hour |
+
+When you onboard an organization, you can also choose to exclude project numbers and folder IDs.
 
 ### Select plans for your project
 
 After entering your organization's details, you'll then be able to select which plans to enable.
 
-:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP project." lightbox="media/quickstart-onboard-gcp/select-plans-gcp-project.png":::
 
 From here, you can decide which resources you want to protect based on the security value you want to receive.
 
@@ -94,7 +106,7 @@ The GCloud script creates all of the required resources on your GCP environment 
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/concept-gcp-connector/review-and-generate.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/review-and-generate.png" alt-text="Screenshot of the review and generate screen with all of your selections listed." lightbox="media/quickstart-onboard-gcp/review-and-generate.png":::
 
 > [!NOTE]
 > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur:
@@ -116,7 +128,7 @@ Similar to onboarding a single project, When onboarding a GCP organization, Defe
 
 In the first section, you need to add the basic properties of the connection between your GCP organization and Defender for Cloud.
 
-:::image type="content" source="media/concept-gcp-connector/organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/concept-gcp-connector/organization-details.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/organization-details.png" alt-text="Screenshot of the organization details page of the GCP organization onboarding process." lightbox="media/quickstart-onboard-gcp/organization-details.png":::
 
 Here you name your connector, select a subscription and resource group that is used to create an ARM template resource that is called security connector. The security connector represents a configuration resource that holds the projects settings.
 
@@ -128,7 +140,7 @@ When you onboard an organization, you can also choose to exclude project numbers
 
 After entering your organization's details, you'll then be able to select which plans to enable.
 
-:::image type="content" source="media/concept-gcp-connector/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP organization." lightbox="media/concept-gcp-connector/select-plans-gcp-project.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/select-plans-gcp-project.png" alt-text="Screenshot of the available plans you can enable for your GCP organization." lightbox="media/quickstart-onboard-gcp/select-plans-gcp-project.png":::
 
 From here, you can decide which resources you want to protect based on the security value you want to receive.
 
@@ -136,7 +148,7 @@ From here, you can decide which resources you want to protect based on the secur
 
 Once you selected the plans, you want to enable and the resources you want to protect you have to configure access between Defender for Cloud and your GCP organization.
 
-:::image type="content" source="media/concept-gcp-connector/configure-access-organization.png" alt-text="Screenshot of the Configure access screen between Defender for Cloud and your GCP organization." lightbox="media/concept-gcp-connector/configure-access-organization.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/configure-access-organization.png" alt-text="Screenshot of the Configure access screen between Defender for Cloud and your GCP organization." lightbox="media/quickstart-onboard-gcp/configure-access-organization.png":::
 
 When you onboard an organization, there's a section that includes management project details. Similar to other GCP projects, the organization is also considered a project and is utilized by Defender for Cloud to create all of the required resources needed to connect the organization to Defender for Cloud.
 
@@ -163,7 +175,7 @@ Some of the APIs aren't in direct use with the management project. Instead the A
 
 The final step for onboarding is to review all of your selections and to create the connector.
 
-:::image type="content" source="media/concept-gcp-connector/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for your organization." lightbox="media/concept-gcp-connector/review-and-generate-organization.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/review-and-generate-organization.png" alt-text="Screenshot of the review and generate screen with all of your selections listed for your organization." lightbox="media/quickstart-onboard-gcp/review-and-generate-organization.png":::
 
 > [!NOTE]
 > The following APIs must be enabled in order to discover your GCP resources and allow the authentication process to occur:
@@ -289,6 +301,7 @@ If you choose the Microsoft Defender CSPM plan, you need:
 - A Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+- To enable CIEM (Cloud Infrastructure Entitlement Management) capabilities, the Entra ID account used for the onboarding process must have either the Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations). This requirement is only necessary during the onboarding process.
 
 Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
 
@@ -331,6 +344,7 @@ Learn more about Defender for Cloud's [alerts in Microsoft Defender XDR](concept
 
 Connecting your GCP project is part of the multicloud experience available in Microsoft Defender for Cloud:
 
+- [Assign access to workload owners](assign-access-to-workload.md).
 - [Protect all of your resources with Defender for Cloud](enable-all-plans.md).
 - Set up your [on-premises machines](quickstart-onboard-machines.md) and [AWS account](quickstart-onboard-aws.md).
 - [Troubleshoot your multicloud connectors](troubleshooting-guide.md#troubleshoot-connectors).

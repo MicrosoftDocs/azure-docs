@@ -4,7 +4,7 @@ description: This article gives an overview of the Monitoring - Affirmed MCC Dat
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 12/06/2023
 

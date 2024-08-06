@@ -3,7 +3,7 @@ title: Manage hub workspaces in portal
 titleSuffix: Azure Machine Learning
 description: Learn how to manage Azure Machine Learning hub workspaces in the Azure portal.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: deeikele
 author: deeikele
@@ -45,33 +45,33 @@ Use the following steps to create a hub from the Azure portal:
 1. Enter your AI hub name, subscription, resource group, and location details.
 1. For advanced settings, select **Next: Resources** to specify resources, networking, encryption, identity, and tags. 
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI hub basic information." lightbox="../ai-studio/media/how-to/resource-create-basics.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-basics.png" alt-text="Screenshot of the option to set Azure AI hub basic information." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-basics.png":::
 
 1. Select an existing **Azure AI services** resource or create a new one. New Azure AI services include multiple API endpoints for Speech, Content Safety and Azure OpenAI. You can also bring an existing Azure OpenAI resource. Optionally, choose an existing **Storage account**, **Key vault**, **Container Registry**, and **Application insights** to host artifacts generated when you use AI Studio.
 
     > [!TIP]
     > You can skip selecting Azure AI Services if you plan to only work in Azure Machine Learning studio. Azure AI Services is required for Azure AI Studio, and provide access to pre-built AI models for use in prompt flow.
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="../ai-studio/media/how-to/resource-create-resources.png"::: 
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-resources.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set resource information." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-resources.png"::: 
 
 1. Set up Network isolation. Read more on [network isolation](../ai-studio/how-to/configure-managed-network.md). For a walkthrough of creating a secure Azure AI hub, see [Create a secure Azure AI hub](../ai-studio/how-to/create-secure-ai-hub.md).
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set network isolation information." lightbox="../ai-studio/media/how-to/resource-create-networking.png":::  
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-networking.png" alt-text="Screenshot of the Create an Azure AI hub with the option to set network isolation information." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-networking.png":::  
 
 1. Set up data encryption. You can either use **Microsoft-managed keys** or enable **Customer-managed keys**. 
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select your encryption type." lightbox="../ai-studio/media/how-to/resource-create-encryption.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-encryption.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select your encryption type." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-encryption.png":::
 
 1. By default, **System assigned identity** is enabled, but you can switch to **User assigned identity** if existing storage, key vault, and container registry are selected in Resources.
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select a managed identity." lightbox="../ai-studio/media/how-to/resource-create-identity.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-identity.png" alt-text="Screenshot of the Create an Azure AI hub with the option to select a managed identity." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-identity.png":::
    
     >[!Note]
     >If you select **User assigned identity** and also selected an Azure AI Service, your identity needs to have the `Cognitive Services Contributor` role in order to successfully create a new Azure AI hub.
     
 1. Add tags.
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI hub with the option to add tags." lightbox="../ai-studio/media/how-to/resource-create-tags.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-tags.png" alt-text="Screenshot of the Create an Azure AI hub with the option to add tags." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-create-tags.png":::
 
 1. Select **Review + create**
 
@@ -86,11 +86,11 @@ To add grant users permissions:
 
 1. Select the **Role** you want to assign.
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-rbac-role.png" alt-text="Screenshot of the page to add a role within the Azure AI hub Azure portal view." lightbox="../ai-studio/media/how-to/resource-rbac-role.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-rbac-role.png" alt-text="Screenshot of the page to add a role within the Azure AI hub Azure portal view." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-rbac-role.png":::
 
 1. Select the **Members** you want to give the role to.  
 
-    :::image type="content" source="../ai-studio/media/how-to/resource-rbac-members.png" alt-text="Screenshot of the add members page within the Azure AI hub Azure portal view." lightbox="../ai-studio/media/how-to/resource-rbac-members.png":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-rbac-members.png" alt-text="Screenshot of the add members page within the Azure AI hub Azure portal view." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-rbac-members.png":::
 
 1. **Review + assign**. It can take up to an hour for permissions to be applied to users.
 
@@ -111,7 +111,7 @@ Projects that use the same hub, share their encryption configuration. Encryption
 From the Azure portal view, navigate to the encryption tab, to find the encryption settings for your hub. 
 For hubs that use customer-managed key encryption mode, you can update the encryption key to a new key version. This update operation is constrained to keys and key versions within the same Key Vault instance as the original key.
 
-:::image type="content" source="../ai-studio/media/how-to/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub in the Azure portal." lightbox="../ai-studio/media/how-to/resource-manage-encryption.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-manage-encryption.png" alt-text="Screenshot of the Encryption page of the Azure AI hub in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-manage-encryption.png":::
 
 ### Update Azure Application Insights and Azure Container Registry
 
@@ -119,7 +119,7 @@ To use custom environments for Prompt Flow, you're required to configure an Azur
 
 You can configure your hub for these resources during creation or update after creation. To update Azure Application Insights from the Azure portal, navigate to the **Properties** for your hub in the Azure portal, then select **Change Application Insights**. You can also use the Azure SDK/CLI options or infrastructure-as-code templates to update both Azure Application Insights and Azure Container Registry for the AI Hub.
 
-:::image type="content" source="../ai-studio/media/how-to/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="../ai-studio/media/how-to/resource-manage-update-associated-resources.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-manage-update-associated-resources.png" alt-text="Screenshot of the properties page of the Azure AI resource in the Azure portal." lightbox="~/reusable-content/ce-skilling/azure/media/ai-studio/resource-manage-update-associated-resources.png":::
 
 ## Next steps
 

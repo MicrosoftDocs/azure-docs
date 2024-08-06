@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 ms.author: aashishb
 author: aashishb
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ---
 
@@ -25,19 +25,19 @@ The metrics categories are **Model**, **Quota**, **Resource**, **Run**, and **Tr
 The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-metrics-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-machinelearningservices-workspaces-metrics-include.md)]
 
 ### Supported metrics for Microsoft.MachineLearningServices/workspaces/onlineEndpoints
 The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces/onlineEndpoints resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-metrics-include.md)]
 
 ### Supported metrics for Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments
 The following table lists the metrics available for the Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-deployments-metrics-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints/deployments](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-machinelearningservices-workspaces-onlineendpoints-deployments-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
@@ -67,13 +67,13 @@ The valid values for the RunType dimension are:
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.MachineLearningServices/registries
-[!INCLUDE [Microsoft.MachineLearningServices/registries](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-registries-logs-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/registries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-machinelearningservices-registries-logs-include.md)]
 
 ### Supported resource logs for Microsoft.MachineLearningServices/workspaces
-[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-workspaces-logs-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-machinelearningservices-workspaces-logs-include.md)]
 
 ### Supported resource logs for Microsoft.MachineLearningServices/workspaces/onlineEndpoints
-[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-machinelearningservices-workspaces-onlineendpoints-logs-include.md)]
+[!INCLUDE [Microsoft.MachineLearningServices/workspaces/onlineEndpoints](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-machinelearningservices-workspaces-onlineendpoints-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 ### Machine Learning

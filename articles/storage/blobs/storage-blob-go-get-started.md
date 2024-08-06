@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
 ---
@@ -67,7 +67,7 @@ You can authorize a client object using a Microsoft Entra authorization token (r
 
 <a name='azure-ad'></a>
 
-## [Microsoft Entra ID](#tab/azure-ad)
+## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
 To authorize with Microsoft Entra ID, you need to use a [security principal](../../active-directory/develop/app-objects-and-service-principals.md). The following articles provide guidance on different authentication scenarios:
 
@@ -88,7 +88,7 @@ To use a shared access signature (SAS) token, append the token to the account UR
 :::code language="go" source="~/blob-devguide-go/cmd/client-auth/client_auth.go" id="snippet_get_service_client_SAS":::
 
 > [!NOTE]
-> A user delegation SAS offers superior security to a SAS that is signed with the storage account key. Microsoft recommends using a user delegation SAS when possible. For more information, see [Grant limited access to data with shared access signatures (SAS)](../common/storage-sas-overview.md).
+> For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key. For more information, see [Grant limited access to data with shared access signatures (SAS)](../common/storage-sas-overview.md).
 
 ## [Account key](#tab/account-key)
 
@@ -123,6 +123,7 @@ The following guides show you how to work with data resources and perform specif
 | [Download blobs](storage-blob-download-go.md) | Download blobs by using strings, streams, and file paths. |
 | [List blobs](storage-blobs-list-go.md) | List blobs in different ways. |
 | [Delete and restore blobs](storage-blob-delete-go.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
+| [Find blobs using tags](storage-blob-tags-go.md) | Set and retrieve tags, and use tags to find blobs. |
 | [Manage properties and metadata (blobs)](storage-blob-properties-metadata-go.md) | Manage container properties and metadata. |
 
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]

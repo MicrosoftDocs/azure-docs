@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.date: 06/22/2022
 ms.topic: quickstart
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm, devx-track-bicep
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and containers. A Service Fabric *cluster* is a network-connected set of virtual machines into which your microservices are deployed and managed. This article describes how to deploy a Service Fabric test cluster in Azure using Bicep.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 This five-node Windows cluster is secured with a self-signed certificate and thus only intended for instructional purposes (rather than production workloads). We'll use Azure PowerShell to deploy the Bicep file.
 

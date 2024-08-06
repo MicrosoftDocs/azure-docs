@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting Azure CLI Azure Operator Service Manager (AOSM) Extension Issues
-description: Learn how to resolve common issues and misconfigurations when using the Az CLI AOSM extension.
+description: Learn how to resolve common issues and misconfigurations when using the Azure CLI AOSM extension.
 author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-service-manager
 ms.topic: troubleshooting
 ms.date: 03/19/2024
-ms.custom: troubleshooting
+ms.custom: troubleshooting, devx-track-azurecli
 ---
 
 # Azure CLI Azure Operator Service Manager (AOSM) extension issues
@@ -14,6 +14,24 @@ ms.custom: troubleshooting
 This document contains a list of common issues when using the Azure CLI AOSM extension to onboard Network Functions, and their resolutions.
 
 ## Common issues
+
+### Publisher already exists in the region
+
+Publisher names must be unique within an Azure region. If you see the following error, the publisher name you chose is already in use:
+
+`Message: A private publisher resource with the name 'nginx-publisher' already exists in the provided region.`
+
+To resolve this error:
+
+**If you own the publisher, it is in your tenant, and you wish to re-use it:**
+
+The publisher is defined in your AOSM CLI extension configuration file. The `publisher_name` and `publisher_resource_group_name` fields must match those of the existing publisher, and it must be in the tenant you are using for this deployment.
+
+Change the `publisher_resource_group_name` in the config file so that it references the existing publisher, rerun the corresponding `build` command, then rerun the `publish` command.
+
+**You do not own the existing publisher:**
+
+Use a new publisher name.
 
 ### Network Service Design (NSD) artifact upload failure
 
@@ -173,7 +191,7 @@ There are multiple solutions available.
 
 ### CGVs don't match CGS when parameter has null type
 
-Currently, AOSM doesn't support `null` as a default value in deployParameters schema, which means that the default value `null` isn't allowed in Configuration Group Schemas either. To work around this issue, the AOSM CLI sets the default value for parameters of type null to be the string `"null"`, which allows an nfdv to publish successfully.
+Currently, AOSM doesn't support `null` as a default value in deployParameters schema, which means that the default value `null` isn't allowed in Configuration Group Schemas either. To work around this issue, the AOSM CLI sets the default value for parameters of type null to be the string `"null"`, which allows an NFDV to publish successfully.
 
 When using the portal to create CGVs, your parameter autofills to have `"null"` as its value. If you don't change this value, the Portal shows an error message, saying: "New Configuration Group Value doesn't match the schema - please edit the values."
 

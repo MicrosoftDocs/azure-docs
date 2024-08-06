@@ -5,7 +5,7 @@ author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 5/1/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -14,7 +14,7 @@ ms.custom:
 ---
 # Azure CLI release notes - Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This page provides latest news and updates regarding the Azure Database for PostgreSQL Flexible Server additions for Azure CLI.  
 

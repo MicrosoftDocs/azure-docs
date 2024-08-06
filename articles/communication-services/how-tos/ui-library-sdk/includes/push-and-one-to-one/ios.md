@@ -12,7 +12,7 @@ For more information, see the [open-source iOS UI Library](https://github.com/Az
 
 ### Set up push notifications
 
-A mobile push notification is the pop-up notification that you get in the mobile device. For calling, this article focuses on voice over Internet Protocol (VoIP) push notifications.
+A mobile push notification is the pop-up notification that you get in the mobile device. This article focuses on voice over Internet Protocol (VoIP) push notifications.
 
 The following sections describe how to register for, handle, and unregister push notifications. Before you start those tasks, complete these prerequisites:
 
@@ -20,87 +20,127 @@ The following sections describe how to register for, handle, and unregister push
 2. Add another capability by selecting **+ Capability**, and then select **Background Modes**.
 3. Under **Background Modes**, select the **Voice over IP** and **Remote notifications** checkboxes.
 
-### Register for push notifications
+### Add incoming notifications to your mobile app
 
-To register for push notifications, the application needs to call `registerPushNotification()` on a `CallComposite` instance with a device registration token.
+Azure Communication Services integrates with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md), so you can [add push notifications](../../../../concepts/notifications.md) to your apps in Azure. 
 
-To avoid current limitations, you can skip `registerPushNotification` by using Azure Event Grid for push notifications. For more information, see [Connect calling native push notifications with Azure Event Grid](/azure/communication-services/tutorials/add-voip-push-notifications-event-grid).
+### Register/unregister for notification hub push notifications
+
+To register for push notifications, the application needs to call `registerPushNotifications()` on a `CallComposite` instance with a device registration token.
 
 ```swift
+    // to register
     let deviceToken: Data = pushRegistry?.pushToken(for: PKPushType.voIP)
-    let displayName = "DISPLAY_NAME"
-    let notificationOptions = CallCompositePushNotificationOptions(
-        deviceToken: deviceToken,
-        credential: credential,
-        displayName: displayName,
-        callKitOptions: callKitOptions) // CallKit options
-    try await callComposite.registerPushNotification(notificationOptions: notificationOptions)
+    callComposite.registerPushNotifications(
+        deviceRegistrationToken: deviceToken) { result in
+        switch result {
+            case .success:
+                // success
+            case .failure(let error):
+                // failure
+        }
+    }
 
+    // to unregister
+    callComposite.unregisterPushNotification()
 ```
 
-### Handle push notifications
+### Handle push notifications received from Event Grid or notification hub
 
 To receive push notifications for incoming calls, call `handlePushNotification()` on a `CallComposite` instance with a dictionary payload.
 
-When you use `handlePushNotification()`, you get a CallKit notification to accept or decline calls.
+When you use `handlePushNotification()` and CallKit options are set, you get a CallKit notification to accept or decline calls.
 
 ```swift
     // App is in the background
-    let pushNotificationInfo = CallCompositePushNotificationInfo(pushNotificationInfo: dictionaryPayload)
-    let cxHandle = CXHandle(type: .generic, value: "\(pushNotificationInfo.callId)")
-    let cxProvider = CallCompositeCallKitOption.getDefaultCXProviderConfiguration()
-    let remoteInfo = CallCompositeCallKitRemoteInfo(displayName: pushNotificationInfo.fromDisplayName,
-                                                    cxHandle: cxHandle)
-    let callKitOptions = CallCompositeCallKitOption(cxProvideConfig: cxProvider,
-                                                    isCallHoldSupported: true,
-                                                    remoteInfo: remoteInfo)
-    CallComposite.reportIncomingCall(callKitOptions: callKitOptions,
-                                        callNotification: pushNotificationInfo) { result in
+    // push notification contains from/to communication identifiers and event type
+    let pushNotification = PushNotification(data: payload.dictionaryPayload)
+    let callKitOptions = CallKitOptions(...//CallKit options)
+    CallComposite.reportIncomingCall(pushNotification: pushNotification,
+                                    callKitOptions: callKitOptions) { result in
         if case .success() = result {
             DispatchQueue.global().async {
-                // Handle push notification
                 // You don't need to wait for a Communication Services token to handle the push because 
-                // Communication Services commonly receives a callback function to get the token
+                // Communication Services common receives a callback function to get the token with refresh options
+                // create call composite and handle push notification
+                callComposite.handlePushNotification(pushNotification: pushNotification)
             }
         }
     }
 
     // App is in the foreground
-    let pushNotificationInfo = CallCompositePushNotificationInfo(pushNotificationInfo: dictionaryPayload)
-    let displayName = "display name"
-    let remoteOptions = RemoteOptions(for: pushNotificationInfo,
-                                        credential: credential,
-                                        displayName: displayName,
-                                        callKitOptions: callKitOptions)
-    try await callComposite.handlePushNotification(remoteOptions: remoteOptions)
+    let pushNotification = PushNotification(data: dictionaryPayload)
+    callComposite.handlePushNotification(pushNotification: pushNotification) { result in
+        switch result {
+            case .success:
+                // success
+            case .failure(let error):
+                // failure
+        }
+    }
 ```
 
-### Register for incoming call notifications
+### Register for incoming call notifications on handle push
 
-To receive incoming call notifications after `handlePushNotification`, subscribe to `IncomingCallEvent` and `IncomingCallEndEvent`.
+To receive incoming call notifications after `handlePushNotification`, subscribe to `onIncomingCall` and `onIncomingCallCancelled`. `IncomingCall` contains the incoming callId and caller information. `IncomingCallCancelled` contains callId and call cancellation code [Troubleshooting in Azure Communication Services](../../../../concepts/troubleshooting-info.md#calling-sdk-error-codes).
 
 ```swift
-    let onIncomingCall: (CallCompositeIncomingCallInfo) -> Void = { [] _ in
-        // Incoming call
+    let onIncomingCall: (IncomingCall) -> Void = { [] incomingCall in
+        // Incoming call id and caller info
     }
-    let onIncomingCallEnded: (CallCompositeIncomingCallEndedInfo) -> Void = { [] _ in
-        // Incoming call ended
+    let onIncomingCallEnded: (IncomingCallCancelled) -> Void = { [] incomingCallCancelled in
+        // Incoming call cancelled code with callId
     }
-
     callComposite.events.onIncomingCall = onIncomingCall
     callComposite.events.onIncomingCallEnded = onIncomingCallEnded
 ```
 
-### Dial other participants
+### Disable internal push for incoming call
 
-To start calls with other participants, create `CallCompositeStartCallOptions` with participants' raw IDs from `CommunicationIdentity` and `launch`.
+To receive push notifications only from `EventGrid` and `APNS` set `disableInternalPushForIncomingCall` to true in `CallCompositeOptions`. If `disableInternalPushForIncomingCall` is true, push notification event from ui library received only when `handlePushNotification` will be called. The option `disableInternalPushForIncomingCall` helps to stop receiving notifications from `CallComposite` in foreground mode. This setting doesn't control `EventGrid` and `NotificationHub` settings.
 
 ```swift
-    let startCallOptions = CallCompositeStartCallOptions(participants: <list of participant IDs>)
-    let remoteOptions = RemoteOptions(for: startCallOptions,
-                                        credential: credential,
-                                        displayName: "DISPLAY_NAME",
-                                        callKitOptions: callKitOptions)
-    callComposite.launch(remoteOptions: remoteOptions,
+    let options = CallCompositeOptions(disableInternalPushForIncomingCall: true)
+```
+
+### Launch composite on incoming call accepted from calling SDK CallKit
+The Azure Communication Services Calling iOS SDK supports CallKit integration. You can enable this integration in the UI Library by configuring an instance of `CallCompositeCallKitOption`. For more information, see [Integrate with CallKit](../../../calling-sdk/callkit-integration.md).
+
+Subscribe to `onIncomingCallAcceptedFromCallKit` if CallKit from calling SDK is enabled. On call accepted, launch `callComposite` with call ID.
+
+```swift
+    let onIncomingCallAcceptedFromCallKit: (callId) -> Void = { [] callId in
+        // Incoming call accepted call id
+    }
+    
+    callComposite.events.onIncomingCallAcceptedFromCallKit = onIncomingCallAcceptedFromCallKit
+
+    // launch composite with/without local options
+    // Note: as call is already accepted, setup screen will not be displayed
+    callComposite.launch(callIdAcceptedFromCallKit: callId)
+```
+
+### Handle calls with CallComposite 
+
+To accept calls, make a call to `accept`. To decline calls, make a call to `reject`.
+
+```swift
+// Accept call
+callComposite.accept(incomingCallId, 
+                     ... // CallKit and local options
+                     )
+
+// Decline call
+callComposite.reject(incomingCallId)
+```
+
+### Dial other participants
+
+To start calls with other participants, launch `callComposite` with participants' list of `CommunicationIdentifier`.
+
+```swift
+    // [CommunicationIdentifier]
+    // use createCommunicationIdentifier(fromRawId: "raw id")
+    callComposite.launch(participants: <list of CommunicationIdentifier>,
                          localOptions: localOptions)
 ```

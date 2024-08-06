@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                |
+| Documentation  | [synchronous_standby_names](https://www.postgresql.org/docs/13/runtime-config-replication.html#GUC-SYNCHRONOUS-STANDBY-NAMES) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `0`           |
 | Allowed values | `0-1000000`    |
 | Parameter type | dynamic        |
-| Documentation  | [vacuum_defer_cleanup_age](https://www.postgresql.org/docs/13/runtime-config-replication.html) |
+| Documentation  | [vacuum_defer_cleanup_age](https://www.postgresql.org/docs/13/runtime-config-replication.html#GUC-VACUUM-DEFER-CLEANUP-AGE)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

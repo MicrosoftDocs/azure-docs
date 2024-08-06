@@ -43,11 +43,11 @@ In this quickstart, use the following features to analyze and extract data and v
 
 * If you aren't using Visual Studio Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](/java/openjdk/download#openjdk-17) version 8 or later. For more information, *see* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
+  * A [**Java Development Kit (JDK)**](/java/openjdk/download#openjdk-17) version 8 or later. For more information, *see* [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk).
 
   * [**Gradle**](https://docs.gradle.org/current/userguide/installation.html), version 6.8 or later.
 
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) Document Intelligence resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create an Azure AI services resource if you plan to access multiple Azure AI services under a single endpoint/key. For Document Intelligence access only, create a Document Intelligence resource. Please note that you'll  need a single-service resource if you intend to use [Microsoft Entra authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -265,8 +265,6 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 ```java
 
-import com.azure.ai.documentintelligence;
-
 import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
 import com.azure.ai.documentintelligence.models.AnalyzeResult;
 import com.azure.ai.documentintelligence.models.AnalyzeResultOperation;
@@ -377,8 +375,6 @@ After you add a code sample to your application, navigate back to your main proj
 **Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
-
-import com.azure.ai.formrecognizer.*;
 
 import com.azure.ai.formrecognizer.documentanalysis.models.*;
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
@@ -513,7 +509,6 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 **Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
-import com.azure.ai.formrecognizer;
 
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
@@ -641,7 +636,6 @@ Analyze and extract common fields from specific document types using a prebuilt 
 **Add the following code sample to the `DocIntelligence.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
-import com.azure.ai.documentintelligence;
 
 import com.azure.ai.documentintelligence.models.AnalyzeDocumentRequest;
 import com.azure.ai.documentintelligence.models.AnalyzeResult;
@@ -829,8 +823,6 @@ After you add a code sample to your application, navigate back to your main proj
 **Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
-
-import com.azure.ai.formrecognizer.*;
 
 import com.azure.ai.formrecognizer.documentanalysis.models.*;
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
@@ -1023,7 +1015,6 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 **Add the following code sample to the `FormRecognizer.java` file. Make sure you update the key and endpoint variables with values from your Azure portal Document Intelligence instance:**
 
 ```java
-import com.azure.ai.formrecognizer;
 
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
 import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;

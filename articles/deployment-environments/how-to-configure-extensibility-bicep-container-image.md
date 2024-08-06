@@ -2,22 +2,22 @@
 title: ADE extensibility model for custom ARM and Bicep images
 titleSuffix: Azure Deployment Environments
 description: Learn how to use the ADE extensibility model to build and utilize custom ARM and Bicep images within your environment definitions for deployment environments.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
+ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 05/28/2024
 ms.topic: how-to
-
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
 # Configure container image to execute deployments with ARM and Bicep
 
-In this article, you learn how to build custom Azure Resource Manager (ARM) and Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom Azure Resource Manager (ARM) and Bicep container images to deploy your [environment definitions](configure-environment-definition.md) in Azure Deployment Environments (ADE).
 
 An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
 
-The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like DockerHub. You can then reference these images in your environment definitions to deploy your environments.
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or  Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
@@ -177,7 +177,7 @@ az deployment group create --resource-group "$ADE_RESOURCE_GROUP_NAME" \
     --template-file "$DIR/empty.json"
 ```
 
-You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/custom-runner-private-preview/Runner-Images) folder. A simple implementation could be as follows:
+You can check the provisioning state and details by running the below commands. ADE uses some special functions to read and provide more context based on the provisioning details, which you can find in the [Runner-Images](https://github.com/Azure/deployment-environments/tree/main/Runner-Images) folder. A simple implementation could be as follows:
 ```bash
 if [ $? -eq 0 ]; then # deployment successfully created
     while true; do
@@ -214,7 +214,9 @@ echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 
 ## Make the custom image accessible to ADE
 
-You must build your Docker image and push it to your container registry to make it available for use in ADE. You can build your image using the Docker CLI, or by using a script provided by ADE.
+You must build your Docker image and push it to your container registry to make it available for use in ADE. 
+
+You can build your image using the Docker CLI, or by using a script provided by ADE.
 
 Select the appropriate tab to learn more about each approach.
 
@@ -234,11 +236,18 @@ docker build . -t {YOUR_REGISTRY}.azurecr.io/customImage:1.0.0
 
 ### Push the Docker image to a registry
 
-In order to use custom images, you need to set up a publicly accessible image registry with anonymous image pull enabled. This way, Azure Deployment Environments can access your custom image to execute in our container.
+In order to use custom images, you need to store them in a container registry. Azure Container Registry (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access. 
 
-Azure Container Registry is an Azure offering that stores container images and similar artifacts.
+It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
 
-To create a registry, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+> [!Caution]
+> Storing your container image in a registry with anonymous (unauthenticated) pull access makes it publicly accessible. Don't do that if your image contains any sensitive information. Instead, store it in Azure Container Registry (ACR) with anonymous pull access disabled. 
+
+To use a custom image stored in ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. 
+
+To create  an instance of ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+
+#### Use a public registry with anonymous pull
 
 To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 
@@ -254,6 +263,60 @@ When you're ready to push your image to your registry, run the following command
 ```docker
 docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
+
+#### Use ACR with secured access
+
+By default, access to pull or push content from an Azure Container Registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
+
+##### Limit network access
+
+To secure network access to your ACR, you can limit access to your own networks, or disable public network access entirely. If you limit network access, you must enable the firewall exception *Allow trusted Microsoft services to access this container registry*.
+
+To disable access from public networks:
+
+1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-azure-cli) or use an existing one.
+1. In the Azure portal, go to the ACR that you want to configure.
+1. On the left menu, under **Settings**, select **Networking**.
+1. On the Networking page, on the **Public access** tab, under **Public network access**, select **Disabled**.
+
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-settings.png" alt-text="Screenshot of the Azure portal, showing the ACR network settings, with Public access and Disabled highlighted."::: 
+
+1. Under **Firewall exception**, check that **Allow trusted Microsoft services to access this container registry** is selected, and then select **Save**.
+
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-disable-public.png" alt-text="Screenshot of the ACR network settings, with Allow trusted Microsoft services to access this container registry and Save highlighted.":::
+
+##### Assign the AcrPull role
+
+Creating environments by using container images uses the ADE infrastructure, including projects and environment types. Each project has one or more project environment types, which need read access to the container image that defines the environment to be deployed. To access the images within your ACR securely, assign the AcrPull role to each project environment type. 
+
+To assign the AcrPull role to the Project Environment Type:
+
+1. In the Azure portal, go to the ACR that you want to configure.
+1. On the left menu, select **Access Control (IAM)**.
+1. Select **Add** > **Add role assignment**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **AcrPull**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Enter the name of the project environment type that needs to access the image in the container. |
+
+   The project environment type displays like the following example:
+
+   :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-access-control.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted.":::
+
+In this configuration, ADE uses the Managed Identity for the PET, whether system assigned or user assigned.
+
+> [!Tip]
+> This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
+
+When you're ready to push your image to your registry, run the following command:
+
+```docker
+docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
+```
+
 
 ## [Build a container image with a script](#tab/build-a-container-image-with-a-script/)
 

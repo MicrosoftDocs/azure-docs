@@ -4,8 +4,8 @@ description: Describes the supported PostgreSQL major and minor versions in Azur
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 05/06/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -14,29 +14,29 @@ ms.custom:
 
 # Supported PostgreSQL versions in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server currently supports the following major versions.
 
 ## PostgreSQL version 16
 
-PostgreSQL version 16 is now generally available in all Azure regions. The current minor release is **[!INCLUDE [minorversions-16](./includes/minorversion-16.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/16.2/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
+PostgreSQL version 16 is now generally available in all Azure regions. The current minor release is **[!INCLUDE [minorversions-16](./includes/minorversion-16.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/16.3/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
 
 ## PostgreSQL version 15
 
-The current minor release is **[!INCLUDE [minorversions-15](./includes/minorversion-15.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.4/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
+The current minor release is **[!INCLUDE [minorversions-15](./includes/minorversion-15.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/15.7/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
 
 ## PostgreSQL version 14
 
-The current minor release is **[!INCLUDE [minorversions-14](./includes/minorversion-14.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.11/) to learn more about improvements and fixes in this release. New servers are created with this minor version.
+The current minor release is **[!INCLUDE [minorversions-14](./includes/minorversion-14.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/14.12/) to learn more about improvements and fixes in this release. New servers are created with this minor version.
 
 ## PostgreSQL version 13
 
-The current minor release is **[!INCLUDE [minorversions-13](./includes/minorversion-13.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.14/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
+The current minor release is **[!INCLUDE [minorversions-13](./includes/minorversion-13.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/13.15/) to learn more about improvements and fixes in this release. New servers are created with this minor version. 
 
 ## PostgreSQL version 12
 
-The current minor release is **[!INCLUDE [minorversions-12](./includes/minorversion-12.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.18/) to learn more about improvements and fixes in this release. New servers are created with this minor version. Your existing servers are automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
+The current minor release is **[!INCLUDE [minorversions-12](./includes/minorversion-12.md)]**. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/release/12.19/) to learn more about improvements and fixes in this release. New servers are created with this minor version. Your existing servers are automatically upgraded to the latest supported minor version in your future scheduled maintenance window.
 
 ## PostgreSQL version 11
 

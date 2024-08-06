@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Deploy an Azure Virtual Desktop (classic) management tool with an Azure Resource Manager template
 
@@ -66,13 +65,11 @@ After the GitHub Azure Resource Manager template completes, you'll find a resour
 
 Before you sign in and use the management tool, you must provide consent for the new Microsoft Entra application associated with the management tool. Providing consent lets the management tool make Azure Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
-> [!div class="mx-imgBorder"]
-> ![A screenshot showing the permissions being provided when you consent to the UI management tool.](../media/management-ui-delegated-permissions.png)
+:::image type="content" source="../media/management-ui-delegated-permissions-inline.png" alt-text="A screenshot showing the permissions being provided when you consent to the UI management tool." lightbox="../media/management-ui-delegated-permissions-expanded.png":::
 
 To determine which user you can use to sign in to the tool, go to your [Microsoft Entra user settings page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) and take note of the value for **Users can consent to apps accessing company data on their behalf**.
 
-> [!div class="mx-imgBorder"]
-> ![A screenshot showing if users can grant consent to applications for just their user.](../media/management-ui-user-consent-allowed.png)
+:::image type="content" source="../media/management-ui-user-consent-allowed-inline.png" alt-text="A screenshot showing if users can grant consent to applications for just their user." lightbox="../media/management-ui-user-consent-allowed-expanded.png":::
 
 - If the value is set to **Yes**, you can sign in with any user account in the Microsoft Entra ID and provide consent for that user only. However, if you sign in to the management tool with a different user later, you must perform the same consent again.
 - If the value is set to **No**, you must sign in as a Global Administrator in the Microsoft Entra ID and provide admin consent for all users in the directory. No other users will face a consent prompt.
@@ -82,12 +79,7 @@ Once you decide which user you'll use to provide consent, follow these instructi
 
 1. Go to your Azure resources, select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
 2. Sign in using the appropriate Microsoft Entra user account.
-3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot showing the full consent page that the user or admin will see.](../media/management-ui-consent-page.png)
-
-This will now take you to the management tool.
+3. If you authenticated with a Global Administrator, you can now select the checkbox to **Consent on behalf of your organization**. Select **Accept** to provide consent. This will now take you to the management tool.
 
 ## Use the management tool
 

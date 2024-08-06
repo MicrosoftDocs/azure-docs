@@ -2,7 +2,7 @@
 title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/30/2024
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, mode-api
 
 In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates, and other secrets. For more information on Key Vault, review the [Overview](../general/overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. Once that you've completed that, you will store a key.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -26,7 +26,11 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
 ## Create a key vault
 
-[!INCLUDE [Create a key vault](../../../includes/key-vault-cli-kv-creation.md)]
+[!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
+
+## Give your user account permissions to manage secrets in Key Vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
 
 ## Add a key to Key Vault
 

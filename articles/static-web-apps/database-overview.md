@@ -3,7 +3,7 @@ title: Connecting to a database with Azure Static Web Apps
 description: Learn about the database connection features of Azure Static Web Apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 03/03/2023
 ---

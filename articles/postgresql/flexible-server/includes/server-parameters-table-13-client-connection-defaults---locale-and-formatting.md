@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `UTF8`               |
 | Allowed values | `BIG5,EUC_CN,EUC_JP,EUC_JIS_2004,EUC_KR,EUC_TW,GB18030,GBK,ISO_8859_5,ISO_8859_6,ISO_8859_7,ISO_8859_8,JOHAB,KOI8R,KOI8U,LATIN1,LATIN2,LATIN3,LATIN4,LATIN5,LATIN6,LATIN7,LATIN8,LATIN9,LATIN10,MULE_INTERNAL,SJIS,SHIFT_JIS_2004,SQL_ASCII,UHC,UTF8,WIN866,WIN874,WIN1250,WIN1251,WIN1252,WIN1253,WIN1254,WIN1255,WIN1256,WIN1257,WIN1258` |
 | Parameter type | dynamic        |
-| Documentation  | [client_encoding](https://www.postgresql.org/docs/13/runtime-config-client.html)            |
+| Documentation  | [client_encoding](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-CLIENT-ENCODING)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `ISO, MDY`           |
 | Allowed values | `(ISO|POSTGRES|SQL|GERMAN)(, (DMY|MDY|YMD))?`                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                             |
+| Documentation  | [DateStyle](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-DATESTYLE)                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `pg_catalog.english` |
 | Allowed values | `[A-Za-z._]+`                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  | [default_text_search_config](https://www.postgresql.org/docs/13/runtime-config-client.html) |
+| Documentation  | [default_text_search_config](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-DEFAULT-TEXT-SEARCH-CONFIG) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `1`                  |
 | Allowed values | `-15-3`                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [extra_float_digits](https://www.postgresql.org/docs/13/runtime-config-client.html)         |
+| Documentation  | [extra_float_digits](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-EXTRA-FLOAT-DIGITS)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `postgres`           |
 | Allowed values | `postgres,postgres_verbose,sql_standard,iso_8601`                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                             |
+| Documentation  | [IntervalStyle](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-INTERVALSTYLE)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `en_US.utf8`         |
 | Allowed values | `en_US.utf8`                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | read-only      |
-| Documentation  |                                                                                             |
+| Documentation  | [lc_messages](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-LC-MESSAGES)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `en_US.utf-8`        |
 | Allowed values | `[A-Za-z0-9._ -]+`                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | dynamic        |
-| Documentation  | [lc_monetary](https://www.postgresql.org/docs/13/runtime-config-client.html)                |
+| Documentation  | [lc_monetary](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-LC-MONETARY)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `en_US.utf-8`        |
 | Allowed values | `[A-Za-z0-9._ -]+`                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | dynamic        |
-| Documentation  | [lc_numeric](https://www.postgresql.org/docs/13/runtime-config-client.html)                 |
+| Documentation  | [lc_numeric](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-LC-NUMERIC)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `en_US.utf8`         |
 | Allowed values | `en_US.utf8`                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | read-only      |
-| Documentation  |                                                                                             |
+| Documentation  | [lc_time](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-LC-TIME)                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `UTC`                |
 | Allowed values | `[A-Za-z0-9/+_-]+`                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | dynamic        |
-| Documentation  | [TimeZone](https://www.postgresql.org/docs/13/runtime-config-client.html)                   |
+| Documentation  | [TimeZone](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-TIMEZONE)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `Default`            |
 | Allowed values | `Default`                                                                                                                                                                                                                                                                                                                                   |
 | Parameter type | read-only      |
-| Documentation  |                                                                                             |
+| Documentation  | [timezone_abbreviations](https://www.postgresql.org/docs/13/runtime-config-client.html#GUC-TIMEZONE-ABBREVIATIONS)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

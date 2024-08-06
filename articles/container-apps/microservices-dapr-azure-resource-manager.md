@@ -3,7 +3,7 @@ title: "Tutorial: Deploy a Dapr application to Azure Container Apps with an Azur
 description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template.
 services: container-apps
 author: asw101
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
 ms.author: cshoe
@@ -83,7 +83,7 @@ The template deploys:
 - a Dapr component for the blob storage account
 - the node, Dapr-enabled container app with a user-assigned managed identity: [hello-k8s-node](https://hub.docker.com/r/dapriosamples/hello-k8s-node)
 - the python, Dapr-enabled container app: [hello-k8s-python](https://hub.docker.com/r/dapriosamples/hello-k8s-python)
-- an Active Directory role assignment for the node app used by the Dapr component to establish a connection to blob storage
+- a Microsoft Entra ID role assignment for the node app used by the Dapr component to establish a connection to blob storage
 
 Navigate to the _acadapr-templates_ directory and run the following command:
 

@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/09/2024
+ms.date: 07/17/2024
 ms.topic: conceptual
 ms.custom: references_regions, ignite-2023
 #Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -16,6 +16,18 @@ ms.custom: references_regions, ignite-2023
 # Release notes - Azure Arc-enabled data services
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
+
+## July  9, 2024
+
+**Image tag**: `v1.31.0_2024-07-09`
+
+For complete release version information, review [Version log](version-log.md#july-9-2024). 
+
+## June 11, 2024
+
+**Image tag**: `v1.30.0_2024-06-11` 
+
+For complete release version information, review [Version log](version-log.md#june-11-2024). 
 
 ## April 9, 2024
 
@@ -541,7 +553,7 @@ For complete release version information, see [Version log](version-log.md#febru
     - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disk) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
+- [ReadWriteMany (RWX) capable storage class](/azure/aks/concepts-storage#azure-disk) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with SQL Managed Instance enabled by Azure Arc (preview)](managed-instance-high-availability.md).

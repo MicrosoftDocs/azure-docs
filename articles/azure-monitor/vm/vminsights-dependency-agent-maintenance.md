@@ -11,7 +11,7 @@ ms.date: 09/28/2023
 # Dependency Agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 The Dependency Agent collects data about processes running on the virtual machine and external process dependencies. Dependency Agent updates include bug fixes or support of new features or functionality. This article describes Dependency Agent requirements and how to upgrade Dependency Agent manually or through automation.
 
@@ -20,10 +20,10 @@ The Dependency Agent collects data about processes running on the virtual machin
 
 ## Dependency Agent requirements
 
-- The Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
-- On both the Windows and Linux versions, the Dependency Agent collects data using a user-space service and a kernel driver. 
-    - Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2, Windows Server 2022, and Azure Stack HCI.
-    - For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
+* The Dependency Agent requires the Azure Monitor Agent to be installed on the same machine.
+* On both the Windows and Linux versions, the Dependency Agent collects data using a user-space service and a kernel driver. 
+    * Dependency Agent supports the same [Windows versions that Azure Monitor Agent supports](../agents/agents-overview.md#supported-operating-systems), except Windows Server 2008 SP2 and Azure Stack HCI.
+    * For Linux, see [Dependency Agent Linux support](#dependency-agent-linux-support).
 
 ## Install or upgrade Dependency Agent 
 
@@ -75,7 +75,7 @@ You can download the latest version of the Linux agent from [here](https://aka.m
 2. Run the following command as root.
 
     ```bash
-    InstallDependencyAgent-Linux64.bin -s
+    ./InstallDependencyAgent-Linux64.bin -s
     ```
 
 If the Dependency agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*. 
@@ -93,7 +93,7 @@ To uninstall Dependency Agent:
 
 Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
-[!INCLUDE [dependency-agent-linux-versions](../includes/vm-insights-dependency-agent-linux-versions.md)]
+[!INCLUDE [dependency-agent-linux-versions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/vm-insights-dependency-agent-linux-versions.md)]
 
 ## Next steps
 

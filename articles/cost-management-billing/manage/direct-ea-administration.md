@@ -3,7 +3,7 @@ title: EA Billing administration on the Azure portal
 description: This article explains the common tasks that an enterprise administrator accomplishes in the Azure portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/29/2024
+ms.date: 06/07/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -261,6 +261,8 @@ If you're a new EA account owner with a .onmicrosoft.com account, you might not 
 
 EA admins can use the Azure portal to transfer account ownership of selected or all subscriptions in an enrollment. When you complete a subscription or account ownership transfer, Microsoft updates the account owner.
 
+Transferring one or more subscriptions from one EA enrollment to another EA enrollment requires a [billing support ticket](https://azure.microsoft.com/support/create-ticket/). For more information, see [Product transfer support](subscription-transfer.md#product-transfer-support).
+
 Before starting the ownership transfer, get familiar with the following Azure role-based access control (RBAC) policies:
 
 - When doing a subscription or account ownership transfers between two organizational IDs within the same tenant, the following items are preserved:
@@ -487,6 +489,8 @@ Anyone with access to view the request can view its details. In the request deta
 
 :::image type="content" source="./media/direct-ea-administration/request-details.png" alt-text="Screenshot showing request details to view Accept ownership URL." lightbox="./media/direct-ea-administration/request-details.png" :::
 
+> [!NOTE]
+> You can now view the **Service tenant ID** for subscriptions billed to your account on the **Azure Subscriptions** page under __Cost Management + Billing.__
 ## Cancel a subscription
 
 Only account owners can cancel their own subscriptions.
@@ -665,9 +669,8 @@ The Azure EA customer is opted out of the extended term, and the Azure EA enroll
 
 **Transferred**<br>
 Enrollments where all associated accounts and services were transferred to a new enrollment appear with a transferred status.
- > [!NOTE]
- > Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
-
+> [!NOTE]
+> Enrollments don't automatically transfer if a new enrollment number is generated at renewal. You must include your prior enrollment number in your renewal paperwork to facilitate an automatic transfer.
 ## Related content
 
 - If you need to create an Azure support request for your EA enrollment, see [How to create an Azure support request for an Enterprise Agreement issue](../troubleshoot-billing/how-to-create-azure-support-request-ea.md).

@@ -41,7 +41,6 @@ The configurable options of Azure AI Search when using Azure OpenAI On Your Data
 | `allow_partial_result` | integer | False | If specified as true, the system will allow partial search results to be used and the request fails if all the queries fail. If not specified, or specified as false, the request will fail if any search query fails. |
 | `include_contexts` | array | False | The included properties of the output context. If not specified, the default value is `citations` and `intent`. Values can be `citations`,`intent`, `all_retrieved_documents`.|
 
-
 ## API key authentication options
 
 The authentication options for Azure OpenAI On Your Data when using an API key.

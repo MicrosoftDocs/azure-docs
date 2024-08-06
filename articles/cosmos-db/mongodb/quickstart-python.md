@@ -4,7 +4,7 @@ description: Learn how to build a Python app to manage Azure Cosmos DB for Mongo
 author: diberry
 ms.author: diberry
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: python
 ms.topic: quickstart
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurecli, devx-track-python
 
 # Quickstart: Azure Cosmos DB for MongoDB for Python with MongoDB driver
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >

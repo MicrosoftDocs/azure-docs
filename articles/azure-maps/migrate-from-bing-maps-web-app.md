@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -1711,7 +1711,7 @@ Learn more about migrating from Bing Maps to Azure Maps.
 [Clustering point data in the Web SDK]: clustering-point-data-web-sdk.md
 [Contour layer code samples]: https://samples.azuremaps.com/?search=contour
 [Create a data source]: create-data-source-web-sdk.md
-[Creator]: tutorial-creator-indoor-maps.md
+[Creator]: creator-indoor-maps.md
 [Display an infobox]: #display-an-infobox
 [Drawing tools module code samples]: https://samples.azuremaps.com#drawing-tools-module
 [free account]: https://azure.microsoft.com/free/

@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.custom:
@@ -22,7 +22,7 @@ This article explains how to deploy a sample application with an end-to-end MySQ
 
 ## Environment setup
 
-[Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide's migration steps for the sample [conference demo application.](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide/sample-app).
+[Download more documentation](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1%20Appendix%20A.pdf) we created for this Migration Guide and learn how to configure an environment to perform the guide's migration steps for the sample conference demo application.
 
 ## Azure Resource Manager (ARM) templates
 

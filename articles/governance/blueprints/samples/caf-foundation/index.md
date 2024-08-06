@@ -1,6 +1,6 @@
 ---
 title: CAF Foundation blueprint sample overview
-description: Overview and architecture of the Cloud Adoption Framework (CAF) for Azure Foundation blueprint sample.
+description: Overview and architecture of the CAF Foundation blueprint sample, provided by the Microsoft Cloud Adoption Framework for Azure.
 ms.date: 09/07/2023
 ms.topic: sample
 ---
@@ -8,23 +8,17 @@ ms.topic: sample
 
 [!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
-The Microsoft Cloud Adoption Framework for Azure (CAF) Foundation blueprint deploys a set of core
-infrastructure resources and policy controls required for your first production grade Azure
-application. This foundation blueprint is based on the recommended pattern found in CAF.
+The CAF Foundation blueprint (provided by the Microsoft Cloud Adoption Framework for Azure) deploys a set of core infrastructure resources and policy controls required for your first production grade Azure application. This foundation blueprint is based on the recommended pattern found in the Cloud Adoption Framework.
 
 ## Architecture
 
-The CAF Foundation blueprint sample deploys recommended infrastructure resources in Azure that can
-be used by organizations to put in place the foundation controls necessary to manage their cloud
-estate. This sample will deploy and enforce resources, policies, and templates that will allow an
-organization to confidently get started with Azure.
+The CAF Foundation blueprint sample deploys recommended infrastructure resources in Azure that can be used by organizations to put in place the foundation controls necessary to manage their cloud estate. This sample will deploy and enforce resources, policies, and templates that will allow an organization to confidently get started with Azure.
 
 :::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="C A F Foundation, image describes what gets installed as part of C A F guidance for creating a foundation to get started with Azure." border="false":::
    Describes an Azure architecture which is achieved by deploying the C A F Foundation blueprint. It's applicable to a subscription with resource groups which consists of a storage account for storing logs, Log Analytics configured to store in the storage account. It also depicts Azure Key Vault configured with Microsoft Defender for Cloud standard setup. All these core infrastructures are accessed using Azure Active Directory and enforced using Azure Policy.
 :::image-end:::
 
-This implementation incorporates several Azure services used to provide a secure, fully monitored,
-enterprise-ready foundation. This environment is composed of:
+This implementation incorporates several Azure services used to provide a secure, fully monitored, enterprise-ready foundation. This environment is composed of:
 
 - An [Azure Key Vault](../../../../key-vault/general/overview.md) instance used to host secrets
   used for the VMs deployed in the shared services environment
@@ -46,8 +40,7 @@ enterprise-ready foundation. This environment is composed of:
   - Policy initiatives:
     - Enable Monitoring in Microsoft Defender for Cloud (100+ policy definitions)
 
-All these elements abide to the proven practices published in the
-[Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
+All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
 > [!NOTE]
 > The CAF Foundation lays out a foundational architecture for workloads.

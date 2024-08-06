@@ -11,6 +11,7 @@ ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using Python client libraries

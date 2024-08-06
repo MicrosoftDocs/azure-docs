@@ -3,7 +3,7 @@ title: Sign and verify using Azure Key Vault keys with JavaScript
 description: Sign and verify data with keys in JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js

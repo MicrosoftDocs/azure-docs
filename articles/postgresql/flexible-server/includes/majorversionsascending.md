@@ -2,10 +2,9 @@
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
-11, 12, 13, 14, 15, 16
-
+16, 15, 14, 13, 12, 11

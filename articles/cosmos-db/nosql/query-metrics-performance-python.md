@@ -1,11 +1,11 @@
 ---
-title: Get NoSQL query performance & execution metrics in Azure Cosmos DB using Python SDK
+title: Get NoSQL query performance and execution metrics in Azure Cosmos DB using Python SDK
 description: Learn how to retrieve NoSQL query execution metrics and profile NoSQL query performance of Azure Cosmos DB requests.
 author: abhinavtrips
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
-ms.date: 1/5/2023
+ms.date: 05/15/2023
 ms.author: abtripathi
 ms.custom: devx-track-python, devx-track-python-sdk
 ---
@@ -28,7 +28,7 @@ results = container.query_items(
 ```
 
 
-### Get Query Execution Metrics
+### Get query execution metrics
 In python SDK, you can read the ```x-ms-documentdb-query-metrics``` header values from the container client to get the query execution metrics. The following code snippet shows how to read the query execution metrics:
 
 ```python

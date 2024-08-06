@@ -5,7 +5,7 @@ author: gbowerman
 ms.author: guybo
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -15,7 +15,7 @@ ms.custom:
 
 # Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 [Azure Database for PostgreSQL](../single-server/overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
@@ -45,7 +45,7 @@ The Azure Database for PostgreSQL flexible server deployment model is designed t
 
 If zone redundant high availability is configured, the service provisions and maintains a warm standby server across the availability zone within the same Azure region. The data changes on the source server are synchronously replicated to the standby server to ensure zero data loss. With zone redundant high availability, once the planned or unplanned failover event is triggered, the standby server comes online immediately and is available to process incoming transactions. This allows the service resiliency from availability zone failure within an Azure region that supports multiple availability zones, as shown in the picture below.
 
-:::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Diagram of Zone redundant high availability." lightbox="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png" alt-text="Diagram of Zone redundant high availability." lightbox="~/reusable-content/ce-skilling/azure/media/postgresql/concepts-zone-redundant-high-availability-architecture.png":::
 
 See [High availability](./concepts-high-availability.md) for more details.
 

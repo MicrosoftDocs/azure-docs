@@ -81,7 +81,7 @@ Open *ContentSafetyQuickstart.java* in your preferred editor or IDE and paste in
 > [!TIP]
 > Text size and granularity
 >
-> The default maximum length for text submissions is **10K** characters.
+> See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 ```Java
 import com.azure.ai.contentsafety.ContentSafetyClient;

@@ -1,11 +1,11 @@
 ---
-title: Index tuning
-description: This article describes the index tuning feature in Azure Database for PostgreSQL - Flexible Server.
+title: Automated index tuning
+description: This article describes the automated index tuning feature in Azure Database for PostgreSQL - Flexible Server.
 author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 05/28/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 # Index tuning in Azure Database for PostgreSQL - Flexible Server (Preview)
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Index tuning is a feature in Azure Database for PostgreSQL flexible server that automatically improves the performance of your workload by analyzing the tracked queries and providing index recommendations.
 
@@ -38,7 +38,7 @@ The following queries are excluded from that list:
 - System-initiated queries. (that is, queries executed by `azuresu` role)
 - Queries executed in the context of any system database (`azure_sys`, `template0`, `template1`, and `azure_maintenance`).
 
-The algorithm iterates over the target databases, searching for possible indexes that could improve the performance of analyzed workloads. It also searches for indexes that can be eliminated because they're identified as duplicates or haven't been used for a long period of time.
+The algorithm iterates over the target databases, searching for possible indexes that could improve the performance of analyzed workloads. It also searches for indexes that can be eliminated because they're identified as duplicates or not used for a configurable period of time.
 
 ### CREATE INDEX recommendations
 
@@ -61,7 +61,9 @@ Potential recommendations aim to improve the performance of these types of queri
 > [!NOTE]
 > The only type of indexes the system currently recommends are those of type [B-Tree](https://www.postgresql.org/docs/current/indexes-types.html#INDEXES-TYPES-BTREE).
 
-If a query references one column of a table and that table has no statistics because it was never analyzed (manually using the ANALYZE command or automatically by the autovacuum daemon), then the whole query is skipped, and no indexes are recommended to improve its execution.
+If a query references one column of a table and that table has no statistics, then the whole query is skipped and results in no index recommendations to improve its execution.
+
+Analysis required to gather statistics can be triggered manually using the ANALYZE command or automatically by the autovacuum daemon.
 
 `index_tuning.max_indexes_per_table` specifies the number of indexes that can be recommended, excluding any indexes that might already exist on the table for any single table referenced by any number of queries during a tuning session.
 
@@ -144,32 +146,25 @@ Explore all the details about correct configuration of index tuning feature in [
 Index tuning in Azure Database for PostgreSQL - Flexible Server has the following limitations:
 
 - Index tuning is currently in preview and might have some limitations or restrictions.
-- The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. 
+- The feature is available in specific regions. The full list is available on [Supported regions](#supported-regions) section. 
 - Index tuning is supported on all currently available tiers (Burstable, General Purpose, and Memory Optimized) and on any currently supported compute SKU with at least 4 vCores.
 - The feature is supported on major versions 14 or greater of Azure Database for PostgreSQL Flexible Server.
+- [Prepared statements](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-EXT-QUERY) aren't analyzed to produce recommendations on them.
 - In read replicas or when an instance is in read-only mode, index tuning isn't supported.
 - It's important to consider the implications of creating recommended indexes on servers with high availability or read replicas, especially when the size of the indexes is estimated to be large.
 
-For more information on index tuning and related articles, see the documentation links provided below.
+For more information on index tuning and related articles, see the documentation links provided in [Related content](#related-content).
 
 ### Supported regions
 
-Index tuning feature is available in the following regions:
-
-- East Asia
-- Central India
-- North Europe
-- Southeast Asia
-- South Central US
-- UK South
-- West US 3
+There's no regional limitation for index tuning feature. It is available in [all regions](./overview.md#azure-regions) where Azure Database for PostgreSQL Flexible Server is available.
 
 ### Supported tiers and SKUs
 
 Index tuning is supported on all [currently available tiers](concepts-compute.md): Burstable, General Purpose, and Memory Optimized, and on any [currently supported compute SKU](concepts-compute.md) with at least 4 vCores.
 
 > [!IMPORTANT]  
-> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, ifyou plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
+> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, if you plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
 
 ### Supported versions of PostgreSQL
 
@@ -178,25 +173,22 @@ Index tuning is supported on [major versions](concepts-supported-versions.md) **
 > [!IMPORTANT]
 > Although you can enable the feature on instances running versions lower than 14, you're not expected to do it as the feature is not supported in those versions.
 
+### Prepared statements
+
+Currently, index tuning doesn't analyze [prepared statements](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-EXT-QUERY).
+
 ### Read-only mode and read replicas
 
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
-Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, is one that has been produced on the primary replica after having analyzed the workload recorded in it.
-
-### Network connectivity method
-
-Index tuning is currently supported on instances whose connectivity method is configured as [Public access (allowed IP addresses)](concepts-networking-public.md). For instances configured with [Private access (VNET Integration)](concepts-networking-private.md) the feature can be enabled, but it won't generate recommendations.
+Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, were produced on the primary replica after having analyzed the workload recorded in it.
 
 ### Important considerations
 
-If you have [high availability](../../reliability/reliability-postgresql-flexible-server.md) or [read replicas](concepts-read-replicas.md) configured on your server, be aware of the implications associated with producing write-intensive workloads on the primary server when recommended indexes are created by the index tuning feature. Be especially careful when creating indexes whose size is estimated to be large.
+If you have [high availability](../../reliability/reliability-postgresql-flexible-server.md) or [read replicas](concepts-read-replicas.md) configured on your server, be aware of the implications associated with producing write-intensive workloads on the primary server when indexes recommended are implemented. Be especially careful when creating indexes whose size is estimated to be significantly large.
 
 ## Related content
 
 - [Monitor performance with Query Store](concepts-query-store.md)
-- [Usage scenarios for Query Store - Azure Database for PostgreSQL - Flexible Server](concepts-query-store-scenarios.md)
-- [Best practices for Query Store - Azure Database for PostgreSQL - Flexible Server](concepts-query-store-best-practices.md)
-- [Query Performance Insight for Azure Database for PostgreSQL - Flexible Server](concepts-query-performance-insight.md)
 - [Enable, disable and configure index tuning](how-to-configure-index-tuning.md)
 - [Read, interpret and use recommendations produced by index tuning](how-to-get-and-apply-recommendations-from-index-tuning.md)

@@ -3,7 +3,7 @@ title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
 author: flang-msft
 
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 03/09/2023
 ms.author: franlanglois
@@ -111,7 +111,7 @@ Zone-redundant Premium tier caches are available in the following regions:
 | South Central US | West Europe | | | East Asia |
 | US Gov Virginia | Sweden Central | | | China North 3 |
 | West US 2 | Switzerland North | | | |
-| West US 3 | | | | |
+| West US 3 | Poland Central | | | |
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 

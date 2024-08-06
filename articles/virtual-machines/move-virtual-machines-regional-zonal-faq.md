@@ -1,10 +1,10 @@
 ---
-title: FAQ - Move Azure single instance Virtual Machines from regional to zonal availability zones
+title: FAQ - Move Azure single instance Virtual Machines from regional to zonal availability zones 
 description: FAQs for single instance Azure virtual machines from a regional configuration to a target Availability Zone within the same Azure region.
 author: ankitaduttaMSFT
 ms.service: virtual-machines
-ms.topic: article
-ms.date: 09/25/2023
+ms.topic: tutorial
+ms.date: 05/06/2024
 ms.author: ankitadutta
 ---
 
@@ -12,20 +12,53 @@ ms.author: ankitadutta
 
 This article answers common questions about Azure single instance virtual machines - regional to zonal move.
 
-> [!IMPORTANT]
-> Regional to zonal move of single instance VM(s) configuration is currently in *Public Preview*.
-
 ## Regional to zonal move
 
 ### Can I move virtual machine(s) in all Azure regions?
 
-Currently, you can move virtual machine(s) across all public regions that are supported by Availability Zones. Learn more about the availability zone service and regional support.
+Currently, you can move virtual machine(s) across all public regions that are supported by Availability Zones. Learn more about the [availability zone service and regional support](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+
+> [!NOTE]
+> Azure China (China North 3) and Azure Govt (US Gov Virginia) are also supported.
 
 ### Where is the metadata stored?
 
-The metadata associated with the move is stored in an Azure Cosmos DB database located in either the East US2 or North Europe regions and in Azure Blob storage in a Microsoft subscription.
+The service doesn't retain any customer data, and all data remains within the source virtual machine region. The following table shows the mapping between the virtual machine region and metadata region:
 
-Although the coverage will eventually extend to other regions, this doesn't restrict you from moving virtual machines to other regions. The service doesn't retain any customer data, and no customer data goes outside of the source virtual machine region.
+| Region group | Region | Metadata region |
+| --- | --- | ----|
+| **Americas** | eastus2 | eastus2 |
+| | eastus | eastus2 |
+| | westus2 | eastus2 |
+| | southcentralus | eastus2 |
+| | brazilsouth | brazilsouth |
+| | canadacentral | canadacentral |
+| | westus3 | eastus2 |
+||||
+| **Europe**| northeurope | northeurope |
+| | westeurope | northeurope |
+| | uksouth | uksouth |
+| | francecentral | francecentral |
+| | switzerlandnorth | switzerlandnorth |
+| | germanywestcentral | germanywestcentral |
+| | norwayeast | norwayeast |
+| | swedencentral | swedencentral |
+| | polandcentral | polandcentral |
+| | spaincentral | northeurope |
+| | italynorth | northeurope |
+||||
+| **Middle East** | uaenorth | uaenorth |
+| | qatarcentral | qatarcentral |
+||||
+| **Asia Pacific** | japaneast | japaneast |
+| | eastasia | southeastasia |
+| | southeastasia | southeastasia |
+| | australiaeast | australiaeast |
+| | centralindia | centralindia |
+| | koreacentral | koreacentral |
+||||
+| **Africa** | southafricanorth | southeastasia |
+
 
 ### Is the collected metadata encrypted?
 
@@ -86,7 +119,7 @@ Managed identity previously known as Managed Service Identity (MSI), is a featur
 
 ### Can I move my resources from Regional to Zonal and across subscriptions?
 
-You can use Azure Resource Manager to move virtual machines from a regional to a zonal deployment within the same subscription, and then move them across subscriptions.
+You can use virtual machine Regional to Zonal Move capability to move virtual machines from a regional to a zonal deployment within the same subscription and then use Azure Resource Manager to move them across subscriptions.
 
 ### Are Azure Backup/DR, RBAC, Tags, Policies, and extensions on virtual machines supported?
 
@@ -100,9 +133,11 @@ Customer data isn't stored during the move. The system only stores metadata info
 
 When you select **Move**, the following steps are performed on the source virtual machines:
 
-1.	The source virtual machines are stopped and left intact in their original configuration.
+1.	The source virtual machines are stopped and left intact in their original configuration. 
+    > [!NOTE]
+    > Stopping the VMs could lead to a brief downtime.
 2.	Virtual machine restore points of the source virtual machine are taken. These restore points contain a disk restore point for each of the attached disks and a disk restore point consists of a snapshot of an individual managed disk.
-3.	Using these restore points, a new virtual machine with its associated disks (a copy of the source) is created in the zonal configuration.
+3.	Using these restore points, a new virtual machine with its associated disks (a copy of the source VM) is created in the zonal configuration.
 4.	After the move is complete, you can choose to delete the source virtual machines.
 
 

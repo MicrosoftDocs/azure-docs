@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `on`                                                                                                                                                                            |
 | Allowed values | `on`                                                                                                                                                                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL)                                                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `/datadrive/certs/ca.pem`                                                                                                                                                       |
 | Allowed values | `/datadrive/certs/ca.pem`                                                                                                                                                       |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_ca_file](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-CA-FILE)                                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `/datadrive/certs/cert.pem`                                                                                                                                                     |
 | Allowed values | `/datadrive/certs/cert.pem`                                                                                                                                                     |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_cert_file](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-CERT-FILE)                                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256` |
 | Allowed values | `ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256` |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_ciphers](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-CIPHERS)                                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  |                                                                                                                                                                                 |
 | Allowed values |                                                                                                                                                                                 |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_crl_dir](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-CRL-DIR)                                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  |                                                                                                                                                                                 |
 | Allowed values |                                                                                                                                                                                 |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_crl_file](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-CRL-FILE)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  |                                                                                                                                                                                 |
 | Allowed values |                                                                                                                                                                                 |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_dh_params_file](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-DH-PARAMS-FILE)                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `prime256v1`                                                                                                                                                                    |
 | Allowed values | `prime256v1`                                                                                                                                                                    |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_ecdh_curve](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-ECDH-CURVE)                                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `/datadrive/certs/key.pem`                                                                                                                                                      |
 | Allowed values | `/datadrive/certs/key.pem`                                                                                                                                                      |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_key_file](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-KEY-FILE)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  |                                                                                                                                                                                 |
 | Allowed values | `TLSv1.2,TLSv1.3`                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  | [ssl_max_protocol_version](https://www.postgresql.org/docs/14/runtime-config-connection.html) |
+| Documentation  | [ssl_max_protocol_version](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-MAX-PROTOCOL-VERSION)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `TLSv1.2`                                                                                                                                                                       |
 | Allowed values | `TLSv1.2,TLSv1.3`                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  | [ssl_min_protocol_version](https://www.postgresql.org/docs/14/runtime-config-connection.html) |
+| Documentation  | [ssl_min_protocol_version](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-MIN-PROTOCOL-VERSION)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  |                                                                                                                                                                                 |
 | Allowed values |                                                                                                                                                                                 |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_passphrase_command](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-PASSPHRASE-COMMAND)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `off`                                                                                                                                                                           |
 | Allowed values | `off`                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_passphrase_command_supports_reload](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-PASSPHRASE-COMMAND-SUPPORTS-RELOAD) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `on`                                                                                                                                                                            |
 | Allowed values | `on`                                                                                                                                                                            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                               |
+| Documentation  | [ssl_prefer_server_ciphers](https://www.postgresql.org/docs/14/runtime-config-connection.html#GUC-SSL-PREFER-SERVER-CIPHERS)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

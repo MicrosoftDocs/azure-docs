@@ -14,18 +14,17 @@ ms.author: pafarley
 
 # Language support for Azure AI Content Safety
 
-Some capabilities of Azure AI Content Safety support multiple languages; any capabilities not listed here only support English.
-
-## Text moderation
-
-The Azure AI Content Safety text moderation feature supports many languages, but it has been specially trained and tested on a smaller set of languages.
+> [!IMPORTANT]
+> The Azure AI Content Safety models for protected material, groundedness detection, and custom categories (standard) work with English only.
+>
+> Other Azure AI Content Safety models have been specifically trained and tested on the following languages: Chinese, English, French, German, Italian, Japanese, Portuguese. However, these features can work in many other languages, but the quality might vary. In all cases, you should do your own testing to ensure that it works for your application.
 
 > [!NOTE]
 > **Language auto-detection**
 >
-> You don't need to specify a language code for text moderation. The service automatically detects your input language.
+> You don't need to specify a language code for text moderation or Prompt Shields. The service automatically detects your input language.
 
-| Language name         | Language code | Text moderation | Specially trained |
+| Language name         | Language code | Supported | Specially trained|
 |-----------------------|---------------|--------|--|
 | Afrikaans             | `af`          | ✔️    |  |
 | Albanian              | `sq`          | ✔️    |  |

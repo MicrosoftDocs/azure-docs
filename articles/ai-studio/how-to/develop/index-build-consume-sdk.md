@@ -15,7 +15,7 @@ author: eric-urban
 
 # How to build and consume an index using code
 
-[!INCLUDE [Feature preview](../../includes/feature-preview.md)]
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
 
 In this article, you learn how to create an index and consume it from code. To create an index locally, we use the `promptflow-rag` package. To create a remote index on the cloud, we use the `azure-ai-ml` package. We consume the indexes using `langchain`.
 
@@ -268,7 +268,7 @@ from azure.ai.ml.entities import LocalSource
 
 input_source=LocalSource(input_data="<path-to-your-local-files>")
 
-# Github repository
+# GitHub repository
 from azure.ai.ml.entities import GitSource
 
 input_source=GitSource(

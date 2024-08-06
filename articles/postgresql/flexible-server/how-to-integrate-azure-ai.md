@@ -5,18 +5,19 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: maghan, carols
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---
 
 # Integrate Azure AI capabilities into Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
-The `azure_ai` extension adds the ability to use [large language models](/training/modules/fundamentals-generative-ai/3-language%20models) (LLMs) and build [generative AI](/training/paths/introduction-generative-ai/) applications within an Azure Database for PostgreSQL flexible server database by integrating the power of [Azure AI services](/azure/ai-services/what-are-ai-services). Generative AI is a form of artificial intelligence in which LLMs are trained to generate original content based on natural language input. Using the `azure_ai` extension allows you to use generative AI's natural language query processing capabilities directly from the database.
+The `azure_ai` extension adds the ability to use [large language models (LLMs)](/training/modules/fundamentals-generative-ai/3-language%20models) and build [generative AI](/training/paths/introduction-generative-ai/) applications within an Azure Database for PostgreSQL flexible server database by integrating the power of [Azure AI services](/azure/ai-services/what-are-ai-services). Generative AI is a form of artificial intelligence in which LLMs are trained to generate original content based on natural language input. Using the `azure_ai` extension allows you to use generative AI's natural language query processing capabilities directly from the database.
 
 This tutorial showcases adding rich AI capabilities to an Azure Database for PostgreSQL flexible server instance using the `azure_ai` extension. It covers integrating both [Azure OpenAI](/azure/ai-services/openai/overview) and the [Azure AI Language service](/azure/ai-services/language-service/) into your database using the extension.
 

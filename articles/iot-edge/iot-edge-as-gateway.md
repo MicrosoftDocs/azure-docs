@@ -1,10 +1,10 @@
 ---
-title: Gateways for downstream devices - Azure IoT Edge | Microsoft Docs 
-description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes it locally.
+title: Gateways for downstream devices - Azure IoT Edge 
+description: Use Azure IoT Edge to create a transparent, opaque, or proxy gateway device that sends data from multiple downstream devices to the cloud or processes locally.
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/27/2022
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -65,7 +65,7 @@ IoT Edge devices can be both parents and children in transparent gateway relatio
 
 #### Gateway discovery
 
-A child device needs to be able to find its parent device on the local network. Configure gateway devices with a **hostname**, either a fully qualified domain name (FQDN) or an IP address, that its child devices will use to locate it.
+A child device needs to be able to find its parent device on the local network. Configure gateway devices with a **hostname**, either a fully qualified domain name (FQDN) or an IP address, that its child devices use to locate it.
 
 On downstream IoT devices, use the **gatewayHostname** parameter in the connection string to point to the parent device.
 

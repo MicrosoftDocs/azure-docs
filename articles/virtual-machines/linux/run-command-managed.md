@@ -13,9 +13,6 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, linux-related-conten
 ---
 # Run scripts in your Linux VM by using managed Run Commands
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 > [!IMPORTANT]
@@ -33,11 +30,14 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 
 ## Prerequisites
 
+> [!IMPORTANT]
+> The minimum supported Linux Guest Agent is version 2.4.0.2
+> Older versions do not support Managed RunCommand
+
 ### Linux Distro’s Supported
 | **Linux Distro** | **x64** | **ARM64** |
 |:-----|:-----:|:-----:|
 | Alma Linux |	9.x+ |	Not Supported |
-| CentOS |	7.x+,  8.x+ |	Not Supported |
 | Debian |	10+ |	Not Supported |
 | Flatcar Linux |	3374.2.x+ |	Not Supported |
 | Azure Linux | 2.x | Not Supported |

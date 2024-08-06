@@ -3,15 +3,15 @@ title: Deploy a flow in prompt flow to online endpoint for real-time inference w
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy your flow to a managed online endpoint or Kubernetes online endpoint in Azure Machine Learning prompt flow.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 05/08/2024
 ---
 
@@ -36,7 +36,7 @@ Before beginning make sure that you have tested your flow properly, and feel con
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the owner or contributor role for the Azure Machine Learning workspace, or a custom role allowing "Microsoft.MachineLearningServices/workspaces/onlineEndpoints/". If you use studio to create/manage online endpoints/deployments, you'll need an additional permission "Microsoft.Resources/deployments/write" from the resource group owner. For more information, see [Manage access to an Azure Machine Learning workspace](../how-to-assign-roles.md).
 
 > [!NOTE]
-> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms suchs Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
+> Managed online endpoint only supports managed virtual network. If your workspace is in custom vnet, you can deploy to Kubernetes online endpoint, or [deploy to other platforms such as Docker](https://microsoft.github.io/promptflow/how-to-guides/deploy-a-flow/index.html).
 
 ### Virtual machine quota allocation for deployment
 
@@ -371,6 +371,9 @@ environment_variables:
   my_connection: <override_connection_name>
 ```
 
+If you want to override a specific field of the connection, you can override by adding environment variables with naming pattern `<connection_name>_<field_name>`. For example, if your flow uses a connection named `my_connection` with a configuration key called `chat_deployment_name`, the serving backend will attempt to retrieve `chat_deployment_name` from the environment variable 'MY_CONNECTION_CHAT_DEPLOYMENT_NAME' by default. If the environment variable is not set, it will use the original value from the flow definition.
+
+
 **Option 2**: override by referring to asset
 
 ```yaml
@@ -461,7 +464,7 @@ environment_variables:
 While tuning above parameters, you need to monitor the following metrics to ensure optimal performance and stability:
 - Instance CPU/Memory utilization of this deployment
 - Non-200 responses (4xx, 5xx)
-    - If you receive a 429 response, this typically indicates that you need to either re-tune your concurrency settings following the above guide or scale your deployment.
+    - If you receive a 429 response, this typically indicates that you need to either retune your concurrency settings following the above guide or scale your deployment.
 - Azure OpenAI throttle status
 
 ### Monitor endpoints
@@ -495,6 +498,16 @@ Such error is usually caused by timeout. By default the `request_timeout_ms` is 
 ```yaml
 request_settings:
   request_timeout_ms: 300000
+```
+
+> [!NOTE]
+>
+> 300,000 ms timeout only works for maanged online deployments from prompt flow. You need to make sure that you have added properties for your model as below (either inline model specification in the deployment yaml or standalone model specification yaml) to indicate this is a deployment from prompt flow.
+
+```yaml
+properties:
+  # indicate a deployment from prompt flow
+  azureml.promptflow.source_flow_id: <value>
 ```
 
 ## Next steps

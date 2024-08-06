@@ -5,14 +5,14 @@ author: rkniyer999
 ms.author: ramyerrabotu
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 
 # Connection pooling strategy for Azure Database for PostgreSQL - Flexible Server using PgBouncer
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Strategic guidance for selecting connection pooling mechanism for Azure Database for PostgreSQL flexible server.
 

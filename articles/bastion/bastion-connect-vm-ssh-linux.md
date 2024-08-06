@@ -3,10 +3,10 @@ title: 'Connect to a Linux VM using SSH'
 titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Linux VM using SSH.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 06/20/2024
 ms.author: cherylmc
 ---
 

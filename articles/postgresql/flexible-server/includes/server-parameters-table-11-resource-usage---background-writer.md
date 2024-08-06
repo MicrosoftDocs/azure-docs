@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `20`          |
 | Allowed values | `10-10000`     |
 | Parameter type | dynamic        |
-| Documentation  | [bgwriter_delay](https://www.postgresql.org/docs/11/runtime-config-resource.html)          |
+| Documentation  | [bgwriter_delay](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-BGWRITER-DELAY)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `64`          |
 | Allowed values | `0-256`        |
 | Parameter type | dynamic        |
-| Documentation  | [bgwriter_flush_after](https://www.postgresql.org/docs/11/runtime-config-resource.html)    |
+| Documentation  | [bgwriter_flush_after](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `100`         |
 | Allowed values | `0-1073741823` |
 | Parameter type | dynamic        |
-| Documentation  | [bgwriter_lru_maxpages](https://www.postgresql.org/docs/11/runtime-config-resource.html)   |
+| Documentation  | [bgwriter_lru_maxpages](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `2`           |
 | Allowed values | `0-10`         |
 | Parameter type | dynamic        |
-| Documentation  | [bgwriter_lru_multiplier](https://www.postgresql.org/docs/11/runtime-config-resource.html) |
+| Documentation  | [bgwriter_lru_multiplier](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

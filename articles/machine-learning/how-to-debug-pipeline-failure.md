@@ -2,11 +2,11 @@
 title: Use Azure Machine Learning studio to debug pipeline failures
 titleSuffix: Azure Machine Learning
 description: Learn how to debug pipeline failures and compare pipelines by using the Azure Machine Learning studio UI.
-ms.reviewer: lagayhar
-author: likebupt
-ms.author: keli19
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/23/2024

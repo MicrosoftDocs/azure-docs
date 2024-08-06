@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 04/03/2024
+ms.date: 08/05/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -37,7 +37,9 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, identities, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted. Any references to external resources (such as Azure data sources or Azure OpenAI models) are also encrypted.
+
++ For vectorizer definitions used by queries, fields that store connection details or credential are encrypted.
 
 ## Full double encryption
 
@@ -179,7 +181,7 @@ Conditions that prevent you from adopting this approach include:
 > [!IMPORTANT] 
 > User-managed identity support is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
-> 2021-04-01-Preview of the [Management REST API](/rest/api/searchmanagement/) provides this feature.
+> 2021-04-01-Preview of the [Management REST API](/rest/api/searchmanagement/) introduced this feature.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -189,7 +191,7 @@ Conditions that prevent you from adopting this approach include:
 
 1. Give the identity a descriptive name.
 
-1. Next, assign the user-managed identity to the search service. This can be done using the [2021-04-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
+1. Next, assign the user-managed identity to the search service. This can be done using the latest preview [2024-06-01-preview](/rest/api/searchmanagement/management-api-versions) management API.
 
     The identity property takes a type and one or more fully qualified user-assigned identities:
     
@@ -201,7 +203,7 @@ Conditions that prevent you from adopting this approach include:
     Example of how to assign a user-managed identity to a search service:
     
     ```http
-    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2021-04-01-preview
+    PUT https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/[search service name]?api-version=2024-06-01-preview
     Content-Type: application/json
 
     {
@@ -223,7 +225,7 @@ Conditions that prevent you from adopting this approach include:
     } 
     ```
 
-1. Update the `"encryptionKey"` section to use an identity property. Make sure to use the 2021-04-01-preview REST API version when sending this request to your search service.
+1. Update the `"encryptionKey"` section to use an identity property. Make sure to use preview REST API version when sending this request to your search service.
 
     ```json
     {
@@ -297,11 +299,11 @@ Encryption keys are added when you create an object. To add a customer-managed k
 
 1. Call the Create APIs to specify the **encryptionKey** property:
 
-   + [Create Index](/rest/api/searchservice/create-index)
-   + [Create Synonym Map](/rest/api/searchservice/create-synonym-map)
-   + [Create Indexer](/rest/api/searchservice/create-indexer)
-   + [Create Data Source](/rest/api/searchservice/create-data-source)
-   + [Create Skillset](/rest/api/searchservice/create-skillset).
+   + [Create Index](/rest/api/searchservice/indexes/create)
+   + [Create Synonym Map](/rest/api/searchservice/synonym-maps/create)
+   + [Create Indexer](/rest/api/searchservice/indexers/create)
+   + [Create Data Source](/rest/api/searchservice/data-sources/create)
+   + [Create Skillset](/rest/api/searchservice/skillsets/create)
 
 1. Insert the encryptionKey construct into the object definition. This property is a first-level property, on the same level as name and description. The following [REST examples](#rest-examples) show property placement. If you're using the same vault, key, and version, you can paste in the same "encryptionKey" construct into each object definition.
 
@@ -361,7 +363,7 @@ In this section, you set the policy that defines a CMK standard for your search 
 1. Call the [Services - Update API](/rest/api/searchmanagement/services/update) to enable CMK policy enforcement at the service level.
 
 ```http
-PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2022-11-01
+PATCH https://management.azure.com/subscriptions/[subscriptionId]/resourceGroups/[resourceGroupName]/providers/Microsoft.Search/searchServices/[serviceName]?api-version=2023-11-01
 
 {
     "properties": {
@@ -379,7 +381,7 @@ This section shows the JSON for several objects so that you can see where to loc
 
 ### Index encryption
 
-The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/create-index), where the only difference is specifying the encryption key details as part of the index definition:
+The details of creating a new index via the REST API could be found at [Create Index (REST API)](/rest/api/searchservice/indexes/create), where the only difference is specifying the encryption key details as part of the index definition:
 
 ```json
 {
@@ -412,7 +414,7 @@ You can now send the index creation request, and then start using the index norm
 
 ### Synonym map encryption
 
-Create an encrypted synonym map using the [Create Synonym Map Azure AI Search REST API](/rest/api/searchservice/create-synonym-map). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted synonym map using the [Create Synonym Map Azure AI Search REST API](/rest/api/searchservice/synonym-maps/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -436,7 +438,7 @@ You can now send the synonym map creation request, and then start using it norma
 
 ### Data source encryption
 
-Create an encrypted data source using the [Create Data Source (REST API)](/rest/api/searchservice/create-data-source). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted data source using the [Create Data Source (REST API)](/rest/api/searchservice/data-sources/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -462,7 +464,7 @@ You can now send the data source creation request, and then start using it norma
 
 ### Skillset encryption
 
-Create an encrypted skillset using the [Create Skillset REST API](/rest/api/searchservice/create-skillset). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted skillset using the [Create Skillset REST API](/rest/api/searchservice/skillsets/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -485,7 +487,7 @@ You can now send the skillset creation request, and then start using it normally
 
 ### Indexer encryption
 
-Create an encrypted indexer using the [Create Indexer REST API](/rest/api/searchservice/create-indexer). Use the "encryptionKey" property to specify which encryption key to use.
+Create an encrypted indexer using the [Create Indexer REST API](/rest/api/searchservice/indexers/create). Use the "encryptionKey" property to specify which encryption key to use.
 
 ```json
 {
@@ -524,7 +526,7 @@ Key rotation is expected to occur over time. Whenever you rotate keys, it's impo
 
 1. [Determine the key used by an index or synonym map](search-security-get-encryption-keys.md).
 1. [Create a new key in key vault](../key-vault/keys/quick-create-portal.md), but leave the original key available.
-1. [Update the encryptionKey properties](/rest/api/searchservice/update-index) on an index or synonym map to use the new values. Only objects that were originally created with this property can be updated to use a different value.
+1. [Update the encryptionKey properties](/rest/api/searchservice/indexes/create-or-update) on an index or synonym map to use the new values. Only objects that were originally created with this property can be updated to use a different value.
 1. Disable or delete the previous key in the key vault. Monitor key access to verify the new key is being used.
 
 For performance reasons, the search service caches the key for up to several hours. If you disable or delete the key without providing a new one, queries continue to work on a temporary basis until the cache expires. However, once the search service can no longer decrypt content, you get this message: "Access forbidden. The query key used might have been revoked - please retry." 

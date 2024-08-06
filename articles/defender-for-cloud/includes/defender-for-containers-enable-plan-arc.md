@@ -134,10 +134,7 @@ You can use the **azure-defender-extension-arm-template.json** Resource Manager 
 
 To use the REST API to deploy the Defender sensor, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
-> [!TIP]
-> The simplest way to use the API to deploy the Defender sensor is with the supplied **Postman Collection JSON** example from Defender for Cloud's [installation examples](https://aka.ms/kubernetes-extension-installation-examples).
-
-- To modify the Postman Collection JSON, or to manually deploy the sensor with the REST API, run the following PUT command:
+- To manually deploy the sensor with the REST API, run the following PUT command:
 
     ```rest
     PUT https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview

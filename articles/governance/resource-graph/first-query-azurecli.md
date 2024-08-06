@@ -1,36 +1,24 @@
 ---
 title: "Quickstart: Run Resource Graph query using Azure CLI"
-description: In this quickstart, you run an Azure Resource Graph query using the extension for Azure CLI.
-ms.date: 04/22/2024
+description: In this quickstart, you run a Resource Graph query using Azure CLI and the resource-graph extension.
+ms.date: 06/27/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Run Resource Graph query using Azure CLI
 
-This quickstart describes how to run an Azure Resource Graph query using the extension for Azure CLI. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you're finished, you can remove the extension.
+This quickstart describes how to run an Azure Resource Graph query using the Azure CLI and the Resource Graph extension. The article also shows how to order (sort) and limit the query's results. You can run a query for resources in your tenant, management groups, or subscriptions. When you finish, you can remove the extension.
 
 ## Prerequisites
 
 - If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
-- [Visual Studio Code](https://code.visualstudio.com/).
-
-## Connect to Azure
-
-From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
-
-```azurecli
-az login
-
-# Run these commands if you have multiple subscriptions
-az account list --output table
-az account set --subscription <subscriptionID>
-```
+- A Bash shell environment where you can run Azure CLI commands. For example, Git Bash in a [Visual Studio Code](https://code.visualstudio.com/) terminal session.
 
 ## Install the extension
 
-To enable Azure CLI to query resources using Azure Resource Graph, the Resource Graph extension must be installed. You can manually install the extension with the following steps. Otherwise, the first time you run a query with `az graph` you're prompted to install the extension.
+To enable Azure CLI to query resources using Azure Resource Graph, the Resource Graph extension must be installed. The first time you run a query with `az graph` a prompt is displayed to install the extension. Otherwise, use the following steps to do a manual installation.
 
 1. List the available extensions and versions:
 
@@ -57,6 +45,18 @@ To enable Azure CLI to query resources using Azure Resource Graph, the Resource 
    ```
 
    For more information about Azure CLI extensions, go to [Use and manage extensions with the Azure CLI](/cli/azure/azure-cli-extensions-overview).
+
+## Connect to Azure
+
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `<subscriptionID>` with your Azure subscription ID.
+
+```azurecli
+az login
+
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription <subscriptionID>
+```
 
 ## Run a query
 
@@ -102,7 +102,7 @@ az logout
 
 ## Next steps
 
-In this quickstart, you ran Azure Resource Graph queries using the extension for Azure CLI. To learn more, go to the query language details article.
+In this quickstart, you ran Azure Resource Graph queries using the extension for Azure CLI. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
 > [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

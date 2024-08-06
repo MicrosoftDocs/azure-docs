@@ -5,7 +5,7 @@ description: Add vector data Azure Cosmos DB for NoSQL and then query the data e
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 08/01/2023
@@ -30,7 +30,7 @@ Vector search in Azure Cosmos DB for NoSQL is currently a preview feature. You'r
 - An existing Azure Cosmos DB for NoSQL account.
   - If you don't have an Azure subscription, [Try Azure Cosmos DB for NoSQL free](https://cosmos.azure.com/try/).
   - If you have an existing Azure subscription, [create a new Azure Cosmos DB for NoSQL account](how-to-create-account.md).
-- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK.
+- Latest version of the Azure Cosmos DB [.NET](sdk-dotnet-v3.md) SDK preview (3.41.0-preview.0)
 
 ## Registering for the preview
 Vector search for Azure Cosmos DB for NoSQL requires preview feature registration. Follow the below steps to register: 
@@ -108,23 +108,27 @@ For our example with book details, the vector policy can look like the example J
 Once the vector embedding paths are decided, vector indexes need to be added to the indexing policy. Currently, the vector search feature for Azure Cosmos DB for NoSQL is supported only on new containers so you need to apply the vector policy during the time of container creation and it can’t be modified later.  For this example, the indexing policy would look something like this: 
 
 ```csharp 
-  Collection<Embedding> collection = new Collection<Embedding>(embeddings);
-  ContainerProperties properties = new ContainerProperties(id: "vector-container", partitionKeyPath: "/id")
-  {   
-      VectorEmbeddingPolicy = new(collection),
-      IndexingPolicy = new IndexingPolicy()
-      {
-          VectorIndexes = new()
-          {
-              new VectorIndexPath()
-              {
-                  Path = "/vector",
-                  Type = VectorIndexType.QuantizedFlat,
-              }
-          }
-      },
-  };
+    Collection<Embedding> collection = new Collection<Embedding>(embeddings);
+    ContainerProperties properties = new ContainerProperties(id: "vector-container", partitionKeyPath: "/id")
+    {   
+        VectorEmbeddingPolicy = new(collection),
+        IndexingPolicy = new IndexingPolicy()
+        {
+            VectorIndexes = new()
+            {
+                new VectorIndexPath()
+                {
+                    Path = "/vector",
+                    Type = VectorIndexType.QuantizedFlat,
+                }
+            }
+        },
+    };
+    properties.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });    
+    properties.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/vector/*" });
 ``` 
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > Currently vector search in Azure Cosmos DB for NoSQL is supported on new containers only. You need to set both the container vector policy and any vector indexing policy during the time of container creation as it can’t be modified later. Both policies will be modifiable in a future improvement to the preview feature.
@@ -142,9 +146,9 @@ ORDER BY VectorDistance(c.contentVector, [1,2,3,4,5,6,7,8,9,10])  
 This query retrieves the book titles along with similarity scores with respect to your query. Here's an example in .NET:
 
 ```csharp 
-  float[] embedding = float[] {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f}
+  float[] embedding = {1f,2f,3f,4f,5f,6f,7f,8f,9f,10f};
   var queryDef = new QueryDefinition(
-      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore  FROM cVectorDistance(c.contentVector,@embedding)"
+      query: $"SELECT c.title, VectorDistance(c.contentVector,@embedding) AS SimilarityScore FROM c ORDER BY VectorDistance(c.contentVector,@embedding)"
       ).WithParameter("@embedding", embedding);
   using FeedIterator<Object> feed = container.GetItemQueryIterator<Object>(
       queryDefinition: queryDef

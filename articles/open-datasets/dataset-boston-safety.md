@@ -1,33 +1,30 @@
 ---
 title: Boston Safety Data
 description: Learn how to use the Boston Safety Data dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.custom: devx-track-python
 ms.topic: sample
-ms.date: 04/16/2021
+ms.reviewer: franksolomon
+ms.date: 06/13/2024
 ---
 
 # Boston Safety Data
 
-311 calls reported to the city of Boston.
+Boston 311 call data covers 311 nonemergency calls made to the Boston 311 call system. For more information, visit the [BOS:311](https://www.cityofboston.gov/311/) resource.
 
-Refer to this link to learn more about [BOS:311](https://www.cityofboston.gov/311/).
-
-[!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
+[!INCLUDE [Open Dataset usage notice](./includes/open-datasets-usage-note.md)]
 
 ## Volume and retention
 
-This dataset is stored in Parquet format. It is updated daily, and contains about 100-K rows (10 MB) in total as of 2019.
-
-This dataset contains historical records accumulated from 2011 to the present. You can use parameter settings in our SDK to fetch data within a specific time range.
+This dataset is stored in Parquet format. Starting in 2011, Boston provides its 311 data in different files, one file resource for each different year. The data is updated daily. The 2023 dataset contains about receives daily updates, and it contains about 313-K rows (179 MB) in total as of 2019. You can use parameter settings in our SDK to fetch data within a specific time range.
 
 ## Storage location
 
-This dataset is stored in the East US Azure region. Allocating compute resources in East US is recommended for affinity.
+This dataset is stored in the East US Azure region. For affinity, we recommend allocation of compute resources in the East US region.
 
 ## Additional information
 
-This dataset is sourced from city of Boston government. For more information, see [Boston's dataset site](https://data.boston.gov/dataset/311-service-requests). For dataset licensing, see [Open Data Commons Public Domain Dedication and License (ODC PDDL)](http://opendefinition.org/licenses/odc-pddl/).
+This dataset is sourced from the government of the City of Boston. For more information, visit the [Boston dataset site](https://data.boston.gov/dataset/311-service-requests). For dataset licensing information, visit the [Open Data Commons Public Domain Dedication and License (ODC PDDL)](http://opendefinition.org/licenses/odc-pddl/) resource.
 
 ## Columns
 
@@ -35,8 +32,8 @@ This dataset is sourced from city of Boston government. For more information, se
 |-|-|-|-|-|
 | address | string | 140,612 | \" \" 1 City Hall Plz Boston MA 02108 | Location. |
 | category | string | 54 | Street Cleaning Sanitation | Reason of the service request. |
-| dataSubtype | string | 1 | 311_All | “311_All” |
-| dataType | string | 1 | Safety | “Safety” |
+| dataSubtype | string | 1 | 311_All | "311_All" |
+| dataType | string | 1 | Safety | "Safety" |
 | dateTime | timestamp | 1,529,075 | 2015-07-23 10:51:00 2015-07-23 10:47:00 | Open date and time of the service request. |
 | latitude | double | 1,622 | 42.3594 42.3603 | This is the latitude value. Lines of latitude are parallel to the equator. |
 | longitude | double | 1,806 | -71.0587 -71.0583 | This is the longitude value. Lines of longitude run perpendicular to lines of latitude, and all pass through both poles. |
@@ -57,14 +54,11 @@ This dataset is sourced from city of Boston government. For more information, se
 | Safety | 311_All | 4/27/2021 11:05:00 PM | Enforcement & Abandoned Vehicles | Parking Enforcement | Open | 1 Nassau St Boston MA 02111 | 42.3486 | -71.0629 | Constituent Call |  |
 | Safety | 311_All | 4/27/2021 11:00:55 PM | Code Enforcement | Poor Conditions of Property | Open | 17 Mercer St South Boston MA 02127 | 42.3332 | -71.0492 | Citizens Connect App |  |
 
-## Data access
-
-### Azure Notebooks
+## Data access - Azure Notebooks
 
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azureml-opendatasets&registryId=city_safety_boston -->
-
 
 ```
 # This is a package in preview.
@@ -85,11 +79,9 @@ safety.info()
 
 <!-- nbend -->
 
-
 # [azure-storage](#tab/azure-storage)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureNotebooks&package=azure-storage&registryId=city_safety_boston -->
-
 
 ```python
 # Pip install packages
@@ -153,28 +145,25 @@ df
 
 <!-- nbend -->
 
-
 # [pyspark](#tab/pyspark)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 ---
 
-### Azure Databricks
+## Data access - Azure Databricks
 
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=azureml-opendatasets&registryId=city_safety_boston -->
 
-
 ```
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in a Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import BostonSafety
 
 from datetime import datetime
 from dateutil import parser
-
 
 end_date = parser.parse('2016-01-01')
 start_date = parser.parse('2015-05-01')
@@ -190,12 +179,11 @@ display(safety)
 
 # [azure-storage](#tab/azure-storage)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 # [pyspark](#tab/pyspark)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureDatabricks&package=pyspark&registryId=city_safety_boston -->
-
 
 ```python
 # Azure storage access info
@@ -231,19 +219,17 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 
 ---
 
-### Azure Synapse
+## Data access - Azure Synapse
 
 # [azureml-opendatasets](#tab/azureml-opendatasets)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=azureml-opendatasets&registryId=city_safety_boston -->
-
 
 ```python
 from azureml.opendatasets import BostonSafety
 
 from datetime import datetime
 from dateutil import parser
-
 
 end_date = parser.parse('2016-01-01')
 start_date = parser.parse('2015-05-01')
@@ -259,12 +245,11 @@ display(safety)
 
 # [azure-storage](#tab/azure-storage)
 
-Sample not available for this platform/package combination.
+A sample isn't available for this platform / package combination.
 
 # [pyspark](#tab/pyspark)
 
 <!-- nbstart https://opendatasets-api.azure.com/discoveryapi/OpenDataset/DownloadNotebook?serviceType=AzureSynapse&package=pyspark&registryId=city_safety_boston -->
-
 
 ```python
 # Azure storage access info
@@ -302,9 +287,8 @@ display(spark.sql('SELECT * FROM source LIMIT 10'))
 
 ## Examples
 
-- See the [City Safety Analytics](https://github.com/scottcounts/CitySafety) example on GitHub.
-
+- Visit the [City Safety Analytics](https://github.com/scottcounts/CitySafety) resource available at GitHub.
 
 ## Next steps
 
-View the rest of the datasets in the [Open Datasets catalog](dataset-catalog.md).
+View the rest of the datasets in the [Open Datasets catalog](./dataset-catalog.md).

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/21/2024
+ms.date: 06/13/2024
 ms.custom:
   - references_regions
   - build-2024
@@ -27,10 +27,10 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 + **Storage Optimized** runs on dedicated machines with more total storage, storage bandwidth, and memory than **Standard**. This tier targets large, slow-changing indexes. Storage Optimized comes in two levels: L1 and L2.
 
 ## Subscription limits
-[!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
+[!INCLUDE [azure-search-limits-per-subscription](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-subscription.md)]
 
 ## Service limits
-[!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+[!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
 <a name="index-limits"></a>
 
@@ -229,6 +229,10 @@ Static rate request limits for operations related to an index:
 Static rate request limits for operations related to a service:
 
 + Service Statistics (GET /servicestats): 4 per second per search unit
+
+L2 reranking using the semantic reranker has an expected volume:
+
++ Up to 10 concurrent queries per replica. If you anticipate consistent throughput requirements near, at, or higher than this level, please file a support ticket so that we can provision for your workload.
 
 ## API request limits
 

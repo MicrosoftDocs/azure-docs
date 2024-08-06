@@ -5,7 +5,7 @@ description: Support atomicity, consistency, isolation, and durability with tran
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: how-to
 ms.date: 08/28/2023
@@ -14,7 +14,7 @@ ms.date: 08/28/2023
 
 # Group multiple operations in transactions in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 It's common to want to group multiple operations into a single transaction to either commit or rollback together. In database principles, transactions typically implement four key **ACID** principles. ACID stands for:
 

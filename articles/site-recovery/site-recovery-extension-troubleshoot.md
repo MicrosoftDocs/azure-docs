@@ -3,11 +3,9 @@ title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site
 description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.author: ankitadutta
-manager: rochakm
-ms.service: site-recovery
-ms.custom:
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 05/03/2023
+ms.date: 05/27/2024
 ---
 
 # Troubleshoot Azure VM extension issues
@@ -119,3 +117,11 @@ To uninstall the extension:
 For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/extensions/update-linux-agent.md). Then run the protection.
 
 When you complete these steps, it causes the extension to be reinstalled during the protection.
+
+
+## Next steps
+
+- Troubleshoot [RDP connection to Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Troubleshoot [SSH connection to Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
+
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

@@ -2,7 +2,8 @@
 title: Azure Web Application Firewall monitoring and logging
 description: Learn about Azure Web Application Firewall in Azure Front Door monitoring and logging.
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
+ms.custom: devx-track-js
 ms.topic: article
 services: web-application-firewall
 ms.date: 05/23/2024
@@ -29,6 +30,24 @@ To access your WAF's metrics:
 You can create custom filters based on action types and rule names. Metrics include requests with all actions except `Log`.
 
 :::image type="content" source="../media/waf-frontdoor-monitor/waf-frontdoor-metrics.png" alt-text="Screenshot that shows the metrics for an Azure Front Door WAF.":::
+
+## JavaScript challenge (preview) metrics
+
+To access your JavaScript challenge WAF metrics:
+
+- Add the Web Application Firewall `JS Challenge Request Count` metric to track the number of requests that match JavaScript challenge WAF rules.
+
+The following filters are provided as part of this metric:
+
+- **PolicyName**: This is the WAF policy name
+- **Rule**: This can be any custom rule or bot rule
+- **Action**: There are four possible values for JS Challenge action
+   - **Issued**:  JS Challenge is invoked the first time
+   - **Passed**: JS Challenge computation succeeded and an answer was received
+   - **Valid**: JS Challenge validity cookie was present
+   - **Blocked**: JS Challenge computation failed
+
+:::image type="content" source="../media/waf-frontdoor-monitor/javascript-challenge-metrics.png" alt-text="Screenshot showing the JavaScript challenge metrics.":::
 
 ## Logs and diagnostics
 
@@ -68,7 +87,7 @@ The following table shows the values logged for each request.
 
 | Property  | Description |
 | ------------- | ------------- |
-| Action |Action taken on the request. Logs include requests with all actions. Actions are:<ul> <li>`Allow` and `allow`: The request was allowed to continue processing.</li> <li>`Block` and `block`: The request matched a WAF rule configured to block the request. Alternatively, the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) threshold was reached and the request was blocked.</li> <li>`Log` and `log`: The request matched a WAF rule configured to use the `Log` action.</li> <li> `AnomalyScoring` and `logandscore`: The request matched a WAF rule. The rule contributes to the [anomaly score](waf-front-door-drs.md#anomaly-scoring-mode). The request might or might not be blocked depending on other rules that run on the same request.</li> </ul> |
+| Action |Action taken on the request. Logs include requests with all actions. Actions are:<ul> <li>`Allow` and `allow`: The request was allowed to continue processing.</li> <li>`Block` and `block`: The request matched a WAF rule configured to block the request. Alternatively, the [anomaly scoring](waf-front-door-drs.md#anomaly-scoring-mode) threshold was reached and the request was blocked.</li> <li>`Log` and `log`: The request matched a WAF rule configured to use the `Log` action.</li> <li> `AnomalyScoring` and `logandscore`: The request matched a WAF rule. The rule contributes to the [anomaly score](waf-front-door-drs.md#anomaly-scoring-mode). The request might or might not be blocked depending on other rules that run on the same request.</li> <li> `JS Challenge` and `JSChallengeIssued`: Issued due to missing/invalid challenge clearance, missing answer.<br><br>The log is created when a client requests access to a web application for the first time and has not been challenged previously. This client receives the JS challenge  page and proceeds to compute the JS challenge. Upon successful computation, the client is granted the validity cookie.</li> <li>`JS Challenge` and `JSChallengePass`:  Passed due to valid challenge answer.<br><br>This log is created when a client solves the JS challenge and resubmits the request with the correct answer. In this case, Azure WAF validates the cookie and proceeds to process the remaining rules without generating another JS challenge.</li> <li> `JS Challenge` and `JSChallengeValid`: Logged/passthrough due to valid challenge.<br><br>This log is created when a client has previously solved a challenge. In this case, Azure WAF logs the request and proceeds to process the remaining rules.</li><li>`JS Challenge` and `JSChallengeBlock`: Blocked<br><br>This log is created when a JS challenge computation fails.</ul> |
 | ClientIP | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
 | ClientPort | The IP port of the client that made the request. |
 | Details | More details on the request, including any threats that were detected. <br />`matchVariableName`: HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> `matchVariableValue`: Values that triggered the match (up to 100 characters maximum). |

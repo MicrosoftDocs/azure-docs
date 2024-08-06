@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `auto`        |
 | Allowed values | `auto`         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                       |
+| Documentation  | [compute_query_id](https://www.postgresql.org/docs/14/runtime-config-statistics.html#GUC-COMPUTE-QUERY-ID)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  | [log_executor_stats](https://www.postgresql.org/docs/14/runtime-config-logging.html)  |
+| Documentation  | [log_executor_stats](https://www.postgresql.org/docs/14/runtime-config-statistics.html#id-1.6.7.12.3.2.2.4.3)  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                       |
+| Documentation  | [log_parser_stats](https://www.postgresql.org/docs/14/runtime-config-statistics.html#id-1.6.7.12.3.2.2.4.3)    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                       |
+| Documentation  | [log_planner_stats](https://www.postgresql.org/docs/14/runtime-config-statistics.html#id-1.6.7.12.3.2.2.4.3)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [log_statement_stats](https://www.postgresql.org/docs/14/runtime-config-logging.html) |
+| Documentation  | [log_statement_stats](https://www.postgresql.org/docs/14/runtime-config-statistics.html#id-1.6.7.12.3.2.2.4.3) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

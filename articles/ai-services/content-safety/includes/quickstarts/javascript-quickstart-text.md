@@ -60,7 +60,7 @@ Create a new file in your directory, *index.js*. Open it in your preferred edito
 > [!TIP]
 > Text size and granularity
 >
-> The default maximum length for text submissions is **10K** characters.
+> See [Input requirements](../../overview.md#input-requirements) for maximum text length limitations.
 
 ```JavaScript
 const ContentSafetyClient = require("@azure-rest/ai-content-safety").default,

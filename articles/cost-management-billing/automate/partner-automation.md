@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article explains how Microsoft partners and their customers can use Cost Management APIs for common tasks.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2024
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,6 +14,9 @@ ms.reviewer: jojoh
 # Automation for partners
 
 Microsoft Cost Management is natively available for direct partners who onboarded their customers to a Microsoft Customer Agreement and [purchased an Azure Plan](/partner-center/purchase-azure-plan). Partners and their customers can use Cost Management APIs common tasks. For more information about nonautomation scenarios, see [Cost Management for Partners](../costs/get-started-partners.md).
+
+>[!NOTE]
+> Although specific API versions are shown in the examples in this article, we recommend that you use the latest API version available. Newer API versions might have improved functionality. Later API versions support previous versions.
 
 ## Microsoft Cost Management APIs - Direct and indirect providers
 

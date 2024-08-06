@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -27,7 +27,7 @@ Blob containers support system properties and user-defined metadata, in addition
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization), [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization), or [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization).
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Get Container Properties (REST API)](/rest/api/storageservices/get-container-properties#authorization), [Set Container Metadata (REST API)](/rest/api/storageservices/set-container-metadata#authorization), or [Get Container Metadata (REST API)](/rest/api/storageservices/get-container-metadata#authorization).
 
 ## About properties and metadata
 

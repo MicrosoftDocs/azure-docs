@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -27,7 +27,7 @@ This article shows how to upload a blob using the [Azure Storage client module f
 
 #### Authorization
 
-The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob](/rest/api/storageservices/put-blob#authorization) and [Put Block](/rest/api/storageservices/put-block#authorization).
+The authorization mechanism must have the necessary permissions to upload a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob (REST API)](/rest/api/storageservices/put-blob#authorization) and [Put Block (REST API)](/rest/api/storageservices/put-block#authorization).
 
 ## Upload data to a block blob
 

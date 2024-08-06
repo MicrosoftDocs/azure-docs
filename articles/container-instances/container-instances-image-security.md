@@ -4,7 +4,7 @@ description: Recommendations to secure images and secrets for Azure Container In
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---
@@ -130,7 +130,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 
 [Azure Monitor](../azure-monitor/overview.md) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. For example, the activity log tells you when new resources are created or modified. 
 
-  Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and create alerts based on these metrics. Azure Monitor provides the fastest metrics pipeline (5 minutes down to 1 minute), so you should use it for time-critical alerts and notifications. 
+  Metrics are available that provide performance statistics for different resources and even the operating system inside a virtual machine. You can view this data with one of the explorers in the Azure portal and [create alerts](monitor-azure-container-instances.md#alerts) based on these metrics.
 
 ### Log all container administrative user access for auditing 
 

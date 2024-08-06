@@ -3,15 +3,14 @@ title: Deploy machine learning models to online endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as an online endpoint in Azure.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 04/30/2024
-reviewer: msakande
 ms.topic: how-to
-ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code
+ms.custom: how-to, devplatv2, cliv2, sdkv2, update-code, devx-track-azurecli
 ---
 
 # Deploy and score a machine learning model by using an online endpoint

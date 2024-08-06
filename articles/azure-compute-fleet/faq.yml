@@ -5,8 +5,8 @@ metadata:
   author: rajeeshr
   ms.author: rajeeshr
   ms.topic: faq
-  ms.service: virtual-machines
-  ms.date: 05/21/2024
+  ms.service: azure-compute-fleet
+  ms.date: 06/19/2024
   ms.reviewer: jushiman
   ms.custom: references_regions, build-2024
 title: FAQ for Azure Compute Fleet

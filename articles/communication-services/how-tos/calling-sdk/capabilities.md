@@ -20,8 +20,6 @@ Do I have permission to turn on video, do I have permission to turn on mic, do I
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quick start to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-## Supported Platform - Web
-
 ::: zone pivot="platform-web"
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
 ::: zone-end

@@ -4,7 +4,7 @@ description: Patching guidance overview for Microsoft Configuration Manager to A
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: conceptual
-ms.date: 04/19/2024
+ms.date: 07/31/2024
 ms.author: sudhirsneha
 ---
 
@@ -21,8 +21,8 @@ Before initiating migration, you need to understand mapping between System Cente
 | System Center Operations Manager (SCOM) | Azure Monitor SCOM Managed Instance |
 | System Center Configuration Manager (SCCM), now called Microsoft Configuration Manager (MCM) | Azure Update Manager, </br> Change Tracking and Inventory, </br> Guest Config, </br> Azure Automation, </br> Desired State Configuration (DSC), </br> Defender for Cloud | 
 | System Center Virtual Machine Manager (SCVMM) | Arc enabled System Center VMM | 
-| System Center Data Protection Manager (SCDPM) | Arc enabled DPM | 
-| System Center Orchestrator (SCORCH) | Arc enabled DPM | 
+| System Center Data Protection Manager (SCDPM) | Azure Backup | 
+| System Center Orchestrator (SCORCH) | Azure Automation | 
 | System Center Service Manager (SCSM)  | - |
 
 > [!NOTE]
@@ -54,6 +54,23 @@ Deploy software updates (install patches) | Provides three modes of deploying up
 ## Guidance to use Azure Update Manager on MCM managed machines
 
 As a first step in MCM user's journey towards Azure Update Manager, you need to enable Azure Update Manager on your existing MCM managed servers (i.e. ensure that Azure Update Manager and MCM co-existence is achieved). The following section address few challenges that you might encounter in this first step.
+
+### Prerequisites for Azure Update Manager and MCM co-existence
+
+- Ensure that the Auto updates are disabled on the machine. For more information, see [Manage additional Windows Update- Windows Deployment](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+  
+    Ensure that the registry path *HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU, NoAutoUpdate* is set to 1.
+
+- Azure Update Manager can get updates from WSUS server and for this, ensure to configure WSUS server as part of SCCM.
+
+    - Ensure that the WSUS server has enough space.
+    - Ensure to update language option to download the packages in WSUS config. We recommend that you select the languages that are required. For more information, see [Step 2 - Configure WSUS](/windows-server/administration/windows-server-update-services/deploy/2-configure-wsus#to-configure-wsus).
+    - Ensure to create a rule for auto approving updates in WSUS to download the applicable packages on the WSUS server so that Azure Update Manager can get the updates from this WSUS server.
+      - Select classifications you want as per your requirements or keep them same as selected in SCCM.
+      - Select products as per requirements or keep them same as selected in SCCM.
+      - To start, create a test computer group and apply this rule to it, to test these changes.
+      - After testing the test group, you can expand it to all computer groups.
+      - Create an exclusion computer group in WSUS if needed.
 
 ### Overview of current MCM setup
 

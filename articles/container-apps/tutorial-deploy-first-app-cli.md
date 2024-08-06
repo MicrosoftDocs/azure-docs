@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 03/21/2022
 ms.author: cshoe
@@ -48,7 +48,7 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image mcr.microsoft.com/k8se/quickstart:latest \
   --target-port 80 \
-  --ingress 'external' \
+  --ingress external \
   --query properties.configuration.ingress.fqdn
 ```
 

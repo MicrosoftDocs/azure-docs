@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 01/04/2024
  ms.author: cherylmc
 
@@ -23,10 +23,10 @@
 
 #### Limits by gateway SKU
 
-[!INCLUDE [Limits by gateway SKU](vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [Limits by gateway SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 For more information about gateway SKUs and limits, see [About gateway SKUs](../articles/vpn-gateway/about-gateway-skus.md#benchmark).
 
 #### Gateway performance limits
 
-[!INCLUDE [Performance by gateway SKU](vpn-gateway-table-sku-performance.md)]
+[!INCLUDE [Performance by gateway SKU](./vpn-gateway-table-sku-performance.md)]

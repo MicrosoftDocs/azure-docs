@@ -3,7 +3,7 @@ title: 'Domains in Azure Front Door'
 description: Learn about custom domains when using Azure Front Door.
 services: frontdoor
 author: johndowns
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 10/31/2023
 ms.author: jodowns

@@ -5,49 +5,34 @@ description: How to configure a custom DNS server to work with an Azure Machine 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.reviewer: larryfr
-ms.author: jhirono
-author: jhirono
-ms.date: 01/08/2024
+ms.reviewer: meerakurup 
+ms.author: larryfr
+author: Blackmist
+ms.date: 06/05/2024
 ms.topic: how-to
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
 
 # How to use your workspace with a custom DNS server
 
-When using an Azure Machine Learning workspace with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead __use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
+When using an Azure Machine Learning workspace (including Azure AI hubs) with a private endpoint, there are [several ways to handle DNS name resolution](../private-link/private-endpoint-dns.md). By default, Azure automatically handles name resolution for your workspace and private endpoint. If you instead __use your own custom DNS server__, you must manually create DNS entries or use conditional forwarders for the workspace.
 
 > [!IMPORTANT]
 > This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
 
-> [!TIP]
-> This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
->
-> * [Virtual network overview](how-to-network-security-overview.md)
-:::moniker range="azureml-api-2"
-> * [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](how-to-secure-training-vnet.md)
-> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-:::moniker-end
-:::moniker range="azureml-api-1"
-> * [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
-> * [Secure the training environment](./v1/how-to-secure-training-vnet.md)
-> * [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
-> * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-> * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 ## Prerequisites
 
 - An Azure Virtual Network that uses [your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 :::moniker range="azureml-api-2"
-- An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace with a private endpoint, including hub workspaces such as those used by Azure AI Studio. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+
+- If your workspace dependency resources are secured with an __Azure Virtual network__, familiarity with the [Network isolation during training & inference](./how-to-network-security-overview.md) article.
 :::moniker-end
 :::moniker range="azureml-api-1"
 - An Azure Machine Learning workspace with a private endpoint. For more information, see [Create an Azure Machine Learning workspace](./v1/how-to-manage-workspace.md).
-:::moniker-end
-
 - Familiarity with using [Network isolation during training & inference](./how-to-network-security-overview.md).
+:::moniker-end
 
 - Familiarity with [Azure Private Endpoint DNS zone configuration](../private-link/private-endpoint-dns.md)
 
@@ -71,6 +56,9 @@ Another option is to modify the `hosts` file on the client that is connecting to
 
 Access to a given Azure Machine Learning workspace via Private Link is done by communicating with the following Fully Qualified Domains (called the workspace FQDNs) listed below:
 
+> [!IMPORTANT]
+> If you are using a hub workspace (including Azure AI Studio hub), then you will have addtional entries for each project workspace created from the hub.
+
 **Azure Public regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
@@ -78,6 +66,12 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - `<compute instance name>-22.<region the workspace was created in>.instances.azureml.ms` - Used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network.
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.azure.net```
 - ```<managed online endpoint name>.<region>.inference.ml.azure.com``` - Used by managed online endpoints
+
+> [!TIP]
+> If you are using a hub workspace, there are also the following FQDNs _for each project workspace created from the hub workspace_:
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.azureml.ms```
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.azureml.ms```
+> - ```ml-<project workspacename, truncated>-<region>-<project workspace globally-unique identifier>.<region>.notebooks.azure.net```
 
 **Microsoft Azure operated by 21Vianet regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
@@ -87,13 +81,25 @@ Access to a given Azure Machine Learning workspace via Private Link is done by c
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
 - ```<managed online endpoint name>.<region>.inference.ml.azure.cn``` - Used by managed online endpoints
 
+> [!TIP]
+> If you are using a hub workspace, there are also the following FQDNs _for each project workspace created from the hub workspace_:
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.cn```
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.cn```
+> - ```ml-<project workspace name, truncated>-<region>-<project workspace globally-unique identifier>.<region>.notebooks.chinacloudapi.cn```
+
 **Azure US Government regions**:
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
 - ```<per-workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.us```
 - ```<compute instance name>.<region the workspace was created in>.instances.azureml.us```
-- `<compute instance name>.<region the workspace was created in>.instances.azureml.us` - Used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network.
+- `<compute instance name>-22.<region the workspace was created in>.instances.azureml.us` - Used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network.
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 - ```<managed online endpoint name>.<region>.inference.ml.azure.us``` - Used by managed online endpoints
+
+> [!TIP]
+> If you are using a hub workspace, there are also the following FQDNs _for each project workspace created from the hub workspace_:
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.api.ml.azure.us```
+> - ```<project workspace globally-unique identifier>.workspace.<region the workspace was created in>.cert.api.ml.azure.us```
+> - ```ml-<project workspace name, truncated>-<region>-<project workspace globally-unique identifier>.<region>.notebooks.usgovcloudapi.net```
 
 The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) called the workspace Private Link FQDNs:
 
@@ -112,7 +118,7 @@ The Fully Qualified Domains resolve to the following Canonical Names (CNAMEs) ca
 - ```ml-<workspace-name, truncated>-<region>-<per-workspace globally-unique identifier>.<region>.privatelink.notebooks.usgovcloudapi.net```
 - ```<managed online endpoint name>.<per-workspace globally-unique identifier>.inference.<region>.privatelink.api.ml.azure.us``` - Used by managed online endpoints
 
-The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs can be overridden by using a custom DNS server hosted in the virtual network. For an example of this architecture, see the [custom DNS server hosted in a vnet](#example-custom-dns-server-hosted-in-vnet) example.
+The FQDNs resolve to the IP addresses of the Azure Machine Learning workspace in that region. However, resolution of the workspace Private Link FQDNs can be overridden by using a custom DNS server hosted in the virtual network. For an example of this architecture, see the [custom DNS server hosted in a vnet](#example-custom-dns-server-hosted-in-vnet) example. For hub and project workspaces, the FQDNs of all project workspaces resolve to the IP address of the hub workspace.
 
 [!INCLUDE [machine-learning-add-dns-records](includes/machine-learning-add-dns-records.md)]
 
@@ -126,7 +132,7 @@ This section discusses which Fully Qualified Domains to create A records for in 
 
 The following list contains the fully qualified domain names (FQDNs) used by your workspace if it is in the Azure Public Cloud:
 
-* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
+* `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms` 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `ml-<workspace-name, truncated>-<region>-<workspace-guid>.<region>.notebooks.azure.net`
 
@@ -139,6 +145,9 @@ The following list contains the fully qualified domain names (FQDNs) used by you
     > * The IP address for this FQDN is **not** the IP of the compute instance. Instead, use the private IP address of the workspace private endpoint (the IP of the `*.api.azureml.ms` entries.)
 * `<instance-name>-22.<region>.instances.azureml.ms` - Only used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network. Not needed if you are not using a managed network or SSH connections.
 * `<managed online endpoint name>.<region>.inference.ml.azure.com` - Used by managed online endpoints
+
+> [!TIP]
+> If you are using hub and project workspaces, each project workspace has its own set of additional FQDNs. For more information, see the [workspace DNS resolution](#workspace-dns-resolution-path) section.
 
 #### Microsoft Azure operated by 21Vianet region
 
@@ -158,6 +167,9 @@ The following FQDNs are for Microsoft Azure operated by 21Vianet regions:
 * `<instance-name>-22.<region>.instances.azureml.cn` - Only used by the `az ml compute connect-ssh` command to connect to computes in a managed virtual network. Not needed if you are not using a managed network or SSH connections.
 * `<managed online endpoint name>.<region>.inference.ml.azure.cn` - Used by managed online endpoints
 
+> [!TIP]
+> If you are using hub and project workspaces, each project workspace has its own set of additional FQDNs. For more information, see the [workspace DNS resolution](#workspace-dns-resolution-path) section.
+
 #### Azure US Government
 
 The following FQDNs are for Azure US Government regions:
@@ -175,6 +187,9 @@ The following FQDNs are for Azure US Government regions:
 
 * `<managed online endpoint name>.<region>.inference.ml.azure.us` - Used by managed online endpoints
 
+> [!TIP]
+> If you are using hub and project workspaces, each project workspace has its own set of additional FQDNs. For more information, see the [workspace DNS resolution](#workspace-dns-resolution-path) section.
+
 ### Find the IP addresses
 
 To find the internal IP addresses for the FQDNs in the VNet, use one of the following methods:
@@ -190,7 +205,7 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
     az network private-endpoint show --name <endpoint> --resource-group <resource-group> --query 'networkInterfaces[*].id' --output table
     ```
 
-1. To get the IP address and FQDN information, use the following command. Replace `<resource-id>` with the ID from the previous step:
+1. To get the IP address and FQDN information for the workspace or hub workspace, use the following command. Replace `<resource-id>` with the ID from the previous step:
 
     ```azurecli
     az network nic show --ids <resource-id> --query 'ipConfigurations[*].{IPAddress: privateIpAddress, FQDNs: privateLinkConnectionProperties.fqdns}'
@@ -221,6 +236,20 @@ To find the internal IP addresses for the FQDNs in the VNet, use one of the foll
         }
     ]
     ```
+
+1. If you're using a hub workspace, use the following steps _for each_ project workspace that was created from the hub:
+
+    1. To get the project workspace ID, use the following command:
+
+        ```azurecli
+        az ml workspace show --name <project-workspace-name> --resource-group <resource-group> --query 'discovery_url'
+        ```
+
+        The value returned will follow the format `https://<project-workspace-id>.workspace.<region>.api.azureml.ms/mlflow/<version>/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.MachineLearningServices/workspaces/<project-workspace-name>`.
+
+    1. Take the FQDNs returned from the hub workspace that end in `workspace.<region>.api.azureml.ms` and `workspace.<region>.cert.api.azureml.ms`. Replace the GUID value at the beginning of these FQDNs with the project workspace ID. These FQDNs are in addition to the hub workspace FQDNs.
+    1. Take the FQDN returned from the hub workspace that follows the format in `<workspace-name>-<region>-<GUID>.<region>.notebooks.azure.net`. Replace the GUID value with the project workspace ID. Replace the hub workspace name with the project workspace name. You may need to truncate the workspace name to keep this entry at 63 characters or less. This FQDN is in addition to the hub workspace FQDN.
+    
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -431,8 +460,8 @@ The following steps describe how this topology works:
     The first step in ensuring a Custom DNS solution works with your Azure Machine Learning workspace is to create two Private DNS Zones rooted at the following domains:
 
     **Azure Public regions**:
-    - ``` privatelink.api.azureml.ms```
-    - ``` privatelink.notebooks.azure.net```
+    - ```privatelink.api.azureml.ms```
+    - ```privatelink.notebooks.azure.net```
 
     **Microsoft Azure operated by 21Vianet regions**:
     - ```privatelink.api.ml.azure.cn```
@@ -592,7 +621,7 @@ The following table lists the location of the `hosts` file:
 
 The following is an example of `hosts` file entries for Azure Machine Learning:
 
-```
+```bash
 # For core Azure Machine Learning hosts
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms
 10.1.0.5    fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.cert.api.azureml.ms
@@ -647,22 +676,6 @@ If after running through the above steps you are unable to access the workspace 
     - Conditional forwarders from DNS Server to Azure DNS Virtual Server IP were not configured correctly
     - Conditional forwarders from On-premises DNS Server to DNS Server were not configured correctly
 
-## Next steps
-
-This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
-
-* [Virtual network overview](how-to-network-security-overview.md)
-:::moniker range="azureml-api-2"
-* [Secure the workspace resources](how-to-secure-workspace-vnet.md)
-* [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
-:::moniker-end
-:::moniker range="azureml-api-1"
-* [Secure the workspace resources](./v1/how-to-secure-workspace-vnet.md)
-* [Secure the training environment](./v1/how-to-secure-training-vnet.md)
-* [Secure the inference environment](./v1/how-to-secure-inferencing-vnet.md)
-:::moniker-end
-* [Enable studio functionality](how-to-enable-studio-virtual-network.md)
-* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+## Related content
 
 For information on integrating Private Endpoints into your DNS configuration, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).

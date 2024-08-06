@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Scale Azure Virtual Desktop (classic) session hosts using Azure Automation
 

@@ -159,7 +159,7 @@ static void Main(string[] args)
     // create Face client object
     var faceClient = new FaceClient(new LimitedAccessTokenWithApiKeyClientCredential(apiKey: "<client-face-key>", limitedAccessToken: "<token>")); 
 
-    faceClient.Endpoint = "https://willtest-eastus2.cognitiveservices.azure.com"; 
+    faceClient.Endpoint = "https://mytest-eastus2.cognitiveservices.azure.com"; 
 
     // use Face client in an API call
     using (var stream = File.OpenRead("photo.jpg")) 

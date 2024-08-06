@@ -10,6 +10,8 @@ ms.author: nicktrog
 
 # Tutorial: Create a lab with the Azure Lab Services app in Teams or Canvas
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 With Azure Lab Services, you can create labs directly from within Microsoft Teams or Canvas. In this tutorial, you use the Azure Lab Services app for Microsoft Teams or Canvas to create and publish a lab. After you complete this tutorial, lab users can directly access their lab virtual machine from Teams or Canvas.
 
 With the Azure Lab Services app for Teams or Canvas you can create and manage labs without having to leave the Teams or Canvas environment and lab user management is synchronized based team or course membership. Lab users are automatically registered for a lab and have a lab VM assigned to them. They can also access their lab VM directly from within Teams or Canvas.
@@ -31,9 +33,13 @@ In this tutorial, you learn how to:
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 - To add the Azure Lab Services Teams app to a channel, your account needs to be an owner of the team in Microsoft Teams.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 - To add the Azure Lab Services app to Canvas, your Canvas account needs [Admin permissions](https://community.canvaslms.com/t5/Canvas-Basics-Guide/What-is-the-Admin-role/ta-p/78).
 
@@ -43,6 +49,8 @@ In this tutorial, you learn how to:
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 Before you can create and manage labs in Teams, you need to configure Teams to use the Azure Lab Services app and to grant access to your lab plan. Follow these steps to [configure Teams for Azure Lab Services](./how-to-configure-teams-for-lab-plans.md).
 
 After you configured Teams, you can now access the Azure Lab Services app from a channel in Teams. All users that are a member of the team are automatically added as lab users, and assigned a lab virtual machine.
@@ -50,6 +58,8 @@ After you configured Teams, you can now access the Azure Lab Services app from a
 In the next step, you use the Azure Lab Services app to create a lab.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Before you can create and manage labs in Canvas, you need to configure Canvas to use the Azure Lab Services app and to grant access to your lab plan. Follow these steps to [configure Canvas for Azure Lab Services](./how-to-configure-canvas-for-lab-plans.md).
 
@@ -62,6 +72,8 @@ In the next step, you use the Azure Lab Services app to create a lab.
 ## Access the Azure Lab Services app
 
 # [Teams](#tab/teams)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Open Microsoft Teams, and select your team and channel.
 
@@ -77,6 +89,8 @@ In the next step, you use the Azure Lab Services app to create a lab.
     > Use the **Show** filter to switch between your labs and all labs you have access to.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 1. Sign into Canvas, and select your course.
 

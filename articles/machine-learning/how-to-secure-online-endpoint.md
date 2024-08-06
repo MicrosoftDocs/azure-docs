@@ -6,11 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.reviewer: mopeakande
-author: dem108
-ms.author: sehan
+ms.reviewer: None
+author: msakande
+ms.author: mopeakande
 ms.date: 09/28/2023
-ms.custom: devx-track-azurecli, moe-wsvnet, update-code
+ms.custom: devx-track-azurecli, moe-wsvnet, update-code6
 ---
 
 # Secure your managed online endpoints with network isolation

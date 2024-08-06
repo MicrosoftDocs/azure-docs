@@ -3,7 +3,7 @@ title: Monitor with correlated metrics in Azure portal
 description: Learn about correlated metrics between RAN and packet core metrics  
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: concept-article 
 ms.date: 5/28/2024
 ---
@@ -24,7 +24,7 @@ Correlated metrics are available for monitoring and retrieval for up to 30 days.
 
 
 ## Correlated metrics descriptions and interpretations 
-Correlated metrics are collected per site resource and aggregated across all connected access points. See [Supported metrics with Azure Monitor](https://learn.microsoft.com/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
+Correlated metrics are collected per site resource and aggregated across all connected access points. See [Supported metrics with Azure Monitor](/azure/azure-monitor/reference/supported-metrics/metrics-index) for the corelated metrics available for retrieval included under *microsoft.mobilenetwork/sites*. 
 
 | Metric Name | Definition | Interpretation |
 |-------------|----------------|---------| 

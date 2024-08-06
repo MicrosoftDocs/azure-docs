@@ -9,7 +9,10 @@ ms.date: 4/18/2024
 
 # Send Prometheus data to Azure Monitor by using Microsoft Entra authentication
 
-This article describes how to set up [remote write](prometheus-remote-write.md) to send data from a self-managed Prometheus server running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication.
+This article describes how to set up [remote write](prometheus-remote-write.md) to send data from a self-managed Prometheus server running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication and a side car container that Azure Monitor provides. Note that you can also directly configure remote-write in the Prometheus configuration for the same.
+
+> [!NOTE]
+> We recommend that you directly configure Prometheus running on your Kubernetes cluster to remote-write into Azure Monitor Workspace. See [Send Prometheus data to Azure Monitor using Microsoft Entra Id authentication](../essentials/prometheus-remote-write-virtual-machines.md#set-up-authentication-for-remote-write) to learn more. The steps below use the Azure Monitor side car container.
 
 ## Cluster configurations
 
@@ -135,7 +138,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md).
+1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access).
 
     [!INCLUDE [secret-provider-class-yaml](../includes/secret-procider-class-yaml.md)]
 

@@ -3,12 +3,12 @@ title: Generate Responsible AI vision insights with YAML and Python
 titleSuffix: Azure Machine Learning
 description: Learn how to generate an Azure Machine Learning Responsible AI (RAI) image dashboard by using the vision insights component in a Python or YAML pipeline.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
-ms.reviewer: lagayhar
-ms.author: ilmat
-author: imatiach-msft
+ms.reviewer: None
+ms.author: lagayhar
+author: lgayhardt
 ms.date: 05/20/2024
 ms.custom: responsible-ml, build-2023, devx-track-python
 ---

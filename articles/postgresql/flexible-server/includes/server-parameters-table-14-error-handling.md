@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                        |
+| Documentation  | [data_sync_retry](https://www.postgresql.org/docs/14/runtime-config-error-handling.html#GUC-DATA-SYNC-RETRY)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [exit_on_error](https://www.postgresql.org/docs/14/runtime-config-error-handling.html) |
+| Documentation  | [exit_on_error](https://www.postgresql.org/docs/14/runtime-config-error-handling.html#GUC-EXIT-ON-ERROR)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `fsync`       |
 | Allowed values | `fsync`        |
 | Parameter type | read-only      |
-| Documentation  |                                                                                        |
+| Documentation  | [recovery_init_sync_method](https://www.postgresql.org/docs/14/runtime-config-error-handling.html#GUC-RECOVERY-INIT-SYNC-METHOD) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                        |
+| Documentation  |                                                                                                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

@@ -1,8 +1,8 @@
 ---
 title: Azure Web Application Firewall DRS rule groups and rules
 description: This article provides information on Azure Web Application Firewall DRS rule groups and rules.
-ms.service: web-application-firewall
-author: vhorne
+ms.service: azure-web-application-firewall
+author: sowmyam2019
 ms.author: victorh
 ms.topic: conceptual
 ms.date: 05/30/2024
@@ -173,13 +173,25 @@ DRS 2.0 includes 17 rule groups, as shown in the following table. Each group con
 |[MS-ThreatIntel-WebShells](#drs9905-10)|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
 |[MS-ThreatIntel-CVEs](#drs99001-10)|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
-### Bot rules
+### Bot Manager 1.0
+
+The Bot Manager 1.0 rule set provides protection against malicious bots and detection of good bots. The rules provide granular control over bots detected by WAF by categorizing bot traffic as Good, Bad, or Unknown bots. 
 
 |Rule group|Description|
 |---|---|
 |[BadBots](#bot100)|Protect against bad bots|
 |[GoodBots](#bot200)|Identify good bots|
 |[UnknownBots](#bot300)|Identify unknown bots|
+
+### Bot Manager 1.1
+
+The Bot Manager 1.1 rule set is an enhancement to Bot Manager 1.0 rule set. It provides enhanced protection against malicious bots, and increases good bot detection.
+
+|Rule group|Description|
+|---|---|
+|[BadBots](#bot11-100)|Protect against bad bots|
+|[GoodBots](#bot11-200)|Identify good bots|
+|[UnknownBots](#bot11-300)|Identify unknown bots|
 
 The following rule groups and rules are available when you use Azure Web Application Firewall on Azure Front Door.
 
@@ -1050,9 +1062,9 @@ The following rule groups and rules are available when you use Azure Web Applica
 |99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 |99001017|Attempted Apache Struts file upload exploitation [CVE-2023-50164](https://www.cve.org/CVERecord?id=CVE-2023-50164)|
 
-# [Bot rules](#tab/bot)
+# [Bot Manager 1.0](#tab/bot)
 
-## <a name="bot"></a> Bot manager rule sets
+## <a name="bot"></a> 1.0 rule sets
 
 ### <a name="bot100"></a> Bad bots
 |RuleId|Description|
@@ -1077,6 +1089,43 @@ The following rule groups and rules are available when you use Azure Web Applica
 |Bot300400|Service agents|
 |Bot300500|Site health monitoring services|
 |Bot300600|Unknown bots detected by threat intelligence|
+|Bot300700|Other bots|
+
+Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+# [Bot Manager 1.1](#tab/bot11)
+
+## <a name="bot11"></a> 1.1 rule sets
+
+### <a name="bot11-100"></a> Bad bots
+|RuleId|Description|
+|---|---|
+|Bot100100|Malicious bots detected by threat intelligence|
+|Bot100200|Malicious bots that have falsified their identity|
+|Bot100300|High risk bots detected by threat intelligence|
+ 
+ Bot100100 scans both client IP addresses and IPs in the `X-Forwarded-For` header.
+
+### <a name="bot11-200"></a> Good bots
+|RuleId|Description|
+|---|---|
+|Bot200100|Search engine crawlers|
+|Bot200200|Verified miscellaneous bots|
+|Bot200300|Verified link checker bots|
+|Bot200400|Verified social media bots|
+|Bot200500|Verified content fetchers|
+|Bot200600|Verified feed fetchers|
+|Bot200700|Verified advertising bots|
+
+### <a name="bot11-300"></a> Unknown bots
+|RuleId|Description|
+|---|---|
+|Bot300100|Unspecified identity|
+|Bot300200|Tools and frameworks for web crawling and attacks|
+|Bot300300|General-purpose HTTP clients and SDKs|
+|Bot300400|Service agents|
+|Bot300500|Site health monitoring services|
+|Bot300600|Unknown bots detected by threat intelligence. This rule also includes IP addresses matched to the Tor network.|
 |Bot300700|Other bots|
 
 Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header.

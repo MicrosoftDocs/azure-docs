@@ -57,14 +57,8 @@
       href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
-    - name: Jupyter notebooks
-      items:
-        - name: Create notebook (Visual Studio Code)
-          href: tutorial-create-notebook-vscode.md
-        - name: Create notebook (Azure portal)
-          href: tutorial-create-notebook.md
-        - name: Import notebooks from GitHub
-          href: tutorial-import-notebooks.md
+    - name: Create Visual Studio Code notebook
+      href: tutorial-create-notebook-vscode.md
     - name: Deploy app on Azure Kubernetes Service (AKS) cluster using Bicep
       href: tutorial-deploy-app-bicep-aks.md
     - name: Kusto Query Language (KQL) transformations
@@ -75,7 +69,7 @@
       displayName: Python, Scala, Spark, Java, Databricks
     - name: Mirror database to Microsoft Fabric
       displayName: Mirroring, Warehouse, Lighthouse, Fabric
-      href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
 - name: Samples
   items:
     - name: Solution accelerators
@@ -120,6 +114,8 @@
           href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
         - name: Find existing free-tier accounts
           href: ../scripts/cli/common/free-tier.md
+        - name: Migrate all resources to autoscale
+          href: ../scripts/cli/common/convert-to-autoscale.md
     - name: Azure PowerShell
       items:
         - name: Overview
@@ -164,6 +160,82 @@
     - name: Azure Cosmos DB resource model
       displayName: collection, document
       href: ../resource-model.md
+    - name: Back up and restore
+      items:
+        - name: Back up and restore introduction
+          href: ../online-backup-and-restore.md
+        - name: Continuous backup
+          items:
+            - name: Continuous backup - Introduction
+              href: ../continuous-backup-restore-introduction.md
+            - name: Restore
+              items:
+                - name: Restore into a new account
+                  items:
+                    - name: Continuous backup - Resource model
+                      href: ../continuous-backup-restore-resource-model.md
+                    - name: Continuous backup - FAQ
+                      href: ../continuous-backup-restore-frequently-asked-questions.yml
+                    - name: Latest restorable timestamp
+                      href: ../latest-restore-timestamp-continuous-backup.md
+                    - name: Auditing restore action with continuous backup
+                      href: ../audit-restore-continuous.md
+                - name: Restore in the same account
+                  items:
+                    - name: Introduction
+                      href: ../restore-in-account-continuous-backup-introduction.md
+                    - name: Resource model
+                      href: ../restore-in-account-continuous-backup-resource-model.md
+                    - name: FAQ
+                      href: ../restore-in-account-continuous-backup-frequently-asked-questions.yml
+        - name: Periodic backup
+          items:
+            - name: Introduction
+              href: ../periodic-backup-restore-introduction.md
+            - name: Storage redundancy
+              href: ../periodic-backup-storage-redundancy.md
+            - name: Request data restore
+              href: ../periodic-backup-request-data-restore.md
+    - name: Containers and items
+      items:
+        - name: Getting started with SQL query
+          displayName: sql query, query basics
+          href: query/getting-started.md
+        - name: Indexing overview
+          displayName: range, spatial
+          href: ../index-overview.md
+        - name: Time to live
+          displayName: delete, delete data, ttl
+          href: time-to-live.md
+        - name: Unique key constraints
+          href: ../unique-keys.md
+        - name: Transactions and optimistic concurrency control
+          href: database-transactions-optimistic-concurrency.md
+        - name: Attachments
+          href: ../attachments.md
+    - name: Global distribution
+      items:
+        - name: Global distribution overview
+          displayName: replication, replicate, geo distribution
+          href: ../distribute-data-globally.md
+        - name: Consistency levels
+          displayName: session, consistency prefix, strong, eventual, bounded staleness
+          href: ../consistency-levels.md
+        - name: High availability
+          items:
+            - name: High availability and reliability
+              href: ../../reliability/reliability-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Proactive resiliency
+              href: ../../reliability/resiliency-recommendations/recommend-cosmos-db-nosql.md?toc=/azure/cosmos-db/toc.json
+            - name: Multi-region writes
+              items:
+                - name: Understanding multi-region writes
+                  href: ../multi-region-writes.md
+                - name: Conflict resolution
+                  displayName: last write wins, custom, multi-region writes, multi-master
+                  href: ../conflict-resolution-policies.md
+        - name: Global distribution - under the hood
+          href: ../global-dist-under-the-hood.md
     - name: Modeling and partitioning
       items:
         - name: Model document data
@@ -241,23 +313,6 @@
               href: ../priority-based-execution.md
             - name: Priority-based execution FAQ
               href: ../priority-based-execution-faq.yml
-    - name: Containers and items
-      items:
-        - name: Getting started with SQL query
-          displayName: sql query, query basics
-          href: query/getting-started.md
-        - name: Indexing overview
-          displayName: range, spatial
-          href: ../index-overview.md
-        - name: Time to live
-          displayName: delete, delete data, ttl
-          href: time-to-live.md
-        - name: Unique key constraints
-          href: ../unique-keys.md
-        - name: Transactions and optimistic concurrency control
-          href: database-transactions-optimistic-concurrency.md
-        - name: Attachments
-          href: ../attachments.md
     - name: Change feed
       items:
         - name: Change feed overview
@@ -275,6 +330,8 @@
           href: change-feed-functions.md
         - name: Change feed (pull model)
           href: change-feed-pull-model.md
+    - name: Emulator
+      href: ../emulator.md
     - name: Integrated cache
       items:
         - name: Dedicated gateway overview
@@ -283,24 +340,40 @@
           href: ../integrated-cache.md
         - name: Integrated cache FAQ
           href: ../integrated-cache-faq.md
-    - name: Analytics with Azure Synapse Link
+    - name: Integrated vector database
+      href: ../vector-search.md
+    - name: Analytics and BI
       items:
-        - name: Azure Synapse Link for Azure Cosmos DB
-          href: ../synapse-link.md
-        - name: Azure Synapse Link supported features
-          href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link use cases
-          href: ../synapse-link-use-cases.md
-        - name: Custom partitioning - Overview
-          href: ../custom-partitioning-analytical-store.md
-        - name: Azure Synapse Link FAQ
-          href: ../synapse-link-frequently-asked-questions.yml
-        - name: Analytical store - overview
-          href: ../analytical-store-introduction.md
-        - name: Change data capture (CDC)
-          href: ../analytical-store-change-data-capture.md
-        - name: Time travel (preview)
-          href: ../synapse-link-time-travel.md
+        - name: Analytics and BI overview
+          href: ../analytics-and-business-intelligence-overview.md
+        - name: Analytics and BI use cases
+          href: ../analytics-and-business-intelligence-use-cases.md
+        - name: Mirroring in Microsoft Fabric
+          items:
+            - name: Overview
+              href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+            - name: FAQ
+              href: /fabric/database/mirrored-database/azure-cosmos-db-faq?context=/azure/cosmos-db/context/context
+            - name: Limitations
+              href: /fabric/database/mirrored-database/azure-cosmos-db-limitations?context=/azure/cosmos-db/context/context
+            - name: Troubleshoot
+              href: /fabric/database/mirrored-database/azure-cosmos-db-troubleshooting?context=/azure/cosmos-db/context/context
+        - name: Azure Synapse Link
+          items:
+            - name: Azure Synapse Link for Azure Cosmos DB
+              href: ../synapse-link.md
+            - name: Azure Synapse Link supported features
+              href: ../../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Custom partitioning - Overview
+              href: ../custom-partitioning-analytical-store.md
+            - name: Azure Synapse Link FAQ
+              href: ../synapse-link-frequently-asked-questions.yml
+            - name: Analytical store - overview
+              href: ../analytical-store-introduction.md
+            - name: Change data capture (CDC)
+              href: ../analytical-store-change-data-capture.md
+            - name: Time travel (preview)
+              href: ../synapse-link-time-travel.md
     - name: Back up and restore
       items:
         - name: Back up and restore introduction
@@ -397,14 +470,6 @@
           href: ../data-residency.md
     - name: Optimize your Azure Cosmos DB costs
       href: ../optimize-costs.yml
-    - name: Jupyter notebooks
-      items:
-        - name: Overview
-          href: ../notebooks-overview.md
-        - name: FAQ
-          href: ../notebooks-faq.yml
-    - name: Emulator
-      href: ../emulator.md
     - name: Network bandwidth
       href: ../network-bandwidth.md
 - name: How to
@@ -415,8 +480,6 @@
         href: how-to-dotnet-vector-index-query.md
       - name: Python
         href: how-to-python-vector-index-query.md
-      - name: JavaScript
-        href: how-to-javascript-vector-index-query.md
       - name: Java
         href: how-to-java-vector-index-query.md
     - name: Access preview features
@@ -625,6 +688,8 @@
           items:
             - name: Get query execution metrics
               href: query-metrics-performance.md
+            - name: Get query execution metrics (Python SDK)
+              href: query-metrics-performance-python.md
             - name: Tune query performance
               href: query-metrics.md
             - name: Optimize query performance when using SDK
@@ -722,32 +787,46 @@
           items:
             - name: Troubleshoot Python SDK
               href: troubleshoot-python-sdk.md
-    - name: Analytics and BI with Azure Synapse Link
-      items:
-        - name: Configure Azure Synapse Link
-          href: ../configure-synapse-link.md
-        - name: Connect to Azure Synapse Link
-          href: ../../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Synapse Link and integrated Power BI
-          href: ../integrated-power-bi-synapse-link.md
-        - name: Analytical store and private endpoints
-          href: ../analytical-store-private-endpoints.md
-        - name: Query with Azure Synapse Spark 3
-          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Query with Azure Synapse Spark 2
-          href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Query with serverless SQL pool
-          href: ../../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+    - name: Analytics and BI
+      items:        
+        - name: Mirroring in Microsoft Fabric
+          items:
+            - name: Overview
+              href: /fabric/database/mirrored-database/azure-cosmos-db?context=/azure/cosmos-db/context/context
+            - name: Get started with mirrored data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-tutorial?context=/azure/cosmos-db/context/context
+            - name: Join mirrored data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-how-to-join-multiple?context=/azure/cosmos-db/context/context
+            - name: Query nested data
+              href: /fabric/database/mirrored-database/azure-cosmos-db-how-to-query-nested?context=/azure/cosmos-db/context/context
+            - name: Access data using Lakehouse and notebooks
+              href: /fabric/database/mirrored-database/azure-cosmos-db-lakehouse-notebooks?context=/azure/cosmos-db/context/context
+        - name: Azure Synapse Link
+          items:
+            - name: Configure Azure Synapse Link
+              href: ../configure-synapse-link.md
+            - name: Connect to Azure Synapse Link
+              href: ../../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Synapse Link and integrated Power BI
+              href: ../integrated-power-bi-synapse-link.md
+            - name: Analytical store and private endpoints
+              href: ../analytical-store-private-endpoints.md
+            - name: Query with Azure Synapse Spark 3
+              href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Query with Azure Synapse Spark 2
+              href: ../../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Query with serverless SQL pool
+              href: ../../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Configure custom partitioning
+              href: ../configure-custom-partitioning.md
+            - name: Get started with change data capture
+              href: ../get-started-change-data-capture.md
         - name: Power BI
           items:
             - name: Use Power BI
               href: powerbi-visualize.md
             - name: Use Power BI with Azure Synapse Link
               href: ../synapse-link-power-bi.md
-        - name: Configure custom partitioning
-          href: ../configure-custom-partitioning.md
-        - name: Get started with change data capture
-          href: ../get-started-change-data-capture.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos DB account
@@ -765,8 +844,8 @@
         - name: Using Terraform
           href: manage-with-terraform.md
           displayName: Terraform
-        - name: Move between regions
-          href: ../how-to-move-regions.md
+        - name: Relocate to another region
+          href: ../../operational-excellence/relocation-cosmos-db.md?toc=/azure/cosmosdb/nosql/toc.json
         - name: Prevent changes or deletion
           href: ../resource-locks.md
     - name: Global distribution
@@ -858,13 +937,13 @@
           href: ../store-credentials-key-vault.md
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitor Azure Cosmos DB
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Cosmos DB insights
               href: ../insights-overview.md
-            - name: Scenarios to monitor
+            - name: Monitor and debug using metrics
               href: ../use-metrics.md
             - name: Monitor server-side latency
               href: ../monitor-server-side-latency.md
@@ -936,7 +1015,7 @@
           href: dynamo-to-cosmos.md
         - name: Migrate - HBase to API for NoSQL
           href: migrate-hbase-to-cosmos-db.md
-    - name: Integrate with other Azure services
+    - name: Integrate with other services
       items:
         - name: RAG with Azure OpenAI
           href: ../vector-search.md#retrieval-augmented-generation
@@ -1048,3 +1127,5 @@
           href: ../use-cases.md?toc=/azure/cosmos-db/sql/toc.json
         - name: Social media apps
           href: ../social-media-apps.md?toc=/azure/cosmos-db/sql/toc.json
+        - name: AI agents
+          href: ../ai-agents.md

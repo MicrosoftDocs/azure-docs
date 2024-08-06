@@ -9,6 +9,7 @@ ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: java
+ai-usage: ai-assisted
 ---
 
 # Azure Storage samples using Java client libraries

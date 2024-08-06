@@ -172,8 +172,8 @@
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-fpga-web-service.md",
-        "redirect_url": "/azure/machine-learning/how-to-deploy-fpga-web-service",
-        "redirect_document_id": true
+        "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/v-fake/how-to-deploy-and-where.md",
@@ -398,11 +398,6 @@
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/azure/machine-learning/v1/concept-mlflow.md",
-        "redirect_url": "/articles/machine-learning/concept-mlflow",
         "redirect_document_id": true
     },
     {
@@ -2013,7 +2008,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-deploy-fpga-web-service.md",
         "redirect_url": "/azure/machine-learning/how-to-deploy-online-endpoints",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/service/how-to-deploy-custom-docker-image.md",

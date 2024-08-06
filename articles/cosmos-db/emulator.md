@@ -4,10 +4,10 @@ titleSuffix: Azure Cosmos DB
 description: Use the Azure Cosmos DB local or docker-based emulator to test your applications against multiple API endpoints.
 author: sajeetharan
 ms.author: sasinnat
-ms.reviewer: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 09/11/2023
+ms.topic: concept-article
+ms.date: 06/20/2024
 # CustomerIntent: As a developer, I want to use the Azure Cosmos DB emulator so that I can develop my application against a database during development.
 ---
 
@@ -23,13 +23,13 @@ The Azure Cosmos DB emulator provides a local environment that emulates the Azur
 The emulator provides an environment on your developer workspace that isn't capable of emulating every aspect of the Azure Cosmos DB service. Here are a few key differences in functionality between the emulator and the equivalent cloud service.
 
 > [!IMPORTANT]
-> The Linux emulator currently has limited support for developer machines running on M1 and M2 chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
+> The Linux emulator currently doesn't support developer machines running on Apple silicon series or Microsoft ARM chips. A temporary workaround is to install a Windows virtual machine and run the emulator on that platform.
 
 - The emulator's **Data Explorer** pane is only supported in the API for NoSQL and API for MongoDB.
 - The emulator only supports **provisioned throughput**. The emulator doesn't support **serverless** throughput.
 - The emulator uses a well-known key when it starts. You can't regenerate the key for the running emulator. To use a different key, you must [start the emulator with the custom key specified](#authentication).
 - The emulator can't be replicated across geographical regions or multiple instances. Only a single running instance of the emulator is supported. The emulator can't be scaled out.
-- The emulator only supports up to 10 fixed-size containers at 400 RU/s or 5 unlimited-size containers.
+- The emulator ideally supports up to 10 fixed-size containers at 400 RU/s or 5 unlimited-size containers. Theoretically, you can create more containers, but you could experience performance degradation with the emulator.
 - The emulator only supports the [Session](consistency-levels.md#session-consistency) and [Strong](consistency-levels.md#strong-consistency) consistency levels. The emulator isn't a scalable service and doesn't actually implement the consistency levels. The emulator only flags the configured consistency level for testing purposes.
 - The emulator constraints the unique identifier of items to a size of **254** characters.
 - The emulator supports a maximum of five `JOIN` statements per query.

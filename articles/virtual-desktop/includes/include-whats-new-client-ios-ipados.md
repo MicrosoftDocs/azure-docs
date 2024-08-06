@@ -2,7 +2,7 @@
 author: dknappettmsft
 ms.author: daknappe
 ms.topic: include
-ms.date: 05/29/2024
+ms.date: 07/08/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,19 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.5.8         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
-| Beta    | 10.5.8         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+| Public  | 10.5.9         | [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092) |
+| Beta    | 10.5.9         | [TestFlight](https://testflight.apple.com/join/vkLIflUJ) |
+
+
+## Updates for version 10.5.9
+
+*Published: June 27, 2024*
+
+In this release, we made the following changes:
+
+- Updated the client connection path to fall back to TLS when NTLM isn't available in the context of NLA. 
+- Addressed an issue that prevented the hardware keyboard from working when connected. 
+
 
 ## Updates for version 10.5.8
 
@@ -21,6 +32,8 @@ The following table lists the current versions available for the public and beta
 In this release, we made the following changes:
 
 - Added Microsoft Intune MAM support for configuring redirection settings. It includes MAM SDK version 19.3.1.
+- Added watermarking support for Windows 365.
+- Bug fixes.
 
 ## Updates for version 10.5.7
 
@@ -36,7 +49,7 @@ In this release, we made the following changes:
 
 In this release, we made the following changes:
 
-- Fixed bugs reported by users.
+- Bug fixes.
 
 ## Updates for version 10.5.5
 
@@ -45,15 +58,14 @@ In this release, we made the following changes:
 In this release, we made the following changes:
 
 - Fixed accessibility issues.
-- Fixed bugs reported by users and internal telemetry.
-- As of this release, the iOS client only supports iOS 16 and later.
+- Bug fixes.
+
+> [!NOTE]
+> As of this release, only iOS 16 and iPadOS 16 and later are supported.
 
 ## Updates for version 10.5.4
 
 *Published: December 18, 2023*
-
->[!NOTE]
-> There is no version 10.5.3.
 
 In this release, we made the following changes:
 
@@ -64,7 +76,10 @@ In this release, we made the following changes:
 - Added support for camera redirection on an iPhone or iPad in portrait orientation. 
 - Resolved an issue where when you go to **Settings** > **Display** to view the resolution list, the list didn't update when you changed the orientation.
 - Added support for USB-C on iPhone 15 to enable native resolutions when you connect the device to an external display.
-- Added watermarking support for Azure Virtual Desktop scenarios. 
+- Added watermarking support for Azure Virtual Desktop. 
+
+> [!NOTE]
+> There is no version 10.5.3.
 
 ## Updates for version 10.5.2
 
@@ -135,8 +150,8 @@ We also fixed some bugs and added some small additional features:
 - Worked around an iOS 16 change that broke Korean language input.
 - Addressed a bug that stopped the Apple Pencil from working when connected to Windows 8.1 and Windows Server 2012 R2 and earlier.
 
->[!NOTE]
->This release removes support for iOS 14 and is only compatible with iOS 15 and 16.
+> [!NOTE]
+> As of this release, only iOS 15 and iPadOS 15 and later are supported.
 
 ## Updates for version 10.4.5
 

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 tags: azure-key-vault
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2022

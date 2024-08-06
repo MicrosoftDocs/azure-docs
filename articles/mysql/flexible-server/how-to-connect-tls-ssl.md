@@ -4,12 +4,11 @@ description: Instructions and information on how to connect using TLS/SSL in Azu
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 11/21/2022
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.devlang: csharp
-# ms.devlang: csharp, golang, java, javascript, php, python, ruby
 ---
 
 # Connect to Azure Database for MySQL - Flexible Server with encrypted connections

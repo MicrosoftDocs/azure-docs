@@ -158,7 +158,7 @@ Standard SSDs can be used as shared disks, where you attach one disk to multiple
 ### Standard SSD billing example
 
 In this example, we provision a 1 TiB Standard SSD Disk with LRS redundancy, where we also have snapshots created on the current used data capacity of 120 GiB. 
-We're billed for the provisioned capacity of the HDD disk, the transactions performed on the disk, and the used snapshot capacity that will show as the following tier and meters in our bill:
+You're billed for the provisioned capacity of the SSD disk, the transactions performed on the disk, and the used snapshot capacity that will show as the following tier and meters in our bill:
 
 | Tier | Meter |
 |-|-|

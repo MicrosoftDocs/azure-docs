@@ -2,7 +2,7 @@
 title: Red Hat workloads on Azure overview | Microsoft Docs
 description: Learn about the Red Hat product offerings available on Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux
@@ -19,7 +19,7 @@ Red Hat workloads are supported through a variety of offerings on Azure. Red Hat
 
 For more information about running HREL workloads on Azure, see the following video:
 
-> [!VIDEO https://youtu.be/11arYjecfxU?si=IbLLptFgB0MydTaV]
+> [!VIDEO https://www.youtube.com/embed/11arYjecfxU?si=m0X-28xd1-zYUoqG]
 
 ## Red Hat Enterprise Linux images
 

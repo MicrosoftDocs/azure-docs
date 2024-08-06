@@ -113,6 +113,21 @@ Use one of the following two ways to configure the connection string:
 
 To set the connection string, see [Connection string](java-standalone-config.md#connection-string).
 
+### [Java native](#tab/java-native)
+
+Use one of the following two ways to configure the connection string:
+
+- Set an environment variable.
+
+   ```console
+   APPLICATIONINSIGHTS_CONNECTION_STRING=<Your Connection String>
+   ```
+
+- Set a property.
+    ```properties
+    applicationinsights.connection.string=<Your Connection String>
+    ```
+
 ### [Node.js](#tab/nodejs)
 
 Use one of the following two ways to configure the connection string:
@@ -187,12 +202,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add the OpenTelemetry telemetry service to the application.
 // This service will collect and send telemetry data to Azure Monitor.
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
-// Configure the OpenTelemetry tracer provider to add the resource attributes to all traces.
-builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
-    builder.ConfigureResource(resourceBuilder => 
-        resourceBuilder.AddAttributes(resourceAttributes)));
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
+    // Configure the ResourceBuilder to add the custom resource attributes to all signals.
+    // Custom resource attributes should be added AFTER AzureMonitor to override the default ResourceDetectors.
+    .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(_testResourceAttributes));
 
 // Build the ASP.NET Core web application.
 var app = builder.Build();
@@ -249,6 +263,12 @@ var loggerFactory = LoggerFactory.Create(builder =>
 To set the cloud role name, see [cloud role name](java-standalone-config.md#cloud-role-name).
 
 To set the cloud role instance, see [cloud role instance](java-standalone-config.md#cloud-role-instance).
+
+### [Java native](#tab/java-native)
+
+To set the cloud role name:
+* Use the `spring.application.name` for Spring Boot native image applications
+* Use the `quarkus.application.name` for Quarkus native image applications
 
 ### [Node.js](#tab/nodejs)
 
@@ -307,7 +327,7 @@ You might want to enable sampling to reduce your data ingestion volume, which re
 > [!NOTE]
 > Metrics and Logs are unaffected by sampling.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
@@ -330,7 +350,7 @@ var app = builder.Build();
 app.Run();
 ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
@@ -345,11 +365,17 @@ var tracerProvider = Sdk.CreateTracerProviderBuilder()
     });
 ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 Starting from 3.4.0, rate-limited sampling is available and is now the default. For more information about sampling, see [Java sampling]( java-standalone-config.md#sampling).
 
-#### [Node.js](#tab/nodejs)
+### [Java native](#tab/java-native)
+
+For Spring Boot native applications, the [sampling configurations of the OpenTelemetry Java SDK are applicable](https://opentelemetry.io/docs/languages/java/configuration/#sampler).
+
+For Quarkus native applications, please look at the [Quarkus OpenTelemetry documentation](https://quarkus.io/guides/opentelemetry#sampler).
+
+### [Node.js](#tab/nodejs)
 
 The sampler expects a sample rate of between 0 and 1 inclusive. A rate of 0.1 means approximately 10% of your traces are sent.
 
@@ -366,7 +392,7 @@ const options: AzureMonitorOpenTelemetryOptions = {
 useAzureMonitor(options);
 ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 The `configure_azure_monitor()` function automatically utilizes
 ApplicationInsightsSampler for compatibility with Application Insights SDKs and
@@ -381,7 +407,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 ---
 
 > [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance panes. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#add-custom-metrics), which are unaffected by sampling.
 
 <a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
@@ -389,7 +415,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 
 [Live metrics](live-stream.md) provides a real-time analytics dashboard for insight into application activity and performance.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -405,17 +431,21 @@ builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
 });
 ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 This feature isn't available in the Azure Monitor .NET Exporter.
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 The Live Metrics experience is enabled by default.
 
 For more information on Java configuration, see [Configuration options: Azure Monitor Application Insights for Java](java-standalone-config.md#configuration-options-azure-monitor-application-insights-for-java).
 
-#### [Node.js](#tab/nodejs)
+### [Java native](#tab/java-native)
+
+The Live Metrics are not available today for GraalVM native applications.
+
+### [Node.js](#tab/nodejs)
 
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -448,7 +478,7 @@ Configuration sample
 
 -->
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 > [!IMPORTANT]
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -469,7 +499,7 @@ configure_azure_monitor(
 
 You might want to enable Microsoft Entra authentication for a more secure connection to Azure, which prevents unauthorized telemetry from being ingested into your subscription.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
 
@@ -509,7 +539,7 @@ We support the credential classes provided by [Azure Identity](https://github.co
     app.Run();
     ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/identity/Azure.Identity#credential-classes).
 
@@ -562,11 +592,15 @@ We support the credential classes provided by [Azure Identity](https://github.co
     });
     ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
 
-#### [Node.js](#tab/nodejs)
+### [Java native](#tab/java-native)
+
+Microsoft Entra ID authentication is not available for GraalVM Native applications.
+
+### [Node.js](#tab/nodejs)
 
 We support the credential classes provided by [Azure Identity](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity#credential-classes).
 
@@ -581,6 +615,8 @@ const credential = new ManagedIdentityCredential();
 // Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
     azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
         credential: credential
     }
 };
@@ -589,7 +625,7 @@ const options: AzureMonitorOpenTelemetryOptions = {
 useAzureMonitor(options);
 ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 ```python
 # Import the `ManagedIdentityCredential` class from the `azure.identity` package.
@@ -597,11 +633,12 @@ from azure.identity import ManagedIdentityCredential
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
-# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
-# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
+# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
 configure_azure_monitor(
+    connection_string="your-connection-string",
     credential=ManagedIdentityCredential(),
 )
+
 ```
 
 ---
@@ -705,6 +742,10 @@ Configuring Offline Storage and Automatic Retries isn't available in Java.
 
 For a full list of available configurations, see [Configuration options](./java-standalone-config.md).
 
+### [Java native](#tab/java-native)
+
+Configuring Offline Storage and Automatic Retries isn't available in Java native image applications.
+
 ### [Node.js](#tab/nodejs)
 
 By default, the AzureMonitorExporter uses one of the following locations for offline storage.
@@ -789,7 +830,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
 > [!NOTE]
 > The OTLP Exporter is shown for convenience only. We don't officially support the OTLP Exporter or any components or third-party experiences downstream of it.
 
-#### [ASP.NET Core](#tab/aspnetcore)
+### [ASP.NET Core](#tab/aspnetcore)
 
 1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
 
@@ -819,7 +860,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
     app.Run();
     ```
 
-#### [.NET](#tab/net)
+### [.NET](#tab/net)
 
 1. Install the [OpenTelemetry.Exporter.OpenTelemetryProtocol](https://www.nuget.org/packages/OpenTelemetry.Exporter.OpenTelemetryProtocol/) package in your project.
 
@@ -843,11 +884,15 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside th
         .AddOtlpExporter();
     ```
 
-#### [Java](#tab/java)
+### [Java](#tab/java)
 
 For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
 
-#### [Node.js](#tab/nodejs)
+### [Java native](#tab/java-native)
+
+You can't enable the OpenTelemetry Protocol (OTLP) Exporter alongside the Azure Monitor Exporter to send your telemetry to two locations.
+
+### [Node.js](#tab/nodejs)
 
 1. Install the [OpenTelemetry Collector Trace Exporter](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-http) and other OpenTelemetry packages in your project.
 
@@ -858,7 +903,7 @@ For more information about Java, see the [Java supplemental documentation](java-
         npm install @opentelemetry/sdk-trace-node
     ```
 
-2. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
+1. Add the following code snippet. This example assumes you have an OpenTelemetry Collector with an OTLP receiver running. For details, see the [example on GitHub](https://github.com/open-telemetry/opentelemetry-js/tree/main/examples/otlp-exporter-node).
 
     ```typescript
     // Import the useAzureMonitor function, the AzureMonitorOpenTelemetryOptions class, the trace module, the ProxyTracerProvider class, the BatchSpanProcessor class, the NodeTracerProvider class, and the OTLPTraceExporter class from the @azure/monitor-opentelemetry, @opentelemetry/api, @opentelemetry/sdk-trace-base, @opentelemetry/sdk-trace-node, and @opentelemetry/exporter-trace-otlp-http packages, respectively.
@@ -877,7 +922,7 @@ For more information about Java, see the [Java supplemental documentation](java-
     useAzureMonitor(options);
     ```
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 1. Install the [opentelemetry-exporter-otlp](https://pypi.org/project/opentelemetry-exporter-otlp/) package.
 
@@ -941,6 +986,16 @@ The following OpenTelemetry configurations can be accessed through environment v
 ### [Java](#tab/java)
 
 For more information about Java, see the [Java supplemental documentation](java-standalone-config.md).
+
+### [Java native](#tab/java-native)
+
+| Environment variable       | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | Set it to the connection string for your Application Insights resource. |
+
+For Spring Boot native applications, the [OpenTelemetry Java SDK configurations](https://opentelemetry.io/docs/languages/java/configuration/) are available.
+
+For Quarkus native applications, please look at the [Quarkus OpenTelemetry documentation](https://quarkus.io/guides/opentelemetry#configuration).
 
 ### [Node.js](#tab/nodejs)
 

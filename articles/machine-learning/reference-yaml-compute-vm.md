@@ -3,7 +3,7 @@ title: 'CLI (v2) attached Virtual Machine YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) attached Virtual Machine schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2

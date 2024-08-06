@@ -17,7 +17,7 @@ The following configurations are officially supported with Container insights. I
 - Environments:
     - Kubernetes on-premises.
     - [OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4 and higher, on-premises or in other cloud environments.
-- Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md).
+- Versions of Kubernetes and support policy are the same as versions of [AKS supported](/azure/aks/supported-kubernetes-versions).
 - The following container runtimes are supported: Moby and CRI compatible runtimes such CRI-O and ContainerD.
 - The Linux OS release for main and worker nodes supported are Ubuntu (18.04 LTS and 16.04 LTS) and Red Hat Enterprise Linux CoreOS 43.81.
 - Azure Access Control service supported: Kubernetes role-based access control (RBAC) and non-RBAC.
@@ -39,9 +39,9 @@ Before you start, make sure that you meet the following prerequisites:
 
     |Agent resource|Ports |
     |------|---------|
-    |*.ods.opinsights.azure.com |Port 443 |
-    |*.oms.opinsights.azure.com |Port 443 |
-    |*.dc.services.visualstudio.com |Port 443 |
+    |`*.ods.opinsights.azure.com` |Port 443 |
+    |`*.oms.opinsights.azure.com` |Port 443 |
+    |`*.dc.services.visualstudio.com` |Port 443 |
 
 - The containerized agent requires the Kubelet `cAdvisor secure port: 10250` or `unsecure port :10255` to be opened on all nodes in the cluster to collect performance metrics. We recommend that you configure `secure port: 10250` on the Kubelet cAdvisor if it isn't configured already.
 - The containerized agent requires the following environmental variables to be specified on the container to communicate with the Kubernetes API service within the cluster to collect inventory data: `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`.

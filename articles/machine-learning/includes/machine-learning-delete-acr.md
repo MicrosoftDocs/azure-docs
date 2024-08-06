@@ -7,4 +7,4 @@ ms.author: larryfr
 ---
 
 > [!WARNING]
-> Once an Azure Container Registry has been created for a workspace, do not delete it. Doing so will break your Azure Machine Learning workspace.
+> Once an Azure Container Registry is created for a workspace, don't delete it. Doing so breaks your Azure Machine Learning workspace.

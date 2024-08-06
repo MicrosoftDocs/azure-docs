@@ -5,16 +5,17 @@ author: mulander
 ms.author: adamwolk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: tutorial
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - ignite-2023
 ---
 
 # Semantic Search with Azure Database for PostgreSQL - Flexible Server and Azure OpenAI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This hands-on tutorial shows you how to build a semantic search application using Azure Database for PostgreSQL flexible server and Azure OpenAI service. Semantic search does searches based on semantics; standard lexical search does searches based on keywords provided in a query. For example, your recipe dataset might not contain labels like gluten-free, vegan, dairy-free, fruit-free or dessert but these characteristics can be deduced from the ingredients. The idea is to issue such semantic queries and get relevant search results.
 

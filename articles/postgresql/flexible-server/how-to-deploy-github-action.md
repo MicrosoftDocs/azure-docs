@@ -5,7 +5,7 @@ author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 05/21/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -16,7 +16,7 @@ ms.custom:
 
 # Quickstart: Use GitHub Actions to connect to Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a workflow to deploy database updates to [Azure Database for PostgreSQL flexible server](https://azure.microsoft.com/services/postgresql/).
 

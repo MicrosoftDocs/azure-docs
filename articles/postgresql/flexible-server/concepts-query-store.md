@@ -4,14 +4,14 @@ description: This article describes the Query Store feature in Azure Database fo
 author: varun-dhawan
 ms.author: varundhawan
 ms.reviewer: maghan
-ms.date: 05/14/2024
-ms.service: postgresql
+ms.date: 07/25/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
 # Monitor performance with Query Store
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The Query Store feature in Azure Database for PostgreSQL flexible server provides a way to track query performance over time. Query Store simplifies performance-troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL flexible server instance.
 
@@ -81,7 +81,8 @@ Here are some examples of how you can gain more insights into your workload usin
 
 ## Configuration options
 
-When Query Store is enabled, it saves data in aggregation windows of length determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window, it stores the 500 distinct queries per window.
+When Query Store is enabled, it saves data in aggregation windows of length determined by the `pg_qs.interval_length_minutes` server parameter (defaults to 15 minutes). For each window, it stores up to 500 distinct (with distinct userid, dbid, and queryid) queries per window. If during an interval the number of distinct queries reaches 500, the 5% with lower usage are deallocated to make room for more.
+
 The following options are available for configuring Query Store parameters:
 
 | **Parameter** | **Description** | **Default** | **Range** |

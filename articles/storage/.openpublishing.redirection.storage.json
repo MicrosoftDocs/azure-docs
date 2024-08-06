@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/storage/common/storage-failover-customer-managed-planned.md",
-            "redirect_url": "/articles/storage/common/storage-failover-customer-managed-unplanned",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
             "redirect_document_id": false
@@ -201,6 +196,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-c-plus-plus-enumeration.md",
+            "redirect_url": "/previous-versions/azure/storage/common/storage-c-plus-plus-enumeration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/queues/queues-v8-samples-java.md",
+            "redirect_url": "/previous-versions/azure/storage/queues/queues-v8-samples-java",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/data-lake-storage-use-power-bi.md",
             "redirect_url": "/power-query/connectors/datalakestorage",
             "redirect_document_id": false
@@ -265,6 +270,16 @@
             "redirect_url": "/azure/storage/blobs/archive-rehydrate-overview",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/data-lake-storage-migrate-gen1-to-gen2",
+            "redirect_document_id": false
+        },       
         {
             "source_path_from_root": "/articles/storage/blobs/storage-blob-service-sas-create-dotnet.md",
             "redirect_url": "/azure/storage/blobs/sas-service-create",
@@ -2353,6 +2368,11 @@
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
+            "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
             "redirect_document_id": true
         },
         {

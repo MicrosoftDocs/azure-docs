@@ -5,7 +5,7 @@ author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:
@@ -16,7 +16,7 @@ ms.devlang: python
 
 # Security and compliance certifications in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Customers experience an increasing demand for highly secure and compliant solutions as they face data breaches along with requests from governments to access online customer information. Important regulatory requirements such as [General Data Protection Regulation (GDPR)](/compliance/regulatory/gdpr) and [Sarbanes-Oxley (SOX)](/compliance/regulatory/offering-sox) make selecting cloud services that help customers achieve trust, transparency, security, and compliance essential.
 

@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  |               |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  |                                                                                                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [update_process_title](https://www.postgresql.org/docs/15/runtime-config-logging.html#GUC-UPDATE-PROCESS-TITLE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

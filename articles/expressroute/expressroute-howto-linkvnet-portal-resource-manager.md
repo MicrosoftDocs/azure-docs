@@ -3,7 +3,7 @@ title: 'Link a virtual network to ExpressRoute circuits - Azure portal'
 description: This article shows you how to create a connection to link a virtual network to Azure ExpressRoute circuits using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
@@ -22,7 +22,7 @@ zone_pivot_groups: expressroute-experience
 
 This article helps you create a connection to link a virtual network (virtual network) to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 

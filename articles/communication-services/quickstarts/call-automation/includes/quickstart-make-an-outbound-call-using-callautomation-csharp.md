@@ -2,8 +2,8 @@
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services Call Automation
-author: anujb-msft
-ms.author: anujb-msft
+author: jutik0
+ms.author: jutik0
 ms.date: 11/29/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -36,6 +36,7 @@ devtunnel create --allow-anonymous
 devtunnel port create -p 8080
 devtunnel host
 ```
+Alternatively, follow instructions to set up your Azure DevTunnel in [Visual Studio](/aspnet/core/test/dev-tunnels)
 
 ## Update your application configuration
 
@@ -233,7 +234,7 @@ To run the application with VS Code, open a Terminal window and run the followin
 ```bash
 dotnet run
 ```
-
+Open `http://localhost:8080/swagger/index.html` or your dev tunnel URL in browser. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`
 # [Visual Studio](#tab/visual-studio)
 
-Press Ctrl+F5 to run without the debugger.
+Press Ctrl+F5 to run the web application without the debugger. The web browser automatically opens to a tunnel URL. The tunnel URL looks like: `<YOUR DEV TUNNEL ENDPOINT>/swagger/index.html`

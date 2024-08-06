@@ -68,6 +68,8 @@ items:
   items:
   - name: App and deployment
     href: concept-understand-app-and-deployment.md
+  - name: Job
+    href: concept-job.md
   - name: Version support for Java, Spring Boot, and more
     href: concept-app-customer-responsibilities.md
   - name: Blue-green deployment strategies
@@ -80,8 +82,6 @@ items:
     href: concept-app-status.md
   - name: Memory
     items:
-    - name: Java memory management
-      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: tools-to-troubleshoot-memory-issues.md
     - name: Fix app restart issues caused by OOM
@@ -128,6 +128,8 @@ items:
     items:
     - name: Prepare a Java Spring app for deployment
       href: how-to-prepare-app-deployment.md?tabs=enterprise-plan
+    - name: Manage and use jobs
+      href: how-to-manage-job.md
     - name: Use Application Configuration Service
       href: how-to-enterprise-application-configuration-service.md
     - name: Use Build Service
@@ -136,6 +138,8 @@ items:
       href: how-to-enterprise-configure-apm-integration-and-ca-certificates.md
     - name: Use Service Registry
       href: how-to-enterprise-service-registry.md
+    - name: Set up a Config Server
+      href: how-to-config-server.md?pivots=sc-enterprise
     - name: Use API portal
       href: how-to-use-enterprise-api-portal.md
     - name: Spring Cloud Gateway

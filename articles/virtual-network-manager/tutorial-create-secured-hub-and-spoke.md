@@ -3,17 +3,15 @@ title: 'Tutorial: Create a secured hub and spoke network'
 description: In this tutorial, you learn how to create a hub and spoke network topology for your virtual networks using Azure Virtual Network Manager. Then you secure your network by blocking outbound traffic on ports 80 and 443.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: tutorial
-ms.date: 08/01/2023
+ms.date: 06/26/2024
 ms.custom: FY23 content-maintenance, engagement-FY24
 ---
 
 # Tutorial: Create a secured hub and spoke network
 
 In this tutorial, you create a hub and spoke network topology using Azure Virtual Network Manager. You then deploy a virtual network gateway in the hub virtual network to allow resources in the spoke virtual networks to communicate with remote networks using VPN. Also, you configure a security configuration to block outbound network traffic to the internet on ports 80 and 443. Last, you verify that configurations were applied correctly by looking at the virtual network and virtual machine settings.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 In this tutorial, you learn how to:
 
@@ -101,26 +99,16 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete. However, you may find **gw-learn-hub-eastus-001** doesn't display that it has a gateway due to timing and sync across the Azure portal.
 
-## Create a dynamic network group
+## Create a network group
 
-1. Go to your Azure Virtual Network Manager instance. This tutorial assumes you've created one using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
+> [!NOTE]
+> This how-to guide assumes you created a network manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
 
-1. Select **Network groups** under *Settings*, and then select **+ Create** to create a new network group.
+[!INCLUDE [virtual-network-manager-create-network-group](../../includes/virtual-network-manager-create-network-group.md)]
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-network-group-2.png" alt-text="Screenshot of add a network group button.":::
+## Define dynamic group membership with Azure policy
 
-1. On the **Create a network group** screen, enter the following information:
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/create-network-group.png" alt-text="Screenshot of the Basics tab on Create a network group page.":::
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter **ng-learn-prod-eastus-001** for the network group name. |
-    | Description | Provide a description about this network group. |
-
-1. Select **Create** to create the virtual network group.
-1. From the **Network groups** page, select the created network group from above to configure the network group.
-1. On the **Overview** page, select **Create Azure Policy** under *Create policy to dynamically add members*.
+1. From the list of network groups, select **ng-learn-prod-eastus-001**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/define-dynamic-membership.png" alt-text="Screenshot of the defined dynamic membership button.":::
 

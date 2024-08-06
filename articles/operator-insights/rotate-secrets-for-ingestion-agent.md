@@ -4,7 +4,7 @@ description: Learn how to rotate secrets for Azure Operator Insights ingestion a
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 02/29/2024
 

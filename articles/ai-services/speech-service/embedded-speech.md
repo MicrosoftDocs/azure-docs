@@ -131,7 +131,7 @@ Follow these steps to install the Speech SDK for Java using Apache Maven:
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk-embedded</artifactId>
-            <version>1.37.0</version>
+            <version>1.38.0</version>
             </dependency>
         </dependencies>
     </project>
@@ -152,7 +152,7 @@ Be sure to use the `@aar` suffix when the dependency is specified in `build.grad
 
 ```
 dependencies {
-    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.37.0@aar'
+    implementation 'com.microsoft.cognitiveservices.speech:client-sdk-embedded:1.38.0@aar'
 }
 ```
 ::: zone-end
@@ -288,8 +288,8 @@ For embedded voices, it's essential to note that certain SSML tags might not be 
 |-----------------|-----------|-------------------------------------------------------|--------------------------|
 | audio           | src       |                                                       | No                       |
 | bookmark        |           |                                                       | Yes                      |
-| break           | strength  |                                                       | No                       |
-|                 | time      |                                                       | No                       |
+| break           | strength  |                                                       | Yes                       |
+|                 | time      |                                                       | Yes                       |
 | silence         | type      | Leading, Tailing, Comma-exact, etc.                   | No                       |
 |                 | value     |                                                       | No                       |
 | emphasis        | level     |                                                       | No                       |

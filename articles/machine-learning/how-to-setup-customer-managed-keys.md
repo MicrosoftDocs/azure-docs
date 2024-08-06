@@ -9,9 +9,9 @@ ms.custom:
   - engagement-fy23
   - ignite-2023
 ms.topic: conceptual
-ms.author: jhirono
-author: jhirono
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 09/12/2023
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -155,7 +155,7 @@ For more information on creating and using a deployment configuration, see the f
 :::moniker-end
 ### Azure Kubernetes Service
 
-You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md). 
+You may encrypt a deployed Azure Kubernetes Service resource using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys). 
 
 This process allows you to encrypt both the Data and the OS Disk of the deployed virtual machines in the Kubernetes cluster.
 

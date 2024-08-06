@@ -2,11 +2,11 @@
 title: How to generate & transfer HSM-protected keys – BYOK – Azure Key Vault 
 description: Use this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault. Also known as bring your own key (BYOK).
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: devtiw
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 01/30/2024
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # Import HSM-protected keys to Key Vault (BYOK)
 
-For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will never leave the HSM boundary. This scenario often is referred to as *bring your own key* (BYOK). Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
+For added assurance when you use Azure Key Vault, you can import or generate a key in a hardware security module (HSM); the key will never leave the HSM boundary. This scenario often is referred to as *bring your own key (BYOK)*. Key Vault uses [FIPS 140 validated HSMs](/azure/key-vault/keys/about-keys#compliance) to protect your keys.
 
 Use the information in this article to help you plan for, generate, and transfer your own HSM-protected keys to use with Azure Key Vault.
 
@@ -30,7 +30,7 @@ For more information, and for a tutorial to get started using Key Vault (includi
 
 Here's an overview of the process. Specific steps to complete are described later in the article.
 
-* In Key Vault, generate a key (referred to as a *Key Exchange Key* (KEK)). The KEK must be an RSA-HSM key that has only the `import` key operation. Only Key Vault Premium and Managed HSM support RSA-HSM keys.
+* In Key Vault, generate a key (referred to as a *Key Exchange Key (KEK)*). The KEK must be an RSA-HSM key that has only the `import` key operation. Only Key Vault Premium and Managed HSM support RSA-HSM keys.
 * Download the KEK public key as a .pem file.
 * Transfer the KEK public key to an offline computer that is connected to an on-premises HSM.
 * In the offline computer, use the BYOK tool provided by your HSM vendor to create a BYOK file.

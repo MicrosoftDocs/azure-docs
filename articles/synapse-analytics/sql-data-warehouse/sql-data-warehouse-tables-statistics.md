@@ -1,7 +1,7 @@
 ---
 title: Create and update statistics on tables
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 05/09/2018

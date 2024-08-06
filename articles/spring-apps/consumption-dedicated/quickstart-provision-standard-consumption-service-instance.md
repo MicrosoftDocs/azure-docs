@@ -3,7 +3,7 @@ title: Quickstart - Provision an Azure Spring Apps Standard consumption and dedi
 description: Learn how to create a Standard consumption and dedicated plan in Azure Spring Apps for app deployment.
 author: KarlErickson
 ms.author: xuycao
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/21/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -143,7 +143,7 @@ You can create the Azure Container Apps environment in one of two ways:
 1. At this point, you've created an Azure Container Apps environment with a default standard consumption workload profile. You can also add a dedicated workload profile to the same Azure Container Apps environment by using the following command:
 
    ```azurecli
-   az containerapp env workload-profile set \
+   az containerapp env workload-profile add \
        --resource-group $RESOURCE_GROUP \
        --name $AZURE_CONTAINER_APPS_ENVIRONMENT \
        --workload-profile-name my-wlp \

@@ -48,8 +48,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
 2. On the **Settings** tab, provide a name for the module and then specify the container image URI:
 
-   Examples:
-  
    - **IoT Edge Module Name**: `azureblobstorageoniotedge`
    - **Image URI**: `mcr.microsoft.com/azure-blob-storage:latest`
 
@@ -58,7 +56,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    Don't select **Add** until you've specified values on the **Module Settings**, **Container Create Options**, and  **Module Twin Settings** tabs as described in this procedure.
 
    > [!IMPORTANT]
-   > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
+   > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
 3. Open the **Container Create Options** tab.
 

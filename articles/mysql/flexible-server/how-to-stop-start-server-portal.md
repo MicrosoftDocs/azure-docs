@@ -1,12 +1,13 @@
 ---
 title: Stop/start by using the Azure portal
 description: This article describes how to stop/start operations in Azure Database for MySQL - Flexible Server by using the Azure portal.
-ms.service: mysql
-ms.subservice: flexible-server
-ms.topic: how-to
 author: VandhanaMehta
 ms.author: vamehta
-ms.date: 09/29/2020
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
+ms.subservice: flexible-server
+ms.topic: how-to
 ---
 
 # Stop/Start an Azure Database for MySQL - Flexible Server instance

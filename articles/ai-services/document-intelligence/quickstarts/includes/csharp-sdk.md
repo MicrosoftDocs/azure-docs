@@ -44,7 +44,7 @@ In this quickstart, use the following features to analyze and extract data and v
 
 :::moniker range="doc-intel-4.0.0"
 
-* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure AI multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint.
+* An Azure AI services or Document Intelligence resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure AI multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource, in the Azure portal, to get your key and endpoint.
 
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -59,7 +59,7 @@ In this quickstart, use the following features to analyze and extract data and v
 
 :::moniker range="doc-intel-3.1.0 || doc-intel-3.0.0"
 
-* An Azure AI services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure AI multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint.
+* An Azure AI services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Azure AI multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource, in the Azure portal, to get your key and endpoint.
 
 * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -96,7 +96,7 @@ In this quickstart, use the following features to analyze and extract data and v
 
 :::moniker-end
 
-5. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
+5. In the **Additional information** dialog window, select **.NET 8.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../../media/quickstarts/additional-information.png" alt-text="Screenshot of Visual Studio's additional information dialog window.":::
 

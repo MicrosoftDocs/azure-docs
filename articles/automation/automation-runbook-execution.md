@@ -3,9 +3,10 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/28/2022
+ms.date: 06/27/2024
 ms.topic: conceptual
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Runbook execution in Azure Automation
@@ -24,7 +25,7 @@ The following diagram shows the lifecycle of a runbook job for [PowerShell runbo
 
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 ## Runbook execution environment
 
@@ -148,6 +149,7 @@ The following table describes the statuses that are possible for a job. You can 
 | Stopping |The system is stopping the job. |
 | Suspended |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The job was suspended by the user, by the system, or by a command in the runbook. If a runbook doesn't have a checkpoint, it starts from the beginning. If it has a checkpoint, it can start again and resume from its last checkpoint. The system only suspends the runbook when an exception occurs. By default, the `ErrorActionPreference` variable is set to Continue, indicating that the job keeps running on an error. If the preference variable is set to Stop, the job suspends on an error.  |
 | Suspending |Applies to [graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. The system is trying to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, it completes before it can be suspended. |
+| New | The job has been submitted recently but is not yet activated.|
 
 ## Activity logging
 

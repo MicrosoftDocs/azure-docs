@@ -3,7 +3,7 @@ title: Monitor with geo maps in Azure portal
 description: Learn about geo maps for RAN insights resource 
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: concept-article 
 ms.date: 5/28/2024
 
@@ -18,7 +18,7 @@ Once you have [set up](ran-insights-create-resource.md) your radio access networ
 ## Set up geo maps
 Geo maps provide a visual understanding of your network by showcasing all access points and their health status. 
 
-To get started, you'll need an existing Azure Maps resource or [create](https://learn.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) a new one. To create a new Azure Map resource: 
+To get started, you'll need an existing Azure Maps resource or [create](/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) a new one. To create a new Azure Map resource: 
 1.	Go to the Azure Marketplace, search for Azure Maps.
 1.	Select the Azure Map and select on **Create** to create a new Azure Map account.
 1.	On the **Basics** tab, use the same subscription and resource group that was used for the RAN insights resource. Enter a name for the Azure Map resource, select the region, and choose the default pricing model. 

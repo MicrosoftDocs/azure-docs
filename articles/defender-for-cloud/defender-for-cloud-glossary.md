@@ -95,7 +95,7 @@ Change access control list, Microsoft Windows native command-line utility often 
 
 ### **CIS Benchmark**
 
-(Kubernetes) Center for Internet Security benchmark. See [CIS](../aks/cis-kubernetes.md).
+(Kubernetes) Center for Internet Security benchmark. See [CIS](/azure/aks/cis-kubernetes).
 
 ### **Cloud security graph**
 

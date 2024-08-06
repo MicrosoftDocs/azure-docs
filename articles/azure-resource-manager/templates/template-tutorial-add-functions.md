@@ -1,7 +1,7 @@
 ---
 title: Tutorial - add template functions
 description: Add template functions to your Azure Resource Manager template (ARM template) to construct values.
-ms.date: 07/28/2023
+ms.date: 06/20/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

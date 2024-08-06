@@ -378,6 +378,6 @@ The Microsoft Defender for Storage account inherits the tag of the Databricks wo
 
 ## Next steps
 
-- Check out the [alerts for Azure Storage](alerts-reference.md#alerts-for-azure-storage)
+- Check out the [alerts for Azure Storage](alerts-azure-storage.md)
 - Learn about the [features and benefits of Defender for Storage](defender-for-storage-introduction.md)
 - Check out [common questions](faq-defender-for-storage-classic.yml) about Defender for Storage classic.

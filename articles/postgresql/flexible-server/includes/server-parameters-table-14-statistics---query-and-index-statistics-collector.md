@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `pg_stat_tmp` |
 | Allowed values | `pg_stat_tmp`  |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [stats_temp_directory](https://www.postgresql.org/docs/14/runtime-config-statistics.html#GUC-STATS-TEMP-DIRECTORY) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
