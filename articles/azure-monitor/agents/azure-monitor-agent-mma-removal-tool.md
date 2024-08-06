@@ -11,7 +11,7 @@ ms.custom:
 ---
 # MMA/OMS Discovery and Removal Utility
 
-After you migrate your machines to the Azure Monitor Agent (AMA), remove the legacy Log Analytics Agent, MMA or OMS depending on your operating systems, to avoid duplication of logs. The legacy Discovery and Removal Utility can remove the extensions from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets (VMSSs), and Azure Arc servers from a single subscription.  
+After you migrate your machines to the Azure Monitor Agent (AMA), remove the legacy Log Analytics Agent, MMA or OMS depending on your operating systems, to avoid duplication of logs. The legacy Discovery and Removal Utility can remove the extensions from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets, and Azure Arc servers from a single subscription.  
 
 The utility works in two steps:
 
@@ -33,7 +33,7 @@ Do all the setup steps on an Internet connected machine. You need:
 
 
 ## Step 1 Login and set subscription
-The tool works one subscription at a time. You must login and set the subscription to do the removal. Open a PowerShell command prompt as administrator and login.
+The tool works one subscription at a time. You must log in and set the subscription to do the removal. Open a PowerShell command prompt as administrator and login.
 
 ``` PowerShell
 az login
@@ -44,7 +44,7 @@ Next you must set your subscription.
 Az account set --subscription {subscription_id or “subscription_name”}
    ```
 ## Step 2 Copy the script
-You will use the following script for agent removal. Open a file in your local directory named MMAUnistallUtilityScript.ps1 and copy the script into the file.
+You'll use the following script for agent removal. Open a file in your local directory named MMAUnistallUtilityScript.ps1 and copy the script into the file.
    ``` PowerShell
    # This is per subscription, the customer has to set the az subscription before running this.
 # az login
@@ -234,11 +234,11 @@ switch ($args.Count)
    ```
 
 ## Step 3 Get inventory
-You must collect a list of all legacy agents, both MMA and OMS, on all VM, VMSS and Arc enabled server in the subscription. Run the script you downloaded to your file to product and inventory of legacy agents in your subscription.
+You must collect a list of all legacy agents, both MMA and OMS, on all VM, Virtual Machine Scale Sets, and Arc enabled server in the subscription. Run the script you downloaded to your file to product and inventory of legacy agents in your subscription.
    ``` PowerShell
    .\MMAUnistallUtilityScript.ps1 GetInventory
    ```
-The script will report the total VM, VMSS, or Arc enables servers seen in the subscription. It will take several minutes to run. You will see a progress bar in the console window. Once complete there will be a CSV file called MMAInventory.csv in the local directory with the following format.
+The script will report the total VM, Virtual Machine Scale Sets, or Arc enables servers seen in the subscription. It will take several minutes to run. You'll see a progress bar in the console window. Once complete there will be a CSV file called MMAInventory.csv in the local directory with the following format.
 
 |Resource_Group | Resource_Type | Name | Install_Type |Extension_Name |
 |---|---|---|---|---|
@@ -246,10 +246,9 @@ The script will report the total VM, VMSS, or Arc enables servers seen in the su
 |AMA-ADMIN        | VM | test2012-r2-da                    | Extension | MicrosoftMonitorAgent |
 
 ## Step 4 Uninstall inventory
-This script iterates through the list of VM, VMSS, and Arc enabled servers and uninstalls the legacy agent. If the VM, VMSS, or Arc enabled server is not running you will not be able to remove the agent. 
+This script iterates through the list of VM, Virtual Machine Scale Sets, and Arc enabled servers and uninstalls the legacy agent. If the VM, Virtual Machine Scale Sets, or Arc enabled server is not running you won't be able to remove the agent. 
    ``` PowerShell
    .\MMAUnistallUtilityScript.ps1 UninstallMMAExtension
    ```
-Once the script is complete you will be able to see the removal status for your VM, VMSS and Arc enabled servers in the MMAInventory.csv file.
+Once the script is complete you'll be able to see the removal status for your VM, Virtual Machine Scale Sets, and Arc enabled servers in the MMAInventory.csv file.
 
----
