@@ -4,7 +4,6 @@ metadata:
   description: Frequently asked questions and best practices for using Windows Enterprise multi-session for Azure Virtual Desktop.
   author: Heidilohr
   ms.topic: faq
-  ms.service: windows
   ms.date: 08/02/2024
   ms.author: helohr
 title: Windows Enterprise multi-session FAQ

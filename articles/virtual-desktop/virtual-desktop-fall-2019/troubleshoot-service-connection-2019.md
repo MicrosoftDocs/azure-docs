@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
-manager: femila
 ---
 # Azure Virtual Desktop (classic) service connections
 

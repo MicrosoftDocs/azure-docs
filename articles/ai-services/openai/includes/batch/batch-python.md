@@ -266,7 +266,7 @@ Observe that there's both `error_file_id` and a separate `output_file_id`. Use t
 ```python
 import json
 
-response = client.files.content(batch_response.output_file_id)
+file_response = client.files.content(batch_response.output_file_id)
 raw_responses = file_response.text.strip().split('\n')  
 
 for raw_response in raw_responses:  

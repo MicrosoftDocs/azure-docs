@@ -347,8 +347,7 @@ Looks like we scored 5 for coherence and fluency of the LLM responses on this co
 For more information on how to use prompt flow evaluators, including how to make your own custom evaluators and log evaluation results to AI Studio, be sure to check out [Evaluate your app using the prompt flow SDK](../how-to/develop/flow-evaluate-sdk.md).
 
 
-## Related content
+## Next step
 
-- [Quickstart: Create a project and use the chat playground in Azure AI Studio](./get-started-playground.md)
-- [Work with projects in VS Code](../how-to/develop/vscode.md)
-- [Overview of the Azure AI SDKs](../how-to/develop/sdk-overview.md)
+> [!div class="nextstepaction"]
+> [Augment the model with data for retrieval augmented generation (RAG)](../tutorials/copilot-sdk-build-rag.md)

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 04/05/2022
 ms.author: helohr
-manager: femila
 ---
 
 # Azure Virtual Desktop (classic) PowerShell
