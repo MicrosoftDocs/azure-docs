@@ -1,18 +1,18 @@
 ---
 title: What is Azure Modeling and Simulation Workbench?
 description: A brief overview of Azure Modeling and Simulation Workbench
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
+author: becha8
+ms.author: becha
+ms.reviewer: becha
 ms.service: modeling-simulation-workbench
 ms.topic: overview
-ms.date: 03/15/2024
+ms.date: 08/05/2024
 #Customer intent: As a new Modeling and Simulation Workbench user, I want to understand about Azure Modeling and Simulation Workbench so that I can use the environment for creating chambers and connectors.
 ---
 
 # What is Azure Modeling and Simulation Workbench?
 
-Azure Modeling and Simulation Workbench is a secure, on-demand service that provides a fully managed engineering design and simulation environment for safe and efficient user collaboration. The service incorporates many infrastructure services required to build a successful environment for engineering development, such as: workload specific VMs, scheduler, orchestration, license server, remote connectivity, high performance storage, network configurations, security, and access controls.
+The Azure Modeling and Simulation Workbench is a secure, on-demand service that provides a fully managed engineering design and simulation environment for secure and efficient user collaboration. The service incorporates infrastructure services required to build a successful environment for engineering development, such as: workload specific VMs, scheduler, orchestration, license server, remote connectivity, high performance storage, network configurations, security, and access controls.
 
 - A chamber environment enables primary development teams to onboard their collaborators (customers, partners, ISVs, service/IP providers) for joint analysis/debug activity within the same chamber.
 - Multi-layered security and access controls allow users to monitor, scale, and optimize the compute and storage capacity as needed.
@@ -41,10 +41,12 @@ Storage (both private within chamber, and shared) is persistent with high availa
 To use the Modeling and Simulation Workbench APIs, you must create your Azure Modeling and Simulation Workbench resources in the supported regions. Currently, it's available in the following Azure regions:
 
 - East US
-- Sweden Central
+- West US 2
 - West US 3
-- USGov Virginia
+- Sweden Central
 - USGov Arizona
+- USGov Virginia
+
 
 ## Contact us
 
