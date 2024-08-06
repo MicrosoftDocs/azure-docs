@@ -68,7 +68,7 @@ To create a cache, follow these steps:
 
 - [Why can't I enable zone redundancy when creating a Premium cache?](#why-cant-i-enable-zone-redundancy-when-creating-a-premium-cache)
 - [Why can't I select all three zones during cache create?](#why-cant-i-select-all-three-zones-during-cache-create)
-- [Can I update my existing Premium cache to use zone redundancy?](#can-i-update-my-existing-premium-cache-to-use-zone-redundancy)
+- Can I update my existing Standard or Premium cache to use zone redundancy?
 - [How much does it cost to replicate my data across Azure Availability Zones?](#how-much-does-it-cost-to-replicate-my-data-across-azure-availability-zones)
 
 ### Why can't I enable zone redundancy when creating a Premium cache?
@@ -79,9 +79,9 @@ Zone redundancy is available only in Azure regions that have Availability Zones.
 
 A Premium cache has one primary and one replica node by default. To configure zone redundancy for more than two Availability Zones, you need to add [more replicas](cache-how-to-multi-replicas.md) to the cache you're creating.
 
-### Can I update my existing Premium cache to use zone redundancy?
+### Can I update my existing Standard or Premium cache to use zone redundancy?
 
-Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu.
+Yes, updating an existing Standard or Premium cache to use zone redundancy is supported. You can enable it by selecting **Allocate Zones automatically** from the **Advanced settings** on the Resource menu. You cannot disable zone redundancy once you have enabled it. 
 
 ### How much does it cost to replicate my data across Azure Availability Zones?
 

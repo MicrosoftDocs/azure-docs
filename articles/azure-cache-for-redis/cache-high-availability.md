@@ -72,15 +72,13 @@ If a cache is configured to use two or more zones as described earlier in the ar
 > [!IMPORTANT]
 > You can now enable _automatic zone allocation_ for all caches in applicable tiers and regions. For more information, see [Enable zone redundancy for Azure Cache for Redis](cache-how-to-zone-redundancy.md).
 
-### Standard and Premium tiers
+### Premium tier
 
-The following diagram illustrates the zone redundant configuration for the Standard and Premium tiers:
+The following diagram illustrates the zone redundant configuration for the Premium tier:
 
 :::image type="content" source="media/cache-high-availability/zone-redundancy.png" alt-text="Zone redundancy setup":::
 
 Azure Cache for Redis distributes nodes in a zone redundant cache in a round-robin manner over the selected Availability Zones. It also determines the node that serves as the primary initially.
-
-For Standard and Premium deployments where you selected **Select zones automatically**, the zones are selected automatically.
 
 #### Zone Down Experience for Premium tier
 
