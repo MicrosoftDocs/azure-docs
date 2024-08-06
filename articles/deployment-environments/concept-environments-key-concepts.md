@@ -2,7 +2,7 @@
 title: Key concepts and roles
 titleSuffix: Azure Deployment Environments
 description: Learn the key concepts, role definitions, features, and terminology for Azure Deployment Environments.
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: concept-article
 ms.author: rosemalcolm

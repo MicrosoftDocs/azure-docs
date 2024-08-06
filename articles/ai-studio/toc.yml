@@ -10,8 +10,6 @@ items:
     href: concepts/architecture.md
   - name: Region support
     href: reference/region-support.md
-  - name: What's new in Azure AI Studio?
-    href: whats-new.md
   - name: Azure AI FAQ
     href: faq.yml
 - name: Quickstarts
@@ -34,7 +32,6 @@ items:
   - name: Build your own copilot with prompt flow UI
     href: tutorials/deploy-copilot-ai-studio.md
   - name: Build your own copilot with the prompt flow SDK
-    expanded: true
     items:
       - name: "Part 1: Build a custom copilot that implements RAG"
         href: tutorials/copilot-sdk-build-rag.md
@@ -88,6 +85,8 @@ items:
       displayName: endpoint
     - name: Fine-tune models
       href: concepts/fine-tuning-overview.md
+    - name: Distillation
+      href: concepts/concept-model-distillation.md
     - name: Serverless API models
       items:
       - name: Deploy models as serverless API
@@ -110,6 +109,8 @@ items:
         href: how-to/deploy-models-cohere-command.md
       - name: Deploy Cohere Embed models
         href: how-to/deploy-models-cohere-embed.md
+      - name: Deploy Cohere Rerank models
+        href: how-to/deploy-models-cohere-rerank.md
     - name: Meta Llama models
       items:
       - name: Deploy Meta Llama family models
@@ -118,13 +119,15 @@ items:
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md
-    - name: Deploy Jamba Instruct model
+    - name: Deploy AI21 Jamba Instruct model
       href: how-to/deploy-models-jamba.md
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
       displayName: maas
     - name: Deploy Phi-3 models
       href: how-to/deploy-models-phi-3.md
+    - name: Fine-tune Phi-3 models
+      href: how-to/fine-tune-phi-3.md
     - name: Deploy TimeGEN-1 model
       href: how-to/deploy-models-timegen-1.md
     - name: Deploy open models
@@ -142,6 +145,8 @@ items:
       href: how-to/index-add.md
     - name: Build and consume indexes using code
       href: how-to/develop/index-build-consume-sdk.md
+    - name: Synthetic Data Generation
+      href: concepts/concept-synthetic-data.md
       displayName: code,sdk
   - name: Develop generative AI apps
     items:
@@ -181,6 +186,8 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs
@@ -371,3 +378,5 @@ items:
     href: https://azure.microsoft.com/blog/
   - name: Artificial Intelligence and Machine Learning Blog
     href: https://techcommunity.microsoft.com/t5/artificial-intelligence-and/ct-p/AI
+  - name: LLMOps with Prompt Flow
+    href: https://github.com/microsoft/llmops-promptflow-template

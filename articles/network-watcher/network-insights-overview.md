@@ -4,7 +4,7 @@ description: An overview of Azure Monitor Network Insights, which provides a com
 author: halkazwini
 ms.author: halkazwini
 ms.reviewer: saggupta
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 04/19/2024
 ms.custom: subject-monitoring

@@ -1,7 +1,7 @@
 ---
 title: MSI Support to Access Azure services
 description: Learn how to provide MSI Support to Access Azure services.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 07/09/2024

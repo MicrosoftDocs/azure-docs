@@ -279,7 +279,7 @@ Once you have access to the reporting tool, use the following steps to set up yo
         
         ```json
          "dependencies": {
-                    "@microsoft/mpt-reporter": "0.1.0-22052024-private-preview"
+                    "@microsoft/mpt-reporter": "0.1.0-19072024-private-preview"
             }
         ```
         

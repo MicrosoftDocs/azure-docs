@@ -1,7 +1,7 @@
 ---
 title: Use Azure Table storage or Azure Cosmos DB for Table from Node.js
 description: Store structured data in the cloud using Azure Tables client library for Node.js.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: javascript
 ms.topic: sample

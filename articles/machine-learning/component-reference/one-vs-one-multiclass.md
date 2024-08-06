@@ -3,7 +3,7 @@ title: "One-vs-One Multiclass"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the One-vs-One Multiclass component in Azure Machine Learning to create a multiclass classification model from an ensemble of binary classification models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

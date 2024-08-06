@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 06/20/2024
 ms.custom: references_regions, linux-related-content
 ms.reviewer: sharrai
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -194,6 +194,7 @@ Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Microsoft Entra app).<br/><br/> Encrypted VMs can't be recovered at the file or folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that Azure Backup is already protecting. <br><br> You can back up and restore disks encrypted via platform-managed keys or customer-managed keys. You can also assign a disk-encryption set while restoring in the same region. That is, providing a disk-encryption set while performing cross-region restore is currently not supported. However, you can assign the disk-encryption set to the restored disk after the restore is complete.
 Disks with a write accelerator enabled | Azure VMs with disk backup for a write accelerator became available in all Azure public regions on May 18, 2022. If disk backup for a write accelerator is not required as part of VM backup, you can choose to remove it by using the [selective disk feature](selective-disk-backup-restore.md). <br><br>**Important** <br> Virtual machines with write accelerator disks need internet connectivity for a successful backup, even though those disks are excluded from the backup.
 Disks enabled for access with a private endpoint | Supported.
+Disks with both public and private access disabled | Supported.
 Backup and restore of deduplicated VMs or disks | Azure Backup doesn't support deduplication. For more information, see [this article](./backup-support-matrix.md#disk-deduplication-support). <br/> <br/>  Azure Backup doesn't deduplicate across VMs in the Recovery Services vault. <br/> <br/>  If there are VMs in a deduplication state during restore, the files can't be restored because the vault doesn't understand the format. However, you can successfully perform the full VM restore.
 Adding a disk to a protected VM | Supported.
 Resizing a disk on a protected VM | Supported.

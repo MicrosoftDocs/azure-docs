@@ -3,7 +3,7 @@ title: Create and encrypt a Linux VM with Azure CLI
 description: In this quickstart, you learn how to use Azure CLI to create and encrypt a Linux virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.collection: linux
 ms.subservice: disks
 ms.topic: quickstart

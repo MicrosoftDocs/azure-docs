@@ -3,7 +3,7 @@ title: How to deploy TimeGEN-1 model with Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy TimeGEN-1 with Azure Machine Learning studio.
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
 ms.date: 5/21/2024
@@ -46,11 +46,10 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure Machine Learning. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-### Pricing information
 
 #### Estimate the number of tokens needed
 
-Before you create a deployment, it's useful to estimate the number of tokens that you plan to use and be billed for.
+Before you create a deployment, it's useful to estimate the number of tokens that you plan to consume and be billed for.
 One token corresponds to one data point in your input dataset or output dataset.
 
 Suppose you have the following input time series dataset:
@@ -71,15 +70,15 @@ Given the following output dataset:
 
 You can also determine the number of tokens by counting the number of data points returned after data forecasting. In this example, the number of tokens is two.
 
-#### Estimate the pricing
+#### Estimate pricing based on tokens
 
-There are four pricing meters, as described in the following table:
+There are four pricing meters that determine the price you pay. These meters are as follows:
 
-| Pricing Meter                                 | Description                                                                             |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------|
-| paygo-inference-input-tokens                  | Costs associated with the tokens used as input for inference when *finetune_steps* = 0  |
-| paygo-inference-output-tokens                 | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
-| paygo-finetuned-model-inference-input-tokens  | Costs associated with the tokens used as input for inference when *finetune_steps* > 0  |
+| Pricing Meter | Description |
+|--|--|
+| paygo-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* = 0 |
+| paygo-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
+| paygo-finetuned-model-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* > 0 |
 | paygo-finetuned-model-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* > 0 |
 
 ### Create a new deployment

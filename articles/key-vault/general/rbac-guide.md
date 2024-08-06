@@ -3,7 +3,7 @@ title: Grant permission to applications to access an Azure key vault using Azure
 description: Learn how to provide access to keys, secrets, and certificates using Azure role-based access control.
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
@@ -21,20 +21,17 @@ ms.author: mbaldwin
 
 Azure role-based access control (Azure RBAC) is an authorization system built on [Azure Resource Manager](../../azure-resource-manager/management/overview.md) that provides centralized access management of Azure resources.
 
-Azure RBAC allows users to manage Key, Secrets, and Certificates permissions. It provides one place to manage all permissions across all key vaults.
+Azure RBAC allows users to manage keys, secrets, and certificates permissions, and provides one place to manage all permissions across all key vaults.
 
-The Azure RBAC model allows users to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates
+The Azure RBAC model allows users to set permissions on different scope levels: management group, subscription, resource group, or individual resources.  Azure RBAC for key vault also allows users to have separate permissions on individual keys, secrets, and certificates.
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## Best Practices for individual keys, secrets, and certificates role assignments
 
-Our recommendation is to use a vault per application per environment
-(Development, Pre-Production, and Production) with roles assigned at Key Vault scope.
+Our recommendation is to use a vault per application per environment (Development, Pre-Production, and Production) with roles assigned at the key vault scope.
 
-Assigning roles on individual keys, secrets and certificates should be avoided. Exceptions to general guidance:
-
-- Scenarios where individual secrets must be shared between multiple applications, for example, one application needs to access data from the other application
+Assigning roles on individual keys, secrets and certificates should be avoided. An exception is a scenario where individual secrets must be shared between multiple applications; for example, where one application needs to access data from another application.
 
 More about Azure Key Vault management guidelines, see:
 
@@ -69,18 +66,18 @@ For more information about Azure built-in roles definitions, see [Azure built-in
 
 ## Using Azure RBAC secret, key, and certificate permissions with Key Vault
 
-The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model. 
+The new Azure RBAC permission model for key vault provides alternative to the vault access policy permissions model.
 
 ### Prerequisites
 
 You must have an Azure subscription. If you don't, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator),or [Owner](../../role-based-access-control/built-in-roles.md#owner).
+To manage role assignments, you must have `Microsoft.Authorization/roleAssignments/write` and `Microsoft.Authorization/roleAssignments/delete` permissions, such as [Key Vault Data Access Administrator](../../role-based-access-control/built-in-roles.md#key-vault-data-access-administrator) (with restricted permissions to only assign/remove specific Key Vault roles), [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator), or [Owner](../../role-based-access-control/built-in-roles.md#owner).
 
 ### Enable Azure RBAC permissions on Key Vault
 
 > [!NOTE]
-> Changing permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
+> Changing the permission model requires unrestricted 'Microsoft.Authorization/roleAssignments/write' permission, which is part of the [Owner](../../role-based-access-control/built-in-roles.md#owner) and [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) roles. Classic subscription administrator roles like 'Service Administrator' and 'Co-Administrator', or restricted 'Key Vault Data Access Administrator' cannot be used to change permission model.
 
 1. Enable Azure RBAC permissions on new key vault:
 
@@ -95,8 +92,8 @@ To manage role assignments, you must have `Microsoft.Authorization/roleAssignmen
 
 ### Assign role
 
-> [!Note]
-> It's recommended to use the unique role ID instead of the role name in scripts. Therefore, if a role is renamed, your scripts would continue to work. In this document role name is used only for readability.
+> [!NOTE]
+> It's recommended to use the unique role ID instead of the role name in scripts. Therefore, if a role is renamed, your scripts would continue to work. In this document role name is used for readability.
 
 # [Azure CLI](#tab/azure-cli)
 

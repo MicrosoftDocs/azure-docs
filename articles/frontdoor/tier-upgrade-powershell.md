@@ -3,7 +3,7 @@ title: Upgrade from Azure Front Door Standard to Premium with Azure PowerShell
 description: This article shows you how to upgrade from an Azure Front Door Standard to an Azure Front Door Premium profile with Azure PowerShell.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/05/2023

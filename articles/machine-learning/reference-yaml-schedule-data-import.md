@@ -3,7 +3,7 @@ title: 'CLI (v2) schedule YAML schema for data import (preview)'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) data import schedule YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

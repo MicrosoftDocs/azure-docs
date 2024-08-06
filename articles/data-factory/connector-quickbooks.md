@@ -4,7 +4,6 @@ description: Learn how to copy data from QuickBooks Online to supported sink dat
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -108,6 +107,12 @@ The following properties are supported for QuickBooks linked service:
 }
 ```
 
+### Handling refresh tokens for the linked service
+
+When you use the QuickBooks Online connector in a linked service, it's important to manage OAuth 2.0 refresh tokens from QuickBooks correctly. The linked service uses a refresh token to obtain new access tokens. However, QuickBooks Online periodically updates the refresh token, invalidating the previous one. The linked service does not automatically update the refresh token in Azure Key Vault, so you need to manage updating the refresh token to ensure uninterrupted connectivity. Otherwise you might encounter authentication failures once the refresh token expires.
+
+You can manually update the refresh token in Azure Key Vault based on QuickBooks Online's refresh token expiry policy. But another approach is to automate updates with a scheduled task or [Azure Function](https://github.com/Azure-Samples/serverless-keyvault-secret-rotation-handling) that checks for a new refresh token and updates it in Azure Key Vault.
+
 ## Dataset properties
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by QuickBooks dataset.
@@ -187,7 +192,6 @@ The Copy Activity in the service cannot copy data directly from Quickbooks Deskt
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

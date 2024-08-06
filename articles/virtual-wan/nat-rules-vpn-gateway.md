@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure NAT rules for your VWAN VPN gateway.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc

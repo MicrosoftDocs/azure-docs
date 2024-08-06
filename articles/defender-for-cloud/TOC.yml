@@ -47,12 +47,12 @@
       href: plan-multicloud-security-get-started.md
     - name: Determine business needs
       displayName: needs, goals, business, requirements
-      ref: plan-multicloud-security-determine-business-needs.md
+      href: plan-multicloud-security-determine-business-needs.md
     - name: Define an adoption strategy
       displayName: strategy, adoption, ownership
       href: plan-multicloud-security-define-adoption-strategy.md
-    - name: Determine data residency requirements
-      displayName: data, residency, cspm, cwp, plan
+    - name: Determine plan and agents requirements
+      displayName: data, residency, cspm, cwp, plan, agent, requirements
       href: plan-multicloud-security-determine-data-residency-requirements.md
     - name: Determine compliance requirements
       displayName: compliance, standards
@@ -855,6 +855,11 @@
           - name: Enable Defender for SQL servers on machines
             href: defender-for-sql-usage.md
             displayName: hybrid, arc, Azure Defender
+          - name: Enable Defender for SQL servers on machines at scale
+            displayName: SQL, enable, scale, Defender, machines, SQL server, SQL servers, sql
+            href: enable-defender-sql-at-scale.md        
+          - name: Investigate Defender for SQL security alerts
+            href: defender-for-sql-alerts.md
           - name: Migrate to SQL server-targeted Azure Monitoring Agent's autoprovisioning
               process
             href: defender-for-sql-autoprovisioning.md
@@ -1153,6 +1158,12 @@
           href: episode-forty-six.md
         - name: Vulnerability management in Defender CSPM
           href: episode-forty-seven.md
+        - name: Microsoft CNAPP solution 
+          displayName: CNAPP
+          href: episode-forty-eight.md
+        - name: Microsoft Copilot for Security integration
+          displayName: Copilot, security
+          href: episode-forty-nine.md
     - name: Manage user data
       href: privacy.md
     - name: Microsoft Defender for IoT documentation

@@ -4,7 +4,7 @@ description: Best practices and considerations for customers to account for in t
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 07/22/2023
 ---

@@ -62,7 +62,7 @@ The [resource hierarchy article](resource-hierarchy.md) has more information abo
 
 ## Using Azure Storage Mover and Azure Data Box
 
-When transitioning on-premises workloads to Azure Storage, reducing downtime and ensuring predictable periods of unavailability is crucial for users and business operations. For the initial bulk migration, you can use [Azure Data Box](https://learn.microsoft.com/azure/databox/) and combine it with Azure Storage Mover for online catch-up.
+When transitioning on-premises workloads to Azure Storage, reducing downtime and ensuring predictable periods of unavailability is crucial for users and business operations. For the initial bulk migration, you can use [Azure Data Box](/azure/databox/) and combine it with Azure Storage Mover for online catch-up.
 
 Using Azure Data Box conserves significant network bandwidth. However, active workloads on your source storage might undergo changes while the Data Box is in transit to an Azure Data Center. The "online catch-up" phase involves updating your cloud storage with these changes before fully cutting over the workload to use the cloud data. This typically requires minimal bandwidth since most data already resides in Azure, and only the delta needs to be transferred. Azure Storage Mover excels in this task.
 

@@ -1,11 +1,11 @@
 ---
-title: Microsoft Copilot Security Integration with Defender for Cloud | Defender for Cloud in the field
-description: Learn about Microsoft's Defender for Cloud integration with Copilot for Security. This integration provides advanced security features and enhances cloud protection.
+title: Microsoft Copilot for Security integration with Defender for Cloud
+description: Learn about Microsoft's Defender for Cloud integration with Copilot for Security. This integration enhances cloud protection with advanced security features.
 ms.topic: reference
 ms.date: 06/18/2024
 ---
 
-# Microsoft Copilot Security Integration with Defender for Cloud
+# Microsoft Copilot for Security integration with Defender for Cloud
 
 **Episode description**: In this episode of Defender for Cloud in the Field, Asaf Nakash joins Yuri Diogenes to talk about Microsoft Copilot for Security integration with Defender for Cloud. Asaf talks about the benefits of leveraging AI to help improve security posture in cloud environment, and the different scenarios that Copilot for Security integrates with Defender for Cloud. Asaf also demonstrates how to use the embedded experience of Copilot of Security in Defender for Cloud.
   
@@ -27,7 +27,7 @@ ms.date: 06/18/2024
 - Follow us on social media:
 
   - [LinkedIn](https://www.linkedin.com/showcase/microsoft-security/)
-  - [Twitter](https://twitter.com/msftsecurity)
+  - [X](https://x.com/msftsecurity)
 
 - Join our [Tech Community](https://aka.ms/SecurityTechCommunity).
 

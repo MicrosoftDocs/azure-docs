@@ -1,7 +1,6 @@
 ---
 description: In this tutorial, you learn how to use the Chat composite on Web
-author: jorgegarc
-
+author: garchiro7
 ms.author: jorgegarc
 ms.date: 5/1/2023
 ms.topic: include
@@ -9,7 +8,7 @@ ms.service: azure-communication-services
 ---
 
 > [!NOTE]
-> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library).
+> For detailed documentation and quickstarts about the Web UI Library visit the [**Web UI Library Storybook**](https://aka.ms/acsstorybook).
 
 ## Prerequisites
 

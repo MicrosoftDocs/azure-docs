@@ -1,9 +1,8 @@
 ---
  title: Create a namespace topic
  description: This article shows you how to create a topic in an Azure Event Grid namespace.
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 02/29/2024
  ms.author: spelluru

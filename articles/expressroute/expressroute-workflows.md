@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Circuit configuration workflow'
 description: This page shows the workflow for configuring ExpressRoute circuits and peerings
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/30/2023
 ms.author: duau

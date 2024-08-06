@@ -4,7 +4,7 @@ description: Restore an Azure virtual machine from a recovery point by using the
 ms.reviewer: nikhilsarode
 ms.topic: how-to
 ms.date: 07/02/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
