@@ -30,7 +30,7 @@ To be notified when data collection stops, use the steps described in the [Alert
 ## Daily ingestion limit reached in legacy free pricing tier 
 If your Log Analytics workspace is in the [legacy Free pricing tier](cost-logs.md#legacy-pricing-tiers) and has collected more than 500 MB of data in a day, data collection stops for the rest of the day. Wait until the following day for collection to automatically restart, or change to a paid pricing tier.
 
-## Workspace reached ingestion volume rate limit
+## Ingestion volume rate limit reached
 The [default ingestion volume rate limit](../service-limits.md#log-analytics-workspaces) for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value because the actual size can vary between data types, depending on the log length and its compression ratio. This limit doesn't apply to data that's sent from agents or the [Logs ingestion API](logs-ingestion-api-overview.md). 
 
 If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the **Operation** table in your workspace every six hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you're expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or by opening a support request. 
