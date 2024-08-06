@@ -47,8 +47,6 @@ This preview introduces the `Unified US Tax` prebuilt model, which automatically
 
 :::image type="content" source="media/us-unified-tax-diagram.png" alt-text="Screenshot of a Unified Tax processing diagram.":::
 
-:::image type="content" source="media/us-unified-tax.png" alt-text="Screenshot of unified tax model document processing.":::
-
 ## Development options
 
 ::: moniker range="doc-intel-4.0.0"
