@@ -31,9 +31,9 @@ The following table lists methods to create data collection scenarios using the 
 
 | Scenario | Resources | Description |
 |:---|:---|:---|
-| Monitor a virtual machine | [Enable VM Insights overview](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of performance counters. You shouldn't modify this DCR. |
+| Monitor a virtual machine | [Enable VM Insights overview](../vm/vminsights-enable-overview.md) | When you enable VM Insights on a VM, the Azure Monitor agent is installed and a DCR is created. This DCR collects a predefined set of performance counters and shouldn't be modified. |
 | Container insights | [Enable Container Insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container Insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
-| Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR which is then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't already use a DCR. |
+| Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. This transformation is specified within a DCR, which is linked to the workspace. The transformation is then applied to any data sent to that table from any legacy workloads that don't yet utilize DCR. |
 
 ## Create a DCR
 
@@ -42,7 +42,7 @@ Azure provides a centralized cloud based data collection configuration plan for 
 This article explains how to create a DCR from scratch. There are other solutions, such as Sentinel, VM Insights, and Application Insights, that offer DCR creation as part of their workflows. Sometimes, the DCRs created by these different solutions may appear to conflict. There are three tables where Windows events can be directed:
 
 * Sentinel security audit events are sent to the SecurityEvents table.
-* WEF connector events go to the WindowsEvent table.
+* Windows Event Forwarding (WEF) connector events go to the WindowsEvent table.
 * Events collected from scratch using the Windows event collection are sent to the Event table.
 
 To create a data collection rule using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
@@ -56,7 +56,7 @@ On the **Monitor** menu, select **Data Collection Rules** > **Create** to open t
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rules-updated.png" lightbox="media/data-collection-rule-create-edit/data-collection-rules-updated.png" alt-text="Screenshot that shows the Create button on the Data Collection Rules screen." border="false":::
 
-Configure the settings in each step of the wizard, as detailed below.
+Configure the settings in each step of the wizard, as detailed in the following section.
  
 ### Basics 
 
@@ -83,7 +83,7 @@ Configure the settings in each step of the wizard, as detailed below.
 
 ### Collect and deliver
 
-On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs, as detailed below.
+On the **Collect and deliver** tab, select **Add data source** and configure the settings on the **Source** and **Destination** tabs.
 
 :::image type="content" source="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" lightbox="media/data-collection-rule-create-edit/data-collection-rule-data-source-destination.png" alt-text="Screenshot that shows the Collect and deliver tab of the Data Collection Rule wizard. On this tab, you define which data source Azure Monitor Agent collects data from and where the agent sends the data." border="false":::
 
