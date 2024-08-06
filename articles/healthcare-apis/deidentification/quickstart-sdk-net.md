@@ -26,7 +26,7 @@ Get started with the Azure Health Deidentification client library for .NET to de
 
 ### Create an Azure Deidentification Service
 
-An Azure Deidentification Service provides you with an endpoint URL which can be utilizes as a Rest API or with an SDK.
+An Azure Deidentification Service provides you with an endpoint URL. This can be utilized as a Rest API or with an SDK.
 
 1. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
 2. Create Deidentification Service Resource
@@ -67,7 +67,7 @@ The client library is available through NuGet, as the `Azure.Health.Deidentifica
     dotnet add package Azure.Health.Deidentification
     ```
 
-1. Also, install the Azure.Identity package if not already installed.
+1. Also, install the Azure Identity package if not already installed.
 
     ```bash
     dotnet add package Azure.Identity
@@ -136,7 +136,7 @@ DeidentificationResult result = await client.DeidentifyAsync(content);
 
 This function allows you to deidentify all files, filtered via prefix, within an Azure Blob Storage Account.
 
-In order to create the job we need the url to the blob endpoint of the Azure Storage Account.
+To create the job we need the url to the blob endpoint of the Azure Storage Account.
 
 ```bash
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts --query properties.primaryEndpoints.blob --output tsv
@@ -159,7 +159,7 @@ job = client.CreateJob(WaitUntil.Started, "my-job-1", job).Value;
 
 ### Get the status of a Deidentification Job
 
-Once a job has been created, you can lookup the status and other details of the job.
+Once a job has been created, you can view the status and other details of the job.
 
 ```csharp
 DeidentificationJob job = client.GetJob("my-job-1").Value;
@@ -193,7 +193,7 @@ az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-ty
 
 ### Unable to access source or target storage
 
-Ensure the permissions are given and the Managed Identity for the Deidentification Service is setup properly.
+Ensure the permissions are given and the Managed Identity for the Deidentification Service is set up properly.
 
 See [Authorize Deidentification Service on Storage Account](#authorize-deidentification-service-on-storage-account)
 
