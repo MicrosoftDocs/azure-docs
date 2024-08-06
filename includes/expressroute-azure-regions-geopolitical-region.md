@@ -13,7 +13,7 @@
 ## <a name="locations"></a>Azure regions to ExpressRoute locations within a geopolitical region.
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
-#### [North & South America](#tab/america)
+#### [America](#tab/america)
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Qatar** | Qatar Central | Doha<br/>Doha2 |
 | **UAE** | UAE Central<br/>UAE North | Abu Dhabi<br/>Dubai<br/>Dubai2 |
 
-#### [Australia](#tab/europe)
+#### [Australia](#tab/autralia)
 
 | Geopolitical region | Azure regions | ExpressRoute locations |
 | --- | --- | --- |
