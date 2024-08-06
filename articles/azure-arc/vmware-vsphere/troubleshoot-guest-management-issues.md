@@ -72,15 +72,19 @@ Applies to:
 
 Before you enable the guest agent, follow these steps on the VM:
 
-1. Create file `vmtools_unconfined_rpm_script_kcs5347781.te` using the following:
+1. Create a file `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following contents into it:
 
-     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
+     ```
+     policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
+
      gen_require(`
      type vmtools_unconfined_t;
      ')
+
      optional_policy(`
      rpm_transition_script(vmtools_unconfined_t,system_r)
-     ')`
+     ')
+     ```
 
 2. Install the package to build the policy module:
 
