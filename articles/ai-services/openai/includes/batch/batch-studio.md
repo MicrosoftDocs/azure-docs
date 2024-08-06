@@ -86,7 +86,7 @@ You can track job status for your job in the right-hand pane:
 
 ## Retrieve batch job output file
 
-Once your job has completed or reached a terminal state, it will generate and error file and an output file which can be downloaded for review by selecting the respective button with the downward arrow icon.
+Once your job has completed or reached a terminal state, it will generate an error file and an output file which can be downloaded for review by selecting the respective button with the downward arrow icon.
 
 :::image type="content" source="../../media/how-to/global-batch/output.png" alt-text="Screenshot that shows the batch job output and error files available for download." lightbox="../../media/how-to/global-batch/output.png":::
 
