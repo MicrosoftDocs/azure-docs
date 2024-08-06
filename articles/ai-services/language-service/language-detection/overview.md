@@ -14,7 +14,7 @@ ms.custom: language-service-language-detection
 
 # What is language detection in Azure AI Language?
 
-Language detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Language detection is able to detect more than 100 languages in their primary script. In addition, it offers [script detection](./how-to/call-api.md#script-name-and-script-code) to detect multiple scripts per language according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) for a [select number of languages](./language-support.md#script-detection).
+Language detection is one of the features offered by [Azure AI Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Language detection is able to detect more than 100 languages in their primary script. In addition, it offers [script detection](./how-to/call-api.md#script-name-and-script-code) to detect supported scripts for each detected language according to the [ISO 15924 standard](https://wikipedia.org/wiki/ISO_15924) for a [select number of languages](./language-support.md#script-detection) supported by Azure AI Language Service.
 
 This documentation contains the following types of articles:
 
