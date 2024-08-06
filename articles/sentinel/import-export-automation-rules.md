@@ -53,43 +53,16 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
 ## Troubleshooting
 
-- **Analytics rule doesn't exist:** If you export an automation rule [based on a particular analytics rule](create-manage-use-automation-rules.md#define-conditions), and then import it to another workspace that doesn't have that same analytics rule in it, the following things will happen:
-    - The automation rule will successfully deploy in the second workspace.
-    - The automation rule will be automatically disabled.
-    - In the automation rule conditions, the analytics rule drop-down will display as "Unknown rule".
+If you have any issues importing an exported automation rule, consult the following table.
 
-    To allow this automation rule to run in the second workspace:
-    1. Export the referenced analytics rule from the original workspace and import it to the second one.
-    1. Edit the automation rule in the second workspace, choosing the now-present analytics rule from the drop-down.
-    1. Enable the automation rule.
-
-- **Custom details key doesn't exist:** If you export an automation rule with conditions that reference [custom details keys](create-manage-use-automation-rules.md#conditions-based-on-custom-details), and then import it to another workspace where no analytics rules [surface those custom details](surface-custom-details-in-alerts.md), the following things will happen:
-    - The automation rule will successfully deploy in the second workspace.
-    - The automation rule will be automatically disabled.
-    - In the automation rule conditions, the custom details key drop-down will display as "Unknown custom details key".
-
-    To allow this automation rule to run in the second workspace:
-    1. Import or create an analytics rule that will [surface the relevant custom details](surface-custom-details-in-alerts.md) in the second workspace.
-    1. Edit the automation rule in the second workspace, choosing the now-present custom details from the drop-down.
-    1. Enable the automation rule.
-
-- **Playbook doesn't exist:** If you export an automation rule that calls a playbook, and then import it to another workspace that doesn't have access to the playbook, or if the playbook was moved or deleted, the automation rule deployment will fail, and you'll receive an error message with the specific reason.
-
-    To allow this automation rule to deploy properly when imported, make sure that the playbook exists and that the second workspace has access to the resource group that contains the playbook.
-
-- **Expired automation rule:** If an automation rule is past its expiration date when imported, the automation rule deployment will fail and you'll receive an error message.
-
-    To allow this automation rule to deploy properly when imported, choose **one** of the following procedures, depending on the relevant circumstances:
-
-    - **If you don't mind the automation rule running in the original workspace:**
-        1. Edit the automation rule in the original workspace and change its expiration date to a date in the future.
-        1. Export the rule again from the original workspace.
-        1. Import the newly exported version into the second workspace.
-
-    - **If you don't want the rule to run again in the original workspace:**
-        1. Edit the JSON file that represents the exported automation rule.
-        1. Find the expiration date (that appears immediately after the string `"expirationTimeUtc":`) and replace it with a date in the future.
-        1. Save the file and re-import it into the second workspace.
+| Behavior (with *error*) | Reason | Suggested action |
+| ----------------------- | ------ | ---------------- |
+| **Imported automation rule is disabled**<br>-*and*-<br>**The rule's *analytics rule* condition displays "Unknown rule"** | The rule contains a condition that refers to an analytics rule that doesn't exist in the target workspace. | <ol><li>Export the referenced analytics rule from the original workspace and import it to the target one.<li>Edit the automation rule in the target workspace, choosing the now-present analytics rule from the drop-down.<li>Enable the automation rule.</ol> |
+| **Imported automation rule is disabled**<br>-*and*-<br>**The rule's *custom details key* condition displays "Unknown custom details key"** | The rule contains a condition that refers to a [custom details key](surface-custom-details-in-alerts.md) that isn't defined in any analytics rules in the target workspace. | <ol><li>Export the referenced analytics rule from the original workspace and import it to the target one.<li>Edit the automation rule in the target workspace, choosing the now-present analytics rule from the drop-down.<li>Enable the automation rule. |
+| **Deployment failed in target workspace, with error message: "\<PLEASE SUPPLY>"** | The playbook was moved.<br>-*or*-<br>The playbook was deleted.<br>-*or*-<br>The target workspace doesn't have access to the playbook. | Make sure the playbook exists, and that the target workspace has the right access to the resource group that contains the playbook. |
+| **Deployment failed in target workspace, with error message: "\<PLEASE SUPPLY>"** | The automation rule was past its defined expiration date when you imported it. | **If you want the rule to remain expired in its original workspace:**<ol><li>Edit the JSON file that represents the exported automation rule.<li>Find the expiration date (that appears immediately after the string `"expirationTimeUtc":`) and replace it with a new expiration date (in the future).<li>Save the file and re-import it into the target workspace.</ol>**If you want the rule to return to active status in its original workspace:**<ol><li>Edit the automation rule in the original workspace and change its expiration date to a date in the future.<li>Export the rule again from the original workspace.<li>Import the newly exported version into the target workspace.</ol> |
+| **Deployment failed in target workspace, with error message: "The JSON file you attempted to import has an invalid format. Please check the file and try again."** | The imported file isn't a valid JSON file. | Check the file for problems and try again. For best results, export the original rule again to a new file, then try the import again. |
+| **Deployment failed in target workspace, with error message: "No resources found in the file. Please ensure the file contains deployment resources and try again."** | The list of resources under the "resources" key in the JSON file is empty. | Check the file for problems and try again. For best results, export the original rule again to a new file, then try the import again. |
 
 ## Next steps
 

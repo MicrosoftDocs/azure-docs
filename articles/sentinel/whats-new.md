@@ -20,8 +20,19 @@ The listed features were released in the last three months. For information abou
 
 ## August 2024
 
+- [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Export and import automation rules (Preview)
+
+You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+
+The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
+
+The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
 
 ### New Auxiliary logs retention plan (Preview)
 
@@ -83,19 +94,8 @@ Microsoft Sentinel is now generally available within the Microsoft unified secur
 
 ## June 2024
 
-- [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Codeless Connector Platform now generally available](#codeless-connector-platform-now-generally-available)
 - [Advanced threat indicator search capability available](#advanced-threat-indicator-search-capability-available)
-
-### Export and import automation rules (Preview)
-
-You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
-
-The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
-
-The file includes all the parameters defined in the automation rule. Rules of any trigger type can be exported to a JSON file.
-
-Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
 
 ### Codeless Connector Platform now generally available
 
