@@ -4,7 +4,7 @@ description: Learn how to create and deploy a Java Service Fabric reliable actor
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-extended-java, linux-related-content
 services: service-fabric
 ms.date: 07/14/2022

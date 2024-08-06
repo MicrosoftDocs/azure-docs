@@ -65,7 +65,7 @@ You can make the following types of changes to a reservation after purchase:
 - Update reservation scope
 - Azure role-based access control (Azure RBAC)
 
-You can't split or merge a Synapse commit unit Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
+You can't split or merge a Synapse Pre-Purchase Plan. For more information about managing reservations, see [Manage reservations after purchase](manage-reserved-vm-instance.md).
 
 ## Cancellations and exchanges
 

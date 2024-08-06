@@ -3,7 +3,7 @@
  description: include file for PowerShell for Azure DNS
  services: dns
  author: subsarma
- ms.service: dns
+ ms.service: azure-dns
  ms.topic: include file for PowerShell for Azure DNS
  ms.date: 04/28//2021
  ms.author: subsarma

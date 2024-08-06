@@ -4,9 +4,9 @@ description: Introduction to key scenarios, capabilities, and concepts of the v2
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/20/2024
+ms.date: 07/08/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -53,10 +53,14 @@ The v2 tiers are available in the following regions:
 * France Central
 * Germany West Central
 * North Europe
+* Norway East
 * West Europe
+* Switzerland North
 * UK South
 * UK West
+* South Africa North
 * Central India
+* South India
 * Brazil South
 * Australia Central
 * Australia East

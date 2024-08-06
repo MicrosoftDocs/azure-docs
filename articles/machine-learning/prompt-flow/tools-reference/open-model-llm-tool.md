@@ -3,13 +3,13 @@ title: Open Model LLM tool in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: The prompt flow Open Model LLM tool enables you to utilize various open-source and foundational models.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom: ignite-2023
 ms.topic: reference
-author: gjwoods
-ms.author: GEWOODS
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: GEWOODS
 ms.date: 11/02/2023
 ---
 

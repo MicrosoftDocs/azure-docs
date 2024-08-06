@@ -63,7 +63,7 @@ The blob indexer parses the JSON document into a single search document, loading
 Although the default behavior is one search document per JSON blob, setting the **`json`** parsing mode changes the internal field mappings for content, promoting fields inside `content` to actual fields in the search index. An example indexer definition for the **`json`** parsing mode might look like this:
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -102,7 +102,7 @@ Alternatively, you can use the JSON array option. This option is useful when blo
 The `parameters` property on the indexer contains parsing mode values. For a JSON array, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 
@@ -161,7 +161,7 @@ If your blob contains multiple JSON entities separated by a newline, and you wan
 For JSON lines, the indexer definition should look similar to the following example.
 
 ```http
-POST https://[service name].search.windows.net/indexers?api-version=2023-11-01
+POST https://[service name].search.windows.net/indexers?api-version=2024-07-01
 Content-Type: application/json
 api-key: [admin key]
 

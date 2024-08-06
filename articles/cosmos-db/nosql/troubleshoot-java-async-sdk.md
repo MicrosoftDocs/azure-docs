@@ -2,7 +2,7 @@
 title: Diagnose and troubleshoot Azure Cosmos DB Async Java SDK v2
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Async Java SDK v2.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 05/11/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -278,7 +278,6 @@ The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` s
 
 Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This situation potentially causes problems. For more information, see the [Common issues and workarounds] section.
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [Connection limit on a host machine]: #connection-limit-on-host

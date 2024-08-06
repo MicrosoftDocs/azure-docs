@@ -2,12 +2,12 @@
 title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
 description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2, cliv2, update-code
 
 ms.date: 02/07/2023

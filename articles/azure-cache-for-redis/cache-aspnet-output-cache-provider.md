@@ -3,7 +3,7 @@ title: ASP.NET Output Cache Provider for Azure Cache for Redis
 description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis. The Redis Output Cache Provider is an out-of-process storage mechanism for output cache data.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: conceptual
@@ -22,7 +22,7 @@ To use the Redis Output Cache Provider, first configure your cache, and then con
 
 For a full feature specification, see [ASP.NET core output caching](/aspnet/core/performance/caching/output?view=aspnetcore-8.0&preserve-view=true).
 
-For sample application demonstrating the usage, see [.NET 8 Web Application with Redis Output Caching and Azure Open AI](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/output-cache-open-ai).
+For sample application demonstrating the usage, see [.NET 8 Web Application with Redis Output Caching and Azure OpenAI](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/output-cache-open-ai).
 
 ## Store ASP.NET page output in Redis
 

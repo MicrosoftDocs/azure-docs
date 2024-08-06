@@ -85,7 +85,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Support
-            url: ../../articles/aks/support-policies.md
+            url: /azure/aks/support-policies
           - text: Release notes
             url: https://github.com/microsoft/CBL-Mariner/releases
           - text: FAQ

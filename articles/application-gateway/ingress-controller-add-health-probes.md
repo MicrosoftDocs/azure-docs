@@ -3,7 +3,7 @@ title: Add health probes to your AKS pods
 description: This article provides information on how to add health probes (readiness and/or liveness) to AKS pods with an Application Gateway. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/10/2022
 ms.author: greglin

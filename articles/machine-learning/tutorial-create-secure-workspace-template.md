@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: build-2023
-ms.reviewer: larryfr
-ms.author: meerakurup 
-author: meerakurup 
+ms.reviewer: None
+ms.author: larryfr
+author: Blackmist
 ms.date: 06/18/2024
 ms.topic: tutorial
 monikerRange: 'azureml-api-2 || azureml-api-1'

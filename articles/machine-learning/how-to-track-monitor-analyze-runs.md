@@ -3,11 +3,11 @@ title: Monitor and analyze jobs in studio
 titleSuffix: Azure Machine Learning
 description: Learn how to start, monitor, and track your machine learning experiment jobs with the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: amipatel
-author: amibp
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: amipatel
 ms.date: 03/22/2024
 ms.topic: how-to
 ms.custom: build-2023
@@ -112,24 +112,9 @@ To cancel a job in the studio:
 
 ## Monitor job status by email notification
 
-1. In the [Azure portal](https://portal.azure.com), in the left navigation bar, select the **Monitor** tab.
+You can use diagnostic settings to trigger email notifications. To learn how to create diagnostic settings, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
-1. Select **Diagnostic settings**, then choose **+ Add diagnostic setting**.
-
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/diagnostic-setting.png" alt-text="Screenshot of diagnostic settings for email notification.":::
-
-1. Under **Category details**, select **AmlRunStatusChangedEvent**. Under **Destination details**, select **Send to Log Analytics workspace** and specify the **Subscription** and **Log Analytics workspace**.
-
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/log-location.png" alt-text="Screenshot of where to save email notification.":::
-
-    > [!NOTE]
-    > The **Azure Log Analytics Workspace** is a different type of Azure resource than the **Azure Machine Learning service workspace**. If there are no options in that list, you can [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). 
-
-1. In the **Logs** tab, select **New alert rule**. 
-
-    :::image type="content" source="media/how-to-track-monitor-analyze-runs/new-alert-rule.png" alt-text="Screenshot of button to add new alert rule.":::
-
-1. To learn how to create and manage log alerts using Azure Monitor, see [Create or edit a log search alert rule](../azure-monitor/alerts/alerts-log.md).
+To learn how to create and manage log alerts using Azure Monitor, see [Create or edit a log search alert rule](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
 
 ## Related content
 

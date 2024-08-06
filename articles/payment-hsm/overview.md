@@ -4,7 +4,7 @@ description: Learn how Azure Payment HSM is an Azure service that provides crypt
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin

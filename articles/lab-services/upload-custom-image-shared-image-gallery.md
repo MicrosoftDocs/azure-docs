@@ -3,7 +3,7 @@ title: Import a Windows image from a physical lab
 titleSuffix: Azure Lab Services
 description: Learn how to import a Windows custom image from your physical lab environment into Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.date: 04/24/2023
@@ -11,6 +11,8 @@ ms.topic: how-to
 ---
 
 # Bring a Windows custom image from a physical lab environment to Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article describes how to import a Windows-based custom image from a physical lab environment for creating a lab in Azure Lab Services.
 

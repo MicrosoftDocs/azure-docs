@@ -3,7 +3,7 @@ title: 'Configure Azure VPN Client optional settings'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure optional configuration settings for the Azure VPN Client. Settings include DNS suffixes, custom DNS servers, custom routes, and VPN client forced tunneling.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: cherylmc
@@ -96,7 +96,7 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
 
 * **Advertise custom routes:** You can advertise custom routes `0.0.0.0/1` and `128.0.0.0/1`. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
 
-* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
+* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
    ```xml
   <azvpnprofile>

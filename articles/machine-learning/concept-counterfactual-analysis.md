@@ -3,12 +3,12 @@ title: Counterfactuals analysis and what-if
 titleSuffix: Azure Machine Learning
 description: Generate diverse counterfactual examples with feature perturbations to see minimal changes required to achieve desired prediction with the Responsible AI dashboard's integration of DiCE machine learning.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: rai
+ms.service: azure-machine-learning
+ms.subservice: responsible-ai
 ms.topic:  how-to
-ms.author: mesameki
-author: mesameki
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: mesameki
 ms.date: 02/27/2024
 ms.custom: responsible-ml
 ---

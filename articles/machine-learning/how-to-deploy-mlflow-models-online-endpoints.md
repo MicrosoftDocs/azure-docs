@@ -3,11 +3,11 @@ title: Deploy MLflow models to real-time endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model as a web service that's managed by Azure.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.date: 01/31/2024
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2

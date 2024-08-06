@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary NIC configurations using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 06/28/2024
 ms.custom: template-tutorial, engagement-fy23

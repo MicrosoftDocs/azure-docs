@@ -9,8 +9,8 @@ metadata:
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
   ms.service: azure 
   ms.topic: hub-page
-  author: alricha
-  ms.author: kimberlm, nwiddup, alricha
+  author: ARMSGit
+  ms.author: alricha
   ms.date: 10/31/2023
 
 # productDirectory section

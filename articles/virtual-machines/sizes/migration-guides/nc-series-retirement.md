@@ -2,7 +2,7 @@
 title: NC-series retirement
 description: NC-series retirement by September 6, 2023
 author: sherrywangms
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 12/20/2022

@@ -3,7 +3,7 @@ title: Mapping consistency levels for Azure Cosmos DB for MongoDB
 description: Mapping consistency levels for Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 10/12/2020

@@ -4,7 +4,7 @@ description: Create an HTTP-triggered, serverless PowerShell function to automat
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell

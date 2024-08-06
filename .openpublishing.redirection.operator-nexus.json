@@ -29,6 +29,11 @@
             "source_path_from_root": "/articles/operator-nexus/template-cloud-native-network-function-deployment.md",
             "redirect_url": "/azure/operator-nexus/quickstarts-kubernetes-cluster-deployment-cli",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/operator-nexus/concepts-nexus-network.md",
+            "redirect_url": "/azure/operator-nexus/concepts-nexus-networking",
+            "redirect_document_id": false
         }
     ]
 }

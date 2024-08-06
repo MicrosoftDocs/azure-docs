@@ -3,7 +3,7 @@ title: Msv2 and Mdsv2 Isolated Sizes Retirement
 description: Migration guide for sizes
 author:      iamwilliew # GitHub alias
 ms.author: wwilliams
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
 ms.date:     01/10/2024
 ms.subservice: sizes

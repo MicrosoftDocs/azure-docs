@@ -21,6 +21,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/virtual-network/deploy-container-networking-docker-windows.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/deploy-container-networking-docker-windows",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-cli.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/virtual-network-service-endpoint-policies-cli",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/virtual-network/ddos-protection-overview.md",
             "redirect_url": "/azure/ddos-protection/ddos-protection-overview",
             "redirect_document_id": false
@@ -100,6 +110,16 @@
             "redirect_url": "/azure/virtual-network/public-ip-addresses",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-cli-sample-peer-two-virtual-networks",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks.md",
+            "redirect_url": "/previous-versions/azure/virtual-network/scripts/virtual-network-powershell-sample-peer-two-virtual-networks",
+            "redirect_document_id": false
+          },
         {
             "source_path_from_root": "/articles/virtual-network/virtual-networks-create-vnet-arm-cli.md",
             "redirect_url": "/azure/virtual-network/quick-create-cli",

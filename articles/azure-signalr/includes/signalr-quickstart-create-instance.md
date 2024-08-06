@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: include
 ms.date: 03/10/2022
 ms.author: lianwei

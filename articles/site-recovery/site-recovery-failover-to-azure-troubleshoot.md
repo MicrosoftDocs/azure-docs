@@ -3,7 +3,7 @@ title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
 author: ankitaduttaMSFT
 manager: abhemraj
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: linux-related-content
 services: site-recovery
 ms.topic: article

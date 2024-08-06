@@ -4,7 +4,7 @@ description: Learn how to migrate your App Service Environment to App Service En
 author: seligj95
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, references_regions
-ms.date: 7/3/2024
+ms.date: 7/24/2024
 ms.author: jordanselig
 zone_pivot_groups: app-service-cli-portal
 ---
@@ -67,6 +67,9 @@ The in-place migration feature doesn't support the following scenarios. See the 
 - App Service Environment v1 in a [Classic virtual network](/previous-versions/azure/virtual-network/create-virtual-network-classic)
 - ELB App Service Environment v2 with IP SSL addresses
 - ELB App Service Environment v1 with IP SSL addresses
+- App Service Environment with a name that doesn't meet the character limits. The entire name, including the domain suffix, must be 64 characters or fewer. For example: *my-ase-name.appserviceenvironment.net* for ILB and *my-ase-name.p.azurewebsites.net* for ELB must be 64 characters or fewer. If you don't meet the character limit, you must migrate manually. The character limits specifically for the App Service Environment name are as follows:
+    - ILB App Service Environment name character limit: 36 characters
+    - ELB App Service Environment name character limit: 42 characters
 
 The App Service platform reviews your App Service Environment to confirm in-place migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the in-place migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
 
@@ -146,7 +149,7 @@ If your migration includes a custom domain suffix, for App Service Environment v
 After completing the previous steps, you should continue with migration as soon as possible.
 
 > [!IMPORTANT]
-> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, you have to wait until the scaling event completes before starting the migration. You should disable auto-scaling before starting the migration to avoid this issue. If you need to scale your environment after the migration, you can do so once the migration is complete.
 >
 
 Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. The service window might be extended in rare cases where manual intervention by the service team is required. During migration, scaling and environment configurations are blocked and the following events occur:
@@ -180,7 +183,7 @@ Ensure that there are no locks on your virtual network, resource group, resource
 
 Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
-Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, your migration is blocked until the scaling event completes. You should disable auto-scaling before starting the migration to avoid this issue.
 
 ::: zone pivot="experience-azcli"
 

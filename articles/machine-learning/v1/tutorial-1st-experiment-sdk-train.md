@@ -3,12 +3,12 @@ title: "Tutorial: Train a first Python machine learning model (SDK v1)"
 titleSuffix: Azure Machine Learning
 description: How to train a machine learning model in Azure Machine Learning, with SDK v1. This is part 2 of a two-part getting-started series.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.topic: tutorial
-author: aminsaied
-ms.author: amsaied
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
+ms.reviewer: amsaied
 ms.date: 04/03/2024
 ms.custom: UpdateFrequency5, devx-track-python, contperf-fy21q, sdkv1
 ---

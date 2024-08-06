@@ -3,13 +3,13 @@ title:  Upgrade model management to SDK v2
 titleSuffix: Azure Machine Learning
 description: Upgrade model management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-author: fkriti
-ms.author: kritifaujdar
+author: sdgilley
+ms.author: sgilley
 ms.date: 12/01/2022
-ms.reviewer: sgilley
+ms.reviewer: kritifaujdar
 ms.custom: migration
 monikerRange: 'azureml-api-1 || azureml-api-2'
 ---

@@ -5,7 +5,7 @@ author: agapovm
 ms.author: maximagapov
 ms.reviewer: maghan
 ms.date: 06/06/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom:

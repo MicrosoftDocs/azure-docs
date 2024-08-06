@@ -801,6 +801,8 @@ items:
     href: tutorials/use-kubernetes-service.md
   - name: Use language in power automate flows
     href: tutorials/power-automate.md
+  - name: Use language in prompt flow
+    href: tutorials/prompt-flow.md
   - name: 🆕 Native document support
     items:
     - name: 🆕 Use native documents for language processing

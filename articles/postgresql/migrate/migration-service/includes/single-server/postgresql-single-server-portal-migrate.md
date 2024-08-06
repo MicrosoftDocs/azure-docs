@@ -21,7 +21,7 @@ You can migrate using the Azure portal.
 
 - [Allowlist extensions](../../../../flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
-- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
+- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed-parallel-migration-of-tables).
 
 ## Configure the migration task
 
@@ -198,13 +198,16 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 [!INCLUDE [prerequisites-migration-service-postgresql-online-single-server](../prerequisites/prerequisites-migration-service-postgresql-online-single-server.md)]
 
+> [!NOTE]
+> Certain limitations apply to Online migration which are documented [here](../../best-practices-migration-service-postgresql.md#online-migration). Ensure that your database is compliant to execute an Online migration.
+
 ## Configure your Azure Database for PostgreSQL flexible server
 
 - Create the target flexible server. For guided steps, refer to the quickstart [Create an Azure Database for PostgreSQL flexible server using the portal](../../../../flexible-server/quickstart-create-server-portal.md).
 
 - [Allowlist extensions](../../../../flexible-server/concepts-extensions.md#how-to-use-postgresql-extensions) whose libraries must be loaded at server start. It's essential that the extension is on the allowlist before you initiate a migration.
 
-- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed---parallel-migration-of-tables).
+- Check if the data distribution among a database's tables is skewed, with most of the data present in a single (or few) tables. If it's skewed, the migration speed could be slower than expected. In this case, the migration speed can be increased by [migrating the large table in parallel](../../best-practices-migration-service-postgresql.md#improve-migration-speed-parallel-migration-of-tables).
 
 ## Configure the migration task
 
@@ -381,7 +384,7 @@ You can see the results of **Validate and Migrate** once the operation is comple
 
 ### Cutover migration
 
-For the **Migrate** and for the **Validate and Migrate** migration options, completion of the online migration requires the user to complete an additional step, which is to trigger the Cutover action. After the copy/clone of the base data is complete, the migration moves to the **WaitingForUserAction** state and the `**aitingForCutoverTrigger** substate. In this state, user can trigger cutover from the portal by selecting the migration, and selecting the **Cutover** button.
+For the **Migrate** and for the **Validate and Migrate** migration options, completion of the online migration requires the user to complete an additional step, which is to trigger the Cutover action. After the copy/clone of the base data is complete, the migration moves to the **WaitingForUserAction** state and the `**WaitingForCutoverTrigger** substate. In this state, user can trigger cutover from the portal by selecting the migration, and selecting the **Cutover** button.
 
 Before initiating cutover, it's essential to ensure that:
 

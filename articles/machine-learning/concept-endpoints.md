@@ -3,13 +3,12 @@ title: Endpoints for inference
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints simplify deployments.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-reviewer: msakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom:
   - devplatv2
   - ignite-2023

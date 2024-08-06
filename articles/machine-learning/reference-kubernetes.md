@@ -3,10 +3,10 @@ title: Reference for configuring Kubernetes cluster for Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Reference for configuring Kubernetes cluster for Azure Machine Learning.
 services: machine-learning
-author: zhongj
-ms.author: jinzhong
-ms.reviewer: larryfr
-ms.service: machine-learning
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: jinzhong
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: devx-track-arm-template
 ms.topic: reference
@@ -19,7 +19,7 @@ This article contains reference information for [configuring Kubernetes with Azu
 
 ## Supported Kubernetes version and region
 
-- Kubernetes clusters installing Azure Machine Learning extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
+- Kubernetes clusters installing Azure Machine Learning extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
 
   - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
@@ -74,8 +74,8 @@ Excluding your own deployments/pods, the **total minimum system resources requir
 > Here are some other considerations for reference:
 > * For **higher network bandwidth and better disk I/O performance**, we recommend a larger SKU. 
 >     * Take [DV2/DSv2](../virtual-machines/dv2-dsv2-series.md#dsv2-series) as example, using the large SKU can reduce the time of pulling image for better network/storage performance. 
->     * More information about AKS reservation can be found in [AKS reservation](../aks/concepts-clusters-workloads.md#resource-reservations).
-> * If you're using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](../aks/faq.md#whats-the-size-limit-on-a-container-image-in-aks).
+>     * More information about AKS reservation can be found in [AKS reservation](/azure/aks/concepts-clusters-workloads#resource-reservations).
+> * If you're using AKS cluster, you may need to consider about the **size limit on a container image** in AKS, more information you can found in [AKS container image size limit](/azure/aks/faq#whats-the-size-limit-on-a-container-image-in-aks).
 
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
@@ -187,7 +187,7 @@ We only support placing the amlarc-specific taints on your nodes, which are defi
 | amlarc compute| 	ml.azure.com/compute| \<compute name>	| `NoSchedule`, `NoExecute`  or `PreferNoSchedule`| Only machine learning workload pods created with the specific compute target would tolerate this `amlarc compute` taint.|
 
 > [!TIP]
-> 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
+> 1. For Azure Kubernetes Service(AKS), you can follow the example in [Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-advanced-scheduler#provide-dedicated-nodes-using-taints-and-tolerations) to apply taints to node pools.
 > 1. For Arc Kubernetes clusters, such as on premises Kubernetes clusters, you can use `kubectl taint` command to add taints to nodes. For more examples,see the [Kubernetes Documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ### Best practices
@@ -222,7 +222,7 @@ This tutorial helps illustrate how to integrate the [Nginx Ingress Controller](h
 
 - [Deploy the Azure Machine Learning extension](../machine-learning/how-to-deploy-kubernetes-extension.md) with `inferenceRouterServiceType=ClusterIP` and `allowInsecureConnections=True`, so that the Nginx Ingress Controller can handle TLS termination by itself instead of handing it over to [azureml-fe](../machine-learning/how-to-kubernetes-inference-routing-azureml-fe.md) when service is exposed over HTTPS.
 - For integrating with **Nginx Ingress Controller**, you need a Kubernetes cluster setup with Nginx Ingress Controller.
-  - [**Create a basic controller**](../aks/ingress-basic.md): If you're starting from scratch, refer to these instructions.
+  - [**Create a basic controller**](/azure/aks/ingress-basic): If you're starting from scratch, refer to these instructions.
 - For integrating with **Azure Application Gateway**, you need a Kubernetes cluster setup with Azure Application Gateway Ingress Controller.
   - [**Greenfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-new.md): If you're starting from scratch, refer to these instructions.
   - [**Brownfield Deployment**](../application-gateway/tutorial-ingress-controller-add-on-existing.md): If you have an existing AKS cluster and Application Gateway, refer to these instructions.

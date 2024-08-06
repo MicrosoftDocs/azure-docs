@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 03/21/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ---
 
 # Azure HDInsight monitoring data reference
@@ -18,7 +18,7 @@ See [Monitor HDInsight](monitor-hdinsight.md) for details on the data you can co
 ### Supported metrics for Microsoft.HDInsight/clusters
 The following table lists the metrics available for the Microsoft.HDInsight/clusters resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.HDInsight/clusters](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-hdinsight-clusters-metrics-include.md)]
+[!INCLUDE [microsoft-hdinsight-clusters-metrics-include](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-hdinsight-clusters-metrics-include.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

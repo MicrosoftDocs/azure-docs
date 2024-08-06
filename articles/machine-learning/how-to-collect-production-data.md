@@ -3,14 +3,13 @@ title: Collect production data from models deployed for real-time inferencing
 titleSuffix: Azure Machine Learning
 description: Collect inference data from a model deployed to a real-time endpoint on Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: ahughes-msft
-ms.author: alehughes
+author: msakande
+ms.author: mopeakande
 ms.date: 04/15/2024
-ms.reviewer: mopeakande
-reviewer: msakande
+ms.reviewer: alehughes
 ms.custom: devplatv2, build-2023
 ---
 

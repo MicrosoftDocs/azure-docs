@@ -5,7 +5,7 @@ author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
 ms.date: 12/01/2023
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom: fasttrack-edit
@@ -77,7 +77,7 @@ __Azure MySQL 5.7 Deprecation Timelines__
 |Extended support for Azure Database for MySQL v5.7|	September 2025|	September 2024|
 
 > [!NOTE]  
-> We initially planned to stop the creation of new Azure Database for MySQL version 5.7 instances via CLI and Portal after April 2024. However, after further review and customer feedback, we have decided to delay this action. The specific date for discontinuing the creation of new MySQL 5.7 instances is currently under review and remains 'To Be Decided'. This change reflects our commitment to accommodating customer needs and providing flexibility during the transition. We value your feedback and encourage ongoing communication as we navigate these changes.
+> We initially planned to stop the creation of new Azure Database for MySQL version 5.7 instances via CLI and Portal after April 2024. However, after further review and customer feedback, we have decided to delay this action. The specific date for discontinuing the creation of new MySQL 5.7 instances is currently under review and remains 'To Be Decided'. This change reflects our commitment to accommodating customer needs and providing flexibility during the transition. Don't hesitate to let us know if you have any concerns about the Azure Database For MySQL Flexible Server extended support for MySQL 5.7 by email us at [Ask Azure DB For MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com), we value your feedback and encourage ongoing communication as we navigate these changes.
 
 ### FAQs
 

@@ -3,8 +3,6 @@ title: Incrementally copy data using Change Tracking using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
 ms.author: yexu
 author: dearandyxu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 10/20/2023

@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for MongoDB vCore to enhance AI
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023
@@ -125,7 +125,7 @@ To create a vector index using the IVF (Inverted File) algorithm, use the follow
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
 > [!IMPORTANT]
-> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
+> Setting the _numLists_ parameter correctly is important for achieving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
 >
 > As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
 >

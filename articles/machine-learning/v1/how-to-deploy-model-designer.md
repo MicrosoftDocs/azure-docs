@@ -3,11 +3,11 @@ title: Use the studio to deploy models trained in the designer
 titleSuffix: Azure Machine Learning
 description: Use Azure Machine Learning studio to deploy machine learning models without writing a single line of code.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: keli19
-author: likebupt
-ms.reviewer: lagayhar
+ms.author: lagayhar
+author: lgayhardt
+ms.reviewer: keli19
 ms.date: 08/15/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, deploy, studio, designer

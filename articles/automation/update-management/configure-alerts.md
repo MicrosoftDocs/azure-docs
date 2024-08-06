@@ -3,8 +3,9 @@ title: How to create alerts for Azure Automation Update Management
 description: This article tells how to configure Azure alerts to notify about the status of update assessments or deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 03/15/2021
+ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # How to create alerts for Update Management

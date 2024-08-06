@@ -3,7 +3,7 @@ title: Overview of mutual authentication on Azure Application Gateway
 description: This article is an overview of mutual authentication on Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.date: 03/12/2024
 ms.topic: conceptual 
 ms.author: greglin

@@ -35,6 +35,11 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java quickstart](../includes/quickstarts-sdk/identity-java-sdk.md)]
+
+::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 

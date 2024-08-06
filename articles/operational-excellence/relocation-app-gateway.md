@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 04/03/2024
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: concept-article
 ms.custom:
   - subject-relocation
@@ -13,6 +13,8 @@ ms.custom:
 ---
 
 # Relocate Azure Application Gateway and Web Application Firewall (WAF) to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
  This article covers the recommended approach, guidelines, and practices to relocate Application Gateway and WAF between Azure regions. 
 

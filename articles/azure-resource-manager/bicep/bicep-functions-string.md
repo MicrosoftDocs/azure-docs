@@ -3,7 +3,7 @@ title: Bicep functions - string
 description: Describes the functions to use in a Bicep file to work with strings.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/02/2024
+ms.date: 07/11/2024
 ---
 
 # String functions for Bicep
@@ -834,7 +834,7 @@ param guidValue string = newGuid()
 
 var storageName = 'storage${uniqueString(guidValue)}'
 
-resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource myStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageName
   location: 'West US'
   sku: {
@@ -1355,7 +1355,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }

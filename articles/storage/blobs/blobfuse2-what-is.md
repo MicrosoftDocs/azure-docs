@@ -44,6 +44,10 @@ Other key features in BlobFuse2 include:
 - Parallel downloads and uploads to improve access time for large files
 - Multiple mounts to the same container for read-only workloads
 
+> [!IMPORTANT]
+> If you are using versions 2.2.0, 2.2.1, or 2.3.0, refrain from using the `Block-cache` mode and switch to the `file-cache` mode till [known issues](https://github.com/Azure/azure-storage-fuse/wiki/Blobfuse2-Known-issues) are fixed.
+
+
 ## BlobFuse2 enhancements from BlobFuse v1
 
 BlobFuse2 has more feature support and improved performance in multiple user scenarios from BlobFuse v1. For the extensive list of improvements, see the [BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/blob/main/README.md#distinctive-features-compared-to-blobfuse-v1x). Here's a summary of enhancements in BlobFuse2 from BlobFuse v1:

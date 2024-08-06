@@ -5,7 +5,7 @@ description: Learn how to copy a blob with asynchronous scheduling in Azure Stor
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 08/02/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python

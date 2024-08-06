@@ -3,7 +3,7 @@ author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [logfiles.download_enable](../how-to-server-logs-portal.md) |
+| Documentation  | [logfiles.download_enable](https://go.microsoft.com/fwlink/?linkid=2274270) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `3`           |
 | Allowed values | `1-7`          |
 | Parameter type | dynamic        |
-| Documentation  | [logfiles.retention_days](../how-to-server-logs-portal.md)  |
+| Documentation  | [logfiles.retention_days](https://go.microsoft.com/fwlink/?linkid=2274270)  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

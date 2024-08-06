@@ -2,9 +2,9 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/14/2024
+ms.date: 08/06/2024
 ms.custom: references_regions 
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -48,7 +48,8 @@ _*The database size limit depends on the data transfer rate that we support and 
 * TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). The backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * The backup and restore operations for mirror databases and database snapshots aren't supported.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
-* Back up of databases with extensions in their names aren’t supported. This is because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that we've allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names.
+* Back up of databases with extensions in their names aren’t supported. This is because the IIS server performs the [file extension request filtering](/iis/configuration/system.webserver/security/requestfiltering/fileextensions). However, note that we've allowlisted `.ad`, `.cs`, and `.master` that can be used in the database names. Learn more about the [database naming guidelines for Azure Backup](backup-sql-server-database-azure-vms.md#database-naming-guidelines-for-azure-backup).
+
 
 ## Backup throughput performance
 

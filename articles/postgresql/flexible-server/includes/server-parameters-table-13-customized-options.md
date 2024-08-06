@@ -3,7 +3,7 @@ author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_analyze](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.2.1.3)                                                   |
+| Documentation  | [auto_explain.log_analyze](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.2.1.3)            |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_buffers](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.3.1.3)                                                   |
+| Documentation  | [auto_explain.log_buffers](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.3.1.3)            |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `text`         |
 | Allowed values | `text,xml,json,yaml`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_format](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.9.1.3)                                                    |
+| Documentation  | [auto_explain.log_format](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.9.1.3)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `log`          |
 | Allowed values | `debug5,debug4,debug3,debug2,debug1,debug,info,notice,warning,log`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_level](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.10.1.3)                                                    |
+| Documentation  | [auto_explain.log_level](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.10.1.3)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `-1`           |
 | Allowed values | `-1-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_min_duration](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.1.1.3)                                              |
+| Documentation  | [auto_explain.log_min_duration](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.1.1.3)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_nested_statements](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.11.1.3)                                        |
+| Documentation  | [auto_explain.log_nested_statements](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.11.1.3) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_settings](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.8.1.3)                                                  |
+| Documentation  | [auto_explain.log_settings](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.8.1.3)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_timing](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.5.1.3)                                                    |
+| Documentation  | [auto_explain.log_timing](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.5.1.3)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_triggers](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.6.1.3)                                                  |
+| Documentation  | [auto_explain.log_triggers](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.6.1.3)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_verbose](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.7.1.3)                                                   |
+| Documentation  | [auto_explain.log_verbose](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.7.1.3)            |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.log_wal](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.4.1.3)                                                       |
+| Documentation  | [auto_explain.log_wal](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.4.1.3)                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `1`            |
 | Allowed values | `0.0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Parameter type | dynamic        |
-| Documentation  | [auto_explain.sample_rate](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.12.1.3)                                                  |
+| Documentation  | [auto_explain.sample_rate](https://www.postgresql.org/docs/13/auto-explain.html#id-1.11.7.13.5.3.12.1.3)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `md5`          |
 | Allowed values | `md5,scram-sha-256`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Parameter type | dynamic        |
-| Documentation  | [azure.accepted_password_auth_method](../how-to-connect-scram.md)                                  |
+| Documentation  | [azure.accepted_password_auth_method](https://go.microsoft.com/fwlink/?linkid=2274147)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -255,7 +255,7 @@ ms.topic: include
 | Default value  |                |
 | Allowed values | `address_standardizer,address_standardizer_data_us,amcheck,azure_ai,azure_storage,bloom,btree_gin,btree_gist,citext,cube,dblink,dict_int,dict_xsyn,earthdistance,fuzzystrmatch,hstore,hypopg,intagg,intarray,isn,lo,login_hook,ltree,orafce,pageinspect,pg_buffercache,pg_cron,pg_freespacemap,pg_hint_plan,pg_partman,pg_prewarm,pg_repack,pg_squeeze,pg_stat_statements,pg_trgm,pg_visibility,pgaudit,pgcrypto,pglogical,pgrouting,pgrowlocks,pgstattuple,plpgsql,plv8,postgis,postgis_raster,postgis_sfcgal,postgis_tiger_geocoder,postgis_topology,postgres_fdw,postgres_protobuf,semver,session_variable,sslinfo,tablefunc,tds_fdw,timescaledb,tsm_system_rows,tsm_system_time,unaccent,uuid-ossp,vector` |
 | Parameter type | dynamic        |
-| Documentation  | [azure.extensions](../concepts-extensions.md#extension-versions)                                   |
+| Documentation  | [azure.extensions](https://go.microsoft.com/fwlink/?linkid=2274269)                                                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -272,7 +272,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -289,7 +289,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -306,7 +306,7 @@ ms.topic: include
 | Default value  | `1024`         |
 | Allowed values | `1024`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | read-only      |
-| Documentation  | [azure_storage.blob_block_size_mb](/rest/api/storageservices/put-block?tabs=azure-ad#remarks)                                                             |
+| Documentation  | [azure_storage.blob_block_size_mb](/rest/api/storageservices/put-block?tabs=azure-ad#remarks)                      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -323,7 +323,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -340,7 +340,7 @@ ms.topic: include
 | Default value  | `2000`         |
 | Allowed values | `1-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -357,7 +357,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -374,7 +374,7 @@ ms.topic: include
 | Default value  | `0.8`          |
 | Allowed values | `0.0-0.9`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -391,7 +391,7 @@ ms.topic: include
 | Default value  | `500`          |
 | Allowed values | `1-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -408,7 +408,7 @@ ms.topic: include
 | Default value  | `120`          |
 | Allowed values | `1-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -425,7 +425,7 @@ ms.topic: include
 | Default value  | `2`            |
 | Allowed values | `1.0-100.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -442,7 +442,7 @@ ms.topic: include
 | Default value  | `20`           |
 | Allowed values | `1-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -459,7 +459,7 @@ ms.topic: include
 | Default value  | `postgres`     |
 | Allowed values | `[A-Za-z0-9_]+`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | static         |
-| Documentation  | [cron.database_name](https://github.com/citusdata/pg_cron)                                                                                                |
+| Documentation  | [cron.database_name](https://github.com/citusdata/pg_cron)                                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -476,7 +476,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | static         |
-| Documentation  | [cron.log_run](https://github.com/citusdata/pg_cron)                                                                                                      |
+| Documentation  | [cron.log_run](https://github.com/citusdata/pg_cron)                                                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -493,7 +493,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | static         |
-| Documentation  | [cron.log_statement](https://github.com/citusdata/pg_cron)                                                                                                |
+| Documentation  | [cron.log_statement](https://github.com/citusdata/pg_cron)                                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -510,7 +510,7 @@ ms.topic: include
 | Default value  | `32`           |
 | Allowed values | `0-5000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | static         |
-| Documentation  | [cron.max_running_jobs](https://github.com/citusdata/pg_cron)                                                                                             |
+| Documentation  | [cron.max_running_jobs](https://github.com/citusdata/pg_cron)                                                      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -527,7 +527,7 @@ ms.topic: include
 | Default value  | `720`          |
 | Allowed values | `60-10080`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.analysis_interval](../how-to-configure-index-tuning.md#configuration-options)        |
+| Documentation  | [index_tuning.analysis_interval](https://go.microsoft.com/fwlink/?linkid=2274149)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -544,7 +544,7 @@ ms.topic: include
 | Default value  | `2`            |
 | Allowed values | `1-10`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_columns_per_index](../how-to-configure-index-tuning.md#configuration-options)    |
+| Documentation  | [index_tuning.max_columns_per_index](https://go.microsoft.com/fwlink/?linkid=2274149)                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -561,7 +561,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_index_count](../how-to-configure-index-tuning.md#configuration-options)          |
+| Documentation  | [index_tuning.max_index_count](https://go.microsoft.com/fwlink/?linkid=2274149)                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -578,7 +578,7 @@ ms.topic: include
 | Default value  | `10`           |
 | Allowed values | `1-25`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_indexes_per_table](../how-to-configure-index-tuning.md#configuration-options)    |
+| Documentation  | [index_tuning.max_indexes_per_table](https://go.microsoft.com/fwlink/?linkid=2274149)                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -595,7 +595,7 @@ ms.topic: include
 | Default value  | `25`           |
 | Allowed values | `5-100`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_queries_per_database](../how-to-configure-index-tuning.md#configuration-options) |
+| Documentation  | [index_tuning.max_queries_per_database](https://go.microsoft.com/fwlink/?linkid=2274149)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -612,7 +612,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0.05-0.2`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_regression_factor](../how-to-configure-index-tuning.md#configuration-options)    |
+| Documentation  | [index_tuning.max_regression_factor](https://go.microsoft.com/fwlink/?linkid=2274149)                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -629,7 +629,7 @@ ms.topic: include
 | Default value  | `0.1`          |
 | Allowed values | `0-1.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.max_total_size_factor](../how-to-configure-index-tuning.md#configuration-options)    |
+| Documentation  | [index_tuning.max_total_size_factor](https://go.microsoft.com/fwlink/?linkid=2274149)                              |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -646,7 +646,7 @@ ms.topic: include
 | Default value  | `0.2`          |
 | Allowed values | `0-20.0`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.min_improvement_factor](../how-to-configure-index-tuning.md#configuration-options)   |
+| Documentation  | [index_tuning.min_improvement_factor](https://go.microsoft.com/fwlink/?linkid=2274149)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -663,7 +663,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `off,report`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.mode](../how-to-configure-index-tuning.md#configuration-options)                     |
+| Documentation  | [index_tuning.mode](https://go.microsoft.com/fwlink/?linkid=2274149)                                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -680,7 +680,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_dml_per_table](../how-to-configure-index-tuning.md#configuration-options)     |
+| Documentation  | [index_tuning.unused_dml_per_table](https://go.microsoft.com/fwlink/?linkid=2274149)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -697,7 +697,7 @@ ms.topic: include
 | Default value  | `35`           |
 | Allowed values | `30-720`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_min_period](../how-to-configure-index-tuning.md#configuration-options)        |
+| Documentation  | [index_tuning.unused_min_period](https://go.microsoft.com/fwlink/?linkid=2274149)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -714,7 +714,7 @@ ms.topic: include
 | Default value  | `1000`         |
 | Allowed values | `0-9999999`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [index_tuning.unused_reads_per_table](../how-to-configure-index-tuning.md#configuration-options)   |
+| Documentation  | [index_tuning.unused_reads_per_table](https://go.microsoft.com/fwlink/?linkid=2274149)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -731,7 +731,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `none,read,write,function,role,ddl,misc,all`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                                   |
+| Documentation  | [pgaudit.log](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                            |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -748,7 +748,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_catalog](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                           |
+| Documentation  | [pgaudit.log_catalog](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -765,7 +765,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_client](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                            |
+| Documentation  | [pgaudit.log_client](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -782,7 +782,7 @@ ms.topic: include
 | Default value  | `log`          |
 | Allowed values | `debug5,debug4,debug3,debug2,debug1,info,notice,warning,log`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_level](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                             |
+| Documentation  | [pgaudit.log_level](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -799,7 +799,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_parameter](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                         |
+| Documentation  | [pgaudit.log_parameter](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -816,7 +816,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_relation](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                          |
+| Documentation  | [pgaudit.log_relation](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -833,7 +833,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.log_statement_once](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                    |
+| Documentation  | [pgaudit.log_statement_once](https://github.com/pgaudit/pgaudit/blob/master/README.md)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -850,7 +850,7 @@ ms.topic: include
 | Default value  |                |
 | Allowed values | `[A-Za-z\\._]*`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  | [pgaudit.role](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                                                                  |
+| Documentation  | [pgaudit.role](https://github.com/pgaudit/pgaudit/blob/master/README.md)                                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -867,7 +867,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pglogical.batch_inserts](https://github.com/ArmMbedCloud/pglogical)                                                                                      |
+| Documentation  | [pglogical.batch_inserts](https://github.com/ArmMbedCloud/pglogical)                                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -884,7 +884,7 @@ ms.topic: include
 | Default value  | `log`          |
 | Allowed values | `debug5,debug4,debug3,debug2,debug1,info,notice,warning,error,log,fatal,panic`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  | [pglogical.conflict_log_level](https://github.com/ArmMbedCloud/pglogical)                                                                                 |
+| Documentation  | [pglogical.conflict_log_level](https://github.com/ArmMbedCloud/pglogical)                                          |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -901,7 +901,7 @@ ms.topic: include
 | Default value  | `apply_remote` |
 | Allowed values | `error,apply_remote,keep_local,last_update_wins,first_update_wins`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Parameter type | dynamic        |
-| Documentation  | [pglogical.conflict_resolution](https://github.com/ArmMbedCloud/pglogical)                                                                                |
+| Documentation  | [pglogical.conflict_resolution](https://github.com/ArmMbedCloud/pglogical)                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -918,7 +918,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pglogical.use_spi](https://github.com/ArmMbedCloud/pglogical)                                                                                            |
+| Documentation  | [pglogical.use_spi](https://github.com/ArmMbedCloud/pglogical)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -935,7 +935,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                                                                           |
+| Documentation  |                                                                                                                    |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -952,7 +952,7 @@ ms.topic: include
 | Default value  | `100`          |
 | Allowed values | `1-600000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.history_period](../concepts-query-store.md)                                    |
+| Documentation  | [pgms_wait_sampling.history_period](https://go.microsoft.com/fwlink/?linkid=2274607)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -969,7 +969,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pgms_wait_sampling.is_enabled_fs](../concepts-query-store.md)                                     |
+| Documentation  | [pgms_wait_sampling.is_enabled_fs](https://go.microsoft.com/fwlink/?linkid=2274607)                                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -986,7 +986,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Parameter type | dynamic        |
-| Documentation  | [pgms_wait_sampling.query_capture_mode](../concepts-query-store.md)                                |
+| Documentation  | [pgms_wait_sampling.query_capture_mode](https://go.microsoft.com/fwlink/?linkid=2274607)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1003,7 +1003,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_partman_bgw.analyze](https://github.com/pgpartman/pg_partman)                                                                                         |
+| Documentation  | [pg_partman_bgw.analyze](https://github.com/pgpartman/pg_partman)                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1020,7 +1020,7 @@ ms.topic: include
 | Default value  |                |
 | Allowed values | `[A-Za-z0-9_,]*`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | dynamic        |
-| Documentation  | [pg_partman_bgw.dbname](https://github.com/pgpartman/pg_partman)                                                                                          |
+| Documentation  | [pg_partman_bgw.dbname](https://github.com/pgpartman/pg_partman)                                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1037,7 +1037,7 @@ ms.topic: include
 | Default value  | `3600`         |
 | Allowed values | `1-315360000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Parameter type | dynamic        |
-| Documentation  | [pg_partman_bgw.interval](https://github.com/pgpartman/pg_partman)                                                                                        |
+| Documentation  | [pg_partman_bgw.interval](https://github.com/pgpartman/pg_partman)                                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1054,7 +1054,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_partman_bgw.jobmon](https://github.com/pgpartman/pg_partman)                                                                                          |
+| Documentation  | [pg_partman_bgw.jobmon](https://github.com/pgpartman/pg_partman)                                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1071,7 +1071,7 @@ ms.topic: include
 | Default value  | `postgres`     |
 | Allowed values | `[A-Za-z\\._]*`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Parameter type | dynamic        |
-| Documentation  | [pg_partman_bgw.role](https://github.com/pgpartman/pg_partman)                                                                                            |
+| Documentation  | [pg_partman_bgw.role](https://github.com/pgpartman/pg_partman)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1088,7 +1088,7 @@ ms.topic: include
 | Default value  | `15`           |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | static         |
-| Documentation  | [pg_qs.interval_length_minutes](../concepts-query-store.md)                                        |
+| Documentation  | [pg_qs.interval_length_minutes](https://go.microsoft.com/fwlink/?linkid=2274607)                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1105,7 +1105,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Parameter type | read-only      |
-| Documentation  | [pg_qs.is_enabled_fs](../concepts-query-store.md)                                                  |
+| Documentation  | [pg_qs.is_enabled_fs](https://go.microsoft.com/fwlink/?linkid=2274607)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1122,7 +1122,7 @@ ms.topic: include
 | Default value  | `7500`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_plan_size](../concepts-query-store.md)                                                  |
+| Documentation  | [pg_qs.max_plan_size](https://go.microsoft.com/fwlink/?linkid=2274607)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1139,7 +1139,7 @@ ms.topic: include
 | Default value  | `6000`         |
 | Allowed values | `100-10000`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.max_query_text_length](../concepts-query-store.md)                                          |
+| Documentation  | [pg_qs.max_query_text_length](https://go.microsoft.com/fwlink/?linkid=2274607)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1156,7 +1156,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `top,all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.query_capture_mode](../concepts-query-store.md)                                             |
+| Documentation  | [pg_qs.query_capture_mode](https://go.microsoft.com/fwlink/?linkid=2274607)                                        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1173,7 +1173,7 @@ ms.topic: include
 | Default value  | `7`            |
 | Allowed values | `1-30`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.retention_period_in_days](../concepts-query-store.md)                                       |
+| Documentation  | [pg_qs.retention_period_in_days](https://go.microsoft.com/fwlink/?linkid=2274607)                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1190,7 +1190,7 @@ ms.topic: include
 | Default value  | `off`          |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.store_query_plans](../concepts-query-store.md)                                              |
+| Documentation  | [pg_qs.store_query_plans](https://go.microsoft.com/fwlink/?linkid=2274607)                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1207,7 +1207,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_qs.track_utility](../concepts-query-store.md)                                                  |
+| Documentation  | [pg_qs.track_utility](https://go.microsoft.com/fwlink/?linkid=2274607)                                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1224,7 +1224,7 @@ ms.topic: include
 | Default value  | `5000`         |
 | Allowed values | `100-2147483647`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Parameter type | static         |
-| Documentation  | [pg_stat_statements.max](https://www.postgresql.org/docs/13/pgstatstatements.html)                                                                        |
+| Documentation  | [pg_stat_statements.max](https://www.postgresql.org/docs/13/pgstatstatements.html)                                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1241,7 +1241,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_stat_statements.save](https://www.postgresql.org/docs/13/pgstatstatements.html)                                                                       |
+| Documentation  | [pg_stat_statements.save](https://www.postgresql.org/docs/13/pgstatstatements.html)                                |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1258,7 +1258,7 @@ ms.topic: include
 | Default value  | `none`         |
 | Allowed values | `top,all,none`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Parameter type | dynamic        |
-| Documentation  | [pg_stat_statements.track](https://www.postgresql.org/docs/13/pgstatstatements.html)                                                                      |
+| Documentation  | [pg_stat_statements.track](https://www.postgresql.org/docs/13/pgstatstatements.html)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1275,7 +1275,7 @@ ms.topic: include
 | Default value  | `on`           |
 | Allowed values | `on,off`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [pg_stat_statements.track_utility](https://www.postgresql.org/docs/13/pgstatstatements.html)                                                              |
+| Documentation  | [pg_stat_statements.track_utility](https://www.postgresql.org/docs/13/pgstatstatements.html)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -1292,7 +1292,7 @@ ms.topic: include
 | Default value  | `DISABLE_ALL`  |
 | Allowed values | `DISABLE_ALL,ENABLE_ALL`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | Parameter type | dynamic        |
-| Documentation  | [postgis.gdal_enabled_drivers](https://postgis.net/docs/postgis_gdal_enabled_drivers.html)                                                                |
+| Documentation  | [postgis.gdal_enabled_drivers](https://postgis.net/docs/postgis_gdal_enabled_drivers.html)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

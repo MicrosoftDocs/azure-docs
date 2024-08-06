@@ -3,7 +3,6 @@ title: Configure performance for the Azure-SSIS Integration Runtime
 description: Learn how to configure the properties of the Azure-SSIS Integration Runtime for high performance
 ms.date: 01/05/2024
 ms.topic: conceptual
-ms.service: data-factory
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
@@ -53,7 +52,7 @@ $SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the s
 
 ### SSISDB info
 $SSISDBServerEndpoint = "[your server name or managed instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
-# Authentication info: SQL or Azure Active Directory (AAD)
+# Authentication info: SQL or Entra ID
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for SQL Managed Instance]"

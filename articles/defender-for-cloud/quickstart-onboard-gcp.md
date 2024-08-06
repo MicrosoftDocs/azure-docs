@@ -2,7 +2,7 @@
 title: Connect your GCP project
 description: Defend your GCP resources by using Microsoft Defender for Cloud. Protect your workloads and enhance your cloud security with our comprehensive solution.
 ms.topic: install-set-up-deploy
-ms.date: 07/01/2024
+ms.date: 07/17/2024
 ---
 
 # Connect your GCP project to Microsoft Defender for Cloud
@@ -45,7 +45,7 @@ To complete the procedures in this article, you need:
 
 - Access to a GCP project.
 
-- **Subscription owner** permission on the relevant Azure subscription, and **Owner** permission on the GCP organization or project.
+- Contributor level permission for the relevant Azure subscription.
 
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
@@ -301,6 +301,7 @@ If you choose the Microsoft Defender CSPM plan, you need:
 - A Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+- To enable CIEM (Cloud Infrastructure Entitlement Management) capabilities, the Entra ID account used for the onboarding process must have either the Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations). This requirement is only necessary during the onboarding process.
 
 Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
 

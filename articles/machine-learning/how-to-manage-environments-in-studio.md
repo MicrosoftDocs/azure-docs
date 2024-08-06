@@ -3,11 +3,11 @@ title: Manage environments in the studio
 titleSuffix: Azure Machine Learning
 description: Learn how to create and manage environments in the Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-author: ositanachi
-ms.author:  osiotugo
-ms.reviewer: larryfr
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: osiotugo
 ms.date: 03/05/2024
 ms.topic: how-to
 ms.custom:

@@ -4,7 +4,7 @@ description: Reference for the send-request policy available for use in Azure AP
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/18/2024
 ms.author: danlep
@@ -57,7 +57,7 @@ The `send-request` policy sends the provided request to the specified URL, waiti
 
 - **[Policy sections:](./api-management-howto-policies.md#sections)** inbound, outbound, backend, on-error
 - **[Policy scopes:](./api-management-howto-policies.md#scopes)** global, workspace, product, API, operation
-- **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted
+- **[Gateways:](api-management-gateways-overview.md)** dedicated, consumption, self-hosted, workspace
 
 ### Usage notes
 

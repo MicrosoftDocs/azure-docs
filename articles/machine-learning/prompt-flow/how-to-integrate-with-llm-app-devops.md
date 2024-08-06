@@ -3,15 +3,15 @@ title: Integrate prompt flow with LLM-based application DevOps
 titleSuffix: Azure Machine Learning
 description: Learn about integration of prompt flow with LLM-based application DevOps in Azure Machine Learning
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 11/02/2023
 ---
 
@@ -197,17 +197,27 @@ connections = {"classify_with_llm":
                   "deployment_name": <deployment_name>}
                 }
 # create run
-base_run = pf.run(
+run = Run(
+    # local flow file
     flow=flow,
+    # remote data
     data=data,
-#    resources = resources,
     column_mapping={
         "url": "${data.url}"
     }, 
-    connections=connections,  
-
+    connections=connections, 
+    # to customize runtime instance type and compute instance, you can provide them in resources
+    # resources={
+    #     "instance_type": "STANDARD_DS11_V2",
+    #     "compute": "my_compute_instance"
+    # }
+    # to customize identity, you can provide them in identity
+    # identity={
+    #     "type": "managed",
+    # }
 )
-print(base_run)
+
+base_run = pf.runs.create_or_update(run=run)
 ```
 
 ---
@@ -276,17 +286,29 @@ connections = {"classify_with_llm":
                 }
 
 # create evaluation run
-eval_run = pf.run(
-    flow=flow
+eval_run = Run(
+    # local flow file
+    flow=flow,
+    # remote data
     data=data,
     run=base_run,
     column_mapping={
         "groundtruth": "${data.answer}",
         "prediction": "${run.outputs.category}",
     },
-#    resources = resources, 
-    connections=connections
+    connections=connections,
+    # to customize runtime instance type and compute instance, you can provide them in resources
+    # resources={
+    #     "instance_type": "STANDARD_DS11_V2",
+    #     "compute": "my_compute_instance"
+    # }
+    # to customize identity, you can provide them in identity
+    # identity={
+    #     "type": "managed",
+    # }
 )
+
+eval_run = pf.runs.create_or_update(run=eval_run)
 ```
 
 ---

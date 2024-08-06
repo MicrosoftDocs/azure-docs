@@ -4,8 +4,6 @@ description: Use a data factory to copy data from one location in Azure Blob sto
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/15/2024

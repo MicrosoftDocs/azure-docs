@@ -2,8 +2,8 @@
 author: akashraokm
 ms.author: akashrao
 ms.reviewer: maghan
-ms.date: 06/18/2024
-ms.service: postgresql
+ms.date: 07/13/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -43,7 +43,7 @@ ms.topic: include
 | [pg_freespacemap](https://www.postgresql.org/docs/13/pgfreespacemap.html)                    | Examine the free space map (FSM)                                                                                    | 1.2                       | 1.2                       | 1.2                       | 1.2                       | 1.2                       | 1.2|
 | [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan)                                      | Makes it possible to tweak PostgreSQL execution plans using so-called hints in SQL comments.                        | 1.6.0 :heavy_check_mark:  | 1.5 :heavy_check_mark:    | 1.4 :heavy_check_mark:    | 1.3.7 :heavy_check_mark:  | 1.3.7 :heavy_check_mark:  | 1.3.7 :heavy_check_mark:|
 | [pglogical](https://github.com/2ndQuadrant/pglogical)                                        | PostgreSQL Logical Replication                                                                                      | 2.4.4 :heavy_check_mark:  | 2.4.2 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:  | 2.4.1 :heavy_check_mark:|
-| [pg_partman](https://github.com/pgpartman/pg_partman)                                        | Extension to manage partitioned tables by time or ID                                                                | 4.7.1 :heavy_check_mark:  | 4.7.1 :heavy_check_mark:  | 4.6.1 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:|
+| [pg_partman](https://github.com/pgpartman/pg_partman)                                        | Extension to manage partitioned tables by time or ID                                                                | 5.0.1 :heavy_check_mark:  | 4.7.1 :heavy_check_mark:  | 4.6.1 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:  | 4.5.0 :heavy_check_mark:|
 | [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html)                         | Prewarm relation data                                                                                               | 1.2 :heavy_check_mark:    | 1.2 :heavy_check_mark:    | 1.2 :heavy_check_mark:    | 1.2 :heavy_check_mark:    | 1.2 :heavy_check_mark:    | 1.2 :heavy_check_mark:|
 | [pg_repack](https://reorg.github.io/pg_repack/)                                              | Reorganize tables in PostgreSQL databases with minimal locks                                                        | 1.4.7                     | 1.4.7                     | 1.4.7                     | 1.4.7                     | 1.4.7                     | 1.4.7|
 | [pgrouting](https://pgrouting.org/)                                                          | PgRouting Extension                                                                                                 | N/A                       | 3.5.0                     | 3.3.0                     | 3.3.0                     | 3.3.0                     | 3.3.0|

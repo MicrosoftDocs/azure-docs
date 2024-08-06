@@ -2,7 +2,7 @@
 title: Cloud Security Posture Management (CSPM)
 description: Learn more about Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud and how it helps improve your security posture.
 ms.topic: concept-article
-ms.date: 07/04/2024
+ms.date: 07/16/2024
 #customer intent: As a reader, I want to understand the concept of Cloud Security Posture Management (CSPM) in Microsoft Defender for Cloud.
 ---
 
@@ -48,7 +48,7 @@ The following table summarizes each plan and their cloud availability.
 | [Code-to-cloud mapping for IaC](iac-template-mapping.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure DevOps |
 | [PR annotations](review-pull-request-annotations.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | GitHub, Azure DevOps |
 | Internet exposure analysis | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
-| [External attack surface management (EASM)](concept-easm.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
+| [External attack surface management](concept-easm.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Permissions Management (CIEM)](permissions-management.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [Regulatory compliance assessments](concept-regulatory-compliance-standards.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |
 | [ServiceNow Integration](integration-servicenow.md) | - | :::image type="icon" source="./media/icons/yes-icon.png"::: | Azure, AWS, GCP |

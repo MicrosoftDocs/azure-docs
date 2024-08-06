@@ -3,7 +3,7 @@ title: 'Tutorial: Conduct vector similarity search on Azure OpenAI embeddings us
 description: In this tutorial, you learn how to use Azure Cache for Redis to store and search for vector embeddings.
 author: flang-msft
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: tutorial
 ms.date: 09/15/2023
 

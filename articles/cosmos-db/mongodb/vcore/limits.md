@@ -3,7 +3,7 @@ title: Service Limits in Azure Cosmos DB for MongoDB vCore
 description: This document outlines the service limits for vCore-based Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 06/27/2024

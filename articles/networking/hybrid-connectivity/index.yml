@@ -1,0 +1,179 @@
+### YamlMime:Hub 
+
+title: Azure hybrid connectivity documentation 
+summary: Learn about the various Azure hybrid connectivity services available that provide connectivity to your resources in Azure.
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure hybrid connectivity documentation
+  description: Azure hybrid connectivity services provide connectivity to your resources in Azure and help secure your network. 
+  ms.service: virtual-network
+  ms.topic: hub-page
+  author: duongau
+  ms.author: duau
+  manager: kumudD
+  ms.date: 06/14/2024
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items:
+    - title: Introduction to Azure hybrid connectivity services
+      itemType: training
+      url: /training/paths/intro-to-azure-hybrid-connectivity-services/
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/en-us/blog/?s=&k%5B0%5D=Virtual%20WAN&k%5B1%5D=ExpressRoute&k%5B2%5D=VPN
+    - title: Azure network security documentation
+      itemType: overview
+      url: ../security/index.yml
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure networking services overview
+      itemType: overview
+      url: ../fundamentals/networking-overview.md
+
+# productDirectory section (Optional; Remove if not applicable.)
+productDirectory:
+  title: Get started # Optional but good for SEO. Remove if not applicable.
+  items:
+    # Card
+    - title: VPN Gateway
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/virtual-network-gateway.svg
+      summary: Connect your on-premises network to Azure through an IPsec VPN tunnel.
+      url: ../../vpn-gateway/index.yml
+    # Card
+    - title: ExpressRoute
+      imageSrc: ./media/expressroute.svg
+      summary: Connect your on-premises network to Azure through a dedicated private connection.
+      url: ../../expressroute/index.yml
+    # Card
+    - title: Virtual WAN
+      imageSrc: ./media/virtual-wan.svg
+      summary: Connect and manage your on-premises network to Azure through a centralized network hub.
+      url: ../../virtual-wan/index.yml
+    # Card
+    - title: Peering Service
+      imageSrc: ./media/peering-service.svg
+      summary: Enhance connectivity to Microsoft cloud services over the public internet.
+      url: ../../peering-service/about.md
+
+# conceptualContent section (Optional; Remove if not applicable.)
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    # Section 1
+    - title: Use cases and scenarios
+      items:
+        # Card
+        - title: Virtual WAN and site-to-site VPN connectivity
+          links:
+            - url: ../../vpn-gateway/design.md
+              itemType: concept
+              text: VPN Gateway topology and design
+            - url: ../../vpn-gateway/tutorial-site-to-site-portal.md
+              itemType: tutorial
+              text: Site-to-site VPN connection
+            - url: ../../virtual-wan/virtual-wan-locations-partners.md
+              itemType: concept
+              text: Virtual WAN Hub locations and partners
+            - url: ../../virtual-wan/virtual-wan-site-to-site-portal.md
+              itemType: tutorial
+              text: Site-to-site VPN - Virtual WAN
+        # Card
+        - title: Secure point to site VPN connectivity
+          links:
+            - url: ../../vpn-gateway/point-to-site-about.md
+              itemType: concept
+              text: Point-to-site VPN
+            - url: ../../vpn-gateway/vpn-gateway-about-point-to-site-routing.md
+              itemType: concept
+              text: About Point-to-site VPN routing
+            - url: ../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
+              itemType: how-to-guide
+              text: Configure point-to-site VPN - Azure certificate authentication
+            - url: ../../vpn-gateway/point-to-site-how-to-radius-ps.md
+              itemType: how-to-guide
+              text: Configure point-to-site VPN - RADIUS authentication 
+            - url: ../../vpn-gateway/openvpn-azure-ad-tenant.md
+              itemType: how-to-guide
+              text: Configure point-to-site VPN - Microsoft Entra ID authentication  
+        # Card
+        - title: ExpressRoute private connectivity
+          links:
+            - url: ../../expressroute/expressroute-circuit-peerings.md
+              itemType: concept
+              text: About ExpressRoute circuit and peerings
+            - url: ../../expressroute/expressroute-erdirect-about.md
+              itemType: concept
+              text: ExpressRoute Direct
+            - url: ../../expressroute/expressroute-global-reach.md
+              itemType: concept
+              text: ExpressRoute Global Reach
+            - url: ../../expressroute/traffic-collector.md
+              itemType: concept
+              text: ExpressRoute Traffic Collector
+            - url: ../../expressroute/expressroute-about-virtual-network-gateways.md
+              itemType: concept
+              text: ExpressRoute Gateway Design
+            - url: ../../expressroute/about-fastpath.md
+              itemType: concept
+              text: ExpressRoute FastPath
+    # Section 3
+    - title: Learn about
+      items:
+        # Card
+        - title: Cloud Adoption Framework
+          links:
+            - url: /azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure
+              itemType: architecture
+              text: Connectivity to Azure - Cloud Adoption Framework
+            - url: /azure/cloud-adoption-framework/ready/azure-best-practices/traditional-azure-networking-topology
+              itemType: architecture
+              text: Traditional Azure networking topology - Cloud Adoption Framework
+            - url: /azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology
+              itemType: architecture
+              text: Virtual WAN network topology - Cloud Adoption Framework
+        # Card
+        - title: VPN Gateway
+          links:
+            - url: ../../vpn-gateway/design.md
+              itemType: concept
+              text: VPN Gateway topology and design
+            - url: /azure/architecture/reference-architectures/hybrid-networking/vnet-peering
+              itemType: architecture
+              text: Choosing between virtual network peering and VPN Gateway
+        # Card
+        - title: ExpressRoute
+          links:
+            - url: /azure/architecture/reference-architectures/hybrid-networking/expressroute
+              itemType: architecture
+              text: Extend on-premises network to Azure with ExpressRoute
+            - url: /azure/well-architected/service-guides/azure-expressroute
+              itemType: architecture
+              text: ExpressRoute - Well-Architected Framework
+        # Card
+        - title: Virtual WAN
+          links:
+            - url: /azure/architecture/networking/architecture/hub-spoke-vwan-architecture
+              itemType: architecture
+              text: Hub-spoke network topology - Virtual WAN
+            - url: /azure/architecture/networking/architecture/massive-scale-azure-architecture
+              itemType: architecture
+              text: Massive scale Virtual WAN architecture design
+
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network foundation
+          url: ../foundations/index.yml
+        - title: Load balancing and content delivery
+          url: ../load-balancer-content-delivery/index.yml
+        - title: Network security
+          url: ../security/index.yml
+        - title: Network monitoring and management
+          url: ../monitoring-management/index.yml 

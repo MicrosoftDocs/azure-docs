@@ -4,7 +4,7 @@ description: Learn how to set up Azure CLI for migration service in Azure Databa
 author: markingmyname
 ms.author: maghan
 ms.date: 06/19/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ms.custom:
@@ -141,6 +141,7 @@ The `az postgres flexible-server migration create` command requires a JSON file 
 | `targetServerUserName` | The default value is the admin user created during the creation of the PostgreSQL target flexible server, and the password provided is used for authentication against this user. |
 | `dbsToMigrate` | Specify the list of databases that you want to migrate to Flexible Server. You can include a maximum of eight database names at a time. Providing the list of DBs in array format. |
 | `overwriteDBsInTarget` | When set to true (default), if the target server happens to have an existing database with the same name as the one you're trying to migrate, the migration service automatically overwrites the database |
+| `migrationRuntimeResourceId` | Required if a runtime server needs to be used for migration. The format is - `/subscriptions/<<Subscription ID>>/resourceGroups/<<Resource Group Name>>/providers/Microsoft.DBforPostgreSQL/flexibleServers/<<PostgreSQL Flexible Server name>>` |
 | `sourceType` | Required parameter. Values can be - on-premises, AWS_RDS, AzureVM, PostgreSQLSingleServer |
 | `sslMode` | SSL modes for migration. SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer/Require for other source types. |
 
