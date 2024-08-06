@@ -50,10 +50,10 @@ The configuration is specified using Kubernetes CRDs. Based on this configuratio
 
 ## Benefits
 
-- **Simplified Setup:** Easily connect data sources and destinations
-- **Flexible Transformations:** Perform a wide range of data operations
-- **Scalable Configuration:** Use Kubernetes CRDs for scalable and manageable configurations
-- **High Availability:** Kubernetes native resource ensures reliability
+- **Simplified setup:** Easily connect data sources and destinations
+- **Flexible transformations:** Perform a wide range of data operations
+- **Scalable configuration:** Use Kubernetes CRDs for scalable and manageable configurations
+- **High availability:** Kubernetes native resource ensures reliability
 
 By using dataflows, you can efficiently manage your data paths, ensuring data is accurately sent, transformed, and enriched to meet your operational needs.
 
