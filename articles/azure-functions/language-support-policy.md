@@ -2,7 +2,7 @@
 title: Azure Functions language runtime support policy
 description: Learn about Azure Functions language runtime support policy
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/05/2024
 ---
 
 # Language runtime support policy
@@ -30,7 +30,7 @@ After the language end-of-life date, function apps that use retired language ver
 
 Any Azure Functions supported exceptions to language-specific retirement policies are documented here.  
 
-There are currently no exceptions to the retirement policy outlined above.
+> There are currently no exceptions to the general retirement policy.
 
 ## Language version support timeline
 
