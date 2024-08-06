@@ -47,8 +47,6 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 
 - [Big Switch Big Monitoring Fabric](https://www.arista.com/en/bigswitch)
 
-- [Corelight, Inc.](https://corelight.com/)
-
 ### Security analytics, network/application performance management
 
 - [Awake Security](https://www.arista.com/partner/technology-partners)
@@ -74,6 +72,8 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [RSA NetWitness&reg; Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
 
 - [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
+
+- [Corelight, Inc.](https://corelight.com/)
 
 ## Next steps
 

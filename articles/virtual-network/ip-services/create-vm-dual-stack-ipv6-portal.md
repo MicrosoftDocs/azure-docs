@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: In this article, learn how to create a virtual machine with a dual-stack virtual network in Azure using the Azure portal, Azure CLI, or PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 07/24/2024

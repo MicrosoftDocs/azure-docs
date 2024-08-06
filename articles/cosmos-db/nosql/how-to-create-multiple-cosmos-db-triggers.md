@@ -2,7 +2,7 @@
 title: Create multiple independent Azure Functions triggers for Azure Cosmos DB
 description: Learn how to configure multiple independent Azure Functions triggers for Azure Cosmos DB to create event-driven architectures.
 author: ealsur
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 04/07/2023

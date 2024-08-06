@@ -33,7 +33,7 @@ In this how-to guide, you learn to use the [Translator service REST APIs](refere
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* An Azure AI multi-service or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
+* An Azure AI multi-service or Translator resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or a [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAIServices) resource, in the Azure portal, to get your key and endpoint. After it deploys, select **Go to resource**.
 
 * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 

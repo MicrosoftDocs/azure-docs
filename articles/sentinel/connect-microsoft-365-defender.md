@@ -175,4 +175,4 @@ let Now = now();
 
 In this document, you learned how to integrate Microsoft Defender XDR incidents, alerts, and advanced hunting event data from Microsoft Defender services, into Microsoft Sentinel, by using the Microsoft Defender XDR connector.
 
-To use Microsoft Sentinel integrated with Defender XDR in the unified security operations platform, see [Connect data from Microsoft Defender XDR to Microsoft Sentinel](connect-microsoft-365-defender.md).
+To use Microsoft Sentinel integrated with Defender XDR in the unified security operations platform, see [Connect Microsoft Sentinel to Microsoft Defender XDR](/defender-xdr/microsoft-sentinel-onboard).

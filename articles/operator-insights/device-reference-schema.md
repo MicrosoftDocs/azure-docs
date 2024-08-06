@@ -5,7 +5,7 @@ author: parjai
 ms.author: parjai
 ms.reviewer: rdunstan
 ms.topic: reference
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.date: 01/31/2024
 ---
 

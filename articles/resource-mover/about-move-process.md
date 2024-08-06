@@ -2,7 +2,7 @@
 title: About the move process in Azure Resource Mover
 description: Learn about the process for moving resources across regions with Azure Resource Mover
 author: ankitaduttaMSFT
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: overview
 ms.date: 03/29/2024
 ms.author: ankitadutta

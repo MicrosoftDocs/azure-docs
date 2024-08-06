@@ -4,7 +4,7 @@ description: This document described bring your own key specification.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
 ms.date: 01/30/2024

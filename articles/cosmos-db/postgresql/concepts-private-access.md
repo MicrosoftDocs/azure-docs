@@ -3,7 +3,7 @@ title: Private access - Azure Cosmos DB for PostgreSQL
 description: This article describes private access for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 06/05/2023

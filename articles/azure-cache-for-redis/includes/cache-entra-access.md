@@ -1,5 +1,5 @@
 ---
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: include
 ms.date: 07/08/2024
 ms.author: franlanglois

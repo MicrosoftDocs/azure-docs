@@ -2,7 +2,7 @@
 title: Import APIs from Azure API Management - Azure API Center
 description: Add APIs to your Azure API center inventory from your API Management instance.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 06/28/2024
 ms.author: danlep 
@@ -255,7 +255,7 @@ In the following command, substitute the names of your API center, your API cent
 
 ```azurecli
 #! /bin/bash
-import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
+az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> \
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> \
     --apim-apis 'petstore-api'        
 ```
@@ -263,7 +263,7 @@ import-from-apim --service-name <api-center-name> --resource-group <resource-gro
 
 ```azurecli
 # PowerShell syntax
-import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
+az apic import-from-apim --service-name <api-center-name> --resource-group <resource-group-name> `
     --apim-name <api-management-name> --apim-resource-group <api-management-resource-group-name> `
     --apim-apis 'petstore-api'    
 ```

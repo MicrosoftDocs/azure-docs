@@ -3,7 +3,7 @@ title: About Azure Machine Learning environments
 titleSuffix: Azure Machine Learning
 description: Learn about machine learning environments, which enable reproducible, auditable, & portable machine learning dependency definitions for various compute targets.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 author: Blackmist

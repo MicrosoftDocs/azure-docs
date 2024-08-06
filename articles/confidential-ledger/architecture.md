@@ -3,7 +3,7 @@ title: Azure confidential ledger architecture
 description: Azure confidential ledger architecture
 services: confidential-ledger
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin

@@ -3,7 +3,7 @@ title: Best practices for secrets management - Azure Key Vault | Microsoft Docs
 description: Learn about best practices for Azure Key Vault secrets management.
 author: msmbaldwin
 tags: azure-key-vault
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 09/21/2021

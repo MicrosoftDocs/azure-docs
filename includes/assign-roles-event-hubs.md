@@ -2,7 +2,7 @@
 title: "include file"
 description: "include file"
 author: alexwolfmsft
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 10/11/2022
 ms.author: alexwolf

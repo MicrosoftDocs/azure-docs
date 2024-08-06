@@ -168,7 +168,7 @@ Learn more about [Microsoft App Container App - UseLatestApiVersion (The api ver
 
 This cluster's service principal is expired and the cluster isn't healthy until the service principal is updated
 
-Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](../aks/update-credentials.md).
+Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's service principal)](/azure/aks/update-credentials).
 
 ### Monitoring addon workspace is deleted
 
@@ -192,7 +192,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and can't take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there isn't enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster can't be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/create-node-pools.md#add-a-node-pool-with-a-unique-subnet).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](/azure/aks/create-node-pools#add-a-node-pool-with-a-unique-subnet).
 
 ### Expired ETCD cert
 
@@ -210,7 +210,7 @@ Learn more about [Kubernetes service - UseAzurePolicyForKubernetes (Disable the 
 
 This cluster isn't using ephemeral OS disks which can provide lower read/write latency, along with faster node scaling and cluster upgrades
 
-Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](../aks/concepts-storage.md#ephemeral-os-disk).
+Learn more about [Kubernetes service - UseEphemeralOSdisk (Use Ephemeral OS disk)](/azure/aks/concepts-storage#ephemeral-os-disk).
 
 ### Outdated Azure Linux (Mariner) OS SKUs Found
 
@@ -222,7 +222,7 @@ Learn more about [Kubernetes service - ClustersWithDeprecatedMarinerSKU (Outdate
 
 This cluster has not enabled the Standard tier that includes the Uptime SLA by default, and is limited to an SLO of 99.5%.
 
-Learn more about [Kubernetes service - Free and Standard Tier](../aks/free-standard-pricing-tiers.md).
+Learn more about [Kubernetes service - Free and Standard Tier](/azure/aks/free-standard-pricing-tiers).
 
 ### Deprecated Kubernetes API in 1.22 has been found
 

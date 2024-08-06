@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for NoSQL to enhance AI-based a
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - Build 2024
@@ -137,6 +137,9 @@ The container vector policy can be described as JSON objects. Here are two examp
 | **`quantizedFlat`** | Quantizes (compresses) vectors before storing on the index. This can improve latency and throughput at the cost of a small amount of accuracy. | 4096 |
 | **`diskANN`** | Creates an index based on DiskANN for fast and efficient approximate search. | 4096 |
 
+> [!NOTE]
+> The `quantizedFlat` and `diskANN` indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead and will lead to higher RU charges for a vector search query.
+
 A few points to note:
   - The `flat` and `quantizedFlat` index types uses Azure Cosmos DB's index to store and read each vector when performing a vector search. Vector searches with a `flat` index are brute-force searches and produce 100% accuracy or recall. That is, it's guaranteed to find the most similar vectors in the dataset. However, there's a limitation of `505` dimensions for vectors on a flat index.
 
@@ -158,6 +161,9 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1"
         }
     ],
     "vectorIndexes": [
@@ -181,6 +187,12 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1",
+        },
+        {
+            "path": "/vector2",
         }
     ],
     "vectorIndexes": [
@@ -195,11 +207,13 @@ Here are examples of valid vector index policies:
     ]
 }
 ```
-> [!NOTE]
-> The Quantized Flat and DiskANN indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > At this time in the vector search preview do not use nested path or wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
+
 
 ## Perform vector search with queries using VectorDistance()
 

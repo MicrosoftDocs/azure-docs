@@ -60,7 +60,7 @@ From this example accumulation of Minutes Not Available, here's the calculation 
     - B
     - Bpsv2
     - Bsv2 (Intel) and Basv2 (AMD)
-    - D series, v2 and newer; AMD and Intel
+    - D and Ds series, v2 and newer; AMD and Intel
     - Dadsv5
     - Dav4 series
     - Dasv4 and newer

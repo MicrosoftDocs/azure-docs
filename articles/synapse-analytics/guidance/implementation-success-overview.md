@@ -4,7 +4,7 @@ description: "Learn about the Azure Synapse success series of articles that's de
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---

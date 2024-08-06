@@ -6,6 +6,7 @@ ms.date: 11/01/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.custom: linux-related-content
+ms.service: azure-automation
 ---
 
 # Troubleshoot Linux update agent issues

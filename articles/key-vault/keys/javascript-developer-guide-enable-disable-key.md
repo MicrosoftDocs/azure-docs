@@ -3,7 +3,7 @@ title: Enable and disable keys using Azure Key Vault keys with JavaScript
 description: Enable and disable keys from cryptographic operations with keys in JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js

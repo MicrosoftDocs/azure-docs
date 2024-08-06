@@ -4,8 +4,8 @@ description: Learn about security in the Flexible Server deployment option for A
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 05/23/2024
-ms.service: postgresql
+ms.date: 08/02/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -135,9 +135,7 @@ oid            | 24827
 ```
 
 > [!IMPORTANT]
-> Important to note that number of superuser only permissions, such as creation of certain **[binary-coercible implicit casts](https://www.postgresql.org/docs/current/sql-createcast.html)**, are not available with Azure Database for PostgreSQL - Flexible Server, since `azure_pg_admin` role doesn't align to permissions of PostgreSQL superuser role. 
-> A **[binary-coercible cast](https://www.postgresql.org/docs/current/sql-createcast.html)** is a type of cast that does not require any function to perform the conversion, because the source and target types have the same internal representation
-> Non binary-coercible casts, including containing options WITH `IN OUT` and `WITH FUNCTION` are supported.
+> Recently, we have enabled the ability to create **[CAST commands](https://www.postgresql.org/docs/current/sql-createcast.html)** in Azure Database for PostgreSQL Flexible Server. Please be aware that currently, the functionality is operating as expected with the exception of the DROP statement. In other words, it is currently not possible to drop a CAST once it has been created. We are actively working on adding this functionality and anticipate its availability in the near future.
 
 
 [Audit logging in Azure Database for PostgreSQL - Flexible Server](concepts-audit.md) is also available with Azure Database for PostgreSQL - Flexible Server to track activity in your databases.

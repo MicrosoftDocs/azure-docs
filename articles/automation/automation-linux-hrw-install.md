@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.custom: linux-related-content
 ms.date: 06/29/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Deploy an agent-based Linux Hybrid Runbook Worker in Automation

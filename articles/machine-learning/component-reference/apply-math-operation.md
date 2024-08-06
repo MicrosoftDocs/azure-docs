@@ -3,7 +3,7 @@ title:  "Apply Math Operation"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Apply Math Operation component in Azure Machine Learning to apply a mathematical operation to column values in a pipeline.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

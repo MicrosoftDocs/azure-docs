@@ -4,7 +4,7 @@ titleSuffix: Azure Managed Grafana
 description: This conceptual article introduces Azure role-based access control for Azure Managed Grafana resources.
 #customer intent: As a Grafana user, I want to understand how Azure role-based access control (RBAC) works with Azure Managed Grafana so that I can manage access to Azure Managed Grafana workspaces.
 author: maud-lv
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: malev

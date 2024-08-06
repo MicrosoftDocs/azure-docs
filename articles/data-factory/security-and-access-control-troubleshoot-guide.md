@@ -3,7 +3,6 @@ title: Troubleshoot security and access control issues
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot security and access control issues in Azure Data Factory and Synapse Analytics. 
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
@@ -50,13 +49,13 @@ The problem is usually caused by one of the following factors:
   
 * If you're using an **Azure IR**, try to disable the firewall setting of the datastore. This approach can resolve the issues in the following two situations:
   
-   * [Azure IR IP addresses](./azure-integration-runtime-ip-addresses.md) are not in the allow list.
+   * [Azure IR IP addresses](./azure-integration-runtime-ip-addresses.md) aren't in the allowlist.
    * The *Allow trusted Microsoft services to access this storage account* feature is turned off for [Azure Blob Storage](./connector-azure-blob-storage.md#supported-capabilities) and [Azure Data Lake Storage Gen 2](./connector-azure-data-lake-storage.md#supported-capabilities).
    * The *Allow access to Azure services* setting isn't enabled for Azure Data Lake Storage Gen1.
 
 If none of the preceding methods works, contact Microsoft for help.
 
-### Deleted or rejected private end point still shows Aprroved in ADF
+### Deleted or rejected private end point still shows Approved in ADF
 
 #### Symptoms
 
@@ -64,7 +63,7 @@ You created managed private endpoint from ADF and obtained an approved private e
 
 #### Cause 
 
-Currently, ADF stops pulling private end point status after it is approved. Hence the status shown in ADF is stale.
+Currently, ADF stops pulling private end point status after it's approved. Hence the status shown in ADF is stale.
 
 ##### Resolution
 
@@ -118,7 +117,7 @@ To resolve the issue, do the following:
 
 You're unable to register the IR authentication key on the self-hosted VM because the private link is enabled. You receive the following error message:
 
-"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address is not valid private ip Cause Data factory couldn't access the public network thereby not able to reach out to the cloud to make the successful connection."
+"Failed to get service token from ADF service with key *************** and time cost is: 0.1250079 second, the error code is: InvalidGatewayKey, activityId is: XXXXXXX and detailed error message is Client IP address isn't valid private ip Cause Data factory couldn't access the public network thereby not able to reach out to the cloud to make the successful connection."
 
 #### Cause
 
@@ -170,18 +169,18 @@ Try to enable public network access on the user interface, as shown in the follo
 ### Service private DNS zone overrides Azure Resource Manager DNS resolution causing 'Not found' error
 
 #### Cause
-Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer's private DNS with a scenario where the Azure Resource Manager records will not be found.
+Both Azure Resource Manager and the service are using the same private zone creating a potential conflict on customer's private DNS with a scenario where the Azure Resource Manager records won't be found.
 
 #### Resolution
 1. Find Private DNS zones **privatelink.azure.com** in Azure portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/private-dns-zones.png" alt-text="Screenshot of finding Private DNS zones.":::
-2. Check if there is an A record **adf**.
+2. Check if there's an A record **adf**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/a-record.png" alt-text="Screenshot of A record.":::
 3.    Go to **Virtual network links**, delete all records.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/virtual-network-link.png" alt-text="Screenshot of virtual network link.":::
 4.    Navigate to your service in Azure portal and recreate the private endpoint for the portal.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/create-private-endpoint.png" alt-text="Screenshot of recreating private endpoint.":::
-5.    Go back to Private DNS zones, and check if there is a new private DNS zone **privatelink.adf.azure.com**.
+5.    Go back to Private DNS zones, and check if there's a new private DNS zone **privatelink.adf.azure.com**.
 :::image type="content" source="media/security-access-control-troubleshoot-guide/check-dns-record.png" alt-text="Screenshot of new DNS record.":::
 
 ### Connection error in public endpoint
@@ -190,7 +189,7 @@ Both Azure Resource Manager and the service are using the same private zone crea
 
 When copying data with Azure Blob Storage account public access, pipeline runs randomly fail with following error.
 
-For example: The Azure Blob Storage sink was using Azure IR (public, not Managed VNet) and the Azure SQL Database source was using the Managed VNet IR. Or source/sink use Managed VNet IR only with storage public access.
+For example: The Azure Blob Storage sink was using Azure IR (public, not Managed virtual network) and the Azure SQL Database source was using the Managed virtual network IR. Or source/sink use Managed virtual network IR only with storage public access.
 
 `
 <LogProperties><Text>Invoke callback url with req:
@@ -199,12 +198,12 @@ For example: The Azure Blob Storage sink was using Azure IR (public, not Managed
 
 #### Cause
 
-The service may still use Managed VNet IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed VNet is not reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 are not supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network).
+The service might still use Managed virtual network IR, but you could encounter such error because the public endpoint to Azure Blob Storage in Managed virtual network isn't reliable based on the testing result, and Azure Blob Storage and Azure Data Lake Gen2 aren't supported to be connected through public endpoint from the service's Managed Virtual Network according to [Managed virtual network & managed private endpoints](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-a-data-factory-managed-virtual-network).
 
 #### Resolution
 
-- Having private endpoint enabled on the source and also the sink side when using the Managed VNet IR.
-- If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed VNet IR for the source and the sink. Even if you switch back to public IR, the service may still use the Managed VNet IR if the Managed VNet IR is still there.
+- Having private endpoint enabled on the source and also the sink side when using the Managed virtual network IR.
+- If you still want to use the public endpoint, you can switch to public IR only instead of using the Managed virtual network IR for the source and the sink. Even if you switch back to public IR, the service may still use the Managed virtual network IR if the Managed virtual network IR is still there.
 
 ### Internal error while trying to Delete a data factory or Synapse workspace with Customer Managed Key (CMK) and User Assigned Managed Identity (UA-MI)
 
@@ -213,35 +212,35 @@ The service may still use Managed VNet IR, but you could encounter such error be
 
 #### Cause
 
-If you are performing any operations related to CMK, you should complete all operations related to the service first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you need to delete the service instance first, and then delete the key vault.  If you delete the key vault first, this error will occur since the service can't read the required objects anymore, and it won't be able to validate if deletion is possible or not. 
+If you're performing any operations related to CMK, you should complete all operations related to the service first, and then external operations (like Managed Identities or Key Vault operations). For example, if you  want to delete all resources, you need to delete the service instance first, and then delete the key vault.  If you delete the key vault first, this error occurs since the service can't read the required objects anymore, and it won't be able to validate if deletion is possible or not. 
 
 #### Resolution
 
 There are three possible ways to solve the issue. They are as follows:
 
 * You revoked the service's access to Key vault where the CMK key was stored. 
-You can reassign access to the following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys. Please refer to [Grant access to customer-managed keys](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault). Once the permission is provided, you should be able to delete the service.
+You can reassign access to the following permissions: **Get, Unwrap Key, and Wrap Key**. These permissions are required to enable customer-managed keys. Refer to [Grant access to customer-managed keys](enable-customer-managed-key.md#grant-data-factory-access-to-azure-key-vault). Once the permission is provided, you should be able to delete the service.
  
 * Customer deleted Key Vault / CMK before deleting the service. 
 CMK in the service should have "Soft Delete" enabled and "Purge Protect" enabled which has default retention policy of 90 days. You can restore the deleted key.  
-Please review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
+Review [Recover deleted Key](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-soft-deleted-secrets-keys-and-certificates) and [Deleted Key Value](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault)
 
-* User Assigned Managed Identity (UA-MI) was deleted before the service. 
-You can recover from this by using REST API calls, you can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this would be by using POSTMAN/Fiddler. Please follow following steps.
+* User Assigned Managed Identity (UA-MI) was deleted before the service.
+You can recover from this by using REST API calls. You can do this in an http client of your choice in any programming language. If you have not anything already set up for REST API calls with Azure authentication, the easiest way to do this 'd be by using Fiddler. Follow following steps.
 
    1.  Make a GET call using Method: GET Url like   `https://management.azure.com/subscriptions/YourSubscription/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourFactoryName?api-version=2018-06-01`
 
-   2. You need to create a new User Managed Identity with a different Name (same name may work, but just to be sure, it's safer to use a different name than the one in the GET response)
+   2. You need to create a new User Managed Identity with a different Name (the same name might work, but just to be sure, it's safer to use a different name than the one in the GET response)
 
    3. Modify the encryption.identity property and identity.userassignedidentities to point to the newly created managed identity. Remove the clientId and principalId from the userAssignedIdentity object. 
 
-   4.  Make a PUT call to the same url passing the new body. It is very important that you are  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
+   4.  Make a PUT call to the same url passing the new body. It's important that you're  passing whatever you got in the GET response, and only modify the identity. Otherwise they would override other settings unintentionally. 
 
-   5.  After the call succeeds, you  will be able to see the entities again and retry deleting. 
+   5.  After the call succeeds, you'll be able to see the entities again and retry deleting. 
 
 ## Sharing Self-hosted Integration Runtime
 
-### Sharing a self-hosted IR from a different tenant is not supported 
+### Sharing a self-hosted IR from a different tenant isn't supported 
 
 #### Symptoms
 

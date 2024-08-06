@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: In this article, investigate, diagnose, and resolve potential latency or bandwidth problems associated with Azure Front Door and site performance.
 services: frontdoor
 author: sbdoroff
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/30/2023
 ms.author: stdoroff

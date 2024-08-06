@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr
-manager: femila
 ---
 # Tutorial: Create a host pool to validate service updates in Azure Virtual Desktop (classic)
 

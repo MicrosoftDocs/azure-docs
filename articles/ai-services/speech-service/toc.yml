@@ -316,6 +316,9 @@ items:
         - name: Reading and speaking assessment in AI Studio
           href: pronunciation-assessment-tool.md
           displayName: pronounce, learn language, assess pron
+        - name: Interactive language learning with pronunciation assessment
+          href: language-learning-with-pronunciation-assessment.md
+          displayName: pronounce, learn language, assess pron, chatting 
     - name: Azure OpenAI speech to speech chat
       href: openai-speech.md
     - name: Meeting transcription
@@ -336,44 +339,10 @@ items:
       items:
         - name: Voice assistants overview
           href: voice-assistants.md
-        - name: Voice assistants FAQ
-          href: faq-voice-assistants.yml
         - name: Voice Assistants Samples (GitHub)
           href: https://aka.ms/speech/va-samples
-        - name: Custom Commands
-          items:
-            - name: Custom Commands overview
-              href: custom-commands.md
-            - name: Custom commands quickstart
-              href: quickstart-custom-commands-application.md
-            - name: Develop and customize Custom Commands apps
-              href: how-to-develop-custom-commands-application.md
-            - name: Integrate with client applications
-              items:
-                - name: Integrate with a client app using Speech SDK
-                  href: how-to-custom-commands-setup-speech-sdk.md
-                - name: Send activity to client application
-                  href: how-to-custom-commands-send-activity-to-client.md
-                - name: Set up web endpoints
-                  href: how-to-custom-commands-setup-web-endpoints.md
-                - name: Update a command from the client app
-                  href: how-to-custom-commands-update-command-from-client.md
-                - name: Update a command from a web endpoint
-                  href: how-to-custom-commands-update-command-from-web-endpoint.md
-            - name: Continuous Deployment with Azure DevOps
-              href: how-to-custom-commands-deploy-cicd.md
-            - name: Test Custom Commands applications
-              href: how-to-custom-commands-developer-flow-test.md
-            - name: Debug app build-time errors
-              href: how-to-custom-commands-debug-build-time.md
-            - name: Debug app run-time errors
-              href: how-to-custom-commands-debug-runtime.md
-            - name: Custom Commands concepts
-              href: custom-commands-references.md
-            - name: Custom Commands Samples (GitHub)
-              href: https://aka.ms/speech/cc-samples
-            - name: Custom Commands encryption of data at rest
-              href: custom-commands-encryption-of-data-at-rest.md
+        - name: Custom commands
+          href: custom-commands.md
         - name: Direct Line Speech
           items:
             - name: Direct Line Speech overview

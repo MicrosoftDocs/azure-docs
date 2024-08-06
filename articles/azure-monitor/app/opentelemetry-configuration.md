@@ -633,11 +633,12 @@ from azure.identity import ManagedIdentityCredential
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
-# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
-# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
+# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
 configure_azure_monitor(
+    connection_string="your-connection-string",
     credential=ManagedIdentityCredential(),
 )
+
 ```
 
 ---

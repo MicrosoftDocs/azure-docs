@@ -243,7 +243,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     ```
 
     > [!TIP]
-    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](../aks/azure-app-configuration.md).
+    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
