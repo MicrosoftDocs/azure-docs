@@ -68,9 +68,9 @@ Your Azure subscription could be in a suspended state for one of the following r
 - Azure pass expired
 - Monthly spending limit reached (such as on an MSDN or Visual Studio subscription)
 
-## Other Log Analytics workspace limitations
+## Other Log Analytics workspace limits
 
-There are other Log Analytics limits, some of which depend on the Log Analytics pricing tier. These are documented at [Azure subscription and service limits, quotas, and constraints](../service-limits.md#log-analytics-workspaces).
+There are other Log Analytics limits, some of which depend on the Log Analytics pricing tier. For more information, see [Azure subscription and service limits, quotas, and constraints](../service-limits.md#log-analytics-workspaces).
 
 
 ## Next steps
