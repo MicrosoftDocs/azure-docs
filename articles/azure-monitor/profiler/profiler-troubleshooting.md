@@ -76,7 +76,7 @@ Search for trace messages and custom events sent by Profiler to your Application
 
 ## Profiler is on, but no traces captured
 
-Even when the Profiler is enabled it may not capture or upload traces, especially in these situations:
+Even when the Profiler is enabled, it may not capture or upload traces, especially in these situations:
 
 1. No incoming requests to your application - you can manually invoke your application or create an [availability test](https://learn.microsoft.com/azure/azure-monitor/app/availability), or a [load test](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing). 
 
