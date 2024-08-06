@@ -93,7 +93,8 @@ Even when the Profiler is enabled, it may not capture or upload traces, especial
       1. Click on the **Triggers** button. 
       1. In the Trigger Settings, ensure the **Sampling** toggle is on.
 
-1. Still no traces uploaded? Please let us know at [serviceprofilerhelp@microsoft.com](mailto:serviceprofilerhelp@microsoft.com).
+1. **Still no traces uploaded?**  
+    [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview?DMC=troubleshoot), or ask [Azure community support](/answers/products/azure?product=all). You can also submit product feedback to [Azure feedback community](https://feedback.azure.com/d365community).
 
 ## Double counting in parallel threads
 
