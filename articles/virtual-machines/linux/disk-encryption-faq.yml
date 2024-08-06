@@ -183,7 +183,7 @@ sections:
       - question: |
           Is resizing the OS partition supported?
         answer: |
-          Resize of an ADE encrypted OS disk is not supported.
+          Resize of an Azure Disk Encryption encrypted OS disk isn't supported.
                     
       - question: |
           Can I backup and restore an encrypted VM? 
