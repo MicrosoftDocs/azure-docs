@@ -72,7 +72,7 @@ Applies to:
 
 Before you enable the guest agent, follow these steps on the VM:
 
-1. Create a file `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following contents to it:
+1. Create a file named `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following to it:
 
     ```
      policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
