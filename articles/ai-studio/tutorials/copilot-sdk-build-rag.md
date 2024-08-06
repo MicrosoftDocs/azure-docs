@@ -151,7 +151,7 @@ Otherwise, you can create an Azure AI Search service using the [Azure portal](ht
 ## [Azure CLI](#tab/cli)
 
 1. Open a terminal on your local machine.
-1. Type `az` and then enter to verify that the Azure CLI tool is installed. If it's installed, a help menu with `az` commands appears. If you get an error, make sure you followed the [steps for installing the Azure CLI in the quickstart](../quickstarts/get-started-code.md#install-the-azure-cli-and-login).
+1. Type `az` and then enter to verify that the Azure CLI tool is installed. If it's installed, a help menu with `az` commands appears. If you get an error, make sure you followed the [steps for installing the Azure CLI in the quickstart](../quickstarts/get-started-code.md#install-the-azure-cli-and-sign-in).
 1. Follow the steps to create an Azure AI Search service using the [`az search service create`](../../search/search-manage-azure-cli.md#create-or-delete-a-service) command.
 
 ---
