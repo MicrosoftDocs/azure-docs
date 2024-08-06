@@ -110,5 +110,5 @@ The following sections identify common symptoms, possible causes, and resolution
 
 **Resolution**: 
 * Check if the alert is a log search alert. If it isn't a log search alert, configuration items are not supported.
-* If the search results don't have  a Computer or Resource column, add them to the query. When you're defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping enables to map the configuration items to the ITSM payload
+* If the search results don't have  a Computer or Resource column, add them to the query. When you're defining a query in Log Search alerts you need to have in the query result the Configuration items names with one of the label names "Computer",  "Resource", "_ResourceId" or "ResourceId”. This mapping enables mapping the configuration items to the ITSM payload
 * Check that the values in the Computer and Resource columns are identical to the values in the CMDB. If they aren't, add a new entry to the CMDB with the matching values.
