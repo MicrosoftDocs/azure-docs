@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Add an application certificate to 
 services: service-fabric
 author: athinanthny
 manager: chackdan
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
@@ -15,7 +15,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 This sample script walks through how to create a certificate in Key Vault and then deploy it to one of the virtual machine scale sets your cluster runs on. This scenario does not use Service Fabric directly, but rather depends on Key Vault and on virtual machine scale sets.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/) and then run `Connect-AzAccount` to create a connection with Azure. 
 

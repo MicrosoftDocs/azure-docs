@@ -1,14 +1,20 @@
 ---
-title: 'Quickstart: Use Java and JDBC'
+title: "Quickstart: Use Java and JDBC"
 description: Learn how to use Java and JDBC with an Azure Database for MySQL - Flexible Server database.
-author: mksuni
-ms.author: sumuth
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
-ms.custom: mvc, devcenter, devx-track-azurecli, mode-api, devx-track-extended-java
 ms.topic: quickstart
+ms.custom:
+  - mvc
+  - devcenter
+  - devx-track-azurecli
+  - mode-api
+  - devx-track-extended-java
 ms.devlang: java
-ms.date: 05/03/2023
 ---
 
 # Use Java and JDBC with Azure Database for MySQL - Flexible Server

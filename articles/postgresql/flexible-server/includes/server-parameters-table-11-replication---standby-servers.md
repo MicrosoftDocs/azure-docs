@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                   |
+| Documentation  | [hot_standby](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-HOT-STANDBY)                                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`        |
 | Parameter type | dynamic        |
-| Documentation  | [hot_standby_feedback](https://www.postgresql.org/docs/11/hot-standby.html)                       |
+| Documentation  | [hot_standby_feedback](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-HOT-STANDBY-FEEDBACK)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `30000`       |
 | Allowed values | `-1-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [max_standby_archive_delay](https://www.postgresql.org/docs/11/runtime-config-replication.html)   |
+| Documentation  | [max_standby_archive_delay](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-MAX-STANDBY-ARCHIVE-DELAY)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `30000`       |
 | Allowed values | `-1-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [max_standby_streaming_delay](https://www.postgresql.org/docs/11/runtime-config-replication.html) |
+| Documentation  | [max_standby_streaming_delay](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `10`          |
 | Allowed values | `0-2147483`     |
 | Parameter type | dynamic        |
-| Documentation  | [wal_receiver_status_interval](https://www.postgresql.org/docs/11/runtime-config-wal.html)        |
+| Documentation  | [wal_receiver_status_interval](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-WAL-RECEIVER-STATUS-INTERVAL) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `60000`       |
 | Allowed values | `60000`         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                   |
+| Documentation  | [wal_receiver_timeout](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-WAL-RECEIVER-TIMEOUT)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `5000`        |
 | Allowed values | `5000`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                   |
+| Documentation  | [wal_retrieve_retry_interval](https://www.postgresql.org/docs/11/runtime-config-replication.html#GUC-WAL-RETRIEVE-RETRY-INTERVAL)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

@@ -3,7 +3,7 @@ title: Azure Cosmos DB for PostgreSQL - Scheduled maintenance - Azure portal
 description: Learn how to configure scheduled maintenance settings for an Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 04/07/2021

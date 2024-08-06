@@ -3,18 +3,18 @@ title: Bicep extensibility Kubernetes provider
 description: Learn how to Bicep Kubernetes provider  to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Bicep extensibility Kubernetes provider (Preview)
 
-The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+The Kubernetes provider allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 > [!NOTE]
 > Kubernetes provider is not currently supported for private clusters:
 > 
 > ```bicep
-> resource AKS 'Microsoft.ContainerService/managedClusters@2023-01-02-preview' = {
+> resource AKS 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
 >  ...
 >  properties: {
 >   apiServerAccessProfile: {
@@ -61,7 +61,7 @@ import 'kubernetes@1.0.0' with {
 The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2022-05-02-preview' existing = {
+resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' existing = {
   name: 'demoAKSCluster'
 }
 
@@ -81,4 +81,4 @@ From Visual Studio Code, you can import Kubernetes manifest files to create Bice
 
 ## Next steps
 
-- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md)
+- [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep extensibility Kubernetes provider](/azure/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider)

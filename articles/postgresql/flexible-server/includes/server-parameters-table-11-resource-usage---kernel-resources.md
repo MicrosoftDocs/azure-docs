@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `1000`        |
 | Allowed values | `1000`         |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [max_files_per_process](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-FILES-PER-PROCESS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

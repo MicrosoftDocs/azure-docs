@@ -4,8 +4,8 @@ description: Learn how data encryption with a customer-managed key in Azure Data
 author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
-ms.date: 05/24/2024
-ms.service: postgresql
+ms.date: 06/24/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ms.custom:
@@ -106,8 +106,6 @@ When you're using a CMK for data encryption, here are recommendations for config
 - Set a resource lock on Key Vault to control who can delete this critical resource and to prevent accidental or unauthorized deletion.
 
 - Enable auditing and reporting on all encryption keys. Key Vault provides logs that are easy to inject into other security information and event management (SIEM) tools. Azure Monitor Logs is one example of a service that's already integrated.
-
-- Ensure that Key Vault and Azure Database for PostgreSQL flexible server reside in the same region to ensure faster access for DEK wrap and unwrap operations.
 
 - Lock down Key Vault by selecting **Disable public access** and **Allow trusted Microsoft services to bypass this firewall**.
 

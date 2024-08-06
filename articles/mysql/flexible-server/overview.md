@@ -4,8 +4,8 @@ description: Learn about the flexible server deployment model for Azure Database
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -116,7 +116,7 @@ For more information, see [Compute and Storage concepts](concepts-compute-storag
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Our customers use it for online education, video streaming, digital payment solutions, e-commerce platforms, gaming services, news portals, and government and healthcare websites. These services are required to serve and scale as the web or mobile application traffic increases.
 
-On the applications side, the application is typically developed in Java or PHP and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md). Using a virtual machine scale set with App Service or AKS as the underlying infrastructure simplifies application scaling by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests, but often, the database ends up being a bottleneck as a centralized stateful component.
+On the applications side, the application is typically developed in Java or PHP and migrated to run on [Azure virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) or [Azure App Services](../../app-service/overview.md) or are containerized to run on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Using a virtual machine scale set with App Service or AKS as the underlying infrastructure simplifies application scaling by instantaneously provisioning new VMs and replicating the stateless components of applications to cater to the requests, but often, the database ends up being a bottleneck as a centralized stateful component.
 
 The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server instance to a read-only server. You can replicate from the source server to **up to 10 replicas**. Replicas are updated asynchronously using the MySQL engine's native [binary log (binlog) file position-based replication technology](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html). You can use a load balancer proxy solution like [ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) to seamlessly scale out your application workload to read replicas without any application refactoring cost.
 
@@ -140,7 +140,10 @@ See [Server concepts](concept-servers.md) for more information.
 
 ## Enterprise grade security, compliance, and privacy
 
-Azure Database for MySQL flexible server uses the FIPS 140-2 validated cryptographic module to store data at rest. Data, including backups and temporary files created while running queries, are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system-managed (default).
+Azure Database for MySQL flexible server uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default). You can also use customer managed keys (CMKs) to bring your own key (BYOK) stored in an Azure Key Vault or Managed Hardware Security Module (HSM) for data encryption at rest.
+
+For more information, see [data encryption with customer managed keys for Azure Database for MySQL flexible server instances](concepts-customer-managed-key.md).
+
 
 Azure Database for MySQL flexible server encrypts data in-motion with transport layer security enforced by default. Azure Database for MySQL flexible server by default supports encrypted connections using Transport Layer Security (TLS 1.2) and all incoming connections with TLS 1.0 and TLS 1.1 are denied. You can disable TSL/SSL enforcement by setting the require_secure_transport server parameter and then setting the minimum tls_version for your server.
 

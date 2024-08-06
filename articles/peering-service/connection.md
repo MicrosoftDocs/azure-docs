@@ -3,7 +3,7 @@ title: Azure Peering Service connection
 description: Learn about Microsoft Azure Peering Service connection.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: concept-article
 ms.date: 07/23/2023
 ---

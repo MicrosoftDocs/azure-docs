@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `try`         |
 | Allowed values | `try`          |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [recovery_prefetch](https://www.postgresql.org/docs/16/runtime-config-wal.html#GUC-RECOVERY-PREFETCH)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `524288`      |
 | Allowed values | `524288`       |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [wal_decode_buffer_size](https://www.postgresql.org/docs/16/runtime-config-wal.html#GUC-WAL-DECODE-BUFFER-SIZE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

@@ -4,7 +4,7 @@ description: Azure PowerShell Sample - restore a disk from a snapshot and learn 
 services: virtual-machines
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
@@ -17,7 +17,7 @@ ms.author: ramankum
 
 This script creates a managed disk from a snapshot. Use it to restore a virtual machine from snapshots of OS and data disks. Create OS and data managed disks from respective snapshots and then create a new virtual machine by attaching managed disks. You can also restore data disks of an existing VM by attaching data disks created from snapshots.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
  
 

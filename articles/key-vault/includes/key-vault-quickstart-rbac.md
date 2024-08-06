@@ -27,4 +27,4 @@ New-AzRoleAssignment -ObjectId "<app-id>" -RoleDefinitionName "Key Vault Secrets
 
 ---
 
-Replace \<app-id\>, \<subscription-id\>, \<resource-group-name\> and \<your-unique-keyvault-name\> with your actual values. \<app-id\> is the Application (client) ID of your registered application in Microsoft Entra.
+Replace `<app-id>`, `<subscription-id>`, `<resource-group-name>` and `<your-unique-keyvault-name>` with your actual values. `<app-id>` is the Application (client) ID of your registered application in Microsoft Entra.

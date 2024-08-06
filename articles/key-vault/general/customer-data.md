@@ -4,7 +4,7 @@ description: Learn about customer data, which Azure Key Vault receives during cr
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 01/30/2024
@@ -17,7 +17,7 @@ Azure Key Vault receives customer data during creation or update of vaults, mana
 
 System access logs are generated when a user or application accesses Key Vault. Detailed access logs are available to customers using Azure Insights.
 
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Identifying customer data
 

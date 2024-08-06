@@ -7,6 +7,33 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### July 2024 release
+
+#### Text to speech avatar (GA)
+
+Text to speech avatar is now generally available. For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md).
+
+### June 2024 release
+
+#### Prebuilt neural voice
+
+- Introducing 6 new voices in public preview available in specific regions: East Asia, Southeast Asia, East US, West US, and Central India.
+  
+  | Locale | Language    | Text to speech voices  |
+  |--------|-----------------|-------------------------|
+  | `or-IN`  | Oriya (India)   | `or-IN-SubhasiniNeural` (Female) |
+  | `or-IN`  | Oriya (India)   | `or-IN-SukantNeural` (Male)      | 
+  | `pa-IN`  | Punjabi (India) | `pa-IN-VaaniNeural` (Female)     |
+  | `pa-IN`  | Punjabi (India) | `pa-IN-OjasNeural` (Male)        | 
+  | `as-IN`  | Assamese (India)| `as-IN-YashicaNeural` (Female)   | 
+  | `as-IN`  | Assamese (India)| `as-IN-PriyomNeural` (Male)      |
+
+  See the [full language and voice list](../../language-support.md?tabs=tts) for more information.
+  
+#### Text to speech avatar
+
+- Text to speech avatar now supports the following regions: Southeast Asia, North Europe, West Europe, Sweden Central, South Central US, and West US 2. For more information, see [Speech service regions](../../regions.md#speech-service).
+
 ### May 2024 release
 
 #### Personal voice (GA)
@@ -42,7 +69,7 @@ Personal voice is now generally available. With personal voice, you can get AI g
 #### Text to speech avatar
 
 - Removed dependency on [Azure Communication Services (ACS) TURN](/azure/communication-services/quickstarts/relay-token) for real-time avatar. The [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/js/browser/avatar) has been updated accordingly to reflect this change.
-- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service regions where the feature is available, including West US 2, West Europe, and Southeast Asia.
+- Published text to speech avatar pricing. For more details, see the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Note that avatar pricing will only be visible for service [regions](../../regions.md#speech-service) where the feature is available.
 
 ### February 2024 release
 
@@ -766,7 +793,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - With Neural text to speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
 #### New features
-- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
+- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [Azure portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup-structure.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
@@ -776,7 +803,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 #### New features
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup-voice.md#use-speaking-styles-and-roles).
-- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
+- **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video translation, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
 - **Audio Content Creation**: Added style degree control for XiaoxiaoNeural; Refined the customized break feature to include incremental breaks of 50ms.
 

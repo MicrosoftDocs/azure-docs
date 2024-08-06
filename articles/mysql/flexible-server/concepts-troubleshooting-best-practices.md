@@ -1,12 +1,13 @@
 ---
 title: Troubleshooting best practices
 description: This article describes some recommendations for troubleshooting Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: code-sidd
+ms.author: sisawant
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: code-sidd 
-ms.author: sisawant
-ms.date: 10/20/2023
 ---
 
 # Best practices for troubleshooting Azure Database for MySQL - Flexible Server

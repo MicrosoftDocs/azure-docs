@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -14,10 +14,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Enables advertising the server via Bonjour.                                                                                         |
 | Data type      | boolean   |
-| Default value  | `off`         |
+| Default value  | `off`                                                                      |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [bonjour](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-BONJOUR)                                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -31,10 +31,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the Bonjour service name.                                                                                                      |
 | Data type      | string    |
-| Default value  |               |
+| Default value  |                                                                            |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [bonjour_name](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-BONJOUR-NAME)                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -48,10 +48,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the host name or IP address(es) to listen to.                                                                                  |
 | Data type      | string    |
-| Default value  | `*`           |
+| Default value  | `*`                                                                        |
 | Allowed values | `*`            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [listen_addresses](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-LISTEN-ADDRESSES)                             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -65,10 +65,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the maximum number of concurrent connections to the database server.                                                           |
 | Data type      | integer   |
-| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server.         |
+| Default value  | Depends on resources (vCores, RAM, or disk space) allocated to the server. |
 | Allowed values | `25-5000`      |
 | Parameter type | static         |
-| Documentation  | [max_connections](https://www.postgresql.org/docs/11/runtime-config-connection.html)         |
+| Documentation  | [max_connections](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-MAX-CONNECTIONS)                               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -82,10 +82,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the TCP port the server listens on.                                                                                            |
 | Data type      | integer   |
-| Default value  | `5432`        |
+| Default value  | `5432`                                                                     |
 | Allowed values | `5432`         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [port](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-PORT)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -99,10 +99,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connections slots reserved for replication users and super users.                                                |
 | Data type      | integer   |
-| Default value  | `5`           |
+| Default value  | `5`                                                                        |
 | Allowed values | `5`            |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  |                                                                                                                                        |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -116,10 +116,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the number of connection slots reserved for superusers.                                                                        |
 | Data type      | integer   |
-| Default value  | `10`          |
+| Default value  | `10`                                                                       |
 | Allowed values | `10`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [superuser_reserved_connections](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-SUPERUSER-RESERVED-CONNECTIONS) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -133,10 +133,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of TCP keepalives that can be lost before the server's connection to the client is considered dead.            |
 | Data type      | integer   |
-| Default value  | `9`           |
+| Default value  | `9`                                                                        |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [tcp_keepalives_count](https://www.postgresql.org/docs/11/runtime-config-connection.html)    |
+| Documentation  | [tcp_keepalives_count](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-TCP-KEEPALIVES-COUNT)                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -150,10 +150,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds of inactivity after which TCP should send a keepalive message to the client.                        |
 | Data type      | integer   |
-| Default value  | `120`         |
+| Default value  | `120`                                                                      |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [tcp_keepalives_idle](https://www.postgresql.org/docs/11/runtime-config-connection.html)     |
+| Documentation  | [tcp_keepalives_idle](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-TCP-KEEPALIVES-IDLE)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -167,10 +167,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Specifies the number of seconds after which a TCP keepalive message that is not acknowledged by the client should be retransmitted. |
 | Data type      | integer   |
-| Default value  | `30`          |
+| Default value  | `30`                                                                       |
 | Allowed values | `0-2147483647` |
 | Parameter type | dynamic        |
-| Documentation  | [tcp_keepalives_interval](https://www.postgresql.org/docs/11/runtime-config-connection.html) |
+| Documentation  | [tcp_keepalives_interval](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-TCP-KEEPALIVES-INTERVAL)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -184,10 +184,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the directories where Unix-domain sockets will be created.                                                                     |
 | Data type      | string    |
-| Default value  | `/tmp`        |
+| Default value  | `/tmp`                                                                     |
 | Allowed values | `/tmp`         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [unix_socket_directories](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-UNIX-SOCKET-DIRECTORIES)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -201,10 +201,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the owning group of the Unix-domain socket.                                                                                    |
 | Data type      | string    |
-| Default value  |               |
+| Default value  |                                                                            |
 | Allowed values |                |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [unix_socket_group](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-UNIX-SOCKET-GROUP)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -218,10 +218,10 @@ ms.topic: include
 | Category       | Connections and Authentication / Connection Settings |
 | Description    | Sets the access permissions of the Unix-domain socket.                                                                              |
 | Data type      | integer   |
-| Default value  | `0777`        |
+| Default value  | `0777`                                                                     |
 | Allowed values | `0777`         |
 | Parameter type | read-only      |
-| Documentation  |                                                                                              |
+| Documentation  | [unix_socket_permissions](https://www.postgresql.org/docs/11/runtime-config-connection.html#GUC-UNIX-SOCKET-PERMISSIONS)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

@@ -2,7 +2,7 @@
 title: Quickstart - Create an Azure Payment HSM with the Azure CLI
 description: Create, show, list, update, and delete Azure Payment HSMs by using the Azure CLI.
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart

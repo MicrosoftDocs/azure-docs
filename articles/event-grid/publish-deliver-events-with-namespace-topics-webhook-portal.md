@@ -14,7 +14,7 @@ The article provides step-by-step instructions to publish events to Azure Event 
 > [!NOTE]
 > Azure Event Grid namespaces currently supports Shared Access Signatures (SAS) token and access keys authentication.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 
 ## Create an Event Grid namespace

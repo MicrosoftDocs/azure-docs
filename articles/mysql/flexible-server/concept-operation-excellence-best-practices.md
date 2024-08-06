@@ -1,12 +1,13 @@
 ---
 title: Operational best practices
 description: This article describes the best practices to operate your Azure Database for MySQL - Flexible Server database on Azure.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: mksuni 
-ms.author: sumuth
-ms.date: 06/20/2022
 ---
 
 # Best practices for server operations on Azure Database for MySQL - Flexible Server

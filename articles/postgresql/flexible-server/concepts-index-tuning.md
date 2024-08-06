@@ -5,7 +5,7 @@ author: nachoalonsoportillo
 ms.author: ialonso
 ms.reviewer: maghan
 ms.date: 05/28/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: concept-article
 ms.custom:
@@ -146,7 +146,7 @@ Explore all the details about correct configuration of index tuning feature in [
 Index tuning in Azure Database for PostgreSQL - Flexible Server has the following limitations:
 
 - Index tuning is currently in preview and might have some limitations or restrictions.
-- The feature is available in specific regions, including East Asia, Central India, North Europe, Southeast Asia, South Central US, UK South, and West US 3. 
+- The feature is available in specific regions. The full list is available on [Supported regions](#supported-regions) section. 
 - Index tuning is supported on all currently available tiers (Burstable, General Purpose, and Memory Optimized) and on any currently supported compute SKU with at least 4 vCores.
 - The feature is supported on major versions 14 or greater of Azure Database for PostgreSQL Flexible Server.
 - [Prepared statements](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-EXT-QUERY) aren't analyzed to produce recommendations on them.
@@ -157,22 +157,14 @@ For more information on index tuning and related articles, see the documentation
 
 ### Supported regions
 
-Index tuning feature is available in the following regions:
-
-- East Asia
-- Central India
-- North Europe
-- Southeast Asia
-- South Central US
-- UK South
-- West US 3
+There's no regional limitation for index tuning feature. It is available in [all regions](./overview.md#azure-regions) where Azure Database for PostgreSQL Flexible Server is available.
 
 ### Supported tiers and SKUs
 
 Index tuning is supported on all [currently available tiers](concepts-compute.md): Burstable, General Purpose, and Memory Optimized, and on any [currently supported compute SKU](concepts-compute.md) with at least 4 vCores.
 
 > [!IMPORTANT]  
-> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, ifyou plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
+> If a server has index tuning enabled and is scaled down to a compute with less than the minimum number of required vCores, the feature will remain enabled. Because the feature is not supported on servers with less than 4 vCores, if you plan to enable it in a server which is less than 4 vCores, or you plan to scale down your instance to less than 4 vCores, make sure you disable index tuning first, setting `index_tuning.mode`to `OFF`.
 
 ### Supported versions of PostgreSQL
 
@@ -190,10 +182,6 @@ Currently, index tuning doesn't analyze [prepared statements](https://www.postgr
 When an Azure Database for PostgreSQL - Flexible Server instance is in read-only modes, such as when the `default_transaction_read_only` parameter is set to `on,` or if the read-only mode is [automatically enabled due to reaching storage capacity](concepts-limits.md#storage), Query Store doesn't capture any data.
 
 Also, index tuning isn't supported currently on read replicas. Any recommendations seen on a read replica, were produced on the primary replica after having analyzed the workload recorded in it.
-
-### Network connectivity method
-
-Index tuning is currently supported on instances whose connectivity method is configured as [Public access (allowed IP addresses)](concepts-networking-public.md). For instances configured with [Private access (VNET Integration)](concepts-networking-private.md) the feature can be enabled, but it won't generate recommendations.
 
 ### Important considerations
 

@@ -5,7 +5,7 @@ author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 05/02/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 
@@ -74,7 +74,7 @@ SELECT datname as "Database name", usename as "User name", ssl, client_addr, app
 
 For testing, you can also use the **openssl** command directly, for example:
 ```bash
-openssl s_client -connect localhost:5432 -starttls postgres
+openssl s_client -starttls postgres -showcerts -connect <your-postgresql-server-name>:5432
 ```
 This command prints numerous low-level protocol information, including the TLS version, cipher, and so on. You must use the option -starttls postgres, or otherwise this command reports that no SSL is in use. Using this command requires at least OpenSSL 1.1.1. 
 
@@ -128,7 +128,7 @@ To update client applications in certificate pinning scenarios, you can download
 To import certificates to client certificate stores you may have to **convert certificate .crt files to .pem format**, after downloading certificate files from URIs above. You can use OpenSSL utility to do these file conversions, as shown in example below:
 
 ```powershell
-openssl x509 -in certificate.crt -out certificate.pem -outform PEM
+openssl x509 -inform DER -in certificate.crt -out certificate.pem -outform PEM
 ```
 
 **Detailed information on updating client applications certificate stores with new Root CA certificates has been documented in this [how-to document](../flexible-server/how-to-update-client-certificates-java.md)**. 

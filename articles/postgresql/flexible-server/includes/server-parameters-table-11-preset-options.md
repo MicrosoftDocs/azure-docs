@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `8192`        |
 | Allowed values | `8192`         |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [block_size](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-BLOCK-SIZE)                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [data_checksums](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-DATA-CHECKSUMS)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `0700`        |
 | Allowed values | `0700`         |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [data_directory_mode](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-DATA-DIRECTORY-MODE)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `off`          |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  |                                                                                                                  |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [integer_datetimes](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-INTEGER-DATETIMES)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `en_US.utf8`  |
 | Allowed values | `en_US.utf8`   |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [lc_collate](https://www.postgresql.org/docs/11/locale.html)                                                     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `en_US.utf8`  |
 | Allowed values | `en_US.utf8`   |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [lc_ctype](https://www.postgresql.org/docs/11/locale.html)                                                       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -136,7 +136,7 @@ ms.topic: include
 | Default value  | `100`         |
 | Allowed values | `100`          |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [max_function_args](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-MAX-FUNCTION-ARGS)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -153,7 +153,7 @@ ms.topic: include
 | Default value  | `63`          |
 | Allowed values | `63`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [max_identifier_length](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-MAX-IDENTIFIER-LENGTH) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -170,7 +170,7 @@ ms.topic: include
 | Default value  | `32`          |
 | Allowed values | `32`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [max_index_keys](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-MAX-INDEX-KEYS)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -187,7 +187,7 @@ ms.topic: include
 | Default value  | `131072`      |
 | Allowed values | `131072`       |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [segment_size](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-SEGMENT-SIZE)                   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -204,7 +204,7 @@ ms.topic: include
 | Default value  | `UTF8`        |
 | Allowed values | `UTF8`         |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [server_encoding](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-SERVER-ENCODING)             |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -221,7 +221,7 @@ ms.topic: include
 | Default value  | `11.22`       |
 | Allowed values | `11.22`        |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [server_version](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-SERVER-VERSION)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -238,7 +238,7 @@ ms.topic: include
 | Default value  | `110022`      |
 | Allowed values | `110022`       |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [server_version_num](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-SERVER-VERSION-NUM)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -255,7 +255,7 @@ ms.topic: include
 | Default value  | `8192`        |
 | Allowed values | `8192`         |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [wal_block_size](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-WAL-BLOCK-SIZE)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -272,7 +272,7 @@ ms.topic: include
 | Default value  | `16777216`    |
 | Allowed values | `16777216`     |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [wal_segment_size](https://www.postgresql.org/docs/11/runtime-config-preset.html#GUC-WAL-SEGMENT-SIZE)           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

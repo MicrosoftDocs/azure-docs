@@ -117,13 +117,10 @@ query = list(container.query_items("Select * from c", partition_key="pk1", prior
 ---
 
 
-## Monitoring Priority-based execution
+## Monitor priority-based execution
 
-You can monitor the behavior of requests with low and high priority using Azure monitor metrics in Azure portal.
-
-- Monitor **Total Requests (preview)** metric to observe the HTTP status codes and volume of low and high priority requests.
-- Monitor the RU/s consumption of low and high priority requests using **Total Request Units (preview)** metric in Azure portal.
-
+You can monitor the behavior of requests with low and high priority using Azure Monitor metrics in the Azure portal.
+To learn more about metrics, see [Azure Monitor metrics](monitor-reference.md#metrics).
 
 ## Change default priority level of a Cosmos DB account
 

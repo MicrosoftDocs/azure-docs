@@ -4,8 +4,8 @@ description: Learn how to troubleshoot common migration errors encountered by us
 author: sudheeshgh
 ms.author: sunaray
 ms.reviewer: maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: troubleshooting
 ms.custom:

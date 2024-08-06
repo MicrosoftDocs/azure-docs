@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/31/2023
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---

@@ -226,6 +226,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
 |Settings:Message|*Hello from Azure App Configuration*|
 
 ### Set up the App Configuration Kubernetes Provider
+
 1. Run the following command to get access credentials for your AKS cluster. Replace the value of the `name` and `resource-group` parameters with your AKS instance:
    
     ```console
@@ -240,6 +241,9 @@ Add following key-values to the App Configuration store and leave **Label** and 
          --namespace azappconfig-system \
          --create-namespace
     ```
+
+    > [!TIP]
+    > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
 
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
@@ -269,7 +273,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-2. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
+1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
     ```yaml
     apiVersion: apps/v1
@@ -302,13 +306,13 @@ Add following key-values to the App Configuration store and leave **Label** and 
               name: configmap-created-by-appconfig-provider
     ```
 
-3. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
+1. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-4. Refresh the browser. The page shows updated content.
+1. Refresh the browser. The page shows updated content.
 
     ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 

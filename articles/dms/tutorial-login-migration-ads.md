@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: randolphwest
 ms.date: 10/10/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
@@ -57,8 +57,8 @@ Before you begin the tutorial:
 
   | Migration scenario | Migration mode |
   | --- | --- |
-  | SQL Server to Azure SQL Managed Instance | [Online](tutorial-sql-server-managed-instance-online-ads.md) / [Offline](tutorial-sql-server-managed-instance-offline-ads.md) |
-  | SQL Server to SQL Server on an Azure virtual machine | [Online](tutorial-sql-server-to-virtual-machine-online-ads.md) / [Offline](./tutorial-sql-server-to-virtual-machine-offline-ads.md) |
+  | SQL Server to Azure SQL Managed Instance | [Online](/data-migration/sql-server/managed-instance/database-migration-service) / [Offline](/data-migration/sql-server/managed-instance/database-migration-service) |
+  | SQL Server to SQL Server on an Azure virtual machine | [Online](/data-migration/sql-server/virtual-machines/database-migration-service) / [Offline](/data-migration/sql-server/virtual-machines/database-migration-service) |
 
   > [!IMPORTANT] 
   > If you haven't completed the database migration and the login migration process is started, the migration of logins and server roles will still happen, but login/role mappings won't be performed correctly.
@@ -184,6 +184,6 @@ The following table describes the current status of the Login migration support 
 ## Next steps
 
 - [Migrate databases with Azure SQL Migration extension for Azure Data Studio](./migration-using-azure-data-studio.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](./tutorial-sql-server-azure-sql-database-offline.md)
-- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](./tutorial-sql-server-managed-instance-online-ads.md)
-- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](./tutorial-sql-server-to-virtual-machine-online-ads.md)
+- [Tutorial: Migrate SQL Server to Azure SQL Database - Offline](/data-migration/sql-server/database/database-migration-service)
+- [Tutorial: Migrate SQL Server to Azure SQL Managed Instance - Online](/data-migration/sql-server/managed-instance/database-migration-service)
+- [Tutorial: Migrate SQL Server to SQL Server On Azure Virtual Machines - Online](/data-migration/sql-server/virtual-machines/database-migration-service)

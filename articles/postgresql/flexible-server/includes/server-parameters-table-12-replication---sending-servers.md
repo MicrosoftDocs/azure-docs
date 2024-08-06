@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `10`          |
 | Allowed values | `2-262143`     |
 | Parameter type | static         |
-| Documentation  | [max_replication_slots](https://www.postgresql.org/docs/12/runtime-config-replication.html) |
+| Documentation  | [max_replication_slots](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `10`          |
 | Allowed values | `5-100`        |
 | Parameter type | static         |
-| Documentation  | [max_wal_senders](https://www.postgresql.org/docs/12/runtime-config-replication.html)       |
+| Documentation  | [max_wal_senders](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-MAX-WAL-SENDERS)               |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | static         |
-| Documentation  | [track_commit_timestamp](https://www.postgresql.org/docs/12/runtime-config-statistics.html) |
+| Documentation  | [track_commit_timestamp](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-TRACK-COMMIT-TIMESTAMP) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `25`          |
 | Allowed values | `25`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                             |
+| Documentation  |                                                                                                                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `60000`       |
 | Allowed values | `60000`        |
 | Parameter type | read-only      |
-| Documentation  |                                                                                             |
+| Documentation  | [wal_sender_timeout](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-SENDER-TIMEOUT)         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

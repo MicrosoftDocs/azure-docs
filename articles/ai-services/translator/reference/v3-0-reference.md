@@ -202,6 +202,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
      -data-raw "[{'Text':'Hello, friend.'}]"
 ```
 
+> [!IMPORTANT]
+> Assign [**Cognitive Services User**](../../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role to the service principal. By assigning this role, you're granting service principal access to the Translator resource.
+
+
 #### **Using your custom endpoint**
 
 ```curl

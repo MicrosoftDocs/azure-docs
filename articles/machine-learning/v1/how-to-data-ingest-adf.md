@@ -3,12 +3,12 @@ title: Data ingestion with Azure Data Factory
 titleSuffix: Azure Machine Learning
 description: Learn the available options for building a data ingestion pipeline with Azure Data Factory and the benefits of each.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.author: iefedore
-author: eedorenko
+ms.author: larryfr
+author: Blackmist
 manager: davete
-ms.reviewer: larryfr
+ms.reviewer: iefedore
 ms.date: 08/17/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, devx-track-python, data4ml, sdkv1

@@ -3,11 +3,11 @@ title: Train deep learning PyTorch models (SDK v2)
 titleSuffix: Azure Machine Learning
 description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning SDK (v2).
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
-ms.author: balapv
-author: balapv
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: balapv
 ms.date: 01/26/2024
 ms.topic: how-to
 ms.custom: sdkv2, update-code1

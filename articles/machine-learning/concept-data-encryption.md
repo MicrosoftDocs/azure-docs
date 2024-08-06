@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.author: deeikele  
-author: deeikele 
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 01/16/2024
 monikerRange: 'azureml-api-2 || azureml-api-1'
 ---
@@ -117,7 +117,7 @@ For more information on using a customer-managed key with Container Instances, s
 
 ### Azure Kubernetes Service
 
-You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](../aks/azure-disk-customer-managed-keys.md).
+You can encrypt a deployed Azure Kubernetes Service resource by using customer-managed keys at any time. For more information, see [Bring your own keys with Azure Kubernetes Service](/azure/aks/azure-disk-customer-managed-keys).
 
 This process allows you to encrypt both the data and the OS disk of the deployed virtual machines in the Kubernetes cluster.
 

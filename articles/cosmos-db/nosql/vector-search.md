@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for NoSQL to enhance AI-based a
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - Build 2024
@@ -18,7 +18,7 @@ ms.date: 5/7/2024
 
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB for NoSQL now offers vector indexing and search in preview. This feature is designed to handle high-dimensional vectors, enabling efficient and accurate vector search at any scale. You can now store vectors directly in the documents alongside your data. This means that each document in your database can contain not only traditional schema-free data, but also high-dimensional vectors as other properties of the documents. This colocation of data and vectors allows for efficient indexing and searching, as the vectors are stored in the same logical unit as the data they represent. This simplifies data management, AI application architectures, and the efficiency of vector-based operations. 
+Azure Cosmos DB for NoSQL now offers vector indexing and search in preview. This feature is designed to handle high-dimensional vectors, enabling efficient and accurate vector search at any scale. You can now store vectors directly in the documents alongside your data. Each document in your database can contain not only traditional schema-free data, but also high-dimensional vectors as other properties of the documents. This colocation of data and vectors allows for efficient indexing and searching, as the vectors are stored in the same logical unit as the data they represent. Keeping vectors and data together simplifies data management, AI application architectures, and the efficiency of vector-based operations. 
 
 Azure Cosmos DB for NoSQL offers the flexibility it offers in choosing the vector indexing method: 
 - A "flat" or k-nearest neighbors exact search (sometimes called brute-force) can provide 100% retrieval recall for smaller, focused vector searches. especially when combined with query filters and partition-keys.
@@ -43,7 +43,7 @@ In a vector store, vector search algorithms are used to index and query embeddin
 In the Integrated Vector Database in Azure Cosmos DB for NoSQL, embeddings can be stored, indexed, and queried alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## Enroll in the Vector Search Preview Feature
-Vector search for Azure Cosmos DB for NoSQL requires preview feature registration on the Features page of your Azure Cosmos DB . Follow the below steps to register: 
+Vector search for Azure Cosmos DB for NoSQL requires preview feature registration on the Features page of your Azure Cosmos DB. Follow the below steps to register: 
 
 1. Navigate to your Azure Cosmos DB for NoSQL resource page.
    
@@ -61,6 +61,17 @@ Vector search for Azure Cosmos DB for NoSQL requires preview feature registratio
 > [!NOTE]  
 > DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp). You'll be contacted by a member of the Azure Cosmos DB team when your resource has been onboarded to use the DiskANN index.
 
+> [!TIP]
+> Alternatively, use the Azure CLI to update the capabilities of your account to support NoSQL vector search.
+>
+> ```azurecli
+> az cosmosdb update \
+>      --resource-group <resource-group-name> \
+>      --name <account-name> \
+>      --capabilities EnableNoSQLVectorSearch
+> ```
+>
+
 > [!div class="nextstepaction"]
 > [Use the Azure Cosmos DB lifetime free tier](../free-tier.md)
 
@@ -72,7 +83,7 @@ Performing vector search with Azure Cosmos DB for NoSQL requires you to define a
    * “dimensions”: The dimensionality or length of each vector in the path. All vectors in a path should have the same number of dimensions. (default 1536).
    * “distanceFunction”: The metric used to compute distance/similarity. Supported metrics are:   
      *  [cosine](https://en.wikipedia.org/wiki/Cosine_similarity), which has values from -1 (least similar) to +1 (most similar). 
-     *  [dotproduct](https://en.wikipedia.org/wiki/Dot_product), which has values from -inf (least simialr) to +inf (most similar).
+     *  [dot product](https://en.wikipedia.org/wiki/Dot_product), which has values from -inf (least similar) to +inf (most similar).
      *  [euclidean](https://en.wikipedia.org/wiki/Euclidean_distance), which has values from 0 (most similar) to +inf) (least similar). 
 
 
@@ -126,12 +137,18 @@ The container vector policy can be described as JSON objects. Here are two examp
 | **`quantizedFlat`** | Quantizes (compresses) vectors before storing on the index. This can improve latency and throughput at the cost of a small amount of accuracy. | 4096 |
 | **`diskANN`** | Creates an index based on DiskANN for fast and efficient approximate search. | 4096 |
 
+> [!NOTE]
+> The `quantizedFlat` and `diskANN` indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead and will lead to higher RU charges for a vector search query.
+
 A few points to note:
   - The `flat` and `quantizedFlat` index types uses Azure Cosmos DB's index to store and read each vector when performing a vector search. Vector searches with a `flat` index are brute-force searches and produce 100% accuracy or recall. That is, it's guaranteed to find the most similar vectors in the dataset. However, there's a limitation of `505` dimensions for vectors on a flat index.
 
   - The `quantizedFlat` index stores quantized (compressed) vectors on the index. Vector searches with `quantizedFlat` index are also brute-force searches, however their accuracy might be slightly less than 100% since the vectors are quantized before adding to the index. However, vector searches with `quantized flat` should have lower latency, higher throughput, and lower RU cost than vector searches on a `flat` index. This is a good option for smaller scenarios, or scenarios where you're using query filters to narrow down the vector search to a relatively small set of vectors. `quantizedFlat` should be used when there are at least 1,000 vectors and fewer than 100,000 vectors in the container.
 
   - The `diskANN` index is a separate index defined specifically for vectors using [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy can be lower than `quantizedFlat` or `flat`. DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp).
+
+> [!IMPORTANT]
+> During early preview, vector indexes can't be modified once created. Instead, you'll have to create a new container with a new vector index policy, if a change is needed.
 
 Here are examples of valid vector index policies:
 
@@ -147,6 +164,9 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1"
         }
     ],
     "vectorIndexes": [
@@ -170,6 +190,12 @@ Here are examples of valid vector index policies:
     "excludedPaths": [
         {
             "path": "/_etag/?"
+        },
+        {
+            "path": "/vector1",
+        },
+        {
+            "path": "/vector2",
         }
     ],
     "vectorIndexes": [
@@ -184,15 +210,17 @@ Here are examples of valid vector index policies:
     ]
 }
 ```
-> [!NOTE]
-> The Quantized Flat and DiskANN indexes requires that at least 1,000 vectors to be inserted. This is to ensure accuracy of the quantization process. If there are fewer than 1,000 vectors, a full scan is executed instead, and will lead to higher RU charges for a vector search query.
+
+>[!IMPORTANT]
+> The vector path added to the "excludedPaths" section of the indexing policy to ensure optimized performance for insertion. Not adding the vector path to "excludedPaths" will result in higher RU charge and latency for vector insertions.
 
 > [!IMPORTANT]
 > At this time in the vector search preview do not use nested path or wild card characters in the path of the vector policy. Replace operations on the vector policy are currently not supported.
 
+
 ## Perform vector search with queries using VectorDistance()
 
-Once you have created a container with the desired vector policy, and inserted vector data into the container, you can conduct a vector search using the [Vector Distance](query/vectordistance.md) system function in a query. An example of a NoSQL query that projects the similarity score as the alias `SimilarityScore`, and sorts in order of most-similar to least-similar is shown below:
+Once you created a container with the desired vector policy, and inserted vector data into the container, you can conduct a vector search using the [Vector Distance](query/vectordistance.md) system function in a query. An example of a NoSQL query that projects the similarity score as the alias `SimilarityScore`, and sorts in order of most-similar to least-similar:
 
 ```sql
 SELECT c.title, VectorDistance(c.contentVector, [1,2,3]) AS SimilarityScore   
@@ -206,16 +234,20 @@ Vector indexing and search in Azure Cosmos DB for NoSQL has some limitations whi
 - You can specify, at most, one DiskANN index type per container
 - Vector indexing is only supported on new containers.
 - Vectors indexed with the `flat` index type can be at most 505 dimensions. Vectors indexed with the `quantizedFlat` or `DiskANN` index type can be at most 4,096 dimensions.
-- `quantizedFlat` utilizes the same quantization method as DiskANN and is not configurable at this time. 
+- `quantizedFlat` utilizes the same quantization method as DiskANN and isn't configurable at this time. 
 - Shared throughput databases can't use the vector search preview feature at this time.
 - Ingestion rate should be limited while using an early preview of DiskANN.
 
 ## Next step
+- [DiskANN + Azure Cosmos DB - Microsoft Mechanics Video](https://www.youtube.com/watch?v=MlMPIYONvfQ)
 - [.NET - How-to Index and query vector data](how-to-dotnet-vector-index-query.md)
 - [Python - How-to Index and query vector data](how-to-python-vector-index-query.md)
-- [JavaScript - How-to Index and query vector data](how-to-javascript-vector-index-query.md)
 - [Java - How-to Index and query vector data](how-to-java-vector-index-query.md)
 - [VectorDistance system function](query/vectordistance.md)
 - [Vector index overview](../index-overview.md#vector-indexes)
 - [Vector index policies](../index-policy.md#vector-indexes)
 - [Manage index](how-to-manage-indexing-policy.md#vector-indexing-policy-examples)
+- Integrations:
+  - [LangChain, Python](https://python.langchain.com/v0.2/docs/integrations/vectorstores/azure_cosmos_db_no_sql/)
+  - [Semantic Kernel, .NET](https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Connectors/Connectors.Memory.AzureCosmosDBNoSQL)
+  - [Semantic Kernel, Python](https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors/memory/azure_cosmosdb_no_sql)

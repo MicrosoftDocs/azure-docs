@@ -2,8 +2,8 @@
 title: Show the correct map copyright attribution information
 titleSuffix: Microsoft Azure Maps
 description: The map copyright attribution information must be displayed in all applications that use the Render API, including web and mobile applications. This article discusses how to display the correct attribution every time you display or update a tile. 
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 3/16/2022
 ms.topic: how-to
 ms.service: azure-maps

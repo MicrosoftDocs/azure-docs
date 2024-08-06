@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `4`           |
 | Allowed values | `0-262143`     |
 | Parameter type | static         |
-| Documentation  | [max_logical_replication_workers](https://www.postgresql.org/docs/12/runtime-config-replication.html) |
+| Documentation  | [max_logical_replication_workers](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS)     |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `2`           |
 | Allowed values | `0-262143`     |
 | Parameter type | dynamic        |
-| Documentation  |                                                                                                       |
+| Documentation  | [max_sync_workers_per_subscription](https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-MAX-SYNC-WORKERS-PER-SUBSCRIPTION) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

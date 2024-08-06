@@ -86,15 +86,15 @@ The following chart breaks out OpenTelemetry feature support for each language.
 |-----------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
 | [Distributed tracing](../app/distributed-trace-data.md)                                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Standard metrics](../app/standard-metrics.md) (accuracy currently affected by sampling)                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Standard metrics](../app/standard-metrics.md)                                                                        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Fixed-rate sampling](../app/sampling.md)                                                                             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
-| [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
+| [Custom Events](../app/usage.md#track-user-interactions-with-custom-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
 | [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | [Live metrics](../app/live-stream.md)                                                                                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Live Metrics Filtering](../app/live-stream.md#select-and-filter-your-metrics)                                        | :x:                | :x:                | :x:                | :x:                |
+| [Live Metrics Filtering](../app/live-stream.md#select-and-filter-your-metrics)                                        | :white_check_mark: | :x:                | :x:                | :x:                |
 | Detect Resource Context for VM/VMSS and App Service                                                                   | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
 | Detect Resource Context for Azure Kubernetes Service (AKS) and Functions                                              | :x:                | :x:                | :x:                | :white_check_mark: |
 | Availability Testing Events generated using the Track Availability API                                                | :x:                | :x:                | :x:                | :white_check_mark: |
@@ -140,3 +140,11 @@ Some customers use the OpenTelemetry Collector as an agent alternative, even tho
 ### What's the difference between OpenCensus and OpenTelemetry?
 
 [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Microsoft is committed to making Azure Monitor based on OpenTelemetry.
+
+### In Grafana, why do I see `Status: 500. Can't visualize trace events using the trace visualizer`?
+
+You could be trying to visualize raw text logs rather than OpenTelemetry traces.
+
+In Application Insights, the 'Traces' table stores raw text logs for diagnostic purposes. They aid in identifying and correlating traces associated with user requests, other events, and exception reports. However, the 'Traces' table doesn't directly contribute to the end-to-end transaction view (waterfall chart) in visualization tools like Grafana.
+
+With the growing adoption of cloud-native practices, there's an evolution in telemetry collection and terminology. OpenTelemetry became a standard for collecting and instrumenting telemetry data. In this context, the term 'Traces' took on a new meaning. Rather than raw logs, 'Traces' in OpenTelemetry refer to a richer, structured form of telemetry that includes spans, which represent individual units of work. These spans are crucial for constructing detailed transaction views, enabling better monitoring and diagnostics of cloud-native applications.

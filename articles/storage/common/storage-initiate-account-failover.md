@@ -31,11 +31,11 @@ Review these important topics detailed in the [disaster recovery guidance](stora
 - **Supported storage account types**: Ensure that your storage account type can be used to initiate a failover. See [Supported storage account types](storage-disaster-recovery-guidance.md#supported-storage-account-types).
 - **Set your expectations for timing and cost**: The time it takes the customer-managed failover process to complete can vary, but typically takes less than one hour. An unplanned failover results in the loss of geo-redundancy configuration. Reconfiguring geo-redundant storage (GRS) typically incurs extra time and cost. For more information, see the [time and cost of failing over](storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over) section.
 
-## Initiate the customer-managed failover
+## Initiate the failover
 
 You can initiate either a planned or unplanned customer-managed failover using the Azure portal, PowerShell, or the Azure CLI.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## [Portal](#tab/azure-portal)
 

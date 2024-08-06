@@ -22,7 +22,7 @@ This quickstart describes how to:
 > [!TIP]
 > Feature flags and Key Vault references are special types of key-values. Check out the [Next steps](#next-steps) for examples of creating them using the ARM template.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

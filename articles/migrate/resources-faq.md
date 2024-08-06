@@ -3,14 +3,14 @@ title: Azure Migrate FAQ
 description: Get answers to common questions about the Azure Migrate service.
 author: v-sreedevank
 ms.author: v-sreedevank
-ms.topic: conceptual
+ms.topic: faq
 ms.date: 05/22/2024
 ms.custom: engagement-fy23
 ---
 
 # Azure Migrate: Common questions
 
-This article answers common questions about Azure Migrate. If you've questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
+This article answers common questions about Azure Migrate. If you have questions after you read this article, you can post them in the [Azure Migrate forum](https://aka.ms/AzureMigrateForum). You also can review these articles:
 
 - Questions about the [Azure Migrate appliance](common-questions-appliance.md)
 - Questions about [discovery, assessment, and dependency visualization](common-questions-discovery-assessment.md)
@@ -29,7 +29,7 @@ Use Azure Migrate to discover, assess, and migrate on-premises infrastructure, a
 
 - Using Azure Migrate provides interoperability and future extensibility with Azure Migrate tools, other Azure services, and third-party tools.
 - The Migration and modernization tool is purpose-built for server migration to Azure. It's optimized for migration. You don't need to learn about concepts and scenarios that aren't directly relevant to migration.
-- There are no tool usage charges for migration for 180 days, from the time replication is started for a VM. It gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
+- There are no tool usage charges for migration for 180 days from the time replication is started for a VM. It gives you time to complete migration. You only pay for the storage and network resources used in replication, and for compute charges consumed during test migrations.
 - Azure Migrate supports all migration scenarios supported by Site Recovery. Also, for VMware VMs, Azure Migrate provides an agentless migration option.
 - We're prioritizing new migration features for the Migration and modernization tool only. These features aren't targeted for Site Recovery.
 
@@ -52,7 +52,7 @@ Server Assessment is a migration planning tool. The Site Recovery Deployment Pla
 Choose your tool based on what you want to do:
 
 - **Plan on-premises migration to Azure**: If you plan to migrate your on-premises servers to Azure, use Server Assessment for migration planning. Server Assessment assesses on-premises workloads and provides guidance and tools to help you migrate. After the migration plan is in place, you can use tools like the Migration and modernization tool to migrate the machines to Azure.
-- **Plan disaster recovery to Azure**: If you plan to set up disaster recovery from on-premises to Azure with Site Recovery, use the Site Recovery Deployment Planner. The Deployment Planner provides a deep, Site Recovery-specific assessment of your on-premises environment for the purpose of disaster recovery. It provides recommendations related to disaster recovery, such as replication and failover.
+- **Plan disaster recovery to Azure**: If you plan to set up disaster recovery from on-premises to Azure with Site Recovery, use the Site Recovery Deployment Planner. The Deployment Planner provides a deep, Site Recovery-specific assessment of your on-premises environment for disaster recovery. It provides recommendations related to disaster recovery, such as replication and failover.
 
 ## How does the Migration and modernization tool work with Site Recovery?
 
@@ -79,8 +79,8 @@ Azure Migrate is classified as customer managed Disaster Recovery, which means A
 While using different capabilities, it's recommended that you export the software inventory, dependency analysis, and assessment report for an offline backup.
 
 In the event of a regional failure or outage in the Azure region that your project is created in:
-- You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you've exported. 
-- Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
+- You might not be able to access your Azure Migrate projects, assessments, and other reports during the outage. However, you can use the offline copies that you exported. 
+- Any in-progress replication and/or migration are paused and you might have to restart it post the outage.
 
 ## How do I delete a project?
 
@@ -88,7 +88,7 @@ Learn how to [delete a project](how-to-delete-project.md).
 
 ## Can an Azure Migrate resource be moved?
 
-No, Azure Migrate does not support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
+No, Azure Migrate doesn't support moving resources. To move resources created by Azure Migrate, consider creating a new project in the desired region.
 
 ## Next steps
 

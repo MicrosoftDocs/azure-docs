@@ -91,7 +91,7 @@ A value of `true` for `attackDetected` signifies a detected threat, in which cas
 
 If you want to clean up and remove an Azure AI services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
+- [Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal#clean-up-resources)
 - [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli#clean-up-resources)
 
 ## Next steps

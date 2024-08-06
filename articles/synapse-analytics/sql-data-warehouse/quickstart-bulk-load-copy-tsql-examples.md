@@ -2,12 +2,12 @@
 title: Authentication mechanisms with the COPY statement
 description: Outlines the authentication mechanisms to bulk load data with the COPY statement in Synapse SQL.
 author: WilliamDAssafMSFT
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 06/15/2022
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: subject-rbac-steps, mode-other
 ---
 
@@ -105,7 +105,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | SERVICEPRINCIPAL |
     | Members | server or workspace hosting your dedicated SQL pool that you've registered with Microsoft Entra ID  |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 
    > [!NOTE]
@@ -144,7 +144,7 @@ Managed Identity authentication is required when your storage account is attache
     | Assign access to | USER |
     | Members | Microsoft Entra user |
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > Specify the **Storage** **Blob Data** Owner, Contributor, or Reader Azure role. These roles are different than the Azure built-in roles of Owner, Contributor, and Reader.

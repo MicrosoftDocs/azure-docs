@@ -3,7 +3,7 @@ title: Share VM images in a compute gallery
 description: Learn how to use an Azure Compute Gallery to share VM images.
 author: sandeepraichura
 ms.author: saraic
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
@@ -107,6 +107,9 @@ Specialized VMs haven't been through a process to remove machine specific inform
 - Accounts that could be used to log into the VM can also be used on any VM created using the specialized image that is created from that VM.
 - VMs will have the **Computer name** of the VM the image was taken from. You should change the computer name to avoid collisions.
 - The `osProfile` is how some sensitive information is passed to the VM, using `secrets`. This may cause issues using KeyVault, WinRM and other functionality that uses `secrets` in the `osProfile`. In some cases, you can use managed service identities (MSI) to work around these limitations.
+
+> [!NOTE]  
+> Generalized and specialized VM images contain an operating system disk and all the attached disks, if there any. 
 
 
 ## Updating resources

@@ -4,7 +4,7 @@ description: Learn how to set environment variables in the containers you run in
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -24,7 +24,7 @@ For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container i
 
 If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Azure CLI example
 

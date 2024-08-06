@@ -47,6 +47,41 @@ You can deploy TimeGEN-1 as a serverless API with pay-as-you-go billing. Nixtla 
 - An [Azure AI Studio project](../how-to/create-projects.md).
 - Azure role-based access controls (Azure RBAC) are used to grant access to operations in Azure AI Studio. To perform the steps in this article, your user account must be assigned the __Azure AI Developer role__ on the resource group. For more information on permissions, visit [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
+
+#### Estimate the number of tokens needed
+
+Before you create a deployment, it's useful to estimate the number of tokens that you plan to consume and be billed for.
+One token corresponds to one data point in your input dataset or output dataset.
+
+Suppose you have the following input time series dataset:
+
+| Unique_id | Timestamp           | Target Variable | Exogenous Variable 1 | Exogenous Variable 2 |
+|:---------:|:-------------------:|:---------------:|:--------------------:|:--------------------:|
+| BE        | 2016-10-22 00:00:00 | 70.00           | 49593.0              | 57253.0              |
+| BE        | 2016-10-22 01:00:00 | 37.10           | 46073.0              | 51887.0              |
+
+To determine the number of tokens, multiply the number of rows (in this example, two) and the number of columns used for forecasting—not counting the unique_id and timestamp columns (in this example, three) to get a total of six tokens.
+
+Given the following output dataset:
+
+| Unique_id | Timestamp           | Forecasted Target Variable |
+|:---------:|:-------------------:|:--------------------------:|
+| BE        | 2016-10-22 02:00:00 | 46.57                      |
+| BE        | 2016-10-22 03:00:00 | 48.57                      |
+
+You can also determine the number of tokens by counting the number of data points returned after data forecasting. In this example, the number of tokens is two.
+
+#### Estimate pricing based on tokens
+
+There are four pricing meters that determine the price you pay. These meters are as follows:
+
+| Pricing Meter | Description |
+|--|--|
+| paygo-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* = 0 |
+| paygo-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* = 0 |
+| paygo-finetuned-model-inference-input-tokens | Costs associated with the tokens used as input for inference when *finetune_steps* > 0 |
+| paygo-finetuned-model-inference-output-tokens | Costs associated with the tokens used as output for inference when *finetune_steps* > 0 |
+
 ### Create a new deployment
 
 These steps demonstrate the deployment of TimeGEN-1. To create a deployment:
@@ -250,3 +285,4 @@ Quota is managed per deployment. Each deployment has a rate limit of 200,000 tok
 
 - [What is Azure AI Studio?](../what-is-ai-studio.md)
 - [Azure AI FAQ article](../faq.yml)
+- [Region availability for models in serverless API endpoints](deploy-models-serverless-availability.md)

@@ -146,28 +146,30 @@ So, no matter how far in the past you specify the start time, for example, 2017-
 
 ## Recurrence behavior
 
-Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run natively on the Azure Logic Apps runtime. These triggers differ from recurring connection-based managed connector triggers where you need to create a connection first, such as the Office 365 Outlook managed connector trigger.
+Recurring built-in triggers, such as the [Recurrence trigger](../connectors/connectors-native-recurrence.md), run directly and natively on the Azure Logic Apps runtime. These triggers differ from recurring connection-based managed connector triggers where you need to create a connection first, such as the Office 365 Outlook managed connector trigger.
 
-For both kinds of triggers, if a recurrence doesn't specify a specific start date and time, the first recurrence runs immediately when you save or deploy the logic app resource, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
+For both kinds of triggers, if a recurrence doesn't specify a start date and time, the first recurrence runs immediately when you save or deploy the logic app resource, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 
 ### Recurrence for built-in triggers
 
-Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls.
+Recurring built-in triggers follow the schedule that you set, including any specified time zone. However, if a recurrence doesn't specify other advanced scheduling options, such as specific times to run future recurrences, those recurrences are based on the last trigger execution. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. Advanced scheduling options, such as **At these hours** and **At these days** for the **Weekly** recurrence, are available and work only with built-in polling triggers, such as the **Recurrence** and **Sliding Window** triggers, which directly and natively run on the Azure Logic Apps runtime.
 
 For more information, review the following documentation:
 
 * [Trigger recurrence for daylight saving time and standard time](#daylight-saving-standard-time)
 * [Troubleshoot recurrence issues](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#recurrence-issues)
 
-### Recurrence for connection-based triggers
+### Recurrence for managed triggers
 
-For recurring connection-based triggers, such as Office 365 Outlook, the schedule isn't the only driver that controls execution. The time zone only determines the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
+For recurring managed triggers, such as Office 365 Outlook, Outlook.com, and so on, the schedule isn't the only driver that controls execution. The time zone determines only the initial start time. Subsequent runs depend on the recurrence schedule, the last trigger execution, and other factors that might cause run times to drift or produce unexpected behavior, for example:
 
 * Whether the trigger accesses a server that has more data, which the trigger immediately tries to fetch.
 * Any failures or retries that the trigger incurs.
 * Latency during storage calls.
 * Not maintaining the specified schedule when daylight saving time (DST) starts and ends.
 * Other factors that can affect when the next run time happens.
+
+Advanced scheduling options, such as **At these hours** and **At these days** for the **Weekly** recurrence, aren't available or supported for connectors that are Microsoft-managed, hosted, and run in Azure. These polling triggers calculate the next recurrence by using only the **Interval** and **Frequency** values.
 
 For more information, review the following documentation:
 

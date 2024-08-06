@@ -47,7 +47,7 @@ procedureSection:
 
         :::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="Screenshot of the Peerings page where you resync a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
       - |
-        Select the name of the other peered virtual network under **Peer**.
+        Select the peer to resync. Select the directory to authenticate if needed in **Virtual network peering sync**.
       - |
         Under **Settings** for the peered virtual network, select **Address space** and verify that the address space listed has been updated.
 
@@ -83,21 +83,23 @@ procedureSection:
   - title: |
       Delete an address range
     summary: |
-      In this task, you delete an IP address range from an address space. First, delete any existing subnets, and then delete the IP address range.
+      In this task, you delete an IP address range from a subnet in a peered virtual network.
     
       > [!IMPORTANT]
-      > Before you can delete an address space, it must be empty. If a subnet exists in the address range, you can't remove the address range. To remove an address range, you must first delete any subnets and any of the subnet's resources which exist in the address range.
+      > Before you can delete an address space, it must be empty. If a resource or service exists in the address range, you can't remove the address range. To remove an address range, you must remove any resource or services using the address range within the subnet.
     steps: 
       - |  
         In the search box at the top of the Azure portal, enter *virtual networks*. Select **Virtual networks** from the search results.
       - |
         From the list of virtual networks, select the virtual network from which to remove the address range.
       - |
-        Under **Settings**, select **Subnets**.
+        Under **Settings**, select **Address space**.
       - |
-        To the right of the address range you want to remove, select **...** and select **Delete** from the dropdown list. Choose **Yes** to confirm deletion.
+        To the right of the address range you want to remove, select the trash can icon. 
 
-        :::image type="content" source="media/update-virtual-network-peering-address-space/delete-subnet.png" alt-text="Screenshot shows of Subnet page and menu for deleting a subnet.":::
+        :::image type="content" source="media/update-virtual-network-peering-address-space/delete-subnet.png" alt-text="Screenshot shows removal of address range from a subnet.":::
+
+        :::image type="content" source="media/update-virtual-network-peering-address-space/delete-subnet-1.png" alt-text="Screenshot shows the saving of the changes to the subnet address range.":::
       - |
         Select **Save** after you complete your changes.
       - |

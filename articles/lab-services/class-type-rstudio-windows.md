@@ -3,7 +3,7 @@ title: Set up RStudio lab on Windows
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to teach R using RStudio on Windows.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: how-to
@@ -11,6 +11,8 @@ ms.date: 04/24/2023
 ---
 
 # Set up a lab to teach R on Windows with Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

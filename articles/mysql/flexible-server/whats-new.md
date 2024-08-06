@@ -4,8 +4,8 @@ description: Learn about recent updates to Azure Database for MySQL - Flexible S
 author: SudheeshGH
 ms.author: sunaray
 ms.reviewer: vamehta, maghan
-ms.date: 05/21/2024
-ms.service: mysql
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: overview
 ms.custom:
@@ -24,6 +24,18 @@ This article summarizes new releases and features in the Azure Database for MySQ
 > [!NOTE]  
 > This article references the term slave, which Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
+## August 2024
+
+- **Major version upgrade support for Burstable compute tier**
+  
+  Azure Database for MySQL now offers major version upgrades for Burstable SKU compute tiers. This support automatically upgrades the compute tier to General Purpose SKU before performing the upgrade, ensuring sufficient resources. Customers can choose to revert back to Burstable SKU after the upgrade. Additional costs may apply. [Learn more](how-to-upgrade.md#perform-a-planned-major-version-upgrade-from-mysql-57-to-mysql-80-using-the-azure-portal-for-burstable-sku-servers)
+  
+## July 2024
+
+- **Move from private access (virtual network integrated) network to public access or private link**
+
+  Azure Database for MySQL flexible server can be transitioned from private access (virtual network Integrated) to public access, with the option to use Private Link. This functionality enables servers to switch from virtual network integrated to Private Link/Public infrastructure seamlessly, without the need to alter the server name or migrate data, simplifying the process for customers. [Learn more](concepts-networking-vnet.md#move-from-private-access-virtual-network-integrated-network-to-public-access-or-private-link)
+  
 ## May 2024
 
 - **Accelerated Logs in Azure Database for MySQL Flexible Server is now Generally Available**

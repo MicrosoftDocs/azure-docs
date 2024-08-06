@@ -2,8 +2,8 @@
 title: Render coverage
 titleSuffix: Microsoft Azure Maps
 description: Render coverage tables list the countries/regions that support Azure Maps road tiles.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 09/21/2023
 ms.topic: conceptual
 ms.service: azure-maps

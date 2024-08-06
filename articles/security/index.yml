@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure security documentation
-summary: Azure offers security advantages that support your compliance efforts, provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
+summary: Azure offers security advantages that support compliance efforts, and provide cost-effective security for your organization, and help protect your hybrid and multicloud platforms, applications, and data.
 brand: azure
 
 metadata:
@@ -25,9 +25,6 @@ highlightedContent:
     - title: Back up and restore plan to protect against ransomware
       itemType: concept
       url: ./fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - title: Protect your multicloud environment with unified security management and advanced threat protection
-      itemType: concept
-      url: ../defender-for-cloud/multicloud.yml
     - title: Understand security coverage by the MITRE ATT&CK framework
       itemType: how-to-guide
       url: ../sentinel/mitre-coverage.md
@@ -75,7 +72,6 @@ conceptualContent:
         - url: /security/zero-trust/develop/identity
           itemType: concept
           text: Building apps with a Zero Trust approach to identity
-
 additionalContent:
   sections:
     - title: Security guidance for each phase of your cloud migration journey
@@ -218,25 +214,15 @@ additionalContent:
             - url: /training/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"
 
-        - title: Azure Information Protection
-          summary: Control and secure emails, documents, and sensitive data
-          links: 
-            - url: /azure/information-protection/what-is-information-protection
-              text: Overview
-            - url: /azure/information-protection/quickstart-deploy-client
-              text: Deploying the client 
-            - url: /azure/information-protection/tutorial-scan-networks-and-content
-              text: Discovering your sensitive content
-
         - title: Microsoft Entra ID
-          summary: Multi-tenant, cloud-based identity and access management service
+          summary: Multitenant, cloud-based identity, and access management service
           links: 
             - url: ../active-directory/fundamentals/active-directory-whatis.md
               text: Overview
             - url: ../active-directory/fundamentals/security-operations-introduction.md
               text: Security operations guide
             - url: /training/modules/secure-aad-users-with-mfa/
-              text: "Learn: Secure Microsoft Entra users with Multi-Factor Authentication"
+              text: "Learn: Secure Microsoft Entra users with Multifactor Authentication"
 
         - title: Microsoft Defender XDR
           summary: Security solutions that protect your enterprise across attack surfaces

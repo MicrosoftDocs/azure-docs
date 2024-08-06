@@ -2,7 +2,7 @@
 title: PowerShell script to list and get Azure Cosmos DB for NoSQL resources
 description: Azure PowerShell script - Azure Cosmos DB list and get operations for API for NoSQL
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: sample
 ms.date: 03/17/2020
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 # List and get databases and containers for Azure Cosmos DB - API for NoSQL
 [!INCLUDE[NoSQL](../../../includes/appliesto-nosql.md)]
 
-[!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This sample requires Azure PowerShell Az 5.4.0 or later. Run `Get-Module -ListAvailable Az` to see which versions are installed.
 If you need to install, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell).

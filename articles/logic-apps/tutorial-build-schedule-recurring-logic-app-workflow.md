@@ -11,7 +11,7 @@ ms.date: 06/11/2024
 
 # Tutorial: Create schedule-based automated workflows using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 This tutorial shows how to build an example [logic app workflow](../logic-apps/logic-apps-overview.md) that runs on a recurring schedule. Specifically, this example workflow checks the travel time, including the traffic, between two places and runs every weekday morning. If the time exceeds a specific limit, the workflow sends you an email that includes the travel time and the extra time necessary to arrive at your destination. The workflow includes various steps, which start with a schedule-based trigger followed by a Bing Maps action, a data operations action, a control flow action, and an email notification action.
 

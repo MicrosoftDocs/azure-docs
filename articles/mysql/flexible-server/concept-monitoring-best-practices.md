@@ -1,13 +1,13 @@
 ---
 title: Monitoring best practices
 description: This article describes the best practices to monitor Azure Database for MySQL - Flexible Server.
-ms.service: mysql
+author: SudheeshGH
+ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 06/18/2024
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: conceptual
-author: mksuni 
-ms.author: sumuth
-ms.custom:
-ms.date: 01/27/2023
 ---
 
 # Best practices for monitoring Azure Database for MySQL - Flexible Server

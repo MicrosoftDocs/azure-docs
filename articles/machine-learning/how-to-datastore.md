@@ -3,12 +3,12 @@ title: Use datastores
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to connect to Azure storage services during training with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: yogipandey
-author: ynpandey
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: yogipandey
 ms.date: 02/20/2024
 ms.custom: data4ml, ignite-2023, devx-track-azurecli
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute resource to train my machine learning models.
@@ -416,7 +416,6 @@ az ml datastore create --file my_adls_datastore.yml
 ```
 ---
 
----
 
 ## Create a OneLake (Microsoft Fabric) datastore (preview)
 
@@ -434,8 +433,8 @@ OneLake datastore creation requires the following information from your Microsof
 
 You will then find "Endpoint", "Workspace GUID" and "Artifact GUID" in "URL" and "ABFS path" from the "Properties" page:
 
-- URL format: https://{your_one_lake_endpoint}/{your_one_lake_workspace_guid}/{your_one_lake_artifact_guid}/Files
-- ABFS path format: abfss://{your_one_lake_workspace_guid}@{your_one_lake_endpoint}/{your_one_lake_artifact_guid}/Files
+- **URL format**: https://**{your_one_lake_endpoint}**/**{your_one_lake_workspace_guid}**/**{your_one_lake_artifact_guid}**/Files
+- **ABFS path format**: abfss://**{your_one_lake_workspace_guid}**@**{your_one_lake_endpoint}**/**{your_one_lake_artifact_guid}**/Files
 
 :::image type="content" source="media/how-to-datastore/onelake-url-abfs-path.png" alt-text="Screenshot that shows URL and ABFS path of a OneLake artifact in Microsoft Fabric UI." lightbox="./media/how-to-datastore/onelake-url-abfs-path.png":::
 
@@ -455,7 +454,7 @@ store = OneLakeDatastore(
     one_lake_workspace_name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", #{your_one_lake_workspace_guid}
     endpoint="msit-onelake.dfs.fabric.microsoft.com" #{your_one_lake_endpoint}
     artifact = OneLakeArtifact(
-        name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files","{your_one_lake_artifact_guid}/Files
+        name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files", #{your_one_lake_artifact_guid}/Files
         type="lake_house"
     )
 )
@@ -483,7 +482,7 @@ store = OneLakeDatastore(
     one_lake_workspace_name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", #{your_one_lake_workspace_guid}
     endpoint="msit-onelake.dfs.fabric.microsoft.com" #{your_one_lake_endpoint}
     artifact = OneLakeArtifact(
-    name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files","{your_one_lake_artifact_guid}/Files
+    name="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/Files", #{your_one_lake_artifact_guid}/Files
     type="lake_house"
     )
     credentials=ServicePrincipalCredentials(

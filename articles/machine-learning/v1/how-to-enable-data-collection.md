@@ -3,11 +3,11 @@ title: Collect data on your production models
 titleSuffix: Azure Machine Learning
 description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
-ms.reviewer: sgilley
-ms.author: scottpolly
-author: s-polly
+ms.reviewer: None
+ms.author: sgilley
+author: sdgilley
 ms.date: 08/16/2022
 ms.topic: how-to
 ms.custom: UpdateFrequency5, data4ml, sdkv1

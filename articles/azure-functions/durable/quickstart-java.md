@@ -1,47 +1,50 @@
 ---
-title: Create your first durable function in Azure using Java 
-description: Create an Azure Durable Function in Java
+title: "Quickstart: Create a Java Durable Functions app"
+description: Create and publish a Java Durable Functions app in Azure Functions. Choose manual setup, Maven, or Visual Studio Code.
 author: lilyjma
 ms.topic: quickstart
-ms.date: 12/12/2022
+ms.date: 07/24/2024
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: mode-api, devx-track-extended-java
 zone_pivot_groups: create-java-durable-options
 ---
 
-# Create your first durable function in Java 
+# Quickstart: Create a Java Durable Functions app
 
-_Durable Functions_ is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+Use Durable Functions, a feature of [Azure Functions](../functions-overview.md), to write stateful functions in a serverless environment. Durable Functions manages state, checkpoints, and restarts in your application.
 
-In this quickstart, you'll learn how to create and test a "Hello World" Durable Functions app in Java. The most basic Durable Functions app contains the following three functions:  
+In this quickstart, you create and test a "hello world" Durable Functions app in Java.
 
-- _Orchestrator function_ - describes a workflow that orchestrates other functions.
-- _Activity function_ - called by the orchestrator function, performs work, and optionally returns a value.
-- _Client function_ - a regular Azure Function that starts an orchestrator function. This example uses an HTTP triggered function.
+The most basic Durable Functions app has three functions:
 
-This quickstart will show you how to create this "Hello World" app, which you can do in different ways. Use the selector above to choose your preferred approach. 
+* **Orchestrator function**: A workflow that orchestrates other functions.
+* **Activity function**:  A function that is called by the orchestrator function, performs work, and optionally returns a value.
+* **Client function**: A regular function in Azure that starts an orchestrator function. This example uses an HTTP-triggered function.
+
+This quickstart describes different ways to create this "hello world" app. Use the selector at the top of the page to set your preferred approach.
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this quickstart, you need:
 
-- The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 or newer.
+* The [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) version 8 or later installed.
 
-- [Apache Maven](https://maven.apache.org), version 3.0 or newer.
+* [Apache Maven](https://maven.apache.org) version 3.0 or later installed.
 
-- Latest version of the [Azure Functions Core Tools](../functions-run-local.md).
-  - For Azure Functions 4.x, Core Tools **v4.0.4915** or newer is required.
+* The latest version of [Azure Functions Core Tools](../functions-run-local.md).
 
-- An Azure Storage account, which requires that you have an Azure subscription.
+  For Azure Functions _4.x_, Core Tools version 4.0.4915 or later is required.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
-::: zone pivot="create-option-manual-setup" 
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+::: zone pivot="create-option-manual-setup"
 
 ## Add required dependencies and plugins to your project
 
-Add the following to your `pom.xml`:
+Add the following code to your _pom.xml_ file:
 
 ```xml
 <properties>
@@ -108,9 +111,9 @@ Add the following to your `pom.xml`:
 </build>
 ```
 
-## Add required JSON files
+## Add the required JSON files
 
-Add a `host.json` file to your project directory. It should look similar to the following:
+Add a _host.json_ file to your project directory. It should look similar to the following example:
 
 ```json
 {
@@ -132,10 +135,11 @@ Add a `host.json` file to your project directory. It should look similar to the 
   }
 }
 ```
+
 > [!NOTE]
 > It's important to note that only the Azure Functions v4 extension bundle currently has the necessary support for Durable Functions for Java. Durable Functions for Java is _not_ supported in v3 and early extension bundles. For more information on extension bundles, see the [extension bundles documentation](../functions-bindings-register.md#extension-bundles).
 
-Durable Functions needs a storage provider to store runtime state. Add a `local.settings.json` file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
+Durable Functions needs a storage provider to store runtime state. Add a _local.settings.json_ file to your project directory to configure the storage provider. To use Azure Storage as the provider, set the value of `AzureWebJobsStorage` to the connection string of your Azure Storage account:
 
 ```json
 {
@@ -149,7 +153,7 @@ Durable Functions needs a storage provider to store runtime state. Add a `local.
 
 ## Create your functions
 
-The sample code below shows a simple example of each:
+The following sample code shows a basic example of each type of function:
 
 ```java
 import com.microsoft.azure.functions.annotation.*;
@@ -195,7 +199,7 @@ public class DurableFunctionsSample {
     }
 
     /**
-     * This is the activity function that gets invoked by the orchestrator function.
+     * This is the activity function that is invoked by the orchestrator function.
      */
     @FunctionName("Capitalize")
     public String capitalize(@DurableActivityTrigger(name = "name") String name, final ExecutionContext context) {
@@ -205,47 +209,52 @@ public class DurableFunctionsSample {
 }
 
 ```
+
 ::: zone-end
 
 ::: zone pivot="create-option-maven-command"
 
-## Create a local project with Maven command 
+## Create a local project by using the Maven command
 
-1. Run the following command to generate a project with the basic functions of a Durable Functions app: 
+Run the following command to generate a project that contains the basic functions of a Durable Functions app:
 
 # [Bash](#tab/bash)
+
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DarchetypeVersion=1.51 -Dtrigger=durablefunctions
 ```
 
 # [PowerShell](#tab/powershell)
-```powershell 
+
+```powershell
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
 ```
 
 # [Cmd](#tab/cmd)
-```cmd 
+
+```cmd
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DarchetypeVersion=1.51" "-Dtrigger=durablefunctions"
 ```
+
 ---
 
-2. Follow the prompts and provide the following information:
+At the prompts, provide the following information:
 
-  | Prompt | Value | 
-  | ------ | ----- | 
-  | **groupId** | `com.function` |
-  | **artifactId** | `myDurableFunction` |
-  | **version** | `1.0-SNAPSHOT` |
-  | **package** | `com.function` |
-  | **Y** | Hit _enter_ to confirm |
+  | Prompt | Action |
+  | ------ | ----- |
+  | **groupId** | Enter **com.function**. |
+  | **artifactId** | Enter **myDurableFunction**. |
+  | **version** | Select **1.0-SNAPSHOT**. |
+  | **package** | Enter **com.function**. |
+  | **Y** | Enter **Y** and select Enter to confirm. |
 
-Now you have a local project generated with the three functions that are needed for a basic Durable Functions app. 
+Now you have a local project that has the three functions that are in a basic Durable Functions app.
 
-Please check to ensure you have `com.microsoft:durabletask-azure-functions` as a dependency in your `pom.xml`.  
+Check to ensure that `com.microsoft:durabletask-azure-functions` is set as a dependency in your _pom.xml_ file.  
 
-## Configure backend storage provider 
+## Configure the back-end storage provider
 
-Durable Functions needs a storage provider to store runtime state. You can configure to use Azure Storage as the storage provider in `local.settings.json` by providing the connection string of your Azure Storage account as the value to `AzureWebJobsStorage`:
+Durable Functions needs a storage provider to store runtime state. You can set Azure Storage as the storage provider in _local.settings.json_. Use the connection string of your Azure storage account as the value for `AzureWebJobsStorage` like in this example:
 
 ```json
 {
@@ -255,55 +264,57 @@ Durable Functions needs a storage provider to store runtime state. You can confi
     "FUNCTIONS_WORKER_RUNTIME": "java"
   }
 }
-``` 
+```
+
 ::: zone-end
 
 ::: zone pivot="create-option-vscode"
-## Create your local project 
 
-1. In Visual Studio Code, press F1 (or Ctrl/Cmd+Shift+P) to open the command palette. In the command palette, search for and select `Azure Functions: Create New Project...`.
+## Create your local project
 
-    ![Screenshot of create new functions project.](media/quickstart-js-vscode/functions-create-project.png)
+1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select  **Azure Functions: Create New Project**.
 
-2. Choose an empty folder location for your project and choose **Select**.
+   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the create new functions project command.":::
 
-3. Follow the prompts and provide the following information:
+1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
 
-    |Prompt|Value|
+1. At the prompts, provide the following information:
+
+    | Prompt | Action |
     |--|--|
-    |**Select a language**| Choose `Java`.|    
-    |**Select a version of Java**| Choose `Java 8` or newer, the Java version on which your functions run in Azure. Choose a Java version that you've verified locally. |
-    | **Provide a group ID** | `com.function`. |
-    | **Provide an artifact ID** | `myDurableFunction`. |
-    | **Provide a version** | `1.0-SNAPSHOT`. |
-    | **Provide a package name** | `com.function`. |
-    | **Provide an app name** | `myDurableFunction`. |
-    | **Select the build tool for Java project** | Choose `Maven`.|
-    |**Select how you would like to open your project**| Choose `Open in new window`.|
+    | **Select a language** | Select **Java**. |
+    | **Select a version of Java** | Select **Java 8** or later. Select the Java version that your functions run on in Azure, and one that you verified locally. |
+    | **Provide a group ID** | Enter **com.function**. |
+    | **Provide an artifact ID** | Enter **myDurableFunction**. |
+    | **Provide a version** | Enter **1.0-SNAPSHOT**. |
+    | **Provide a package name** | Enter **com.function**. |
+    | **Provide an app name** | Enter **myDurableFunction**. |
+    | **Select the build tool for Java project** | Select **Maven**. |
+    | **Select how you would like to open your project** | Select **Open in new window**. |
 
-You now have a project with an example HTTP function. You can remove this function if you'd like because we'll be adding the basic functions of a Durable Functions app in the next step.  
+You now have a project that has an example HTTP function. You can remove this function if you'd like to, because you add the basic functions of a Durable Functions app in the next step.  
 
 ## Add functions to the project
 
-1. In the command palette, search for and select `Azure Functions: Create Function...`.
+1. In the command palette, enter and then select **Azure Functions: Create Function**.
 
-2. Select `Change template filter` to `All`. 
+1. For **Change template filter**, select **All**.
 
-3. Follow the prompts and provide the following information:
+1. At the prompts, provide the following information:
 
-    | Prompt | Value | 
-    | ------ | ----- | 
-    | **Select a template for your function**| DurableFunctionsOrchestration | 
-    | **Provide a package name** | `com.function`
-    | **Provide a function name** | `DurableFunctionsOrchestrator` | 
+    | Prompt | Action |
+    | ------ | ----- |
+    | **Select a template for your function**| Select **DurableFunctionsOrchestration**. |
+    | **Provide a package name** | Enter **com.function**. |
+    | **Provide a function name** | Enter **DurableFunctionsOrchestrator**. |
   
-4. Choose `Select storage account` on the pop-up window asking to set up storage account information and follow the prompts. 
+1. In the dialog, choose **Select storage account** to set up a storage account, and then follow the prompts.
 
-You should now have the three basic functions for a Durable Functions app generated. 
+You should now have the three basic functions generated for a Durable Functions app.
 
 ## Configure pom.xml and host.json
 
-Add the following dependency to your `pom.xml`:
+Add the following dependency to your _pom.xml_ file:
 
 ```xml
 <dependency>
@@ -313,38 +324,38 @@ Add the following dependency to your `pom.xml`:
 </dependency>
 ```
 
-Add the `extensions` property to your `host.json`:
+Add the `extensions` property to your _host.json_ file:
 
 ```json
 "extensions": { "durableTask": { "hubName": "JavaTestHub" }}
 ```
-::: zone-end
 
+::: zone-end
 
 ## Test the function locally
 
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer.
+Azure Functions Core Tools gives you the capability to run an Azure Functions project on your local development computer.
 
 > [!NOTE]
-> Durable Functions for Java requires Azure Functions Core Tools v4.0.4915 or newer. You can see which version is installed by running the `func --version` command from the terminal.
+> Durable Functions for Java requires Azure Functions Core Tools version 4.0.4915 or later. You can see which version is installed by running the `func --version` command in the terminal.
 
-1. If you are using Visual Studio Code, open a new terminal window and run the following commands to build the project:
+1. If you're using Visual Studio Code, open a new terminal window and run the following commands to build the project:
 
-    ```bash
-    mvn clean package
-    ```
-    
-    Then run the durable function:
-    
-    ```bash
-    mvn azure-functions:run
-    ```
+   ```bash
+   mvn clean package
+   ```
 
-2. In the Terminal panel, copy the URL endpoint of your HTTP-triggered function.
+   Then, run the durable function:
 
-   ![Screenshot of Azure local output.](media/quickstart-java/maven-functions-run.png)
+   ```bash
+   mvn azure-functions:run
+   ```
 
-3. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send an HTTP POST request to the URL endpoint. You should get a response similar to the following:
+1. In the terminal panel, copy the URL endpoint of your HTTP-triggered function.
+
+   :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
+
+1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
 
     ```json
     {
@@ -355,12 +366,12 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
         "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d1b33a60-333f-4d6e-9ade-17a7020562a9/terminate?reason={text}&code=ACCupah_QfGKo..."
     }
     ```
-    
-    The response is the initial result from the HTTP function letting you know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-4. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman or cURL to issue the GET request.
+   The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
-    The request will query the orchestration instance for the status. You should get an eventual response, which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like:
+1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use Postman to issue the GET request.
+
+    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function, like in this example:
 
     ```json
     {

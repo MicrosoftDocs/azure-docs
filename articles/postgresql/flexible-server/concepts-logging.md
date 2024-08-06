@@ -3,9 +3,8 @@ title: Logs
 description: Describes logging configuration, storage and analysis in Azure Database for PostgreSQL - Flexible Server.
 author: varun-dhawan
 ms.author: varundhawan
-ms.reviewer: maghan
-ms.date: 04/27/2024
-ms.service: postgresql
+ms.date: 7/11/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---
@@ -30,6 +29,10 @@ To learn how to configure parameters in Azure Database for PostgreSQL flexible s
 ## Accessing logs
 
 Azure Database for PostgreSQL flexible server is integrated with Azure Monitor diagnostic settings. Diagnostic settings allows you to send your Azure Database for PostgreSQL flexible server logs in JSON format to Azure Monitor Logs for analytics and alerting, Event Hubs for streaming, and Azure Storage for archiving. 
+
+## Data retention policy and pricing
+
+If you select Event Hubs or a Storage account, you can specify a retention policy. This policy deletes data that is older than a selected time period. If you specify Log Analytics, the retention policy depends on the selected pricing tier. Logs ingested into your **Log Analytics** workspace can be retained at no charge for up to first 31 days. Logs retained beyond these no-charge periods will be charged for each GB of data retained for a month (pro-rated daily). For more details, refer [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### Log format
 

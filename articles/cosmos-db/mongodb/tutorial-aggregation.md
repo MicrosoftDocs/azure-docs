@@ -3,7 +3,7 @@ title: Getting Started with Aggregation Pipeline
 description: Learn how to get started with Cosmos DB for MongoDB aggregation pipeline for advanced data analysis and manipulation.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: tutorial
 ms.date: 01/24/2023

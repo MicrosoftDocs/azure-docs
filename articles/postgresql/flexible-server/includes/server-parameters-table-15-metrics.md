@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.autovacuum_diagnostics](../concepts-monitoring.md)      |
+| Documentation  | [metrics.autovacuum_diagnostics](https://go.microsoft.com/fwlink/?linkid=2274151)      |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.collector_database_activity](../concepts-monitoring.md) |
+| Documentation  | [metrics.collector_database_activity](https://go.microsoft.com/fwlink/?linkid=2274151) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `off`         |
 | Allowed values | `on,off`       |
 | Parameter type | dynamic        |
-| Documentation  | [metrics.pgbouncer_diagnostics](../concepts-monitoring.md)       |
+| Documentation  | [metrics.pgbouncer_diagnostics](https://go.microsoft.com/fwlink/?linkid=2274151)       |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

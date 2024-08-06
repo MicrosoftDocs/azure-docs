@@ -79,7 +79,7 @@ Multiple placement types are available for controlling the number of clusters to
 
 You can use a `PickAll` placement policy to deploy a workload across all member clusters in the fleet (optionally matching a set of criteria).
 
-The following example shows how to deploy a `test-deployment` namespace and all of its objects across all clusters labeled with `environment: production`:
+The following example shows how to deploy a `prod-deployment` namespace and all of its objects across all clusters labeled with `environment: production`:
 
 ```yaml
 apiVersion: placement.kubernetes-fleet.io/v1beta1
@@ -103,7 +103,7 @@ spec:
       version: v1
 ```
 
-This simple policy takes the `test-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
+This simple policy takes the `prod-deployment` namespace and all resources contained within it and deploys it to all member clusters in the fleet with the given `environment` label. If all clusters are desired, you can remove the `affinity` term entirely.
 
 ### `PickFixed` placement policy
 

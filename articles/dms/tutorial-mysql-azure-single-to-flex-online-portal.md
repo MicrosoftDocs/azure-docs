@@ -6,7 +6,7 @@ author: karlaescobar
 ms.author: karlaescobar
 ms.reviewer: maghan
 ms.date: 09/17/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
@@ -48,7 +48,7 @@ To complete this tutorial, you need to:
 * To complete a schema migration successfully, on the source server, the user performing the migration requires the following privileges:
   * [“SELECT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) privilege at the server level on the source.
   * If migrating views, user must have the [“SHOW VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_show-view) privilege on the source server and the [“CREATE VIEW”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-view) privilege on the target server.
-  * If migrating triggers, user must have the [“TRIGGER”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_trigger) privilege on the source and target server.
+  * If migrating triggers, user must have the [“TRIGGER”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_trigger) privilege on the source and target server. Also triggers are only migrated during cutover, you should eb able to see the triggers created post cutover completes successfully.
   * If migrating routines (procedures and/or functions), the user must have the [“CREATE ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-routine) and [“ALTER ROUTINE”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_alter-routine) privileges granted at the server level on the target.
   * If migrating events, the user must have the [“EVENT”](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_event) privilege on the source and target server.
   * If migrating users/logins, the user must have the ["CREATE USER"](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_create-user) privilege on the target server.

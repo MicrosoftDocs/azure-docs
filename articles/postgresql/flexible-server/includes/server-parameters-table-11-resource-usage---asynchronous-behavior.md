@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `256`         |
 | Allowed values | `0-256`        |
 | Parameter type | dynamic        |
-| Documentation  | [backend_flush_after](https://www.postgresql.org/docs/11/runtime-config-resource.html)              |
+| Documentation  | [backend_flush_after](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER)                           |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -34,7 +34,7 @@ ms.topic: include
 | Default value  | `1`           |
 | Allowed values | `0-1000`       |
 | Parameter type | dynamic        |
-| Documentation  | [effective_io_concurrency](https://www.postgresql.org/docs/11/runtime-config-resource.html)         |
+| Documentation  | [effective_io_concurrency](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY)                 |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -51,7 +51,7 @@ ms.topic: include
 | Default value  | `2`           |
 | Allowed values | `0-64`         |
 | Parameter type | dynamic        |
-| Documentation  | [max_parallel_maintenance_workers](https://www.postgresql.org/docs/11/runtime-config-resource.html) |
+| Documentation  | [max_parallel_maintenance_workers](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-MAINTENANCE) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -68,7 +68,7 @@ ms.topic: include
 | Default value  | `8`           |
 | Allowed values | `0-1024`       |
 | Parameter type | dynamic        |
-| Documentation  | [max_parallel_workers](https://www.postgresql.org/docs/11/runtime-config-resource.html)             |
+| Documentation  | [max_parallel_workers](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -85,7 +85,7 @@ ms.topic: include
 | Default value  | `2`           |
 | Allowed values | `0-1024`       |
 | Parameter type | dynamic        |
-| Documentation  | [max_parallel_workers_per_gather](https://www.postgresql.org/docs/11/runtime-config-resource.html)  |
+| Documentation  | [max_parallel_workers_per_gather](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER)   |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -102,7 +102,7 @@ ms.topic: include
 | Default value  | `8`           |
 | Allowed values | `0-262143`     |
 | Parameter type | static         |
-| Documentation  | [max_worker_processes](https://www.postgresql.org/docs/11/runtime-config-resource.html)             |
+| Documentation  | [max_worker_processes](https://www.postgresql.org/docs/11/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES)                         |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]
@@ -119,7 +119,7 @@ ms.topic: include
 | Default value  | `on`          |
 | Allowed values | `on`           |
 | Parameter type | read-only      |
-| Documentation  |                                                                                                     |
+| Documentation  |                                                                                                                                          |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

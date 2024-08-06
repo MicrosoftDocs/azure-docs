@@ -3,12 +3,12 @@ title: Administer data authentication
 titleSuffix: Azure Machine Learning
 description: Learn how to manage data access and how to authenticate in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.author: xunwan
-author: SturgeonMi
-ms.reviewer: franksolomon
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: xunwan
 ms.date: 09/26/2023
 ms.custom: engagement-fy23
 

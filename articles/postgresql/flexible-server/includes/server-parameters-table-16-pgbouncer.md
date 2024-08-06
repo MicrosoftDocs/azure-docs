@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -159,6 +159,7 @@ ms.topic: include
 [!INCLUDE [server-parameters-azure-notes-pgbouncer_server_idle_timeout](./server-parameters-azure-notes-pgbouncer_server_idle_timeout.md)]
 
 
+
 ### pgbouncer.stats_users
 
 | Attribute      | Value                                                      |
@@ -166,7 +167,7 @@ ms.topic: include
 | Category       | PgBouncer |
 | Description    | Comma-separated list of database users that are allowed to connect and run read-only queries on the pgBouncer console.                                                        |
 | Data type      | string      |
-| Default value  |    |
+| Default value  |               |
 | Allowed values | `[A-Za-z0-9,@_\\-\\.]*`         |
 | Parameter type | dynamic        |
 | Documentation  | [pgbouncer.stats_users](https://www.pgbouncer.org/config.html)                                     |

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.custom: UpdateFrequency5
 ms.topic: how-to
-ms.author: andyaviles  
-author: andyaviles121  
-ms.reviewer: larryfr
-ms.date: 11/04/2022
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: andyaviles
+ms.date: 06/28/2024
 monikerRange: 'azureml-api-1'
 ---
 
@@ -108,7 +108,7 @@ Depending on your needs, you may have more compute or data services that are use
 
 __Compute resources__
 
-* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](../../aks/operator-best-practices-multi-region.md) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](../../aks/availability-zones.md). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
+* **Azure Kubernetes Service**: See [Best practices for business continuity and disaster recovery in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-multi-region) and [Create an Azure Kubernetes Service (AKS) cluster that uses availability zones](/azure/aks/availability-zones). If the AKS cluster was created by using the Azure Machine Learning Studio, SDK, or CLI, cross-region high availability is not supported.
 * **Azure Databricks**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
 * **Container Instances**: An orchestrator is responsible for failover. See [Azure Container Instances and container orchestrators](../../container-instances/container-instances-orchestrator-relationship.md).
 * **HDInsight**: See [High availability services supported by Azure HDInsight](../../hdinsight/hdinsight-high-availability-components.md).

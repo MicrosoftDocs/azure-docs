@@ -4,7 +4,7 @@ description: Learn how to use the Azure Database for MySQL Data Migration - MySQ
 author: karlaescobar
 ms.author: karlaescobar
 ms.date: 04/19/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - references_regions
@@ -13,7 +13,7 @@ ms.custom:
 
 # MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Snapshot
 
-MySQL Consistent Snapshot is a new feature that allows users to take a Consistent Snapshot of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature. Moreover, there are multiple data consistency options presented to the user - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks (Preview), Make Source Server Read only and None. Selecting the 'None' option entails no extra measures are taken to ensure data consistency. We highly recommend selecting option 'Enable Consistent Snapshot without locks' to maintain transactional consistency.
+MySQL Consistent Snapshot is a new feature that allows users to take a Consistent Snapshot of a MySQL server without losing data integrity at source because of ongoing CRUD (Create, Read, Update, and Delete) operations. Transactional consistency is achieved without the need to set the source server to read-only mode through this feature. Moreover, there are multiple data consistency options presented to the user - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks (Preview), Make Source Server Read only and None. Selecting the 'None' option entails no extra measures are taken to ensure data consistency. Both options - enable consistent snapshot with read lock (GA), enable consistent snapshot without locks support performing an online migration. We highly recommend selecting option 'Enable Consistent Snapshot without locks' to maintain transactional consistency.
 
 :::image type="content" source="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png" alt-text="MySQL to Azure Database for MySQL Data Migration Wizard - Enable Transactional Consistency." lightbox="media/migrate-azure-mysql-consistent-backup/consistent-snapshot-options.png":::
 
@@ -34,7 +34,7 @@ Key features of Consistent Snapshot without locks:
 
 ### Enable Consistent Snapshot with read lock (GA)
 
-When you enable this option, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This flushing is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you aren't migrating all databases in a server, they're locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock and spawning several connections for the migration. After the creation of all connections used for the migration, the locks on the table are released.
+When you enable this option, the service flushes all tables on the source server with a **read** lock to obtain the point-in-time snapshot. This flushing is done because a global lock is more reliable than attempting to lock individual databases or tables. As a result, even if you aren't migrating all databases in a server, they're locked as part of setting up the migration process. The migration service initiates a repeatable read and combines the current table state with contents of the undo log for the snapshot. The **snapshot** is generated after obtaining the server wide lock for a few seconds and spawning several connections for the migration. After the creation of all connections used for the migration, the locks on the table are released.
 
 Repeatable reads are enabled to keep the undo logs accessible during the migration, which increases the storage required on the source because of long running connections. A long running migration with multiple table changes leads to an extensive undo log history that needs to be replayed and could also increase the compute requirements and load on the source server.
 

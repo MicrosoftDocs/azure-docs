@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Key Vault with Azure Private Link Serv
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/30/2024
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli

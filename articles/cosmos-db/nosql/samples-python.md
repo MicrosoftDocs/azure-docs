@@ -4,7 +4,7 @@ description: Find Python examples on GitHub for common tasks in Azure Cosmos DB,
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: rosouz
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.devlang: python
 ms.topic: sample
@@ -70,13 +70,13 @@ The [document_management.py](https://github.com/Azure/azure-sdk-for-python/blob/
 
 | Task | API reference |
 | --- | --- |
-| [Create items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L31-L43) |container.create_item |
-| [Read an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L46-L54) |container.read_item |
-| [Read all the items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L57-L68) |container.read_all_items |
-| [Query an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L71-L83) |container.query_items |
-| [Replace an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L86-L93) |container.replace_item |
-| [Upsert an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L95-L103) |container.upsert_item |
-| [Delete an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L106-L111) |container.delete_item |
+| [Create items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L33-L45) |container.create_item |
+| [Read an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L48-L56) |container.read_item |
+| [Read all the items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L59-L70) |container.read_all_items |
+| [Query an item by its ID](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L73-L85) |container.query_items |
+| [Replace an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L112-L119) |container.replace_item |
+| [Upsert an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L149-L156) |container.upsert_item |
+| [Delete an item](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py#L258-L263) |container.delete_item |
 | [Get the change feed of items in a container](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/change_feed_management.py) |container.query_items_change_feed |
 
 ## Indexing examples
@@ -85,12 +85,12 @@ The [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/mas
 
 | Task | API reference |
 | --- | --- |
-| [Exclude a specific item from indexing](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L149-L205) | documents.[IndexingDirective](/python/api/azure-cosmos/azure.cosmos.documents.indexingdirective).Exclude|
-| [Use manual indexing with specific items indexed](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L208-L267) | documents.IndexingDirective.Include |
-| [Exclude paths from indexing](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L270-L340) |Define paths to exclude in [IndexingPolicy](/python/api/azure-mgmt-cosmosdb/azure.mgmt.cosmosdb.models.indexingpolicy) property |
-| [Use range indexes on strings](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L405-L490) | Define indexing policy with range indexes on string data type. `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
-| [Perform an index transformation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L492-L548) |database.[replace_container](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy#azure-cosmos-database-databaseproxy-replace-container) (use the updated indexing policy)|
-| [Use scans when only hash index exists on the path](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L343-L402) | set the `enable_scan_in_query=True` and `enable_cross_partition_query=True` when querying the items |
+| [Exclude a specific item from indexing](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L143-L199) | documents.[IndexingDirective](/python/api/azure-cosmos/azure.cosmos.documents.indexingdirective).Exclude|
+| [Use manual indexing with specific items indexed](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L202-L261) | documents.IndexingDirective.Include |
+| [Exclude paths from indexing](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L264-L334) |Define paths to exclude in [IndexingPolicy](/python/api/azure-mgmt-cosmosdb/azure.mgmt.cosmosdb.models.indexingpolicy) property |
+| [Use range indexes on strings](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L399-L483) | Define indexing policy with range indexes on string data type. `'kind': documents.IndexKind.Range`, `'dataType': documents.DataType.String`|
+| [Perform an index transformation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L486-L542) |database.[replace_container](/python/api/azure-cosmos/azure.cosmos.database.databaseproxy#azure-cosmos-database-databaseproxy-replace-container) (use the updated indexing policy)|
+| [Use scans when only hash index exists on the path](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py#L337-L396) | set the `enable_scan_in_query=True` and `enable_cross_partition_query=True` when querying the items |
 
 ## Next steps
 

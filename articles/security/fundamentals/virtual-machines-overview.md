@@ -10,7 +10,7 @@ ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 12/05/2022
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---

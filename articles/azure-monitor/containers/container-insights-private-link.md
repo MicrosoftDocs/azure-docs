@@ -18,7 +18,7 @@ This article describes how to configure Container insights to use Azure Private 
 
 ### Prerequisites
  - Azure CLI version 2.61.0 or higher.
- - Azure Monitor Private Link Scope (AMPLS)
+ - Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
 
 
 ### Existing AKS Cluster 
@@ -69,7 +69,7 @@ Edit the values in the parameter file and deploy the template using any valid me
  Based on your requirements, you can configure other parameters such `streams`, `enableContainerLogV2`, `enableSyslog`, `syslogLevels`, `syslogFacilities`, `dataCollectionInterval`, `namespaceFilteringModeForDataCollection` and `namespacesForDataCollection`. 
 
 ### Prerequisites
-- Azure Monitor Private Link Scope (AMPLS)
+- Create an Azure Monitor Private Link Scope (AMPLS) following the guidance in [Configure your private link](../logs/private-link-configure.md).
 - The template must be deployed in the same resource group as the cluster.
 
 ### AKS cluster
@@ -107,9 +107,9 @@ Edit the values in the parameter file and deploy the template using any valid me
 ---
 
 ## Cluster using legacy authentication
-Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](../../aks/private-clusters.md).
+Use the following procedures to enable network isolation by connecting your cluster to the Log Analytics workspace using [Azure Private Link](../logs/private-link-security.md) if your cluster is not using managed identity authentication. This requires a [private AKS cluster](/azure/aks/private-clusters).
 
-1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](../../aks/private-clusters.md).
+1. Create a private AKS cluster following the guidance in [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 
 2. Disable public Ingestion on your Log Analytics workspace. 
 

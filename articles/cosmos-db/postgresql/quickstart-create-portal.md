@@ -4,7 +4,7 @@ description: Quickstart to create and query distributed tables on Azure Cosmos D
 ms.author: jonels
 author: jonels-msft
 recommendations: false
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart

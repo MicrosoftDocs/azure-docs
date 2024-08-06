@@ -2,12 +2,12 @@
 title: Autoscale online endpoints
 titleSuffix:  Azure Machine Learning
 description: Learn to scale up online endpoints. Get more CPU, memory, disk space, and extra features.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.custom: devplatv2, cliv2, update-code
 
 ms.date: 02/07/2023
@@ -150,7 +150,7 @@ Under __Choose how to scale your resources__, select __Custom autoscale__ to beg
 
 ---
 
-## Create a rule to scale out using metrics
+## Create a rule to scale out using deployment metrics
 
 A common scaling out rule is one that increases the number of VM instances when the average CPU load is high. The following example will allocate two more nodes (up to the maximum) if the CPU average a load of greater than 70% for five minutes::
 
@@ -234,7 +234,7 @@ Finally, select the __Add__ button to create the rule.
 
 ---
 
-## Create a rule to scale in using metrics
+## Create a rule to scale in using deployment metrics
 
 When load is light, a scaling in rule can reduce the number of VM instances. The following example will release a single node, down to a minimum of 2, if the CPU load is less than 30% for 5 minutes:
 
@@ -400,6 +400,10 @@ Select __Scale based on metric__, and then select __Add a rule__. The __Scale ru
 :::image type="content" source="media/how-to-autoscale-endpoints/endpoint-rule.png" lightbox="media/how-to-autoscale-endpoints/endpoint-rule.png" alt-text="Screenshot showing endpoint metrics rules.":::
 
 ---
+
+## Find supported Metrics IDs
+
+If you want to use other metrics in code (either CLI or SDK) to set up autoscale rules, see the table in [Available metrics](how-to-monitor-online-endpoints.md#available-metrics).
 
 ## Create scaling rules based on a schedule
 

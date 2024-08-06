@@ -1,7 +1,7 @@
 ---
 ms.service: azure-arc
 ms.topic: include
-ms.date: 01/17/2023
+ms.date: 06/25/2024
 ---
 
 Azure Arc-enabled server endpoints are required for all server based Arc offerings. 
@@ -41,9 +41,9 @@ The table below lists the URLs that must be available in order to install and us
 #### [Azure Cloud](#tab/azure-cloud)
 
 > [!NOTE]
-> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Endpoint used with private link** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function.
+> When configuring the Azure connected machine agent to communicate with Azure through a private link, some endpoints must still be accessed through the internet. The **Private link capable** column in the following table shows which endpoints can be configured with a private endpoint. If the column shows *Public* for an endpoint, you must still allow access to that endpoint through your organization's firewall and/or proxy server for the agent to function. Network traffic is routed through private endpoint if a private link scope is assigned.
 
-| Agent resource | Description | When required| Endpoint used with private link |
+| Agent resource | Description | When required| Private link capable |
 |---------|---------|--------|---------|
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
@@ -63,10 +63,12 @@ The table below lists the URLs that must be available in order to install and us
 | `*.<region>.arcdataservices.com` <sup>1</sup> | For Arc SQL Server. Sends data processing service, service telemetry, and performance monitoring to Azure. Allows TLS 1.3. | Always | Public |
 |`www.microsoft.com/pkiops/certs`| Intermediate certificate updates for ESUs (note: uses HTTP/TCP 80 and HTTPS/TCP 443) | If using ESUs enabled by Azure Arc. Required always for automatic updates, or temporarily if downloading certificates manually. | Public |
 
-<sup>1</sup> For extension versions up to and including [February 13, 2024](../../data/release-notes.md#february-13-2024), use `san-af-<region>-prod.azurewebsites.net`. Beginning with [March 12, 2024](../../data/release-notes.md#march-12-2024) both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
+<sup>1</sup> For details about what information is collected and sent, review [Data collection and reporting for SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/data-collection).
+
+For extension versions up to and including [February 13, 2024](../../data/release-notes.md#february-13-2024), use `san-af-<region>-prod.azurewebsites.net`. Beginning with [March 12, 2024](../../data/release-notes.md#march-12-2024) both Azure Arc data processing, and Azure Arc data telemetry use `*.<region>.arcdataservices.com`. 
 
 > [!NOTE]
-> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder.
+> To translate the `*.servicebus.windows.net` wildcard into specific endpoints, use the command `\GET https://guestnotificationservice.azure.com/urls/allowlist?api-version=2020-01-01&location=<region>`. Within this command, the region must be specified for the `<region>` placeholder. These endpoints may change periodically.
 
 [!INCLUDE [arc-region-note](../../includes/arc-region-note.md)]
 

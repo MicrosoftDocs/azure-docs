@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
 
 # Quickstart: Azure Key Vault certificate client library for .NET
 
-Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library
+Get started with the Azure Key Vault certificate client library for .NET. [Azure Key Vault](../general/overview.md) is a cloud service that provides a secure store for certificates. You can securely store keys, passwords, certificates, and other secrets. Azure key vaults may be created and managed through the Azure portal. In this quickstart, you learn how to create, retrieve, and delete certificates from an Azure key vault using the .NET client library.
 
 Key Vault client library resources:
 
@@ -30,7 +30,7 @@ For more information about Key Vault and certificates, see:
 * [Azure CLI](/cli/azure/install-azure-cli)
 * A Key Vault - you can create one using [Azure portal](../general/quick-create-portal.md), [Azure CLI](../general/quick-create-cli.md), or [Azure PowerShell](../general/quick-create-powershell.md).
 
-This quickstart is using `dotnet` and Azure CLI
+This quickstart is using `dotnet` and Azure CLI.
 
 ## Setup
 
@@ -93,7 +93,7 @@ dotnet add package Azure.Identity
 
 #### Set environment variables
 
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
+The application obtains the key vault name from an environment variable called `KEY_VAULT_NAME`.
 
 Windows
 ```cmd

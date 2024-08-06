@@ -23,9 +23,6 @@ This tutorial shows how to apply large language models at a distributed scale by
 
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
 
-- Access granted to Azure OpenAI in your Azure subscription.
-
-   Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete <a href="https://aka.ms/oai/access" target="_blank">this form</a>. If you need assistance, open an issue on this repo to contact Microsoft.
 
 - An Azure OpenAI resource. [Create a resource](create-resource.md?pivots=web-portal#create-a-resource).
 

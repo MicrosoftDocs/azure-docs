@@ -2,7 +2,7 @@
 title: Azure Managed Grafana service limitations
 titlesuffix: Azure Managed Grafana
 description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: troubleshooting
 ms.date: 05/23/2024
 ms.author: malev
@@ -31,6 +31,8 @@ Azure Managed Grafana has the following known limitations:
 * Azure Managed Grafana currently doesn't support the Grafana Role Based Access Control (RBAC) feature and the [RBAC API](https://grafana.com/docs/grafana/latest/developers/http_api/access_control/) is therefore disabled.
 
 * Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
+
+* > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 
 ## Feature availability in sovereign clouds
 

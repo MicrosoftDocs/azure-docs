@@ -2,7 +2,7 @@
 title: Azure Disk Encryption with Microsoft Entra app prerequisites (previous release)
 description: This article provides supplements to Azure Disk Encryption for Linux VMs with additional requirements and prerequisites for Azure Disk Encryption with Microsoft Entra ID.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.custom: linux-related-content
 ms.collection: linux

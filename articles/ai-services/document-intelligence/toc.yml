@@ -12,7 +12,10 @@ items:
   - name: Document Intelligence Studio
     displayName: get started
     href: studio-overview.md
-  - name: Document Intelligence SDKs
+  - name: FAQ
+    displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
+    href: faq.yml  
+  - name: Document Intelligence client libraries
     expanded: true
     items:
       - name: Changelog and migration guide
@@ -44,21 +47,18 @@ items:
   - name: Pricing
     displayName: cost, free, F0, tiers, standard, S0
     href: https://azure.microsoft.com/pricing/details/form-recognizer/
-  - name: Service limits
+  - name: Service limits and billing
     displayName: quota, tiers, throttle, max, adjustments, requests, support, ocr
     href: service-limits.md
   - name: What's new
     displayName: changelog, release, updates, previews, beta, packages, ga, cognitive, applied, form recognizer, form, recognizer
     href: whats-new.md
-  - name: Document Intelligence FAQ
-    displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
-    href: faq.yml
 - name: Quickstarts
   items:
     - name: Document Intelligence Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-document-intelligence-studio.md
-    - name: "Get started with Document Intelligence SDKs"
+    - name: "Get started with Document Intelligence client libraries"
       displayName: formRecognizerClient, Document Intelligence client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-sdks-rest-api.md
     - name: Sample Labeling tool
@@ -153,8 +153,6 @@ items:
   - name: Model overview
     displayName: get started, prebuilt, extraction, input
     href: concept-model-overview.md
-  - name: Document Intelligence Studio
-    href: concept-document-intelligence-studio.md
   - name: Accuracy and confidence scores
     displayName: tables, labels, ocr, performance, signatures
     href: concept-accuracy-confidence.md
@@ -238,16 +236,16 @@ items:
     - name: Composed models
       displayName: custom, assign, modelId, model ID
       href:  concept-composed-models.md
-- name: Samples
+- name: Code samples
   items:
   - name: "C#/.NET"
-    href: /dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/.NET(v4.0)/README.md
   - name: "Java"
-    href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Java(v4.0)/README.md
   - name: "Python"
-    href: /python/api/overview/azure/ai-formrecognizer-readme?view=azure-python#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Layout_model/README.md
   - name: "JavaScript"
-    href: /javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest#examples&preserve-view=true
+    href:  https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/JavaScript(v4.0)/README.md
 - name: Responsible AI
   items:
   - name: Transparency note
@@ -291,7 +289,7 @@ items:
       href: v3-error-guide.md
     - name: v2.1
       href: /rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true
-  - name: SDKs (2023-10-31-preview)
+  - name: Client libraries (2023-10-31-preview)
     items:
     - name: C# / .NET
       href: /dotnet/api/overview/azure/ai.documentintelligence-readme?view=azure-dotnet-preview&preserve-view=true

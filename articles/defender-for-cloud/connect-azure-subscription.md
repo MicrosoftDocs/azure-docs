@@ -1,8 +1,8 @@
 ---
 title: Connect your Azure subscriptions
-description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud 
+description: Learn how to connect your Azure subscriptions to Microsoft Defender for Cloud and protect your cloud-based applications.
 ms.topic: install-set-up-deploy
-ms.date: 02/08/2024
+ms.date: 06/25/2024
 ms.custom: mode-other
 ---
 
@@ -16,7 +16,7 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
 - A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
 
-Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) for free. You can add additional paid plans to secure all aspects of your cloud resources. You can try Defender for Cloud for free for the first 30 days. After 30 days charges begin in accordance with the plans enabled in your environment. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) for free. You can add additional paid plans to secure all aspects of your cloud resources. You can try Defender for Cloud for free for the first 30 days. After 30 days, charges begin in accordance with the plans enabled in your environment. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 > [!IMPORTANT]
 > Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day in accordance with the pricing scheme available on the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
@@ -68,6 +68,9 @@ To enable all of Defender for Cloud's protections, you need to enable the plans 
 >
 > - You can enable **Microsoft Defender for Storage accounts**, **Microsoft Defender for SQL**, **Microsoft Defender for open-source relational databases** at either the subscription level or resource level.
 > - The Microsoft Defender plans available at the workspace level are: **Microsoft Defender for Servers**, **Microsoft Defender for SQL servers on machines**.
+
+> [!IMPORTANT]
+> Microsoft Defender for SQL is a subscription level bundle that uses either a default or custom workspace.
 
 When you enable Defender plans on an entire Azure subscription, the protections are applied to all other resources in the subscription.
 

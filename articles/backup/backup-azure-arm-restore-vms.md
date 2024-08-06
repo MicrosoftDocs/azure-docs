@@ -3,8 +3,8 @@ title: Restore VMs by using the Azure portal using Azure Backup
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: nikhilsarode
 ms.topic: how-to
-ms.date: 04/04/2024
-ms.service: backup
+ms.date: 07/02/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -191,12 +191,12 @@ As one of the [restore options](#restore-options), you can replace an existing V
 
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
-## Assign network access settings during restore (preview)
+## Assign network access settings during restore
 
 Azure Backup also allows you to configure the access options for the restored disks once the restore operation is complete. You can set the disk access preferences at the time of initiating the restore.
 
 >[!Note]
->This feature is currently in preview and is available only for backed-up VMs that use private endpoint-enabled disks. 
+>This feature is generally available for backed-up VMs that use private endpoint-enabled disks. 
 
 To enable disk access on restored disks during [VM restore](#choose-a-vm-restore-configuration), choose one of the following options:
 
@@ -205,6 +205,9 @@ To enable disk access on restored disks during [VM restore](#choose-a-vm-restore
 - **Disable public access and enable private access (using disk access)**: This option allows you to disable the public access and assign disk access to the restored disks for private access.
 
  :::image type="content" source="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png" alt-text="Screenshot shows the access configuration options for restored disks." lightbox="./media/backup-azure-arm-restore-vms/restored-disk-access-configuration-options.png":::
+
+>[!Note]
+>The option to choose the network configuration of the restored disks the same as that of the source disks or specify the access from specific networks only is currently not available from Azure PowerShell/ Azure CLI.
 
 ## Cross Region Restore
 

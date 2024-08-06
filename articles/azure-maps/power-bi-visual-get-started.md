@@ -12,18 +12,19 @@ services: azure-maps
 
 # Get started with Azure Maps Power BI visual
 
-**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
-
 This article shows how to use the Microsoft Azure Maps Power BI visual.
 
->  [!NOTE]
->  Power BI does not share the name of customer or end user who sends the above details or locations to Azure Maps.
+**APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
+
 > [!NOTE]
 > This visual can be created and viewed in both Power BI Desktop and the Power BI service. The steps and illustrations in this article are from Power BI Desktop.
 
 The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps Power BI visual can be used to gain insights into how this location context relates to and influences your business data.
 
 :::image type="content" source="media/power-bi-visual/azure-maps-visual-hero.png" alt-text="A screenshot of Power BI desktop with the Azure Maps Power BI visual displaying business data." lightbox="media/power-bi-visual/azure-maps-visual-hero.png":::
+
+> [!NOTE]
+> Power BI ensures that no Personal Identifiable Information (PII) is sent to Azure Maps. Additionally, IP addresses are truncated in the Power BI diagnostic logs.
 
 ## What is sent to Azure?
 
@@ -35,15 +36,15 @@ The Azure Maps Power BI visual connects to cloud service hosted in Azure to retr
 
 Other than the scenarios previously described, no other data overlaid on the map is sent to the Azure Maps servers. All rendering of data happens locally within the client.
 
->  [!NOTE]
->  Power BI does not share the name of customer or end user who sends the above details or locations to Azure Maps.
-
 > [!TIP]
 > If using the Azure Maps [Geographic API endpoints], your firewall may need to be updated to allow access to the Azure Maps platform using either or all of the following URLs:
 >
 > - `https://atlas.microsoft.com`
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
+
+> [!IMPORTANT]
+> The selection tool within the Azure Maps Power BI visual relies on TomTom data, consequently user data may not always remain within the user’s geographical boundary.
 
 For more information about privacy and terms of use related to the Azure Maps Power BI visual, see [Microsoft Azure Legal Information].
 

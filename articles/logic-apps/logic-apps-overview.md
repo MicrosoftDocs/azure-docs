@@ -5,6 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: overview
+ms.collection: ce-skilling-ai-copilot
 ms.date: 06/14/2024
 ---
 

@@ -3,9 +3,9 @@ title: 'Record Bastion sessions'
 titleSuffix: Azure Bastion
 description: Learn how to configure and record Bastion sessions.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 05/30/2024
+ms.date: 06/21/2024
 ms.author: cherylmc
 
 ---
@@ -71,7 +71,7 @@ In this section, you set up and specify the container for session recordings.
     * For **Max Age**, use ***86400***.
     * You can leave the other fields blank.
 
-      :::image type="content" source="./media/session-recording/blob-service.png" alt-text="Screenshot shows the Resource sharing page for Blob service configuration." lightbox="./media/session-recording/blob-service.png":::
+      :::image type="content" source="./media/session-recording/service.png" alt-text="Screenshot shows the Resource sharing page for Blob service configuration." lightbox="./media/session-recording/service.png":::
 1. **Save** your changes at the top of the page.
 
 ## Add or update the SAS URL

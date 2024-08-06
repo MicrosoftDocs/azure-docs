@@ -3,7 +3,7 @@ title: Azure Attestation policy version 1.1
 description: Learn about Azure Attestation policy version 1.1 to define what must be validated during the attestation flow.
 services: attestation
 author: prsriva
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 04/05/2022
 ms.author: prsriva

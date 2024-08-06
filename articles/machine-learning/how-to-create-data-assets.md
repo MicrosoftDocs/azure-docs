@@ -2,23 +2,22 @@
 title: Create Data Assets
 titleSuffix: Azure Machine Learning
 description: Learn how to create Azure Machine Learning data assets
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml, devx-track-azurecli
-ms.author: xunwan
-author: SturgeonMi
-ms.reviewer: franksolomon
-ms.date: 06/20/2023
+ms.author: franksolomon
+author: fbsolo-ms1
+ms.reviewer: xunwan
+ms.date: 07/26/2024
 ---
 
 # Create and manage data assets
 [!INCLUDE [dev v2](includes/machine-learning-dev-v2.md)]
 
-
 This article shows how to create and manage data assets in Azure Machine Learning.
 
-Data assets can help when you need these capabilities:
+Data assets can help when you need:
 
 > [!div class="checklist"]
 > - **Versioning:** Data assets support data versioning.
@@ -28,7 +27,7 @@ Data assets can help when you need these capabilities:
 > - **Ease-of-use:** An Azure machine learning data asset resembles web browser bookmarks (favorites). Instead of remembering long storage paths (URIs) that *reference* your frequently-used data on Azure Storage, you can create a data asset *version* and then access that version of the asset with a friendly name (for example: `azureml:<my_data_asset_name>:<version>`).
 
 > [!TIP]
-> To access your data in an interactive session (for example, a notebook) or a job, you are **not** required to first create a data asset. You can use Datastore URIs to access the data. Datastore URIs offer a simple way to access data for those getting started with Azure machine learning.
+> To access your data in an interactive session (for example, a notebook) or a job, you are **not** required to first create a data asset. You can use Datastore URIs to access the data. Datastore URIs offer a simple way to access data to get started with Azure machine learning.
 
 ## Prerequisites
 
@@ -51,10 +50,9 @@ When you create your data asset, you need to set the data asset type. Azure Mach
 |**Table**<br> Reference a data table    |   `mltable`      |   You have a complex schema subject to frequent changes, or you need a subset of large tabular data.<br><br>AutoML with Tables.<br><br>Read unstructured data (images, text, audio, etc.) data that is spread across **multiple** storage locations. |
 
 > [!NOTE]
-> Please do not use embedded newlines in csv files unless you register the data as an MLTable. Embedded newlines in csv files might cause misaligned field values when you read the data. MLTable has this parameter [`support_multi_line`](../machine-learning/reference-yaml-mltable.md?view=azureml-api-2&preserve-view=true#read-transformations)in `read_delimited` transformation to interpret quoted line breaks as one record.
+> Only use embedded newlines in csv files if you register the data as an MLTable. Embedded newlines in csv files might cause misaligned field values when you read the data. MLTable has the [`support_multi_line` parameter](../machine-learning/reference-yaml-mltable.md?view=azureml-api-2&preserve-view=true#read-transformations) available in the `read_delimited` transformation, to interpret quoted line breaks as one record.
 
-
-When you consume the data asset in an Azure Machine Learning job, you can either *mount* or *download* the asset to the compute node(s). For more information, please read [Modes](how-to-read-write-data-v2.md#modes).
+When you consume the data asset in an Azure Machine Learning job, you can either *mount* or *download* the asset to the compute node(s). For more information, please visit [Modes](how-to-read-write-data-v2.md#modes).
 
 Also, you must specify a `path` parameter that points to the data asset location. Supported paths include:
 
@@ -70,11 +68,16 @@ Also, you must specify a `path` parameter that points to the data asset location
 
 ### Create a data asset: File type
 
-A data asset that is a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data asset using:
+A data asset of a File (`uri_file`) type points to a *single file* on storage (for example, a CSV file). You can create a file typed data asset with:
 
 # [Azure CLI](#tab/cli)
 
-Create a YAML file and copy-and-paste the following code. You must update the `<>` placeholders with the name of your data asset, the version, description, and path to a single file on a supported location.
+Create a YAML file, and copy-and-paste the following code snippet. Be sure to update the `<>` placeholders with the
+
+- name of your data asset
+- the version
+- description
+- path to a single file on a supported location
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -92,7 +95,7 @@ description: <DESCRIPTION>
 path: <SUPPORTED PATH>
 ```
 
-Next, execute the following command in the CLI (update the `<filename>` placeholder to the YAML filename):
+Next, execute the following command in the CLI. Be sure to update the `<filename>` placeholder to the YAML filename.
 
 ```cli
 az ml data create -f <filename>.yml
@@ -100,7 +103,7 @@ az ml data create -f <filename>.yml
 
 # [Python SDK](#tab/python)
 
-To create a data asset that is a File type, use the following code and update the `<>` placeholders with your information.
+To create a File type data asset, use this code snippet, and update the `<>` placeholders with your information.
 
 ```python
 from azure.ai.ml import MLClient
@@ -141,7 +144,7 @@ ml_client.data.create_or_update(my_data)
 ```
 # [Studio](#tab/azure-studio)
 
-These steps explain how to create a File typed data asset in the Azure Machine Learning studio:
+To create a File type data asset in the Azure Machine Learning studio:
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
@@ -151,7 +154,7 @@ These steps explain how to create a File typed data asset in the Azure Machine L
 1. Give your data asset a name and an optional description. Then, select the **File (uri_file)** option under Type.
 :::image type="content" source="./media/how-to-create-data-assets/create-data-asset-file-type.png" alt-text="In this screenshot, choose File (uri folder) in the Type dropdown.":::
 
-1. You have a few options for your data source. If you already have the path to the file you want to upload, choose **From a URI**. For a file already stored in Azure, choose **From Azure storage**. To upload your file from your local drive, choose **From local files**.
+1. You have multiple options for your data source. If you already have the path to the file you want to upload, choose **From a URI**. For a file already stored in Azure, choose **From Azure storage**. To upload your file from your local drive, choose **From local files**.
 :::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows data asset source choices.":::
 
 1. Follow the steps; once you reach the Review step, select **Create** on the last page
@@ -159,11 +162,16 @@ These steps explain how to create a File typed data asset in the Azure Machine L
 
 ### Create a data asset: Folder type
 
-A data asset that is a Folder (`uri_folder`) type is one that points to a *folder* on storage (for example, a folder containing several subfolders of images). You can create a folder typed data asset using:
+A Folder (`uri_folder`) type data asset points to a *folder* in a storage resource - for example, a folder containing several subfolders of images. You can create a folder typed data asset with:
 
 # [Azure CLI](#tab/cli)
 
-Create a YAML file and copy-and-paste the following code. You need to update the `<>` placeholders with the name of your data asset, the version, description, and path to a folder on a supported location.
+Copy-and-paste the following code into a new YAML file. Be sure to update the `<>` placeholders with the
+
+- Name of your data asset
+- The version
+- Description
+- Path to a folder on a supported location
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -181,7 +189,7 @@ description: <DESCRIPTION>
 path: <SUPPORTED PATH>
 ```
 
-Next, execute the following command in the CLI (update the `<filename>` placeholder to the filename to the YAML filename):
+Next, execute the following command in the CLI. Be sure to update the `<filename>` placeholder to the YAML filename.
 
 ```cli
 az ml data create -f <filename>.yml
@@ -189,7 +197,7 @@ az ml data create -f <filename>.yml
 
 # [Python SDK](#tab/python)
 
-To create a data asset that is a Folder type use the following code and update the `<>` placeholders with your information.
+To create a Folder type data asset, use the following code and update the `<>` placeholders with your information.
 
 ```python
 from azure.ai.ml import MLClient
@@ -231,17 +239,17 @@ ml_client.data.create_or_update(my_data)
 
 # [Studio](#tab/azure-studio)
 
-Use these steps to create a Folder typed data asset in the Azure Machine Learning studio:
+To create a Folder typed data asset in the Azure Machine Learning studio:
 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
 1. Under **Assets** in the left navigation, select **Data**. On the Data assets tab, select **Create**
 :::image type="content" source="./media/how-to-create-data-assets/data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
 
-1. Give your data asset a name and optional description. Then, select the **Folder (uri_folder)** option under Type, if it isn't already selected.
+1. Give your data asset a name and optional description. Next, select the **Folder (uri_folder)** option under Type, if it isn't already selected.
 :::image type="content" source="./media/how-to-create-data-assets/create-data-asset-folder-type.png" alt-text="In this screenshot, choose Folder (uri folder) in the Type dropdown.":::
 
-1. You have a few options for your data source. If you already have the path to the folder you want to upload, choose **From a URI**. For a folder already stored in Azure, choose **From Azure storage**. To upload a folder from your local drive, choose **From local files**.
+1. You have multiple options for your data source. If you already have the path to the folder you want to upload, choose **From a URI**. For a folder already stored in Azure, choose **From Azure storage**. To upload a folder from your local drive, choose **From local files**.
 :::image type="content" source="./media/how-to-create-data-assets/create-data-asset.png" alt-text="This screenshot shows the data asset source choices.":::
 
 1. Follow the steps, and once you reach the Review step, select **Create** on the last page.
@@ -249,7 +257,7 @@ Use these steps to create a Folder typed data asset in the Azure Machine Learnin
 
 ### Create a data asset: Table type
 
-Azure Machine Learning Tables (`MLTable`) have rich functionality, covered in more detail at [Working with tables in Azure Machine Learning](how-to-mltable.md). Rather than repeat that documentation here, we provide an example of creating a Table-typed data asset, using Titanic data located on a publicly available Azure Blob Storage account.
+Azure Machine Learning Tables (`MLTable`) have rich functionality, described in more detail at [Working with tables in Azure Machine Learning](how-to-mltable.md). Instead of repeating that documentation here, read this example that describes how to create a Table-typed data asset, with Titanic data located on a publicly available Azure Blob Storage account.
 
 # [Azure CLI](#tab/cli)
 
@@ -298,7 +306,7 @@ transformations:
 type: mltable
 ```
 
-Next, execute the following command in the CLI. Make sure you update the `<>` placeholders with the data asset name and version values.
+Execute the following command in the CLI. Be sure to update the `<>` placeholders with the data asset name and version values.
 
 ```cli
 az ml data create --path ./data --name <DATA ASSET NAME> --version <VERSION> --type mltable
@@ -309,7 +317,7 @@ az ml data create --path ./data --name <DATA ASSET NAME> --version <VERSION> --t
 
 # [Python SDK](#tab/python)
 
-Use the following code to create a data asset that is a Table (`mltable`) type, and update the `<>` placeholders with your information.
+Use this code snippet to create a Table (`mltable`) data asset type. Be sure to update the `<>` placeholders with your information.
 
 ```python
 import mltable
@@ -378,13 +386,13 @@ ml_client.data.create_or_update(my_data)
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, the Studio UI has limited functionality for the creation of Table (`MLTable`) typed assets. We recommend that you use the Python SDK to author and create Table (`MLTable`) typed data assets.
+> At this time, the Studio UI has limited functionality for the creation of Table (`MLTable`) typed assets. We recommend that you use the Python SDK to author and create Table (`MLTable`) typed data assets.
 
 ---
 
 ### Creating data assets from job outputs
 
-You can create a data asset from an Azure Machine Learning job by setting the `name` parameter in the output. In this example, you submit a job that copies data from a public blob store to your default Azure Machine Learning Datastore and creates a data asset called `job_output_titanic_asset`.
+You can create a data asset from an Azure Machine Learning job. To do this, set the `name` parameter in the output. In this example, you submit a job that copies data from a public blob store to your default Azure Machine Learning Datastore and creates a data asset called `job_output_titanic_asset`.
 
 # [Azure CLI](#tab/cli)
 
@@ -531,7 +539,7 @@ Not available.
 > [!IMPORTANT]
 > ***By design*, data asset deletion is not supported.**
 >
-> If Azure machine learning allowed data asset deletion, it would have the following adverse effects:
+> If Azure machine learning allowed data asset deletion, it would have the following adverse and negative effects:
 >
 > - **Production jobs** that consume data assets that were later deleted would fail.
 > - It would become more difficult to **reproduce** an ML experiment.
@@ -540,22 +548,25 @@ Not available.
 >
 > Therefore, the *immutability* of data assets provides a level of protection when working in a team creating production workloads.
 
-When a data asset has been erroneously created - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
+For a mistakenly created data asset - for example, with an incorrect name, type or path - Azure Machine Learning offers solutions to handle the situation without the negative consequences of deletion:
 
 |*I want to delete this data asset because...* | Solution  |
 |---------|---------|
 |The **name** is incorrect     |  [Archive the data asset](#archive-a-data-asset)       |
 |The team **no longer uses** the data asset | [Archive the data asset](#archive-a-data-asset) |
 |It **clutters the data asset listing** | [Archive the data asset](#archive-a-data-asset) |
-|The **path** is incorrect     |  Create a *new version* of the data asset (same name) with the correct path. For more information, read [Create data assets](#create-data-assets).       |
-|It has an incorrect **type**  |  Currently, Azure Machine Learning doesn't allow the creation of a new version with a *different* type compared to the initial version.<br>(1) [Archive the data asset](#archive-a-data-asset)<br>(2) [Create a new data asset](#create-data-assets) under a different name with the correct type.    |
+|The **path** is incorrect     |  Create a *new version* of the data asset (same name) with the correct path. For more information, visit [Create data assets](#create-data-assets).       |
+|It has an incorrect **type**  |  At this time, Azure Machine Learning doesn't allow the creation of a new version with a *different* type compared to the initial version.<br>(1) [Archive the data asset](#archive-a-data-asset)<br>(2) [Create a new data asset](#create-data-assets) under a different name with the correct type.    |
 
 ### Archive a data asset
 
 Archiving a data asset hides it by default from both list queries (for example, in the CLI `az ml data list`) and the data asset listing in the Studio UI. You can still continue to reference and use an archived data asset in your workflows. You can archive either:
 
-- *all versions* of the data asset under a given name, or
-- a specific data asset version
+- *All versions* of the data asset under a given name
+
+or
+
+- A specific data asset version
 
 #### Archive all versions of a data asset
 
@@ -563,7 +574,7 @@ To archive *all versions* of the data asset under a given name, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholder with the name of your data asset):
+Execute the following command. Be sure to update the `<>` placeholders with your information.
 
 ```azurecli
 az ml data archive --name <NAME OF DATA ASSET>
@@ -604,7 +615,7 @@ To archive a specific data asset version, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholders with the name of your data asset and version):
+Execute the following command. Be sure to update the `<>` placeholders with the name of your data asset and version.
 
 ```azurecli
 az ml data archive --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
@@ -632,7 +643,7 @@ ml_client.data.archive(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, archiving a specific data asset version is not supported in the Studio UI.
+> At this time, archiving a specific data asset version is not supported in the Studio UI.
 
 ---
 
@@ -645,7 +656,7 @@ To restore *all versions* of the data asset under a given name, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholder with the name of your data asset):
+Execute the following command. Be sure to update the `<>` placeholders with the name of your data asset.
 
 ```azurecli
 az ml data restore --name <NAME OF DATA ASSET>
@@ -690,7 +701,7 @@ To restore a specific data asset version, use:
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command (update the `<>` placeholders with the name of your data asset and version):
+Execute the following command. Be sure to update the `<>` placeholders with the name of your data asset and version.
 
 ```azurecli
 az ml data restore --name <NAME OF DATA ASSET> --version <VERSION TO ARCHIVE>
@@ -718,40 +729,52 @@ ml_client.data.restore(name="<DATA ASSET NAME>", version="<VERSION TO ARCHIVE>")
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, restoring a specific data asset version is not supported in the Studio UI.
+> At this time, restoring a specific data asset version is not supported in the Studio UI.
 
 ---
 
 ### Data lineage
 
-Data lineage is broadly understood as the lifecycle that spans the data’s origin, and where it moves over time across storage. Different kinds of backwards-looking scenarios use it, for example troubleshooting, tracing root causes in ML pipelines, and debugging. Data quality analysis, compliance and “what if” scenarios also use lineage. Lineage is represented visually to show data moving from source to destination, and additionally covers data transformations. Given the complexity of most enterprise data environments, these views can become hard to understand without consolidation or masking of peripheral data points.
+Data lineage is broadly understood as the lifecycle that spans the origin of the data, and where it moves over time across storage. Different kinds of backwards-looking scenarios use it, for example
 
-In an Azure Machine Learning Pipeline, your data assets show origin of the data and how the data was processed, for example:
+- Troubleshooting
+- Tracing root causes in ML pipelines
+- Debugging
+
+Data quality analysis, compliance and “what if” scenarios also use lineage. Lineage is represented visually to show data moving from source to destination, and additionally covers data transformations. Given the complexity of most enterprise data environments, these views can become hard to understand without consolidation or masking of peripheral data points.
+
+In an Azure Machine Learning Pipeline, data assets show the origin of the data and how the data was processed, for example:
 
 :::image type="content" source="media/how-to-create-data-assets/data-asset-job-inputs.png" alt-text="Screenshot showing data lineage in the job details.":::
 
-You can view the jobs that consume the data asset in the Studio UI. First, select **Data** from the left-hand menu, and then select the data asset name. You can see the jobs consuming the data asset:
+You can view the jobs that consume the data asset in the Studio UI. First, select **Data** from the left-hand menu, and then select the data asset name. Note the jobs consuming the data asset:
 
 :::image type="content" source="media/how-to-create-data-assets/data-asset-job-listing.png" alt-text="Screenshot that shows the jobs that consume a data asset.":::
 
-The jobs view in Data assets makes it easier to find job failures and do route cause analysis in your ML pipelines and debugging.
+The jobs view in Data assets makes it easier to find job failures and do root-cause analysis in your ML pipelines and debugging.
 
 ### Data asset tagging
 
-Data assets support tagging, which is extra metadata applied to the data asset in the form of a key-value pair. Data tagging provides many benefits:
+Data assets support tagging, which is extra metadata applied to the data asset as a key-value pair. Data tagging provides many benefits:
 
-- Data quality description. For example, if your organization uses a *medallion lakehouse architecture* you can tag assets with `medallion:bronze` (raw), `medallion:silver` (validated) and `medallion:gold` (enriched).
-- Provides efficient searching and filtering of data, to help data discovery.
-- Helps identify sensitive personal data, to properly manage and govern data access. For example, `sensitivity:PII`/`sensitivity:nonPII`.
-- Identify whether data is approved from a responsible AI (RAI) audit. For example, `RAI_audit:approved`/`RAI_audit:todo`.
+- Data quality description. For example, if your organization uses a *medallion lakehouse architecture*, you can tag assets with `medallion:bronze` (raw), `medallion:silver` (validated) and `medallion:gold` (enriched).
+- Efficient searching and filtering of data, to help data discovery.
+- Identification of sensitive personal data, to properly manage and govern data access. For example, `sensitivity:PII`/`sensitivity:nonPII`.
+- Determination of whether or not data is approved by a responsible AI (RAI) audit. For example, `RAI_audit:approved`/`RAI_audit:todo`.
 
-You can add tags to data assets as part of their creation flow, or you can add tags to existing data assets. This section shows both.
+You can add tags to data assets as part of their creation flow, or you can add tags to existing data assets. This section shows both:
 
 #### Add tags as part of the data asset creation flow
 
 # [Azure CLI](#tab/cli)
 
-Create a YAML file, and copy-and-paste the following code. You must update the `<>` placeholders with the name of your data asset, the version, description, tags (key-value pairs) and the path to a single file on a supported location.
+Create a YAML file, and copy-and-paste the following code into that YAML file. Be sure to update the `<>` placeholders with the
+
+- name of your data asset
+- the version
+- description
+- tags (key-value pairs)
+- path to a single file on a supported location
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
@@ -775,7 +798,7 @@ tags:
 path: <SUPPORTED PATH>
 ```
 
-Next, execute the following command in the CLI (update the `<filename>` placeholder to the YAML filename):
+Execute the following command in the CLI. Be sure to update the `<filename>` placeholder to the YAML filename.
 
 ```cli
 az ml data create -f <filename>.yml
@@ -783,7 +806,7 @@ az ml data create -f <filename>.yml
 
 # [Python SDK](#tab/python)
 
-To create a File type data asset, use the following code and update the `<>` placeholders with your information.
+Use the following code to create a File type data asset, and update the `<>` placeholders with your information:
 
 ```python
 from azure.ai.ml import MLClient
@@ -836,7 +859,7 @@ ml_client.data.create_or_update(my_data)
 # [Studio](#tab/azure-studio)
 
 > [!IMPORTANT]
-> Currently, the Studio UI does not support adding tags as part of the data asset creation flow. You may add tags in the Studio UI after the data asset creation.
+> At this time, the Studio UI does not support adding tags as part of the data asset creation flow. You can add tags in the Studio UI after creation of the data asset.
 
 ---
 
@@ -844,7 +867,11 @@ ml_client.data.create_or_update(my_data)
 
 # [Azure CLI](#tab/cli)
 
-Execute the following command in the Azure CLI, and update the `<>` placeholders with your data asset name, version and key-value pair for the tag.
+Execute the following command in the Azure CLI. Be sure to update the `<>` placeholders with the
+
+- Name of your data asset
+- The version
+- Key-value pair for the tag
 
 ```azurecli
 az ml data update --name <DATA ASSET NAME> --version <VERSION> --set tags.<KEY>=<VALUE>
@@ -913,7 +940,7 @@ Typically, your ETL processes organize your folder structure on Azure storage by
     │   │   └── 📄 file2
 ```
 
-The combination of time/version structured folders *and* Azure Machine Learning Tables (`MLTable`) allow you to construct versioned datasets. To show how to achieve versioned data with Azure Machine Learning Tables, we use a *hypothetical example*. Suppose you have a process that uploads camera images to Azure Blob storage every week, in the following structure:
+The combination of time/version structured folders *and* Azure Machine Learning Tables (`MLTable`) allows you to construct versioned datasets. A *hypothetical example* shows how to achieve versioned data with Azure Machine Learning Tables. Suppose you have a process that uploads camera images to Azure Blob storage every week, in this structure:
 
 ```text
 /myimages
@@ -936,9 +963,9 @@ The combination of time/version structured folders *and* Azure Machine Learning 
 ```
 
 > [!NOTE]
-> While we demonstrate how to version image (`jpeg`) data, the same methodology can be applied to any file type (for example, Parquet, CSV).
+> While we show how to version image (`jpeg`) data, the same approach works for any file type (for example, Parquet, CSV).
 
-With Azure Machine Learning Tables (`mltable`), you construct a Table of paths that include the data up to the end of the first week in 2023, and then create a data asset:
+With Azure Machine Learning Tables (`mltable`), construct a Table of paths that include the data up to the end of the first week in 2023. Then create a data asset:
 
 ```python
 import mltable
@@ -983,7 +1010,7 @@ my_data = Data(
 ml_client.data.create_or_update(my_data)
 ```
 
-At the end of the following week, your ETL has updated the data to include more data:
+At the end of the following week, your ETL updated the data to include more data:
 
 ```text
 /myimages
@@ -1012,7 +1039,7 @@ At the end of the following week, your ETL has updated the data to include more 
     │   │   └── 🖼️ file2.jpeg
 ```
 
-Your first version (`20230108`) continues to only mount/download files from `year=2022/week=52` and `year=2023/week=1` because the paths are declared in the `MLTable` file. This ensures *reproducibility* for your experiments. To create a new version of the data asset that includes `year=2023/week2`, you would use:
+The first version (`20230108`) continues to only mount/download files from `year=2022/week=52` and `year=2023/week=1` because the paths are declared in the `MLTable` file. This ensures *reproducibility* for your experiments. To create a new version of the data asset that includes `year=2023/week2`, use:
 
 ```python
 import mltable

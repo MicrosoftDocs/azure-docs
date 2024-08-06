@@ -3,11 +3,11 @@ title: Create workspaces with Azure PowerShell
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Azure PowerShell module to create and manage a new Azure Machine Learning workspace.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-ms.author: deeikele
-author: deeikele
-ms.reviewer: larryfr
+ms.author: larryfr
+author: Blackmist
+ms.reviewer: deeikele
 ms.date: 09/13/2023
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell

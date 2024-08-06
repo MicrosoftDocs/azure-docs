@@ -2,8 +2,8 @@
 author: AlicjaKucharczyk
 ms.author: alkuchar
 ms.reviewer: maghan
-ms.date: 05/15/2024
-ms.service: postgresql
+ms.date: 06/18/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
 ---
@@ -17,7 +17,7 @@ ms.topic: include
 | Default value  | `-1`          |
 | Allowed values | `-1`           |
 | Parameter type | read-only      |
-| Documentation  |               |
+| Documentation  | [temp_file_limit](https://www.postgresql.org/docs/14/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT) |
 
 
 [!INCLUDE [server-parameters-azure-notes-void](./server-parameters-azure-notes-void.md)]

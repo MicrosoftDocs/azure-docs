@@ -94,6 +94,7 @@ When the cache is stale, HTTP cache validators are used to compare the cached ve
 **Last-Modified:**
 - For **Azure CDN Standard/Premium from Edgio** only, `Last-Modified` is used if `ETag` isn't part of the HTTP response.
 - Specifies the date and time that the origin server has determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
+- For content larger than 8 MB, origin backend servers should maintain consistent `Last-Modified` timestamps per asset. Returning inconsistent `Last-Modified` times from backend servers will cause validator mismatch errors and result in HTTP 5XX failures. Azure Storage may not support consistent `Last-Modified` timestamps across replicas, which can cause similar validator mismatch errors.
 - A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource hasn't been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Determining which files can be cached
@@ -107,6 +108,9 @@ Not all resources can be cached. The following table shows what resources can be
 | **File size limits** | 300 GB | 300 GB |
 
 For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it received a GET request.
+
+> [!NOTE]
+> Requests that include authorization header will not be cached.
 
 ## Default caching behavior
 

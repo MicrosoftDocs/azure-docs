@@ -1,7 +1,7 @@
 ---
-title: Details of the policy definition structure basics
-description: Describes how policy definition basics are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+title: Details of Azure Policy definition structure basics
+description: Describes how Azure Policy definition basics are used to establish conventions for Azure resources in your organization.
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
@@ -16,6 +16,7 @@ You use JSON to create a policy definition that contains elements for:
 - `displayName`
 - `description`
 - `mode`
+- `version`
 - `metadata`
 - `parameters`
 - `policyRule`
@@ -80,11 +81,7 @@ While the `policyType` property can't be set, there are three values returned by
 
 - `Builtin`: Microsoft provides and maintains these policy definitions.
 - `Custom`: All policy definitions created by customers have this value.
-- `Static`: Indicates a [Regulatory Compliance](./regulatory-compliance.md) policy definition with
-  Microsoft **Ownership**. The compliance results for these policy definitions are the results of
-  non-Microsoft audits of Microsoft infrastructure. In the Azure portal, this value is sometimes
-  displayed as **Microsoft managed**. For more information, see
-  [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
+- `Static`: Indicates a [Regulatory Compliance](./regulatory-compliance.md) policy definition with Microsoft **Ownership**. The compliance results for these policy definitions are the results of non-Microsoft audits of Microsoft infrastructure. In the Azure portal, this value is sometimes displayed as **Microsoft managed**. For more information, see [Shared responsibility in the cloud](../../../security/fundamentals/shared-responsibility.md).
 
 ## Mode
 
@@ -97,7 +94,7 @@ The `mode` determines which resource types are evaluated for a policy definition
 - `all`: evaluate resource groups, subscriptions, and all resource types
 - `indexed`: only evaluate resource types that support tags and location
 
-For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated in `Indexed` mode.
+For example, resource `Microsoft.Network/routeTables` supports tags and location and is evaluated in both modes. However, resource `Microsoft.Network/routeTables/routes` can't be tagged and isn't evaluated in `indexed` mode.
 
 We recommend that you set `mode` to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the `mode` parameter manually. If the policy definition doesn't include a `mode` value, it defaults to `all` in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support backward compatibility.
 
@@ -107,7 +104,7 @@ We recommend that you set `mode` to `all` in most cases. All policy definitions 
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/intro-kubernetes.md). Definitions using this Resource Provider mode use the effects _audit_, _deny_, and _disabled_.
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](/azure/aks/what-is-aks). Definitions using this Resource Provider mode use the effects _audit_, _deny_, and _disabled_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy  definitions, see [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
@@ -118,7 +115,25 @@ The following Resource Provider modes are currently supported as a [preview](htt
 - `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. This Resource Provider mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned don't report compliance.
 
 > [!NOTE]
->Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
+> Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
+
+When Azure Policy versioning is released, the following Resource Provider modes won't support built-in versioning:
+
+- `Microsoft.DataFactory.Data`
+- `Microsoft.MachineLearningServices.v2.Data`
+- `Microsoft.ManagedHSM.Data`
+
+## Version (preview)
+
+Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview)
+
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean**.
+
+- Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
+- Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to `roleDefinitionIds`, adding or moving definitions within an initiative.
+- Patch Version (example: 2.1.4): introduce string or metadata changes and break glass security scenarios (rare).
+
+For more information about Azure Policy versions built-ins, see [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md). To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Metadata
 
@@ -131,15 +146,6 @@ The optional `metadata` property stores information about the policy definition.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition is marked as  _deprecated_.
 - `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input.
-
-> [!NOTE]
-> The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
-> change to a built-in policy definition or initiative and state. The format of `version` is:
-> `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the
-> `version` property or in another property as a **boolean**. For more information about the way
-> Azure Policy versions built-ins, see
-> [Built-in versioning](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
-> To learn more about what it means for a policy to be _deprecated_ or in _preview_, see [Preview and deprecated policies](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md#preview-and-deprecated-policies).
 
 ## Definition location
 
@@ -157,7 +163,7 @@ For more information, see [Understand scope in Azure Policy](./scope.md#definiti
 - For more information about policy definition structure, go to [parameters](./definition-structure-parameters.md), [policy rule](./definition-structure-policy-rule.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](effects.md).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

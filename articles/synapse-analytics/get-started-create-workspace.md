@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Get started - create a Synapse workspace' 
 description: In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQL pool, and a serverless Apache Spark pool.
-author: saveenr
-ms.author: saveenr
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/18/2022
@@ -16,7 +16,7 @@ In this tutorial, you'll learn how to create a Synapse workspace, a dedicated SQ
 
 ## Prerequisites
 
-To complete this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
+To complete this tutorial's steps, you need to have access to a resource group for which you're assigned the **Owner** role. Create the Synapse workspace in this resource group.
 
 ## Create a Synapse workspace in the Azure portal
 
@@ -36,7 +36,7 @@ Fill in the following fields:
 Fill in the following fields:
 
 1. **Workspace name** - Pick any globally unique name. In this tutorial, we'll use **myworkspace**.
-1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure VM, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
+1. **Region** - Pick the region where you have placed your client applications/services (for example, Azure Virtual Machine, Power BI, Azure Analysis Service) and storages that contain data (for example Azure Data Lake storage, Azure Cosmos DB analytical storage).
 
 > [!NOTE]
 > A workspace that is not co-located with the client applications or storage can be the root cause of many performance issues. If your data or the clients are placed in multiple regions, you can create separate workspaces in different regions co-located with your data and clients.
@@ -66,17 +66,17 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 > To sign into your workspace, there are two **Account selection methods**. One is from **Azure subscription**, the other is from **Enter manually**. If you have the Synapse Azure role or higher level Azure roles, you can use both methods to log into the workspace. If you don't have the related Azure roles, and you were granted as the Synapse RBAC role, **Enter manually** is the only way to log into the workspace. To learn more about the Synapse RBAC, refer to [What is Synapse role-based access control (RBAC)](./security/synapse-workspace-synapse-rbac.md).
 
 ## Place sample data into the primary storage account
-We are going to use a small 100K row sample dataset of NYC Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
+We're going to use a small 100 K row sample dataset of NYC Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
-* Download the [NYC Taxi - green trip dataset](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets#additional-information) to your computer. Navigate to the [original dataset location](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) from the above link, choose a specific year and download the Green taxi trip records in Parquet format.
+* Download the [NYC Taxi - green trip dataset](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets#additional-information) to your computer. Navigate to the [original dataset location](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) from the link, choose a specific year and download the Green taxi trip records in Parquet format.
 * Rename the downloaded file to *NYCTripSmall.parquet*.
 * In Synapse Studio, navigate to the **Data** Hub.
 * Select **Linked**.
-* Under the category **Azure Data Lake Storage Gen2** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
+* Under the category Azure Data Lake Storage Gen2,** you'll see an item with a name like **myworkspace ( Primary - contosolake )**.
 * Select the container named **users (Primary)**.
 * Select **Upload** and select the `NYCTripSmall.parquet` file you downloaded.
 
-Once the parquet file is uploaded it is available through two equivalent URIs:
+Once the parquet file is uploaded, it's available through two equivalent URIs:
 * `https://contosolake.dfs.core.windows.net/users/NYCTripSmall.parquet` 
 * `abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet`
 

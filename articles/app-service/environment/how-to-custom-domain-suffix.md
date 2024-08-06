@@ -61,13 +61,17 @@ If you choose to use Azure role-based access control to manage access to your ke
 
 ### Certificate
 
-The certificate for custom domain suffix must be stored in an Azure Key Vault. The certificate must be uploaded in .PFX format and be smaller than 20 kb. Certificates in .PEM format aren't supported at this time. App Service Environment uses the managed identity you selected to get the certificate. The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md). In the case of public access, you can secure your key vault to only accept traffic from the outbound IP addresses of the App Service Environment.
-
-:::image type="content" source="./media/custom-domain-suffix/key-vault-networking.png" alt-text="Screenshot of a sample networking page for key vault to allow custom domain suffix feature.":::
+The certificate for custom domain suffix must be stored in an Azure Key Vault. The certificate must be uploaded in .PFX format and be smaller than 20 kb. Certificates in .PEM format aren't supported at this time. App Service Environment uses the managed identity you selected to get the certificate. 
 
 Your certificate must be a wildcard certificate for the selected custom domain name. For example, *internal.contoso.com* would need a certificate covering **.internal.contoso.com*. If the certificate used by the custom domain suffix contains a Subject Alternate Name (SAN) entry for scm, for example **.scm.internal.contoso.com*, the scm site is also available using the custom domain suffix.
 
 If you rotate your certificate in Azure Key Vault, the App Service Environment picks up the change within 24 hours.
+
+### Network access to Key Vault
+
+The key vault can be accessed publicly or through a [private endpoint](../../private-link/private-endpoint-overview.md) accessible from the subnet that the App Service Environment is deployed to. To learn how to configure a private endpoint, see [Integrate Key Vault with Azure Private Link](../../key-vault/general/private-link-service.md). If you use public access, you can secure your key vault to only accept traffic from the outbound IP address of the App Service Environment. The App Service Environment uses the platform outbound IP address as the source address when accessing the key vault. You can find the IP address in the IP Addresses page in Azure portal.
+
+:::image type="content" source="./media/custom-domain-suffix/platform-outbound-ip.png" alt-text="Screenshot of IP Addresses page in Azure portal.":::
 
 ::: zone pivot="experience-azp"
 

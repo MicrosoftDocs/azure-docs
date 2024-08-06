@@ -2,7 +2,7 @@
 title: "Artifact cache in Azure Container Registry"
 description: "Artifact cache is a feature that allows you to cache container images in Azure Container Registry, improving performance and efficiency."
 author: tejaswikolli-web
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: conceptual #Don't change
 ms.custom: devx-track-azurecli
 zone_pivot_groups: container-registry-zones
@@ -21,7 +21,7 @@ Artifact cache offers faster and more *reliable pull operations* through Azure C
 
 Artifact cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
-Artifact cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
+Artifact cache addresses the challenge of pull limits imposed by public registries. We recommend users authenticate their cache rules with their upstream source credentials. Then pull images from the local ACR, to help mitigate rate limits.
 
 ## Terminology 
 
@@ -57,13 +57,15 @@ Artifact cache addresses the challenge of anonymous pull limits imposed by publi
 
 Artifact cache currently supports the following upstream registries:
 
+>[!WARNING]
+> Customers must generate [credential set](container-registry-artifact-cache.md#create-new-credentials) to source content from Docker hub.
+
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
-| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
+| Docker Hub                                   | Supports authenticated pulls only.                       | Azure CLI, Azure portal  |
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
-| Nvidia                                       | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Quay                                         | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
 | registry.k8s.io                              | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |

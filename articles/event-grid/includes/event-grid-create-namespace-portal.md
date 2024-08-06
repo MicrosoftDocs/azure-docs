@@ -1,9 +1,8 @@
 ---
  title: Create Azure Event Grid namespace in the portal
  description: This article shows you how to create an Azure Event Grid namespace in the Azure portal. 
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 02/29/2024
  ms.author: spelluru

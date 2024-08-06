@@ -8,6 +8,7 @@ ms.date: 02/06/2024
 
 # Auto Scale HDInsight on AKS Clusters
 
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 The sizing of any cluster to meet job performance and manage costs ahead of time is always tricky, and hard to determine! One of the lucrative benefits of building data lake house over Cloud is its elasticity, which means to use autoscale feature to maximize the utilization of resources at hand. Auto scale with Kubernetes is one key to establishing a cost optimized ecosystem. With varied usage patterns in any enterprise, there could be variations in cluster loads over time that could lead to clusters being under-provisioned (lousy performance) or overprovisioned (unnecessary costs due to idle resources).  
 

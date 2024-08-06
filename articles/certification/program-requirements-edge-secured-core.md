@@ -6,7 +6,7 @@ ms.author: sufon
 ms.topic: conceptual 
 ms.date: 02/20/2024
 ms.custom: Edge Secured-core Certification Requirements, linux-related-content
-ms.service: certification
+ms.service: azure-certified-device
 zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ---
 
@@ -18,7 +18,7 @@ zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 Edge Secured-core requires a version of Windows IoT that has at least five years of support from Microsoft remaining in its support lifecycle, at time of certification such as:
 * [Windows 10 IoT Enterprise LTSC 2021 Lifecycle](/lifecycle/products/windows-10-iot-enterprise-ltsc-2021)
 * [Windows 11 IoT Enterprise Lifecycle](/lifecycle/products/windows-11-iot-enterprise)
-* [Windows 11 IoT Enterprise LTSC 2024](/windows/iot-enterprise/whats-new/windows-11-iot-enterprise-ltsc-2024)
+* [Windows 11 IoT Enterprise LTSC 2024](/windows/iot/iot-enterprise/whats-new/windows-11-iot-enterprise-ltsc-2024)
 
 ## Windows IoT Hardware/Firmware Requirements
 > [!Note]

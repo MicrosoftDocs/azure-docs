@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door monitors the health of your origins.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/15/2023
 ms.author: duau

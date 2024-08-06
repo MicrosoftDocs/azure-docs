@@ -606,12 +606,16 @@
           href: how-to-deploy-models-cohere-command.md
         - name: How to deploy Cohere Embed models
           href: how-to-deploy-models-cohere-embed.md
+        - name: How to deploy Cohere Rerank models
+          href: how-to-deploy-models-cohere-rerank.md
     - name: Deploy Meta Llama models
       items:
         - name: How to deploy Meta Llama family models
           href: how-to-deploy-models-llama.md
     - name: How to deploy JAIS models
       href: deploy-jais-models.md
+    - name: How to deploy Jamba Instruct model
+      href: how-to-deploy-models-jamba.md
     - name: Regulate deployments using policy
       href: how-to-regulate-registry-deployments.md
     - name: Use Model Catalog collections with virtual network
@@ -1034,8 +1038,6 @@
           href: ./v1/how-to-deploy-inferencing-gpus.md
         - name: Azure AI Search
           href: ./v1/how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: ./v1/how-to-deploy-fpga-web-service.md
     - name: Hyperparameter tuning a model (v1)
       displayName: azurecli, AzureML
       href: ./v1/how-to-tune-hyperparameters.md
@@ -1401,7 +1403,7 @@
     - name: Manage and optimize cost
       displayName: cost-management,cost-optimization
       href: how-to-manage-optimize-cost.md
-    - name: Monitor
+    - name: Monitor Machine Learning
       href: monitor-azure-machine-learning.md
     - name: Secure code
       displayName: security threat

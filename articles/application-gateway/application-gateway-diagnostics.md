@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: article
-ms.date: 05/17/2024
+ms.date: 06/17/2024
 ms.author: greglin 
 ---
 
@@ -48,7 +48,7 @@ You have the following options to store the logs in your preferred location.
   * [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
 
 > [!NOTE]
-> The resource specific option is currently available in all **public regions**.<br>
+> The resource specific option is currently available in all **clouds**.<br>
 > Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination. Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time. 
 
  **Selecting the destination table in Log analytics :** All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
@@ -158,6 +158,9 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
+|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status will include error information.|
+|sslClientCertificateFingerprint|The SHA1 thumbprint of the client certificate for an established TLS connection.|
+|sslClientCertificateIssuerName|The issuer DN string of the client certificate for an established TLS connection.|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|

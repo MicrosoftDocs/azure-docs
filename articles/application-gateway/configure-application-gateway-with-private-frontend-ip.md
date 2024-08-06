@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: This article provides information on how to configure Application Gateway Standard v2 with a private frontend IP address
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/07/2024
 ms.author: greglin
@@ -22,7 +22,7 @@ Configuring the gateway using a frontend private IP address is useful for intern
 
 This article guides you through the steps to configure a Standard v2 Application Gateway with an ILB using the Azure portal.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Sign in to Azure
 
