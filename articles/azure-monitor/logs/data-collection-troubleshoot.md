@@ -33,7 +33,7 @@ If your Log Analytics workspace is in the [legacy Free pricing tier](cost-logs.m
 ## Workspace reached ingestion volume rate limit
 The [default ingestion volume rate limit](../service-limits.md#log-analytics-workspaces) for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value because the actual size can vary between data types, depending on the log length and its compression ratio. This limit doesn't apply to data that's sent from agents or the [Logs ingestion API](logs-ingestion-api-overview.md). 
 
-If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the **Operation** table in your workspace every six hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or by opening a support request. 
+If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the **Operation** table in your workspace every six hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you're expecting to reach it sometime soon, you can request an increase to your workspace by sending an email to LAIngestionRate@microsoft.com or by opening a support request. 
 
 #### Check whether your workspace reached its data ingestion rate limit
 
@@ -53,7 +53,7 @@ Operation
 
 Azure Monitor Agent instances installed on all virtual machines that send data to your Log Analytics workspace send a heartbeat to the [Heartbeat table](/azure/azure-monitor/reference/tables/heartbeat) every minute.
 
-Run this query to list VMs that have not reported a heartbeat in the last five minutes:
+Run this query to list VMs that haven't reported a heartbeat in the last five minutes:
 
 ```kusto
 Heartbeat 
