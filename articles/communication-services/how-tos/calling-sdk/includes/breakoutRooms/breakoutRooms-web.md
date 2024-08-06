@@ -228,7 +228,6 @@ const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;
 - `roomEndTime`: Breakout room end time set by the Microsoft 365 user with role organizer, co-organizer, or breakout room manager of the main meeting. This is a read-only property.
 
 ### Troubleshooting
-## Error Codes and Description
 
 |Error code| Subcode | Result Category | Reason | Resolution |
 |----------------------------------------------|--------|--------|---------|----------|
