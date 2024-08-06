@@ -62,7 +62,7 @@ Heartbeat
 | where LastCall < ago(5m)
 ```
 
-## Azure subscription is in suspended state 
+## Azure subscription is suspended 
 Your Azure subscription could be in a suspended state for one of the following reasons:
 
 - Free trial ended
