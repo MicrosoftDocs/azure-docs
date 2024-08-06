@@ -45,17 +45,12 @@ MediaStreamingOptions mediaStreamingOptions = new MediaStreamingOptions(
 ## Start Audio Streaming
 How to start audio streaming:
 ``` C#
-            StartMediaStreamingOptions options = new StartMediaStreamingOptions() 
-            { 
-                OperationCallbackUri = new Uri(callbackUriHost), 
-                OperationContext = "startMediaStreamingContext" 
-            };
-
-Method1: 
-            await callMedia.StartMediaStreamingAsync(options); 
-
-Method2: 
-            await callMedia.StartMediaStreamingAsync(); 
+StartMediaStreamingOptions options = new StartMediaStreamingOptions() 
+    { 
+        OperationCallbackUri = new Uri(callbackUriHost), 
+        OperationContext = "startMediaStreamingContext" 
+    };
+    await callMedia.StartMediaStreamingAsync(options); 
 ```
 When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets. 
 
@@ -77,16 +72,11 @@ The metadata packet will look like this:
 ## Stop Audio Streaming
 How to stop audio streaming
 ``` C#
-            StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions() 
-            { 
-                OperationCallbackUri = new Uri(callbackUriHost) 
-            }; 
-
-Method1: 
-            await callMedia.StopMediaStreamingAsync(stopOptions); 
-
-Method2: 
-            await callMedia.StopMediaStreamingAsync(); 
+StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions() 
+    { 
+        OperationCallbackUri = new Uri(callbackUriHost) 
+    }; 
+    await callMedia.StopMediaStreamingAsync(stopOptions); 
 ```
 
 ## Handling audio streams in your websocket server
