@@ -3,13 +3,13 @@ title: Prebuilt Docker image Python extensibility
 titleSuffix: Azure Machine Learning
 description: 'Extend prebuilt docker images with Python package extensibility solution.'
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-ms.author: sehan
-author: dem108
+ms.author: larryfr
+author: Blackmist
 ms.date: 08/15/2022
 ms.topic: how-to
-ms.reviewer: larryfr
+ms.reviewer: sehan
 ms.custom: UpdateFrequency5, deploy, docker, prebuilt, sdkv1, devx-track-python
 ---
 

@@ -1,10 +1,10 @@
 ---
 title: 'Storage: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 01/04/2024
+ms.date: 07/24/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight
@@ -70,15 +70,6 @@ For more information, see the following articles:
 - [Microsoft Azure Storage Performance and Scalability Checklist](../../storage/blobs/storage-performance-checklist.md)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitor a storage account in the Azure portal](../../storage/common/manage-storage-analytics-logs.md)
-
-### Azure Data Lake Storage Gen1
-
-Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Microsoft Entra ID for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
-
-For more information, see the following articles:
-
-- [Create HDInsight clusters with Data Lake Storage Gen1 using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
 
 ### Azure Data Lake Storage Gen2
 

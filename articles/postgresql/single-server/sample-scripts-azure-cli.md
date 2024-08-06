@@ -1,7 +1,7 @@
 ---
 title: Azure CLI samples - Azure Database for PostgreSQL - Single Server | Microsoft Docs
 description: This article lists several Azure CLI code samples available for interacting with Azure Database for PostgreSQL - Single Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: sample
 ms.author: sunila

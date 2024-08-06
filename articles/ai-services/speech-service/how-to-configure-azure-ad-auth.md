@@ -29,7 +29,7 @@ This article shows how to use Microsoft Entra authentication with the Speech SDK
 To learn more about Microsoft Entra access tokens, including token lifetime, visit [Access tokens in the Microsoft identity platform](/azure/active-directory/develop/access-tokens).
 
 ## Create a Speech resource
-To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/ai-services/multi-service-resource.md?pivots=azportal#get-the-keys-for-your-resource)
+To create a Speech resource in the [Azure portal](https://portal.azure.com), see [this quickstart](~/articles/ai-services/multi-service-resource.md?pivots=azportal).
 
 <a name='configure-the-speech-resource-for-azure-ad-authentication'></a>
 
@@ -43,7 +43,7 @@ To configure your Speech resource for Microsoft Entra authentication, create a c
 ### Assign roles
 For Microsoft Entra authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.
 
-You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.yml) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 <a name='get-an-azure-ad-access-token'></a>
 
@@ -103,7 +103,7 @@ The token context must be set to "https://cognitiveservices.azure.com/.default".
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-To get a Microsoft Entra access token in Java, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
+To get a Microsoft Entra access token in Python, use the [Azure Identity Client Library](/python/api/overview/azure/identity-readme).
 
 Here's an example of using Azure Identity to get a Microsoft Entra access token from an interactive browser:
 ```Python
@@ -170,7 +170,8 @@ $resource = Get-AzCognitiveServicesAccount -Name $speechResourceName -ResourceGr
 # Get the resource ID:
 $resourceId = resource.Id
 ```
-***
+
+---
 
 ## Create the Speech SDK configuration object
 

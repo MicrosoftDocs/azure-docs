@@ -23,10 +23,12 @@ In this tutorial, learn to enable passwordless authentication in Azure Active Di
 To get started, you'll need:
 
 - A Nevis demo account
-  - Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
-* An Azure subscription
+  - Go to `nevis.net` for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/) to request an account
+
+- An Azure subscription
 
   - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 
 >[!NOTE]
@@ -56,17 +58,17 @@ The diagram shows the implementation.
 
 ### Request a Nevis account 
 
-1. Go to nevis.net for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/). 
+1. Go to `nevis.net` for [Nevis + Microsoft Azure AD B2C](https://www.nevis-security.com/aadb2c/).
 2. Use the form request an account.
 3. Two emails arrive:
 
-*  Management account notification
-*  Mobile app invitation
+- Management account notification
+- Mobile app invitation
 
 ### Add your Azure AD B2C tenant to your Nevis account
 
 1. From the management account trial email, copy your management key.
-2. In a browser, open https://console.nevis.cloud/.
+2. In a browser, open the [Nevis management console](https://console.nevis.cloud/).
 3. Use the management key to sign in to the management console.
 4. Select **Add Instance**.
 5. Select the created instance.
@@ -99,14 +101,14 @@ The diagram shows the implementation.
 10. For **Key Usage**, select **Encryption**.
 11. Select **Create**.
 
-### Configure and upload the nevis.html to Azure blob storage
+### Configure and upload the nevis.html file to Azure blob storage
 
 1. In your Identity Environment (IDE), go to the [/master/samples/Nevis/policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Nevis/policy) folder.
-2. In [/samples/Nevis/policy/nevis.html](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) open the nevis.html file.
+2. In [/samples/Nevis/policy/nevis.html](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Nevis/policy/nevis.html) open the `nevis.html` file.
 3. Replace the  **authentication_cloud_url** with the Nevis Admin console URL `https://<instance_id>.mauth.nevis.cloud`.
 4. Select **Save**.
 5. [Create an Azure Blob storage account](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account).
-6. Upload the nevis.html file to your Azure blob storage.
+6. Upload the `nevis.html` file to your Azure blob storage.
 7. [Configure CORS](./customize-ui-with-html.md#3-configure-cors).
 8. Enable cross-origin resource sharing (CORS) for the file.
 9. In the list, select the **nevis.html** file.
@@ -132,7 +134,7 @@ The diagram shows the implementation.
 3. Replace **your tenant** with your Azure tenant account name in **TenantId**.
 4. Replace **your tenant** with your Azure tenant account name in **PublicPolicyURI**.
 5. Under **BasePolicy**, in the **TenantId**, replace **your tenant** with your Azure tenant account name.
-6. Under **BuildingBlocks**, replace **LoadUri** with the nevis.html blob link URL, in your blob storage account.
+6. Under **BuildingBlocks**, replace **LoadUri** with the `nevis.html` blob link URL, in your blob storage account.
 7. Select **Save**.
 
 ### Customize SignUpOrSignin.xml

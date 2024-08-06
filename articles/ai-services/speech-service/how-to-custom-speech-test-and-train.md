@@ -29,8 +29,8 @@ The following table lists accepted data types, when each data type should be use
 
 | Data type | Used for testing | Recommended for testing | Used for training | Recommended for training |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-20 hours of audio |
-| [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
+| [Audio only](#audio-data-for-training-or-testing) | Yes (visual inspection) | 5+ audio files | Yes (Preview for `en-US`) | 1-100 hours of audio |
+| [Audio + human-labeled transcripts](#audio--human-labeled-transcript-data-for-training-or-testing) | Yes (evaluation of accuracy) | 0.5-5 hours of audio | Yes | 1-100 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | Not applicable | Yes | 1-200 MB of related text |
 | [Structured text](#structured-text-data-for-training) | No | Not applicable | Yes | Up to 10 classes with up to 4,000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | Not applicable | Yes | 1 KB to 1 MB of pronunciation text |
@@ -43,7 +43,7 @@ Training with plain text or structured text usually finishes within a few minute
 > 
 > Start with small sets of sample data that match the language, acoustics, and hardware where your model will be used. Small datasets of representative data can expose problems before you invest in gathering larger datasets for training. For sample custom speech data, see <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">this GitHub repository</a>.
 
-If you train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. For more information, see footnotes in the [regions](regions.md#speech-service) table. In regions with dedicated hardware for custom speech training, the Speech service uses up to 20 hours of your audio training data, and can process about 10 hours of data per day. In other regions, the Speech service uses up to 8 hours of your audio data, and can process about 1 hour of data per day. After the model is trained, you can copy the model to another region as needed with the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST API.
+If you train a custom model with audio data, choose a Speech resource region with dedicated hardware for training audio data. For more information, see footnotes in the [regions](regions.md#speech-service) table. In regions with dedicated hardware for custom speech training, the Speech service uses up to 100 hours of your audio training data, and can process about 10 hours of data per day. After the model is trained, you can copy the model to another region as needed with the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) REST API.
 
 ## Consider datasets by scenario
 
@@ -89,7 +89,7 @@ Consider these details:
 * The Speech service automatically uses the transcripts to improve the recognition of domain-specific words and phrases, as though they were added as related text.
 * It can take several days for a training operation to finish. To improve the speed of training, be sure to create your Speech service subscription in a region with dedicated hardware for training.
 
-A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 20 hours of audio. However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition are only as good as the data that you provide. You should upload only high-quality transcripts.
+A large training dataset is required to improve recognition. Generally, we recommend that you provide word-by-word transcriptions for 1 to 100 hours of audio (up to 20 hours for older models that do not charge for training). However, even as little as 30 minutes can help improve recognition results. Although creating human-labeled transcription can take time, improvements in recognition are only as good as the data that you provide. You should upload only high-quality transcripts.
 
 Audio files can have silence at the beginning and end of the recording. If possible, include at least a half-second of silence before and after speech in each sample file. Although audio with low recording volume or disruptive background noise isn't helpful, it shouldn't limit or degrade your custom model. Always consider upgrading your microphones and signal processing hardware before gathering audio samples.
 
@@ -106,7 +106,7 @@ Custom speech projects require audio files with these properties:
 | File format              | RIFF (WAV)                          |
 | Sample rate              | 8,000 Hz or 16,000 Hz               |
 | Channels                 | 1 (mono)                            |
-| Maximum length per audio | Two hours (testing) / 60 s (training)<br/><br/>Training with audio has a maximum audio length of 60 seconds per file. For audio files longer than 60 seconds, only the corresponding transcription files are used for training. If all audio files are longer than 60 seconds, the training fails.|
+| Maximum length per audio | Two hours (testing) / 40 s (training)<br/><br/>Training with audio has a maximum audio length of 40 seconds per file (up to 30 seconds for Whisper customization). For audio files longer than 40 seconds, only the corresponding text from the transcription files is used for training. If all audio files are longer than 40 seconds, the training fails.|
 | Sample format            | PCM, 16-bit                         |
 | Archive format           | .zip                                |
 | Maximum zip size         | 2 GB or 10,000 files                |

@@ -3,10 +3,9 @@ title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
 author: ankitaduttaMSFT
-ms.topic: article
-ms.service: site-recovery
-ms.custom:
-ms.date: 12/15/2023
+ms.topic: conceptual
+ms.service: azure-site-recovery
+ms.date: 07/08/2024
 ms.author: ankitadutta
 ---
 # Azure Site Recovery Deployment Planner Version History

@@ -12,6 +12,8 @@ ms.custom: "UpdateFrequency3"
 ---
 # Manage an App Service plan in Azure
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan

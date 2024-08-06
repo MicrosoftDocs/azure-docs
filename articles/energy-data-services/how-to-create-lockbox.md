@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 # Use Customer Lockbox for Azure Data Manager for Energy
 
-Azure Data Manager for Energy is the managed service offering for OSDU&trade;. There are instances where Microsoft Support may need to access your data or compute layer during a support request. You can use Customer Lockbox as an interface to review and approve or reject these access requests.
+Azure Data Manager for Energy is the managed service offering for OSDU&reg;. There are instances where Microsoft Support may need to access your data or compute layer during a support request. You can use Customer Lockbox as an interface to review and approve or reject these access requests.
 
 This article covers how Customer Lockbox requests are initiated and tracked for Azure Data Manager for Energy. 
 

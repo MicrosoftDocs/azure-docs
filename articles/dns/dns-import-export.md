@@ -1,10 +1,10 @@
 ---
 title: Import and export a domain zone file - Azure CLI
 titleSuffix: Azure DNS
-description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure CLI 
+description: Learn how to import and export a DNS (Domain Name System) zone file to Azure DNS by using Azure CLI.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurecli
 ms.date: 10/20/2023
 ms.author: greglin
@@ -43,7 +43,7 @@ Importing a zone file creates a new zone in Azure DNS if the zone doesn't alread
 * By default, the new record sets get merged with the existing record sets. Identical records within a merged record set aren't duplicated.
 * When record sets are merged, the time to live (TTL) of pre-existing record sets is used.
 * Start of Authority (SOA) parameters, except `host` are always taken from the imported zone file. The name server record set at the zone apex also always uses the TTL taken from the imported zone file.
-* An imported CNAME record doesn't replace an existing CNAME record with the same name.  
+* An imported CNAME record will replace the existing CNAME record that has the same name.
 * When a conflict happens between a CNAME record and another record with the same name of different type, the existing record gets used.
 
 ### Additional information about importing

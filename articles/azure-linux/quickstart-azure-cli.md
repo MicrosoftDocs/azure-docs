@@ -15,7 +15,7 @@ Get started with the Azure Linux Container Host by using the Azure CLI to deploy
 
 ## Prerequisites 
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Use the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview). For more information, see [Azure Cloud Shell Quickstart - Bash](/azure/cloud-shell/quickstart).
    :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
@@ -84,14 +84,14 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
 
 ## Deploy the application
 
-A [Kubernetes manifest file](../../articles/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
+A [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests) defines a cluster's desired state, such as which container images to run.
 
 In this quickstart, you will use a manifest to create all objects needed to run the [Azure Vote application](https://github.com/Azure-Samples/azure-voting-app-redis). This manifest includes two Kubernetes deployments:
 
 * The sample Azure Vote Python applications.
 * A Redis instance.
 
-Two [Kubernetes Services](../../articles/aks/concepts-network.md#services) are also created:
+Two [Kubernetes Services](/azure/aks/concepts-network-services) are also created:
 
 * An internal service for the Redis instance.
 * An external service to access the Azure Vote application from the internet.
@@ -188,7 +188,7 @@ Two [Kubernetes Services](../../articles/aks/concepts-network.md#services) are a
         app: azure-vote-front
     ```
 
-    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](../../articles/aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests).
+    For a breakdown of YAML manifest files, see [Deployments and YAML manifests](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
 1. Deploy the application using the [kubectl apply](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply) command and specify the name of your YAML manifest:
 

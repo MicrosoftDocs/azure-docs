@@ -2,8 +2,8 @@
   href: manage/index.yml
 - name: Overview
   items:
-  - name: What is Cost Management and Billing?
-    displayName: azure cost management, cost management azure, azure cost management and billing
+  - name: What is Billing?
+    displayName: azure billing, billing
     href: cost-management-billing-overview.md
   - name: What's new?
     href: https://azure.microsoft.com/blog/tag/cost-management/
@@ -47,6 +47,8 @@
     href: manage/withholding-tax-credit-india.md
   - name: Plan to manage Azure costs
     href: understand/plan-manage-costs.md
+  - name: Region optimization
+    href: manage/region-optimization.md
 - name: How-to guides
   items:
   - name: Configure billing
@@ -56,7 +58,7 @@
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
-        href: manage/change-azure-account-profile.md
+        href: manage/change-azure-account-profile.yml
       - name: Update tax details
         href: manage/manage-tax-information.md
       - name: Grant access to billing
@@ -101,6 +103,10 @@
         href: costs/assign-access-acm-data.md
       - name: Subscription states
         href: manage/subscription-states.md
+      - name: Avoid unused subscriptions
+        href: manage/avoid-unused-subscriptions.md
+      - name: Protect tenants and subscriptions from abuse
+        href: manage/protect-tenants-subscriptions.md
       - name: Reactivate subscription
         displayName: azure subscription disabled, how to enable azure subscription, enable azure subscription, azure subscription is disabled
         href: manage/subscription-disabled.md
@@ -144,7 +150,7 @@
       - name: Transfer subscription to EA
         href: manage/mosp-ea-transfer.md
       - name: Transfer CSP subscriptions
-        href: manage/transfer-subscriptions-subscribers-csp.md
+        href: manage/transfer-subscriptions-subscribers-csp.yml
       - name: Transfer Microsoft Customer Agreement ownership
         href: manage/mca-request-billing-ownership.md
       - name: Transfer Microsoft Partner Agreement ownership
@@ -183,8 +189,6 @@
         href: manage/direct-ea-azure-usage-charges-invoices.md
       - name: Azure EA pricing
         href: manage/ea-pricing-overview.md
-      - name: Azure Enterprise REST APIs
-        href: manage/enterprise-rest-apis.md
       - name: Azure EA VM reserved instances
         href: manage/ea-portal-vm-reservations.md
       - name: Azure Marketplace
@@ -249,6 +253,8 @@
       href: ../azure-portal/supportability/how-to-create-azure-support-request.md
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
+    - name: Can't create VM - Contact reseller
+      href: troubleshoot-billing/cannot-create-vm.md
   - name: Troubleshoot subscriptions
     items:
     - name: No subscriptions found
@@ -261,6 +267,8 @@
       href: troubleshoot-subscription/create-subscriptions-deploy-resources.md
     - name: Not available due to conflict error
       href: troubleshoot-subscription/troubleshoot-not-available-conflict.md
+    - name: Can't sign up for an Azure subscription
+      href: troubleshoot-subscription/cannot-sign-up-subscription.md
 - name: Reference
   items:
   - name: Billing Automation Scenarios
@@ -273,10 +281,6 @@
     href: /rest/api/cost-management
   - name: Azure Retail Prices REST API
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
-  - name: Enterprise reporting REST API overview
-    href: manage/enterprise-api.md
-  - name: Enterprise reporting REST APIs
-    href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
 - name: Resources
   items:
   - name: FAQ

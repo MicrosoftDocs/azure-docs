@@ -10,6 +10,8 @@ ms.subservice: change-analysis
 
 # View and use Change Analysis in Azure Monitor
 
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
+
 Change Analysis provides data for various management and troubleshooting scenarios to help you understand what changes to your application caused breaking issues. 
 
 ## View Change Analysis data

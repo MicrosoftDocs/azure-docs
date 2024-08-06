@@ -1,12 +1,12 @@
 ---
 title: Diagnostic logs
 titleSuffix: Azure Application Gateway
-description: Learn how to enable and manage logs for Azure Application Gateway
+description: Learn how to enable and manage logs for Azure Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: article
-ms.date: 02/28/2024
+ms.date: 06/17/2024
 ms.author: greglin 
 ---
 
@@ -32,14 +32,56 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 
 You have the following options to store the logs in your preferred location.
 
-1. **Log Analytic workspace**: Recommended as it allows you to readily use the predefined queries, visualizations and set alerts based on specific log conditions.
-1. **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
-1. **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
-1. **Azure Monitor partner integrations**
+**Log Analytic workspace**: This option allows you to readily use the predefined queries, visualizations, and set alerts based on specific log conditions. The tables used by resource logs in log analytics workspace depend on what type of collection the resource is using:
+   
+* **Azure diagnostics**: Data is written to the [Azure Diagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). Azure Diagnostics table is shared between multiple resource type, with each of them adding their own custom fields. When number of custom fields ingested to Azure Diagnostics table exceeds 500, new fields aren't added as top level but added to "AdditionalFields" field as dynamic key value pairs. 
 
-[Learn more](../azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) about the Azure Monitor's Diagnostic settings destinations.
+* **Resource-specific(recommended)**: Data is written to dedicated tables for each category of the resource. In resource specific mode, each log category selected in the diagnostic setting is assigned its own table within the chosen workspace. This has several benefits, including: 
+  - Easier data manipulation in log queries 
+  - Improved discoverability of schemas and their structures 
+  - Enhanced performance in terms of ingestion latency and query times
+  - The ability to assign [Azure role-based access control rights to specific tables](../azure-monitor/logs/manage-access.md?tabs=portal#set-table-level-read-access)
 
-### Enable logging through PowerShell
+ For Application Gateway, resource specific mode creates three tables: 
+  * [AGWAccessLogs](/azure/azure-monitor/reference/tables/agwaccesslogs)
+  * [AGWPerformanceLogs](/azure/azure-monitor/reference/tables/agwperformancelogs)
+  * [AGWFirewallLogs](/azure/azure-monitor/reference/tables/agwfirewalllogs)
+
+> [!NOTE]
+> The resource specific option is currently available in all **clouds**.<br>
+> Existing users can continue using Azure Diagnostics, or can opt for dedicated tables by switching the toggle in Diagnostic settings to **Resource specific**, or to **Dedicated** in API destination. Dual mode isn't possible. The data in all the logs can either flow to Azure Diagnostics, or to dedicated tables. However, you can have multiple diagnostic settings where one data flow is to azure diagnostic and another is using resource specific at the same time. 
+
+ **Selecting the destination table in Log analytics :** All Azure services eventually use the resource-specific tables. As part of this transition, you can select Azure diagnostic or resource specific table in the diagnostic setting using a toggle button. The toggle is set to **Resource specific** by default and in this mode, logs for new selected categories are sent to dedicated tables in Log Analytics, while existing streams remain unchanged. See the following example.
+
+ [![Screenshot of the resource ID for application gateway in the portal.](./media/application-gateway-diagnostics/resource-specific.png)](./media/application-gateway-diagnostics/resource-specific.png#lightbox)
+ 
+**Workspace Transformations:** Opting for the Resource specific option allows you to filter and modify your data before it’s ingested with [workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md). This provides granular control, allowing you to focus on the most relevant information from the logs there by reducing data costs and enhancing security.
+For detailed instructions on setting up workspace transformations, please refer:[Tutorial: Add a workspace transformation to Azure Monitor Logs by using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
+
+ ### Examples of optimizing access logs using Workspace Transformations
+ 
+**Example 1: Selective Projection of Columns**: Imagine you have application gateway access logs with 20 columns, but you’re interested in analyzing data from only 6 specific columns. By using workspace transformation, you can project these 6 columns into your workspace, effectively excluding the other 14 columns. Even though the original data from those excluded columns won’t be stored, empty placeholders for them still appear in the Logs blade. This approach optimizes storage and ensures that only relevant data is retained for analysis.
+
+ > [!NOTE]
+ > Within the Logs blade, selecting the **Try New Log Analytics** option gives greater control over the columns displayed in your user interface. 
+
+**Example 2: Focusing on Specific Status Codes**: When analyzing access logs, instead of processing all log entries, you can write a query to retrieve only rows with specific HTTP status codes (such as 4xx and 5xx). Since most requests ideally fall under the 2xx and 3xx categories (representing successful responses), focusing on the problematic status codes narrows down the data set. This targeted approach allows you to extract the most relevant and actionable information, making it both beneficial and cost-effective.
+
+**Recommended transition strategy to move from Azure diagnostic to resource specific table:**
+1. Assess current data retention: Determine the duration for which data is presently retained in the Azure diagnostics table (for example: assume the diagnostics table retains data for 15 days). 
+2. Establish resource-specific retention: Implement a new Diagnostic setting with resource specific table. 
+3. Parallel data collection: For a temporary period, collect data concurrently in both the Azure Diagnostics and the resource-specific settings. 
+4. Confirm data accuracy: Verify that data collection is accurate and consistent in both settings. 
+5. Remove Azure diagnostics setting: Remove the Azure Diagnostic setting to prevent duplicate data collection. 
+
+Other storage locations:
+- **Azure Storage account**: Storage accounts are best used for logs when logs are stored for a longer duration and reviewed when needed.
+- **Azure Event Hubs**: Event hubs are a great option for integrating with other security information and event management (SIEM) tools to get alerts on your resources.
+- **Azure Monitor partner integrations**.
+
+Learn more about the Azure Monitor's [diagnostic settings destinations](../azure-monitor/essentials/diagnostic-settings.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=portal#destinations) .
+
+## Enable logging through PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, use the following steps:
 
@@ -61,7 +103,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 > [!TIP]
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
 
-### Enable logging through the Azure portal
+## Enable logging through the Azure portal
 
 1. In the Azure portal, find your resource and select **Diagnostic settings**.
 
@@ -81,18 +123,21 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 5. Type a name for the settings, confirm the settings, and select **Save**.
 
-### Activity log
+## Activity log
 
 Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
 
-### Access log
+## Access log
 
 The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below.
 
-#### For Application Gateway and WAF v2 SKU
+### For Application Gateway and WAF v2 SKU
 
 > [!NOTE]
-> For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * For TLS/TCP proxy related information, visit [data reference](monitor-application-gateway-reference.md#tlstcp-proxy-logs).
+> * Some columns from the shared AzureDiagnostics table are still being ported to the dedicated tables. Therefore, the columns with Mutual Authentication details are currently available only through the [AzureDiagnostics table](#storage-locations).
+> * Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
+
 
 |Value  |Description  |
 |---------|---------|
@@ -113,12 +158,14 @@ The access log is generated only if you've enabled it on each Application Gatewa
 |sslEnabled| Whether communication to the backend pools used TLS. Valid values are on and off.|
 |sslCipher| Cipher suite being used for TLS communication (if TLS is enabled).|
 |sslProtocol| SSL/TLS protocol being used (if TLS is enabled).|
+|sslClientVerify | Shows the result of client certificate verification as SUCCESS or FAILED. Failed status will include error information.|
+|sslClientCertificateFingerprint|The SHA1 thumbprint of the client certificate for an established TLS connection.|
+|sslClientCertificateIssuerName|The issuer DN string of the client certificate for an established TLS connection.|
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response (in **seconds**) from the backend server.|
 |host| Address listed in the host header of the request. If rewritten using header rewrite, this field contains the updated host name|
 |originalRequestUriWithArgs| This field contains the original request URL |
-|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
 |upstreamSourcePort| The source port used by Application Gateway when initiating a connection to the backend target|
 |originalHost| This field contains the original request host name|
 |error_info|The reason for the 4xx and 5xx error. Displays an error code for a failed request. More details in [Error code information.](./application-gateway-diagnostics.md#error-code-information) |
@@ -170,10 +217,8 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-> [!Note]
->Access logs with clientIP value 127.0.0.1 originate from an internal security process running on the application gateway instances. You can safely ignore these log entries.
 
-#### For Application Gateway Standard and WAF SKU (v1)
+### For Application Gateway Standard and WAF SKU (v1)
 
 |Value  |Description  |
 |---------|---------|
@@ -224,18 +269,18 @@ If the application gateway can't complete the request, it stores one of the foll
 
 |4XX Errors  | (The 4xx error codes indicate that there was an issue with the client's request, and the Application Gateway can't fulfill it.) |
 |---------|---------|
-|    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant.  Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
+|    ERRORINFO_INVALID_METHOD|	The client has sent a request  which is non-RFC compliant. Possible reasons: client using HTTP method not supported by server, misspelled method, incompatible HTTP protocol version etc.|
   |  ERRORINFO_INVALID_REQUEST	| The server can't fulfill the request because of incorrect syntax.|
   | ERRORINFO_INVALID_VERSION|	The application gateway received a request with an invalid or unsupported HTTP version.|
    | ERRORINFO_INVALID_09_METHOD|	The client sent request with HTTP Protocol version 0.9.|
-   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value (when there is no Basic listener, and none of the hostnames of Multisite listeners match with the host).| 
+   | ERRORINFO_INVALID_HOST	|The value provided in the "Host" header is either missing, improperly formatted, or doesn't match the expected host value. For example, when there's no Basic listener, and none of the hostnames of Multisite listeners match with the host.| 
    | ERRORINFO_INVALID_CONTENT_LENGTH |	The length of the content specified by the client in the content-Length header doesn't match the actual length of the content in the request.|
-   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method which is not supported by the application gateway.|
-   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed.Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
+   | ERRORINFO_INVALID_METHOD_TRACE | The  client sent HTTP TRACE method, which isn't supported by the application gateway.|
+   |  ERRORINFO_CLIENT_CLOSED_REQUEST |	The client closed the connection with the application gateway before the idle timeout period elapsed. Check whether the client timeout period is greater than the [idle timeout period](./application-gateway-faq.yml#what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout) for the application gateway.|
    | ERRORINFO_REQUEST_URI_INVALID	|Indicates issue with the Uniform Resource Identifier (URI) provided in the client's request. |
    |  ERRORINFO_HTTP_NO_HOST_HEADER	| Client sent a request without Host header. |
    | ERRORINFO_HTTP_TO_HTTPS_PORT	|The client sent a plain HTTP request to an HTTPS port. |
-   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client is not sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
+   | ERRORINFO_HTTPS_NO_CERT | 	Indicates client isn't sending a valid and properly configured TLS certificate during Mutual TLS authentication.    |
 
 
 |5XX Errors  | Description  |
@@ -243,14 +288,15 @@ If the application gateway can't complete the request, it stores one of the foll
   |  ERRORINFO_UPSTREAM_NO_LIVE	| The application gateway is unable to find any active or reachable backend servers to handle incoming requests       |
   |  ERRORINFO_UPSTREAM_CLOSED_CONNECTION	| The backend server closed the connection unexpectedly or before the request was fully processed. This could happen due to backend server reaching its limits, crashing etc.|
   | ERRORINFO_UPSTREAM_TIMED_OUT	| The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
-### Performance log
 
-The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
+## Performance log
+
+The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It's available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
 
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there is one row per instance.        |
+|instanceId     |  Application Gateway instance for which performance data is being generated. For a multiple-instance application gateway, there's one row per instance.        |
 |healthyHostCount     | Number of healthy hosts in the backend pool.        |
 |unHealthyHostCount     | Number of unhealthy hosts in the backend pool.        |
 |requestCount     | Number of requests served.        |
@@ -280,14 +326,14 @@ The performance log is generated only if you have enabled it on each Application
 > [!NOTE]
 > Latency is calculated from the time when the first byte of the HTTP request is received to the time when the last byte of the HTTP response is sent. It's the sum of the Application Gateway processing time plus the network cost to the back end, plus the time that the back end takes to process the request.
 
-### Firewall log
+## Firewall log
 
 The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the storage account that you specified when you enabled the logging. The following data is logged:
 
 
 |Value  |Description  |
 |---------|---------|
-|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
+|instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there's one row per instance.         |
 |clientIp     |   Originating IP for the request.      |
 |clientPort     |  Originating port for the request.       |
 |requestUri     | URL of the received request.       |
@@ -337,14 +383,14 @@ The firewall log is generated only if you have enabled it for each application g
 }
 ```
 
-### View and analyze the activity log
+## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
 
 * **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../azure-monitor/essentials/activity-log.md) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
-### View and analyze the access, performance, and firewall logs
+## View and analyze the access, performance, and firewall logs
 
 [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics) can collect the counter and event log files from your Blob storage account. It includes visualizations and powerful search capabilities to analyze your logs.
 
@@ -355,7 +401,7 @@ You can also connect to your storage account and retrieve the JSON log entries f
 >
 >
 
-#### Analyzing Access logs through GoAccess
+### Analyzing Access logs through GoAccess
 
 We have published a Resource Manager template that installs and runs the popular [GoAccess](https://goaccess.io/) log analyzer for Application Gateway Access Logs. GoAccess provides valuable HTTP traffic statistics such as Unique Visitors, Requested Files, Hosts, Operating Systems, Browsers, HTTP Status codes and more. For more details, please see the [Readme file in the Resource Manager template folder in GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/application-gateway-logviewer-goaccess).
 

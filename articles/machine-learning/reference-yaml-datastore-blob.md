@@ -3,15 +3,15 @@ title: 'CLI (v2) Azure Blob datastore YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Azure Blob datastore YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: reference
 ms.custom: cliv2
 
-author: ynpandey
-ms.author: yogipandey
-ms.date: 02/14/2023
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.date: 04/15/2024
+ms.reviewer: yogipandey
 ---
 
 # CLI (v2) Azure Blob datastore YAML schema
@@ -26,7 +26,7 @@ See the source JSON schema at https://azuremlschemas.azureedge.net/latest/azureB
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------- |
-| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, you can invoke schema and resource completions if you include `$schema` at the top of your file. | | |
+| `$schema` | string | The YAML schema. If you use the Azure Machine Learning Visual Studio Code extension to author the YAML file, include `$schema` at the top of your file to invoke schema and resource completions. | | |
 | `type` | string | **Required.** The datastore type. | `azure_blob` | |
 | `name` | string | **Required.** The datastore name. | | |
 | `description` | string |  The datastore description. | | |
@@ -45,7 +45,7 @@ You can use the `az ml datastore` command to manage Azure Machine Learning datas
 
 ## Examples
 
-See examples in the [examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore). Several are shown here:
+Visit [this GitHub resource](https://github.com/Azure/azureml-examples/tree/main/cli/resources/datastore) for examples. Several are shown here:
 
 ## YAML: identity-based access
 

@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 05/23/2024
 ms.author: lajanuar
 monikerRange: '<=doc-intel-4.0.0'
 ---
@@ -132,7 +132,7 @@ Congratulations you learned to train a custom model in the Document Intelligence
 
 **Applies to:** ![Document Intelligence v2.1 checkmark](../media/yes-icon.png) **v2.1**. **Other versions:** [v3.0](../how-to-guides/build-a-custom-model.md?view=doc-intel-3.0.0&preserve-view=true?view=doc-intel-3.0.0&preserve-view=true)
 
-When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
+When you use the Document Intelligence custom model, you provide your own training data to the [Train Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) operation, so that the model can train to your industry-specific forms. Follow this guide to learn how to collect and prepare data to train the model effectively.
 
 You need at least five completed forms of the same type.
 
@@ -161,7 +161,7 @@ If you want to use manually labeled data, upload the *.labels.json* and *.ocr.js
 
 ### Organize your data in subfolders (optional)
 
-By default, the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API only uses documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
+By default, the [Train Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) API only uses documents that are located at the root of your storage container. However, you can train with data in subfolders if you specify it in the API call. Normally, the body of the [Train Custom Model](/rest/api/aiservices/analyzer?view=rest-aiservices-v2.1&preserve-view=true) call has the following format, where `<SAS URL>` is the Shared access signature URL of your container:
 
 ```json
 {

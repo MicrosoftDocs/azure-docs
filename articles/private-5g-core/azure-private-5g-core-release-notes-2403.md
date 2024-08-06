@@ -3,7 +3,7 @@ title: Azure Private 5G Core 2403 release notes
 description: Discover what's new in the Azure Private 5G Core 2403 release.
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 04/04/2023
 ---
@@ -12,7 +12,7 @@ ms.date: 04/04/2023
 
 The following release notes identify the new features, critical open issues, and resolved issues for the 2403 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
-This article applies to the AP5GC 2403 release (2403.0-2). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
+This article applies to the AP5GC 2403 release (2403.0-4). This release is compatible with the Azure Stack Edge (ASE) Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2403 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
 For more information about compatibility, see [Packet core and Azure Stack Edge compatibility](azure-stack-edge-packet-core-compatibility.md). 
 
@@ -58,14 +58,16 @@ For more information, see [Service Limits](azure-stack-edge-virtual-machine-sizi
 The following table provides a summary of issues fixed in this release.
 
   |No.  |Feature  | Issue |  SKU Fixed In |
-  |-----|-----|-----|-----|----|
+  |-----|---------|-------|---------------|
   | 1 | Local distributed tracing | In Multi PDN session establishment/Release call flows with different DNs, the distributed tracing web GUI fails to display some of 4G NAS messages (Activate/deactivate Default EPS Bearer Context Request) and some S1AP messages (ERAB request, ERAB Release). | 2403.0-2 |
-  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |  
+  | 2 | Packet Forwarding | A slight(0.01%) increase in packet drops is observed in latest AP5GC release installed on ASE Platform Pro 2 with ASE-2309 for throughput higher than 3.0 Gbps. | 2403.0-2 |
+  | 3 | Security | [CVE-2024-20685](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2024-20685) | 2403.0-2 |
+  | 4 | Packet Forwarding | GTP Echo requests are rejected by the packet core on the N3 reference point, causing an outage of packet forwarding. | 2403.0-4 |
 
 ## Known issues in the AP5GC 2403 release
 <!--**TO BE UPDATED**>
   |No.  |Feature  | Issue | Workaround/comments |
-  |-----|-----|-----|-----|
+  |-----|-----|-----|
   | 1 |  |  |  |
 <-->
 

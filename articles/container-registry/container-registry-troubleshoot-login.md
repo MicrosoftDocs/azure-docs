@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Troubleshoot registry login
@@ -110,7 +110,7 @@ Related links:
 
 * [Azure roles and permissions - Azure Container Registry](container-registry-roles.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
-* [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+* [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
 * [Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
 * [Microsoft Entra authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)

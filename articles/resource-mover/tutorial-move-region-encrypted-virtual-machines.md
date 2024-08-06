@@ -2,7 +2,7 @@
 title: Move encrypted Azure VMs across regions by using Azure Resource Mover
 description: Learn how to move encrypted Azure VMs to another region by using Azure Resource Mover.
 author: ankitaduttaMSFT 
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: tutorial
 ms.date: 03/29/2024
 ms.author: ankitadutta
@@ -17,7 +17,7 @@ Azure Resource Mover helps you move Azure resources between Azure regions. This 
 Encrypted VMS can be described as either:
 
 - VMs that have disks with Azure Disk Encryption enabled. For more information, see [Create and encrypt a Windows virtual machine by using the Azure portal](../virtual-machines/windows/disk-encryption-portal-quickstart.md).
-- VMs that use customer-managed keys (CMKs) for encryption at rest, or server-side encryption. For more information, see [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](../virtual-machines/disks-enable-customer-managed-keys-portal.md).
+- VMs that use customer-managed keys (CMKs) for encryption at rest, or server-side encryption. For more information, see [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](../virtual-machines/disks-enable-customer-managed-keys-portal.yml).
 
 
 In this tutorial, you learn how to:
@@ -42,7 +42,7 @@ Before you begin, verify the following:
 |**Subscription permissions** | Ensure that you have *Owner* access on the subscription that contains the resources you want to move.<br/><br/> *Why do I need Owner access?* The first time you add a resource for a specific source and destination pair in an Azure subscription, Resource Mover creates a [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), formerly known as the Managed Service Identity (MSI). This identity is trusted by the subscription. Before you can create the identity and assign it the required roles (*Contributor* and *User access administrator* in the source subscription), the account you use to add resources needs *Owner* permissions in the subscription. For more information, see [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).|
 | **VM support** | Ensure that the VMs you want to move are supported by doing the following:<li>[Verify](support-matrix-move-region-azure-vm.md#windows-vm-support) supported Windows VMs.<li>[Verify](support-matrix-move-region-azure-vm.md#linux-vm-support) supported Linux VMs and kernel versions.<li>Check supported [compute](support-matrix-move-region-azure-vm.md#supported-vm-compute-settings), [storage](support-matrix-move-region-azure-vm.md#supported-vm-storage-settings), and [networking](support-matrix-move-region-azure-vm.md#supported-vm-networking-settings) settings.|
 | **Key vault requirements (Azure Disk Encryption)** | If you have Azure Disk Encryption enabled for VMs, you require a key vault in both the source and destination regions. For more information, see [Create a key vault](../key-vault/general/quick-create-portal.md).<br/><br/> For the key vaults in the source and destination regions, you require these permissions:<li>Key permissions: Key Management Operations (Get, List) and Cryptographic Operations (Decrypt and Encrypt)<li>Secret permissions: Secret Management Operations (Get, List, and Set)<li>Certificate (List and Get)|
-| **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you require a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set).<br/><br/> Moving between regions isn't supported if you're using a hardware security module (HSM keys) for customer-managed keys.|
+| **Disk encryption set (server-side encryption with CMK)** | If you're using VMs with server-side encryption that uses a CMK, you require a disk encryption set in both the source and destination regions. For more information, see [Create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml).<br/><br/> Moving between regions isn't supported if you're using a hardware security module (HSM keys) for customer-managed keys.|
 | **Target region quota** | The subscription needs enough quota to create the resources you're moving in the target region. If it doesn't have a quota, [request additional limits](../azure-resource-manager/management/azure-subscription-service-limits.md).|
 | **Target region charges** | Verify the pricing and charges that are associated with the target region to which you're moving the VMs. Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/).|
 
@@ -57,7 +57,7 @@ If the user permissions aren't in place, select **Add Access Policy**, and speci
 
 Azure VMs that use Azure Disk Encryption can have the following variations, and you'll require to set the permissions according to their relevant components. The VMs might have:
 - A default option where the disk is encrypted with secrets only.
-- Added security that uses a [Key Encryption Key (KEK)](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek).
+- Added security that uses a [Key Encryption Key (KEK)](../virtual-machines/windows/disk-encryption-key-vault.yml#set-up-a-key-encryption-key-kek).
 
 ### Source region key vault
 

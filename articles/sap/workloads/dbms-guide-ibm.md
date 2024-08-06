@@ -223,7 +223,7 @@ Db2 high availability disaster recovery (HADR) with pacemaker is supported. Both
 
 #### Windows Cluster Server
 
-Microsoft Cluster Server (MSCS) isn't supported.
+Windows Server Failover Cluster (WSFC) also known as Microsoft Cluster Server (MSCS) isn't supported.
 
 Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure doesn't differ from any setup that is done on-premises. It isn't recommended to rely on IP resolution only.
 

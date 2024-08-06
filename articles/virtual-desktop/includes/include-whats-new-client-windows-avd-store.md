@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-author: heidilohr
-ms.author: helohr
-ms.date: 04/02/2024
+author: sipastak
+ms.author: sipastak
+ms.date: 07/23/2024 
 ---
 
 ## Supported client versions
@@ -11,25 +11,125 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5326 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5326 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5559 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5617 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5326
+## Updates for version 1.2.5617 (Insider)
 
-*Date published: March 19, 2024*
+*Date published: July 23, 2024* 
+
+In this release, we made the following changes:
+
+- Stability and security improvements for printer redirections. 
+- Improved experience for SSO Lock Screen dialogs.   
+- Fixed an issue with SSO login failure. 
+- Fixed an issue causing the client to crash on disconnect. 
+
+## Updates for version 1.2.5559
+
+*Date published: July 17, 2024* 
+
+> [!NOTE]
+> This version replaced 1.2.5552 and has the same release notes. 
+
+## Updates for version 1.2.5552
+
+*Date published: July 2, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
+
+> [!NOTE]
+>- This Insider release was originally version 1.2.5550, but we made a change to fix an issue with double MFA prompts and re-released as version 1.2.5552. This version contains all the changes made in 1.2.5550. 
+>- This version was released as a public version on July 2, 2024, but was replaced by version 1.2.5559 on July 17, 2024. 
+
+
+## Updates for version 1.2.5550
+
+*Date published: June 25, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where a minimized RemoteApp window will maximize when the lock screen timer runs out for a RemoteApp session.
+- Improved usability of the connection bar by reducing the amount of time it displays on the screen after the mouse moves away.
+
+## Updates for version 1.2.5454
+
+*Date published: June 11, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when a session is disconnected. 
+
+> [!NOTE]
+> > This Insider release was originally version 1.2.5453, but we made this change and re-released it as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453.
+
+## Updates for version 1.2.5453 
+
+*Date published: June 4, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when responding to an incoming Teams call.  
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5452, but we made this change and re-released it as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
+
+## Updates for version 1.2.5452 
+
+*Date published: May 29, 2024* 
+
+In this release, we made the following changes:
+
+- Improve graphics presentation latency  
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made this change and re-released it as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
+
+## Updates for version 1.2.5450 
+
+*Date published: May 21, 2024* 
+
+In this release, we made the following changes:
+
+- When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
+- Users can try out the Windows App preview by selecting the toggle at the top of Azure Virtual Desktop Preview app. Users will be able to download and install the application. If Windows App is already downloaded, the toggle will close Azure Virtual Desktop app and open Windows App. 
+- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results are not found. 
+- Improved error messaging for end users when their saved credentials expire. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5405
+
+*Date published: April 17, 2024*
+
+In this release, we made the following changes:
+
+- Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5331
+
+*Date published: April 18, 2024*
 
 In this release, we've made the following changes:
 
 - Fixed an issue that caused the RemoteApp window to appear stretched.
 - When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
+- Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+> [!NOTE]
+> This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
 
 ## Updates for version 1.2.5255
 
 *Date published: March 11, 2024*
 
->[!NOTE]
->This version includes all the latest updates made in public build [1.2.5252](#updates-for-version-125252) and Insider builds [1.2.5248](#updates-for-version-125248) and [1.2.5126](#updates-for-version-125126). 
+> [!NOTE]
+> This version includes all the latest updates made in public build [1.2.5252](#updates-for-version-125252) and Insider builds [1.2.5248](#updates-for-version-125248) and [1.2.5126](#updates-for-version-125126). 
 
 In this release, we've made the following change:
 

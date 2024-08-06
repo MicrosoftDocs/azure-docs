@@ -2,7 +2,7 @@
 title: Azure Compute - Linux diagnostic extension 3.0
 description: How to configure the Azure Linux diagnostic extension (LAD) 3.0 to collect metrics and log events from Linux VMs that are running in Azure.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 author: GabstaMSFT
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 # Use Linux diagnostic extension 3.0 to monitor metrics and logs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 This document describes version 3.0 and newer of the Linux diagnostic extension (LAD).
 
@@ -463,14 +463,7 @@ sinks | A comma-separated list of names of sinks to which individual log events 
 facilityName | A syslog facility name, such as `"LOG_USER"` or `"LOG\LOCAL0"`. For more information, see the "Facility" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html).
 minSeverity | A syslog severity level, such as `"LOG_ERR"` or `"LOG_INFO"`. For more information, see the "Level" section of the [syslog man page](http://man7.org/linux/man-pages/man3/syslog.3.html). The extension captures events sent to the facility at or above the specified level.
 
-When you specify `syslogEvents`, LAD always writes data to a table in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table.
-
-The partitioning behavior for the table is the same as described for `performanceCounters`. The table name is the concatenation of these strings:
-
-* `LinuxSyslog`
-* A date, in the form "YYYYMMDD", which changes every 10 days
-
-Examples include `LinuxSyslog20170410` and `LinuxSyslog20170609`.
+When you specify `syslogEvents`, LAD always writes data to a table named LinuxSyslogVer2v0 in Azure Storage. The same data can be written to JSON blobs or Event Hubs or both. But you can't disable storing data to a table.
 
 ### perfCfg
 

@@ -249,23 +249,25 @@ items:
       href: named-entity-recognition/quickstart.md
     - name: NER language support
       href: named-entity-recognition/language-support.md
+    - name: Responsible use of AI
+      items:
+      - name: Transparency note for NER
+        href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/ai-services/language-service/context/context
+        displayName: Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI
+      - name: Integration and responsible use
+        href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
+        displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
+        displayName: Data privacy, logging, data retention
     - name: Prebuilt
       items:
-      - name: Responsible use of AI
-        items:
-        - name: Transparency note for NER
-          href: /legal/cognitive-services/language-service/transparency-note-named-entity-recognition?context=/azure/ai-services/language-service/context/context
-          displayName: Transparency note for NER, Named Entity Recognition transparency, Responsible AI, Responsible use of AI
-        - name: Integration and responsible use
-          href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
-          displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/language-service/data-privacy?context=/azure/ai-services/language-service/context/context
-          displayName: Data privacy, logging, data retention
       - name: How-to guides
         items:
         - name: Call NER
           href: named-entity-recognition/how-to-call.md
+        - name: Use skill parameters
+          href: named-entity-recognition/how-to/skill-parameters.md
         - name: Use containers
           items:
           - name: Use Docker containers
@@ -282,8 +284,6 @@ items:
         items:
         - name: Recognized entity categories
           href: named-entity-recognition/concepts/named-entity-categories.md
-        - name: Entity resolution
-          href: named-entity-recognition/concepts/entity-resolutions.md
         - name: Entity Metadata
           href: named-entity-recognition/concepts/entity-metadata.md
         - name: Preview API overview
@@ -302,20 +302,6 @@ items:
         href: custom-named-entity-recognition/language-support.md
       - name: Custom NER FAQ
         href: custom-named-entity-recognition/faq.md
-      - name: Responsible use of AI
-        items:
-        - name: Transparency note for custom NER
-          href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/ai-services/language-service/context/context
-          displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
-        - name: Integration and responsible use
-          href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/ai-services/language-service/context/context
-          displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-        - name: Characteristics and limitations
-          href: /legal/cognitive-services/language-service/cner-characteristics-and-limitations?context=/azure/ai-services/language-service/context/context
-          displayName: Custom NER characteristics, Custom NER limitations
-        - name: Data, privacy, and security
-          href: /legal/cognitive-services/language-service/cner-data-privacy-security?context=/azure/ai-services/language-service/context/context
-          displayName: Data privacy, logging, data retention
       - name: How-to guides
         items:
         - name: Create projects
@@ -436,7 +422,7 @@ items:
       items:
       - name: Call PII
         href: personally-identifiable-information/how-to-call.md
-      - name: Call PII for conversations (preview)
+      - name: Call PII for conversations
         href: personally-identifiable-information/how-to-call-for-conversations.md
     - name: Concepts
       items:
@@ -815,6 +801,8 @@ items:
     href: tutorials/use-kubernetes-service.md
   - name: Use language in power automate flows
     href: tutorials/power-automate.md
+  - name: Use language in prompt flow
+    href: tutorials/prompt-flow.md
   - name: 🆕 Native document support
     items:
     - name: 🆕 Use native documents for language processing

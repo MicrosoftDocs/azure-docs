@@ -3,7 +3,7 @@ title: Python SDK release notes
 titleSuffix: Azure Machine Learning
 description: Learn about the latest updates to Azure Machine Learning Python SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.custom: UpdateFrequency5, devx-track-python
 ms.topic: reference
@@ -18,6 +18,18 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://learn.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## 2024-04-29
+### Azure Machine Learning SDK for Python v1.56.0
+  + **azureml-core**
+    + Enable Application Insights re-mapping for new region China East 3, since it doesn't support classic resource mode. Also fixed the missing update for China North 3. 
+  + **azureml-defaults**
+    + Bumped azureml-inference-server-http pin to 1.0.0 in azureml-defaults.
+  + **azureml-interpret**
+    + updated azureml-interpret package to interpret-community 0.31.*
+  + **azureml-responsibleai**
+    + updated common environment and azureml-responsibleai package to raiwidgets and responsibleai 0.33.0
+    + Increase responsibleai and fairlearn dependency versions
 
 ## 2024-01-29
 ### Azure Machine Learning SDK for Python v1.55.0
@@ -2393,7 +2405,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
 ### Azure Machine Learning SDK for Python v1.0.72
 
 + **New features**
-  + Added dataset monitors through the [**azureml-datadrift**](/python/api/azureml-datadrift) package, allowing for monitoring time series datasets for data drift or other statistical changes over time. Alerts and events can be triggered if drift is detected or other conditions on the data are met. See [our documentation](how-to-monitor-datasets.md) for details.
+  + Added dataset monitors through the [**azureml-datadrift**](/python/api/azureml-datadrift/azureml.datadrift) package, allowing for monitoring time series datasets for data drift or other statistical changes over time. Alerts and events can be triggered if drift is detected or other conditions on the data are met. See [our documentation](how-to-monitor-datasets.md) for details.
   + Announcing two new editions (also referred to as a SKU interchangeably) in Azure Machine Learning. With this release, you can now create either a Basic or Enterprise Azure Machine Learning workspace. All existing workspaces are defaulted to the Basic edition, and you can go to the Azure portal or to the studio to upgrade the workspace anytime. You can create either a Basic or Enterprise workspace from the Azure portal. Read [our documentation](./how-to-manage-workspace.md) to learn more. From the SDK, the edition of your workspace can be determined using the "sku" property of your workspace object.
   + We have also made enhancements to Azure Machine Learning Compute - you can now view metrics for your clusters (like total nodes, running nodes, total core quota) in Azure Monitor, besides viewing Diagnostic logs for debugging. In addition, you can also view currently running or queued runs on your cluster and details such as the IPs of the various nodes on your cluster. You can view these either in the portal or by using corresponding functions in the SDK or CLI.
 
@@ -2449,7 +2461,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + fixed the release channel for the notebook
     + Added a warning for non-AmlCompute compute target that we don't support
     + Added LightGMB Estimator to azureml-contrib-gbdt package
-  + [**azureml-core**](/python/api/azureml-core)
+  + [**azureml-core**](/python/api/azureml-core/azureml.core)
     + CLI now supports model packaging.
     + Add deprecation warning for deprecated Dataset APIs. See Dataset API change notice at https://aka.ms/tabular-dataset.
     + Change [`Dataset.get_by_id`](/python/api/azureml-core/azureml.core.dataset%28class%29#get-by-id-workspace--id-) to return registration name and version if the dataset is registered.
@@ -2462,7 +2474,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Added new datastore for Azure Database for MySQL. Added example for using Azure Database for MySQL in DataTransferStep in Azure Machine Learning Pipelines.
     + Added functionality to add and remove tags from experiments Added functionality to remove tags from runs
     + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
-  + [**azureml-datadrift**](/python/api/azureml-datadrift)
+  + [**azureml-datadrift**](/python/api/azureml-datadrift/azureml.datadrift)
     + Moved from `azureml-contrib-datadrift` into `azureml-datadrift`
     + Added support for monitoring time series datasets for drift and other statistical measures
     + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) class. The `create()` method is deprecated.
@@ -2470,9 +2482,9 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors.
     + Various bug fixes
-  + [**azureml-pipeline-core**](/python/api/azureml-pipeline-core)
+  + [**azureml-pipeline-core**](/python/api/azureml-pipeline-core/azureml.pipeline.core)
     + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
-  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/)
+  + [**azureml-train-automl**](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime)
     + Add azureml-defaults to auto generated conda env to solve the model deployment failure
     + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
   + **azureml-train-core**
@@ -2516,7 +2528,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + **azureml-core**
     + Added API to unregister datasets. `dataset.unregister_all_versions()`
     + azureml-contrib-explain-model package has been renamed to azureml-contrib-interpret.
-  + **[azureml-core](/python/api/azureml-core)**
+  + **[azureml-core](/python/api/azureml-core/azureml.core)**
     + Added API to unregister datasets. dataset.[unregister_all_versions()](/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--).
     + Added Dataset API to check data changed time. `dataset.data_changed_time`.
     + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in Azure Machine Learning Pipeline
@@ -2568,7 +2580,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + Support using environment for model deployment, and service update.
-  + **[azureml-datadrift](/python/api/azureml-datadrift)**
+  + **[azureml-datadrift](/python/api/azureml-datadrift/azureml.datadrift)**
     + The show attribute of [DataDriftDetector](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class don't support optional argument 'with_details' anymore. The show attribute only presents data drift coefficient and data drift contribution of feature columns.
     + DataDriftDetector function [get_output]python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
@@ -2578,11 +2590,11 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Support retrieving Dataset-based Data Drift outputs.
   + **azureml-explain-model**
     + Add support for [ScoringExplainer](/python/api/azureml-interpret/azureml.interpret.scoring.scoring_explainer.scoringexplainer) to be created directly using MimicWrapper
-  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
+  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core/azureml.pipeline.core)**
     + Improved performance for large Pipeline creation.
-  + **[azureml-train-core](/python/api/azureml-train-core)**
+  + **[azureml-train-core](/python/api/azureml-automl-core/azureml.automl.core)**
     + Added TensorFlow 2.0 support in [TensorFlow](/python/api/azureml-train-core/azureml.train.dnn.tensorflow) Estimator.
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime)**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
     + Added local-docker and local-conda support for AutoML experiments.
@@ -2606,12 +2618,12 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Added curated environments. These environments have been preconfigured with libraries for common machine learning tasks, and have been prebuild and cached as Docker images for faster execution. They appear by default in [Workspace](/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
 
   + **azureml-train-automl**
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime)**
     + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**
   + **azureml-train-automl**
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime)**
     + Supported BERT and BiLSTM as text featurizer (preview only)
     + Supported featurization customization for column purpose and transformer parameters (preview only)
     + Supported raw explanations when user enables model explanation during training (preview only)
@@ -2663,12 +2675,12 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
   + **azureml-train-automl**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
     + Added deprecation message for explain_model() and retrieve_model_explanations()
-  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core)**
+  + **[azureml-pipeline-core](/python/api/azureml-pipeline-core/azureml.pipeline.core)**
     + Added a [notebook](https://aka.ms/pl-modulestep) to describe [Module](/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion, and [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
-  + **[azureml-pipeline-steps](/python/api/azureml-pipeline-steps)**
+  + **[azureml-pipeline-steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps)**
     + Added [RScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) to support R script run via AML pipeline.
     + Fixed metadata parameters parsing in [AzureBatchStep that was causing the error message "assignment for parameter SubscriptionId is not specified".
-  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
+  + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/azureml.train.automl.runtime)**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format.
     + Added deprecation message for explain_model() and retrieve_model_explanations().
 

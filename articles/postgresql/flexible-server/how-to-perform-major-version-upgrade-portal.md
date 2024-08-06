@@ -1,17 +1,18 @@
 ---
 title: Major version upgrade - Azure portal
 description: This article describes how to perform a major version upgrade in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
-ms.author: kabharati
 author: rajsell
-ms.service: postgresql
+ms.author: kabharati
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 01/23/2024
 ---
 
 # Major version upgrade of Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 This article provides a step-by-step procedure to perform a major version upgrade in an Azure Database for PostgreSQL flexible server instance using Azure portal
 

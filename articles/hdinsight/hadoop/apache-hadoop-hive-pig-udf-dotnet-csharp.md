@@ -1,10 +1,10 @@
 ---
 title: C#, Apache Hive & Apache Pig on Apache Hadoop - Azure HDInsight
 description: Learn how to use C# user-defined functions (UDF) with Apache Hive and Apache Pig streaming in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Use C# user-defined functions with Apache Hive and Apache Pig on Apache Hadoop in HDInsight
@@ -14,7 +14,7 @@ Learn how to use C# user-defined functions (UDF) with [Apache Hive](https://hive
 > [!IMPORTANT]
 > The steps in this document work with Linux-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight component versioning](../hdinsight-component-versioning.md).
 
-Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When using a .NET application, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
+Both Hive and Pig can pass data to external applications for processing. This process is known as _streaming_. When you use a .NET application, the data is passed to the application on STDIN, and the application returns the results on STDOUT. To read and write from STDIN and STDOUT, you can use `Console.ReadLine()` and `Console.WriteLine()` from a console application.
 
 ## Prerequisites
 
@@ -178,7 +178,7 @@ Next, upload the Hive and Pig UDF applications to storage on a HDInsight cluster
 
         :::image type="content" source="./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for new project." border="true":::
 
-        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *HiveCSharp* project, and then choose the *HiveCSharp.exe* file. Finally, select **Open** and then **OK** to complete the upload.
+        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the `bin\debug` folder for the *HiveCSharp* project, and then choose the *HiveCSharp.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 
     * If you're using **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, choose the *HiveCSharp.exe* file and select **Open**.
 
@@ -249,7 +249,7 @@ You can also run a Pig job that uses your Pig UDF application.
     > [!NOTE]
     > The application name that is used for streaming must be surrounded by the `` ` `` (backtick) character when aliased, and by the `'` (single quote) character when used with `SHIP`.
 
-4. After entering the last line, the job should start. It returns output similar to the following text:
+4. Once you enter the last line, the job should start. It returns output similar to the following text:
 
     ```output
     (2019-07-15 16:43:25 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)

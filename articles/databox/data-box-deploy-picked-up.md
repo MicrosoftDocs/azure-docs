@@ -8,7 +8,7 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 01/23/2023
+ms.date: 07/16/2024
 ms.author: shaas
 zone_pivot_groups: data-box-shipping
 

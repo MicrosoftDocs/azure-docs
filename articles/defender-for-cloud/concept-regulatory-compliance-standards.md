@@ -1,6 +1,6 @@
 ---
 title: Regulatory compliance in Defender for Cloud
-description: Learn about regulatory compliance standards and certification in Microsoft Defender for Cloud, and how it helps ensure compliance with industry regulations.
+description: Learn about regulatory compliance in Microsoft Defender for Cloud, and how it helps ensure compliance with industry, regional, and global standards.
 author: dcurwin
 ms.author: dacurwin
 ms.topic: concept-article
@@ -64,28 +64,28 @@ By default, when you enable Defender for Cloud, the following standards are enab
 - For **AWS**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and [AWS Foundational Security Best Practices standard](https://docs.aws.amazon.com/securityhub/latest/userguide/fsbp-standard.html).
 - For **GCP**: [Microsoft Cloud Security Benchmark (MCSB)](concept-regulatory-compliance.md) and **GCP Default**.
 
-## Available regulatory standards
+## Available compliance standards
 
-The following regulatory standards are available in Defender for Cloud:
+The following standards are available in Defender for Cloud:
 
 | Standards for Azure subscriptions | Standards for AWS accounts | Standards for GCP projects |
 |--|--|--|
 | Australian Government ISM Protected | AWS Foundational Security Best Practices | Brazilian General Personal Data Protection Law (LGPD)|
 | Canada Federal PBMM | AWS Well-Architected Framework | California Consumer Privacy Act (CCPA)|
 | CIS Azure Foundations | Brazilian General Personal Data Protection Law (LGPD) | CIS Controls|
-| CMMC | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
-| FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Cloud Platform Foundation Benchmark|
-| HIPAA/HITRUST | CRI Profile | CIS Google Kubernetes Engine (GKE) Benchmark|
-| ISO/IEC 27001 | CSA Cloud Controls Matrix (CCM) | CRI Profile|
-| New Zealand ISM Restricted | GDPR | CSA Cloud Controls Matrix (CCM)|
-| NIST SP 800-171 | ISO/IEC 27001 | Cybersecurity Maturity Model Certification (CMMC)|
-| NIST SP 800-53 | ISO/IEC 27002 | FFIEC Cybersecurity Assessment Tool (CAT)|
-| PCI DSS | NIST Cybersecurity Framework (CSF) | GDPR|
-| RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27001|
-| SOC 2 | PCI DSS | ISO/IEC 27002|
-| SWIFT CSP CSCF | | ISO/IEC 27017|
-| UK OFFICIAL and UK NHS | | NIST Cybersecurity Framework (CSF)|
-| | | NIST SP 800-53 |
+| CIS Azure Kubernetes Service (AKS Benchmark) | California Consumer Privacy Act (CCPA) | CIS GCP Foundations|
+| CMMC |CIS Amazon Elastic Kubernetes Service (EKS) Benchmark| CIS Google Cloud Platform Foundation Benchmark|
+| FedRAMP ‘H’ & ‘M’ | CIS AWS Foundations | CIS Google Kubernetes Engine (GKE) Benchmark|
+| HIPAA/HITRUST | CRI Profile | CRI Profile|
+| ISO/IEC 27001 | CSA Cloud Controls Matrix (CCM) | CSA Cloud Controls Matrix (CCM)|
+| New Zealand ISM Restricted | GDPR | Cybersecurity Maturity Model Certification (CMMC)|
+| NIST SP 800-171 | ISO/IEC 27001 | FFIEC Cybersecurity Assessment Tool (CAT)|
+| NIST SP 800-53 | ISO/IEC 27002 | GDPR|
+| PCI DSS | NIST Cybersecurity Framework (CSF) | ISO/IEC 27001|
+| RMIT Malaysia | NIST SP 800-172 | ISO/IEC 27002|
+| SOC 2 | PCI DSS | ISO/IEC 27017|
+| SWIFT CSP CSCF | | NIST Cybersecurity Framework (CSF)|
+| UK OFFICIAL and UK NHS | | NIST SP 800-53 |
 | | | NIST SP 800-171|
 | | | NIST SP 800-172|
 | | | PCI DSS|
@@ -94,4 +94,5 @@ The following regulatory standards are available in Defender for Cloud:
 
 ## Related content
 
-- [Assign regulatory compliance standards](update-regulatory-compliance-packages.md)
+- [Assign regulatory compliance standards](update-regulatory-compliance-packages.yml)
+- [Improve regulatory compliance](regulatory-compliance-dashboard.md)

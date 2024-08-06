@@ -1,28 +1,29 @@
 ---
-title: Use Azure Container Storage Preview with Azure Elastic SAN
-description: Configure Azure Container Storage for use with Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
+title: Use Azure Container Storage with Azure Elastic SAN (preview)
+description: As a preview, you can configure Azure Container Storage to use Azure Elastic SAN. Create a storage pool, select a storage class, create a persistent volume claim, and attach the persistent volume to a pod.
 author: khdownie
 ms.service: azure-container-storage
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 07/23/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
 
-# Use Azure Container Storage Preview with Azure Elastic SAN
+# Use Azure Container Storage with Azure Elastic SAN (preview)
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. This article shows you how to configure Azure Container Storage to use Azure Elastic SAN as back-end storage for your Kubernetes workloads. At the end, you'll have a pod that's using Elastic SAN as its storage.
+[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Azure Elastic SAN is a fully integrated solution that simplifies deploying, scaling, managing, and configuring a SAN, while also offering built-in cloud capabilities like high availability.
+
+As a preview feature, you can configure Azure Container Storage to use Azure Elastic SAN. This article covers how to make that configuration. At the end of this article, you'll have a pod that's using Elastic SAN as its storage.
 
 ## Prerequisites
 
 [!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
 
-- If you haven't already installed Azure Container Storage, follow the instructions in [Install Azure Container Storage](container-storage-aks-quickstart.md).
 
-- Ensure your subscription has [Azure role-based access control (Azure RBAC) Owner](../../role-based-access-control/built-in-roles/general.md#owner) role. For Azure Container Storage to successfully communicate with Elastic SAN's API, it needs special permissions that the Owner role will grant.
+- Ensure you have either an [Azure Container Storage Owner](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-owner) role or [Azure Container Storage Contributor](../../role-based-access-control/built-in-roles/containers.md#azure-container-storage-contributor) role on your subscription. Either of these roles grant permissions that allow Azure Container Storage to communicate with the Elastic SAN resource. To make this change, go to your subscription page on the Azure portal. Select **Access control (IAM) > Add role assignment** and search for either "Azure Container Storage Owner" or "Azure Container Storage Contributor" in the **Job function roles** tab. Select **View > Assignments > Add assignment** and add your account.
 
 > [!NOTE]
-> To use Azure Container Storage with Azure Elastic SAN, your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+> To use Azure Container Storage with Azure Elastic SAN (preview), your AKS cluster should have a node pool of at least three [general purpose VMs](../../virtual-machines/sizes-general.md) such as **standard_d4s_v5** for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
 
 ## Limitations
 
@@ -35,13 +36,17 @@ The following features aren't currently supported when you use Azure Container S
 
 [!INCLUDE [container-storage-regions](../../../includes/container-storage-regions.md)]
 
-## Create a storage pool
+## Create and attach persistent volumes
+
+Follow these steps to create and attach a persistent volume.
+
+### 1. Create a storage pool
 
 First, create a storage pool, which is a logical grouping of storage for your Kubernetes cluster, by defining it in a YAML manifest file.
 
-If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#display-the-available-storage-classes).
+If you enabled Azure Container Storage using `az aks create` or `az aks update` commands, you might already have a storage pool. Use `kubectl get sp -n acstor` to get the list of storage pools. If you have a storage pool already available that you want to use, you can skip this section and proceed to [Display the available storage classes](#2-display-the-available-storage-classes).
 
-Follow these steps to create a storage pool with Azure Elastic SAN.
+Follow these steps to create a storage pool with Azure Elastic SAN (preview).
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-storagepool.yaml`.
 
@@ -80,25 +85,7 @@ Follow these steps to create a storage pool with Azure Elastic SAN.
 
 When the storage pool is created, Azure Container Storage will create a storage class on your behalf using the naming convention `acstor-<storage-pool-name>`. It will also create an Azure Elastic SAN resource.
 
-## Assign Contributor role to AKS managed identity on Azure Elastic SAN subscription
-
-Next, you must assign the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) Azure RBAC built-in role to the AKS managed identity on your Azure Elastic SAN subscription. You'll need an [Owner](../../role-based-access-control/built-in-roles.md#owner) role for your Azure subscription in order to do this. If you don't have sufficient permissions, ask your admin to perform these steps.
-
-1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
-1. Select **Subscriptions**, and locate and select the subscription associated with the Azure Elastic SAN resource that Azure Container Storage created on your behalf. This will likely be the same subscription as the AKS cluster that Azure Container Storage is installed on. You can verify this by locating the Elastic SAN resource in the resource group that AKS created (`MC_YourResourceGroup_YourAKSClusterName_Region`).
-1. Select **Access control (IAM)** from the left pane.
-1. Select **Add > Add role assignment**.
-1. Under **Assignment type**, select **Privileged administrator roles** and then **Contributor**, then select **Next**. If you don't have an Owner role on the subscription, you won't be able to add the Contributor role.
-   
-   :::image type="content" source="media/install-container-storage-aks/add-role-assignment.png" alt-text="Screenshot showing how to use the Azure portal to add Contributor role to the AKS managed identity." lightbox="media/install-container-storage-aks/add-role-assignment.png":::
-   
-1. Under **Assign access to**, select **Managed identity**.
-1. Under **Members**, click **+ Select members**. The **Select managed identities** menu will appear.
-1. Under **Managed identity**, select **User-assigned managed identity**.
-1. Under **Select**, search for and select the managed identity with your cluster name and `-agentpool` appended.
-1. Click **Select**, then **Review + assign**.
-
-## Display the available storage classes
+### 2. Display the available storage classes
 
 When the storage pool is ready to use, you must select a storage class to define how storage is dynamically created when creating persistent volume claims and deploying persistent volumes.
 
@@ -107,9 +94,9 @@ Run `kubectl get sc` to display the available storage classes. You should see a 
 > [!IMPORTANT]
 > Don't use the storage class that's marked **internal**. It's an internal storage class that's needed for Azure Container Storage to work.
 
-## Create a persistent volume claim
+### 3. Create a persistent volume claim
 
-A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class. 
+A persistent volume claim (PVC) is used to automatically provision storage based on a storage class. Follow these steps to create a PVC using the new storage class.
 
 1. Use your favorite text editor to create a YAML manifest file such as `code acstor-pvc.yaml`.
 
@@ -149,7 +136,7 @@ A persistent volume claim (PVC) is used to automatically provision storage based
 
 Once the PVC is created, it's ready for use by a pod.
 
-## Deploy a pod and attach a persistent volume
+### 4. Deploy a pod and attach a persistent volume
 
 Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for benchmarking and workload simulation, and specify a mount path for the persistent volume. For **claimName**, use the **name** value that you used when creating the persistent volume claim.
 
@@ -207,7 +194,11 @@ Create a pod using [Fio](https://github.com/axboe/fio) (Flexible I/O Tester) for
 
 You've now deployed a pod that's using an Elastic SAN as its storage, and you can use it for your Kubernetes workloads.
 
-## Detach and reattach a persistent volume
+## Manage persistent volumes and storage pools
+
+Now that you've created a persistent volume, you can detach and reattach it as needed. You can also delete a storage pool.
+
+### Detach and reattach a persistent volume
 
 To detach a persistent volume, delete the pod that the persistent volume is attached to. Replace `<pod-name>` with the name of the pod, for example **fiopod**.
 
@@ -215,11 +206,11 @@ To detach a persistent volume, delete the pod that the persistent volume is atta
 kubectl delete pods <pod-name>
 ```
 
-To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#deploy-a-pod-and-attach-a-persistent-volume).
+To reattach a persistent volume, simply reference the persistent volume claim name in the YAML manifest file as described in [Deploy a pod and attach a persistent volume](#4-deploy-a-pod-and-attach-a-persistent-volume).
 
 To check which persistent volume a persistent volume claim is bound to, run `kubectl get pvc <persistent-volume-claim-name>`.
 
-## Delete a storage pool
+### Delete a storage pool
 
 If you want to delete a storage pool, run the following command. Replace `<storage-pool-name>` with the storage pool name.
 

@@ -4,7 +4,7 @@ description: Learn how to create alerts to monitor the health of your key vault.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024
@@ -159,9 +159,55 @@ If you followed all of the preceding steps, you'll receive email alerts when you
 > [!div class="mx-imgBorder"]
 > ![Screenshot that highlights the information needed to configure an email alert.](../media/alert-20.png)
 
+
+### Example: Log query alert for near expiry certificates
+
+You can set an alert to notify you about certificates which are about to expire. 
+> [!NOTE]
+> Near expiry events for certificates are logged 30 days before expiration.
+
+1. Go to **Logs** and paste below query in query window
+ 
+   ```json
+   AzureDiagnostics
+   | where OperationName =~ 'CertificateNearExpiryEventGridNotification'
+   | extend CertExpire = unixtime_seconds_todatetime(eventGridEventProperties_data_EXP_d)
+   | extend DaysTillExpire = datetime_diff("Day", CertExpire, now())
+   | project ResourceId, CertName = eventGridEventProperties_subject_s, DaysTillExpire, CertExpire
+
+1. Select **New alert rule**
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows query window with selected new alert rule.](../media/alert-21.png)
+
+1. In **Condition** tab use following configuration:
+    + In **Measurement** set **Aggregation granularity** to **1 day**
+    + In **Split by dimensions** set **Resource ID column** to **ResourceId**. 
+    + Set **CertName** and **DayTillExpire** as dimensions.
+    + In **Alert logic** set **Threshold value** to **0** and **Frequency of evaluation** to **1 day**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot that shows alert condition configuration.](../media/alert-22.png)
+   
+1. In **Actions** tab configure alert to send an email
+    1. Select **create action group** 
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to create action group.](../media/alert-23.png)
+    1. Configure **Create action group** 
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure action group.](../media/alert-24.png)
+    1. Configure **Notifications** to send an email
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification.](../media/alert-25.png)
+    1. Configure **Details** to trigger **Warning** alert
+       > [!div class="mx-imgBorder"]
+       > ![Screenshot that shows how to configure notification details.](../media/alert-26.png)
+    1. Select **Review + create**
+    
 ## Next steps
 
 Use the tools that you set up in this article to actively monitor the health of your key vault:
 
 - [Monitor Key Vault](monitor-key-vault.md)
 - [Monitoring Key Vault data reference](monitor-key-vault-reference.md)
+- [Create a log query alert for an Azure resource](../../azure-monitor//alerts/tutorial-log-alert.md)

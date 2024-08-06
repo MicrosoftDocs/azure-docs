@@ -1,6 +1,6 @@
 ---
-title: Support for the Defender for Servers plan
-description: Review support requirements for the Defender for Servers plan in Defender for Cloud and learn how to configure and manage the Defender for Servers features.
+title: Support for the Defender for Servers plan in Microsoft Defender for Cloud
+description: Review support requirements for the "Defender for Servers" plan in Microsoft Defender for Cloud.
 ms.topic: limits-and-quotas
 ms.custom: linux-related-content
 author: dcurwin
@@ -45,13 +45,13 @@ This table summarizes Azure cloud support for Defender for Servers features.
 | [VM vulnerability scanning-agentless](concept-agentless-data-collection.md) | GA | NA | NA |
 | [VM vulnerability scanning - Microsoft Defender for Endpoint sensor](deploy-vulnerability-assessment-defender-vulnerability-management.md) | GA | NA | NA |
 | [VM vulnerability scanning - Qualys](deploy-vulnerability-assessment-vm.md) | GA | NA | NA |
-| [Just-in-time VM access](./just-in-time-access-usage.md) | GA | GA | GA |
+| [Just-in-time VM access](./just-in-time-access-usage.yml) | GA | GA | GA |
 | [File integrity monitoring](./file-integrity-monitoring-overview.md)  | GA | GA | GA |
 | [Adaptive application controls](./adaptive-application-controls.md)  | GA | GA | GA |
 | [Adaptive network hardening](./adaptive-network-hardening.md) | GA | NA | NA |
 | [Docker host hardening](./harden-docker-hosts.md)  | GA | GA | GA |
-| [Agentless secret scanning](secret-scanning.md) | GA | NA | NA |
-| [Agentless malware scanning](agentless-malware-scanning.md) | Preview | NA | NA | 
+| [Agentless secret scanning](secrets-scanning.md) | GA | NA | NA |
+| [Agentless malware scanning](agentless-malware-scanning.md) | Preview | NA | NA |
 | [Endpoint detection and response](endpoint-detection-response.md) | Preview | NA | NA |
 
 ## Windows machine support
@@ -62,9 +62,9 @@ The following table shows feature support for Windows machines in Azure, Azure A
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔</br> Available on: Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows 10/11 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops)<br>Not available on: Azure VMs running Windows 10 or Windows 11 (except if running Windows 10/11 Enterprise multi-session) | ✔ | Yes |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ | Yes |
-| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ | Yes |
+| [Fileless security alerts](alerts-windows-machines.md) | ✔ | ✔ | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
@@ -86,10 +86,10 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | **Feature** | **Azure VMs**<br/> **[VM Scale Sets (Flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration)** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |--|:-:|:-:|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ <br> ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux)) | ✔ | Yes |
-| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br>(on supported versions) | ✔ | Yes |
-| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | - | - | Yes |
+| [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md) | ✔</br> Supported versions | ✔ | Yes |
+| [Fileless security alerts](alerts-windows-machines.md) | - | - | Yes |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | ✔ | - | Yes |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - | Yes |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - | Yes |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ | Yes |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ | Yes |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ | Yes |
@@ -100,7 +100,7 @@ The following table shows feature support for Linux machines in Azure, Azure Arc
 | Missing OS patches assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
 | Security misconfigurations assessment | ✔ | ✔ | Azure: No<br><br>Azure Arc-enabled: Yes |
 | [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds-servers.md#supported-endpoint-protection-solutions) | - | - | No |
-| Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) | - | No |
+| Disk encryption assessment | ✔</br> [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md)) | - | No |
 | Third-party vulnerability assessment (BYOL) | ✔ | - | No |
 | [Network security assessment](protect-network-resources.md) | ✔ | - | No |
 
@@ -112,9 +112,9 @@ The following table shows feature support for AWS and GCP machines.
 |--|:-:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
-| [Fileless security alerts](alerts-reference.md#alerts-for-windows-machines) | ✔ | ✔ |
+| [Fileless security alerts](alerts-windows-machines.md) | ✔ | ✔ |
 | [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
-| [Just-in-time VM access](just-in-time-access-usage.md) | ✔ | - |
+| [Just-in-time VM access](just-in-time-access-usage.yml) | ✔ | - |
 | [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |
 | [File Integrity Monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
 | [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ |
@@ -129,7 +129,7 @@ The following table shows feature support for AWS and GCP machines.
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
 | [Cloud security explorer](how-to-manage-cloud-security-explorer.md) | ✔ | - |
-| [Agentless secret scanning](secret-scanning.md) | ✔ | ✔ |
+| [Agentless secret scanning](secrets-scanning.md) | ✔ | ✔ |
 | [Agentless malware scanning](agentless-malware-scanning.md) | ✔ | ✔ |
 | [Endpoint detection and response](endpoint-detection-response.md) | ✔ | ✔ |
 

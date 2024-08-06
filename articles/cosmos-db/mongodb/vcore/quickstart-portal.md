@@ -6,15 +6,15 @@ description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore 
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
-ms.date: 08/28/2023
+ms.date: 06/20/2024
 ---
 
 # Quickstart: Create an Azure Cosmos DB for MongoDB vCore cluster by using the Azure portal
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
 In this quickstart, you create a new Azure Cosmos DB for MongoDB vCore cluster. This cluster contains all of your MongoDB resources: databases, collections, and documents. The cluster provides a unique endpoint for various tools and SDKs to connect to Azure Cosmos DB and perform everyday operations.
 
@@ -55,32 +55,38 @@ Create a MongoDB cluster by using Azure Cosmos DB for MongoDB vCore.
     | **Cluster tier** | M30 Tier, 2 vCores, 8-GiB RAM |
     | **Storage per shard** | 128 GiB |
 
-1. Leave the **High availability** option unselected. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
+1. Unselect **High availability** option. In the high availability (HA) acknowledgment section, select **I understand**. Finally, select **Save** to persist your changes to the cluster tier.
 
     :::image type="content" source="media/quickstart-portal/configure-scale.png" alt-text="Screenshot of cluster tier and scale options for a cluster.":::
+    
+    You can always turn HA on after cluster creation for another layer of protection from failures.
 
 1. Back on the cluster page, enter the following information:
 
     | Setting | Value | Description |
     | --- | --- | --- |
     | Subscription | Subscription name | Select the Azure subscription that you wish to use for this Azure Cosmos DB for MongoDB cluster. |
-    | Resource Group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
-    | cluster Name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *documents.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3-44 characters in length. |
+    | Resource group | Resource group name | Select a resource group, or select **Create new**, then enter a unique name for the new resource group. |
+    | Cluster name | A unique name | Enter a name to identify your Azure Cosmos DB for MongoDB cluster. The name is used as part of a fully qualified domain name (FQDN) with a suffix of *mongocluster.cosmos.azure.com*, so the name must be globally unique. The name can only contain lowercase letters, numbers, and the hyphen (-) character. The name must also be between 3 and 40 characters in length. |
     | Location | The region closest to your users | Select a geographic location to host your Azure Cosmos DB for MongoDB cluster. Use the location that is closest to your users to give them the fastest access to the data. |
-    | MongoDB version | Version of MongoDB to run in your cluster |  This value is set to a default of **5.0** |
+    | MongoDB version | Version of MongoDB to run in your cluster |  This value is set to a default of the latest available MongoDB version. |
     | Admin username | Provide a username to access the cluster | This user is created on the cluster as a user administrator. |
     | Password | Use a unique password to pair with the username | Password must be at least eight characters and at most 128 characters. |
 
     :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of various configuration options for a cluster.":::
 
+1. Leave **Access to global distribution (preview)** and **Free tier** unselected.
+
+1. Select **Next: Global distribution (preview)**.
+
 1. Select **Next: Networking**.
 
-1. In the **Networking** section, select **Allow public access from Azure services**. Additionally, add a firewall rule to give your client device or applications access to the cluster.
+1. In the **Firewall rules** section on the **Networking** tab, select **Allow public access from Azure services and resources within Azure to this cluster**. Additionally, add a firewall rule to give your client device or applications access to the cluster.
 
-    :::image type="content" source="media/quickstart-portal/configure-cluster.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
+    :::image type="content" source="media/quickstart-portal/networking-settings-at-provisioning.png" alt-text="Screenshot of networking and firewall options for a cluster.":::
 
     > [!NOTE]
-    > In many corporate environments, developer machine IPs are hidden due to a VPN. In these cases, it's recommended to start with allowing access to all IPs for connection testing initially before refining the allow-list.
+    > In many corporate environments, developer machine IP addresses are hidden due to a VPN or other corporate network settings. In these cases, it's recommended to start with allowing access to all IP addresses by adding the 0.0.0.0 - 255.255.255.255 firewall rule for connection testing initially before refining the allow-list.
 
 1. Select **Review + create**.
 
@@ -96,14 +102,12 @@ Get the connection string you need to connect to this cluster using your applica
 
 1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Connection strings** navigation menu option.
 
-   :::image type="content" source="media/quickstart-portal/select-connection-strings-option.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
+   :::image type="content" source="media/quickstart-portal/cluster-connection-string.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
 
-1. Record the value from the **Connection string** field.
-
-   :::image type="content" source="media/quickstart-portal/connection-string-value.png" alt-text="Screenshot of the connection string credential for a cluster.":::
+1. Copy or record the value from the **Connection string** field.
 
     > [!IMPORTANT]
-    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you used when you originally created the cluster.
+    > The connection string in the portal does not include the username and password values. You must replace the `<user>` and `<password>` placeholders with the credentials you entered when you created the cluster.
 
 ## Clean up resources
 

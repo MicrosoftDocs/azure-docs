@@ -5,7 +5,7 @@ description: Computed properties in Azure Cosmos DB for NoSQL simplify complex q
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql
@@ -13,7 +13,7 @@ ms.date: 02/27/2024
 ms.custom: query-reference
 ---
 
-# Computed properties in Azure Cosmos DB for NoSQL (preview)
+# Computed properties in Azure Cosmos DB for NoSQL
 
 [!INCLUDE[NoSQL](../../includes/appliesto-nosql.md)]
 
@@ -73,7 +73,7 @@ The limitations on computed property query definitions are:
 
 ## Create computed properties
 
-During the preview, computed properties must be created using the .NET v3 or Java v4 SDK. After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
+After the computed properties are created, you can execute queries that reference the properties by using any method, including all SDKs and Azure Data Explorer in the Azure portal.
 
 | | Supported version | Notes |
 | --- | --- | --- |
@@ -108,10 +108,36 @@ Container container = await client.GetDatabase("myDatabase").CreateContainerAsyn
 ### [Java](#tab/java)
 
 ```java
-CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/pk");
-List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new ComputedProperty("cp_lowerName", "SELECT VALUE LOWER(c.name) FROM c")));
-containerProperties.setComputedProperties(computedProperties);
-client.getDatabase("myDatabase").createContainer(containerProperties);
+ const { resource: contDefinition } = await containerWithComputedProperty.read();
+  const upperName = {
+    name: "upperLastName",
+    query:
+      "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+  };
+  if (contDefinition) {
+    // update computed properties
+    contDefinition.computedProperties = [upperName];
+    // replace container definition with updated computed properties
+    await containerWithComputedProperty.replace(contDefinition);
+    console.log("Computed properties updated");
+  } else {
+    console.log("Container definition is undefined.");
+  }
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const lowerName = {
+    name: "lowerLastName",
+    query:
+      "SELECT VALUE LOWER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+};
+
+const { container: containerWithComputedProperty } = await database.containers.createIfNotExists({
+  id: containerId,
+  computedProperties: [lowerName],
+});
 ```
 
 ### [Python](#tab/python)
@@ -175,6 +201,20 @@ modifiedComputedProperites.add(new ComputedProperty("cp_upperName", "SELECT VALU
 containerProperties.setComputedProperties(modifiedComputedProperites);
 // Update the container with changes
 container.replace(containerProperties);
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const { resource: contDefinition } = await containerWithComputedProperty.read();
+const upperName = {
+name: "upperLastName", query: "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+};
+if (contDefinition) {
+// update computed properties contDefinition.computedProperties = [upperName]; // replace container definition with updated computed properties await containerWithComputedProperty.replace(contDefinition); console.log("Computed properties updated");
+} else {
+console.log("Container definition is undefined.");
+}
 ```
 
 ### [Python](#tab/python)
@@ -397,7 +437,7 @@ To add a composite index on two properties in which, one is computed as `cp_myCo
 
 ## Understand request unit consumption
 
-Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. While in preview, RU charges that are related to computed properties are subject to change.
+Adding computed properties to a container doesn't consume RUs. Write operations on containers that have computed properties defined might have a slight RU increase. If a computed property is indexed, RUs on write operations increase to reflect the costs for indexing and evaluation of the computed property. 
 
 ## Related content
 

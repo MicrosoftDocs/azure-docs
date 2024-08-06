@@ -1,94 +1,68 @@
 ---
-title: 'How to debug pipeline performance issues'
+title: Debug pipeline performance issues
 titleSuffix: Azure Machine Learning
-description: How to debug pipeline performance issues by using profile feature
-ms.reviewer: lagayhar
-author: zhanxia
-ms.author: zhanxia
+description: Learn how to debug pipeline performance issues by using the profile feature in Azure Machine Learning studio.
+ms.reviewer: None
+author: lgayhardt
+ms.author: lagayhar
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 05/27/2023
+ms.date: 05/24/2024
 ms.custom: designer, pipeline UI
 ---
-# View profiling to debug pipeline performance issues (preview)
+# Use profiling to debug pipeline performance issues
 
-Profiling (preview) feature can help you debug pipeline performance issues such as hang, long pole etc. Profiling will list the duration information of each step in a pipeline and provide a Gantt chart for visualization.
+The profiling feature in Azure Machine Learning studio can help you debug pipeline performance issues such as hanging or long durations. Profiling lists the duration of each pipeline step and provides a Gantt chart for visualization. You can see the time spent on each job status and quickly find steps that take longer than expected.
 
-Profiling enables you to:
+## Find the node that runs the longest overall
 
-- Quickly find which node takes longer time than expected.
-- Identify the time spent of job on each status
+1. On the **Jobs** page of Azure Machine Learning studio, select the job name to open the job detail page.
+1. In the action bar, select **View profiling**. Profiling works only for root pipelines. The profiler page can take a few minutes to load.
 
-To enable this feature:
+   :::image type="content" source="./media/how-to-debug-pipeline-performance/view-profiling-detail.png" alt-text="Screenshot showing the pipeline at root level with the View profiling button highlighted." lightbox= "./media/how-to-debug-pipeline-performance/view-profiling.png":::
 
-1. Navigate to Azure Machine Learning studio UI.
-2. Select **Manage preview features** (megaphone icon) among the icons on the top right side of the screen.
-3. In **Managed preview feature** panel, toggle on **View profiling to debug pipeline performance issues** feature.
+To identify the step that takes the longest, view the Gantt chart at the top of the profiler page. The length of each bar in the Gantt chart shows how long the step takes. The step with the longest bar length took the most time.
 
-## How to find the node that runs totally the longest
+:::image type="content" source="./media/how-to-debug-pipeline-performance/critical-path.png" alt-text="Screenshot showing the Gantt chart and the critical path." lightbox= "./media/how-to-debug-pipeline-performance/critical-path.png":::
 
-1. On the Jobs page, select the job name and enter the job detail page.
-1. In the action bar, select **View profiling**. Profiling only works for root level pipeline. It will take a few minutes to load the next page.
+The Gantt chart has the following views:
 
-    :::image type="content" source="./media/how-to-debug-pipeline-performance/view-profiling.png" alt-text="Screenshot showing the pipeline at root level with the view profiling button highlighted." lightbox= "./media/how-to-debug-pipeline-performance/view-profiling.png":::
+- **Critical path** is the sequence of steps that determine the job's total duration. This view is shown by default. Only step jobs that have a dependency appear in a pipeline's critical path.
+- **Flatten view** shows all step jobs, and shows more nodes than critical path.
+- **Compact view** shows only step jobs that took longer than 30 seconds.
+- **Hierarchical view** shows all jobs, including pipeline component jobs and step jobs.
 
-1. After the profiler loads, you'll see a Gantt chart. By Default the critical path of a pipeline is shown. A critical path is a subsequence of steps that determine a pipeline job's total duration.
+You can also determine durations by using the table at the bottom of the profiler page. When you select a row in the table, it highlights the corresponding node in the Gantt chart, and vice versa.
 
-    :::image type="content" source="./media/how-to-debug-pipeline-performance/critical-path.png" alt-text="Screenshot showing the Gantt chart and the critical path." lightbox= "./media/how-to-debug-pipeline-performance/critical-path.png":::
+- In the table, you can sort by the **Total duration** column to find the longest-running nodes.
+- Select the **View details** icon next to a node name in the table to open the node detail pane, which shows parameters, inputs and outputs, command code, logs, and other information.
 
-1. To find the step that takes the longest, you can either view the Gantt chart or the table below it.
+  :::image type="content" source="./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page." lightbox= "./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png":::
 
-    In the Gantt chart, the length of each bar shows how long the step takes, steps with a longer bar length take more time. You can also filter the table below by "total duration". When you select a row in the table, it shows you the node in the Gantt chart too. When you select a bar on the Gantt chart it will also highlight it in the table.
+- To export the duration table, select **Export CSV** at upper right on the profiler page.
 
-    In the table, reuse is denoted with the recycling icon.
+  :::image type="content" source="./media/how-to-debug-pipeline-performance/export-csv.png" alt-text="Screenshot showing Export CSV in profiling." lightbox= "./media/how-to-debug-pipeline-performance/export-csv.png":::
 
-    If you select the log icon next the node name it opens the detail page, which shows parameter, code, outputs, logs etc.
+## Find the node that runs the longest in each status
 
-    :::image type="content" source="./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png" alt-text="Screenshot highlighting the log icon and showing the detail page." lightbox= "./media/how-to-debug-pipeline-performance/detail-page-from-log-icon.png":::
+Besides total duration, you can also sort the duration table by durations for each status. For example, you can sort by the **Preparing** column to see which step spends the most time on image building. You can open the detail pane for that step to see whether image building fails because of timeout issues.
 
-    If you're trying to make the queue time shorter for a node, you can change the compute node number and modify job priority to get more compute resources on this one.
+## Address status duration issues
 
-## How to find the node that runs the longest in each status
+The following table presents the definition of each job status, the estimated time it takes, and suggestions for addressing issues with that status.
 
-Besides the total duration, you can also sort by durations for each status. For example, you can sort by *Preparing* duration to see which step spends the most time on image building. Then you can open the detail page to find that image building fails because of timeout issue.
-
-### What do I do if a duration issue identified
-
-Status and definitions:
-
-| Status | What does it mean? | Time estimation | Next step |
+| Status | Definition | Time estimation | Next steps |
 |------|--------------|-------------|----------|
-| Not started | Job is submitted from client side and accepted in Azure Machine Learning services. Time spent in this stage is mainly in Azure Machine Learning service scheduling and preprocessing. | If there's no backend service issue, this time should be short.| Open support case via Azure portal. |
-|Preparing | In this status, job is pending for some preparation on job dependencies, for example, environment image building.| If you're using curated or registered custom environment, this time should be short. | Check image building log. |
-|Inqueue | Job is pending for compute resource allocation. Time spent in this stage is mainly depending on the status of your compute cluster.| If you're using a cluster with enough compute resource, this time should be short. | Check with workspace admin whether to increase the max nodes of the target compute or change the job to another less busy compute. |
-|Running | Job is executing on remote compute. Time spent in this stage is mainly in two parts: <br> Runtime preparation: image pulling, docker starting and data preparation (mount or download). <br> User script execution. | This status is expected to be most time consuming one.	| 1. Go to the source code check if there's any user error. <br>  2. View the monitoring tab of compute metrics (CPU, memory, networking etc.) to identify the bottleneck. <br> 3. Try online debug with [interactive endpoints](how-to-interactive-jobs.md) if the job is running or locally debug of your code. |
-| Finalizing | Job is in post processing after execution complete. Time spent in this stage is mainly for some post processes like: output uploading, metric/logs uploading and resources clean up.| It will be short for command job. However, might be very long for PRS/MPI job because for a distributed job, the finalizing status is from the first node starting finalizing to the last node done finalizing. | Change your step job output mode from upload to mount if you find unexpected long finalizing time, or open support case via Azure portal. |
+| Not started | The job is submitted from the client and accepted in Azure Machine Learning services. Most time is spent in service scheduling and preprocessing. | If there's no backend service issue, this time should be short.| Open a support case via the Azure portal. |
+|Preparing | In this status, the job is pending for preparation of job dependencies, for example environment image building.| If you're using a curated or registered custom environment, this time should be short. | Check the image building log. |
+|Inqueue | The job is pending for compute resource allocation. Duration of this stage mainly depends on the status of your compute cluster.| If you're using a cluster with enough compute resource, this time should be short. | Increase the max nodes of the target compute, change the job to another less busy compute, or modify job priority to get more compute resources for the job. |
+|Running | The job is executing on the remote compute. This stage consists of: <br> 1. Runtime preparation, such as image pulling, docker starting, and data mounting or download. 2. User script execution. | This status is expected to be the most time consuming. | 1. Check the source code for any user error. <br>  2. View the monitoring tab for compute metrics like CPU, memory, and networking to identify any bottlenecks. <br> 3. If the job is running, try online debug with [interactive endpoints](how-to-interactive-jobs.md), or locally debug your code. |
+| Finalizing | Job is in post-processing after execution completes. Time spent in this stage is mainly for post processes like uploading output, uploading metrics and logs, and cleaning up resources.| Time is expected to be short for command jobs. Duration might be long for polygenic risk score (PRS) or Message Passing Interface (MPI) jobs because for distributed jobs, finalizing lasts from the first node starting to the last node finishing. | Change your step job output mode from upload to mount if you find unexpected long finalizing time, or open a support case via the Azure portal. |
 
-## Different view of Gantt chart
+## Related content
 
-- Critical path
-  - You'll see only the step jobs in the pipeline's critical path (jobs that have a dependency).
-  - By default the critical path of the pipeline job is shown.
-- Flatten view
-  - You'll see all step jobs.
-  - In this view, you'll see more nodes than in critical path.
-- Compact view
-  - You'll only see step jobs that are longer than 30 seconds.
-- Hierarchical view.
-  - You'll see all jobs including pipeline component jobs and step jobs.
-
-## Download the duration table
-
-To export the table, select **Export CSV**.
-
-:::image type="content" source="./media/how-to-debug-pipeline-performance/export-csv.png" alt-text="Screenshot show export csv in profiling." lightbox= "./media/how-to-debug-pipeline-performance/export-csv.png":::
-
-## Next steps
-
-In this article, you learned how to debug pipeline failures. To learn more about how you can use the pipeline, see the following articles:
-
-- [How to build pipeline using python sdk v2](./how-to-create-component-pipeline-python.md)
-- [How to build pipeline using python CLI v2](./how-to-create-component-pipelines-cli.md)
-- [What is machine learning component](./concept-component.md)
+- [Build pipelines with components by using the Python SDK v2](./how-to-create-component-pipeline-python.md)
+- [Build pipelines with components by using the Azure Machine Learning CLI](./how-to-create-component-pipelines-cli.md)
+- [What is an Azure Machine Learning component?](./concept-component.md)

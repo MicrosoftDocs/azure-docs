@@ -4,9 +4,9 @@ description: Learn how to use named values in Azure API Management policies. Nam
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/13/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
@@ -48,6 +48,8 @@ Using key vault secrets is recommended because it helps improve API Management s
 * If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 
 ### Prerequisites for key vault integration
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
  - If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 

@@ -2,7 +2,7 @@
 title: Manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB by creating the last-writer-wins or a custom conflict resolution policy
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 06/11/2020
@@ -515,8 +515,8 @@ Learn about the following Azure Cosmos DB concepts:
 
 - [Global distribution - under the hood](../global-dist-under-the-hood.md)
 - [How to configure multi-region writes in your applications](how-to-multi-master.md)
-- [Configure clients for multihoming](../how-to-manage-database-account.md#configure-multiple-write-regions)
-- [Add or remove regions from your Azure Cosmos DB account](../how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Configure clients for multihoming](../how-to-manage-database-account.yml#configure-multiple-write-regions)
+- [Add or remove regions from your Azure Cosmos DB account](../how-to-manage-database-account.yml#add-remove-regions-from-your-database-account)
 - [How to configuremulti-region writes in your applications](how-to-multi-master.md).
 - [Partitioning and data distribution](../partitioning-overview.md)
 - [Indexing in Azure Cosmos DB](../index-policy.md)

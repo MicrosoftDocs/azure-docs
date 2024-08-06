@@ -1,17 +1,19 @@
 ---
 title: Create and manage with data encrypted by customer managed keys using the Azure CLI
 description: Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys using the Azure CLI.
-author: gennadNY 
+author: gennadNY
 ms.author: gennadyk
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
-ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 01/23/2024
+ms.custom:
+  - devx-track-azurecli
 ---
 # Create and manage  Azure Database for PostgreSQL - Flexible Server with data  encrypted by Customer Managed Keys (CMK) using the Azure CLI
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 > [!NOTE]  
 > CLI examples below are based on 2.45.0 version of Azure Database for PostgreSQL flexible server CLI libraries

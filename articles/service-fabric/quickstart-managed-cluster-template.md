@@ -4,10 +4,10 @@ description: Learn how to create a Service Fabric managed cluster with an Azure 
 ms.topic: quickstart
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
-ms.date: 07/14/2022
+ms.date: 04/23/2024
 ---
 
 # Quickstart: Deploy a Service Fabric managed cluster with an Azure Resource Manager template
@@ -33,6 +33,8 @@ Service Fabric managed clusters use a client certificate as a key for access con
 If you need to create a new client certificate, follow the steps in [set and retrieve a certificate from Azure Key Vault](../key-vault/certificates/quick-create-portal.md).
 
 Take note of the certificate thumbprint as this will be required to deploy the template in the next step.
+
+You can also [use Microsoft Entra ID for access control](how-to-managed-cluster-azure-active-directory-client.md). We recommend this for production scenarios.
 
 ## Deploy the template
 

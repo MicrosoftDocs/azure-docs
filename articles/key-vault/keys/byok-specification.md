@@ -2,9 +2,9 @@
 title: Bring your own key specification - Azure Key Vault | Microsoft Docs
 description: This document described bring your own key specification. 
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: conceptual
 ms.date: 01/30/2024

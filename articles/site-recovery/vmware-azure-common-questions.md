@@ -1,9 +1,9 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 03/07/2024
+ms.date: 04/10/2024
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -172,6 +172,10 @@ For every source disk, data is replicated to a managed disk in Azure. This disk 
 ### Can I exclude disks from replication?
 
 Yes, you can exclude disks.
+
+### Does upgrading kernel firmware on a server protected by Azure Site Recovery for disaster recovery have any impact?
+
+No, it won't have any impact on the ongoing replication because the server is already protected through Azure Site Recovery.
 
 ### Can I replicate VMs that have dynamic disks?
 
@@ -384,6 +388,10 @@ When you fail back from Azure, data from Azure is copied back to your on-premise
 ### Can I use On-demand capacity reservation with VMware(also Physical) to IaaS scenario?
 
 No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
+
+### The application license is based on UUID of VMware virtual machine. Is the UUID of a VMware virtual machine changed when it is failed over to Azure?
+
+Yes, the UUID of the Azure virtual machine is different from the on-prem VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
 
 ## Automation and scripting
 

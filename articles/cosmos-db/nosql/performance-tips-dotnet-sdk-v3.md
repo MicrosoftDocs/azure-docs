@@ -2,7 +2,7 @@
 title: Azure Cosmos DB performance tips for .NET SDK v3
 description: Learn client configuration options to help improve Azure Cosmos DB .NET v3 SDK performance.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 07/12/2023
@@ -20,6 +20,7 @@ ms.custom: devx-track-dotnet
 > * [Java SDK v4](performance-tips-java-sdk-v4.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 Azure Cosmos DB is a fast, flexible distributed database that scales seamlessly with guaranteed latency and throughput levels. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [provision container throughput](how-to-provision-container-throughput.md) or [provision database throughput](how-to-provision-database-throughput.md). 
 
@@ -153,7 +154,7 @@ Middle-tier applications that don't consume responses directly from the SDK but 
 
 Each `CosmosClient` instance is thread-safe and performs efficient connection management and address caching when it operates in Direct mode. To allow efficient connection management and better SDK client performance, we recommend that you use a single instance per `AppDomain` for the lifetime of the application for each account your application interacts with.
 
-For multi-tenant applications handling multiple accounts, see the [related best practices](best-practice-dotnet.md#best-practices-for-multi-tenant-applications).
+For multitenant applications handling multiple accounts, see the [related best practices](best-practice-dotnet.md#best-practices-for-multi-tenant-applications).
 
 When you're working on Azure Functions, instances should also follow the existing [guidelines](../../azure-functions/manage-connections.md#static-clients) and maintain a single instance.
 

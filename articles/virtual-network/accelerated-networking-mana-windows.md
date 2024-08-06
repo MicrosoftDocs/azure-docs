@@ -1,6 +1,6 @@
 ---
-title: Windows VMs with Azure MANA
-description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Windows VMs on Azure.
+title: Windows VMs with the Microsoft Azure Network Adapter
+description: Learn how the Microsoft Azure Network Adapter can improve the networking performance of Windows VMs in Azure.
 author: mattmcinnes
 ms.service: virtual-network
 ms.topic: how-to
@@ -8,70 +8,73 @@ ms.date: 07/10/2023
 ms.author: mattmcinnes
 ---
 
-# Windows VMs with Azure MANA
+# Windows VMs with the Microsoft Azure Network Adapter
 
-Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Windows virtual machines in Azure.
+Learn how to use the Microsoft Azure Network Adapter (MANA) to improve the performance and availability of Windows virtual machines (VMs) in Azure.
 
-For Linux support, see [Linux VMs with Azure MANA](./accelerated-networking-mana-linux.md)
+For Linux support, see [Linux VMs with the Microsoft Azure Network Adapter](./accelerated-networking-mana-linux.md).
 
-For more info regarding Azure MANA, see [Microsoft Azure Network Adapter (MANA) overview](./accelerated-networking-mana-overview.md)
+For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
 > [!IMPORTANT]
-> Azure MANA is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> MANA is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Supported Marketplace Images
-Several [Azure marketplace](/marketplace/azure-marketplace-overview) Windows images have built-in support for Azure MANA's ethernet driver.
+## Supported Azure Marketplace images
 
-Windows:
+The following Windows images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
+
 - Windows Server 2016
 - Windows Server 2019
 - Windows Server 2022
 
-## Check status of MANA support
-Because Azure MANA's feature set requires both host hardware and VM driver software components, there are several checks required to ensure MANA is working properly. All checks are required to ensure MANA functions properly on your VM.
+## Check the status of MANA support
+
+Because the MANA feature set requires both host hardware and VM software components, you must perform the following checks to ensure that MANA is working properly on your VM.
 
 ### Azure portal check
 
-Ensure that you have Accelerated Networking enabled on at least one of your NICs:
-1.	From the Azure portal page for the VM, select Networking from the left menu.
-1.	On the Networking settings page, select the Network Interface.
-1.	On the NIC Overview page, under Essentials, note whether Accelerated networking is set to Enabled or Disabled.
+Ensure that Accelerated Networking is enabled on at least one of your NICs:
+
+1. On the Azure portal page for the VM, select **Networking** from the left menu.
+1. On the **Networking settings** page, for **Network Interface**, select your NIC.
+1. On the **NIC Overview** pane, under **Essentials**, note whether **Accelerated Networking** is set to **Enabled** or **Disabled**.
 
 ### Hardware check
 
-When Accelerated Networking is enabled, the underlying MANA NIC can be identified as a PCI device in the Virtual Machine.
+When you enable Accelerated Networking, you can identify the underlying MANA NIC as a PCI device in the virtual machine.
 
->[!NOTE] 
->When multiple NICs are configured on MANA-supported hardware, there will still only be one PCIe Virtual Function assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe Virtual function. Since network resource limits are set at the VM SKU level, this has no impact on performance.
+> [!NOTE]
+> When you configure multiple NICs on MANA-supported hardware, there's still only one PCI Express (PCIe) Virtual Function (VF) assigned to the VM. MANA is designed such that all VM NICs interact with the same PCIe VF. Because network resource limits are set at the level of the VM type, this configuration has no effect on performance.
 
 ### Driver check
-There are several ways to verify your VM has a MANA Ethernet driver installed:
 
-#### PowerShell:
+To verify that your VM has a MANA Ethernet driver installed, you can use PowerShell or Device Manager.
+
+#### PowerShell
+
 ```powershell
 PS C:\Users\testVM> Get-NetAdapter
 
 Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
 ----                      --------------------                    ------- ------       ----------             ---------
-Ethernet 4                Microsoft Hyper-V Network Adapter #2         10 Up           00-00-AA-AA-00-AA       200 Gbps
-Ethernet 5                Microsoft Azure Network Adapter #3            7 Up           11-11-BB-BB-11-BB       200 Gbps
+Ethernet                  Microsoft Hyper-V Network Adapter            13 Up           00-0D-3A-AA-00-AA       200 Gbps
+Ethernet 3                Microsoft Azure Network Adapter #2            8 Up           00-0D-3A-AA-00-AA       200 Gbps
 ```
 
 #### Device Manager
-1.	Open up device Manager
-2.	Within device manager, you should see the Hyper-V Network Adapter and the Microsoft Azure Network Adapter (MANA)
 
-![A screenshot of Windows Device Manager with an Azure MANA network card successfully detected.](media/accelerated-networking-mana/device-manager-mana.png)
+1. Open Device Manager.
+2. Expand **Network adapters**, and then select **Microsoft Azure Network Adapter**. The properties for the adapter show that the device is working properly.
 
-## Driver install
+   ![Screenshot of Windows Device Manager that shows an MANA network card successfully detected.](media/accelerated-networking-mana/device-manager-mana.png)
 
-If your VM has both portal and hardware support for MANA but doesn't have drivers installed, Windows drivers can be downloaded [here](https://aka.ms/manawindowsdrivers). 
+## Install drivers
 
-Installation is similar to other Windows device drivers. A readme file with more detailed instructions is included in the download. 
+If your VM has both portal and hardware support for MANA but doesn't have drivers installed, you can [download the Windows drivers](https://aka.ms/manawindowsdrivers).
 
+Installation is similar to the installation of other Windows device drivers. The download includes a readme file that has detailed instructions.
 
-## Verify traffic is flowing through the MANA adapter
+## Verify that traffic is flowing through MANA
 
 In PowerShell, run the following command:
 
@@ -83,8 +86,8 @@ Name                             ReceivedBytes ReceivedUnicastPackets       Sent
 Ethernet 5                       1230513627217            22739256679 ...724576506362       381331993845
 ```
 
-## Next Steps
+## Next steps
 
-- [TCP/IP Performance Tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
-- [Proximity Placement Groups](../virtual-machines/co-location.md)
-- [Monitor Virtual Network](./monitor-virtual-network.md)
+- [TCP/IP performance tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
+- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Monitoring Azure virtual networks](./monitor-virtual-network.md)

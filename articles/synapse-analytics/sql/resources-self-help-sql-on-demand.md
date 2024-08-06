@@ -3,9 +3,9 @@ title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
 author: azaricstefan
 ms.author: stefanazaric
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ms.date: 12/08/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ---
@@ -740,6 +740,21 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 - If you need to separate the objects, use schemas within the databases.
 - If you need to reference Azure Data Lake storage, create lakehouse databases or Spark databases that will be synchronized in serverless SQL pool.
 
+### Creating or altering table failed because the minimum row size exceeds the maximum allowable table row size of 8060 bytes
+
+Any table can have up to 8KB size per row (not including off-row VARCHAR(MAX)/VARBINARY(MAX) data). If you create a table where the total size of cells in the row exceeds 8060 bytes, you will get the following error:
+
+```
+Msg 1701, Level 16, State 1, Line 3
+Creating or altering table '<table name>' failed because the minimum row size would be <???>,
+including <???> bytes of internal overhead.
+This exceeds the maximum allowable table row size of 8060 bytes.
+```
+
+This error also might happen in the Lake database if you create a Spark table with the column sizes that exceed 8060 bytes, and the serverless SQL pool cannot create a table that references the Spark table data.
+
+As a mitigation, avoid using the fixed size types like `CHAR(N)` and replace them with variable size `VARCHAR(N)` types, or decrease the size in `CHAR(N)`. See [8KB rows group limitation in SQL Server](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)).
+
 ### Create a master key in the database or open the master key in the session before performing this operation
 
 If your query fails with the error message `Please create a master key in the database or open the master key in the session before performing this operation.`, it means that your user database has no access to a master key at the moment.
@@ -862,12 +877,23 @@ There are some limitations that you might see in Delta Lake support in serverles
 - Serverless SQL pools don't support time travel queries. Use Apache Spark pools in Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools don't support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Synapse Analytics to [update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
   - You can't [store query results to storage in Delta Lake format](create-external-table-as-select.md) by using the CETAS command. The CETAS command supports only Parquet and CSV as the output formats.
-- Serverless SQL pools in Synapse Analytics are compatible with Delta reader version 1. The Delta features that require Delta readers with version 2 or higher (for example [column mapping](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-requirements-for-column-mapping)) are not supported in the serverless SQL pools.
+- Serverless SQL pools in Synapse Analytics are compatible with **Delta reader version 1**.
 - Serverless SQL pools in Synapse Analytics don't support the datasets with the [BLOOM filter](/azure/databricks/optimizations/bloom-filters). The serverless SQL pool ignores the BLOOM filters.
 - Delta Lake support isn't available in dedicated SQL pools. Make sure that you use serverless SQL pools to query Delta Lake files.
 - For more information about known issues with serverless SQL pools, see [Azure Synapse Analytics known issues](../known-issues.md).
 
-### Column rename in Delta table is not supported
+### Serverless support Delta 1.0 version
+
+Serverless SQL pools are reading only Delta Lake 1.0 version. Serverless SQL pools is a [Delta reader with level 1](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#reader-version-requirements), and doesn’t support the following features:
+- Column mappings are ignored - serverless SQL pools will return original column names.
+- Delete vectors are ignored and the old version of deleted/updated rows will be returned (possibly wrong results).
+- The following Delta Lake features are not supported: [V2 checkpoints](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#v2-checkpoint-table-feature), [timestamp without timezone](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#timestamp-without-timezone-timestampntz), [VACUUM protocol check](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#vacuum-protocol-check)
+
+#### Delete vectors are ignored
+
+If your Delta lake table is configured to use Delta writer version 7, it will store deleted rows and old versions of updated rows in Delete Vectors (DV). Since serverless SQL pools have Delta reader 1 level, they will ignore the delete vectors and probably produce **wrong results** when reading unsupported Delta Lake version.
+
+#### Column rename in Delta table is not supported
 
 The serverless SQL pool does not support querying Delta Lake tables with the [renamed columns](https://docs.delta.io/latest/delta-batch.html#rename-columns). Serverless SQL pool cannot read data from the renamed column.
 

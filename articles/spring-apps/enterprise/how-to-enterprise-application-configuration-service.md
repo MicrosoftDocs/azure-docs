@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Learn how to use Application Configuration Service for Tanzu with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 03/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, engagement-fy23, devx-track-azurecli
@@ -416,7 +416,7 @@ az role assignment create \
 
 ---
 
-### Examine configuration file with Azure CLI
+### Examine configuration file with the Azure CLI
 
 Use the following command to view the content of the configuration file by [Pattern](#pattern):
 
@@ -436,9 +436,15 @@ This command produces JSON output similar to the following example:
       "example.property.application.name: example-service",
       "example.property.cloud: Azure"
     ]
+  },
+  "metadata": {
+    "gitRevisions": "[{\"url\":\"{gitRepoUrl}\",\"revision\":\"{revisionInfo}\"}]"
   }
 }
 ```
+
+> [!NOTE]
+> The `metadata` and `gitRevisions` properties are not available for the Gen1 version of Application Configuration Service.
 
 You can also use this command with the `--export-path {/path/to/target/folder}` parameter to export the configuration file to the specified folder. It supports both relative paths and absolute paths. If you don't specify the path, the command uses the path of the current directory by default.
 
@@ -456,6 +462,9 @@ After you bind the app to the Application Configuration Service and set the [Pat
    ```
 
 1. Check the content of the configuration file using commands such as `cat`.
+
+> [!NOTE]
+> The Git revision information is not available in the app.
 
 ## Check logs
 
@@ -544,6 +553,19 @@ To check the logs of `application-configuration-service` and `flux-source-contro
 > [!NOTE]
 > There might could be a few minutes delay before the logs are available in Log Analytics.
 
+## Examine Git revisions of the configuration files
+
+You can find the Git revision of the configuration file of the [Pattern](#pattern) in the logs of Application Configuration Service. The following example log indicates that the configuration file for the `payment/default` pattern is pulled with `example-commit-id` from the `main` branch of the `https://github.com/Azure-Samples/acme-fitness-store-config` repository. You can learn how to query logs in the [Check logs](#check-logs) section.
+
+```output
+Applied ConfigMap ({config-map-name}) for content (payment/default) from Git repositories https://github.com/Azure-Samples/acme-fitness-store-config@main@sha1:{example-commit-id}
+```
+
+You can also find the Git revision by using the Azure CLI. For more information, see the [Examine configuration file with Azure CLI](#examine-configuration-file-with-the-azure-cli) section.
+
+> [!NOTE]
+> Git revision is not available for the Gen1 version of Application Configuration Service.
+
 ## Troubleshoot known issues
 
 If the latest changes aren't reflected in the applications, check the following items based on the [Refresh strategies](#refresh-strategies) section:
@@ -552,6 +574,7 @@ If the latest changes aren't reflected in the applications, check the following 
   - Confirm that the branch of the desired config file changes is updated.
   - Confirm that the pattern configured in the Application Configuration Service matches the updated config files.
   - Confirm that the application is bound to the Application Configuration Service.
+- Confirm that the Application Configuration Service is using the correct Git revisions as described in the [Examine Git revisions of the configuration files](#examine-git-revisions-of-the-configuration-files) section.
 - Confirm that the `ConfigMap` containing the configuration file for the [Pattern](#pattern) used by the application is updated, as described in the [Examine configuration file in ConfigMap](#examine-configuration-file-in-configmap) section of this article. If it isn't updated, raise a ticket.
 - Confirm that the `ConfigMap` is mounted to the application as a file, as described in the [Examine configuration file in the app](#examine-configuration-file-in-the-app) section of this article. If the file isn't updated, wait for the Kubernetes refresh interval (1 minute), or force a refresh by restarting the application.
 

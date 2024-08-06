@@ -2,8 +2,8 @@
 title: 'Tutorial: Implement IoT spatial analytics'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
-author: eriklindeman
-ms.author: eriklind
+author: FarazGIS
+ms.author: fsiddiqui
 ms.date: 09/14/2023
 ms.topic: tutorial
 ms.service: azure-maps
@@ -275,11 +275,11 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [Get Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [How to create data registry]: how-to-create-data-registries.md
 [IoT Hub message routing]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[IoT Plug and Play]: ../iot-develop/index.yml
+[IoT Plug and Play]: ../iot/overview-iot-plug-and-play.md
 [geofence JSON data file]: https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4
 [Plug and Play schema for geospatial data]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md
 [Postman]: https://www.postman.com/
-[register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
+[register a new device in the IoT hub]: ../iot-hub/create-connect-device.md
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
 [the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing

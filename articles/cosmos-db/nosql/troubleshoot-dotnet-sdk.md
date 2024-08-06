@@ -2,7 +2,7 @@
 title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 09/01/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
@@ -17,6 +17,7 @@ ms.custom: devx-track-dotnet
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
+> * [Python SDK](troubleshoot-python-sdk.md)
 > 
 
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [.NET SDK](sdk-dotnet-v2.md) with Azure Cosmos DB for NoSQL accounts.
@@ -92,7 +93,6 @@ If you encounter the following error: `Unable to load DLL 'Microsoft.Azure.Cosmo
 * Learn about Performance guidelines for the [.NET SDK](performance-tips-dotnet-sdk-v3.md)
 * Learn about the best practices for the [.NET SDK](best-practice-dotnet.md)
 
- <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list

@@ -6,7 +6,7 @@ author: abhims14
 ms.author: abhishekum
 ms.reviewer: maghan, randolphwest
 ms.date: 11/30/2023
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: troubleshooting
 ms.custom:
   - sql-migration-content
@@ -27,13 +27,25 @@ This article provides a list of known issues and troubleshooting steps associate
 
 - **Recommendation**: Ensure the database backups in your Azure Storage container are correct. If you're using network file share, there can be network-related issues and lags that are causing this error. Wait for the process to be completed.
 
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'errorCode: Ext_RestoreSettingsError, message: RestoreId: {RestoreId}, OperationId: {operationId}, Detail: Failed to complete restore., RestoreJobState: Restoring, CompleteRestoreErrorMessage: The database contains incompatible physical layout. Too many full text catalog files.`
+
+- **Cause**:  SQL Vm restore currently does not support restoring databases with full text catalog files as Azure SQL Vm does not support them at the moment.
+
+- **Recommendation**: Remove full text catalog files from database when creating the restore
+
+- **Message**: `Cutover failed or cancelled for database '{databaseName}'. Error details: 'Migration cannot be completed because provided backup file name '{providedFileName}' should be the last restore backup file '{lastRestoredFileName}'.'`
+
+- **Cause**:  This error occurs due to a known limitation in SqlMi. It means the '{providedFileName}' is different from '{lastRestoredFileName}'. SqlMi will automatically restore all valid backup files in the container based on the LSN sequence. A typical failure case could be: the '{providedFileName}' is "log1", but the files in container has other files, like "log2", which have largest LSN number than "log1". In this case, SqlMi will automatically restore all files in the container. In the end of completing the migration, SqlMi will report this error message.
+
+- **Recommendation**: For offline migration mode, please provide the "lastBackupName" with the largest LSN. For online migration scenario this warning/error can be ignored if the migration status is succeeded.
+
 ## Error code: 2009 - MigrationRestoreFailed
 
 - **Message**: `Migration for Database 'DatabaseName' failed with error cannot find server certificate with thumbprint.`
 
 - **Cause**: Before migrating data, you need to migrate the certificate of the source SQL Server instance from a database that is protected by Transparent Data Encryption (TDE) to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
-- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](/azure/dms/tutorial-transparent-data-encryption-migration-ads).
+- **Recommendation**: Migrate the TDE certificate to the target instance and retry the process. For more information about migrating TDE-enabled databases, see [Tutorial: Migrate TDE-enabled databases (preview) to Azure SQL in Azure Data Studio](tutorial-transparent-data-encryption-migration-ads.md).
 
 - **Message**: `Migration for Database <DatabaseName> failed with error 'Non retriable error occurred while restoring backup with index 1 - 3169 The database was backed up on a server running version %ls. That version is incompatible with this server, which is running version %ls. Either restore the database on a server that supports the backup, or use a backup that is compatible with this server.`
 
@@ -214,6 +226,18 @@ This article provides a list of known issues and troubleshooting steps associate
   > [!NOTE]  
   > For more information, see [Set up an existing self-hosted IR via local PowerShell](../data-factory/create-self-hosted-integration-runtime.md#set-up-an-existing-self-hosted-ir-via-local-powershell). Use the disabling option with discretion as this is less secure.
 
+## Error code: 2055 - SqlInfoCollectionFailed
+
+- **Message**: `A database operation failed with the following error: 'VIEW SERVER PERFORMANCE STATE permission was denied on object 'server', database 'master'. The user does not have permission to perform this action.`
+
+- **Cause**: The login used for target server(Azure SQL DB) does not has ##MS_ServerStateReader## server role.
+
+- **Recommendation**: Provide ##MS_ServerStateReader## role to the login for Azure SQL Target. 
+Query:
+ALTER SERVER ROLE ##MS_ServerStateReader## ADD MEMBER login.
+
+Note: This query should be run in context of master DB
+
 ## Error code: 2056 - SqlInfoValidationFailed
 
 - **Message**: `CollationMismatch: Source database collation <CollationOptionSource> is not the same as the target database <CollationOptionTarget>. Source database: <SourceDatabaseName> Target database: <TargetDatabaseName>.`
@@ -375,6 +399,26 @@ This article provides a list of known issues and troubleshooting steps associate
 - **Cause**: The error is possible to occur for both storage accounts with public network and private endpoint configuration. It's also possible that you have an on-premises DNS server that controls a hybrid network routing and DHCP. Unless you allow the Azure IP addresses configured in your DNS server, your SQL Server on Azure VM target has no chance to resolve the remote storage blob endpoint.
 
 - **Recommendation**: To debug this issue, you can try pinging your Azure Blob Storage URL from your SQL Server on Azure VM target and confirm if you have a connectivity problem. To solve this issue, you have to allow the Azure IP addresses configured in your DNS server. For more information, see [Troubleshoot Azure Private Endpoint connectivity problems](/azure/private-link/troubleshoot-private-endpoint-connectivity)
+
+## Error code: No such host is known OR urlopen error [Errno 11001] getaddrinfo failed
+
+- **Message**: `No such host is known`
+
+- **Cause**: While migrating logins using PowerShell command [New-AzDataMigrationLoginsMigration](/powershell/module/az.datamigration/new-azdatamigrationloginsmigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure PowerShell - Database Migration Service cmdlets - Az.DataMigration above minimum 0.14.5 version.
+  Latest version of Az.Datamigration can be downloaded from [the PowerShell gallery](https://www.powershellgallery.com/packages/Az.DataMigration/) or the following command can be used to upgrade.
+```Command
+ Update-Module -Name Az.DataMigration
+```
+- **Message**: `urlopen error [Errno 11001] getaddrinfo failed`
+
+- **Cause**: While migrating logins using Azure CLI [Az dataMigration login-migration](/cli/azure/datamigration), it fails with the previous message.
+
+- **Recommendation**: To resolve this issue, upgrade the Microsoft Azure CLI - Database Migration Service extension - az dataMigration to 1.0.0b1 or a later version. Run the following command to upgrade.
+```Command
+ az extension update -n datamigration
+```
 
 ## Azure Database Migration Service Naming Rules
 

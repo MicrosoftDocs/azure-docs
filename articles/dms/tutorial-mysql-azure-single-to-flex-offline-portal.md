@@ -6,7 +6,7 @@ author: karlaescobar
 ms.author: karlaescobar
 ms.reviewer: maghan
 ms.date: 09/17/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: tutorial
 ms.custom:
   - sql-migration-content
@@ -102,7 +102,6 @@ With these best practices in mind, create your target flexible server and then c
 * Next to configure the newly created target flexible server, proceed as follows:
   * The user performing the migration requires the following permissions:
     * To create tables on the target, the user must have the “CREATE” privilege.
-    * If migrating a table with “DATA DIRECTORY” or “INDEX DIRECTORY” partition options, the user must have the “FILE” privilege.
     * If migrating to a table with a “UNION” option, the user must have the “SELECT,” “UPDATE,” and “DELETE” privileges for the tables you map to a MERGE table.
     * If migrating views, you must have the “CREATE VIEW” privilege.
     Keep in mind that some privileges may be necessary depending on the contents of the views. Refer to the MySQL docs specific to your version for “CREATE VIEW STATEMENT” for details
@@ -209,12 +208,12 @@ To create a migration project, perform the following steps.
 
     :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/11-select-create.png" alt-text="Screenshot of a CSelect a new migration project.":::
 
-3. On the **New migration project** page, specify a name for the project, in the Source server type selection box, select **Azure Database For MySQL – Single Server**, in the Target server type selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Online migration**, and then select **Create and run activity**.
+1. On the **New migration project** page, specify a name for the project, in the Source server type selection box, select **Azure Database For MySQL – Single Server**, in the Target server type selection box, select **Azure Database For MySQL**, in the **Migration activity type** selection box, select **Offline migration**, and then select **Create and run activity**.
 
-    > [!NOTE]
+   > [!NOTE]
     > Selecting Create project only as the migration activity type will only create the migration project; you can then run the migration project at a later time.
 
-    :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/12-create-project-offline.png" alt-text="Screenshot of a Create a new migration project.":::
+   :::image type="content" source="media/tutorial-azure-mysql-single-to-flex-offline/12-create-project-offline.png" alt-text="Screenshot of a Create a new migration project.":::
 
 ### Configure the migration project
 

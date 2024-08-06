@@ -2,12 +2,12 @@
 title: 'Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2'
 titleSuffix: Azure Machine Learning
 description: Build a machine learning pipeline for image classification. Focus on machine learning instead of infrastructure and automation.
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 12/30/2023
 ms.custom:
   - devx-track-python
@@ -49,7 +49,7 @@ If you don't have an Azure subscription, create a free account before you begin.
     To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
     ```bash
-    git clone --depth 1 https://github.com/Azure/azureml-examples --branch sdk-preview
+    git clone --depth 1 https://github.com/Azure/azureml-examples
     cd azureml-examples/sdk
     ```
 

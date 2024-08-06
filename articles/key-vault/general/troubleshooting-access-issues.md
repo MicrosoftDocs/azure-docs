@@ -4,7 +4,7 @@ description: Troubleshooting Azure Key Vault access policy issues
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 
@@ -51,7 +51,7 @@ If you're creating an on-premises application, doing local development, or other
 
 Give the AD group permissions to your key vault using the Azure CLI `az keyvault set-policy` command, or the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet. See [Assign an access policy - CLI](assign-access-policy-cli.md) and [Assign an access policy - PowerShell](assign-access-policy-powershell.md).
 
-The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Microsoft Entra groups with Managed Identities may require several hours to refresh tokens and become effective. See [Limitation of using managed identities for authorization](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization)
+The application also needs at least one Identity and Access Management (IAM) role assigned to the key vault. Otherwise it will not be able to log in and will fail with insufficient rights to access the subscription. Microsoft Entra groups with Managed Identities may require many hours to refresh tokens and become effective. See [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization)
 
 ### How can I redeploy Key Vault with ARM template without deleting existing access policies?
 

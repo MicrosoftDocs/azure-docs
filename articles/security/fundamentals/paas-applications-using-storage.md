@@ -51,7 +51,7 @@ Organizations that don't enforce data access control by using capabilities such 
 
 To learn more about Azure RBAC see:
 
-- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)
 - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
 - [Security recommendations for Blob storage](../../storage/blobs/security-recommendations.md)
 

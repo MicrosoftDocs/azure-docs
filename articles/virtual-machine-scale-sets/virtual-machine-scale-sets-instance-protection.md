@@ -4,16 +4,13 @@ description: Learn how to protect Azure Virtual Machine Scale Set instances from
 author: ju-shim
 ms.author: jushiman
 ms.topic: conceptual
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: instance-protection
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: mimckitt
 ms.custom: avverma
 ---
 # Instance Protection for Azure Virtual Machine Scale Set instances
-
-> [!NOTE]
-> We recommend using Flexible Orchestration for new workloads. For more information, see [Orchesration modes for Virtual Machine Scale Sets in Azure](virtual-machine-scale-sets-orchestration-modes.md).
 
 Azure Virtual Machine Scale Sets enable better elasticity for your workloads through [Autoscale](virtual-machine-scale-sets-autoscale-overview.md), so you can configure when your infrastructure scales-out and when it scales-in. Scale sets also enable you to centrally manage, configure, and update a large number of VMs through different [upgrade policy](virtual-machine-scale-sets-upgrade-policy.md) settings. You can configure an update on the scale set model and the new configuration is applied automatically to every scale set instance if you've set the upgrade policy to Automatic or Rolling.
 

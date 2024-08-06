@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Azure Cosmos DB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.topic: conceptual
 ms.date: 04/20/2023
@@ -12,7 +12,7 @@ ms.date: 04/20/2023
 
 # Premigration steps for data migrations from MongoDB to Azure Cosmos DB for MongoDB
 
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!IMPORTANT]  
 > Please read this entire guide before carrying out your pre-migration steps.
@@ -20,7 +20,7 @@ ms.date: 04/20/2023
 
 This MongoDB pre-migration guide is part of series on MongoDB migration. The critical MongoDB migration steps are pre-migration, migration, and [post-migration](post-migration-optimization.md), as shown in this guide.
 
-![Diagram of the migration steps from pre to post migration.](./media/pre-migration-steps/overall-migration-steps.png)
+![Diagram of the migration steps from pre to post migration.](~/reusable-content/ce-skilling/azure/media/cosmos-db/overall-migration-steps.png)
 
 ## Overview of pre-migration
 
@@ -85,7 +85,7 @@ Go through the spreadsheet and verify each collection against the [supported fea
 > [!NOTE]
 > Database Migration Assistant is a legacy utility meant to assist you with the pre-migration steps. We recommend you to use the [Azure Cosmos DB Migration for MongoDB extension](#azure-cosmos-db-migration-for-mongodb-extension) for all pre-migration steps.
 
-You may use the [Database Migration Assistant](programmatic-database-migration-assistant-legacy.md) (DMA) utility to assist you with pre-migration steps.
+You may use the [Database Migration Assistant (DMA)](programmatic-database-migration-assistant-legacy.md) utility to assist you with pre-migration steps.
 
 ## Pre-migration mapping
 
@@ -154,7 +154,7 @@ The following Azure Cosmos DB configuration choices can't be modified or undone 
 
   * **Query patterns**: The complexity of a query affects how many request units the query consumes.
 
-* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.md) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
+* The best way to understand the cost of queries is to use sample data in Azure Cosmos DB, [and run sample queries from the MongoDB Shell](connect-account.yml) using the `getLastRequestStastistics` command to get the request charge, which outputs the number of RUs consumed:
 
   ```bash
   db.runCommand({getLastRequestStatistics: 1})

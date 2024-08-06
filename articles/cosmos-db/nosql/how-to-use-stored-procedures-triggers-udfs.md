@@ -3,7 +3,7 @@ title: Use stored procedures, triggers, and UDFs in SDKs
 titleSuffix: Azure Cosmos DB
 description: Learn how to register and call stored procedures, triggers, and user-defined functions using the Azure Cosmos DB SDKs.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 03/16/2023

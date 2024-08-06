@@ -3,7 +3,7 @@ title: Azure Cosmos DB performance tips for .NET SDK v2
 description: Learn client configuration options to improve Azure Cosmos DB .NET v2 SDK performance.
 ms.author: esarroyo
 author: StefArroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 02/18/2022
@@ -20,6 +20,7 @@ ms.custom: devx-track-dotnet
 > * [Java SDK v4](performance-tips-java-sdk-v4.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
+> * [Python SDK](performance-tips-python-sdk.md)
 
 Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sdk-dotnet-v3.md).
 

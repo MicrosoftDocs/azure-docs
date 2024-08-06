@@ -3,7 +3,7 @@ title: 'Quickstart: Create Apache Hadoop cluster in Azure HDInsight using Bicep'
 description: In this quickstart, you create Apache Hadoop cluster in Azure HDInsight using Bicep
 author: reachnijel
 ms.author: nijelsf 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, linux-related-content
 ms.date: 12/05/2023
@@ -14,7 +14,7 @@ ms.date: 12/05/2023
 
 In this quickstart, you use Bicep to create an [Apache Hadoop](./apache-hadoop-introduction.md) cluster in Azure HDInsight. Hadoop was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
   
 Currently HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 

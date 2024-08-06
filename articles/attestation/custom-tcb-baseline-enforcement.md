@@ -3,7 +3,7 @@ title: Custom TCB baseline enforcement for Azure Attestation users
 description: Custom TCB baseline enforcement for Azure Attestation users
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 01/30/2024
 ms.author: mbaldwin
@@ -13,9 +13,9 @@ ms.author: mbaldwin
 
 # Custom TCB baseline enforcement for SGX attestation (preview)
 
-Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management](../security/fundamentals/trusted-hardware-identity-management.md) (THIM) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID). The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
+Microsoft Azure Attestation is a unified solution for attesting different types of Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves. While attesting SGX enclaves, Azure Attestation validates the evidence against Azure default Trusted Computing Base (TCB) baseline. The default TCB baseline is provided by an Azure service named [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md) and includes collateral fetched from Intel like certificate revocation lists (CRLs), Intel certificates, Trusted Computing Base (TCB) information and Quoting Enclave identity (QEID). The default TCB baseline from THIM might lag the latest baseline offered by Intel. This is to prevent any attestation failure scenarios for ACC customers who require more time for patching platform software (PSW) updates.
 
-Azure Attestation offers the custom TCB baseline enforcement feature (preview) which empowers you to perform SGX attestation against a desired TCB baseline. It is always recommended for [Azure Confidential Computing](../confidential-computing/overview.md) (ACC) SGX customers to install the latest PSW version supported by Intel and configure their SGX attestation policy with the latest TCB baseline supported by Azure.
+Azure Attestation offers the custom TCB baseline enforcement feature (preview) which empowers you to perform SGX attestation against a desired TCB baseline. It is always recommended for [Azure Confidential Computing (ACC)](../confidential-computing/overview.md) SGX customers to install the latest PSW version supported by Intel and configure their SGX attestation policy with the latest TCB baseline supported by Azure.
 
 ## Why use custom TCB baseline enforcement feature?
 

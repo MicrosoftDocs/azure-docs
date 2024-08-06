@@ -6,6 +6,7 @@ metadata:
   title: Azure Kubernetes Fleet Manager
   description: Learn how to address multi-cluster and at-scale scenarios for Azure Kubernetes Service (AKS) clusters
   ms.service: kubernetes-fleet
+  ms.author: rayoflores
   ms.custom: ignite-2023
   ms.topic: landing-page
   ms.date: 04/01/2024
@@ -20,6 +21,8 @@ landingContent:
         links:
           - text: Fleets and member clusters
             url: concepts-fleet.md
+          - text: Scheduler and scheduling framework
+            url: concepts-scheduler-scheduling-framework.md
           - text: Update orchestration across multiple member clusters
             url: concepts-update-orchestration.md
           - text: Kubernetes resource propagation from hub cluster to member clusters

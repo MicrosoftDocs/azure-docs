@@ -9,7 +9,7 @@ ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 02/24/2022
+ms.date: 06/28/2024
 ms.author: terrylan
 ---
 # Improve your security defenses for ransomware attacks with Azure Firewall Premium
@@ -27,7 +27,7 @@ A network intrusion detection and prevention system (IDPS) allows you to monitor
 
 The IDPS signatures are applicable for both application and network level traffic (Layers 4-7), fully managed, and contain more than 65,000 signatures in over 50 different categories. To keep them (the IDPS signatures?) up to date with the dynamic ever-changing attack landscape:
 
-- Azure Firewall has early access to vulnerability information from [Microsoft Active Protections Program](https://www.microsoft.com/msrc/mapp) (MAPP) and [Microsoft Security Response Center](https://www.microsoft.com/msrc/) (MSRC).
+- Azure Firewall has early access to vulnerability information from [Microsoft Active Protections Program (MAPP)](https://www.microsoft.com/msrc/mapp) and [Microsoft Security Response Center (MSRC)](https://www.microsoft.com/msrc/).
 - Azure Firewall releases 30 to 50 new signatures each day.
 
 Today, modern encryption (SSL/TLS) is used globally to secure Internet traffic. Attackers use encryption to carry their malicious software into the victim’s network. Therefore, customers must inspect their encrypted traffic just like any other traffic.

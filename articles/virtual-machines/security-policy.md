@@ -2,7 +2,7 @@
 title: Secure and use policies
 description: Learn about security and policies for virtual machines in Azure.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.date: 02/26/2024
 ms.author: jushiman
@@ -65,7 +65,7 @@ The managed identities for Azure resources feature in Microsoft Entra solves thi
 
 ## Azure role-based access control
 
-Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.md), using the [Azure CLI](/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+Using [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md), you can segregate duties within your team and grant only the amount of access to users on your VM that they need to perform their jobs. Instead of giving everybody unrestricted permissions on the VM, you can allow only certain actions. You can configure access control for the VM in the [Azure portal](../role-based-access-control/role-assignments-portal.yml), using the [Azure CLI](/cli/azure/role), or[Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 
 
 ## Next steps

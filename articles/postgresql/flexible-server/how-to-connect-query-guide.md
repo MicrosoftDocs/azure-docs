@@ -1,19 +1,18 @@
 ---
 title: Connect and query
 description: Links to quickstarts showing how to connect to your Azure Database for PostgreSQL - Flexible Server and run queries.
-services: postgresql
-ms.service: postgresql
+author: gbowerman
+ms.author: guybo
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sunila
-author: sunilagarwal
-ms.reviewer: ""
-ms.date: 01/23/2024
 ---
 
 # Connect and query overview for Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 The following document includes links to examples showing how to connect and query with Azure Database for PostgreSQL flexible server. This guide also includes TLS recommendations and extension that you can use to connect to the server in supported languages below.
 
@@ -22,7 +21,7 @@ The following document includes links to examples showing how to connect and que
 | Quickstart | Description |
 |---|---|
 |[Pgadmin](https://www.pgadmin.org/)|You can use pgadmin to connect to the server and it simplifies the creation, maintenance and use of database objects.|
-|[psql in Azure Cloud Shell](./quickstart-create-server-cli.md#connect-using-postgresql-command-line-client)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database.You can run **psql** if installed on your development environment|
+|[psql in Azure Cloud Shell](./quickstart-create-server-cli.md#connect-using-postgresql-command-line-client)|This article shows how to run [**psql**](https://www.postgresql.org/docs/current/static/app-psql.html) in [Azure Cloud Shell](../../cloud-shell/overview.md) to connect to your server and then run statements to query, insert, update, and delete data in the database. You can run **psql** if installed on your development environment|
 |[Python](connect-python.md)|This quickstart demonstrates how to use Python to connect to a database and use work with database objects to query data. |
 |[Django with App Service](/azure/app-service/tutorial-python-postgresql-app)|This tutorial demonstrates how to use Ruby to create a program to connect to a database and use work with database objects to query data.|
 
@@ -35,7 +34,8 @@ Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or
 Azure Database for PostgreSQL flexible server provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions function like built-in features.
 
 - [Postgres extensions](./concepts-extensions.md#extension-versions)
-- [dblink and postgres_fdw](./concepts-extensions.md#dblink-and-postgres_fdw)
+- [dblink](./concepts-extensions.md#dblink)
+- [postgres_fdw](./concepts-extensions.md#postgres_fdw)
 - [pg_prewarm](./concepts-extensions.md#pg_prewarm)
 - [pg_stat_statements](./concepts-extensions.md#pg_stat_statements)
 

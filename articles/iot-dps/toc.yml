@@ -226,8 +226,6 @@ items:
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
-  - name: IoT device developer
-    href: ../iot-develop/index.yml
   - name: Azure IoT samples
     items:
     - name: C# (.NET)

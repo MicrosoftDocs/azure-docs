@@ -27,7 +27,7 @@ This tutorial focuses on adding the necessary bits to a native `Holographic App`
 For this tutorial you need:
 
 * Your account information (account ID, account key, account domain, subscription ID). If you don't have an account, [create an account](../../../how-tos/create-an-account.md).
-* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
+* Windows SDK 10.0.18362.0 [(download)](https://developer.microsoft.com/windows/downloads/windows-sdk/).
 * The latest version of Visual Studio 2022 [(download)](https://visualstudio.microsoft.com/vs/).
 * [Visual Studio tools for Mixed Reality](/windows/mixed-reality/install-the-tools). Specifically, the following *Workload* installations are mandatory:
   * **Desktop development with C++**

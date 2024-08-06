@@ -28,7 +28,7 @@ Although the simple parser is based on the [Apache Lucene Simple Query Parser](h
 This example shows a simple query, distinguished by `"queryType": "simple"` and valid syntax. Although query type is set below, it's the default and can be omitted unless you're reverting from an alternative type. The following example is a search over independent terms, with a requirement that all matching documents include "pool".
 
 ```http
-POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2020-06-30
+POST https://{{service-name}}.search.windows.net/indexes/hotel-rooms-sample/docs/search?api-version=2024-07-01
 {
   "queryType": "simple",
   "search": "budget hotel +pool",
@@ -48,8 +48,8 @@ Strings passed to the `search` parameter can include terms or phrases in any sup
 
 + A *phrase search* is an exact phrase enclosed in quotation marks `" "`. For example, while ```Roach Motel``` (without quotes) would search for documents containing ```Roach``` and/or ```Motel``` anywhere in any order, ```"Roach Motel"``` (with quotes) will only match documents that contain that whole phrase together and in that order (lexical analysis still applies). 
 
-  Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in a POST request, a phrase search on `"Roach Motel"` in the request body might be specified as `"\"Roach Motel\""`.
-
+Depending on your search client, you might need to escape the quotation marks in a phrase search. For example, in a POST request, a phrase search on `"Roach Motel"` in the request body might be specified as `"\"Roach Motel\""`. If you're using the Azure SDKs, the search client escapes the quotation marks when it serializes the search text. Your search phrase can be sent be as "Roach Motel".
+  
 By default, all strings passed in the `search` parameter undergo lexical analysis. Make sure you understand the tokenization behavior of the analyzer you're using. Often, when query results are unexpected, the reason can be traced to how terms are tokenized at query time. You can [test tokenization on specific strings](/rest/api/searchservice/test-analyzer) to confirm the output.
 
 Any text input with one or more terms is considered a valid starting point for query execution. Azure AI Search will match documents containing any or all of the terms, including any variations found during analysis of the text.

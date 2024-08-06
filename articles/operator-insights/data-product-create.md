@@ -1,16 +1,16 @@
 ---
-title: Create an Azure Operator Insights Data Product
-description: In this article, learn how to create an Azure Operator Insights Data Product resource. 
+title: Deploy an Azure Operator Insights Data Product
+description: In this article, learn how to deploy an Azure Operator Insights Data Product resource. 
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: template-quickstart, devx-track-azurecli #Required; leave this attribute/value as-is.
 ---
 
-# Create an Azure Operator Insights Data Product
+# Deploy an Azure Operator Insights Data Product
 
 In this article, you learn how to create an Azure Operator Insights Data Product instance.
 
@@ -106,11 +106,11 @@ az group create --name "<ResourceGroup>" --location "<Region>"
 
 ## Set up resources for CMK-based data encryption or Microsoft Purview
 
-If you're using CMK-based data encryption or Microsoft Purview, you must set up Azure Key Vault and user-assigned managed identity (UAMI) as prerequisites.
+If you plan to use CMK-based data encryption or Microsoft Purview, you must set up an Azure Key Vault instance and a user-assigned managed identity (UAMI) first.
 
-### Set up Azure Key Vault
+### Set up a key in an Azure Key Vault
 
-Azure key Vault Resource is used to store your Customer Managed Key (CMK) for data encryption. Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
+An Azure Key Vault instance stores your Customer Managed Key (CMK) for data encryption. The Data Product uses this key to encrypt your data over and above the standard storage encryption. You need to have Subscription/Resource group owner permissions to perform this step.
 
 # [Portal](#tab/azure-portal)
 
@@ -212,13 +212,15 @@ You create the Azure Operator Insights Data Product resource.
 1. On the Basics tab of the **Create a Data Product** page:
     1. Select your subscription.
     1. Select the resource group you previously created for the Key Vault resource.
-    1. Under the Instance details, complete the following fields:
-       - Name - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
-       - Publisher - Select Microsoft.
-       - Product - Select Quality of Experience - Affirmed MCC GIGW or Monitoring - Affirmed MCC Data Product.
-       - Version - Select the version.
+    1. Under **Instance details**, complete the following fields:
+       - **Name** - Enter the name for your Data Product resource. The name must start with a lowercase letter and can contain only lowercase letters and numbers.
+       - **Publisher** - Select the organization that created and published the Data Product that you want to deploy.
+       - **Product** - Select the name of the Data Product.
+       - **Version** - Select the version.
 
-     Select **Next**.
+     Select **Next: Advanced**.
+
+     :::image type="content" source="media/data-product-selection.png" alt-text="Screenshot of the Instance details section of the Basics configuration for a Data Product in the Azure portal.":::
    
 1. In the Advanced tab of the **Create a Data Product** page:
     1. Enable Purview if you're integrating with Microsoft Purview.
@@ -227,7 +229,7 @@ You create the Azure Operator Insights Data Product resource.
     1. Select the user-assigned managed identity that you set up as a prerequisite.
     1. Carefully paste the Key Identifier URI that was created when you set up Azure Key Vault as a prerequisite.
    
-1. To add owner(s) for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
+1. To add one or more owners for the Data Product, which will also appear in Microsoft Purview, select **Add owner**, enter the email address, and select **Add owners**.
 1. In the Tags tab of the **Create a Data Product** page, select or enter the name/value pair used to categorize your Data Product resource.
 1. Select **Review + create**.
 1. Select **Create**. Your Data Product instance is created in about 20-25 minutes. During this time, all the underlying components are provisioned. After this process completes, you can work with your data ingestion, explore sample dashboards and queries, and so on.
@@ -243,7 +245,7 @@ az network-analytics data-product create --name <DataProductName> --resource-gro
 Use the following values for \<ProductName\> and \<ProductMajorVersion>.
 
 
-|Date Product  |\<ProductName\> |\<ProductMajorVersion>|
+|Data Product  |\<ProductName\> |\<ProductMajorVersion>|
 |---------|---------|---------|
 |Quality of Experience - Affirmed MCC GIGW |`Quality of Experience - Affirmed MCC GIGW`|`1.0`|
 |Quality of Experience - Affirmed MCC PGW or GGSN |`Quality of Experience - Affirmed MCC PGW or GGSN`|`1.0`|
@@ -274,9 +276,9 @@ Once your Data Product instance is created, you can deploy a sample insights das
 1. Copy the consumption URL from the Data Product overview screen into the clipboard.
 1. Open a web browser, paste in the URL and select enter.
 1. When the URL loads, select on the Dashboards option on the left navigation pane.
-1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded previously, provide a name for the dashboard and select **Create**.
+1. Select the **New Dashboard** drop down and select **Import dashboard from file**. Browse to select the JSON file downloaded previously, provide a name for the dashboard, and select **Create**.
 1. Select the three dots (...) at the top right corner of the consumption URL page and select **Data Sources**.
-1. Select the pencil icon next to the Data source name in order to edit the data source. 
+1. Select the pencil icon next to the Data source name to edit the data source. 
 1. Under the Cluster URI section, replace the URL with your Data Product consumption URL and select connect.
 1. In the Database drop-down, select your Database. Typically, the database name is the same as your Data Product instance name. Select **Apply**.
 
@@ -288,6 +290,9 @@ Once your Data Product instance is created, you can deploy a sample insights das
 The consumption URL also allows you to write your own Kusto query to get insights from the data.
 
 1. On the Overview page, copy the consumption URL and paste it in a new browser tab to see the database and list of tables.
+
+    :::image type="content" source="media/data-product-properties.png" alt-text="Screenshot of part of the Overview pane in the Azure portal, showing the consumption URL.":::
+
 1. Use the ADX query plane to write Kusto queries.
 
     * For Quality of Experience - Affirmed MCC GIGW, try the following queries:
@@ -339,7 +344,9 @@ az group delete --name "ResourceGroup"
 
 ## Next step
 
-Upload data to your Data Product. If you're planning to do this with the Azure Operator Insights ingestion agent:
+Upload data to your Data Product:
 
-1. Read the documentation for your Data Product to determine the requirements.
-1. [Install the Azure Operator Insights ingestion agent and configure it to upload data](set-up-ingestion-agent.md).
+1. Read the documentation for your Data Product to determine any requirements for ingestion.
+2. Set up an ingestion solution:
+    - To use the Azure Operator Insights ingestion agent, [install and configure the agent](set-up-ingestion-agent.md).
+    - To use [Azure Data Factory](/azure/data-factory/), follow [Use Azure Data Factory to ingest data into an Azure Operator Insights Data Product](ingestion-with-data-factory.md).

@@ -8,9 +8,9 @@ ms.author: pauljewell
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: devx-track-azurecli, engagement-fy23
+ms.custom: engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -290,6 +290,16 @@ az storage account update \
     --allow-shared-key-access false
 ```
 
+# [Template](#tab/template)
+
+To disallow Shared Key authorization for a storage account with an Azure Resource Manager template or Bicep file, you can modify the following property:
+
+```json
+"allowSharedKeyAccess": false
+```
+
+To learn more, see the [storageAccounts specification](/azure/templates/microsoft.storage/storageaccounts).
+
 ---
 
 After you disallow Shared Key authorization, making a request to the storage account with Shared Key authorization will fail with error code 403 (Forbidden). Azure Storage returns an error indicating that key-based authorization is not permitted on the storage account.
@@ -298,15 +308,16 @@ The **AllowSharedKeyAccess** property is supported for storage accounts that use
 
 ## Verify that Shared Key access is not allowed
 
-To verify that Shared Key authorization is no longer permitted, you can attempt to call a data operation with the account access key. The following example attempts to create a container using the access key. This call will fail when Shared Key authorization is disallowed for the storage account. Remember to replace the placeholder values in brackets with your own values:
+To verify that Shared Key authorization is no longer permitted, you can query the Azure Storage Account settings with the following command. Replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
-az storage container create \
-    --account-name <storage-account> \
-    --name sample-container \
-    --account-key <key> \
-    --auth-mode key
+az storage account show \
+    --name <storage-account-name> \
+    --resource-group <resource-group-name> \
+    --query "allowSharedKeyAccess"
 ```
+
+The command returns **false** if Shared Key authorization is disallowed for the storage account.
 
 > [!NOTE]
 > Anonymous requests are not authorized and will proceed if you have configured the storage account and container for anonymous read access. For more information, see [Configure anonymous read access for containers and blobs](../blobs/anonymous-read-access-configure.md).

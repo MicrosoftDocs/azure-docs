@@ -3,7 +3,7 @@ title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
 ms.topic: conceptual
 ms.custom:
-ms.date: 12/05/2023
+ms.date: 04/16/2024
 ---
 
 # Enable automatic certificate rotation in a Batch pool
@@ -143,7 +143,7 @@ Request Body for Windows node
                                 "requireInitialSync": true,
                                 "observedCertificates": [
                                     {
-                                        "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
+                                        "url": "https://testkvwestus2s.vault.azure.net/secrets/authcertforumatesting/8f5f3f491afd48cb99286ba2aacd39af",
                                         "certificateStoreLocation": "LocalMachine",
                                         "keyExportable": true
                                     }
@@ -186,7 +186,7 @@ root@74773db5fe1b42ab9a4b6cf679d929da000000:/var/lib/waagent/Microsoft.Azure.Key
 
 ## Troubleshooting Key Vault Extension
 
-If Key Vault extension is configured incorrectly, the compute node might be in usuable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
+If Key Vault extension is configured incorrectly, the compute node might be in usable state. To troubleshoot Key Vault extension failure, you can temporarily set requireInitialSync to false and redeploy your pool, then the compute node is in idle state, you can log in to the compute node to check KeyVault extension logs for errors and fix the configuration issues. Visit following Key Vault extension doc link for more information.
 
 - [Azure Key Vault extension for Linux](../virtual-machines/extensions/key-vault-linux.md)
 - [Azure Key Vault extension for Windows](../virtual-machines/extensions/key-vault-windows.md)

@@ -4,7 +4,7 @@ description: This page provides instructions for getting the ARP tables for an E
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau
@@ -80,41 +80,6 @@ Age InterfaceProperty IpAddress  MacAddress
  10 On-Prem           10.0.0.1   ffff.eeee.dddd
   0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
 ```
-
-
-### ARP tables for Azure public peering:
-The following cmdlet provides the ARP tables for Azure public peering:
-
-```azurepowershell
-# Required variables
-$ckt = "<your Service Key here>
-
-# ARP table for Azure public peering--primary path
-Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Primary
-
-# ARP table for Azure public peering--secondary path
-Get-AzureDedicatedCircuitPeeringArpInfo -ServiceKey $ckt -AccessType Public -Path Secondary
-```
-
-Following is sample output for one of the paths:
-
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
- 10 On-Prem           10.0.0.1   ffff.eeee.dddd
-  0 Microsoft         10.0.0.2   aaaa.bbbb.cccc
-```
-
-
-Following is sample output for one of the paths:
-
-```output
-Age InterfaceProperty IpAddress  MacAddress    
---- ----------------- ---------  ----------    
- 10 On-Prem           64.0.0.1   ffff.eeee.dddd
-  0 Microsoft         64.0.0.2   aaaa.bbbb.cccc
-```
-
 
 ### ARP tables for Microsoft peering
 The following cmdlet provides the ARP tables for Microsoft peering:

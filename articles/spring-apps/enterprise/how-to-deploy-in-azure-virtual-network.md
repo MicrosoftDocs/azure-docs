@@ -3,9 +3,9 @@ title:  "Deploy Azure Spring Apps in a virtual network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subject-rbac-steps
 ---
 
@@ -130,12 +130,12 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
        --address-prefixes 10.1.0.0/24 \
-       --name service-runtime-subnet 
+       --name service-runtime-subnet
    az network vnet subnet create \
        --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
        --address-prefixes 10.1.1.0/24 \
-       --name apps-subnet 
+       --name apps-subnet
    ```
 
 ---
@@ -159,7 +159,7 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
    > [!NOTE]
    > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
@@ -307,7 +307,7 @@ If you don't specify custom DNS servers in your DNS Server Virtual Network setti
 If your custom DNS server can't add Azure DNS IP `168.63.129.16` as the upstream DNS server, use the following steps:
 
 * Ensure that your custom DNS server can resolve IP addresses for all the public FQDNs. For more information, see [Customer responsibilities running Azure Spring Apps in a virtual network](vnet-customer-responsibilities.md).
-* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP for your application](access-app-virtual-network.md#find-the-ip-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
+* Add the DNS record `*.svc.private.azuremicroservices.io` to the IP of your application. For more information, see the [Find the IP address for your application](access-app-virtual-network.md#find-the-ip-address-for-your-application) section of [Access an app in Azure Spring Apps in a virtual network](access-app-virtual-network.md).
 
 ## Next steps
 

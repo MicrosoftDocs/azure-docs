@@ -1,26 +1,28 @@
 ---
 title: Migrate to App Service Environment v3 by using the side-by-side migration feature
-description: Overview of the side-by-side migration feature for migration to App Service Environment v3.
+description: Learn how to migrate your App Service Environment v2 to App Service Environment v3 by using the side-by-side migration feature.
 author: seligj95
-ms.topic: article
-ms.date: 4/8/2024
+ms.topic: tutorial
+ms.custom: devx-track-azurecli, references_regions
+ms.date: 7/25/2024
 ms.author: jordanselig
-ms.custom: references_regions
 ---
-# Migration to App Service Environment v3 using the side-by-side migration feature (Preview)
+# Migration to App Service Environment v3 using the side-by-side migration feature
 
 > [!NOTE]
-> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3 and is currently **in preview**. 
+> The migration feature described in this article is used for side-by-side (different subnet) automated migration of App Service Environment v2 to App Service Environment v3. 
 >
 > If you're looking for information on the in-place migration feature, see [Migrate to App Service Environment v3 by using the in-place migration feature](migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
 App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
 
-The side-by-side migration feature automates your migration to App Service Environment v3. The side-by-side migration feature creates a new App Service Environment v3 with all of your apps in a different subnet. Your existing App Service Environment isn't deleted until you initiate its deletion at the end of the migration process. Because of this process, there's a rollback option if you need to cancel your migration. This migration option is best for customers who want to migrate to App Service Environment v3 with zero downtime and can support using a different subnet for their new environment. If you need to use the same subnet and can support about one hour of application downtime, see the [in-place migration feature](migrate.md). For manual migration options that allow you to migrate at your own pace, see [manual migration options](migration-alternatives.md).
+The side-by-side migration feature automates your migration to App Service Environment v3. The side-by-side migration feature creates a new App Service Environment v3 with all of your apps in a different subnet. Your existing App Service Environment isn't deleted until you initiate its deletion at the end of the migration process. This migration option is best for customers who want to migrate to App Service Environment v3 with zero downtime and can support using a different subnet for their new environment. If you need to use the same subnet and can support about one hour of application downtime, see the [in-place migration feature](migrate.md). For manual migration options that allow you to migrate at your own pace, see [manual migration options](migration-alternatives.md).
 
 > [!IMPORTANT]
-> It is recommended to use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
+> If you fail to complete all steps described in this tutorial, you'll experience downtime. For example, if you don't update all dependent resources with the new IP addresses or you don't allow access to/from your new subnet, such as the case for your custom domain suffix key vault, you'll experience downtime until that's addressed.
+> 
+> It's recommended to use this feature for dev environments first before migrating any production environments to rehearse the process and ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
 >
 
 ## Supported scenarios
@@ -79,6 +81,9 @@ The side-by-side migration feature doesn't support the following scenarios. See 
   - If you have an App Service Environment v1, you can migrate using the [in-place migration feature](migrate.md) or one of the [manual migration options](migration-alternatives.md).
 - ELB App Service Environment v2 with IP SSL addresses
 - [Zone pinned](zone-redundancy.md) App Service Environment v2
+- App Service Environment with a name that doesn't meet the character limits. The entire name, including the domain suffix, must be 64 characters or fewer. For example: *my-ase-name.appserviceenvironment.net* for ILB and *my-ase-name.p.azurewebsites.net* for ELB must be 64 characters or fewer. If you don't meet the character limit, you must migrate manually. The character limits specifically for the App Service Environment name are as follows:
+    - ILB App Service Environment name character limit: 36 characters
+    - ELB App Service Environment name character limit: 42 characters
  
 The App Service platform reviews your App Service Environment to confirm side-by-side migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the side-by-side migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
 
@@ -104,26 +109,25 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Failed to start revert operation on ASE in hybrid state, please try again later.    |This error appears if you try to revert the migration but something goes wrong. This error doesn't affect either your old or your new environment.     |Open a support case to engage support to resolve your issue.     |
 |This ASE cannot be migrated without downtime.    |This error appears if you try to use the side-by-side migration feature on an App Service Environment v1.   |The side-by-side migration feature doesn't support App Service Environment v1. Migrate using the [in-place migration feature](migrate.md) or one of the [manual migration options](migration-alternatives.md).     |
 |Migrate is not available for this subscription.    |Support needs to be engaged for migrating this App Service Environment.|Open a support case to engage support to resolve your issue.|
-|Zone redundant migration cannot be called since the IP addresses created during pre-migrate are not zone redundant.    |This error appears if you attempt a zone redundant migration but didn't create zone redundant IPs during the IP generation step.    |Open a support case to engage support if you need to enable zone redundancy. Otherwise, you can migrate without enabling zone redundancy.     |
+|Zone redundant migration cannot be called since the IP addresses created during pre-migrate are not zone redundant.    |This error appears if you attempt a zone redundant migration but the IPs generated during the IP generation step were not created as zone redundant. The platform attempts to make all IPs zone redundant to ensure backend resiliency.   |Open a support case to engage support if you need to enable zone redundancy. The engineers will revert the migration and allow for another attempt to create the IPs. Otherwise, you can migrate without enabling zone redundancy.     |
 |Migrate cannot be called if IP SSL is enabled on any of the sites.    |App Service Environments that have sites with IP SSL enabled can't be migrated using the side-by-side migration feature. |Remove the IP SSL from all of your apps in the App Service Environment to enable the migration feature. |
 |Cannot migrate within the same subnet.  |The error appears if you specify the same subnet that your current environment is in for placement of your App Service Environment v3.     |You must specify a different subnet for your App Service Environment v3. If you need to use the same subnet, migrate using the [in-place migration feature](migrate.md).     |
 |Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) is met. |Remove unneeded environments or contact support to review your options.  |
-|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. In some cases, an upgrade is initiated when visiting the migration page if your App Service Environment isn't on the current build.  |Wait until the upgrade finishes and then migrate.   |
+|Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](how-to-upgrade-preference.md) from the Azure portal. Upgrades take 8-12 hours or longer depending on the size (number of instances/cores) of the App Service Environment.  |Wait until the upgrade finishes and then migrate.   |
 |App Service Environment management operation in progress.    |Your App Service Environment is undergoing a management operation. These operations can include activities such as deployments or upgrades. Migration is blocked until these operations are complete.   |You can migrate once these operations are complete.  |
-|Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The InternalLoadBalancingMode must be manually changed by the Microsoft team. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode to allow migration. |
-|Migration is invalid. Your ASE needs to be upgraded to the latest build to ensure successful migration. We will upgrade your ASE now. Please try migrating again in few hours once platform upgrade has finished. |Your App Service Environment isn't on the minimum build required for migration. An upgrade is started. Your App Service Environment won't be impacted, but you won't be able to scale or make changes to your App Service Environment while the upgrade is in progress. You won't be able to migrate until the upgrade finishes. |Wait until the upgrade finishes and then migrate. |
-|Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](how-to-side-by-side-migrate.md).  |
+|Your InteralLoadBalancingMode is not currently supported.|App Service Environments that have InternalLoadBalancingMode set to certain values can't be migrated using the migration feature at this time. The Microsoft team must manually change the InternalLoadBalancingMode. |Open a support case to engage support to resolve your issue. Request an update to the InternalLoadBalancingMode. |
+|Full migration cannot be called before IP addresses are generated. |This error appears if you attempt to migrate before finishing the premigration steps. |Ensure you complete all premigration steps before you attempt to migrate. See the [step-by-step guide for migrating](#use-the-side-by-side-migration-feature).  |
 |Full migration cannot be called on Ase with custom dns suffix set but without an AseV3 Custom Dns Suffix Configuration configured. |Your existing App Service Environment uses a custom domain suffix. You have to configure custom domain suffix for your App Service Environment v3 during the migration process. |Configure a [custom domain suffix](./how-to-custom-domain-suffix.md). If you no longer want to use a custom domain suffix, you can remove it once the migration is complete. |
 
 ## Overview of the migration process using the side-by-side migration feature
 
-Side-by-side migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what happens during these steps and how your environment and apps are impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](how-to-side-by-side-migrate.md).
+Side-by-side migration consists of a series of steps that must be followed in order. Key points are given for a subset of the steps. It's important to understand what happens during these steps and how your environment and apps are impacted. After reviewing the following information and when you're ready to migrate, follow the [step-by-step guide](#use-the-side-by-side-migration-feature).
 
 ### Validate that migration is supported using the side-by-side migration feature for your App Service Environment
 
 The platform validates that your App Service Environment can be migrated using the side-by-side migration feature. If your App Service Environment doesn't pass all validation checks, you can't migrate at this time using the side-by-side migration feature. See the [troubleshooting](#troubleshooting) section for details of the possible causes of validation failure. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates. If you can't migrate using the side-by-side migration feature, see the [manual migration options](migration-alternatives.md).
 
-The validation also checks if your App Service Environment is on the minimum build required for migration. The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
+The validation also checks if your App Service Environment is on the minimum build required for migration. This build might be newer than the standard build that is deployed with the [routine platform upgrade/maintenance cycle](how-to-upgrade-preference.md). The minimum build is updated periodically to ensure the latest bug fixes and improvements are available. If your App Service Environment isn't on the minimum build, you need to start the upgrade yourself. This upgrade is a standard process where your App Service Environment isn't impacted, but you can't scale or make changes to your App Service Environment while the upgrade is in progress. You can't migrate until the upgrade finishes. Upgrades can take 8-12 hours to complete or longer depending on the size of your environment. If you plan a specific time window for your migration, you should run the validation check 24-48 hours before your planned migration time to ensure you have time for an upgrade if one is needed.
 
 ### Select and prepare the subnet for your new App Service Environment v3
 
@@ -145,11 +149,9 @@ When completed, the new outbound IPs that your future App Service Environment v3
 
 You receive the new inbound IP address once migration is complete but before you make the [DNS change to redirect customer traffic to your new App Service Environment v3](#redirect-customer-traffic-validate-your-app-service-environment-v3-and-complete-migration). You don't get the inbound IP at this point in the process because there are dependencies on App Service Environment v3 resources that get created during the migration step. You have a chance to update any resources that are dependent on the new inbound IP before you redirect traffic to your new App Service Environment v3.
 
-This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
-
 ### Update dependent resources with new outbound IPs
 
-The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** You might experience downtime after the migration step if you have dependencies on the outbound IPs and fail to make all necessary updates. This is because once the migration completes, even though traffic still goes to your App Service Environment v2 front ends, your underlying compute is your new App Service Environment v3. 
+The new outbound IPs are created and given to you before you start the actual migration. The new default outbound to the internet public addresses are given so you can adjust any external firewalls, DNS routing, network security groups, and any other resources that rely on these IPs before completing the migration. **It's your responsibility to update any and all resources that will be impacted by the IP address change associated with the new App Service Environment v3. Don't move on to the next step until you've made all required updates.** You might experience downtime during and after the migration step if you have dependencies on the outbound IPs and fail to make all necessary updates. This is because once the migration starts, even though traffic still goes to your App Service Environment v2 front ends, your underlying compute is your new App Service Environment v3 in the new subnet. 
 
 This step is also a good time to review the [inbound and outbound network](networking.md#ports-and-network-restrictions) dependency changes when moving to App Service Environment v3 including the port change for the Azure Load Balancer health probe, which now uses port 80.
 
@@ -182,19 +184,25 @@ After completing the previous steps, you should continue with migration as soon 
 There's no application downtime during the migration, but as in the IP generation step, you can't scale, modify your existing App Service Environment, or deploy apps to it during this process.
 
 > [!IMPORTANT]
-> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, you have to wait until the scaling event completes before starting the migration. You should disable auto-scaling before starting the migration to avoid this issue. If you need to scale your environment after the migration, you can do so once the migration is complete.
 >
+
+This step is also where you decide if you want to enable zone redundancy for your new App Service Environment v3. Zone redundancy can be enabled as long as your App Service Environment v3 is [in a region that supports zone redundancy](./overview.md#regions).
 
 Side-by-side migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. During migration, scaling and environment configurations are blocked and the following events occur:
 
 - The new App Service Environment v3 is created in the subnet you selected.
 - Your new App Service plans are created in the new App Service Environment v3 with the corresponding Isolated v2 tier.
 - Your apps are created in the new App Service Environment v3.
-- The underlying compute for your apps is moved to the new App Service Environment v3. Your App Service Environment v2 front ends are still serving traffic. Your old inbound IP address remains in use. 
+- The underlying compute/workers for your apps is moved to the new App Service Environment v3, which means your apps are now running on your App Service Environment v3. However, your App Service Environment v2 front ends are by default still running and serving traffic. Your old inbound IP address remains in use, but your new outbound IPs are in use. In addition, your new App Service Environment v3 front ends are created and ready to serve traffic.
     - For ILB App Service Environments, your App Service Environment v3 front ends aren't used until you update your private DNS zones with the new inbound IP address. 
-    - For ELB App Service Environments, the migration process doesn't redirect to the App Service Environment v3 front ends until you complete the final step of the migration.
+    - For ELB App Service Environments, the migration process doesn't redirect traffic to the App Service Environment v3 front ends until you complete the final step of the migration.
 
-When this step completes, your application traffic is still going to your old App Service Environment front ends and the inbound IP that was assigned to it. However, you also now have an App Service Environment v3 with all of your apps.
+When this step completes, your application traffic is still going to your old App Service Environment v2 front ends and the inbound IP that was assigned to it. However, your apps are actually running on workers in your new App Service Environment v3.
+
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug might cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
 
 ### Get the inbound IP address for your new App Service Environment v3 and update dependent resources
 
@@ -202,15 +210,273 @@ The new inbound IP address is given so that you can set up new endpoints with se
 
 ### Redirect customer traffic, validate your App Service Environment v3, and complete migration
 
-The final step is to redirect traffic to your new App Service Environment v3 and complete the migration. The platform does this change for you, but only when you initiate it. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. Your App Service Environment v2 front ends are still running, but the backing compute is an App Service Environment v3. If you're using an ILB App Service Environment v3, you can test your App Service Environment v3 front ends by updating your private DNS zones with the new inbound IP address. Testing this change allows you to fully validate your App Service Environment v3 before initiating the final step of the migration where your old App Service Environment is deleted.
+The final step is to redirect traffic to your new App Service Environment v3 front ends and complete the migration. Before you do this step, you should review your new App Service Environment v3 and perform any needed testing to validate that it's functioning as intended. By default, traffic goes to your App Service Environment v2 front ends. If you're using an ILB App Service Environment v3, you can test your App Service Environment v3 front ends by updating your private DNS zone with the new inbound IP address. If you're using an ELB App Service Environment v3, the process for testing is dependent on your specific network configuration. One simple method to test for ELB environments is to update your hosts file to use your new App Service Environment v3 inbound IP address. If you have custom domains assigned to your individual apps, you can alternatively update their DNS to point to the new inbound IP. Testing this change allows you to fully validate your App Service Environment v3 before initiating the final step of the migration where your old App Service Environment is deleted.
 
-Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal DNS records to point to the load balancer IP address of your new App Service Environment v3 and the front ends that were created during the migration. Changes are effective within a couple minutes. If you run into issues, check your cache and TTL settings. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
+Once you're ready to redirect traffic, you can complete the final step of the migration. This step updates internal/platform DNS records to point to the load balancer IP address of your new App Service Environment v3 and the front ends that were created during the migration. Changes are effective within a couple minutes. It is your responsibility to update your DNS records to point to the new inbound IP address. If you run into issues or application downtime, check your cache and TTL settings. This step also shuts down your old App Service Environment and deletes it. Your new App Service Environment v3 is now your production environment.
 
-If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, you can revert all changes and return to your old App Service Environment v2. The revert process takes 3 to 6 hours to complete. There's no downtime associated with this process. Once the revert process completes, your old App Service Environment is back online and your new App Service Environment v3 is deleted. You can then attempt the migration again once you resolve any issues.
+> [!IMPORTANT]
+> The platform guarantees a zero-downtime migration experience. However, your DNS settings might cause downtime during the DNS change step. This can be due to issues related to TTL and cache settings as traffic might still be directed to your old App Service Environment after the DNS change. You should review your DNS settings and ensure that you have a low TTL and that your DNS provider supports fast propagation. If you have a high TTL, you might experience downtime during the DNS change step.
+>
+
+> [!NOTE]
+> It's important to complete this step as soon as possible. When your App Service Environment is in the hybrid state, it's unable to receive platform upgrades and security patches, which makes it more vulnerable to instability and security threats.
+>
+
+If you discover any issues with your new App Service Environment v3, don't run the command to redirect customer traffic. This command also initiates the deletion of your App Service Environment v2. If you find an issue, contact support.
+
+## Use the side-by-side migration feature
+
+### Prerequisites
+
+Ensure that you understand how migrating to App Service Environment v3 affects your applications. Review the [migration process](#overview-of-the-migration-process-using-the-side-by-side-migration-feature) in its entirety to understand the process timeline and where and when you need to get involved. Also review the [FAQs](#frequently-asked-questions), which can answer some of your questions.
+
+Ensure that there are no locks on your virtual network, resource groups, resources, or subscription. Locks block platform operations during migration.
+
+Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
+
+Since your App Service Environment v3 is in a different subnet in your virtual network, you need to ensure that you have an available subnet in your virtual network that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). The subnet you select must also be able to communicate with the subnet that your existing App Service Environment is in. Ensure there's nothing blocking communication between the two subnets. If you don't have an available subnet, you need to create one before migrating. Creating a new subnet might involve increasing your virtual network address space. For more information, see [Create a virtual network and subnet](../../virtual-network/manage-virtual-network.yml).
+
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, your migration is blocked until the scaling event completes. You should disable auto-scaling before starting the migration to avoid this issue.
+
+Follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
+
+For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. 
+
+> [!NOTE]
+> We recommend that you use a Bash shell to run the commands given in this guide. The commands might not be compatible with PowerShell conventions and escape characters.
+>
+
+> [!IMPORTANT]
+> During the migration, the Azure portal might show incorrect information about your App Service Environment and your apps. Don't go to the Migration experience in the Azure portal since the side-by-side migration feature isn't available there. We recommend that you use the Azure CLI to check the status of your migration. If you have any questions about the status of your migration or your apps, contact support.
+> 
+
+### 1. Select the subnet for your new App Service Environment v3
+
+Select a subnet in your App Service Environment v3 that meets the [subnet requirements for App Service Environment v3](./networking.md#subnet-requirements). Note the name of the subnet you select. This subnet must be different than the subnet your existing App Service Environment is in.
+
+### 2. Get your App Service Environment ID
+
+Run the following commands to get your App Service Environment ID and store it as an environment variable. Replace the placeholders for the name and resource groups with your values for the App Service Environment that you want to migrate. `ASE_RG` and `VNET_RG` are the same if your virtual network and App Service Environment are in the same resource group.
+
+```azurecli
+ASE_NAME=<Your-App-Service-Environment-name>
+ASE_RG=<Your-ASE-Resource-Group>
+VNET_RG=<Your-VNet-Resource-Group>
+ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query id --output tsv)
+```
+
+### 3. Validate migration is supported
+
+The following command checks whether your App Service Environment is supported for migration. This command also validates that your App Service Environment is on the supported build version for migration. If your App Service Environment isn't on the supported build version, you need to start the upgrade yourself. For more information on the premigration upgrade, see [Validate that migration is supported using the side-by-side migration feature for your App Service Environment](#validate-that-migration-is-supported-using-the-side-by-side-migration-feature-for-your-app-service-environment).
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=Validation&api-version=2022-03-01"
+```
+
+If there are no errors, your migration is supported, and you can continue to the next step.
+
+If you need to start an upgrade to upgrade your App Service Environment to the supported build version, which could take 8-12 hours or longer depending on the size of your environment, run the following command. Only run this command if you fail the validation step and you're instructed to upgrade your App Service Environment.
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigrationUpgrade&api-version=2022-03-01"
+```
+
+### 4. Generate outbound IP addresses for your new App Service Environment v3
+
+Run the following command to create new outbound IP addresses. This step takes about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this time.
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=PreMigration&api-version=2022-03-01"
+```
+
+Run the following command to check the status of this step:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.status
+```
+
+If the step is in progress, you get a status of `Migrating`. After you get a status of `Ready`, run the following command to view your new outbound IPs. If you don't see the new IPs immediately, wait a few minutes and try again.
+
+```azurecli
+az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2022-03-01" --query properties.windowsOutboundIpAddresses
+```
+
+### 5. Update dependent resources with new outbound IPs
+
+By using the new outbound IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is started. It's your responsibility to make any necessary updates. The new outbound IPs are used once the App Service Environment v3 is created during the migration step. For example, if you have a custom domain suffix and an Azure Key Vault and are managing access restrictions with a firewall, you need to update the Azure Key Vault's firewall to allow either just the new outbound IPs or the entire new subnet.
+
+### 6. Delegate your App Service Environment subnet
+
+App Service Environment v3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You need to confirm that your subnet is delegated properly and update the delegation (if necessary) before migrating. You can update the delegation either by running the following command or by going to the subnet in the [Azure portal](https://portal.azure.com).
+
+```azurecli
+az network vnet subnet update --resource-group $VNET_RG --name <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+```
+
+### 7. Confirm there are no locks on the virtual network
+
+Virtual network locks block platform operations during migration. If your virtual network has locks, you need to remove them before migrating. If necessary, you can add back the locks after migration is complete.
+
+Use the following command to check if your virtual network has any locks:
+
+```azurecli
+az lock list --resource-group $VNET_RG --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+```
+
+Delete any existing locks by using the following command:
+
+```azurecli
+az lock delete --resource-group $VNET_RG --name <lock-name> --resource <vnet-name> --resource-type Microsoft.Network/virtualNetworks
+```
+
+For related commands to check if your subscription or resource group has locks, see the [Azure CLI reference for locks](../../azure-resource-manager/management/lock-resources.md#azure-cli).
+
+### 8. Prepare your configurations
+
+If your existing App Service Environment uses a custom domain suffix, you need to [configure one for your new App Service Environment v3 resource during the migration process](#add-a-custom-domain-suffix-optional). Migration fails if you don't configure a custom domain suffix and are using one currently. For more information on App Service Environment v3 custom domain suffixes, including requirements, step-by-step instructions, and best practices, see [Custom domain suffix for App Service Environments](./how-to-custom-domain-suffix.md).
+
+> [!NOTE]
+> If you're configuring a custom domain suffix, when you're adding the network permissions on your Azure key vault, be sure that your key vault allows access from your App Service Environment v3's new subnet. If you're accessing your key vault using a private endpoint, ensure you've configured private access correctly with the new subnet. You experience downtime if you fail to correctly set this access prior to migration.
+>
+
+You can make your new App Service Environment v3 zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). Zone redundancy can be configured by setting the `zoneRedundant` property to `true`. Zone redundancy is an optional configuration. This configuration can only be set during the creation of your new App Service Environment v3 and can't be removed at a later time.
+
+To set these configurations, including identifying the subnet you selected earlier, create a file called *parameters.json* with the following details based on your scenario. Be sure to use the new subnet that you selected for your new App Service Environment v3. Don't include the properties for a custom domain suffix if this feature doesn't apply to your migration. Pay attention to the value of the `zoneRedundant` property and set it according to your resiliency requirement.
+
+If you're migrating without a custom domain suffix, use this code:
+
+```json
+{
+    "Properties": {
+        "VirtualNetwork": {
+            "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
+        },
+        "zoneRedundant": "<true/false>"
+    }
+}
+```
+
+If you're using a user assigned managed identity for your custom domain suffix configuration, use this code:
+
+```json
+{
+    "Properties": {
+        "VirtualNetwork": {
+            "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
+        },
+        "zoneRedundant": "<true/false>",
+        "customDnsSuffixConfiguration": {
+            "dnsSuffix": "internal.contoso.com",
+            "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+            "keyVaultReferenceIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/asev3-migration/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ase-managed-identity"
+        }
+    }
+}
+```
+
+If you're using a system assigned managed identity for your custom domain suffix configuration, use this code:
+
+```json
+{
+    "properties": {
+        "VirtualNetwork": {
+            "Id": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>"
+        },
+        "zoneRedundant": "<true/false>",
+        "customDnsSuffixConfiguration": {
+            "dnsSuffix": "internal.contoso.com",
+            "certificateUrl": "https://contoso.vault.azure.net/secrets/myCertificate",
+            "keyVaultReferenceIdentity": "SystemAssigned"
+        }
+    }
+}
+```
+
+### 9. Migrate to App Service Environment v3 and check status
+
+After you complete all of the preceding steps, you can start the migration. Make sure that you understand the [implications of migration](#migrate-to-app-service-environment-v3).
+
+This step takes three to six hours complete. During that time, there's no application downtime if you've followed the previous steps. Scaling, deployments, and modifications to your existing App Service Environment are blocked during this step.
+
+> [!NOTE]
+> Due to a known bug, web jobs might not start during the hybrid deployment step. If you use web jobs, this bug may cause app issues/downtime. Open a support case if you have any questions or concerns about this issue.
+>
+
+Run the following command to start the migration:
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=HybridDeployment&api-version=2022-03-01" --body @parameters.json
+```
+
+Run the following command to check the status of your migration:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
+```
+
+After you get a status of `MigrationPendingDnsChange`, migration is done, and you have an App Service Environment v3 resource. Your apps are now running in your new environment and in your old environment.
+
+Get the details of your new environment by running the following command:
+
+```azurecli
+az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
+```
+
+> [!IMPORTANT]
+> During the migration as well as during the `MigrationPendingDnsChange` step, the Azure portal shows incorrect information about your App Service Environment and your apps. Use the Azure CLI to check the status of your migration. If you have any questions about the status of your migration or your apps, contact support.
+> 
+
+> [!NOTE]
+> If your migration includes a custom domain suffix, your custom domain suffix configuration might show as degraded once the migration is complete due to a known bug. Your App Service Environment should still function as expected. The degraded status should resolve itself within 6-8 hours. If the configuration is degraded after 8 hours or if your custom domain suffix isn't functioning, contact support.
+>
+:::image type="content" source="./media/custom-domain-suffix/custom-domain-suffix-error.png" alt-text="Screenshot of a sample degraded custom domain suffix configuration.":::
+>
+
+### 10. Get the inbound IP addresses for your new App Service Environment v3 and update dependent resources
+
+You have two sets of App Service Environment front ends at this stage in the migration process and both sets are capable of serving application traffic. Your DNS isn't changed, so by default, traffic is sent to the old App Service Environment front ends. You need to update any dependent resources to use the new IP inbound address for your new App Service Environment v3. For internal facing (ILB) App Service Environments, you need to update your private DNS zones to point to the new inbound IP address.
+
+You can get the new inbound IP address for your new App Service Environment v3 by running the following command that corresponds to your App Service Environment load balancer type. It's your responsibility to make any necessary updates. 
+
+For ILB App Service Environments, get the private inbound IP address by running the following command:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.internalInboundIpAddresses
+```
+
+For ELB App Service Environments, get the public inbound IP address by running the following command:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.networkingConfiguration.externalInboundIpAddresses
+```
+
+> [!IMPORTANT]
+> If your migration includes a custom domain suffix, the default host name behavior for App Service Environment v3 is different than for App Service Environment v2. For App Service Environment v3, the default host name always uses the default domain suffix and is in the form *APP-NAME.ASE-NAME.appserviceenvironment.net*. Review all your dependent resources, such as App Gateway, that use the host names of your apps to ensure they're updated to account for this behavior. For more information on App Service Environment feature differences between the different versions, see [App Service Environment version comparison](version-comparison.md). 
+> 
+
+### 11. Redirect customer traffic, validate your App Service Environment v3, and complete migration
+
+This step is your opportunity to test and validate your new App Service Environment v3.
+
+Once you confirm your apps are working as expected, you can finalize the migration by running the following command. This command also deletes your old environment.
+
+If you find any issues or decide at this point that you no longer want to proceed with the migration, contact support to discuss your options. Don't run the DNS change command since that command completes the migration.
+
+```azurecli
+az rest --method post --uri "${ASE_ID}/NoDowntimeMigrate?phase=DnsChange&api-version=2022-03-01"
+```
+
+Run the following command to check the status of this step:
+
+```azurecli
+az rest --method get --uri "${ASE_ID}?api-version=2022-03-01" --query properties.subStatus
+```
+
+During this step, you get a status of `CompletingMigration`. When you get a status of `MigrationCompleted`, the traffic redirection step is done and your migration is complete.
 
 ## Pricing
 
-There's no cost to migrate your App Service Environment. However, you're billed for both your App Service Environment v2 and your new App Service Environment v3 once you start the migration process. You stop being charged for your old App Service Environment v2 when you complete the final migration step where your DNS is updated and the old environment gets deleted. You should complete your validation as quickly as possible to prevent excess charges from accumulating. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
+There's no cost to migrate your App Service Environment. However, you're billed for both your App Service Environment v2 and your new App Service Environment v3 once you start the migration process. You stop being charged for your old App Service Environment v2 when you complete the final migration step where the old environment gets deleted. You should complete your validation as quickly as possible to prevent excess charges from accumulating. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
 When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. Consider [reservations](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances) and [savings plans](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) to further reduce your costs. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
 
@@ -231,7 +497,7 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
 - **How do I know if I should use the side-by-side migration feature?**  
   The side-by-side migration feature is best for customers who want to migrate to App Service Environment v3 but can't support application downtime. Since a new subnet is used for your new environment, there are networking considerations to be aware of, including new IPs. If you can support downtime, see the [in-place migration feature](migrate.md), which results in minimal configuration changes, or the [manual migration options](migration-alternatives.md). The in-place migration feature creates your App Service Environment v3 in the same subnet as your existing environment and uses the same networking infrastructure.
 - **Will I experience downtime during the migration?**  
-  No, there's no downtime during the side-by-side migration process. Your apps continue to run on your existing App Service Environment until you complete the final step of the migration where DNS changes are effective immediately. Once you complete the final step, your old App Service Environment is shut down and deleted. Your new App Service Environment v3 is now your production environment.
+  The platform guarantees that there's no downtime during the side-by-side migration process. However, your DNS settings might cause downtime during the DNS change step. This can be due to issues related to TTL and cache settings as traffic might still be directed to your old App Service Environment after the DNS change. You should review your DNS settings and ensure that you have a low TTL and that your DNS provider supports fast propagation.
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment are automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
@@ -243,16 +509,13 @@ The App Service plan SKUs available for App Service Environment v3 run on the Is
 - **What properties of my App Service Environment will change?**  
   You're on App Service Environment v3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. Both your inbound and outbound IPs change when using the side-by-side migration feature. Note for ELB App Service Environment, previously there was a single IP for both inbound and outbound. For App Service Environment v3, they're separate. For more information, see [App Service Environment v3 networking](networking.md#addresses). For a full comparison of the App Service Environment versions, see [App Service Environment version comparison](version-comparison.md).
 - **What happens if migration fails or there is an unexpected issue during the migration?**  
-  If there's an unexpected issue, support teams are on hand. We recommend that you migrate dev environments before touching any production environments to learn about the migration process and see how it impacts your workloads. With the side-by-side migration feature, you can revert all changes if there's any issues.
+  If there's an unexpected issue, support teams are on hand. We recommend that you migrate dev environments before touching any production environments to learn about the migration process and see how it impacts your workloads.
 - **What happens to my old App Service Environment?**  
-  If you decide to migrate an App Service Environment using the side-by-side migration feature, your old environment is used up until the final step in the migration process. Once you complete the final step, the old environment and all of the apps hosted on it get shutdown and deleted. Your old environment is no longer accessible. A rollback to the old environment at this point isn't possible.
+  If you decide to migrate an App Service Environment using the side-by-side migration feature, your old environment is used up until the final step in the migration process. Once you complete the final step, the old environment and all of the apps hosted on it get shutdown and deleted. Your old environment is no longer accessible. A revert to the old environment at this point isn't possible.
 - **What will happen to my App Service Environment v1/v2 resources after 31 August 2024?**  
   After 31 August 2024, if you don't migrate to App Service Environment v3, your App Service Environment v1/v2s and the apps deployed in them will no longer be available. App Service Environment v1/v2 is hosted on App Service scale units running on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md) architecture that will be [retired on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/). Because of this, [App Service Environment v1/v2 will no longer be available after that date](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). Migrate to App Service Environment v3 to keep your apps running or save or back up any resources or data that you need to maintain.
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Migrate your App Service Environment to App Service Environment v3 using the side-by-side migration feature](how-to-side-by-side-migrate.md)
 
 > [!div class="nextstepaction"]
 > [App Service Environment v3 Networking](networking.md)

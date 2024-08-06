@@ -38,6 +38,24 @@ groups:
     title: Single Server
   - id: postgres-flexible-server
     title: Flexible Server
+# Owner: ialonso
+- id: postgresql-server-version
+  title: PostgreSQL Server Versions
+  prompt: Choose a PostgreSQL version
+  pivots:
+  - id: postgresql-16
+    title: PostgreSQL 16
+  - id: postgresql-15
+    title: PostgreSQL 15
+  - id: postgresql-14
+    title: PostgreSQL 14
+  - id: postgresql-13
+    title: PostgreSQL 13
+  - id: postgresql-12
+    title: PostgreSQL 12
+  - id: postgresql-11
+    title: PostgreSQL 11
+# Owner: kraigb
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -464,10 +482,10 @@ groups:
   title: Container hosting
   prompt: Choose a container host
   pivots:
+  - id: container-apps
+    title: Azure Container Apps
   - id: azure-functions
     title: Azure Functions
-  - id: container-apps
-    title: Azure Container Apps (preview)
   - id: azure-arc
     title: Azure Arc (preview)
 - id: df-languages
@@ -498,6 +516,8 @@ groups:
   pivots:
   - id: consumption-plan
     title: Consumption plan
+  - id: flex-consumption-plan
+    title: Flex Consumption plan (preview)
   - id: premium-plan
     title: Premium plan
   - id: dedicated-plan
@@ -754,10 +774,12 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-javascript
-    title: JavaScript
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-rest-api
     title: REST API
 - id: programming-languages-content-safety
@@ -894,6 +916,17 @@ groups:
     title: Swift
   - id: programming-language-cli
     title: CLI
+- id: programming-languages-portal-cli-ps
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
+  - id: azpowershell
+    title: Azure PowerShell
 - id: programming-languages-portal-cli-sdk
 # Owner: eur
   title: Programming languages
@@ -930,6 +963,31 @@ groups:
     title: JavaScript
   - id: programming-language-objectivec
     title: Objective-C
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-cli
+    title: CLI
+  - id: programming-language-rest
+    title: REST
+- id: programming-languages-speech-services-studio
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language or tool
+  pivots:
+  - id: ai-studio
+    title: AI Studio
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
   - id: programming-language-python
     title: Python
   - id: programming-language-swift
@@ -1000,6 +1058,15 @@ groups:
   pivots:
   - id: speech-studio
     title: Speech Studio
+  - id: rest-api
+    title: REST
+- id: ai-studio-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: ai-studio
+    title: AI Studio
   - id: rest-api
     title: REST
 - id: speech-cli-rest
@@ -1245,16 +1312,26 @@ groups:
     title: Linux
   - id: platform-sphere
     title: Azure Sphere
-- id: app-service-java-hosting
-  title: App Service Java hosting
+- id: app-service-java-deploy
+  title: App Service Java deployment
   prompt: Choose how you want to deploy your Java app
   pivots:
-  - id: java-maven-javase
-    title: Embed your own server
-  - id: java-maven-tomcat
+  - id: java-javase
+    title: Embed your own server (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
     title: To a Tomcat server
-  - id: java-maven-jboss
+  - id: java-jboss
     title: To a JBoss server
+- id: app-service-java-hosting
+  title: App Service Java hosting
+  prompt: Choose how your Java app is hosted
+  pivots:
+  - id: java-javase
+    title: Java SE (e.g. embedded Tomcat, Quarkus, Spring Boot)
+  - id: java-tomcat
+    title: Tomcat
+  - id: java-jboss
+    title: JBoss EAP
 - id: app-service-containers-windows-linux
   title: App Service with custom containers
   prompt: Choose a custom container platform
@@ -1928,6 +2005,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-javascript
+    title: JavaScript
   - id: rest-api
     title: REST
 # Owner: mbullwin
@@ -1988,6 +2067,30 @@ groups:
   pivots:
   - id: programming-language-studio
     title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
+- id: openai-fine-tuning-new
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-ai-studio
+    title: AI Studio (Preview)
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
   - id: programming-language-python
     title: Python
   - id: rest-api
@@ -2077,6 +2180,48 @@ groups:
     title: Scheduled
   - id: webjob-type-manual
     title: Manual
+# Owner: jefmarti
+- id: app-service-openai
+  title: App Service OpenAI
+  prompt: Choose a language
+  pivots:
+  - id: openai-dotnet
+    title: .NET
+  - id: openai-python
+    title: Python
+  - id: openai-java
+    title: Java
+# Owner: msangapu
+- id: app-spaces-component-types
+  title: App Spaces components
+  prompt: Select the component type
+  pivots:
+  - id: static
+    title: Static app component (front end)
+  - id: app
+    title: App component (back end)
+  - id: database
+    title: Database
+# Owner: msangapu
+- id: app-spaces-add-component
+  title: App Spaces apps
+  prompt: Add component from
+  pivots:
+  - id: custom
+    title: GitHub repository
+  - id: sample
+    title: Starter app (Template)
+  - id: database
+    title: Database
+# Owner: msangapu
+- id: app-spaces-frontend-backend
+  title: App Spaces apps
+  prompt: Choose an app type
+  pivots:
+  - id: frontend
+    title: Front end (Static Web App)
+  - id: backend
+    title: Back end (Azure Container App)
 # Owner: mbullwin
 - id: qnamaker-quickstart
   title: Programming languages
@@ -2364,6 +2509,23 @@ groups:
     title: PowerShell
   - id: client-clitier
     title: CLI
+# Owner: slpavkov
+- id: acs-calling-automation-pstn
+  title: Communication Services Response Codes
+  prompt: Choose a Communication Service
+  pivots:
+  - id: calling
+    title: Calling SDK
+  - id: callend
+    title: Call end
+  - id: automation
+    title: Call Automation SDK
+  - id: pstn
+    title: PSTN
+  - id: chat
+    title: Chat SDK
+  - id: sms
+    title: SMS SDK
 # Owner: prakulka
 - id: acs-tollfree-shortcode-alphanumeric
   title: Number Type
@@ -2439,6 +2601,26 @@ groups:
     title: Managed
   - id: aca-vnet-custom
     title: Custom
+# Onwer: cshoe
+- id: azure-azd-cli-portal
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: azd
+    title: Azure Developer CLI
+  - id: azurecli
+    title: Azure CLI
+  - id: portal
+    title: Azure portal
+# Owner: cshoe
+- id: container-apps-java-artifacts
+  title: Artifact type
+  prompt: Select an artifact type
+  pivots:
+  - id: war
+    title: WAR file
+  - id: jar
+    title: JAR file
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
@@ -2488,6 +2670,17 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
+# Owner: asabbour
+- id: bicep-azure-cli-portal
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: azure-cli
+    title: Azure CLI
+  - id: bicep
+    title: Bicep
 # Owner: ruslany
 - id: azure-cli-bicep
   title: Interaction type
@@ -2724,6 +2917,17 @@ groups:
     title: Dockerfile
   - id: without-dockerfile
     title: No Dockerfile
+# Owner: craigshoemaker
+- id: container-apps-azure-portal-console-bicep
+  title: Interface
+  prompt: Choose your interface
+  pivots:
+  - id: portal
+    title: Azure portal
+  - id: console
+    title: Console
+  - id: bicep
+    title: Bicep
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -2744,13 +2948,22 @@ groups:
     title: Azure DevOps
 # Owner: mametcal
 - id: appconfig-provider
-  title: Client Library pivots
-  prompt: Choose a Client Library
+  title: Client library pivots
+  prompt: Choose a client library
   pivots:
   - id: framework-dotnet
     title: .NET
   - id: framework-spring
     title: Spring Framework
+# Owner: zhiyuanliang
+- id: feature-management
+  title: Library version pivots
+  prompt: Choose a release
+  pivots:
+  - id: stable-version
+    title: Stable release
+  - id: preview-version
+    title: Preview release
 # Owner: nicktrog
 - id: load-testing-config
   title: Experience
@@ -2907,10 +3120,10 @@ groups:
   title: Azure Virtual Desktop app attach version
   prompt: "Choose an app attach version:"
   pivots:
+  - id: app-attach
+    title: App attach
   - id: msix-app-attach
     title: MSIX app attach
-  - id: app-attach
-    title: App attach (preview)
 - id: azure-virtual-desktop-windows-client-troubleshoot
   title: Remote Desktop client for Windows troubleshoot
   prompt: "Choose the product you're connecting to:"
@@ -2920,7 +3133,7 @@ groups:
   - id: windows-365
     title: Windows 365
   - id: dev-box
-    title: Dev Box
+    title: Microsoft Dev Box
 - id: azure-virtual-desktop-windows-clients
   title: Remote Desktop clients for Windows
   prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
@@ -2931,6 +3144,20 @@ groups:
     title: Azure Virtual Desktop Store app
   - id: rd-store
     title: Remote Desktop Store app
+- id: remote-desktop-clients
+  title: Remote Desktop clients
+  prompt: "Choose what you want to connect to:"
+  pivots:
+  - id: azure-virtual-desktop
+    title: Azure Virtual Desktop
+  - id: windows-365
+    title: Windows 365
+  - id: dev-box
+    title: Microsoft Dev Box
+  - id: remote-desktop-services
+    title: Remote Desktop Services
+  - id: remote-pc
+    title: Remote PC
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -3010,6 +3237,15 @@ groups:
     title: Apache Gremlin
   - id: api-table
     title: Table
+# Owner: maghan
+- id: azure-database-postgresql-portal-cli
+  title: Azure Database for PostgreSQL tool
+  prompt: Choose what tool you want to use
+  pivots:
+  - id: azportal
+    title: Azure portal
+  - id: azcli
+    title: Azure CLI
 # Owner: franlanglois
 - id: cache-redis-zone-pivot-group
   title: Programming languages
@@ -3095,6 +3331,15 @@ groups:
     title: Build from scratch
   - id: blob-storage-quickstart-template
     title: Start with a template
+# Owner: eihaugho
+- id: gcz-aks-or-windows
+  title: Deploy to AKS or Windows
+  prompt: Choose your deployment option
+  pivots:
+  - id: gcz-aks
+    title: Azure Kubernetes Service (AKS)
+  - id: gcz-windows
+    title: Windows Virtual Machine
 # Owner: sloanster
 - id: acs-web-safari-chrome-firefox-known-issues
   title: Known issues
@@ -3131,6 +3376,15 @@ groups:
     title: Dependency analysis Agentless
   - id: dependency-analysis-agent-based-requirements
     title: Dependency analysis Agent based
+# Owner: sudhirsneha
+- id: create-pre-post-events-maintenance-configuration
+  title: Requirements to create pre and post events on maintenance configuration
+  prompt: Choose the workflow
+  pivots:
+  - id: new-mc
+    title: New Maintenance Configuration
+  - id: existing-mc
+    title: Existing Maintenance Configuration
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -3158,6 +3412,33 @@ groups:
     title: Portal
   - id: development-environment-azure-cli
     title: CLI
+# Owner: sethm
+- id: platform-select
+  title: Platform
+  prompt: Choose a platform
+  pivots:
+  - id: aks
+    title: AKS enabled by Arc
+  - id: aks-ee
+    title: AKS Edge Essentials
+  - id: ubuntu
+    title: Ubuntu
+- id: identity-select
+  title: Authentication
+  prompt: Choose authentication
+  pivots:
+  - id: storage-key
+    title: Storage key
+  - id: workload-identity
+    title: Workload identity
+- id: attach-app
+  title: Attach method
+  prompt: Choose an attach method
+  pivots:
+  - id: attach-kubernetes
+    title: Kubernetes native
+  - id: attach-iot-op
+    title: Azure IoT Operations
 # Owner: schaffererin
 - id: aks-azure-developer-cli
   title: Azure command line interfaces
@@ -3167,3 +3448,47 @@ groups:
     title: Azure CLI
   - id: development-environment-azure-developer
     title: Azure Developer CLI
+# Owner: jopeng
+- id: acs-interop-chat-tutorial-js-csharp
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-csharp
+    title: C#
+# Owner: kgremban
+- id: iot-hub-howto-c2d-1
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
+# Owner: micahvivion
+- id: acs-errorcodes-client-server
+  title: Code and subcode errors
+  prompt: Choose a location where the error was generated
+  pivots:
+  - id: platform-javascript
+    title: JavaScript
+  - id: platform-server
+    title: Server
+# Owner: craigshoemaker
+- id: swa-web-framework
+  title: Web Framework
+  prompt: Choose which web framework you are using
+  pivots:
+  - id: vanilla-js
+    title: No framework (vanilla JavaScript)
+  - id: angular
+    title: Angular
+  - id: react
+    title: React
+  - id: vue
+    title: Vue

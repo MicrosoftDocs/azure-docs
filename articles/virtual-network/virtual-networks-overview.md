@@ -46,6 +46,9 @@ Azure resources communicate securely with each other in one of the following way
 
 - **Virtual network**: You can deploy VMs and other types of Azure resources in a virtual network. Examples of resources include App Service Environments, Azure Kubernetes Service (AKS), and Azure Virtual Machine Scale Sets. To view a complete list of Azure resources that you can deploy in a virtual network, see [Deploy dedicated Azure services into virtual networks](virtual-network-for-azure-services.md).
 
+> [!NOTE]  
+> To move a virtual machine from one virtual network to another, you must delete and recreate the virtual machine in the new virtual network.  The virtual machine's disks can be retained for use in the new virtual machine.
+
 - **Virtual network service endpoint**: You can extend your virtual network's private address space and the identity of your virtual network to Azure service resources over a direct connection. Examples of resources include Azure Storage accounts and Azure SQL Database. Service endpoints allow you to secure your critical Azure service resources to only a virtual network. To learn more, see [Virtual network service endpoints](virtual-network-service-endpoints-overview.md).
 
 - **Virtual network peering**: You can connect virtual networks to each other by using virtual peering. The resources in either virtual network can then communicate with each other. The virtual networks that you connect can be in the same, or different, Azure regions. To learn more, see [Virtual network peering](virtual-network-peering-overview.md).

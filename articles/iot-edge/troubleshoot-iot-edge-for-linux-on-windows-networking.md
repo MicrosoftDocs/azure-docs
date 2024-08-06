@@ -1,11 +1,11 @@
 ---
-title: Troubleshoot your IoT Edge for Linux on Windows networking | Microsoft Docs 
+title: Troubleshoot your IoT Edge for Linux on Windows networking
 description: Learn about troubleshooting and diagnostics for Azure IoT Edge for Linux on Windows (EFLOW), like retrieving component status and logs.
 author: PatAltimore
 
-ms.author: fcabrera
-ms.date: 11/15/2022
-ms.topic: conceptual
+ms.author: patricka
+ms.date: 06/10/2024
+ms.topic: troubleshooting-general
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -30,9 +30,9 @@ For more information about EFLOW networking concepts, see [IoT Edge for Linux on
 
 ## Check IP addresses
 
-Your first step when troubleshooting IoT Edge for Linux on Windows networking should be to check the VM IP address configurations. If IP communication is misconfigured, then all inbound and outbound connections will fail.
+Your first step when troubleshooting IoT Edge for Linux on Windows networking should be to check the VM IP address configurations. If IP communication is misconfigured, then all inbound and outbound connections fail.
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Check the IP address returned by the VM lifecycle agent. Make note of the IP address and compare it with the one obtained from inside the VM in the later steps.
     ```powershell
     Get-EflowVmAddr
@@ -41,11 +41,11 @@ Your first step when troubleshooting IoT Edge for Linux on Windows networking sh
     ```powershell
     Connect-EflowVm
     ```
-1. Check the _eth0_ VM network interface configuration.
+1. Check the *eth0* VM network interface configuration.
    ```bash
     ifconfig eth0
     ```
-   In the output, you should see the _eth0_ configuration information. Ensure that the _inet_ address is correctly set. 
+   In the output, you should see the *eth0* configuration information. Ensure that the *inet* address is correctly set. 
     ```Output
     eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 172.31.100.171  netmask 255.255.240.0  broadcast 172.31.111.255
@@ -57,7 +57,7 @@ Your first step when troubleshooting IoT Edge for Linux on Windows networking sh
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
     ```
 
-If the _inet_ IP address is blank or different from the one provided by using the `Get-EflowVmAddr` cmdlet, you need to troubleshoot why the EFLOW VM has an invalid or no IP address assigned. Use the following table to troubleshoot the issue:
+If the *inet* IP address is blank or different from the one provided by using the `Get-EflowVmAddr` cmdlet, you need to troubleshoot why the EFLOW VM has an invalid or no IP address assigned. Use the following table to troubleshoot the issue:
 
 | Virtual Switch | IP Address Assignation | Troubleshoot | 
 | ---------------| -----------------------|--------------|
@@ -76,11 +76,11 @@ If you're still having issues with the IP address assignation, try setting up an
 
 Your second step when troubleshooting IoT Edge for Linux on Windows networking should be to check the DNS servers assigned to the EFLOW VM. To check the EFLOW VM DNS configuration, see [Networking configuration for Azure IoT Edge for Linux on Windows](how-to-configure-iot-edge-for-linux-on-windows-networking.md). If address resolution is working, then the issue is likely related to firewall or security configurations on the network. 
 
-The EFLOW VM uses the _systemd-resolved_ service to manage the DNS resolution. For more information about this service, see [Systemd-resolved](https://wiki.archlinux.org/title/Systemd-resolved). To set up a specific DNS server address, you can use the `Set-EflowVmDnsServers` cmdlet. If you need further information about the DNS configuration, you can check the _/etc/systemd/resolved.conf_ and the _system-resolved_ service using the `sudo systemctl status systemd-resolved` command. Also, you can set a specific DNS server as part of the module configuration, see [Option 2: Set DNS server in IoT Edge deployment per module](troubleshoot-common-errors.md).
+The EFLOW VM uses the *systemd-resolved* service to manage the DNS resolution. For more information about this service, see [Systemd-resolved](https://wiki.archlinux.org/title/Systemd-resolved). To set up a specific DNS server address, you can use the `Set-EflowVmDnsServers` cmdlet. If you need further information about the DNS configuration, you can check the */etc/systemd/resolved.conf* and the *system-resolved* service using the `sudo systemctl status systemd-resolved` command. Also, you can set a specific DNS server as part of the module configuration, see [Option 2: Set DNS server in IoT Edge deployment per module](troubleshoot-common-errors.md).
 
 The address resolution could fail for multiple reasons. First, the DNS servers could be configured correctly, however they can't be reached from the EFLOW VM. If the DNS servers respond to ICMP ping traffic, you can try pinging the DNS servers to check network connectivity. 
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Connect to the EFLOW virtual machine.
     ```powershell
     Connect-EflowVm
@@ -94,7 +94,7 @@ The address resolution could fail for multiple reasons. First, the DNS servers c
 
 Second, some network environments will limit the access of the DNS servers to specific allowlist addresses. If so, first make sure that you can access the DNS server from the Windows host OS, and then check with your networking team if you need to add the EFLOW IP address to an allowlist. 
 
-Finally, some network environment will block public DNS servers, like Google DNS (_8.8.8.8_ and _8.8.4.4_). If so, talk with your network environment team to define a valid DNS server, and then set it up using the `Set-EflowVmDnsServers` cmdlet. 
+Finally, some network environments block public DNS servers, like Google DNS (*8.8.8.8* and *8.8.4.4*). If so, talk with your network environment team to define a valid DNS server, and then set it up using the `Set-EflowVmDnsServers` cmdlet. 
 
 ## Check your firewall and port configuration rules
 
@@ -106,14 +106,14 @@ The IoT Edge for Linux on Windows is still dependent on the underlying Windows h
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED (Default)|BLOCKED (Default)| Configure *Outgoing (Outbound)* to be *Open* when using MQTT as the communication protocol. <br><br> 1883 for MQTT isn't supported by IoT Edge. - Incoming (Inbound) connections should be blocked.|
 |AMQP|5671|BLOCKED (Default)|OPEN (Default)| Default communication protocol for IoT Edge. <br><br> Must be configured to be *Open* if Azure IoT Edge isn't configured for other supported protocols or AMQP is the desired communication protocol. <br><br>5672 for AMQP isn't supported by IoT Edge.<br><br>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<br><br>Incoming (Inbound) connections should be blocked.|
-|HTTPS|443|BLOCKED (Default)|OPEN (Default)|Configure *Outgoing (Outbound)* to be *Open* on port 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <br><br><a id="anchortext">*Incoming (Inbound)* connection</a> should be *Open* only for two specific scenarios: <br>1. If you have a transparent gateway with downstream devices that may send method requests. In this case, port 443 doesn't need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open *Incoming (Inbound)* from the internal network.<br>2. For *client to device (C2D)* scenarios.<br><br>80 for HTTP isn't supported by IoT Edge.<br><br>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.|
+|HTTPS|443|BLOCKED (Default)|OPEN (Default)|Configure *Outgoing (Outbound)* to be *Open* on port 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <br><br><a id="anchortext">*Incoming (Inbound)* connection</a> should be *Open* only for two specific scenarios: <br>1. If you have a transparent gateway with downstream devices that may send method requests. In this case, port 443 doesn't need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open *Incoming (Inbound)* from the internal network.<br>2. For *client to device (C2D)* scenarios.<br><br>80 for HTTP isn't supported by IoT Edge.<br><br>If non-HTTP protocols (for example, AMQP or MQTT) can't be configured in the enterprise; the messages can be sent over WebSockets. Port 443 is used for WebSocket communication in that case.|
 
 >[!NOTE]
 > If you are using an external virtual switch, make sure to add the appropriate firewall rules for the module port mappings you're using inside the EFLOW virtual machine. 
 
 For more information about EFLOW VM firewall, see [IoT Edge for Linux on Windows Security](./iot-edge-for-linux-on-windows-security.md). To check the EFLOW virtual machine rules, use the following steps:
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Connect to the EFLOW virtual machine.
     ```powershell
     Connect-EflowVm
@@ -125,12 +125,12 @@ For more information about EFLOW VM firewall, see [IoT Edge for Linux on Windows
 
 To add a firewall rule to the EFLOW VM, you can use the [EFLOW Util - Firewall Rules](https://github.com/Azure/iotedge-eflow/tree/main/eflow-util#get-eflowvmfirewallrules) sample PowerShell cmdlets. Also, you can achieve the same rules creation by following these steps:
 
-1. Start an elevated _PowerShell_ session using **Run as Administrator**.
+1. Start an elevated *PowerShell* session using **Run as Administrator**.
 1. Connect to the EFLOW virtual machine
     ```powershell
     Connect-EflowVm
     ```
-1. Add a firewall rule to accept incoming traffic to _\<port\>_ of _\<protocol\>_ ( _udp_ or _tcp_) traffic. 
+1. Add a firewall rule to accept incoming traffic to *\<port\>* of *\<protocol\>* ( *udp* or *tcp*) traffic. 
     ```powershell
     sudo iptables -A INPUT -p <protocol> --dport <port> -j ACCEPT
     ```

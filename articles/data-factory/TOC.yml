@@ -350,8 +350,6 @@ items:
         href: continuous-integration-delivery.md
       - name: Automate with Azure Pipelines releases
         href: continuous-integration-delivery-automate-azure-pipelines.md
-      - name: Automate with GitHub Actions
-        href: continuous-integration-delivery-automate-github-actions.md
       - name: Manually promote a Resource Manager template for each environment
         href: continuous-integration-delivery-manual-promotion.md
       - name: Use custom parameters with a Resource Manager template
@@ -371,7 +369,7 @@ items:
     items:
     - name: Connector overview
       href: connector-overview.md
-    - name: Amazon Marketplace Web Service
+    - name: Amazon Marketplace Web Service (Deprecated)
       href: connector-amazon-marketplace-web-service.md
     - name: Amazon RDS for Oracle
       href: connector-amazon-rds-for-oracle.md
@@ -599,7 +597,11 @@ items:
     - name: SAP Table
       href: connector-sap-table.md
     - name: ServiceNow
-      href: connector-servicenow.md
+      items:
+      - name: ServiceNow
+        href: connector-servicenow.md
+      - name: ServiceNow (legacy)
+        href: connector-servicenow-legacy.md
     - name: SFTP
       href: connector-sftp.md
     - name: SharePoint Online List

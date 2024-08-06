@@ -29,7 +29,10 @@ Your function code runs in the same process as the Functions host process. Suppo
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [.NET 8 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle)<sup>1</sup> | GA | November 10, 2026 |
 | [.NET 6 (LTS)](https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle) | GA | November 12, 2024 |
+
+<sup>1</sup> Targeting .NET 8 with the in-process model is not yet enabled for apps in sovereign clouds. Updates will be communicated on [this tracking thread on GitHub](https://github.com/Azure/azure-functions-host/issues/9951).
 
 For more information, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md). Also supports [C# script functions](../articles/azure-functions/functions-reference-csharp.md).
 
@@ -48,12 +51,13 @@ For more information, see [Develop C# class library functions using Azure Functi
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
 | .NET 8 | GA | [November 10, 2026][dotnet-policy] |
-| .NET 7 | GA | [May 14, 2024][dotnet-policy] |
 | .NET 6 | GA | [November 12, 2024][dotnet-policy] |
 | .NET Framework 4.8 | GA | [See policy][dotnet-framework-policy] |
 
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
+
+.NET 7 was previously supported on the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in an isolated worker process](../articles/azure-functions/dotnet-isolated-process-guide.md).
 

@@ -1,18 +1,24 @@
 ---
 title: MMA Discovery and Removal Utility
-description: This article describes a PowerShell script to remove the legacy agent from systems that have migrated to the Azure Monitor Agent.
+description: This article describes a PowerShell script to remove the legacy agent from systems that migrated to the Azure Monitor Agent.
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
-ms.date: 01/09/2024
+ms.date: 06/13/2024
 ms.custom:
 # Customer intent: As an Azure account administrator, I want to use the available Azure Monitor tools to migrate from the Log Analytics Agent to the Azure Monitor Agent and track the status of the migration in my account.
 ---
 
 # MMA Discovery and Removal Utility
 
-After you migrate your machines to the Azure Monitor Agent (AMA), you need to remove the Log Analytics Agent (also called the Microsoft Management Agent or MMA) to avoid duplication of logs. The Azure Tenant Security Solution (AzTS) MMA Discovery and Removal Utility can centrally remove the MMA extension from Azure virtual machines (VMs), Azure virtual machine scale sets, and Azure Arc servers from a tenant.  
+> [!NOTE]
+> We have received many reports from customers that this tool is failing to remove MMA agents. At this time, we recommend that this tool not be used.
+
+After you migrate your machines to the Azure Monitor Agent (AMA), remove the Log Analytics or Microsoft Management Agent (MMA) to avoid duplication of logs. The Azure Tenant Security Solution (AzTS) MMA Discovery and Removal Utility can remove the MMA extension from Azure Virtual Machines (VMs), Azure Virtual Machine Scale Sets (VMSSs), and Azure Arc servers from a tenant.  
+
+> [!NOTE]
+> This utility is used to discover and remove MMA extensions. It doesn't remove OMS extensions. OMS must be removed manually by running the purge script. For mor information, see [Purge the Linux Agent](../agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
 
 The utility works in two steps:
 
@@ -32,6 +38,10 @@ Do all the setup steps in [Visual Studio Code](https://code.visualstudio.com/) w
 - A new resource group to contain all the Azure resources that the setup automation creates automatically.
 - Appropriate permission on the configured scopes. To grant the remediation user-assigned managed identity with the previously mentioned roles on the target scopes, you must have **User Access Administrator** or **Owner** permission. For example, if you're configuring the setup for a particular subscription, you must have the **User Access Administrator** role assignment on that subscription so that the script can provide the permissions for the remediation user-assigned managed identity.
 
+## Resources created
+The removal tool creates a resource group and resources to manage the removal of agents. Some of these resources may have an Azure cost.
+
+
 ## Download the deployment package
 
 The deployment package contains:
@@ -43,7 +53,7 @@ To install the package:
 
 1. Go to the [AzTS-docs GitHub repository](https://github.com/azsk/AzTS-docs/tree/main/TemplateFiles). Download the deployment package file, *AzTSMMARemovalUtilityDeploymentFiles.zip*, to your local machine.
 
-1. Extract the .zip file to your local folder location.
+1. Extract the zip file to your local folder location.
 
 1. Unblock the files by using this script:
 
@@ -71,7 +81,7 @@ To install the package:
 
 1. Run the setup script to perform the following operations:
 
-   - Install required Az modules.
+   - Install required Az PowerShell modules.
    - Set up the remediation user-assigned managed identity.
    - Prompt and collect onboarding details for usage telemetry collection based on user preference.
    - Create or update the resource group.
@@ -104,9 +114,9 @@ To install the package:
    |`TargetManagementGroupNames`| List of target management group names to run on. | No|
    |`TenantScope`| Tenant scope for assigning roles via your tenant ID.| No|
    |`SubscriptionId`| ID of the subscription where the setup is installed.| Yes|
-   |`HostRGName`| Name of the new resource group where the remediation managed identity is created. Default value is `AzTS-MMARemovalUtility-Host-RG`.| No|
-   |`Location`| Location domain controller where the setup is created. Default value is `EastUS2`.| No|
-   |`AzureEnvironmentName`| Azure environment where the solution is installed: `AzureCloud` or `AzureGovernmentCloud`. Default value is `AzureCloud`.| No|
+   |`HostRGName`| Name of the new resource group where the remediation managed identity is created. Defaults to `AzTS-MMARemovalUtility-Host-RG`.| No|
+   |`Location`| Location domain controller where the setup is created. Defaults to `EastUS2`.| No|
+   |`AzureEnvironmentName`| Azure environment where the solution is installed: `AzureCloud` or `AzureGovernmentCloud`. Defaults to `AzureCloud`.| No|
 
 ### [Multitenant](#tab/multitenant)
 
@@ -121,9 +131,9 @@ CD "<LocalExtractedFolderPath>\AzTSMMARemovalUtilityDeploymentFiles"
 . ".\MMARemovalUtilitySetup.ps1"
 ```
 
-#### Install required Az modules
+#### Install required Az PowerShell modules
 
-Az PowerShell modules contain cmdlets to deploy Azure resources. Install the required Az modules by using the following command. For more information about Az modules, see [How to install Azure PowerShell](/powershell/azure/install-az-ps). You must point the current path to the extracted folder location.
+Az PowerShell modules contain cmdlets to deploy Azure resources. Install the required Az PowerShell modules by using the following command. For more information about Az PowerShell modules, see [How to install Azure PowerShell](/powershell/azure/install-az-ps). You must point the current path to the extracted folder location.
 
 ``` PowerShell
 Set-Prerequisites
@@ -135,7 +145,7 @@ In this step, you set up a Microsoft Entra application identity by using a servi
 
 You perform the following operations:
 
-- Create a multitenant Microsoft Entra application if one isn't provided with a preexisting Microsoft Entra application object ID.
+- Create a multitenant Microsoft Entra application if one isn't provided with a pre-existing Microsoft Entra application object ID.
 - Create password credentials for the Microsoft Entra application.
 
 ``` PowerShell
@@ -192,7 +202,7 @@ The script contains these parameters:
 |:----|:----|:----|
 | `SubscriptionId` | Subscription ID where the key vault is created.| Yes |
 | `ResourceGroupName` | Name of the resource group where the key vault is created. It should be a different resource group from the setup resource group. | Yes |
-|`Location`| Location domain controller where the key vault is created. For better performance, we recommend creating all the resources related to setup in one location. Default value is `EastUS2`.| No |
+|`Location`| Location domain controller where the key vault is created. For better performance, we recommend creating all the resources related to setup in one location. Defaults to `EastUS2`.| No |
 |`KeyVaultName`| Name of the key vault that's created.| Yes |
 |`AADAppPasswordCredential`| Microsoft Entra application password credentials for the MMA Discovery and Removal Utility.| Yes |
 
@@ -224,7 +234,7 @@ The script contains these parameters:
 |:----|:----|:----|
 | `SubscriptionId` | ID of the subscription where the setup is created. | Yes |
 | `HostRGName` | Name of the resource group where the setup is created. Default value is `AzTS-MMARemovalUtility-Host-RG`.| No |
-| `Location` | Location domain controller where the setup is created. For better performance, we recommend hosting the managed identity and the MMA Discovery and Removal Utility in the same location. Default value is `EastUS2`.| No |
+| `Location` | Location domain controller where the setup is created. For better performance, we recommend hosting the managed identity and the MMA Discovery and Removal Utility in the same location. Defaults to `EastUS2`.| No |
 | `SupportMultiTenant` | Switch to support multitenant setup. | No |
 | `IdentityApplicationId` | Microsoft Entra application ID.| Yes |
 | `IdentitySecretUri` | Microsoft Entra application secret URI.| No |
@@ -256,7 +266,7 @@ The script contains these parameters:
 | `LAWorkspaceResourceId` | Resource ID of the Log Analytics workspace associated with the key vault.| No; yes if the `DeployMonitoringAlert` switch is enabled.|
 | `DeployMonitoringAlert` | Creation of alerts on top of the key vault's auditing logs. | No; yes if the `DeployMonitoringAlert` switch is enabled |
 
-#### Set up a runbook for managing key vault IP ranges
+#### Set up a runbook to manage key vault IP ranges
 
 In this step, you create a secure key vault with public network access disabled. IP ranges for function apps must be allowed access to the key vault. You must have **Owner** access to the resource group.
 
@@ -282,8 +292,8 @@ The script contains these parameters:
 |:----|:----|:----|
 |`SubscriptionId`| ID of the subscription that includes the automation account and key vault.| Yes|
 |`ResourceGroupName`| Name of resource group that contains the automation account and key vault. | Yes|
-|`Location`| Location where your automation account is created. For better performance, we recommend creating all the resources related to setup in the same location. Default value is `EastUS2`.| No|
-|`FunctionAppUsageRegion`| Location of dynamic IP addresses that are allowed on the key vault. Default location is `EastUS2`.| Yes|
+|`Location`| Location where your automation account is created. For better performance, we recommend creating all the resources related to setup in the same location. Defaults to `EastUS2`.| No|
+|`FunctionAppUsageRegion`| Location of dynamic IP addresses that are allowed on the key vault. Defaults to `EastUS2`.| Yes|
 |`KeyVaultResourceId`| Resource ID of the key vault for allowed IP addresses.| Yes|
 
 #### Set up SPNs and grant required roles for each tenant
@@ -392,7 +402,9 @@ The script contains these parameters:
 | `RemovalCondition` |  Indicator that the MMA extension should be removed when the `CheckForAMAPresence` AMA extension is present. It's `SkipAMAPresenceCheck` in all cases, whether an AMA extension is present or not. | No |
 | `DisableRemovalPhase`  | Indicator of disabling the removal phase. | Yes (mutually exclusive with `-EnableRemovalPhase`)|  
 
-Here are known issues with removal:
+### Known issues
+
+The following issues may occur during the removal phase:
 
 - Removal of the MMA in a virtual machine scale set where the orchestration mode is `Uniform` depends on its upgrade policy. We recommend that you manually upgrade the instance if the policy is set to `Manual`.  
 - If you get the following error message, rerun the installation command with the same parameter values:

@@ -71,7 +71,7 @@ Follow these steps to configure device-related settings:
 
         ![Screenshot of the Update server page with Microsoft update server configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-1.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Screenshot of the Update server page with Windows Server Update Services configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-2.png)
 

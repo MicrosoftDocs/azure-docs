@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Azure Disk Encryption for Linux VMs
   description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Linux IaaS VMs.
   author: msmbaldwin
-  ms.service: virtual-machines
+  ms.service: azure-virtual-machines
   ms.collection: linux
   ms.subservice: security
   ms.topic: faq
@@ -153,7 +153,7 @@ sections:
           * Encrypt (can take several hours or even days depending on VM characteristics and size of any attached data disks)
           * Customize, and add software to the image as needed.
           
-          If this workflow isn't possible, relying on [Storage Service Encryption](../../storage/common/storage-service-encryption.md) (SSE) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
+          If this workflow isn't possible, relying on [Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md) at the platform storage account layer may be an alternative to full disk encryption using dm-crypt.
           
       - question: |
           What is the disk "Bek Volume" or "/mnt/azure_bek_disk"?

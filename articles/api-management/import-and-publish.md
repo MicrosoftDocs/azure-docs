@@ -3,7 +3,7 @@ title: Tutorial - Import and publish your first API in Azure API Management
 description: In this tutorial, you import an OpenAPI specification API into Azure API Management, and then test your API in the Azure portal.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc, devdivchpfy22, engagement-fy23
 ms.topic: tutorial
 ms.date: 06/15/2023

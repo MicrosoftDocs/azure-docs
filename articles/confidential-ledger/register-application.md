@@ -3,7 +3,7 @@ title: How to register an Azure confidential ledger application with Microsoft E
 description: In this how to, you learn how to register an Azure confidential ledger application with Microsoft Entra ID
 services: confidential-ledger
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.date: 01/30/2024
 ms.author: mbaldwin

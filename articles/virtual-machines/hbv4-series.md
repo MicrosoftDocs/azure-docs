@@ -1,12 +1,12 @@
 ---
 title: HBv4-series - Azure Virtual Machines
 description: Specifications for the HBv4-series VMs.
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 author: Padmalathas
 ms.author: padmalathas
 ms.subservice: hpc
 ms.topic: conceptual
-ms.date: 12/7/2023
+ms.date: 07/25/2024
 ms.reviewer: wwilliams
 ---
 

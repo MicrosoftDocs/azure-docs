@@ -6,7 +6,7 @@ ms.author: kofiforson
 ms.reviewer: jushiman
 ms.date: 10/03/2023
 ms.topic: reference
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: image-builder
 ms.custom: references_regions, devx-track-bicep, devx-track-arm-template, linux-related-content, devx-track-azurecli
 ---
@@ -24,7 +24,6 @@ The basic format is:
 ```json
 {
   "type": "Microsoft.VirtualMachineImages/imageTemplates",
-  "apiVersion": "2022-02-14",
   "location": "<region>",
   "tags": {
     "<name>": "<value>",
@@ -44,7 +43,8 @@ The basic format is:
       "vmSize": "<vmSize>",
       "osDiskSizeGB": <sizeInGB>,
       "vnetConfig": {
-        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>",
+        "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>",
+        "containerInstanceSubnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>",
         "proxyVmSize": "<vmSize>"
       },
       "userAssignedIdentities": [
@@ -80,7 +80,8 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
       vmSize: '<vmSize>'
       osDiskSizeGB: <sizeInGB>
       vnetConfig: {
-        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+        subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>'
+        containerInstanceSubnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>'
         proxyVmSize: '<vmSize>'
       }
       userAssignedIdentities: [
@@ -96,16 +97,16 @@ resource azureImageBuilder 'Microsoft.VirtualMachineImages/imageTemplates@2022-0
 ```
 
 ---
+## API version
+The API version will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
 
-## Type and API version
-
-The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. The `apiVersion` will change over time as the API changes. See [What's new in Azure VM Image Builder](../image-builder-api-update-release-notes.md) for all major API changes and feature updates for the Azure VM Image Builder service.
+## Type
+The `type` is the resource type, which must be `Microsoft.VirtualMachineImages/imageTemplates`. 
 
 # [JSON](#tab/json)
 
 ```json
 "type": "Microsoft.VirtualMachineImages/imageTemplates",
-"apiVersion": "2022-02-14",
 ```
 
 # [Bicep](#tab/bicep)
@@ -155,6 +156,8 @@ The location is the region where the custom image is created. The following regi
 - China North 3 (Public Preview)
 - Sweden Central
 - Poland Central
+- Italy North
+- Israel Central
 
 > [!IMPORTANT]
 > Register the feature `Microsoft.VirtualMachineImages/FairfaxPublicPreview` to access the Azure Image Builder public preview in Azure Government regions (USGov Arizona and USGov Virginia).
@@ -850,8 +853,8 @@ imageResourceGroup=<resourceGroup of image template>
 runOutputName=<runOutputName>
 
 az resource show \
-  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-  --api-version=2021-10-01
+  --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName" \
+--api-version=2023-07-01
 ```
 
 Output:
@@ -1205,7 +1208,7 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```json
 "optimize": {
-      "vmboot": {
+      "vmBoot": {
         "state": "Enabled"
       }
     }
@@ -1215,15 +1218,15 @@ The `optimize` property can be enabled while creating a VM image and allows VM o
 
 ```bicep
 optimize: {
-      vmboot: {
+      vmBoot: {
         state: 'Enabled'
       }
     }
 ```
 ---
 
-- **vmboot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
-- state: The state of the boot optimization feature within `vmboot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
+- **vmBoot**: A configuration related to the booting process of the virtual machine (VM), used to control optimizations that can improve boot time or other performance aspects.
+- state: The state of the boot optimization feature within `vmBoot`, with the value `Enabled` indicating that the feature is turned on to improve image creation time.
 
 To learn more, see [VM optimization for gallery images with Azure VM Image Builder](../vm-boot-optimization.md).
 
@@ -1359,7 +1362,7 @@ Sets the source image as an existing image version in an Azure Compute Gallery.
 ```json
 "source": {
   "type": "SharedImageVersion",
-  "imageVersionID": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
+  "imageVersionId": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageDefinitionName/versions/<imageVersion>"
 }
 ```
 
@@ -1704,7 +1707,9 @@ If you don't specify any VNet properties, Image Builder creates its own VNet, Pu
 
 ```json
 "vnetConfig": {
-  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>"
+  "subnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>",
+  "containerInstanceSubnetId": "/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>",
+  "proxyVmSize": "<vmSize>"
 }
 ```
 
@@ -1712,11 +1717,70 @@ If you don't specify any VNet properties, Image Builder creates its own VNet, Pu
 
 ```bicep
 vnetConfig: {
-  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName>'
+  subnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName1>'
+  containerInstanceSubnetId: '/subscriptions/<subscriptionID>/resourceGroups/<vnetRgName>/providers/Microsoft.Network/virtualNetworks/<vnetName>/subnets/<subnetName2>'
+  proxyVmSize: '<vmSize>'
 }
 ```
 
 ---
+
+#### subnetId
+Resource ID of a pre-existing subnet on which the build VM and validation VM is deployed.
+
+#### containerInstanceSubnetId (optional)
+Resource ID of a pre-existing subnet on which Azure Container Instance (ACI) is deployed for [Isolated Builds](../security-isolated-image-builds-image-builder.md). If this field isn't specified, then a temporary Virtual Network,  along with subnets and Network Security Groups, is deployed in the staging resource group in addition to other networking resources (Private Endpoint, Private Link Service, Azure Load Balancer, and the Proxy VM) to enable communication between the ACI and the build VM.
+
+*[This property is only available in API versions `2024-02-01` or newer though existing templates created using earlier API versions can be updated to specify this property.]*
+
+This field can be specified only if `subnetId` is also specified and must meet the following requirements:
+- This subnet must be on the same Virtual Network as the subnet specified in `subnetId`.
+- This subnet must not be the same subnet as the one specified in `subnetId`.
+- This subnet must be delegated to the ACI service so that it can be used to deploy ACI resources. You can read more about subnet delegation for Azure services [here](../../virtual-network/manage-subnet-delegation.md). ACI specific subnet delegation information is available [here](../../container-instances/container-instances-virtual-network-concepts.md).
+- This subnet must allow outbound access to the Internet and to the subnet specified in `subnetId`. These accesses are required so that the ACI can be provisioned and it can communicate with the build VM to perform customizations/validations. On the other end, the subnet specified in `subnetId` must allow inbound access from this subnet. In general, [default security rules of Azure Network Security Groups (NSGs)](../../virtual-network/network-security-groups-overview.md#default-security-rules) allow these accesses. However, if you add more security rules to your NSGs then the following accesses must still be allowed:
+   1. Outbound access from the subnet specified in `containerInstanceSubnetId` to:
+      1. To the Internet on port 443 (*for provisioning the container image*).
+      1. To the Internet on port 445 (*for mounting file share from Azure Storage*).
+      1. To the subnet specified in `subnetId` on port 22 (for ssh/Linux) and port 5986 (for WinRM/Windows) (*for connecting to the build VM*).
+   1. Inbound access to the subnet specified in `subnetId`:
+      1. To Port 22 (for ssh/Linux) and Port 5986 (for WinRM/Windows) from the subnet specified in `containerInstanceSubnetId` (*for ACI to connect to the build VM*).
+- The [template identity](./image-builder-json.md#user-assigned-identity-for-azure-image-builder-image-template-resource) must have permission to perform 'Microsoft.Network/virtualNetworks/subnets/join/action' action on this subnet's scope. You can read more about Azure permissions for Networking [here](/azure/role-based-access-control/permissions/networking).
+
+#### proxyVmSize (optional)
+Size of the proxy virtual machine used to pass traffic to the build VM and validation VM. This field must not be specified if `containerInstanceSubnetId` is specified because no proxy virtual machine is deployed in that case. Omit or specify empty string to use the default (Standard_A1_v2).
+
+## Properties: autoRun
+
+You can use the `autoRun` property to control whether the image template build process should automatically start when the template is created. It's an enum with two possible values:
+- **Enabled** - Auto run is enabled, so your image template build process will automatically start when the template is created. 
+- **Disabled** - Auto run is disabled, so you will have to manually start the image build process after the template is created.
+
+```json
+"properties": {
+    "autoRun": {
+        "state": "Enabled"
+ }
+```
+
+> [!NOTE]
+> When you set `autoRun` to "Enabled," the image build process runs **once** upon template creation. It ensures that the initial image build occurs seamlessly. However, it does not provide consistent and ongoing image builds. For consistent and ongoing image builds that run once an image template is updated, see [How to use Azure Image Builder triggers to set up an automatic image build](../image-builder-triggers-how-to.md).
+>
+> Unlike `autoRun`, automatic image creation via the Azure Image Builder trigger resource ensures that image builds occur consistently. Whenever there are changes to the template, the Azure Image Builder service will automatically trigger the image build process.
+>
+> Choose `autoRun` for immediate image builds upon template creation. Opt for automatic image creation when you need ongoing consistency in image builds. Consider your specific requirements and use the appropriate option based on your workflow.
+
+## Properties: managedResourceTags
+
+You can use the `managedResourceTags` property to apply tags to the resources that the Azure Image Builder service creates in the staging resource group during the image build. For more information on the staging resource group, see [Azure Image Builder Overview](../image-builder-overview.md#how-it-works)
+
+```json
+"properties": {
+		"managedResourceTags": {
+			"tag1": "value1",
+      			"tag2": "value2"
+              }
+}
+```
 
 ## Image Template Operations
 
@@ -1725,7 +1789,7 @@ vnetConfig: {
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Run -Force
 ```
 
 ```azurecli-interactive
@@ -1745,7 +1809,7 @@ The build can be canceled anytime. If the distribution phase has started you can
 Examples of `cancel` commands:
 
 ```azurepowershell-interactive
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2023-07-01" -Action Cancel -Force
 ```
 
 ```azurecli-interactive

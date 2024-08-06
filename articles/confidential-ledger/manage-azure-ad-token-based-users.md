@@ -4,8 +4,8 @@ description: Learn how to manage Microsoft Entra token-based users in Azure conf
 author: settiy
 ms.author: settiy
 ms.date: 02/09/2023
-ms.service: confidential-ledger
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.service: azure-confidential-ledger
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, devx-track-ts
 ms.topic: how-to
 zone_pivot_groups: azure-confidential-ledger-programming-languages
 ---

@@ -26,9 +26,9 @@ This section describes working with the different kind of Speech Studio projects
 1. In the **Resource Management** group in the left pane, select **Networking** > **Firewalls and virtual networks**. 
 1. Select one option from **All networks**, **Selected Networks and Private Endpoints**, or **Disabled**. 
 
-#### Custom speech
+#### Custom speech, Custom voice and Audio Content Creation
 
-The following table describes custom speech project accessibility per Speech resource **Networking** > **Firewalls and virtual networks** security setting.
+The following table describes custom speech/custom voice/audio content creation project accessibility per Speech resource **Networking** > **Firewalls and virtual networks** security setting.
 
 > [!NOTE]
 > If you allow only private endpoints via the **Networking** > **Private endpoint connections** tab, then you can't use Speech Studio with the Speech resource. You can still use the Speech resource outside of Speech Studio.  
@@ -44,9 +44,7 @@ If you select **Selected Networks and private endpoints**, then you will see a t
 If you allow only access via **Virtual network**, then in effect you don't allow access to the Speech resource through Speech Studio. You can still use the Speech resource outside of Speech Studio. 
 
 To use custom speech without relaxing network access restrictions on your production Speech resource, consider one of these workarounds. 
-* Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1/operations/Models_CopyTo) REST request with [Speech to text REST API](../rest-speech-to-text.md).
+* Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Models_CopyTo](/rest/api/speechtotext/models/copy-to) REST request with [Speech to text REST API](../rest-speech-to-text.md).
 * You have the option to not use Speech Studio for custom speech. Use the [Speech to text REST API](../rest-speech-to-text.md) for all custom speech operations. 
 
-#### Custom voice and Audio Content Creation
-
-You can use custom voice and Audio Content Creation Speech Studio projects only when the Speech resource network security setting is **All networks**.
+To use custom voice without relaxing network access restrictions on your production Speech resource, consider Use the [Custom voice REST API](/rest/api/aiservices/speechapi/operation-groups) for all custom voice operations.

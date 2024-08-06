@@ -2,7 +2,7 @@
 title: Best practices for scaling provisioned throughput (RU/s)
 description: Learn best practices for scaling provisioned throughput for manual and autoscale throughput
 author: deborahc
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.date: 08/20/2021
 ms.author: dech
@@ -31,7 +31,7 @@ When you send a request to increase the RU/s of your database or container, depe
 Each physical partition can support a maximum of 10,000 RU/s (applies to all APIs) of throughput and 50 GB of storage (applies to all APIs, except Cassandra, which has 30 GB of storage). 
 
 > [!NOTE]
-> If you perform a [manual region failover operation](how-to-manage-database-account.md#manual-failover) or [add/remove a new region](how-to-manage-database-account.md#addremove-regions-from-your-database-account) while an asynchronous scale-up operation is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+> If you perform a [manual region failover operation](how-to-manage-database-account.yml#perform-manual-failover-on-an-azure-cosmos-db-account) or [add/remove a new region](how-to-manage-database-account.yml#add-remove-regions-from-your-database-account) while an asynchronous scale-up operation is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
 - **Instant scale-down**
     - For scale down operation Azure Cosmos DB doesn’t need to split or add new partitions. 
     - As a result, the operation completes immediately and the RU/s are available for use, 

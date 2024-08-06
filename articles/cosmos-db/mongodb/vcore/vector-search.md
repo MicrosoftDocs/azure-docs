@@ -1,11 +1,11 @@
 ---
-title: Integrated vector database
+title: Vector store
 titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: Use integrated vector database in Azure Cosmos DB for MongoDB vCore to enhance AI-based applications.
+description: Use vector store in Azure Cosmos DB for MongoDB vCore to enhance AI-based applications.
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - ignite-2023
@@ -13,19 +13,21 @@ ms.topic: conceptual
 ms.date: 11/1/2023
 ---
 
-# Vector Database in Azure Cosmos DB for MongoDB vCore
+# Vector Store in Azure Cosmos DB for MongoDB vCore
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-Use the vector database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore. It eliminates the need to transfer your data to alternative vector databases and incur additional costs.
+Use the Integrated Vector Database in Azure Cosmos DB for MongoDB vCore to seamlessly connect your AI-based applications with your data that's stored in Azure Cosmos DB. This integration can include apps that you built by using [Azure OpenAI embeddings](../../../ai-services/openai/tutorials/embeddings.md). The natively integrated vector database enables you to efficiently store, index, and query high-dimensional vector data that's stored directly in Azure Cosmos DB for MongoDB vCore, along with the original data from which the vector data is created. It eliminates the need to transfer your data to alternative vector stores and incur additional costs.
 
-## What is a vector database?
+## What is a vector store?
 
-A [vector database](../../vector-database.md) is a database designed to store and manage vector embeddings, which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. Vector search is used to query these embeddings.
+A vector store or [vector database](../../vector-database.md) is a database designed to store and manage vector embeddings, which are mathematical representations of data in a high-dimensional space. In this space, each dimension corresponds to a feature of the data, and tens of thousands of dimensions might be used to represent sophisticated data. A vector's position in this space represents its characteristics. Words, phrases, or entire documents, and images, audio, and other types of data can all be vectorized. 
 
-## What is vector search?
+## How does a vector store work?
 
-Vector search is a method that helps you find similar items based on their data characteristics rather than by exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It is used to query the [vector embeddings](../../../ai-services/openai/concepts/understand-embeddings.md) (lists of numbers) of your data that you created by using a machine learning model by using an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](/azure/ai-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). Vector search measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
+In a vector store, vector search algorithms are used to index and query embeddings. Some well-known vector search algorithms include Hierarchical Navigable Small World (HNSW), Inverted File (IVF), DiskANN, etc. Vector search is a method that helps you find similar items based on their data characteristics rather than by exact matches on a property field. This technique is useful in applications such as searching for similar text, finding related images, making recommendations, or even detecting anomalies. It is used to query the [vector embeddings](../../../ai-services/openai/concepts/understand-embeddings.md) (lists of numbers) of your data that you created by using a machine learning model by using an embeddings API. Examples of embeddings APIs are [Azure OpenAI Embeddings](/azure/ai-services/openai/how-to/embeddings) or [Hugging Face on Azure](https://azure.microsoft.com/solutions/hugging-face-on-azure/). Vector search measures the distance between the data vectors and your query vector. The data vectors that are closest to your query vector are the ones that are found to be most similar semantically.
+
+In the Integrated Vector Database in Azure Cosmos DB for MongoDB vCore, embeddings can be stored, indexed, and queried alongside the original data. This approach eliminates the extra cost of replicating data in a separate pure vector database. Moreover, this architecture keeps the vector embeddings and original data together, which better facilitates multi-modal data operations, and enables greater data consistency, scale, and performance.
 
 ## Create a vector index
 To perform vector similiarity search over vector properties in your documents, you'll have to first create a _vector index_.
@@ -123,7 +125,7 @@ To create a vector index using the IVF (Inverted File) algorithm, use the follow
 | `dimensions` | integer | Number of dimensions for vector similarity. The maximum number of supported dimensions is `2000`. |
 
 > [!IMPORTANT]
-> Setting the _numLists_ parameter correctly is important for acheiving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
+> Setting the _numLists_ parameter correctly is important for achieving good accuracy and performance. We recommend that `numLists` is set to `documentCount/1000` for up to 1 million documents and to `sqrt(documentCount)` for more than 1 million documents.
 >
 > As the number of items in your database grows, you should tune _numLists_ to be larger in order to achieve good latency performance for vector search.
 >
@@ -266,7 +268,7 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
     cosmosSearch: {
       kind: 'vector-hnsw',
       m: 40,
-      efConstruction: 64
+      efConstruction: 64,
       similarity: 'COS',
       dimensions: 3
     },
@@ -276,6 +278,14 @@ In this example, `vectorIndex` is returned with all the `cosmosSearch` parameter
 ```
 
 ## Example using an IVF Index
+
+Inverted File (IVF) Indexing is a method that organizes vectors into clusters. During a vector search, the query vector is first compared against the centers of these clusters. The search is then conducted within the cluster whose center is closest to the query vector.
+
+The `numList`s parameter determines the number of clusters to be created. A single cluster implies that the search is conducted against all vectors in the database, akin to a brute-force or kNN search. This setting provides the highest accuracy but also the highest latency.
+
+Increasing the `numLists` value results in more clusters, each containing fewer vectors. For instance, if `numLists=2`, each cluster contains more vectors than if `numLists=3`, and so on. Fewer vectors per cluster speed up the search (lower latency, higher queries per second). However, this increases the likelihood of missing the most similar vector in your database to the query vector. This is due to the imperfect nature of clustering, where the search might focus on one cluster while the actual “closest” vector resides in a different cluster.
+
+The `nProbes` parameter controls the number of clusters to be searched. By default, it’s set to 1, meaning it searches only the cluster with the center closest to the query vector. Increasing this value allows the search to cover more clusters, improving accuracy but also increasing latency (thus decreasing queries per second) as more clusters and vectors are being searched.
 
 The following examples show you how to index vectors, add documents that have vector properties, perform a vector search, and retrieve the index configuration.
 

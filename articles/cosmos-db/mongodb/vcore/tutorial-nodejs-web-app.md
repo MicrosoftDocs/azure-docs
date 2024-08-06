@@ -1,36 +1,36 @@
 ---
 title: |
   Tutorial: Build a Node.js web application
-titleSuffix: Azure Cosmos DB for MongoDB vCore
-description: In this tutorial, create a Node.js web application that connects to an Azure Cosmos DB for MongoDB vCore cluster and manages documents within a collection.
+titleSuffix: Azure Cosmos DB for MongoDB (vCore)
+description: In this tutorial, create a Node.js web application that connects to a vCore cluster in Azure Cosmos DB for MongoDB and manages documents within a collection.
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: tutorial
 ms.date: 08/28/2023
 ms.custom: devx-track-js, devx-track-azurecli
-# CustomerIntent: As a developer, I want to connect to Azure Cosmos DB for MongoDB vCore from my Node.js application, so I can build MERN stack applications.
+# CustomerIntent: As a developer, I want to connect to Azure Cosmos DB for MongoDB (vCore) from my Node.js application, so I can build MERN stack applications.
 ---
 
-# Tutorial: Connect a Node.js web app with Azure Cosmos DB for MongoDB vCore
+# Tutorial: Connect a Node.js web app with Azure Cosmos DB for MongoDB (vCore)
 
-[!INCLUDE[MongoDB vCore](../../includes/appliesto-mongodb-vcore.md)]
+[!INCLUDE[MongoDB (vCore)](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-In this tutorial, you build a Node.js web application that connects to Azure Cosmos DB for MongoDB vCore. The MongoDB, Express, React.js, Node.js (MERN) stack is a popular collection of technologies used to build many modern web applications. With Azure Cosmos DB for MongoDB vCore, you can build a new web application or migrate an existing application using MongoDB drivers that you're already familiar with. In this tutorial, you:
+In this tutorial, you build a Node.js web application that connects to Azure Cosmos DB for MongoDB in vCore architecture. The MongoDB, Express, React.js, Node.js (MERN) stack is a popular collection of technologies used to build many modern web applications. With Azure Cosmos DB for MongoDB (vCore), you can build a new web application or migrate an existing application using MongoDB drivers that you're already familiar with. In this tutorial, you:
 
 > [!div class="checklist"]
 > - Set up your environment
 > - Test the MERN application with a local MongoDB container
-> - Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
+> - Test the MERN application with a vCore cluster
 > - Deploy the MERN application to Azure App Service
 
 ## Prerequisites
 
 To complete this tutorial, you need the following resources:
 
-- An existing Azure Cosmos DB for MongoDB vCore cluster.
+- An existing vCore cluster.
 - A GitHub account.
   - GitHub comes with free Codespaces hours for all users.
 
@@ -204,7 +204,7 @@ Start by running the sample application's API with the local MongoDB container t
 
     | Environment Variable | Value |
     | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. For now, use `mongodb://localhost:27017?directConnection=true`. |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB (vCore) cluster. For now, use `mongodb://localhost:27017?directConnection=true`. |
 
     ```env
     CONNECTION_STRING=mongodb://localhost:27017?directConnection=true
@@ -234,15 +234,15 @@ Start by running the sample application's API with the local MongoDB container t
 
 1. Close the terminal.
 
-## Test the MERN application with the Azure Cosmos DB for MongoDB vCore cluster
+## Test the MERN application with the Azure Cosmos DB for MongoDB (vCore) cluster
 
-Now, let's validate that the application works seamlessly with Azure Cosmos DB for MongoDB vCore. For this task, populate the pre-existing cluster with seed data using the MongoDB shell and then update the API's connection string.
+Now, let's validate that the application works seamlessly with Azure Cosmos DB for MongoDB (vCore). For this task, populate the pre-existing cluster with seed data using the MongoDB shell and then update the API's connection string.
 
 1. Sign in to the Azure portal (<https://portal.azure.com>).
 
-1. Navigate to the existing Azure Cosmos DB for MongoDB vCore cluster page.
+1. Navigate to the existing Azure Cosmos DB for MongoDB (vCore) cluster page.
 
-1. From the Azure Cosmos DB for MongoDB vCore cluster page, select the **Connection strings** navigation menu option.
+1. From the Azure Cosmos DB for MongoDB (vCore) cluster page, select the **Connection strings** navigation menu option.
 
    :::image type="content" source="media/tutorial-nodejs-web-app/select-connection-strings-option.png" alt-text="Screenshot of the connection strings option on the page for a cluster.":::
 
@@ -310,7 +310,7 @@ Now, let's validate that the application works seamlessly with Azure Cosmos DB f
 
     | Environment Variable | Value |
     | --- | --- |
-    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB vCore cluster. Use the same connection string you used with the mongo shell. |
+    | `CONNECTION_STRING` | The connection string to the Azure Cosmos DB for MongoDB (vCore) cluster. Use the same connection string you used with the mongo shell. |
 
     ```output
     CONNECTION_STRING=<your-connection-string>
@@ -392,7 +392,7 @@ Deploy the service and client to Azure App Service to prove that the application
         --output tsv)
     ```
 
-1. Use the `open-cli` package and command from NuGet with `npx` to open a browser window using the URI for the server web app. Validate that the server app is returning your JSON array data from the MongoDB vCore cluster.
+1. Use the `open-cli` package and command from NuGet with `npx` to open a browser window using the URI for the server web app. Validate that the server app is returning your JSON array data from the MongoDB (vCore) cluster.
 
     ```shell
     npx open-cli "https://$serverUri/products" --yes
@@ -498,7 +498,7 @@ You aren't necessarily required to clean up your local environment, but you can 
 
 ## Next step
 
-Now that you have built your first application for the MongoDB vCore cluster, learn how to migrate your data to Azure Cosmos DB.
+Now that you have built your first application for the MongoDB (vCore) cluster, learn how to migrate your data to Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Migrate your data](migration-options.md)

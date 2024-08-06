@@ -3,14 +3,14 @@ title: Network isolation in prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to secure prompt flow with virtual network.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: how-to
-author: cloga
-ms.author: lochen
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: lochen
 ms.date: 11/02/2023
 ---
 
@@ -103,6 +103,14 @@ Workspace managed virtual network is the recommended way to support network isol
 - To set up Azure Machine Learning related resources as private, see [Secure workspace resources](../how-to-secure-workspace-vnet.md).
 - If you have strict outbound rule, make sure you have open the [Required public internet access](../how-to-secure-workspace-vnet.md#required-public-internet-access).
 - Add workspace MSI as `Storage File Data Privileged Contributor` to storage account linked with workspace. Please follow step 2 in [Secure prompt flow with workspace managed virtual network](#secure-prompt-flow-with-workspace-managed-virtual-network).
+- If you are using serverless compute type in flow authoring, you need set the custom virtual network in workspace level. Learn more about [Secure an Azure Machine Learning training environment with virtual networks](../how-to-secure-training-vnet.md)
+
+    ```yaml
+    serverless_compute:
+      custom_subnet: /subscriptions/<sub id>/resourceGroups/<resource group>/providers/Microsoft.Network/virtualNetworks/<vnet name>/subnets/<subnet name>
+      no_public_ip: false # Set to true if you don't want to assign public IP to the compute
+    ```
+
 - Meanwhile, you can follow [private Azure Cognitive Services](../../ai-services/cognitive-services-virtual-networks.md) to make them as private.
 - If you want to deploy prompt flow in workspace which secured by your own virtual network, you can deploy it to AKS cluster which is in the same virtual network. You can follow [Secure Azure Kubernetes Service inferencing environment](../how-to-secure-kubernetes-inferencing-environment.md) to secure your AKS cluster. Learn more about [How to deploy prompt flow to ASK cluster via code](./how-to-deploy-to-code.md).
 - You can either create private endpoint to the same virtual network or leverage virtual network peering to make them communicate with each other.

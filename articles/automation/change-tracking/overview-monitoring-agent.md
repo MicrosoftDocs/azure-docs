@@ -25,8 +25,7 @@ This article explains on the latest version of change tracking support using Azu
 
 - **Compatibility with the unified monitoring agent** - Compatible with the [Azure Monitor Agent](../../azure-monitor/agents/agents-overview.md) that enhances security, reliability, and facilitates multi-homing experience to store data.
 - **Compatibility with tracking tool**- Compatible with the Change tracking (CT) extension deployed through the Azure Policy on the client's virtual machine. You can switch to Azure Monitor Agent (AMA), and then the CT extension pushes the software, files, and registry to AMA.
-- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md)
-so that all VMs point to a single workspace for data collection and maintenance.
+- **Multi-homing experience** – Provides standardization of management from one central workspace. You can [transition from Log Analytics (LA) to AMA](../../azure-monitor/agents/azure-monitor-agent-migration.md) so that all VMs point to a single workspace for data collection and maintenance.
 - **Rules management** – Uses [Data Collection Rules](../../azure-monitor/essentials/data-collection-rule-overview.md) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
 
 ## Current limitations
@@ -65,7 +64,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 Change Tracking and Inventory is supported on all operating systems that meet Azure Monitor agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
-To understand client requirements for TLS 1.2 or higher, see [TLS 1.2 or higher for Azure Automation](../automation-managing-data.md#tls-12-or-higher-for-azure-automation).
+To understand client requirements for TLS, see [TLS for Azure Automation](../automation-managing-data.md#tls-for-azure-automation).
 
 
 ## Enable Change Tracking and Inventory

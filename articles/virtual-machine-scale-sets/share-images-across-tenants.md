@@ -4,16 +4,16 @@ description: Learn how to create scale sets using images that are shared across 
 author: sandeepraichura
 ms.author: saraic
 ms.topic: how-to
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
-ms.date: 02/02/2023
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli
 
 ---
 # Share images across tenants using an app registration
 
-[!INCLUDE [virtual-machines-share-images-across-tenants](../virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
+[!INCLUDE [virtual-machines-share-images-across-tenants](~/reusable-content/ce-skilling/azure/includes/virtual-machines/includes/virtual-machines-share-images-across-tenants.md)]
 
 ## Create a scale set using Azure CLI
 

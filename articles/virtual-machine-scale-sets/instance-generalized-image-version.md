@@ -3,11 +3,11 @@ title: Create a scale set from a generalized image
 description: Create a scale set using a generalized image in an Azure Compute Gallery.
 author: sandeepraichura
 ms.author: saraic
-ms.service: virtual-machine-scale-sets
+ms.service: azure-virtual-machine-scale-sets
 ms.subservice: shared-image-gallery
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 11/22/2022
+ms.date: 06/14/2024
 ms.reviewer: cynthn
 ---
 

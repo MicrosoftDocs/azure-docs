@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -284,6 +284,18 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | --- | --- |
 > | Microsoft.MobileNetwork/register/action | Register the subscription for Microsoft.MobileNetwork |
 > | Microsoft.MobileNetwork/unregister/action | Unregister the subscription for Microsoft.MobileNetwork |
+> | Microsoft.MobileNetwork/amfDeployments/read | List all Access and Mobility Function Deployments by Subscription ID. |
+> | Microsoft.MobileNetwork/amfDeployments/read | List all Access and Mobility Function Deployments by Resource Group. |
+> | Microsoft.MobileNetwork/amfDeployments/read | Get a AmfDeploymentResource |
+> | Microsoft.MobileNetwork/amfDeployments/write | Create a AmfDeploymentResource |
+> | Microsoft.MobileNetwork/amfDeployments/delete | Delete a AmfDeploymentResource |
+> | Microsoft.MobileNetwork/amfDeployments/write | Update a AmfDeploymentResource |
+> | Microsoft.MobileNetwork/clusterServices/read | List all Cluster Services by Subscription ID. |
+> | Microsoft.MobileNetwork/clusterServices/read | List all Cluster Services by Resource Group. |
+> | Microsoft.MobileNetwork/clusterServices/read | Get a ClusterServiceResource |
+> | Microsoft.MobileNetwork/clusterServices/write | Create a ClusterServiceResource |
+> | Microsoft.MobileNetwork/clusterServices/delete | Delete a ClusterServiceResource |
+> | Microsoft.MobileNetwork/clusterServices/write | Update a ClusterServiceResource |
 > | Microsoft.MobileNetwork/Locations/OperationStatuses/read | read OperationStatuses |
 > | Microsoft.MobileNetwork/Locations/OperationStatuses/write | write OperationStatuses |
 > | Microsoft.MobileNetwork/mobileNetworks/read | Gets information about the specified mobile network. |
@@ -328,6 +340,24 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/delete | Deletes the specified Wi-Fi SSID. |
 > | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/write | Updates Wi-Fi SSID. |
 > | Microsoft.MobileNetwork/mobileNetworks/wifiSsids/read | Lists all Wi-Fi SSIDs in the mobile network. |
+> | Microsoft.MobileNetwork/nrfDeployments/read | List all Network Repository Function Deployments by Subscription ID. |
+> | Microsoft.MobileNetwork/nrfDeployments/read | List all Network Repository Function Deployments by Resource Group. |
+> | Microsoft.MobileNetwork/nrfDeployments/read | Get a NrfDeploymentResource |
+> | Microsoft.MobileNetwork/nrfDeployments/write | Create a NrfDeploymentResource |
+> | Microsoft.MobileNetwork/nrfDeployments/delete | Delete a NrfDeploymentResource |
+> | Microsoft.MobileNetwork/nrfDeployments/write | Update a NrfDeploymentResource |
+> | Microsoft.MobileNetwork/nssfDeployments/read | List all Network Slice Selection Function Deployments by Subscription ID. |
+> | Microsoft.MobileNetwork/nssfDeployments/read | List all Network Slice Selection Function Deployments by Resource Group. |
+> | Microsoft.MobileNetwork/nssfDeployments/read | Get a NssfDeploymentResource |
+> | Microsoft.MobileNetwork/nssfDeployments/write | Create a NssfDeploymentResource |
+> | Microsoft.MobileNetwork/nssfDeployments/delete | Delete a NssfDeploymentResource |
+> | Microsoft.MobileNetwork/nssfDeployments/write | Update a NssfDeploymentResource |
+> | Microsoft.MobileNetwork/observabilityServices/read | List all Observability Services by Subscription ID. |
+> | Microsoft.MobileNetwork/observabilityServices/read | List all Observability Services by Resource Group. |
+> | Microsoft.MobileNetwork/observabilityServices/read | Get a ObservabilityServiceResource |
+> | Microsoft.MobileNetwork/observabilityServices/write | Create a ObservabilityServiceResource |
+> | Microsoft.MobileNetwork/observabilityServices/delete | Delete a ObservabilityServiceResource |
+> | Microsoft.MobileNetwork/observabilityServices/write | Update a ObservabilityServiceResource |
 > | Microsoft.MobileNetwork/Operations/read | read Operations |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/rollback/action | Roll back the specified packet core control plane to the previous version, "rollbackVersion". Multiple consecutive rollbacks are not possible. This action may cause a service outage. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/reinstall/action | Reinstall the specified packet core control plane. This action will remove any transaction state from the packet core to return it to a known state. This action will cause a service outage. |
@@ -354,11 +384,11 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/delete | Deletes the specified attached data network. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/write | Updates an attached data network tags. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedDataNetworks/read | Gets all the attached data networks associated with a packet core data plane. |
+> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets all the Wi-Fi Attached SSIDs associated with a packet core data plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets information about the specified Wi-Fi Attached SSID. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Creates or updates an Wi-Fi Attached SSID. Must be created in the same location as its parent packet core data plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/delete | Deletes the specified Wi-Fi Attached SSID. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/write | Updates an Wi-Fi Attached SSID. |
-> | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/attachedWifiSsids/read | Gets all the Wi-Fi Attached SSIDs associated with a packet core data plane. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/read | Gets information about the specified Edge Virtual Network. |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/write | Creates or updates an Edge Virtual Network . |
 > | Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreDataPlanes/edgeVirtualNetworks/delete | Deletes the specified Edge Virtual Network. |
@@ -397,6 +427,18 @@ Azure service: [Azure Private 5G Core](/azure/private-5g-core/)
 > | Microsoft.MobileNetwork/sims/write | Updates SIM tags. |
 > | Microsoft.MobileNetwork/sims/read | Gets all the SIMs in a subscription. |
 > | Microsoft.MobileNetwork/sims/read | Gets all the SIMs in a resource group. |
+> | Microsoft.MobileNetwork/smfDeployments/read | List all Session Management Function Deployments by Subscription ID. |
+> | Microsoft.MobileNetwork/smfDeployments/read | List all Session Management Function Deployments by Resource Group. |
+> | Microsoft.MobileNetwork/smfDeployments/read | Get a SmfDeploymentResource |
+> | Microsoft.MobileNetwork/smfDeployments/write | Create a SmfDeploymentResource |
+> | Microsoft.MobileNetwork/smfDeployments/delete | Delete a SmfDeploymentResource |
+> | Microsoft.MobileNetwork/smfDeployments/write | Update a SmfDeploymentResource |
+> | Microsoft.MobileNetwork/upfDeployments/read | List all User Plane Function Deployments by Subscription ID. |
+> | Microsoft.MobileNetwork/upfDeployments/read | List all User Plane Function Deployments by Resource ID. |
+> | Microsoft.MobileNetwork/upfDeployments/read | Get a UpfDeploymentResource |
+> | Microsoft.MobileNetwork/upfDeployments/write | Create a UpfDeploymentResource |
+> | Microsoft.MobileNetwork/upfDeployments/delete | Delete a UpfDeploymentResource |
+> | Microsoft.MobileNetwork/upfDeployments/write | Update a UpfDeploymentResource |
 
 ## Microsoft.Network
 
@@ -435,6 +477,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/applicationGateways/setSecurityCenterConfiguration/action | Sets Application Gateway Security Center Configuration |
 > | Microsoft.Network/applicationGateways/effectiveNetworkSecurityGroups/action | Get Route Table configured On Application Gateway |
 > | Microsoft.Network/applicationGateways/effectiveRouteTable/action | Get Route Table configured On Application Gateway |
+> | Microsoft.Network/applicationGateways/appProtectPolicy/getAppProtectPolicy/action | Get AppProtect policy attached to application gateway resource |
+> | Microsoft.Network/applicationGateways/appProtectPolicy/attachAppProtectPolicy/action | Attaches AppProtect policy to application gateway at global, path and/or listener level |
+> | Microsoft.Network/applicationGateways/appProtectPolicy/detachAppProtectPolicy/action | Detaches AppProtect policy from application gateway at global, path and/or listener level |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
 > | Microsoft.Network/applicationGateways/privateEndpointConnections/read | Gets Application Gateway PrivateEndpoint Connections |
 > | Microsoft.Network/applicationGateways/privateEndpointConnections/write | Updates Application Gateway PrivateEndpoint Connection |
@@ -668,9 +713,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/firewallPolicies/ruleCollectionGroups/read | Gets a Firewall Policy Rule Collection Group |
 > | Microsoft.Network/firewallPolicies/ruleCollectionGroups/write | Creates a Firewall Policy Rule Collection Group or Updates an existing Firewall Policy Rule Collection Group |
 > | Microsoft.Network/firewallPolicies/ruleCollectionGroups/delete | Deletes a Firewall Policy Rule Collection Group |
-> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupsDrafts/read | Gets a Firewall Policy Rule Collection Group raft |
-> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupsDrafts/write | Creates a Firewall Policy Rule Collection Group Draft or Updates an existing Firewall Policy Rule Collection Group Draft |
-> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupsDrafts/delete | Deletes a Firewall Policy Rule Collection Group Draft |
+> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupDrafts/read | Gets a Firewall Policy Rule Collection Group raft |
+> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupDrafts/write | Creates a Firewall Policy Rule Collection Group Draft or Updates an existing Firewall Policy Rule Collection Group Draft |
+> | Microsoft.Network/firewallPolicies/ruleCollectionGroups/ruleCollectionGroupDrafts/delete | Deletes a Firewall Policy Rule Collection Group Draft |
 > | Microsoft.Network/firewallPolicies/ruleGroups/read | Gets a Firewall Policy Rule Group |
 > | Microsoft.Network/firewallPolicies/ruleGroups/write | Creates a Firewall Policy Rule Group or Updates an existing Firewall Policy Rule Group |
 > | Microsoft.Network/firewallPolicies/ruleGroups/delete | Deletes a Firewall Policy Rule Group |
@@ -711,9 +756,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/join/action | Joins a Web Application Firewall Policy. Not Alertable. |
-> | Microsoft.Network/gatewayLoadBalancerAliases/write | Creates a Gateway LoadBalancer Alias Or Updates An Existing Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/delete | Delete Gateway LoadBalancer Alias |
-> | Microsoft.Network/gatewayLoadBalancerAliases/read | Get a Gateway LoadBalancer Alias definition |
 > | Microsoft.Network/internalPublicIpAddresses/read | Returns internal public IP addresses in subscription |
 > | Microsoft.Network/ipAllocations/read | Get The IpAllocation |
 > | Microsoft.Network/ipAllocations/write | Creates A IpAllocation Or Updates An Existing IpAllocation |
@@ -860,6 +902,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkManagers/ipamPools/delete | Deletes a Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/associateResourcesToPool/action | Action permission for associate resources to Ipam Pool |
 > | Microsoft.Network/networkManagers/ipamPools/associatedResources/action | Action permission for list Associated Resource To Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/disassociateResourcesFromPool/action | Disassociate Azure resources (i.e. VNet) from Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/allocateAzureResource/action | Allocate CIDR range for Azure resource from Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/allocateNonAzureResource/action | Allocate CIDR range for non Azure resource from Ipam Pool |
+> | Microsoft.Network/networkManagers/ipamPools/getPoolUsage/action | Get pool usage for a Ipam Pool |
 > | Microsoft.Network/networkManagers/listActiveConnectivityConfigurations/read | Permission for calling List Active Connectivity Configurations operation. This read permission, not listActiveConnectivityConfigurations/action, is required to call List Active Connectivity Configurations. |
 > | Microsoft.Network/networkManagers/listActiveSecurityAdminRules/read | Permission for calling List Active Security Admin Rules operation. This read permission, not listActiveSecurityAdminRules/action, is required to call List Active Security Admin Rules. |
 > | Microsoft.Network/networkManagers/listActiveSecurityUserRules/read | Permission for calling List Active Security User Rules operation. This read permission, not listActiveSecurityUserRules/action, is required to call List Active Security User Rules. |
@@ -919,6 +965,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/read | Gets a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/write | Creates or Updates a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/linkReferences/delete | Deletes a Network Security Perimeter LinkReference |
+> | Microsoft.Network/networkSecurityPerimeters/linkReferences/reconcile/action | Reconciles a Network Security Perimeter LinkReference |
 > | Microsoft.Network/networkSecurityPerimeters/links/read | Gets a Network Security Perimeter Link |
 > | Microsoft.Network/networkSecurityPerimeters/links/write | Creates or Updates a Network Security Perimeter Link |
 > | Microsoft.Network/networkSecurityPerimeters/links/delete | Deletes a Network Security Perimeter Link |
@@ -1221,6 +1268,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | Microsoft.Network/virtualNetworks/rnmEffectiveNetworkSecurityGroups/action | Gets Security Groups Configured On CA Of The Vnet In Rnm Format |
 > | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveConnectivityConfigurations/action | Lists Network Manager Effective Connectivity Configurations |
 > | Microsoft.Network/virtualNetworks/listNetworkManagerEffectiveSecurityAdminRules/action | Lists Network Manager Effective Security Admin Rules |
+> | Microsoft.Network/virtualNetworks/manageIpFromPool/action | Manage Private Ip Inventory Pool Operation Description |
 > | Microsoft.Network/virtualNetworks/listDnsResolvers/action | Gets the DNS Resolver for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/listDnsForwardingRulesets/action | Gets the DNS Forwarding Ruleset for Virtual Network, in JSON format |
 > | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Gets Bastion Host references in a Virtual Network. |
@@ -1327,9 +1375,10 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/getikesas/action | Lists Vpn Link Connection IKE Security Associations |
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/resetconnection/action | Resets connection for vWAN |
 > | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Gets a Vpn Link Connection |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/action | Puts Vpn Link Connection Shared Key |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/read | Gets Vpn Link Connection Shared Key |
-> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKey/reset/action | Resets Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/read | Gets Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/read | Gets Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/write | Puts Vpn Link Connection Shared Key |
+> | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/sharedKeys/default/listSharedKey/action | Gets Vpn Link Connection Shared Key |
 > | Microsoft.Network/vpnServerConfigurations/read | Get VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/write | Create or Update VpnServerConfiguration |
 > | Microsoft.Network/vpnServerConfigurations/delete | Delete VpnServerConfiguration |

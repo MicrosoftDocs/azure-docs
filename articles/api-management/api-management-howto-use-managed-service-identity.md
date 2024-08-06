@@ -4,9 +4,9 @@ description: Learn how to create system-assigned and user-assigned identities in
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 05/22/2024
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -25,6 +25,8 @@ You can grant two types of identities to an API Management instance:
 > [!NOTE]
 > Managed identities are specific to the Microsoft Entra tenant where your Azure subscription is hosted. They don't get updated if a subscription is moved to a different directory. If a subscription is moved, you'll need to recreate and configure the identities.  
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 ## Create a system-assigned managed identity
 
 ### Azure portal
@@ -39,7 +41,7 @@ To set up a managed identity in the Azure portal, you'll first create an API Man
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 
@@ -338,7 +340,7 @@ To set up a managed identity in the portal, you'll first create an API Managemen
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following steps walk you through creating an API Management instance and assigning it an identity by using Azure PowerShell.
 
@@ -456,17 +458,6 @@ Keep these considerations in mind:
 > [!Important]
 > If you don't provide the object version of the certificate, API Management will automatically obtain the newer version of the certificate within four hours after it's updated in Key Vault.
 
-For the complete template, see [API Management with Key Vault based SSL using User Assigned Identity](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json).
-
-In this template, you'll deploy:
-
-* Azure API Management instance
-* Azure user-assigned managed identity
-* Azure Key Vault for storing the SSL/TLS certificate
-
-To run the deployment automatically, select the following button:
-
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-key-vault-create%2Fazuredeploy.json":::
 
 ### Store and manage named values from Azure Key Vault
 

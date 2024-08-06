@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Bastion'
 description: Learn how to troubleshoot Azure Bastion.
 services: bastion
 author: isamorris
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: troubleshooting
 ms.date: 01/11/2024
 ms.author: isamorris
@@ -70,7 +70,7 @@ The key's randomart image is:
 
 **A:** You can troubleshoot your connectivity issues by navigating to the **Connection Troubleshoot** tab (in the **Monitoring** section) of your Azure Bastion resource in the Azure portal. Network Watcher Connection Troubleshoot provides the capability to check a direct TCP connection from a virtual machine (VM) to a VM, fully qualified domain name (FQDN), URI, or IPv4 address. To start, choose a source to start the connection from, and the destination you wish to connect to and select "Check". For more information, see [Connection Troubleshoot](../network-watcher/network-watcher-connectivity-overview.md).
 
-If just-in-time (JIT) is enabled, you might need to add additional role assignments to connect to Bastion. Add the following permissions to the user, and then try reconnecting to Bastion. For more information, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.md).
+If just-in-time (JIT) is enabled, you might need to add additional role assignments to connect to Bastion. Add the following permissions to the user, and then try reconnecting to Bastion. For more information, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
 
 | Setting | Description|
 |---|---|

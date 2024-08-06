@@ -71,21 +71,33 @@
       maintainContext: true
 - name: Scale
   items:
+  - name: Autoscale
+    items:
+    - name: Overview
+      href: virtual-machine-scale-sets-autoscale-overview.md
+    - name: Configure autoscale
+      href: virtual-machine-scale-sets-autoscale-portal.md
+    - name: Predictive autoscale
+      href: ../azure-monitor/autoscale/autoscale-predictive.md
+      maintainContext: true
+    - name: Autoscale using guest metrics
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Troubleshoot autoscale
+      href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scaling Profile
     href: virtual-machine-scale-sets-scaling-profile.md
-  - name: Autoscale
-    href: virtual-machine-scale-sets-autoscale-overview.md
-  - name: Configure autoscale
-    href: virtual-machine-scale-sets-autoscale-portal.md
-  - name: Predictive autoscale
-    href: ../azure-monitor/autoscale/autoscale-predictive.md
-    maintainContext: true
-  - name: Autoscale using guest metrics
-    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-  - name: Troubleshoot autoscale
-    href: virtual-machine-scale-sets-troubleshoot.md 
   - name: Scale-In Policy
     href: virtual-machine-scale-sets-scale-in-policy.md 
+  - name: Standby pools (Preview)
+    items: 
+    - name: Overview
+      href: standby-pools-overview.md
+    - name: Create a standby pool
+      href: standby-pools-create.md
+    - name: Update or delete a standby pool
+      href: standby-pools-update-delete.md
+    - name: Frequently asked questions
+      href: standby-pools-faq.md
   - name: Instance protection
     href: virtual-machine-scale-sets-instance-protection.md
   - name: Attach VMs to a scale set
@@ -139,6 +151,8 @@
       href: virtual-machine-scale-sets-change-upgrade-policy.md
     - name: Configure rolling upgrade policy
       href: virtual-machine-scale-sets-configure-rolling-upgrades.md 
+    - name: Rolling upgrades with MaxSurge
+      href: virtual-machine-scale-sets-maxsurge.md
     - name: Performing manual upgrades
       href: virtual-machine-scale-sets-perform-manual-upgrades.md
     - name: Reimage a virtual machine
@@ -266,7 +280,7 @@
     - name: Linux
       href: ../virtual-machines/linux/scheduled-events.md
       maintainContext: true
-      displayname: Scheduled events
+      displayName: Scheduled events
     - name: Windows
       items:
       - name: Scheduled events

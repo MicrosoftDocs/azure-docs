@@ -2,7 +2,7 @@
 title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
 author: TheovanKraay
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 04/01/2022
 ms.author: thvankra
 ms.devlang: java
@@ -18,7 +18,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 > * [Java SDK v4](troubleshoot-java-sdk-v4.md)
 > * [Async Java SDK v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dotnet-sdk.md)
-> 
+> * [Python SDK](troubleshoot-python-sdk.md)
+>
 
 > [!IMPORTANT]
 > This article covers troubleshooting for Azure Cosmos DB Java SDK v4 only. Please see the Azure Cosmos DB Java SDK v4 [Release notes](sdk-java-v4.md), [Maven repository](https://mvnrepository.com/artifact/com.azure/azure-cosmos), and [performance tips](performance-tips-java-sdk-v4.md) for more information. If you're currently using an older version than v4, see the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide for help upgrading to v4.
@@ -295,11 +296,16 @@ CosmosAsyncClient client = new CosmosClientBuilder()
     .clientTelemetryConfig(cosmosClientTelemetryConfig)
     .buildAsyncClient();
 ```
+---
 
 ## Retry design <a id="retry-logics"></a><a id="retry-design"></a><a id="error-codes"></a>
 See our guide to [designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) for guidance on how to design resilient applications and learn which are the retry semantics of the SDK.
 
 ## <a name="common-issues-workarounds"></a>Common issues and workarounds
+
+### Check the portal metrics
+
+Checking the [portal metrics](../monitor.md) will help determine if it's a client-side issue or if there's an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section.
 
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
@@ -485,7 +491,15 @@ The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` s
 
 Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This situation potentially causes problems. For more information, see the [Common issues and workarounds] section.
 
- <!--Anchors-->
+### Common query issues
+
+The [query metrics](query-metrics.md) will help determine where the query is spending most of the time. From the query metrics, you can see how much of it's being spent on the back-end vs the client. Learn more on the [query performance guide](performance-tips-query-sdk.md?pivots=programming-language-java).
+
+## Next steps
+
+* Learn about Performance guidelines for the [Java SDK v4](performance-tips-java-sdk-v4.md)
+* Learn about the best practices for the [Java SDK v4](best-practice-java.md)
+
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
 [Connection limit on a host machine]: #connection-limit-on-host

@@ -4,8 +4,8 @@ description: Azure Confidential Computing offers multiple options for confidenti
 author: ju-shim
 ms.author: jushiman
 ms.reviewer: mattmcinnes
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 11/15/2023
@@ -13,23 +13,23 @@ ms.date: 11/15/2023
 
 # Azure Confidential VM options
 
-Azure offers multiple confidential VMs options leveraging Trusted Execution Environments (TEE) technologies from both AMD and Intel to harden the virtualization environment. These technologies enable you to provision confidential computing environments with excellent price-to-performance without code changes. 
+Azure offers a choice of Trusted Execution Environment (TEE) options from both AMD and Intel. These TEEs allow you to create Confidential VM environments with excellent price-to-performance ratios, all without requiring any code changes.
 
-AMD confidential VMs leverage [Secure Encrypted Virtualization-Secure Nested Paging (SEV-SNP)](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf) which was introduced with 3rd Gen AMD EPYC™ processors. Intel confidential VMs use [Trust Domain Extensions (TDX)](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf) which was introduced with 4th Gen Intel® Xeon® processors.
+For AMD-based Confidential VMs, the technology used is [AMD SEV-SNP](https://www.amd.com/system/files/TechDocs/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf), which was introduced with 3rd Gen AMD EPYC™ processors. On the other hand, Intel-based Confidential VMs utilize [Intel TDX](https://cdrdv2-public.intel.com/690419/TDX-Whitepaper-February2022.pdf), a technology introduced with 4th Gen Intel® Xeon® processors. Both technologies have different implementations, however both provide similar protections from the cloud infrastructure stack.
 
 ## Sizes
 
-You can create confidential VMs in the following size families:
+We offer the following VM sizes:
 
 | Size Family          | TEE | Description                                                                         |
 | ------------------ | ------------ | ----------------------------------------------------------------------------------- |
 | **DCasv5-series** | AMD SEV-SNP | General purpose CVM with remote storage. No local temporary disk.                  |
-| **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
 | **DCadsv5-series** | AMD SEV-SNP | General purpose CVM with local temporary disk.                                        |
-| **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
 | **ECasv5-series** | AMD SEV-SNP | Memory-optimized CVM with remote storage. No local temporary disk. |
-| **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECadsv5-series** | AMD SEV-SNP | Memory-optimized CVM with local temporary disk.                      |
+| **DCesv5-series** | Intel TDX | General purpose CVM with remote storage. No local temporary disk.                  |
+| **DCedsv5-series** | Intel TDX | General purpose CVM with local temporary disk.                                        |
+| **ECesv5-series** | Intel TDX | Memory-optimized CVM with remote storage. No local temporary disk. |
 | **ECedsv5-series** | Intel TDX | Memory-optimized CVM with local temporary disk. |
 
 > [!NOTE]

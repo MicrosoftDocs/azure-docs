@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create an Azure Database for PostgreSQL - Bicep'
 description: In this quickstart, learn how to create an Azure Database for PostgreSQL single server using Bicep.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: quickstart
 ms.author: jroth
@@ -18,7 +18,7 @@ ms.date: 06/24/2022
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. In this quickstart, you use Bicep to create an Azure Database for PostgreSQL - single server in Azure CLI or PowerShell.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

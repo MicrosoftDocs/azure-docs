@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: Configure network access control for your Azure SignalR Service.
 services: signalr
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: lianwei

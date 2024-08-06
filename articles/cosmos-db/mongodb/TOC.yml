@@ -1,19 +1,27 @@
 - name: What is Azure Cosmos DB for MongoDB?
   href: introduction.md
+- name: Your MongoDB app reimagined
+  href: reimagined.md
 - name: Choose your model
   href: choose-model.md
 - name: Comparing MongoDB Atlas
   href: cosmos-db-vs-mongodb-atlas.md
 - name: RU
   items:
-    - name: MongoDB RU documentation
+    - name: MongoDB (RU) documentation
       href: index.yml
     - name: Overview
       items:
-        - name: What is Azure Cosmos DB for MongoDB RU?
+        - name: What is Azure Cosmos DB for MongoDB (RU)?
           href: ru/introduction.md
         - name: API versions
           items:
+            - name: API version 7.0
+              href: feature-support-70.md
+            - name: API version 6.0
+              href: feature-support-60.md
+            - name: API version 5.0
+              href: feature-support-50.md
             - name: API version 4.2
               href: feature-support-42.md
             - name: API version 4.0
@@ -74,8 +82,6 @@
           href: tutorial-update.md
         - name: Deleting data
           href: tutorial-delete.md
-        - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md
         - name: Kusto Query Language (KQL) transformations
           displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
@@ -107,6 +113,8 @@
               href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
             - name: Find existing free-tier accounts
               href: ../scripts/cli/common/free-tier.md
+            - name: Migrate all resources to autoscale
+              href: ../scripts/cli/common/convert-to-autoscale.md
         - name: Azure PowerShell
           items:
             - name: Overview
@@ -185,6 +193,10 @@
                   href: ../burst-capacity.md
                 - name: Burst capacity FAQ
                   href: ../burst-capacity-faq.yml
+            - name: Distribute throughput across partitions (preview) - container
+              items:
+                - name: Distribute throughput across partitions
+                  href: distribute-throughput-across-partitions.md
         - name: Analytics with Azure Synapse Link
           items:
             - name: Azure Synapse Link for Azure Cosmos DB
@@ -221,7 +233,7 @@
                           href: ../latest-restore-timestamp-continuous-backup.md
                         - name: Auditing restore action with continuous backup
                           href: ../audit-restore-continuous.md
-                    - name: Restore in the same account (preview)
+                    - name: Restore in the same account
                       items:
                         - name: Introduction
                           href: ../restore-in-account-continuous-backup-introduction.md
@@ -248,10 +260,16 @@
             - name: Mapping MongoDB consistency levels
               href: consistency-mapping.md
             - name: High availability
-              href: ../high-availability.md
-            - name: Conflict types and resolution policies
-              displayName: last write wins, custom, multi-region writes, multi-master
-              href: ../conflict-resolution-policies.md
+              items:
+                - name: High availability overview
+                  href: ../high-availability.md
+                - name: Multi-region writes
+                  items:
+                    - name: Understanding multi-region writes
+                      href: ../multi-region-writes.md
+                    - name: Conflict resolution
+                      displayName: last write wins, custom, multi-region writes, multi-master
+                      href: ../conflict-resolution-policies.md
             - name: Global distribution - under the hood
               href: ../global-dist-under-the-hood.md
         - name: Security
@@ -286,12 +304,6 @@
               href: ../compliance.md
             - name: Data residency
               href: ../data-residency.md
-        - name: Jupyter notebooks
-          items:
-            - name: Overview
-              href: ../notebooks-overview.md
-            - name: FAQ
-              href: ../notebooks-faq.yml              
         - name: Emulator
           href: ../emulator.md
         - name: Network bandwidth
@@ -306,7 +318,7 @@
               href: custom-commands.md
               displayName: custom commands
             - name: Get the connection string
-              href: connect-account.md
+              href: connect-account.yml
             - name: Community tools
               items:
                 - name: Connect using Studio 3T
@@ -319,8 +331,14 @@
                   href: connect-using-mongoose.md
             - name: Set up CI/CD with Azure Pipelines
               href: ../tutorial-setup-ci-cd.md
-            - name: Use Azure Cosmos DB Explorer
-              href: ../data-explorer.md
+            - name: Azure Cosmos DB Explorer
+              items:
+                - name: Use explorer
+                  href: ../data-explorer.md
+                - name: Manage multiple items
+                  href: ../how-to-data-explorer-manage-items.md
+                - name: Keyboard shortcuts
+                  href: ../data-explorer-shortcuts.md
         - name: Develop applications
           items:
             - name: JavaScript
@@ -466,7 +484,7 @@
                   items:
                     - name: Restore to a different account
                       href: ../restore-account-continuous-backup.md
-                    - name: Restore in the same account (preview)
+                    - name: Restore in the same account
                       href: ../how-to-restore-in-account-continuous-backup.md
                     - name: Get the latest restorable timestamp
                       href: ../get-latest-restore-timestamp.md

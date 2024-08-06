@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Build a web app using the Azure Cosmos DB for MongoDB and Java SDK'
-description: Learn to build a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
+description: Learn to build a Java code sample you can use to connect to and query using Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: java
 ms.topic: quickstart
@@ -11,8 +11,8 @@ ms.date: 04/26/2022
 ms.custom: devx-track-java, mode-api, devx-track-extended-java
 ---
 
-# Quickstart: Create a console app with Java and the API for MongoDB in Azure Cosmos DB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+# Quickstart: Create a console app with Java and Azure Cosmos DB for MongoDB 
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >
@@ -23,7 +23,7 @@ ms.custom: devx-track-java, mode-api, devx-track-extended-java
 > * [Go](quickstart-go.md)
 >
 
-In this quickstart, you create and manage an Azure Cosmos DB for API for MongoDB account from the Azure portal, and add data by using a Java SDK app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
+In this quickstart, you create and manage an Azure Cosmos DB for MongoDB account from the Azure portal, and add data by using a Java SDK app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription. You can also use the [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) with the connection string `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`.

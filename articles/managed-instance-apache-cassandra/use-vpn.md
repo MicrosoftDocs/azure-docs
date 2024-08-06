@@ -3,7 +3,7 @@ title: Use a VPN with Azure Managed Instance for Apache Cassandra
 description: Discover how to secure your cluster with a VPN when you use Azure Managed Instance for Apache Cassandra.
 author: IriaOsara
 ms.author: iriaosara
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 02/08/2024
 ms.devlang: azurecli
@@ -14,9 +14,6 @@ ms.devlang: azurecli
 Azure Managed Instance for Apache Cassandra nodes requires access to many other Azure services when they're injected into your virtual network. Normally, access is enabled by ensuring that your virtual network has outbound access to the internet. If your security policy prohibits outbound access, you can configure firewall rules or user-defined routes for the appropriate access. For more information, see [Required outbound network rules](network-rules.md).
 
 However, if you have internal security concerns about data exfiltration, your security policy might prohibit direct access to these services from your virtual network. By using a virtual private network (VPN) with Azure Managed Instance for Apache Cassandra, you can ensure that data nodes in the virtual network communicate with only a single VPN endpoint, with no direct access to any other services.
-
-> [!IMPORTANT]
-> The ability to use a VPN with Azure Managed Instance for Apache Cassandra is in public preview. This feature is provided without a service-level agreement, and we don't recommend it for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How it works
 

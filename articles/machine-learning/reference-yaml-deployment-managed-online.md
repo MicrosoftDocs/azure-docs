@@ -3,14 +3,14 @@ title: 'CLI (v2) managed online deployment YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) managed online deployment YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mlops
 ms.topic: reference
 ms.custom: cliv2, build-2023
-author: dem108
-ms.author: sehan
+author: msakande
+ms.author: mopeakande
 ms.date: 10/19/2023
-ms.reviewer: mopeakande
+ms.reviewer: sehan
 ---
 
 # CLI (v2) managed online deployment YAML schema
@@ -38,7 +38,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `environment_variables` | object | Dictionary of environment variable key-value pairs to set in the deployment container. You can access these environment variables from your scoring scripts. | | |
 | `environment` | string or object | **Required.** The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). <br><br> As a best practice for production scenarios, you should create the environment separately and reference it here. | | |
 | `instance_type` | string | **Required.** The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md). | | |
-| `instance_count` | integer | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. <br><br> We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployment](how-to-deploy-online-endpoints.md#virtual-machine-quota-allocation-for-deployment). | | |
+| `instance_count` | integer | **Required.** The number of instances to use for the deployment. Specify the value based on the workload you expect. For high availability, Microsoft recommends you set it to at least `3`. <br><br> `instance_count` can be updated after deployment creation using `az ml online-deployment update` command. <br><br> We reserve an extra 20% for performing upgrades. For more information, see [virtual machine quota allocation for deployment](how-to-manage-quotas.md#virtual-machine-quota-allocation-for-deployment). | | |
 | `app_insights_enabled` | boolean | Whether to enable integration with the Azure Application Insights instance associated with your workspace. | | `false` |
 | `scale_settings` | object | The scale settings for the deployment. Currently only the `default` scale type is supported, so you don't need to specify this property. <br><br> With this `default` scale type, you can either manually scale the instance count up and down after deployment creation by updating the `instance_count` property, or create an [autoscaling policy](how-to-autoscale-endpoints.md). | | |
 | `scale_settings.type` | string | The scale type. | `default` | `default` |

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 05/29/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -23,6 +23,9 @@ If you are using this feature for the first time, you need to [register for the 
 
 When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Key`, and the other choice is `Customer Managed Key`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
 
+>[!IMPORTANT]
+>Double encryption in US Gov regions is only supported with platform-managed keys, not customer-managed keys.
+
 :::image type="content" source="./media/double-encryption-at-rest/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="./media/double-encryption-at-rest/double-encryption-create-volume.png":::
 
 ## Supported regions
@@ -34,25 +37,36 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Australia East  
 * Australia Southeast 
 * Brazil South  
+* Brazil Southeast 
 * Canada Central  
+* Canada East
+* Central India 
 * Central US  
 * East Asia
 * East US
 * East US 2
 * France Central  
 * Germany West Central 
+* Israel Central 
 * Japan East  
 * Korea Central 
+* Korea South 
 * North Central US
 * North Europe 
 * Norway East 
 * Qatar Central
 * South Africa North 
 * South Central US
+* Southeast Asia 
+* Sweden Central
 * Switzerland North 
+* Switzerland West 
 * UAE North
 * UK South 
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2

@@ -108,7 +108,7 @@ foreach (string location in readLocations)
 ```
 
 ## Next steps
-* [How to manage database accounts control](../how-to-manage-database-account.md) in Azure Cosmos DB
+* [How to manage database accounts control](../how-to-manage-database-account.yml) in Azure Cosmos DB
 * [High availability](../high-availability.md) in Azure Cosmos DB
 * [Global distribution with Azure Cosmos DB - under the hood](../global-dist-under-the-hood.md)
 * [Azure CLI Samples](cli-samples.md) for Azure Cosmos DB

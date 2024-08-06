@@ -3,7 +3,7 @@ title: 'Link a virtual network to ExpressRoute circuits - Azure portal'
 description: This article shows you how to create a connection to link a virtual network to Azure ExpressRoute circuits using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: duau
@@ -22,7 +22,7 @@ zone_pivot_groups: expressroute-experience
 
 This article helps you create a connection to link a virtual network (virtual network) to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
-:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit.":::
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
 ## Prerequisites
 
@@ -188,7 +188,8 @@ You can delete a connection by selecting the **Delete** icon for the authorizati
 If you want to delete the connection but retain the authorization key, you can delete the connection from the connection page of the circuit.
 
 > [!NOTE]
-> Connections redeemed in different subscriptions will not display in the circuit connection page. Navigate to the subscription where the authorization was redeemed and delete the top-level connection resource.
+> To view your Gateway connections, go to your ExpressRoute circuit in Azure portal. From there, navigate to *Connections* underneath *Settings* for your ExpressRoute circuit. This will show you each ExpressRoute gateway that your circuit is connected to. If the gateway is under a different subscription than the circuit, the *Peer* field will display the circuit authorization key.
+
 
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Delete connection owning circuit":::

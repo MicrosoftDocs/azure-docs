@@ -36,7 +36,7 @@ The recommendations mentioned in this article are only available if you have the
 > [!NOTE]
 > The feature described on this page is the replacement feature for the [MMA based feature](endpoint-protection-recommendations-technical.md), which is set to be retired along with the MMA retirement in August 2024.
 >
-> Learn more about the migration and the [deprecation process of the endpoint protection related recommendations](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+> Learn more about the migration and the [deprecation process of the endpoint protection related recommendations](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).
 
 ## Review and remediate endpoint detection and response discovery recommendations
 
@@ -223,4 +223,4 @@ After the process is completed, it can take up to 24 hours until your machine ap
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience).
+> [Learn about the differences between the MMA experience and the agentless experience](prepare-deprecation-log-analytics-mma-agent.md#endpoint-protection-recommendations-experience---changes-and-migration-guidance).

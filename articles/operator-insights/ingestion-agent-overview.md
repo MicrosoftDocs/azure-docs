@@ -4,7 +4,7 @@ description: Understand how ingestion agents for Azure Operator Insights collect
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 12/8/2023
 

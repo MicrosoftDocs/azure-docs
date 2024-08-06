@@ -1,17 +1,17 @@
 ---
 title: Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB's API for MongoDB query issues.
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: troubleshooting
 ms.subservice: mongodb
-ms.date: 08/26/2021
-author: gahl-levy
-ms.author: gahllevy
-ms.reviewer: mjbrown
+ms.date: 04/02/2024
+author: avijitgupta
+ms.author: avijitgupta
+ms.reviewer: gahllevy
 ---
 
 # Troubleshoot query issues when using the Azure Cosmos DB for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 This article walks through a general recommended approach for troubleshooting queries in Azure Cosmos DB. Although you shouldn't consider the steps outlined in this article a complete defense against potential query issues, we've included the most common performance tips here. You should use this article as a starting place for troubleshooting slow or expensive queries in Azure Cosmos DB's API for MongoDB. If you are using the Azure Cosmos DB for NoSQL, see the [API for NoSQL query troubleshooting guide](troubleshoot-query-performance.md) article.
 
@@ -343,6 +343,7 @@ The value `estimatedDelayFromRateLimitingInMilliseconds` gives a sense of the po
 ## Next steps
 
 * [Troubleshoot query performance (API for NoSQL)](troubleshoot-query-performance.md)
+* [Prevent rate limiting with SSR](prevent-rate-limiting-errors.md)
 * [Manage indexing in Azure Cosmos DB's API for MongoDB](indexing.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

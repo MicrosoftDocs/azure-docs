@@ -2,8 +2,8 @@
 title: Threat intelligence integration in Microsoft Sentinel
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
 author: austinmccollum
-ms.topic: concept
-ms.date: 3/14/2024
+ms.topic: concept-article
+ms.date: 03/14/2024
 ms.author: austinmc
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -40,6 +40,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn about Cybersixgill integration with Microsoft Sentinel](https://www.cybersixgill.com/partners/azure-sentinel/).
 - To connect Microsoft Sentinel to Cybersixgill TAXII Server and get access to Darkfeed, [contact azuresentinel@cybersixgill.com](mailto://azuresentinel@cybersixgill.com) to obtain the API Root, Collection ID, Username, and Password.
 
+### Cyware Threat Intelligence eXchange (CTIX)
+
+One component of Cyware's threat intelligence platform, CTIX, is actioning intel with a TAXII feed for your SIEM. In the case of Microsoft Sentinel, follow the instructions here:
+ - [Integrate with Microsoft Sentinel](https://techdocs.cyware.com/en/299670-419978-configure-subscribers-to-receive-ctix-threat-intel-over-taxii.html#299670-13832-integrate-with-microsoft-sentinel)
+ 
 ### ESET
 
 - [Learn about ESET's threat intelligence offering](https://www.eset.com/int/business/services/threat-intelligence/).
@@ -124,7 +129,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, see [connect Threat Inte
 
 ### Recorded Future Security Intelligence Platform
 
-- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://go.recordedfuture.com/hubfs/partners/microsoft-azure-installation-guide.pdf) necessary to take full advantage of the complete offering.
+- [Recorded Future](https://www.recordedfuture.com/integrations/microsoft-azure/) makes use of Azure Logic Apps (playbooks) to connect to Microsoft Sentinel. See the [specialized instructions](https://www.recordedfuture.com/integrations/microsoft) necessary to take full advantage of the complete offering.
 
 ### ThreatConnect Platform
 

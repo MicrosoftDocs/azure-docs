@@ -1,7 +1,7 @@
 ---
 title: "Data migration, ETL, and load for Oracle migrations"
 description: Learn how to plan your data migration from Oracle to Azure Synapse Analytics to minimize the risk and impact on users. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -194,7 +194,7 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](../../../dms/dms-overview.md) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](../../../dms/dms-overview.md) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 
@@ -271,7 +271,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 - **File Extract**: extract the data from the Oracle tables to flat delimited files, normally in CSV format. You can extract table data in several ways:
 
     - Use standard Oracle tools such as SQL\*Plus, SQL Developer, and SQLcl.
-    - Use [Oracle Data Integrator](https://www.oracle.com/middleware/technologies/data-integrator.html) (ODI) to generate flat files.
+    - Use [Oracle Data Integrator (ODI)](https://www.oracle.com/middleware/technologies/data-integrator.html) to generate flat files.
     - Use Oracle connector in Data Factory to unload Oracle tables in parallel to enable data loading by partitions.
     - Use a [third-party](../../partner/data-integration.md) ETL tool.
 

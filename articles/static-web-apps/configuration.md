@@ -4,9 +4,9 @@ description: Learn how to configure routes and enforce security rules and global
 services: static-web-apps
 ms.custom: engagement-fy23
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 01/10/2023
+ms.date: 05/24/2024
 ms.author: cshoe
 ---
 
@@ -45,7 +45,7 @@ You can define rules for one or more routes in your static web app. Route rules 
 - Rules are evaluated in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. A match occurs when the `route` property and a value in the `methods` array (if specified) match the request. Each request can match at most one rule.
 
-The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
+The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.yml) guide along with this article.
 
 ### Define routes
 
@@ -62,14 +62,14 @@ Each rule is composed of a route pattern, along with one or more of the optional
 | `redirect` | No | n/a | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).</ul> |
 | `statusCode` | No | `301` or `302` for redirects | The [HTTP status code](https://developer.mozilla.org/docs/Web/HTTP/Status) of the response. |
 | `headers`<a id="route-headers"></a> | No | n/a | Set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) added to the response. <ul><li>Route-specific headers override [`globalHeaders`](#global-headers) when the route-specific header is the same as the global header is in the response.<li>To remove a header, set the value to an empty string.</ul> |
-| `allowedRoles` | No | anonymous | Defines an array of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.md), applies to all users.<li>The built-in role, [`authenticated`](./authentication-authorization.md), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.md).</ul> |
+| `allowedRoles` | No | anonymous | Defines an array of role names required to access a route. <ul><li>Valid characters include `a-z`, `A-Z`, `0-9`, and `_`.<li>The built-in role, [`anonymous`](./authentication-authorization.yml), applies to all users.<li>The built-in role, [`authenticated`](./authentication-authorization.yml), applies to any logged-in user.<li>Users must belong to at least one role.<li>Roles are matched on an _OR_ basis.<ul><li>If a user is in any of the listed roles, then access is granted.</ul><li>Individual users are associated to roles through [invitations](authentication-authorization.yml).</ul> |
 
 Each property has a specific purpose in the request/response pipeline.
 
 | Purpose | Properties |
 |--|--|
 | Match routes | `route`, `methods` |
-| Process after a rule is matched and authorized | `rewrite` (modifies request) <br><br>`redirect`, `headers`, `statusCode` (modifies response) |
+| Process after a rule is matched and authorized | `rewrite` (modifies request)<br><br>`redirect`, `headers`, `statusCode` (modifies response) |
 | Authorize after a route is matched | `allowedRoles` |
 
 ### Specify route patterns
@@ -145,7 +145,7 @@ Routes are secured by adding one or more role names into a rule's `allowedRoles`
 > [!IMPORTANT]
 > Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis-overview.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
-By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
+By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.yml).
 
 For instance, to restrict a route to only authenticated users, add the built-in `authenticated` role to the `allowedRoles` array.
 
@@ -166,14 +166,14 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 ```
 
 - You have full control over role names; there's no list to which your roles must adhere.
-- Individual users are associated to roles through [invitations](authentication-authorization.md).
+- Individual users are associated to roles through [invitations](authentication-authorization.yml).
 
 > [!IMPORTANT]
 > When securing content, specify exact files when possible. If you have many files to secure, use wildcards after a shared prefix. For example: `/profile*` secures all possible routes that start with _/profile_, including _/profile_.
 
 #### Restrict access to entire application
 
-You'll often want to require authentication for every route in your application. To lock down your routes, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
+You often want to require authentication for every route in your application. To lock down your routes, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
 
 The following example configuration blocks anonymous access and redirects all unauthenticated users to the Microsoft Entra sign-in page.
 
@@ -195,11 +195,14 @@ The following example configuration blocks anonymous access and redirects all un
 ```
 
 > [!NOTE]
-> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
+> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.yml#block-an-authentication-provider).
 
 ## Fallback routes
 
 Single Page Applications often rely on client-side routing. These client-side routing rules update the browser's window location without making requests back to the server. If you refresh the page, or go directly to URLs generated by client-side routing rules, a server-side fallback route is required to serve the appropriate HTML page. The fallback page is often designated as _index.html_ for your client-side app.
+
+> [!NOTE]
+> Route rules aren't applied on requests that trigger `navigationFallback`.
 
 You can define a fallback rule by adding a `navigationFallback` section. The following example returns _/index.html_ for all static file requests that don't match a deployed file.
 
@@ -222,7 +225,7 @@ You can control which requests return the fallback file by defining a filter. In
 }
 ```
 
-For example, with the following directory structure, the above navigation fallback rule would result in the outcomes detailed in the followingtable.
+For example, with the following directory structure, the above navigation fallback rule would result in the outcomes detailed in the following table.
 
 ```files
 ├── images
@@ -233,6 +236,7 @@ For example, with the following directory structure, the above navigation fallba
 ├── css
 │   └── global.css
 │
+├── about.html
 └── index.html
 ```
 
@@ -244,7 +248,8 @@ For example, with the following directory structure, the above navigation fallba
 | _/images/unknown.png_ | File not found error. | `404` |
 | _/css/unknown.css_ | File not found error. | `404` |
 | _/css/global.css_ | The stylesheet file. | `200` |
-| Any other file outside the _/images_ or _/css_ folders | The _/index.html_ file. | `200` |
+| _/about.html_ | The HTML page. | `200` |
+| Any other path outside the _/images_ or _/css_ folders that doesn't match the path to a deployed file. | The _/index.html_ file. | `200` |
 
 > [!IMPORTANT]
 > If you are migrating from the deprecated [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated)) file, do not include the legacy fallback route (`"route": "/*"`) in the [routing rules](#routes).
@@ -354,7 +359,7 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 ## Authentication
 
-* [Default authentication providers](authentication-authorization.md#set-up-sign-in) don't require settings in the configuration file.
+* [Default authentication providers](authentication-authorization.yml#set-up-sign-in) don't require settings in the configuration file.
 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
 
@@ -362,7 +367,7 @@ For details on how to restrict routes to authenticated users, see [Securing rout
 
 ### Disable cache for authenticated paths
 
-If you set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes. With [enterprise-grade edge](enterprise-edge.md) enabled, caching is already disabled for your secured routes.
+If you set up [manual integration with Azure Front Door](front-door-manual.md), you might want to disable caching for your secured routes. With [enterprise-grade edge](enterprise-edge.md) enabled, caching is already disabled for your secured routes.
 
 To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
 
@@ -423,13 +428,13 @@ For example, the following configuration shows how you can add a unique identifi
 
 ## Trailing slash
 
-A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file. 
+A trailing slash is the `/` at the end of a URL. Conventionally, a trailing slash URL refers to a directory on the web server, while a nontrailing slash indicates a file.
 
-Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content, which can negatively affect search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO performance.
 
 The following normalization and redirect rules apply for each of the available configurations:
 
-### Always 
+### Always
 
 When you're setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
 
@@ -442,9 +447,7 @@ When you're setting `trailingSlash` to `always`, all requests that don't include
 | _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
-| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
-| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy/_ |
 
 ### Never
 
@@ -459,9 +462,7 @@ When setting `trailingSlash` to `never`, all requests ending in a trailing slash
 | _/about_ | The _/about/index.html_ file | `200` | _/about_ |
 | _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy_ |
 
 ### Auto
 
@@ -476,23 +477,18 @@ When you set `trailingSlash` to `auto`, all requests to folders are redirected t
 | _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/privacy.html_ | The _/privacy.html_ file | `301` | _/privacy_ |
 
 For optimal website performance, configure a trailing slash strategy using one of the `always`, `never`, or `auto` modes.
 
-By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules:
 
 | Requests to... | returns... | with the status... | and path... |
 |--|--|--|--|
 | _/about_ | The _/about/index.html_ file | `200` | _/about_ |
 | _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
 | _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html_ |
-| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
-| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
-| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
-
+| _/privacy.html_ | The _/privacy.html_ file | `200` | _/privacy.html_ |
 
 ## Example configuration file
 
@@ -592,7 +588,7 @@ Based on the above configuration, review the following scenarios.
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
 | _/login_ | Unauthenticated users are challenged to authenticate with GitHub. |
-| _/.auth/login/twitter_ | Since authorization with Twitter is disabled by the route rule, `404` error is returned, which falls back to serving _/index.html_ with a `200` status code. |
+| _/.auth/login/twitter_ | Since the route rule disables Twitter (X) authorization, a `404` error is returned. This error then falls back to serving _/index.html_ with a `200` status code. |
 | _/logout_ | Users are logged out of any authentication provider. |
 | _/calendar/2021/01_ | The browser is served the _/calendar.html_ file. |
 | _/specials_ | The browser is permanently redirected to _/deals_. |
@@ -614,9 +610,9 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up authentication and authorization](authentication-authorization.md)
+> [Set up authentication and authorization](authentication-authorization.yml)
 
 ## Related articles
 
-- [Set application-level settings and environment variables used by backend APIs](application-settings.md)
+- [Set application-level settings and environment variables used by backend APIs](application-settings.yml)
 - [Define settings that control the build process](./build-configuration.md)

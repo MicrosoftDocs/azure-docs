@@ -1,12 +1,12 @@
 ---
 title: Upgrade cluster - Azure Cosmos DB for PostgreSQL
 description: See how you can upgrade PostgreSQL and Citus in Azure Cosmos DB for PostgreSQL.
-ms.author: jonels
-author: jonels-msft
-ms.service: cosmos-db
+ms.author: nlarin
+author: niklarin
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 07/04/2024
 ---
 
 # Upgrade cluster in Azure Cosmos DB for PostgreSQL
@@ -44,6 +44,19 @@ works properly, upgrade the original cluster.
 
 > [!NOTE]
 > If you're already running the latest PostgreSQL version, the selection and button are grayed out.
+
+## Post-upgrade tasks
+
+After a major PostgreSQL version upgrade, run the `ANALYZE` operation to refresh the `pg_statistic` table. `pg_statistic` is a system catalog table in PostgreSQL that stores statistical data about the content of table columns and index expressions. Entries in `pg_statistic` are created by the [ANALYZE](https://www.postgresql.org/docs/16/sql-analyze.html) command and used by the query planner.
+
+Run the `ANALYZE` command without any parameters to generate statistics for the tables in the database on your cluster. The default database name is 'citus'. If custom database name was used at the cluster creation time, you can find it on the **Overview** page of your cluster's properties. Using the optional `VERBOSE` flag allows you to see the progress.
+
+```sql
+ANALYZE VERBOSE;
+```
+
+> [!NOTE]
+> Database performance might be impacted if you don't run `ANALYZE` operation after the major PostgreSQL version upgrade on your cluster.
 
 ## Next steps
 

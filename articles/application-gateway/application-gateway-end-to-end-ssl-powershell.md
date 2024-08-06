@@ -3,7 +3,7 @@ title: Configure end-to-end TLS with Azure Application Gateway
 description: This article describes how to configure end-to-end TLS with Azure Application Gateway by using PowerShell
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: greglin 
@@ -36,7 +36,7 @@ This scenario will:
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To configure end-to-end TLS with an application gateway, a certificate is required for the gateway and certificates are required for the backend servers. The gateway certificate is used to derive a symmetric key as per TLS protocol specification. The symmetric key is then used encrypt and decrypt the traffic sent to the gateway. The gateway certificate needs to be in Personal Information Exchange (PFX) format. This file format allows you to export the private key that is required by the application gateway to perform the encryption and decryption of traffic.
 

@@ -11,7 +11,7 @@ ms.custom:
 
 This article provides troubleshooting steps that can help you resolve restore point errors related to communication with the VM agent and extension.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Step-by-step guide to troubleshoot restore point failures
 
@@ -245,9 +245,9 @@ If you are creating restore points for a VM that has encrypted disks, you must e
 
 Restore points are supported only with API version 2022-03-01 or later. If you are using REST APIs to create and manage restore points, use the specified API version when calling the restore point API.
 
-### InternalError / InternalExecutionError / InternalOperationError - An internal execution error occurred. Please retry later.
+### InternalError / InternalExecutionError / InternalOperationError / InternalDiskRestorePointError - An internal execution error occurred. Please retry later.
 
-**Error code**: InternalError / InternalExecutionError / InternalOperationError
+**Error code**: InternalError / InternalExecutionError / InternalOperationError / InternalDiskRestorePointError
 
 **Error message**: An internal execution error occurred. Please retry later.
 

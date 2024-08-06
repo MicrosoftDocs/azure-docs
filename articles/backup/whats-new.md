@@ -1,9 +1,9 @@
 ---
-title: What's new in Azure Backup
+title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: conceptual
-ms.date: 03/13/2024
-ms.service: backup
+ms.date: 07/24/2024
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS
@@ -17,7 +17,11 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
-
+- July 2024
+  - [Azure Blob vaulted backup is now generally available](#azure-blob-vaulted-backup-is-now-generally-available)
+  - [Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available](#backup-and-restore-of-virtual-machines-with-private-endpoint-enabled-disks-is-now-generally-available)
+- May 2024
+  - [Migration of Azure VM backups from standard to enhanced policy (preview)](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-preview)
 - March 2024
   - [Agentless multi-disk crash-consistent backups for Azure VMs (preview)](#agentless-multi-disk-crash-consistent-backups-for-azure-vms-preview)
   - [Azure Files vaulted backup (preview)](#azure-files-vaulted-backup-preview)
@@ -85,6 +89,29 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Archive Tier support for Azure Backup (in preview)](#archive-tier-support-for-azure-backup-in-preview)
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
+
+
+## Azure Blob vaulted backup is now generally available
+
+Azure Backup now enables you to perform a vaulted backup of block blob data in *general-purpose v2 storage accounts* to protect data against ransomware attacks or source data loss due to malicious or rogue admin. You can define the backup schedule to create recovery points and the retention settings that determine how long backups will be retained in the vault. You can configure and manage the vaulted and operational backups using a single backup policy. 
+
+Under vaulted backups, the data is copied and stored in the Backup vault. So, you get an offsite copy of data that can be retained for up to *10 years*. If any data loss happens on the source account, you can trigger a restore to an alternate account and get access to your data. The vaulted backups can be managed at scale via the Backup center, and monitored via the rich alerting and reporting capabilities offered by the Azure Backup service.
+
+If you're currently using operational backups, we recommend you to switch to vaulted backups for complete protection against different data loss scenarios.
+
+For more information, see [Azure Blob backup overview](blob-backup-overview.md?tabs=vaulted-backup).
+
+## Backup and restore of virtual machines with private endpoint enabled disks is now Generally Available
+
+Azure Backup now allows you to back up the Azure Virtual Machines that use disks with private endpoints (disk access). This support is extended for Virtual Machines that are backed up using Enhanced backup policies, along with the existing support for those that were backed up using Standard backup policies. While initiating the restore operation, you can specify the network access settings required for the restored disks. You can choose to keep the network configuration of the restored disks the same as that of the source disks, specify the access from specific networks only, or allow public access from all networks.
+ 
+For more information, see [Assign network access settings during restore](backup-azure-arm-restore-vms.md#assign-network-access-settings-during-restore).
+
+## Migration of Azure VM backups from standard to enhanced policy (preview)
+
+Azure Backup now supports migration to the enhanced policy for Azure VM backups using standard policy. The migration of VM backups to enhanced policy enables you to schedule multiple backups per day (up to every 4 hours), retain snapshots for longer duration, and use multi-disk crash consistency for VM backups. Snapshot-tier recovery points (created using enhanced policy) are zonally resilient. The migration of VM backups to enhanced policy also allows you to migrate your VMs to Trusted Launch and use Premium SSD v2 and Ultra-disks for the VMs without disrupting the existing backups.
+
+For more information, see [Migrate Azure VM backups from standard  to enhanced policy (preview)](backup-azure-vm-migrate-enhanced-policy.md).
 
 ## Agentless multi-disk crash-consistent backups for Azure VMs (preview)
 

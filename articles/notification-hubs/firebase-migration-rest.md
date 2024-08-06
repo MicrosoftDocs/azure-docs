@@ -3,17 +3,20 @@ title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) mig
 description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using REST APIs.
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 03/01/2024
+ms.date: 05/08/2024
 ms.author: sethm
 ms.reviewer: heathertian
-ms.lastreviewed: 03/01/2024
+ms.lastreviewed: 04/12/2024
 ---
 
 # Google Firebase Cloud Messaging migration using REST API and the Azure portal
 
 This article describes the core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then. All methods of onboarding will be ready for migration by March 1, 2024.
+
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](notification-hubs-gcm-to-fcm.md) as soon as possible.
 
 ## Concepts for FCM v1
 
@@ -62,7 +65,7 @@ Go to your notification hub on the Azure portal, and select **Settings > Google 
 
 #### Option 2: Update FcmV1 credentials via management plane hub operation
 
-See the [description of a NotificationHub FcmV1Credential.](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
+See the [description of a NotificationHub FcmV1Credential](/rest/api/notificationhubs/notification-hubs/create-or-update?view=rest-notificationhubs-2023-10-01-preview&tabs=HTTP#fcmv1credential).
 
 - Use API version: 2023-10-01-preview
 - **FcmV1CredentialProperties**:
@@ -158,26 +161,28 @@ If you have an existing GCM registration, update the registration to **FcmV1Regi
 
 ```xml
 // FcmV1Registration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-   <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId> 
-        </FcmV1RegistrationDescription> 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1RegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+        </FcmV1RegistrationDescription>
+    </content>
 </entry> 
 
 // FcmV1TemplateRegistration 
-<?xml version="1.0" encoding="utf-8"?> 
-<entry xmlns="http://www.w3.org/2005/Atom"> 
-    <content type="application/xml"> 
-        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect"> 
-            <Tags>myTag, myOtherTag</Tags> 
-            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>  
-            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate> 
-        </ FcmV1TemplateRegistrationDescription > 
-    </content> 
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom">
+    <content type="application/xml">
+        <FcmV1TemplateRegistrationDescription xmlns:i="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://schemas.microsoft.com/netservices/2010/10/servicebus/connect">
+            <Tags>myTag, myOtherTag</Tags>
+            <FcmV1RegistrationId>{deviceToken}</FcmV1RegistrationId>
+            <BodyTemplate><![CDATA[ {BodyTemplate}]]></BodyTemplate>
+        </FcmV1TemplateRegistrationDescription>
+    </content>
 </entry>
 ```
 

@@ -2,8 +2,8 @@
 title:  Use cURL and DICOMweb Standard APIs in Azure Health Data Services
 description: Use cURL and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 10/18/2023
 ms.author: mmitrik
@@ -58,7 +58,7 @@ The cURL commands each contain at least one, and sometimes two, variables that m
 
 ## Upload DICOM instances (STOW)
 
-### Store-instances-using-multipart/related
+### Store instances using multipart/related
 
 This request intends to demonstrate how to upload DICOM files using multipart/related. 
 
@@ -137,6 +137,90 @@ _Details:_
 
 ```
 curl --location --request POST "{Service URL}/v{version}/studies"
+--header "Accept: application/dicom+json"
+--header "Content-Type: application/dicom"
+--header "Authorization: Bearer {token value}"
+--data-binary "@{path-to-dicoms}/green-square.dcm"
+```
+
+### Upsert instances using multipart/related
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of DICOM files using multipart/related. 
+
+_Details:_
+
+* Path: ../studies
+* Method: PUT
+* Headers:
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
+    * Authorization: Bearer {token value}
+* Body:
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
+
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully:
+* Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
+* Content-Type: multipart/related; boundary=ABCD1234
+* Content-Type: multipart/related
+
+```
+curl --location --request PUT "{Service URL}/v{version}/studies"
+--header "Accept: application/dicom+json"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
+--header "Authorization: Bearer {token value}"
+--form "file1=@{path-to-dicoms}/red-triangle.dcm;type=application/dicom"
+--trace-ascii "trace.txt"
+```
+
+### Upsert instances for a specific study
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of DICOM files using multipart/related to a designated study. 
+
+_Details:_
+* Path: ../studies/{study}
+* Method: PUT
+* Headers:
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
+    * Authorization: Bearer {token value}
+* Body:
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
+
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully:
+
+ * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
+ * Content-Type: multipart/related; boundary=ABCD1234
+ * Content-Type: multipart/related
+
+```
+curl --request PUT "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
+--header "Accept: application/dicom+json"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
+--header "Authorization: Bearer {token value}"
+--form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"
+```
+
+### Upsert single instance
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of a single DICOM files. 
+
+Use this method to upload a single DICOM file:
+
+_Details:_
+* Path: ../studies
+* Method: PUT
+* Headers:
+   * Accept: application/dicom+json
+   * Content-Type: application/dicom
+   * Authorization: Bearer {token value}
+* Body:
+    * Contains a single DICOM file as binary bytes.
+
+```
+curl --location --request PUT "{Service URL}/v{version}/studies"
 --header "Accept: application/dicom+json"
 --header "Content-Type: application/dicom"
 --header "Authorization: Bearer {token value}"

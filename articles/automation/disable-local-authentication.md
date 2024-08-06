@@ -7,6 +7,7 @@ ms.date: 11/20/2023
 ms.custom: engagement-fy23
 ms.topic: how-to
 #Customer intent: As an administrator, I want disable local authentication so that I can enhance security.
+ms.service: azure-automation
 ---
 
 # Disable local authentication in Automation

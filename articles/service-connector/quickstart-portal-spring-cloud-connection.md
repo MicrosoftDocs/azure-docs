@@ -8,7 +8,8 @@ ms.topic: quickstart
 ms.date: 10/04/2023
 ms.custom:
   - kr2b-contr-experiment
-#Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a storage account in the Azure portal.
+  - build-2024
+#Customer intent: As an app developer, I want to connect an application deployed to Azure Spring Apps to a Key Vault in the Azure portal.
 ---
 
 # Quickstart: Create a service connection in Azure Spring Apps from the Azure portal
@@ -22,7 +23,7 @@ This quickstart shows you how to connect Azure Spring Apps to other Cloud resour
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/enterprise/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect Azure Spring Apps to. For example, a [storage account](../storage/common/storage-account-create.md).
+- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](../key-vault/general/quick-create-portal.md).
 
 ## Sign in to Azure
 
@@ -46,17 +47,20 @@ You'll use Service Connector to create a new service connection in Azure Spring 
     :::image type="content" source="./media/azure-spring-apps-quickstart/create-connection.png" alt-text="Screenshot of the Azure portal, selecting the button to create a connection.":::
 
 1. Select or enter the following settings.
+    :::image type="content" source="./media/azure-spring-apps-quickstart/create-conn-basic.png" alt-text="Screenshot of the Azure portal, fill basic info to create a connection.":::
+
 
     | Setting             | Example              | Description                                                                                                                                                                         |
     |---------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **Service type**    | *Storage - Blob*     | The type of service you're going to connect to your app.                                                                                                                            |
-    | **Connection name** | *storageblob_17d38*  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.   |
+    | **Service type**    | *Key Vault*     | The type of service you're going to connect your app to.                                                                                                                            |
+    | **Connection name** | *keyvault_17d38*  | The connection name that identifies the connection between your app and target service. Use the connection name provided by Service Connector or enter your own connection name.   |
     | **Subscription**    | *my-subscription*    | The subscription that contains your target service (the service you want to connect to). The default value is the subscription that contains the app deployed to Azure Spring Apps. |
-    | **Storage account** | *my-storage-account* | The target storage account you want to connect to. If you choose a different service type, select the corresponding target service instance.                                        |
+    | **Key vault** | *my-keyvault-name* | The target Key Vault you want to connect to. If you choose a different service type, select the corresponding target service instance.                                        |
     | **Client type**     | *SpringBoot*         | The application stack that works with the target service you selected. Besides SpringBoot and Java, other stacks are also supported.                                                |
 
-1. Select **Next: Authentication** to select the authentication type. Then select **Connection string** to use an access key to connect your storage account.
-    :::image type="content" source="./media/azure-spring-apps-quickstart/authentication.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
+1. Select **Next: Authentication** to select the authentication type. Recommend to use System Managed Identity to connect to your Key Vault.
+
+    :::image type="content" source="./media/azure-spring-apps-quickstart/create-conn-auth.png" alt-text="Screenshot of the Azure portal, filling out the Authentication tab.":::
 
 1. Select **Next: Networking** to select the network configuration and select **Configure firewall rules to enable access to target service** so that your app can reach the Blob Storage.
 

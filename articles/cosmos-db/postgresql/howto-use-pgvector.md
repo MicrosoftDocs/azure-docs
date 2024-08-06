@@ -3,7 +3,7 @@ title: How to enable and use pgvector - Azure Cosmos DB for PostgreSQL
 description: How to enable and use pgvector for Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: build-2023
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.date: 05/10/2023
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [Introduction to `pgvector`](includes/pgvector-introduction.md)]
+[!INCLUDE [Introduction to `pgvector`](~/reusable-content/ce-skilling/azure/includes/cosmos-db/postgresql/includes/pgvector-introduction.md)]
 
 ## Enable extension
 
@@ -27,7 +27,7 @@ SELECT CREATE_EXTENSION('vector');
 > [!Note]
 > To disable an extension use `drop_extension()`
 
-[!INCLUDE [Getting Started](includes/pgvector-basics.md)]
+[!INCLUDE [Getting Started](~/reusable-content/ce-skilling/azure/includes/cosmos-db/postgresql/includes/pgvector-basics.md)]
 
 ## Next Steps
 

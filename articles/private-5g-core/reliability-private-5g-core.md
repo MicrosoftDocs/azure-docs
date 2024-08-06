@@ -1,9 +1,9 @@
 ---
 title: Reliability in Azure Private 5G Core
-description: Find out about reliability in Azure Private 5G Core 
+description: Find out about reliability in Azure Private 5G Core. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.date: 01/31/2022
@@ -11,7 +11,9 @@ ms.date: 01/31/2022
 
 # Reliability for Azure Private 5G Core
 
-This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity).  For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure Private 5G Core. It covers both regional resiliency with [availability zones](#availability-zone-support) and [cross-region disaster recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For an overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+
+You can also deploy Azure Private 5G Core as a Highly Available (HA) service on a pair of Azure Stack Edge (ASE) devices. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
 ## Availability zone support
 
@@ -29,7 +31,7 @@ See [Products available by region](https://azure.microsoft.com/explore/global-in
 
 ### Zone down experience
 
-In a zone-wide outage scenario, users should experience no impact because the service will move to take advantage of the healthy zone automatically. At the start of a zone-wide outage, you may see in-progress ARM requests time-out or fail. New requests will be directed to healthy nodes with zero impact on users and any failed operations should be retried. You'll still be able to create new resources and update, monitor and manage existing resources during the outage.
+In a zone-wide outage scenario, users should experience no impact because the service will move to take advantage of the healthy zone automatically. At the start of a zone-wide outage, you may see in-progress ARM requests time-out or fail. New requests will be directed to healthy nodes with zero impact on users and any failed operations should be retried. You'll still be able to create new resources and update, monitor, and manage existing resources during the outage.
 
 ### Safe deployment techniques
 
@@ -43,7 +45,7 @@ The application ensures that all cloud state is replicated between availability 
 
 Azure Private 5G Core is only available in multi-region (3+N) geographies. The service automatically replicates SIM credentials to a backup region in the same geography. This means that there's no loss of data in the event of region failure. Within four hours of the failure, all resources in the failed region are available to view through the Azure portal and ARM tools but will be read-only until the failed region is recovered. The packet core running at the Edge continues to operate without interruption and network connectivity will be maintained.
 
-Microsoft is responsible for outage detection, notification and support for the Azure cloud aspects of the Azure Private 5G Core service.
+Microsoft is responsible for outage detection, notification, and support for the Azure cloud aspects of the Azure Private 5G Core service.
 
 ### Outage detection, notification, and management
 
@@ -89,7 +91,7 @@ The recovery process is split into three stages for each packet core:
 
 1. Disconnect the Azure Stack Edge device from the failed region by performing a reset
 1. Connect the Azure Stack Edge device to the backup region
-1. Re-install and validate the installation.
+1. Reinstall and validate the installation.
 
 You must repeat this process for every packet core in your mobile network.
 
@@ -98,7 +100,7 @@ You must repeat this process for every packet core in your mobile network.
 
 **Disconnect the Azure Stack Edge device from the failed region**
 <br></br>
-The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate your Azure Stack Edge device](../databox-online/azure-stack-edge-reset-reactivate-device.md). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
+The Azure Stack Edge device is currently running the packet core software and is controlled from the failed region. To disconnect the Azure Stack Edge device from the failed region and remove the running packet core, you must follow the reset and reactivate instructions in [Reset and reactivate your Azure Stack Edge device](../databox-online/azure-stack-edge-reset-reactivate-device.yml). Note that this will remove ALL software currently running on your Azure Stack Edge device, not just the packet core software, so ensure that you have the capability to reinstall any other software on the device. This will start a network outage for all devices connected to the packet core on this Azure Stack Edge device.
 
 **Connect the Azure Stack Edge device to the new region**
 <br></br>

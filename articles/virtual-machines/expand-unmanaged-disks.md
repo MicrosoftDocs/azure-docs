@@ -91,4 +91,4 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
 
 ## Next steps
 
-You can also attach disks using the [Azure portal](windows\attach-managed-disk-portal.md).
+You can also attach disks using the [Azure portal](windows\attach-managed-disk-portal.yml).

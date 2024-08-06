@@ -7,7 +7,7 @@ metadata:
   ms.author: dacurwin
   manager: raynew
   ms.topic: faq
-  ms.date: 02/08/2024
+  ms.date: 07/03/2024
 title: Common questions - General questions
 summary: |
 
@@ -41,7 +41,7 @@ sections:
           * Virtual Machine Scale Sets
           * [The many Azure PaaS services listed in the product overview](support-matrix-defender-for-cloud.md#security-benefits-for-azure-services)
 
-          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and [multicloud resources](multicloud.yml), including Amazon AWS and Google Cloud.
+          Defender for Cloud also protects [on-premises resources](quickstart-onboard-machines.md) and multicloud resources, including Amazon AWS and Google Cloud.
           
           
       - question: |
@@ -140,8 +140,6 @@ sections:
           - Containers sharing sensitive host namespaces should be avoided
           - Containers should listen on allowed ports only
           - Default IP Filter Policy should be Deny
-          - EDR configuration issues should be resolved on virtual machines
-          - EDR solution should be installed on Virtual Machines
           - File integrity monitoring should be enabled on machines
           - Immutable (read-only) root filesystem should be enforced for containers
           - IoT Devices - Open Ports On Device
@@ -181,7 +179,7 @@ sections:
       - question: |
           Why does Defender for Cloud show user accounts without permissions on the subscription as "requiring MFA"?
         answer: |
-          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.md) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
+          Defender for Cloud's MFA recommendations refers to [Azure RBAC](../role-based-access-control/role-definitions-list.yml) roles and the [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md) role. Verify that none of the accounts have such roles.
 
  
       - question: |
@@ -352,6 +350,35 @@ sections:
         answer: |
           We don't recommend programmatically updating multiple plans on a single subscription simultaneously (via REST API, ARM templates, scripts, etc.). When using the [Microsoft.Security/pricings API](/rest/api/defenderforcloud/pricings), or any other programmatic solution, you should insert a delay of 10-15 seconds between each request.
 
+      - question: |
+          When I enable default access, in which situations do I need to re-run the Cloud Formation template, Cloud Shell script, or Terraform template?
+        answer: |
+          Modifications to Defender for Cloud plans or their options, including features within those plans, necessitate running the deployment template. This applies regardless of the permission type selected during the creation of the security connector. If regions have been changed, as in this screenshot, you don’t need to re-run the Cloud Formation template or Cloud Shell script.
+
+          :::image type="content" source="media/faq-general/change-region.png" alt-text="Screenshot that shows a change in region.":::
+        
+          When you configure permission types, least privilege access supports features available at the time the template or script was run. New resource types can be supported only by re-running the template or script. 
+          
+          :::image type="content" source="media/faq-general/permission-types.png" alt-text="Screenshot that shows selecting permission types.":::
+
+      - question: |
+          If I change the region or the scan interval for my AWS connector, do I need to re-run the CloudFormation template or Cloud Shell script?
+        answer: |
+          No, if the region or scan interval is changed, there is no need to re-run the CloudFormation template or Cloud Shell script. The changes will be applied automatically.
+
+      - question: |
+          How does onboarding an AWS organization or management account to Microsoft Defender for Cloud work?
+        answer: |
+          Onboarding an organization or a management account to Microsoft Defender for Cloud initiates the process of [deploying a StackSet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html). The StackSet includes the necessary roles and permissions. The StackSet also propagates the required permissions across all accounts within the organization. 
+          
+          The included permissions allow Microsoft Defender for Cloud to deliver the selected security features through the created connector in Defender for Cloud. The permissions also allow Defender for Cloud to continuously monitor all accounts that might be added using the auto-provisioning service.
+          
+          Defender for Cloud is capable of identifying the creation of new management accounts and can leverage the granted permissions to automatically provision an equivalent member security connector for each member account.
+          
+          This feature is available for organizational onboarding only and allows Defender for Cloud to create connectors for newly added accounts. The feature also allows Defender for Cloud to edit all member connectors when the management account is edited, delete all member accounts when the management account is deleted, and remove specific member account if the corresponding account is removed.
+
+          A separate stack must be deployed specifically for the management account.
+                
 additionalContent: |
 
   ## Next steps

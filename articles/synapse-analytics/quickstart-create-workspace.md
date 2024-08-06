@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: create a Synapse workspace'
 description: Create an  Synapse workspace by following the steps in this guide.
-author: saveenr
-ms.service: synapse-analytics
+author: whhender
+ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 03/23/2022
-ms.author: saveenr
-ms.reviewer: sngun
+ms.author: whhender
+ms.reviewer: whhender
 ms.custom: subject-rbac-steps, mode-other
 ---
 
@@ -44,7 +44,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 1. Navigate to an existing ADLSGEN2 storage account
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -52,7 +52,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
     | Assign access to | USER |
     | Members | your user name |
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 1. On the left pane, select **Containers** and create a container.
 1. You can give the container any name. In this document, we'll name the container **users**.
 1. Accept the default setting **Public access level**, and then select **Create**.
@@ -64,7 +64,7 @@ Managed identities for your Azure Synapse workspace might already have access to
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
     
     | Setting | Value |
     | --- | --- |
@@ -75,7 +75,7 @@ Managed identities for your Azure Synapse workspace might already have access to
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 1. Select **Save**.
 
 ## Next steps

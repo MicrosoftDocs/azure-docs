@@ -6,7 +6,7 @@ author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
 ms.date: 02/19/2024
-ms.service: site-recovery
+ms.service: azure-site-recovery
 
 ---
 
@@ -37,8 +37,7 @@ The following diagram shows a two-node Azure virtual machine failover cluster us
 **Disaster Recovery Considerations**
 
 1. When you are setting up [cloud witness](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) for the cluster, keep witness in the Disaster Recovery region.
-2. If you are going to fail over the virtual machines to the subnet on the disaster recovery region, which is different from the source region, then cluster IP address needs to be changed after failover.  To change IP of the cluster, you need to use the Site Recovery [recovery plan script.](./site-recovery-runbook-automation.md)</br>
-[Sample script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) to execute command inside virtual machine using custom script extension.
+2. If you are going to fail over the virtual machines to the subnet on the disaster recovery region, which is different from the source region, then cluster IP address needs to be changed after failover.  To change IP of the cluster, you need to use the Site Recovery [recovery plan script.](./site-recovery-runbook-automation.md)
 
 ### Enabling Site Recovery for S2D cluster:
 

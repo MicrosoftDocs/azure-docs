@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for PostgreSQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: sunilagarwal
   ms.author: sunila
-  ms.review: maghan
+  ms.reviewer: maghan
   ms.date: 07/07/2023
   ms.service: postgresql
   ms.topic: landing-page
@@ -46,6 +46,8 @@ landingContent:
             url: flexible-server/quickstart-create-server-portal.md
           - text: Create an Azure Database for PostgreSQL - Flexible Server instance using ARM template
             url: flexible-server/quickstart-create-server-arm-template.md
+          - text: Create an Azure Database for PostgreSQL - Flexible Server instance using Azure CLI
+            url: flexible-server/quickstart-create-server-cli.md
       - linkListType: tutorial
         links:
           - text: Create App and database server in virtual network
@@ -104,7 +106,7 @@ landingContent:
             url: concepts-business-continuity.md
           - text: High availability
             url: concepts-high-availability.md
-          - text: Backup and restore
+          - text: Back up and restore
             url: flexible-server/concepts-backup-restore.md
       - linkListType: how-to-guide
         links:
@@ -152,8 +154,8 @@ landingContent:
             url: flexible-server/concepts-connectivity.md
       - linkListType: tutorial
         links:
-          - text: Design a database on Azure Database for PostgreSQL - Single Server
-            url: single-server/tutorial-design-database-using-azure-portal.md
+          - text: Deploy Django app on AKS
+            url: flexible-server\tutorial-django-aks-database.md
 
 # Card 7
   - title: Migrate
@@ -165,35 +167,7 @@ landingContent:
           - text: Migrate online
             url: howto-migrate-online.md
 
-#Card 8
-  - title: Azure Database for PostgreSQL - Single server
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Database for PostgreSQL - Single Server?
-            url: single-server/overview.md
-      - linkListType: quickstart
-        links:
-          - text: Create an Azure Database for PostgreSQL - Single Server instance using the Azure portal
-            url: single-server/quickstart-create-server-database-portal.md
-          - text: Create an Azure Database for PostgreSQL - Single Server instance using Azure CLI
-            url: single-server/quickstart-create-server-database-azure-cli.md
-      - linkListType: concept
-        links:
-          - text: Server concepts
-            url: flexible-server/concepts-servers.md
-          - text: Limits
-            url: flexible-server/concepts-limits.md
-      - linkListType: tutorial
-        links:
-          - text: Design a database on Azure Database for PostgreSQL - Single Server
-            url: single-server/tutorial-design-database-using-azure-portal.md
-          - text: Build Python (Django) app with PostgreSQL
-            url: ../app-service/tutorial-python-postgresql-app.md?toc=/azure/postgresql/toc.json
-          - text: Monitor and tune the server
-            url: single-server/tutorial-monitor-and-tune.md
-
-# Card 9
+# Card 8
   - title: Reference
     linkLists:
       - linkListType: learn

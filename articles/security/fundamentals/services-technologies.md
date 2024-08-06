@@ -9,7 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 01/16/2023
+ms.date: 04/27/2024
 ms.author: terrylan
 
 ---
@@ -58,7 +58,7 @@ Over time, this list will change and grow, just as Azure does. Make sure to chec
 ## Identity and access management
 |Service|Description|
 |------|--------|
-| [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.md)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
+| [Azure&nbsp;role-based&nbsp;access control](../../role-based-access-control/role-assignments-portal.yml)|An access control feature designed to allow users to access only the resources they are required to access based on their roles within the organization.  |
 | [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)|A cloud-based identity and access management service that supports a multi-tenant, cloud-based directory and multiple identity management services within Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)| A customer identity access management (CIAM) solution that enables control over how customers sign-up, sign-in, and manage their profiles when using Azure-based applications.   |
 | [Microsoft Entra Domain Services](../../active-directory-domain-services/overview.md)| A cloud-based and managed version of Active Directory Domain Services that provides managed domain services such as domain join, group policy, lightweight directory access protocol (LDAP), and Kerberos/NTLM authentication. |

@@ -4,9 +4,9 @@ description: Reference for the required and optional settings to configure the A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
-ms.date: 06/28/2022
+ms.date: 04/12/2024
 ms.author: danlep
 ---
 
@@ -29,7 +29,7 @@ Here is an overview of all configuration options:
 
 | Name                           | Description              | Required | Default           | Availability |
 |----|------|----------|-------------------|-------------------|
-| gateway.name | Id of the self-hosted gateway resource. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
+| gateway.name | ID of the self-hosted gateway resource. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
 | config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             | v2.0+ |
 | config.service.auth | Defines how the self-hosted gateway should authenticate to the Configuration API. Currently gateway token and Microsoft Entra authentication are supported. | Yes | N/A | v2.0+ |
 | config.service.auth.azureAd.tenantId | ID of the Microsoft Entra tenant. | Yes, when using Microsoft Entra authentication | N/A | v2.3+ |
@@ -98,7 +98,7 @@ This guidance helps you provide the required information to define how to authen
 | telemetry.logs.std.level  | Defines the log level of logs sent to standard stream. Value is one of the following options: `all`, `debug`, `info`, `warn`, `error` or `fatal`. | No |  `info` | v2.0+ |
 | telemetry.logs.std.color  | Indication whether or not colored logs should be used in standard stream. | No |  `true` | v2.0+ |
 | telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following options: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` | v2.0+ |
-| telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A | v2.0+ |
+| telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. See [local syslog documentation](how-to-configure-local-metrics-logs.md#using-local-syslog-logs) for more details on configuration. | N/A | v2.0+ |
 | telemetry.logs.local.localsyslog.facility  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A | v2.0+ |
 | telemetry.logs.local.rfc5424.endpoint  |  rfc5424 endpoint.  | Yes if `telemetry.logs.local` is set to `rfc5424`; otherwise no. | N/A | v2.0+ |
 | telemetry.logs.local.rfc5424.facility  | Facility code per [rfc5424](https://tools.ietf.org/html/rfc5424), for example, `7`  | No | N/A | v2.0+ |
@@ -107,12 +107,24 @@ This guidance helps you provide the required information to define how to authen
 
 ## Security
 
+### Certificates and Ciphers
+
 | Name  | Description | Required | Default | Availability |
 | ------------- | ------------- | ------------- | ----| ----|
 | certificates.local.ca.enabled | Indication whether or not the self-hosted gateway should use local CA certificates that are mounted. It's required to run the self-hosted gateway as root or with user ID 1001. | No | `false` | v2.0+ |
 | net.server.tls.ciphers.allowed-suites |   Comma-separated list of ciphers to use for TLS connection between API client and the self-hosted gateway. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
 | net.client.tls.ciphers.allowed-suites | Comma-separated list of ciphers to use for TLS connection between the self-hosted gateway and the backend. | No | `TLS_AES_256_GCM_SHA384,TLS_CHACHA20_POLY1305_SHA256,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_DHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WITH_AES_256_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_GCM_SHA384,TLS_RSA_WITH_AES_128_GCM_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_CBC_SHA,TLS_RSA_WITH_AES_128_CBC_SHA` | v2.0+ |
 | security.certificate-revocation.validation.enabled | Provides capability to turn certificate revocation list validation on/off | No | `false` | v2.3.6+ |
+
+### TLS
+
+| Name  | Description | Required | Default | Availability |
+| ------------- | ------------- | ------------- | ----| ----|
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls13 | Indication whether or not TLS 1.3 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls12 | Indication whether or not TLS 1.2 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `true` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11 | Indication whether or not TLS 1.1 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10 | Indication whether or not TLS 1.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
+| Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Ssl30 | Indication whether or not SSL 3.0 is allowed towards the backend. Similar to [managing protocol ciphers in managed gateway](api-management-howto-manage-protocols-ciphers.md). | No | `false` | v2.0+ |
 
 ## Sovereign clouds
 

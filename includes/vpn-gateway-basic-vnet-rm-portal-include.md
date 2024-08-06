@@ -1,12 +1,12 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
-ms.date: 03/12/2024
+ms.date: 06/25/2024
 ---
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the Azure portal.
 1. In **Search resources, service, and docs (G+/)** at the top of the portal page, enter **virtual network**. Select **Virtual network** from the **Marketplace** search results to open the **Virtual network** page.
 1. On the **Virtual network** page, select **Create** to open the **Create virtual network** page.
 1. On the **Basics** tab, configure the virtual network settings for **Project details** and **Instance details**. You see a green check mark when the values you enter are validated. You can adjust the values shown in the example according to the settings that you require.
@@ -16,7 +16,7 @@ ms.date: 03/12/2024
    * **Subscription**: Verify that the subscription listed is the correct one. You can change subscriptions by using the dropdown box.
    * **Resource group**: Select an existing resource group or select **Create new** to create a new one. For more information about resource groups, see [Azure Resource Manager overview](../articles/azure-resource-manager/management/overview.md#resource-groups).
    * **Name**: Enter the name for your virtual network.
-   * **Region**: Select the location for your virtual network. The location determines where the resources that you deploy to this virtual network will live.
+   * **Region**: Select the location for your virtual network. The location determines where the resources that you deploy to this virtual network will reside.
 
 1. Select **Next** or **Security** to go to the **Security** tab. For this exercise, leave the default values for all the services on this page.
 

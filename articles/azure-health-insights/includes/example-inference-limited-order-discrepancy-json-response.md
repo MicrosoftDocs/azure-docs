@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "limitedOrderDiscrepancy",
@@ -113,12 +113,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "6d836504-f884-428d-b823-752947387b4a",
-  "createdDateTime": "2024-01-12T07:13:58.7944605Z",
-  "expirationDateTime": "2024-01-12T07:30:38.7944605Z",
-  "lastUpdateDateTime": "2024-01-12T07:14:11.9375243Z",
+  "id": "LimitedOrderDiscrepancy",
+  "createdAt": "2024-05-14T15:44:52Z",
+  "expiresAt": "2024-05-15T15:44:52Z",
+  "updatedAt": "2024-05-14T15:44:57Z",
   "status": "succeeded"
 }
 ```

@@ -3,15 +3,16 @@ title: Configure server parameters - Azure portal
 description: This article describes how to configure the Postgres parameters in Azure Database for PostgreSQL - Flexible Server through the Azure portal.
 author: varun-dhawan
 ms.author: varundhawan
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
-ms.date: 1/25/2024
 ---
 
 # Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal 
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 You can list, show, and update configuration parameters for an Azure Database for PostgreSQL flexible server instance through the Azure portal. In addition, you can also click on the **Server Parameter Tabs** to easily view parameter group as **Modified**, **Static**, **Dynamic** and **Read-Only**.
 
@@ -80,7 +81,7 @@ PostgreSQL allows you to specify time zones in three different forms:
         (20 rows)
     </pre>
    
-2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/9.4/view-pg-timezone-abbrevs.html)
+2. A time zone abbreviation, for example PST. Such a specification merely defines a particular offset from UTC, in contrast to full time zone names which can imply a set of daylight savings transition-date rules as well. The recognized abbreviations are listed in the [**pg_timezone_abbrevs view**](https://www.postgresql.org/docs/current/view-pg-timezone-abbrevs.html)
    Example to query this view in psql and get list of time zone abbreviations:
 
    <pre> select abbrev from pg_timezone_abbrevs limit 20;</pre>

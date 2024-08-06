@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 07/17/2023
  ms.author: allensu
- ms.custom: include file
+ms.custom: include file, linux-related-content
 ---
 
 ## Create virtual machines

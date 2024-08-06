@@ -166,7 +166,7 @@ To learn more, see [How to publish templates](../core/howto-set-up-template.md#p
 
 ### Create a new device template
 
-Select **+ New** to create a new device template and follow the creation process. You can create a custom device template from scratch or you can choose a device template from the device catalog.
+Select **+ New** to create a new device template and follow the creation process. You can create a custom device template from scratch or you can choose a device template from the list of featured device templates.
 
 To learn more, see [How to add device templates](../core/howto-set-up-template.md).
 

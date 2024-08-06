@@ -4,7 +4,7 @@ description: Learn to create a managed application that stores blob digests to A
 author: pallabpaul
 ms.author: pallabpaul
 ms.date: 10/26/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ---
 
@@ -137,14 +137,17 @@ All blob creation events are tracked in internal tables stored within the Manage
 
 :::image type="content" source="./media/managed-application/managed-app-transaction-table-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing the transaction table where blob hashes are stored." lightbox="./media/managed-application/managed-app-transaction-table-enhanced.png":::
 
-The transaction table holds information about each blob and a unique hash that is generated using a combination of the blob's metadata and contents.
+The transaction table holds information about each blob and a unique hash that is generated using a combination of the blob's metadata and/ or contents.
 
 :::image type="content" source="./media/managed-application/managed-app-block-table-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing the block table where digest information is stored." lightbox="./media/managed-application/managed-app-block-table-enhanced.png":::
 
 The block table holds information related to every digest this is created for the blob container and the associated transaction ID for the digest is stored in Azure Confidential Ledger.
 
-> [!NOTE]
-> Every blob creation event will not result in a digest being created. Digests are created after a certain block size is reached. Currently, a digest will be created for every **4 blob creation events**.
+### Digest settings
+
+:::image type="content" source="./media/managed-application/managed-app-digest-settings-inline.png" alt-text="Screenshot of managed app provisioning displaying the digest settings." lightbox="./media/managed-application/managed-app-digest-settings-enhanced.png":::
+
+There are a few digest settings that can be selected when creating the managed application. You can choose the `Hashing Algorithm` being used to create the digests whether it be `MD5` or `SHA256`. You are also able to choose the number of blobs that are contained within each digest or the `Digest Size`. The Digest Size ranges from `1-16` and is the number of blobs that will be hashed together within each block. Lastly, you are able to select the `Hash Contents` and what will be hashed when creating each digest. This can be the `File Contents + Metadata` of each blob or just the `File Contents`.
 
 ### Viewing digest on Azure Confidential Ledger
 
@@ -203,9 +206,13 @@ sender.send_messages(message)
 
 ### Viewing audit results
 
+:::image type="content" source="./media/managed-application/managed-app-audit-record-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample audit record with matching digests." lightbox="./media/managed-application/managed-app-audit-record-enhanced.png":::
+
 Once an audit is performed successfully, the results of the audit can be found under a container named `<managed-application-name>-audit-records` found within the respective storage account. The results contain the recalculated digest, the digest retrieved from Azure Confidential Ledger and whether or not the blobs are tampered with.
 
-:::image type="content" source="./media/managed-application/managed-app-audit-record-inline.png" alt-text="Screenshot of the Azure portal in a web browser, showing a sample audit record with matching digests." lightbox="./media/managed-application/managed-app-audit-record-enhanced.png":::
+:::image type="content" source="./media/managed-application/managed-app-email-alert-inline.png" alt-text="Screenshot of managed app provisioning displaying the audit email alert settings." lightbox="./media/managed-application/managed-app-email-alert-enhanced.png":::
+
+When creating the managed application, if you opt in for email alerts you will get an email sent to your email during an `Audit Failure` or an `Audit Success and Failure` depending on what option is selected.
 
 ## Logging and errors
 

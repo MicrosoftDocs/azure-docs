@@ -4,7 +4,7 @@ description: Learn about Azure Key Vault availability and redundancy.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024
@@ -23,9 +23,9 @@ Azure Key Vault features multiple layers of redundancy to make sure that your ke
 
 The way that Key Vault replicates your data depends on the specific region that your vault is in.
 
-**For most Azure regions that are paired with another region**, the contents of your key vault are replicated both within the region and to the paired region. The paired region is usually at least 150 miles away, but within the same geography. This approach ensures high durability of your keys and secrets. For more information about Azure region pairs, see [Azure paired regions](../../reliability/cross-region-replication-azure.md). Two exceptions are the Brazil South region, which is paired to a region in another geography, and the West US 3 region. When you create key vaults in Brazil South or West US 3, they aren't replicated across regions.
+For most Azure regions that are paired with another region, the contents of your key vault are replicated both within the region and to the paired region. The paired region is usually at least 150 miles away, but within the same geography. This approach ensures high durability of your keys and secrets. For more information about Azure region pairs, see [Azure paired regions](../../reliability/cross-region-replication-azure.md). Two exceptions are the Brazil South region, which is paired to a region in another geography, and the West US 3 region. When you create key vaults in Brazil South or West US 3, they aren't replicated across regions.
 
-**For [Azure regions that don't have a pair](../../reliability/cross-region-replication-azure.md#regions-with-availability-zones-and-no-region-pair), as well as the Brazil South and West US 3 regions**, Azure Key Vault uses zone redundant storage (ZRS) to replicate your data three times within the region, across independent availability zones. For Azure Key Vault Premium, two of the three zones are used to replicate the hardware security module (HSM) keys. You can also use the [backup and restore](backup.md) feature to replicate the contents of your vault to another region of your choice.
+[!INCLUDE [Key Vault in non-paired regions guidance](../includes/key-vault-non-paired-regions.md)]
 
 ## Failover within a region
 

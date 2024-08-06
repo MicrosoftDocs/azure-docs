@@ -5,10 +5,11 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore cluster to store databases, collections, and documents by using Terraform.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 03/18/2024
+ms.custom: devx-track-terraform
 ---
 
 # Azure Cosmos DB for MongoDB (vCore) with Terraform
@@ -49,7 +50,7 @@ Create a template.json file and populate it with the following JSON content, mak
 
 ```json
 {
-    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "CLUSTER_NAME": { // replace

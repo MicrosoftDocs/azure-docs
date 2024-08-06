@@ -1,10 +1,10 @@
 ---
 title: Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
 description: Set up Hadoop, Kafka, Spark, or HBase clusters for HDInsight from a browser, the Azure classic CLI, Azure PowerShell, REST, or SDK.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
-ms.date: 03/16/2023
+ms.date: 04/11/2024
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -37,7 +37,7 @@ This article walks you through setup in the [Azure portal](https://portal.azure.
 
 ## Basics
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="hdinsight create options custom quick.":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png" alt-text="HDInsight create options custom quick.":::
 
 ### Project details
 
@@ -88,15 +88,15 @@ With HDInsight clusters, you can configure two user accounts during cluster crea
 The HTTP username has the following restrictions:
 
 * Allowed special characters: `_` and `@`
-* Characters not allowed:  #;."',/:`!*?$(){}[]<>|&--=+%~^space
+* Characters not allowed:  `#;."',/:`!*?$(){}[]<>|&--=+%~^space`
 * Max length: 20
 
 The SSH username has the following restrictions:
 
 * Allowed special characters:`_` and `@`
-* Characters not allowed:  #;."',/:`!*?$(){}[]<>|&--=+%~^space
+* Characters not allowed:  `#;."',/:`!*?$(){}[]<>|&--=+%~^space`
 * Max length: 64
-* Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, actuser, adm, admin2, aspnet, backup, console, david, guest, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
+* Reserved names: hadoop, users, oozie, hive, mapred, ambari-qa, zookeeper, tez, hdfs, sqoop, yarn, hcat, ams, hbase, administrator, admin, user, user1, test, user2, test1, user3, admin1, 1, 123, a, `actuser`, adm, admin2, aspnet, backup, console, David, guest, John, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
 ## Storage
 
@@ -107,10 +107,8 @@ Although an on-premises installation of Hadoop uses the Hadoop Distributed File 
 HDInsight clusters can use the following storage options:
 
 * Azure Data Lake Storage Gen2
-* Azure Data Lake Storage Gen1
 * Azure Storage General Purpose v2
-* Azure Storage General Purpose v1
-* Azure Storage Block blob (**only supported as secondary storage**)
+* * Azure Storage Block blob (**only supported as secondary storage**)
 
 For more information on storage options with HDInsight, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
@@ -158,7 +156,7 @@ Ambari is used to monitor HDInsight clusters, make configuration changes, and st
 
 ## Security + networking
 
-:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="hdinsight create options choose enterprise security package.":::
+:::image type="content" source="./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-security-networking.png" alt-text="HDInsight create options choose enterprise security package.":::
 
 ### Enterprise security package
 
@@ -247,7 +245,7 @@ For more information, see [Sizes for virtual machines](../virtual-machines/sizes
 > The added disks are only configured for node manager local directories and **not for datanode directories**
 
 
-HDInsight cluster comes with pre-defined disk space based on SKU. Running some  large applications, can lead to insufficient disk space, (with disk full error -  ```LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE```) and job failures. 
+HDInsight cluster comes with pre-defined disk space based on SKU. If you run some large applications, can lead to insufficient disk space, with disk full error -  `LinkId=221672#ERROR_NOT_ENOUGH_DISK_SPACE` and job failures. 
 
 More discs can be added to the cluster using the new feature **NodeManager**’s local directory. At the time of Hive and Spark cluster creation, the number of discs can be selected and added to the worker nodes. The selected disk, which will be of size 1TB each, would be part of **NodeManager**'s local directories.
 

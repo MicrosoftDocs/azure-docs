@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn to create a custom HTTP/HTTPS health probe for Azure Load Balancer using python and FLASK restful server library.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 05/22/2023
@@ -27,7 +27,7 @@ In this article, you learn to create a custom API for HTTP [health probes](load-
 - Remote access to the virtual machine via SSH or Azure Bastion.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 >
 
 ## Configure API on virtual machine

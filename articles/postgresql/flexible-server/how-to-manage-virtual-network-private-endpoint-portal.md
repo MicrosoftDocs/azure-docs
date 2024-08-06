@@ -3,18 +3,19 @@ title: Manage virtual networks with Private Link - Azure portal
 description: Create an Azure Database for PostgreSQL - Flexible Server instance with public access by using the Azure portal, and add private networking to the server based on Azure Private Link.
 author: gennadNY
 ms.author: gennadyk
-ms.service: postgresql
+ms.reviewer: maghan
+ms.date: 04/27/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
+ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.topic: how-to
-ms.date: 03/26/2024
 ---
 
 
 # Create and manage virtual networks with Private Link for Azure Database for PostgreSQL - Flexible Server by using the Azure portal
 
-[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](~/reusable-content/ce-skilling/azure/includes/postgresql/includes/applies-to-postgresql-flexible-server.md)]
 
 Azure Database for PostgreSQL flexible server supports two types of mutually exclusive network connectivity methods to connect to your Azure Database for PostgreSQL flexible server instance. The two options are:
 
@@ -56,33 +57,37 @@ To create an Azure Database for PostgreSQL flexible server instance, take the fo
    |**Subscription**| Select your Azure subscription.|
    |**Resource group**| Select your Azure resource group.|
    |**Server name**| Enter a unique server name.|
-   |**Admin username** |Enter an administrator name of your choosing.|
-   |**Password**|Enter a password of your choosing. The password must have at least eight characters and meet the defined requirements.|
-   |**Location**|Select an Azure region where you want to want your Azure Database for PostgreSQL flexible server instance to reside.|
-   |**Version**|Select the required database version of the Azure Database for PostgreSQL flexible server instance.|
+   |**Region**|Select an Azure region where you want to want your Azure Database for PostgreSQL flexible server instance to reside.|
+   |**PostgreSQL version**|Select the required database version of the Azure Database for PostgreSQL flexible server instance.|
+   |**Workload type**|Select one of the available tiers for the service.|
    |**Compute + Storage**|Select the pricing tier that you need for the server, based on the workload.|
+   |**Availability zone**|Select the availability zone in which you want your instance deployed, or 'No preference' for the service to choose one for you.|
+   |**Enable high availability**|Check this box if you need a standby synchronous replica with automatic failover capability, to be deployed either in the same zone or in another zone in the same region.|
+   |**Authentication method**|Choose your preferred authentication method and the information of the principal you want to make your first PostgreSQL administrator.|
 
 5. Select **Next: Networking**.
 
-6. For **Connectivity method**, select the **Public access (allowed IP addresses) and private endpoint** checkbox.
+6. Under **Network connectivity**, for **Connectivity method** select **Public access (allowed IP addresses) and Private endpoint** radio button.
 
-7. In the **Private Endpoint** section, select **Add private endpoint**.
+7. In the **Private endpoint** section, select **Add private endpoint**.
 
-    :::image type="content" source="./media/how-to-manage-virtual-network-private-endpoint-portal/private-endpoint-selection.png" alt-text="Screenshot of the button for adding a private endpoint button on the Networking pane in the Azure portal." :::
-8. On the **Create Private Endpoint** pane, enter the following values:
+    :::image type="content" source="./media/how-to-manage-virtual-network-private-endpoint-portal/private-endpoint-selection.png" alt-text="Screenshot of the button for adding a private endpoint on the Networking pane in the Azure portal." :::
+8. On the **Create private endpoint** pane, enter the following values:
 
    |Setting|Value|
    |---------|------|
-   |**Subscription**| Select your subscription.|
-   |**Resource group**| Select the resource group that you chose previously.|
-   |**Location**|Select an Azure region where you created your virtual network.|
+   |**Subscription**| Select the subscription in which you want to create the private endpoint.|
+   |**Resource group**| Select the resource group where you want to create your private endpoint.|
+   |**Location**|Select the Azure region matching that of the virtual network where you want to create the private endpoint.|
    |**Name**|Enter a name for the private endpoint.|
    |**Target subresource**|Select **postgresqlServer**.|
-   |**NETWORKING**|
-   |**Virtual Network**| Enter a name for the Azure virtual network that you created previously. |
-   |**Subnet**|Enter the name of the Azure subnet that you created previously.|
-   |**PRIVATE DNS INTEGRATION**|
-   |**Integrate with Private DNS Zone**| Select **Yes**.|
+   |----|----|
+   |**Networking** section| |
+   |**Virtual network**| Select from the list the virtual network that you created previously, in which you want to create the private endpoint. |
+   |**Subnet**|Enter the name of the subnet where you want to create the private endpoint.|
+   |----|----|
+   |**Private DNS integration** section| |
+   |**Integrate with private DNS zone**| Select **Yes**.|
    |**Private DNS Zone**| Select **(New)privatelink.postgresql.database.azure.com**. This setting creates a new private DNS zone.|
 
 9. Select **OK**.

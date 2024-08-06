@@ -131,7 +131,7 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 
 ## Simulate security alerts from Microsoft Defender for Azure Cosmos DB
 
-A full list of [supported alerts](alerts-reference.md#alerts-for-azure-cosmos-db) is available in the reference table of all Defender for Cloud security alerts.
+A full list of [supported alerts](alerts-azure-cosmos-db.md) is available in the reference table of all Defender for Cloud security alerts.
 
 You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate their value, and capabilities. Sample alerts will also validate any configurations you've made for your security alerts (such as SIEM integrations, workflow automation, and email notifications).
 
@@ -158,4 +158,4 @@ After a few minutes, the alerts will appear in the security alerts page. Alerts 
 In this article, you learned how to enable Microsoft Defender for Azure Cosmos DB, and how to simulate security alerts.
 
 > [!div class="nextstepaction"]
-> [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.md).
+> [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.yml).

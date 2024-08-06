@@ -3,7 +3,7 @@ title: Azure Attestation troubleshooting guide
 description: Trouble shooting guide to the commonly observed issues
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: reference
 ms.date: 01/23/2023
 ms.author: mbaldwin 
@@ -57,7 +57,7 @@ To verify the roles in PowerShell, run the below steps:
 
 a. Launch PowerShell and log into Azure via the "Connect-AzAccount" cmdlet
 
-b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.md) to verify your Azure role assignment on the attestation provider
+b. Refer to the guidance [here](../role-based-access-control/role-assignments-list-powershell.yml) to verify your Azure role assignment on the attestation provider
 
 c. If you don't find an appropriate role assignment, follow the instructions in [here](../role-based-access-control/role-assignments-powershell.md)
 

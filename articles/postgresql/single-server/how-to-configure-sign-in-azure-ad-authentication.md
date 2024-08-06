@@ -1,7 +1,7 @@
 ---
 title: Use Microsoft Entra ID - Azure Database for PostgreSQL - Single Server
 description: Learn about how to set up Microsoft Entra ID for authentication with Azure Database for PostgreSQL - Single Server
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: how-to
 ms.author: sunila

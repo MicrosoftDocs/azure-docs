@@ -77,13 +77,13 @@ items:
   - name: Reference
     items:
     - name: OCR REST API v4.0 (preview)
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2022-10-12-preview/operations/61d65934cd35050c20f73ab6
-    - name: OCR REST API v3.2
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+      href: https://aka.ms/vision-4-0-ref
+    - name: OCR REST API v3.2 
+      href: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v3.2
     - name: OCR REST API v3.1
-      href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+      href: /rest/api/computervision/read?view=rest-computervision-v3.1
     - name: OCR REST API v2.1
-      href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
+      href: /rest/api/computervision/recognize-printed-text?view=rest-computervision-v2.1
     - name: .NET
       href: /dotnet/api/overview/azure/computer-vision
     - name: Node.js
@@ -245,7 +245,7 @@ items:
       - name: Image Analysis REST API v4.0 (Analyze and multimodal embeddings, GA)
         href: https://aka.ms/vision-4-0-ref
       - name: Image Analysis REST API v4.0 (other features, preview)
-        href: https://eastus.dev.cognitive.microsoft.com/docs/services/unified-vision-apis-public-preview-2023-04-01-preview/operations/63ed8e8a5ddd171058e2e1f0
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-2023-04-01-preview
       - name: .NET
         href: https://aka.ms/azsdk/image-analysis/ref-docs/csharp
       - name: Python
@@ -257,7 +257,7 @@ items:
     - name: Version 3.2
       items:
       - name: Image Analysis REST API v3.2
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.2
       - name: .NET
         href: /dotnet/api/overview/azure/computer-vision
       - name: Node.js
@@ -271,9 +271,9 @@ items:
     - name: Older versions
       items: 
       - name: Image Analysis REST API v3.1
-        href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v3.1
       - name: Image Analysis REST API v2.1
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641
+        href: /rest/api/computervision/operation-groups?view=rest-computervision-v2.1
     - name: Azure CLI
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
@@ -332,12 +332,12 @@ items:
         href: identity-encrypt-data-at-rest.md
   - name: Tutorials
     items:
-    - name: Detect liveness in face
+    - name: Detect liveness in faces
       href: Tutorials/liveness.md
     - name: Add users to a Face identification app
       href: Tutorials/build-enrollment-app.md
   - name: Samples
-    href: /samples/browse/?term=face&terms=face&expanded=azure&products=ai-services%2Cazure-cognitive-services
+    href: https://aka.ms/FaceSamples
 
   - name: Responsible use of AI
     items:
@@ -364,20 +364,24 @@ items:
       items:
       - name: Face REST API
         href: identity-api-reference.md
+      - name: Face API error codes
+        href: reference-face-error-codes.md
       - name: .NET
-        href: /dotnet/api/overview/azure/cognitiveservices/face
+        href: https://aka.ms/azsdk-csharp-face-ref
       - name: Java
-        href: /java/api/overview/azure/cognitiveservices/client/faceapi
+        href: https://aka.ms/azsdk-java-face-ref
       - name: Node.js
-        href: /javascript/api/overview/azure/cognitiveservices-face-readme
+        href: https://aka.ms/azsdk-javascript-face-ref
       - name: Python
-        href: /python/api/overview/azure/cognitiveservices-vision-face-readme
+        href: https://aka.ms/azsdk-python-face-ref
     - name: Client-side
       items:
       - name: Kotlin (Android)
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-android-api-reference
       - name: Swift (iOS)
         href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-ios-api-reference
+      - name: JavaScript (Web)
+        href: https://aka.ms/azure-ai-vision-face-liveness-client-sdk-web-api-reference
 - name: Video Analysis
   items:
   - name: Video Analysis overview

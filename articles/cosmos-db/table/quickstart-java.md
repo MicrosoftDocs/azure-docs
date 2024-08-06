@@ -3,7 +3,7 @@ title: Use the API for Table and Java to build an app - Azure Cosmos DB
 description: This quickstart shows how to use the Azure Cosmos DB for Table to create an application with the Azure portal and Java
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: table
 ms.devlang: java
 ms.topic: quickstart
@@ -31,7 +31,7 @@ Java applications can access the Azure Cosmos DB Tables API using the [azure-dat
 
 The sample application is written in [Spring Boot 2.6.4](https://spring.io/projects/spring-boot), You can use either [Visual Studio Code](https://code.visualstudio.com/), or [IntelliJ IDEA](https://www.jetbrains.com/idea/) as an IDE.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note-java.md)]
+[!INCLUDE [quickstarts-free-trial-note](../includes/quickstarts-free-trial-note-java.md)]
 
 ## Sample application
 

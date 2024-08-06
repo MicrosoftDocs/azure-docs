@@ -1,10 +1,10 @@
 ---
 title: "Azure Synapse Analytics security white paper: Data protection"
 description: Protect data to comply with federal, local, and company guidelines with Azure Synapse Analytics.
-author: SnehaGunda
-ms.author: sngun
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---
@@ -37,7 +37,7 @@ Data is encrypted at rest and in transit.
 
 By default, Azure Storage [automatically encrypts all data](../../storage/common/storage-service-encryption.md) using 256-bit Advanced Encryption Standard encryption (AES 256). It's one of the strongest block ciphers available and is FIPS 140-2 compliant. The platform manages the encryption key, and it forms the *first layer* of data encryption. This encryption applies to both user and system databases, including the **master** database.
 
-Enabling [Transparent Data Encryption](/azure/azure-sql/database/transparent-data-encryption-tde-overview) (TDE) can add a *second layer* of data encryption for dedicated SQL pools. It performs real-time I/O encryption and decryption of database files, transaction logs files, and backups at rest without requiring any changes to the application. By default, it uses AES 256.
+Enabling [Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) can add a *second layer* of data encryption for dedicated SQL pools. It performs real-time I/O encryption and decryption of database files, transaction logs files, and backups at rest without requiring any changes to the application. By default, it uses AES 256.
 
 By default, TDE protects the database encryption key (DEK) with a built-in server certificate (service managed). There's an option to bring your own key (BYOK) that can be securely stored in [Azure Key Vault](../../key-vault/general/basic-concepts.md).
 
@@ -52,7 +52,7 @@ While SSE forms the first layer of encryption, cautious customers can double enc
 
 ### Data in transit
 
-Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use the [Tabular Data Stream](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) (TDS) protocol to communicate between the SQL pool endpoint and a client machine. TDS depends on Transport Layer Security (TLS) for channel encryption, ensuring all data packets are secured and encrypted between endpoint and client machine. It uses a signed server certificate from the Certificate Authority (CA) used for TLS encryption, managed by Microsoft. Azure Synapse supports data encryption in transit with TLS v1.2, using AES 256 encryption.
+Azure Synapse, dedicated SQL pool (formerly SQL DW), and serverless SQL pool use the [Tabular Data Stream (TDS)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) protocol to communicate between the SQL pool endpoint and a client machine. TDS depends on Transport Layer Security (TLS) for channel encryption, ensuring all data packets are secured and encrypted between endpoint and client machine. It uses a signed server certificate from the Certificate Authority (CA) used for TLS encryption, managed by Microsoft. Azure Synapse supports data encryption in transit with TLS v1.2, using AES 256 encryption.
 
 Azure Synapse leverages TLS to ensure data is encrypted in motion. SQL dedicated pools support TLS 1.0, TLS 1.1, and TLS 1.2 versions for encryption wherein Microsoft-provided drivers use TLS 1.2 by default. Serverless SQL pool and Apache Spark pool use TLS 1.2 for all outbound connections.
 

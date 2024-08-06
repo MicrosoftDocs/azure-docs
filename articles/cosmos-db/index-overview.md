@@ -4,9 +4,11 @@ titleSuffix: Azure Cosmos DB
 description: Understand how indexing works in Azure Cosmos DB. Also explore how different types of indexes such as range, spatial, and composite are supported.
 author: seesharprun
 ms.author: sidandrews
-ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.reviewer: jacodel
+ms.service: azure-cosmos-db
 ms.subservice: nosql
+ms.custom:
+  - build-2024
 ms.topic: conceptual
 ms.date: 04/03/2023
 ---
@@ -182,6 +184,40 @@ As long as one filter predicate uses one of the index type, the query engine eva
 
 To learn how to configure composite indexes, see [Composite indexing policy examples](how-to-manage-indexing-policy.md#composite-index)
 
+### Vector indexes
+**Vector** indexes increase the efficiency when performing vector searches using the `VectorDistance` system function. Vectors searches will have significantly lower latency, higher throughput, and less RU consumption when leveraging a vector index. 
+To learn how to configure vector indexes, see [vector indexing policy examples](nosql/how-to-manage-indexing-policy.md#vector-indexing-policy-examples)
+
+- `ORDER BY` vector search queries:
+
+    ```sql
+    SELECT c.name
+    FROM c
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+  
+-  Projection of the similarity score in vector search queries:
+   
+    ```sql
+    SELECT c.name, VectorDistance(c.vector1, c.vector2) AS SimilarityScore
+    FROM c
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+- Range filters on the similarity score.
+    ```sql
+    SELECT c.name
+    FROM c
+    WHERE VectorDistance(c.vector1, c.vector2) > 0.8
+    ORDER BY VectorDistance(c.vector1, c.vector2)
+    ```
+
+  > [!IMPORTANT]
+  > Vector indexes must be defined at the time of container creation and cannot be modified once created. In a future release, vector indexes will be modifiable.
+
+
+
 ## Index usage
 
 There are five ways that the query engine can evaluate query filters, sorted by most-efficient to least-efficient:
@@ -336,6 +372,9 @@ WHERE CONTAINS(c.country, "States", false)
 ### Full scan
 
 In some cases, the query engine may not be able to evaluate a query filter using the index. In this case, the query engine needs to load all items from the transactional store in order to evaluate the query filter. Full scans don't use the index and have an RU charge that increases linearly with the total data size. Luckily, operations that require full scans are rare.
+
+#### Vector search queries without a defined vector index
+If you do not define a vector index policy and use the `VectorDistance` system function in an `ORDER BY` clause, then this will result in a Full scan and have an RU charge higher than if you defined a vector index policy. Similarity, if you use VectorDistance with the brute force boolean value set to `true`, and do not have a `flat` index defined for the vector path, then a full scan will occur. 
 
 ### Queries with complex filter expressions
 

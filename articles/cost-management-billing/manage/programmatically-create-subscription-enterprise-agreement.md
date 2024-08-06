@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/16/2024
+ms.date: 04/22/2024
 ms.reviewer: sapnakeshari
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template, devx-track-bicep
@@ -13,13 +13,13 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-templ
 
 # Programmatically create Azure Enterprise Agreement subscriptions with the latest APIs
 
-This article helps you programmatically create Azure Enterprise Agreement (EA) subscriptions for an EA billing account using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions legacy APIs](programmatically-create-subscription-preview.md).
+This article helps you programmatically create Azure Enterprise Agreement (EA) subscriptions for an EA billing account using the most recent API versions. If you're still using the older preview version, see [Programmatically create Azure subscriptions legacy APIs](programmatically-create-subscription-preview.md).
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
 
-When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
+When you create an Azure subscription programmatically, it falls under the terms of the agreement where you receive Azure services from Microsoft or a certified seller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 
@@ -101,7 +101,7 @@ The values for a billing scope and `id` are the same thing. The `id` for your en
 
 ### [PowerShell](#tab/azure-powershell)
 
-Please use either Azure CLI or REST API to get this value.
+Use either Azure CLI or REST API to get this value.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -111,7 +111,7 @@ Request to list all enrollment accounts you have access to:
 > az billing account list
 ```
 
-Response lists all enrollment accounts you have access to
+Response lists all enrollment accounts you have access to:
 
 ```json
 [
@@ -170,7 +170,7 @@ The values for a billing scope and `id` are the same thing. The `id` for your en
 
 The following example creates a subscription named *Dev Team Subscription* in the enrollment account selected in the previous step.
 
-Using one of the following methods, you'll create a subscription alias name. We recommend that when you create the alias name, you:
+Using one of the following methods, you create a subscription alias name. We recommend that when you create the alias name, you:
 
 - Use alphanumeric characters and hyphens
 - Start with a letter and end with an alphanumeric character
@@ -242,7 +242,7 @@ An in-progress status is returned as an `Accepted` state under `provisioningStat
 
 ### [PowerShell](#tab/azure-powershell)
 
-To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in below example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
+To install the version of the module that contains the `New-AzSubscriptionAlias` cmdlet, in the following example run `Install-Module Az.Subscription -RequiredVersion 0.9.0`. To install version 0.9.0 of PowerShellGet, see [Get PowerShellGet Module](/powershell/gallery/powershellget/install-powershellget).
 
 Run the following [New-AzSubscriptionAlias](/powershell/module/az.subscription/get-azsubscriptionalias) command, using the billing scope `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`.
 
@@ -290,9 +290,33 @@ You get the subscriptionId as part of the response from the command.
 
 ---
 
-## Create subscriptions in a different enrollment
+## Create subscription and make subscriptionOwnerId the owner
 
-Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can use the `subscriptionTenantId` parameter in the request body. Your service principal must get the token from the home tenant to create the subscription. After you create the service principal, you get the token from `subscriptionTenantId` and accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
+When a service principal uses the Subscription Alias API to create a new subscription and doesn't include `additionalProperties` in the request, the service principal automatically becomes the owner of the new subscription. If you don't want the service principal to be the owner, you can specify `subscriptionTenantId` and `subscriptionOwnerId` in the `additionalProperties`. This process makes the specified `subscriptionOwnerId` the owner of the new subscription, not the service principal.
+
+Sample request body:
+
+```json
+
+{
+    "properties": {
+        "billingScope": "/providers/Microsoft.Billing/billingAccounts/{EABillingAccountId}/enrollmentAccounts/{EnrollmentAccountId}",
+        "displayName": "{SubscriptionName}",
+        "workLoad": "Production",
+        "resellerId": null,
+        "additionalProperties": {
+            "managementGroupId": "",
+            "subscriptionTenantId": "{SubscriptionTenantId}", // Here you input the tenant GUID where the subscription resides after creation
+            "subscriptionOwnerId": "{ObjectId that becomes the owner of the subscription}", // Here you input the objectId which is set as the subscription owner when it gets created.
+            "tags": {}
+        }
+    }
+}
+```
+
+## Create subscriptions in a different tenant
+
+Using the subscription [Alias](/rest/api/subscription/2021-10-01/alias/create) REST API, you can create a subscription in a different tenant using the `subscriptionTenantId` parameter in the request body. Your Azure Service Principal (SPN) must get a token from its home tenant to create the subscription. After you create the subscription, you must get a token from the target tenant to accept the transfer using the [Accept Ownership](/rest/api/subscription/2021-10-01/subscription/accept-ownership) API.
 
 For more information about creating EA subscriptions in another tenant, see [Create subscription in other tenant and view transfer requests](direct-ea-administration.md#create-subscription-in-other-tenant-and-view-transfer-requests).
 
@@ -468,12 +492,12 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions are created using the API.
-- There's a limit of 5000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
-- Users who aren't Account Owners, but were added to an enrollment account via Azure RBAC, can't create subscriptions in the Azure portal.
+- There's a limit of 5,000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. To create more subscriptions through the API, create another enrollment account. Canceled, deleted, and transferred subscriptions count toward the 5000 limit.
+- Users who aren't Account Owners, but were added to an enrollment account via Azure role-based access control, can't create subscriptions in the Azure portal.
 
 ## Next steps
 
-* Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
+* Now that you created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
 * For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
-* To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
+* To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
 * For advanced subscription creation scenarios using REST API, see [Alias - Create](/rest/api/subscription/2021-10-01/alias/create).

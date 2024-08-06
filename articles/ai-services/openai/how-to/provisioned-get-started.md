@@ -19,8 +19,6 @@ The following guide walks you through setting up a provisioned deployment with y
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - Obtained Quota for a provisioned deployment and purchased a commitment. 
 
 > [!NOTE]
@@ -175,7 +173,7 @@ We recommend the following workflow:
 * For more information on provisioned deployments, check out [What is provisioned throughput?](../concepts/provisioned-throughput.md)
 * For more information on retry logic within each SDK, check out:
     * [Python reference documentation](https://github.com/openai/openai-python?tab=readme-ov-file#retries)
-    * [.NET reference documentation](/dotnet/api/azure.ai.openai.openaiclientoptions?view=azure-dotnet-preview&preserve-view=true)
+    * [.NET reference documentation](/dotnet/api/overview/azure/ai.openai-readme)
     * [Java reference documentation](/java/api/com.azure.ai.openai.openaiclientbuilder?view=azure-java-preview&preserve-view=true#com-azure-ai-openai-openaiclientbuilder-retryoptions(com-azure-core-http-policy-retryoptions))
     * [JavaScript reference documentation](/javascript/api/@azure/openai/openaiclientoptions?view=azure-node-preview&preserve-view=true#@azure-openai-openaiclientoptions-retryoptions)
     * [GO reference documentation](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/ai/azopenai#ChatCompletionsOptions)

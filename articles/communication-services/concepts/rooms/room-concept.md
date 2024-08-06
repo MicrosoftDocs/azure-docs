@@ -18,9 +18,9 @@ Azure Communication Services provides a concept of a room for developers who are
 Here are the main scenarios where rooms are useful:
 
 - **Rooms enable scheduled communication experience.** Rooms help service platforms deliver meeting-style experiences while still being suitably generic for a wide variety of industry applications. Services can schedule and manage rooms for patients seeking medical advice, financial planners working with clients, and lawyers providing legal services.
-- **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This will allow only a subset of users with assigned Communication Services identities to join a room call.
+- **Rooms enable an invite-only experience.** Rooms allow your services to control which users can join the room for a virtual appointment with doctors or financial consultants. This allows only a subset of users with assigned Communication Services identities to join a room call.
 - **Rooms enable structured communications through roles and permissions.** Rooms allow developers to assign predefined roles to users to exercise a higher degree of control and structure in communication. Ensure only presenters can speak and share content in a large meeting or in a virtual conference.
-- **Add PSTN participants. (Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/))** Invite public switched telephone network (PSTN) participants to a call using a number purchased through your subscription or via Azure direct routing to your Session Border Controller (SBC).
+- **Add PSTN participants.** Invite public switched telephone network (PSTN) participants to a call using a number purchased through your subscription or via Azure direct routing to your Session Border Controller (SBC).
 
 ## When to use rooms
 
@@ -36,7 +36,7 @@ Use rooms when you need any of the following capabilities:
 | Interactive participants | 350 | 350 | 350 |
 | Ephemeral ID to distribute to participants | ❌ | ✔️ <br>(Group ID)</br> | ✔️ <br>(Room ID)</br> |
 | Invitee only participation   | ❌ | ❌ | ✔️ |
-| Ability to dial-out to PSTN user | ✔️ | ✔️ | ✔️ <br>public preview</br> |
+| Ability to dial-out to PSTN user | ✔️ | ✔️ | ✔️ |
 | Call captions | ✔️ <br>private preview</br>| ✔️ <br>private preview</br>| ✔️ <br>private preview</br> |
 | Call recording | ✔️ | ✔️ | ✔️ <br>public preview</br>|
 | All users in communication service resource to join a call   | ❌ | ✔️ | ✔️ |
@@ -53,10 +53,9 @@ Use rooms when you need any of the following capabilities:
 |----------------------------------------------|--------|--------|
 | Join a room call with voice and video        | ✔️ | ❌ |
 | List participants that joined the rooms call | ✔️ | ❌ |
-| Allow/disallow dial-out to a PSTN user at virtual Rooms level            | Virtual Rooms SDK|
+| Allow/disallow dial-out to a PSTN user at virtual Rooms level            | ❌ | ✔️ |
 | Create room                                  | ❌ | ✔️ |
 | List all participants that are invited to the room | ❌ | ✔️ |
-| Start, pause, stop call recording | ✔️ | ❌|
 | Add or remove a VoIP participant             |  ❌ | ✔️ |
 | Assign roles to room participants            |  ❌ | ✔️ |
 
@@ -75,9 +74,10 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 - Assign roles and permissions to users. Details below.
 
 |Virtual Rooms SDK | Version | State|
-|-------------------| :-----------------------: | :-----------------------------: |
+|-------------------| :------------------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
+| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported  |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
-| Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
 | Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
 | Virtual Rooms SDKs | 2022-02-01 | Will be retired on April 30, 2024 |
 | Virtual Rooms SDKs | 2021-04-07 | Will be retired on April 30, 2024 |
@@ -87,7 +87,7 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
 
-Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+Rooms can also be accessed using the [Azure Communication Services UI Library](../../concepts/ui-library/ui-library-overview.md). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
 
 ## Predefined participant roles and permissions
 
@@ -100,7 +100,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user | ✔️ | ❌ | ❌ |
+| - Mute remote user ** | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
@@ -131,8 +131,8 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
 | - Render remote video stream | ✔️ | ✔️ | ✔️ |
-| **Add PSTN participants** **| | |
-| - Call participants using phone calls | ✔️** | ❌ | ❌ |
+| **Add PSTN participants** | | |
+| - Call participants using phone calls | ✔️ | ❌ | ❌ |
 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
 

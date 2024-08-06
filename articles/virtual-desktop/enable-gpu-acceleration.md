@@ -1,133 +1,178 @@
 ---
-title: Configure GPU for Azure Virtual Desktop - Azure
+title: Enable GPU acceleration for Azure Virtual Desktop
 description: Learn how to enable GPU-accelerated rendering and encoding in Azure Virtual Desktop.
-author: femila
 ms.topic: how-to
-ms.date: 05/06/2019
-ms.author: femila
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 05/21/2024
 ---
 
-# Configure GPU acceleration for Azure Virtual Desktop
+# Enable GPU acceleration for Azure Virtual Desktop
+
+Azure Virtual Desktop supports graphics processing unit (GPU) acceleration in rendering and encoding for improved app performance and scalability using the Remote Desktop Protocol (RDP). GPU acceleration is crucial for graphics-intensive applications and can be used with all [supported operating systems](prerequisites.md#operating-systems-and-licenses) for Azure Virtual Desktop.
+
+There are three components to GPU acceleration in Azure Virtual Desktop that work together to improve the user experience:
+
+- **GPU-accelerated application rendering**: Use the GPU to render graphics in a remote session.
+
+- **GPU-accelerated frame encoding**: The Remote Desktop Protocol encodes all graphics rendered for transmission to the local device. When part of the screen is frequently updated, it's encoded with the H.264/AVC video codec.
+
+- **Full-screen video encoding**: A full-screen video profile provides a higher frame rate and better user experience, but uses more network bandwidth and both session host and client resources. It benefits applications such as 3D modeling, CAD/CAM, or video playback and editing.
+
+> [!TIP]
+> - You can enable full-screen video encoding even without GPU acceleration.
+>
+> - You can also increase the [default chroma value](configure-default-chroma-value.md) to improve the image quality.
+
+This article shows you which Azure VM sizes you can use as a session host with GPU acceleration, and how to enable GPU acceleration for rendering and encoding. You can use Microsoft Intune or Group Policy to configure your session hosts.
+
+## Supported GPU-optimized Azure VM sizes
+
+The following Azure VM sizes are optimized for GPU acceleration and are supported as session hosts in Azure Virtual Desktop:
+
+- [NVv3-series](../virtual-machines/nvv3-series.md)
+- [NVv4-series](../virtual-machines/nvv4-series.md). GPU-accelerated frame encoding isn't available with NVv4-series VMs.
+- [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md)
+- [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md)
+
+The right choice of VM size depends on many factors, including your particular application workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
+
+VM sizes with an NVIDIA GPU come with a GRID license that supports 25 concurrent users.
 
 > [!IMPORTANT]
-> This content applies to Azure Virtual Desktop with Azure Resource Manager objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
-
-Azure Virtual Desktop supports graphics processing unit (GPU) acceleration in rendering and encoding for improved app performance and scalability. GPU acceleration is crucial for graphics-intensive apps and can be used with all [supported operating systems](prerequisites.md#operating-systems-and-licenses) for Azure Virtual Desktop.
-
-The list doesn't specifically include multi-session versions of Windows. However, each GPU in NV-series Azure virtual machines (VMs) comes with a GRID license that supports 25 concurrent users. For more information, see [NV-series](../virtual-machines/nv-series.md).
-
-This article shows you how to create a GPU-optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding.
+> Azure NC, NCv2, NCv3, ND, and NDv2 series VMs aren't generally appropriate as session hosts. These VM sizes are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They don't support GPU acceleration for most applications or the Windows user interface.
 
 ## Prerequisites
 
-This article assumes that you already created a host pool and an application group.
+Before you can enable GPU acceleration, you need:
 
-## Select an appropriate GPU-optimized Azure VM size
+- An existing host pool with session hosts using [supported GPU-optimized Azure VM sizes](#supported-gpu-optimized-azure-vm-sizes).
 
-Select one of the Azure [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md), [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md), or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These sizes are tailored for app and desktop virtualization. They enable most apps and the Windows user interface to be GPU accelerated.
+- To configure Microsoft Intune, you need:
 
-The right choice for your host pool depends on many factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
+   - Microsoft Entra ID account that is assigned the [Policy and Profile manager](/mem/intune/fundamentals/role-based-access-control-reference#policy-and-profile-manager) built-in RBAC role.
 
-> [!NOTE]
-> NV-series VMs are planned to be retired. For more information, see [NV retirement](../virtual-machines/nv-series-retirement.md).
+   - A group containing the devices you want to configure.
 
-Azure NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They don't support GPU acceleration for most apps or the Windows user interface.
+- To configure Group Policy, you need:
+
+   - A domain account that is a member of the **Domain Admins** security group.
+
+   - A security group or organizational unit (OU) containing the devices you want to configure.
 
 ## Install supported graphics drivers in your virtual machine
 
-To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers. Only Azure-distributed drivers are supported.
+To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers.
 
-Keep this size-specific information in mind:
+> [!IMPORTANT]
+> Only Azure-distributed drivers are supported.
 
-* For Azure NV-series, NVv3-series, or NCasT4_v3-series VMs, only NVIDIA GRID drivers support GPU acceleration for most apps and the Windows user interface. NVIDIA CUDA drivers don't support GPU acceleration for these VM sizes.
+When installing drivers, here are some important guidelines:
 
-  If you choose to install drivers manually, be sure to install GRID drivers. If you choose to install drivers by using the Azure VM extension, GRID drivers will automatically be installed for these VM sizes.
-* For Azure NVv4-series VMs, install the AMD drivers that Azure provides. You can install them automatically by using the Azure VM extension, or you can install them manually.
+- For VMs sizes with an NVIDIA GPU, only NVIDIA *GRID* drivers support GPU acceleration for most applications and the Windows user interface. NVIDIA *CUDA* drivers don't support GPU acceleration for these VM sizes. To download and learn how to install the driver, see [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md) and be sure to install the GRID driver. If you install the driver by using the [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-windows.md), the GRID driver is automatically installed for these VM sizes.
 
-After driver installation, a VM restart is required. Use the verification steps in the preceding instructions to confirm that graphics drivers were successfully installed.
+- For VMs sizes with an AMD GPU, install the AMD drivers that Azure provides. To download and learn how to install the driver, see [Install AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-amd-driver-setup.md). 
 
-## Configure GPU-accelerated app rendering
+## Enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding
 
-By default, apps and desktops running on Windows Server are rendered with the CPU and don't use available GPUs for rendering. Configure Group Policy for the session host to enable GPU-accelerated rendering:
-
-1. Connect to the desktop of the VM by using an account that has local administrator privileges.
-2. Open the **Start** menu and enter **gpedit.msc** to open Group Policy Editor.
-3. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
-4. Select the policy **Use hardware graphics adapters for all Remote Desktop Services sessions**. Set this policy to **Enabled** to enable GPU rendering in the remote session.
-
-## Configure GPU-accelerated frame encoding
-
-Remote Desktop encodes all graphics that apps and desktops render for transmission to Remote Desktop clients. When part of the screen is frequently updated, this part of the screen is encoded with a video codec (H.264/AVC). By default, Remote Desktop doesn't use available GPUs for this encoding.
-
-Configure Group Policy for the session host to enable GPU-accelerated frame encoding. The following procedure continues the previous steps.
+By default, remote sessions are rendered with the CPU and don't use available GPUs. You can enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding using Microsoft Intune or Group Policy.
 
 > [!NOTE]
-> GPU-accelerated frame encoding is not available in NVv4-series VMs.
+> GPU-accelerated frame encoding isn't available with NVv4-series VMs.
 
-1. Select the policy **Configure H.264/AVC hardware encoding for Remote Desktop connections**. Set this policy to **Enabled** to enable hardware encoding for AVC/H.264 in the remote session.
+Select the relevant tab for your scenario.
 
-   If you're using Windows Server 2016, set **Prefer AVC Hardware Encoding** to **Always attempt**.
+# [Microsoft Intune](#tab/intune)
 
-2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
+To enable GPU-accelerated application rendering using Microsoft Intune:
 
-   ```cmd
-   gpupdate.exe /force
-   ```
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
-3. Sign out of the Remote Desktop session.
+1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Settings catalog** profile type.
 
-## Configure full-screen video encoding
+1. In the settings picker, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
 
-> [!NOTE]
-> You can enable full-screen video encoding even without a GPU present.
+   :::image type="content" source="media/enable-gpu-acceleration/remote-session-environment-intune.png" alt-text="A screenshot showing the redirection options in the Microsoft Intune portal." lightbox="media/enable-gpu-acceleration/remote-session-environment-intune.png":::
 
-If you often use applications that produce high-frame-rate content, you might choose to enable full-screen video encoding for a remote session. Such applications might include 3D modeling, CAD/CAM, or video applications.
+1. Select the following settings, then close the settings picker:
 
-A full-screen video profile provides a higher frame rate and better user experience for these applications, at the expense of network bandwidth and both session host and client resources. We recommend that you use GPU-accelerated frame encoding for a full-screen video encoding.
+   1. For GPU-accelerated application rendering, check the box for **Use hardware graphics adapters for all Remote Desktop Services sessions**.
 
-Configure Group Policy for the session host to enable full-screen video encoding. Continuing the previous steps:
+   1. For GPU accelerated frame encoding, check the box for **Configure H.264/AVC hardware encoding for Remote Desktop connections**.
 
-1. Select the policy **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**. Set this policy to **Enabled** to force the H.264/AVC 444 codec in the remote session.
-2. Now that you've edited the policies, force a Group Policy update. Open the command prompt as an administrator and run the following command:
+   1. For full-screen video encoding, check the box for **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections**.
 
-   ```cmd
-   gpupdate.exe /force
-   ```
+1. Expand the **Administrative templates** category, then set toggle the switch for each setting as follows:
 
-3. Sign out of the Remote Desktop session.
+   1. For GPU-accelerated application rendering, set **Use hardware graphics adapters for all Remote Desktop Services sessions** to **Enabled**.
 
-## Verify GPU-accelerated app rendering
+   1. For GPU accelerated frame encoding, set **Configure H.264/AVC hardware encoding for Remote Desktop connections** to **Enabled**.
 
-To verify that apps are using the GPU for rendering, try either of the following methods:
+   1. For full-screen video encoding, set **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** to **Enabled**.
 
-* For Azure VMs with an NVIDIA GPU, use the `nvidia-smi` utility to check for GPU utilization when running your apps. For more information, see [Verify driver installation](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
-* On supported operating system versions, you can use Task Manager to check for GPU utilization. Select the GPU on the **Performance** tab to see whether apps are utilizing the GPU.
+1. Select **Next**.
 
-## Verify GPU-accelerated frame encoding
+1. *Optional*: On the **Scope tags** tab, select a scope tag to filter the profile. For more information about scope tags, see [Use role-based access control (RBAC) and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
 
-To verify that Remote Desktop is using GPU-accelerated encoding:
+1. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select **Next**.
 
-1. Connect to the desktop of the VM by using the Azure Virtual Desktop client.
-2. Open Event Viewer and go to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**.
-3. Look for event ID 170. If you see **AVC hardware encoder enabled: 1**, Remote Desktop is using GPU-accelerated encoding.
+1. On the **Review + create** tab, review the settings, then select **Create**.
 
-> [!TIP]
-> If you're connecting to your session host outside Azure Virtual Desktop for testing GPU acceleration, the logs are instead stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
+1. Once the policy applies to the computers providing a remote session, restart them for the settings to take effect.
 
-## Verify full-screen video encoding
+# [Group Policy](#tab/group-policy)
 
-To verify that Remote Desktop is using full-screen video encoding:
+To enable GPU-accelerated application rendering using Group Policy:
 
-1. Connect to the desktop of the VM by using the Azure Virtual Desktop client.
-2. Open Event Viewer and go to the following node: **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**.
-3. Look for event ID 162. If you see **AVC Available: 1 Initial Profile: 2048**, Remote Desktop is using full-screen video encoding (AVC 444).
+1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
 
-> [!TIP]
-> If you're connecting to your session host outside Azure Virtual Desktop for testing GPU acceleration, the logs are instead stored in **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational** in Event Viewer.
+1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
-## Next steps
+1. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Remote Session Environment**.
 
-These instructions should have you operating with GPU acceleration on one session host (one VM). Here are additional considerations for enabling GPU acceleration across a larger host pool:
+   :::image type="content" source="media/enable-gpu-acceleration/remote-session-environment-group-policy.png" alt-text="A screenshot showing the redirection options in the Group Policy editor." lightbox="media/enable-gpu-acceleration/remote-session-environment-group-policy.png":::
 
-* Consider using a [VM extension](../virtual-machines/extensions/overview.md) to simplify driver installation and updates across VMs. Use the [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-windows.md) for VMs with NVIDIA GPUs. Use the [AMD GPU Driver Extension](../virtual-machines/extensions/hpccompute-amd-gpu-windows.md) for VMs with AMD GPUs.
-* Consider using Active Directory to simplify Group Policy configuration across VMs. For information about deploying Group Policy in the Active Directory domain, see [Working with Group Policy Objects](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731212(v=ws.11)).
+1. Configure the following settings:
+
+   1. For GPU-accelerated application rendering, double-click the policy setting **Use hardware graphics adapters for all Remote Desktop Services sessions** to open it. Select **Enabled**, then select **OK**.
+
+   1. For GPU accelerated frame encoding, double-click the policy setting **Configure H.264/AVC hardware encoding for Remote Desktop connections** to open it. Select **Enabled**, then select **OK**. If you're using Windows Server 2016, you see an extra drop-down menu in the setting; set **Prefer AVC Hardware Encoding** to **Always attempt**.
+
+   1. For full-screen video encoding, double-click the policy setting **Prioritize H.264/AVC 444 Graphics mode for Remote Desktop connections** to open it. Select **Enabled**, then select **OK**.
+
+1. Ensure the policy is applied to your session hosts, then restart them for the settings to take effect.
+
+---
+
+## Verify GPU acceleration
+
+To verify that a remote session is using GPU acceleration, GPU-accelerated application rendering, frame encoding, and full-screen video encoding:
+
+1. Connect to one of the session hosts you configured, either through Azure Virtual Desktop or a direct RDP connection.
+
+1. Open an application that uses GPU acceleration and generate some load for the GPU.
+
+1. Open Task Manager and go to the **Performance** tab. Select the GPU to see whether the GPU is being utilized by the application.
+
+   :::image type="content" source="media/enable-gpu-acceleration/task-manager-rdp-gpu.png" alt-text="A screenshot showing the GPU usage in Task Manager when in a Remote Desktop session." lightbox="media/enable-gpu-acceleration/task-manager-rdp-gpu.png":::
+
+   > [!TIP]
+   > For NVIDIA GPUs, you can also use the `nvidia-smi` utility to check for GPU utilization when running your application. For more information, see [Verify driver installation](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+
+1. Open Event Viewer from the start menu, or run `eventvwr.msc` from the command line.
+
+1. Navigate to one of the following locations:
+
+   1. For connections through Azure Virtual Desktop, go to **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**.
+
+   1. For connections through a direct RDP connection, go to **Applications and Services Logs** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTs** > **Operational**.
+
+1. Look for the following event IDs:
+
+   - **Event ID 170**: If you see **AVC hardware encoder enabled: 1** in the event text, RDP is using GPU-accelerated frame encoding.
+
+   - **Event ID 162**: If you see **AVC available: 1, Initial Profile: 2048** in the event text, RDP is using full-screen video encoding (H.264/AVC 444).
+
+## Related content
+
+Increase the [default chroma value](configure-default-chroma-value.md) to improve the image quality.

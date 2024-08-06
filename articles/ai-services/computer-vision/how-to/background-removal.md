@@ -9,7 +9,6 @@ ms.author: pafarley
 ms.service: azure-ai-vision
 ms.topic: how-to
 ms.date: 01/19/2024
-ms.custom: references_regions
 ---
 
 # Remove the background in images
@@ -29,7 +28,7 @@ This guide assumes you have successfully followed the steps mentioned in the [qu
 The [quickstart](../quickstarts-sdk/image-analysis-client-library-40.md) shows you how to extract visual features from an image. However, the concepts are similar to background removal. Therefore you benefit from starting with the quickstart and making modifications.
 
 > [!IMPORTANT]
-> Background removal is only available in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
+> Background removal is only available in certain Azure regions. See [Region availability](./../overview-image-analysis.md#region-availability)
 
 ## Authenticate against the service
 

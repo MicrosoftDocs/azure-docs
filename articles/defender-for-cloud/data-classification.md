@@ -18,7 +18,7 @@ Within Defender for APIs inventory experience, you can search for sensitivity la
 ## Explore API exposure through attack paths
 
 When the Defender Cloud Security Posture Management (CSPM) plan is enabled, API attack paths let you discover and remediate the risk of API data
-exposure. For more information, see [Data security in Defender CSPM](concept-data-security-posture.md#data-security-in-defender-cspm).
+exposure. For more information, see [Data security posture management in Defender CSPM](concept-data-security-posture.md#data-security-posture-management-in-defender-cspm).
 
 1. Select the API attack path **Internet exposed APIs that are unauthenticated carry sensitive data** and review the data path:
 

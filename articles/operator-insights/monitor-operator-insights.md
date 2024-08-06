@@ -4,7 +4,7 @@ description: Start here to learn how to monitor Azure Operator Insights
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: conceptual
 ms.custom: horz-monitor
 ms.date: 12/15/2023
@@ -40,7 +40,7 @@ The Activity log is collected and stored automatically by Azure. You can:
 
 ## Resource logs for Data Products: Overview, collection and analysis
 
-Resource logs provide an insight into operations that were performed within an Azure resource. This is known as the *data plane*. For Data Products, resource logs include ingestion (activity on files uploaded to Azure Operator Insights), digestion (processing the data in those files), and management of the processed data. 
+Resource logs provide an insight into operations that were performed within an Azure resource. This is known as the *data plane*. For Data Products, resource logs include ingestion (activity on files uploaded to Azure Operator Insights), transformation (processing the data in those files), and management of the processed data.
 
 Resource logs aren't collected and stored until you create a *diagnostic setting* that routes them to one or more locations. We recommend routing them to a Log Analytics workspace, which stores the logs in [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md). Log Analytics allows you to analyze the logs of all your Azure resources together in Azure Monitor Logs and take advantage of all the features available to Azure Monitor Logs including [log queries](../azure-monitor/logs/log-query-overview.md) and [log alerts](../azure-monitor/alerts/alerts-log.md).
 

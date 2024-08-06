@@ -2,9 +2,9 @@
 title: Double encryption for data at rest
 titleSuffix: Azure HDInsight
 description: This article describes the two layers of encryption available for data at rest on Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 05/23/2023
+ms.date: 06/15/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -28,8 +28,8 @@ These types are summarized in the following table.
 
 |Cluster type |OS Disk (Managed disk) |Data disk (Managed disk) |Temp data disk (Local SSD) |
 |---|---|---|---|
-|Kafka, HBase with Accelerated writes|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default, Layer2: Optional encryption at rest using CMK|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
-|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|N/A|Layer1: Optional Encryption at host using PMK, Layer2: Optional encryption at rest using CMK|
+|Kafka, HBase with Accelerated writes|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default, Layer 2: Optional encryption at rest using CMK|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
+|All other clusters (Spark, Interactive, Hadoop, HBase without Accelerated writes)|Layer 1: [SSE Encryption](../virtual-machines/managed-disks-overview.md#encryption) by default|N/A|Layer 1: Optional Encryption at host using PMK, Layer 2: Optional encryption at rest using CMK|
 
 ## Encryption at rest using Customer-managed keys
 

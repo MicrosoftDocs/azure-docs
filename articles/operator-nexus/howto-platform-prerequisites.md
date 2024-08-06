@@ -141,203 +141,314 @@ Terminal Server has been deployed and configured as follows:
   - Terminal Server interface is connected to the operators on-premises Provider Edge routers (PEs) and configured with the IP addresses and credentials
   - Terminal Server is accessible from the management VPN
 
-1. Setup hostname:
-   [CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-)
+### Step 1: Setting up hostname
 
-   ```bash
-   sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
-   ```
+To set up the hostname for your terminal server, follow these steps:
 
-   | Parameter name | Description                  |
-   | -------------- | ---------------------------- |
-   | TS_HOSTNAME    | The terminal server hostname |
+Use the following command in the CLI:
 
-2. Setup network:
+```bash
+sudo ogcli update system/hostname hostname=\"$TS_HOSTNAME\"
+```
 
-   ```bash
-   sudo ogcli create conn << 'END'
-     description="PE1 to TS NET1"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET1_IP"
-     ipv4_static_settings.netmask="$TS_NET1_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET1_GW"
-     physif="net1"
-     END
+**Parameters:**
 
-   sudo ogcli create conn << 'END'
-     description="PE2 to TS NET2"
-     mode="static"
-     ipv4_static_settings.address="$TS_NET2_IP"
-     ipv4_static_settings.netmask="$TS_NET2_NETMASK"
-     ipv4_static_settings.gateway="$TS_NET2_GW"
-     physif="net2"
-     END
-   ```
+| Parameter Name | Description               |
+| -------------- | ------------------------- |
+| TS_HOSTNAME    | Terminal server hostname  |
 
-   | Parameter name  | Description                                |
-   | --------------- | ------------------------------------------ |
-   | TS_NET1_IP      | The terminal server PE1 to TS NET1 IP      |
-   | TS_NET1_NETMASK | The terminal server PE1 to TS NET1 netmask |
-   | TS_NET1_GW      | The terminal server PE1 to TS NET1 gateway |
-   | TS_NET2_IP      | The terminal server PE2 to TS NET2 IP      |
-   | TS_NET2_NETMASK | The terminal server PE2 to TS NET2 netmask |
-   | TS_NET2_GW      | The terminal server PE2 to TS NET2 gateway |
+[Refer to CLI Reference](https://opengear.zendesk.com/hc/articles/360044253292-Using-the-configuration-CLI-ogcli-) for more details.
 
-3. Clear net3 interface if existing:
+### Step 2: Setting up network
 
-   Check for any interface configured on physical interface net3 and "Default IPv4 Static Address":
-   ```bash
-   ogcli get conns 
-   **description="Default IPv4 Static Address"**
-   **name="$TS_NET3_CONN_NAME"**
-   **physif="net3"**
-   ```
+To configure network settings, follow these steps:
+
+Execute the following commands in the CLI:
+
+```bash
+sudo ogcli create conn << 'END'
+  description="PE1 to TS NET1"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET1_IP"
+  ipv4_static_settings.netmask="$TS_NET1_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET1_GW"
+  physif="net1"
+  END
+sudo ogcli create conn << 'END'
+  description="PE2 to TS NET2"
+  mode="static"
+  ipv4_static_settings.address="$TS_NET2_IP"
+  ipv4_static_settings.netmask="$TS_NET2_NETMASK"
+  ipv4_static_settings.gateway="$TS_NET2_GW"
+  physif="net2"
+  END
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                                     |
+| --------------- | ----------------------------------------------- |
+| TS_NET1_IP      | Terminal server PE1 to TS NET1 IP               |
+| TS_NET1_NETMASK | Terminal server PE1 to TS NET1 netmask          |
+| TS_NET1_GW      | Terminal server PE1 to TS NET1 gateway          |
+| TS_NET2_IP      | Terminal server PE2 to TS NET2 IP               |
+| TS_NET2_NETMASK | Terminal server PE2 to TS NET2 netmask          |
+| TS_NET2_GW      | Terminal server PE2 to TS NET2 gateway          |
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 3: Clearing net3 interface (if existing)
+
+To clear the net3 interface, follow these steps:
+
+1. Check for any interface configured on the physical interface net3 and "Default IPv4 Static Address" using the following command:
    
-   Remove if existing:
-   ```bash
-   ogcli delete conn "$TS_NET3_CONN_NAME"
-   ```
+```bash
+ogcli get conns 
+**description="Default IPv4 Static Address"**
+**name="$TS_NET3_CONN_NAME"**
+**physif="net3"**
+```
 
-   | Parameter name    | Description                                |
-   | ----------------- | ------------------------------------------ |
-   | TS_NET3_CONN_NAME | The terminal server NET3 Connection name   |
+**Parameters:**
 
-4. Setup support admin user:
+| Parameter Name    | Description                              |
+| ----------------- | ---------------------------------------- |
+| TS_NET3_CONN_NAME | Terminal server NET3 Connection name     |
 
-   For each user
-   ```bash
-   ogcli create user << 'END'
-   description="Support Admin User"
-   enabled=true
-   groups[0]="admin"
-   groups[1]="netgrp"
-   hashed_password="$HASHED_SUPPORT_PWD"
-   username="$SUPPORT_USER"
-   END
-   ```
-
-   | Parameter name     | Description                         |
-   | ------------------ | ----------------------------------- |
-   | SUPPORT_USER       | Support admin user                  |
-   | HASHED_SUPPORT_PWD | Encoded support admin user password |
-
-5. Add sudo support for admin users (added at admin group level):
-
-   ```bash
-   sudo vi /etc/sudoers.d/opengear
-   %netgrp ALL=(ALL) ALL
-   %admin ALL=(ALL) NOPASSWD: ALL
-   ```
+2. Remove the interface if it exists:
    
-6. Start/Enable the LLDP service if it isn't running:
+```bash
+ogcli delete conn "$TS_NET3_CONN_NAME"
+```
+
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
+
+### Step 4: Setting up support admin user
+
+To set up the support admin user, follow these steps:
+
+1. For each user, execute the following command in the CLI:
    
-   Check if LLDP service is running on TS:
-   ```bash
-   sudo systemctl status lldpd
-   lldpd.service - LLDP daemon
-       Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
-       Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
-         Docs: man:lldpd(8)
-     Main PID: 926 (lldpd)
-        Tasks: 2 (limit: 9495)
-       Memory: 1.2M
-       CGroup: /system.slice/lldpd.service
-               ├─926 lldpd: monitor.
-               └─992 lldpd: 3 neighbors.
+```bash
+ogcli create user << 'END'
+description="Support Admin User"
+enabled=true
+groups[0]="admin"
+groups[1]="netgrp"
+hashed_password="$HASHED_SUPPORT_PWD"
+username="$SUPPORT_USER"
+END
+```
 
-   Notice: journal has been rotated since unit was started, output may be incomplete.
-   ```
+**Parameters:**
 
-   If the service isn't active (running), start the service:
-   ```bash
-   sudo systemctl start lldpd
-   ```
+| Parameter Name     | Description                            |
+| ------------------ | -------------------------------------- |
+| SUPPORT_USER       | Support admin user                     |
+| HASHED_SUPPORT_PWD | Encoded support admin user password    |
 
-   Enable the service on reboot:
-   ```bash
-   sudo systemctl enable lldpd
-   ```
-7. Check system date/time:
+>[!NOTE]
+>Make sure to replace these parameters with appropriate values.
 
-   ```bash
-   date
-   ```
+### Step 5: Adding sudo support for admin users
 
-   To fix date if incorrect:
-   ```bash
-   ogcli replace system/time
-   Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
-   time="$CURRENT_DATE_TIME"
-   ```
+To add sudo support for admin users, follow these steps:
 
-   | Parameter name     | Description                                   |
-   | ------------------ | --------------------------------------------- |
-   | CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYY |
+1. Open the sudoers configuration file:
 
-8. Label TS Ports (if missing/incorrect):
+```bash
+sudo vi /etc/sudoers.d/opengear
+```
 
-   ```bash
-   ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
-   ```
+2. Add the following lines to grant sudo access:
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | NEW_NAME        | Port label name             |
-   | PORT_#          | Terminal Server port number |
+```bash
+%netgrp ALL=(ALL) ALL
+%admin ALL=(ALL) NOPASSWD: ALL
+```
 
-9. Settings required for PURE Array serial connections:
+>[!NOTE]
+>Make sure to save the changes after editing the file.
 
-   ```bash
-   ogcli update port ports-<PORT_#> 'baudrate="115200"'	<PORT_#>	Pure Storage Controller console
-   ogcli update port ports-<PORT_#> 'pinout="X1"'	<PORT_#>	Pure Storage Controller console
-   ```
+This configuration allows members of the "netgrp" group to execute any command as any user and members of the "admin" group to execute any command as any user without requiring a password.
 
-   | Parameter name  | Description                 |
-   | ----------------| --------------------------- |
-   | PORT_#          | Terminal Server port number |
+### Step 6: Ensuring LLDP service availability
 
-10. Verify Settings
+To ensure the LLDP service is available on your terminal server, follow these steps:
 
-   ```bash
-   ping $PE1_IP -c 3  # ping test to PE1 //TS subnet +2
-   ping $PE2_IP -c 3 # ping test to PE2 //TS subnet +2
-   ogcli get conns # verify NET1, NET2, NET3 Removed
-   ogcli get users # verify support admin user
-   ogcli get static_routes # there should be no static routes
-   ip r # verify only interface routes
-   ip a # verify loopback, NET1, NET2
-   date # check current date/time
-   pmshell # Check ports labelled
-   
-   sudo lldpctl
-   sudo lldpcli show neighbors # to check the LLDP neighbors - should show date from NET1 and NET2
-   # Should include 
-   -------------------------------------------------------------------------------
-   LLDP neighbors:
-   -------------------------------------------------------------------------------
-   Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
-    Chassis:     
-      ChassisID:    mac 12:00:00:00:00:85
-      SysName:      austx502xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
-   Chassis:     
-       ChassisID:    mac 12:00:00:00:00:05
-      SysName:      austx501xh1.els-an.att.net
-      SysDescr:      7.7.2, S9700-53DX-R8
-      Capability:   Router, on
-    Port:         
-      PortID:       ifname TenGigE0/0/0/0/3
-      PortDescr:     GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
-      TTL:          120
-   -------------------------------------------------------------------------------
-   ```
+Check if the LLDP service is running:
+
+```bash
+sudo systemctl status lldpd
+```
+
+You should see output similar to the following if the service is running:
+
+```Output
+lldpd.service - LLDP daemon
+   Loaded: loaded (/lib/systemd/system/lldpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Thu 2023-09-14 19:10:40 UTC; 3 months 25 days ago
+     Docs: man:lldpd(8)
+ Main PID: 926 (lldpd)
+    Tasks: 2 (limit: 9495)
+   Memory: 1.2M
+   CGroup: /system.slice/lldpd.service
+           ├─926 lldpd: monitor.
+           └─992 lldpd: 3 neighbors.
+Notice: journal has been rotated since unit was started, output may be incomplete.
+```
+
+If the service isn't active (running), start the service:
+
+```bash
+sudo systemctl start lldpd
+```
+
+Enable the service to start on reboot:
+
+```bash
+sudo systemctl enable lldpd
+```
+
+>[!NOTE]
+>Make sure to perform these steps to ensure the LLDP service is always available and starts automatically upon reboot.
+
+### Step 7: Checking system date/time
+
+Ensure that the system date/time is correctly set, and the timezone for the terminal server is in UTC.
+
+#### Check timezone setting:
+
+To check the current timezone setting:
+
+```bash
+ogcli get system/timezone
+```
+
+#### Set timezone to UTC:
+
+If the timezone is not set to UTC, you can set it using:
+
+```bash
+ogcli update system/timezone timezone=\"UTC\"
+```
+
+#### Check current date/time:
+
+Check the current date and time:
+
+```bash
+date
+```
+
+#### Fix date/time if incorrect:
+
+If the date/time is incorrect, you can fix it using:
+
+```bash
+ogcli replace system/time
+Reading information from stdin. Press Ctrl-D to submit and Ctrl-C to cancel.
+time="$CURRENT_DATE_TIME"
+```
+
+**Parameters:**
+
+| Parameter Name     | Description                                   |
+| ------------------ | --------------------------------------------- |
+| CURRENT_DATE_TIME  | Current date time in format hh:mm MMM DD, YYYY |
+
+>[!NOTE]
+>Ensure the system date/time is accurate to prevent any issues with applications or services relying on it.
+
+### Step 8: Labeling Terminal Server ports (if missing/incorrect)
+
+To label Terminal Server ports, use the following command:
+
+```bash
+ogcli update port "port-<PORT_#>"  label=\"<NEW_NAME>\"	<PORT_#>
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| NEW_NAME        | Port label name             |
+| PORT_#          | Terminal Server port number |
+
+### Step 9: Settings required for PURE Array serial connections
+
+For configuring PURE Array serial connections, use the following commands:
+
+```bash
+ogcli update port ports-<PORT_#> 'baudrate="115200"' <PORT_#> Pure Storage Controller console
+ogcli update port ports-<PORT_#> 'pinout="X1"' <PORT_#>	Pure Storage Controller console
+```
+
+**Parameters:**
+
+| Parameter Name  | Description                 |
+| ----------------| --------------------------- |
+| PORT_#          | Terminal Server port number |
+
+These commands set the baudrate and pinout for connecting to the Pure Storage Controller console.
+
+### Step 10: Verifying settings
+
+To verify the configuration settings, execute the following commands:
+
+```bash
+ping $PE1_IP -c 3  # Ping test to PE1 //TS subnet +2
+ping $PE2_IP -c 3  # Ping test to PE2 //TS subnet +2
+ogcli get conns     # Verify NET1, NET2, NET3 Removed
+ogcli get users     # Verify support admin user
+ogcli get static_routes  # Ensure there are no static routes
+ip r                # Verify only interface routes
+ip a                # Verify loopback, NET1, NET2
+date                # Check current date/time
+pmshell             # Check ports labelled
+
+sudo lldpctl
+sudo lldpcli show neighbors  # Check LLDP neighbors - should show data from NET1 and NET2
+```
+
+>[!NOTE]
+>Ensure that the LLDP neighbors are as expected, indicating successful connections to PE1 and PE2.
+
+Example LLDP neighbors output:
+
+```Output
+-------------------------------------------------------------------------------
+LLDP neighbors:
+-------------------------------------------------------------------------------
+Interface:    net2, via: LLDP, RID: 2, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:85
+    SysName:      austx502xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net2_net2_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+Interface:    net1, via: LLDP, RID: 1, Time: 0 day, 20:28:36
+  Chassis:     
+    ChassisID:    mac 12:00:00:00:00:05
+    SysName:      austx501xh1.els-an.att.net
+    SysDescr:     7.7.2, S9700-53DX-R8
+    Capability:   Router, on
+  Port:         
+    PortID:       ifname TenGigE0/0/0/0/3
+    PortDescr:    GE10_Bundle-Ether83_austx4511ts1_net1_net1_CircuitID__austxm1-AUSTX45_[CBB][MCGW][AODS]
+    TTL:          120
+-------------------------------------------------------------------------------
+```
+
+>[!NOTE]
+>Verify that the output matches your expectations and that all configurations are correct.
 
 ## Set up storage array
 
@@ -352,12 +463,12 @@ Terminal Server has been deployed and configured as follows:
    - Installation Address:
    - FIC/Rack/Grid Location:
 4. Data provided to the operator and shared with storage array technician, which will be common to all installations:
-   - Purity Code Level: 6.5.1
+   - Purity Code Level: Refer to [supported Purity versions](./reference-near-edge-storage-supported-versions.md)
    - Safe Mode: Disabled
    - Array Time zone: UTC
-   - DNS Server IP Address: 172.27.255.201
+   - DNS (Domain Name System) Server IP Address: 172.27.255.201
    - DNS Domain Suffix: not set by operator during setup
-   - NTP Server IP Address or FQDN: 172.27.255.212
+   - NTP (Network Time Protocol) Server IP Address or FQDN: 172.27.255.212
    - Syslog Primary: 172.27.255.210
    - Syslog Secondary: 172.27.255.211
    - SMTP Gateway IP address or FQDN: not set by operator during setup
@@ -398,10 +509,93 @@ Terminal Server has been deployed and configured as follows:
      - puretune -set PS_RDMA_STALE_OP_THRESH_MS 5000 "PURE-209441";
      - puretune -set PS_BDRV_REQ_MAXBUFS 128 "PURE-209441";
 
+## iDRAC IP Assignment
+
+Before deploying the Nexus Cluster, it’s best for the operator to set the iDRAC IPs while organizing the hardware racks. Here’s how to map servers to IPs:
+
+   - Assign IPs based on each server’s position within the rack.
+   - Use the fourth /24 block from the /19 subnet allocated for Fabric.
+   - Start assigning IPs from the bottom server upwards in each rack, beginning with 0.11.
+   - Continue to assign IPs in sequence to the first server at the bottom of the next rack.
+
+### Example
+
+Fabric range: 10.1.0.0-10.1.31.255 – iDRAC subnet at fourth /24 is 10.1.3.0/24.
+
+   | Rack   | Server        | iDRAC IP      |
+   |--------|---------------|---------------|
+   | Rack 1 | Worker 1      | 10.1.3.11/24  |
+   | Rack 1 | Worker 2      | 10.1.3.12/24  |
+   | Rack 1 | Worker 3      | 10.1.3.13/24  |
+   | Rack 1 | Worker 4      | 10.1.3.14/24  |
+   | Rack 1 | Worker 5      | 10.1.3.15/24  |
+   | Rack 1 | Worker 6      | 10.1.3.16/24  |
+   | Rack 1 | Worker 7      | 10.1.3.17/24  |
+   | Rack 1 | Worker 8      | 10.1.3.18/24  |
+   | Rack 1 | Controller 1  | 10.1.3.19/24  |
+   | Rack 1 | Controller 2  | 10.1.3.20/24  |
+   | Rack 2 | Worker 1      | 10.1.3.21/24  |
+   | Rack 2 | Worker 2      | 10.1.3.22/24  |
+   | Rack 2 | Worker 3      | 10.1.3.23/24  |
+   | Rack 2 | Worker 4      | 10.1.3.24/24  |
+   | Rack 2 | Worker 5      | 10.1.3.25/24  |
+   | Rack 2 | Worker 6      | 10.1.3.26/24  |
+   | Rack 2 | Worker 7      | 10.1.3.27/24  |
+   | Rack 2 | Worker 8      | 10.1.3.28/24  |
+   | Rack 2 | Controller 1  | 10.1.3.29/24  |
+   | Rack 2 | Controller 2  | 10.1.3.30/24  |
+   | Rack 3 | Worker 1      | 10.1.3.31/24  |
+   | Rack 3 | Worker 2      | 10.1.3.32/24  |
+   | Rack 3 | Worker 3      | 10.1.3.33/24  |
+   | Rack 3 | Worker 4      | 10.1.3.34/24  |
+   | Rack 3 | Worker 5      | 10.1.3.35/24  |
+   | Rack 3 | Worker 6      | 10.1.3.36/24  |
+   | Rack 3 | Worker 7      | 10.1.3.37/24  |
+   | Rack 3 | Worker 8      | 10.1.3.38/24  |
+   | Rack 3 | Controller 1  | 10.1.3.39/24  |
+   | Rack 3 | Controller 2  | 10.1.3.40/24  |
+   | Rack 4 | Worker 1      | 10.1.3.41/24  |
+   | Rack 4 | Worker 2      | 10.1.3.42/24  |
+   | Rack 4 | Worker 3      | 10.1.3.43/24  |
+   | Rack 4 | Worker 4      | 10.1.3.44/24  |
+   | Rack 4 | Worker 5      | 10.1.3.45/24  |
+   | Rack 4 | Worker 6      | 10.1.3.46/24  |
+   | Rack 4 | Worker 7      | 10.1.3.47/24  |
+   | Rack 4 | Worker 8      | 10.1.3.48/24  |
+   | Rack 4 | Controller 1  | 10.1.3.49/24  |
+   | Rack 4 | Controller 2  | 10.1.3.50/24  |
+
+An example design of three on-premises instances from the same NFC/CM pair, using sequential /19 networks in a /16:
+
+   | Instance   | Fabric Range            | iDRAC subnet |
+   |------------|-------------------------|--------------|
+   | Instance 1 | 10.1.0.0-10.1.31.255    | 10.1.3.0/24  |
+   | Instance 2 | 10.1.32.0-10.1.63.255   | 10.1.35.0/24 |
+   | Instance 3 | 10.1.64.0-10.1.95.255   | 10.1.67.0/24 | 
+
 ### Default setup for other devices installed
 
 - All network fabric devices (except for the Terminal Server) are set to `ZTP` mode
 - Servers have default factory settings
+
+## Firewall rules between Azure to Nexus Cluster.
+
+To establish firewall rules between Azure and the Nexus Cluster, the operator must open the specified ports. This ensures proper communication and connectivity for required services using TCP (Transmission Control Protocol) and UDP (User Datagram Protocol).
+
+| S.No | Source                 | Destination           | Port (TCP/UDP)  | Bidirectional  | Rule Purpose                                             |
+|------|------------------------|-----------------------|-----------------|----------------|----------------------------------------------------------|
+| 1    | Azure virtual network  | Cluster               | 22 TCP          | No             | For SSH to undercloud servers from the CM subnet.        |
+| 2    | Azure virtual network  | Cluster               | 443 TCP         | No             | To access undercloud nodes iDRAC                         |
+| 3    | Azure virtual network  | Cluster               | 5900 TCP        | No             | Gnmi                                                     |
+| 4    | Azure virtual network  | Cluster               | 6030 TCP        | No             | Gnmi Certs                                               |
+| 5    | Azure virtual network  | Cluster               | 6443 TCP        | No             | To access undercloud K8S cluster                         |
+| 6    | Cluster                | Azure virtual network | 8080 TCP        | Yes            | For mounting ISO image into iDRAC, NNF runtime upgrade   |
+| 7    | Cluster                | Azure virtual network | 3128 TCP        | No             | Proxy to connect to global Azure endpoints               |
+| 8    | Cluster                | Azure virtual network | 53 TCP and UDP  | No             | DNS                                                      |
+| 9    | Cluster                | Azure virtual network | 123 UDP         | No             | NTP                                                      |
+| 10   | Cluster                | Azure virtual network | 8888 TCP        | No             | Connecting to Cluster Manager webservice                 |
+| 11   | Cluster                | Azure virtual network | 514 TCP and UDP | No             | To access undercloud logs from the Cluster Manager       |
+
 
 ## Install CLI extensions and sign-in to your Azure subscription
 

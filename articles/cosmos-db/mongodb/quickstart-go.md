@@ -1,17 +1,17 @@
 ---
-title: Connect a Go application to Azure Cosmos DB's API for MongoDB
-description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB's API for MongoDB.
+title: Connect a Go application to Azure Cosmos DB for MongoDB
+description: This quickstart demonstrates how to connect an existing Go application to Azure Cosmos DB for MongoDB.
 author: gahl-levy
 ms.author: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.devlang: golang
 ms.topic: quickstart
 ms.date: 04/26/2022
 ms.custom: mode-api, devx-track-azurecli, devx-track-go
 ---
-# Quickstart: Connect a Go application to Azure Cosmos DB's API for MongoDB
-[!INCLUDE[MongoDB](../includes/appliesto-mongodb.md)]
+# Quickstart: Connect a Go application to Azure Cosmos DB for MongoDB
+[!INCLUDE[MongoDB](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb.md)]
 
 > [!div class="op_single_selector"]
 >
@@ -69,7 +69,7 @@ The following snippets are all taken from the `todo.go` file.
 
 ### Connecting the Go app to Azure Cosmos DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it is a fail-fast strategy)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions) encapsulates the connection string for Azure Cosmos DB, which is passed in using an environment variable (details in the upcoming section). The connection is initialized using [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) to which the `clientOptions` instance is passed. [`Ping` function](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) is invoked to confirm successful connectivity (it'is a fail-fast strategy).
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -109,7 +109,7 @@ func create(desc string) {
     }
 ```
 
-We pass in a `Todo` struct that contains the description and the status (which is initially set to `pending`)
+We pass in a `Todo` struct that contains the description and the status (which is initially set to `pending`):
 
 ```go
 type Todo struct {
@@ -120,7 +120,7 @@ type Todo struct {
 ```
 ### List `todo` items
 
-We can list TODOs based on criteria. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) is created to encapsulate the filter criteria
+We can list TODOs based on criteria. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) is created to encapsulate the filter criteria:
 
 ```go
 func list(status string) {
@@ -153,7 +153,7 @@ func list(status string) {
     }
 ```
 
-Finally, the information is rendered in tabular format
+Finally, the information is rendered in tabular format:
 
 ```go
     todoTable := [][]string{}
@@ -174,7 +174,7 @@ Finally, the information is rendered in tabular format
 
 ### Update a `todo` item
 
-A `todo` can be updated based on its `_id`. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) filter is created based on the `_id` and another one is created for the updated information, which is a new status (`completed` or `pending`) in this case. Finally, the [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) function is invoked with the filter and the updated document
+A `todo` can be updated based on its `_id`. A [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) filter is created based on the `_id` and another one is created for the updated information, which is a new status (`completed` or `pending`) in this case. Finally, the [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) function is invoked with the filter and the updated document:
 
 ```go
 func update(todoid, newStatus string) {
@@ -194,7 +194,7 @@ func update(todoid, newStatus string) {
 
 ### Delete a `todo`
 
-A `todo` is deleted based on its `_id` and it is encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
+A `todo` is deleted based on its `_id` and it'is encapsulated in the form of a [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) instance. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne) is invoked to delete the document.
 
 ```go
 func delete(todoid string) {
@@ -231,9 +231,9 @@ To confirm that the application was built properly.
 
 ### Sign in to Azure
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
+If you choose to install and use the CLI locally, this topic requires that you're running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]. 
 
-If you are using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, sign in to your Azure subscription with the [az login](/cli/azure/reference-index#az-login) command and follow the on-screen directions. You can skip this step if you're using the Azure Cloud Shell.
 
 ```azurecli
 az login 
@@ -241,17 +241,17 @@ az login
    
 ### Add the Azure Cosmos DB module
 
-If you are using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
+If you're using an installed Azure CLI, check to see if the `cosmosdb` component is already installed by running the `az` command. If `cosmosdb` is in the list of base commands, proceed to the next command. You can skip this step if you're using the Azure Cloud Shell.
 
-If `cosmosdb` is not in the list of base commands, reinstall [Azure CLI](/cli/azure/install-azure-cli).
+If `cosmosdb` isn't in the list of base commands, reinstall [Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create a resource group
 
-Create a [resource group](../../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases and storage accounts are deployed and managed. 
+Create a [resource group](../../azure-resource-manager/management/overview.md) with the [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed. 
 
 The following example creates a resource group in the West Europe region. Choose a unique name for the resource group.
 
-If you are using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to login, then copy the command into the command prompt.
+If you're using Azure Cloud Shell, select **Try It**, follow the onscreen prompts to log in, then copy the command into the command prompt.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -323,14 +323,14 @@ The Azure CLI outputs information similar to the following example.
 ## Configure the application 
 
 <a name="devconfig"></a>
-### Export the connection string, MongoDB database and collection names as environment variables. 
+### Export the connection string, MongoDB database, and collection names as environment variables. 
 
 ```bash
 export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PASSWORD>@<COSMOSDB_ACCOUNT_NAME>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@<COSMOSDB_ACCOUNT_NAME>@"
 ```
 
 > [!NOTE] 
-> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.md#connection-string-requirements).
+> The `ssl=true` option is important because of Azure Cosmos DB requirements. For more information, see [Connection string requirements](connect-account.yml#connection-string-requirements).
 >
 
 For the `MONGODB_CONNECTION_STRING` environment variable, replace the placeholders for `<COSMOSDB_ACCOUNT_NAME>` and `<COSMOSDB_PASSWORD>`
@@ -371,7 +371,7 @@ List all the `todo`s
 ./todo --list all
 ```
 
-You should see the ones you just added in a tabular format as such
+You should see the ones you just added in a tabular format as such:
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -384,7 +384,7 @@ You should see the ones you just added in a tabular format as such
 +----------------------------+--------------------------------+-----------+
 ```
 
-To update the status of a `todo` (e.g. change it to `completed` status), use the `todo` ID
+To update the status of a `todo` (e.g. change it to `completed` status), use the `todo` ID:
 
 ```bash
 ./todo --update 5e9fd6b1bcd2fa6bd267d4c4,completed
@@ -396,7 +396,7 @@ List only the completed `todo`s
 ./todo --list completed
 ```
 
-You should see the one you just updated
+You should see the one you just updated:
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -418,19 +418,19 @@ In the top Search box, enter **Azure Cosmos DB**. When your Azure Cosmos DB acco
 :::image type="content" source="./media/quickstart-go/go-cosmos-db-data-explorer.png" alt-text="Data Explorer showing the newly created document":::
 
 
-Delete a `todo` using it's ID
+Delete a `todo` using its ID:
 
 ```bash
 ./todo --delete 5e9fd6b1bcd2fa6bd267d4c4,completed
 ```
 
-List the `todo`s to confirm
+List the `todo`s to confirm:
 
 ```bash
 ./todo --list all
 ```
 
-The `todo` you just deleted should not be present
+The `todo` you just deleted shouldn't be present:
 
 ```bash
 +----------------------------+--------------------------------+-----------+

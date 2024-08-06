@@ -43,7 +43,7 @@ After you sign in, use the [export](/cli/azure/costmanagement/export) commands t
     az costmanagement export create --name DemoExport --type Usage \--scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \--storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
     ```
 
-## Next steps
+## Related content
 
 - Read the [Ingest usage details data](automation-ingest-usage-details-overview.md) article.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).

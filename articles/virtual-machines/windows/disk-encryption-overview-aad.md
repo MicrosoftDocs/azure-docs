@@ -2,7 +2,7 @@
 title: Azure Disk Encryption with Azure AD (previous release)
 description: This article provides prerequisites for using Microsoft Azure Disk Encryption for IaaS VMs.
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin

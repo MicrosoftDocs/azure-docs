@@ -3,10 +3,10 @@ title: View costs for managed online endpoints
 titleSuffix: Azure Machine Learning
 description: 'Learn to how view costs for a managed online endpoint in Azure Machine Learning.'
 services: machine-learning
-ms.service: machine-learning
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+ms.service: azure-machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.subservice: core
 ms.date: 11/04/2022
 ms.topic: conceptual
@@ -18,12 +18,12 @@ ms.custom: how-to, deploy, devplatv2
 Learn how to view costs for a managed online endpoint. Costs for your endpoints will accrue to the associated workspace. You can see costs for a specific endpoint using tags.
 
 > [!IMPORTANT]
-> This article only applies to viewing costs for Azure Machine Learning managed online endpoints. Managed online endpoints are different from other resources since they must use tags to track costs. For more information on viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+> This article only applies to viewing costs for Azure Machine Learning managed online endpoints. Managed online endpoints are different from other resources since they must use tags to track costs. For more information on managing and optimizing cost for Azure Machine Learning, see [How to manage and optimize cost](how-to-manage-optimize-cost.md). For more information on viewing the costs of other Azure resources, see [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 
 ## Prerequisites
 
 - Deploy an Azure Machine Learning managed online endpoint.
-- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.md) access on the subscription where the endpoint is deployed
+- Have at least [Billing Reader](../role-based-access-control/role-assignments-portal.yml) access on the subscription where the endpoint is deployed
 
 ## View costs
 
@@ -52,8 +52,11 @@ Create a tag filter to show your managed online endpoint and/or managed online d
 
     [![Managed online endpoint cost analysis: screenshot of the Cost Analysis view showing a red box around the "Tag" buttons in the top right.](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png)](./media/how-to-view-online-endpoints-costs/online-endpoints-cost-analysis-select-endpoint-deployment.png#lightbox)
 
+> [!TIP]
+> - Managed online endpoint uses VMs for the deployments. If you submitted request to create an online deployment and it failed, it may have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigation for the failure, you may delete the failed deployments to save the cost.
+
 ## Next steps
 - [What are endpoints?](concept-endpoints.md)
 - Learn how to [monitor your managed online endpoint](./how-to-monitor-online-endpoints.md).
-- [How to deploy an ML model with an online endpoint (CLI)](how-to-deploy-online-endpoints.md)
-- [How to deploy managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [How to deploy an ML model with an online endpoint](how-to-deploy-online-endpoints.md)
+- [How to manage and optimize cost for Azure Machine Learning](how-to-manage-optimize-cost.md)

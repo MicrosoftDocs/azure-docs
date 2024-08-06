@@ -4,7 +4,7 @@ description: Discover how to add a custom DNS resolver on all of your nodes in A
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/02/2021
 #Customer intent: As an operator or developer, I need a custom DNS configured for an Azure Red Hat OpenShift cluster
 ---
@@ -14,7 +14,7 @@ This article provides the necessary details that allow you to configure your Azu
 
 ## Before you begin
 
-This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
+This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
 
 ### Confirm cluster compatibility with custom DNS
 
@@ -80,7 +80,7 @@ You should receive a notification that your update was successful.
 
 ### Gracefully reboot your cluster
 
-These steps require having a valid kubeconfig to your cluster, see [this tutorial](./tutorial-connect-cluster.md) for details on how to obtain a kubeconfig.
+These steps require having a valid kubeconfig to your cluster, see [this tutorial](./connect-cluster.md) for details on how to obtain a kubeconfig.
 
 The following code snippets create noop `machineconfig`'s for master and worker nodes. This allows you to initiate rolling reboots for either the worker or master nodes. For more information about the Machine Config Operator (MCO), please see either [the source code](https://github.com/openshift/machine-config-operator) or the [OpenShift docs for MCO
 ](https://docs.openshift.com/container-platform/4.6/architecture/control-plane.html).

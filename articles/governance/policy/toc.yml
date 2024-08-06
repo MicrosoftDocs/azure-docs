@@ -21,7 +21,7 @@
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
   - name: Assign a policy - REST
-    displayName: armclient, postman
+    displayName: az rest
     href: ./assign-policy-rest-api.md
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
@@ -48,10 +48,7 @@
   - name: Implement Azure Policy with Azure DevOps
     displayName: devops, pipelines, releases
     href: ./tutorials/policy-devops-pipelines.md
-  - name: "Learn: Control and audit your resources by using Azure Policy"
-    displayName: governance, module
-    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
-  - name: "Add user assign identities to virtual machines"
+  - name: Add user assign identities to virtual machines
     displayName: remediate, identity, user assign, virtual machines, monitoring agent
     href: ./tutorials/modify-virtual-machine-identity.md
   - name: Disallow resource types
@@ -142,6 +139,10 @@
         href: ./samples/rbi-itf-nbfc-2017.md
       - name: RMIT Malaysia
         href: ./samples/rmit-malaysia.md
+      - name: Spain ENS
+        href: ./samples/spain-ens.md
+      - name: SOC 2 Type 2
+        href: ./samples/soc-2.md
       - name: SWIFT CSP-CSCF 2021
         href: ./samples/swift-csp-cscf-2021.md
       - name: SWIFT CSP-CSCF 2022
@@ -172,6 +173,8 @@
         href: ./samples/gov-nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/gov-nist-sp-800-171-r2.md
+      - name: SOC 2 Type 2
+        href: ./samples/gov-soc-2.md
   - name: Compute security baselines
     items:
     - name: Docker host security baseline
@@ -264,8 +267,8 @@
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
-  - name: Recommended policies
-    displayName: VMs, virtual machines
+  - name: Virtual machine recommended policies
+    displayName: VM, virtual machine
     href: ./concepts/recommended-policies.md
   - name: Regulatory Compliance
     displayName: standards, domains, controls
@@ -273,14 +276,6 @@
   - name: Design Azure Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
-  - name: Kubernetes integration
-    items:
-    - name: Azure Policy for Kubernetes
-      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
-      href: ./concepts/policy-for-kubernetes.md
-    - name: Secure AKS with Azure Policy
-      displayName: aks, psp, rego, opa
-      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
@@ -311,6 +306,14 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Kubernetes integration
+    items:
+    - name: Azure Policy for Kubernetes
+      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+      href: ./concepts/policy-for-kubernetes.md
+    - name: Secure AKS with Azure Policy
+      displayName: aks, psp, rego, opa
+      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Key Vault integration
     items:
     - name: Integrate Key Vault with Azure Policy
@@ -326,11 +329,8 @@
       href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
-    - name: Deploy Azure Monitor at scale
-      displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/best-practices.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
-    - name: Enable Azure Monitor for VMs (preview)
-      displayName: monitor, insights, log analytics, builtin
+    - name: Enable VM insights
+      displayName: monitor, monitor agent, vm, insights, log analytics, builtin
       href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:

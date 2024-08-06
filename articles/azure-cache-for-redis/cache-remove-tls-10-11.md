@@ -2,7 +2,7 @@
 title: Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 description: Learn how to remove TLS 1.0 and 1.1 from your application when communicating with Azure Cache for Redis
 author: flang-msft
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 09/12/2023
 ms.author: franlanglois
@@ -13,7 +13,7 @@ ms.devlang: csharp
 
 # Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis
 
-To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of the TLS 1.2 in November, 2024. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses.
+To meet the industry-wide push toward the exclusive use of Transport Layer Security (TLS) version 1.2 or later, Azure Cache for Redis is moving toward requiring the use of the TLS 1.2 in November 2024. TLS versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE, and to have other Common Vulnerabilities and Exposures (CVE) weaknesses.
 
 TLS versions 1.0 and 1.1 also don't support the modern encryption methods and cipher suites recommended by Payment Card Industry (PCI) compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more detail.
 
@@ -28,15 +28,15 @@ TLS versions 1.0 and 1.1 also don't support the modern encryption methods and ci
 
 As a part of this effort, you can expect the following changes to Azure Cache for Redis:
 
-- _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for MinimumTLSVersion setting for new cache creates. Existing cache instances won't be updated at this point. You can still use the Azure portal or other management APIs to [change the minimum TLS version](cache-configure.md#access-ports) to 1.0 or 1.1 for backward compatibility.
-- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting November 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service will be available while we update the MinimumTLSVerion for all caches to 1.2.
+- _Phase 1_: Azure Cache for Redis stops offering TLS 1.0/1.1 as an option for _MinimumTLSVersion_ setting for new cache creates. Existing cache instances won't be updated at this point. You can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache.
+- _Phase 2_: Azure Cache for Redis stops supporting TLS 1.1 and TLS 1.0 starting November 1, 2024. After this change, your application must use TLS 1.2 or later to communicate with your cache. The Azure Cache for Redis service remains available while we update the _MinimumTLSVerion_ for all caches to 1.2.
 
-| Date    | Description |
-|-------- |-------------|
-| September 2023 | TLS 1.0/1.1 retirement announcement |
-| March 1, 2024 | Beginning March 1, 2024, you will not be able to set the Minimum TLS version for any cache to 1.0 or 1.1. Existing cache instances won't be updated at this point.
-| October 31, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2
-| November 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances will reject connections using TLS 1.0 or 1.1.
+| Date             | Description                                                                                                                                                                                                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| September 2023   | TLS 1.0/1.1 retirement announcement                                                                                                                                                                                                                                            |
+| March 1, 2024    | Beginning March 1, 2024, you can't create new caches with the Minimum TLS version set to 1.0 or 1.1 and you can't set the _MinimumTLSVersion_ to 1.0 or 1.1 for your existing cache. The minimum TLS version won't be updated automatically for existing caches at this point. |
+| October 31, 2024 | Ensure that all your applications are connecting to Azure Cache for Redis using TLS 1.2 and Minimum TLS version on your cache settings is set to 1.2.                                                                                                                          |
+| November 1, 2024 | Minimum TLS version for all cache instances is updated to 1.2. This means Azure Cache for Redis instances reject connections using TLS 1.0 or 1.1 at this point.                                                                                                               |
   
   > [!IMPORTANT]
   > The content in this article does not apply to Azure Cache for Redis Enterprise/Enterprise Flash because the Enterprise tiers only support TLS 1.2.
@@ -72,7 +72,7 @@ Redis .NET clients use the earliest TLS version by default on .NET Framework 4.5
 
 Redis .NET Core clients default to the OS default TLS version, which depends on the OS itself.
 
-Depending on the OS version and any patches that have been applied, the effective default TLS version can vary. For more information, see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls).
+Depending on the OS version and any patches that were applied, the effective default TLS version can vary. For more information, see [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls).
 
 However, if you're using an old OS or just want to be sure, we recommend configuring the preferred TLS version manually through the client.
 

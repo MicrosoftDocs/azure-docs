@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 
-title: Azure Cosmos DB for MongoDB vCore documentation
-summary: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB vCore account's connection string.
+title: Azure Cosmos DB for MongoDB (vCore) documentation
+summary: Azure Cosmos DB for MongoDB in vCore architecture makes it easy to create a database with full native MongoDB support. You can apply your MongoDB experience and continue to use your favorite MongoDB drivers, SDKs, and tools by pointing your application to the API for MongoDB (vCore) account's connection string.
 
 metadata:
-  title: Azure Cosmos DB for MongoDB vCore documentation
-  description: Azure Cosmos DB for MongoDB vCore makes it easy to create a database with full native MongoDB support.
+  title: Azure Cosmos DB for MongoDB (vCore) documentation
+  description: Azure Cosmos DB for MongoDB in vCore architecture makes it easy to create a database with full native MongoDB support.
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: gahllevy
-  ms.service: cosmos-db
+  ms.service: azure-cosmos-db
   ms.subservice: mongodb-vcore
   ms.topic: landing-page
   ms.date: 02/21/2024
-landingContent:  
-  - title: Get started with Azure Cosmos DB for MongoDB vCore
+landingContent:
+  - title: Get started with Azure Cosmos DB for MongoDB (vCore)
     linkLists:
       - linkListType: overview
         links:
@@ -36,6 +36,8 @@ landingContent:
             url: vector-search.md
           - text: Open-source vector database
             url: vector-search-ai.md
+          - text: RAG 
+            url: rag.md
   - title: Develop applications
     linkLists:
       - linkListType: tutorial
@@ -48,7 +50,7 @@ landingContent:
             url: how-to-transactions.md
           - text: Create text search index
             url: how-to-create-text-index.md
-  - title: Manage a MongoDB vCore cluster
+  - title: Manage a vCore cluster
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -68,7 +70,7 @@ landingContent:
             url: failover-disaster-recovery.md
           - text: Migration options
             url: migration-options.md
-  - title: Migrate to MongoDB vCore
+  - title: Migrate to MongoDB (vCore)
     linkLists:
       - linkListType: concept
         links:

@@ -1,11 +1,11 @@
 ---
 author: varun-dhawan
-ms.service: postgresql
+ms.author: varundhawan
+ms.reviewer: maghan
+ms.date: 05/16/2024
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: include
-ms.date: 04/07/2024
-ms.author: varundhawan
 ---
-| **PostgreSQL 16** | **PostgreSQL 15** | **PostgreSQL 14** | **PostgreSQL 13** | **PostgreSQL 12** | **PostgreSQL 11** |
-|-------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| 1.22.1            | 1.22.1            | 1.22.1            | 1.22.1            | 1.22.1            | 1.22.1|
+1.22.1
+

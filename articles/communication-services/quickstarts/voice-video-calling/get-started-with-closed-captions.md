@@ -2,13 +2,13 @@
 title: Quickstart - Add closed captions to your app 
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add closed captions to your existing calling app using Azure Communication Services.
-author: RinaRish
-ms.author: ektrishi
-ms.date: 02/02/2022
+author: Kunaal
+ms.author: kpunjabi
+ms.date: 04/15/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-zone_pivot_groups: acs-plat-web-ios-android
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-api, devx-track-js
 ---
 
@@ -19,6 +19,10 @@ ms.custom: mode-api, devx-track-js
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Closed Captions for Web](./includes/closed-captions/closed-captions-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Video Calling with Windows](./includes/closed-captions/closed-captions-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"

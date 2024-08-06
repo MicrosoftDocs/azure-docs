@@ -11,9 +11,9 @@ metadata:
   ms.custom:
     - ignite-2023
   ms.topic: hub-page
-  author: kcpitt
-  ms.author: kellypi
-  ms.date: 07/25/2023
+  author: JnHs
+  ms.author: jenhayes
+  ms.date: 04/17/2024
   featureFlags:
   - clicktale
 highlightedContent:
@@ -50,7 +50,7 @@ productDirectory:
       url: ai-services/index.yml
     # Card
     - title: Azure OpenAI Service
-      summary: Apply advanced coding and language models to a variety of use cases
+      summary: Apply advanced coding and language models to various use cases
       imageSrc: ./media/index/azure-openai.svg
       azureCategories:
         - ai-machine-learning
@@ -173,13 +173,6 @@ productDirectory:
         - ai-machine-learning
       url: open-datasets/index.yml
     # Card
-    - title: Azure RTOS
-      summary: Making embedded IoT development and connectivity easy
-      imageSrc: ./media/index/rtos.svg
-      azureCategories:
-        - iot
-      url: /azure/rtos/
-    # Card
     - title: Azure Communication Services
       summary: Build rich communication experiences with the same secure platform used by Microsoft Teams
       imageSrc: ./media/index/communication-services.svg
@@ -284,13 +277,6 @@ productDirectory:
       azureCategories:
         - analytics
       url: synapse-analytics/index.yml
-    # Card
-    - title: Data Catalog
-      summary: Get more value from your enterprise data assets
-      imageSrc: ./media/index/data-catalog.svg
-      azureCategories:
-        - analytics
-      url: data-catalog/index.yml
     # Card
     - title: Microsoft Purview
       summary: Maximize business value with unified data governance
@@ -425,7 +411,7 @@ productDirectory:
         - featured
         - compute
         - containers
-      url: aks/index.yml
+      url: /azure/aks/
     # Card
     - title: Azure Kubernetes Fleet Manager (Fleet)
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
@@ -457,6 +443,13 @@ productDirectory:
         - compute
         - web
       url: spring-apps/index.yml
+    # Card
+    - title: Azure Compute Fleet (Preview)
+      summary: Easily provision and manage Azure compute capacity at scale
+      imageSrc: ./media/index/virtual-machine.svg
+      azureCategories:
+        - compute
+      url: ./azure-compute-fleet/overview.md
     # Card
     - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
@@ -549,14 +542,6 @@ productDirectory:
       azureCategories:
         - containers
       url: container-apps/index.yml
-    # Card
-    - title: Azure Dev Spaces
-      summary: Test and iteratively develop your microservices app in Azure AKS
-      imageSrc: ./media/index/AzureDevSpaceController_50x.svg
-      azureCategories:
-        - containers
-        - developer-tools
-      url: /previous-versions/azure/dev-spaces/
     # Card
     - title: Azure Red Hat OpenShift
       summary: Fully managed OpenShift service, jointly operated with Red Hat
@@ -1140,13 +1125,13 @@ productDirectory:
         - media
       url: /azure/media-services/latest/player-media-players-concept
     # Card
-    - title: Content Delivery Network
+    - title: Azure Front Door and Content Delivery Network (CDN)
       summary: Ensure secure, reliable content delivery with broad global reach
       imageSrc: ./media/index/cdn-profiles.svg
       azureCategories:
         - media
         - web
-      url: cdn/index.yml
+      url: frontdoor/index.yml
     # Card
     - title: Content Protection
       summary: Securely deliver content using AES, PlayReady, Widevine, and Fairplay
@@ -1348,7 +1333,7 @@ productDirectory:
         - security
       url: nat-gateway/index.yml
     # Card
-    - title: Networking
+    - title: All networking services
       summary: Provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network.
       imageSrc: ./media/index/azure-networking.svg
       azureCategories:
@@ -1476,7 +1461,7 @@ productDirectory:
       url: azure-signalr/index.yml
     # Card
     - title: Azure Orbital Ground Station
-      summary: Satellite ground station and scheduling services for fast downlinking of data
+      summary: Satellite ground station and scheduling services for fast down linking of data
       imageSrc: /media/logos/logo-azureorbital.svg
       azureCategories:
         - networking
@@ -1563,7 +1548,7 @@ productDirectory:
        - hybrid
       url: /azure/aks/hybrid/aks-edge-overview  
     # Card
-    - title: Microsoft Copilot for Azure (Preview)
+    - title: Microsoft Copilot in Azure (Preview)
       summary: Simplify operations and management from cloud to edge with an AI companion
       imageSrc: ./media/index/azure-copilot.svg
       azureCategories:

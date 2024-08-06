@@ -4,7 +4,7 @@ description: Learn about encryption of data persisted for your container instanc
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom: devx-track-azurecli
 services: container-instances
 ms.date: 06/17/2022

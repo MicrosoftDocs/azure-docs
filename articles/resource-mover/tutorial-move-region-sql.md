@@ -2,7 +2,7 @@
 title: Move Azure SQL resources between regions with Azure Resource Mover
 description: Learn how to move Azure SQL resources to another region with Azure Resource Mover
 author: ankitaduttaMSFT
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: tutorial
 ms.date: 03/29/2024
 ms.author: ankitadutta

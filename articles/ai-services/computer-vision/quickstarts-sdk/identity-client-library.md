@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-face
 ms.service: azure-ai-vision
 ms.subservice: azure-ai-face
 ms.topic: quickstart
-ms.date: 07/04/2023
+ms.date: 06/01/2024
 ms.author: pafarley
 ms.devlang: csharp
 # ms.devlang: csharp, golang, javascript, python
@@ -28,15 +28,22 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
-
-[!INCLUDE [JavaScript quickstart](../includes/quickstarts-sdk/identity-javascript-sdk.md)]
-
-::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](../includes/quickstarts-sdk/identity-python-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+[!INCLUDE [Java quickstart](../includes/quickstarts-sdk/identity-java-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts-sdk/identity-javascript-sdk.md)]
 
 ::: zone-end
 

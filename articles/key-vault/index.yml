@@ -149,7 +149,7 @@ conceptualContent:
         - url: /azure/developer/ansible/key-vault-configure-vm-security
           itemType: overview
           text: Key Vault with Linux VMs in Ansible
-        - url: ../virtual-machines/windows/disk-encryption-key-vault.md
+        - url: ../virtual-machines/windows/disk-encryption-key-vault.yml
           itemType: overview
           text: Key Vault with Azure Disk Encryption - Windows
         - url: ../virtual-machines/linux/disk-encryption-key-vault.md
@@ -169,7 +169,7 @@ conceptualContent:
         - url: ../app-service/configure-ssl-app-service-certificate.md#store-certificate-in-azure-key-vault
           itemType: overview
           text: App Services - Maintain App Service certificates in Key Vault
-        - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
+        - url: /azure/aks/developer-best-practices-pod-security#use-azure-key-vault-with-secrets-store-csi-driver
           itemType: overview
           text: Azure Kubernetes Service - Use Key Vault secrets, certificates, keys in AKS
         - url: /azure/databricks/security/secrets/secret-scopes

@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: Learn how to restrict access to Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 04/04/2023
+ms.date: 07/18/2024
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure Private Application Gateway
 ---
@@ -17,18 +17,18 @@ ms.author: greglin
 
 Historically, Application Gateway v2 SKUs, and to a certain extent v1, have required public IP addressing to enable management of the service.  This requirement has imposed several limitations in using fine-grain controls in Network Security Groups and Route Tables.  Specifically, the following challenges have been observed:
 
-1. All Application Gateways v2 deployments must contain public facing frontend IP configuration to enable communication to the **Gateway Manager** service tag.
-2. Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
-3. When introducing a default route (0.0.0.0/0) to forward traffic anywhere other than the Internet, metrics, monitoring, and updates of the gateway result in a failed status.
+* All Application Gateways v2 deployments must contain public facing frontend IP configuration to enable communication to the **Gateway Manager** service tag.
+* Network Security Group associations require rules to allow inbound access from GatewayManager and Outbound access to Internet.
+* When introducing a default route (0.0.0.0/0) to forward traffic anywhere other than the Internet, metrics, monitoring, and updates of the gateway result in a failed status.
 
 Application Gateway v2 can now address each of these items to further eliminate risk of data exfiltration and control privacy of communication from within the virtual network. These changes include the following capabilities:
 
-1. Private IP address only frontend IP configuration
+* Private IP address only frontend IP configuration
    - No public IP address resource required
-2. Elimination of inbound traffic from GatewayManager service tag via Network Security Group
-3. Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
-4. Ability to override the default route to the Internet (0.0.0.0/0)
-5. DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.md#change-dns-servers), including private link private DNS zones.
+* Elimination of inbound traffic from GatewayManager service tag via Network Security Group
+* Ability to define a **Deny All** outbound Network Security Group (NSG) rule to restrict egress traffic to the Internet
+* Ability to override the default route to the Internet (0.0.0.0/0)
+* DNS resolution via defined resolvers on the virtual network [Learn more](../virtual-network/manage-virtual-network.yml#change-dns-servers), including private link private DNS zones.
 
 Each of these features can be configured independently. For example, a public IP address can be used to allow traffic inbound from the Internet and you can define a **_Deny All_** outbound rule in the network security group configuration to prevent data exfiltration.
 
@@ -42,7 +42,7 @@ For more information about preview features, see [Set up preview features in Azu
 
 ## Register to the preview
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 Use the following steps to enroll into the public preview for the enhanced Application Gateway network controls via the Azure portal:
 
@@ -108,7 +108,7 @@ For more information about preview features, see [Set up preview features in Azu
 
 ## Unregister from the preview
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To opt out of the public preview for the enhanced Application Gateway network controls via Portal, use the following steps:
 
@@ -329,7 +329,7 @@ In the following example, we create a route table and associate it to the Applic
 
 To create a route table and associate it to the Application Gateway subnet:
 
-1.	[Create a route table](../virtual-network/manage-route-table.md#create-a-route-table):
+1.	[Create a route table](../virtual-network/manage-route-table.yml#create-a-route-table):
 
  ![View the newly created route table](./media/application-gateway-private-deployment/route-table-create.png)
 
@@ -347,9 +347,13 @@ To create a route table and associate it to the Application Gateway subnet:
 
 While in public preview, the following limitations are known.
 
-### Private link configuration (preview)
+### Private link configuration
 
 [Private link configuration](private-link.md) support for tunneling traffic through private endpoints to Application Gateway is unsupported with private only gateway.
+
+### WAF Rate Limiting
+
+[Rate limiting custom rules](../web-application-firewall/ag/rate-limiting-configure.md) for Application Gateway WAF v2 are not currently supported.
 
 ### Private IP frontend configuration only with AGIC
 

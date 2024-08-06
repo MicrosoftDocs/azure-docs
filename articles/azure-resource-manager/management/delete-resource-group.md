@@ -13,6 +13,10 @@ ai-usage: ai-assisted
 
 This article shows how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.
 
+> [!NOTE]  
+> To delete a resource group, you must first remove any underlying resource locks and backup data.
+>
+
 ## How order of deletion is determined
 
 When you delete a resource group, Resource Manager determines the order to delete resources. It uses the following order:
@@ -168,7 +172,7 @@ If you have the required access, but the delete request fails, it may be because
 
 ## Can I recover a deleted resource group?
 
-No, you can't recover a deleted resource group. However, you might be able to resore some recently deleted resources.
+No, you can't recover a deleted resource group. However, you might be able to restore some recently deleted resources.
 
 Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 

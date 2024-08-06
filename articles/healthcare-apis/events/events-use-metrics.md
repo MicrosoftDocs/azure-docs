@@ -2,12 +2,12 @@
 title: Use events metrics -  Azure Health Data Services
 description: Learn how use events metrics.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 07/11/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # How to use events metrics
@@ -27,9 +27,9 @@ In this article, learn how to use events metrics using the Azure portal.
 
 1. Within your Azure Health Data Services workspace, select the **Events** button. 
 
-   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
+   :::image type="content" source="media\events-display-metrics\events-metrics-workspace-select.png" alt-text="Screenshot of select the events button from the Azure Health Data Services workspace." lightbox="media\events-display-metrics\events-metrics-workspace-select.png"::: 
 
-2. The Events page displays the combined metrics for all Events Subscriptions. For example, we have one subscription named  **fhir-events** and one processed message. Select the subscription in the lower left-hand corner to view the metrics for that subscription.
+2. The Events page displays the combined metrics for all Events Subscriptions. For example, we have one subscription named  **fhir-events** and one processed message. To view the metrics for that subscription, select the subscription in the lower left-hand corner of the page.
 
    :::image type="content" source="media\events-display-metrics\events-metrics-main.png" alt-text="Screenshot of events you would like to display metrics for." lightbox="media\events-display-metrics\events-metrics-main.png":::
     
@@ -45,7 +45,7 @@ In this article, learn how to use events metrics using the Azure portal.
 
 In this tutorial, you learned how to use events metrics using the Azure portal.
 
-To learn how to enable events diagnostic settings, see
+To learn how to enable events diagnostic settings, see:
 
 > [!div class="nextstepaction"]
 > [Enable diagnostic settings for events](events-enable-diagnostic-settings.md)

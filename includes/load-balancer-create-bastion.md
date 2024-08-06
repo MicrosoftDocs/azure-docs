@@ -3,7 +3,7 @@
  description: include file
  services: load-balancer
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: azure-load-balancer
  ms.topic: include
  ms.date: 11/29/2023
  ms.author: mbender
@@ -12,10 +12,10 @@
 
 ## Create a virtual network and bastion host
 
-In this section, you creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
+In this section, you create a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. In the portal, search for and select **Virtual networks**.
 
@@ -27,10 +27,10 @@ In this section, you creates a virtual network with a resource subnet, an Azure 
     |---|---|
     | **Project details** |  |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **load-balancer-rg** in Name. </br> Select **OK**. |
+    | Resource group | Select **load-balancer-rg** from the dropdown or **Create new** if it doesn't exist.</br> Enter **load-balancer-rg** in Name.</br> Select **OK**. |
     | **Instance details** |  |
     | Name | Enter **lb-vnet**. |
-    | Region | Select **East US**. |
+    | Region | Select **(US) East US**. |
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
@@ -42,7 +42,7 @@ In this section, you creates a virtual network with a resource subnet, an Azure 
     | **Azure Bastion** |  |
     | Enable Azure Bastion | Select checkbox. |
     | Azure Bastion host name | Enter **lb-bastion**. |
-    | Azure Bastion public IP address | Select **Create new**. </br> Enter **lb-bastion-ip** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create new**.</br> Enter **lb-bastion-ip** in Name.</br> Select **OK**. |
 
 6. Select the **IP addresses** tab, or **Next** at the bottom of the page.
 7. On **Create virtual network** page, enter or select the following information:
@@ -52,7 +52,8 @@ In this section, you creates a virtual network with a resource subnet, an Azure 
     | **Add IPv4 address space** |  |
     | IPv4 address space | Enter **10.0.0.0/16 (65,356 addresses)**. |
     | **Subnets** | Select the **default** subnet link to edit.  |
-    | Subnet template | Leave the default **Default**. |
+    | **Edit subnet** | |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **backend-subnet**. |
     | Starting address | Enter **10.0.0.0**. |
     | Subnet size | Enter **/24(256 addresses)**. |

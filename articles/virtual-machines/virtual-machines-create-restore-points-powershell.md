@@ -3,7 +3,7 @@ title: Creating Virtual Machine Restore Points using PowerShell
 description: Creating Virtual Machine Restore Points using PowerShell
 author: ju-shim
 ms.author: jushiman
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: recovery
 ms.topic: tutorial
 ms.date: 06/30/2022
@@ -13,7 +13,7 @@ ms.custom: template-tutorial
 
 # Create virtual machine restore points using PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can create Virtual Machine restore points using PowerShell scripts. 
 The [Azure PowerShell Az](/powershell/azure/new-azureps-module-az) module is used to create and manage Azure resources from the command line or in scripts.

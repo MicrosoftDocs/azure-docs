@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -110,6 +110,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/commitmentplans/read | Reads commitment plans. |
 > | Microsoft.CognitiveServices/accounts/commitmentplans/write | Writes commitment plans. |
 > | Microsoft.CognitiveServices/accounts/commitmentplans/delete | Deletes commitment plans. |
+> | Microsoft.CognitiveServices/accounts/defenderForAISettings/read | Gets all applicable policies under the account including default policies. |
+> | Microsoft.CognitiveServices/accounts/defenderForAISettings/write | Create or update a custom Responsible AI policy. |
+> | Microsoft.CognitiveServices/accounts/defenderForAISettings/delete | Deletes a custom Responsible AI policy that's not referenced by an existing deployment. |
 > | Microsoft.CognitiveServices/accounts/deployments/read | Reads deployments. |
 > | Microsoft.CognitiveServices/accounts/deployments/write | Writes deployments. |
 > | Microsoft.CognitiveServices/accounts/deployments/delete | Deletes deployments. |
@@ -137,6 +140,8 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/read | Reads available blocklists under a resource. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/write | Modifies available blocklists under a resource. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/delete | Deletes blocklists under a resource |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/addRaiBlocklistItems/action | Batch adds blocklist items under a blocklist. |
+> | Microsoft.CognitiveServices/accounts/raiBlocklists/deleteRaiBlocklistItems/action | Batch deletes blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/read | Gets blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/write | Modifies blocklist items under a blocklist. |
 > | Microsoft.CognitiveServices/accounts/raiBlocklists/raiBlocklistItems/delete | Deletes blocklist items under a blocklist. |
@@ -170,6 +175,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/read | Get deleted account. |
 > | Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete | Purge deleted account. |
 > | Microsoft.CognitiveServices/locations/usages/read | Read all usages data |
+> | Microsoft.CognitiveServices/models/read | Reads available models. |
 > | Microsoft.CognitiveServices/Operations/read | List all available operations |
 > | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
 > | **DataAction** | **Description** |
@@ -229,6 +235,14 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneTemplates/write | Create tune template. |
 > | Microsoft.CognitiveServices/accounts/AudioContentCreation/TuneTemplates/delete | Delete tune template. |
 > | Microsoft.CognitiveServices/accounts/Autosuggest/search/action | This operation provides suggestions for a given query or partial query. |
+> | Microsoft.CognitiveServices/accounts/BatchAvatar/batchsyntheses/read | Gets one or more avatar batch syntheses. |
+> | Microsoft.CognitiveServices/accounts/BatchAvatar/batchsyntheses/write | Submits a new avatar batch synthesis. |
+> | Microsoft.CognitiveServices/accounts/BatchAvatar/batchsyntheses/delete | Deletes the batch synthesis identified by the given ID. |
+> | Microsoft.CognitiveServices/accounts/BatchAvatar/operations/read | Gets detail of operations |
+> | Microsoft.CognitiveServices/accounts/BatchTextToSpeech/batchsyntheses/read | Gets one or more text to speech batch syntheses. |
+> | Microsoft.CognitiveServices/accounts/BatchTextToSpeech/batchsyntheses/write | Submits a new text to speech batch synthesis. |
+> | Microsoft.CognitiveServices/accounts/BatchTextToSpeech/batchsyntheses/delete | Deletes the batch synthesis identified by the given ID. |
+> | Microsoft.CognitiveServices/accounts/BatchTextToSpeech/operations/read | Gets detail of operations |
 > | Microsoft.CognitiveServices/accounts/Billing/submitusage/action | submit usage with meter name and quantity specified in request body. |
 > | Microsoft.CognitiveServices/accounts/Billing/createlicense/action | create and return a license for a subscription and list of license keys specified in request body. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | This operation extracts a rich set of visual features based on the image content.  |
@@ -305,6 +319,8 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/documents/read | Get a list of documents within an index. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/ingestions/write | Ingestion request can have either video or image payload at once, but not both. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/indexes/ingestions/read | Gets the ingestion status for the specified index and ingestion name. Retrieves all ingestions for the specific index.* |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/retrieval/publickey/read | Gets a public key from certificate service in order to encrypt data. |
+> | Microsoft.CognitiveServices/accounts/ComputerVision/store/delete | Perform a delete user operation for ODC. |
 > | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>"Operation-Location"</b> field returned from Recognize Text interface. |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/imagelists/action | Create image list. |
 > | Microsoft.CognitiveServices/accounts/ContentModerator/termlists/action | Create term list. |
@@ -364,7 +380,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectjailbreak/action | A synchronous API for the analysis of text jailbreak. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:adaptiveannotate/action | A remote procedure call (RPC) operation. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectungroundedness/action | A synchronous API for the analysis of language model outputs to determine if they align with the information provided by the user or contain fictional content. |
-> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectinjectionattacks/action | A synchronous API for the analysis of text injection attacks. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:shieldprompt/action | A synchronous API for the analysis of text prompt injection attacks. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/text:detectgroundedness/action | A synchronous API for the analysis of language model outputs to determine alignment with user-provided information or identify fictional content. |
+> | Microsoft.CognitiveServices/accounts/ContentSafety/analyze/action | A synchronous API for the unified analysis of input content |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisthitcalls/read | Show blocklist hit request count at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/blocklisttopterms/read | List top terms hit in blocklist at different timestamps. |
 > | Microsoft.CognitiveServices/accounts/ContentSafety/categories/severities/requestcounts/read | List API request count number of a specific category and a specific severity given a time range. Default maxpagesize is 1000. |
@@ -409,6 +427,15 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/models/read | Gets a specific trained model of a project. Gets the trained models of a project.* |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/train/jobs/read | Get training jobs result details for a project. Get training job status and result details.* |
 > | Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/validation/read | Get the validation result of a certain training model name. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/models/action | Deploys models. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/endpoints/read | Gets one or more custom avatar endpoints. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/endpoints/delete | Deletes endpoints. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/models/read | Gets one or more custom avatar models. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/models/delete | Deletes models. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/operations/read | Gets detail of operations |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/projects/read | Gets one or more custom avatar projects. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/projects/write | Creates custom avatar projects. |
+> | Microsoft.CognitiveServices/accounts/CustomAvatar/projects/delete | Deletes custom avatar projects. |
 > | Microsoft.CognitiveServices/accounts/CustomVision/projects/action | Create a project. |
 > | Microsoft.CognitiveServices/accounts/CustomVision/user/action | *NotDefined* |
 > | Microsoft.CognitiveServices/accounts/CustomVision/quota/action | *NotDefined* |
@@ -596,14 +623,22 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Face/compare/action | Compare two faces from source image and target image based on a their similarity. |
 > | Microsoft.CognitiveServices/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/sessions/action | A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired. |
 > | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/action | <p>Creates a session for a client to perform liveness detection.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/sessions/delete | Delete all session related information for matching the specified session id. |
+> | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/sessions/read | Lists sessions for /detectLiveness/SingleModal. |
 > | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/delete | <p>Deletes a liveness detection session.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/read | <p>Reads the state of detectLiveness/singleModal session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectliveness/singlemodal/sessions/audit/read | Gets session requests and response body for the session. |
 > | Microsoft.CognitiveServices/accounts/Face/detectLiveness/singleModal/sessions/audit/read | <p>List audit entries for detectLiveness/singleModal.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
+> | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/sessions/action | A session is best for client device scenarios where developers want to authorize a client device to perform only a liveness detection without granting full access to their resource. Created sessions have a limited life span and only authorize clients to perform the desired action before access is expired. |
 > | Microsoft.CognitiveServices/accounts/Face/detectlivenessWithVerify/singleModal/sessions/action | <p>Creates a session for a client to perform liveness detection with verify.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/sessions/delete | Delete all session related information for matching the specified session id. <br/><br/> |
+> | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/sessions/read | Lists sessions for /detectLivenessWithVerify/SingleModal. |
 > | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/delete | <p>Deletes a liveness detection with verify session.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/read | <p>Reads the state of detectLivenessWithVerify/singleModal session.</p> |
+> | Microsoft.CognitiveServices/accounts/Face/detectlivenesswithverify/singlemodal/sessions/audit/read | Gets session requests and response body for the session. |
 > | Microsoft.CognitiveServices/accounts/Face/detectLivenessWithVerify/singleModal/sessions/audit/read | <p>List audit entries for detectLivenessWithVerify/singleModal.</p> |
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/write | Creates a new dynamic person group with specified dynamicPersonGroupId, name, and user-provided userData.<br>Update an existing dynamic person group name, userData, add, or remove persons.<br>The properties keep unchanged if they are not in request body.* |
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/delete | Deletes an existing dynamic person group with specified dynamicPersonGroupId. Deleting this dynamic person group only delete the references to persons data. To delete actual person see PersonDirectory Person - Delete. |
@@ -611,12 +646,12 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Face/dynamicpersongroups/persons/read | List all persons in the specified dynamic person group. |
 > | Microsoft.CognitiveServices/accounts/Face/facelists/write | Create an empty face list with user-specified faceListId, name, an optional userData and recognitionModel. Up to 64 face lists are allowed Update information of a face list, including name and userData.* |
 > | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Delete a specified face list. |
-> | Microsoft.CognitiveServices/accounts/Face/facelists/read | Retrieve a face list's faceListId, name, userData, recognitionModel and faces in the face list. List face lists' faceListId, name, userData and recognitionModel.* |
+> | Microsoft.CognitiveServices/accounts/Face/facelists/read | Retrieve a face list's faceListId, name, userData, recognitionModel and faces in the face list. List face lists' faceListId, name, userData and recognitionModel. |
 > | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Add a face to a specified face list, up to 1,000 faces. |
 > | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Delete a face from a face list by specified faceListId and persistedFaceId. |
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Create an empty large face list with user-specified largeFaceListId, name, an optional userData and recognitionModel. Update information of a large face list, including name and userData.* |
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Delete a specified large face list. |
-> | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Retrieve a large face list's largeFaceListId, name, userData and recognitionModel. List large face lists' information of largeFaceListId, name, userData and recognitionModel.* |
+> | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Retrieve a large face list's largeFaceListId, name, userData and recognitionModel. List large face lists' information of largeFaceListId, name, userData and recognitionModel. |
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Submit a large face list training task. Training is a crucial step that only a trained large face list can use. |
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Add a face to a specified large face list, up to 1,000,000 faces. Update a specified face's userData field in a large face list by its persistedFaceId.* |
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Delete a face from a large face list by specified largeFaceListId and persistedFaceId. |
@@ -624,11 +659,11 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | To check the large face list training status completed or still ongoing. LargeFaceList Training is an asynchronous operation |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Create a new large person group with user-specified largePersonGroupId, name, an optional userData and recognitionModel. Update an existing large person group's name and userData. The properties keep unchanged if they are not in request body.* |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Delete an existing large person group with specified personGroupId. Persisted data in this large person group will be deleted. |
-> | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Retrieve the information of a large person group, including its name, userData and recognitionModel. This API returns large person group information List all existing large person groups's largePersonGroupId, name, userData and recognitionModel.* |
+> | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Retrieve the information of a large person group, including its name, userData and recognitionModel. This API returns large person group information List all existing large person groups' largePersonGroupId, name, userData and recognitionModel. |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Submit a large person group training task. Training is a crucial step that only a trained large person group can use. |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Create a new person in a specified large person group. To add face to this person, please call |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Delete an existing person from a large person group. The persistedFaceId, userData, person name and face feature(s) in the person entry will all be deleted. |
-> | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face feature(s). List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds* |
+> | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face feature(s). List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds. |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Update name or userData of a person. |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Add a face to a person into a large person group for face identification or verification. To deal with an image containing Update a person persisted face's userData field.* |
 > | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Delete a face from a person in a large person group by specified largePersonGroupId, personId and persistedFaceId. |
@@ -637,26 +672,27 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/Face/operations/read | Get status of a snapshot operation. Get status of a long running operation.* |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Create a new person group with specified personGroupId, name, user-provided userData and recognitionModel. Update an existing person group's name and userData. The properties keep unchanged if they are not in request body.* |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Delete an existing person group with specified personGroupId. Persisted data in this person group will be deleted. |
-> | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Retrieve person group name, userData and recognitionModel. To get person information under this personGroup, use List person groups's personGroupId, name, userData and recognitionModel.* |
+> | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Retrieve person group name, userData and recognitionModel. To get person information under this personGroup, use List person groups' personGroupId, name, userData and recognitionModel. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Submit a person group training task. Training is a crucial step that only a trained person group can use. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Create a new person in a specified person group. To add face to this person, please call |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Delete an existing person from a person group. The persistedFaceId, userData, person name and face feature(s) in the person entry will all be deleted. |
-> | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face feature(s). List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered* |
+> | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face feature(s). List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Update name or userData of a person. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Add a face to a person into a person group for face identification or verification. To deal with an image containing Update a person persisted face's userData field.* |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Delete a face from a person in a person group by specified personGroupId, personId and persistedFaceId. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Retrieve person face information. The persisted person face is specified by its personGroupId, personId and persistedFaceId. |
 > | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | To check person group training status completed or still ongoing. PersonGroup Training is an asynchronous operation triggered |
-> | Microsoft.CognitiveServices/accounts/Face/persons/delete | Delete an existing person from person directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted. Delete an existing person from person directory The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted.* |
-> | Microsoft.CognitiveServices/accounts/Face/persons/read | Retrieve a person's name and userData from person directory. List all persons' information in person directory, including personId, name, and userData.* Retrieve a person's name and userData from person directory.* List all persons' information in person directory, including personId, name, and userData.* |
+> | Microsoft.CognitiveServices/accounts/Face/persons/delete | Delete an existing person from person directory. The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted. Delete an existing person from person directory The persistedFaceId(s), userData, person name and face feature(s) in the person entry will all be deleted. |
+> | Microsoft.CognitiveServices/accounts/Face/persons/read | Retrieve a person's name and userData from person directory. List all persons   information in person directory, including personId, name, and userData. Retrieve a person's name and userData from person directory.* List all persons' information in person directory, including personId, name, and userData. |
 > | Microsoft.CognitiveServices/accounts/Face/persons/write | Update name or userData of a person. Update name or userData of a person.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/dynamicpersongroupreferences/read | List all dynamic person groups a person has been referenced by in person directory. |
 > | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/write | Add a face to a person (see PersonDirectory Person - Create) for face identification or verification.<br>To deal with an image containing Update a person persisted face's userData field.* Add a face to a person (see PersonDirectory Person - Create) for face identification or verification.<br>To deal with an image containing* Update a person persisted face's userData field.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/delete | Delete a face from a person in person directory by specified personId and persistedFaceId. Delete a face from a person in person directory by specified personId and persistedFaceId.* |
 > | Microsoft.CognitiveServices/accounts/Face/persons/recognitionmodels/persistedfaces/read | Retrieve person face information.<br>The persisted person face is specified by its personId.<br>recognitionModel, and persistedFaceId.<br>Retrieve a person's persistedFaceIds representing the registered person face feature(s).<br>* Retrieve person face information.<br>The persisted person face is specified by its personId.<br>recognitionModel, and persistedFaceId.* Retrieve a person's persistedFaceIds representing the registered person face feature(s).<br>* |
-> | Microsoft.CognitiveServices/accounts/Face/snapshots/apply/action | Apply a snapshot, providing a user-specified object id. |
+> | Microsoft.CognitiveServices/accounts/Face/session/sessionimages/read | Gets session image by sessionImageId. |
+> | Microsoft.CognitiveServices/accounts/Face/snapshots/apply/action | Apply a snapshot, providing a user-specified object id.* |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/delete | Delete a snapshot. |
-> | Microsoft.CognitiveServices/accounts/Face/snapshots/read | Get information of a snapshot. List all of the user's accessible snapshots with information.* |
+> | Microsoft.CognitiveServices/accounts/Face/snapshots/read | Get information of a snapshot. List all of the user's accessible snapshots with information. |
 > | Microsoft.CognitiveServices/accounts/Face/snapshots/write | Update properties of a snapshot. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/documentmodels:analyze/action | Analyze document with prebuilt or custom models. |
 > | Microsoft.CognitiveServices/accounts/FormRecognizer/read/action | Internal usage |
@@ -1456,6 +1492,11 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/TextTranslation/batches/documents/read | Get the translation status for a specific document based on the request Id and document Id or get the status for all documents in a document translation request. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/dictionary/examples/action | Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with Dictionary lookup. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/dictionary/lookup/action | Provides alternative translations for a word and a small number of idiomatic phrases.<br>Each translation has a part-of-speech and a list of back-translations.<br>The back-translations enable a user to understand the translation in context.<br>The Dictionary Example operation allows further drill down to see example uses of each translation pair. |
+> | Microsoft.CognitiveServices/accounts/TextTranslation/document/batches/action | Use this API to submit a bulk (batch) translation request to the Document |
+> | Microsoft.CognitiveServices/accounts/TextTranslation/document/batches/delete | Cancel a currently processing or queued translation. |
+> | Microsoft.CognitiveServices/accounts/TextTranslation/document/batches/read | Returns a list of batch requests submitted and the status for each Returns the status for a document translation request.* |
+> | Microsoft.CognitiveServices/accounts/TextTranslation/document/batches/documents/read | Returns the translation status for a specific document based on the request Id Returns the status for all documents in a batch document translation request.* |
+> | Microsoft.CognitiveServices/accounts/TextTranslation/document/formats/read | The list of supported formats supported by the Document Translation |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/documents/formats/read | List document formats supported by the Document Translation service. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/glossaries/formats/read | List glossary formats supported by the Document Translation service. |
 > | Microsoft.CognitiveServices/accounts/TextTranslation/languages/read | Gets the set of languages currently supported by other operations of the Translator Text API. |
@@ -1482,7 +1523,7 @@ Access and manage the predictive models that you created and deployed as web ser
 
 Azure service: [Machine Learning Studio (classic)](/azure/machine-learning/classic/)
 
-[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+[!INCLUDE [ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)]
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -1561,6 +1602,7 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/resynckeys/action | Resync secrets for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/listStorageAccountKeys/action | List Storage Account keys for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/provisionManagedNetwork/action | Provision the managed network of Machine Learning Services Workspace |
+> | Microsoft.MachineLearningServices/workspaces/listConnectionModels/action | Lists the models in all Machine Learning Services connections |
 > | Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | Microsoft.MachineLearningServices/workspaces/featuresets/action | Allows action on the Machine Learning Services FeatureSet(s) |
 > | Microsoft.MachineLearningServices/workspaces/featurestoreentities/action | Allows action on the Machine Learning Services FeatureEntity(s) |
@@ -1719,7 +1761,9 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | Microsoft.MachineLearningServices/workspaces/listNotebookKeys/read | List Azure Notebook keys for a Machine Learning Services Workspace |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/read | Get my claims on data |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/write | Update my claims on data |
+> | Microsoft.MachineLearningServices/workspaces/managedstorages/claim/manage/action | Manage claims for all users in this workspace |
 > | Microsoft.MachineLearningServices/workspaces/managedstorages/quota/read | Get my data quota usage |
+> | Microsoft.MachineLearningServices/workspaces/managedstorages/quota/manage/action | Manage quota for all users in this workspace |
 > | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/read | Gets the Machine Learning Service Workspaces Marketplace Subscription(s) |
 > | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/write | Creates or Updates the Machine Learning Service Workspaces Marketplace Subscription(s) |
 > | Microsoft.MachineLearningServices/workspaces/marketplaceSubscriptions/delete | Deletes the Machine Learning Service Workspaces Marketplace Subscription(s) |

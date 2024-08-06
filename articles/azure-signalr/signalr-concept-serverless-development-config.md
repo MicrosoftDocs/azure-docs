@@ -2,7 +2,7 @@
 title: Develop & configure Azure Functions app - Azure SignalR
 description: Details on how to develop and configure serverless real-time applications using Azure Functions and Azure SignalR Service
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 04/02/2024
 ms.author: lianwei
@@ -38,7 +38,7 @@ A client application requires a valid access token to connect to Azure SignalR S
 
 Use an HTTP-triggered Azure Function and the `SignalRConnectionInfo` input binding to generate the connection information object. The function must have an HTTP route that ends in `/negotiate`.
 
-With [class-based model](#class-based-model) in C#, you don't need the `SignalRConnectionInfo` input binding and can add custom claims much more easily. For more information, see [Negotiation experience in class-based model](#negotiation-experience-in-class-based-model).
+With [class-based model](#class-based-model) in C#, you don't need the `SignalRConnectionInfo` input binding and can add custom claims much more easily. For more information, see [Negotiation experience in class-based model](#negotiation-experience-in-class-based-model-1).
 
 For more information about the `negotiate` function, see [Azure Functions development](#negotiation-function).
 
@@ -406,7 +406,7 @@ Configure your SignalR clients to use the API Management URL.
 
 ### Using App Service Authentication
 
-Azure Functions has built-in authentication, supporting popular providers such as Facebook, Twitter, Microsoft Account, Google, and Microsoft Entra ID. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that is authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
+Azure Functions has built-in authentication, supporting popular providers such as Facebook, X, Microsoft Account, Google, and Microsoft Entra ID. This feature can be integrated with the `SignalRConnectionInfo` binding to create connections to Azure SignalR Service that is authenticated to a user ID. Your application can send messages using the `SignalR` output binding that are targeted to that user ID.
 
 In the Azure portal, in your Function app's _Platform features_ tab, open the _Authentication/authorization_ settings window. Follow the documentation for [App Service Authentication](../app-service/overview-authentication-authorization.md) to configure authentication using an identity provider of your choice.
 

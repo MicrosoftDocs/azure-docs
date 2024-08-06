@@ -3,7 +3,7 @@ title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
 author: kgaddam10
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
@@ -16,6 +16,29 @@ ms.author: kavitagaddam
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## **July 2024**
+
+### FHIR service
+
+**Bug Fixes** 
+
+**Fixed: Exporting Data as SMART User**
+Exporting data as a SMART user no longer requires write scopes. Previously, it was necessary to grant "write" privileges to a SMART user for exporting data, which implied higher privilege levels. To initiate an export job as a SMART user, ensure the user is a member of the FHIR export role in RBAC and requests the "read" SMART clinical scope. 
+
+**Fixed: Updating Status Code from HTTP 500 to HTTP 400**
+During a patch operation, if the payload requested an update for a resource type other than Parameter, an internal server error (HTTP 500) was initially thrown. This has been updated to throw an HTTP 400 error instead.
+
+## **May 2024**
+
+### FHIR service
+**Enhancements to the purge-history operation**
+The purge-history operation allows you to perform a partial delete by using the query parameter ‘allowPartialSuccess’. By default, the purge-history operation waits for successful completion before deleting resources. However, if an error occurs during execution, the deletion of resources is rolled back. By using the ‘allowPartialSuccess’ query parameter, you can prevent the transaction from being rolled back in case of an error.
+
+**Bug fixes**
+
+- **Fixed: HTTP status code for long-running requests**. FHIR requests that take longer than 100 seconds to execute return an HTTP 408 status code instead of HTTP 500. 
+- **Fixed: History request in bundle**. Prior to the fix, a history request in a bundle returned HTTP status code 404.
 
 ## **March 2024**
 **Batch-bundle parallelization**

@@ -3,7 +3,7 @@ title: Securing a custom VNET in Azure Container Apps
 description: Firewall settings to secure a custom VNET in Azure Container Apps
 services: container-apps
 author: CaryChai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  reference
 ms.date: 08/29/2023
 ms.author: cachai
@@ -96,4 +96,4 @@ The following tables describe how to configure a collection of NSG allow rules. 
 #### Considerations
 
 - If you're running HTTP servers, you might need to add ports `80` and `443`.
-- Don't explicitly deny the Azure DNS address `168.63.128.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.
+- Don't explicitly deny the Azure DNS address `168.63.129.16` in the outgoing NSG rules, or your Container Apps environment won't be able to function.

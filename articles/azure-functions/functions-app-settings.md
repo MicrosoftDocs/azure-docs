@@ -2,11 +2,8 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
-ms.custom:
-  - devx-track-extended-java
-  - devx-track-python
-  - ignite-2023
-ms.date: 12/28/2023
+ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
+ms.date: 07/11/2024
 ---
 
 # App settings reference for Azure Functions
@@ -57,7 +54,17 @@ The instrumentation key for Application Insights. Don't use both `APPINSIGHTS_IN
 
 Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECTION_STRING`. Use of `APPLICATIONINSIGHTS_CONNECTION_STRING` is recommended.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
+
+The connection string for Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. The string contains the client ID of either a system-assigned or a user-assigned managed identity that is authorized to publish telemetry to your Application Insights workspace. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+
+|Key|Sample value|
+|---|------------|
+|APPLICATIONINSIGHTS_AUTHENTICATION_STRING|`ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`|
+
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -71,6 +78,8 @@ For more information, see [Connection strings](../azure-monitor/app/sdk-connecti
 |Key|Sample value|
 |---|------------|
 |APPLICATIONINSIGHTS_CONNECTION_STRING|`InstrumentationKey=...`|
+
+To connect to Application Insights with Microsoft Entra authentication, you should instead use [`APPLICATIONINSIGHTS_AUTHENTICATION_STRING`](#applicationinsights_authentication_string).
 
 ## AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL
 
@@ -193,13 +202,13 @@ Add `EnableProxies` to this list to re-enable proxies on version 4.x of the Func
 
 ## AzureWebJobsKubernetesSecretName 
 
-Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
+Indicates the Kubernetes Secrets resource used for storing keys. Supported only when running in Kubernetes. This setting requires you to set `AzureWebJobsSecretStorageType` to `kubernetes`. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.
 
 |Key|Sample value|
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultClientId
 
@@ -209,7 +218,7 @@ The client ID of the user-assigned managed identity or the app registration used
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultClientId|`<CLIENT_ID>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultClientSecret
 
@@ -219,11 +228,13 @@ The secret for client ID of the user-assigned managed identity or the app regist
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
+_This setting is deprecated and was only used when running on version 3.x of the Azure Functions runtime._ 
+
+The name of a key vault instance used to store keys. This setting was only used in version 3.x of the Functions runtime, which is no longer supported. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
 
 The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When your functions run locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
@@ -231,11 +242,11 @@ The vault must have an access policy corresponding to the system-assigned manage
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultName|`<VAULT_NAME>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultTenantId
 
-The tenant ID of the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+The tenant ID of the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 |Key|Sample value|
 |---|------------|
@@ -257,7 +268,7 @@ To learn more, see [Use Key Vault references for Azure Functions](../app-service
 
 ## AzureWebJobsSecretStorageSas
 
-A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 |Key|Sample value|
 |--|--|
@@ -272,9 +283,9 @@ Specifies the repository or provider to use for key storage. Keys are always enc
 |AzureWebJobsSecretStorageType|`blob`|Keys are stored in a Blob storage container in the account provided by the `AzureWebJobsStorage` setting. Blob storage is the default behavior when `AzureWebJobsSecretStorageType` isn't set.<br/>To specify a different storage account, use the `AzureWebJobsSecretStorageSas` setting to indicate the SAS URL of a second storage account. |
 |AzureWebJobsSecretStorageType  | `files` | Keys are persisted on the file system. This is the default behavior for Functions v1.x.|
 |AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
-|AzureWebJobsSecretStorageType | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read-only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
+|AzureWebJobsSecretStorageType | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsStorage
 
@@ -284,7 +295,7 @@ Specifies the connection string for an Azure Storage account that the Functions 
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Instead of a connection string, you can use an identity based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
 
 ## AzureWebJobsStorage__accountName
 
@@ -378,7 +389,7 @@ The value is set by the runtime based on the language stack and deployment statu
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~4`). When new minor versions of the same major version are available, they're automatically installed in the function app. 
 
 |Key|Sample value|
 |---|------------|
@@ -389,9 +400,20 @@ The following major runtime version values are supported:
 | Value | Runtime target | Comment |
 | ------ | -------- | --- |
 | `~4` | 4.x | Recommended |
-| `~3` | 3.x | No longer supported |
-| `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Support ends September 14, 2026 |
+
+A value of `~4` means that your app runs on version 4.x of the runtime. A value of `~1` pins your app to version 1.x of the runtime. Runtime versions 2.x and 3.x are no longer supported. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+If requested by support to pin your app to a specific minor version, use the full version number (for example, `4.0.12345`). For more information, see [How to target Azure Functions runtime versions](set-runtime-version.md).
+
+## FUNCTIONS\_INPROC\_NET8\_ENABLED
+
+Indicates whether to an app can use .NET 8 on the in-process model. To use .NET 8 on the in-process model, this value must be set to `1`. See [Updating to target .NET 8](./functions-dotnet-class-library.md#updating-to-target-net-8) for complete instructions, including other required configuration values.
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_INPROC_NET8_ENABLED|`1`|
+
+Set to `0` to disable support for .NET 8 on the in-process model.
 
 ## FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR
 
@@ -399,7 +421,8 @@ This app setting is a temporary way for Node.js apps to enable a breaking change
 
 Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
 
-For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+For Node.js v18 or lower, the app setting is used, and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+
 - If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
 - If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
 
@@ -408,11 +431,6 @@ For Node.js v18 or lower, the app setting can be used and the default behavior d
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`true`|Block on entry point errors and log them in Application Insights.|
 |FUNCTIONS\_NODE\_BLOCK\_ON\_ENTRY\_POINT\_ERROR|`false`|Ignore entry point errors and don't log them in Application Insights.|
 
-## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
-
->[!IMPORTANT]
-> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
-
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
 Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104857600 bytes. 
@@ -420,6 +438,11 @@ Overrides the default limit on the body size of requests sent to HTTP endpoints.
 |Key|Sample value|
 |---|------------|
 |FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+
+## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+>[!IMPORTANT]
+> This setting is no longer supported. It was originally provided to enable a short-term workaround for apps that targeted the v2.x runtime to be able to instead run on the v3.x runtime while it was still supported. Except for legacy apps that run on version 1.x, all function apps must run on version 4.x of the Functions runtime: `FUNCTIONS_EXTENSION_VERSION=~4`. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
 
 ## FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
@@ -544,7 +567,7 @@ The configuration is specific to Python function apps. It defines the prioritiza
 |PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES|`1`| Prioritize loading the Python libraries from application's package defined in requirements.txt. This prevents your libraries from colliding with internal Python worker's libraries. |
 
 ## PYTHON_ENABLE_DEBUG_LOGGING
-Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
+Enables debug-level logging in a Python function app. A value of `1` enables debug-level logging. Without this setting or with a value of `0`, only information and higher-level logs are sent from the Python worker to the Functions host. Use this setting when debugging or tracing your Python function executions.
 
 When debugging Python functions, make sure to also set a debug or trace [logging level](functions-host-json.md#logging) in the host.json file, as needed. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
@@ -614,13 +637,18 @@ Azure Files doesn't support using managed identity when accessing the file share
 
 ## WEBSITE\_CONTENTOVERVNET
 
-A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. Only required when using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
+> [!IMPORTANT]
+> WEBSITE_CONTENTOVERVNET is a legacy app setting that has been replaced by the [vnetContentShareEnabled](#vnetcontentshareenabled) site property.
+
+A value of `1` enables your function app to scale when you have your storage account restricted to a virtual network. You should enable this setting when restricting your storage account to a virtual network. Only required when using `WEBSITE_CONTENTSHARE` and `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`. To learn more, see [Restrict your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTOVERVNET|`1`|
 
-Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
+This app setting is required on the [Elastic Premium](functions-premium-plan.md) and [Dedicated (App Service) plans](dedicated-plan.md) (Standard and higher). Not supported when running on a [Consumption plan](consumption-plan.md). 
+
+[!INCLUDE [functions-content-over-vnet-shared-storage-note](../../includes/functions-content-over-vnet-shared-storage-note.md)]
 
 ## WEBSITE\_CONTENTSHARE
 
@@ -765,7 +793,7 @@ Indicates whether to use a specific [cold start](event-driven-scaling.md#cold-st
 > [!IMPORTANT]
 > WEBSITE_VNET_ROUTE_ALL is a legacy app setting that has been replaced by the [vnetRouteAllEnabled](#vnetrouteallenabled) site setting.
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all application traffic is routed through the virtual network. You'll need this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated hosting plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md).
 
 |Key|Sample value|
 |---|------------|
@@ -773,7 +801,7 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## WEBSITES_ENABLE_APP_SERVICE_STORAGE
 
-Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container. d 
+Indicates whether the `/home` directory is shared across scaled instances, with a default value of `true`. You should set this to `false` when deploying your function app in a container.
 
 ## App Service site settings
 
@@ -781,7 +809,11 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### alwaysOn
 
-On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP triggers _wakes-up_ your functions. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+
+### functionsRuntimeAdminIsolationEnabled
+
+Determines if the `/admin` endpoints are exposed for the function app. When "false", the app will serve these endpoints, and they can only be accessed using the master key for the function app. When "true", these endpoints are not served by the app.
 
 ### linuxFxVersion 
 
@@ -820,11 +852,63 @@ Sets the specific version of PowerShell on which your functions run. For more in
 
 When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
-### vnetrouteallenabled
+### vnetContentShareEnabled
 
-Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `1` indicates that all traffic is routed through the virtual network. You need this setting when using features of [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration). It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
+Apps running in a Premium plan use a file share to store content. The name of this content share is stored in the [`WEBSITE_CONTENTSHARE`](#website_contentshare) app setting and its connection string is stored in [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](#website_contentazurefileconnectionstring). To route traffic between your function app and content share through a virtual network, you must also set `vnetContentShareEnabled` to `true`. Enabling this site property is a requirement when [restricting your storage account to a virtual network](configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) in the Elastic Premium and Dedicated hosting plans.
+
+[!INCLUDE [functions-content-over-vnet-shared-storage-note](../../includes/functions-content-over-vnet-shared-storage-note.md)]
+
+This site property replaces the legacy [`WEBSITE_CONTENTOVERVNET`](#website_contentovervnet) setting.
+
+### vnetImagePullEnabled
+
+Functions [supports function apps running in Linux containers](functions-how-to-custom-container.md). To connect and pull from a container registry inside a virtual network, you must set `vnetImagePullEnabled` to `true`. This site property is supported in the Elastic Premium and Dedicated hosting plans. The Flex Consumption plan doesn't rely on site properties or app settings to configure Networking. For more information, see [Flex Consumption plan deprecations](#flex-consumption-plan-deprecations).
+
+### vnetRouteAllEnabled
+
+Indicates whether all outbound traffic from the app is routed through the virtual network. A setting value of `true` indicates that all application traffic is routed through the virtual network. Use this setting when configuring [Regional virtual network integration](functions-networking-options.md#regional-virtual-network-integration) in the Elastic Premium and Dedicated plans. It's also used when a [virtual network NAT gateway is used to define a static outbound IP address](functions-how-to-use-nat-gateway.md). For more information, see [Configure application routing](../app-service/configure-vnet-integration-routing.md#configure-application-routing).
 
 This site setting replaces the legacy [WEBSITE\_VNET\_ROUTE\_ALL](#website_vnet_route_all) setting.
+
+## Flex Consumption plan deprecations
+
+In the [Flex Consumption plan](./flex-consumption-plan.md), these site properties and application settings are deprecated and shouldn't be used when creating function app resources:
+
+| Setting/property | Reason | 
+| ----- | ----- | 
+| `ENABLE_ORYX_BUILD` |Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `FUNCTIONS_EXTENSION_VERSION` |App Setting is set by the backend. A value of ~1 can be ignored. |
+| `FUNCTIONS_WORKER_RUNTIME` |Replaced by `name` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_WORKER_RUNTIME_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `FUNCTIONS_MAX_HTTP_CONCURRENCY` |Replaced by scale and concurrency's trigger section|
+| `FUNCTIONS_WORKER_PROCESS_COUNT` |Setting not valid|
+| `FUNCTIONS_WORKER_DYNAMIC_CONCURRENCY_ENABLED` |Setting not valid|
+| `SCM_DO_BUILD_DURING_DEPLOYMENT`|Replaced by the `remoteBuild` parameter when deploying in Flex Consumption|
+| `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_CONTENTOVERVNET` |Not used for networking in Flex Consumption|
+| `WEBSITE_CONTENTSHARE` |Replaced by functionAppConfig's deployment section|
+| `WEBSITE_DNS_SERVER` |DNS is inherited from the integrated VNet in Flex|
+| `WEBSITE_NODE_DEFAULT_VERSION` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `WEBSITE_RUN_FROM_PACKAGE`|Not used for deployments in Flex Consumption|
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` |Content share is not used in Flex Consumption|
+| `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
+| `properties.alwaysOn` |Not valid|
+| `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| `properties.ftpsState` | FTPS not supported | 
+| `properties.isReserved` |Not valid|
+| `properties.IsXenon` |Not valid|
+| `properties.javaVersion` | Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.LinuxFxVersion` |Replaced by `properties.functionAppConfig.runtime`|
+| `properties.netFrameworkVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.powerShellVersion` |Replaced by `version` in `properties.functionAppConfig.runtime`|
+| `properties.siteConfig.functionAppScaleLimit` |Renamed as `maximumInstanceCount`|
+| `properties.siteConfig.preWarmedInstanceCount` | Renamed as `alwaysReadyInstances` |
+| `properties.use32BitWorkerProcess` |32-bit not supported |
+| `properties.vnetBackupRestoreEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetContentShareEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetImagePullEnabled` |Not used for networking in Flex Consumption|
+| `properties.vnetRouteAllEnabled` |Not used for networking in Flex Consumption|
+| `properties.windowsFxVersion` |Not valid|
 
 ## Next steps
 

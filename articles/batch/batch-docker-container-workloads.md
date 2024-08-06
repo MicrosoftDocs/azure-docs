@@ -2,15 +2,12 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 06/10/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
 
@@ -50,8 +47,8 @@ Keep in mind the following limitations:
 - For Windows container workloads, you should choose a multicore VM size for your pool.
 
 > [!IMPORTANT]
-> Docker, by default, will create a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
-> [virtual network](batch-virtual-network.md) for your pool, please ensure that there are no conflicting IP ranges.
+> Docker, by default, creates a network bridge with a subnet specification of `172.17.0.0/16`. If you are specifying a
+> [virtual network](batch-virtual-network.md) for your pool, ensure that there are no conflicting IP ranges.
 
 ## Supported VM images
 
@@ -77,24 +74,24 @@ without the need for a custom image.
 
 - Publisher: `microsoft-dsvm`
   - Offer: `ubuntu-hpc`
+- Publisher: `almalinux`
+  - Offer: `8-hpc-gen1`
+  - Offer: `8-hpc-gen2`
 
 #### Alternate image options
 
 Currently there are other images published by `microsoft-azure-batch` that support container workloads:
 
 - Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container`
-  - Offer: `centos-container-rdma` (For use exclusively on VM SKUs with Infiniband)
   - Offer: `ubuntu-server-container`
   - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
 
-> [!IMPORTANT]
-> It is recommended to use the `microsoft-dsvm` `ubuntu-hpc` VM image instead of images published by
-> `microsoft-azure-batch`. This image may be used on any VM SKU.
+> [!WARNING]
+> It is recommended to use images other than those published by `microsoft-azure-batch` as these
+> images are deprecated due to imminent image end-of-life.
 
 #### Notes
   The docker data root of the above images lies in different places:
-  - For the Azure Batch published `microsoft-azure-batch` images (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is located on the temporary disk.
   - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default, which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
 
   For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
@@ -144,6 +141,13 @@ To enable a Batch pool to run container workloads, you must specify [ContainerCo
 You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
 
 The advantage of prefetching container images is that when tasks first start running, they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
+
+> [!NOTE]
+> Docker Hub limits the number of image pulls. Ensure that your workload doesn't
+> [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
+> Hub-based images. It's recommended to use
+> [Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
+> [Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
 
 ### Pool without prefetched container images
 
@@ -383,15 +387,41 @@ When you run a container task, Batch automatically uses the [docker create](http
 
 As with non-container Batch tasks, you set a command line for a container task. Because Batch automatically creates the container, the command line only specifies the command or commands that run in the container.
 
-If the container image for a Batch task is configured with an [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) script, you can set your command line to either use the default ENTRYPOINT or override it:
+The following are the default behaviors Batch applies to Docker container tasks:
 
-- To use the default ENTRYPOINT of the container image, set the task command line to the empty string `""`.
+- Batch will run the container with the specified task commandline as the [CMD](https://docs.docker.com/reference/dockerfile/#cmd).
+- Batch won't interfere with the specified [ENTRYPOINT](https://docs.docker.com/reference/dockerfile/#entrypoint) of the container image.
+- Batch will override the [WORKDIR](https://docs.docker.com/reference/dockerfile/#workdir) with the [Batch task working directory](batch-compute-node-environment-variables.md).
 
-- To override the default ENTRYPOINT, add the `--entrypoint` argument for example: `--entrypoint "/bin/sh - python"`
+Ensure that you review the Docker documentation between ENTRYPOINT and CMD so you understand the
+interaction effects that can arise when container images have a specified ENTRYPOINT and you also
+specify a task commandline.
 
-- If the image doesn't have an ENTRYPOINT, set a command line appropriate for the container, for example, `/app/myapp` or `/bin/sh -c python myscript.py`
+If you would like to override the container image ENTRYPOINT, you can specify the `--entrypoint <args>`
+argument as a containerRunOption. Refer to the optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions)
+for arguments that you can provide to the `docker create` command that Batch uses to create and run the
+container. For example, to set a working directory for the container, set the `--workdir <directory>`
+option.
 
-Optional [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) are other arguments you provide to the `docker create` command that Batch uses to create and run the container. For example, to set a working directory for the container, set the `--workdir <directory>` option. See the [docker create](https://docs.docker.com/engine/reference/commandline/create/) reference for more options.
+The following are some examples of container image and Batch container options or task command lines
+and their effect:
+
+- Container image ENTRYPOINT isn't specified, and Batch task commandline is "/bin/sh -c python myscript.py".
+  - Batch creates the container with the Batch task commandline as specified and runs it in the Batch
+    task working directory. This may result in failure if "myscript.py" isn't in the Batch task working
+    directory.
+  - If the task commandline was specified as "/bin/sh -c python /path/to/script/myscript.py", then this task may
+    work correctly even with the working directory set as the Batch task working directory if all dependencies
+    for the script are satisfied.
+- Container image ENTRYPOINT is specified as "./myscript.sh", and Batch task commandline is empty.
+  - Batch creates the container relying on the ENTRYPOINT and runs it in the Batch task working directory. This
+    task may result in failure if the container image WORKDIR isn't the same as the Batch task working
+    directory, which is dependent upon various factors such as the operating system, job ID, task ID, etc.
+  - If "--workdir /path/to/script" was specified as a containerRunOption, then this task may work correctly if
+    all dependencies for the script are satisfied.
+- Container image ENTRYPOINT isn't specified, Batch task commandline is "./myscript.sh", and WORKDIR is overridden in ContainerRunOptions as "--workdir /path/to/script".
+  - Batch creates the container with the working directory to "/path/to/script" and execute the
+    commandline "./myscript.sh", which is successful as the script is found in the specified working directory.
 
 ### Container task working directory
 
@@ -408,6 +438,9 @@ For a Batch container task:
 > due to Windows container limitations.
 
 These mappings allow you to work with container tasks in much the same way as non-container tasks. For example, install applications using application packages, access resource files from Azure Storage, use task environment settings, and persist task output files after the container stops.
+
+Regardless of how the WORKDIR is set for a container image, both `stdout.txt` and `stderr.txt`
+are captured into the `AZ_BATCH_TASK_DIR`.
 
 ### Troubleshoot container tasks
 

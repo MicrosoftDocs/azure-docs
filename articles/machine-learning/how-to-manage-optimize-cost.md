@@ -2,11 +2,11 @@
 title: Manage and optimize costs
 titleSuffix: Azure Machine Learning
 description: Learn tips to optimize your cost when building machine learning models in Azure Machine Learning
-ms.reviewer: ssalgado
-author: joburges
-ms.author: joburges
+ms.reviewer: None
+author: ssalgadodev
+ms.author: ssalgado
 ms.custom: subject-cost-optimization
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 08/01/2023
@@ -19,6 +19,7 @@ Learn how to manage and optimize costs when training and deploying machine learn
 Use the following tips to help you manage and optimize your compute resource costs.
 
 - Configure your training clusters for autoscaling
+- Configure your managed online endpoints for autoscaling
 - Set quotas on your subscription and workspaces
 - Set termination policies on your training job
 - Use low-priority virtual machines (VM)
@@ -28,6 +29,7 @@ Use the following tips to help you manage and optimize your compute resource cos
 - Parallelize training
 - Set data retention and deletion policies
 - Deploy resources to the same region
+- Delete failed deployments if computes are created for them
 
 For information on planning and monitoring costs, see the [plan to manage costs for Azure Machine Learning](concept-plan-manage-cost.md) guide.
 
@@ -59,6 +61,11 @@ You can also configure the amount of time the node is idle before scale down. By
 
 AmlCompute clusters can be configured for your changing workload requirements in Azure portal, using the [AmlCompute SDK class](/python/api/azure-ai-ml/azure.ai.ml.entities.amlcompute), [AmlCompute CLI](/cli/azure/ml/compute#az-ml-compute-create), with the [REST APIs](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
+## Configure your managed online endpoints for autoscaling
+
+Autoscale automatically runs the right amount of resources to handle the load on your application. [Managed online endpoints](concept-endpoints-online.md) supports autoscaling through integration with the Azure Monitor autoscale feature.
+
+Azure Monitor autoscaling supports a rich set of rules. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination. For more information, see [Autoscale online endpoints](how-to-autoscale-endpoints.md). 
 
 ## Set quotas on resources
 
@@ -110,6 +117,10 @@ Every time a pipeline is executed, intermediate datasets are generated at each s
 Computes located in different regions may experience network latency and increased data transfer costs. Azure network costs are incurred from outbound bandwidth from Azure data centers. To help reduce network costs, deploy all your resources in the region. Provisioning your Azure Machine Learning workspace and dependent resources in the same region as your data can help lower cost and improve performance.
 
 For hybrid cloud scenarios like those using ExpressRoute, it can sometimes be more cost effective to move all resources to Azure to optimize network costs and latency.
+
+## Delete failed deployments if computes are created for them
+
+Managed online endpoint uses VMs for the deployments. If you submitted request to create an online deployment and it failed, it may have passed the stage when compute is created. In that case, the failed deployment would incur charges. If you finished debugging or investigation for the failure, you may delete the failed deployments to save the cost.
 
 ## Next steps
 

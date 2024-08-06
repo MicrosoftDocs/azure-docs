@@ -3,7 +3,7 @@ title: How to configure planned maintenance for Azure Spring Apps
 description: Describes how to configure planned maintenance for Azure Spring Apps.
 author: KarlErickson
 ms.author: haochuang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/07/2023
 ---
@@ -83,7 +83,7 @@ Currently, Azure Spring Apps performs one regular planned maintenance to upgrade
 ## Best practices
 
 - When you configure planned maintenance for multiple service instances in the same region, the maintenance takes place within the same week. For example, if maintenance for cluster A is set on Monday and cluster B on Sunday, then cluster A is maintained before cluster B, in the same week.
-- If you have two service instances that span across [Azure paired regions](../../availability-zones/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
+- If you have two service instances that span across [Azure paired regions](../../reliability/cross-region-replication-azure.md#azure-paired-regions), the maintenance takes place in different weeks for such service instances, but there's no guarantee which region is maintained first. Follow each maintenance announcement for the exact information.
 - The length of the time window for the planned maintenance is fixed to 8 hours. For example, if the start time is set to 10:00, then the maintenance job is executed at any time between 10:00 and 18:00. The service team tries its best to finish the maintenance within this time window, but sometimes it might take longer.
 - You can't exempt a maintenance job regardless of how or whether planned maintenance is configured. If you have special requests for a maintenance time that can't be met with this feature, open a support ticket.
 
