@@ -3,7 +3,7 @@ title: Understand Azure Disk Storage billing
 description: Learn about the billing factors that affect Azure managed disks, including ultra disks, Premium SSDs v2, Premium SSDs, standard SSDs, and Standard HDDs.
 author: roygara
 ms.author: rogarana
-ms.date: 03/08/2024
+ms.date: 08/06/2024
 ms.topic: conceptual
 ms.service: azure-disk-storage
 ---
@@ -24,7 +24,7 @@ The price of an Azure Ultra Disk is determined by the combination of how large t
 
 ### Ultra Disk size
 
-Ultra Disk sizes work like Premium SSD, Standard SSD, and Standard HDD sizes. When you create or modify an Ultra Disk, the size you set is rounded up to the next largest provisioned Disk Size, and you're billed for that larger provisioned Disk Size. So if you were to deploy a 200 GiB Ultra Disk or set a 200 GiB Ultra Disk, you'll have a 200 GiB Ultra Disk but it's billed as if it was 256 GiB.
+Ultra Disk sizes work like Premium SSD, Standard SSD, and Standard HDD sizes. When you create or modify an Ultra Disk, the size you set is rounded up to the next largest provisioned Disk Size, and you're billed for that larger provisioned Disk Size. So if you were to deploy a 200 GiB Ultra Disk or set a 200 GiB Ultra Disk, you'll have a 200 GiB Ultra Disk that's billed as if it was 256 GiB, since that's the next largest provisioned disk size.
 
 The Disk Size of your Ultra Disk also determines what performance caps your disk has. You have granular control of how much IOPS and throughput your disk has, up to that size's performance cap. Pricing increases as you increase your disk's size, and when you set higher IOPS and throughput. Ultra Disks offer up to 32 TiB per region per subscription by default, but support higher size by request. To request an increase in size, request a quota increase or contact Azure Support. 
 
