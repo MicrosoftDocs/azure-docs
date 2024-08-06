@@ -7,20 +7,14 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 08/06/2024
 ---
 
 # Create a custom IPv6 address prefix
 
-A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
+In this article, you learn how to create a custom IPv6 address prefix. You prepare a range to provision, provision the range for IP allocation, and enable the range to be advertised by Microsoft.
 
-The steps in this article detail the process to:
-
-* Prepare a range to provision
-
-* Provision the range for IP allocation
-
-* Enable the IPv6 range to be advertised by Microsoft
+A custom IPv6 address prefix enables you to bring your own IPv6 ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses.
 
 For this article, choose between the Azure portal, Azure CLI, or PowerShell to create a custom IPv6 address prefix.
 
@@ -51,7 +45,7 @@ For this article, choose between the Azure portal, Azure CLI, or PowerShell to c
 - Ensure your Az.Network module is 5.1.1 or later. To verify the installed module, use the command `Get-InstalledModule -Name "Az.Network"`. If the module requires an update, use the command `Update-Module -Name "Az.Network"` if necessary.
 - A customer owned IPv6 range to provision in Azure. A sample customer range (2a05:f500:2::/48) is used for this example, but wouldn't be validated by Azure; you need to replace the example range with yours.
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ---
 
@@ -79,7 +73,7 @@ The following flow creates a custom IP prefix in the specified region and resour
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-### Create and provision a custom IP address prefix
+### Create and provision a custom IPv6 address prefix
 
 1. In the search box at the top of the portal, enter **Custom IP**.
 
@@ -102,7 +96,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | Global IPv6 Prefix (CIDR) | Enter **2a05:f500:2::/48**. |
     | ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
     | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
-    | Availability Zones | Select **Zone-redundant**. |
 
     :::image type="content" source="./media/create-custom-ip-address-prefix-ipv6/create-custom-ipv6-prefix.png" alt-text="Screenshot of create custom IP prefix page in Azure portal.":::
 
@@ -114,7 +107,7 @@ The range is pushed to the Azure IP Deployment Pipeline. The deployment process 
 
 ### Provision a regional custom IPv6 address prefix
 
-After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The "children" custom IP prefixes will be advertised locally from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required. (Because these ranges will be advertised from a specific region, zones can be utilized.)
+After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The "children" custom IP prefixes advertise from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required (but availability zones can be utilized).
 
 In the same **Create a custom IP prefix** page as before, enter or select the following information:
 
@@ -122,7 +115,7 @@ In the same **Create a custom IP prefix** page as before, enter or select the fo
 | ------- | ----- |
 | **Project details** |   |
 | Subscription | Select your subscription |
-| Resource group | Select **Create new**. </br> Enter **myResourceGroup**. </br> Select **OK**. |
+| Resource group | Select **Create new**.</br> Enter **myResourceGroup**.</br> Select **OK**. |
 | **Instance details** |   |
 | Name | Enter **myCustomIPv6RegionalPrefix**. |
 | Region | Select **West US 2**. |
@@ -130,7 +123,7 @@ In the same **Create a custom IP prefix** page as before, enter or select the fo
 | IP prefix range | Select Regional. |
 | Custom IP prefix parent | Select myCustomIPv6GlobalPrefix (2a05:f500:2::/48) from the drop-down menu. |
 | Regional IPv6 Prefix (CIDR) | Enter **2a05:f500:2:1::/64**. |
-| ROA expiration date | Enter your ROA expiration date in the **yyyymmdd** format. |
+| ROA expiration date | Enter your ROA (Route Origin Expiration) expiration date in the **yyyymmdd** format. |
 | Signed message | Paste in the output of **$byoipauthsigned** from the pre-provisioning section. |
 | Availability Zones | Select **Zone-redundant**. |
 
@@ -203,7 +196,7 @@ The following command creates a custom IP prefix in the specified region and res
 
 ### Provision a regional custom IPv6 address prefix
 
-After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The *children* custom IP prefixes are advertised locally from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required. (Because these ranges are advertised from a specific region, zones can be utilized.)
+After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The "children" custom IP prefixes advertise from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required (but availability zones can be utilized).
 
 ```azurecli-interactive
   az network custom-ip prefix create \
@@ -256,7 +249,6 @@ It's possible to commission the global custom IPv6 prefix prior to the regional 
 > [!IMPORTANT]
 > As the global custom IPv6 prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact.
 
-
 # [Azure PowerShell](#tab/azurepowershell/)
 
 ### Create a resource group and specify the prefix and authorization messages
@@ -292,7 +284,7 @@ $myCustomIPv6GlobalPrefix = New-AzCustomIPPrefix @prefix
 
 ### Provision a regional custom IPv6 address prefix
 
-After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The "children" custom IP prefixes will be advertised locally from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required. (Because these ranges will be advertised from a specific region, zones can be utilized.)
+After the global custom IP prefix is in a **Provisioned** state, regional custom IP prefixes can be created. These ranges must always be of size /64 to be considered valid. The ranges can be created in any region (it doesn't need to be the same as the global custom IP prefix), keeping in mind any geolocation restrictions associated with the original global range. The "children" custom IP prefixes advertise from the region they're created in. Because the validation is only done for global custom IP prefix provision, no Authorization or Signed message is required (but availability zones can be utilized).
 
 ```azurepowershell-interactive
 $prefix =@{
