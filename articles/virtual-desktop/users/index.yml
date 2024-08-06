@@ -6,7 +6,6 @@ summary: Connecting to Azure Virtual Desktop made easy.
 metadata:
   title: Azure Virtual Desktop user documentation
   description: Access your Windows desktop and applications from virtually anywhere, fully optimized for Windows 11 and Microsoft 365.
-  ms.service: azure-virtual-desktop
   ms.topic: landing-page
   author: dknappettmsft
   ms.author: daknappe
