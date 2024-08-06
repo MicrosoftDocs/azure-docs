@@ -14,24 +14,47 @@ recommendations: false
 
 # Get started using Provisioned Deployments on the Azure OpenAI Service
 
-The following guide walks you through setting up a provisioned deployment with your Azure OpenAI Service resource. 
+The following guide walks you through key steps in creating a provisioned deployment with your Azure OpenAI Service resource. For more details on the concepts discussed here, see:
+* [Azure OpenAI Provisioned Onboarding Guide](./provisioned-throughput-onboarding.md)
+* [Azure OpenAI Provisioned Concepts](../concepts/provisioned-throughput.md) 
 
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
-- Obtained Quota for a provisioned deployment and purchased a commitment. 
+- Assignment of the Contributor or Cognitive Services Contributor role to user in the subscription.
+- Access to Azure OpenAI Studio
+
+## Obtain/verify PTU quota availability.
+
+Provisioned throughput deployments are sized in units called Provisioned Throughput Units (PTUs). PTU quota is granted to a subscription regionally and limits the total number of PTUs that can be deployed in that region across all models and versions. 
+
+Creating a new deployment requires available (unused) quota to cover the desired size of the deployment. For example: If a subscription has the following in South Central US: 
+
+* Total PTU Quota = 500 PTUs 
+* Deployments: 
+    * 100 PTUs: GPT-4o, 2024-05-13 
+    * 100 PTUs: GPT-4, 0613 
+
+Then 200 PTUs of quota are considered used, and there are 300 PTUs available for use to create new deployments. 
+
+A default amount of PTU quota is assigned to all subscriptions in several regions.  You can view the quota available to you in a region by visiting the Quotas blade in Azure OpenAI Studio and selecting the desired subscription and region.  For example, the screenshot below shows a quota limit of 500 PTUs in West US for the selected subscription.  (Note: You may see lower values of available default quota). 
+ 
+:::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot of the available quota in Azure OpenAI studio." lightbox="../media/provisioned/available-quota.png":::
+
+Additional quota can be requested by clicking the Request Quota link to the right of the “Usage/Limit” column.  (This is off-screen in the screenshot above). 
+
+## Create an Azure OpenAI resource 
+
+Provisioned Throughput deployments are created via Azure OpenAI resource objects within Azure. You must have an Azure OpenAI resource in each region where you intend to create a deployment. Use the Azure portal to [create a resource](./create-resource.md) in a region with available quota, if required.  
 
 > [!NOTE]
-> Provisioned Throughput Units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
+> Azure OpenAI resources can be used with all types of Azure OpenAI deployments. There is no requirement to create dedicated resources for your provisioned deployment. 
 
-
-## Create your provisioned deployment
+## Create your provisioned deployment - capacity is available
 
 After you purchase a commitment on your quota, you can create a deployment. To create a provisioned deployment, you can follow these steps; the choices described reflect the entries shown in the screenshot. 
 
-:::image type="content" source="../media/provisioned/deployment-screen.jpg" alt-text="Screenshot of the Azure OpenAI Studio deployment page for a provisioned deployment." lightbox="../media/provisioned/deployment-screen.jpg":::
+:::image type="content" source="../media/provisioned/deployment-screen.png" alt-text="Screenshot of the Azure OpenAI Studio deployment page for a provisioned deployment." lightbox="../media/provisioned/deployment-screen.png":::
 
 
 
@@ -50,6 +73,9 @@ After you purchase a commitment on your quota, you can create a deployment. To c
 | Deployment Type	|This impacts the throughput and performance. Choose Provisioned-Managed for your provisioned deployment 	| Provisioned-Managed |
 | Provisioned Throughput Units |	Choose the amount of throughput you wish to include in the deployment. |	100 |
 
+Important things to note: 
+* The deployment dialog contains a reminder that you can purchase an Azure Reservation for Azure OpenAI Provisioned to obtain a significant discount for a term commitment. 
+* There is a message that tells you the list, hourly price of the deployment that you would be charged if this deployment is not covered by a reservation.  This is a list price that does not include any negotiated discounts for your company. 
 
 If you wish to create your deployment programmatically, you can do so with the following Azure CLI command. Update the `sku-capacity` with the desired number of provisioned throughput units.
 
@@ -67,7 +93,29 @@ az cognitiveservices account deployment create \
 
 REST, ARM template, Bicep and Terraform can also be used to create deployments. See the section on automating deployments in the [Managing Quota](quota.md?tabs=rest#automate-deployment) how-to guide and replace the `sku.name` with "ProvisionedManaged" rather than "Standard."
 
-## Make your first calls
+## Create your provisioned deployment – Capacity is not available 
+
+Due to the dynamic nature of capacity availability, it is possible that the region of your selected resource may not have the service capacity to create the deployment of the specified model, version and number of PTUs. 
+
+In this event, Azure OpenAI Studio will direct you to other regions with available quota and capacity to create a deployment of the desired model.  If this happens, the deployment dialog will look like this: 
+
+:::image type="content" source="../media/provisioned/deployment-screen-2.png" alt-text="Screenshot of the Azure OpenAI Studio deployment page for a provisioned deployment with no capacity available." lightbox="../media/provisioned/deployment-screen-2.png":::
+
+Things to notice: 
+
+* A message displays showing you many PTUs you have in available quota, and how many can currently be deployed at this time. 
+* If you select a number of PTUs greater than service capacity, a message will appear that provides options for you to obtain more capacity, and a button to allow you to select an alternate region.  Clicking the "See other regions" button will display a dialog that shows a list of Azure OpenAI resources where you can create a deployment, along with the maximum sized deployment that can be created based on available quota and service capacity in each region. 
+
+:::image type="content" source="../media/provisioned/choose-different-resource.png" alt-text="Screenshot of the Azure OpenAI Studio deployment page for choosing a different resource and region." lightbox="../media/provisioned/choose-different-resource.png":::
+
+Selecting a resource and clicking **Switch resource** will cause the deployment dialog to redisplay using the selected resource.  You can then proceed to create your deployment in the new region. 
+
+Learn more about the purchase model and how to purchase a reservation: 
+
+* [Azure OpenAI provisioned onboarding guide](./provisioned-throughput-onboarding.md) 
+* [Guide for Azure OpenAI provisioned reservations](../concepts/provisioned-throughput.md) 
+
+## Make your first inferencing calls
 The inferencing code for provisioned deployments is the same a standard deployment type. The following code snippet shows a chat completions call to a GPT-4 model.  For your first time using these models programmatically, we recommend starting with our [quickstart guide](../quickstart.md). Our recommendation is to use the OpenAI library with version 1.0 or greater since this includes retry logic within the library.
 
 

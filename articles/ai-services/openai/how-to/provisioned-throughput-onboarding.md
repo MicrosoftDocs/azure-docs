@@ -19,23 +19,16 @@ This article walks you through the process of onboarding to [Provisioned Through
 
 ## When to use provisioned throughput units (PTU)
 
-You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there's an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing.  
-
-### Hourly/reservation commercial model
-
-On July 29th 2024, Microsoft switched to an hourly/reservation PTU offering that offers usability improvements. For more details, see the [PTU migration article](../provisioned-migration.md#whats-changing).
-
-[!INCLUDE [hourly-ptu-description](../includes/hourly-ptu-description.md)]
-
+You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there's an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing. 
 
 ### Typical PTU scenarios
 
-- An application that is ready for production or in production.
-- Application has predictable capacity/usage expectations.
-- Application has real-time/latency sensitive requirements.
+- An application that is ready for production or in production. 
+- An application that has predictable capacity/usage expectations. 
+- An application has real-time/latency sensitive requirements. 
 
 > [!NOTE]
-> In function calling and agent use cases, token usage can be variable. You should understand your expected Tokens Per Minute (TPM) usage in detail prior to migrating the workloads to PTU.
+> In function calling and agent use cases, token usage can be variable. You should understand your expected Tokens Per Minute (TPM) usage in detail prior to migrating workloads to PTU.
 
 ## Sizing and estimation: provisioned managed only
 
@@ -64,138 +57,72 @@ The values in the output column are the estimated value of PTU units required fo
 > [!NOTE]
 > The capacity planner is an estimate based on simple input criteria. The most accurate way to determine your capacity is to benchmark a deployment with a representational workload for your use case.
 
-## Verify quota availability
+## Understanding the Provisioned Throughput Purchase Model 
 
-Provisioned throughput deployments are sized in units called Provisioned Throughput Units (PTUs). PTU quota is granted to a subscription regionally and limits the total number of PTUs that can be deployed in that region across all models and versions.
+Azure OpenAI Provisioned is purchased on-demand at an hourly basis based on the number of deployed PTUs, with substantial term discount available via the purchase of Azure Reservations.   
 
-Creating a new deployment requires available (unused) quota to cover the desired size of the deployment. For example: If a subscription has the following in South Central US:
-
-- Total PTU Quota = 500 PTUs
-- Deployments:
-    * 100 PTUs: GPT-4o, `2024-05-13`
-    * 100 PTUs: GPT-4, `0613`
-
-Then 200 PTUs of quota are considered used, and there are 300 PTUs available for use to create new deployments.
-
-## View available quota
-
-From Azure AI Studio select **Quota** in the left hand navigation bar, and then select **Azure OpenAI Provisioned**
-
-:::image type="content" source="../media/provisioned/quota-alternate.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned." lightbox="../media/provisioned/quota-alternate.png":::
-
-Here, you can view the quota granted in the selected subscription/region, and how much is used. For example, the screenshot above shows that 100 out of 200 PTUs of quota are used in South Central US. This means that 100 are available for use in creating new deployments.  **MICHAEL: WILL NEED TO UPDATE SCREENSHOTS TO FINAL VERSIONS AND ALSO EDIT THE PTUS IN THIS TEXT**
-
-By selecting the small arrow to the left of the quota name **Provisioned Managed Throughput Unit**, you can expand it to show the deployments contributing to the usage. In the example above, the “gpt-4-chatbot" deployment in the “Production-Deployments” resource is the deployment using 100 PTUs of the quota.
-
-Select the **Request Quota** link on the right-hand side to request a new quota limit for a subscription and region.
-
-## Create Azure OpenAI resources
-
-Provisioned Throughput deployments are created via Azure OpenAI resource objects within Azure. You must have an Azure OpenAI resource in each region you intend to create a deployment. Use the Azure portal to [create your resources](./create-resource.md), if required. You can also navigate directly to the resource creation dialog by following the link in AI Studio, then select **Create new Azure OpenAI resource**.
-
-:::image type="content" source="../media/provisioned/create.png" alt-text="Screenshot of new quota UI for Azure OpenAI provisioned create resource." lightbox="../media/provisioned/create.png":::
+The hourly model is useful for short-term deployment needs, such as validating new models or acquiring capacity for a hackathon.  However, the discounts provided by the Azure Reservation for Azure OpenAI Provisioned are considerable and most customers with consistent long-term usage will find a reserved model to be a better value proposition. 
 
 > [!NOTE]
-> Azure OpenAI resources can be used with all types of Azure OpenAI deployments. There is no requirement to create dedicated resource just for your provisioned deployment.
+> Azure OpenAI Provisioned customers onboarded prior to August 12, 2024 use a purchase model called the Commitment model.  These customers may continue to use this older purchase model alongside the current Hourly/reservation purchase model.  For details on the older purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](../provisioned-migration.md).
 
-## Create provisioned throughput deployments
+## Hourly Usage  
 
-1. Launch [Azure AI Studio](https://ai.azure.com/)  **MICHAEL: Let's update all Studio references/screenshots to be Azure OpenAI studio with the experience that'll be default on 8/12.  I've verifying the plan with Shane**
-2. Select the Azure OpenAI resource in the desired region, then select **Deployments** in the left-hand navigation bar.
+Provisioned Throughput deployments are charged an hourly rate ($/PTU/hr) on the number of PTUs that have been deployed.  For example, a 300 PTU deployment will be charged the hourly rate times 300.  All Azure OpenAI pricing is available in the Azure Pricing Calculator. 
 
-    :::image type="content" source="../media/provisioned/deployments.png" alt-text="Screenshot of deployments UI for Azure OpenAI deployments." lightbox="../media/provisioned/deployments.png":::
+If a deployment exists for a partial hour, it will receive a prorated charge based on the number of minutes it was deployed during the hour.  For example, a deployment that exists for 15 minutes during an hour will receive 1/4th the hourly charge.  
 
-3. Select **Deploy base model**, then select the desired model.
+If the deployment size is changed, the costs of the deployment will adjust to match the new number of PTUs.   
 
-    :::image type="content" source="../media/provisioned/select-model.png" alt-text="Screenshot of the Azure AI Studio model selection screen." lightbox="../media/provisioned/select-model.png":::
+:::image type="content" source="../media/provisioned/hourly-billing.png" alt-text="A diagram showing hourly billing." lightbox="../media/provisioned/hourly-billing.png":::
 
-4. Enter deployment information:
+Paying for provisioned deployments on an hourly basis is ideal for short-term deployment scenarios.  For example: Quality and performance benchmarking of new models, or temporarily increasing PTU capacity to cover an event such as a hackathon.  
 
-    :::image type="content" source="../media/provisioned/deploy-model.png" alt-text="Screenshot of model deployment UI for Azure OpenAI with a provisioned model being deployed." lightbox="../media/provisioned/deploy-model.png":::
+Customers that require long-term usage of provisioned deployments, however, may pay significantly less per month by purchasing a term discount via an Azure Reservation as discussed in the next section. 
 
-    - Provide the deployment name and model version.
-    - Specify the Deployment Type as **Provisioned-Managed**. This is what indicates a provisioned, instead of a standard deployment.
-    - Note the message reminding you to purchase an Azure Reservation to obtain a discount for a term commitment.
+> [!NOTE]
+> It is not recommended to scale production deployments according to incoming traffic and pay for them purely on an hourly basis. There are two reasons for this:
+> * The cost savings achieved by purchasing an Azure Reservation for Azure OpenAI Provisioned are significant, and it will be less expensive in many cases to maintain a deployment sized for full production volume paid for via a reservation than it would be to scale the deployment with incoming traffic.
+> * Having unused provisioned quota (PTUs) does not guarentee that capacity will be available to support increasing the size of the deployment when required. Quota limits the maximum number of PTUs that may be deployed, but it is not a capacity guarantee. Provisioned capacity for each region and modal dynamically changes throughout the day and may not be available when required. As a result, it is recommended to maintain a permanant deployment to cover your traffic needs (paid for via a reservation).
 
-5. Evaluate capacity availability.
+## Azure Reservations for Azure OpenAI Provisioned   
 
-    Azure regions have differing amounts of capacity available for provisioned deployments, and the capacity can change dynamically as customers scale up and down their provisioned deployments. If a region has less capacity available than your available quota, the following message will appear to show you how much capacity is available to deploy this model and version.
+Discounts on top of the hourly usage price may be obtained by purchasing an Azure Reservation for Azure OpenAI Provisioned.  An Azure Reservation is a term-discounting mechanism shared by many Azure products (e.g. Compute and Cosmos DB).  For Azure OpenAI Provisioned, it provides a discount for committing to payment for fixed number of PTUs for a one-month or one-year period.  
 
-    :::image type="content" source="../media/provisioned/capacity.png" alt-text="Screenshot of a capacity warning indicating there isn't enough capacity in the current region." lightbox="../media/provisioned/capacity.png":::
+* Azure Reservations are purchased via the Azure Portal, not Azure OpenAI Studio  Link to Azure reservation portal. 
 
-6. Choose the size of your deployment and select **Deploy**
+* Reservations are purchased regionally and may be flexibly scoped to cover usage from a group of deployments.  Reservation scopes include: 
 
-    Use the slider to select the number of PTUs for this deployment. The slider moves in increments based on the model (for example some models are deployed in 50 PTU increments vs. 100 PTU increments).
+    * Individual resource groups or subscriptions 
 
-    Once you’ve selected your PTUs, you can update other settings such as the Content Filter, and then select Deploy to create your deployment.
+    * A group of subscriptions in a Management Group 
 
-7. If there's insufficient capacity, choose another region.
+    * All subscriptions in a billing account 
 
-    If you select more PTUs than are available as service capacity, you're given the option to choose a resource in a different region that may have more quota and capacity.
+* New reservations may be purchased to cover the same scope as existing reservations, to allow for discounting of new provisioned deployments.  The scope of existing reservations may also be updated at any time without penalty, for example to cover a new subscription. 
 
-    :::image type="content" source="../media/provisioned/insufficient-capacity.png" alt-text="Screenshot of capacity recommendation to try a new region." lightbox="../media/provisioned/insufficient-capacity.png":::
+* Reservations may be cancelled after purchase, but credits are limited.   
 
-    Selecting **See other regions** brings up a dialog where you can select alternative regions where you can create a deployment of the selected model and version.  The dialog shows you the maximum sized deployment that you can create in the region based on both quota availability and service capacity availability. Select a new resource and the deployment dialog will redisplay with the new resource so that you can continue your deployment.
+* If the size of provisioned deployments within the scope of a reservation exceeds the amount of the reservation, the excess is charged at the hourly rate.  For example, if deployments amounting to 250 PTUs exist within the scope of a 200 PTU reservation, 50 PTUs will be charged on an hourly basis until the deployment sizes are reduced to 200 PTUs, or a new reservation is created to cover the remaining 50. 
 
-    :::image type="content" source="../media/provisioned/different-region.png" alt-text="Screenshot of choose a different region with more capacity option UI." lightbox="../media/provisioned/different-region.png":::
+* Reservations guarantee a discounted price for the selected term.  They do not reserve capacity on the service or guarantee that it will be available when a deployment is created.  It is highly recommended that customers create deployments prior to purchasing a reservation to prevent from over-purchasing a reservation. 
+ 
+> [!NOTE]
+> The Azure role and tenant policy requirements to purchase a reservation are different than those required to create a deployment or Azure OpenAI resource. See Azure OpenAI [Provisioned reservation documentation](/azure/cost-management-billing/reservations/azure-open-ai) for more details.
 
-## Purchase an Azure Reservation to receive term discounts
+## Important: Sizing Azure OpenAI Provisioned Reservations 
 
-The following is a summary of the steps to purchase an Azure reservation. Detailed documentation on purchasing and managing reservations can be found [here](/azure/cost-management-billing/reservations/save-compute-costs-reservations).
+The PTU amounts in reservation purchases are independent of all quota allocations or deployments. It is possible to purchase a reservation for more PTUs than you have in quota, or can deploy for the desired region, model or version.   Credits for over-purchasing a reservation are limited, and customers must take steps to ensure they maintain their reservation sizes in line with their deployed PTUs.  
+ 
+The best practice is to always purchase a reservation after deployments have been created.  This prevents purchasing a reservation and then finding out that the required capacity is not available for the desired region or model. 
+ 
+To assist customers with purchasing the correct reservation amounts.  The total number of PTUs in a subscription and region that can be covered by a reservation are listed on the Quotas page of Azure OpenAI Studio.  See the message "PTUs Available for reservation". 
 
-Azure Reservations are purchased from the Azure portal, not from AI or Azure OpenAI Studio.
+:::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot showing avilable PTU quota." lightbox="../media/provisioned/available-quota.png":::
 
-Before proceeding with a reservation purchase, ensure that the user and subscription are set up properly to purchase a reservation.
-
-To buy a reservation:  
-
-- You must have owner role or reservation purchaser role on an Azure subscription.  
-
-- For Enterprise subscriptions, the Reserved Instances policy option must be enabled in the [Azure portal](/azure/cost-management-billing/manage/direct-ea-administration#view-and-manage-enrollment-policies). If the setting is disabled, you must be an EA Admin to enable it.  
-
-- Direct Enterprise customers can update the Reserved Instances policy settings in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/AllBillingScopes). Navigate to the Policies menu to change settings.  
-
-- For the Cloud Solution Provider (CSP) program, only the admin agents or sales agents can purchase Azure OpenAI reservations.  
-
-1. Navigate to the reservation section of the Azure portal by searching for "Reservations" in the top search bar, then select **Reservations**.
-
-    :::image type="content" source="../media/provisioned/reservations.png" alt-text="Screenshot of the Azure Reservations icon." lightbox="../media/provisioned/reservations.png":::
-
-2. Select **+Add** on the reservation portal
-
-    :::image type="content" source="../media/provisioned/reservation-pane.png" alt-text="Screenshot of the add reservations portal experience." lightbox="../media/provisioned/reservation-pane.png":::
-
-3. Select **Azure OpenAI Service Provisioned** from the reservation catalog.  **MICHAEL: WE'LL NEED A NEW SCREENSHOT**
-
-    :::image type="content" source="../media/provisioned/purchase.png" alt-text="Screenshot of the purchase reservation experience." lightbox="../media/provisioned/purchase.png":::
-
-4. Choose the reservation product details and add to cart.
-
-    :::image type="content" source="../media/provisioned/select-product.png" alt-text="Screenshot of reservation select product screen." lightbox="../media/provisioned/select-product.png":::
-
-    - Select the reservation scope. This identifies the deployments that will be included in the discount. Options include:
-
-        - Resource Group
-        - Single Subscription
-        - Management Group (a user-selectable list of subscriptions)
-        - Shared (all subscriptions in a billing account)
-
-    - Choose the reservation product:
-        - Region
-        - Term (one month or one year)
-        - Billing frequency (Monthly or Up-front)
-
-    - Choose the PTUs to purchase
-        - The Recommended Quantity is based on historical data on the hourly PTUs that have been generated by the deployments in the selected scope.
-    - Add to cart
-
-5. Complete the purchase(Select **View Cart**)
-
-    :::image type="content" source="../media/provisioned/purchase-reservation.png" alt-text="Screenshot of the final purchase reservation screen." lightbox="../media/provisioned/purchase-reservation.png":::
-
-    Review/correct the content and review/purchase the reservation.
 
 ## Next steps
 
 - [Provisioned Throughput Units (PTU) getting started guide](./provisioned-get-started.md)
 - [Provisioned Throughput Units (PTU) concepts](../concepts/provisioned-throughput.md)
+- [Provisioned Throughput reservation documentation](/azure/cost-management-billing/reservations/azure-open-ai) 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure OpenAI Provisioned Managed Migration'
+title: 'Azure OpenAI Provisioned August 2024 Update'
 titleSuffix: Azure OpenAI
 description: Learn about the improvements to Provisioned Throughput
 manager: nitinme
@@ -12,9 +12,9 @@ ms.author: mbullwin
 recommendations: false
 ---
 
-# Provisioned throughput migration
+# Azure OpenAI Provisioned August 2024 Update 
 
-On July 29, 2024, Microsoft is launching improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
+On August 12th, 2024, Microsoft launched improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
 
 This article is intended for existing users of the provisioned throughput offering. New customers should refer to the [Azure OpenAI provisioned onboarding guide](./how-to/provisioned-throughput-onboarding.md).
 
@@ -31,12 +31,10 @@ The capabilities below are rolling out for the Provisioned Managed offering.
 |---|---|
 |Model-independent quota | A single quota limit covering all models/versions reduces quota administration and accelerates experimentation with new models |
 |Self-service quota requests | Request quota increases without engaging the sales team – many will be autoapproved |
-|Default provisioned-managed quota in many regions | Get started quickly in new regions without having to first request quota |
-|Transparent information on real-time capacity availability + New deployment flow | Reduced negotiation around where deployments can be accelerates time-to-market |
+|Default provisioned-managed quota in many regions | Get started quickly without having to first request quota |
+|Transparent information on real-time capacity availability + New deployment flow | Reduced negotiation around availability accelerates time-to-market |
 
 ### New hourly/reservation commercial model
-
-[!INCLUDE [hourly-ptu-description](includes/hourly-ptu-description.md)]
 
 |Feature | Benefit|
 |---|---|
@@ -50,15 +48,15 @@ The capabilities below are rolling out for the Provisioned Managed offering.
 
 Provisioned quota granularity is changing from model-specific to model-independent. Rather than each model and version within subscription and region having its own quota limit, there will be a single quota item per subscription and region that limits the total number of PTUs that can be deployed across all supported models and versions.
 
-:::image type="content" source="./media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="./media/provisioned/model-independent-quota.png":::
+Starting August 12th, 2024, existing customers will have their current, model-specific quota converted to model-independent. This will happen automatically and be complete by August 14th, 2024. No quota will be lost in the transition. Existing quota limits will be summed and assigned to a new model-independent quota item.
 
-The conversion to model-independent quota will be made automatically within 48 hours of launch. Existing customers won't lose any quota in the transition. Existing quota limits will be summed and assigned to a new model-independent quota item.
+<!--:::image type="content" source="./media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="./media/provisioned/model-independent-quota.png":::-->
 
 :::image type="content" source="./media/provisioned/consolidation.png" alt-text="Diagram showing quota consolidation." lightbox="./media/provisioned/consolidation.png":::
 
-The new model-independent quota will show up as a quota item named **Provisioned Managed Throughput Unit**. Model/version is no longer included in the name. In the Studio Quota pane, expanding the quota item will still show all of the deployments that contribute to the quota item. However, the deployments will include all provisioned managed deployments within the subscription and region.
+The new model-independent quota will show up as a quota item named **Provisioned Managed Throughput Unit**, with model and version no longer included in the name. In the Studio Quota pane, expanding the quota item will still show all of the deployments that contribute to the quota item. 
 
-:::image type="content" source="./media/provisioned/quota.png" alt-text="Screenshot of the quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/quota.png":::
+<!--:::image type="content" source="./media/provisioned/quota.png" alt-text="Screenshot of the quota UI for Azure OpenAI provisioned." lightbox="./media/provisioned/quota.png":::-->
 
 ### Default quota
 
@@ -68,17 +66,17 @@ For existing customers, if the region already contains a quota assignment, the q
 
 ### Self-service quota requests
 
-Customers will no longer obtain quota by contacting their sales teams. Instead, they'll use the self-service quota request form and specify the PTU-Managed quota type. The form is accessible from a link to the right of the quota item.
+Customers will no longer obtain quota by contacting their sales teams. Instead, they'll use the self-service quota request form and specify the PTU-Managed quota type. The form is accessible from a link to the right of the quota item. The target is to respond to all quota requests within two business days.  
 
-:::image type="content" source="./media/provisioned/request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/request-type.png":::
-  
-The target is to respond to all quota requests within two business days. However, many requests will be autoapproved and responses can be expected within 30 minutes in these cases.
+The Quota blade screenshot below shows model-independent quota being used by deployments of different types, as well as the link for requesting additional quota. 
+
+:::image type="content" source="./media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/quota-request-type.png":::
 
 
 ## New hourly reservation payment model
 
 > [!NOTE]
-> The following discussion of payment models does not apply to the older “Provisioned Classic (PTU-C)” offering.  They only affect the Provisioned (aka Provisioned Managed) offering. Provisioned Classic will continue to be governed by its monthly commitment payment model, unchanged from today.
+> The following discussion of payment models does not apply to the older “Provisioned Classic (PTU-C)” offering.  They only affect the Provisioned (aka Provisioned Managed) offering. Provisioned Classic will continue to be governed by the monthly commitment payment model, unchanged from today.
 
 Microsoft has introduced a new “Hourly/reservation” payment model for provisioned deployments. This is in addition to the current **Commitment** payment model, which will continue to be supported at least through the end of 2024.
 
@@ -94,7 +92,9 @@ Microsoft has introduced a new “Hourly/reservation” payment model for provis
 
 ### Hourly reservation payment model
 
-- Pure hourly usage is supported, without commitment.
+- Payment model aligned with Azure standards for other products.
+
+- Hourly usage is supported, without commitment.
 
 - One month and one year term discounts can be purchased as regional Azure Reservations.
 
@@ -114,11 +114,11 @@ Details on the hourly/reservation model can be found in the [Azure OpenAI Provis
 
 ### Commitment and hourly reservation coexistence
 
-Customers that have commitments today aren't required to use the new payment mode. They may continue to use existing commitments, purchase new commitments, and manage commitments as they do today.
+Customers that have commitments today aren't required to use the hourly/reservation model. They may continue to use existing commitments, purchase new commitments, and manage commitments as they do today.
 
-However, a customer can also decide to use both payment models in the same subscription/region. In this case, **the payment model for a deployment depends on the resource to which it is attached.**
+A customer can also decide to use both payment models in the same subscription/region. In this case, **the payment model for a deployment depends on the resource to which it is attached.**
 
-**Resources with active commitments will follow the commitment payment model.**
+**Deployments on resources with active commitments will follow the commitment payment model.**
 
 - The monthly commitment purchase will cover the deployed PTUs.
 
@@ -130,12 +130,12 @@ However, a customer can also decide to use both payment models in the same subsc
 
 - The **Manage Commitments** page in Studio will be used to purchase and manage commitments.
 
-> [!IMPORTANT]
-> Resources without commitments (or only expired commitments) will follow the Hourly/Reservation payment model.
->
-> - Deployments will generate hourly charges under the new Hourly/Reservation SKU and meter.
-> Azure Reservations may be purchased to discount the PTUs for deployments.
-> Reservations are purchased and managed from the Reservation blade of the Azure Portal (not within Studio).
+Deployments on resources without without commitments (or only expired commitments) will follow the Hourly/Reservation payment model.
+- Deployments will generate hourly charges under the new Hourly/Reservation SKU and meter.
+- Azure Reservations may be purchased to discount the PTUs for deployments.
+- Reservations are purchased and managed from the Reservation blade of the Azure Portal (not within Studio).
+
+If a deployment is on a resource that has a commitment, and that commitment expires. The deployment will automatically shift to be billed  
 
 ### Changes to the existing payment mode
 
@@ -145,11 +145,9 @@ Customers that have commitments today may continue to use them at least through 
 
 - Overage charges will be emitted against the hourly SKU used for the hourly/reservations model, allowing the overage charges to be discounted by an Azure Reservation if one exists.
 
-- It will be possible to deploy more PTUs under a commitment than the size of the commitment. This allows customers to stay with commitments for their baseline usage but scales above the committed PTUs hourly.
-
 ## Migrating existing resources off commitments
 
-Many existing customers may choose to migrate their existing resources from the Commitment to the Hourly/Reservation payment model to receive benefits such as lower cost, the ability to deploy the latest models, or consolidating discounting for diverse deployments under a single reservation.
+Existing customers may choose to migrate their existing resources from the Commitment to the Hourly/Reservation payment model to benefit from the ability to deploy the latest models, or to consolidate discounting for diverse deployments under a single reservation.
 
 Two approaches are available for customers to migrate resources using the Commitment model to the Hourly/Reservation model.
 
@@ -186,9 +184,9 @@ The managed migration approach involves the customer partnering with Microsoft t
 1. The customer will engage their account team and request a managed migration. A migration owner from the Microsoft team will be assigned to assist the customer with migration.
 2. A date will be selected when all resources within each of the customers' subscriptions and regions containing current PTU commitments will be migrated from committed to hourly/reservation billing model. Multiple subscriptions and regions can be migrated on the same date.
 3. On the agreed-upon date:
-    * The customer will purchase a reservation to cover the committed PTUs that will be converted and pass the reservation information to their migration contact.
-    * Within 2-3 business days, all commitments will be proactively canceled and deployments previously under commitments in the migrated subscriptions/regions will begin using the hourly/reservation payment model.
-    * The customer will receive a credit for the reservation purchase covering the portions of the commitments that were canceled, starting from the time of the reservation purchase.
+    * The customer will purchase regional reservations to cover the committed PTUs that will be converted and pass the reservation information to their Microsoft migration contact.
+    * Within 2-3 business days, all commitments will be proactively canceled and deployments previously under commitments will begin using the hourly/reservation payment model.
+    * In the billing period after the one with the reservation purchase, the customer will receive a credit for the reservation purchase covering the portions of the commitments that were canceled, starting from the time of the reservation purchase.
 
 Customers must reach out to their account teams to schedule a managed migration.
 
