@@ -131,7 +131,19 @@ The discovery, subscription, and consumption experience for models deployed via 
 
 Models from non-Microsoft providers are billed through Azure Marketplace, in accordance with the [Microsoft Commercial Marketplace Terms of Use](/legal/marketplace/marketplace-terms).
 
-Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable.  See [Region availability for models in serverless API endpoints | Azure AI Studio](deploy-models-serverless-availability.md) for detailed information.
+Models from Microsoft are billed via Azure meters as First Party Consumption Services. As described in the [Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage), you purchase First Party Consumption Services by using Azure meters, but they aren't subject to Azure service terms. Use of these models is subject to the provided license terms.  
+
+### Fine-tuning models
+
+Certain models support also serverless fine-tuning. For these models, you can take advantage of hosted fine-tuning with pay-as-you-go billing to tailor the models by using data that you provide. For more information, see the [fine-tuning overview](../concepts/fine-tuning-overview.md).
+
+### RAG with models deployed as serverless APIs
+
+In Azure AI Studio, you can use vector indexes and retrieval-augmented generation (RAG). You can use models that can be deployed via serverless APIs to generate embeddings and inferencing based on custom data. These embeddings and inferencing can then generate answers specific to your use case. For more information, see [Build and consume vector indexes in Azure AI Studio](index-add.md).
+
+### Regional availability of offers and models
+
+Pay-as-you-go billing is available only to users whose Azure subscription belongs to a billing account in a country where the model provider has made the offer available. If the offer is available in the relevant region, the user then must have a Hub/Project in the Azure region where the model is available for deployment or fine-tuning, as applicable. See [Region availability for models in serverless API endpoints | Azure AI Studio](deploy-models-serverless-availability.md) for detailed information.
 
 ### Content safety for models deployed via serverless APIs
 
