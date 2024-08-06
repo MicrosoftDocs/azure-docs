@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Create and edit data collection rules (DCRs) in Azure Monitor
 
-There are multiple methods for creating a [data collection rule (DCR)](./data-collection-rule-overview.md) in Azure Monitor. In some cases, Azure Monitor will create and manage the DCR according to settings that you configure in the Azure portal. In other cases, you might need to create your own DCRs to customize particular scenarios.
+There are multiple methods for creating a [data collection rule (DCR)](./data-collection-rule-overview.md) in Azure Monitor. In some cases, Azure Monitor can create and manage the DCR according to settings that you configure in the Azure portal. In other cases, you need to create your own DCRs to customize particular scenarios.
 
 This article describes the different methods for creating and editing a DCR. For the contents of the DCR itself, see [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md).
 
@@ -22,24 +22,28 @@ This article describes the different methods for creating and editing a DCR. For
 | Built-in role | Scopes | Reason |
 |:---|:---|:---|
 | [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Create or edit DCRs, assign rules to the machine, deploy associations. |
-| [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM. |
+| [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Azure Arc-enabled servers</li></ul> | Deploy agent extensions on the VM (virtual machine). |
 | Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing DCR</li></ul> | Deploy Azure Resource Manager templates. |
 
 ## Automated methods to create a DCR
 
-The following table lists methods to create data collection scenarios using the Azure portal where the DCR is created for you. In these cases you don't need to interact directly with the DCR itself.
+The following table lists methods to create data collection scenarios using the Azure portal where the DCR is created for you. In these cases, you don't need to interact directly with the DCR itself.
 
 | Scenario | Resources | Description |
 |:---|:---|:---|
-| Monitor a virtual machine | [Enable VM insights overview](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of performance counters. You shouldn't modify this DCR. |
-| Container insights | [Enable Container insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
-| Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR that's then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't already use a DCR. |
+| Monitor a virtual machine | [Enable VM Insights overview](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, the Azure Monitor agent is installed, and a DCR is created that collects a predefined set of performance counters. You shouldn't modify this DCR. |
+| Container insights | [Enable Container Insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container Insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
+| Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. The transformation is defined in a DCR which is then associated with the workspace. It's applied to any data sent to that table from a legacy workload that doesn't already use a DCR. |
 
 ## Create a DCR
 
-Azure provides a centralized cloud based data collection configuration plan for virtual machines, virtual machine scale sets, On-Prem machines and Prometheus metrics from containers.
+Azure provides a centralized cloud based data collection configuration plan for virtual machines, virtual machine scale sets, on-premises machines, and Prometheus metrics from containers.
 
-This article describes how to create a DCR from scratch. There are other insights solution that provide DCR creation experiences like Sentinel, VM insights, and Application Insights that create DCRs as part of there own workflows. Some time the DCRs created in these by different solution can seem to conflict. There are three tables to which Windows events can be sent to. Sentinel security audit events with go to SecurityEvents, WEF connector events go to the WindowsEvent table. If you use the scratch Windows event collection the results go to the Event table.
+This article explains how to create a DCR from scratch. There are other solutions, such as Sentinel, VM Insights, and Application Insights, that offer DCR creation as part of their workflows. Sometimes, the DCRs created by these different solutions may appear to conflict. There are three tables where Windows events can be directed:
+
+* Sentinel security audit events are sent to the SecurityEvents table.
+* WEF connector events go to the WindowsEvent table.
+* Events collected from scratch using the Windows event collection are sent to the Event table.
 
 To create a data collection rule using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 
@@ -74,7 +78,7 @@ Configure the settings in each step of the wizard, as detailed below.
 | Screen element | Description |
 |:---|:---|
 | **+ Add resources** | Associate virtual machines, Virtual Machine Scale Sets, and Azure Arc for servers to the data collection rule. The Azure portal installs Azure Monitor Agent on resources that don't already have the agent installed. |
-| **Enable Data Collection Endpoints** | If the machine you're monitoring is not in the same region as your destination Log Analytics workspace, enable data collection endpoints and select an endpoint in the region of the monitored machine to collect **Linux syslog data**, **IIS logs**, **custom text logs** or **custom JSON logs**.<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-dce).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md). |
+| **Enable Data Collection Endpoints** | If the machine you're monitoring isn't in the same region as your destination Log Analytics workspace, enable data collection endpoints and select an endpoint in the region of the monitored machine to collect **Linux syslog data**, **IIS logs**, **custom text logs**, or **custom JSON logs**.<br>If the monitored machine is in the same region as your destination Log Analytics workspace, or if you're collecting performance counters and Windows event logs, don't select a data collection endpoint on the **Resources** tab.<br>The data collection endpoint on the **Resources** tab is the configuration access endpoint, as described in [Components of a data collection endpoint](../essentials/data-collection-endpoint-overview.md#components-of-a-dce).<br>If you need network isolation using private links, select existing endpoints from the same region for the respective resources or [create a new endpoint](../essentials/data-collection-endpoint-overview.md). |
 | **Agent extension identity** | Use a system-assigned managed identity, or select an existing user-assigned identity assigned to the virtual machine. For more information, see [Managed identity types](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types). |
 
 ### Collect and deliver
