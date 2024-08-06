@@ -1,13 +1,13 @@
 ---
-title: Use selective logging with a script action in Azure HDInsight clusters
-description: Learn how to use the selective logging feature with a script action to monitor logs.
+title: Use selective logging with a script action for Azure Monitor Agent (AMA) in Azure HDInsight
+description: Learn how to use the selective logging feature with a script action to monitor logs for Azure Monitor Agent (AMA).
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
-ms.date: 09/13/2023
+ms.date: 08/05/2024
 ---
 
-# Use selective logging with a script action in Azure HDInsight
+# Use selective logging with a script action  for Azure Monitor Agent (AMA) in Azure HDInsight
 
 [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md) is an Azure Monitor service that monitors your cloud and on-premises environments. The monitoring helps maintain their availability and performance. 
 
@@ -51,13 +51,13 @@ For instructions on how to create an HDInsight cluster, see [Get started with Az
 
 1. For the script type, select **Custom**.
 1. Name the script. For example: **Disable two tables and two sources**.
-1. The Bash script URI must be a link to [selectiveLoggingScript.sh](https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/selectiveLoggingScripts/selectiveLoggingScript.sh).
+1. The Bash script URI must be a link to [selectiveLoggingScript.sh](https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/selectiveLoggingScriptsAma/selectiveLoggingScript.sh).
 1. Select all the node types that apply for the cluster. The options are head node, worker node, and ZooKeeper node.
 1. Define the parameters. For example:
    - Spark: `spark HDInsightSparkLogs:SparkExecutorLog --disable`
-   - Interactive Query: `interactivehive HDInsightSparkLogs:SparkExecutorLog --enable`
-   - Hadoop: `hadoop HDInsightSparkLogs:SparkExecutorLog --disable`
-   - HBase: `hbase HDInsightSparkLogs: HDInsightHBaseLogs   --enable`
+   - Interactive Query: `interactivehive HDInsightHadoopAndYarnLogs:NodeManager --enable`
+   - Hadoop: `hadoop HDInsightHiveAndLLAPLogs:HiveServer2Log --disable`
+   - HBase: `hbase HDInsightHBaseLogs:HBaseRegionServerLog   --enable`
 
    For more information, see the [Parameter syntax](#parameter-syntax) section.
 
@@ -66,7 +66,7 @@ For instructions on how to create an HDInsight cluster, see [Get started with Az
 
     :::image type="content" source="./media/hdinsight-hadoop-oms-selective-log-analytics-tutorial/enable-table-and-log-types.png" alt-text="Screenshot that shows a successful run of a script to enable tables and log types.":::
 
-You'll see your changes in the Log Analytics workspace.
+You see your changes in the Log Analytics workspace.
 
 ## Troubleshooting
 
@@ -110,7 +110,7 @@ If you submit your script action but there are no changes in the Log Analytics w
 If the script action shows a failure status in the script action history:
 
 1. Check that the parameter syntax from the parameter syntax section is correct.
-1. Check that the script link is correct. It should be: `https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/selectiveLoggingScripts/selectiveLoggingScript.sh`.
+1. Check that the script link is correct. It should be: `https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/selectiveLoggingScriptsAma/selectiveLoggingScript.sh`.
 
 ## Table names
 
