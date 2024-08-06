@@ -5,7 +5,7 @@ ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
 ms.topic: article
-ms.date: 04/11/2023
+ms.date: 08/06/2024
 ms.reviewer: cynthn, mattmcinnes
 ms.author: jushiman
 author: ju-shim

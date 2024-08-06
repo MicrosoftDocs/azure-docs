@@ -5,7 +5,7 @@ ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.custom:
 ms.topic: article
-ms.date: 07/25/2024
+ms.date: 08/06/2024
 ms.reviewer: wwilliams
 ms.author: padmalathas
 author: padmalathas
