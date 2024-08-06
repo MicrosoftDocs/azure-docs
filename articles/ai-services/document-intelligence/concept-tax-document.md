@@ -47,7 +47,7 @@ This preview introduces the `Unified US Tax` prebuilt model, which automatically
 
 :::image type="content" source="media/us-unified-tax-diagram.png" alt-text="Screenshot of a Unified Tax processing diagram.":::
 
-:::image type="content" source="media/us-unified-tax.png" alt-text="Screenshot of a Unified Tax processing.":::
+:::image type="content" source="media/us-unified-tax.png" alt-text="Screenshot of unified tax model document processing.":::
 
 ## Development options
 
@@ -202,7 +202,7 @@ The following are the fields extracted from a 1098 tax form in the JSON output r
 |`RealEstateTax`|`number`|Real estate tax (box 10)|1,234,567.89|
 |`AdditionalAssessment`|`string`|Other assessments made on the property (box 10)|Structural damage observed|
 |`MortgageAcquisitionDate`|`date`|Mortgage acquisition date (box 11)|2022-01-01|
-|`IsCorrected`|`string`|Indicates whether form is a corrective filing.|true||
+|`IsCorrected`|`string`|Indicates whether form is a corrective filing.|true|
 
 ## Field extraction 1099-NEC
 
