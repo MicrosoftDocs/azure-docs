@@ -15,7 +15,7 @@ ms.date: 06/18/2023
 
 ## Introduction
 
-You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action will create a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
+You can now export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action creates a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
 The exported JSON file is workspace-independent, so it can be imported to other workspaces and even other tenants. As code, it can also be version-controlled, updated, and deployed in a managed CI/CD framework.
 
@@ -29,14 +29,14 @@ The file includes all the parameters defined in the automation rule. Rules of an
 
     :::image type="content" source="./media/import-export-automation-rules/export-rule.png" alt-text="Screenshot showing how to export an automation rule." lightbox="./media/import-export-automation-rules/export-rule.png":::
 
-    You'll find the exported file in your Downloads folder. It will be named the same as the name of the automation rule, with a .json extension.
+    Find the exported file in your Downloads folder. It has the same name as the automation rule, with a .json extension.
 
     > [!NOTE]
     > - You can select multiple automation rules at once for export by marking the check boxes next to the rules and selecting **Export** at the end.
     >
     > - You can export all the rules on a single page of the display grid at once, by marking the check box in the header row before clicking **Export**. You can't export more than one page's worth of rules at a time, though.
     >
-    > - Be aware that in this scenario, a single file (named *Azure_Sentinel_automation_rules.json*) will be created, and will contain JSON code for all the exported rules.
+    > - In this scenario, a single file (named *Azure_Sentinel_automation_rules.json*) is created, and contains JSON code for all the exported rules.
 
 ## Import rules
 
