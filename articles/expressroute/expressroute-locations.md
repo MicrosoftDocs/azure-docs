@@ -225,6 +225,8 @@ The following table shows locations by service provider. If you want to view ava
 | **XL Axiata** | &check; | &check; | Jakarta |
 | **[Zayo](https://www.zayo.com/services/packet/cloudlink/)** | &check; | &check; | Amsterdam<br/>Chicago<br/>Dallas<br/>Denver<br/>Dublin<br/>Frankfurt<br/>Hong Kong<br/>London<br/>London2<br/>Los Angeles<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Toronto<br/>Toronto2<br/>Vancouver<br/>Washington DC<br/>Washington DC2<br/>Zurich|
 
+---
+
 ### National cloud environment
 
 Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others. 
