@@ -12,9 +12,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 # Virtual Rooms overview
-Virtual Rooms empower developer with essential security and controls capabilities to build well structured communication experiences such as virtual appointments and group communications. Developers can use Rooms to conduct Voice, Video and PSTN calls. Security and Controls in Rooms can be classified as follows.
-1. User access security and controls are applied on call-participants to control WHO is allowed to join a call and WHAT actions they are allowed to take in the call. For example, during a patient's virtual appointment with a doctor, it is necessary to ensure that only the authorized hospital staff and patients can join the call to preserve the patient's privacy and the participants don't exceed their assigned roles and privileges to disrupt the ongoing call.
-2. Room level security and controls are applied at the call level to control WHEN the call is allowed to be conducted and what capabilities are allowed for the call. For example, students are only allowed to join a classroom call during allowed time and PSTN is not allowed for the classroom call.
+Virtual Rooms empower developers with essential security and controls capabilities to build well-structured communication experiences such as virtual appointments and group communications. Developers can use Rooms to conduct voice, video and PSTN calls. Security and controls in Rooms can be classified as follows.
+1. User access security and controls are applied upon call participants to control who is allowed to join a call and which actions they are allowed to take in the call. For example, during a patient's virtual appointment with a doctor, it is necessary to ensure that only the authorized hospital staff and patients can join the call to preserve the patient's privacy and the participants don't exceed their assigned roles and privileges to disrupt the ongoing call.
+2. Room-level security and controls are applied at the call level to control when the call is allowed to be conducted and which capabilities are allowed for the call. For example, students are only authorized to join a classroom call during allocated time but PSTN user is not allowed to join for the same classroom call.
 
 # High level capabilities supported in Virtual Rooms
 
@@ -22,9 +22,9 @@ Virtual Rooms empower developer with essential security and controls capabilitie
 | ------ | :------: |
 | Voice (VoIP) | ✔️ |
 | Video | ✔️ |
-| Client initiated Dial-out to a PSTN number | ✔️ |
+| Client initiated dial-out to a PSTN number | ✔️ |
 | Server-side call management (Call Automation)  | ✔️* |
-| Server initiated Dial-out to a PSTN number** | ✔️ |
+| Server initiated dial-out to a PSTN number** | ✔️ |
 | PSTN Dial-in | ❌ |
 | Async Messaging (Chat) | ❌ |
 | Interoperability with Microsoft Teams | ❌ |
@@ -34,24 +34,24 @@ Virtual Rooms empower developer with essential security and controls capabilitie
 ** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # When to use Virtual Rooms
-Following table shows when to use virtual Rooms.
+Following table shows when to use Virtual Rooms.
 | Condition | Use Rooms | 
 | ------ | :------: |
-| When it is important to control who is allowed to join a call (Invite only experience) | ✔️ |
-| When it is important to control when the call is allowed and when it expires | ✔️ |
-| When user roles and permissions are needed to conduct well managed communications | ✔️ |
-| When solution require Teams interoperability | ❌* |
+| When it is important to control who is allowed to join a call (invite-only experience) | ✔️ |
+| When it is important to control when the call is started and ended | ✔️ |
+| When user roles and permissions are needed to conduct well-managed communications | ✔️ |
+| When solution requires Teams interoperability | ❌* |
 
 *If the solution requires interoperability between Teams and Azure Communication Services, use [Teams interoperability calls](../voice-video-calling/teams-interop)
 
 # How to conduct calls in Virtual Rooms
-At a high-level, conducting calls in Virtual Rooms involves the creation and management of Virtual Rooms, joining the Virtual Rooms calls and executing in-call operations from calling client and server side, as shown the table below. 
+At a high level, conducting calls in a Virtual Rooms involves the creation and management of Virtual Rooms, joining the Virtual Rooms calls and executing in-call operations from Calling SDK on client-side and server-side, as shown the table below. 
 
 | Capability                                   | ACS SDK | Client vs Server SDK | Description |
 |----------------------------------------------|--------|--------|--------|
-| Create and manage Virtual Rooms        |  [Virtual Rooms SDK](../../quickstarts/rooms/join-rooms-call.md) | Server | Virtual Rooms SDK allows developers to create and manage Virtual Room, add/remove users, assign/update user roles, set/update Virtual Rooms schedule, and set security limits such as to restrict PSTN dial out from the Room.|
-| Join a Virtual Rooms call with voice, video or PSTN and execute the client-initiated in-call operations  |  [Calling SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | Client | Calling client SDK allows users to join a Virtual Rooms call and execute client-side operations as permitted by their assigned user roles. Security in Virtual Rooms call is ensured through enforcement of roster, schedule, user roles and control limits set through creation and management of Virtual Rooms. Using client calling SDK, developers empower call participant to execute in-call operations like mute/unmute, share screen, turn video on/off and dial out to a PSTN participant etc. |
-| Server-side management of in-call operations |  [Call Automation SDK](../../how-tos/call-automation/actions-for-call-control?branch=pr-en-us-280574&tabs=csharp) | Server | Call Automation SDK allows developers to execute in-call operations from server-side. This includes, server initiated dial-out to a PSTN, call recording, send/receive DTMF and send announcements to specific users etc. Since server-side invocation of in-call operations are independent from users and are fully controlled by the developers, these actions are not controlled by user-roles. |
+| Create and manage Virtual Rooms        |  [Virtual Rooms SDK](../../quickstarts/rooms/join-rooms-call.md) | Server | Virtual Rooms SDK allows developers to create and manage Virtual Rooms, add/remove users, assign/update user roles, set/update Virtual Rooms schedules, and set security limits such as to restrict PSTN dial-out in Rooms.|
+| Join a Virtual Rooms call with voice, video or PSTN and execute the client-initiated in-call operations  |  [Calling SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | Client | The Calling client SDK allows users to join a Virtual Rooms call and execute client-side operations as permitted by their assigned user roles. Security in a Virtual Rooms call is ensured through enforcement of roster, schedule, user roles and control limits set through creation and management of Virtual Rooms. Using The client Calling SDK, developers empower call participants to execute in-call operations like mute/unmute, share screen, turn video on/off and dial-out to a PSTN participant etc. |
+| Server-side management of in-call operations |  [Call Automation SDK](../../how-tos/call-automation/actions-for-call-control?branch=pr-en-us-280574&tabs=csharp) | Server | The Call Automation SDK allows developers to execute in-call operations from server-side. This includes, server-initiated dial-out to a PSTN number, call recording, sending/receiving DTMF and sending announcements to specific users etc. Since server-side invocations of in-call operations are independent from users and are fully controlled by the developers, these actions are not controlled by user-roles. |
 
 
 <b>Developers will use Virtual Rooms SDK, Calling client SDK and Call Automation SDK to secure their calls and to trigger in-call client-side/server-side operations. Specifically the following. </b>
@@ -66,29 +66,29 @@ At a high-level, conducting calls in Virtual Rooms involves the creation and man
 | Virtual Rooms security-controls management - Set/Update flag to allow PSTN dial-out from specific Virtual Rooms   | ✔️ | ❌ |  ❌ |
 | Get list of users invited to join a Virtual Room | ✔️ | ❌ |  ❌ |
 | A user initiates a Virtual Rooms call or joins an in-progress call | ❌ | ✔️ |  ❌ |
-| Dial out to a PSTN user  | ❌ | ✔️ | ✔️* |
+| Dial-out to a PSTN user  | ❌ | ✔️ | ✔️* |
 | Add/Remove VoIP participants to an in-progress call | ❌ | ✔️ |  ✔️ |
 | Get list of participants who joined the in-progress call | ❌ | ✔️ |  ✔️ |
 | Start/Stop call captions and change captions language | ❌ | ✔️* |  ❌ |
 | Manage call recording | ❌ | ❌ |  ✔️* |
-| Send receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
+| Send/Receive DTMF to/from PSTN participants | ❌ | ❌ | ✔️* |
 | Send announcements to participants | ❌ | ❌ | ✔️* |
 
-[Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client side in-call operations and explains how to use them.
+[Calling client SDK](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) provides the full list of client-side in-call operations and explains how to use them.
 
 \* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Managing Virtual Rooms calls from the server-side using Call Automation Server SDK
-Call Automation SDK empowers developers to manage Virtual Rooms calls from the server-side and execute in-call operations. Call Automation capabilities are being progressively enabled in Virtual Rooms calls. The following table shows the current status of these capabilities. Since developers manage control Call Automation capabilities from the server-side, which operates at a higher level than a call participant's privileges, these Call Automation capabilities are not controlled through user roles and permissions.
+Call Automation SDK empowers developers to manage Virtual Rooms calls from the server-side and execute in-call operations. Call Automation capabilities are being progressively enabled in Virtual Rooms calls. The following table shows the current status of these capabilities. Since developers manage and control Call Automation capabilities from the server-side, which operate at a higher level than a call participant's privileges, these Call Automation capabilities are not controlled through user roles and permissions.
 
 | Call Automation capability | Supported in Rooms call | 
 | ------ | :------: |
-| Dial out to PSTN participant * | ✔️ |
+| Dial-out to PSTN participant * | ✔️ |
 | Send/Read DTMF to/from PSTN participant * | ✔️ |
 | Send announcements to specific call participants * | ✔️ |
 | Add/Remove a VoIP participant from an ongoing call | ✔️ |
 | End call for all users | ✔️ |
-| Call Transcriptions | ❌ |
+| Call transcriptions | ❌ |
 | Audio media streaming | ❌ |
 
 \* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -98,18 +98,18 @@ The picture below illustrates the concept of managing and joining the rooms.
 :::image type="content" source="../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
 
 ### Server initiated PSTN Dialout using Call Automation Server SDK
-Developers can allow/disallow the ability to dial-out to a PSTN participant, by setting the Room specific pstnDialoutEnabled flag. Once the developer sets pstnDialoutEnabled=TRUE for a Room, developers can dial-out to a PSTN participant from the server-side using Call Automation, without needing any client-side participation. e.g. A patient might request interpretation service for their upcoming virtual appointment with their doctor. In most cases, the phone number to the interpretation service is determined dynamically through a backend process. This server-side PSTN dial-out capability allows developers to determine the target phone number, initiate the call and add it to patient's virtual appointment call, without requiring any client-side actions. The following steps are used to add a PSTN number to a room call using Call Automation SDK.
+Developers can allow/disallow the ability to dial-out to a PSTN participant, by setting the Room-specific pstnDialoutEnabled flag. Once the developer sets pstnDialoutEnabled=TRUE for a Room, developers can dial-out to a PSTN participant from the server-side using Call Automation, without needing any client-side participation. e.g. A patient might request interpretation service for their upcoming virtual appointment with their doctor. In most cases, the phone number to the interpretation service is determined dynamically through a backend process. This server-side PSTN dial-out capability allows developers to determine the target phone number, initiate the call and add it to patient's virtual appointment call, without requiring any client-side actions. The following steps are used to add a PSTN number to a room call using Call Automation SDK.
 1. Create a room with pstnDialoutEnabled flag set to True
 1. Participants start a room call
-1. Use Call Automation SDK to connect to a room call using a room Id 
-1. Use Call Automation SDK to dial-out to PSTN number
+1. Use Call Automation SDK to connect to a room call using a room ID 
+1. Use Call Automation SDK to dial-out to a PSTN number
 1. PSTN user accepts and joins a room call
 
 ## Managing Virtual Rooms calls from client-side Calling SDKs
 
 Use the [Calling SDKs](../voice-video-calling/calling-sdk-features.md) to join the room call. Room calls can be joined using the Web, iOS or Android Calling SDKs. You can find quick start samples for joining room calls [here](../../quickstarts/rooms/join-rooms-call.md).
 
-Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms enabled into their application with only a couple lines of code.
+Rooms can also be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/rooms--page). The UI Library enables developers to add a call client that is Rooms-enabled into their application with only a couple lines of code.
 
 ### Client initiated PSTN Dial-out using Calling client SDK
 Developers can allow/disallow the ability for call participants to dial-out to a PSTN participant, by setting the Room specific pstnDialoutEnabled flag. Once the developer sets pstnDialoutEnabled=TRUE for a Room, the call participants with the Presenter role can dial-out to a PSTN participant from their calling client. The following steps are used to add a PSTN number to a room call using Calling Client SDK.
@@ -120,6 +120,7 @@ Developers can allow/disallow the ability for call participants to dial-out to a
 
 |Virtual Rooms SDK | Version | State|
 |-------------------| :-----------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
 | Virtual Rooms SDKs | 2023-03-31 | Will be retired on April 30, 2024 |
@@ -151,7 +152,7 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | - Start call captions ** | ✔️ | ✔️ | ✔️ |
 | - Change captions language ** | ✔️ | ✔️ | ❌ |
 | - End meeting for all participants | ✔️ | ❌ | ❌ |
-| - Invite-to-join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
+| - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
 | **Screen sharing** | | |
 | - Share screen | ✔️ *  | ❌ | ❌ |
 | - Share an application | ✔️ * | ❌ | ❌ |
@@ -177,10 +178,9 @@ The tables below provide detailed capabilities mapped to the roles. At a high le
 | **Dial-out to PSTN participants from the client-side** | | |
 | - Dial-out to PSTN participants from Virtual Rooms calls | ✔️ | ❌ | ❌ |
 
-ACS Rooms support 
 \* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
 
-** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+\** Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Event handling
 
