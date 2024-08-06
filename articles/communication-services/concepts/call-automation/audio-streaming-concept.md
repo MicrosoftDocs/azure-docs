@@ -26,10 +26,8 @@ Audio streams can be used in many ways. Some examples of how developers may wish
 **Improved AI powered suggestions** - Use real-time audio streams of active interactions between agents and customers to gauge the intent of the call and how your agents can provide a better experience to their customer through active suggestions using your own AI model to analyze the call.
 
 ### Authentication
-**Biometric authentication** – Use the audio streams to carry out voice authentication using caller biometrics such as voice recognition.
 
-### Interpretations
-**Real-time translation** – Send audio streams to human or AI translators who can consume this audio content and provide translations.
+**Biometric authentication** – Use the audio streams to carry out voice authentication, by running the audio from the call through your voice recognition/matching engine/tool.
 
 ## Sample architecture for subscribing to audio streams from an ongoing call - live agent scenario
 
