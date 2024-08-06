@@ -17,7 +17,7 @@
   items:
   - name: Use with Azure Disks
     href: use-container-storage-with-managed-disks.md
-  - name: Use with Azure Elastic SAN (Preview)
+  - name: Use with Azure Elastic SAN
     href: use-container-storage-with-elastic-san.md
   - name: Use with Ephemeral Disk
     items:
