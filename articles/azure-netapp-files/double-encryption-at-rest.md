@@ -23,9 +23,6 @@ If you are using this feature for the first time, you need to [register for the 
 
 When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Key`, and the other choice is `Customer Managed Key`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
 
->[!IMPORTANT]
->Double encryption in US Gov regions is only supported with platform-managed keys, not customer-managed keys.
-
 :::image type="content" source="./media/double-encryption-at-rest/double-encryption-create-volume.png" alt-text="Screenshot of the Create Volume page in a double-encryption capacity pool." lightbox="./media/double-encryption-at-rest/double-encryption-create-volume.png":::
 
 ## Supported regions
