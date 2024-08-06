@@ -32,30 +32,24 @@ The following table lists methods to create data collection scenarios using the 
 | Scenario | Resources | Description |
 |:---|:---|:---|
 | Monitor a virtual machine | [Enable VM Insights overview](../vm/vminsights-enable-overview.md) | When you enable VM Insights on a VM, the Azure Monitor agent is installed and a DCR is created and associated with the VM. This DCR collects a predefined set of performance counters and shouldn't be modified. |
-|  | [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md) | When you create a DCR in the Azure portal, an association is created for each machine that you add to **Resources**. |
 | Container insights | [Enable Container Insights](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) | When you enable Container Insights on a Kubernetes cluster, a containerized version of the Azure Monitor agent is installed, and a DCR with association to the cluster is created that collects data according to the configuration you selected. You may need to modify this DCR to add a transformation. |
 | Workspace transformation | [Add a transformation in a workspace data collection rule using the Azure portal](../logs/tutorial-workspace-transformations-portal.md) | Create a transformation for any supported table in a Log Analytics workspace. This transformation is specified within a DCR, which is linked to the workspace. The transformation is then applied to any data sent to that table from any legacy workloads that don't yet utilize DCR. |
 
 ## Create a DCR
-
-Azure provides a centralized cloud based data collection configuration plan for virtual machines, virtual machine scale sets, on-premises machines, and Prometheus metrics from containers.
-
-This article explains how to create a DCR from scratch. There are other solutions, such as Sentinel, VM Insights, and Application Insights, that offer DCR creation as part of their workflows. Sometimes, the DCRs created by these different solutions may appear to conflict. There are three tables where Windows events can be directed:
-
-* Sentinel security audit events are sent to the SecurityEvents table.
-* Windows Event Forwarding (WEF) connector events go to the WindowsEvent table.
-* Events collected from scratch using the Windows event collection are sent to the Event table.
-
 To create a data collection rule using the Azure CLI, PowerShell, API, or ARM templates, create a JSON file, starting with one of the [sample DCRs](./data-collection-rule-samples.md). Use information in [Structure of a data collection rule in Azure Monitor](./data-collection-rule-structure.md) to modify the JSON file for your particular environment and requirements.
 
 > [!IMPORTANT]
 > Create your data collection rule in the same region as your destination Log Analytics workspace or Azure Monitor workspace. You can associate the data collection rule to machines or containers from any subscription or resource group in the tenant. To send data across tenants, you must first enable [Azure Lighthouse](../../lighthouse/overview.md).
 
-## [Portal](#tab/portal)
+### [Portal](#tab/portal)
+
+### Create with Azure portal
 The Azure portal provides a simplified experience for creating a DCR for virtual machines and virtual machine scale sets. Using this method, you don't need to understand the structure of a DCR unless you want to want to implement an advanced feature such as a transformation. The process for creating this DCR with various data sources is described in [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md).
 
 
 ### [CLI](#tab/CLI)
+
+### Create with CLI
 Use the [az monitor data-collection rule create](/cli/azure/monitor/data-collection/rule) command to create a DCR from your JSON file.
 
 ```azurecli
@@ -69,6 +63,8 @@ az monitor data-collection rule association create --name "my-vm-dcr-association
 ```
 
 ### [PowerShell](#tab/powershell)
+
+### Create with PowerShell
 Use the [New-AzDataCollectionRule](/powershell/module/az.monitor/new-azdatacollectionrule) cmdlet to create a DCR from your JSON file.
 
 ```powershell
@@ -85,6 +81,7 @@ Use the [New-AzDataCollectionRuleAssociation](/powershell/module/az.monitor/new-
 
 ### [API](#tab/api)
 
+### Create with API
 Use the [DCR create API](/rest/api/monitor/data-collection-rules/create) to create the DCR from your JSON file. You can use any method to call a REST API as shown in the following examples.
 
 ```powershell
@@ -102,6 +99,8 @@ az rest --method put --url $ResourceId"?api-version=2022-06-01" --body @$FilePat
 
 ### [ARM](#tab/arm)
 
+
+### Create with ARM template
 See the following references for defining DCRs and associations in a template.
 * [Data collection rules](/azure/templates/microsoft.insights/datacollectionrules)
 * [Data collection rule associations](/azure/templates/microsoft.insights/datacollectionruleassociations)
