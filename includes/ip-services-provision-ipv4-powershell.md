@@ -11,7 +11,7 @@
  ms.custom: include file
 ---
 
-# [Unified Model](#tab/azurepowershell/unified)
+# [Unified Model](#tab/unified/azurepowershell)
 
 The following steps display the procedure for provisioning a sample customer range (1.2.3.0/24) to the US West 2 region.
 
@@ -88,7 +88,7 @@ As before, the operation is asynchronous. Use [Get-AzCustomIpPrefix](/powershell
 > [!IMPORTANT]
 > As the custom IP prefix transitions to a **Commissioned** state, the range is being advertised with Microsoft from the local Azure region and globally to the Internet by Microsoft's wide area network under Autonomous System Number (ASN) 8075. Advertising this same range to the Internet from a location other than Microsoft at the same time could potentially create BGP routing instability or traffic loss. For example, a customer on-premises building. Plan any migration of an active range during a maintenance period to avoid impact. Additionally, you could take advantage of the regional commissioning feature to put a custom IP prefix into a state where it is only advertised within the Azure region it is deployed in. For more information, see [Manage a custom IP address prefix (BYOIP)](../articles/virtual-network/ip-services/manage-public-ip-address-prefix.md).
 
-# [Global/Regional Model](#tab/azurepowershell/globalregional)
+# [Global/Regional Model](#tab/globalregional/azurepowershell)
 
 The following steps display the modified steps for provisioning a sample global (parent) IP range (1.2.3.0/4) and regional (child) IP ranges to the US West 2 and US East 2 Regions.
 
