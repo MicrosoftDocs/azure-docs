@@ -3,7 +3,7 @@ title: Configure Application Gateway for Containers for SIEM integration with Az
 description: Configure Application Gateway for Containers for SIEM integration with Azure Sentinel.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: article
 ms.date: 07/11/2024
@@ -22,7 +22,7 @@ In this QuickStart guide, you set up:
 
 ## Learn About The Services
 - [What is Azure Sentinel?](../../sentinel/overview.md)
-  - Why use Sentinel:  Sentinel provides security content packaged in SIEM solutions that enable you to ingest data, monitor, alert, hunt, investigate, respond, and connect with different products and platforms such as Log Analytics Workspace.
+  - Why use Sentinel:  Sentinel offers security content that is pre-packaged in SIEM solutions, allowing you to monitor, analyze, investigate, notify, and integrate with many platforms and products, including Log Analytics Workspace.
 - [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
   - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
    
