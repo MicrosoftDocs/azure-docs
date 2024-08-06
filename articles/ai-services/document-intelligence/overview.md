@@ -151,7 +151,7 @@ Prebuilt models enable you to add intelligent document processing to your apps a
     [**US mortgage 1005**](#us-mortgage-1005-form) | Extract information from validation of employment.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-mortgage-1008.png" link="##us-mortgage-1008-form":::</br>
+      :::image type="icon" source="media/overview/icon-mortgage-1008.png" link="#us-mortgage-1008-form":::</br>
     [**US mortgage 1008**](#us-mortgage-1008-form) | Extract loan transmittal details.
    :::column-end:::
    :::column span="":::
