@@ -30,6 +30,12 @@ landingContent:
             url: keywords.md
           - text: Constants
             url: constants.md
+  - title: Vector functions
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: VectorDistance
+            url: vectordistance.md
   - title: Aggregate functions
     linkLists:
       - linkListType: reference
@@ -52,6 +58,10 @@ landingContent:
             url: array-concat.md
           - text: ARRAY_CONTAINS
             url: array-contains.md
+          - text: ARRAY_CONTAINS_ANY
+            url: array-contains-any.md
+          - text: ARRAY_CONTAINS_ALL
+            url: array-contains-all.md
           - text: ARRAY_LENGTH
             url: array-length.md
           - text: ARRAY_SLICE
@@ -65,7 +75,7 @@ landingContent:
           - text: GetCurrentTicks
             url: getcurrentticks.md
           - text: GetCurrentTimestamp
-            url: getcurrenttimestamp.md  
+            url: getcurrenttimestamp.md
   - title: Mathematical functions
     linkLists:
       - linkListType: reference
