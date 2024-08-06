@@ -46,6 +46,8 @@ The following table shows connectivity locations and the service providers for e
 
 ### Global commercial Azure
 
+#### [A-C](#tab/a-c)
+
 | Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|--|
 | **Abu Dhabi** | Etisalat KDC | 3 | UAE Central | Supported |  |
@@ -65,6 +67,11 @@ The following table shows connectivity locations and the service providers for e
 | **Chicago** | [Equinix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 1 | North Central US | Supported | Aryaka Networks<br/>AT&T Dynamic Exchange<br/>AT&T NetBond<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Cologix<br/>Colt<br/>Comcast<br/>Coresite<br/>Equinix<br/>InterCloud<br/>Internet2<br/>Level 3 Communications<br/>Megaport<br/>Momentum Telecom<br/>PacketFabric<br/>PCCW Global Limited<br/>Sprint<br/>Tata Communications<br/>Telia Carrier<br/>Verizon<br/>Vodafone<br/>Zayo |
 | **Chicago2** | [CoreSite CH1](https://www.coresite.com/data-center/ch1-chicago-il) | 1 | North Central US | Supported | CoreSite<br/>DE-CIX |
 | **Copenhagen** | [Interxion CPH1](https://www.interxion.com/Locations/copenhagen/) | 1 | n/a | Supported | DE-CIX<br/>GlobalConnect<br/>Interxion (Digital Realty) |
+
+#### [D-I](#tab/d-h)
+
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
+|--|--|--|--|--|--|
 | **Dallas** | [Equinix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/)<br/>[Equinix DA6](https://www.equinix.com/data-centers/americas-colocation/united-states-colocation/dallas-data-centers/da6) | 1 | n/a | Supported | Aryaka Networks<br/>AT&T Connectivity Plus<br/>AT&T Dynamic Exchange<br/>AT&T NetBond<br/>Cologix<br/>Cox Business Cloud Port<br/>Equinix<br/>GTT<br/>Intercloud<br/>Internet2<br/>Level 3 Communications<br/>MCM Telecom<br/>Megaport<br/>Momentum Telecom<br/>Neutrona Networks<br/>Orange<br/>PacketFabric<br/>Telmex Uninet<br/>Telia Carrier<br/>Telefonica<br/>Transtelco<br/>Verizon<br/>Vodafone<br/>Zayo |
 | **Dallas2** | [Digital Realty DFW10](https://www.digitalrealty.com/data-centers/americas/dallas/dfw10) | 1 | n/a | Supported | Digital Realty |
 | **Denver** | [CoreSite DE1](https://www.coresite.com/data-centers/locations/denver/de1) | 1 | West Central US | Supported | CoreSite<br/>Megaport<br/>PacketFabric<br/>Zayo |
@@ -79,6 +86,11 @@ The following table shows connectivity locations and the service providers for e
 | **Geneva** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Switzerland West | Supported | Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>Swisscom |
 | **Hong Kong** | [Equinix HK1](https://www.equinix.com/data-centers/asia-pacific-colocation/hong-kong-colocation/hong-kong-data-centers/hk1) | 2 | East Asia | Supported | Aryaka Networks<br/>British Telecom<br/>CenturyLink Cloud Connect<br/>Chief Telecom<br/>China Telecom Global<br/>China Unicom Global<br/>Colt<br/>Equinix<br/>InterCloud<br/>Megaport<br/>NTT Communications<br/>Orange<br/>PCCW Global Limited<br/>Tata Communications<br/>Telia Carrier<br/>Telefonica<br/>Verizon<br/>Zayo |
 | **Hong Kong2** | [iAdvantage MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | East Asia | Supported | China Mobile International<br/>China Telecom Global<br/>Deutsche Telekom AG<br/>Equinix<br/>iAdvantage<br/>Megaport<br/>PCCW Global Limited<br/>SingTel<br/>Vodafone |
+
+#### [J-M](#tab/j-m)
+
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
+|--|--|--|--|--|--|
 | **Jakarta** | [Telin](https://www.telin.net/) | 4 | n/a | Supported | NTT Communications<br/>Telin<br/>XL Axiata |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | South Africa North | Supported | BCX<br/>British Telecom<br/>Internet Solutions - Cloud Connect<br/>Liquid Telecom<br/>MTN Business<br/>MTN Global Connect<br/>Orange<br/>Teraco<br/>Vodacom |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | n/a | n/a | DE-CIX<br/>TIME dotCom |
@@ -99,6 +111,11 @@ The following table shows connectivity locations and the service providers for e
 | **Mumbai** | Tata Communications | 2 | West India | Supported | BSNL<br/>British Telecom<br/>DE-CIX<br/>Global CloudXchange (GCX)<br/>InterCloud<br/>Lightstorm<br/>Reliance Jio<br/>Sify<br/>Tata Communications<br/>Verizon |
 | **Mumbai2** | Airtel | 2 | West India | Supported | Airtel<br/>Equinix<br/>Sify<br/>Orange<br/>Vodafone Idea |
 | **Munich** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/munich/) | 1 | n/a | Supported | Colt<br/>DE-CIX<br/>Megaport |
+
+#### [N-Q](#tab/n-q)
+
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
+|--|--|--|--|--|--|
 | **New York** | [Equinix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 1 | n/a | Supported | CenturyLink Cloud Connect<br/>Coresite<br/>Crown Castle<br/>DE-CIX<br/>Equinix<br/>InterCloud<br/>Lightpath<br/>Megaport<br/>Momentum Telecom<br/>NTT Communications<br/>Packet<br/>Zayo |
 | **Newport(Wales)** | [Next Generation Data](https://www.nextgenerationdata.co.uk) | 1 | UK West | Supported | British Telecom<br/>Colt<br/>Jisc<br/>Level 3 Communications<br/>Next Generation Data |
 | **Osaka** | [Equinix OS1](https://www.equinix.com/locations/asia-colocation/japan-colocation/osaka-data-centers/os1/) | 2 | Japan West | Supported | AT TOKYO<br/>BBIX<br/>Colt<br/>DE-CIX<br/>Equinix<br/>Internet Initiative Japan Inc. - IIJ<br/>Megaport<br/>NTT Communications<br/>NTT SmartConnect<br/>Softbank<br/>Tokai Communications |
@@ -113,6 +130,12 @@ The following table shows connectivity locations and the service providers for e
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | Supported | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |
 | **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | n/a | Supported | Cirion Technologies<br/>MCM Telecom<br/>Megaport<br/>Transtelco |
 | **Quincy** | Sabey Datacenter - Building A | 1 | West US 2 | Supported |  |
+
+
+#### [R-S](#tab/r-s)
+
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
+|--|--|--|--|--|--|
 | **Rio de Janeiro** | [Equinix-RJ2](https://www.equinix.com/locations/americas-colocation/brazil-colocation/rio-de-janeiro-data-centers/rj2/) | 3 | Brazil Southeast | Supported | Cirion Technologies<br/>Equinix |
 | **San Antonio** | [CyrusOne SA1](https://cyrusone.com/locations/texas/san-antonio-texas/) | 1 | South Central US | Supported | CenturyLink Cloud Connect<br/>Megaport<br/>Zayo |
 | **Santiago** | [EdgeConnex SCL](https://www.edgeconnex.com/locations/south-america/santiago/) | 3 | n/a | Supported | Cirion Technologies<br/>PitChile |
@@ -129,6 +152,11 @@ The following table shows connectivity locations and the service providers for e
 | **Stockholm** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | Sweden Central | Supported | Cinia<br/>Equinix<br/>GlobalConnect<br/>Interxion (Digital Realty)<br/>Megaport<br/>Telia Carrier |
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australia East | Supported | AARNet<br/>AT&T NetBond<br/>British Telecom<br/>Cello<br/>Devoli<br/>Equinix<br/>GTT<br/>Kordia<br/>Megaport<br/>NEXTDC<br/>NTT Communications<br/>Optus<br/>Orange<br/>Spark NZ<br/>Telstra Corporation<br/>TPG Telecom<br/>Verizon<br/>Vocus Group NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Australia East | Supported | Megaport<br/>NETSG<br/>NextDC |
+
+#### [T-Z](#tab/t-z)
+
+| Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
+|--|--|--|--|--|--|
 | **Taipei** | Chief Telecom | 2 | n/a | Supported | Chief Telecom<br/>Chunghwa Telecom<br/>FarEasTone |
 | **Taipei2** | Chunghwa Telecom | 2 | n/a | Supported | |
 | **Tel Aviv** | Bezeq International | 2 | Israel Central | Supported | Bezeq International |
