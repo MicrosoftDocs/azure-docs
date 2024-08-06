@@ -16,20 +16,20 @@ ms.custom: mode-other
 # Quickstart: Manage a room call
 
 ## Introduction
-Once Azure Communication Services (ACS) room call is started, the call can be managed using Calling SDKs or Call Automation SDKs or both. In a room call, the mid-call actions are controlled by either the roles assigned to participants and properties configured in the room. The participant's roles are used to control capabilities permitted per participant while room's properties are applied to a room call as a whole.
+During an Azure Communication Services (ACS) room call, you can manage the call using Calling SDKs or Call Automation SDKs or both. In a room call, you can control in-call actions using both the roles assigned to participants and properties configured in the room. The participant's roles control capabilities permitted per participant, while room properties apply to the room call as a whole.
 
 ## Calling SDKs
-Calling SDK is a client side calling libraries enabling participants in a room call to perform several mid-call operations (e.g. screen share, turn on/off video, mute/unmute, etc. ). Full list of capabilities offered in Calling SDK is listed in the [Calling SDK Overview](../../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities)
+Calling SDK is a client-side calling library enabling participants in a room call to perform several in-call operations, such as screen share, turn on/off video, mute/unmute, and so on. For the full list of capabilities, see [Calling SDK Overview](../../concepts/voice-video-calling/calling-sdk-features.md#detailed-capabilities).
 
-The capabilities are controlled based on roles assigned participants in the call (e.g. Only presenter can screen share). Please refer to [Rooms concepts](../../concepts/rooms/room-concept#predefined-participant-roles-and-permissions) for participant roles and permissions.
+You control the capabilities based on roles assigned to participants in the call. For example, only the presenter can screen share. For participant roles and permissions, see [Rooms concepts](../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions).
 
 ## Call Automation SDKs
-Call Automation SDK is a sever side libraries enabling administrator to manage an ongoing room call in a central and controlled environment. Unlike Calling SDK, Call Automation SDK operations are roles agnostic. Therefore, a call administrator may perform several mid-call operations on behalf of the room call participants.
+Call Automation SDK is a server-side library enabling administrators to manage an ongoing room call in a central and controlled environment. Unlike Calling SDK, Call Automation SDK operations are roles agnostic. Therefore, a call administrator can perform several in-call operations on behalf of the room call participants.
 
-The following lists common mid-call actions available in a room call. 
+The following lists describe common in-call actions available in a room call.
 
 ### Connect to a room call
-Call Automation must connect to an existing room call prior to performing any mid-call operations. CallConnected or ConnectFailed events are notified using callback mechanism to indicate a connect operation is successful or failed respectively.
+Call Automation must connect to an existing room call before performing any in-call operations. The `CallConnected` or `ConnectFailed` events are raised using callback mechanisms to indicate if a connect operation was successful or failed respectively.
 
 ### [csharp](#tab/csharp)
 
@@ -64,24 +64,27 @@ call_connection_properties = client.connect_call(call_locator=room_call_locator,
 ```
 -----
 
-Once successfully connected to a room call, a CallConnect event is notified via Callback URI. The ```callConnectionId``` is available such that it can be used to retrieve a call connection on the room call as needed. ```callConnectionId``` will be used in the following sample code snippets.
+Once successfully connected to a room call, a `CallConnect` event is notified via Callback URI. You can use `callConnectionId` to retrieve a call connection on the room call as needed. The following sample code snippets use the `callConnectionId` to demonstrate this function.
 
 
 ### Add PSTN Participant
-Call Automation can dial out to a PSTN number and add the participant into a room call. A room, however, must be set up to enable PSTN dial-out option (EnabledPSTNDialout is set to true) and Azure Communication Services (ACS) resource must have a valid phone number. Please refer to [Rooms quickstart](get-started-rooms?tabs=windows&pivots=platform-azcli#enable-pstn-dial-out-capability-for-a-room) for detail.
+Using Call Automation you can dial out to a PSTN number and add the participant into a room call. You must, however, set up a room to enable PSTN dial-out option (`EnabledPSTNDialout` set to `true`) and the Azure Communication Services resource must have a valid phone number provisioned.
+
+For more information, see [Rooms quickstart](../../quickstarts//rooms/get-started-rooms.md?tabs=windows&pivots=platform-azcli#enable-pstn-dial-out-capability-for-a-room).
+
 
 ### [csharp](#tab/csharp)
 
 ```csharp
-var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller  
-var callThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // person to call
+var callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS-provisioned phone number for the caller  
+var callThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber); // The target phone number to dial out to
 CreateCallResult response = await client.GetCallConnection(callConnectionId).AddParticipantAsync(callThisPerson);
 ```
 
 ### [Java](#tab/java)
 
 ```java
-PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the Azure Communication Services provisioned phone number for the caller
+PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234"); // This is the ACS-provisioned phone number for the caller
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantResultResponse = client.getCallConnectionAsync(callConnectionId)
@@ -92,8 +95,8 @@ Response<AddParticipantResult> addParticipantResultResponse = client.getCallConn
 
 ```javascript
 const callInvite = {
-    targetParticipant: { phoneNumber: "+18008008800" }, // person to call
-    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the Azure Communication Services provisioned phone number for the caller
+    targetParticipant: { phoneNumber: "+18008008800" }, // The target phone number to dial out to
+    sourceCallIdNumber: { phoneNumber: "+18888888888" } // This is the ACS-provisioned phone number for the caller
 };
 const response = await client.getCallConnection(callConnectionId).addParticipant(callInvite);
 ```
@@ -103,7 +106,7 @@ const response = await client.getCallConnection(callConnectionId).addParticipant
 ```python
 caller_id_number = PhoneNumberIdentifier(
     "+18888888888"
-) # This is the Azure Communication Services provisioned phone number for the caller
+) # TThis is the ACS-provisioned phone number for the caller
 target = PhoneNumberIdentifier("+18008008800"),
 
 call_connection_client = call_automation_client.get_call_connection(
@@ -125,7 +128,7 @@ result = call_connection_client.add_participant(
 
 var removeThisUser = new PhoneNumberIdentifier("+16044561234");
 
-// remove a participant from the call with optional parameters
+// Remove a participant from the call with optional parameters
 var removeParticipantOptions = new RemoveParticipantOptions(removeThisUser)
 {
     OperationContext = "operationContext",
@@ -216,7 +219,7 @@ result = call_connection_client.send_dtmf_tones(
 -----
 
 ### Call Recording
-ACS Rooms supports recording capabilities (start, stop, pause, resume, etc.) provided by Call Automation. The following code snippets are used to start/stop/pause/resume a recording in a room call. However, please refer to [Call Automation recording](../../concepts/voice-video-calling/call-recording#get-full-control-over-your-recordings-with-our-call-recording-apis) for a complete list of actions.
+Azure Communication Services rooms support recording capabilities including `start`, `stop`, `pause`, `resume`, and so on, provided by Call Automation. See the following code snippets to start/stop/pause/resume a recording in a room call. For a complete list of actions, see [Call Automation recording](../../concepts/voice-video-calling/call-recording.md#get-full-control-over-your-recordings-with-our-call-recording-apis).
 
 ### [csharp](#tab/csharp)
 ```csharp
@@ -315,7 +318,7 @@ resume_recording = call_automation_client.resume_recording(recording_id = record
 
 
 ### Terminate a Call
-Call Automation SDKs provides Hang Up action which can be used to terminate a call. CallDisconnected event is published once the Hang Up action has completed successfully.
+You can use the Call Automation SDK Hang Up action to terminate a call. When the Hang Up action completes, the SDK publishes a `CallDisconnected` event.
 
 ### [csharp](#tab/csharp)
 
@@ -347,7 +350,7 @@ call_connection_client.hang_up(is_for_everyone=True)
 -----
 
 ## Other Actions
-The following mid-call actions are also supported in a room call. 
+The following in-call actions are also supported in a room call. 
 1. Add participant (ACS identifier)
 1. Remove participant (ACS identifier)
 1. Cancel add participant (ACS identifier and PSTN number)
@@ -360,15 +363,15 @@ The following mid-call actions are also supported in a room call.
 1. Recognize both DTMF and speech
 1. Recognize continuous DTMF
 
-Please see [call actions](../../how-tos/call-automation/actions-for-call-control?branch=pr-en-us-280574&tabs=csharp) and [media actions](../../how-tos/call-automation/control-mid-call-media-actions?branch=pr-en-us-280574&tabs=csharp) for detail.
+For more information, see [call actions](../../how-tos/call-automation/actions-for-call-control.md?branch=pr-en-us-280574&tabs=csharp) and [media actions](../../how-tos/call-automation/control-mid-call-media-actions.md?branch=pr-en-us-280574&tabs=csharp).
 
 ## Next steps
 
 In this section you learned how to:
 > [!div class="checklist"]
 > - Join a room call from your application
-> - Add mid-call actions into a room call using calling SDKs
-> - Add mid-call actions into a room call using Call Automation SDKs
+> - Add in-call actions into a room call using calling SDKs
+> - Add in-call actions into a room call using Call Automation SDKs
 
 You may also want to:
  - Learn about [Rooms concept](../../concepts/rooms/room-concept.md)
