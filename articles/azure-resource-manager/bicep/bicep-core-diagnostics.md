@@ -310,8 +310,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | BCP323     | Error | The `[?]` (safe dereference) operator may not be used on resource or module collections. |
 | BCP325     | Error | Expected a type identifier at this location. |
 | BCP326     | Error | Nullable-typed parameters may not be assigned default values. They have an implicit default of 'null' that cannot be overridden. |
-| <a id='BCP327' />[BCP327](./diagnostics/bcp327.md) | Warning | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
-| <a id='BCP328' />[BCP328](./diagnostics/bcp328.md) | Warning | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
+| <a id='BCP327' />[BCP327](./diagnostics/bcp327.md) | Error/Warning | The provided value (which will always be greater than or equal to &lt;value>) is too large to assign to a target for which the maximum allowable value is &lt;max-value>. |
+| <a id='BCP328' />[BCP328](./diagnostics/bcp328.md) | Error/Warning | The provided value (which will always be less than or equal to &lt;value>) is too small to assign to a target for which the minimum allowable value is &lt;max-value>. |
 | BCP329     | Warning | The provided value can be as small as {sourceMin} and may be too small to assign to a target with a configured minimum of {targetMin}. |
 | BCP330     | Warning | The provided value can be as large as {sourceMax} and may be too large to assign to a target with a configured maximum of {targetMax}. |
 | BCP331     | Error | A type's "{minDecoratorName}" must be less than or equal to its "{maxDecoratorName}", but a minimum of {minValue} and a maximum of {maxValue} were specified. |
