@@ -14,9 +14,12 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [New minimum volume quota: 50 GiB](azure-netapp-files-resource-limits.md) (preview)
+## August 2024
 
-    Regular Azure NetApp Files now support a new minimum quota of 50 GiB. 
+* [Volume enhancement: Azure NetApp Files now supports 50 GiB minimum volume sizes](azure-netapp-files-resource-limits.md) (GA)
+
+    You can now create an Azure NetApp Files volume as small as 50 GiB--a reduction from the initial minimum size of 100 GiB. 50 GiB volumes save costs for your workloads that require volumes smaller than 100 GiB by allowing you to appropriately size storage volumes.
+
 
 ## July 2024
 
