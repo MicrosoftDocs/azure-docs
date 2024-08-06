@@ -20,7 +20,7 @@ const breakoutRoomsFeature = mainMeetingCall.feature(Features.BreakoutRooms);
 ```
 ### Subscribe to breakoutRoom events
 
-The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `call` instance and contains information about the breakout rooms created or assigned. 
+The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated and assigned breakout rooms. 
 
 To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event. 
 ```js
