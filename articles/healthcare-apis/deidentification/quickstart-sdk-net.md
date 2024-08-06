@@ -4,7 +4,6 @@ description: A Quickstart guide to deidentify health data with the .NET client l
 author: GrahamMThomas
 ms.author: gthomas
 ms.service: healthcare-apis
-ms.subservice: workspace
 ms.topic: quickstart-sdk
 ms.date: 08/05/2024
 ---
@@ -14,7 +13,7 @@ ms.date: 08/05/2024
 
 Get started with the Azure Health Deidentification client library for .NET to deidentify your health data. Follow these steps to install the package and try out example code for basic tasks.
 
-[API reference documentation](https://review.learn.microsoft.com/en-us/dotnet/api/azure.health.deidentification) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Health.Deidentification) | [More Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md)
+[API reference documentation](/dotnet/api/azure.health.deidentification) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/healthdataaiservices) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Health.Deidentification) | [More Samples on GitHub](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdataaiservices/Azure.Health.Deidentification/samples/README.md)
 
 
 ## Prerequisites
@@ -28,7 +27,7 @@ Get started with the Azure Health Deidentification client library for .NET to de
 
 An Azure Deidentification Service provides you with an endpoint URL. This endpoint url can be utilized as a Rest API or with an SDK.
 
-1. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. Install [Azure CLI](/cli/azure/install-azure-cli)
 2. Create Deidentification Service Resource
 
     ```bash
@@ -40,7 +39,7 @@ An Azure Deidentification Service provides you with an endpoint URL. This endpoi
     
 ### Create an Azure Storage Account
 
-1. Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
+1. Install [Azure CLI](/cli/azure/install-azure-cli)
 2. Create an Azure Storage Account
 
     ```bash
