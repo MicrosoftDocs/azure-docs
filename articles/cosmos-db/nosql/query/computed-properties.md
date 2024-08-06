@@ -114,6 +114,20 @@ containerProperties.setComputedProperties(computedProperties);
 client.getDatabase("myDatabase").createContainer(containerProperties);
 ```
 
+### [JavaScript](#tab/javascript)
+
+```javascript
+const { resource: contDefinition } = await containerWithComputedProperty.read();
+const upperName = {
+name: "upperLastName", query: "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+};
+if (contDefinition) {
+// update computed properties contDefinition.computedProperties = [upperName]; // replace container definition with updated computed properties await containerWithComputedProperty.replace(contDefinition); console.log("Computed properties updated");
+} else {
+console.log("Container definition is undefined.");
+}
+```
+
 ### [Python](#tab/python)
 
 You can define multiple computed properties in a list and then add them to the container properties. Python SDK currently doesn't support computed properties on existing containers. 
