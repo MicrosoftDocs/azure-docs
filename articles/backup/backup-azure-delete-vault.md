@@ -65,6 +65,9 @@ To delete a vault, follow these steps:
      :::image type="content" source="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-inline.png" alt-text="Screenshot showing the process to delete items in soft-delete state." lightbox="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-expanded.png":::
 
   1. Go to the vault dashboard menu -> **Backup Items**. Click **Stop Backup** to stop the backups of all listed items, and then click **Delete Backup Data** to delete. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+
+  >[!Note]
+  > You don't need to delete Virtual Machine or policy, you only need to stop backup to the vault.
       
 - <a id="portal-delete-backup-servers">**Step 5:**</a> Delete Backup Servers
 
