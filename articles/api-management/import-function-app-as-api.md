@@ -17,6 +17,8 @@ ms.author: danlep
 
 Azure API Management supports importing Azure Function Apps as new APIs or appending them to existing APIs. The process automatically generates a host key in the Azure Function App, which is then assigned to a named value in Azure API Management.
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 This article walks through importing and testing an Azure Function App as an API in Azure API Management. 
 
 You will learn how to:

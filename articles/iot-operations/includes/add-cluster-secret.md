@@ -7,7 +7,7 @@ ms.date: 02/29/2024
 ms.author: dobett
 ---
 
-Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster](../get-started/quickstart-deploy.md) quickstart:
+Use the following command to add a secret to your Azure Key Vault that contains the client secret you made a note of when you created the service principal. You created the Azure Key Vault in the [Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) quickstart:
 
 ```azurecli
 az keyvault secret set --vault-name <your-key-vault-name> --name AIOFabricSecret --value <client-secret>
@@ -57,7 +57,7 @@ To add the secret reference to your Kubernetes cluster, edit the **aio-default-s
 
 1. Save the changes and exit from the editor.
 
-The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the next polling interval. To update a component immediately, restart the pods for the component. For example, to restart the Data Processor component, run the following commands:
+The CSI driver updates secrets by using a polling interval, therefore the new secret isn't available to the pod until the next polling interval. To update a component immediately, restart the pods for the component. For example, to restart the data processor component, run the following commands:
 
 ```console
 kubectl delete pod aio-dp-reader-worker-0 -n azure-iot-operations

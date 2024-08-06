@@ -1,9 +1,9 @@
 ---
 title: "Chamber: Azure Modeling and Simulation Workbench"
 description: Overview of Azure Modeling and Simulation Workbench chamber component.
-author: lynnar
-ms.author: lynnar
-ms.reviewer: yochu
+author: becha8
+ms.author: becha
+ms.reviewer: becha
 ms.service: modeling-simulation-workbench
 ms.topic: conceptual
 ms.date: 01/01/2023
