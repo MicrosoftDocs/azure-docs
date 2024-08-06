@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 07/31/2024
 ---
 
-# CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
+# Custom Logs via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
 
 Microsoft Sentinel's **Custom Logs via AMA** data connector supports log collection from many network and security appliances and devices. This article supplies installation instructions for specific security appliances and devices that use this data connector, as provided by their manufacturers. Contact the manufacturer for updates, more information, or where information is unavailable for your security appliance or device.
 

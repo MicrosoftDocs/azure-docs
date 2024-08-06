@@ -20,8 +20,25 @@ The listed features were released in the last three months. For information abou
 
 ## August 2024
 
+- [Unified AMA-based connectors for syslog ingestion](#unified-ama-based-connectors-for-syslog-ingestion)
+- [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Unified AMA-based connectors for syslog ingestion
+
+With the impending retirement of the Log Analytics Agent, Microsoft Sentinel has consolidated the collection and ingestion of syslog, CEF, and custom-format log messages into three multi-purpose data connectors based on the Azure Monitor Agent (AMA):
+- **Syslog via AMA**, for any device whose logs are ingested into the *Syslog* table in Log Analytics.
+- **Common Event Format (CEF) via AMA**, for any device whose logs are ingested into the *CommonSecurityLog* table in Log Analytics.
+- **Custom Logs via AMA**, for any of 16 device types, or any unlisted device, whose logs are ingested into custom tables with names ending in *_CL* in Log Analytics.
+
+These connectors replace nearly all the OMS- and AMA-based connectors for individual device and appliance types that have existed until now. The solutions provided in the content hub for all of these devices and appliances now include whichever of these three connectors is appropriate to the solution. The replaced connectors are now marked as "Deprecated" in the data connector gallery.
+
+The data ingestion graphs that were previously found in each device's connector page can now be found in device-specific workbooks packaged with each device's solution.
+
+### Better visibility for Windows security events
+
+We've enhanced the schema of the *SecurityEvent* table, hosting Windows Security events, and have added new columns that Azure Monitor Agent (AMA) for Windows (version 1.28.2) will be populating. These enhancements are designed to provide better visibility of the events collected. If you are not interested receiving data in these fields, you can apply an ingest time transform to drop it.
 
 ### New Auxiliary logs retention plan (Preview)
 

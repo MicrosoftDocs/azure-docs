@@ -1,24 +1,21 @@
 ---
-title: Ingest syslog and CEF messages to Microsoft Sentinel - AMA
-description: Ingest syslog messages from linux machines and from network and security devices and appliances to Microsoft Sentinel, using data connectors based on the Azure Monitor Agent (AMA).
+title: Ingest custom-format syslog messages to Microsoft Sentinel - AMA
+description: Ingest syslog messages in custom formats from linux machines and from network and security devices and appliances to Microsoft Sentinel, using the data connector based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/27/2024
+ms.date: 08/06/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: As a security operator, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
+#Customer intent: As a security operator, I want to ingest and filter custom-format syslog messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that security analysts can monitor activity on these systems and detect security threats.
 ---
 
-# Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent
+# Ingest custom-format syslog messages to Microsoft Sentinel with the Azure Monitor Agent
 
-This article describes how to use the **Syslog via AMA** and **Common Event Format (CEF) via AMA** connectors to quickly filter and ingest syslog messages, including messages in Common Event Format (CEF), from Linux machines and from network and security devices and appliances. To learn more about these data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
-
-> [!NOTE]
-> Container Insights now supports the automatic collection of Syslog events from Linux nodes in your AKS clusters. To learn more, see [Syslog collection with Container Insights](../azure-monitor/containers/container-insights-syslog.md).
+This article describes how to use the **Custom Logs via AMA** connector to quickly filter and ingest custom-format syslog messages from Linux machines and from network and security devices and appliances. To learn more about this and other similar data connectors, see [Syslog and Common Event Format (CEF) via AMA connectors for Microsoft Sentinel](cef-syslog-ama-overview.md). 
 
 ## Prerequisites
 
@@ -26,9 +23,11 @@ Before you begin, you must have the resources configured and the appropriate per
 
 ### Microsoft Sentinel prerequisites
 
-Install the appropriate Microsoft Sentinel solution and make sure you have the permissions to complete the steps in this article.
+- Install the Microsoft Sentinel solution that matches your device or appliance and make sure you have the permissions to complete the steps in this article. You can find these solutions in the **Content hub** in Microsoft Sentinel, and they all include the **Custom Logs via AMA** connector.
 
-- Install the appropriate solution from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+    If there isn't a solution available for your device, install the **Custom Logs via AMA** solution.
+
+    For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 - Identify which data connector the Microsoft Sentinel solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA** and whether you need to install the **Syslog** or **Common Event Format** solution. To fulfill this prerequisite, 
 
