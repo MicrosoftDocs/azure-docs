@@ -120,7 +120,7 @@ additionalContent:
     - title: SAP on Azure deployment automation framework
       items:
       #card
-      - title: SAP on Azure deployment automation framework
+      - title: Overview
         links:
           - text: What is SAP on Azure deployment automation framework?
             url: ./automation/deployment-framework.md
@@ -139,15 +139,15 @@ additionalContent:
           - text: Configure Azure DevOps Services for automation framework
             url: ./automation/configure-devops.md
 
-    - title: SAP on Azure Large Instances
+    - title: SAP on Azure Large Instances / SAP and Microsoft integrations
       items:
       #card
-      - title: overview
+      - title: ALI - overview
         links:
         - text: What is SAP HANA on Azure Large Instances?
           url: ./large-instances/hana-overview-architecture.md
       #card
-      - title: concept
+      - title: ALI - concept
         links:
           - text: Certifications for Large Instances
             url: ./large-instances/hana-certification.md 
@@ -158,19 +158,19 @@ additionalContent:
           - text: Architecture for Large Instances
             url: ./large-instances/hana-architecture.md 
       #card
-      - title: how-to-guide
+      - title: ALI - How-to-guide
         links:
           - text: How to install SAP HANA on Azure Large Instances
             url: ./large-instances/hana-example-installation.md
       #card
-      - title: SAP and Microsoft integrations - overview 
+      - title: Integrations - overview 
         links:
           - text: What scenarios are available and how do I get started?
             url: ./workloads/integration-get-started.md
           - text: How do you integrate with SAP RISE?
             url: ./workloads/rise-integration.md
       #card
-      - title: SAP and Microsoft integrations - How-to-guide
+      - title: Integrations - How-to-guide
         links:
            - text: How to configure M365 Exchange Online for SAP
              url: ./workloads/exchange-online-integration-sap-email-outbound.md
@@ -179,7 +179,7 @@ additionalContent:
            - text: How to configure SAP printing with Microsoft Universal Print
              url: ./workloads/universal-print-sap-frontend.md
       #card
-      - title: SAP and Microsoft integrations - Quickstart
+      - title: Integrations - Quickstart
         links:
            - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
              url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
