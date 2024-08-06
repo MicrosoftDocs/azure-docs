@@ -69,7 +69,7 @@ sections:
       - question: |
           How is Azure Disk Encryption different from other disk encryption solutions and when should I use each solution?
         answer: |
-          See [Overview of managed disk encryption options](../disk-encryption-overview). 
+          See [Overview of managed disk encryption options](../disk-encryption-overview.md). 
           
       - question: |
           How do I rotate secrets or encryption keys?
