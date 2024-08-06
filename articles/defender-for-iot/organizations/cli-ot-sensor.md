@@ -17,8 +17,6 @@ Before you can run any of the following CLI commands, you'll need access to the 
 
 While this article lists the command syntax for each user, we recommend using the *admin* user for all CLI commands where the *admin* user is supported.
 
-If you're using an older version of the sensor software, you may have access to the legacy *support* user. In such cases, any commands that are listed as supported for the *admin* user are supported for the legacy *support* user. <!-- Is this correct?? Belle-->
-
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
 ## Appliance maintenance
@@ -32,7 +30,7 @@ Health checks are also available from the OT sensor console. For more informatio
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system sanity`      |  No attributes      |
-<!--|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   `cyberx-xsense-sanity`      |   No attributes     |-->
+|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   `cyberx-xsense-sanity`      |   No attributes     |
 
 The following example shows the command syntax and response for the *admin* user:
 
@@ -62,8 +60,8 @@ Use the following commands to restart the OT sensor appliance.
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system reboot`      |   No attributes     |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
-|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
+|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
 
 For example, for the *admin* user:
 
@@ -71,15 +69,15 @@ For example, for the *admin* user:
 shell> system reboot
 ```
 
-### Shut down an appliance
+### Shutdown an appliance
 
 Use the following commands to shut down the OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system shutdown`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo shutdown -r now`      |   No attributes      |
-|**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `sudo shutdown -r now`      |   No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo shutdown -r now`      |   No attributes      |
+|**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `sudo shutdown -r now`      |   No attributes      |
 
 For example, for the *admin* user:
 
@@ -94,7 +92,7 @@ Use the following commands to list the Defender for IoT software version install
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system version`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-version`      |   No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-version`      |   No attributes      |
 
 For example, for the *admin* user:
 
@@ -103,10 +101,6 @@ shell> system version
 Version: 22.2.5.9-r-2121448
 ```
 
-### Update sensor software from CLI
-
-For more information, see [Update your sensors](update-ot-software.md#update-ot-sensors). <!-- is this needed? Is the information on this link correct? -->
-
 ### Show current system date/time
 
 Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
@@ -114,8 +108,8 @@ Use the following commands to show the current system date and time on your OT n
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `date`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |   No attributes      |
-|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |  No attributes    |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |   No attributes      |
+|**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `date`      |  No attributes    |
 
 For example, for the *admin* user:
 
@@ -137,7 +131,7 @@ To use these commands, make sure that:
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `ntp enable <IP address>`      |  No attributes |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-ntp-enable <IP address>`      |  No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-ntp-enable <IP address>`      |  No attributes      |
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server using port 123.
 
@@ -155,7 +149,7 @@ Use the following commands to turn off the synchronization for the appliance tim
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `ntp disable <IP address>`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-ntp-disable <IP address>`      |  No attributes |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-ntp-disable <IP address>`      |  No attributes |
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server using port 123.
 
@@ -185,7 +179,7 @@ Use the following command to start an immediate, unscheduled backup of the data 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system backup create`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   ` cyberx-xsense-system-backup`      |   No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   ` cyberx-xsense-system-backup`      |   No attributes      |
 
 For example, for the *admin* user:
 
@@ -206,7 +200,7 @@ Use the following commands to list the backup files currently stored on your OT 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system backup list`      |   No attributes      |
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   ` cyberx-xsense-system-backup-list`      |   No attributes      |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `cyberx-xsense-system-backup-list`      |   No attributes      |
 
 For example, for the *admin* user:
 
@@ -228,7 +222,7 @@ Use the following command to restore data on your OT network sensor using the mo
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system restore`      |   No attributes      |
-<!--|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   ` cyberx-xsense-system-restore`      |   `-f` `<filename>`      |-->
+|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)   |   ` cyberx-xsense-system-restore`      |   `-f` `<filename>`      |
 
 For example, for the *admin* user:
 
@@ -258,7 +252,7 @@ The following command lists the current backup disk space allocation, including 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 | **admin**  |   `cyberx-backup-memory-check`      |   No attributes      |
-<!-- what is the command here?? -->
+
 For example, for the *admin* user:
 
 ```bash
@@ -342,7 +336,7 @@ Use the following command to send a ping message from the OT sensor.
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `ping <IP address>`      |  No attributes|
-<!--|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `ping <IP address>`      |   No attributes |-->
+|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `ping <IP address>`      |   No attributes |
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 network host accessible from the management port on your OT sensor.
 
@@ -370,7 +364,7 @@ Use the following command to list the connected physical interfaces on your OT s
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `network list`      |   No attributes |
-<!--|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `ifconfig`      |   No attributes |-->
+|**cyberx**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `ifconfig`      |   No attributes |
 
 For example, for the *admin* user:
 
