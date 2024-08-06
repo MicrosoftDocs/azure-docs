@@ -1,11 +1,6 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/storage/common/storage-failover-customer-managed-planned.md",
-            "redirect_url": "/articles/storage/common/storage-failover-customer-managed-unplanned",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/storage/common/azure-defender-storage-configure.md",
             "redirect_url": "/azure/defender-for-cloud/defender-for-storage-introduction",
             "redirect_document_id": false

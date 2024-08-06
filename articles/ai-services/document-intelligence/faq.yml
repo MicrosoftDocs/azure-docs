@@ -218,7 +218,7 @@ sections:
 
            - Your data must remain within a single machine. Use the [FOTT Sample Labeling tool](/azure/ai-services/document-intelligence/label-tool) and a [Document Intelligence container](/azure/ai-services/document-intelligence/containers/install-run).
 
-           - Your project is highly dependent on Document Intelligence V2.1, and you want to keep using the v2.1 APIs.
+           - Your project is highly dependent on Document Intelligence V2.1 and you want to keep using the v2.1 APIs.
 
       - question: |
          Are there best practices to mitigate throttling?
@@ -292,8 +292,7 @@ sections:
       answer: |
         **Yes for the first 10 hours only.**
 
-        If training hours exceed 10 hours, charges incur for further custom neural model training.
-
+        If training hours exceed 10 hours, charges are incurred for further custom neural model training.
 
   - name: Storage account
     questions:

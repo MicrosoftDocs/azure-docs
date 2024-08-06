@@ -12,7 +12,7 @@ ms.date: 03/15/2024
 
 # What is Azure Modeling and Simulation Workbench?
 
-The Azure Modeling and Simulation Workbench is a secure, on-demand service that provides a fully managed engineering design and simulation environment for safe and efficient user collaboration. The service incorporates many infrastructure services required to build a successful environment for engineering development, such as: workload specific VMs, scheduler, orchestration, license server, remote connectivity, high performance storage, network configurations, security, and access controls.
+Azure Modeling and Simulation Workbench is a secure, on-demand service that provides a fully managed engineering design and simulation environment for safe and efficient user collaboration. The service incorporates many infrastructure services required to build a successful environment for engineering development, such as: workload specific VMs, scheduler, orchestration, license server, remote connectivity, high performance storage, network configurations, security, and access controls.
 
 - A chamber environment enables primary development teams to onboard their collaborators (customers, partners, ISVs, service/IP providers) for joint analysis/debug activity within the same chamber.
 - Multi-layered security and access controls allow users to monitor, scale, and optimize the compute and storage capacity as needed.

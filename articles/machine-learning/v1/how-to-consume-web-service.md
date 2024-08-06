@@ -91,6 +91,9 @@ az ml service show -n <service-name>
 
 From Azure Machine Learning studio, select __Endpoints__, __Real-time endpoints__, and then the endpoint name. In details for the endpoint, the __REST endpoint__ field contains the scoring URI. The __Swagger URI__ contains the swagger URI.
 
+> [!NOTE]
+> Although you can retrieve scoring URI, swagger URI and other information from Azure Machine Learning studio (UI), using Test tab on Azure Machine Learning studio isn't supported for Azure Container Instance or Azure Kubernetes Service based web services. Instead, use code based approach to consume the web service as described in the later section of this article. To fully utilize Test tab to test the deployments, consider [migrating to v2 Managed online endpoint](../migrate-to-v2-deploy-endpoints.md). For more, see [endpoints for inferencing](../concept-endpoints.md).
+
 ---
 
 The following table shows what these URIs look like:

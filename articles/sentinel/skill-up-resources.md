@@ -4,7 +4,7 @@ description: This article walks you through a level 400 training to help you ski
 author: rayne-wiselman
 ms.topic: conceptual
 ms.date: 05/16/2024
-ms.author: laghimpe
+ms.author: raynew
 ms.custom: fasttrack-edit
 ---
 

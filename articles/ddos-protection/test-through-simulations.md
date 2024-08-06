@@ -218,7 +218,7 @@ RedWolf's [DDoS Testing](https://www.redwolfsecurity.com/services/) service suit
 
    - **Attack Vectors**: Unique cloud attacks designed by RedWolf. For more information about RedWolf attack vectors, see [Technical Details](https://www.redwolfsecurity.com/redwolf-technical-details/).
    - **Guided Service**: Leverage RedWolf's team to run tests. For more information about RedWolf's guided service, see [Guided Service](https://www.redwolfsecurity.com/managed-testing-explained/).
-   - **Self Service**: Leverage RedWol to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
+   - **Self Service**: Leverage RedWolf to run tests yourself. For more information about RedWolf's self-service, see [Self Service](https://www.redwolfsecurity.com/self-serve-testing/).
 
 ## MazeBolt
 

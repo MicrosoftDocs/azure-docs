@@ -64,7 +64,7 @@ To get started, you need the following resources:
 
 ## Create your custom models
 
-First, you need a set of custom models to compose. You can use the Document Intelligence Studio, REST API, or client-libraries. The steps are as follows:
+First, you need a set of custom models to compose. You can use the Document Intelligence Studio, REST API, or client libraries. The steps are as follows:
 
 * [**Assemble your training dataset**](#assemble-your-training-dataset)
 * [**Upload your training set to Azure blob storage**](#upload-your-training-dataset)
@@ -123,6 +123,8 @@ See [Document Intelligence Studio: labeling as tables](../concept-custom-label.m
 Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (*\<filename\>.pdf.labels.json*) in your blob storage container alongside the training documents.
 
 Label files contain key-value associations that a user enters manually and are needed for labeled data training. However, not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
+=======
+Label files contain key-value associations that a user entered manually. The files are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels are treated as ordinary training documents. We recommend five or more labeled files for reliable training. You can use a UI tool like [Document Intelligence Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to generate these files.
 
 Once you have your label files, you can include them with by calling the training method with the *useLabelFile* parameter set to `true`.
 
@@ -206,7 +208,7 @@ Once the training process is successfully completed, you can begin to build your
 
 #### Compose your custom models
 
-The [`compose model` API](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) accepts a list of model IDs to be composed.
+The [composed models API](/rest/api/aiservices/document-models/compose-model?view=rest-aiservices-2023-07-31&preserve-view=true&tabs=HTTP) accepts a list of model IDs to be composed.
 
 :::image type="content" source="../media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
@@ -297,7 +299,7 @@ Document Intelligence uses advanced machine-learning technology to detect and ex
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, you learn how to create Document Intelligence custom and composed models using our [Document Intelligence Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true), or [client-libraries](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
+In this article, learn how to create Document Intelligence custom and composed models using our [Document Intelligence Sample Labeling tool](../label-tool.md), [REST APIs](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true), or [client libraries](../how-to-guides/use-sdk-rest-api.md?view=doc-intel-2.1.0&preserve-view=true).
 
 ## Sample Labeling tool
 
@@ -385,7 +387,7 @@ The [**REST API**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=tr
 
 ### [**Client-library SDKs**](#tab/sdks)
 
- The [**client-library SDKs**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#train-your-model) return a model object that can be queried to return the trained model ID:
+ The [**client library SDKs**](build-a-custom-model.md?view=doc-intel-2.1.0&preserve-view=true#train-your-model) return a model object that can be queried to return the trained model ID:
 
 * C\#  | [CustomFormModel Class](/dotnet/api/azure.ai.formrecognizer.training.customformmodel?view=azure-dotnet&preserve-view=true#properties "Azure SDK for .NET")
 
@@ -446,7 +448,7 @@ Use the programming language code of your choice to create a composed model that
 
 ### [**Document Intelligence Sample Labeling tool**](#tab/studio)
 
-1. On the tool's left-pane menu, select the **`Analyze icon`** (light bulb).
+1. On the tool left-pane menu, select the **`Analyze` icon** (light bulb).
 
 1. Choose a local file or  image URL to analyze.
 
