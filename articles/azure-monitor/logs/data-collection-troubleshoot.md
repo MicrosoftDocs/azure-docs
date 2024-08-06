@@ -45,7 +45,7 @@ Operation
 | where Detail startswith "The rate of data crossed the threshold"
 ```
 
-## Azure Monitor Agent is not sending data
+## Azure Monitor Agent not sending data
 
 [Azure Monitor Agent](../agents/azure-monitor-agent-overview.md) collects data from virtual machines and sends the data to Azure Monitor. An agent might stop sending data to your Log Analytics workspace in various scenarios. For example, when [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) recovers a virtual machine in a disaster recovery scenario, the resource ID of the machine changes, requiring reinstallation of Azure Monitor Agent on the machine.
 
@@ -62,7 +62,7 @@ Heartbeat
 | where LastCall < ago(5m)
 ```
 
-## Azure subscription is in a suspended state 
+## Azure subscription is in suspended state 
 Your Azure subscription could be in a suspended state for one of the following reasons:
 
 - Free trial ended
