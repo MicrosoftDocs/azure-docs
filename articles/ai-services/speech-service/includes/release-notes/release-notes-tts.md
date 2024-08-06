@@ -7,6 +7,12 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### July 2024 release
+
+#### Text to speech avatar (GA)
+
+Text to speech avatar is now generally available. For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md).
+
 ### June 2024 release
 
 #### Prebuilt neural voice
@@ -787,7 +793,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - With Neural text to speech Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
 #### New features
-- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
+- **Custom voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [Azure portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup-structure.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 

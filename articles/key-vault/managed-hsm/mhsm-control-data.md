@@ -1,7 +1,7 @@
 ---
 title: Control your cloud data by using Managed HSM
 description: Get an overview of the safeguards and technical measures that help customers meet compliance requirements in Azure Key Vault Managed HSM.
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 author: nkondamudi

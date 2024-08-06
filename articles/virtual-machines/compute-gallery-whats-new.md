@@ -2,7 +2,7 @@
 title: What's new for Azure Compute Gallery
 description: Learn about what's new for Azure Compute Gallery in Azure.
 author: sandeepraichura
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: whats-new
 ms.date: 01/25/2023

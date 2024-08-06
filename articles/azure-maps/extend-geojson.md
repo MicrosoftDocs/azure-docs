@@ -4,7 +4,7 @@ description: Learn how Azure Maps extends the GeoJSON spec to include more geome
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 ---

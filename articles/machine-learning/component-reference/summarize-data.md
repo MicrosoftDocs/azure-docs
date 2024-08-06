@@ -3,7 +3,7 @@ title:  "Summarize Data"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Summarize Data component in Azure Machine Learning to generate a basic descriptive statistics report for the columns in a dataset.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

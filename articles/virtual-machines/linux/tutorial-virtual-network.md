@@ -5,7 +5,7 @@ services: virtual-machines
 author: ju-shim
 ms.collection: linux
 ms.subservice: networking
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: jushiman

@@ -5,7 +5,7 @@ author: gbowerman
 ms.author: guybo
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
 ---
@@ -39,7 +39,7 @@ The following table compares RTO and RPO in a **typical workload** scenario:
 
 | **Capability** | **Burstable** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 5 min |
 | Geo-restore from geo-replicated backups | RTO - Varies <br/>RPO < 1 h  | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 

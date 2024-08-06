@@ -3,7 +3,7 @@ title: 'Tutorial: Create a secured hub and spoke network'
 description: In this tutorial, you learn how to create a hub and spoke network topology for your virtual networks using Azure Virtual Network Manager. Then you secure your network by blocking outbound traffic on ports 80 and 443.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: tutorial
 ms.date: 06/26/2024
 ms.custom: FY23 content-maintenance, engagement-FY24

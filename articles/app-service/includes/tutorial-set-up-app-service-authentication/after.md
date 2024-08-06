@@ -5,7 +5,7 @@ services: active-directory, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 05/16/2024
 ms.author: ryanwi

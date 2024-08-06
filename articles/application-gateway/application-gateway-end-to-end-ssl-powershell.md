@@ -3,7 +3,7 @@ title: Configure end-to-end TLS with Azure Application Gateway
 description: This article describes how to configure end-to-end TLS with Azure Application Gateway by using PowerShell
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: greglin 

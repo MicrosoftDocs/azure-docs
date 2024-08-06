@@ -33,6 +33,8 @@ You can also start a new file on your local system and create requests manually 
 
 Requests to the search endpoint must be authenticated and authorized. You can use API keys or roles for this task. Keys are easier to start with, but roles are more secure. This quickstart assumes roles.
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
 1. Configure Azure OpenAI to use a system-assigned managed identity:
 
     1. In the Azure portal, find your Azure OpenAI resource.
@@ -47,16 +49,16 @@ Requests to the search endpoint must be authenticated and authorized. You can us
 
     1. On the left menu, select **Settings** > **Keys**, and then select either **Role-based access control** or **Both**.
 
-    1. On the left menu, select **Access control (IAM)**.
-
 1. Assign roles:
+
+    1. On the left menu, select **Access control (IAM)**.
 
     1. On Azure AI Search, add two role assignments for the Azure OpenAI managed identity: 
 
        - **Search Index Data Reader**
        - **Search Service Contributor**
 
-    1. On Azure OpenAI, assign yourself to a role. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system: 
+    1. On Azure OpenAI, select **Access control (IAM)** to assign yourself to a role. The code for this quickstart runs locally. Requests to Azure OpenAI originate from your system: 
 
        - **Cognitive Services OpenAI User**
 
@@ -115,7 +117,31 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 1. Run the following query to test your index: `hotels near the ocean with beach access and good views`.
 
+   Output should look similar to the following example. Results that are returned directly from the search engine consist of fields and their verbatim values, along with metadata like a search score and a semantic ranking score and caption if you use semantic ranking.
+
+   ```
+      "@search.score": 5.600783,
+      "@search.rerankerScore": 2.4191176891326904,
+      "@search.captions": [
+        {
+          "text": "Contoso Ocean Motel. Budget. pool\r\nair conditioning\r\nbar. Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away..",
+          "highlights": "Contoso Ocean Motel. Budget.<em> pool\r\nair conditioning\r\nbar. O</em>ceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+        }
+      ],
+      "HotelId": "41",
+      "HotelName": "Contoso Ocean Motel",
+      "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away.",
+      "Category": "Budget",
+      "Tags": [
+        "pool",
+        "air conditioning",
+        "bar"
+      ],
+   ```
+
 ## Get service endpoints
+
+In the remaining sections, you set up API calls to Azure OpenAI and Azure AI Search. Get the service endpoints so that you can provide them as variables in your code.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -129,7 +155,9 @@ We recommend the hotels-sample-index, which can be created in minutes and runs o
 
 ## Set up the query and chat thread
 
-This section uses Visual Studio Code and Python to call the chat APIs on Azure OpenAI.
+This section uses Visual Studio Code and Python to call the chat completion APIs on Azure OpenAI.
+
+1. Start Visual Studio Code and [open the .ipynb file](https://github.com/Azure-Samples/azure-search-python-samples/tree/main/Quickstart-RAG) or create a new Python file.
 
 1. Install the following Python packages.
 

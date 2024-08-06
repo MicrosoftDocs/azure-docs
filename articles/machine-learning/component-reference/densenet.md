@@ -3,7 +3,7 @@ title: "DenseNet"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the DenseNet component in Azure Machine Learning designer to create an image classification model using the DenseNet algorithm.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 

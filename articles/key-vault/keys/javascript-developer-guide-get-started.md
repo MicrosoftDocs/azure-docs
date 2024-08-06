@@ -3,7 +3,7 @@ title: Getting started with Azure Key Vault key in JavaScript
 description: Set up your environment, install npm packages, and authenticate to Azure to get started using Key Vault keys in JavaScript
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js, devx-track-azurecli

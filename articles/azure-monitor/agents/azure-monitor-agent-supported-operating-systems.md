@@ -55,6 +55,7 @@ This article lists the operating systems supported by [Azure Monitor Agent](./az
 | CentOS Linux 8                                              | ✓ | ✓ |
 | CentOS Linux 7                                              | ✓<sup>2</sup> | ✓ |
 | CBL-Mariner 2.0                                             | ✓<sup>2,3</sup> |   |
+| Debian 12                                                   | ✓ |  |
 | Debian 11                                                   | ✓<sup>2</sup> | ✓ |
 | Debian 10                                                   | ✓ | ✓ |
 | Debian 9                                                    | ✓ | ✓ |

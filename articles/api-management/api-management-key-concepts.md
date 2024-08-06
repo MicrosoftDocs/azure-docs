@@ -4,7 +4,7 @@ description: Introduction to key scenarios, capabilities, and concepts of the Az
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: overview
 ms.date: 05/21/2024
 ms.author: danlep

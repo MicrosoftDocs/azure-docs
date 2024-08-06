@@ -5,7 +5,6 @@ description: Learn about optimizing data flow execution in pipelines in Azure Da
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023

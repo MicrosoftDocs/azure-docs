@@ -1,6 +1,6 @@
 ---
 author: msmbaldwin
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: include
 ms.date: 05/25/2023
 ms.author: mbaldwin

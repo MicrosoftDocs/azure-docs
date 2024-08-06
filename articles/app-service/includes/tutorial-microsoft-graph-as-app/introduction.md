@@ -3,7 +3,7 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 08/19/2022
 ms.author: ryanwi

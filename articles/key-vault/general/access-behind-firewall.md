@@ -4,7 +4,7 @@ description: Learn about the ports, hosts, or IP addresses to open to enable a k
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

@@ -8,15 +8,18 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 07/22/2024
+ms.date: 08/05/2024
 ---
 
 # Custom Web API vectorizer
 
-> [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2023-10-01-Preview REST API](/rest/api/searchservice/indexes/create-or-update?view=rest-searchservice-2023-10-01-preview&preserve-view=true) and all newer preview REST APIs support this feature.
-
 The **custom web API** vectorizer allows you to configure your search queries to call out to a Web API endpoint to generate embeddings at query time. The structure of the JSON payload required to be implemented in the provided endpoint is described further down in this document. Your data is processed in the [Geo](https://azure.microsoft.com/explore/global-infrastructure/data-residency/) where your model is deployed. 
+
+Vectorizers are used at query time, but specified in index definitions, and referenced on vector fields through a vector profile. The custom web API vectorizer is called `WebApiVectorizer` in the API. 
+
++ Use the [**2024-07-01**](/rest/api/searchservice/indexes/create) REST API or an Azure SDK package that's been updated to provide the feature.
+
++ [Configure a vectorizer in a search index](vector-search-how-to-configure-vectorizer.md)provides usage instructions.
 
 ## Vectorizer parameters
 

@@ -4,7 +4,7 @@ description: Set up Azure Data Factory to ingest data into an Azure Operator Ins
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: sergeyche
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 03/15/2024
 

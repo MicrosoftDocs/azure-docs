@@ -2,7 +2,7 @@
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
 ms.topic: conceptual
-ms.date: 07/10/2024
+ms.date: 07/30/2024
 ---
 
 # Storage considerations for Azure Functions
@@ -96,24 +96,23 @@ A key scenario for Functions is file processing of files in a blob container, su
 
 ### Trigger on a blob container
 
->[!NOTE]  
->The [Flex Consumption plan](flex-consumption-plan.md) supports only the event-based Blob storage trigger.  
-
 There are several ways to execute your function code based on changes to blobs in a storage container. Use the following table to determine which function trigger best fits your needs:
 
-| Consideration | Blob storage (polling) | Blob storage (event-based) | Queue storage | Event Grid | 
+| Strategy | Container (polling) | Container (events) | Queue trigger | Event Grid | 
 | ----- | ----- | ----- | ----- | ---- |
 | Latency | High (up to 10 min) | Low | Medium  | Low | 
 | [Storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts) limitations | Blob-only accounts not supported¹  | general purpose v1 not supported  | none | general purpose v1 not supported |
-| Extension version |Any | Storage v5.x+ |Any |Any |
+| Trigger type | [Blob storage](functions-bindings-storage-blob-trigger.md) | [Blob storage](functions-bindings-storage-blob-trigger.md) | [Queue storage](functions-bindings-storage-queue-trigger.md) | [Event Grid](functions-bindings-event-grid-trigger.md) |
+| Extension version | Any | Storage v5.x+ |Any |Any |
 | Processes existing blobs | Yes | No | No | No |
 | Filters | [Blob name pattern](./functions-bindings-storage-blob-trigger.md#blob-name-patterns)  | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) | n/a | [Event filters](../storage/blobs/storage-blob-event-overview.md#filtering-events) |
 | Requires [event subscription](../event-grid/concepts.md#event-subscriptions) | No | Yes | No | Yes |
+| Supports [Flex Consumption plan](flex-consumption-plan.md) | No | Yes | Yes | Yes |
 | Supports high-scale² | No | Yes | Yes | Yes |
 | Description | Default trigger behavior, which relies on polling the container for updates. For more information, see the examples in the [Blob storage trigger reference](./functions-bindings-storage-blob-trigger.md#example). | Consumes blob storage events from an event subscription. Requires a `Source` parameter value of `EventGrid`. For more information, see [Tutorial: Trigger Azure Functions on blob containers using an event subscription](./functions-event-grid-blob-trigger.md). | Blob name string is manually added to a storage queue when a blob is added to the container. This value is passed directly by a Queue storage trigger to a Blob storage input binding on the same function. | Provides the flexibility of triggering on events besides those coming from a storage container. Use when need to also have nonstorage events trigger your function. For more information, see [How to work with Event Grid triggers and bindings in Azure Functions](event-grid-how-tos.md). |
 
-<sup>1</sup> Blob storage input and output bindings support blob-only accounts.  
-<sup>2</sup> High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
+1. Blob storage input and output bindings support blob-only accounts.
+2. High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second.
 
 ## Storage data encryption
 

@@ -2,7 +2,7 @@
 title: Microsoft Entra ID
 description: Learn about how to use Microsoft Entra ID for authentication with Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse SQL.
 author: vvasic-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ms.date: 3/07/2022

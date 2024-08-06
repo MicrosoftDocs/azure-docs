@@ -4,7 +4,7 @@ description: Use this article to help you plan for, generate, and then transfer 
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: tutorial
 ms.date: 01/30/2024

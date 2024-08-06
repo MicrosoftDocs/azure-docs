@@ -5,7 +5,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: joanpo
 ms.date: 09/02/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse
@@ -81,4 +81,4 @@ For more help in finding solution to your issue, here are some other resources y
  - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
  - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
  - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
- - [Twitter](https://twitter.com/hashtag/SQLDW)
+- [X](https://x.com/hashtag/SQLDW)

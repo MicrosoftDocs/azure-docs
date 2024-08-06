@@ -4,7 +4,7 @@ description: Learn how to route vehicles by using Route service from Microsoft A
 author: FarazGIS
 ms.author: fsiddiqui
 ms.date: 10/28/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-maps
 services: azure-maps
 

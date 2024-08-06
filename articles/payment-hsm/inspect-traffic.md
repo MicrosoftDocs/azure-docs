@@ -2,7 +2,7 @@
 title: Azure Payment HSM traffic inspection
 description: Guidance on how to bypass the UDR restriction and inspect traffic destined to an Azure Payment HSM.
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: davidsntg
 ms.author: dasantiago
 ms.topic: quickstart

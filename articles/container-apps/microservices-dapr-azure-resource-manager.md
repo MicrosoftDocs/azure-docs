@@ -3,7 +3,7 @@ title: "Tutorial: Deploy a Dapr application to Azure Container Apps with an Azur
 description: Deploy a Dapr application to Azure Container Apps with an Azure Resource Manager or Bicep template.
 services: container-apps
 author: asw101
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/29/2022
 ms.author: cshoe

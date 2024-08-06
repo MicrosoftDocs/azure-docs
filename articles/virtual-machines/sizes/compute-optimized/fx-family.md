@@ -2,7 +2,7 @@
 title: FX family VM size series
 description: List of size series in the FX family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/18/2024
@@ -24,7 +24,7 @@ ms.author: mattmcinnes
 ### FX-series
 [!INCLUDE [fx-series-summary](./includes/fx-series-summary.md)]
 
-[View the full FX-series page](../../fx-series.md).
+[View the full FX-series page](./fx-series.md).
 
 [!INCLUDE [fx-series-specs](./includes/fx-series-specs.md)]
 

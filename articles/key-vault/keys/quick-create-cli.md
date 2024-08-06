@@ -2,7 +2,7 @@
 title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.date: 01/30/2024
@@ -27,6 +27,10 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 ## Create a key vault
 
 [!INCLUDE [Create a key vault](../includes/key-vault-creation-cli.md)]
+
+## Give your user account permissions to manage secrets in Key Vault
+
+[!INCLUDE [Using RBAC to provide access to a key vault](../includes/rbac/upn-crypto-officer-cli.md)]
 
 ## Add a key to Key Vault
 

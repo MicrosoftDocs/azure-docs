@@ -3,7 +3,7 @@ title: What's new for Azure Key Vault
 description: Recent updates for Azure Key Vault
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 01/30/2024

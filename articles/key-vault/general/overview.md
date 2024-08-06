@@ -4,7 +4,7 @@ description: Azure Key Vault is a secure secrets store, providing management for
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
 ms.date: 01/30/2024

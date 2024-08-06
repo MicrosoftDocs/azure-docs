@@ -2,7 +2,7 @@
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - build-2024
@@ -147,7 +147,10 @@ Here's an example of an indexing policy with a vector index:
     ],
     "excludedPaths": [
         {
-            "path": "/_etag/?"
+            "path": "/_etag/?",
+        },
+        {
+            "path": "/vector/*"
         }
     ],
     "vectorIndexes": [

@@ -3,7 +3,7 @@ title: Determine table size - Azure Cosmos DB for PostgreSQL
 description: How to find the true size of distributed tables in a cluster
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/30/2023

@@ -3,8 +3,8 @@ title: MedTech service FAQ for Azure Health Data Services
 description: Get answers to common questions about the MedTech service in Azure Health Data Services. Find out about FHIR integration, device data processing, and troubleshooting tips.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: faq
 ms.date: 06/05/2024
 ms.author: chrupa

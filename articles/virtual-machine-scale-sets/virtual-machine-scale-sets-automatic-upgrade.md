@@ -446,7 +446,7 @@ az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScale
 
 ## Leverage Activity Logs for Upgrade Notifications and Insights
 
-[Activity Log](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell) is a subscription log that provides insight into subscription-level events that have occurred in Azure. Customers are able to:
+[Activity Log](/azure/azure-monitor/essentials/activity-log?tabs=powershell) is a subscription log that provides insight into subscription-level events that have occurred in Azure. Customers are able to:
 * See events related to operations performed on their resources in Azure portal
 * Create action groups to tune notification methods like email, sms, webhooks, or ITSM
 *  Set up suitable alerts using different criteria using Portal, ARM resource template, PowerShell or CLI to be sent to action groups
@@ -458,25 +458,25 @@ Customers will receive three types of notifications related to Automatic OS Upgr
 
 ### Setting up Action Groups for Activity log alerts
 
-An [action group](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
+An [action group](/azure/azure-monitor/alerts/action-groups) is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. 
 
 Action groups can be created and managed using: 
-* [ARM Resource Manager](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
-* [Portal](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
+* [ARM Resource Manager](/azure/azure-monitor/alerts/action-groups#create-an-action-group-with-a-resource-manager-template)
+* [Portal](/azure/azure-monitor/alerts/action-groups#create-an-action-group-in-the-azure-portal) 
 * PowerShell:
-  *  [New-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/new-azactiongroup?view=azps-12.0.0)  
-  *  [Get-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/get-azactiongroup?view=azps-12.0.0)
-  *  [Remove-AzActionGroup](https://learn.microsoft.com/powershell/module/az.monitor/remove-azactiongroup?view=azps-12.0.0)
-* [CLI](https://learn.microsoft.com/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create)
+  *  [New-AzActionGroup](/powershell/module/az.monitor/new-azactiongroup?view=azps-12.0.0)  
+  *  [Get-AzActionGroup](/powershell/module/az.monitor/get-azactiongroup?view=azps-12.0.0)
+  *  [Remove-AzActionGroup](/powershell/module/az.monitor/remove-azactiongroup?view=azps-12.0.0)
+* [CLI](/cli/azure/monitor/action-group?view=azure-cli-latest#az-monitor-action-group-create)
 
 Customers can set up the following using action groups:
-* [SMS and/or Email notifications](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
-* [Webhooks](https://learn.microsoft.com/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks)
-* [ITSM Connections](https://learn.microsoft.com/azure/azure-monitor/alerts/itsmc-overview)
+* [SMS and/or Email notifications](/azure/azure-monitor/alerts/action-groups#email-azure-resource-manager)
+* [Webhooks](/azure/azure-monitor/alerts/action-groups#webhook) - Customers can attach webhooks to their automation runbooks and configure their action groups to trigger the runbooks. You can start a runbook from a [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks)
+* [ITSM Connections](/azure/azure-monitor/alerts/itsmc-overview)
 
 ## Investigate and Resolve Auto Upgrade Errors
 
-The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
+The platform can return errors on VMs while performing Automatic Image Upgrade with Rolling Upgrade policy. The [Get Instance View](/rest/api/compute/virtual-machine-scale-sets/get-instance-view) of a VM contains the detailed error message to investigate and resolve an error. The [Rolling Upgrades - Get Latest](/rest/api/compute/virtual-machine-scale-sets/get) can provide more details on rolling upgrade configuration and status. The [Get OS Upgrade History](/rest/api/compute/virtual-machine-scale-sets/get-os-upgrade-history) provides details on the last image upgrade operation on the scale set. Below are the topmost errors that can result in Rolling Upgrades.
 
 **RollingUpgradeInProgressWithFailedUpgradedVMs**
 - Error is triggered for a VM failure.

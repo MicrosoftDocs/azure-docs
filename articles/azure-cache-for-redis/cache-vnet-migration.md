@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure Cache for Redis Virtual Network (VN
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 07/19/2021
 ---

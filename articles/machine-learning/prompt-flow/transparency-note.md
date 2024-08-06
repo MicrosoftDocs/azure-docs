@@ -5,7 +5,7 @@ description: Learn about the feature in prompt flow that automatically generates
 author: prakharg-msft
 ms.author: prakharg
 manager: omkarm
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.date: 10/20/2023
 ms.topic: article

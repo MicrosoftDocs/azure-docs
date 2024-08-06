@@ -2,7 +2,7 @@
 title: Troubleshoot Synapse Studio
 description: Troubleshoot Synapse Studio
 author: JeneZhang
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: troubleshooting
 ms.date: 10/01/2023

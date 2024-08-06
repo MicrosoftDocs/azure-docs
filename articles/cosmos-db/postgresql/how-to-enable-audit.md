@@ -3,7 +3,7 @@ title: Audit logging - Azure Cosmos DB for PostgreSQL
 description: How to enable pgAudit logging in Azure Cosmos DB for PostgreSQL.
 ms.author: akashrao
 author: akashrao
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 10/01/2023
