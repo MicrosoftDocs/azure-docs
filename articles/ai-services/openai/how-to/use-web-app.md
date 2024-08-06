@@ -101,7 +101,7 @@ Note: If you are using an embedding model deployed to the same resource used for
 
 If using On Your Data with Azure Search you should follow this step.
 
-To enable authentication to an Azure Search resource, you will need to enable role-based access control on the resource.  See the documentation [here](https://learn.microsoft.com/en-us/azure/search/search-security-enable-roles?tabs=config-svc-portal%2Cdisable-keys-portal) for detailed instructions.
+To enable authentication to an Azure Search resource, you will need to enable role-based access control on the resource.  Learn more about [enabling RBAC roles](../../../search/search-security-enable-roles.md) for your resources.
 
 ### Assign RBAC roles to enable intra-service communication
 
@@ -114,7 +114,7 @@ The following table summarizes the RBAC role assignments needed for the Azure Op
 | `Cognitive Services OpenAI User` | Web app                  | Azure OpenAI (Inference)  |
 | `Cognitive Services OpenAI User` | Azure OpenAI (Inference) | Azure OpenAI (Embeddings) |
 
-To assign these roles, follow the documentation [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) to create the needed role assignments.
+To assign these roles, follow [these instructions](../../../role-based-access-control/role-assignments-portal.yml) to create the needed role assignments.
 
 ### App Settings Changes
 
