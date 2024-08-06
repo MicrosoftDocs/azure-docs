@@ -32,7 +32,7 @@ The remainder of this article is focused on queries and client code. It uses Jav
 Elements of a request include one of the search-as-you-type APIs, a partial query, and a suggester. The following script illustrates components of a request, using the Autocomplete REST API as an example.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2023-11-01
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2024-07-01
 {
   "search": "minecraf",
   "suggesterName": "sg"

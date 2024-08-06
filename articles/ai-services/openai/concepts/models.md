@@ -202,6 +202,28 @@ For more information on Provisioned deployments, see our [Provisioned guidance](
 
 - eastus
 
+
+### Global batch model availability
+
+### Region and model support
+
+The following models support global batch:
+
+| Model | Version | Input format |
+|---|---|
+|`gpt-4o` | 2024-05-13 |text + image |
+|`gpt-4` | turbo-2024-04-09 | text |
+|`gpt-4` | 0613 | text |
+| `gpt-35-turbo` | 0125 | text |
+| `gpt-35-turbo` | 1106 | text |
+| `gpt-35-turbo` | 0613 | text |
+
+Global batch is currently supported in the following regions:
+
+- East US
+- West US
+- Sweden Central
+
 ### GPT-4 and GPT-4 Turbo model availability
 
 #### Public cloud regions
@@ -276,8 +298,9 @@ These models can only be used with Embedding API requests.
 | `gpt-35-turbo` (1106) | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | Input: 16,385<br> Output: 4,096 |  Sep 2021|
 | `gpt-35-turbo` (0125)  | East US2 <br> North Central US <br> Sweden Central <br> Switzerland West | 16,385 | Sep 2021 |
 | `gpt-4` (0613) <sup>**1**</sup> | North Central US <br> Sweden Central | 8192 | Sep 2021 |
+| `gpt-4o-mini` <sup>**1**</sup> (2024-07-18) | North Central US <br> Sweden Central | Input: 128,000 <br> Output: 16,384  <br> Training example context length: 64,536 | Oct 2023 |
 
-**<sup>1</sup>** GPT-4 fine-tuning is currently in public preview. See our [GPT-4 fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
+**<sup>1</sup>** GPT-4 and GPT-4o mini fine-tuning is currently in public preview. See our [GPT-4 & GPT-4o mini fine-tuning safety evaluation guidance](/azure/ai-services/openai/how-to/fine-tuning?tabs=turbo%2Cpython-new&pivots=programming-language-python#safety-evaluation-gpt-4-fine-tuning---public-preview) for more information.
 
 ### Whisper models
 

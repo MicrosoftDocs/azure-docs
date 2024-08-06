@@ -28,28 +28,31 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
     - [SAP HANA Audit Trail - Best Practice](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/35eb4e567d53456088755b8131b7ed1d.html?version=2.0.03)
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
+    - [SAP HANA Security Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/4f7cde1125084ea3b8206038530e96ce.html)
 
-1. Check your operating system Syslog files for any relevant HANA database events.
+2. Check your operating system Syslog files for any relevant HANA database events.
 
-1. Sign into your HANA database operating system as a user with sudo privileges.
+3. Sign into your HANA database operating system as a user with sudo privileges.
 
-1. Install an agent on your machine and confirm that your machine is connected. For more information, see:
+4. Install an agent on your machine and confirm that your machine is connected. For more information, see:
 
     - [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal)
     - [Log Analytics Agent](../../azure-monitor/agents/agent-linux.md) (legacy)
 
-1. Configure your agent to collect Syslog data. For more information, see:
+5. Configure your agent to collect Syslog data. For more information, see:
 
     - [Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog)
     - [Log Analytics Agent](/azure/azure-monitor/agents/data-sources-syslog) (legacy)
 
     > [!TIP]
     > Because the facilities where HANA database events are saved can change between different distributions, we recommend that you add all facilities. Check them against your Syslog logs, and then remove any that aren't relevant.
-    >
 
 ## Verify your configuration
 
-In Microsoft Sentinel, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
+Use the following steps in both Microsoft Sentinel and your SAP HANA database to verify that your system is configured as expected.
+
+### Microsoft Sentinel 
+In Microsoft Sentinel's **Logs** page, check to confirm that HANA database events are now shown in the ingested logs. For example, run the following query:
 
 ```Kusto
 //generated function structure for custom log Syslog
@@ -79,8 +82,11 @@ TimeGenerated = column_ifexists('TimeGenerated', '1000-01-01T00:00:00Z')
 T_Syslog | union isfuzzy= true (D_Syslog | where TimeGenerated != '1000-01-01T00:00:00Z')
 ```
 
+### SAP HANA
 
-## Add analytics rules for SAP HANA
+In your SAP HANA database, check your configured audit policies. For more information on the required SQL statements, see [SAP Note 3016478](https://me.sap.com/notes/3016478/E).
+
+## Add analytics rules for SAP HANA in Microsoft Sentinel
 
 Use the following built-in analytics rules to have Microsoft Sentinel start triggering alerts on related SAP HANA activity:
 
@@ -96,5 +102,4 @@ For more information, see [Microsoft Sentinel solution for SAP® applications: s
 Learn more about the Microsoft Sentinel solution for SAP applications:
 
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
-- [Troubleshoot your Microsoft Sentinel solution for SAP applications deployment](sap-deploy-troubleshoot.md)
-- [Microsoft Sentinel solution for SAP applications data reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel solution for SAP BTP](deploy-sap-btp-solution.md)

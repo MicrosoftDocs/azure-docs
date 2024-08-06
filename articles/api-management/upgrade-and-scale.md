@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 07/02/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -77,6 +77,15 @@ You can use the portal to scale your API Management instance. How you scale depe
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Scale** from the left-hand menu.
+1. Specify the new number of **Units** - use the slider, or select or type the number.
+1. Select **Save**.
+
+### Add or remove units - workspace gateway
+
+1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
+1. In the left menu, under **APIs**, select **Workspaces** > the name of your workspace.
+1. In the left menu, under **Deployment + infrastructure**, select **Gateways** > the name of your gateway.
+1. In the left menu, under **Deployment and infrastructure**,  select **Scale**.
 1. Specify the new number of **Units** - use the slider, or select or type the number.
 1. Select **Save**.
 
