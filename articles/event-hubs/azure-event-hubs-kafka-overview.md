@@ -35,6 +35,8 @@ Conceptually, Kafka and Event Hubs are very similar. They're both partitioned lo
 
 ### Compression
 
+The Kafka compression for Event Hubs is only supported in Premium and Dedicated tiers currently.
+
 The client-side [compression](https://cwiki.apache.org/confluence/display/KAFKA/Compression) feature in Apache Kafka clients conserves compute resources and bandwidth by compressing a batch of multiple messages into a single message on the producer side and decompressing the batch on the consumer side. The Apache Kafka broker treats the batch as a special message.
 
 Kafka producer application developers can enable message compression by setting the compression.type property. Azure Event Hubs currently supports `gzip` compression.

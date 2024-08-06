@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 08/06/2024
 ms.author: banders
 ---
 
@@ -74,9 +74,11 @@ After you submit the payment, allow time for the payment to appear in the Azure 
 
 Refunds are treated as a regular charge. They go to your bank account.
 
-## Partial payment for Azure global in China
+## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China only. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
+Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
+
+A minimum payment has a minimum value that you can pay, which varies by country/region.
 
 > [!NOTE]
 > To avoid service interruption, pay the full invoice amount by the due date on the invoice.
@@ -89,16 +91,12 @@ To make a partial payment:
 4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select the link.
 5. In the **Pay now** window, select **Select a payment method** to choose an existing credit card or add a new one.
 6. Select **Pay now**.
-7. If the payment fails, the partial payment feature appears in the **Pay now** experience. The minimum partial payment amount is 10,000 CNY. Enter an amount greater than 10,000 CNY.
+7. If the payment fails, the partial payment feature appears in the **Pay now** experience. There's a minimum partial payment amount. You must enter an amount greater than the minimum.
 8. Select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card that the first partial payment is applied to.
 9. Select **Pay now**.
 10. Repeat steps 8 to 9 until you fully pay the invoice amount.
 
-## Pay by the default payment method
-
-The default payment method of your billing profile can be a credit card, debit card, or wire transfer.
-
-### Credit or debit card
+## Credit or debit card
 
 If the default payment method for your billing profile is a credit or debit card, it's automatically charged each billing period.
 
@@ -114,7 +112,7 @@ Although you can generally use debit cards to pay your Azure bill, consider thes
 - India supports debit and credit cards through Visa and Mastercard.
 - You can't use virtual and prepaid debit cards to pay your Azure bill.
 
-### Wire transfer
+## Wire transfer
 
 If the default payment method of your billing profile is wire transfer, follow the payment instructions on your invoice PDF file.
 
@@ -123,7 +121,7 @@ Alternatively, if your invoice is under the threshold amount for your currency, 
 > [!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
-#### Bank details used to send wire transfer payments
+### Bank details for sending wire transfer payments
 <a name="wire-bank-details"></a>
 
 If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country/region in the following list:

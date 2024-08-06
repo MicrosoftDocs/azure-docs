@@ -1003,7 +1003,8 @@
         "articles/quotas/**/*.md": "rayoflores",
         "articles/remote-rendering/**/*.md": "jlyons",
         "articles/search/**/*.md": "nitinme",
-        "articles/virtual-desktop/**/*.md": "femila",
+        "articles/virtual-desktop/**/*.md": "eliotgra",
+        "articles/virtual-desktop/**/*.yml": "eliotgra",
         "articles/virtual-machines/**/*.md": "akashdubey",
         "articles/virtual-machine-scale-sets/**/*.md": "akashdubey"
       },
@@ -1289,6 +1290,7 @@
         "articles/synapse-analytics/**/*": "azure-synapse-analytics",
         "articles/terraform/**/*.md": "terraform",
         "articles/virtual-desktop/**/*.md": "azure-virtual-desktop",
+        "articles/virtual-desktop/**/*.yml": "azure-virtual-desktop",
         "articles/virtual-machines/*.md": "virtual-machines",
         "articles/virtual-machine-scale-sets/*.md": "virtual-machine-scale-sets",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "azure-video-analyzer",
