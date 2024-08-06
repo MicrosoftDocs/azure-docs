@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/01/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -24,8 +24,11 @@ With automatic certificate management, you use cert-manager to manage the TLS se
 
 1. Use `kubectl` to check for the pods matching the cert-manager app labels.
 
-    ```console
-    $ kubectl get pods --namespace azure-iot-operations -l 'app in (cert-manager,cainjector,webhook)'
+    ```bash
+    kubectl get pods --namespace azure-iot-operations -l 'app in (cert-manager,cainjector,webhook)'
+    ```
+    
+    ```Output
     NAME                                           READY   STATUS    RESTARTS       AGE
     aio-cert-manager-64f9548744-5fwdd              1/1     Running   4 (145m ago)   4d20h
     aio-cert-manager-cainjector-6c7c546578-p6vgv   1/1     Running   4 (145m ago)   4d20h
@@ -99,7 +102,7 @@ If you don't have a CA certificate, cert-manager can generate a root CA certific
     kubectl apply -f ca.yaml
     ```
 
-Cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate spec. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
+Cert-manager creates a CA certificate using its defaults. The properties of this certificate can be changed by modifying the Certificate specification. See [cert-manager documentation](https://cert-manager.io/docs/reference/api-docs/#cert-manager.io/v1.CertificateSpec) for a list of valid options.
 
 ### Distribute the root certificate
 
@@ -172,16 +175,14 @@ For production, check cert-manager documentation to see which issuer works best 
 Modify the `tls` setting in a BrokerListener resource to specify a TLS port and Issuer for the frontends. The following is an example of a BrokerListener resource that enables TLS on port 8884 with automatic certificate management.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: my-new-tls-listener
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
-  authenticationEnabled: false # If set to true, a BrokerAuthentication resource must be configured
-  authorizationEnabled: false
-  serviceType: loadBalancer # Optional; defaults to 'clusterIP'
+  serviceType: loadBalancer
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-mq-dmqtt-frontend'
   port: 8884 # Avoid conflicts with default port 8883
   tls:
@@ -268,74 +269,73 @@ To help you get started, Azure IoT Operations is deployed with a default "quicks
 
 * The public portion of the root CA certificate is stored in a ConfigMap called `aio-ca-trust-bundle-test-only`. You can retrieve the CA certificate from the ConfigMap and inspect it with kubectl and openssl.
 
-  ```console
-  $ kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o json | jq -r '.data["ca.crt"]' | openssl x509 -text -noout
-  Certificate:
-      Data:
-          Version: 3 (0x2)
-          Serial Number:
-              74:d8:b6:fe:63:5a:7d:24:bd:c2:c0:25:c2:d2:c7:94:66:af:36:89
-          Signature Algorithm: ecdsa-with-SHA256
-          Issuer: CN = Azure IoT Operations Quickstart Root CA - Not for Production
-          Validity
-              Not Before: Nov  2 00:34:31 2023 GMT
-              Not After : Dec  2 00:34:31 2023 GMT
-          Subject: CN = Azure IoT Operations Quickstart Root CA - Not for Production
-          Subject Public Key Info:
-              Public Key Algorithm: id-ecPublicKey
-                  Public-Key: (256 bit)
-                  pub:
-                      04:51:43:93:2c:dd:6b:7e:10:18:a2:0f:ca:2e:7b:
-                      bb:ba:5c:78:81:7b:06:99:b5:a8:11:4f:bb:aa:0d:
-                      e0:06:4f:55:be:f9:5f:9e:fa:14:75:bb:c9:01:61:
-                      0f:20:95:cd:9b:69:7c:70:98:f8:fa:a0:4c:90:da:
-                      5b:1a:d7:e7:6b
-                  ASN1 OID: prime256v1
-                  NIST CURVE: P-256
-          X509v3 extensions:
-              X509v3 Basic Constraints: critical
-                  CA:TRUE
-              X509v3 Key Usage: 
-                  Certificate Sign
-              X509v3 Subject Key Identifier: 
-                  B6:DD:8A:42:77:05:38:7A:51:B4:8D:8E:3F:2A:D1:79:32:E9:43:B9
-      Signature Algorithm: ecdsa-with-SHA256
-          30:44:02:20:21:cd:61:d7:21:86:fd:f8:c3:6d:33:36:53:e3:
-          a6:06:3c:a6:80:14:13:55:16:f1:19:a8:85:4b:e9:5d:61:eb:
-          02:20:3e:85:8a:16:d1:0f:0b:0d:5e:cd:2d:bc:39:4b:5e:57:
-          38:0b:ae:12:98:a9:8f:12:ea:95:45:71:bd:7c:de:9d
-  ```
+    ```bash
+    kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o json | jq -r '.data["ca.crt"]' | openssl x509 -text -noout
+    ```
+
+    ```Output
+    Certificate:
+        Data:
+            Version: 3 (0x2)
+            Serial Number:
+                <SERIAL-NUMBER>
+            Signature Algorithm: ecdsa-with-SHA256
+            Issuer: CN = Azure IoT Operations Quickstart Root CA - Not for Production
+            Validity
+                Not Before: Nov  2 00:34:31 2023 GMT
+                Not After : Dec  2 00:34:31 2023 GMT
+            Subject: CN = Azure IoT Operations Quickstart Root CA - Not for Production
+            Subject Public Key Info:
+                Public Key Algorithm: id-ecPublicKey
+                    Public-Key: (256 bit)
+                    pub:
+                        <PUBLIC-KEY>
+                    ASN1 OID: prime256v1
+                    NIST CURVE: P-256
+            X509v3 extensions:
+                X509v3 Basic Constraints: critical
+                    CA:TRUE
+                X509v3 Key Usage: 
+                    Certificate Sign
+                X509v3 Subject Key Identifier: 
+                    <SUBJECT-KEY-IDENTIFIER>
+        Signature Algorithm: ecdsa-with-SHA256
+            [SIGNATURE]
+    ```
 
 * By default, there's already a CA issuer configured in the `azure-iot-operations` namespace called `aio-ca-issuer`. It's used as the common CA issuer for all TLS server certificates for IoT Operations. MQTT broker uses an issuer created from the same CA certificate to issue TLS server certificates for the default TLS listener on port 8883. You can inspect the issuer with the following command:
 
-  ```console
-  $ kubectl get issuer aio-ca-issuer -n azure-iot-operations -o yaml
-  apiVersion: cert-manager.io/v1
-  kind: Issuer
-  metadata:
-    annotations:
-      meta.helm.sh/release-name: azure-iot-operations
-      meta.helm.sh/release-namespace: azure-iot-operations
-    creationTimestamp: "2023-11-01T23:10:24Z"
-    generation: 1
-    labels:
-      app.kubernetes.io/managed-by: Helm
-    name: aio-ca-issuer
-    namespace: azure-iot-operations
-    resourceVersion: "2036"
-    uid: c55974c0-e0c3-4d35-8c07-d5a0d3f79162
-  spec:
-    ca:
-      secretName: aio-ca-key-pair-test-only
-  status:
-    conditions:
-    - lastTransitionTime: "2023-11-01T23:10:59Z"
-      message: Signing CA verified
-      observedGeneration: 1
-      reason: KeyPairVerified
-      status: "True"
-      type: Ready
-  ```
+    ```bash
+    kubectl get issuer aio-ca-issuer -n azure-iot-operations -o yaml
+    ```
+
+    ```Output
+    apiVersion: cert-manager.io/v1
+    kind: Issuer
+    metadata:
+      annotations:
+        meta.helm.sh/release-name: azure-iot-operations
+        meta.helm.sh/release-namespace: azure-iot-operations
+      creationTimestamp: "2023-11-01T23:10:24Z"
+      generation: 1
+      labels:
+        app.kubernetes.io/managed-by: Helm
+      name: aio-ca-issuer
+      namespace: azure-iot-operations
+      resourceVersion: "2036"
+      uid: <UID>
+    spec:
+      ca:
+        secretName: aio-ca-key-pair-test-only
+    status:
+      conditions:
+      - lastTransitionTime: "2023-11-01T23:10:59Z"
+        message: Signing CA verified
+        observedGeneration: 1
+        reason: KeyPairVerified
+        status: "True"
+        type: Ready
+    ```
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 

@@ -29,7 +29,6 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 
 | Field Name | Required | Description |
 | --- | --- | --- |
-| listenerRef | Yes | The names of the BrokerListener resources that this authorization policy applies. This field is required and must match an existing *BrokerListener* resource in the same namespace. |
 | authorizationPolicies | Yes | This field defines the settings for the authorization policies, such as *enableCache* and *rules*.|
 | enableCache | No | Whether to enable caching for the authorization policies.  If set to `true`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `false`. |
 | rules | No | A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields: *principals* and *brokerResources*. |
@@ -44,14 +43,12 @@ The specification of a *BrokerAuthorization* resource has the following fields:
 The following example shows how to create a *BrokerAuthorization* resource that defines the authorization policies for a listener named *my-listener*.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - "my-listener" # change to match your listener name as needed
   authorizationPolicies:
     enableCache: true
     rules:
@@ -92,7 +89,7 @@ Clients that use [X.509 certificates for authentication](./howto-configure-authe
 
 ### Using attributes
 
-To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#certificate-attributes).
+To create rules based on properties from a client's certificate, its root CA, or intermediate CA, define the X.509 attributes in the *BrokerAuthorization* resource. For more information, see [Certificate attributes](howto-configure-authentication.md#certificate-attributes).
 
 ### With client certificate subject common name as username
 
@@ -113,14 +110,12 @@ Attribute annotations must begin with `aio-mq-broker-auth/` to distinguish them 
 As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerAuthorization
 metadata:
   name: "my-authz-policies"
   namespace: azure-iot-operations
 spec:
-  listenerRef:
-    - "az-mqtt-non-tls-listener"
   authorizationPolicies:
     enableCache: false
     rules:
@@ -161,7 +156,7 @@ kubectl edit brokerauthorization my-authz-policies
 To disable authorization, set `authorizationEnabled: false` in the BrokerListener resource. When the policy is set to allow all clients, all [authenticated clients](./howto-configure-authentication.md) can access all operations.
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: "my-listener"

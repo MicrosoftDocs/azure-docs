@@ -283,7 +283,7 @@ If you understand the risks and need to use an insecure port in a well-controlle
 1. Create a new `BrokerListener` resource without TLS settings:
 
     ```yaml
-    apiVersion: mq.iotoperations.azure.com/v1beta1
+    apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
     kind: BrokerListener
     metadata:
       name: non-tls-listener

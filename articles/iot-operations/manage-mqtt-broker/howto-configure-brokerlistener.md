@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want understand options to secure MQTT communications for my IoT Operations solution.
 ---
@@ -20,18 +20,47 @@ To customize the network access and security use the **BrokerListener** resource
 
 Each listener can have its own authentication and authorization rules that define who can connect to the listener and what actions they can perform on the broker. You can use *BrokerAuthentication* and *BrokerAuthorization* resources to specify the access control policies for each listener. This flexibility allows you to fine-tune the permissions and roles of your MQTT clients, based on their needs and use cases.
 
+Listeners have the following characteristics:
+
+- You can have up to three listeners. One listener per service type of `loadBalancer`, `clusterIp`, or `nodePort`. The default *BrokerListener* named *listener* is service type `clusterIp`.
+- Each listener supports multiple ports
+- AuthN and authZ references are per port
+- TLS configuration is per port
+- Service names must be unique
+- Ports cannot conflict over different listeners
+
 The *BrokerListener* resource has these fields:
 
 | Field Name | Required | Description |
-| --- | --- | --- |
-| `brokerRef` | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
-| `port` | Yes | The port number that this listener listens on. This field is required and must be a valid TCP port number. |
-| `serviceType` | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
-| `serviceName` | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to MQTT broker. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. Important: If you have multiple listeners with the same `serviceType` and `serviceName`, the listeners share the same Kubernetes service. For more information, see [Service name and service type](#service-name-and-service-type). |
-| `authenticationEnabled` | No | A boolean flag that indicates whether this listener requires authentication from clients. If set to `true`, this listener uses any *BrokerAuthentication* resources associated with it to verify and authenticate the clients. If set to `false`, this listener allows any client to connect without authentication. This field is optional and defaults to `false`. To learn more about authentication, see [Configure MQTT broker authentication](howto-configure-authentication.md). |
-| `authorizationEnabled` | No | A boolean flag that indicates whether this listener requires authorization from clients. If set to `true`, this listener uses any *BrokerAuthorization* resources associated with it to verify and authorize the clients. If set to `false`, this listener allows any client to connect without authorization. This field is optional and defaults to `false`. To learn more about authorization, see [Configure MQTT broker authorization](howto-configure-authorization.md). |
-| `tls` | No | The TLS settings for the listener. The field is optional and can be omitted to disable TLS for the listener. To configure TLS, set it one of these types: <br> * If set to `automatic`, this listener uses cert-manager to get and renew a certificate for the listener. To use this type, [specify an `issuerRef` field to reference the cert-manager issuer](howto-configure-tls-auto.md). <br> * If set to `manual`, the listener uses a manually provided certificate for the listener. To use this type, [specify a `secretName` field that references a Kubernetes secret containing the certificate and private key](howto-configure-tls-manual.md). |
-| `protocol` | No | The protocol that this listener uses. This field is optional and defaults to `mqtt`. Must be either `mqtt` or `websockets`. |
+|------------|----------|-------------|
+| brokerRef | Yes | The name of the broker resource that this listener belongs to. This field is required and must match an existing *Broker* resource in the same namespace. |
+| ports[] | Yes | The listener can listen on multiple ports. List of ports that the listener accepts client connections. |
+| ports.authenticationRef  | No | Reference to client authentication settings. Omit to disable authentication. To learn more about authentication, see [Configure MQTT broker authentication](howto-configure-authentication.md). |
+| ports.authorizationRef   | No | Reference to client authorization settings. Omit to disable authorization.  |
+| ports.nodePort           | No | Kubernetes node port. Only relevant when this port is associated with a NodePort listener. |
+| ports.port               | Yes | TCP port for accepting client connections.                                  |
+| ports.protocol           | No | Protocol to use for client connections. Values: `Mqtt`, `Websockets`. Default: `Mqtt` |
+| ports.tls                | No | TLS server certificate settings for this port. Omit to disable TLS.         |
+| ports.tls.automatic      | No | Automatic TLS server certificate management with cert-manager. [Configure TLS with automatic certificate management](howto-configure-tls-auto.md)|
+| ports.tls.automatic.duration        | No | Lifetime of certificate. Must be specified using a *Go* time format (h\|m\|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| ports.tls.automatic.issuerRef       | No | cert-manager issuer reference. |
+| ports.tls.automatic.issuerRef.group | No | cert-manager issuer group. |
+| ports.tls.automatic.issuerRef.kind  | No | cert-manager issuer kind. Values: `Issuer`, `ClusterIssuer`. |
+| ports.tls.automatic.issuerRef.name  | No | cert-manager issuer name. |
+| ports.tls.automatic.privateKey      | No | Type of certificate private key. |
+| ports.tls.automatic.privateKey.algorithm | No | Algorithm for the private key. Values: `Ec256`, `Ec384`, `ec521`, `Ed25519`, `Rsa2048`, `Rsa4096`, `Rsa8192`. |
+| ports.tls.automatic.privateKey.rotationPolicy | No | Size of the private key. Values: `Always`, `Never`. |
+| ports.tls.automatic.renewBefore     | No | When to begin certificate renewal. Must be specified using a *Go* time format (h\|m\|s). For example, 240h for 240 hours and 45m for 45 minutes. |
+| ports.tls.automatic.san             | No | Additional Subject Alternative Names (SANs) to include in the certificate. |
+| ports.tls.automatic.san.dns         | No | DNS SANs. |
+| ports.tls.automatic.san.ip          | No | IP address SANs. |
+| ports.tls.automatic.secretName      | No | Secret for storing server certificate. Any existing data will be overwritten. This is a reference to the secret through an identifying name, not the secret itself. |
+| ports.tls.automatic.secretNamespace | No | Certificate Kubernetes namespace. Omit to use current namespace. |
+| ports.tls.manual         | No | Manual TLS server certificate management through a defined secret. For more information, see [Configure TLS with manual certificate management](howto-configure-tls-manual.md).|
+| ports.tls.manual.secretName | Yes | Kubernetes secret containing an X.509 client certificate. This is a reference to the secret through an identifying name, not the secret itself. |
+| ports.tls.manual.secretNamespace | No | Certificate K8S namespace. Omit to use current namespace. |
+| serviceName | No | The name of Kubernetes service created for this listener. Kubernetes creates DNS records for this `serviceName` that clients should use to connect to MQTT broker. This subfield is optional and defaults to `aio-mq-dmqtt-frontend`. |
+| serviceType | No | The type of the Kubernetes service created for this listener. This subfield is optional and defaults to `clusterIp`. Must be either `loadBalancer`, `clusterIp`, or `nodePort`. |
 
 ## Default BrokerListener
 
@@ -43,88 +72,74 @@ To inspect the listener, run:
 kubectl get brokerlistener listener -n azure-iot-operations -o yaml
 ```
 
-The output should look like this, with most metadata removed for brevity:
+The output should look similar to this, with most metadata removed for brevity:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: listener
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
-  authenticationEnabled: true
-  authorizationEnabled: false
-  port: 8883
   serviceName: aio-mq-dmqtt-frontend
-  serviceType: clusterIp
-  tls:
-    automatic:
-      issuerRef:
-        group: cert-manager.io
-        kind: Issuer
-        name: mq-dmqtt-frontend
+  serviceType: ClusterIp
+  ports:
+  - authenticationRef: authn
+    port: 8883
+    protocol: Mqtt
+    tls:
+      automatic:
+        issuerRef:
+          apiGroup: cert-manager.io
+          kind: Issuer
+          name: mq-dmqtt-frontend
+      mode: Automatic
 ```
 
 To learn more about the default BrokerAuthentication resource linked to this listener, see [Default BrokerAuthentication resource](howto-configure-authentication.md#default-brokerauthentication-resource).
 
+### Update the default BrokerListener
+
+The default BrokerListener uses the service type *ClusterIp*. You can have only one listener per service type. If you want to add more ports to service type *ClusterIp*, you can update the default listener to add more ports. For example, you could add a new port 1883 with no TLS and authentication off with the following kubectl patch command:
+
+```bash
+kubectl patch brokerlistener listener -n azure-iot-operations --type='json' -p='[{"op": "add", "path": "/spec/ports/", "value": {"port": 1883, "protocol": "Mqtt"}}]'
+```
+
 ## Create new BrokerListeners
 
-This example shows how to create two new *BrokerListener* resources for a *Broker* resource named *my-broker*. Each *BrokerListener* resource defines a port and a TLS setting for a listener that accepts MQTT connections from clients.
+This example shows how to create a new *BrokerListener* resource for a *Broker* resource named *my-broker*. The *BrokerListener* resource defines a two ports that accept MQTT connections from clients.
 
-- The first *BrokerListener* resource, named *my-test-listener*, defines a listener on port 1883 with no TLS and authentication off. Clients can connect to the broker without encryption or authentication.
-- The second *BrokerListener* resource, named *my-secure-listener*, defines a listener on port 8883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. The `tls` field is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.
+- The first port listens on port 1883 with no TLS and authentication off. Clients can connect to the broker without encryption or authentication.
+- The second port listens on port 18883 with TLS and authentication enabled. Only authenticated clients can connect to the broker with TLS encryption. TLS is set to `automatic`, which means that the listener uses cert-manager to get and renew its server certificate.
 
 To create these *BrokerListener* resources, apply this YAML manifest to your Kubernetes cluster:
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: my-test-listener
   namespace: azure-iot-operations
 spec:
-  authenticationEnabled: false
-  authorizationEnabled: false
   brokerRef: broker
-  port: 1883
----
-apiVersion: mq.iotoperations.azure.com/v1beta1
-kind: BrokerListener
-metadata:
-  name: my-secure-listener
-  namespace: azure-iot-operations
-spec:
-  authenticationEnabled: true
-  authorizationEnabled: false
-  brokerRef: broker
-  port: 8883
-  tls:
-    automatic:
-      issuerRef:
-        name: e2e-cert-issuer
-        kind: Issuer
-        group: cert-manager.io
+  serviceType: loadBalancer
+  serviceName: my-new-listener
+  ports:
+  - port: 1883
+    protocol: Mqtt
+  - port: 18883
+    authenticationRef: authn
+    protocol: Mqtt
+    tls:
+      automatic:
+        issuerRef:
+            name: e2e-cert-issuer
+            kind: Issuer
+            group: cert-manager.io
+      mode: Automatic
 ```
-
-## Service name and service type
-
-If you have multiple BrokerListener resources with the same `serviceType` and `serviceName`, the resources share the same Kubernetes service. This means that the service exposes all the ports of all the listeners. For example, if you have two listeners with the same `serviceType` and `serviceName`, one on port 1883 and the other on port 8883, the service exposes both ports. Clients can connect to the broker on either port. 
-
-There are two important rules to follow when sharing service name:
-
-1. Listeners with the same `serviceType` must share the same `serviceName`.
-
-1. Listeners with different `serviceType` must have different `serviceName`.
-
-Notably, the service for the default listener on port 8883 is `clusterIp` and named `aio-mq-dmqtt-frontend`. The following table summarizes what happens when you create a new listener on a different port:
-
-| New listener `serviceType` | New listener `serviceName` | Result |
-| --- | --- | --- |
-| `clusterIp` | `aio-mq-dmqtt-frontend` | The new listener creates successfully, and the service exposes both ports. |
-| `clusterIp` | `my-service` | The new listener fails to create because the service type conflicts with the default listener. |
-| `loadBalancer` or `nodePort` | `aio-mq-dmqtt-frontend` | The new listener fails to create because the service name conflicts with the default listener. |
-| `loadBalancer` or `nodePort` | `my-service` | The new listener creates successfully, and a new service is created. |
 
 ## Related content
 

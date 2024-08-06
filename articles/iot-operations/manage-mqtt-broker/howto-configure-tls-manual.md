@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 07/02/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
@@ -78,21 +78,21 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 Modify the `tls` setting in a BrokerListener resource to specify manual TLS configuration referencing the Kubernetes secret. Note the name of the secret used for the TLS server certificate (`server-cert-secret` in the example previously).
 
 ```yaml
-apiVersion: mq.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
 kind: BrokerListener
 metadata:
   name: manual-tls-listener
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
-  authenticationEnabled: false # If true, BrokerAuthentication must be configured
-  authorizationEnabled: false
   serviceType: loadBalancer # Optional, defaults to clusterIP
   serviceName: mqtts-endpoint # Match the SAN in the server certificate
-  port: 8885 # Avoid port conflict with default listener at 8883
-  tls:
-    manual:
-      secretName: server-cert-secret
+  ports:
+    port: 8885 # Avoid port conflict with default listener at 8883
+    tls:
+      manual:
+      mode: Manual
+        secretName: server-cert-secret
 ```
 
 Once the BrokerListener resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.
@@ -101,8 +101,11 @@ Once the BrokerListener resource is created, the operator automatically creates 
 
 To test the TLS connection with mosquitto client, publish a message and pass the root CA certificate in the parameter `--cafile`.
 
-```console
-$ mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile root_ca.crt
+```bash
+mosquitto_pub -d -h localhost -p 8885 -i "my-client" -t "test-topic" -m "Hello" --cafile root_ca.crt
+```
+
+```Output
 Client my-client sending CONNECT
 Client my-client received CONNACK (0)
 Client my-client sending PUBLISH (d0, q0, r0, m1, 'test-topic', ... (5 bytes))
@@ -123,16 +126,22 @@ To connect with TLS over the internet, MQTT broker's server certificate must hav
 
 If you try to deploy the example TLS listener `manual-tls-listener` but the referenced Kubernetes secret `server-cert-secret` doesn't exist, the associated service gets created, but the pods don't start. The service is created because the operator needs to reserve the external IP for the listener.
 
-```console
-$ kubectl get svc mqtts-endpoint -n azure-iot-operations
+```bash
+kubectl get svc mqtts-endpoint -n azure-iot-operations
+```
+
+```Output
 NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
 mqtts-endpoint         LoadBalancer   10.43.93.6      172.18.0.2    8885:30674/TCP      1m15s
 ```
 
 However, this behavior is expected and it's okay to leave it like this while we import the server certificate. The health manager logs mention MQTT broker is waiting for the server certificate.
 
-```console
-$ kubectl logs -l app=health-manager -n azure-iot-operations
+```bash
+kubectl logs -l app=health-manager -n azure-iot-operations
+```
+
+```Output
 ...
 <6>2023-11-06T21:36:13.634Z [INFO] [1] - Server certificate server-cert-secret not found. Awaiting creation of secret.
 ```
@@ -142,8 +151,11 @@ $ kubectl logs -l app=health-manager -n azure-iot-operations
 
 Even though the frontend pods aren't up, the external IP is already available.
 
-```console
-$ kubectl get svc mqtts-endpoint -n azure-iot-operations
+```bash
+kubectl get svc mqtts-endpoint -n azure-iot-operations
+```
+
+```Output
 NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
 mqtts-endpoint         LoadBalancer   10.43.93.6      172.18.0.2    8885:30674/TCP      1m15s
 ```
