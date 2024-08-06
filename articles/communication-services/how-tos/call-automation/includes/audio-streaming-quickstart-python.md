@@ -45,11 +45,7 @@ call_connection_properties = call_automation_client.create_call(target_participa
 ## Start Audio Streaming
 How to start audio streaming:
 ``` Python
-Method1: 
 call_connection_client.start_media_streaming() 
-
-Method2: 
-call_connection_client.start_media_streaming(operation_callback_url=CALLBACK_EVENTS_URI, operation_context="startMediaStreamingContext") 
 ```
 
 When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets. 
@@ -72,11 +68,7 @@ The metadata packet will look like this:
 ## Stop Audio Streaming
 How to stop audio streaming
 ``` Python
-Method1: 
 call_connection_client.stop_media_streaming() 
- 
-Method2: 
-call_connection_client.stop_media_streaming(operation_callback_url=CALLBACK_EVENTS_URI) 
 ```
 
 ## Handling audio streams in your websocket server
