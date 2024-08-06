@@ -43,7 +43,7 @@ If you prefer to show the remote lock screen instead of disconnecting the sessio
 
 # [Intune](#tab/intune)
 
-To configure the clipboard using Intune, follow these steps. This process creates an Intune [settings catalog](/mem/intune/configuration/settings-catalog) policy.
+To configure the session lock experience using Intune, follow these steps. This process creates an Intune [settings catalog](/mem/intune/configuration/settings-catalog) policy.
 
 1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
 
@@ -64,134 +64,64 @@ To configure the clipboard using Intune, follow these steps. This process create
 
 1. In **Configuration settings**, select **Add settings**. Then:
 
-    1. In the settings picker, expand **Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Device and Resource Redirection**.
+    1. In the settings picker, expand **Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Security**.
 
-    1. Select the following settings and make sure you select the settings with the correct scope. The `(User)` settings apply to the user scope. The other settings apply to the device scope. To determine which scope is correct for your scenario, go to [Settings catalog - Device scope vs. user scope settings](/mem/intune/configuration/settings-catalog#device-scope-vs-user-scope-settings):
-
-        - Restrict clipboard transfer from server to client
-        - Restrict clipboard transfer from client to server
-
-          **OR**
-
-        - Restrict clipboard transfer from server to client (User)
-        - Restrict clipboard transfer from client to server (User)
+    1. Select the **Disconnect remote session on lock for Microsoft identity platform authentication** setting.
 
     1. Close the settings picker.
 
-1. Configure the settings:
-
-    - **Restrict clipboard transfer from server to client**: Select **Enabled**.
-    - **Restrict clipboard transfer from server to client**: Select the type of clipboard data you want to prevent or allow. Your options:
-
-      - Disable clipboard transfers from server to client
-      - Allow plain text
-      - Allow plain text and images
-      - Allow plain text, images, and Rich Text Format
-      - Allow plain text, images, Rich Text Format, and HTML
-
-    - **Restrict clipboard transfer from client to server**: Select **Enabled**.
-    - **Restrict clipboard transfer from client to server**: Select the type of clipboard data you want to prevent or allow. Your options:
-
-      - Disable clipboard transfers from server to client
-      - Allow plain text
-      - Allow plain text and images
-      - Allow plain text, images, and Rich Text Format
-      - Allow plain text, images, Rich Text Format, and HTML
+1. Configure the setting to "Disabled" to show the remote lock screen when the session locks.
 
 1. Select **Next**.
 
-1. At the **Scope tags** tab (optional), you can skip this step. For more information about scope tags in Intune, see [Use RBAC roles and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
+1. (Optional) Add the **Scope tags**. For more information about scope tags in Intune, see [Use RBAC roles and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
 
-    Select **Next**.
+1. Select **Next**.
 
-1. For the **Assignments** tab, select the users, devices, or groups to receive the profile, then select **Next**. For more information on assigning profiles, see [Assign user and device profiles](/mem/intune/configuration/device-profile-assign).
+1. For the **Assignments** tab, select the devices, or groups to receive the profile, then select **Next**. For more information on assigning profiles, see [Assign user and device profiles](/mem/intune/configuration/device-profile-assign).
 
 1. On the **Review + create** tab, review the configuration information, then select **Create**.
 
-1. Once the policy configuration is created, resync your session hosts and reboot them for the settings to take effect.
-
-1. Connect to a remote session with a supported client and test the clipboard settings you configured are working by trying to copy and paste content.
+1. Once the policy configuration is created, the setting will take effect after the session hosts sync with Intune and users initiate a new session.
 
 # [Group Policy](#tab/group-policy)
 
-To configure the clipboard using Group Policy, follow these steps.
-
-> [!IMPORTANT]
-> These policy settings appear in both **Computer Configuration** and **User Configuration**. If both policy settings are configured, the stricter restriction is used.
+To configure the session lock experience using Group Policy, follow these steps.
 
 1. Open **Local Group Policy Editor** from the Start menu or by running `gpedit.msc`.
 
-1. Browse to one of the following policy sections. Use the policy section in **Computer Configuration** to the session host you target, and use the policy section in **User Configuration** applies to specific users you target.
+1. Browse to the following policy section:
 
-   - Machine: `Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
-   - User: `User Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
+   - `Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Security`
 
-1. Open one of the following policy settings, depending on whether you want to configure the clipboard from session host (server) to client, or client to session host:
+1. Select the **Disconnect remote session on lock for Microsoft identity platform authentication** policy.
 
-   - To configure the clipboard from **session host to client**, open the policy setting **Restrict clipboard transfer from server to client**, then select **Enabled**. Choose from the following options:
-      - **Disable clipboard transfers from server to client**.
-      - **Allow plain text.**
-      - **Allow plain text and images.**
-      - **Allow plain text, images, and Rich Text Format.**
-      - **Allow plain text, images, Rich Text Format, and HTML.**
-   
-   - To configure the clipboard from **client to session host**, open the policy setting **Restrict clipboard transfer from client to server**, then select **Enabled** . Choose from the following options:
-      - **Disable clipboard transfers from client to server**.
-      - **Allow plain text.**
-      - **Allow plain text and images.**
-      - **Allow plain text, images, and Rich Text Format.**
-      - **Allow plain text, images, Rich Text Format, and HTML.**
+1. Set the policy to "Disabled" to show the remote lock screen when the session locks.
 
 1. Select **OK** to save your changes.
 
-1. Once you configured settings, restart your session hosts for the settings to take effect.
-
-1. Connect to a remote session with a supported client and test the clipboard settings you configured are working by trying to copy and paste content.
+1. Once the policy is configured, it will take effect after the user initiate a new session.
 
 > [!TIP]
 > During the preview, you can also configure Group Policy centrally in an Active Directory domain by copying the `terminalserver.admx` and `terminalserver.adml` administrative template files from a session host to the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store) in a test environment.
 
 # [Registry](#tab/registry)
 
-To configure the clipboard using the registry on a session host, follow these steps.
+To configure the session lock experience using the registry on a session host, follow these steps.
 
 1. Open **Registry Editor** from the Start menu or by running `regedit.exe`.
 
-1. Set one of the following registry keys and its value, depending on whether you want to configure the clipboard from session host to client, or client to session host.
+1. Set the following registry key and its value.
 
-   - To configure the clipboard from **session host to client**, set one of the following registry keys and its value. Using the value for the machine applies to all users, and using the value for the user applies to the current user only.
-      - **Key**:
-         - Machine: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
-         - Users: `HKCU\Software\Policies\Microsoft\Windows NT\Terminal Services`
-      - **Type**: `REG_DWORD`
-      - **Value name**: `SCClipLevel`
-      - **Value data**: Enter a value from the following table:
+   - **Key**: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
+   - **Type**: `REG_DWORD`
+   - **Value name**: `fdisconnectonlockmicrosoftidentity`
+   - **Value data**: Enter a value from the following table:
 
          | Value Data | Description |
          |--|--|
-         | `0` | Disable clipboard transfers from session host to client. |
-         | `1` | Allow plain text. |
-         | `2` | Allow plain text and images. |
-         | `3` | Allow plain text, images, and Rich Text Format. |
-         | `4` | Allow plain text, images, Rich Text Format, and HTML. |
-
-   - To configure the clipboard from **client to session host**, set one of the following registry keys and its value. Using the value for the machine applies to all users, and using the value for the user applies to the current user only.
-      - **Key**:
-         - Machine: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
-         - Users: `HKCU\Software\Policies\Microsoft\Windows NT\Terminal Services`
-      - **Type**: `REG_DWORD`
-      - **Value name**: `CSClipLevel`
-      - **Value data**: Enter a value from the following table:
-      
-         | Value Data | Description |
-         |--|--|
-         | `0` | Disable clipboard transfers from client to session host. |
-         | `1` | Allow plain text. |
-         | `2` | Allow plain text and images. |
-         | `3` | Allow plain text, images, and Rich Text Format. |
-         | `4` | Allow plain text, images, Rich Text Format, and HTML. |
-
- 
+         | `0` | Show the remote lock screen. |
+         | `1` | Disconnect the session. |
 
 ### Active Directory domain administrator accounts with single sign-on
 
