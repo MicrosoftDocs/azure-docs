@@ -2,7 +2,7 @@
 title: Dldsv5 size series
 description: Information on and specifications of the Dldsv5-series sizes
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 07/18/2024

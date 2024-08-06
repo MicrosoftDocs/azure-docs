@@ -3,7 +3,7 @@ title: Create Azure Application Gateway custom error pages
 description: This article shows you how to create Application Gateway custom error pages. You can use your own branding and layout using a custom error page.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: jaysoni 

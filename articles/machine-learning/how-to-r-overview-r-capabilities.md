@@ -2,7 +2,7 @@
 title: Bring R workloads into Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: 'Learn how to bring your R workloads into Azure Machine Learning'
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 01/12/2023
 ms.topic: conceptual

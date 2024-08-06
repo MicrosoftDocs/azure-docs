@@ -4,7 +4,7 @@ description: In this tutorial, learn how to set up continuous integration and co
 ms.topic: tutorial
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 05/17/2024
 ---

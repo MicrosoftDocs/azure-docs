@@ -3,7 +3,7 @@ title: Enable authentication and authorization in Azure Container Apps with Face
 description: Learn to use the built-in Facebook authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 04/06/2022
 ms.author: cshoe
