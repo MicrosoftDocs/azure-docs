@@ -19,7 +19,7 @@ There are several scenarios where associations are automatically created for you
 
 | Scenario | Description |
 |:---|:---|
-| [Enable VM insights on a VM or VMSS](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, a DCR is created along with an association between the VM and the DCR. |
+| [Enable VM insights on a VM](../vm/vminsights-enable-overview.md) | When you enable VM insights on a VM, a DCR is created along with an association between the VM and the DCR. |
 | [Enable Container insights on a Kubernetes cluster](../containers/kubernetes-monitoring-enable.md) | When you enable Container insights on a cluster, a DCR is created along with an association between the cluster and the DCR. |
 | [Create a DCR for a VM in the Azure portal](../agents/azure-monitor-agent-data-collection.md) | When you create a DCR in the Azure portal, an association is created for each machine that you add to **Resources**. |
 

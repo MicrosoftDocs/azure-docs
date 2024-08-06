@@ -607,9 +607,6 @@ items:
       - name: Edit DCR tutorial
         displayName: data collection rules
         href: essentials/data-collection-rule-edit.md
-      - name: Data collection rule associations
-        displayName: data collection rules, DCR, associations, DCRA
-        href: essentials/data-collection-rule-association-create-edit.md
       - name: Structure
         displayName: Data collection rules, DCR
         href: essentials/data-collection-rule-structure.md

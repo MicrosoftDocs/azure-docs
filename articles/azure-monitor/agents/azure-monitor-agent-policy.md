@@ -19,7 +19,7 @@ Use the following policies and policy initiatives to automatically install the a
 > [!NOTE]
 > Azure Monitor has a preview [data collection rule DCR](../essentials/data-collection-rule-overview.md) experience that simplifies creating assignments for policies and initiatives that use DCRs. This includes initiatives that install the Azure Monitor agent. You may choose to use that experience to create assignments for the initiatives described in this article. See [Manage data collection rules (DCRs) and associations in Azure Monitor](../essentials/data-collection-rule-view.md#azure-policy) for more information.
 
-## Prequisites
+## Prerequisites
 Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).
 
 > [!NOTE]

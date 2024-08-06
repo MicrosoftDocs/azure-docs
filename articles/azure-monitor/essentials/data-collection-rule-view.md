@@ -75,7 +75,7 @@ Using the **Resources** view, you can create a new DCR for the selected resource
 
 
 ## Azure Policy
-Using [Azure Policy](../../governance/policy/overview.md), you can associate a DCR with a multiple resources at scale. When you create an assignment between a resource group and a built-in policy or initiative, associations are created between the DCR and each resource of the assigned type in the resource group, including any new resources as they're created. Azure Monitor provides a simplified user experience to create an assignment for a policy or initiative for a particular DCR, which is an alternate method to creating the assignment using Azure Policy directly.
+Using [Azure Policy](../../governance/policy/overview.md), you can associate a DCR with multiple resources at scale. When you create an assignment between a resource group and a built-in policy or initiative, associations are created between the DCR and each resource of the assigned type in the resource group, including any new resources as they're created. Azure Monitor provides a simplified user experience to create an assignment for a policy or initiative for a particular DCR, which is an alternate method to creating the assignment using Azure Policy directly.
 
 > [!NOTE]
 > A **policy** in Azure Policy is a single rule or condition that resources in Azure must comply with. For example, there is a built-in policy called **Configure Windows Machines to be associated with a Data Collection Rule or a Data Collection Endpoint**.
