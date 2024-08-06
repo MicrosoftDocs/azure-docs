@@ -413,9 +413,9 @@
       href: deployment-stacks.md
     - name: Bicep extensibility
       items:
-      - name: Kubernetes provider
-        href: ./bicep-extensibility-kubernetes-provider.md
-      - name: Microsoft Graph provider
+      - name: Kubernetes extension
+        href: ./bicep-kubernetes-extension.md
+      - name: Microsoft Graph extension
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:

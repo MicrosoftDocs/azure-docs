@@ -8,7 +8,7 @@ ms.date: 06/03/2024
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensibility providers.
+This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensions.
 
 ## Exporting types, variables and functions
 
@@ -80,7 +80,7 @@ output greeting string = sayHello('Bicep user')
 output exampleObject myImports.myObjectType = exampleObject
 ```
 
-## Import namespaces and extensibility providers (Preview)
+## Import namespaces and extensions (Preview)
 
 > [!NOTE]
 > The experimental feature `extensibility` must be enabled from the [Bicep config file](./bicep-config.md#enable-experimental-features) to use this feature.
@@ -94,25 +94,25 @@ import 'sys@1.0.0'
 
 Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
-The syntax for importing Bicep extensibility providers is:
+The syntax for importing Bicep extensions is:
 
 ```bicep
-import '<provider-name>@<provider-version>'
+import '<extension-name>@<extension-version>'
 ```
 
-The syntax for importing Bicep extensibility providers which require configuration is:
+The syntax for importing Bicep extensions which require configuration is:
 
 ```bicep
-import '<provider-name>@<provider-version>' with {
-  <provider-properties>
+import '<extension-name>@<extension-version>' with {
+  <extension-properties>
 }
 ```
 
-For an example, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
+For an example, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
 
 ## Next steps
 
 - To learn about the Bicep data types, see [Data types](./data-types.md).
 - To learn about the Bicep functions, see [Bicep functions](./bicep-functions.md).
-- To learn about how to use the Kubernetes provider, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md).
-- To go through a Kubernetes provider tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes provider.](/azure/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider).
+- To learn about how to use the Bicep Kubernetes extension, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md).
+- To go through a Kubernetes extension tutorial, see [Quickstart - Deploy Azure applications to Azure Kubernetes Services by using Bicep Kubernetes extension.](/azure/aks/learn/quick-kubernetes-deploy-bicep-kubernetes-extension).
