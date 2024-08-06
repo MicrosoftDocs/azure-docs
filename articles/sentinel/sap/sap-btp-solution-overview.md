@@ -29,6 +29,8 @@ Beyond the low-code aspect, BTP applications:
 
 Therefore, it's important to protect your BTP system against these risks.
 
+See a detailed scenario involving the audit log of the SAP BTP AI Core Service in [this SAP blog post](https://community.sap.com/t5/technology-blogs-by-members/nice-patch-sap-revisiting-your-sap-btp-security-measures-after-ai-core/ba-p/13770662).
+
 ## How the solution addresses BTP security risks
 
 With the Microsoft Sentinel Solution for SAP BTP, you can:
