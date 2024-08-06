@@ -271,11 +271,11 @@ The following recommendations apply to scaling Standard logic app workflows:
      > When you have sensitive information, such as connection strings that include usernames and passwords, 
      > make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
      > secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
-     > authenticate access to Azure resources with a [managed identity](entra/identity/managed-identities-azure-resources/overview) 
+     > authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
      > when possible, and assign a role that has the least privilege necessary.
      >
      > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-     > [Azure Key Vault](../key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+     > [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
      > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
      > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
      > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
