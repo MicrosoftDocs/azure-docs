@@ -13,10 +13,4 @@ ms.date: 07/18/2024
    - [Bruno](https://www.usebruno.com/)
    - [Curl](https://curl.se/)
 
-   > [!CAUTION]
-   >
-   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, 
-   > API keys, and other similar information, make sure to use a tool that protects your data 
-   > with the necessary security features, works offline or locally, doesn't sync your data to 
-   > the cloud, and doesn't require that you sign in to an online account. This way, you reduce 
-   > the risk around exposing sensitive data to the public.
+   [!INCLUDE [api-test-http-request-tools-caution](api-test-http-request-tools-caution.md)]

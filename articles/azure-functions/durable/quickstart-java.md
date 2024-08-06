@@ -355,7 +355,11 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
 
-1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
+1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint. 
+
+    [!INCLUDE [api-test-http-request-tools-caution](../../../includes/api-test-http-request-tools-caution.md)]
+
+    The response should look similar to the following example:
 
     ```json
     {
