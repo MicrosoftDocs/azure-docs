@@ -74,6 +74,18 @@ Search for trace messages and custom events sent by Profiler to your Application
 
    If no records are displayed, Profiler isn't running or took too long to respond. Make sure [Profiler is enabled on your Azure service](./profiler.md).
 
+## Profiler is on, but no traces captured
+
+Even when the Profiler is enabled it may not capture or upload traces, especially in these situations:
+
+1. No incoming requests to your application - you can manually invoke your application or create an [availability test](https://learn.microsoft.com/azure/azure-monitor/app/availability), or a [load test](https://learn.microsoft.com/azure/load-testing/overview-what-is-azure-load-testing). 
+
+1. No incoming telemetry acknowledged by Application Insights - if there is traffic coming to your application - validate that there are incoming requests showing in Application Insights [Live Metrics](https://learn.microsoft.com/azure/azure-monitor/app/live-stream). If the `Incoming Requests` charts are empty (no data or showing zero) - please [troubleshoot Application Insights](https://learn.microsoft.com/troubleshoot/azure/azure-monitor/app-insights/telemetry/asp-net-troubleshoot-no-data). If you are hosting your .NET application on Azure App Service - follow [this is specific troubleshooting](https://learn.microsoft.com/azure/azure-monitor/app/azure-web-apps-net#troubleshooting).
+
+1. Profiler setting for Sampling is turned off - if still no profiler traces are available, please check the Profiler Sampling setting. Open **Application Insights**, **Performance** page, click on **Profiler** and then on **Triggers** button in the Application Insights Profiler. In the Trigger Settings, ensure the **Sampling** is on.
+
+1. Still no traces uploaded? Please let us know at [serviceprofilerhelp@microsoft.com](mailto:serviceprofilerhelp@microsoft.com).
+
 ## Double counting in parallel threads
 
 When two or more parallel threads are associated with a request, the total time metric in the stack viewer might be more than the duration of the request. In that case, the total thread time is more than the actual elapsed time.
