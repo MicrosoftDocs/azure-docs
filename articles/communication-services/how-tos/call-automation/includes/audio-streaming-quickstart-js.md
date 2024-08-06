@@ -46,12 +46,7 @@ const streamingOptions: StartMediaStreamingOptions = {
         operationContext: "startMediaStreamingContext", 
         operationCallbackUrl: process.env.CALLBACK_URI + "/api/callbacks" 
     } 
-
-Method1: 
 await callMedia.startMediaStreaming(streamingOptions); 
-
-Method2: 
-await callMedia.startMediaStreaming(); 
 ```
 When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets. 
 
@@ -76,12 +71,7 @@ How to stop audio streaming
 const stopMediaStreamingOptions: StopMediaStreamingOptions = { 
         operationCallbackUrl: process.env.CALLBACK_URI + "/api/callbacks" 
         } 
-
-Method1: 
 await callMedia.stopMediaStreaming(stopMediaStreamingOptions); 
-
-Method2:			 
-await callMedia.stopMediaStreaming(); 
 ```
 
 ## Handling audio streams in your websocket server
