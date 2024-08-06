@@ -86,7 +86,12 @@ Even when the Profiler is enabled, it may not capture or upload traces, especial
     - If the `Incoming Requests` charts are empty (no data or showing zero): [troubleshoot Application Insights](/troubleshoot/azure/azure-monitor/app-insights/telemetry/asp-net-troubleshoot-no-data). 
     - If you are hosting your .NET application on Azure App Service: [try the App Service .NET troubleshooting steps](../app/azure-web-apps-net.md#troubleshooting).
 
-1. Profiler setting for Sampling is turned off - if still no profiler traces are available, please check the Profiler Sampling setting. Open **Application Insights**, **Performance** page, click on **Profiler** and then on **Triggers** button in the Application Insights Profiler. In the Trigger Settings, ensure the **Sampling** is on.
+1. **Profiler setting for Sampling is turned off:**   
+    If still no profiler traces are available, check the Profiler Sampling setting.   
+      1. Open **Application Insights** > **Performance** blade. 
+      1. Click on **Profiler**.
+      1. Click on the **Triggers** button. 
+      1. In the Trigger Settings, ensure the **Sampling** toggle is on.
 
 1. Still no traces uploaded? Please let us know at [serviceprofilerhelp@microsoft.com](mailto:serviceprofilerhelp@microsoft.com).
 
