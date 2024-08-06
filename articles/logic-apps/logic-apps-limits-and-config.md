@@ -266,6 +266,22 @@ The following recommendations apply to scaling Standard logic app workflows:
      | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU01.ConnectionString** | `<connection-string-2>` |
      | **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU02.ConnectionString** | `<connection-string-3>` | 
 
+     > [!IMPORTANT]
+     >
+     > When you have sensitive information, such as connection strings that include usernames and passwords, 
+     > make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
+     > secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
+     > authenticate access to Azure resources with a [managed identity](entra/identity/managed-identities-azure-resources/overview) 
+     > when possible, and assign a role that has the least privilege necessary.
+     >
+     > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+     > [Azure Key Vault](../key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+     > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+     > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+     > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+     > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+     > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
+
    1. In your logic app's application configuration settings, update the **AzureWebJobsStorage** setting value with the same connection string that's in the **CloudStorageAccount.Workflows.ScaleUnitsDataStorage.CU00.ConnectionString** setting.
 
 #### Compute
