@@ -19,9 +19,6 @@ ms.custom: devx-track-go, devguide-go
 
 This article shows how to delete blobs using the [Azure Storage client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#section-readme), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
-> [!NOTE]
-> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
-
 [!INCLUDE [storage-dev-guide-prereqs-go](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-go.md)]
 
 ## Set up your environment
@@ -33,6 +30,9 @@ This article shows how to delete blobs using the [Azure Storage client module fo
 The authorization mechanism must have the necessary permissions to delete a blob, or to restore a soft-deleted blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Delete Blob (REST API)](/rest/api/storageservices/delete-blob#authorization) and [Undelete Blob (REST API)](/rest/api/storageservices/undelete-blob#authorization).
 
 ## Delete a blob
+
+> [!NOTE]
+> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
 
 To delete a blob, call the following method:
 

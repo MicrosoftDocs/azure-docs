@@ -19,9 +19,6 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 This article shows how to delete blobs with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
-> [!NOTE]
-> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
-
 ## Prerequisites
 
 - This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
@@ -31,7 +28,10 @@ This article shows how to delete blobs with the [Azure Storage client library fo
 
 ## Delete a blob
 
-To delete a blob, call one of these methods:
+> [!NOTE]
+> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
+
+To delete a blob, call either of the following methods:
 
 - [delete](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)
 - [deleteIfExists](/java/api/com.azure.storage.blob.specialized.blobclientbase#method-summary)

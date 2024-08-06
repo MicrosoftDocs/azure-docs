@@ -18,9 +18,6 @@ ms.custom: devx-track-ts, devguide-ts, devx-track-js
 
 This article shows how to delete blobs with the [Azure Storage client library for JavaScript](https://www.npmjs.com/package/@azure/storage-blob), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
-> [!NOTE]
-> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
-
 ## Prerequisites
 
 - The examples in this article assume you already have a project set up to work with the Azure Blob Storage client library for JavaScript. To learn about setting up your project, including package installation, importing modules, and creating an authorized client object to work with data resources, see [Get started with Azure Blob Storage and TypeScript](storage-blob-typescript-get-started.md).
@@ -29,6 +26,9 @@ This article shows how to delete blobs with the [Azure Storage client library fo
     - [Undelete Blob](/rest/api/storageservices/undelete-blob#authorization)
 
 ## Delete a blob
+
+> [!NOTE]
+> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
 
 To delete a blob, create a [BlobClient](storage-blob-typescript-get-started.md#create-a-blobclient-object) then call either of these methods:
 
