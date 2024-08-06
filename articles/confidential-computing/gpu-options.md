@@ -3,9 +3,8 @@ title: Azure Confidential GPU options
 description: Learn about Azure Confidential VMs with confidential GPU.
 author: kphande
 ms.author: khande
-ms.reviewer: ju-shim 
+ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
-ms.subservice: confidential-computing
 ms.custom: confidential-compute
 ms.topic: conceptual
 ms.date: 07/16/2024

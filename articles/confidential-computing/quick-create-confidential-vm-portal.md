@@ -2,8 +2,7 @@
 title: Create an Azure confidential VM in the Azure portal
 description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai

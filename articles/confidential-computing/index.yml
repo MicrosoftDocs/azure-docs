@@ -131,7 +131,7 @@ landingContent:
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential VM node pools on AKS
-            url: ..\aks\use-cvm.md
+            url: /azure/aks/use-cvm
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios
