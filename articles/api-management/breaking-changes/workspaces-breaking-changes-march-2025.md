@@ -3,7 +3,7 @@ title: Azure API Management workspaces preview - breaking changes (March 2025)
 description: Azure API Management is removing support for preview workspaces. If your service uses preview workspaces, migrate your workspaces to the generally available version.
 services: api-management 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/10/2024
 ms.author: danlep
@@ -14,16 +14,16 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
 
 > [!IMPORTANT]
-> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release in July 2024 and use workspaces with workspace gateways, your workspaces shouldn't be affected by these changes.
+> These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release in August 2024 and use workspaces with workspace gateways, your workspaces shouldn't be affected by these changes.
 > 
 
-Azure API Management [workspaces](../workspaces-overview.md) are now generally available, and we introduced several feature updates with that release. As part of our continued development of workspaces, we're removing support for preview workspaces (created before July 2024). If you created preview workspaces in Azure API Management and want to continue using them, you need to migrate your workspaces to the generally available version. 
+Azure API Management [workspaces](../workspaces-overview.md) are now generally available, and we introduced several feature updates with that release. As part of our continued development of workspaces, we're removing support for preview workspaces (created before August 2024). If you created preview workspaces in Azure API Management and want to continue using them, you need to migrate your workspaces to the generally available version. 
 
 After 31 March 2025, your preview workspaces and APIs managed in them may stop working if you haven't migrated to the latest workspace capabilities. APIs and resources managed outside workspaces aren't affected by this change.
 
 ## Is my service affected by these changes?
 
-Your service may be affected by these changes if you created preview workspaces in your API Management instance, before the generally available release of workspaces in July 2024. Workspaces created after the generally available release date that use workspace gateways for API runtime aren't affected by the breaking changes.
+Your service may be affected by these changes if you created preview workspaces in your API Management instance, before the generally available release of workspaces in August 2024. Workspaces created after the generally available release date that use workspace gateways for API runtime aren't affected by the breaking changes.
 
 ## Breaking changes
 

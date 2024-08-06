@@ -95,6 +95,7 @@ Workspace gateways need to be in the same Azure region and subscription as the A
 
 * West US
 * North Central US
+* East US 2
 * UK South
 * France Central 
 * North Europe

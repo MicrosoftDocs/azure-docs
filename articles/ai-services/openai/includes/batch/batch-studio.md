@@ -41,7 +41,7 @@ Like [fine-tuning](../../how-to/fine-tuning.md), global batch uses files in JSON
 ### Input with image url
 
 ```json
-{"custom_id": "request-1", "method": "POST", "url": "/chat/completions", "body": {"model": "REPLACE-WITH-MODEL-DEPLOYMENT-NAME", "messages": [{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": [{"type": "text", "text": "What’s in this image?"},{"type": "image_url","image_url": {"url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg"}}]}],"max_tokens": 1000}}
+{"custom_id": "request-1", "method": "POST", "url": "/chat/completions", "body": {"model": "REPLACE-WITH-MODEL-DEPLOYMENT-NAME", "messages": [{"role": "system", "content": "You are a helpful assistant."},{"role": "user", "content": [{"type": "text", "text": "What’s in this image?"},{"type": "image_url","image_url": {"url": "https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/ai-services/openai/media/how-to/generated-seattle.png"}}]}],"max_tokens": 1000}}
 ```
 
 ---
@@ -70,13 +70,13 @@ Once your input file is prepared, you first need to upload the file to then be a
 
 ## Create batch job
 
-Choose your global batch deployment name from the dropdown and select **Create**. The deployment should match the deployment name specified on each line of your `.jsonl` file.
+Select **Create** to start your batch job.
 
 :::image type="content" source="../../media/how-to/global-batch/deployment.png" alt-text="Screenshot of the create a batch job Azure Studio UI experience." lightbox="../../media/how-to/global-batch/deployment.png":::
 
 ## Track batch job progress
 
-Once your job is created, you can monitor the job's progress by selecting the Job ID for the most recently created job.
+Once your job is created, you can monitor the job's progress by selecting the Job ID for the most recently created job. By default you will be taken to the status page for your most recently created batch job.
 
 :::image type="content" source="../../media/how-to/global-batch/job-id.png" alt-text="Screenshot that shows the batch job ID for a job currently undergoing validation." lightbox="../../media/how-to/global-batch/job-id.png":::
 
@@ -86,7 +86,7 @@ You can track job status for your job in the right-hand pane:
 
 ## Retrieve batch job output file
 
-Once your job has completed or reached a terminal state, it will generate two output files: `error.txt` and `output.txt` which can be downloaded for review by clicking the downward arrow icon.
+Once your job has completed or reached a terminal state, it will generate an error file and an output file which can be downloaded for review by selecting the respective button with the downward arrow icon.
 
 :::image type="content" source="../../media/how-to/global-batch/output.png" alt-text="Screenshot that shows the batch job output and error files available for download." lightbox="../../media/how-to/global-batch/output.png":::
 

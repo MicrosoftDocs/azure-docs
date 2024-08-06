@@ -20,13 +20,9 @@ Azure AI Content Safety automatically encrypts your data when it's persisted to 
 
 Azure AI Content Safety is part of Azure AI services. Azure AI services data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
-
 ## About encryption key management
 
 By default, your subscription uses Microsoft-managed encryption keys. There's also the option to manage your subscription with your own keys called customer-managed keys (CMK). CMK offers greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.
-
-> [!IMPORTANT]
-> For blocklist names, only MMK encryption is applied by default. Using CMK or not will not change this behavior. All the other data will use either MMK or CMK depending on what you've selected.
 
 ## Customer-managed keys with Azure Key Vault
 
