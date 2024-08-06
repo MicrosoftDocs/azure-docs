@@ -7,7 +7,7 @@ ms.subservice: security
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 02/20/2024
+ms.date: 08/06/2024
 ms.custom: devx-track-azurepowershell, linux-related-content, devx-track-azurecli
 ---
 
@@ -57,6 +57,7 @@ Azure Disk Encryption does not work for the following Linux scenarios, features,
 - A VM with "nested mount points"; that is, multiple mount points in a single path (such as "/1stmountpoint/data/2stmountpoint").
 - A VM with a data drive mounted on top of an OS folder.
 - A VM on which a root (OS disk) logical volume has been extended using a data disk.
+- Resizing of the OS disk.
 - M-series VMs with Write Accelerator disks.
 - Applying ADE to a VM that has disks encrypted with [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk or adding a data disk with SSE + CMK configured to a VM encrypted with ADE is an unsupported scenario as well.
 - Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [Encryption at Host](../disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) or [server-side encryption with customer-managed keys](../disk-encryption.md).
