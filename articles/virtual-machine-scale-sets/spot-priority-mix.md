@@ -13,9 +13,6 @@ ms.custom: engagement-fy23
 
 # Spot Priority Mix for high availability and cost savings
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
 Azure allows you to have the flexibility of running a mix of uninterruptible standard VMs and interruptible Spot VMs for Virtual Machine Scale Set deployments. You're able to deploy this Spot Priority Mix using Flexible orchestration to easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements. This feature allows you to easily manage your scale set capability to achieve the following goals:
@@ -78,7 +75,7 @@ az vmss create -n myScaleSet \
 		--regular-priority-percentage 50 \
 		--orchestration-mode flexible \
 		--instance-count 4 \
-		--image CentOS85Gen2 \
+		--image Ubuntu2204 \
 		--priority Spot \
 		--eviction-policy Deallocate \
 		--single-placement-group False \

@@ -3,7 +3,7 @@ title: Compute and storage – Azure Cosmos DB for PostgreSQL
 description: Options for a cluster, including node compute and storage
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 01/22/2024

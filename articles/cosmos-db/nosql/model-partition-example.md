@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for NoSQL
 description: Learn how to model and partition data using a real-world example scenario and Azure Cosmos DB for NoSQL.
 author: seesharprun
 ms.author: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 02/27/2023

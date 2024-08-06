@@ -7,6 +7,7 @@ ms.date: 07/04/2024
 ms.topic: tutorial
 ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
+ms.service: azure-automation
 ---
 
 # Tutorial: Create a PowerShell Workflow runbook in Automation

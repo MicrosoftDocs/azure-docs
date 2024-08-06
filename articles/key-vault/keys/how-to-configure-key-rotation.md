@@ -6,7 +6,7 @@ author: msmbaldwin
 manager: rkarlin
 tags: 'rotation'
 ms.custom: devx-track-arm-template
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.date: 10/17/2022

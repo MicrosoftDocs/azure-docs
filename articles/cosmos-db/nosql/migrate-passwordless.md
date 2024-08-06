@@ -6,7 +6,7 @@ author: alexwolfmsft
 ms.author: alexwolf
 ms.reviewer: randolphwest
 ms.date: 06/20/2024
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.topic: how-to
 ms.custom: devx-track-csharp, passwordless-java, passwordless-js, passwordless-python, passwordless-dotnet, passwordless-go, devx-track-azurecli
 ---

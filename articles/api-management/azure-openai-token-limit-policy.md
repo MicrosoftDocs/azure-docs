@@ -4,7 +4,7 @@ description: Reference for the azure-openai-token-limit policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
@@ -56,7 +56,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 
 ### Usage notes
 

@@ -4726,7 +4726,7 @@ The following security recommendations related to network security groups have b
 
 ### Deprecated preview AKS recommendation "Pod Security Policies should be defined on Kubernetes Services"
 
-The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](../aks/use-pod-security-policies.md) documentation.
+The preview recommendation "Pod Security Policies should be defined on Kubernetes Services" is being deprecated as described in the [Azure Kubernetes Service](/azure/aks/use-pod-security-policies) documentation.
 
 The pod security policy (preview) feature, is set for deprecation and will no longer be available after October 15, 2020 in favor of Azure Policy for AKS.
 

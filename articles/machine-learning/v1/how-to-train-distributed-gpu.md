@@ -5,7 +5,7 @@ description: Learn the best practices for performing distributed training with A
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: ratanase
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 10/21/2021

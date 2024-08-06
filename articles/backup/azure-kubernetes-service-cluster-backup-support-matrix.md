@@ -6,7 +6,7 @@ ms.date: 04/21/2024
 ms.custom:
   - references_regions
   - ignite-2023
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -31,9 +31,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - AKS backup supports AKS clusters with Kubernetes version *1.22* or later. This version has Container Storage Interface (CSI) drivers installed.
 
-- Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
+- Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](../aks/csi-migrate-in-tree-volumes.md).
+- AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
 - Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). The supported Azure Disk SKUs are Standard HDD, Standard SSD, and Premium SSD. The disks belonging to Premium SSD v2 and Ultra Disk SKU are not supported. Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes will be skipped from the backup operation.
 
@@ -41,7 +41,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
-- Currently, AKS clusters using a service principal aren't supported. If your AKS cluster uses a service principal for authorization, you can update the cluster to use a [system-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
+- Currently, AKS clusters using a service principal aren't supported. If your AKS cluster uses a service principal for authorization, you can update the cluster to use a [system-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
 - You can only install the Backup Extension on agent nodes with Ubuntu and Azure Linux as Operating System. AKS Clusters with Windows based agent nodes do not allow Backup Extension installation.
 

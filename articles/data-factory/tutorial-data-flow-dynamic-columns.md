@@ -3,7 +3,6 @@ title: Dynamically set column names in data flows
 description:  This tutorial provides steps for dynamically setting column names in data flows
 author: kromerm
 ms.author: makromer
-ms.service: azure-data-factory
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

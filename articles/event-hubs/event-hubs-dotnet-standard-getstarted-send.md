@@ -2,7 +2,6 @@
 title: 'Quickstart: Send or receive events using .NET'
 description: A quickstart that shows you how to create a .NET Core application that sends events to and receive events from Azure Event Hubs.
 ms.topic: quickstart
-ms.service: azure-event-hubs
 ms.date: 04/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet

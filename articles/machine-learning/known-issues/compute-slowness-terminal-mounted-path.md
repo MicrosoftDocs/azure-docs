@@ -5,7 +5,7 @@ description: While using the compute instance terminal inside a mounted path of 
 author: s-polly
 ms.author: scottpolly
 ms.topic: troubleshooting  
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/04/2023
 ms.custom: known-issue

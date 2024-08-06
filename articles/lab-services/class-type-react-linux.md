@@ -5,7 +5,7 @@ author: emaher
 ms.topic: how-to
 ms.date: 04/25/2022
 ms.custom: devdivchpfy22, linux-related-content
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Set up lab for React on Linux

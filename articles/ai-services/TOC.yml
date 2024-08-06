@@ -67,7 +67,7 @@ items:
       - name: Azure Container Registry
         href: ../container-registry/container-registry-get-started-azure-cli.md
       - name: Azure Kubernetes Service (AKS)
-        href: ../aks/tutorial-kubernetes-prepare-app.md
+        href: /azure/aks/tutorial-kubernetes-prepare-app
   - name: Security
     items:
     - name: Security features

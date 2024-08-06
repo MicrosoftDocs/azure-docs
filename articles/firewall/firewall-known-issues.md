@@ -3,7 +3,7 @@ title: Azure Firewall known issues and limitations
 description: Learn about Azure Firewall known issues and limitations.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 10/02/2023
 ms.author: victorh

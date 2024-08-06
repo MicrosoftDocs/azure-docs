@@ -3,7 +3,7 @@ title: Availability zone (AZ) outage resiliency – Azure Cosmos DB for PostgreS
 description: Disaster recovery using Azure availability zones (AZ) concepts
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 11/28/2023

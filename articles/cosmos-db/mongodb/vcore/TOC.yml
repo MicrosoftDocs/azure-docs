@@ -96,6 +96,8 @@
           href: background-indexing.md
         - name: Indexing best practices
           href: how-to-create-indexes.md
+        - name: Indexing scenarios
+          href: how-to-index.md
         - name: Working with wildcard
           href: how-to-create-wildcard-indexes.md
         - name: Search and query text

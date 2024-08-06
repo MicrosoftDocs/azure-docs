@@ -79,7 +79,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure IoT Hub | [IoT Hub operations](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Azure IoT Hub Device Provisioning Service| [Device Provisioning Service operations](../../iot-dps/monitor-iot-dps-reference.md#resource-logs) |
 | Azure Key Vault |[Azure Key Vault logging](../../key-vault/general/logging.md) |
-| Azure Kubernetes Service |[Azure Kubernetes Service logging](../../aks/monitor-aks-reference.md#resource-logs) |
+| Azure Kubernetes Service |[Azure Kubernetes Service logging](/azure/aks/monitor-aks-reference#resource-logs) |
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |
 | Azure Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/tracking-schemas-as2-x12-custom.md) |

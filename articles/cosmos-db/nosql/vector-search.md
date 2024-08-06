@@ -5,7 +5,7 @@ description: Use vector store in Azure Cosmos DB for NoSQL to enhance AI-based a
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - Build 2024

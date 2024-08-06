@@ -2,7 +2,7 @@
 title: Introduction to Azure Health Data Services
 description: Learn how Azure Health Data Services empowers healthcare organizations to manage data securely, support interoperability, and enable analytics.
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/10/2024

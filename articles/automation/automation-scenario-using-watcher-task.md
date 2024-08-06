@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.topic: how-to
 ms.date: 12/17/2020
+ms.service: azure-automation
 ---
 
 # Track updated files with a watcher task

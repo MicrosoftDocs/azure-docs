@@ -18,10 +18,10 @@ Each VM in a scale set gets a name and instance ID that uniquely identifies it. 
 
 ## Scale set VM names
 
-Virtual Machine Scale Sets will generate a unique name for each VM in the scale set. The naming convention differs by orchestration mode:
+Virtual Machine Scale Sets will generate a unique name for each VM in the scale set. This name is used as part of the unique resource identifier for Azure ARM resources. The maximum length of the instance resource name is 64 characters. The naming convention differs by orchestration mode:
 
-* Flexible orchestration Mode: `{scale-set-name}_{8-char-guid}`
-* Uniform orchestration mode: `{scale-set-name}_{instance-id}`
+* Flexible orchestration mode instance name: `{scale-set-name}_{8-char-guid}`
+* Uniform orchestration mode instance name: `{scale-set-name}_{instance-id}`
 
 ## Scale set instance ID for Flexible Orchestration Mode
 
@@ -96,4 +96,4 @@ Each VM in a scale set also gets a computer name assigned to it. This computer n
 * Flexible orchestration mode: {computer-name-prefix}{6-char-guid}
 * Uniform orchestration mode: {computer-name-prefix}{base-36-instance-id}
 
-The computer name prefix is a property of the scale set model that you can set, so it can be different from the scale set name itself. The scale set VM computer name can also be changed from inside the guest OS once the VM has been created.
+The computer name prefix is a property of the scale set model that you can set, so it can be different from the scale set name itself. The scale set VM computer name can also be changed from inside the guest OS once the VM has been created. The maximum length of the computer name is operating system dependent. For more information, see [Naming rules and restrictions.](../azure-resource-manager/management/resource-name-rules.md).

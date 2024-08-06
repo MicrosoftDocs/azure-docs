@@ -5,7 +5,6 @@ description: The Until activity in Azure Data Factory and Synapse Analytics pipe
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 10/20/2023

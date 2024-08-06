@@ -119,7 +119,7 @@ items:
         href: how-to/fine-tune-model-llama.md
     - name: Deploy JAIS models
       href: how-to/deploy-jais-models.md
-    - name: Deploy Jamba Instruct model
+    - name: Deploy AI21 Jamba Instruct model
       href: how-to/deploy-models-jamba.md
     - name: Deploy Mistral family models
       href: how-to/deploy-models-mistral.md
@@ -186,6 +186,8 @@ items:
               href: how-to/prompt-flow-tools/embedding-tool.md
             - name: Serp API tool
               href: how-to/prompt-flow-tools/serp-api-tool.md
+        - name: Troubleshoot prompt flow
+          href: how-to/prompt-flow-troubleshoot.md
     - name: Develop generative AI apps using code
       items:
       - name: Overview of SDKs

@@ -5,7 +5,7 @@ author: flang-msft
 
 ms.custom: references_regions
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 06/10/2024
 

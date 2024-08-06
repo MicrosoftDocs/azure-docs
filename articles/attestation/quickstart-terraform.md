@@ -2,7 +2,7 @@
 title: 'Quickstart: Create an Azure Attestation provider by using Terraform'
 description: In this article, you learn how to create an Azure Attestation provider using Terraform
 author: tomarchermsft
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher

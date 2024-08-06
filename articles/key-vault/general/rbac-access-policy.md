@@ -3,7 +3,7 @@ title: Azure role-based access control (Azure RBAC) vs. access policies
 description: A comparison of Azure role-based access control (Azure RBAC) and access policies
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

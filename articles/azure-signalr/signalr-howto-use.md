@@ -2,7 +2,7 @@
 title: Use Azure SignalR Service
 description: Learn how to use Azure SignalR Service in your app server
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: lianwei 

@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: Provides a list of tools for troubleshooting Java memory issues.
 author: KarlErickson
 ms.author: kaiqianyang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java

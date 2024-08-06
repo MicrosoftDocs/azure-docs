@@ -5,7 +5,7 @@ description: Understand how indexing works in Azure Cosmos DB. Also explore how 
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: jacodel
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom:
   - build-2024

@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 tags: azure-key-vault
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: concept-article
 ms.date: 02/20/2024

@@ -1,7 +1,7 @@
 ---
 title: ClinVar Annotations
 description: Learn how to use the ClinVar Annotations dataset in Azure Open Datasets.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 ms.reviewer: franksolomon
 ms.date: 06/13/2024

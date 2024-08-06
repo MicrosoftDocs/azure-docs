@@ -2,8 +2,8 @@
 title: How to secure a single-page web application with non-interactive sign-in in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: How to configure a single-page web application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps

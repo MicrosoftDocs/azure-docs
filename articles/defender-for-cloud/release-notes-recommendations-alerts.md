@@ -48,6 +48,10 @@ New and updated recommendations and alerts are added to the table in date order.
 
 | **Date**    | **Type**                       | **State**                                                    | **Name**                                                     |
 | ----------- | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+|August 2|Recommendation|Preview|[Azure DevOps projects should have creation of classic pipelines disabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98b5895a-0ad8-4ed9-8c9d-d654f5bda816)|
+|August 2|Recommendation|Preview|[GitHub organizations should block Copilot suggestions that match public code](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98e858ed-6e88-4698-b538-f51b31ad57f6)|
+|August 2|Recommendation|Preview|[GitHub organizations should enforce multifactor authentication for outside collaborators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a9621d26-9d8c-4cd6-8ad0-84501eb88f17)|
+|August 2|Recommendation|Preview|[GitHub repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/20be7df7-9ebb-4fb4-95a9-3ae19b78b80a)|
 |July 31|Recommendation|Preview|[Privileged roles should not have permanent access at the subscription and resource group level](/azure/defender-for-cloud/recommendations-reference-identity-access)|
 |July 31|Recommendation|Preview|[Service Principals should not be assigned with administrative roles at the subscription and resource group level](/azure/defender-for-cloud/recommendations-reference-identity-access)|
 |July 31|Recommendation|Update|[Azure AI Services resources should use Azure Private Link](/azure/defender-for-cloud/release-notes-recommendations-alerts)|

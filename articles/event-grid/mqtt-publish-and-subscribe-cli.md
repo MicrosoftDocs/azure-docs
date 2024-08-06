@@ -10,7 +10,6 @@ ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 
 # Quickstart: Publish and subscribe to MQTT messages on an Event Grid namespace with the Azure CLI

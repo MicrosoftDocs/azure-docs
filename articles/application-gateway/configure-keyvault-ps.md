@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure PowerShell script to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.author: greglin 

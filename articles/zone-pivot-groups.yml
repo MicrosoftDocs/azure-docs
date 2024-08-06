@@ -776,6 +776,8 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
+  - id: programming-language-java
+    title: Java
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-rest-api
@@ -2082,7 +2084,17 @@ groups:
     title: Python
   - id: rest-api
     title: REST
-
+# Owner: mbullwin
+- id: openai-fine-tuning-batch
+  title: Programming languages
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: programming-language-ai-studio
+    title: AI Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: mbullwin
 - id: openai-embeddings
   title: Programming languages
@@ -2497,6 +2509,23 @@ groups:
     title: PowerShell
   - id: client-clitier
     title: CLI
+# Owner: slpavkov
+- id: acs-calling-automation-pstn
+  title: Communication Services Response Codes
+  prompt: Choose a Communication Service
+  pivots:
+  - id: calling
+    title: Calling SDK
+  - id: callend
+    title: Call end
+  - id: automation
+    title: Call Automation SDK
+  - id: pstn
+    title: PSTN
+  - id: chat
+    title: Chat SDK
+  - id: sms
+    title: SMS SDK
 # Owner: prakulka
 - id: acs-tollfree-shortcode-alphanumeric
   title: Number Type

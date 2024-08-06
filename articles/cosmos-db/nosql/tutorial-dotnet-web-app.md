@@ -6,7 +6,7 @@ description:  |
 author: seesharprun
 ms.author: sidandrews
 ms.reviewer: esarroyo
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 04/09/2024

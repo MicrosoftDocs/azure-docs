@@ -47,8 +47,6 @@ To complete the procedures in this article, you need:
 
 - Contributor level permission for the relevant Azure subscription.
 
-- An Entra ID account that has an Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations).
-
 You can learn more about Defender for Cloud pricing on [the pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 When you're connecting GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
@@ -303,6 +301,7 @@ If you choose the Microsoft Defender CSPM plan, you need:
 - A Microsoft Azure subscription. If you don't have an Azure subscription, you can [sign up for a free subscription](https://azure.microsoft.com/pricing/free-trial/).
 - You must [enable Microsoft Defender for Cloud](get-started.md#enable-defender-for-cloud-on-your-azure-subscription) on your Azure subscription.
 - In order to gain access to all of the features available from the CSPM plan, the plan must be enabled by the **Subscription Owner**.
+- To enable CIEM (Cloud Infrastructure Entitlement Management) capabilities, the Entra ID account used for the onboarding process must have either the Application Administrator or Cloud Application Administrator directory role for your tenant (or equivalent administrator rights to create app registrations). This requirement is only necessary during the onboarding process.
 
 Learn more about how to [enable Defender CSPM](tutorial-enable-cspm-plan.md).
 

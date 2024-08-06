@@ -5,7 +5,7 @@ author: GennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 04/27/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.custom: devx-track-dotnet, devx-track-extended-java
 ms.topic: conceptual
@@ -94,7 +94,7 @@ For Azure App services, connecting to Azure Database for PostgreSQL, we can have
 
  ## Update Root CA certificates when using clients in Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 
-If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-tls.md).
+If you're trying to connect to the Azure Database for PostgreSQL using applications hosted in  Azure Kubernetes Services (AKS) and pinning certificates, it's similar to access from a dedicated customers host environment. Refer to the steps [here](/azure/aks/ingress-tls).
 
 ## Updating Root CA certificates for .NET (Npgsql) users on Windows with Azure Database for PostgreSQL - Flexible Server for certificate pinning scenarios
 

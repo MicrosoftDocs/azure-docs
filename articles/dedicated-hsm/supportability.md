@@ -4,7 +4,7 @@ description: Support options and areas of responsibility for Azure Dedicated HSM
 services: dedicated-hsm
 author: johndaw
 ms.topic: conceptual
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
 ---

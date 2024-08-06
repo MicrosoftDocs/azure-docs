@@ -91,7 +91,7 @@ The resource providers for container services are:
 | Microsoft.App | [Azure Container Apps](../../container-apps/index.yml) |
 | Microsoft.ContainerInstance | [Container Instances](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Container Registry](../../container-registry/index.yml) |
-| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](../../aks/index.yml) |
+| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
 
 ## Core resource providers

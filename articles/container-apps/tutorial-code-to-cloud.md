@@ -3,7 +3,7 @@ title: "Tutorial: Build and deploy your app to Azure Container Apps"
 description: Build and deploy your app to Azure Container Apps with az containerapp create command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell

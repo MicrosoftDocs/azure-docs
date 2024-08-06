@@ -3,7 +3,7 @@ title: Configure automatic shutdown for a lab
 titleSuffix: Azure Lab Services
 description: Learn how to enable or disable automatic shutdown of lab VMs in Azure Lab Services by configuring the lab settings. Automatic shutdown happens when a user disconnects from the remote connection.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: ntrogh
 ms.author: nicktrog

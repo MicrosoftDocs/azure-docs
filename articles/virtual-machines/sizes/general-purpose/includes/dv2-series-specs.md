@@ -3,7 +3,7 @@ title: Dv2 series specs include
 description: Include file containing specifications of Dv2-series VM sizes.
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 07/28/2024
 ms.author: mattmcinnes
