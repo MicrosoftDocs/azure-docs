@@ -21,7 +21,7 @@ To complete the procedure in this article, you need an X account that has a veri
 
 1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your X app.
 1. Go to the [X Developers] website, sign in with your X account credentials, and select **Create an app**.
-1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your App Service app and append the path `/.auth/login/twitter/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`.
+1. Enter the **App name** and the **Application description** for your new app. Paste your application's **URL** into the **Website URL** field. In the **Callback URLs** section, enter the HTTPS URL of your App Service app and append the path `/.auth/login/x/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/x/callback`.
 1. At the bottom of the page, type at least 100 characters in **Tell us how this app will be used**, then select **Create**. Click **Create** again in the pop-up. The application details are displayed.
 1. Select the **Keys and Access Tokens** tab.
 

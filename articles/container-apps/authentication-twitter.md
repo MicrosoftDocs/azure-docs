@@ -13,9 +13,9 @@ ms.author: cshoe
 
 This article shows how to configure Azure Container Apps to use X as an authentication provider.
 
-To complete the procedure in this article, you need an X account that has a verified email address and phone number. To create a new X account, go to [x.com].
+To complete the procedure in this article, you need an X account that has a verified email address and phone number. To create a new X account, go to [x.com](https://x.com).
 
-## <a name="twitter-register"> </a>Register your application with Twitter
+## <a name="twitter-register"> </a>Register your application with X
 
 1. Sign in to the [Azure portal] and go to your application. Copy your **URL**. You'll use it to configure your X app.
 1. Go to the [X Developers] website, sign in with your X account credentials, and select **Create an app**.
