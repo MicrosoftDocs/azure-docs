@@ -96,7 +96,7 @@ To configure the session lock experience using Group Policy, follow these steps.
 
 1. Select the **Disconnect remote session on lock for Microsoft identity platform authentication** policy.
 
-1. Set the policy to "Disabled" to show the remote lock screen when the session locks.
+1. Set the policy to **Disabled** to show the remote lock screen when the session locks.
 
 1. Select **OK** to save your changes.
 
@@ -118,10 +118,10 @@ To configure the session lock experience using the registry on a session host, f
    - **Value name**: `fdisconnectonlockmicrosoftidentity`
    - **Value data**: Enter a value from the following table:
 
-         | Value Data | Description |
-         |--|--|
-         | `0` | Show the remote lock screen. |
-         | `1` | Disconnect the session. |
+      | Value Data | Description |
+      |--|--|
+      | `0` | Show the remote lock screen. |
+      | `1` | Disconnect the session. |
 
 ### Active Directory domain administrator accounts with single sign-on
 
