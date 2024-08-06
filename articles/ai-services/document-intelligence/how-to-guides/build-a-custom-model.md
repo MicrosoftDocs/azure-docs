@@ -81,7 +81,7 @@ The files you uploaded to storage are listed on the left of your screen, with th
 
 1. Start labeling your dataset and creating your first field by selecting the plus (➕) button on the top-right of the screen.
 
-    :::image type="content" source="../media/how-to/studio-addfield.png" alt-text="Screenshot of Create a label.":::
+    :::image type="content" source="../media/how-to/studio-add-field.png" alt-text="Screenshot of Create a label.":::
 
 1. Enter a name for the field.
 

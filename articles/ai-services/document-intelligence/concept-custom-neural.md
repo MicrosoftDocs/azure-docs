@@ -90,19 +90,19 @@ With the release of API versions **2022-06-30-preview** and later, custom neural
 
 Tabular fields support **cross page tables** by default:
 
-    * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
-    * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
+* To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
+* As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
 
 Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
 Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
 
-    * Fixed or dynamic tables add confidence support for the following elements:
-      * Table confidence, a measure of how accurately the entire table is recognized.
-      * Row confidence, a measure of recognition of an individual row.
-      * Cell confidence, a measure of recognition of an individual cell.
+* Fixed or dynamic tables add confidence support for the following elements:
+  * Table confidence, a measure of how accurately the entire table is recognized.
+  * Row confidence, a measure of recognition of an individual row.
+  * Cell confidence, a measure of recognition of an individual cell.
 
-    * The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell. See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
+* The recommended approach is to review the accuracy in a top-down manner starting with the table first, followed by the row and then the cell. See  [confidence and accuracy scores](concept-accuracy-confidence.md) to learn more about table, row, and cell confidence.
 
 ### Supported languages and locales
 
