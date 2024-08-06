@@ -1926,6 +1926,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/logs-and-metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/firewall/metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/protect-windows-virtual-desktop.md",
       "redirect_url": "/azure/firewall/protect-azure-virtual-desktop",
       "redirect_document_id": false

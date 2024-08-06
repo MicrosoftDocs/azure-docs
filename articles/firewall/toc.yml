@@ -85,10 +85,8 @@ items:
       items:
       - name: Structured Firewall Logs
         href: firewall-structured-logs.md
-      - name: Logs and metrics overview
-        href: logs-and-metrics.md
-      - name: Metrics and alerts
-        href: metrics.md
+      - name: Monitor Azure Firewall
+        href: monitor-firewall.md
       - name: Diagnostic logs (legacy)
         href: diagnostic-logs.md
     - name: Policy
@@ -232,6 +230,8 @@ items:
     href: /rest/api/firewall
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
+  - name: Monitoring dataWinRT reference
+    href: monitor-firewall-reference.md
 - name: Resources
   items:
   - name: FAQ
