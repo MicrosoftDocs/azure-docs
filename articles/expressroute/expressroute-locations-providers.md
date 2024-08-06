@@ -16,7 +16,6 @@ ms.custom: references_regions, template-concept, engagement-fy23
 > * [Locations By Provider](expressroute-locations.md)
 > * [Providers By Location](expressroute-locations-providers.md)
 
-
 The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers, and ExpressRoute System Integrators (SIs).
 
 > [!NOTE]
@@ -25,12 +24,13 @@ The tables in this article provide information on ExpressRoute geographical cove
 
 ## Azure regions
 
-Azure regions are global datacenters where Azure compute, networking, and storage resources are located. When you create an Azure resource, you need to select a resource location. The resource location determines which Azure datacenter or availability zone the resource gets created in.
+Azure regions are global datacenters where Azure compute, networking, and storage resources are hosted. When creating an Azure resource, you need to select the resource location, which determines the specific Azure datacenter (or availability zone) where the resource is deployed.
 
 ## ExpressRoute locations
-ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are colocation facilities where Microsoft Enterprise edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location doesn't need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
-You have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
+ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct user establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
+
+You have access to Azure services across all regions within a geopolitical region if you're connecting to at least one ExpressRoute location within the geopolitical region.
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
