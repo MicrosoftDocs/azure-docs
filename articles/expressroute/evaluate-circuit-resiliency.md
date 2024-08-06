@@ -3,7 +3,7 @@ title: Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 description: This article shows you how to evaluate the resiliency of your ExpressRoute circuit deployment by manually testing the failover of your ExpressRoute circuits.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.author: duau

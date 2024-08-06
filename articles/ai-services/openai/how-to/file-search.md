@@ -16,13 +16,9 @@ recommendations: false
 
 File Search augments the Assistant with knowledge from outside its model, such as proprietary product information or documents provided by your users. OpenAI automatically parses and chunks your documents, creates and stores the embeddings, and use both vector and keyword search to retrieve relevant content to answer user queries.
 
-<!--
 > [!IMPORTANT]
-> * File search has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage. For example, if your Assistant calls file search simultaneously in two different threads, two file search sessions are created.
--->
+> * File search has [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) beyond the token based fees for Azure OpenAI usage.
 
-> [!NOTE]
-> File search is currently not billed. 
 
 [!INCLUDE [Assistants v2 note](../includes/assistants-v2-note.md)]
 
@@ -149,7 +145,7 @@ assistant = client.beta.assistants.update(
 
 ## Create a thread
 
-You can also attach files as Message attachments on your thread. Doing so will create another `vector_store` associated with the thread, or, if there is already a vector store attached to this thread, attach the new files to the existing thread vector store. When you create a Run on this thread, the file search tool will query both the `vector_store` from your assistant and the `vector_store` on the thread.
+You can also attach files as Message attachments on your thread. Doing so will create another `vector_store` associated with the thread, or, if there's already a vector store attached to this thread, attach the new files to the existing thread vector store. When you create a Run on this thread, the file search tool will query both the `vector_store` from your assistant and the `vector_store` on the thread.
 
 ```python
 # Upload the user provided file to OpenAI
@@ -243,7 +239,7 @@ The file search tool implements several retrieval best practices out of the box 
 
 ## Vector stores
 
-Vector store objects give the file search tool the ability to search your files. Adding a file to a vector store automatically parses, chunks, embeds and stores the file in a vector database that's capable of both keyword and semantic search. Each vector store can hold up to 10,000 files. Vector stores can be attached to both Assistants and Threads. Currently you can attach at most one vector store to an assistant and at most one vector store to a thread.
+Vector store objects give the file search tool the ability to search your files. Adding a file to a vector store automatically parses, chunks, embeds, and stores the file in a vector database that's capable of both keyword and semantic search. Each vector store can hold up to 10,000 files. Vector stores can be attached to both Assistants and Threads. Currently you can attach at most one vector store to an assistant and at most one vector store to a thread.
 
 ### Creating vector stores and adding files
 
@@ -313,9 +309,9 @@ You can also attach a vector store to Threads or Assistants after they're create
 
 ## Ensuring vector store readiness before creating runs
 
-We highly recommend that you ensure all files in a vector_store are fully processed before you create a run. This will ensure that all the data in your vector store is searchable. You can check for vector store readiness by using the polling helpers in the SDKs, or by manually polling the `vector_store` object to ensure the status is completed.
+We highly recommend that you ensure all files in a vector_store are fully processed before you create a run. This ensures that all the data in your vector store is searchable. You can check for vector store readiness by using the polling helpers in the SDKs, or by manually polling the `vector_store` object to ensure the status is completed.
 
-As a fallback, there is a 60-second maximum wait in the Run object when the thread's vector store contains files that are still being processed. This is to ensure that any files your users upload in a thread a fully searchable before the run proceeds. This fallback wait does not apply to the assistant's vector store.
+As a fallback, there's a 60-second maximum wait in the run object when the thread's vector store contains files that are still being processed. This is to ensure that any files your users upload in a thread a fully searchable before the run proceeds. This fallback wait does not apply to the assistant's vector store.
 
 ## Managing costs with expiration policies
 

@@ -4,7 +4,7 @@ description: Learn how to create an Azure Cache, an Azure Virtual Network, and a
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: conceptual
 ms.date: 01/12/2024

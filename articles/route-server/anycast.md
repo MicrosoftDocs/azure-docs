@@ -4,7 +4,7 @@ titleSuffix: Azure Route Server
 description: Learn about advertising the same route from different regions with Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/07/2024
 #CustomerIntent: As a <type of user>, I want <what?> so that <why?>.

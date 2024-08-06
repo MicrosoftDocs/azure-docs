@@ -1,8 +1,8 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 06/24/2024
+ ms.date: 07/29/2024
  ms.author: cherylmc
 
 # The numbers in this include are correct. They add on to sections in multiple articles that are already numbered.
@@ -18,7 +18,7 @@
    * **Public IP address SKU**: Setting is autoselected to Standard SKU.
    * **Assignment**: The assignment is typically autoselected and should be Static.
    * **Availability zone**: Select Zone-redundant, unless you know you want to specify a zone.
-   * **Enable active-active mode**: Select **Enabled**. This creates an [active-active](../articles/vpn-gateway/vpn-gateway-highlyavailable.md#active-active-vpn-gateways) gateway configuration.
+   * **Enable active-active mode**: Select **Enabled**. This creates an [active-active](../articles/vpn-gateway/about-active-active-gateways.md) gateway configuration.
    * **Second public IP address:** Select **Create new**.
    * **Public IP address name**: In the text box, enter a name for your public IP address instance.
    * **Public IP address SKU**: Setting is autoselected to Standard SKU.

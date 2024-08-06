@@ -3,7 +3,7 @@ title: Azure Red Hat OpenShift Responsibility Assignment Matrix
 description: Learn about the ownership of responsibilities for the operation of an Azure Red Hat OpenShift cluster
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 4/17/2024
+ms.date: 7/26/2024
 author: johnmarco
 ms.author: johnmarc
 keywords: aro, openshift, az aro, red hat, cli, RACI, support
@@ -406,7 +406,7 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Monitor utilization of control plane (master nodes) resources including Network, Storage and Compute capacity
 
-<li>Scale and/or resize control plane nodes to maintain quality of service
+<li>Proactively scale and/or resize control plane nodes to maintain quality of service
 
 </li>
 </ul>
@@ -418,6 +418,10 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Respond to Microsoft and Red Hat notifications regarding cluster resource requirements.
 </li>
+
+<li>Ensure ample quota is available for larger control plane VMs in case of scaling operation
+</li>
+
 </ul>
    </td>
   </tr>

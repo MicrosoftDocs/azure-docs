@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
 ms.date: 04/27/2023
 ms.author: greglin

@@ -46,7 +46,7 @@ In the following diagram, the node hosting the `azure-sql-edge` container has fa
 - **Kubernetes cluster**
    - The tutorial requires a Kubernetes cluster. The steps use [kubectl](https://kubernetes.io/docs/reference/kubectl/) to manage the cluster.
 
-   - For the purpose of this tutorial, we are using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/tutorial-kubernetes-deploy-cluster.md) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`.
+   - For the purpose of this tutorial, we are using Azure Kubernetes Service to deploy Azure SQL Edge. See [Deploy an Azure Kubernetes Service (AKS) cluster](/azure/aks/tutorial-kubernetes-deploy-cluster) to create and connect to a single-node Kubernetes cluster in AKS with `kubectl`.
 
    > [!NOTE]  
    > To protect against node failure, a Kubernetes cluster requires more than one node.
@@ -69,7 +69,7 @@ Create an SA password in the Kubernetes cluster. Kubernetes can manage sensitive
 The following command creates a password for the SA account:
 
    ```azurecli
-   kubectl create secret generic mssql --from-literal=SA_PASSWORD="MyC0m9l&xP@ssw0rd" -n <namespace name>
+   kubectl create secret generic mssql --from-literal=MSQL_SA_PASSWORD="MyC0m9l&xP@ssw0rd" -n <namespace name>
    ```
 
    Replace `MyC0m9l&xP@ssw0rd` with a complex password.
@@ -186,11 +186,11 @@ In this step, create a manifest to describe the container based on the Azure SQL
                  value: "Developer"
                - name: ACCEPT_EULA
                  value: "Y"
-               - name: SA_PASSWORD
+               - name: MSSQL_SA_PASSWORD
                  valueFrom:
                    secretKeyRef:
                      name: mssql
-                     key: SA_PASSWORD
+                     key: MSSQL_SA_PASSWORD
                - name: MSSQL_AGENT_ENABLED
                  value: "TRUE"
                - name: MSSQL_COLLATION
@@ -225,13 +225,13 @@ In this step, create a manifest to describe the container based on the Azure SQL
 
    * `persistentVolumeClaim`: This value requires an entry for `claimName:` that maps to the name used for the persistent volume claim. This tutorial uses `mssql-data`.
 
-   * `name: SA_PASSWORD`: Configures the container image to set the SA password, as defined in this section.
+   * `name: MSSQL_SA_PASSWORD`: Configures the container image to set the SA password, as defined in this section.
 
      ```yaml
      valueFrom:
        secretKeyRef:
          name: mssql
-         key: SA_PASSWORD
+         key: MSSQL_SA_PASSWORD
      ```
 
      When Kubernetes deploys the container, it refers to the secret named `mssql` to get the value for the password.
@@ -317,7 +317,7 @@ In this tutorial, you learned how to deploy Azure SQL Edge containers to a Kuber
 
 ## Next steps
 
-- [Introduction to Kubernetes](../aks/intro-kubernetes.md)
+- [Introduction to Kubernetes](/azure/aks/intro-kubernetes)
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
 - [Data Streaming in Azure SQL Edge](stream-data.md)

@@ -1,7 +1,7 @@
 ---
 title: What is Apache Spark - Azure HDInsight
 description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: overview
 ms.date: 05/09/2024
 # Customer intent: As a developer new to Apache Spark and Apache Spark in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache Spark in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
@@ -46,7 +46,6 @@ Spark clusters in HDInsight offer a fully managed Spark service. Benefits of cre
 | Support for Azure Storage | Spark clusters in HDInsight can use Azure Data Lake Storage Gen2 as both the primary storage or additional storage. For more information on Data Lake Storage Gen2, see [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).|
 | Integration with Azure services |Spark cluster in HDInsight comes with a connector to Azure Event Hubs. You can build streaming applications using the Event Hubs. Including Apache Kafka, which is already available as part of Spark. |
 | Integration with third-party IDEs | HDInsight provides several IDE plugins that are useful to create and submit applications to an HDInsight Spark cluster. For more information, see [Use Azure Toolkit for IntelliJ IDEA](apache-spark-intellij-tool-plugin.md), [Use Spark & Hive Tools for VS Code](../hdinsight-for-vscode.md), and [Use Azure Toolkit for Eclipse](apache-spark-eclipse-tool-plugin.md).|
-
 | Concurrent Queries |Spark clusters in HDInsight support concurrent queries. This capability enables multiple queries from one user or multiple queries from various users and applications to share the same cluster resources. |
 | Caching on SSDs |You can choose to cache data either in memory or in SSDs attached to the cluster nodes. Caching in memory provides the best query performance but could be expensive. Caching in SSDs provides a great option for improving query performance without the need to create a cluster of a size that is required to fit the entire dataset in memory. See [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md). |
 | Integration with BI Tools |Spark clusters in HDInsight provide connectors for  BI tools such as Power BI for data analytics. |
@@ -97,7 +96,7 @@ Apache Spark comes with [MLlib](https://spark.apache.org/mllib/). MLlib is a mac
 
 ### Spark streaming and real-time data analysis
 
-Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets. Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having complete support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
+Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. Spark already has connectors to ingest data from many sources like Kafka, Flume, X, ZeroMQ, or TCP sockets. Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having complete support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
 
 * [Overview of Apache Spark Streaming](apache-spark-streaming-overview.md)
 * [Overview of Apache Spark Structured Streaming](apache-spark-structured-streaming-overview.md)

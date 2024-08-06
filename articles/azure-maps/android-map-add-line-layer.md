@@ -4,9 +4,9 @@ description: Learn how to add lines to maps. See examples that use the Azure Map
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
+ms.custom: devx-track-java
 services: azure-maps
 zone_pivot_groups: azure-maps-android
 ---

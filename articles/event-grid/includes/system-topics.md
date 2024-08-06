@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 11/30/2023
  ms.author: spelluru

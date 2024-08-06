@@ -3,7 +3,7 @@ title: Classify application workload - Azure Cosmos DB for PostgreSQL
 description: Classify workload for scalable application
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false

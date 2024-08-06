@@ -3,7 +3,7 @@ title: Use API analytics in Azure API Management | Microsoft Docs
 description: Use analytics in Azure API Management to understand and categorize the usage of your APIs and API performance. Analytics is provided using an Azure workbook.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/26/2024
 ms.author: danlep
@@ -17,6 +17,7 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 
 :::image type="content" source="media/howto-use-analytics/analytics-report-portal.png" alt-text="Screenshot of API analytics in the portal." lightbox="media/howto-use-analytics/analytics-report-portal.png":::
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## About API analytics
 

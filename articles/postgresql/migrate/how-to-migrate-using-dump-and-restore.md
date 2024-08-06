@@ -1,7 +1,7 @@
 ---
 title: Dump and restore - Azure Database for PostgreSQL - Flexible Server
 description: You can extract a PostgreSQL database into a dump file. Then, you can restore from a file created by pg_dump in Azure Database for PostgreSQL Single Server or Flexible Server.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.author: alkuchar

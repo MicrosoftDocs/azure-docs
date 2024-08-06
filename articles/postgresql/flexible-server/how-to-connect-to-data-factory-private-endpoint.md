@@ -5,7 +5,7 @@ author: gennadNY
 ms.author: gennadyk
 ms.reviewer: maghan
 ms.date: 07/14/2024
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
 ---

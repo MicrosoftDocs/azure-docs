@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 06/30/2024
+ms.date: 08/01/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -61,8 +61,6 @@ Following is the list of supported images and no other marketplace images releas
 |microsoftwindowsserver | windowsserverdotnet | *|
 |microsoftwindowsserver | windowsserver-gen2preview | *|
 |microsoftwindowsserver | windowsserverupgrade | * |
-|microsoftwindowsserver | windowsserverhotpatch-previews | windows-server-2022-azure-edition-hotpatch |
-| | microsoftserveroperatingsystems-previews | windows-server-vnext-azure-edition-core |
 |microsoftwindowsserverhpcpack | windowsserverhpcpack | * |
 |microsoftsqlserver | sql2016sp1-ws2016 | standard |
 | | sql2016sp2-ws2016 | standard|
@@ -88,13 +86,13 @@ Following is the list of supported images and no other marketplace images releas
 |microsoft-dsvm | aml-workstation | ubuntu |
 || ubuntu-hpc | 1804, 2004-preview-ndv5, 2004, 2204, 2204-preview-ndv5 |
 || ubuntu-2004 | 2004, 2004-gen2 |
-|redhat | rhel| 7*,8*,9* | 74-gen2 |
-|redhat | rhel-ha | 8* | 8.1, 81_gen2 |
+|redhat | rhel| 7*,8*,9* |  |
+|redhat | rhel-ha | 8* | 81_gen2 |
 |redhat | rhel-raw | 7*,8*,9* | |
-|redhat | rhel-sap | 7*| 7.4, 7.5, 7.7 |
+|redhat | rhel-sap | 7*|  |
 |redhat | sap-apps | 7*, 8* |
 |redhat | rhel-sap* | 9_0 |
-|redhat | rhel-sap-ha| 7*, 8* | 7.5|
+|redhat | rhel-sap-ha| 7*, 8* | |
 |redhat | rhel-sap-apps | 90sapapps-gen2 |
 |redhat | rhel-sap-ha | 90sapha-gen2 |
 |redhat | rhel-byos | rhel-lvm88, rhel-lvm88-gent2, rhel-lvm92, rhel-lvm92-gen2 |
@@ -145,7 +143,7 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-ci | 7-ci |
 | |centos-lvm | 7-lvm-gen2 |
 |almalinux | almalinux </br> | 8-gen1, 8-gen2, 9-gen1, 9-gen2|
-||almalinux-x86_64 | 8-gen1, :8-gen2, 9-gen1, 9-gen2
+||almalinux-x86_64 | 8-gen1, 8-gen2, 9-gen1, 9-gen2
 ||almalinux-hpc | 8_6-hpc, 8_6-hpc-gen2 |
 | aviatrix-systems | aviatrix-bundle-payg  | aviatrix-enterprise-bundle-byol|
 || aviatrix-copilot |avx-cplt-byol-01, avx-cplt-byol-02 |
@@ -201,7 +199,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Debian 10 and 11|
    | Rocky Linux 8|
 
-# [Windows IoT on Arc enabled IaaS VMs](#tab/winio-arc)
+# [Windows IoT Enterprise on Arc enabled IaaS VMs (preview)](#tab/winio-arc)
 
    - Windows 10 IoT Enterprise LTSC 2021 
    - Windows 10 IoT Enterprise LTSC 2019 
@@ -284,7 +282,7 @@ Update Manager doesn't support driver updates.
 
 #### Extended Security Updates (ESU) for Windows Server
 
-Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available are default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](https://learn.microsoft.com/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
+Using Azure Update Manager, you can deploy Extended Security Updates for your Azure Arc-enabled Windows Server 2012 / R2 machines. ESUs are available by default to Azure Virtual machines. To enroll in Windows Server 2012 Extended Security Updates on Arc connected machines, follow the guidance on [How to get Extended Security Updates (ESU) for Windows Server 2012 and 2012 R2 via Azure Arc](/windows-server/get-started/extended-security-updates-deploy#extended-security-updates-enabled-by-azure-arc).
 
 
 #### Microsoft application updates on Windows
@@ -321,7 +319,7 @@ Use one of the following options to perform the settings change at scale:
 
 #### [Windows](#tab/third-party-win)
 
-Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](https://learn.microsoft.com/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](https://learn.microsoft.com/mem/configmgr/sum/tools/install-updates-publisher).
+Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
 
 #### [Linux](#tab/third-party-lin)
 

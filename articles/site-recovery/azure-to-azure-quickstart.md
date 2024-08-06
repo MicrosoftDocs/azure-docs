@@ -6,7 +6,7 @@ ms.date: 07/14/2023
 ms.custom: mvc, mode-other
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM

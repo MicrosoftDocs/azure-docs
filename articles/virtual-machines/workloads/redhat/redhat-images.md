@@ -2,7 +2,7 @@
 title: Overview of Red Hat Enterprise Linux images in Azure
 description: Learn about available Red Hat Enterprise Linux images in Azure Marketplace and policies around their naming and retention in Microsoft Azure.
 author: mathapli
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: redhat
 ms.custom: linux-related-content
 ms.collection: linux

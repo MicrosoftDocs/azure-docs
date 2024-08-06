@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 05/27/2022
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-overview, kr2b-contr-experiment
 ---
 

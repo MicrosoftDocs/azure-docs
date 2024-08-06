@@ -334,9 +334,6 @@ sections:
       - question: I use Azure VMware Solution to create end-user applications or workloads accessed on multiple VMs through public IP. Can I sell this solution to multiple tenants?
         answer: Customers can create multitenant environments in their Azure VMware Solution private cloud and sell to customers provided the product isn't a standard VM and have added substantial intellectual property embedded in the VM as an application.
 
-      - question: As a service provider or customer, can I use my existing VMware Cloud Director (vCD) or new vCD deployment in Azure VMware Solution?
-        answer: VMware doesn't allow vCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
-
       - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
         answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).
 

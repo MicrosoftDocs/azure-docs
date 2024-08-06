@@ -2,7 +2,7 @@
 title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure a virtual machine a Python application to read a secret from your key vault.
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 02/20/2024

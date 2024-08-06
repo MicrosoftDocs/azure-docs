@@ -11,7 +11,7 @@ ms.date: 12/12/2023
 
 # What is the Azure Linux Container Host for AKS?
 
-The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](../../articles/aks/intro-kubernetes.md). Microsoft maintains the Azure Linux Container Host and based it on [CBL-Mariner][cbl-mariner], an open-source Linux distribution created by Microsoft.
+The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Microsoft maintains the Azure Linux Container Host and based it on [CBL-Mariner][cbl-mariner], an open-source Linux distribution created by Microsoft.
 
 The Azure Linux Container Host is lightweight, containing only the packages needed to run container workloads. It's hardened based on significant validation tests and internal usage and is compatible with Azure agents. It provides reliability and consistency from cloud to edge across AKS, AKS for Azure Stack HCI, and Azure Arc. You can deploy Azure Linux node pools in a new cluster, add Azure Linux node pools to your existing clusters, or migrate your existing nodes to Azure Linux nodes.
 
@@ -32,7 +32,7 @@ The Azure Linux Container Host offers the following key benefits:
   - The Azure Linux Container Host has an emphasis on security. It follows the secure-by-default principles, including using a hardened Linux kernel with Azure cloud optimizations and flags tuned for Azure. It also provides a reduced attack surface and eliminates patching and maintenance of unnecessary packages.
   - Microsoft monitors the CVE database and releases security patches monthly and critical updates within days if necessary.
   - Azure Linux passes all the [CIS Level 1 benchmarks][cis-benchmarks], making it the only Linux distribution on AKS that does so.
-  - For more information on Azure Linux Container Host security principles, see the [AKS security concepts](../../articles/aks/concepts-security.md).
+  - For more information on Azure Linux Container Host security principles, see the [AKS security concepts](/azure/aks/concepts-security).
 - **Maintains compatibility with existing workloads**
   - All existing and future AKS extensions, add-ons, and open-source projects on AKS support both Ubuntu and Azure Linux. This includes support for runtime components like Dapr, IaC tools like Terraform, and monitoring solutions like Dynatrace.
   - Azure Linux ships with containerd as its container runtime and the upstream Linux kernel, which enables existing containers based on Linux images (like Alpine) to work seamlessly on Azure Linux.
@@ -58,7 +58,7 @@ The Azure Linux Container Host supports the following GPU SKUs:
 <!-- LINKS - internal -->
 [nvidia-v100]: ../virtual-machines/ncv3-series.md
 [nvidia-t4]: ../virtual-machines/nct4-v3-series.md
-[cis-benchmarks]: ../aks/cis-azure-linux.md
+[cis-benchmarks]: /azure/aks/cis-azure-linux
 
 <!-- LINKS - external -->
 [cbl-mariner]: https://github.com/microsoft/CBL-Mariner

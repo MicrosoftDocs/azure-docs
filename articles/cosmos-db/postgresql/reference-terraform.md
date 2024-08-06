@@ -3,7 +3,7 @@ title: Terraform support – Azure Cosmos DB for PostgreSQL
 description: Terraform supports all management operations in Azure Cosmos DB for PostgreSQL
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: devx-track-terraform
 ms.topic: conceptual

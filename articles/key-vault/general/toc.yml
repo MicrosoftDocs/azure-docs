@@ -42,7 +42,7 @@
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
-      href: ../../aks/csi-secrets-store-driver.md
+      href: /azure/aks/csi-secrets-store-driver
   - name: Azure Databricks
     items: 
     - name: Access Azure Blob Storage using Azure Databricks and Azure Key Vault
@@ -124,8 +124,10 @@
       href: /visualstudio/azure/vs-key-vault-add-connected-service?context=/azure/key-vault/general/context/context
   - name: Monitor and govern
     items:
-    - name: Monitoring Key Vault
+    - name: Monitor Key Vault
       href: monitor-key-vault.md
+    - name: Monitor with Key Vault insights
+      href: ../key-vault-insights-overview.md
     - name: Event Grid Notifications
       items:
       - name: Receive notifications via Logic Apps 
@@ -134,8 +136,6 @@
         href: event-grid-tutorial.md
     - name: Enable logging
       href: howto-logging.md
-    - name: Monitoring Azure Key Vault
-      href: monitor-key-vault.md
     - name: Configure alerts for Azure Key Vault
       href: alert.md
     - name: Recovery management with soft-delete and purge protection

@@ -39,11 +39,22 @@ sections:
           Performance always varies between environments, machines, and loads. The statements are provided as a general guideline, not a guarantee for any individual deployment.
 
       - question: |
+          I changed the Log Analytics workspace for Defender for SQL on Machines and lost all my scan results and baselines settings. What happened?
+        answer: |
+          The scan results and baselines are not stored in the Log Analytics workspace but are linked to it. Changing the workspace will reset the scan results and baseline settings. However, if you revert to the original workspace within 90 days, the scan results and baseline settings will be restored. [Read more](defender-for-sql-on-machines-vulnerability-assessment.md#data-residency)
+
+      - question: |
           What happens to the old scan results and baselines after I switch to express configuration?
         answer: |
           Old results and baselines settings remain available on your storage account, but won't be updated or used by the system. You don't need to maintain these files for SQL vulnerability assessment to work after you switch to express configuration, but you can keep your old baseline definitions for future reference.
 
           When express configuration is enabled, you don't have direct access to the result and baseline data because it's stored on internal Microsoft storage.
+
+      - question: |
+          Why is my Azure SQL Server marked as unhealthy for "SQL servers should have vulnerability assessment configured", even though I’ve properly set it up using classic configuration?
+        answer: |
+          The policy behind this recommendation checks for the existence of subassessments for the server. With classic configuration, system databases are scanned only if at least one user database exists. Therefore, a server without any user databases will not have scans or reported scan results, causing the policy to remain unhealthy. 
+          Switching to express configuration will enable scheduled and manual scans for system databases, thus mitigating this issue.
 
       - question: |
           Can I set up recurring scans with express configuration?

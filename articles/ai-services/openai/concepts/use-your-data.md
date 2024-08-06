@@ -349,18 +349,20 @@ You can deploy to a standalone Teams app directly from Azure OpenAI Studio. Foll
   
 1. Provision your app: (detailed instructions in [Provision cloud resources](/microsoftteams/platform/toolkit/provision))
 
-1. Assign the **Cognitive Service OpenAI User** role to your deployed App Service resource 
-    1. Go to the Azure portal and select the newly created Azure App Service resource
-    1. Go to **settings** -> **identity** -> **enable system assigned identity** 
-        1. Select **Azure role assignments** and then **add role assignments**. Specify the following parameters:
-           * Scope: resource group 
-           * Subscription: the subscription of your Azure OpenAI resource 
-           * Resource group of your Azure OpenAI resource 
-           * Role: **Cognitive Service OpenAI user**  
+1. Assign the **Cognitive Service OpenAI User** role to your deployed **User Assigned Managed Identity** resource of your custom copilot. 
+    1. Go to the Azure portal and select the newly created **User Assigned Managed Identity** resource for your custom copilot.
+    1. Go to **Azure Role Assignments**.
+    1. Select **add role assignment**. Specify the following parameters:
+        * Scope: resource group 
+        * Subscription: the subscription of your Azure OpenAI resource 
+        * Resource group of your Azure OpenAI resource 
+        * Role: **Cognitive Service OpenAI user**  
 
 1. Deploy your app to Azure by following the instructions in [Deploy to the cloud](/microsoftteams/platform/toolkit/deploy). 
 
 1. Publish your app to Teams by following the instructions in [Publish Teams app](/microsoftteams/platform/toolkit/publish).
+    > [!IMPORTANT]
+    > Your Teams app is intended for use within the same tenant of your Azure account used during setup, as it is securely configured by default for single-tenant usage. Using this app with a Teams account not associated with the Azure tenant used during setup will result in an error.
 
 The README file in your Teams app has additional details and tips. Also, see [Tutorial - Build Custom Copilot using Teams](/microsoftteams/platform/teams-ai-library-tutorial) for guided steps.
 
@@ -579,14 +581,18 @@ These estimates will vary based on the values set for the above parameters. For 
 
 The estimates also depend on the nature of the documents and questions being asked. For example, if the questions are open-ended, the responses are likely to be longer. Similarly, a longer system message would contribute to a longer prompt that consumes more tokens, and if the conversation history is long, the prompt will be longer.
 
-| Model | Max tokens for system message | Max tokens for model response |
-|--|--|--|
-| GPT-35-0301 | 400 | 1500 |
-| GPT-35-0613-16K | 1000 | 3200 |
-| GPT-4-0613-8K | 400 | 1500 |
-| GPT-4-0613-32K | 2000 | 6400 |
+| Model | Max tokens for system message | 
+|--|--|
+| GPT-35-0301 | 400 |
+| GPT-35-0613-16K | 1000 |
+| GPT-4-0613-8K | 400 |
+| GPT-4-0613-32K | 2000 |
+| GPT-35-turbo-0125 | 2000 |
+| GPT-4-turbo-0409 | 4000 |
+| GPT-4o | 4000 |
+| GPT-4o-mini | 4000 |
 
-The table above shows the maximum number of tokens that can be used for the [system message](#system-message) and the model response. Additionally, the following also consume tokens:
+The table above shows the maximum number of tokens that can be used for the [system message](#system-message). To see the maximum tokens for the model response, see the [models article](./models.md#gpt-4-and-gpt-4-turbo-models). Additionally, the following also consume tokens:
 
 
 

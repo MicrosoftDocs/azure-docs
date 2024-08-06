@@ -4,7 +4,7 @@ titleSuffix: Azure Cosmos DB for MongoDB vCore
 description: Learn about Azure Cosmos DB for MongoDB vCore cross-region disaster recovery (DR) and read replicas.
 author: niklarin
 ms.author: nlarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.custom:
   - build-2024

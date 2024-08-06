@@ -3,7 +3,7 @@ title: 'Configure P2S server configuration - certificate authentication: Azure p
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for P2S configurations - certificate authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/20/2024

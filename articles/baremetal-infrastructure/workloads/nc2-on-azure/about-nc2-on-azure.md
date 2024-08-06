@@ -7,6 +7,7 @@ ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
 ms.date: 7/19/2024
+ms.service: azure-baremetal-infrastructure
 ---
 
 # About Nutanix Cloud Clusters on Azure

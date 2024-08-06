@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 ms.date: 06/07/2021
 ms.author: danlep

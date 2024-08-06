@@ -6,7 +6,7 @@ description: In this tutorial, create a Node.js web application that connects to
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: tutorial
 ms.date: 08/28/2023
