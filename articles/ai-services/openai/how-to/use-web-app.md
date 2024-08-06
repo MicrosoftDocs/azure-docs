@@ -84,6 +84,53 @@ After you turn on chat history, your users can show and hide it in the upper-rig
 
 Deleting your web app does not delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option turned on in the studio, your users are notified of a connection error but can continue to use the web app without access to the chat history.
 
+## Enabling Entra ID authentication between services
+
+To enable Entra ID for intra-service authentication for your web app, please follow these steps.
+
+### Enable managed identity on your Azure OpenAI resource and Azure App Service
+
+You can enable managed identity for the Azure OpenAI resource and the Azure App Service by navigating to "Identity" and turning on the system assigned managed identity in the Azure Portal for each resource.
+
+
+![Screenshot that shows the application identity configuration in the Azure Portal](../media/use-your-data/openai-managed-identity.png)
+
+Note: If you are using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource.  If using an embedding model on a different resource from the one used for inference, you will also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model as well.
+
+### Enable role-based access control on your Azure Search resource (optional)
+
+If using On Your Data with Azure Search you should follow this step.
+
+To enable authentication to an Azure Search resource, you will need to enable role-based access control on the resource.  See the documentation [here](https://learn.microsoft.com/en-us/azure/search/search-security-enable-roles?tabs=config-svc-portal%2Cdisable-keys-portal) for detailed instructions.
+
+### Assign RBAC roles to enable intra-service communication
+
+The following table summarizes the RBAC role assignments needed for the Azure OpenAI resource used for inference, the Azure OpenAI resource used for embeddings (if using a separate resource for this purpose), Azure Search resource (if using) and the Azure App Service.
+
+| Role                             | Assignee                 | Resource                  |
+| -------------------------------- | ------------------------ | ------------------------- |
+| `Search Index Data Reader`       | Azure OpenAI (Inference) | Azure AI Search           |
+| `Search Service Contributor`     | Azure OpenAI (Inference) | Azure AI Search           |
+| `Cognitive Services OpenAI User` | Web app                  | Azure OpenAI (Inference)  |
+| `Cognitive Services OpenAI User` | Azure OpenAI (Inference) | Azure OpenAI (Embeddings) |
+
+To assign these roles, follow the documentation [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) to create the needed role assignments.
+
+### App Settings Changes
+
+In the webapp application settings, navigate to "Environment Variables" and make the following changes:
+
+* Remove the environment variable `AZURE_OPENAI_KEY`, as it is no longer needed.  
+* If using On Your Data with Azure Search and are using Entra ID authentication between Azure OpenAI and Azure Search, you should also delete the `AZURE_SEARCH_KEY` environment variables for the data source access keys as well.
+
+If using an embedding model deployed to the same resource as your model used for inference, there are no additional settings changes required.  
+
+However, if you're using an embedding model deployed to the same resource, please make the following additional changes to your app's environment variables:
+* Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API, e.g. `https://<your AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings?api-version=2023-03-15-preview`
+* Delete the `AZURE_OPENAI_EMBEDDING_KEY` variable to use Entra ID authentication. 
+
+Once all of the environment variable changes are completed, restart the webapp to begin using Entra ID authentication between services in the webapp.
+
 ## Related content
 
 - [Prompt engineering](../concepts/prompt-engineering.md)
