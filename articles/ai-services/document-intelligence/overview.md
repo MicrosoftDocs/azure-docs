@@ -111,11 +111,11 @@ Prebuilt models enable you to add intelligent document processing to your apps a
     [**Check**](#check) | Extract relevant information from checks.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-paystub.png" link="#pay-stub":::</br>
+      :::image type="icon" source="media/overview/icon-pay-stub.png" link="#pay-stub":::</br>
     [**Pay Stub**](#pay-stub) | Extract pay stub details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-id-bankstatement.png" link="#bank-statement":::</br>
+      :::image type="icon" source="media/overview/icon-id-bank-statement.png" link="#bank-statement":::</br>
     [**Bank Statement**](#bank-statement) | Extract account information and details from bank statements.
    :::column-end:::
 :::row-end:::
@@ -391,7 +391,7 @@ You can use Document Intelligence to automate document processing in application
 
 ### Pay stub
 
-:::image type="content" source="media/studio/overview-paystub.png" alt-text="Screenshot of Paystub model analysis using Document Intelligence Studio.":::
+:::image type="content" source="media/studio/overview-pay-stub.png" alt-text="Screenshot of Paystub model analysis using Document Intelligence Studio.":::
 
 | Model ID | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
