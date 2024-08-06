@@ -44,19 +44,13 @@ CallInvite callInvite = new CallInvite(target, caller); 
 ## Start Audio Streaming
 
 How to start audio streaming:
-``` Java
-Method1:  
+``` Java 
 StartMediaStreamingOptions startOptions = new StartMediaStreamingOptions()  
                                                         .setOperationContext("startMediaStreamingContext")  
                                                         .setOperationCallbackUrl(appConfig.getBasecallbackuri());  
          client.getCallConnection(callConnectionId)  
                      .getCallMedia()  
                      .startMediaStreamingWithResponse(startOptions, Context.NONE);      
-
-Method2:  
-        client.getCallConnection(callConnectionId)  
-                    .getCallMedia()  
-                    .startMediaStreaming();  
 ```
 When Azure Communication Services receives the URL for your WebSocket server, it creates a connection to it. Once Azure Communication Services successfully connects to your WebSocket server and streaming is started, it will send through the first data packet, which contains metadata about the incoming media packets.
 
@@ -78,16 +72,11 @@ The metadata packet will look like this:
 ## Stop Audio Streaming
 How to stop audio streaming
 ``` Java
-Method1:  
 StopMediaStreamingOptions stopOptions = new StopMediaStreamingOptions()  
                                                         .setOperationCallbackUrl(appConfig.getBasecallbackuri());  
          client.getCallConnection(callConnectionId)  
                      .getCallMedia()  
                      .stopMediaStreamingWithResponse(stopOptions, Context.NONE);
-
-Method2:  
-        client.getCallConnection(callConnectionId)  
-                    .getCallMedia()  
 ```
 
 ## Handling media streams in your websocket server
