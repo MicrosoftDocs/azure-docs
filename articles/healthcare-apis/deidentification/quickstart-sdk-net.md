@@ -187,6 +187,12 @@ az resource delete -n $DEID_SERVICE_NAME -g $RESOURCE_GROUP_NAME  --resource-typ
 az resource show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME  --resource-type Microsoft.Storage/storageAccounts
 ```
 
+### Delete Role Assignment
+
+```bash
+az role assignment delete --assignee $DEID_SERVICE_PRINCIPAL_ID --role "Storage Blob Data Contributor" --scope $STORAGE_ACCOUNT_ID
+```
+
 
 ## Troubleshooting
 
