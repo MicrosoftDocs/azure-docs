@@ -13,16 +13,21 @@ ms.reviewer: orens
 
 The Azure Monitor Activity Log is a platform log that provides insight into subscription-level events. The Activity Log includes information like when a resource is modified or a virtual machine is started. You can view the Activity Log in the Azure portal or retrieve entries with PowerShell and the Azure CLI. This article provides information on how to view the Activity Log and send it to different destinations.
 
-For more functionality, create a diagnostic setting to send the Activity Log to one or more of these locations for the following reasons:
+For more functionality, create a diagnostic setting to send the Activity Log to one or more of these locations:
+ - [Log Analytics workspace](#send-to-log-analytics-workspace)
+ - [Azure Event Hubs](#send-to-azure-event-hubs)
+ - [Azure Storage](#send-to-azure-storage)
 
-- Send to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting and for [longer retention of up to 12 years](../logs/data-retention-configure.md).
+Sending the Activity Log to one of these locations has several benefits:
+
+- Send to a [Logs Analytics workspace](../logs/data-platform-logs.md) for more complex querying and alerting.
 - Send to Azure Event Hubs to forward outside of Azure.
 - Send to Azure Storage for cheaper, long-term archiving.
 
 For details on how to create a diagnostic setting, see [Create diagnostic settings to send platform logs and metrics to different destinations](./diagnostic-settings.md).
 > [!TIP]
-> * Sending logs to Log Analytics workspace if free of charge for the default retention period.
-> * Send to Azure Monitor Logs for more complex querying and alerting and for longer retention of up to 12 years.
+> * Sending logs to a Log Analytics workspace is free of charge for the default retention period.
+> * Sending logs to a Log Analytics workspace for [longer retention of up to 12 years](../logs/data-retention-configure.md).
 > * Logs exported to a Log Analytics workspace can be [shown in Power BI](/power-bi/transform-model/log-analytics/desktop-log-analytics-overview)
 > * [Insights](./activity-log-insights.md) are provided for Activity Logs exported to Log Analytics.
 
