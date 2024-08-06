@@ -17,10 +17,10 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
-This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and how to restore soft-deleted blobs during the retention period.
+This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
 > [!NOTE]
-> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using the client library. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more, see [Soft delete for blobs](soft-delete-blob-overview.md).
+> When blob soft delete is enabled for a storage account, you can't perform a permanent deletion using client library methods. Using the methods in this article, a soft-deleted blob, blob version, or snapshot remains available until the retention period expires, at which time it's permanently deleted. To learn more about the underlying REST API operation, see [Delete Blob (REST API)](/rest/api/storageservices/delete-blob).
 
 [!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
