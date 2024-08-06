@@ -24,7 +24,6 @@ Based on the discovered SAP workloads, this capability generates an assessment r
 - A comprehensive and integrated solution for both SAP and non-SAP workloads and provides a unified view of your migration readiness.
 - A reliable and accurate assessment that follows the best practices and guidelines for SAP on Azure.
 
----
 
 ## Next steps
 

@@ -92,4 +92,4 @@ You can [visualize dependencies](./how-to-create-a-group.md#refine-a-group-with-
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](how-to-create-assessment.md) about creating an assessment.

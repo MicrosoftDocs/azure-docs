@@ -303,4 +303,4 @@ For machines imported via a CSV file, the default migration tool in an AVS asses
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+Learn more about discovering [VMware VMs](./vmware/tutorial-discover-vmware.md), [Hyper-V VMs](tutorial-discover-hyper-v.md), and [Physical servers](tutorial-discover-physical.md).
