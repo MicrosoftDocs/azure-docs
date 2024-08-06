@@ -46,6 +46,8 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Australia Government** |Australia Central<br/>Australia Central 2 |Canberra<br/>Canberra2 |
 | **Oceania** | Australia East<br/>Australia Southeast |Auckland<br/>Melbourne<br/>Perth<br/>Sydney<br/>Sydney2 |
 
+---
+
 ## Azure regions and geopolitical boundaries for national clouds
 The following table provides information on regions and geopolitical boundaries for national clouds.
 
