@@ -125,7 +125,7 @@ additionalContent:
           - text: What is SAP on Azure deployment automation framework?
             url: ./automation/deployment-framework.md
       #card
-      - title: concept
+      - title: Concept
         links:
           - text: Supported platform and features
             url: ./automation/supportability.md
@@ -134,7 +134,7 @@ additionalContent:
           - text: Plan your deployment of the automation framework
             url: ./automation/plan-deployment.md
       #card
-      - title: quickstart
+      - title: Quickstart
         links:
           - text: Configure Azure DevOps Services for automation framework
             url: ./automation/configure-devops.md
