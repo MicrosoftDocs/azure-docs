@@ -3,11 +3,9 @@ title: Using API Management service to generate HTTP requests
 description: Learn to use request and response policies in API Management to call external services from your API
 services: api-management
 author: dlepow
-manager: erikre
-ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 04/14/2022
+ms.date: 08/05/2024
 ms.author: danlep
 
 ---
@@ -95,7 +93,7 @@ The `response-variable-name` attribute is used to give access the returned respo
 
 From the response object, you can retrieve the body and RFC 7622 tells API Management that the response must be a JSON object and must contain at least a property called `active` that is a boolean value. When `active` is true then the token is considered valid.
 
-Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use a tool like Postman to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
+Alternatively, if the authorization server doesn't include the "active" field to indicate whether the token is valid, use an HTTP client tool such as `curl` to determine what properties are set in a valid token. For example, if a valid token response contains a property called "expires_in", check whether this property name exists in the authorization server response this way:
 
 ```xml
 <when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
