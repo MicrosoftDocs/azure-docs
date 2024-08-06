@@ -5,7 +5,7 @@ description: Introduction to Burstable Tier on vCore-based Azure Cosmos DB for M
 author: suvishodcitus
 ms.author: suvishod
 ms.reviewer: abramees
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 11/01/2023

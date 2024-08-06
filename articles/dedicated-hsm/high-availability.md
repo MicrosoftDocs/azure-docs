@@ -4,7 +4,7 @@ description: Learn about basic considerations for Azure Dedicated HSM high avail
 services: dedicated-hsm
 author: msmbaldwin
 ms.topic: conceptual
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
 ---

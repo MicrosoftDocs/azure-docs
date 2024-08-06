@@ -2,7 +2,7 @@
 title: Resource Manager templates for Azure Cosmos DB for MongoDB
 description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for MongoDB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb
 ms.custom: devx-track-arm-template
 ms.topic: how-to

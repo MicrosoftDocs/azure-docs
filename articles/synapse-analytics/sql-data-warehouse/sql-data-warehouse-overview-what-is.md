@@ -4,7 +4,7 @@ description: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics is 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/19/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: overview
 ---

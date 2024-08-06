@@ -1,12 +1,14 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/11/2023
 ms.author: danlep
 ---
 
 ### Prerequisites for key vault integration
+
+[!INCLUDE [api-management-workspace-availability](api-management-workspace-availability.md)]
 
 1. If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../articles/key-vault/general/quick-create-portal.md).
 

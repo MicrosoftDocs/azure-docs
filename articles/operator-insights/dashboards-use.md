@@ -4,7 +4,7 @@ description: This article outlines how to access and use dashboards in the Azure
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: rathishr
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: how-to
 ms.date: 10/24/2023
 

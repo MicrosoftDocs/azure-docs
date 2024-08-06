@@ -211,7 +211,7 @@ sections:
       
       - question: Can I use a NAT gateway with Azure Kubernetes Service? 
         answer: |
-          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](../aks/nat-gateway.md).
+          Yes. For more information about NAT gateway integration with Azure Kubernetes Service, see [Managed NAT Gateway](/azure/aks/nat-gateway).
 
       - question: Can I use a NAT gateway with Azure Firewall?
         answer: |

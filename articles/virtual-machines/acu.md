@@ -2,7 +2,7 @@
 title: Overview of the Azure Compute Unit
 description: Overview of the concept of the Azure compute units. The ACU provides a way of comparing CPU performance across Azure SKUs.
 author: mimckitt
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/27/2022

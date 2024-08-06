@@ -5,7 +5,7 @@ author: ju-shim
 ms.author: jushiman
 ms.date: 12/10/2021
 ms.topic: quickstart
-ms.service: automanage
+ms.service: azure-automanage
 ms.custom: mode-ui
 ---
 

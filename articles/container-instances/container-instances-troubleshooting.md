@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues when your deploy, run, or m
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ms.custom: mvc, devx-track-azurecli, linux-related-content

@@ -3,7 +3,7 @@ title: "Tutorial 7: Develop a feature set using Domain Specific Language (previe
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is part 7 of the managed feature store tutorial series.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial

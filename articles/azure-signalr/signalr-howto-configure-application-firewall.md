@@ -2,13 +2,13 @@
 title: SignalR Application Firewall (Preview)
 description: An introduction about why and how to set up Application Firewall for Azure SignalR service
 author: biqian
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 07/10/2024
 ms.author: biqian
 ---
-# Application Firewall for Azure SignalR Service
+# Application Firewall (Preview) for Azure SignalR Service
 
 The Application Firewall provides sophisticated control over client connections in a distributed system. Before diving into its functionality and setup, let's clarify what the Application Firewall does not do:
 

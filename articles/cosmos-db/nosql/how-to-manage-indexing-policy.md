@@ -2,7 +2,7 @@
 title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 03/08/2023
@@ -600,6 +600,37 @@ const containerResponse = await client.database('database').container('container
 });
 // retrieve the index transformation progress from the response headers
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
+```
+Add a composite index:
+
+```javascript
+ console.log("create container with composite indexes");
+  const containerDefWithCompositeIndexes = {
+    id: "containerWithCompositeIndexingPolicy",
+    indexingPolicy: {
+      automatic: true,
+      indexingMode: IndexingMode.consistent,
+      includedPaths: [
+        {
+          path: "/*",
+        },
+      ],
+      excludedPaths: [
+        {
+          path: '/"systemMetadata"/*',
+        },
+      ],
+      compositeIndexes: [
+        [
+          { path: "/field", order: "ascending" },
+          { path: "/key", order: "ascending" },
+        ],
+      ],
+    },
+  };
+  const containerWithCompositeIndexes = (
+    await database.containers.create(containerDefWithCompositeIndexes)
+  ).container;
 ```
 
 ### Use the Python SDK

@@ -6,7 +6,6 @@ ms.topic: how-to
 ms.custom: devx-track-arm-template
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Deploy an Azure Virtual Desktop (classic) management tool with an Azure Resource Manager template
 

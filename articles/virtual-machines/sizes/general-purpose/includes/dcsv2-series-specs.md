@@ -1,20 +1,20 @@
 ---
-title: DCsv2-series specs include
+title: DCsv2 series specs include
 description: Include file containing specifications of DCsv2-series VM sizes.
-services: virtual-machines
 author: mattmcinnes
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
-ms.date: 04/11/2024
+ms.date: 07/31/2024
 ms.author: mattmcinnes
+ms.reviewer: mattmcinnes
 ms.custom: include file
 ---
-
-| Part | Quantity <br><sup>Count <sup>Units | Specs <br><sup>SKU ID, Performance <sup>Units</sup>, etc.  |
+| Part | Quantity <br><sup>Count Units | Specs <br><sup>SKU ID, Performance Units, etc.  |
 |---|---|---|
-| Processor        | 1 - 8<sup>vCores    | Intel® Xeon® E-2288G (Coffee Lake)              |
-| Memory           | 4 - 32<sup>GiB      |                                                 |
-| Data Disks       | 1 - 8<sup>Disks     |                           |
-| Network          | 1<sup>NIC           |                           |
-| Accelerators     | None                |                                                 |
+| Processor      | 1 - 8 vCPUs       | Intel Xeon E-2288G (Coffee Lake) [x86-64]                               |
+| Memory         | 4 - 32 GiB          |                                  |
+| Local Storage  | 1 Disk           | 50 - 400 GiB                            |
+| Remote Storage | 1 - 8 Disks    |    |
+| Network        | 1 NICs          |                           |
+| Accelerators   | None              |                                   |

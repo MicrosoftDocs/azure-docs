@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/03/2024
+ms.date: 08/02/2024
 ms.author: banders
 ---
 
@@ -33,6 +33,11 @@ Users with a Microsoft Customer Agreement must always [submit a request to set u
 
 Currently, customers who have a Microsoft Online Services Program (pay-as-you-go) account must [submit a request to set up pay by wire transfer](#submit-a-request-to-set-up-pay-by-wire-transfer) to Azure support to enable pay by wire transfer. Any user with access to the Microsoft Customer Agreement billing profile can submit the request to pay by wire transfer.
 
+**Eligibility requirements**: To qualify for wire transfer payments, you must:
+
+- Be an established customer for at least six months and have no outstanding balances
+- Have a subscription cost that exceeds a certain amount (this amount varies by service location)
+
 > [!IMPORTANT]
 > * Pay by wire transfer is only available for customers using Azure on behalf of a company.
 > * Pay all outstanding charges before switching to pay by wire transfer.
@@ -43,9 +48,7 @@ Currently, customers who have a Microsoft Online Services Program (pay-as-you-go
 
 ## Submit a request to set up pay by wire transfer
 
-Users in all regions can submit a request to pay by wire transfer through support. Currently, only customers in the United States can get automatically approved to change their payment method to wire transfer.
-
-If you're not automatically approved, you can submit a request to Azure support to approve payment by wire transfer. If your request is approved, you can switch to pay by wire transfer in the Azure portal.
+Users in all regions can manually submit a request to allow pay by wire transfer to Azure Support. If your request is approved, you can switch to pay by wire transfer in the Azure portal using the following steps.
 
 1. Sign in to the Azure portal to submit a support request. Search for and select **Help + support**.  
     :::image type="content" source="./media/pay-by-invoice/search-for-help-and-support.png" alt-text="Screenshot of searching for Help and support." lightbox="./media/pay-by-invoice/search-for-help-and-support.png" :::
@@ -89,14 +92,14 @@ If you're not automatically approved, you can submit a request to Azure support 
   1. You should see the overview page. If you don't see Properties in the left menu, at the top of the page under Scope, select **Go to billing account**. 
   1. In the left menu, select **Properties**. On the properties page, you should see your billing account ID shown as a GUID ID value. It's your Commerce Account ID.
 
-If we need to run a credit check because of the amount of credit that you need, you're sent a credit check application. We might ask you to provide your company’s audited financial statements. We might ask for a security deposit or a standby letter of credit to approve your credit check request. We ask for them when:
+If we need to run a credit check because of the amount of credit that you need, you get sent a credit check application. We might ask you to provide your company’s audited financial statements. We might ask for a security deposit or a standby letter of credit to approve your credit check request. We ask for them when:
 
   - No financial information is provided.
   - The information isn't strong enough to support the amount of credit limit required.
 
 ## Switch to pay by wire transfer after approval
 
-If you have a Microsoft Online Services Program (pay-as-you-go) account and you're approved to pay by wire transfer, you can switch your payment method in the Azure portal.
+If you have a Microsoft Online Services Program (pay-as-you-go) account and you get approved to pay by wire transfer, you can switch your payment method in the Azure portal.
 
 With a Microsoft Customer Agreement, you can switch your billing profile to wire transfer.
 

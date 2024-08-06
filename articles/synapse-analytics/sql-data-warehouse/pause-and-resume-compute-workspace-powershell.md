@@ -4,7 +4,7 @@ description: You can use Azure PowerShell to pause and resume dedicated SQL pool
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom: azure-synapse, devx-track-azurepowershell

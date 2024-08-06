@@ -10,13 +10,13 @@ ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
 
-Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity.  To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
+Before creating a volume in Azure NetApp Files, you must purchase and set up a pool for provisioned capacity. To set up a capacity pool, you must have a NetApp account. Understanding the storage hierarchy helps you set up and manage your Azure NetApp Files resources.
 
 > [!IMPORTANT] 
 > Azure NetApp Files currently doesn't support resource migration between subscriptions.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Conceptual diagram of storage hierarchy 
-The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools,  and volumes.   
+The following example shows the relationships of the Azure subscription, NetApp accounts, capacity pools, and volumes.   
 
 :::image type="content" source="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png" alt-text="Conceptual diagram of storage hierarchy." lightbox="./media/azure-netapp-files-understand-storage-hierarchy/azure-netapp-files-storage-hierarchy.png":::
 

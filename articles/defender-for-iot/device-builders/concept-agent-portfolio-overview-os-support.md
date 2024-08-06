@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 Microsoft Defender for IoT provides a large portfolio of agents based on the device type.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Standalone and Edge agent
 
 Most of the Linux Operating Systems (OS) are covered by both agents. The agents can be deployed as a binary package, or as a source code that can be incorporated as part of the firmware. The customer can modify, and customize the agents as needed.  The following are some examples of supported OS:

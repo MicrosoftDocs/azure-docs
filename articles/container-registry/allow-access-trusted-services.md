@@ -3,7 +3,7 @@ title: Access network-restricted registry using trusted Azure service
 description: Enable a trusted Azure service instance to securely access a network-restricted container registry to pull or push images 
 ms.topic: article
 author: tejaswikolli-web
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ---

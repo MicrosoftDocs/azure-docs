@@ -3,7 +3,7 @@ title: "Tutorial: Connect to a managed Eureka Server for Spring in Azure Contain
 description: Learn to use a managed Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/15/2024
@@ -133,7 +133,7 @@ Now that you have an existing environment, you can create your container app and
 
     This command returns the URL of your container app that consumes registers with the Eureka server component. Copy the URL to a text editor so you can use it in a coming step.
 
-    Navigate top the `/allRegistrationStatus` route view all applications registered with the Eureka Server for Spring.
+    Navigate to the `/allRegistrationStatus` route to view all applications registered with the Eureka Server for Spring.
 
     The binding injects several configurations into the application as environment variables, primarily the `eureka.client.service-url.defaultZone` property. This property indicates the internal endpoint of the Eureka Server Java component.
 

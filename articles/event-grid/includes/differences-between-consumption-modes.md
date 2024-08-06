@@ -1,9 +1,8 @@
 ---
  title: Pull and push delivery
  description: Describes the differences between push and pull delivery models supported by Event Grid namespaces.
- services: event-grid
  author: robece
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 11/15/2023
  ms.author: robece
