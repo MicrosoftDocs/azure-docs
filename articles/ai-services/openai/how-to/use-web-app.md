@@ -37,7 +37,7 @@ You can customize the app's front-end and back-end logic. The app provides sever
 
 When you're customizing the app, we recommend:
 
-- Resetting the chat session (clear chat) if users change any settings. Notify the users that their chat history will be lost.
+- Resetting the chat session (clear chat) if any settings changes are made.  Notify your application end-users that their chat history will be lost.
 
 - Clearly communicating how each setting that you implement affects the user experience.
 
@@ -82,7 +82,7 @@ After you turn on chat history, your users can show and hide it in the upper-rig
 
 ## Deleting your Cosmos DB instance
 
-Deleting your web app doesn't delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option turned on in the studio, your users aren'tified of a connection error but can continue to use the web app without access to the chat history.
+Deleting your web app doesn't delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option selected on subsequent updates from the Azure OpenAI Studio, your users are noified of a connection error but can continue to use the web app without access to the chat history.
 
 ## Enabling Microsoft Entra ID authentication between services
 
@@ -95,7 +95,7 @@ You can enable managed identity for the Azure OpenAI resource and the Azure App 
 
 ![Screenshot that shows the application identity configuration in the Azure portal](../media/use-your-data/openai-managed-identity.png)
 
-Note: If you are using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource. If using an embedding model deployed to a different resource from the one used for inference, you also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model.
+Note: If you're using an embedding model deployed to the same resource used for inference, you only need to enable managed identity on one Azure OpenAI resource. If using an embedding model deployed to a different resource from the one used for inference, you also need to enable managed identity on the Azure OpenAI resource used to deploy your embedding model.
 
 ### Enable role-based access control (RBAC) on your Azure Search resource (optional)
 
@@ -105,7 +105,7 @@ To enable your Azure OpenAI resource to access your Azure Search resource, you n
 
 ### Assign RBAC roles to enable intra-service communication
 
-The following table summarizes the RBAC role assignments needed for the Azure OpenAI resource used for inference, the Azure OpenAI resource used for embeddings (if using a separate resource for this purpose), Azure Search resource (if using), and the Azure App Service.
+The following table summarizes the RBAC role assignments needed for all Azure resources associated with your application.
 
 | Role                             | Assignee                 | Resource                  |
 | -------------------------------- | ------------------------ | ------------------------- |
