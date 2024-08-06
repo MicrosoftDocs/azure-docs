@@ -7,10 +7,10 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: azure-cosmos-db
 ms.subservice: nosql
-ms.devlang: javascript
-ms.custom: devx-track-js, devx-track-extended-azdevcli
+ms.devlang: typescript
+ms.custom: devx-track-js, devx-track-ts, devx-track-extended-azdevcli
 ms.topic: quickstart-sdk
-ms.date: 06/14/2024
+ms.date: 08/01/2024
 zone_pivot_groups: azure-cosmos-db-quickstart-env
 # CustomerIntent: As a developer, I want to learn the basics of the Node.js library so that I can build applications with Azure Cosmos DB for NoSQL.
 ---
@@ -152,31 +152,71 @@ The client library is available through the Node Package Manager, as the `@azure
 
 This sample creates a new instance of the `CosmosClient` type and authenticates using a `DefaultAzureCredential` instance.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="create_client" highlight="1,3":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="create_client" highlight="1,3":::
+
+---
 
 ### Get a database
 
 Use `client.database` to retrieve the existing database named *`cosmicworks`*.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="get_database":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="get_database":::
+
+---
 
 ### Get a container
 
 Retrieve the existing *`products`* container using `database.container`.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="get_container":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="get_container":::
+
+---
 
 ### Create an item
 
 Build a new object with all of the members you want to serialize into JSON. In this example, the type has a unique identifier, and fields for category, name, quantity, price, and sale. Create an item in the container using `container.items.upsert`. This method "upserts" the item effectively replacing the item if it already exists.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="create_item" highlight="10":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="create_item" highlight="10":::
+
+---
 
 ### Read an item
 
 Perform a point read operation by using both the unique identifier (`id`) and partition key fields. Use `container.item` to get a pointer to an item and `item.read` to efficiently retrieve the specific item.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="read_item" highlight="4":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="read_item" highlight="4":::
+
+---
 
 ### Query items
 
@@ -188,7 +228,15 @@ SELECT * FROM products p WHERE p.category = @category
 
 Fetch all of the results of the query using `query.fetchAll`. Loop through the results of the query.
 
+### [JavaScript](#tab/javascript)
+
 :::code language="javascript" source="~/cosmos-db-nosql-nodejs-quickstart/src/js/cosmos.js" id="query_items" highlight="2,11":::
+
+### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/cosmos-db-nosql-nodejs-quickstart/src/ts/cosmos.ts" id="query_items" highlight="2,11":::
+
+---
 
 ## Related content
 

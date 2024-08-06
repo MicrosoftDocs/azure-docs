@@ -6,9 +6,7 @@ summary: Securely deliver virtual desktops and apps with maximum control to any 
 metadata:
   title: Azure Virtual Desktop (classic) documentation
   description: Azure Virtual Desktop securely delivers virtual desktops and apps.
-  ms.service: azure-virtual-desktop
   ms.topic: landing-page
-  manager: femila
   author: dknappettmsft
   ms.author: daknappe
   ms.date: 04/13/2023

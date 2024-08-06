@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
-manager: femila
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 

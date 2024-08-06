@@ -28,19 +28,6 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
-## Define environment variables
-
-The first step is to define the environment variables. Environment variables are commonly used in Linux to centralize configuration data to improve consistency and maintainability of the system. Create the following environment variables to specify the names of resources that you create later in this tutorial:
-
-```bash
-export RANDOM_ID="$(openssl rand -hex 3)"
-export MY_RESOURCE_GROUP_NAME="myVMResourceGroup$RANDOM_ID"
-export REGION=EastUS
-export MY_VM_NAME="myVM$RANDOM_ID"
-export MY_USERNAME=azureuser
-export MY_VM_IMAGE="Canonical:0001-com-ubuntu-minimal-jammy:minimal-22_04-lts-gen2:latest"
-```
-
 ## Log in to Azure using the CLI
 
 In order to run commands in Azure using the CLI, you need to log in first. Log in using the `az login` command.
@@ -50,6 +37,9 @@ In order to run commands in Azure using the CLI, you need to log in first. Log i
 A resource group is a container for related resources. All resources must be placed in a resource group. The [az group create](/cli/azure/group) command creates a resource group with the previously defined $MY_RESOURCE_GROUP_NAME and $REGION parameters.
 
 ```bash
+export RANDOM_ID="$(openssl rand -hex 3)"
+export MY_RESOURCE_GROUP_NAME="myVMResourceGroup$RANDOM_ID"
+export REGION=EastUS
 az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
 ```
 
@@ -79,6 +69,9 @@ The following example creates a VM and adds a user account. The `--generate-ssh-
 All other values are configured using environment variables.
 
 ```bash
+export MY_VM_NAME="myVM$RANDOM_ID"
+export MY_USERNAME=azureuser
+export MY_VM_IMAGE="Canonical:0001-com-ubuntu-minimal-jammy:minimal-22_04-lts-gen2:latest"
 az vm create \
     --resource-group $MY_RESOURCE_GROUP_NAME \
     --name $MY_VM_NAME \
