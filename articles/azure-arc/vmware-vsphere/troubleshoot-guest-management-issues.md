@@ -2,7 +2,7 @@
 title: Troubleshoot Guest Management Issues
 description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 08/06/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: linux-related-content
@@ -72,15 +72,17 @@ Applies to:
 
 Before you enable the guest agent, follow these steps on the VM:
 
-1. Create file `vmtools_unconfined_rpm_script_kcs5347781.te` using the following:
+1. Create a file `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following contents to it:
 
-     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
+    ```powershell-interactive
+     policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
      gen_require(`
      type vmtools_unconfined_t;
      ')
      optional_policy(`
      rpm_transition_script(vmtools_unconfined_t,system_r)
-     ')`
+     ')
+     ```
 
 2. Install the package to build the policy module:
 
