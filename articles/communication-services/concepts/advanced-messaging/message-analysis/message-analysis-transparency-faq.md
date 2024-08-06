@@ -17,7 +17,7 @@ ms.service: azure-communication-services
 
 ## What is Message Analysis? 
 
-Message Analysis is an AI feature that analyses the incoming customer messages to extract insights that assist developers to enhance customer interactions. It detects the language, determines the intent (like a service question or complaint), and identifies key topics.  Message analysis can help businesses understand how well their communication strategies are working and improve their interactions with customers. 
+Message Analysis is an AI feature that analyses the incoming customer messages to extract insights that help developers enhance customer interactions. It detects the language, determines the intent (like a service question or complaint), and identifies key topics.  Message analysis can help businesses understand how well their communication strategies are working and improve their interactions with customers. 
 
 ## What can Message Analysis do?  
 
@@ -63,7 +63,7 @@ This combination of features enables businesses to tailor their responses and be
 
 * False positives:  
 
-   * The system may occasionally generate false positive analyses, particularly when dealing with ambiguous, conflicting, or sarcastic content, as well as culturally specific phrases and idioms from customer messages that it cannot accurately interpret. 
+   * The system may occasionally generate false positive analyses, particularly when dealing with ambiguous, conflicting, or sarcastic content, and culturally specific phrases and idioms from customer messages that it cannot accurately interpret. 
 
 * Unsupported languages/ Translation Issues: 
 
