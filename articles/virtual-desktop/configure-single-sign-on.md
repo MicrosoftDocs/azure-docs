@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on for an Azure Virtual Desktop 
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/15/2023
+ms.date: 08/27/2024
 ---
 
 # Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID authentication
@@ -31,9 +31,167 @@ Before you enable single sign-on, review the following information for using it 
 
 ### Disconnection when the session is locked
 
-When single sign-on is enabled, you sign in to Windows using a Microsoft Entra ID authentication token, which provides support for passwordless authentication to Windows. The Windows lock screen in the remote session doesn't support Microsoft Entra ID authentication tokens or passwordless authentication methods, like FIDO keys. The lack of support for these authentication methods means that users can't unlock their screens in a remote session. When you try to lock a remote session, either through user action or system policy, the session is instead disconnected and the service sends a message to the user explaining they were disconnected.
+When single sign-on is enabled and the remote session is locked, either by the user or by policy, the session is instead disconnected and a dialog is shown. Users can select the Reconnect option from the dialog when they are ready to connect again. This is done for security reason and to ensure full support of passwordless authentication. Disconnecting provides the following benefits:
 
-Disconnecting the session also ensures that when the connection is relaunched after a period of inactivity, Microsoft Entra ID reevaluates any applicable conditional access policies.
+- Consistent sign-in experience through Microsoft Entra ID when needed.
+- Supports passwordless authentication like passkeys and FIDO2 devices, contrary to the remote lock screen.
+- Can require multi-factor authentication to return to the session and prevent users from unlocking with a simple username and password.
+- Reevaluates any applicable Microsoft Entra conditional access policies including sign-in frequency.
+- When meeting all conditional access requirements, users benefit from Entra single sign-on when reconnecting and are not prompted to re-authenticate.
+
+If you prefer to show the remote lock screen instead of disconnecting the session, you can configure your session hosts using Intune, Group Policy or the registry.
+
+# [Intune](#tab/intune)
+
+To configure the clipboard using Intune, follow these steps. This process creates an Intune [settings catalog](/mem/intune/configuration/settings-catalog) policy.
+
+1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
+
+1. Select **Devices** > **Manage devices** > **Configuration** > **Create** > **New policy**.
+
+1. Enter the following properties:
+
+    - **Platform**: Select **Windows 10 and later**.
+    - **Profile type**: Select **Settings catalog**.
+
+1. Select **Create**.
+1. In **Basics**, enter the following properties:
+
+    - **Name**: Enter a descriptive name for the profile. Name your profile so you can easily identify it later.
+    - **Description**: Enter a description for the profile. This setting is optional, but recommended.
+
+1. Select **Next**.
+
+1. In **Configuration settings**, select **Add settings**. Then:
+
+    1. In the settings picker, expand **Administrative Templates > Windows Components > Remote Desktop Services > Remote Desktop Session Host > Device and Resource Redirection**.
+
+    1. Select the following settings and make sure you select the settings with the correct scope. The `(User)` settings apply to the user scope. The other settings apply to the device scope. To determine which scope is correct for your scenario, go to [Settings catalog - Device scope vs. user scope settings](/mem/intune/configuration/settings-catalog#device-scope-vs-user-scope-settings):
+
+        - Restrict clipboard transfer from server to client
+        - Restrict clipboard transfer from client to server
+
+          **OR**
+
+        - Restrict clipboard transfer from server to client (User)
+        - Restrict clipboard transfer from client to server (User)
+
+    1. Close the settings picker.
+
+1. Configure the settings:
+
+    - **Restrict clipboard transfer from server to client**: Select **Enabled**.
+    - **Restrict clipboard transfer from server to client**: Select the type of clipboard data you want to prevent or allow. Your options:
+
+      - Disable clipboard transfers from server to client
+      - Allow plain text
+      - Allow plain text and images
+      - Allow plain text, images, and Rich Text Format
+      - Allow plain text, images, Rich Text Format, and HTML
+
+    - **Restrict clipboard transfer from client to server**: Select **Enabled**.
+    - **Restrict clipboard transfer from client to server**: Select the type of clipboard data you want to prevent or allow. Your options:
+
+      - Disable clipboard transfers from server to client
+      - Allow plain text
+      - Allow plain text and images
+      - Allow plain text, images, and Rich Text Format
+      - Allow plain text, images, Rich Text Format, and HTML
+
+1. Select **Next**.
+
+1. At the **Scope tags** tab (optional), you can skip this step. For more information about scope tags in Intune, see [Use RBAC roles and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
+
+    Select **Next**.
+
+1. For the **Assignments** tab, select the users, devices, or groups to receive the profile, then select **Next**. For more information on assigning profiles, see [Assign user and device profiles](/mem/intune/configuration/device-profile-assign).
+
+1. On the **Review + create** tab, review the configuration information, then select **Create**.
+
+1. Once the policy configuration is created, resync your session hosts and reboot them for the settings to take effect.
+
+1. Connect to a remote session with a supported client and test the clipboard settings you configured are working by trying to copy and paste content.
+
+# [Group Policy](#tab/group-policy)
+
+To configure the clipboard using Group Policy, follow these steps.
+
+> [!IMPORTANT]
+> These policy settings appear in both **Computer Configuration** and **User Configuration**. If both policy settings are configured, the stricter restriction is used.
+
+1. Open **Local Group Policy Editor** from the Start menu or by running `gpedit.msc`.
+
+1. Browse to one of the following policy sections. Use the policy section in **Computer Configuration** to the session host you target, and use the policy section in **User Configuration** applies to specific users you target.
+
+   - Machine: `Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
+   - User: `User Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Device and Resource Redirection`
+
+1. Open one of the following policy settings, depending on whether you want to configure the clipboard from session host (server) to client, or client to session host:
+
+   - To configure the clipboard from **session host to client**, open the policy setting **Restrict clipboard transfer from server to client**, then select **Enabled**. Choose from the following options:
+      - **Disable clipboard transfers from server to client**.
+      - **Allow plain text.**
+      - **Allow plain text and images.**
+      - **Allow plain text, images, and Rich Text Format.**
+      - **Allow plain text, images, Rich Text Format, and HTML.**
+   
+   - To configure the clipboard from **client to session host**, open the policy setting **Restrict clipboard transfer from client to server**, then select **Enabled** . Choose from the following options:
+      - **Disable clipboard transfers from client to server**.
+      - **Allow plain text.**
+      - **Allow plain text and images.**
+      - **Allow plain text, images, and Rich Text Format.**
+      - **Allow plain text, images, Rich Text Format, and HTML.**
+
+1. Select **OK** to save your changes.
+
+1. Once you configured settings, restart your session hosts for the settings to take effect.
+
+1. Connect to a remote session with a supported client and test the clipboard settings you configured are working by trying to copy and paste content.
+
+> [!TIP]
+> During the preview, you can also configure Group Policy centrally in an Active Directory domain by copying the `terminalserver.admx` and `terminalserver.adml` administrative template files from a session host to the [Group Policy Central Store](/troubleshoot/windows-client/group-policy/create-and-manage-central-store) in a test environment.
+
+# [Registry](#tab/registry)
+
+To configure the clipboard using the registry on a session host, follow these steps.
+
+1. Open **Registry Editor** from the Start menu or by running `regedit.exe`.
+
+1. Set one of the following registry keys and its value, depending on whether you want to configure the clipboard from session host to client, or client to session host.
+
+   - To configure the clipboard from **session host to client**, set one of the following registry keys and its value. Using the value for the machine applies to all users, and using the value for the user applies to the current user only.
+      - **Key**:
+         - Machine: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
+         - Users: `HKCU\Software\Policies\Microsoft\Windows NT\Terminal Services`
+      - **Type**: `REG_DWORD`
+      - **Value name**: `SCClipLevel`
+      - **Value data**: Enter a value from the following table:
+
+         | Value Data | Description |
+         |--|--|
+         | `0` | Disable clipboard transfers from session host to client. |
+         | `1` | Allow plain text. |
+         | `2` | Allow plain text and images. |
+         | `3` | Allow plain text, images, and Rich Text Format. |
+         | `4` | Allow plain text, images, Rich Text Format, and HTML. |
+
+   - To configure the clipboard from **client to session host**, set one of the following registry keys and its value. Using the value for the machine applies to all users, and using the value for the user applies to the current user only.
+      - **Key**:
+         - Machine: `HKLM\Software\Policies\Microsoft\Windows NT\Terminal Services`
+         - Users: `HKCU\Software\Policies\Microsoft\Windows NT\Terminal Services`
+      - **Type**: `REG_DWORD`
+      - **Value name**: `CSClipLevel`
+      - **Value data**: Enter a value from the following table:
+      
+         | Value Data | Description |
+         |--|--|
+         | `0` | Disable clipboard transfers from client to session host. |
+         | `1` | Allow plain text. |
+         | `2` | Allow plain text and images. |
+         | `3` | Allow plain text, images, and Rich Text Format. |
+         | `4` | Allow plain text, images, Rich Text Format, and HTML. |
+
+ 
 
 ### Active Directory domain administrator accounts with single sign-on
 
@@ -131,11 +289,11 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
    id True
    ```
 
-## Configure the target device groups
+## Hide the consent prompt dialog
 
-After you enable Microsoft Entra authentication for RDP, you need to configure the target device groups. By default when enabling single sign-on, users are prompted to authenticate to Microsoft Entra ID and allow the Remote Desktop connection when launching a connection to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If you see a dialogue to allow the Remote Desktop connection, select **Yes** to connect.
+By default when single sign-on is enabled, users will see a dialog to allow the Remote Desktop connection when connecting to a new session host. Microsoft Entra remembers up to 15 hosts for 30 days before prompting again. If users see this dialogue to allow the Remote Desktop connection, the can select **Yes** to connect.
 
-You can hide this dialog and provide single sign-on for connections to all your session hosts by configuring a list of trusted devices. You need to create one or more groups in Microsoft Entra ID that contains your session hosts, then set a property on the service principals for the same *Microsoft Remote Desktop* and *Windows Cloud Login* applications, as used in the previous section, for the group.
+You can hide this dialog by configuring a list of trusted devices. To configure the list of devices, create one or more groups in Microsoft Entra ID that contains your session hosts, then add the group IDs to a property on the SSO service principals, *Microsoft Remote Desktop* and *Windows Cloud Login*.
 
 > [!TIP]
 > We recommend you use a dynamic group and configure the dynamic membership rules to includes all your Azure Virtual Desktop session hosts. You can use the device names in this group, but for a more secure option, you can set and use [device extension attributes](/graph/extensibility-overview) using [Microsoft Graph API](/graph/api/resources/device). While dynamic groups normally update within 5-10 minutes, large tenants can take up to 24 hours.
