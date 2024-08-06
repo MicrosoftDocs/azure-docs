@@ -63,8 +63,4 @@ Follow these steps to add your data in the chat playground to help the assistant
 
    :::image type="content" source="../media/tutorials/chat/add-your-data-ingestion-in-progress.png" alt-text="Screenshot of the chat playground with the status of data ingestion in view." lightbox="../media/tutorials/chat/add-your-data-ingestion-in-progress.png":::
 
-1. Enter a name for the playground configuration and select **Save** > **Save configuration**. All configuration items are saved by default. Items include deployment, system message, safety message, parameters, added data, examples, and variables. Saving a configuration with the same name will save over the previous version.
-
-   :::image type="content" source="../media/tutorials/chat/playground-configuration-save.png" alt-text="Screenshot of the playground configuration name and Save button." lightbox="../media/tutorials/chat/playground-configuration-save.png":::
-
 1. You can now chat with the model asking the same question as before ("How much are the TrailWalker hiking shoes"), and this time it uses information from your data to construct the response. You can expand the **references** button to see the data that was used.
