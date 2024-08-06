@@ -108,24 +108,36 @@ Container container = await client.GetDatabase("myDatabase").CreateContainerAsyn
 ### [Java](#tab/java)
 
 ```java
-CosmosContainerProperties containerProperties = new CosmosContainerProperties("myContainer", "/pk");
-List<ComputedProperty> computedProperties = new ArrayList<>(List.of(new ComputedProperty("cp_lowerName", "SELECT VALUE LOWER(c.name) FROM c")));
-containerProperties.setComputedProperties(computedProperties);
-client.getDatabase("myDatabase").createContainer(containerProperties);
+ const { resource: contDefinition } = await containerWithComputedProperty.read();
+  const upperName = {
+    name: "upperLastName",
+    query:
+      "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+  };
+  if (contDefinition) {
+    // update computed properties
+    contDefinition.computedProperties = [upperName];
+    // replace container definition with updated computed properties
+    await containerWithComputedProperty.replace(contDefinition);
+    console.log("Computed properties updated");
+  } else {
+    console.log("Container definition is undefined.");
+  }
 ```
 
 ### [JavaScript](#tab/javascript)
 
 ```javascript
-const { resource: contDefinition } = await containerWithComputedProperty.read();
-const upperName = {
-name: "upperLastName", query: "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+const lowerName = {
+    name: "lowerLastName",
+    query:
+      "SELECT VALUE LOWER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
 };
-if (contDefinition) {
-// update computed properties contDefinition.computedProperties = [upperName]; // replace container definition with updated computed properties await containerWithComputedProperty.replace(contDefinition); console.log("Computed properties updated");
-} else {
-console.log("Container definition is undefined.");
-}
+
+const { container: containerWithComputedProperty } = await database.containers.createIfNotExists({
+  id: containerId,
+  computedProperties: [lowerName],
+});
 ```
 
 ### [Python](#tab/python)
