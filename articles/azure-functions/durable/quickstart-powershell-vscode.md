@@ -157,7 +157,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Use your browser or one of these HTTP test tools to send an HTTP POST request to the URL endpoint: 
 
-   [!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
    Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 

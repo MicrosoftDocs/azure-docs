@@ -17,7 +17,7 @@ The procedure described in this article is equivalent to using the **Test/Run** 
 
 The examples in this article use an HTTP test tool. You can obtain and use any of these tools that send HTTP requests:
 
-[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+[!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
 ## Define the request location
 

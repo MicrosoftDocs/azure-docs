@@ -113,7 +113,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 1. Use one of these HTTP test tools to send an HTTP POST request to the URL endpoint:
 
-   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
+   [!INCLUDE [api-test-http-request-tools](../../../../includes/api-test-http-request-tools.md)]
 
    The response is the HTTP function's initial result. It lets you know that the Durable Functions app orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
 

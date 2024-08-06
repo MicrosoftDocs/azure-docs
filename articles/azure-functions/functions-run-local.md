@@ -276,7 +276,7 @@ The following considerations apply when calling HTTP endpoints locally:
 
 + You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use an HTTP testing tool that supports POST requests, like one of these: 
 
-   [!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+   [!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
 + Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
 

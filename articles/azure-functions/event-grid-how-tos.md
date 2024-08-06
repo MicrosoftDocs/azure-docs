@@ -129,7 +129,7 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 
 To send an HTTP post request, you need an HTTP test tool, like one of these:
 
-[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+[!INCLUDE [api-test-http-request-tools](../../../includes/api-test-http-request-tools.md)]
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
 
