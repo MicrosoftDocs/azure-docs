@@ -195,9 +195,6 @@ items:
   - name: 🆕 Bank statement model
     displayName: transactions, deposits, withdrawals, balance, account, number, date
     href: concept-bank-statement.md
-  - name: 🆕 Batch documents analysis
-    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
-    href: concept-batch-analysis.md
   - name: Credit card model
     displayName: debit
     href: concept-credit-card.md

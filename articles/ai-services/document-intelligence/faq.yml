@@ -255,7 +255,7 @@ sections:
 
         - For signature and region labeling, don't include the surrounding text.
 
-        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md#ensure-high-model-accuracy).
+        For more information, see [Accuracy and confidence scores](concept-accuracy-confidence.md).
 
     - question: |
         Can I retrain a custom model?
@@ -293,7 +293,6 @@ sections:
         **Yes for the first 10 hours only.**
 
         If training hours exceed 10 hours, charges are incurred for further custom neural model training.
-
 
   - name: Storage account
     questions:

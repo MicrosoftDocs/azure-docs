@@ -281,7 +281,8 @@ You can now update the custom classification in-place. Directly overwriting the 
 ## Copy a model
 
 > [!NOTE]
-> Starting with the `2024-07-31-preview` API, custom clasification models support copying a model to and from any of the follwing regions:
+> Starting with the `2024-07-31-preview` API, custom classification models support copying a model to and from any of the following regions:
+>
 > * **East US**
 > * **West US2**
 > * **West Europe**

@@ -391,7 +391,7 @@ You can use Document Intelligence to automate document processing in application
 
 ### Pay stub
 
-:::image type="content" source="media/studio/overview-pay-stub.png" alt-text="Screenshot of Paystub model analysis using Document Intelligence Studio.":::
+:::image type="content" source="media/studio/overview-pay-stub.png" alt-text="Screenshot of pay stub model analysis using Document Intelligence Studio.":::
 
 | Model ID | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
