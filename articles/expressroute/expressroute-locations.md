@@ -24,12 +24,14 @@ The tables in this article provide information on ExpressRoute geographical cove
 >
 
 ## Azure regions
-Azure regions are global datacenters where Azure compute, networking, and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
+
+Azure regions are global datacenters where Azure compute, networking, and storage resources are hosted. When creating an Azure resource, you need to select the resource location, which determines the specific Azure datacenter (or availability zone) where the resource is deployed.
 
 ## ExpressRoute locations
-ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft's network – and are globally distributed, providing customers the opportunity to connect to Microsoft's network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft's network. In general, the ExpressRoute location doesn't need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
-You'll have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region.
+ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct user establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
+
+You have access to Azure services across all regions within a geopolitical region if you're connecting to at least one ExpressRoute location within the geopolitical region.
 
 [!INCLUDE [expressroute-azure-regions-geopolitical-region](../../includes/expressroute-azure-regions-geopolitical-region.md)]
 
@@ -229,9 +231,9 @@ The following table shows locations by service provider. If you want to view ava
 
 ### National cloud environment
 
-Azure national clouds are isolated from each other and from global commercial Azure. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others. 
+Azure national clouds are isolated from each other and from the Azure public cloud. ExpressRoute for one Azure cloud can't connect to the Azure regions in the others. 
 
-### US Government cloud
+#### [US Government cloud](#tab/us-government-cloud)
 
 | Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
@@ -243,7 +245,7 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |&check; | &check; | Chicago<br/>Dallas<br/>San Antonio<br/>Seattle<br/>Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |&check; |&check; |Chicago<br/>Dallas<br/>New York<br/>Silicon Valley<br/>Washington DC |
 
-### China
+#### [China cloud](#tab/china-cloud)
 
 | Service provider | Microsoft Azure | Office 365 | Locations |
 | --- | --- | --- | --- |
@@ -252,13 +254,14 @@ Azure national clouds are isolated from each other and from global commercial Az
 | **China Unicom** | &check; | &cross; | Beijing2<br/>Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |&check; |&cross; |Beijing2<br/>Shanghai2 |
 
-To learn more<br/>see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
+To learn more, see [ExpressRoute in China](https://www.azure.cn/home/features/expressroute/).
 
 ## Connectivity through Exchange providers
 
 If your connectivity provider isn't listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they're connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
+
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [DE-CIX](https://www.de-cix.net/en/services/microsoft-azure-peering-service)
@@ -273,10 +276,12 @@ If your connectivity provider isn't listed in previous sections, you can still c
 
 * Have your connectivity provider extend your network to the peering location of choice.
   * Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
+
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
   * Follow steps in [Create an ExpressRoute circuit](expressroute-howto-circuit-classic.md) to set up connectivity.
 
 ## Connectivity through satellite operators
+
 If you're remote and don't have fiber connectivity, or you want to explore other connectivity options you can check the following satellite operators. 
 
 * Intelsat
@@ -320,7 +325,6 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[FPT Telecom International](https://cloudconnect.vn/en)** |Equinix |Singapore|
-| --- | --- | --- |
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London<br/>Slough |
@@ -394,10 +398,12 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **SINET**|
 | **Surfnet, through GÉANT**|
 
-* If your connectivity provider isn't listed here, check to see if they're connected to any of the ExpressRoute Exchange Partners listed above.
+> [!NOTE]
+> If your connectivity provider isn't listed here, you can verify if they are connected to any of the other ExpressRoute Exchange Partners mentioned previously.
 
 ## ExpressRoute system integrators
-Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
+
+Enabling private connectivity to meet your needs can be challenging, depending on the scale of your network. You can collaborate with any of the system integrators listed in the following table to assist with onboarding to ExpressRoute.
 
 | System integrator | Continent |
 | --- | --- |
@@ -422,8 +428,9 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Vigilant.IT](https://vigilant.it/networking-services/microsoft-azure-networking/)** | Australia |
 
 ## Next steps
+
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
-* Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* Ensure that all prerequisites are met. For more information, see [ExpressRoute prerequisites](expressroute-prerequisites.md).
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "Location map"
