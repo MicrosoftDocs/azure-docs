@@ -75,7 +75,11 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-dataflow.md
-      - name: Concepts
+      - name: Configure endpoints
+        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+      - name: Create a dataflow
+        href: connect-to-cloud/howto-create-dataflow.md
+      - name: Transform data
         items:
         - name: Map data
           href: connect-to-cloud/concept-dataflow-mapping.md
@@ -83,11 +87,7 @@ items:
           href: connect-to-cloud/concept-dataflow-conversions.md
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
-      - name: Configure endpoints
-        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
-      - name: Create a dataflow
-        href: connect-to-cloud/howto-create-dataflow.md
-      - name: Configure dataflow profile
+      - name: Configure a dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:

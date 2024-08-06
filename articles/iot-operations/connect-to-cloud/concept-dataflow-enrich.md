@@ -5,12 +5,14 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/01/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to enrich data sent to endpoints.
 ---
 
 # Enrich data using dataflows
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 You can enrich data using the *contextualization datasets* function. When processing incoming records, these datasets can be queried based on conditions that relate to the fields of the incoming record. This capability allows for dynamic interactions where data from these datasets can be used to supplement information in the output fields and participate in complex calculations during the mapping process.
 

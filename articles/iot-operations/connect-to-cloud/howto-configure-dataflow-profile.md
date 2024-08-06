@@ -1,13 +1,13 @@
 ---
 title: Configure dataflow profile in Azure IoT Operations
-description: How to configure dataflow profile in Azure IoT Operations to change dataflow behavior.
+description: How to configure a dataflow profile in Azure IoT Operations to change a dataflow behavior.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
-ms.topic: conceptual
-ms.date: 07/25/2024
+ms.topic: how-to
+ms.date: 08/03/2024
 
-#CustomerIntent: As an operator, I want to understand how to I can configure a dataflow profile to control dataflow behavior.
+#CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
 ---
 
 # Configure dataflow profile
@@ -22,7 +22,7 @@ kind: DataflowProfile
 metadata:
   name: my-dataflow-profile
 spec:
-  maxInstances: 4
+  instanceCount: 1
   tolerations:
     ...
   diagnostics:
@@ -47,7 +47,7 @@ spec:
 
 | Field Name                                      | Description                                                                 |
 |-------------------------------------------------|-----------------------------------------------------------------------------|
-| `maxInstances`                                  | Number of instances to spread the dataflows across. Optional; automatically determined if not set. |
+| `instanceCount`                                  | Number of instances to spread the dataflow across. Optional; automatically determined if not set. Currently in the preview release, set the value to `1`. |
 | `tolerations`                                   | Node tolerations. Optional; see [Kubernetes Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). |
 | `diagnostics`                                   | Diagnostics settings.                                                       |
 | `diagnostics.logFormat`                         | Format of the logs. For example, `text`.                                           |

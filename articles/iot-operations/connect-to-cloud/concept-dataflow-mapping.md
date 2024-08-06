@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/02/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
@@ -20,7 +20,7 @@ Mapping allows you to transform data from one format to another. Consider the fo
 
 ```json
 {
-  "Name": "John Doe",
+  "Name": "Grace Owens",
   "Place of birth": "London, TX",
   "Birth Date": "19840202",
   "Start Date": "20180812",
@@ -34,7 +34,7 @@ Compare it with the output record:
 ```json
 {
   "Employee": {
-    "Name": "John Doe",
+    "Name": "Grace Owens",
     "Date of Birth": "19840202"
   },
   "Employment": {
@@ -104,7 +104,7 @@ Dot-notation is widely used in computer science to reference fields, even recurs
   - Person.Address.Street.Number
 ```
 
-However, in a dataflow a path described by dot-notation might include strings and some special characters without needing  escaping:
+However, in a dataflow, a path described by dot-notation might include strings and some special characters without needing  escaping:
 
 ```yaml
 - inputs:
@@ -120,7 +120,7 @@ However, in other cases, escaping is necessary:
 
 The previous example, among other special characters, contains dots within the field name, which, without escaping, would serve as a separator in the dot-notation itself.
 
-While dataflow parses a path, it treats only two characters as special:
+While a dataflow parses a path, it treats only two characters as special:
 
 * Dots ('.') act as field separators.
 * Quotes, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
@@ -450,12 +450,12 @@ Consider a special case for the same fields to help deciding the right action:
 
 An empty `output` field in the second definition implies not writing the fields in the output record (effectively removing `Opacity`). This setup is more of a `Specialization` than a `Second Rule`.
 
-Resolution of overlapping mappings by dataflow:
+Resolution of overlapping mappings by dataflows:
 
 * The evaluation progresses from the top rule in the mapping definition.
 * If a new mapping resolves to the same fields as a previous rule, the following applies:
   * A `Rank` is calculated for each resolved input based on the number of segments the wildcard captures. For instance, if the `Captured Segments` are `Properties.Opacity`, the `Rank` is 2. If only `Opacity`, the `Rank` is 1. A mapping without wildcards has a `Rank` of 0.
-  * If the `Rank` of the latter rule is equal to or higher than the previous rule, dataflow treats it as a `Second Rule`.
+  * If the `Rank` of the latter rule is equal to or higher than the previous rule, a dataflow treats it as a `Second Rule`.
   * Otherwise, it treats the configuration as a `Specialization`.
 
 For example, the mapping that directs `Opacity.Max` and `Opacity.Min` to an empty output has a `Rank` of zero. Since the second rule has a lower `Rank` than the previous, it's considered a specialization and overrides the previous rule, which would calculate a value for `Opacity`

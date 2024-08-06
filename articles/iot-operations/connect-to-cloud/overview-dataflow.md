@@ -1,11 +1,11 @@
 ---
 title: Process and route data with dataflows
-description: What are dataflows in Azure IoT Operations?
+description: Learn about dataflows and how to process and route data in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: conceptual
-ms.date: 07/28/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to I can use dataflows connect data sources.
 ---
@@ -22,17 +22,19 @@ You can write configurations for various use cases, such as:
 - Transform data and send it to the cloud
 - Send data to the cloud or edge without transformation
 
-## Key Features
+Dataflows are not limited to the region where the Azure IoT Operations instance is deployed. You can use dataflows to send data to any cloud endpoint in any region.
 
-### Data Processing and Routing
+## Key features
 
-Dataflows enable the ingestion, processing and the routing of the messages to specified sinks. You can specify:
+### Data processing and routing
+
+Dataflows enable the ingestion, processing, and the routing of the messages to specified sinks. You can specify:
 
 - **Sources:** Where messages are ingested from
 - **Destinations:** Where messages are drained to
 - **Transformations (optional):** Configuration for data processing operations
 
-### Transformation Capabilities
+### Transformation capabilities
 
 Transformations can be applied to data during the processing stage to perform various operations. These operations can include:
 
@@ -42,7 +44,7 @@ Transformations can be applied to data during the processing stage to perform va
 - **Standardize values:** Scale property values to a user-defined range
 - **Contextualize data:** Add reference data to messages for enrichment and driving insights
 
-### Configuration and Deployment
+### Configuration and deployment
 
 The configuration is specified using Kubernetes CRDs. Based on this configuration, the dataflow operator creates dataflow instances, ensuring high availability and reliability.
 

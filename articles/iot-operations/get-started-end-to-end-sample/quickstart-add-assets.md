@@ -118,7 +118,7 @@ After you define an asset, a connector for OPC UA pod discovers it. The pod uses
 kubectl get pods -n azure-iot-operations
 ```
 
-When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
+When the OPC PLC simulator is running, dataflows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
 
 ## Manage your assets
 

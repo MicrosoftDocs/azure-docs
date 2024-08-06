@@ -5,16 +5,18 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/01/2024
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to use dataflow conversions to transform data.
 ---
 
 # Convert data using dataflow conversions
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 You can use dataflow conversions to transform data in Azure IoT Operations. The *conversion* element in a dataflow is used to compute values for output fields. You can use input fields, available operations, data types, and type conversions in dataflow conversions.
 
-Dataflow *conversion* element is used to compute values for output fields:
+The dataflow *conversion* element is used to compute values for output fields:
 
 ```yaml
 - inputs:
@@ -167,7 +169,7 @@ This mapping creates an array containing the minimum, maximum, average, and mean
 * Handling missing fields in the input by providing an alternative value.
 * Conditionally removing a field based on its presence.
 
-Example mapping using *missing value*`:
+Example mapping using *missing value*:
 
 ```json
 {
@@ -217,7 +219,7 @@ Functions can be used in the conversion formula to perform various operations.
 
 ## Available operations
 
-Dataflow offers a wide range of out-of-the-box (OOTB) conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. The following is a list of the available conversion functions, along with their corresponding formulas and function names:
+Dataflows offer a wide range of out-of-the-box (OOTB) conversion functions that allow users to easily perform unit conversions without the need for complex calculations. These predefined functions cover common conversions such as temperature, pressure, length, weight, and volume. The following is a list of the available conversion functions, along with their corresponding formulas and function names:
 
 | Conversion | Formula | Function Name |
 | --- | --- | --- |

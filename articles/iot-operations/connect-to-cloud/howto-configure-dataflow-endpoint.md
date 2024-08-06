@@ -1,11 +1,11 @@
 ---
-title: Configure dataflow endpoints
+title: Configure dataflow endpoints in Azure IoT Operations
 description: Configure dataflow endpoints to create connection points for data sources.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
-ms.topic: conceptual
-ms.date: 07/26/2024
+ms.topic: how-to
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -23,19 +23,22 @@ kind: DataflowEndpoint
 metadata:
   name: <endpoint-name>
 spec:
-  endpointType: <endpointType> # mqtt, kafka, dataExplorer, dataLakeStorage, fabricOneLake, or localStorage
+  endpointType: <endpointType> # mqtt, kafka, or localStorage
   authentication:
     method: <method> # systemAssignedManagedIdentity, x509Credentials, userAssignedManagedIdentity, or serviceAccountToken
     systemAssignedManagedIdentitySettings: # Required if method is systemAssignedManagedIdentity
       audience: https://eventgrid.azure.net
-    x509CredentialsSettings: # Required if method is x509Credentials
-      certificateSecretName: x509-certificate
-    userAssignedManagedIdentitySettings: # Required if method is userAssignedManagedIdentity
-      clientId: <id>
-      tenantId: <id>
-      audience: https://eventgrid.azure.net
-    serviceAccountTokenSettings: # Required if method is serviceAccountToken
-      audience: my-audience
+    ### OR
+    # x509CredentialsSettings: # Required if method is x509Credentials
+    #  certificateSecretName: x509-certificate
+    ### OR
+    # userAssignedManagedIdentitySettings: # Required if method is userAssignedManagedIdentity
+    #  clientId: <id>
+    #  tenantId: <id>
+    #  audience: https://eventgrid.azure.net
+    ### OR
+    # serviceAccountTokenSettings: # Required if method is serviceAccountToken
+    #  audience: my-audience
   mqttSettings: # Required if endpoint type is mqtt
     host: example.westeurope-1.ts.eventgrid.azure.net:8883
     tls: # Omit for no TLS or MQTT.
@@ -303,85 +306,6 @@ spec:
 > By default, data flows don't send MQTT message user properties to Kafka destinations. These user properties include values such as `subject` that stores the name of the asset sending the message. To include user properties in the Kafka message, you must update the `DataflowEndpoint` configuration to include: `copyMqttProperties: enabled`.
 
 ## Endpoint types for destinations only
-
-### Azure Data Lake (ADLSv2)
-
-Azure Data Lake endpoints are used for Azure Data Lake destinations. You can configure the endpoint, authentication, table, and other settings.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: adls
-spec:
-  endpointType: dataLakeStorage
-  authentication:
-    method: systemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings: {}
-  datalakeStorageSettings:
-    host: example.blob.core.windows.net
-```
-
-Other supported authentication method is SAS tokens or user-assigned managed identity.
-
-```yaml
-spec:
-  authentication:
-    method: accessToken
-    accessTokenSecretRef: <your access token secret name>
-    # OR
-    userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
-```
-
-You can also configure batching latency, max bytes, and max messages.
-
-```yaml
-spec:
-  endpointType: dataLakeStorage
-  datalakeStorageSettings:
-    batching:
-      latencyMs: 100
-      maxBytes: 1000000
-      maxMessages: 1000
-```
-
-### Azure Data Explorer (ADX)
-
-Azure Data Explorer endpoints are used for Azure Data Explorer destinations. You can configure the endpoint, authentication, and other settings.
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: adx
-spec:
-  endpointType: dataExplorer
-  authentication:
-    method: systemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings: {}
-    # OR
-    method: userAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
-  dataExplorerSettings:
-    host: example.westeurope.kusto.windows.net
-    database: example-database
-```
-
-Again, you can configure batching latency, max bytes, and max messages.
-
-```yaml
-spec:
-  endpointType: dataExplorer
-  dataExplorerSettings:
-    batching:
-      latencyMs: 100
-      maxBytes: 1000000
-      maxMessages: 1000
-```
 
 ### Local storage and Edge Storage Accelerator
 

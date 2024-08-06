@@ -4,8 +4,8 @@ description: Create a dataflow to connect data sources and destinations using Az
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
-ms.topic: conceptual
-ms.date: 07/26/2024
+ms.topic: how-to
+ms.date: 08/03/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
@@ -59,7 +59,7 @@ spec:
       name: my-destination
       destinationSettings:
         endpointRef: kafka
-        dataDestination: factory/$topic.2
+        dataDestination: factory
 ```
 
 | Name                        | Description                                                                |
@@ -88,7 +88,7 @@ spec:
       sourceSettings:
         endpointRef: mq-source
         dataSources:
-        - $share/group/azure-iot-operations/data/thermostat
+        - azure-iot-operations/data/thermostat
 ```
 
 | Name                        | Description                                                                        |
@@ -220,26 +220,6 @@ spec:
 
 To learn more, see the [Map data using dataflows](concept-dataflow-mapping.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
 
-### Serialize data according to a schema
-
-If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
-
-| Name                                              | Description                                          |
-|---------------------------------------------------|------------------------------------------------------|
-| builtInTransformationSettings.serializationFormat | Format of the serialization                          |
-| builtInTransformationSettings.schemaRef           | Reference to the schema used for the transformation  |
-
-For example, you could serialize the data in Parquet format using the schema:
-
-```yaml
-spec:
-  operations:
-  - operationType: builtInTransformation
-    builtInTransformationSettings:
-      serializationFormat: parquet
-      schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
-```
-
 ## Configure destination
 
 To configure a destination for the dataflow, you need to specify the endpoint and a path (topic or table) for the destination.
@@ -271,7 +251,7 @@ Once you have the endpoint, you can configure the path for the destination. If t
 - operationType: destination
   destinationSettings:
     endpointRef: eventgrid
-    dataDestination: factory/$topic.2
+    dataDestination: factory
 ```
 
 For storage endpoints like Microsoft Fabric, use the path to specify the table name.
@@ -283,111 +263,3 @@ For storage endpoints like Microsoft Fabric, use the path to specify the table n
     dataDestination: telemetryTable
 ```
 
-#### Dynamic output path
-
-You can use dynamic path segments to reference properties or metadata from the source message. For example, you can use `$topic` to reference the topic from the source data.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$topic.2
-```
-
-If the source is an MQTT broker, with messages coming from topic `thermostats/+/temperature/` , the output path is dynamically resolved. For example, if the source topic is `thermostats/1/temperature/` , the output path is `factory/1` . To use the full source topic, you can use `$topic` without the index.
-
-To use data from the MQTT or Kafka payload in the output path, you can use JSON path expressions.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$payload.temperature.value
-```
-
-If the payload is a JSON object like `{"temperature": {"value": 25}}` , the output path is `factory/25` .
-
-You can also use system properties like `timestamp` , `clientId` , and `messageId` .
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$systemProperties.timestamp
-```
-
-You can also use user properties.
-
-```yaml
-- operationType: destination
-  destinationSettings:
-    dataDestination: factory/$userProperties.customer
-```
-
-If the user property isn't present in the source data, the part of the path referencing the user property is empty. For example, if the user property `customer` isn't present in the source data, the output path is `factory/` .
-
-If you specified an *enrich* stage during transformation, you can use the enriched data in the output path.
-
-```yaml
-spec:
-  operations:
-  - operationType: destination
-    destinationSettings:
-      endpointRef: eventgrid
-      dataDestination: factory/$context(assetDataset).location
-```
-
-Lastly, you can use `$subscription(example/topic)` to subscribe to a topic from the source endpoint and use the result in the path. This is useful when you want to use the value from a specific topic in the output path, like for meta Unified Namespace (UNS) topics.
-
-```yaml
-spec:
-  operations:
-  - operationType: destination
-    destinationSettings:
-      endpointRef: eventgrid
-      dataDestination: factory/$subscription(meta/thermostat/uns)
-```
-
-Here, if the message from the `meta/thermostat/uns` topic is `thermostats/1/temperature/` , the output path is `factory/thermostats/1/temperature/` .
-
-The full list of parameters that can be used in the path includes:
-
-| Parameter | Description |
-| --- | --- |
-| `$topic` | The full input topic. |
-| `$topic.<index>` | A segment of the input topic. The index starts at 1. |
-| `$systemProperties.<property>` | A system property of the message. |
-| `$userProperties.<property>` | A user property of the message. |
-| `$payload.<value>` | A value from the message payload. Use JSON path expression nested values. |
-| `$context(<dataset>).<property>` | A property from the contextualization dataset specified in *enrich* stage. |
-| `$subscription(<topic>)` | The value of a single message from the specified topic. |
-
-
-## Test dataflow
-
-After configuring the dataflow, you can test it by sending test data and viewing the outcome.
-
-### Send test data
-
-To send test data to the dataflow, you can use the Azure IoT Operations portal, Azure CLI, or call the REST API.
-
-```bash
-az iotops dataflow send-test-data --dataflow-name my-dataflow --data '{
-  "assetName": "thermostat",
-  "temperature": 25
-}'
-```
-
-### View outcome
-
-And the outcome can be viewed as a response:
-
-```output
-{
-  "status": "success",
-  "message": "Data sent successfully",
-  "data": {
-    "deviceId": "thermostat",
-    "customer": "Contoso",
-    "temperatureCelsius": 25,
-    "temperatureKelvin": 298
-  }
-}
-```
