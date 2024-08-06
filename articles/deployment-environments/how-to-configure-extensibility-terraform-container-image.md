@@ -185,9 +185,9 @@ In order to use custom images, you need to store them in a container registry. A
 It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
 
 > [!Caution]
-> Enabling anonymous (unauthenticated) pull access makes all registry content publicly available for read (pull) actions. 
+> Storing your container image in a registry with anonymous (unauthenticated) pull access makes it publicly accessible. Don't do that if your image contains any sensitive information. Instead, store it in Azure Container Registry (ACR) with anonymous pull access disabled. 
 
-To use a custom image stored in ACR, you need to ensure that ADE has appropriate permissions to access your image. Anonymous pull access is disabled by default in ACR. 
+To use a custom image stored in ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. 
 
 To create an instance of the ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli). 
 
