@@ -138,10 +138,6 @@ Default queries to use with new tables
 
 In your Logs query editor, set the toggle to Queries above the tables list. Make sure that you group the queries by Resource Type and that there's no filter set for a resource type other than HDInsight Clusters. The following image shows how the results look when grouped by Resource Type and filtered for HDInsight Clusters. Just select one and it appears in the Logs query editor. Be sure to read the comments included in the queries, as some require you to enter some information, like your cluster name, for the query to run successfully. 
 
-These integrations can help you use the new tables: 
-
-:::image type="content" source="./media/azure-monitor-agent/list-of-queries.png" alt-text="Screenshot showing list of queries." border="true" lightbox="./media/azure-monitor-agent/list-of-queries.png":::
-
 ### Create your own queries
 
 You can enter your own queries in the Logs query editor. Queries used on the old tables won't be valid on the new tables as many of the new tables have new, refined schemas. The default queries are great references for shaping queries on the new tables. 
