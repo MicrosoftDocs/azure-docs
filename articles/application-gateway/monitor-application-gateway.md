@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: greg-lindsay
 ms.author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ---
 
 # Monitor Azure Application Gateway

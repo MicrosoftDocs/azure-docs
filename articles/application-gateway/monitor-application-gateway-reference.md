@@ -6,7 +6,7 @@ ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 author: greg-lindsay
 ms.author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ---
 
 # Azure Application Gateway monitoring data reference
