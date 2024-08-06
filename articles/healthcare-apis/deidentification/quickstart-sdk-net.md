@@ -211,7 +211,7 @@ See [Sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/healthdata
 
 ## Next steps
 
-We learned:
+In this quickstart, you learned:
 - How to create a Deidentification Service and assign a role on a storage account.
 - How to create a Deidentification Client
 - How to de-identify strings and create jobs on documents within a storage account.
