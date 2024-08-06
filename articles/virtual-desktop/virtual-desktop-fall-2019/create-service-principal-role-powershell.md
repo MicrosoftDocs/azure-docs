@@ -6,7 +6,6 @@ ms.topic: tutorial
 ms.date: 05/27/2020
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
-manager: femila
 ---
 # Tutorial: Create service principals and role assignments with PowerShell in Azure Virtual Desktop (classic)
 
