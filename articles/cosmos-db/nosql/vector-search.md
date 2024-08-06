@@ -147,6 +147,9 @@ A few points to note:
 
   - The `diskANN` index is a separate index defined specifically for vectors using [DiskANN](https://www.microsoft.com/research/publication/diskann-fast-accurate-billion-point-nearest-neighbor-search-on-a-single-node/), a suite of high performance vector indexing algorithms developed by Microsoft Research. DiskANN indexes can offer some of the lowest latency, highest throughput, and lowest RU cost queries, while still maintaining high accuracy. However, since DiskANN is an approximate nearest neighbors (ANN) index, the accuracy can be lower than `quantizedFlat` or `flat`. DiskANN is available in early gated-preview and requires filling out [this form](https://aka.ms/DiskANNSignUp).
 
+> [!IMPORTANT]
+> During early preview, vector indexes can't be modified once created. Instead, you'll have to create a new container with a new vector index policy, if a change is needed.
+
 Here are examples of valid vector index policies:
 
 ```json
