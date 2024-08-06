@@ -84,3 +84,8 @@ This combination of features enables businesses to tailor their responses and be
 * Rollback Plan: Develop a rollback strategy that enables quick reversion to a previous stable state if the new feature leads to unexpected issues. To ensure rapid response capabilities during critical situations, implement this strategy in the deployment pipelines. 
 
 * Feedback Analysis: To gather actionable insights, regularly collect and analyze feedback from users, particularly from Contoso. This feedback is crucial for continuous improvement and helps the development team understand the real-world impact of the features, leading to more targeted and effective updates. 
+
+## Next steps
+- [Enable Message Analysis With Azure OpenAI Quick Start](../../../quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md)
+- [Handle Advanced Messaging events](../../../quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md)
+- [Send WhatsApp template messages](../whatsapp/template-messages.md)
