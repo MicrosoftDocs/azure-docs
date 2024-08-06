@@ -37,8 +37,6 @@ You can customize the app's front-end and back-end logic. The app provides sever
 
 When you're customizing the app, we recommend:
 
-- Resetting the chat session (clear chat) if any settings changes are made. Notify your application end-users that their chat history will be lost.
-
 - Clearly communicating how each setting that you implement affects the user experience.
 
 - Updating the app settings for each of your deployed apps to use new API keys after you rotate keys for your Azure OpenAI or Azure AI Search resource.
