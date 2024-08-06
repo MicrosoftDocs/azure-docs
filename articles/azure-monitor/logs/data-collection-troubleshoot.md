@@ -27,9 +27,6 @@ When data collection stops, the **OperationStatus** is **Warning**. When data co
 
 To be notified when data collection stops, use the steps described in the [Alert when daily cap is reached](daily-cap.md#alert-when-daily-cap-is-reached) section. To configure an e-mail, webhook, or runbook action for the alert rule, use the steps described in [create an action group](../alerts/action-groups.md). 
 
-## Daily ingestion limit reached in legacy free pricing tier 
-If your Log Analytics workspace is in the [legacy Free pricing tier](cost-logs.md#legacy-pricing-tiers) and has collected more than 500 MB of data in a day, data collection stops for the rest of the day. Wait until the following day for collection to automatically restart, or change to a paid pricing tier.
-
 ## Ingestion volume rate limit reached
 The [default ingestion volume rate limit](../service-limits.md#log-analytics-workspaces) for data sent from Azure resources using diagnostic settings is approximately 6 GB/min per workspace. This is an approximate value because the actual size can vary between data types, depending on the log length and its compression ratio. This limit doesn't apply to data that's sent from agents or the [Logs ingestion API](logs-ingestion-api-overview.md). 
 
@@ -44,6 +41,8 @@ Operation
 | where OperationCategory == "Ingestion" 
 | where Detail startswith "The rate of data crossed the threshold"
 ```
+## Legacy free pricing tier daily ingestion limit reached 
+If your Log Analytics workspace is in the [legacy Free pricing tier](cost-logs.md#legacy-pricing-tiers) and has collected more than 500 MB of data in a day, data collection stops for the rest of the day. Wait until the following day for collection to automatically restart, or change to a paid pricing tier.
 
 ## Azure Monitor Agent not sending data
 
