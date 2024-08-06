@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: madsd
 ms.topic: overview
-ms.date: 07/18/2024
+ms.date: 08/06/2024
 ms.author: madsd
 ---
 
@@ -52,10 +52,12 @@ App Service Environment has the following network information at creation:
 |--------------|-------------|
 | App Service Environment virtual network | The virtual network deployed into. |
 | App Service Environment subnet | The subnet deployed into. |
-| Domain suffix | The domain suffix that is used by the apps made. |
+| Domain suffix | The default domain suffix that is used by the apps. |
+| Custom domain suffix | (optional) The custom domain suffix that is used by the apps. |
 | Virtual IP (VIP) | The VIP type used. The two possible values are internal and external. |
 | Inbound address | The inbound address is the address at which your apps are reached. If you have an internal VIP, it's an address in your App Service Environment subnet. If the address is external, it's a public-facing address. |
-| Default outbound addresses | The apps use this address, by default, when making outbound calls to the internet. |
+| Worker outbound addresses | The apps use this or these addresses, when making outbound calls to the internet. |
+| Platform outbound addresses | The platform use this address, when making outbound calls to the internet. An example is pulling certificates for custom domain suffix from Key Vault if a private endpoint is not used. |
 
 You can find details in the **IP Addresses** portion of the portal, as shown in the following screenshot:
 
