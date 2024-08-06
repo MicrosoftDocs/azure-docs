@@ -23,13 +23,13 @@ To start receiving Event Grid HTTP requests, you need a subscription to events r
 
 The URL endpoint for your Event Grid triggered function depends on the version of the Functions runtime. The following example shows the version-specific URL pattern:
 
-# [v2.x+](#tab/v2)
+#### [v2.x+](#tab/v2)
 
 ```http
 https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
 ```
 
-# [v1.x](#tab/v1) 
+#### [v1.x](#tab/v1) 
 
 ```http
 https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
@@ -45,13 +45,13 @@ The URL endpoint you construct includes the system key value. The system key is 
 
 You can get the system key by using the following API (HTTP GET):
 
-# [v2.x+](#tab/v2)
+#### [v2.x+](#tab/v2)
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
 ```
 
-# [v1.x](#tab/v1) 
+#### [v1.x](#tab/v1) 
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
@@ -87,7 +87,7 @@ For more information, see [Authorization keys](functions-bindings-http-webhook-t
 
 You can create an event subscription either from the [Azure portal](https://portal.azure.com) or by using the Azure CLI. 
 
-# [Portal](#tab/portal)
+#### [Portal](#tab/portal)
 
 For functions that you develop in the Azure portal with the Event Grid trigger, select **Integration** then choose the **Event Grid Trigger** and select **Create Event Grid subscription**.
 
@@ -99,7 +99,7 @@ When you select this link, the portal opens the **Create Event Subscription** pa
 
 For more information about how to create subscriptions by using the Azure portal, see [Create custom event - Azure portal](../event-grid/custom-event-quickstart-portal.md) in the Event Grid documentation.
 
-# [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To create a subscription by using [the Azure CLI](/cli/azure/get-started-with-azure-cli), use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) command. Examples use the v2.x+ version of the URL and are written to run in [Azure Cloud Shell](../cloud-shell/overview.md). You'll need to modify the examples to run from a Windows command prompt.
 
@@ -126,6 +126,10 @@ To test an Event Grid trigger locally, you have to get Event Grid HTTP requests 
 1. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
 1. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
 1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
+
+To send an HTTP post request, you need an HTTP test tool, like one of these:
+
+[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [`az eventgrid event-subscription update`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-update) Azure CLI command.
 
@@ -162,20 +166,20 @@ The subscription validation request will be received first; ignore any validatio
 
 Run your Event Grid function locally. The `Content-Type` and `aeg-event-type` headers are required to be manually set, while and all other values can be left as default.
 
-Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl.haxx.se/docs/httpscripting.html) to create an HTTP POST request:
+Use your HTTP test tool to create an HTTP POST request:
 
 * Set a `Content-Type: application/json` header.
 * Set an `aeg-event-type: Notification` header.
 * Paste the RequestBin data into the request body.
-* Post to the URL of your Event Grid trigger function.
+* Send an HTTP POST request to the endpoint that manually starts the Event Grid trigger.
   
-    # [v2.x+](#tab/v2)
+    #### [v2.x+](#tab/v2)
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-    # [v1.x](#tab/v1)
+    #### [v1.x](#tab/v1)
   
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -183,13 +187,7 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 
     ---
 
-The `functionName` parameter must be the name specified in the `FunctionName` attribute.
-
-The following screenshots show the headers and request body in Postman:
-
-![Headers in Postman](media/functions-bindings-event-grid/postman2.png)
-
-![Request body in Postman](media/functions-bindings-event-grid/postman.png)
+The `functionName` parameter must be the name specified in the `FunctionName` attribute. 
 
 The Event Grid trigger function executes and shows logs similar to the following example:
 
