@@ -339,7 +339,7 @@ When you're done, your complete logic app file structure appears similar to the 
 ```text
 MyLogicApp
 -- execute_powershell_script.ps1
-- host.json
+-- mytestworkflow.json
 - Modules
 -- MyPrivateModule
 --- MyPrivateModule.psd1
@@ -347,8 +347,8 @@ MyLogicApp
 -- MyPrivateModule2
 --- MyPrivateModule2.psd1
 --- MyPrivateModule2.psm1
-- mytestworkflow.json
 - requirements.psd1
+- host.json
 ```
 
 ## Compilation errors
@@ -363,7 +363,7 @@ Make sure that you use the **Push-WorkflowOutput** cmdlet.
 
 ### Execute PowerShell Code action fails: "The term '{some-text}' is not recognized..."
 
-If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{moduleName}, you get the following error:
+If you incorrectly reference a public module in the **requirements.psd1** file or when your private module doesn't exist in the following path: **C:\home\site\wwwroot\Modules\{module-name}**, you get the following error:
 
 **The term '{some-text}' is not recognized as a name of a cmdlet, function, script file, or executable program. Check the spelling of the name or if a path was included, verify the path is correct and try again.**
 
