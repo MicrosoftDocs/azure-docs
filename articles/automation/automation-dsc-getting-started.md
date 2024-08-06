@@ -2,10 +2,11 @@
 title: Get started with Azure Automation State Configuration
 description: This article tells how to do the most common tasks in Azure Automation State Configuration.
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.custom: devx-track-arm-template
 ms.date: 01/03/2022
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Get started with Azure Automation State Configuration

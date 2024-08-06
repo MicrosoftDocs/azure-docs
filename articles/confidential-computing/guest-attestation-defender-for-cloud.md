@@ -3,8 +3,8 @@ title: Use Microsoft Defender for Cloud with guest attestation for Azure confide
 description: Learn how you can use Microsoft Defender for Cloud with your Azure confidential VMs with the guest attestation feature installed.
 author: prasadmsft
 ms.author: reprasa
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.custom: template-concept

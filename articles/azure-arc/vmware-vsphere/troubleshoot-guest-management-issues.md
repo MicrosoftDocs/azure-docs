@@ -112,6 +112,6 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

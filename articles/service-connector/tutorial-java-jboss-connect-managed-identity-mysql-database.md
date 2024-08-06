@@ -279,4 +279,4 @@ curl https://${WEBAPP_URL}/checklist/1
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](../app-service/configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](../app-service/configure-language-java-security.md?pivots=platform-linux)

@@ -3,7 +3,7 @@ title: Autoscale AKS pods with Azure Application Gateway metrics
 description: This article provides instructions on how to scale your AKS backend pods using Application Gateway metrics and Azure Kubernetes Metric Adapter
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
 ms.date: 10/26/2023
@@ -19,7 +19,7 @@ In the following tutorial, we explain how you can use Application Gateway's `Avg
 Use following two components:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) - We use the metric adapter to expose Application Gateway metrics through the metric server. The Azure Kubernetes Metric Adapter is an open source project under Azure, similar to the Application Gateway Ingress Controller.
-* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) - We use HPA to use Application Gateway metrics and target a deployment for scaling.
+* [`Horizontal Pod Autoscaler`](/azure/aks/concepts-scale#horizontal-pod-autoscaler) - We use HPA to use Application Gateway metrics and target a deployment for scaling.
 
 > [!NOTE]
 > The Azure Kubernetes Metrics Adapter is no longer maintained. Kubernetes Event-driven Autoscaling (KEDA) is an alternative.<br>
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## Using the new metric to scale up the deployment
 
-Once we're able to expose `appgw-request-count-metric` through the metric server, we're ready to use [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) to scale up our target deployment.
+Once we're able to expose `appgw-request-count-metric` through the metric server, we're ready to use [`Horizontal Pod Autoscaler`](/azure/aks/concepts-scale#horizontal-pod-autoscaler) to scale up our target deployment.
 
 In following example, we target a sample deployment `aspnet`. We scale up Pods when `appgw-request-count-metric` > 200 per Pod up to a max of `10` Pods.
 

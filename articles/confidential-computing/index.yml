@@ -6,8 +6,8 @@ summary: Azure confidential computing offers solutions to enable isolation of yo
 metadata:
   title: Azure confidential computing
   description: Learn about how Azure confidential computing protects data in use and learn ways to build confidential workloads in the cloud.
-  ms.service: virtual-machines
-  ms.subservice: confidential-computing
+  ms.service: azure-virtual-machines
+  ms.subservice: azure-confidential-computing
   ms.topic: landing-page
   author: michamcr 
   ms.author: mmcrey
@@ -131,7 +131,7 @@ landingContent:
           - text: App enclave aware container samples
             url: enclave-aware-containers.md
           - text: Confidential VM node pools on AKS
-            url: ..\aks\use-cvm.md
+            url: /azure/aks/use-cvm
       - linkListType: reference
         links:
           - text: Azure architecture center confidential container scenarios

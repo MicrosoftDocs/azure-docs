@@ -3,8 +3,8 @@ title: What is dedicated SQL pool (formerly SQL DW)?
 description: Dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics is the enterprise data warehousing functionality in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.date: 02/21/2023
-ms.service: synapse-analytics
+ms.date: 07/19/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: overview
 ---
@@ -13,11 +13,7 @@ ms.topic: overview
 
 Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are available in Azure Synapse Analytics.
 
-
-
-![Dedicated SQL pool (formerly SQL DW) in relation to Azure Synapse](./media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png)
-
-
+:::image type="content" source="media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png" alt-text="Diagram of dedicated SQL pool (formerly SQL DW) in relation to Azure Synapse." lightbox="media/sql-data-warehouse-overview-what-is/dedicated-sql-pool.png":::
 
 Dedicated SQL pool (formerly SQL DW) represents a collection of analytic resources that are provisioned when using Synapse SQL. The size of a dedicated SQL pool (formerly SQL DW) is determined by Data Warehousing Units (DWU).
 
@@ -30,7 +26,7 @@ Once your dedicated SQL pool is created, you can import big data with simple [Po
 
 Data warehousing is a key component of a cloud-based, end-to-end big data solution.
 
-![Data warehouse solution](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
+:::image type="content" source="media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png" alt-text="Diagram of data warehouse solutions featuring zones for Ingest, Store, Prep & Train, and Model & Serve." lightbox="media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png":::
 
 In a cloud data solution, data is ingested into big data stores from a variety of sources. Once in a big data store, Hadoop, Spark, and machine learning algorithms prepare and train the data. When the data is ready for complex analysis, dedicated SQL pool uses PolyBase to query the big data stores. PolyBase uses standard T-SQL queries to bring the data into dedicated SQL pool (formerly SQL DW) tables.
 
@@ -38,7 +34,7 @@ Dedicated SQL pool (formerly SQL DW) stores data in relational tables with colum
 
 The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
-## Next steps
+## Related content
 
 - Explore [Azure Synapse architecture](massively-parallel-processing-mpp-architecture.md)
 - Quickly [create a dedicated SQL pool](../quickstart-create-sql-pool-studio.md)
@@ -52,5 +48,5 @@ Or look at some of these other Azure Synapse resources:
 - Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Submit a [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
-- Search [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
-- Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
+- [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

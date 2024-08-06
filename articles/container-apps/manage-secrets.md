@@ -3,7 +3,7 @@ title: Manage secrets in Azure Container Apps
 description: Learn to store and consume sensitive configuration values in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.author: cshoe

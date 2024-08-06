@@ -3,7 +3,7 @@ title: Working with tables in Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Learn how to work with tables (meltable) in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.author: franksolomon

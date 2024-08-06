@@ -4,7 +4,7 @@ description: Azure PowerShell Sample - restore a disk from a snapshot and learn 
 services: virtual-machines
 author: ramankumarlive
 manager: kavithag
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: disks
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows

@@ -2,8 +2,8 @@
 title: Work with indoor maps in Azure Maps Creator
 titleSuffix: Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
@@ -283,11 +283,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 4. Save the new **tilesetId** for the next step.
 5. To enable the visualization of the updated campus dataset, update the tileset identifier in your application. If the old tileset is no longer used, you can delete it.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Tutorial: Creating a Creator indoor map]
-
 <!-----	Internal Links	------->
 [Convert a drawing package]: #convert-a-drawing-package
 [Custom styling service]: #custom-styling-preview
@@ -333,7 +328,6 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Manage Azure Maps Creator]: how-to-manage-creator.md
 [structure]: creator-facility-ontology.md?pivots=facility-ontology-v2#structure
 [style picker control]: choose-map-style.md#add-the-style-picker-control
-[Tutorial: Creating a Creator indoor map]: tutorial-creator-indoor-maps.md
 [Tutorial: Implement IoT spatial analytics by using Azure Maps]: tutorial-iot-hub-maps.md
 [verticalPenetration]: creator-facility-ontology.md?pivots=facility-ontology-v2#verticalpenetration
 

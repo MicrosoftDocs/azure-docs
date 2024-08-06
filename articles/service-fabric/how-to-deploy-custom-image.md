@@ -4,7 +4,7 @@ description: Learn how to deploy a custom image on Azure Service Fabric clusters
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-arm-template
 services: service-fabric
 ms.date: 09/12/2023

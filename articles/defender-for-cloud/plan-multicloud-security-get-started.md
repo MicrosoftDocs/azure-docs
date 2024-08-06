@@ -1,5 +1,5 @@
 ---
-title: Planning multicloud security get started guidance before you begin cloud solution
+title: Start planning multicloud protection in Microsoft Defender for Cloud
 description: Learn about designing a solution for securing and protecting your multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 author: dcurwin
@@ -7,9 +7,9 @@ ms.author: dacurwin
 ms.date: 05/30/2024
 ---
 
-# Get started
+# Start planning multicloud protection
 
-This article introduces guidance to help you design a solution for securing and protecting your multicloud environment with Microsoft Defender for Cloud. The guidance can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in designing a multicloud security solution.
+This article introduces guidance to help you design a solution for securing and protecting a multicloud environment with Microsoft Defender for Cloud. The guidance can be used by cloud solution and infrastructure architects, security architects and analysts, and anyone else involved in designing a multicloud security solution.
 
 As you capture your functional and technical requirements, the articles provide an overview of multicloud capabilities, planning guidance, and prerequisites.
 

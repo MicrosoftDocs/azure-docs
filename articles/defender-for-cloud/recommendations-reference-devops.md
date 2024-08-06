@@ -101,6 +101,12 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 
 **Severity**: High
 
+### [(Preview) Azure DevOps projects should have creation of classic pipelines disabled](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/9f4a17ee-7a02-4978-b968-8c36b74ac8e3)
+
+**Description**: Disabling the creation of classic build and release pipelines prevents a security concern that stems from YAML and classic pipelines sharing the same resources, for example the same service connections. Potential attackers can leverage classic pipelines to create processes that evade typical defense mechanisms set up around modern YAML pipelines.
+
+**Severity**: High
+
 ## GitHub recommendations
 
 ### [GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
@@ -202,6 +208,24 @@ DevOps recommendations don't affect your [secure score](secure-score-security-co
 ### [(Preview) GitHub organizations should not make action secrets accessible to all repositories](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/6331fad3-a7a2-497d-b616-52672057e0f3)
 
 **Description**: For secrets used in GitHub Action workflows that are stored at the GitHub organization-level, you can use access policies to control which repositories can use organization secrets. Organization-level secrets let you share secrets between multiple repositories, reducing the need to create duplicate secrets. However, when a secret is made accessible to a repository, anyone with write access on repository can access the secret from any branch in a workflow. To reduce the attack surface, ensure that the secret is accessible from selected repositories only.
+
+**Severity**: High
+
+### [(Preview) GitHub organizations should block Copilot suggestions that match public code](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/98e858ed-6e88-4698-b538-f51b31ad57f6)
+
+**Description**: Enabling GitHub Copilot's filter to block code suggestions matching public code on GitHub enhances security and legal compliance. It prevents the unintentional incorporation of public or open-source code, reducing the risk of legal issues and ensuring adherence to licensing terms. Additionally, it helps avoid introducing potential vulnerabilities from public code into the organization's projects, thereby maintaining higher code quality and security. When the filter is enabled, GitHub Copilot checks code suggestions with their surrounding code of about 150 characters against public code on GitHub. If there is a match or near match, the suggestion will not be shown.
+
+**Severity**: High
+
+### [(Preview) GitHub organizations should enforce multifactor authentication for outside collaborators](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/a9621d26-9d8c-4cd6-8ad0-84501eb88f17)
+
+**Description**: Enforcing multifactor authentication for outside collaborators in a GitHub organization is a security measure that requires collaborators to use an additional form of identification besides their password to access the organization's repositories and resources. This enhances security by protecting against unauthorized access, even if a password is compromised, and helps ensure compliance with industry standards. It involves informing collaborators about the requirement and providing support for the transition, ultimately reducing the risk of data breaches.
+
+**Severity**: High
+
+### [(Preview) GitHub repositories should require minimum two-reviewer approval for code pushes](https://portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/20be7df7-9ebb-4fb4-95a9-3ae19b78b80a)
+
+**Description**: To prevent unintended or malicious changes from being directly committed, it's important to implement protection policies for the default branch in GitHub repositories. We recommend requiring at least two code reviewers to approve pull requests before the code is merged with the default branch. By requiring approval from a minimum number of two reviewers, you can reduce the risk of unauthorized modifications, which could lead to system instability or security vulnerabilities.
 
 **Severity**: High
 

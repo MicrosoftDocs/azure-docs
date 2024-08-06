@@ -2,12 +2,12 @@
 title: 'Quickstart: Create a Synapse workspace using Azure CLI'
 description: Create an Azure Synapse workspace using Azure CLI by following the steps in this guide.
 author: WilliamDAssafMSFT
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 02/04/2022
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: mode-api, devx-track-azurecli
 ---
 

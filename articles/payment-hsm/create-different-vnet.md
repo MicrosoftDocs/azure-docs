@@ -2,7 +2,7 @@
 title: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
 description: Create an Azure Payment HSM with host and management port in different VNets using CLI or PowerShell
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: tutorial

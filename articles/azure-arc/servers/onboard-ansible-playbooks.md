@@ -2,7 +2,7 @@
 title: Connect machines at scale using Ansible Playbooks
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks.
 ms.date: 05/09/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: template-how-to, devx-track-ansible
 ---
 

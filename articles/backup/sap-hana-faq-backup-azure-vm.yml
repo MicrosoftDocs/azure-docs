@@ -3,7 +3,7 @@ metadata:
   title: FAQ — Back up SAP HANA databases on Azure VMs
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 05/13/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick

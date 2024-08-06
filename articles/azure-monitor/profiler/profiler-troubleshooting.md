@@ -36,6 +36,12 @@ Profiler isn't currently supported on free or shared app service plans. Upgrade 
 
 If the data you're trying to view is older than two weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 
+## Are you aware of the Profiler sampling rate and overhead? 
+
+Profiler randomly runs two minutes per hour on each virtual machine hosting applications with Profiler enabled.
+
+[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
+
 ## Can you access the gateway?
 
 Check that a firewall or proxies aren't blocking your access to [this webpage](https://gateway.azureserviceprofiler.net).

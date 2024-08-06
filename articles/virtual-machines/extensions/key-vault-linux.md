@@ -3,7 +3,7 @@ title: Azure Key Vault VM Extension for Linux
 description: Deploy an agent performing automatic refresh of Key Vault certificates on virtual machines using a virtual machine extension.
 services: virtual-machines
 author: msmbaldwin
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.collection: linux
 ms.topic: article
@@ -624,7 +624,7 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
  az vm get-instance-view --resource-group <resource group name> --name  <vmName> --query "instanceView.extensions"
 ```
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ### Logs and configuration
 

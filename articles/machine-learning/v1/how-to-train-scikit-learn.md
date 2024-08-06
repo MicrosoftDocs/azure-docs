@@ -3,7 +3,7 @@ title: Train scikit-learn machine learning models (SDK v1)
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning SDK (v1) enables you to scale out a scikit-learn training job using elastic cloud compute resources.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.author: sgilley
 author: sdgilley

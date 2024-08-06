@@ -4,10 +4,10 @@ description: Get an overview of Azure Cosmos DB change feed modes.
 author: jcocchi
 ms.author: jucocchi
 ms.reviewer: jucocchi
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 07/25/2024
 ---
 # Change feed modes in Azure Cosmos DB
 
@@ -120,7 +120,7 @@ During the preview, the following methods to read the change feed are available 
 
 | **Method to read change feed** | **.NET** | **Java** | **Python** | **Node.js** |
 | --- | --- | --- | --- | --- |
-| [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.32.0-preview) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  No  |
+| [Change feed pull model](change-feed-pull-model.md) | [>= 3.32.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.32.0-preview) | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.37.0) |  No  |  [>= 4.1.0](https://www.npmjs.com/package/@azure/cosmos/v/4.1.0)  |
 | [Change feed processor](change-feed-processor.md) | No | [>= 4.42.0](https://mvnrepository.com/artifact/com.azure/azure-cosmos/4.42.0) | No | No |
 | Azure Functions trigger | No | No | No | No |
 

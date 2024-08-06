@@ -48,7 +48,9 @@ Before you begin:
 1. Select the subscription you would like to use for servers onboarded directly with Defender for Endpoint.
 1. Select **Save**.
 
-:::image type="content" source="media/onboard-machines-with-defender-for-endpoint/onboard-with-defender-for-endpoint.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
+:::image type="content" source="media/onboard-machines-with-defender-for-endpoint/direct-onboarding-subscription.png" alt-text="Screenshot of Onboard non-Azure servers with Defender for Endpoint.":::
+
+
 
 You now successfully enabled direct onboarding on your tenant. After you enable it for the first time, it might take up to 24 hours to see your non-Azure servers in your designated subscription.
 

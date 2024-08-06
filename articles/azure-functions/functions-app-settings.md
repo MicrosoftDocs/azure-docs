@@ -3,7 +3,7 @@ title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables used to configure functions apps.
 ms.topic: conceptual
 ms.custom: devx-track-extended-java, devx-track-python, ignite-2023, build-2024, linux-related-content
-ms.date: 12/28/2023
+ms.date: 07/11/2024
 ---
 
 # App settings reference for Azure Functions
@@ -63,6 +63,8 @@ The connection string for Application Insights by using Microsoft Entra authenti
 |Key|Sample value|
 |---|------------|
 |APPLICATIONINSIGHTS_AUTHENTICATION_STRING|`ClientId=<YOUR_CLIENT_ID>;Authorization=AAD`|
+
+[!INCLUDE [functions-app-insights-disable-local-note](../../includes/functions-app-insights-disable-local-note.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -206,7 +208,7 @@ Indicates the Kubernetes Secrets resource used for storing keys. Supported only 
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultClientId
 
@@ -216,7 +218,7 @@ The client ID of the user-assigned managed identity or the app registration used
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultClientId|`<CLIENT_ID>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultClientSecret
 
@@ -226,11 +228,13 @@ The secret for client ID of the user-assigned managed identity or the app regist
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultClientSecret|`<CLIENT_SECRET>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultName
 
-The name of a key vault instance used to store keys. This setting is only supported for version 3.x of the Functions runtime. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
+_This setting is deprecated and was only used when running on version 3.x of the Azure Functions runtime._ 
+
+The name of a key vault instance used to store keys. This setting was only used in version 3.x of the Functions runtime, which is no longer supported. For version 4.x, instead use `AzureWebJobsSecretStorageKeyVaultUri`. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. 
 
 The vault must have an access policy corresponding to the system-assigned managed identity of the hosting resource. The access policy should grant the identity the following secret permissions: `Get`,`Set`, `List`, and `Delete`. <br/>When your functions run locally, the developer identity is used, and settings must be in the [local.settings.json file](functions-develop-local.md#local-settings-file). 
 
@@ -238,11 +242,11 @@ The vault must have an access policy corresponding to the system-assigned manage
 |---|------------|
 |AzureWebJobsSecretStorageKeyVaultName|`<VAULT_NAME>`|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultTenantId
 
-The tenant ID of the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+The tenant ID of the app registration used to access the vault where keys are stored. This setting requires you to set `AzureWebJobsSecretStorageType` to `keyvault`. Supported in version 4.x and later versions of the Functions runtime. To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 |Key|Sample value|
 |---|------------|
@@ -264,7 +268,7 @@ To learn more, see [Use Key Vault references for Azure Functions](../app-service
 
 ## AzureWebJobsSecretStorageSas
 
-A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+A Blob Storage SAS URL for a second storage account used for key storage. By default, Functions uses the account set in `AzureWebJobsStorage`. When using this secret storage option, make sure that `AzureWebJobsSecretStorageType` isn't explicitly set or is set to `blob`. To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 |Key|Sample value|
 |--|--|
@@ -281,7 +285,7 @@ Specifies the repository or provider to use for key storage. Keys are always enc
 |AzureWebJobsSecretStorageType |`keyvault` | Keys are stored in a key vault instance set by `AzureWebJobsSecretStorageKeyVaultName`. | 
 |AzureWebJobsSecretStorageType | `kubernetes` | Supported only when running the Functions runtime in Kubernetes. When `AzureWebJobsKubernetesSecretName` isn't set, the repository is considered read only. In this case, the values must be generated before deployment. The [Azure Functions Core Tools](functions-run-local.md) generates the values automatically when deploying to Kubernetes.|
 
-To learn more, see [Secret repositories](security-concepts.md#secret-repositories).
+To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsStorage
 
@@ -385,7 +389,7 @@ The value is set by the runtime based on the language stack and deployment statu
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~3`). When new versions for the same major version are available, they're automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, `3.0.12345`). Default is `~3`. A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, `~4`). When new minor versions of the same major version are available, they're automatically installed in the function app. 
 
 |Key|Sample value|
 |---|------------|
@@ -396,9 +400,10 @@ The following major runtime version values are supported:
 | Value | Runtime target | Comment |
 | ------ | -------- | --- |
 | `~4` | 4.x | Recommended |
-| `~3` | 3.x | No longer supported |
-| `~2` | 2.x | No longer supported |
 | `~1` | 1.x | Support ends September 14, 2026 |
+
+A value of `~4` means that your app runs on version 4.x of the runtime. A value of `~1` pins your app to version 1.x of the runtime. Runtime versions 2.x and 3.x are no longer supported. For more information, see [Azure Functions runtime versions overview](functions-versions.md).
+If requested by support to pin your app to a specific minor version, use the full version number (for example, `4.0.12345`). For more information, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## FUNCTIONS\_INPROC\_NET8\_ENABLED
 
@@ -416,7 +421,8 @@ This app setting is a temporary way for Node.js apps to enable a breaking change
 
 Starting with Node.js v20, the app setting has no effect and the breaking change behavior is always enabled.
 
-For Node.js v18 or lower, the app setting can be used and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+For Node.js v18 or lower, the app setting is used, and the default behavior depends on if the error happens before or after a model v4 function has been registered:
+
 - If the error is thrown before (for example if you're using model v3 or your entry point file doesn't exist), the default behavior matches `false`.
 - If the error is thrown after (for example if you try to register duplicate model v4 functions), the default behavior matches `true`.
 
@@ -803,7 +809,11 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### alwaysOn
 
-On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes-up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+On a function app running in a [Dedicated (App Service) plan](./dedicated-plan.md), the Functions runtime goes idle after a few minutes of inactivity, a which point only requests to an HTTP trigger _wakes up_ your function app. To make sure that your non-HTTP triggered functions run correctly, including Timer trigger functions, enable Always On for the function app by setting the `alwaysOn` site setting to a value of `true`. 
+
+### functionsRuntimeAdminIsolationEnabled
+
+Determines if the `/admin` endpoints are exposed for the function app. When "false", the app will serve these endpoints, and they can only be accessed using the master key for the function app. When "true", these endpoints are not served by the app.
 
 ### linuxFxVersion 
 

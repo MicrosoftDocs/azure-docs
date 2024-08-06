@@ -2,7 +2,7 @@
 title: Connection strings in Azure SignalR Service
 description: This article gives an overview of connection strings in Azure SignalR Service, how to generate one, and how to configure one in an app server.
 author: chenkennt
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 03/29/2023
 ms.author: kenchen

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article describes the fields in the usage data files.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/18/2024
+ms.date: 07/12/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -85,7 +85,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | PlanName | EA, pay-as-you-go | Marketplace plan name. |
 | PreviousInvoiceId | MCA | Reference to an original invoice if the line item is a refund. |
 | PricingCurrency | MCA | Currency used when rating based on negotiated prices. |
-| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot` and `SavingsPlan`) |
+| PricingModel | All | Identifier that indicates how the meter is priced. (Values: `OnDemand`, `Reservation`, `Spot`, and `SavingsPlan`) |
 | Product | All | Name of the product. |
 | ProductId¹ | MCA | Unique identifier for the product. |
 | ProductOrderId | All | Unique identifier for the product order. |
@@ -93,7 +93,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Provider | MCA | Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS⁴. |
 | PublisherId | MCA | The ID of the publisher. It's only available after the invoice is generated. |
 | PublisherName | All | The name of the publisher. For first-party services, the value should be listed as `Microsoft` or `Microsoft Corporation`.  |
-| PublisherType | All |Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value will be `Azure`. |
+| PublisherType | All |Supported values: **Microsoft**, **Azure**, **AWS**⁴, **Marketplace**. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`. |
 | Quantity³ | All | The number of units used by the given product or service for a given day. |
 | ResellerName | MPA | The name of the reseller associated with the subscription. |
 | ResellerMpnId | MPA | ID for the reseller associated with the subscription. |
@@ -115,7 +115,7 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 | Tags¹ | All | Tags assigned to the resource. Doesn't include resource group tags. Can be used to group or distribute costs for internal chargeback. For more information, see [Organize your Azure resources with tags](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 | Term | All | Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption. |
 | UnitOfMeasure | All | The unit of measure for billing for the service. For example, compute services are billed per hour. |
-| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
+| UnitPrice² ³| All | The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (`PayG` price column) for your contract. For more information, see [Pricing behavior in cost details](automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details). |
 
 ¹ Fields used to build a unique ID for a single cost record. Every record in your cost details file should be considered unique. 
 
@@ -128,6 +128,16 @@ MPA accounts have all MCA terms, in addition to the MPA terms, as described in t
 The cost details file itself doesn’t uniquely identify individual records with an ID. Instead, you can use fields in the file flagged with ¹ to create a unique ID yourself.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
+
+### Part numbers in the EA invoice are also in the cost and usage file
+
+Records in cost and usage file and other cost management experiences, such as cost analysis, include part numbers matching them with the part numbers in the EA invoice. The part numbers in the cost and usage file are shown only for EA customers.
+
+- Part numbers are shown for all usage records.
+- Part numbers are shown for all purchase and refund records.
+
+Part numbers are the same in the invoice and cost and usage file details for all charge types, excluding Azure Savings Plan and prepurchase reservations. They currently don't have a part number in the cost and usage details file.
+
 
 ## Reconcile charges in the cost and usage details file
 
@@ -173,7 +183,7 @@ Included quantity (IQ) refers to the amount of a metered resource that can be co
 Meter characteristics - Meters associated with IQ exhibit specific traits in the cost file because the meters allow consumption without any extra charges. In the cost file, a meter with IQ has:
 
 - **ChargeType**: Usage, **PricingModel**: OnDemand.
-- **Unit price**, **effective price**, and **Cost** set to 0, because you're not billed for their consumption.
+- **Unit price**, **effective price**, and **Cost** set to 0, because you don't get billed for their consumption.
 - **Quantity** isn't zero. It shows the actual consumption of the meter.
 - However, the **PayG (pay-as-you-go) price** still shows the retail price, which is nonzero.
 
@@ -183,9 +193,9 @@ Meter characteristics - Meters associated with IQ exhibit specific traits in the
 
 Every financial system involves rounding logic, which can cause some variance. Invoices aggregate monthly costs at the meter level, with costs rounded depending on the currency. In contrast, the cost file contains costs at the resource instance level with higher precision. This difference results in a variance in the total cost between the invoice and the cost file. The rounding adjustment is provided in the cost file at an aggregated level whenever the invoice is ready, ensuring that the total costs in both files match.
 
-Note: Two separate rounding adjustments are provided—one for first-party records and the other for marketplace records. These adjustments are not available during an open month and become visible when the month closes and the invoice is generated.
+Note: Two separate rounding adjustments are provided—one for first-party records and the other for marketplace records. These adjustments aren't available during an open month and become visible when the month closes and the invoice is generated.
 
-Customers can distribute the rounding adjustment across smaller granularities, such as resources, resource groups, or subscription levels, using a weighted average or other methods.
+Customers can spread the rounding adjustment over finer details like individual resources, resource groups, or entire subscriptions. You can use a weighted average or use similar techniques.
 
 ### Rounding adjustment record in the cost file
 
@@ -219,7 +229,7 @@ The difference between the invoice total and the actual total is $0.002, which i
 
 ## List of terms from older APIs
 
-The following table maps terms used in older APIs to the new terms. Refer to the above table for those descriptions.
+The following table maps terms used in older APIs to the new terms. Refer to the previous table for descriptions.
 
 Old term | New term
 --- | ---

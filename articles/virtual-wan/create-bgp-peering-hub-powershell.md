@@ -3,9 +3,9 @@ title: 'Configure BGP peering to an NVA: PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a BGP peering with Virtual WAN hub router using Azure PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
 ---

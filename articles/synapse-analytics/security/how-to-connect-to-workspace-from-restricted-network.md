@@ -3,11 +3,11 @@ title: Connect to workspace resources in Azure Synapse Analytics Studio from a r
 description: This article will teach you how to connect to your workspace resources from a restricted network
 author: Danzhang-msft
 ms.author: danzhang
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 06/05/2023
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # Connect to workspace resources from a restricted network

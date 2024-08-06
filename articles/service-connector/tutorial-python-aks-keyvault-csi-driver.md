@@ -28,7 +28,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * [Install](/cli/azure/install-azure-cli) the Azure CLI, and sign in to Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 * Install [Docker](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/), to manage container image and Kubernetes resources.
-* A basic understanding of container and AKS. Get started from [preparing an application for AKS](../aks/tutorial-kubernetes-prepare-app.md).
+* A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 
 ## Create Azure resources
 
@@ -40,7 +40,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). This is the cluster where we create the service connection, pod definition and deploy the sample application to.
+1. Create an AKS cluster with the following command, or referring to the [tutorial](/azure/aks/learn/quick-kubernetes-deploy-cli). This is the cluster where we create the service connection, pod definition and deploy the sample application to.
 
     ```azurecli
     az aks create \

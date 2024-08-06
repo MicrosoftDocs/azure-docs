@@ -34,7 +34,7 @@ Azure App Service lets you deploy your web application code and configuration by
 |Run directly from an uploaded ZIP file |Microsoft Entra |[Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md) |
 |Run directly from external URL |Not applicable (outbound connection) |[Run from external URL instead](deploy-run-package.md#run-from-external-url-instead) |
 |Azure Web app plugin for Maven (Java) |Microsoft Entra |[Quickstart: Create a Java app on Azure App Service](quickstart-java.md)|
-|Azure WebApp Plugin for Gradle (Java) |Microsoft Entra |[Configure a Java app for Azure App Service](configure-language-java.md)|
+|Azure WebApp Plugin for Gradle (Java) |Microsoft Entra |[Configure a Java app for Azure App Service](configure-language-java-deploy-run.md)|
 |Webhooks | Basic authentication |[Web hooks](https://github.com/projectkudu/kudu/wiki/Web-hooks) |
 |App Service migration assistant |Basic authentication |[Azure App Service migration tools](https://azure.microsoft.com/products/app-service/migration-tools/) |
 |App Service migration assistant for PowerShell scripts |Basic authentication |[Azure App Service migration tools](https://azure.microsoft.com/products/app-service/migration-tools/) |

@@ -4,7 +4,7 @@ description: Learn about the blocking operations in place to mitigate cluster de
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
 ms.date: 09/15/2022
 ---

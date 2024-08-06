@@ -43,6 +43,8 @@
       href: diagnostics.md
     - name: Metrics
       href: application-gateway-for-containers-metrics.md
+    - name: Prometheus and Grafana Configuration
+      href: prometheus-grafana.md
     - name: SIEM integration with Sentinel
       href: siem-integration-with-sentinel.md
 - name: How-to guides

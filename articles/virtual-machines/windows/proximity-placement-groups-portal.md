@@ -2,7 +2,7 @@
 title: Create a proximity placement group using the portal
 description: Learn how to create a proximity placement group using the Azure portal.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: proximity-placement-groups
 ms.topic: how-to
 ms.date: 3/12/2023

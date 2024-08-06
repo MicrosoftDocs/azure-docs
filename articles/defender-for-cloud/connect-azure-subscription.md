@@ -16,7 +16,7 @@ Microsoft Defender for Cloud is a cloud-native application protection platform (
 - A cloud security posture management (CSPM) solution that surfaces actions that you can take to prevent breaches
 - A cloud workload protection platform (CWPP) with specific protections for servers, containers, storage, databases, and other workloads
 
-Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) for free. You can add additional paid plans to secure all aspects of your cloud resources. You can try Defender for Cloud for free for the first 30 days. After 30 days charges begin in accordance with the plans enabled in your environment. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+Defender for Cloud includes Foundational CSPM capabilities and access to [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) for free. You can add additional paid plans to secure all aspects of your cloud resources. You can try Defender for Cloud for free for the first 30 days. After 30 days, charges begin in accordance with the plans enabled in your environment. To learn more about these plans and their costs, see the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 > [!IMPORTANT]
 > Malware scanning in Defender for Storage is not included for free in the first 30 day trial and will be charged from the first day in accordance with the pricing scheme available on the Defender for Cloud [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).

@@ -2,9 +2,9 @@
 title: Local RBAC built-in roles for Azure Key Vault Managed HSM
 description: Get an overview of Azure Key Vault Managed HSM built-in roles that can be assigned to users, service principals, groups, and managed identities.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.topic: reference
 ms.date: 01/25/2024

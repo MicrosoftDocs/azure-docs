@@ -58,7 +58,7 @@ In this article, you learn how to enable custom locations on an Arc-enabled Kube
 ## Enable custom locations on your cluster
 
 > [!TIP]
-> The custom locations feature is dependent on the [cluster connect](cluster-connect.md) feature. Both features have to be enabled in the cluster for custom locations to work.
+> The custom locations feature is dependent on the [cluster connect](cluster-connect.md) feature. Both features must be enabled in the cluster for custom locations to function. To enable the custom locations feature, follow the steps below:
 
 If you are signed in to Azure CLI as a Microsoft Entra user, use the following command:
 
@@ -72,18 +72,22 @@ If you run the above command while signed in to Azure CLI using a service princi
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-This is because a service principal doesn't have permissions to get information about the application used by the Azure Arc service (custom location). To avoid this error, complete the following steps:
+This warning occurs because the service principal lacks the necessary permissions to retrieve the `oid` (object ID) of the custom location used by the Azure Arc service. To avoid this error, follow these steps:
 
-1. Sign in to Azure CLI using your user account. Fetch the `objectId` or `id` of the custom location application used by the Azure Arc service by using the following command:
+1. Sign in to Azure CLI with your user account.
 
-      ```azurecli
+1. Run the following command to fetch the `oid` (object ID) of the custom location, where `--id` is predefined and set to `bc313c14-388c-4e7d-a58e-70017303ee3b`: 
+
+   **Important!** Copy and run the command exactly as it is shown below. Do not replace the value passed to the `--id` parameter with a different value.
+
+   ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
    ```
 
-1. Sign in to Azure CLI using the service principal. Use the `<objectId>` or `id` value from the previous step to enable custom locations on the cluster:
+1. Sign in to Azure CLI using the service principal. Run the following command to enable the custom locations feature on the cluster, using the `oid` (object ID) value from the previous step for the `--custom-locations-oid` parameter:
 
     ```azurecli
-    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId/id> --features cluster-connect custom-locations
+    az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <cl-oid> --features cluster-connect custom-locations
     ```
 
 ## Create custom location

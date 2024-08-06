@@ -4,7 +4,7 @@ description: Azure Key Vault is a secure secrets store, providing management for
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: overview
 ms.date: 01/30/2024
@@ -25,7 +25,7 @@ Azure Key Vault is one of several [key management solutions in Azure](../../secu
 
 Azure Key Vault has two service tiers: Standard, which encrypts with a software key, and a Premium tier, which includes hardware security module(HSM)-protected keys. To see a comparison between the Standard and Premium tiers, see the [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
 
-[!INCLUDE [Zero Trust principles ](../../../includes/security/zero-trust-principles-key-management.md)]
+[!INCLUDE [Zero Trust principles ](~/reusable-content/ce-skilling/azure/includes/security/zero-trust-principles-key-management.md)]
 
 ## Why use Azure Key Vault?
 

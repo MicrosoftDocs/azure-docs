@@ -3,7 +3,7 @@ title: Lab accounts versus lab plans
 titleSuffix: Azure Lab Services
 description: Learn about the differences between lab accounts and lab plans in Azure Lab Services. Lab plans replace lab accounts and have some fundamental differences.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: ntrogh
 ms.author: nicktrog
 ms.topic: conceptual
@@ -11,6 +11,8 @@ ms.date: 08/07/2023
 ---
 
 # Lab accounts versus lab plans in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In Azure Lab Services, lab plans replace lab accounts and there some fundamental differences between the two concepts. In this article, you get an overview of the changes that come with lab plans and how lab plans are different from lab accounts. Lab plans bring improvements in performance, reliability, and scalability. Lab plans also give you more flexibility for managing labs, using capacity, and tracking costs.
 

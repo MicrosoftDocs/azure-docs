@@ -2,8 +2,8 @@
 title: Query datasets using the Web Feature Service
 titleSuffix: Microsoft Azure Maps Creator
 description: How to Query datasets with Web Feature Service (WFS) 
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 03/03/2023
 ms.topic: how-to
 ms.service: azure-maps
@@ -16,17 +16,14 @@ This article describes how to query Azure Maps Creator [datasets] using [Web Fea
 
 ## Prerequisites
 
-* Successful completion of [Tutorial: Use Creator to create indoor maps].
-* The `datasetId` obtained in [Check dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
+* A [dataset]
 
-This article uses the same sample indoor map as used in the Tutorial: Use Creator to create indoor maps.
 
 >[!IMPORTANT]
 >
 > * This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL.  For more information, see [Access to Creator Services].
 > * In the URL examples in this article you will need to replace:
 >   * `{Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
->   * `{datasetId}` with the `datasetId` obtained in the [Check the dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
 
 ## Query for feature collections
 
@@ -108,11 +105,9 @@ After the response returns, copy the feature `id` for one of the `unit` features
 }
 ```
 
-[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
+[dataset]: creator-indoor-maps.md#datasets
 [datasets]: /rest/api/maps-creator/dataset
 [WFS API]: /rest/api/maps-creator/wfs
 [Web Feature Service (WFS)]: /rest/api/maps-creator/wfs
-[Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
-[Check dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Access to Creator Services]: how-to-manage-creator.md#access-to-creator-services
 [WFS Describe Collections API]: /rest/api/maps-creator/wfs/get-collection-definition

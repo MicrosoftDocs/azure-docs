@@ -2,8 +2,6 @@
 title: Performance recommendations
 description: Full list of available performance recommendations in Advisor.
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 6/24/2024
 ---
 

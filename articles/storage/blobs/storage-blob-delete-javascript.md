@@ -5,7 +5,7 @@ description: Learn how to delete and restore a blob in your Azure Storage accoun
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 11/30/2022
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript

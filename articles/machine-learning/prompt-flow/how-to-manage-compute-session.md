@@ -3,7 +3,7 @@ title: Manage prompt flow compute session
 titleSuffix: Azure Machine Learning
 description: Learn how to manage prompt flow compute session in Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - build-2024
@@ -77,10 +77,13 @@ One flow binds to one compute session. You can start a compute session on a flow
         |---|---|
         |Azure Machine Learning workspace|Contributor|
         |Azure Storage|Contributor (control plane) + Storage Blob Data Contributor + Storage File Data Privileged Contributor (data plane, consume flow draft in fileshare and data in blob)|
+        |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations, this is **default mode** for linked Azure Key Vault.|
         |Azure Key Vault (when using [RBAC permission model](../../key-vault/general/rbac-guide.md))|Contributor (control plane) + Key Vault Administrator (data plane)|
-        |Azure Key Vault (when using [access policies permission model](../../key-vault/general/assign-access-policy.md))|Contributor + any access policy permissions besides **purge** operations|
         |Azure Container Registry|Contributor|
         |Azure Application Insights|Contributor|
+        
+        > [!NOTE]
+        > The job submitter need have `assign` permission on user assigned managed identity, you can assign `Managed Identity Operator` role, as every time create serverless compute session, it will assign user assigned managed identity to compute.
 
     - If you choose compute instance as compute type, you can only set idle shutdown time. 
         - As it's running on an existing compute instance the VM size is fixed and can't change in session side.
@@ -142,25 +145,25 @@ flow = "<path_to_flow>"
 data = "<path_to_flow>/data.jsonl"
 
 
-# define cloud resource
-
-# define instance type
-# case 1: use serverless compute type
-resources = {"instance_type": <instance_type>}
-# case 2: use compute instance compute type
-# resources = {"compute": <compute_instance_name>}
-
 # create run
-base_run = pf.run(
+run = Run(
+    # local flow file
     flow=flow,
+    # remote data
     data=data,
-    # identity = {'type': 'managed', 'client_id': '<client_id>'}, # specify identity used by serverless compute.
-   resources = resources, # specify compute resource used by .
-    column_mapping={
-        "url": "${data.url}"
-    }, 
+    # to customize runtime instance type and compute instance, you can provide them in resources
+    # resources={
+    #     "instance_type": "STANDARD_DS11_V2",
+    #     "compute": "my_compute_instance"
+    # }
+    # to customize identity, you can provide them in identity
+    # identity={
+    #     "type": "managed",
+    # }
 )
-print(base_run)
+
+base_run = pf.runs.create_or_update(run=run)
+
 ```
 
 Learn full end to end code first example: [Integrate prompt flow with LLM-based application DevOps.](./how-to-integrate-with-llm-app-devops.md)
@@ -168,7 +171,7 @@ Learn full end to end code first example: [Integrate prompt flow with LLM-based 
 ---
 
   > [!NOTE]
-  > The idle shutdown is one hour if you are using CLI/SDK to submit a flow run. You can go to compute page to release compute
+  > The idle shutdown is one hour if you are using CLI/SDK to submit a flow run. You can go to compute page to release compute.
 
 ### Reference files outside of the flow folder
 Sometimes, you might want to reference a `requirements.txt` file that is outside of the flow folder. For example, you might have complex project that includes multiple flows, and they share the same `requirements.txt` file. To do this, You can add this field `additional_includes` into the `flow.dag.yaml`. The value of this field is a list of the relative file/folder path to the flow folder. For example, if requirements.txt is in the parent folder of the flow folder, you can add `../requirements.txt` to the `additional_includes` field.

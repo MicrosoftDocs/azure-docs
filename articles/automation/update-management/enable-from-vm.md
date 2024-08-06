@@ -3,9 +3,10 @@ title: Enable Azure Automation Update Management for an Azure VM
 description: This article tells how to enable Update Management for an Azure VM.
 services: automation
 ms.subservice: update-management
-ms.date: 09/30/2023
+ms.date: 07/15/2024
 ms.topic: conceptual
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management for an Azure VM

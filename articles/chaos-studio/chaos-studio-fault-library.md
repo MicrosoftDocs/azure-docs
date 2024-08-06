@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 01/02/2024
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: linux-related-content
 ---
 
@@ -27,12 +27,13 @@ Agent-based faults are injected into **Azure Virtual Machines** or **Virtual Mac
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Disconnect](#network-disconnect)                                   | Network disruption                                          |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Latency](#network-latency)                                         | Network performance degradation                             |
 | Windows<sup>1</sup>, Linux<sup>2</sup>      | [Network Packet Loss](#network-packet-loss)                                 | Network reliability issues                                  |
+| Windows, Linux<sup>2</sup>      | [Network Isolation](#network-isolation)                                     | Network disruption                                          |
 | Windows             | [DNS Failure](#dns-failure)                                                 | DNS resolution issues                                       |
 | Windows             | [Network Disconnect (Via Firewall)](#network-disconnect-via-firewall)       | Network disruption                                          |
 | Windows, Linux      | [Physical Memory Pressure](#physical-memory-pressure)                       | Memory capacity loss, resource pressure                     |
 | Windows, Linux      | [Stop Service](#stop-service)                                               | Service disruption/restart                                  |
-| Windows, Linux      | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
-| Windows, Linux      | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
+| Windows             | [Time Change](#time-change)                                                 | Time synchronization issues                                 |
+| Windows             | [Virtual Memory Pressure](#virtual-memory-pressure)                         | Memory capacity loss, resource pressure                     |
 | Linux               | [Arbitrary Stress-ng Stressor](#arbitrary-stress-ng-stressor)               | General system stress testing                               |
 | Linux               | [Linux DiskIO Pressure](#linux-disk-io-pressure)                            | Disk I/O performance degradation                            |
 | Windows             | [DiskIO Pressure](#disk-io-pressure)                                        | Disk I/O performance degradation                            |
@@ -57,7 +58,7 @@ This section applies to the `Microsoft.Insights/autoscaleSettings` resource type
 
 ## Azure Kubernetes Service
 
-This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](../aks/intro-kubernetes.md).
+This section applies to the `Microsoft.ContainerService/managedClusters` resource type. [Learn more about Azure Kubernetes Service](/azure/aks/intro-kubernetes).
 
 | Fault name | Applicable scenarios |
 |------------|----------------------|
@@ -399,6 +400,45 @@ The parameters **destinationFilters** and **inboundDestinationFilters** use the 
 * When running on Windows, the network packet loss fault currently only works with TCP or UDP packets.
 * When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments (via the `inboundDestinationFilters` and `destinationFilters` parameters).
 * This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
+
+### Network Isolation
+
+| Property | Value |
+|-|-|
+| Capability name | NetworkIsolation-1.0 |
+| Target type | Microsoft-Agent |
+| Supported OS types | Windows, Linux (outbound only) |
+| Description | Fully isolate the virtual machine from network connections by dropping all IP-based inbound (on Windows) and outbound (on Windows and Linux) packets for the specified duration. At the end of the duration, network connections will be re-enabled. Because the agent depends on network traffic, this action cannot be cancelled and will run to the specified duration. |
+| Prerequisites | **Windows:** The agent must run as administrator, which happens by default if installed as a VM extension. |
+| | **Linux:** The `tc` (Traffic Control) package is used for network faults. If it isn't already installed, the agent automatically attempts to install it from the default package manager. |
+| Urn | urn:csci:microsoft:agent:networkIsolation/1.0 |
+| Fault type | Continuous. |
+| Parameters (key, value) |  |
+| virtualMachineScaleSetInstances | An array of instance IDs when you apply this fault to a virtual machine scale set. Required for virtual machine scale sets in uniform orchestration mode, optional otherwise. [Learn more about instance IDs](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-ids.md#scale-set-instance-id-for-uniform-orchestration-mode). |
+
+#### Sample JSON
+
+```json
+{
+  "name": "branchOne",
+  "actions": [
+    {
+      "type": "continuous",
+      "name": "urn:csci:microsoft:agent:networkIsolation/1.0",
+      "parameters": [],
+      "duration": "PT10M",
+      "selectorid": "myResources"
+    }
+  ]
+}
+```
+
+#### Limitations
+
+* Because the agent depends on network traffic, **this action cannot be cancelled** and will run to the specified duration. Use with caution.
+* This fault currently only affects new connections. Existing active connections are unaffected. You can restart the service or process to force connections to break.
+* When running on Linux, this fault can only affect **outbound** traffic, not inbound traffic. The fault can affect **both inbound and outbound** traffic on Windows environments.
+
 
 ### DNS Failure
 

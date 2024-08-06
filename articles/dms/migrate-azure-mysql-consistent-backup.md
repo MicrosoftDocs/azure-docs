@@ -4,7 +4,7 @@ description: Learn how to use the Azure Database for MySQL Data Migration - MySQ
 author: karlaescobar
 ms.author: karlaescobar
 ms.date: 04/19/2022
-ms.service: dms
+ms.service: azure-database-migration-service
 ms.topic: conceptual
 ms.custom:
   - references_regions

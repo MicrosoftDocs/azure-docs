@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 08/18/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Configure runbook input parameters in Automation

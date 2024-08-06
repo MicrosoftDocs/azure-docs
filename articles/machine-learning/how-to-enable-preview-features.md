@@ -3,7 +3,7 @@ title: Manage preview features
 titleSuffix: Azure Machine Learning
 description: Learn about, and enable, preview features available with Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: None

@@ -23,8 +23,11 @@ In this quickstart, get started with the Azure AI Content Safety service using C
 
 * An active Azure account. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Content Safety](https://aka.ms/acs-create) Azure resource.
-* The `Cognitive Services User` role assigned to the Content Safety resource in the desired Azure subscription.
+* Assign `Cognitive Services User` role to your account. Go to the [Azure Portal](https://portal.azure.com/), navigate to your Content Safety resource or Azure AI Services resource, and select **Access Control** in the left navigation bar, then select **+ Add role assignment**, choose the `Cognitive Services User` role and select the member of your account that you need to assign this role to, then review and assign. It might take few minutes for the assignment to take effect.
 * Sign in to [Content Safety Studio](https://contentsafety.cognitive.azure.com) with your Azure subscription and Content Safety resource. 
+
+> [!IMPORTANT]
+> * You must assign the `Cognitive Services User` role to your Azure account to use the studio experience. Go to the [Azure Portal](https://portal.azure.com/), navigate to your Content Safety resource or Azure AI Services resource, and select **Access Control** in the left navigation bar, then select **+ Add role assignment**, choose the `Cognitive Services User` role and select the member of your account that you need to assign this role to, then review and assign. It might take few minutes for the assignment to take effect.
 
 
 ## Analyze text content
@@ -98,7 +101,7 @@ To view resource details such as name and pricing tier, select the **Settings** 
 
 If you want to clean up and remove an Azure AI services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps

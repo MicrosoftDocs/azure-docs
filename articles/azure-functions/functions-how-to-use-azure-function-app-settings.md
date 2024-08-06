@@ -349,52 +349,6 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
 
 ---
 
-## Get your function access keys
-
-HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. For more information, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your access keys.
-
-### [Azure portal](#tab/azure-portal)
-
-1. Sign in to the Azure portal, then search for and select **Function App**.
-
-1. Select the function you want to verify.
-
-1. In the left pane, expand **Functions**, and then select **App keys**.
-
-    The **App keys** page appears. On this page the host keys are displayed, which can be used to access any function in the app. The system key is also displayed, which gives anyone administrator-level access to all function app APIs.
-
-You can also practice least privilege by using the key for a specific function. To do so, select **Function keys** under **Developer** in your HTTP-triggered function.
-
-### [Azure CLI](#tab/azure-cli)
-
-Run the following script in Azure Cloud Shell, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
-
-```azurecli-interactive
-subName='<SUBSCRIPTION_ID>'
-resGroup=AzureFunctionsContainers-rg
-appName=glengagtestdocker
-path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
-az rest --method POST --uri $path --query functionKeys.default --output tsv
-```
-
-In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. This script runs on Bash in Cloud Shell. It must be modified to run in a Windows command prompt.  
-
-### [Azure PowerShell](#tab/azure-powershell)
-
-Run the following script, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
-
-```powershell-interactive
-$subName = '<SUBSCRIPTION_ID>'
-$rGroup = 'AzureFunctionsContainers-rg'
-$appName = '<APP_NAME>'
-$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
-((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
-```
-
-In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respectively.
-
----
-
 ## Development limitations in the Azure portal
 
 Consider these limitations when you develop your functions in the [Azure portal](https://portal.azure.com):
@@ -444,12 +398,12 @@ Function apps run in the Azure App Service platform, which maintains them. As su
 
 The following matrix indicates Azure portal feature support by hosting plan and operating system:
 
-| Feature | Consumption plan | Premium plan  | Dedicated plan |
+| Feature | Consumption plan | Flex Consumption plan | Premium plan  | Dedicated plan |
 | --- | --- | --- | --- |
-| [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | ✔ | ✔|
-| [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
-| [Backups](../app-service/manage-backup.md) |**X** |**X** | ✔|
-| [Console](#console) | Windows: command-line <br/>Linux: **X** | Windows: command-line <br/>Linux: SSH | Windows: command-line <br/>Linux: SSH |
+| [Advanced tools (Kudu)](#kudu) | Windows: ✔ <br/>Linux: **X** | **X** | ✔ | ✔|
+| [App Service editor](#editor) | Windows: ✔ <br/>Linux: **X**   | **X** | Windows: ✔ <br/>Linux: **X** | Windows: ✔ <br/>Linux: **X**|
+| [Backups](../app-service/manage-backup.md) |**X** |**X** | **X** | ✔|
+| [Console](#console) | Windows: command-line <br/>Linux: **X** | **X** | Windows: command-line <br/>Linux: SSH | Windows: command-line <br/>Linux: SSH |
 
 The rest of this article focuses on the following features in the portal that are useful for your function apps:
 
@@ -520,7 +474,7 @@ You can't currently update CORS settings using Azure PowerShell.
 
 ### <a name="auth"></a>Authentication
 
-When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and Twitter. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
+When functions use an HTTP trigger, you can require calls to first be authenticated. App Service supports Microsoft Entra authentication and sign-in with social providers, such as Facebook, Microsoft, and X. For information about configuring specific authentication providers, see [Azure App Service authentication overview](../app-service/overview-authentication-authorization.md).
 
 ![Screenshot that shows how to configure authentication for a function app.](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

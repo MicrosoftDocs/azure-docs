@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Key Vault with the Azure CLI
 description: Quickstart showing how to create an Azure Key Vault using the Azure CLI
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/30/2024

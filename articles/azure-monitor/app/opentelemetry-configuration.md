@@ -202,12 +202,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add the OpenTelemetry telemetry service to the application.
 // This service will collect and send telemetry data to Azure Monitor.
-builder.Services.AddOpenTelemetry().UseAzureMonitor();
-
-// Configure the OpenTelemetry tracer provider to add the resource attributes to all traces.
-builder.Services.ConfigureOpenTelemetryTracerProvider((sp, builder) => 
-    builder.ConfigureResource(resourceBuilder => 
-        resourceBuilder.AddAttributes(resourceAttributes)));
+builder.Services.AddOpenTelemetry()
+    .UseAzureMonitor()
+    // Configure the ResourceBuilder to add the custom resource attributes to all signals.
+    // Custom resource attributes should be added AFTER AzureMonitor to override the default ResourceDetectors.
+    .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(_testResourceAttributes));
 
 // Build the ASP.NET Core web application.
 var app = builder.Build();
@@ -408,7 +407,7 @@ export OTEL_TRACES_SAMPLER_ARG=0.1
 ---
 
 > [!TIP]
-> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance blades. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#metrics), which are unaffected by sampling.
+> When using fixed-rate/percentage sampling and you aren't sure what to set the sampling rate as, start at 5% (i.e., 0.05 sampling ratio) and adjust the rate based on the accuracy of the operations shown in the failures and performance panes. A higher rate generally results in higher accuracy. However, ANY sampling will affect accuracy so we recommend alerting on [OpenTelemetry metrics](opentelemetry-add-modify.md#add-custom-metrics), which are unaffected by sampling.
 
 <a name='enable-entra-id-formerly-azure-ad-authentication'></a>
 
@@ -616,6 +615,8 @@ const credential = new ManagedIdentityCredential();
 // Create a new AzureMonitorOpenTelemetryOptions object and set the credential property to the credential object.
 const options: AzureMonitorOpenTelemetryOptions = {
     azureMonitorExporterOptions: {
+        connectionString:
+            process.env["APPLICATIONINSIGHTS_CONNECTION_STRING"] || "<your connection string>",
         credential: credential
     }
 };
@@ -632,11 +633,12 @@ from azure.identity import ManagedIdentityCredential
 # Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 
-# Configure OpenTelemetry to use Azure Monitor with a managed identity credential.
-# This will allow OpenTelemetry to authenticate to Azure Monitor without requiring you to provide a connection string.
+# Configure the Distro to authenticate with Azure Monitor using a managed identity credential.
 configure_azure_monitor(
+    connection_string="your-connection-string",
     credential=ManagedIdentityCredential(),
 )
+
 ```
 
 ---
