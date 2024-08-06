@@ -113,20 +113,6 @@ See how data, including customer information, vendor details, and line items, is
 
 The following are the fields extracted from a W-2 tax form in the JSON output response.
 
-::: moniker range="doc-intel-3.1.0"
-
-> [!div class="nextstepaction"]
-> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_tax_us_w2.py)
-
-::: moniker-end
-
-::: moniker range="doc-intel-4.0.0"
-
-> [!div class="nextstepaction"]
-> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_tax_us_w2.py)
-
-::: moniker-end
-
 |Name| Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`W2FormVariant`|`string`|IRS W2 tax form variant. This field can have the one of the following values: `W-2`, `W-2AS`, `W-2CM`, `W-2GU`, or `W-2VI`|W-2|
@@ -171,6 +157,20 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 |`LocalTaxInfos.*.LocalWagesTipsEtc`|`number`|Local wages, tips, amount in USD. Part of IRS W2 tax field 18|1234567.89|
 |`LocalTaxInfos.*.LocalIncomeTax`|`number`|Local income tax amount in USD. Part of IRS W2 tax field 19|1234567.89|
 |`LocalTaxInfos.*.LocalityName`|`string`|Locality name. Part of IRS W2 tax field 20|Redmond|
+
+::: moniker range="doc-intel-3.1.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model/sample_analyze_tax_us_w2.py)
+
+::: moniker-end
+
+::: moniker range="doc-intel-4.0.0"
+
+> [!div class="nextstepaction"]
+> [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Prebuilt_model/sample_analyze_tax_us_w2.py)
+
+::: moniker-end
 
 ## Field extraction 1098
 
