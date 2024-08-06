@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 08/25/2023
+ms.date: 07/11/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 ---
@@ -18,6 +18,9 @@ ms.custom: engagement-fy23, devx-track-arm-template, devx-track-bicep
 You can easily integrate Azure Application Insights with Azure API Management. Azure Application Insights is an extensible service for web developers building and managing apps on multiple platforms. In this guide, you will:
 * Walk through Application Insights integration into API Management.
 * Learn strategies for reducing performance impact on your API Management service instance.
+
+> [!NOTE]
+> In an API Management [workspace](workspaces-overview.md), a workspace owner can independently integrate Application Insights and enable Application Insights logging for the workspace's APIs. The general guidance to integrate a workspace with Application Insights is similar to the guidance for an API Management instance; however, configuration is scoped to the workspace only. Currently, you must integrate Application Insights in a workspace by configuring an instrumentation key or connection string. 
 
 ## Prerequisites
 
@@ -45,7 +48,7 @@ The following are high level steps for this scenario.
     You can create a connection between Application Insights and your API Management using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!NOTE]
-    > If your Application Insights resource is in a different tenant, then you must create the logger using the [REST API](/rest/api/apimanagement/current-ga/logger/create-or-update).
+    > If your Application Insights resource is in a different tenant, then you must create the logger using the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) as shown in a later section of this article.
 
     > [!IMPORTANT]
     > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. To use an Application Insights connection string or an API Management managed identity, use the REST API, Bicep, or ARM template to create the logger. [Learn more](../azure-monitor/app/sdk-connection-string.md) about Application Insights connection strings.
@@ -89,7 +92,9 @@ The Application Insights connection string appears in the **Overview** section o
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
+
+If you are configuring the logger for a workspace, use the [Workspace Logger - Create or Update](/rest/api/apimanagement/workspace-logger/create-or-update?view=rest-apimanagement-2023-09-01-preview&preserve-view=true) REST API.
 
 ```JSON
 {
@@ -148,7 +153,7 @@ See the [prerequisites](#prerequisites) for using an API Management managed iden
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
 ```JSON
 {
@@ -210,7 +215,7 @@ See the [prerequisites](#prerequisites) for using an API Management managed iden
 
 #### [REST API](#tab/rest)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) with the following request body.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
 ```JSON
 {
@@ -392,7 +397,7 @@ To improve performance issues, skip:
 Addressing the issue of telemetry data flow from API Management to Application Insights:
 + Investigate whether a linked Azure Monitor Private Link Scope (AMPLS) resource exists within the VNet where the API Management resource is connected. AMPLS resources have a global scope across subscriptions and are responsible for managing data query and ingestion for all Azure Monitor resources. It's possible that the AMPLS has been configured with a Private-Only access mode specifically for data ingestion. In such instances, include the Application Insights resource and its associated Log Analytics resource in the AMPLS. Once this addition is made, the API Management data will be successfully ingested into the Application Insights resource, resolving the telemetry data transmission issue.
 
-## Next steps
+## Related content
 
 + Learn more about [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).
 + Consider [logging with Azure Event Hubs](api-management-howto-log-event-hubs.md).

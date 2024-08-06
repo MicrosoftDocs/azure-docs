@@ -148,16 +148,16 @@ This mechanism helps to continuously monitor partition health and ensures that r
 ### Comparing availability optimizations
 
 - **Threshold-based availability strategy**: 
-  - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions.
-  - **Cost**: Incurs extra RU (Request Units) costs due to additional cross-region requests.
+  - **Benefit**: Reduces tail latency by sending parallel read requests to secondary regions, and improves availability by pre-empting requests that will result in network timeouts.
+  - **Trade-off**: Incurs extra RU (Request Units) costs compared to circuit breaker, due to additional parallel cross-region requests (though only during periods when thresholds are breached).
   - **Use Case**: Optimal for read-heavy workloads where reducing latency is critical and some additional cost (both in terms of RU charge and client CPU pressure) is acceptable. Write operations can also benefit, if opted into non-idempotent write retry policy and the account has multi-region writes.
 
 - **Partition level circuit breaker**: 
-  - **Benefit**: Improves write availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
-  - **Cost**: Does not incur significant additional RU costs as it avoids problematic partitions rather than issuing more requests.
+  - **Benefit**: Improves availability and latency by avoiding unhealthy partitions, ensuring requests are routed to healthier regions.
+  - **Trade-off**: Does not incur additional RU costs, but can still allow some initial availability loss for requests that will result in network timeouts. 
   - **Use Case**: Ideal for write-heavy or mixed workloads where consistent performance is essential, especially when dealing with partitions that may intermittently become unhealthy.
 
-Both strategies can be used to enhance write availability and reduce tail latency. We recommend Partition Level Circuit Breaker as a primary strategy, and additionally Threshold-based Availability Strategy can be used to further minimize tail latency if additional cost is acceptable. 
+Both strategies can be used together to enhance read and write availability and reduce tail latency. Partition Level Circuit Breaker can handle a variety of transient failure scenarios, including those that may result in slow performing replicas, without the need to perform parallel requests. Additionally, adding Threshold-based Availability Strategy will further minimize tail latency and eliminate availability loss, if additional RU cost is acceptable. 
 
 By implementing these strategies, developers can ensure their applications remain resilient, maintain high performance, and provide a better user experience even during regional outages or high-latency conditions.
 

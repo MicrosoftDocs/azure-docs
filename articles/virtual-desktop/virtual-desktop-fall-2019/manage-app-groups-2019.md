@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: tutorial
 ms.date: 08/16/2021
 ms.author: helohr
-manager: femila
 ---
 # Tutorial: Manage application groups for Azure Virtual Desktop (classic)
 

@@ -10,13 +10,37 @@ ms.custom:
   - ignite-2023
   - references_regions
 ms.topic: whats-new
-ms.date: 08/02/2024
+ms.date: 08/05/2024
 recommendations: false
 ---
 
 # What's new in Azure OpenAI Service
 
 This article provides a summary of the latest releases and major documentation updates for Azure OpenAI.
+
+## August 2024
+
+### Global batch deployments are now available
+
+The Azure OpenAI Batch API is designed to handle large-scale and high-volume processing tasks efficiently. Process asynchronous groups of requests with separate quota, with 24-hour target turnaround, at [50% less cost than global standard](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/). With batch processing, rather than send one request at a time you send a large number of requests in a single file. Global batch requests have a separate enqueued token quota avoiding any disruption of your online workloads.  
+
+Key use cases include:
+
+* **Large-Scale Data Processing:** Quickly analyze extensive datasets in parallel.
+
+* **Content Generation:** Create large volumes of text, such as product descriptions or articles.
+
+* **Document Review and Summarization:** Automate the review and summarization of lengthy documents.
+
+* **Customer Support Automation:** Handle numerous queries simultaneously for faster responses.
+
+* **Data Extraction and Analysis:** Extract and analyze information from vast amounts of unstructured data.
+
+* **Natural Language Processing (NLP) Tasks:** Perform tasks like sentiment analysis or translation on large datasets.
+
+* **Marketing and Personalization:** Generate personalized content and recommendations at scale.
+
+For more information on [getting started with global batch deployments](./how-to/batch.md).
 
 ## July 2024
 
