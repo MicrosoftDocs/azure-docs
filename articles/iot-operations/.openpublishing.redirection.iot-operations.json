@@ -449,6 +449,11 @@
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/tutorial-connect-event-grid.md",
             "redirect_url": "/azure/iot-operations/get-started-end-to-end-sample/quickstart-upload-telemetry-to-cloud",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md",
+            "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
         }
     ]
 }
