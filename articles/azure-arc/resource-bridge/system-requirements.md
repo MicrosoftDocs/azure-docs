@@ -31,11 +31,9 @@ Arc Appliance CLI extension, `arcappliance`, needs to be installed on the CLI. T
 
 Arc resource bridge has the following minimum resource requirements:
 
-- 250 GB disk space
-
+- 50 GB disk space
 - 4 vCPUs
 - 8 GB memory
-
 - supported storage configuration - hybrid storage (flash and HDD) or all-flash storage (SSDs or NVMe)
 
 These minimum requirements enable most scenarios. However, a partner product may support a higher resource connection count to Arc resource bridge, which requires the bridge to have higher resource requirements. Failure to provide sufficient resources may cause errors during deployment, such as disk copy errors. Review the partner product's documentation for specific resource requirements.
