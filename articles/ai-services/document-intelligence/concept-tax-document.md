@@ -113,20 +113,20 @@ See how data, including customer information, vendor details, and line items, is
 
 The following are the fields extracted from a W-2 tax form in the JSON output response.
 
-|Name| Type | Description | Example |
+| Name   | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`W2FormVariant`|`string`|IRS W2 tax form variant. This field can have the one of the following values: `W-2`, `W-2AS`, `W-2CM`, `W-2GU`, or `W-2VI`|W-2|
 |`TaxYear`|`string`|Form tax year|2021|
 |`W2Copy`|`string`|W2 tax form copy version along with printed instruction related to this copy|Copy A—For Social Security Administration|
 |`Employee`|`object`|Object that contains social security number, name, and address||
 |`Employee.SocialSecurityNumber`|`string`|Employee social security number. IRS W2 tax field `A`, for example, `123-45-6789`|123-45-6789|
-|`Employee.Name`|`string`|Employee`s first name, middle full/initials name, surname, and suffix. IRS W2 tax field e|John Contoso|
-|`Employee.Address`|`address`|Employee`s address. Part of IRS W2 tax field f|123 Microsoft way, Redmond Washington, 98123|
+|`Employee.Name`|`string`|Employee first name, middle full/initials name, surname, and suffix. IRS W2 tax field e|John Contoso|
+|`Employee.Address`|`address`|Employee address. Part of IRS W2 tax field f|123 Microsoft way, Redmond Washington, 98123|
 |`ControlNumber`|`string`|W2 tax form control number. IRS W2 tax field d|0AB12 D345 7890|
 |`Employer`|`object`|Object that contains employer identification number, name, and address||
-|`Employer.IdNumber`|`string`|Employer`s identification number. IRS W2 tax field b|12-3456789|
-|`Employer.Name`|`string`|Employer`s name. Part of IRS W2 tax field c|Fabrikam|
-|`Employer.Address`|`address`|Employer`s address. Part of IRS W2 tax field c|321 Microsoft way, Redmond Washington, 98123|
+|`Employer.IdNumber`|`string`|Employer identification number. IRS W2 tax field b|12-3456789|
+|`Employer.Name`|`string`|Employer name. Part of IRS W2 tax field c|Fabrikam|
+|`Employer.Address`|`address`|Employer address. Part of IRS W2 tax field c|321 Microsoft way, Redmond Washington, 98123|
 |`WagesTipsAndOtherCompensation`|`number`|Wages, tips, and other compensation amount in USD. IRS W2 tax field 1|1234567.89|
 |`FederalIncomeTaxWithheld`|`number`|Federal income tax withheld amount in USD. IRS W2 tax field 2|1234567.89|
 |`SocialSecurityWages`|`number`|Social security wages amount in USD. IRS W2 tax field 3|1234567.89|
@@ -140,7 +140,7 @@ The following are the fields extracted from a W-2 tax form in the JSON output re
 |`NonQualifiedPlans`|`number`|Nonqualified plans amount in USD. IRS W2 tax field 11|1234567.89|
 |`AdditionalInfo`|`array`|Array holding W2 Codes. IRS W2 tax field 12||
 |`AdditionalInfo.*`|`object`|||
-|`AdditionalInfo.*.LetterCode`|`string`|For more information about on IRS W2 box 12`s letter code, *see* [IRS letter codes](https://www.irs.gov/pub/irs-pdf/iw2w3.pdf).|A|
+|`AdditionalInfo.*.LetterCode`|`string`|For more information about on IRS W2 box 12 letter code, *see* [IRS letter codes](https://www.irs.gov/pub/irs-pdf/iw2w3.pdf)|A|
 |`AdditionalInfo.*.Amount`|`number`|Code amount in USD|1234567.89|
 |`IsStatutoryEmployee`|`string`|Part of IRS W2 tax field 13. Can be `true` or `false`|true|
 |`IsRetirementPlan`|`string`|Part of IRS W2 tax field 13. Can be `true` or `false`|true|
@@ -179,23 +179,23 @@ The following are the fields extracted from a 1098 tax form in the JSON output r
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`TaxYear`|`number`|Form tax year|2021|
-|`Borrower`|`object`|An object that contains the borrower`s TIN, Name, Address, and AccountNumber||
-|`Borrower.TIN`|`string`|Borrower`s tax identification number|123-45-6789|
-|`Borrower.Name`|`string`|Borrower`s full name as written on the form|John Smith|
-|`Borrower.Address`|`address`|Borrower`s address|123 Microsoft Way, Redmond Washington 98052|
-|`Borrower.AccountNumber`|`string`|Borrower`s account number|55123456789|
-|`Lender`|`object`|An object that contains the lender`s TIN, Name, Address, and Telephone||
-|`Lender.TIN`|`string`|Lender`s tax identification number|12-3456789|
-|`Lender.Name`|`string`|Lender`s name|Woodgrove Bank|
-|`Lender.Address`|`address`|Lender`s address|321 Microsoft Way, Redmond Washington 98052|
-|`Lender.Telephone`|`string`|Lender`s telephone number|(987) 654-3210|
+|`Borrower`|`object`|An object that contains the borrower TIN, Name, Address, and AccountNumber||
+|`Borrower.TIN`|`string`|Borrower tax identification number|123-45-6789|
+|`Borrower.Name`|`string`|Borrower full name as written on the form|John Smith|
+|`Borrower.Address`|`address`|Borrower address|123 Microsoft Way, Redmond Washington 98052|
+|`Borrower.AccountNumber`|`string`|Borrower account number|55123456789|
+|`Lender`|`object`|An object that contains the lender TIN, Name, Address, and Telephone||
+|`Lender.TIN`|`string`|Lender tax identification number|12-3456789|
+|`Lender.Name`|`string`|Lender name|Woodgrove Bank|
+|`Lender.Address`|`address`|Lender address|321 Microsoft Way, Redmond Washington 98052|
+|`Lender.Telephone`|`string`|Lender telephone number|(987) 654-3210|
 |`MortgageInterest`|`number`|Mortgage interest amount received from payers/borrower(s) (box 1)|1,234,567.89|
 |`OutstandingMortgagePrincipal`|`number`|Outstanding mortgage principal (box 2)|1,234,567.89|
 |`MortgageOriginationDate`|`date`|Origination date of the mortgage (box 3)|2022-01-01|
 |`OverpaidInterestRefund`|`number`|Refund amount of overpaid interest (box 4)|1,234,567.89|
 |`MortgageInsurancePremium`|`number`|Mortgage insurance premium amount (box 5)|1,234,567.89|
 |`PointsPaid`|`number`|Points paid on purchase of principal residence (box 6)|1,234,567.89|
-|`IsPropertyAddressSameAsBorrower`|`string`|Is the address of the property securing the mortgage the same as the payer`s/borrower`s mailing address (box 7)|true|
+|`IsPropertyAddressSameAsBorrower`|`string`|Is the address of the property securing the mortgage the same as the payer / borrower mailing address (box 7)|true|
 |`PropertyAddress`|`string`|Address or description of the property securing the mortgage (box 8)|123 Main St., Redmond Washington 98052|
 |`MortgagedPropertiesCount`|`number`|Number of mortgaged properties (box 9)|1|
 |`Other`|`string`|Additional information to report to payer (box 10)||
@@ -211,12 +211,12 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`TaxYear`|`string`|Tax Year extracted from 1099-NEC.|2022|
-|`Payer`|`object`| An object that contains the payer`s TIN, Name, Address, and PhoneNumber||
+|`Payer`|`object`| An object that contains the payer TIN, Name, Address, and PhoneNumber||
 |`Payer.TIN`|`string`|Payer tax identification number.|123-45-6789|
 |`Payer.Name`|`string`|Payer full name as written on the form.|John Smith|
 |`Payer.Address`|`address`|Payer address.|123 Microsoft Way, Redmond Washington 98052|
 |`Payer.PhoneNumber`|`phoneNumber`|Payer Phone Number.|+19876543210|
-|`Recipient`|`object`|An object that contains the recipient`s TIN, Name, Address, and AccountNumber||
+|`Recipient`|`object`|An object that contains the recipient TIN, Name, Address, and AccountNumber||
 |`Recipient.TIN`|`string`|Recipient tax identification number.|123-45-6789|
 |`Recipient.Name`|`string`|Recipient full name as written on the form.|John Smith|
 |`Recipient.Address`|`address`|Recipient address.|123 Microsoft Way, Redmond Washington 98052|
@@ -232,17 +232,17 @@ The following are the fields extracted from a 1099-nec tax form in the JSON outp
 
 ## Field extraction 1099-Combo
 
-The following are the fields extracted from a 1099-Combo tax form in the JSON output response. The other variations of 1099 are also supported.
+The following are the fields extracted from a 1099-Combo tax form in the JSON output response. The other variations of 1099 are also supported:
 
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`TaxYear`|`string`|Tax Year extracted from 1099-COMBO.|2022|
-|`Payer`|`object`|An object that contains the payer`s TIN, Name, Address, and PhoneNumber||
+|`Payer`|`object`|An object that contains the payer TIN, Name, Address, and PhoneNumber||
 |`Payer.TIN`|`string`|Payer tax identification number.|123-45-6789|
 |`Payer.Name`|`string`|Payer full name as written on the form.|John Smith|
 |`Payer.Address`|`address`|Payer address.|123 Microsoft Way, Redmond Washington 98052|
 |`Payer.AccountNumber`|`phoneNumber`|Payer Phone Number.|+19876543210|
-|`Recipient`|`object`|An object that contains the recipient`s TIN, Name, Address, and AccountNumber||
+|`Recipient`|`object`|An object that contains the recipient TIN, Name, Address, and AccountNumber||
 |`Recipient.TIN`|`string`|Recipient tax identification number.|123-45-6789|
 |`Recipient.Name`|`string`|Recipient full name as written on the form.|John Smith|
 |`Recipient.Address`|`address`|Recipient address.|123 Microsoft Way, Redmond Washington 98052|
@@ -341,7 +341,7 @@ The following are the fields extracted from a 1040 tax form in the JSON output r
 | Field | Type | Description | Example |
 |:------|:-----|:------------|:--------|
 |`TaxYear`|`string`|Tax Year extracted from Form 1040.|2022|
-|`Taxpayer`|`object`|An object that contains the taxpayer`s information such as SSN, Last Name, and Address||
+|`Taxpayer`|`object`|An object that contains the taxpayer information such as SSN, Last Name, and Address||
 |`Taxpayer.SSN`|`string`|Taxpayer tax social security number.|123-45-6789|
 |`Taxpayer.LastName`|`string`|Taxpayer surname as written on the form.|Smith|
 |`Taxpayer.FirstNameAndInitials`|`string`|Taxpayer first name and middle initials as written on the form.|John T|
@@ -349,7 +349,7 @@ The following are the fields extracted from a 1040 tax form in the JSON output r
 |`Taxpayer.ForeignCountryName`|`string`|Taxpayer foreign country name.|Germany|
 |`Taxpayer.ForeignProvinceStateOrCounty`|`string`|Taxpayer foreign province state or county name.|Hamburg|
 |`Taxpayer.ForeignPostalCode`|`string`|Taxpayer foreign postal code.|20095|
-|`Spouse`|`object`|An object that contains the spouse`s information such as SSN, surname, and first name and initials Name||
+|`Spouse`|`object`|An object that contains the spouse information such as SSN, surname, and first name and initials Name||
 |`Spouse.SSN`|`string`|Spouse tax social security number.|123-45-6789|
 |`Spouse.LastName`|`string`|Spouse surname as written on the form.|Smith|
 |`Spouse.FirstNameAndInitials`|`string`|Spouse first name and middle initials as written on the form.|John T|
@@ -367,7 +367,7 @@ The following are the fields extracted from a 1040 tax form in the JSON output r
 |`SignatureDetails.TaxpayerOccupation`|`string`|Taxpayer Occupation.|Software|
 |`SignatureDetails.TaxpayerPIN`|`string`|Taxpayer PIN.|123456|
 |`SignatureDetails.TaxpayerPhoneNumber`|`phoneNumber`|Taxpayer phone number.|1-123-456-7890|
-|`SignatureDetails.TaxpayerEmail`|`string`|Taxpayer email.|johnsmith@contoso.com|
+|`SignatureDetails.TaxpayerEmail`|`string`|Taxpayer email.|`johnsmith@contoso.com`|
 |`SignatureDetails.SpouseOccupation`|`string`|Spouse Occupation.|Software|
 |`SignatureDetails.SpousePIN`|`string`|Spouse PIN.|123456|
 |`PaidPreparer`|`object`|An object that contains information about the preparer.||
@@ -375,7 +375,7 @@ The following are the fields extracted from a 1040 tax form in the JSON output r
 |`PaidPreparer.PreparerPTIN`|`string`|Preparer PIN.|123456|
 |`PaidPreparer.IsPreparerSelfEmployed`|`boolean`|Is preparer self-employed|:selected:|
 |`PaidPreparer.PreparerFirmName`|`string`|Taxpayer firm name.|Contoso|
-|`PaidPreparer.PreparerFirmPhoneNumber`|`phoneNumber`|Preparer`s firm phone number|1-123-456-7890|
+|`PaidPreparer.PreparerFirmPhoneNumber`|`phoneNumber`|Preparer firm phone number|1-123-456-7890|
 |`PaidPreparer.PreparerFirmAddress`|`address`|Prepare Firm Address.|123 First street, Seattle Washington 98001|
 |`PaidPreparer.PreparerFirmEIN`|`string`|Prepare Firm EIN.|98-7654321|
 |`FilingStatus`|`selectionGroup`|Value is a list containing at least one of the following codes: `single`, `marriedFilingJointly`, `marriedFillingSeparately`, `headOfHousehold`, `qualifyingSurvivingSpouse`.|single:unselected: marriedFilingJointly:unselected: marriedFillingSeparately:unselected: headOfHousehold:unselected: qualifyingSurvivingSpouse:unselected:|
@@ -459,9 +459,11 @@ The tax documents key-value pairs and line items extracted are in the `documentR
 * Complete a [Document Intelligence quickstart](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-3.0.0&preserve-view=true) and get started creating a document processing app in the development language of your choice.
 
 ::: moniker range="doc-intel-4.0.0"
-* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Prebuilt_model)
+
+[Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/main/Python(v4.0)/Prebuilt_model)
 :::moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
-* [Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
+
+[Find more samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/tree/v3.1(2023-07-31-GA)/Python(v3.1)/Prebuilt_model)
 :::moniker-end
