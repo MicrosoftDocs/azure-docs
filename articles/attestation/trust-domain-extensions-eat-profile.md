@@ -3,7 +3,7 @@ title: Azure Attestation EAT profile for TDX
 description: Azure Attestation EAT profile for TDX
 services: attestation
 author: mbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 10/18/2023
 ms.author: mbaldwin 

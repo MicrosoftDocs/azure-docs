@@ -3,7 +3,7 @@ title: Azure Attestation monitoring data reference
 description: Azure Attestation monitoring data reference
 services: attestation
 author: msmbaldwin
-ms.service: attestation
+ms.service: azure-attestation
 ms.topic: overview
 ms.date: 10/16/2023
 ms.author: mbaldwin 

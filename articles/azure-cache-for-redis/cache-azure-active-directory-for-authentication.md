@@ -5,9 +5,9 @@ description: Learn how to use Microsoft Entra ID with Azure Cache for Redis.
 author: flang-msft
 
 ms.custom: references_regions
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
-ms.date: 05/09/2024
+ms.date: 07/17/2024
 ms.author: franlanglois
 
 ---
@@ -56,6 +56,35 @@ To use the ACL integration, your client application must assume the identity of 
    > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
 
 For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
+
+## Disable access key authentication on your cache
+
+Using Microsoft Entra ID is the secure way to connect your cache. We recommend using Microsoft Entra ID and disabling access keys.
+
+When you disable access key Authentication for a cache, all existing client connections are terminated, whether they use access keys or Microsoft Entra ID auth-based. You're advised to follow the recommended Redis client best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections, if any.
+
+Before you disable access keys:
+
+- Before you disable access keys, Microsoft Entra ID authorization must be enabled.
+- Disabling access keys is only available for Basic, Standard, and Premium tier caches.
+- For geo-replicated caches, before you disable accces keys, you must: 1) unlink the caches, 2) disable access keys, and finally, 3) relink the caches.
+
+If you have a cache where access keys are used, and you want to disable access keys, follow this procedure.
+
+1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to disable access keys.
+
+1. Select **Authentication** from the Resource menu.
+
+1. In the working pane, select **Access keys**.
+
+1. Select **Disable Access Keys Authentication**. Then, select **Save**.
+
+   :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with a red box around Disable Access Key Authentication. ":::
+
+1. You're asked to confirm that you want to update your configuration. Select **Yes**.
+
+> [!IMPORTANT]
+> When the **Disable Access Key Authentication**" setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra ID, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting MS Entra-based connections. For more information, see [Connection resilience](cache-best-practices-connection.md).
 
 ## Using data access configuration with your cache
 

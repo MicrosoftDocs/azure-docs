@@ -3,7 +3,7 @@ title: Cluster - Azure Cosmos DB for PostgreSQL
 description: What is a cluster in Azure Cosmos DB for PostgreSQL
 ms.author: nlarin
 author: niklarin
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 11/28/2023

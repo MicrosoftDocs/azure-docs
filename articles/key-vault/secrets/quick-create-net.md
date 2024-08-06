@@ -4,7 +4,7 @@ description: Learn how to create, retrieve, and delete secrets from an Azure key
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 01/20/2023
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: csharp
@@ -79,7 +79,6 @@ This quickstart is using Azure Identity library with Azure PowerShell to authent
 ### Grant access to your key vault
 
 [!INCLUDE [Using RBAC to provide access to a key vault](../includes/key-vault-quickstart-rbac.md)]
----
 
 ### Create new .NET console app
 

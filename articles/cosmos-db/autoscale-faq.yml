@@ -6,7 +6,7 @@ metadata:
   ms.author: dech
   ms.service: cosmos-db
   ms.topic: faq
-  ms.date: 04/01/2022
+  ms.date: 07/26/2024
 title: Frequently asked questions about autoscale provisioned throughput in Azure Cosmos DB
 summary: |
   [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
@@ -110,6 +110,8 @@ sections:
           The initial manual provisioned throughput is equal to the current autoscale maximum RU/s. 
           
           Example: You have an autoscale database or container that has a maximum RU/s of 20,000 RU/s (scales between 2,000 RU/s and 20,000 RU/s). When you update to use manual provisioned throughput, the initial throughput is 20,000 RU/s. 
+
+          If you need to migrate a large number of throughput resources, consider using this [Azure CLI script - Convert to Autoscale](./scripts/cli/common/convert-to-autoscale.md).
           
       - question: |
           Can I use the Azure CLI, PowerShell, or Azure Resource Manager to manage databases or containers that use autoscale?

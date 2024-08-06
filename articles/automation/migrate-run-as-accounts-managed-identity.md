@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 10/03/2023
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Migrate from an existing Run As account to Managed identities

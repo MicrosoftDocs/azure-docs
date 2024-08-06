@@ -53,8 +53,8 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/text/incidents
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "incidentName": "<text-incident-name>",
-  "incidentDefinition": "string"
+  \"incidentName\": \"<text-incident-name>\",
+  \"incidentDefinition\": \"string\"
 }'
 ```
 
@@ -248,7 +248,7 @@ curl --location --request PATCH 'https://<endpoint>/contentsafety/image/incident
 --header 'Ocp-Apim-Subscription-Key: <your-content-safety-key>' \
 --header 'Content-Type: application/json' \
 --data '{
-  "incidentName": "<image-incident-name>"
+  \"incidentName\": \"<image-incident-name>\"
 }'
 ```
 

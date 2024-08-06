@@ -3,7 +3,7 @@ title:       Falsv6, Fasv6, and Famsv6-series
 description: Specifications for Fasv6, Falsv6 and Famsv6 
 author:      iamwilliew 
 ms.author:   wwilliams
-ms.service:  virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic:    conceptual
 ms.date:     01/29/2024

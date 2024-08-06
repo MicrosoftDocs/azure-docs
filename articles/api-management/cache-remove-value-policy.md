@@ -4,9 +4,9 @@ description: Reference for the cache-remove-value policy available for use in Az
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 

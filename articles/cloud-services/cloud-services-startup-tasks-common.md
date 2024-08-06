@@ -3,7 +3,7 @@ title: Common startup tasks for Cloud Services (classic) | Microsoft Docs
 description: Provides some examples of common startup tasks you may want to perform in your cloud services web role or worker role.
 ms.topic: article
 ms.service: cloud-services
-ms.date: 02/21/2023
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -14,7 +14,7 @@ ms.custom: compute-evergreen
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-This article provides some examples of common startup tasks you may want to perform in your cloud service. You can use startup tasks to perform operations before a role starts. Operations that you might want to perform include installing a component, registering COM components, setting registry keys, or starting a long running process. 
+This article provides some examples of common startup tasks you may want to perform in your cloud service. You can use startup tasks to perform operations before a role starts. Operations that you might want to perform include installing a component, registering Component Object Model (COM) components, setting registry keys, or starting a long running process. 
 
 See [this article](cloud-services-startup-tasks.md) to understand how startup tasks work, and specifically how to create the entries that define a startup task.
 
@@ -23,6 +23,7 @@ See [this article](cloud-services-startup-tasks.md) to understand how startup ta
 > 
 
 ## Define environment variables before a role starts
+
 If you need environment variables defined for a specific task, use the [Environment] element inside the [Task] element.
 
 ```xml
@@ -50,19 +51,21 @@ Variables can also use a [valid Azure XPath value](cloud-services-role-config-xp
 
 
 ## Configure IIS startup with AppCmd.exe
-The [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) command-line tool can be used to manage IIS settings at startup on Azure. *AppCmd.exe* provides convenient, command-line access to configuration settings for use in startup tasks on Azure. Using *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
+
+The [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) command-line tool can be used to manage Internet Information Service (IIS) settings at startup on Azure. *AppCmd.exe* provides convenient, command-line access to configuration settings for use in startup tasks on Azure. When you use *AppCmd.exe*, Website settings can be added, modified, or removed for applications and sites.
 
 However, there are a few things to watch out for in the use of *AppCmd.exe* as a startup task:
 
 * Startup tasks can be run more than once between reboots. For instance, when a role recycles.
 * If a *AppCmd.exe* action is performed more than once, it may generate an error. For example, attempting to add a section to *Web.config* twice could generate an error.
-* Startup tasks fail if they return a non-zero exit code or **errorlevel**. For example, when *AppCmd.exe* generates an error.
+* Startup tasks fail if they return a nonzero exit code or **errorlevel**. For example, when *AppCmd.exe* generates an error.
 
-It is a good practice to check the **errorlevel** after calling *AppCmd.exe*, which is easy to do if you wrap the call to *AppCmd.exe* with a *.cmd* file. If you detect a known **errorlevel** response, you can ignore it, or pass it back.
+It's a good practice to check the **errorlevel** after calling *AppCmd.exe*, which is easy to do if you wrap the call to *AppCmd.exe* with a *.cmd* file. If you detect a known **errorlevel** response, you can ignore it, or pass it back.
 
-The errorlevel returned by *AppCmd.exe* are listed in the winerror.h file, and can also be seen on [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
+The errorlevel values returned by *AppCmd.exe* are listed in the winerror.h file and can also be seen on the [Microsoft Developer Network (MSDN)](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### Example of managing the error level
+
 This example adds a compression section and a compression entry for JSON to the *Web.config* file, with error handling and logging.
 
 The relevant sections of the [ServiceDefinition.csdef] file are shown here, which include setting the [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) attribute to `elevated` to give *AppCmd.exe* sufficient permissions to change the settings in the *Web.config* file:
@@ -117,11 +120,12 @@ EXIT %ERRORLEVEL%
 ```
 
 ## Add firewall rules
-In Azure, there are effectively two firewalls. The first firewall controls connections between the virtual machine and the outside world. This firewall is controlled by the [EndPoints] element in the [ServiceDefinition.csdef] file.
 
-The second firewall controls connections between the virtual machine and the processes within that virtual machine. This firewall can be controlled by the `netsh advfirewall firewall` command-line tool.
+In Azure, there are effectively two firewalls. The first firewall controls connections between the virtual machine and the outside world. The [EndPoints] element in the [ServiceDefinition.csdef] file controls this firewall.
 
-Azure creates firewall rules for the processes started within your roles. For example, when you start a service or program, Azure automatically creates the necessary firewall rules to allow that service to communicate with the Internet. However, if you create a service that is started by a process outside your role (like a COM+ service or a Windows Scheduled Task), you need to manually create a firewall rule to allow access to that service. These firewall rules can be created by using a startup task.
+The second firewall controls connections between the virtual machine and the processes within that virtual machine. You can control this firewall from the `netsh advfirewall firewall` command-line tool.
+
+Azure creates firewall rules for the processes started within your roles. For example, when you start a service or program, Azure automatically creates the necessary firewall rules to allow that service to communicate with the Internet. However, if you create a service started by a process outside your role (like a COM+ service or a Windows Scheduled Task), you need to manually create a firewall rule to allow access to that service. These firewall rules can be created by using a startup task.
 
 A startup task that creates a firewall rule must have an [executionContext][Task] of **elevated**. Add the following startup task to the [ServiceDefinition.csdef] file.
 
@@ -136,7 +140,7 @@ A startup task that creates a firewall rule must have an [executionContext][Task
 </ServiceDefinition>
 ```
 
-To add the firewall rule, you must use the appropriate `netsh advfirewall firewall` commands in your startup batch file. In this example, the startup task requires security and encryption for TCP port 80.
+To add the firewall rule, you must use the appropriate `netsh advfirewall firewall` commands in your startup batch file. In this example, the startup task requires security and encryption for Transmission Control Protocol (TCP) port 80.
 
 ```cmd
 REM   Add a firewall rule in a startup task.
@@ -149,9 +153,10 @@ EXIT /B %errorlevel%
 ```
 
 ## Block a specific IP address
-You can restrict an Azure web role access to a set of specified IP addresses by modifying your IIS **web.config** file. You also need to use a command file which unlocks the **ipSecurity** section of the **ApplicationHost.config** file.
 
-To do unlock the **ipSecurity** section of the **ApplicationHost.config** file, create a command file that runs at role start. Create a folder at the root level of your web role called **startup** and, within this folder, create a batch file called **startup.cmd**. Add this file to your Visual Studio project and set the properties to **Copy Always** to ensure that it is included in your package.
+You can restrict an Azure web role access to a set of specified IP addresses by modifying your IIS **web.config** file. You also need to use a command file that unlocks the **ipSecurity** section of the **ApplicationHost.config** file.
+
+To do unlock the **ipSecurity** section of the **ApplicationHost.config** file, create a command file that runs at role start. Create a folder at the root level of your web role called **startup** and, within this folder, create a batch file called **startup.cmd**. Add this file to your Visual Studio project and set the properties to **Copy Always** to ensure you include it in your package.
 
 Add the following startup task to the [ServiceDefinition.csdef] file.
 
@@ -211,9 +216,10 @@ This sample config **denies** all IPs from accessing the server except for the t
 ```
 
 ## Create a PowerShell startup task
-Windows PowerShell scripts cannot be called directly from the [ServiceDefinition.csdef] file, but they can be invoked from within a startup batch file.
 
-PowerShell (by default) does not run unsigned scripts. Unless you sign your script, you need to configure PowerShell to run unsigned scripts. To run unsigned scripts, the **ExecutionPolicy** must be set to **Unrestricted**. The **ExecutionPolicy** setting that you use is based on the version of Windows PowerShell.
+Windows PowerShell scripts can't be called directly from the [ServiceDefinition.csdef] file, but they can be invoked from within a startup batch file.
+
+PowerShell (by default) doesn't run unsigned scripts. Unless you sign your script, you need to configure PowerShell to run unsigned scripts. To run unsigned scripts, the **ExecutionPolicy** must be set to **Unrestricted**. The **ExecutionPolicy** setting that you use is based on the version of Windows PowerShell.
 
 ```cmd
 REM   Run an unsigned PowerShell script and log the output
@@ -240,7 +246,8 @@ EXIT /B %errorlevel%
 ```
 
 ## Create files in local storage from a startup task
-You can use a local storage resource to store files created by your startup task that is accessed later by your application.
+
+You can use a local storage resource to store files created by your startup task that your application later accesses.
 
 To create the local storage resource, add a [LocalResources] section to the [ServiceDefinition.csdef] file and then add the [LocalStorage] child element. Give the local storage resource a unique name and an appropriate size for your startup task.
 
@@ -294,7 +301,8 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ```
 
 ## Run in the emulator or cloud
-You can have your startup task perform different steps when it is operating in the cloud compared to when it is in the compute emulator. For example, you may want to use a fresh copy of your SQL data only when running in the emulator. Or you may want to do some performance optimizations for the cloud that you don't need to do when running in the emulator.
+
+You can have your startup task perform different steps when it's operating in the cloud compared to when it is in the compute emulator. For example, you may want to use a fresh copy of your SQL data only when running in the emulator. Or you may want to do some performance optimizations for the cloud that you don't need to do when running in the emulator.
 
 This ability to perform different actions on the compute emulator and the cloud can be accomplished by creating an environment variable in the [ServiceDefinition.csdef] file. You then test that environment variable for a value in your startup task.
 
@@ -320,7 +328,7 @@ To create the environment variable, add the [Variable]/[RoleInstanceValue] eleme
 </ServiceDefinition>
 ```
 
-The task can now check the **%ComputeEmulatorRunning%** environment variable to perform different actions based on whether the role is running in the cloud or the emulator. Here is a .cmd shell script that checks for that environment variable.
+The task can now check the **%ComputeEmulatorRunning%** environment variable to perform different actions based on whether the role is running in the cloud or the emulator. Here's a .cmd shell script that checks for that environment variable.
 
 ```cmd
 REM   Check if this task is running on the compute emulator.
@@ -334,9 +342,10 @@ IF "%ComputeEmulatorRunning%" == "true" (
 
 
 ## Detect that your task has already run
-The role may recycle without a reboot causing your startup tasks to run again. There is no flag to indicate that a task has already run on the hosting VM. You may have some tasks where it doesn't matter that they run multiple times. However, you may run into a situation where you need to prevent a task from running more than once.
 
-The simplest way to detect that a task has already run is to create a file in the **%TEMP%** folder when the task is successful and look for it at the start of the task. Here is a sample cmd shell script that does that for you.
+The role may recycle without a reboot causing your startup tasks to run again. There's no flag to indicate that a task already ran on the host virtual machine (VM). You may have some tasks where it doesn't matter that they run multiple times. However, you may run into a situation where you need to prevent a task from running more than once.
+
+The simplest way to detect that a task has already run is to create a file in the **%TEMP%** folder when the task is successful and look for it at the start of the task. Here's a sample cmd shell script that does that for you.
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
@@ -372,14 +381,16 @@ EXIT /B 0
 ```
 
 ## Task best practices
+
 Here are some best practices you should follow when configuring task for your web or worker role.
 
 ### Always log startup activities
-Visual Studio does not provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both **stdout** and **stderr**, can give you important information when trying to debug and fix batch files. To log both **stdout** and **stderr** to the StartupLog.txt file in the directory pointed to by the **%TEMP%** environment variable, add the text `>>  "%TEMP%\\StartupLog.txt" 2>&1` to the end of specific lines you want to log. For example, to execute setup.exe in the **%PathToApp1Install%** directory: `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
+
+Visual Studio doesn't provide a debugger to step through batch files, so it's good to get as much data on the operation of batch files as possible. Logging the output of batch files, both **stdout** and **stderr**, can give you important information when trying to debug and fix batch files. To log both **stdout** and **stderr** to the StartupLog.txt file in the directory pointed to by the **%TEMP%** environment variable, add the text `>>  "%TEMP%\\StartupLog.txt" 2>&1` to the end of specific lines you want to log. For example, to execute setup.exe in the **%PathToApp1Install%** directory: `"%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1`
 
 To simplify your xml, you can create a wrapper *cmd* file that calls all of your startup tasks along with logging and ensures each child-task shares the same environment variables.
 
-You may find it annoying though to use `>> "%TEMP%\StartupLog.txt" 2>&1` on the end of each startup task. You can enforce task logging by creating a wrapper that handles logging for you. This wrapper calls the real batch file you want to run. Any output from the target batch file will be redirected to the *Startuplog.txt* file.
+You may find it annoying though to use `>> "%TEMP%\StartupLog.txt" 2>&1` on the end of each startup task. You can enforce task logging by creating a wrapper that handles logging for you. This wrapper calls the real batch file you want to run. Any output from the target batch file redirects to the *Startuplog.txt* file.
 
 The following example shows how to redirect all output from a startup batch file. In this example, the ServerDefinition.csdef file creates a startup task that calls *logwrap.cmd*. *logwrap.cmd* calls *Startup2.cmd*, redirecting all output to **%TEMP%\\StartupLog.txt**.
 
@@ -460,6 +471,7 @@ Sample output in the **StartupLog.txt** file:
 > 
 
 ### Set executionContext appropriately for startup tasks
+
 Set privileges appropriately for the startup task. Sometimes startup tasks must run with elevated privileges even though the role runs with normal privileges.
 
 The [executionContext][Task] attribute sets the privilege level of the startup task. Using `executionContext="limited"` means the startup task has the same privilege level as the role. Using `executionContext="elevated"` means the startup task has administrator privileges, which allows the startup task to perform administrator tasks without giving administrator privileges to your role.
@@ -467,16 +479,18 @@ The [executionContext][Task] attribute sets the privilege level of the startup t
 An example of a startup task that requires elevated privileges is a startup task that uses **AppCmd.exe** to configure IIS. **AppCmd.exe** requires `executionContext="elevated"`.
 
 ### Use the appropriate taskType
+
 The [taskType][Task] attribute determines the way the startup task is executed. There are three values: **simple**, **background**, and **foreground**. The background and foreground tasks are started asynchronously, and then the simple tasks are executed synchronously one at a time.
 
-With **simple** startup tasks, you can set the order in which the tasks run by the order in which the tasks are listed in the ServiceDefinition.csdef file. If a **simple** task ends with a non-zero exit code, then the startup procedure stops and the role does not start.
+With **simple** startup tasks, you can set the order in which the tasks run by the order in which the tasks are listed in the ServiceDefinition.csdef file. If a **simple** task ends with a nonzero exit code, then the startup procedure stops and the role doesn't start.
 
-The difference between **background** startup tasks and **foreground** startup tasks is that **foreground** tasks keep the role running until the **foreground** task ends. This also means that if the **foreground** task hangs or crashes, the role will not recycle until the **foreground** task is forced closed. For this reason, **background** tasks are recommended for asynchronous startup tasks unless you need that feature of the **foreground** task.
+The difference between **background** startup tasks and **foreground** startup tasks is that **foreground** tasks keep the role running until the **foreground** task ends. This structure means that if the **foreground** task hangs or crashes, the role remains unrecycled until the **foreground** task is forced closed. For this reason, **background** tasks are recommended for asynchronous startup tasks unless you need that feature of the **foreground** task.
 
 ### End batch files with EXIT /B 0
-The role will only start if the **errorlevel** from each of your simple startup task is zero. Not all programs set the **errorlevel** (exit code) correctly, so the batch file should end with an `EXIT /B 0` if everything ran correctly.
 
-A missing `EXIT /B 0` at the end of a startup batch file is a common cause of roles that do not start.
+The role only starts if the **errorlevel** from each of your simple startup task is zero. Not all programs set the **errorlevel** (exit code) correctly, so the batch file should end with an `EXIT /B 0` if everything ran correctly.
+
+A missing `EXIT /B 0` at the end of a startup batch file is a common cause of roles that don't start.
 
 > [!NOTE]
 > I've noticed that nested batch files sometimes stop responding when using the `/B` parameter. You may want to make sure that this problem does not happen if another batch file calls your current batch file, like if you use the [log wrapper](#always-log-startup-activities). You can omit the `/B` parameter in this case.
@@ -484,9 +498,11 @@ A missing `EXIT /B 0` at the end of a startup batch file is a common cause of ro
 > 
 
 ### Expect startup tasks to run more than once
-Not all role recycles include a reboot, but all role recycles include running all startup tasks. This means that startup tasks must be able to run multiple times between reboots without any problems. This is discussed in the [preceding section](#detect-that-your-task-has-already-run).
+
+Not all role recycles include a reboot, but all role recycles include running all startup tasks. This design means that startup tasks must be able to run multiple times between reboots without any problems, which is discussed in the [preceding section](#detect-that-your-task-has-already-run).
 
 ### Use local storage to store files that must be accessed in the role
+
 If you want to copy or create a file during your startup task that is then accessible to your role, then that file must be placed in local storage. See the [preceding section](#create-files-in-local-storage-from-a-startup-task).
 
 ## Next steps

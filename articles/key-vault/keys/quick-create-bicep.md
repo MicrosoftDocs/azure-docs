@@ -4,7 +4,7 @@ description: Quickstart showing how to create Azure key vaults, and add key to t
 services: key-vault
 ms.custom: devx-track-bicep, devx-track-arm-template
 author: mumian
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.author: jgao

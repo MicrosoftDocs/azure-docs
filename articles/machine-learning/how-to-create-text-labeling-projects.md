@@ -5,7 +5,7 @@ description: Learn how to create a project and use the data labeling tool to lab
 author: sdgilley
 ms.author: sgilley
 ms.reviewer: vkann
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 02/01/2024

@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 08/08/2022
 ms.author: helohr
-manager: femila
 ---
 # Create a host pool in Azure Virtual Desktop (classic) with PowerShell
 

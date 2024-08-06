@@ -7,7 +7,7 @@ ms.topic: overview
 ms.date: 11/02/2021
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ---
 
 # Azure Chaos Studio limitations and known issues

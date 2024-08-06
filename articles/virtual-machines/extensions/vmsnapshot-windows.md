@@ -4,7 +4,7 @@ description: Take application consistent backup of the virtual machine from Azur
 services: backup, virtual-machines
 author: trinadhkotturu
 manager: gwallace
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.collection: windows

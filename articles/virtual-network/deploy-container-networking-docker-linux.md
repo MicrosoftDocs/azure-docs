@@ -151,7 +151,7 @@ In this article, you learned how to install the Azure CNI plugin and create a te
 
 For more information about Azure container networking and Azure Kubernetes service, see:
 
-- [What is Azure Kubernetes Service?](../aks/intro-kubernetes.md)
+- [What is Azure Kubernetes Service?](/azure/aks/intro-kubernetes)
 
 - [Microsoft Azure Container Networking](https://github.com/Azure/azure-container-networking)
 

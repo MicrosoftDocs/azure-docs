@@ -5,7 +5,7 @@ author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
 ms.date: 11/23/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

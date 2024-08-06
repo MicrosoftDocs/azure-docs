@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: jonburchel
 ms.author: jburchel
-ms.service: data-factory
 ---
 
 # Azure Data Factory monitoring data reference

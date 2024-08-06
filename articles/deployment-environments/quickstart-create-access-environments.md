@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create and access an environment in Azure Deployment Environments through the developer portal. An environment has all Azure resource preconfigured for deploying your application.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: build-2023
 ms.topic: quickstart
 ms.date: 12/01/2023

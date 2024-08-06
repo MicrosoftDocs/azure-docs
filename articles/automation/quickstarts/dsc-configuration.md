@@ -2,11 +2,12 @@
 title: Azure Quickstart - Configure a VM with Desired State Configuration
 description: This article helps you get started configuring an Azure VM with Desired State Configuration.
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 keywords: dsc, configuration, automation
 ms.date: 04/12/2023
 ms.topic: quickstart
 ms.custom: mvc, mode-other
+ms.service: azure-automation
 ---
 
 # Configure a VM with Desired State Configuration

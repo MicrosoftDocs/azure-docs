@@ -2,7 +2,7 @@
 title: Use customer-managed keys to encrypt data in Azure HPC Cache
 description: How to use Azure Key Vault with Azure HPC Cache to control encryption key access instead of using the default Microsoft-managed encryption keys
 author: ekpgh
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 11/02/2022
 ms.author: rohogue

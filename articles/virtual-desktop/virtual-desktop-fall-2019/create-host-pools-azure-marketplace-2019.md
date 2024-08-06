@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: helohr
-manager: femila
 ---
 # Tutorial: Create a host pool in Azure Virtual Desktop (classic)
 

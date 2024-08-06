@@ -4,7 +4,7 @@ description: Learn about how to add logging to your .NET Service Fabric applicat
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-dotnet
 services: service-fabric
 ms.date: 07/14/2022
@@ -163,5 +163,5 @@ Some third-party providers use the approach described in the preceding section, 
 
 ## Next steps
 
-- Read more information about [application monitoring in Service Fabric](service-fabric-diagnostics-event-generation-app.md).
+- Read more information about [application monitoring in Service Fabric](monitor-service-fabric.md#application-monitoring).
 - Read about logging with [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) and [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md).

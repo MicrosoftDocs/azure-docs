@@ -1,7 +1,7 @@
 ---
 title: Open-source software support in Azure HDInsight
 description: Microsoft Azure provides a general level of support for open-source technologies.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 02/20/2024
 ---

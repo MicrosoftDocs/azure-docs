@@ -5,7 +5,7 @@ description: Background indexing to enable non-blocking operation during index c
 author: avijitgupta
 ms.author: avijitgupta
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/01/2024

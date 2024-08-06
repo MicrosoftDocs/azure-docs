@@ -2,8 +2,8 @@
 title:  DICOM extended query tags overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of Extended Query Tags.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: conceptual
 ms.date: 10/9/2023
 ms.author: mmitrik

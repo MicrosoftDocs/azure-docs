@@ -70,7 +70,7 @@ The extension status also returns as `Failed`.
 "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
 ```
 
-In this case, the extension-agent pod tries to get its token from IMDS on the cluster. but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)). To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
+In this case, the extension-agent pod tries to get its token from IMDS on the cluster. but the token request is intercepted by the [pod identity](/azure/aks/use-azure-ad-pod-identity)). To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
 
 ### Issues with kubelet identity when installing the `microsoft.flux` extension in an AKS cluster
 

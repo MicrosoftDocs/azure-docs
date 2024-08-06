@@ -80,11 +80,11 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Create Key Vaults in customer tenants
 - Use a managed identity to create Key Vaults in customer tenants
 
-[Azure Kubernetes Service (AKS)](../../aks/index.yml):
+[Azure Kubernetes Service (AKS)](/azure/aks/):
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 - Deploy and manage clusters in customer tenants
-- [Use Azure Monitor for containers](../../aks/monitor-aks.md) to monitor performance across customer tenants
+- [Use Azure Monitor for containers](/azure/aks/monitor-aks) to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 

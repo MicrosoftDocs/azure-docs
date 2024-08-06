@@ -2,7 +2,7 @@
 title: Maintenance Configurations for Azure virtual machines using the Azure CLI
 description: Learn how to control when maintenance is applied to your Azure VMs by using Maintenance Configurations and the Azure CLI.
 author: ju-shim
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: maintenance
 ms.topic: how-to
 ms.custom: devx-track-azurecli

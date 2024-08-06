@@ -19,8 +19,6 @@ The following guide walks you through setting up a provisioned deployment with y
 ## Prerequisites
 
 - An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services?azure-portal=true)
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    Currently, access to this service is by application. You can apply for access to Azure OpenAI Service by completing the form at [https://aka.ms/oai/access](https://aka.ms/oai/access?azure-portal=true).
 - Obtained Quota for a provisioned deployment and purchased a commitment. 
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Learn about the states of Azure Container Instances provisioning op
 ms.author: tomcassidy
 author: tomvcassidy
 ms.topic: how-to
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 07/02/2024
 ---

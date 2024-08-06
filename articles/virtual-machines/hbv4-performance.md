@@ -2,10 +2,10 @@
 title: HBv4-series VM sizes performance and scalability
 description: Learn about performance and scalability of HBv4-series VM sizes in Azure.
 services: virtual-machines
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/22/2023
+ms.date: 07/25/2024
 ms.reviewer: cynthn
 ms.author: padmalathas
 author: padmalathas

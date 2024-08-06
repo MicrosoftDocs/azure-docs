@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
-manager: femila
 ---
 # Identify and diagnose issues in Azure Virtual Desktop (classic)
 

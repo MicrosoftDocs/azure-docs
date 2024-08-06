@@ -3,7 +3,7 @@ title: Modify distributed tables - Azure Cosmos DB for PostgreSQL
 description: SQL commands to create and modify distributed tables
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/30/2023

@@ -63,8 +63,8 @@ There are several settings that can block the OS SKU migration request. To ensur
 * An existing AKS cluster with at least one Ubuntu node pool.
 * We recommend that you ensure your workloads configure and run successfully on the Azure Linux container host before attempting to use the OS SKU migration feature by [deploying an Azure Linux cluster](./quickstart-azure-cli.md) in dev/prod and verifying your service remains healthy.
 * Ensure the migration feature is working for you in test/dev before using the process on a production cluster.
-* Ensure that your pods have enough [Pod Disruption Budget](../aks/operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
-* You need Azure CLI version [2.61.0](https://learn.microsoft.com/cli/azure/release-notes-azure-cli#may-21-2024) or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
+* Ensure that your pods have enough [Pod Disruption Budget](/azure/aks/operator-best-practices-scheduler#plan-for-availability-using-pod-disruption-budgets) to allow AKS to move pods between VMs during the upgrade.
+* You need Azure CLI version [2.61.0](/cli/azure/release-notes-azure-cli#may-21-2024) or higher. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 * If you are using Terraform, you must have [v3.111.0](https://github.com/hashicorp/terraform-provider-azurerm/releases/tag/v3.111.0) or greater of the AzureRM Terraform module. 
 
 ### [Azure CLI](#tab/azure-cli)

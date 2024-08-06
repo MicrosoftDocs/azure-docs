@@ -3,7 +3,7 @@ title: Build real-time dashboard with Power BI dataset produced from Stream Anal
 description: Learn how to use the no code editor to easily create a Stream Analytics job to produce the Power BI dataset, and use it to build the real-time dashboard. It continuously reads from Event Hubs, and outputs the data into Power BI dataset to build the real-time Power BI dashboard.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2024
 ---

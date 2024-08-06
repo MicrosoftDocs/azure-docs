@@ -2,7 +2,7 @@
 title: Use metadata to organize and govern APIs
 description: Learn about metadata in Azure API Center. Use built in and custom metadata to organize your inventory and enforce governance standards.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: concept-article
 ms.date: 04/19/2024
 ms.author: danlep

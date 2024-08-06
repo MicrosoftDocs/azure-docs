@@ -3,7 +3,7 @@ title: Design and architect Azure ExpressRoute for resiliency
 description: Learn how to design and architect Azure ExpressRoute for resiliency to ensure high availability and reliability in your network connections between on-premises and Azure.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 07/16/2024
 ms.author: duau
@@ -135,5 +135,5 @@ ExpressRoute uses [Azure Service Health](../service-health/overview.md) to notif
 
 #### Configure gateway health monitoring & alerting 
 
-[Setup monitoring](expressroute-monitoring-metrics-alerts.md#expressroute-gateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
+[Setup monitoring](monitor-expressroute-reference.md#supported-metrics-for-microsoftnetworkexpressroutegateways) using Azure Monitor for ExpressRoute Gateway availability, performance, and scalability. When you deploy an ExpressRoute gateway, Azure manages the compute and functions of your gateway. There are multiple [gateway metrics](expressroute-monitoring-metrics-alerts.md#expressroute-virtual-network-gateway-metrics) available to you to better understand the performance of your gateway. 
 
