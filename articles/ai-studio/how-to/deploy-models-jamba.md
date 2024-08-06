@@ -5,7 +5,7 @@ description: How to deploy AI21's Jamba-Instruct model with Azure AI Studio
 manager: scottpolly
 ms.service: machine-learning
 ms.topic: how-to
-ms.date: 06/19/2024
+ms.date: 08/06/2024
 ms.author: ssalgado
 ms.reviewer: tgokal
 reviewer: tgokal
