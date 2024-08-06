@@ -64,9 +64,9 @@ In this QuickStart guide, you set up:
   ![A screenshot of Rule Query.](./media/siem-integration-with-sentinel/create-rule.png)
 
 6. Create rule query based on your access logs:
-   1. Example Scenario: A user sends encrypted data through a specific URL.
-   2. Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
-   3. Create query:
+   - Example Scenario: A user sends encrypted data through a specific URL.
+   - Goal: Detect threats from a HostName with RequestURI **"/secret/path"**.
+   - Create query:
         
       ```bash
       # Example Query
@@ -76,18 +76,19 @@ In this QuickStart guide, you set up:
 
       This query filters `AGCAccessLogs` based on conditions related to hostname and request URI.
 
-7. Detect associated IPs by Entity Mapping:
+8. Detect associated IPs by Entity Mapping:
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="./media/siem-integration-with-sentinel/entity-mapping.png" alt="A screenshot of the entity mapping." width="80%">
 
-8. Set Query Scheduling:
-    1. Run for every 5 hours.
-    2. Look up data for every 5 hours.
-9. **Review + Create**.
+9. Set Query Scheduling:
+    - Run for every 5 hours.
+    - Look up data for every 5 hours.
+11. **Review + Create**.
 
 
 ## Test Incident
 
-1. An incident occurs after the rule is active. Now we're ready to send some traffic with **/secret/path** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
+1. Send traffic into the URL to create an incident: 
+   - Now we're ready to send some traffic with **/secret/path** to our sample application, via the FQDN (fully qualified domain name) assigned to the frontend. Use the following command to get the FQDN:
 
     ```bash
     fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
@@ -123,4 +124,4 @@ In this QuickStart guide, you set up:
 
 [Automate Playbook and Alerts](../../azure-monitor/../sentinel/automation/automation.md) to create an alert for extra security measures and communication.
 
-Congratulations, You can now create security barriers on your logs and investigate any incidents!
+Congratulations, you can now create security barriers on your logs and investigate any incidents!
