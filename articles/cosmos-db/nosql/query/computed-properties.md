@@ -176,6 +176,19 @@ containerProperties.setComputedProperties(modifiedComputedProperites);
 // Update the container with changes
 container.replace(containerProperties);
 ```
+### [JavaScript](#tab/javascript)
+
+```javascript
+const { resource: contDefinition } = await containerWithComputedProperty.read();
+const upperName = {
+name: "upperLastName", query: "SELECT VALUE UPPER(IS_DEFINED(c.lastName) ? c.lastName : c.parents[0].familyName) FROM c",
+};
+if (contDefinition) {
+// update computed properties contDefinition.computedProperties = [upperName]; // replace container definition with updated computed properties await containerWithComputedProperty.replace(contDefinition); console.log("Computed properties updated");
+} else {
+console.log("Container definition is undefined.");
+}
+```
 
 ### [Python](#tab/python)
 Updating computed properties on an existing container is not supported in Python SDK. You can only define computed properties when creating a new container. This is a work in progress currently.
