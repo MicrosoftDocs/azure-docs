@@ -5,7 +5,6 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 03/21/2022
 ms.author: helohr
-manager: femila
 ---
 # Connect to Azure Virtual Desktop (classic) with the web client
 
