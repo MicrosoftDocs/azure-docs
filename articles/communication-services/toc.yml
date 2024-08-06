@@ -355,7 +355,9 @@ items:
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
       - name: Pass contextual information
-        href: how-tos/calling-sdk/call-context.md
+        href: how-tos/calling-sdk/call-context.md     
+      - name: BreakoutRooms
+        href: how-tos/calling-sdk/breakoutRooms.md
     - name: Call recording
       items:
       - name: Record a call
