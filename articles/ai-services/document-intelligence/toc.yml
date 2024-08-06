@@ -14,7 +14,7 @@ items:
     href: studio-overview.md
   - name: FAQ
     displayName: storage, security, privacy, help, support, versions, development, migrate, migration, cognitive, applied, form recognizer, form, recognizer
-    href: faq.yml  
+    href: faq.yml
   - name: Document Intelligence client libraries
     expanded: true
     items:
@@ -194,7 +194,10 @@ items:
     href: concept-bank-check.md
   - name: 🆕 Bank statement model
     displayName: transactions, deposits, withdrawals, balance, account, number, date
-    href: concept-bank-statement.md  
+    href: concept-bank-statement.md
+  - name: 🆕 Batch documents analysis
+    displayName: analyze, azureBlobFileListSource, azureBlobSource, azureBlobFileListSource, resultContainerUrl, resultPrefix, overwriteExisting
+    href: concept-batch-analysis.md
   - name: Credit card model
     displayName: debit
     href: concept-credit-card.md

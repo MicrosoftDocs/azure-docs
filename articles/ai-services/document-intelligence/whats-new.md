@@ -65,7 +65,6 @@ The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document
 * [🆕 Model compose with custom classifiers](concept-composed-models.md)
   * Document Intelligence now adds support for composing model with an explicit custom classification model. 
 
-
 ## May 2024
 
 The Document Intelligence Studio adds support for Microsoft Entra (formerly Azure Active Directory) authentication. For more information, *see* [Document Intelligence Studio overview](quickstarts/try-document-intelligence-studio.md#authentication).

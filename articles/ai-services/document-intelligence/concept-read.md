@@ -152,9 +152,6 @@ GET /documentModels/prebuilt-read/analyzeResults/{resultId}/pdf
 Content-Type: application/pdf
 ```
 
-## Pricing
-
-
 ### Pages
 
 The pages collection is a list of pages within the document. Each page is represented sequentially within the document and includes the orientation angle indicating if the page is rotated and the width and height (dimensions in pixels). The page units in the model output are computed as shown:
@@ -185,6 +182,7 @@ The pages collection is a list of pages within the document. Each page is repres
     }
 ]
 ```
+
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
