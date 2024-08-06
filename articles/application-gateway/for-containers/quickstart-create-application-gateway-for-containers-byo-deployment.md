@@ -88,7 +88,7 @@ echo $ALB_SUBNET_ID
 ```
 
 > [!NOTE]
-> The NSG for the delegated subnet can only use the default rules for incoming traffic i.e. AllowVNetInBound, AllowAzureLoadBalancerInBound and DenyAllInbound. No other incoming NSG rule is supported.
+> The NSG for the delegated subnet can only use the default rules for incoming traffic. For example: AllowVNetInBound, AllowAzureLoadBalancerInBound, and DenyAllInbound. No other incoming NSG rule is supported.
    
 ### Delegate permissions to managed identity
 
