@@ -5,7 +5,8 @@ description: Learn how to use the ADE extensibility model to build and utilize c
 ms.service: azure-deployment-environments
 ms.custom: build-2024, devx-track-azurecli
 author: MikhailShilkov
-ms.date: 05/10/2024
+ms.author: rosemalcolm
+ms.date: 08/02/2024
 ms.topic: how-to
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
@@ -14,9 +15,9 @@ ms.topic: how-to
 
 In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, you can create your own custom images, and store them in a public container registry. You can then reference these images in your environment definitions to deploy your environments.
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, you can create your own custom images, and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
-An environment definition comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It may also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
+An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It may also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
 
 ## Prerequisites
 
@@ -193,7 +194,18 @@ You can use Pulumi to create an Azure Container Registry and publish your image 
 
 #### Create an Azure Container Registry and publish your image manually via CLI
 
-To create a registry, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+In order to use custom images, you need to store them in a container registry. Azure Container Registry (ACR) is highly recommended for that. Due to its tight integration with ADE, the image can be published without allowing public anonymous pull access.
+
+It's also possible to store the image in a different container registry such as Docker Hub, but in that case it needs to be publicly accessible.
+
+> [!Caution]
+> Storing your container image in a registry with anonymous (unauthenticated) pull access makes it publicly accessible. Don't do that if your image contains any sensitive information. Instead, store it in Azure Container Registry (ACR) with anonymous pull access disabled.
+ 
+To use a custom image stored in the ACR, you need to ensure that ADE has appropriate permissions to access your image. When you create an ACR instance, it's secure by default and only allows authenticated users to gain access. With this configuration, you don't have to enable anonymous pull access.
+
+To create an instance of the ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
+
+#### Use a public registry with anonymous pull
 
 To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 
@@ -203,6 +215,59 @@ az acr login -n {YOUR_REGISTRY}
 az acr update -n {YOUR_REGISTRY} --public-network-enabled true
 az acr update -n {YOUR_REGISTRY} --anonymous-pull-enabled true
 ```
+
+When you're ready to push your image to your registry, run the following command:
+
+```docker
+docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
+```
+
+#### Use ACR with secured access
+
+By default, access to pull or push content from an Azure Container Registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
+
+##### Limit network access
+
+To secure network access to your ACR, you can limit access to your own networks, or disable public network access entirely. If you limit network access, you must enable the firewall exception *Allow trusted Microsoft services to access this container registry*.
+
+To disable access from public networks:
+
+1. [Create an ACR instance](/azure/container-registry/container-registry-get-started-azure-cli) or use an existing one.
+1. In the Azure portal, go to the ACR that you want to configure.
+1. On the left menu, under **Settings**, select **Networking**.
+1. On the Networking page, on the **Public access** tab, under **Public network access**, select **Disabled**.
+
+   :::image type="content" source="media/how-to-configure-extensibility-pulumi-container-image/container-registry-network-settings.png" alt-text="Screenshot of the Azure portal, showing the ACR network settings, with Public access and Disabled highlighted."::: 
+
+1. Under **Firewall exception**, check that **Allow trusted Microsoft services to access this container registry** is selected, and then select **Save**.
+
+   :::image type="content" source="media/how-to-configure-extensibility-pulumi-container-image/container-registry-network-disable-public.png" alt-text="Screenshot of the ACR network settings, with Allow trusted Microsoft services to access this container registry and Save highlighted.":::
+
+##### Assign the AcrPull role
+
+Creating environments by using container images uses the ADE infrastructure, including projects and environment types. Each project has one or more project environment types, which need read access to the container image that defines the environment to be deployed. To access the images within your ACR securely, assign the AcrPull role to each project environment type. 
+
+To assign the AcrPull role to the Project Environment Type:
+
+1. In the Azure portal, go to the ACR that you want to configure.
+1. On the left menu, select **Access Control (IAM)**.
+1. Select **Add** > **Add role assignment**.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+
+    | Setting | Value |
+    | --- | --- |
+    | **Role** | Select **AcrPull**. |
+    | **Assign access to** | Select **User, group, or service principal**. |
+    | **Members** | Enter the name of the project environment type that needs to access the image in the container. |
+
+   The project environment type displays like the following example:
+
+   :::image type="content" source="media/how-to-configure-extensibility-pulumi-container-image/container-registry-access-control.png" alt-text="Screenshot of the Select members pane, showing a list of project environment types with part of the name highlighted.":::
+
+In this configuration, ADE uses the Managed Identity for the PET, whether system assigned or user assigned.
+
+> [!Tip]
+> This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
 
 When you're ready to push your image to your registry, run the following command:
 
