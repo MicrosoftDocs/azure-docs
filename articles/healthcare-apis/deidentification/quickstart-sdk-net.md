@@ -116,7 +116,7 @@ DeidentificationClient client = new(
 This function allows you to de-identify any string you have in memory.
 
 ```csharp
-DeidentificationContent content = new("SSN: 859-98-0987");
+DeidentificationContent content = new("SSN: 123-04-5678");
 DeidentificationResult result = await client.DeidentifyAsync(content);
 ```
 
@@ -125,7 +125,7 @@ DeidentificationResult result = await client.DeidentifyAsync(content);
 Tagging can be done the same way and de-identifying by changing the `OperationType`.
 
 ```csharp
-DeidentificationContent content = new("SSN: 859-98-0987");
+DeidentificationContent content = new("SSN: 123-04-5678");
 content.Operation = OperationType.Tag;
 
 DeidentificationResult result = await client.DeidentifyAsync(content);
