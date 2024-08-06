@@ -1243,7 +1243,7 @@
         "articles/ai-services/speech-service/*.md": "azure-ai-speech",
         "articles/business-process-tracking/*.md": "azure-business-process-tracking",
         "articles/connectors/*.md": "azure-logic-apps",
-        "articles/container-instances/**/*.md": "container-instances",
+        "articles/container-instances/**/*.md": "azure-container-instances",
         "articles/container-registry/**/*.md": "azure-container-registry",
         "articles/data-factory/**/*": "azure-data-factory",
         "articles/deployment-environments/**/*.md": "azure-deployment-environments",

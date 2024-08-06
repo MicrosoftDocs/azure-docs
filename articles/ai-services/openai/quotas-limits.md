@@ -53,6 +53,8 @@ The following sections provide you with a quick guide to the default quotas and 
 
 [!INCLUDE [Quota](./includes/model-matrix/quota.md)]
 
+[!INCLUDE [Quota](./includes/global-batch-limits.md)]
+
 ## gpt-4o rate limits
 
 `gpt-4o` and `gpt-4o-mini` have rate limit tiers with higher limits for certain customer types.
