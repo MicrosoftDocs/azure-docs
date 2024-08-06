@@ -353,7 +353,7 @@ Analyze an input file with the document classification model.
 https://{endpoint}/documentintelligence/documentClassifiers/{classifier}:analyze?api-version=2024-02-29-preview
 ```
 
-Starting with the `2024-07-31-preview` API, you can [specify pages](/rest/api/documentation-preview/document-classifiers/classify-document#uri-parameters) to analyze from the input document using the `pages` query parameter in the request.
+Starting with the `2024-07-31-preview` API, you can specify pages to analyze from the input document using the `pages` query parameter in the request.
 
 :::moniker-end
 

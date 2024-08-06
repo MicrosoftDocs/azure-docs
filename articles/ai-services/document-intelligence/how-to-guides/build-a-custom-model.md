@@ -18,7 +18,8 @@ monikerRange: '<=doc-intel-4.0.0'
 
 [!INCLUDE [applies to v4.0 v3.1 v3.0](../includes/applies-to-v40-v31-v30.md)]   ![blue-checkmark](../media/blue-yes-icon.png) [v2.1](?view=doc-intel-2.1.0&preserve-view=true)
 
-> [!IMPORTANT] Custom generative model training behavior is different from custom template and neural model training. The following document covers training only for custom template and neural models. For guidance on custom generative, refer to [custom generative model](../concept-custom-generative.md)
+> [!IMPORTANT]
+> Custom generative model training behavior is different from custom template and neural model training. The following document covers training only for custom template and neural models. For guidance on custom generative, refer to [custom generative model](../concept-custom-generative.md)
 
 Document Intelligence custom models require a handful of training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md) or [custom template model (custom form)](../concept-custom-generative.md). This document walks you through the process of training the custom models.
 
