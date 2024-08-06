@@ -44,7 +44,7 @@ To create a data collection rule using the Azure CLI, PowerShell, API, or ARM te
 ### [Portal](#tab/portal)
 
 ### Create with Azure portal
-The Azure portal provides a simplified experience for creating a DCR for virtual machines and virtual machine scale sets. Using this method, you don't need to understand the structure of a DCR unless you want to want to implement an advanced feature such as a transformation. The process for creating this DCR with various data sources is described in [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md).
+The Azure portal provides a simplified experience for creating a DCR for virtual machines and virtual machine scale sets. Using this method, you don't need to understand the structure of a DCR unless you want to implement an advanced feature such as a transformation. The process for creating this DCR with various data sources is described in [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md).
 
 
 ### [CLI](#tab/CLI)
