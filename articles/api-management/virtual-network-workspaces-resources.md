@@ -3,7 +3,7 @@ title: Azure API Management workspace gateways - VNet integration - network reso
 description: Learn about requirements for network resources when you integrate your API Management workspace gateway in an Azure virtual network.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/15/2024
 ms.author: danlep
