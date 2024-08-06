@@ -117,7 +117,7 @@ resource mystorage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
 }
 ```
 
-The spread operator can be used to override already-set properties. In the following example, because _tier_ is set to _Hot_, the _accessTier_ is also set to _Hot_. If _tier_ is set to an empty string, the _accessTier_ will not be overridden.
+The spread operator can be used to override existing properties. In the following example, because _tier_ is set to _Hot_, the _accessTier_ is also set to _Hot_. If _tier_ is set to an empty string, the _accessTier_ will not be overridden.
 
 ```bicep
 param location string = resourceGroup().location
