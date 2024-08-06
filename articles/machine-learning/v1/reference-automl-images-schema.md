@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: automl
 ms.topic: reference
 ms.reviewer: nibaccam
-ms.author: rvadthyavath
-author: vadthyavath
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/13/2021
 ---
 

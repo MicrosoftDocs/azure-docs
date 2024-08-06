@@ -1,7 +1,6 @@
 ---
 title: Configure a self-hosted integration runtime as a proxy for SSIS
 description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace

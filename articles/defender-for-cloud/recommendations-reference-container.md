@@ -238,7 +238,7 @@ The AllowPrivilegeEscalation attribute controls whether a process can gain more 
 
 ### [Kubernetes API server should be configured with restricted access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1a2b5b4c-f80d-46e7-ac81-b51a9fb363de)
 
-**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](../aks/private-clusters.md).
+**Description**: To ensure that only applications from allowed networks, machines, or subnets can access your cluster, restrict access to your Kubernetes API server. You can restrict access by defining authorized IP ranges, or by setting up your API servers as private clusters as explained in [Create a private Azure Kubernetes Service cluster](/azure/aks/private-clusters).
 (Related policy: [Authorized IP ranges should be defined on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e246bcf-5f6f-4f87-bc6f-775d4712c7ea)).
 
 **Severity**: High
@@ -318,7 +318,7 @@ Privileged containers have all of the root capabilities of a host machine. They 
 
 ### [Role-Based Access Control should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/b0fdc63a-38e7-4bab-a7c4-2c2665abbaa9)
 
-**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](../aks/concepts-identity.md#azure-role-based-access-control) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
+**Description**: To provide granular filtering on the actions that users can perform, use [Role-Based Access Control (RBAC)](/azure/aks/concepts-identity#azure-role-based-access-control) to manage permissions in Kubernetes Service Clusters and configure relevant authorization policies.
 (Related policy: [Role-Based Access Control (RBAC) should be used on Kubernetes Services](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fac4a19c2-fa67-49b4-8ae5-0b2e78c49457)).
 
 **Severity**: High

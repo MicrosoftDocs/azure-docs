@@ -5,7 +5,7 @@ description: Learn how to enhance AI-based applications using Retrieval-Augmente
 author: khelanmodi
 ms.author: khelanmodi
 ms.reviewer: gahllevy
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
 ms.date: 07/08/2024

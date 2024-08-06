@@ -5,7 +5,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.reviewer: maghan
 ms.date: 06/18/2024
-ms.service: mysql
+ms.service: azure-database-mysql
 ms.subservice: flexible-server
 ms.topic: tutorial
 ms.custom:
@@ -19,7 +19,7 @@ ms.custom:
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/projects/spring-boot) application on [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md) cluster with [Azure Database for MySQL flexible server](overview.md) in the backend, securely communicating with each other within an [Azure virtual network](../../virtual-network/virtual-networks-overview.md). 
+In this tutorial, you'll learn how to deploy a [Spring Boot](https://spring.io/projects/spring-boot) application on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) cluster with [Azure Database for MySQL flexible server](overview.md) in the backend, securely communicating with each other within an [Azure virtual network](../../virtual-network/virtual-networks-overview.md). 
 
 > [!NOTE]
 > This tutorial assumes a basic understanding of Kubernetes concepts, Java Spring Boot and MySQL.
@@ -313,7 +313,7 @@ az acr login && mvn compile jib:build
 
 We'll now create an AKS cluster in the virtual network *vnet-mysqlaksdemo*. 
 
-In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](../../aks/configure-kubenet.md).  
+In this tutorial, we'll use Azure CNI networking in AKS. If you'd like to configure kubenet networking instead, see [Use kubenet networking in AKS](/azure/aks/configure-kubenet).  
 
 1. Create a subnet *subnet-aks* for the AKS cluster to use.
 
@@ -461,7 +461,7 @@ az group delete --name rg-mysqlaksdemo
 ```
 
 > [!NOTE]
-> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](../../aks/kubernetes-service-principal.md#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
+> When you delete the cluster, the Microsoft Entra service principal used by the AKS cluster is not removed. For steps on how to remove the service principal, see [AKS service principal considerations and deletion](/azure/aks/kubernetes-service-principal#other-considerations). If you used a managed identity, the identity is managed by the platform and does not require removal.
 
 ## Next steps
 

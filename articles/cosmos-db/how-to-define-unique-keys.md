@@ -2,7 +2,7 @@
 title: Define unique keys for an Azure Cosmos DB container
 description: Learn how to define unique keys for an Azure Cosmos DB container using Azure portal, PowerShell, .NET, Java, and various other SDKs.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: how-to
 ms.date: 12/02/2019

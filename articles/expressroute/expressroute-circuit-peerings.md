@@ -4,7 +4,7 @@ description: This page provides an overview of ExpressRoute circuits and routing
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: duau 

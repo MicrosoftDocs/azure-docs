@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/29/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # DNS records for Azure regions used by Azure Automation

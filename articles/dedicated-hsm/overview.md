@@ -4,7 +4,7 @@ description: Learn how Azure Dedicated HSM is an Azure service that provides cry
 services: dedicated-hsm
 author: msmbaldwin
 ms.topic: overview
-ms.service: dedicated-hsm
+ms.service: azure-dedicated-hsm
 ms.date: 02/20/2024
 ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.

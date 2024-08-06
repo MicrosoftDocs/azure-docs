@@ -4,7 +4,7 @@ description: Learn how to use metrics, alerts, activity logs, and resource logs 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
 ms.date: 05/15/2024
@@ -15,6 +15,8 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this tutorial, you learn how to:
 

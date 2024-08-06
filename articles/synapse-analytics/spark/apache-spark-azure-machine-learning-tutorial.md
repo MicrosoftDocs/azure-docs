@@ -2,7 +2,7 @@
 title: 'Tutorial: Train a model in Python with automated machine learning (deprecated)'
 description: Tutorial on how to train a machine learning model in Python by using Apache Spark and automated machine learning (deprecated).
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.custom: devx-track-python

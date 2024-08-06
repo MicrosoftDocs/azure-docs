@@ -19,7 +19,7 @@ highlightedContent:
       url: ../service-fabric/service-fabric-overview-microservices.md
     - itemType: concept
       title: Understanding Kubernetes
-      url: ../aks/concepts-clusters-workloads.md
+      url: /azure/aks/concepts-clusters-workloads
 
 # conceptualContent section (optional)
 conceptualContent:
@@ -28,18 +28,18 @@ conceptualContent:
     # Card
     - title: Deploy Kubernetes on Azure
       links:
-        - url: ../aks/intro-kubernetes.md
+        - url: /azure/aks/intro-kubernetes
           itemType: overview
           text: What is Azure Kubernetes Service?
-        - url: ../aks/tutorial-kubernetes-prepare-app.md
+        - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Prepare an application for AKS
-        - url: ../aks/tutorial-kubernetes-prepare-app.md
+        - url: /azure/aks/tutorial-kubernetes-prepare-app
           itemType: tutorial
           text: Create an AKS cluster (CLI)
       # footerLink (optional)
       footerLink:
-        url: ../aks/index.yml
+        url: /azure/aks/
         text: See more
     # Card
     - title: Test and develop AKS applications

@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to use an Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
 author: gaking
 ms.author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to 
 ms.date: 10/01/2021
 ms.custom: template-how-to

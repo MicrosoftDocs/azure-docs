@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks using NOAA data
 description: Use example Jupyter notebooks for Azure Open Datasets to learn how to load open datasets and use them to enrich demo data. Techniques include use of Spark and Pandas to process data.
-ms.service: open-datasets
+ms.service: azure-open-datasets
 ms.topic: sample
 author: fbsolo-ms1
 ms.author: franksolomon

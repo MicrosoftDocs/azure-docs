@@ -4,7 +4,7 @@ description: Azure Payment HSM is a bare metal service utilizing Thales payShiel
 services: payment-hsm
 author: msmbaldwin
 
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 ms.topic: article
 ms.date: 07/23/2024
 ms.author: mbaldwin

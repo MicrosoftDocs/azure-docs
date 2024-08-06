@@ -3,7 +3,7 @@ title: Manage read replicas - Azure portal - Azure Cosmos DB for PostgreSQL
 description: See how to manage read replicas in Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
 ms.date: 01/30/2023

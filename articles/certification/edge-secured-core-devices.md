@@ -6,7 +6,7 @@ ms.author: sufon
 ms.topic: conceptual 
 ms.date: 07/22/2024 
 ms.custom: Edge Secured-core certified devices
-ms.service: certification
+ms.service: azure-certified-device
 ---
 
 # Edge Secured-core certified devices

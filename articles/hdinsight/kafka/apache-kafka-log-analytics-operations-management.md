@@ -1,7 +1,7 @@
 ---
 title: Azure Monitor logs for Apache Kafka - Azure HDInsight 
 description: Learn how to use Azure Monitor logs to analyze logs from Apache Kafka cluster on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 06/15/2024

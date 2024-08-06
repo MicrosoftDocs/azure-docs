@@ -3,7 +3,7 @@ title: Sign container images with Notation and Azure Key vault using a CA-issued
 description: In this tutorial learn to create a CA-issued certificate in Azure Key Vault, build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image using notation.
 author: yizha1
 ms.author: yizha1
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/31/2023

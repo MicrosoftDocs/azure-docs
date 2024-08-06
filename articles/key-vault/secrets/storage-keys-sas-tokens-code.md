@@ -2,7 +2,7 @@
 title: Fetch shared access signature tokens in code | Azure Key Vault
 description: The managed storage account feature provides a seamless integration between Azure Key Vault and an Azure storage account. This sample uses the Azure SDK for .NET to manage SAS tokens.
 ms.topic: tutorial
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin

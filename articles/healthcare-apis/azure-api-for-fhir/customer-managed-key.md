@@ -3,7 +3,7 @@ title: Configure customer-managed keys for Azure API for FHIR
 description: Bring your own key feature supported in Azure API for FHIR via Azure Cosmos DB
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/27/2023

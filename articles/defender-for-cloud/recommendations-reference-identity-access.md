@@ -252,12 +252,23 @@ Learn more in [Introduction to Microsoft Defender for Key Vault](defender-for-ke
 
 **Severity**: Medium
 
-### [Super identities in your Azure environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fe7d5a87-36fc-4530-99b5-1848512a3209)
+### [Super identities in your Azure environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/fe7d5a87-36fc-4530-99b5-1848512a3209)
 
 **Description**: Super Identity is any human or workload identity such as users, Service Principals, and serverless functions that have admin permissions and can perform any action on any resource across the infrastructure. Super Identities are extremely high risk, as any malicious or accidental permissions misuse can result in catastrophic service disruption, service degradation, or data leakage. Super Identities pose a huge threat to cloud infrastructure. Too many super identities can create excessive risks and increase the blast radius during a breach.
 
 **Severity**: Medium
 
+### [Privileged roles should not have permanent access at the subscription and resource group level](https://portal.azure.com/#view/Microsoft_Azure_Security/IdentityRecommendationDetailsBlade/assessmentKey/706b33f0-129e-4ed0-a179-f450b9ee4145/showSecurityCenterCommandBar~/true)
+
+**Description:** Microsoft Defender for Cloud discovered an identity that has not performed any action on any resource within your Azure subscription in the past 45 days. It is recommended to revoke permissions of inactive identities, in order to reduce the attack surface of your cloud environment.
+
+**Severity**: High
+
+### [Service Principals should not be assigned with administrative roles at the subscription and resource group level](https://portal.azure.com/#view/Microsoft_Azure_Security/IdentityRecommendationDetailsBlade/assessmentKey/effc9a76-a5a6-40ac-b20d-59dc45bddf99/showSecurityCenterCommandBar~/true)
+
+**Description**: Defender for Cloud identified Service Principals that are assigned with privileged roles at the resource group or subscription level. Privileged admin roles are roles that can perform sensitive operations on the resource, such as, Owner, Contributor or User Access Administrator. Service principals play a crucial role in managing Azure resources efficiently and securely, eliminating the need for human intervention. It is important to follow the [principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), grant only the minimum level of access necessary for a given service principal to perform their duties. Admins and privileged access are primary target of hackers. For best practices when using privileged administrator role assignments, see [Best practices for Azure RBAC](/azure/role-based-access-control/best-practices?WT.mc_id=Portal-Microsoft_Azure_Security). [Best practices for Azure RBAC](/azure/role-based-access-control/best-practices?WT.mc_id=Portal-Microsoft_Azure_Security). For a list of available roles in Azure RBAC, see [Azure's built-in roles](/azure/role-based-access-control/built-in-roles?WT.mc_id=Portal-Microsoft_Azure_Security).
+
+**Severity**: High
 
 
 ## AWS identity and access recommendations
@@ -837,7 +848,7 @@ There are three kinds of Data Access audit log information:
 
  It's recommended to have an effective default audit config configured in such a way that:
 
- - Log type is set to DATA_READ (to log user activity tracking) and DATA_WRITES (to log changes/tampering to user data).
+- Log type is set to DATA_READ (to log user activity tracking) and DATA_WRITES (to log changes/tampering to user data).
  - Audit config is enabled for all the services supported by the Data Access audit logs feature.
  - Logs should be captured for all users, that is, there are no exempted users in any of the audit config sections. This will ensure overriding the audit config will not contradict the requirement.
 
@@ -992,7 +1003,7 @@ GCP facilitates up to 10 external service account keys per service account to fa
 
 **Severity**: High
 
-### [Super Identities in your GCP environment should be removed (Preview)](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
+### [Super Identities in your GCP environment should be removed](https://ms.portal.azure.com/#view/Microsoft_Azure_Security/GenericRecommendationDetailsBlade/assessmentKey/7057d0ba-7d1c-4484-8bae-e82785cf8418)
 
 **Description**: A super identity has a powerful set of permissions. Super admins are human or workload identities that have access to all permissions and all resources. They can create and modify configuration settings to a service, add or remove identities, and access or even delete data. Left unmonitored, these identities present a significant risk of permission misuse if breached.
 

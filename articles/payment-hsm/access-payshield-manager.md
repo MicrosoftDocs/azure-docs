@@ -2,7 +2,7 @@
 title: Use your browser to access the payShield manager for your Azure Payment HSM
 description: Use your browser to access the payShield manager for your Azure Payment HSM
 services: payment-hsm
-ms.service: payment-hsm
+ms.service: azure-payment-hsm
 author: msmbaldwin
 ms.author: mbaldwin
 ms.topic: quickstart

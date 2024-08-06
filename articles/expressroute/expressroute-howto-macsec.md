@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure MACsec'
 description: This article helps you configure MACsec to secure the connections between your edge routers and Microsoft's edge routers.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau 

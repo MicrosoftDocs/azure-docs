@@ -3,7 +3,7 @@ title: Azure AI Model Inference API
 titleSuffix: Azure Machine Learning
 description: Learn about how to use the Azure AI Model Inference API
 manager: scottpolly
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: conceptual
 ms.date: 05/03/2024

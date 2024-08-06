@@ -5,7 +5,7 @@ author: jonburchel
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
 ms.date: 07/24/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
 ---

@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Key Vault with Azure PowerShell
 description: Quickstart showing how to create an Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/30/2024

@@ -4,7 +4,7 @@ description: Learn how to enable Trusted launch on existing Azure virtual machin
 author: AjKundnani
 ms.author: ajkundna
 ms.reviewer: cynthn
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 08/13/2023

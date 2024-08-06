@@ -4,7 +4,7 @@ description: Learn how to integrate Microsoft Defender for Cloud and Azure Backu
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/30/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

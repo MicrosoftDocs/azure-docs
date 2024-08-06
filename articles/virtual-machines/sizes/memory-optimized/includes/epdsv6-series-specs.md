@@ -3,7 +3,7 @@ title: Epdsv6-series specs include
 description: Include file containing specifications of Epdsv6-series VM sizes.
 author: tomvcassidy
 ms.topic: include
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.date: 07/22/2024
 ms.author: tomcassidy

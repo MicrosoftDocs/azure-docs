@@ -4,7 +4,7 @@ description: Learn how to create and manage reusable policy fragments in Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep

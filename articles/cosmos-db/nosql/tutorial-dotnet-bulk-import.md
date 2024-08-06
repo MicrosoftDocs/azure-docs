@@ -3,7 +3,7 @@ title: Bulk import data to Azure Cosmos DB for NoSQL account by using the .NET S
 description: Learn how to import or ingest data to Azure Cosmos DB by building a .NET console application that optimizes provisioned throughput (RU/s) required for importing data
 author: ealsur
 ms.author: maquaran
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: tutorial
 ms.date: 03/25/2022

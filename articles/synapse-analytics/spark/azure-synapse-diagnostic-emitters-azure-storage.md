@@ -4,7 +4,7 @@ description: This article shows how to use the Synapse Spark diagnostic emitter 
 author: jejiang
 ms.author: jejiang
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 08/31/2021

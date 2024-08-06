@@ -2,8 +2,8 @@
 title:  Use Python and DICOMweb Standard APIs in Azure Health Data Services
 description: Use Python and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.custom: devx-track-python
 ms.topic: tutorial
 ms.date: 02/15/2022

@@ -4,7 +4,7 @@ description: Recommendations to secure images and secrets for Azure Container In
 ms.topic: conceptual
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 services: container-instances
 ms.date: 06/17/2022
 ---
