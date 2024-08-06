@@ -126,7 +126,7 @@ In the webapp application settings, navigate to "Environment Variables" and make
 If using an embedding model deployed to the same resource as your model used for inference, there are no additional settings changes required.  
 
 However, if you're using an embedding model deployed to the same resource, please make the following additional changes to your app's environment variables:
-* Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API, e.g. `https://<your AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings?api-version=2023-03-15-preview`
+* Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API, e.g. `https://<your AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings`
 * Delete the `AZURE_OPENAI_EMBEDDING_KEY` variable to use Entra ID authentication. 
 
 Once all of the environment variable changes are completed, restart the webapp to begin using Entra ID authentication between services in the webapp.
