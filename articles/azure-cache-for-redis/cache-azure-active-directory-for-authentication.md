@@ -107,6 +107,7 @@ If you want to use a custom access policy instead of Redis Data Owner, go to **D
 1. Choose either **User or service principal** or **Managed Identity** to determine how to assign access to your Azure Cache for Redis instance. If you select **User or service principal** and you want to add a user, you must first [enable Microsoft Entra authentication](#enable-microsoft-entra-id-authentication-on-your-cache).
 
 1. Then, choose **Select members** and choose **Select**. Then, select **Next: Review + assign**.
+
    :::image type="content" source="media/cache-azure-active-directory-for-authentication/cache-select-members.png" alt-text="Screenshot showing members to add as new Redis users.":::
 
 1. A pop-up dialog notifies you that upgrading is permanent and might cause a brief connection blip. Select **Yes.**
