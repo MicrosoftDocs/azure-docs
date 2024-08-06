@@ -187,6 +187,9 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 :::image type="content" source="../media/managed-identities/resource-id-property.png" alt-text="Screenshot:Translator properties page in the Azure portal. ":::
 
+> [!IMPORTANT]
+> Assign [**Cognitive Services User**](../../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role to the service principal. By assigning this role, you're granting service principal access to the Translator resource.
+
 ### **Examples**
 
 #### **Using the global endpoint**
@@ -201,10 +204,6 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
      -H "Content-Type: application/json" \
      -data-raw "[{'Text':'Hello, friend.'}]"
 ```
-
-> [!IMPORTANT]
-> Assign [**Cognitive Services User**](../../../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-user) role to the service principal. By assigning this role, you're granting service principal access to the Translator resource.
-
 
 #### **Using your custom endpoint**
 
