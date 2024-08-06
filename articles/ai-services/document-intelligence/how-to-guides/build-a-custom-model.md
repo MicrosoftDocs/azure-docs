@@ -56,7 +56,7 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
 
 1. In the Studio, select the **Custom extraction model** tile and select the **Create a project** button.
 
-    :::image type="content" source="../media/how-to/studio_custom_createproject.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
+    :::image type="content" source="../media/how-to/studio-custom-create-project.png" alt-text="Screenshot of Create a project in the Document Intelligence Studio.":::
 
     1. On the `create project` dialog, provide a name for your project, optionally a description, and select continue.
 
@@ -65,11 +65,11 @@ The Document Intelligence Studio provides and orchestrates all the API calls req
     > [!IMPORTANT]
     > Custom neural models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md#supported-regions).
 
-    :::image type="content" source="../media/how-to/studio_custom_configureresource.png" alt-text="Screenshot of Select the Document Intelligence resource.":::
+    :::image type="content" source="../media/how-to/studio-custom-configure-resource.png" alt-text="Screenshot of Select the Document Intelligence resource.":::
 
 1. Next select the storage account you used to upload your custom model training dataset. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a subfolder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
-    :::image type="content" source="../media/how-to/studio_addtrainingsource.png" alt-text="Screenshot of Select the storage account.":::
+    :::image type="content" source="../media/how-to/studio-add-training-source.png" alt-text="Screenshot of Select the storage account.":::
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -81,7 +81,7 @@ The files you uploaded to storage are listed on the left of your screen, with th
 
 1. Start labeling your dataset and creating your first field by selecting the plus (➕) button on the top-right of the screen.
 
-    :::image type="content" source="../media/how-to/studio_addfield.png" alt-text="Screenshot of Create a label.":::
+    :::image type="content" source="../media/how-to/studio-addfield.png" alt-text="Screenshot of Create a label.":::
 
 1. Enter a name for the field.
 

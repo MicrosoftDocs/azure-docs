@@ -111,11 +111,11 @@ Prebuilt models enable you to add intelligent document processing to your apps a
     [**Check**](#check) | Extract relevant information from checks.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-paystub.png" link="#pay-stub":::</br>
+      :::image type="icon" source="media/overview/icon-pay-stub.png" link="#pay-stub":::</br>
     [**Pay Stub**](#pay-stub) | Extract pay stub details.
    :::column-end:::
    :::column span="":::
-      :::image type="icon" source="media/overview/icon-id-bankstatement.png" link="#bank-statement":::</br>
+      :::image type="icon" source="media/overview/icon-id-bank-statement.png" link="#bank-statement":::</br>
     [**Bank Statement**](#bank-statement) | Extract account information and details from bank statements.
    :::column-end:::
 :::row-end:::

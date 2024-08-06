@@ -88,14 +88,14 @@ With the release of API versions **2022-06-30-preview** and later, custom neural
 * Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables.
 * The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
-2. Tabular fields support **cross page tables** by default:
+Tabular fields support **cross page tables** by default:
 
     * To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
     * As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
 
-3. Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
-4. Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
+Tabular fields provide **table, row and cell confidence** starting with the ```2024-02-29-preview``` API:
 
     * Fixed or dynamic tables add confidence support for the following elements:
       * Table confidence, a measure of how accurately the entire table is recognized.
