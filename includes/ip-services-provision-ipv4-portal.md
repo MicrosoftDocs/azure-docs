@@ -255,5 +255,3 @@ To commission a custom IP prefix (regional or global) using the portal:
 It's possible to commission the global custom IP prefix before the regional custom IP prefixes. Doing this advertises the global range to the Internet before the regional prefixes are ready so it's not recommended for migrations of active ranges. You can decommission a global custom IP prefix while there are still active (commissioned) regional custom IP prefixes. Also, you can decommission a regional custom IP prefix while the global prefix is still active (commissioned).
 
 [!INCLUDE [ip-services-provisioning-note-1](ip-services-provisioning-note-1.md)]
-
----
