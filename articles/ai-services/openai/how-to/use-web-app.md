@@ -37,7 +37,7 @@ You can customize the app's front-end and back-end logic. The app provides sever
 
 When you're customizing the app, we recommend:
 
-- Resetting the chat session (clear chat) if any settings changes are made.  Notify your application end-users that their chat history will be lost.
+- Resetting the chat session (clear chat) if any settings changes are made. Notify your application end-users that their chat history will be lost.
 
 - Clearly communicating how each setting that you implement affects the user experience.
 
@@ -82,7 +82,7 @@ After you turn on chat history, your users can show and hide it in the upper-rig
 
 ## Deleting your Cosmos DB instance
 
-Deleting your web app doesn't delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option selected on subsequent updates from the Azure OpenAI Studio, your users are noified of a connection error but can continue to use the web app without access to the chat history.
+Deleting your web app doesn't delete your Cosmos DB instance automatically. To delete your Cosmos DB instance along with all stored chats, you need to go to the associated resource in the [Azure portal](https://portal.azure.com) and delete it. If you delete the Cosmos DB resource but keep the chat history option selected on subsequent updates from the Azure OpenAI Studio, your users are notified of a connection error. However, they can continue to use the web app without access to the chat history.
 
 ## Enabling Microsoft Entra ID authentication between services
 
@@ -125,7 +125,7 @@ In the webapp application settings, navigate to "Environment Variables" and make
 
 If using an embedding model deployed to the same resource as your model used for inference, there are no other settings changes required.
 
-However, if you're using an embedding model deployed to a different resource, make the following additional changes to your app's environment variables:
+However, if you're using an embedding model deployed to a different resource, make the following extra changes to your app's environment variables:
 * Set `AZURE_OPENAI_EMBEDDING_ENDPOINT` variable to the full API path of the embedding API for the resource you're using for embeddings, for example, `https://<your embedding AOAI resource name>.openai.azure.com/openai/deployments/<your embedding deployment name>/embeddings`
 * Delete the `AZURE_OPENAI_EMBEDDING_KEY` variable to use Microsoft Entra ID authentication. 
 
