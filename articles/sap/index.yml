@@ -91,7 +91,7 @@ additionalContent:
         - text: FAQ about Azure Monitor for SAP solutions
           url: ./monitor/faq.yml
     #card
-      - title: quickstart
+      - title: Quickstart
         links:
           - text: Deploy Azure Monitor for SAP solutions (Azure portal)
             url: ./monitor/quickstart-portal.md
