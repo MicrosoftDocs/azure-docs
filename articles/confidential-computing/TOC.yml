@@ -43,6 +43,8 @@
       href: confidential-vm-faq.yml
     - name: Guest attestation for confidential VMs
       href: guest-attestation-confidential-vms.md
+    - name: About Azure confidential GPUs
+      href: gpu-options.md
     - name: Microsoft Defender for Cloud integration
       href: guest-attestation-defender-for-cloud.md
     - name: Virtual TPMs in Azure confidential VMs

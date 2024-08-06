@@ -2,8 +2,8 @@
 title: Create an Azure confidential VM in the Azure portal
 description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: virtual-machines
+ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
@@ -56,6 +56,9 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
     g. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
     h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+
+    > [!NOTE]
+    > For NCCH100v5 series, only the **Ubuntu Server 22.04 LTS (Confidential VM)** image is currently supported. 
 
     i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
