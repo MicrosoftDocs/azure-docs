@@ -285,6 +285,8 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 
 ## Connectivity through additional service providers
 
+#### [A-C](#tab/a-C)
+
 | Connectivity provider | Exchange | Locations |
 | --- | --- | --- |
 | **[1CLOUDSTAR](https://www.1cloudstar.com/services/cloudconnect-azure-expressroute.html)** | Equinix |Singapore |
@@ -306,6 +308,11 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[CoreAzure](https://www.coreazure.com/)**| Equinix | London |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | Dallas<br/>Silicon Valley<br/>Washington DC |
 | **[Crown Castle](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | Atlanta<br/>Chicago<br/>Dallas<br/>Los Angeles<br/>New York<br/>Washington DC |
+
+#### [D-M](#tab/d-m)
+
+| Connectivity provider | Exchange | Locations |
+| --- | --- | --- |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | Dallas |
 | **[Epsilon Telecommunications Limited](https://www.epsilontel.com/solutions/cloud-connect/)** | Equinix | London<br/>Singapore<br/>Washington DC |
 | **[Eurofiber](https://eurofiber.nl/microsoft-azure/)** | Equinix | Amsterdam |
@@ -313,6 +320,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/dati-voce/scheda-prodotto/fast-company/)** | Equinix | Amsterdam |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | Quebec City |
 | **[FPT Telecom International](https://cloudconnect.vn/en)** |Equinix |Singapore|
+| --- | --- | --- |
 | **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | Washington DC |
 | **[Gulf Bridge International](https://gbiinc.com/)** | Equinix | Amsterdam |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | London<br/>Slough |
@@ -325,6 +333,10 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Masergy](https://www.masergy.com/sd-wan/multi-cloud-connectivity)** | Equinix | Washington DC |
 | **[Momentum Telecom](https://gomomentum.com/)** | Equinix<br/>Megaport | Atlanta<br/>Los Angeles<br/>Seattle<br/>Washington DC |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** | Teraco | Cape Town<br/>Johannesburg |
+
+#### [N-Z](#tab/n-z)
+
+| Connectivity provider | Exchange | Locations |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | London |
 | **[Nianet](https://www.globalconnect.dk/)** |Equinix | Amsterdam<br/>Frankfurt |
 | **[Oncore Cloud Service Inc](https://www.oncore.cloud/services/ue-for-expressroute)**| Equinix | Montreal<br/>Toronto |

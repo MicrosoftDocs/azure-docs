@@ -173,7 +173,6 @@ The following table shows connectivity locations and the service providers for e
 | **Zurich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Switzerland North | &check; | Colt<br/>Equinix<br/>Intercloud<br/>Interxion (Digital Realty)<br/>Megaport<br/>Swisscom<br/>Zayo |
 | **Zurich2** | [Equinix ZH5](https://www.equinix.com/data-centers/europe-colocation/switzerland-colocation/zurich-data-centers/zh5) | 1 | Switzerland North | &check; | Equinix |
 
-
 ---
 
 ### National cloud environments
@@ -235,6 +234,8 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 
 ## Connectivity through additional service providers
 
+#### [A-K](#tab/a-k)
+
 | Location | Exchange | Connectivity providers |
 |--|--|--|
 | **Amsterdam** | Equinix<br/>Interxion<br/>Level 3 Communications | BICS<br/>CloudXpress<br/>Eurofiber<br/>Fastweb S.p.A<br/>Gulf Bridge International<br/>Kalaam Telecom Bahrain B.S.C<br/>MainOne<br/>Nianet<br/>POST Telecom Luxembourg<br/>Proximus<br/>RETN<br/>TDC Erhverv<br/>Telecom Italia Sparkle<br/>Telekom Deutschland GmbH<br/>Telia |
@@ -247,6 +248,11 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **Hamburg** | Equinix | Cinia |
 | **Hong Kong** | Equinix | Chief<br/>Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |
+
+#### [L-Q](#tab/l-q)
+
+| Location | Exchange | Connectivity providers |
+|--|--|--|
 | **London** | BICS<br/>Equinix<br/>euNetworks | Bezeq International Ltd.<br/>CoreAzure<br/>Epsilon Telecommunications Limited<br/>Exponential E<br/>HSO<br/>NexGen Networks<br/>Proximus<br/>Tamares Telecom<br/>Zain |
 | **Los Angeles** | Equinix | Crown Castle<br/>Momentum Telecom<br/>Spectrum Enterprise<br/>Transtelco |
 | **Madrid** | Level3 | Zertia |
@@ -256,6 +262,11 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **New York** | Equinix<br/>Megaport | Altice Business<br/>Crown Castle<br/>Spectrum Enterprise<br/>Webair |
 | **Paris** | Equinix | Proximus |
 | **Quebec City** | Megaport | Fibrenoire |
+
+#### [S-Z](#tab/s-z)
+
+| Location | Exchange | Connectivity providers |
+|--|--|--|
 | **Sao Paulo** | Equinix | Venha Pra Nuvem |
 | **Seattle** | Equinix | Alaska Communications<br/>Momentum Telecom |
 | **Silicon Valley** | Coresite<br/>Equinix<br/>Megaport | Cox Business<br/>Momentum Telecom<br/>Spectrum Enterprise<br/>Windstream<br/>X2nsat Inc. |
@@ -265,6 +276,8 @@ If you're remote and don't have fiber connectivity or want to explore other conn
 | **Tokyo** | Equinix | ARTERIA Networks Corporation<br/>BroadBand Tower<br/>Inc. |
 | **Toronto** | Equinix<br/>Megaport | Airgate Technologies Inc.<br/>Beanfield Metroconnect<br/>Aptum Technologies<br/>IVedha Inc<br/>Oncore Cloud Services Inc.<br/>Rogers<br/>Thinktel<br/>Zirro |
 | **Washington DC** | Equinix | Altice Business<br/>BICS<br/>Cox Business<br/>Crown Castle<br/>Gtt Communications Inc<br/>Epsilon Telecommunications Limited<br/>Masergy<br/>Momentum Telecom<br/>Windstream |
+
+---
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
