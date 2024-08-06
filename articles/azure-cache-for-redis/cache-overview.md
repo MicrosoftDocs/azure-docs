@@ -50,19 +50,19 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 
 | Feature Description | Basic | Standard | Premium | Enterprise | Enterprise Flash |
 | ------------------- | :-----: | :------: | :---: | :---: | :---: |
-| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |-|✔|✔|✔|✔|
-| Data encryption in transit |✔|✔|✔|✔|✔|
-| [Network isolation](cache-private-link.md) |✔|✔|✔|✔|✔|
-| [Scaling](cache-how-to-scale.md) |✔|✔|✔|Preview|Preview|
-| OSS clustering |-|-|✔|✔|✔|
-| [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
-| [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|Available|Available|Available|
-| [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔ (Passive) |✔ (Active) |✔ (Active) |
-| [Connection audit logs](cache-monitor-diagnostic-settings.md) |-|-|✔ (Poll-based)|✔ (Event-based)|✔ (Event-based)|
-| [Redis Modules](cache-redis-modules.md) |-|-|-|✔|Preview|
-| [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
-| [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
-| [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) |✔|✔|✔|-|-|
+| [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |No|Yes|Yes|Yes|Yes|
+| Data encryption in transit |Yes|Yes|Yes|Yes|Yes|
+| [Network isolation](cache-private-link.md) |Yes|Yes|Yes|Yes|Yes|
+| [Scaling](cache-how-to-scale.md) |Yes|Yes|Yes|Preview|Preview|
+| OSS clustering |No|No|Yes|Yes|Yes|
+| [Data persistence](cache-how-to-premium-persistence.md) |No|No|Yes|Preview|Preview|
+| [Zone redundancy](cache-how-to-zone-redundancy.md) |No|Preview|Preview|Available|Available|
+| [Geo-replication](cache-how-to-geo-replication.md) |No|No|Yes (Passive) |Yes (Active) |Yes (Active) |
+| [Connection audit logs](cache-monitor-diagnostic-settings.md) |No|No|Yes (Poll-based)|Yes (Event-based)|Yes (Event-based)|
+| [Redis Modules](cache-redis-modules.md) |No|No|No|Yes|Preview|
+| [Import/Export](cache-how-to-import-export-data.md) |No|No|Yes|Yes|Yes|
+| [Reboot](cache-administration.md#reboot) |Yes|Yes|Yes|No|No|
+| [Update channel and Schedule updates](cache-administration.md#update-channel-and-schedule-updates) |Yes|Yes|Yes|No|No|
 
 > [!NOTE]
 > The Enterprise Flash tier currently supports only the RediSearch module (in preview) and the RedisJSON module.
