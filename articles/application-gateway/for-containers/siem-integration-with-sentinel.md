@@ -19,7 +19,7 @@ In this QuickStart guide, you set up:
 - Configure a data connector into Microsoft Sentinel.
 - Establish an analytical rule, conduct a test alert, and visualize an alert for comprehensive oversight.
 
-  ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel.drawio.png)
+  ![A screenshot of Application Gateway for Containers Log Settings.](./media/siem-integration-with-sentinel/sentinel-arch.png)
 
 ## Learn About The Services
 - [What is Azure Sentinel?](../../sentinel/overview.md)
@@ -43,7 +43,7 @@ In this QuickStart guide, you set up:
       -  Select a name, check box **allLogs** which include the Application Gateway for Container Access Logs.
       -  Select **Send to Log analytics Workspace** with your desired subscription and your log analytics workspace.
 
-        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/loggingall.png)
+        ![A screenshot of app gateway for containers Log Settings.](./media/siem-integration-with-sentinel/logging.png)
 
         > [!NOTE]
         > It takes a few minutes for AccessLogs to populate into your log analytics workspace.
