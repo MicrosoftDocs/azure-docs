@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL - Single Server - Azure PowerShell'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL - Single Server using Azure PowerShell.
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: tutorial
 ms.author: sunila

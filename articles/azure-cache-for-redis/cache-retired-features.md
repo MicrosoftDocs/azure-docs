@@ -5,7 +5,7 @@ description: This article contains information on retirements from Azure Cache f
 author: flang-msft
 
 ms.author: franlanglois
-ms.service: cache
+ms.service: azure-cache-redis
 ms.topic: conceptual
 ms.date: 10/17/2023
 

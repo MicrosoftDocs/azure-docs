@@ -2,11 +2,11 @@
 title: Troubleshoot data access
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot and resolve data access issues.
-author: Man-MSFT
-ms.author: mafong
-ms.reviewer: franksolomon
+author: fbsolo-ms1
+ms.author: franksolomon
+ms.reviewer: mafong
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: mldata
 ms.date: 02/23/2024
 ms.topic: troubleshooting

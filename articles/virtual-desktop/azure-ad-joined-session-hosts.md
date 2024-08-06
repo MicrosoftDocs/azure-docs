@@ -4,7 +4,7 @@ description: Learn about using Microsoft Entra joined session hosts in Azure Vir
 services: virtual-desktop
 author: Heidilohr
 
-ms.service: virtual-desktop
+ms.service: azure-virtual-desktop
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: helohr

@@ -140,5 +140,5 @@ The sample data collection endpoint (DCE) below is for virtual machines with Azu
 
 
 ## Next steps
-- [Associate endpoints to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-a-data-collection-rule)
+
 - [Add an endpoint to an Azure Monitor Private Link Scope resource](../logs/private-link-configure.md#connect-azure-monitor-resources)

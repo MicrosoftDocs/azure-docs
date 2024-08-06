@@ -13,9 +13,6 @@ ms.author: askaur
 
 Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
 
-> [!NOTE]
-> Call Automation currently doesn't support [Rooms](../rooms/room-concept.md) calls.
-
 ## Common use cases
 
 Some of the common use cases that can be built using Call Automation include:
@@ -42,6 +39,7 @@ The following list presents the set of features that are currently available in 
 |                       | Place new outbound call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Redirect* (forward) a call to one or more endpoints  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Reject an incoming call                           | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Connect to an ongoing call or Room                | ✔️    | ✔️    |     ✔️         |    ✔️   |
 | Mid-call scenarios    | Add one or more endpoints to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Cancel adding an endpoint to an existing call     | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Play Audio from an audio file                     | ✔️    | ✔️    |     ✔️         |    ✔️   |
@@ -91,6 +89,9 @@ Using the IncomingCall event from Event Grid, a call can be redirected to one or
 
 **Create Call**
 Create Call action can be used to place outbound calls to phone numbers and to other communication users. Use cases include your application placing outbound calls to proactively inform users about an outage or notify about an order update.
+
+**Connect Call**
+Connect Call action can be used to connect to an ongoing call and take call actions on it. You can also use this action to connect and manage a Rooms call programmatically, like performing PSTN dial outs for Room using your service.  
 
 ### Mid-call actions
 
@@ -159,17 +160,18 @@ The Call Automation events are sent to the web hook callback URI specified when 
 
 | Event             | Description |
 | ----------------- | ------------ |
-| CallConnected      | Your application’s call leg is connected (inbound or outbound)  |
-| CallDisconnected       | Your application’s call leg is disconnected  |
-| CallTransferAccepted         | Your application’s call leg has been transferred to another endpoint  |
-| CallTransferFailed  | The transfer of your application’s call leg failed  |
-| AddParticipantSucceeded| Your application added a participant  |
-| AddParticipantFailed   | Your application was unable to add a participant  |
-| CancelAddParticipantSucceeded| Your application canceled adding a participant  |
-| CancelAddParticipantFailed   | Your application was unable to cancel adding a participant  |
-| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call.  |
-| RemoveParticipantFailed   | Your application was unable to remove a participant from the call.  |
-| ParticipantsUpdated    | The status of a participant changed while your application’s call leg was connected to a call  |
+| CallConnected      | The call has successfully started (when using Answer or Create action) or your application has successfully connected to an ongoing call (when using Connect action)|
+| CallDisconnected       | Your application has been disconnected from the call |
+| ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
+| CallTransferAccepted         | Transfer action has successfully completed and the transferee is connected to the target participant |
+| CallTransferFailed  | The transfer action has failed  |
+| AddParticipantSucceeded| Your application has successfully added a participant to the call  |
+| AddParticipantFailed   | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite |
+| CancelAddParticipantSucceeded| Your application canceled an AddParticipant request successfully (i.e. the participant was not added to the call) |
+| CancelAddParticipantFailed   | Your application was unable to cancel an AddParticipant request (this could be because the request has already been processed)  |
+| RemoveParticipantSucceeded| Your application has successfully removed a participant from the call  |
+| RemoveParticipantFailed   | Your application was unable to remove a participant from the call  |
+| ParticipantsUpdated    | The status of a participant changed while your application was connected to a call  |
 | PlayCompleted | Your application successfully played the audio file provided |
 | PlayFailed | Your application failed to play audio |
 | PlayCanceled | The requested play action has been canceled |

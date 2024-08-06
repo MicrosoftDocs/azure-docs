@@ -1,12 +1,12 @@
 ---
 title: Initial cluster size - Azure Cosmos DB for PostgreSQL
 description: Pick the right initial size for your use case
-ms.author: jonels
-author: jonels-msft
-ms.service: cosmos-db
+ms.author: nlarin
+author: niklarin
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 07/04/2024
 ---
 
 # Pick initial size for cluster in Azure Cosmos DB for PostgreSQL
@@ -14,7 +14,7 @@ ms.date: 01/30/2023
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 The size of a cluster, both number of nodes and their hardware capacity,
-is [easy to change](howto-scale-grow.md)). However you still need to
+is [easy to change](howto-scale-grow.md). However you still need to
 choose an initial size for a new cluster. Here are some tips for a
 reasonable choice.
 

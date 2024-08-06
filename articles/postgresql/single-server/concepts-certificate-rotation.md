@@ -1,7 +1,7 @@
 ---
 title: Certificate rotation for Azure Database for PostgreSQL Single server
 description: Learn about the upcoming changes of root certificate changes that affect Azure Database for PostgreSQL Single server
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.subservice: single-server
 ms.topic: conceptual
 ms.author: gennadyk
@@ -115,7 +115,7 @@ For Azure app services, connecting to Azure Database for PostgreSQL, we can have
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for PostgreSQL?
 
-If you are trying to connect to the Azure Database for PostgreSQL using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](../../aks/ingress-own-tls.md).
+If you are trying to connect to the Azure Database for PostgreSQL using Azure Kubernetes Services (AKS), it's similar to access from a dedicated customers host environment. Refer to the steps [here](/azure/aks/ingress-own-tls).
 
 ### 6. What is the impact if using Azure Data Factory to connect to Azure Database for PostgreSQL?
 

@@ -29,9 +29,6 @@ This guide describes how to migrate SQL Managed Instances that use Business Crit
 
 1. Confirm that your instance is located in a supported region. To see the list of supported regions, see [Premium and Business Critical service tier zone redundant availability](/azure/azure-sql/database/high-availability-sla?view=azuresql&preserve-view=true&tabs=azure-powershell#premium-and-business-critical-service-tier-zone-redundant-availability):
 
-    
-1. Your instances must be running on standard-series (Gen5) hardware.
-
 ## Downtime requirements
 
 All scaling operations in Azure SQL are online operations and require minimal to no downtime. For more details on Azure SQL dynamic scaling, see [Dynamically scale database resources with minimal downtime](/azure/azure-sql/database/scale-resources?view=azuresql&preserve-view=true).

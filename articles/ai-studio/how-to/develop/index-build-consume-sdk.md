@@ -268,7 +268,7 @@ from azure.ai.ml.entities import LocalSource
 
 input_source=LocalSource(input_data="<path-to-your-local-files>")
 
-# Github repository
+# GitHub repository
 from azure.ai.ml.entities import GitSource
 
 input_source=GitSource(

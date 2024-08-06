@@ -17,7 +17,7 @@ Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 
-## May-2024
+## Jul-2024
 
 ### AzAcSnap 10 (Build: 1B55F1*)
 

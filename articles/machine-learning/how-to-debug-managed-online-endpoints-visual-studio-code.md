@@ -3,11 +3,11 @@ title: Debug online endpoints locally in Visual Studio Code
 titleSuffix: Azure Machine Learning
 description: Learn how to use Visual Studio Code to test and debug online endpoints locally before deploying them to Azure.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 03/20/2024
 ms.topic: troubleshooting
 ms.custom: devplatv2, devx-track-azurecli, cliv2

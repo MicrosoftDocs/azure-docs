@@ -3,14 +3,14 @@ title: "Tutorial 4: Enable online materialization and run online inference"
 titleSuffix: Azure Machine Learning managed feature store - basics
 description: This is a part of a tutorial series on managed feature store. 
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 
 ms.subservice: core
 ms.topic: tutorial
-author: ynpandey
-ms.author: yogipandey
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 11/28/2023
-ms.reviewer: franksolomon
+ms.reviewer: yogipandey
 ms.custom: sdkv2, ignite-2023
 #Customer intent: As a professional data scientist, I want to know how to build and deploy a model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---

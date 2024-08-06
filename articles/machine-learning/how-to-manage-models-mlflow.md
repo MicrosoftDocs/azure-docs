@@ -3,10 +3,10 @@ title: Manage models registries in Azure Machine Learning with MLflow
 titleSuffix: Azure Machine Learning
 description: Explains how to use MLflow for managing models in Azure Machine Learning
 services: machine-learning
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
-ms.service: machine-learning
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 06/08/2022
 ms.topic: conceptual

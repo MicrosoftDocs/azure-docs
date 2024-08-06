@@ -5,7 +5,7 @@ description: Learn how to call Grafana APIs programmatically with Microsoft Entr
 #customerintent: As a user of Azure Managed Grafana, I want to learn how I can get an access to token and call Grafana APIs.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: tutorial
 ms.date: 04/12/2024
 ms.custom: engagement-fy23

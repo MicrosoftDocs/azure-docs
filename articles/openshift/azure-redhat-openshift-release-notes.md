@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: overview
-ms.date: 05/03/2024
+ms.date: 07/23/2024
 ms.custom: references_regions
 ---
 
@@ -15,7 +15,7 @@ Azure Red Hat OpenShift receives improvements on an ongoing basis. To stay up to
 
 ## Version 4.14 - May 2024
 
-We're pleased to announce the launch of OpenShift 4.14 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.14](https://docs.openshift.com/container-platform/4.14/welcome/index.html). Version 4.12 will be outside of support after July 17th, 2024. Existing clusters on version 4.12 and below should be upgraded before then.
+We're pleased to announce the launch of OpenShift 4.14 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.14](https://docs.openshift.com/container-platform/4.14/welcome/index.html). You can check the end of support date on the [support lifecycle page](/azure/openshift/support-lifecycle) for previous versions.
 
 In addition to making version 4.14 available, this release also makes the following features generally available:
 
@@ -41,10 +41,6 @@ A cluster that is deployed with this feature and is running version 4.11 or high
 
 We're pleased to announce the launch of OpenShift 4.12 for Azure Red Hat OpenShift. This release enables [OpenShift Container Platform 4.12](https://docs.openshift.com/container-platform/4.12/release_notes/ocp-4-12-release-notes.html).
 
-> [!NOTE]
-> Starting with ARO version 4.12, the support lifecycle for new versions will be set to 14 months from the day of general availability. That means that the end date for support of each version will no longer be dependent on the previous version (as shown in the table above for version 4.12.) This does not affect support for the previous version; two generally available (GA) minor versions of Red Hat OpenShift Container Platform will continue to be supported.
-> 
-
 ## Update - June 2023
 
 - Removed dependencies on service endpoints
@@ -56,8 +52,8 @@ We're pleased to announce the launch of OpenShift 4.11 for Azure Red Hat OpenShi
 
 - Ability to deploy OpenShift 4.11
 - Multi-version support: 
-    - This enables customers to select specific Y and Z version of the release. See [Red Hat OpenShift versions](support-lifecycle.md#red-hat-openshift-versions) for more information about versions.
-    - Customers can still deploy 4.10 clusters if that version is specified. See [Selecting a different ARO version](create-cluster.md#selecting-a-different-aro-version) for more information.
+    - This enables customers to select specific Y and Z version of the release. For more information about versions, see [Red Hat OpenShift versions](support-lifecycle.md#red-hat-openshift-versions).
+    - Customers can still deploy 4.10 clusters if that version is specified. For more information, see [Selecting a different ARO version](create-cluster.md#selecting-a-different-aro-version).
 - OVN as the CNI for clusters 4.11 and above
 - Accelerated networking VMs 
 - UltraSSD support

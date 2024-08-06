@@ -2,17 +2,17 @@
 title: Deploy Azure Cloud Services (extended support) - SDK
 description: Deploy Azure Cloud Services (extended support) by using the Azure SDK.
 ms.topic: quickstart
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/18/2024
+ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
 ---
 
 # Deploy Cloud Services (extended support) by using the Azure SDK
 
-This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole) and the Remote Desktop Protocol (RDP) extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services that's based on Azure Resource Manager.
+This article shows how to use the [Azure SDK](https://azure.microsoft.com/downloads/) to create an Azure Cloud Services (extended support) deployment that has multiple roles (WebRole and WorkerRole). It also covers how to use the Remote Desktop Protocol (RDP) extension. Cloud Services (extended support) is a deployment model of Azure Cloud Services based on Azure Resource Manager.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ To deploy Cloud Services (extended support) by using the SDK:
     resourceGroup = await resourceGroups.CreateOrUpdateAsync(resourceGroupName, resourceGroup);
     ```
 
-1. Create a storage account and container where you'll store the package (.cspkg or .zip) file and configuration (.cscfg) file for the deployment. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if you're using an existing storage account. The storage account name must be unique.
+1. Create a storage account and container where you store the package (.cspkg or .zip) file and configuration (.cscfg) file for the deployment. Install the [Azure Storage NuGet package](https://www.nuget.org/packages/Azure.Storage.Common/). This step is optional if you're using an existing storage account. The storage account name must be unique.
 
     ```csharp
     string storageAccountName = “ContosoSAS”
@@ -247,7 +247,7 @@ To deploy Cloud Services (extended support) by using the SDK:
 
 1. Create a role profile object. A role profile defines role-specific properties for a SKU, such as name, capacity, and tier.
 
-    This example defines two roles: ContosoFrontend and ContosoBackend. Role profile information must match the role that's defined in the configuration (.cscfg) file and definition (.csdef) file.
+    This example defines two roles: ContosoFrontend and ContosoBackend. Role profile information must match the role defined in the configuration (.cscfg) file and definition (.csdef) file.
 
     ```csharp
     CloudServiceRoleProfile cloudServiceRoleProfile = new CloudServiceRoleProfile()

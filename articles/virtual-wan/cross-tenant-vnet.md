@@ -5,7 +5,7 @@ description: This article helps you connect cross-tenant virtual networks to a v
 services: virtual-wan
 author: wtnlee
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/24/2023

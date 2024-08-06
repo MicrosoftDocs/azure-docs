@@ -3,9 +3,9 @@
  description: include file
  services: expressroute
  author: duongau
- ms.service: expressroute
+ ms.service: azure-expressroute
  ms.topic: include
- ms.date: 05/7/2024
+ ms.date: 07/09/2024
  ms.author: duau
  ms.custom: include file
 ---
@@ -28,12 +28,12 @@ The following tables provides an overview of the different types of gateways, th
 
 This table applies to both the Azure Resource Manager and classic deployment models.
 
-| Gateway SKU | Connections per second | Mega-Bits per second | Packets per second | Supported number of VMs in the virtual network <sup>1<sup/> | Flow count limit |
-|--|--|--|--|--|--|
-| **Standard/ERGw1Az** | 7,000 | 1,000 | 100,000 | 2,000 | 200,000 |
-| **High Performance/ERGw2Az** | 14,000 | 2,000 | 200,000 | 4,500 | 400,000 |
-| **Ultra Performance/ErGw3Az** | 16,000 | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
-| **ErGwScale (per scale unit)** | N/A | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
+| Gateway SKU | Mega-Bits per second | Packets per second | Supported number of VMs in the virtual network <sup>1<sup/> | Flow count limit |
+|--|--|--|--|--|
+| **Standard/ERGw1Az** | 1,000 | 100,000 | 2,000 | 200,000 |
+| **High Performance/ERGw2Az** | 2,000 | 200,000 | 4,500 | 400,000 |
+| **Ultra Performance/ErGw3Az** | 10,000 | 1,000,000 | 11,000 | 1,000,000 |
+| **ErGwScale (per scale unit)** | 1,000 | 100,000 | 2,000 | 100,000 per scale unit |
 
 <sup>1<sup/> The values in the table are estimates and varies depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs gets exceeded, the gateway will start to dropping packets.
 

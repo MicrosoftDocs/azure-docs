@@ -4,7 +4,7 @@ description: Vertically scale your Service Fabric cluster by adding a new non-pr
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-azurepowershell
 services: service-fabric
 ms.date: 08/26/2022

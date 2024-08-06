@@ -3,7 +3,7 @@ title: What is Designer (v1)?
 titleSuffix: Azure Machine Learning
 description: Learn about how the drag-and-drop Designer (v1) UI in Azure Machine Learning studio enables model training and deployment tasks.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lagayhar

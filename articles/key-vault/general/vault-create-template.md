@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 ms.custom: devx-track-arm-template
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 02/20/2024

@@ -3,7 +3,7 @@ title: Authentication and authorization in Azure Container Apps
 description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 04/20/2022
 ms.author: cshoe

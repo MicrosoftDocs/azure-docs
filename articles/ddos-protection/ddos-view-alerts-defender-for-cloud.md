@@ -1,22 +1,22 @@
 ---
-title: 'View Azure DDoS Protection alerts in Microsoft Defender for Cloud'
+title: 'Tutorial: View Azure DDoS Protection alerts in Microsoft Defender for Cloud'
 description: Learn how to view DDoS protection alerts in Microsoft Defender for Cloud.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 08/08/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
-# View Azure DDoS Protection alerts in Microsoft Defender for Cloud
-
-Microsoft Defender for Cloud provides a list of [security alerts](../security-center/security-center-managing-and-responding-alerts.md), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts - including DDoS attack-related alerts - and the actions to take to mitigate the attack.
+# Tutorial: View Azure DDoS Protection alerts in Microsoft Defender for Cloud
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * View Azure DDoS Protection alerts in Microsoft Defender for Cloud.
+
+Microsoft Defender for Cloud provides a list of [security alerts](../security-center/security-center-managing-and-responding-alerts.md), with information to help investigate and remediate problems. With this feature, you get a unified view of alerts - including DDoS attack-related alerts - and the actions to take to mitigate the attack.
 
 There are two specific alerts that you'll see for any DDoS attack detection and mitigation:
 
@@ -26,8 +26,6 @@ There are two specific alerts that you'll see for any DDoS attack detection and 
 To view the alerts, open **Defender for Cloud** in the Azure portal and select **Security alerts**. The following screenshot shows an example of the DDoS attack alerts.
 
 :::image type="content" source="./media/ddos-view-alerts-defender-for-cloud/ddos-alert-asc.png" alt-text="Screenshot of DDoS Alert in Microsoft Defender for Cloud." lightbox="./media/ddos-view-alerts-defender-for-cloud/ddos-alert-asc.png":::
-
-
 
 ## Prerequisites
 

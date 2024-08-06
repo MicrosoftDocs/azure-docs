@@ -3,7 +3,7 @@ title: Overview of Zoom Phone Cloud Peering with Azure Communications Gateway
 description: Understand how Azure Communications Gateway fits into your fixed and mobile networks and into the Zoom Phone Cloud Peering program.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 03/31/2024
 ms.custom: template-concept

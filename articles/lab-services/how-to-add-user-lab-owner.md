@@ -8,6 +8,8 @@ ms.custom: subject-rbac-steps
 
 # How to add additional owners to an existing lab in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how you, as an administrator, can add additional owners to an existing lab.
@@ -21,11 +23,11 @@ This article shows you how you, as an administrator, can add additional owners t
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Reader** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select the user you want to add to the Reader role.
 
@@ -40,11 +42,11 @@ This article shows you how you, as an administrator, can add additional owners t
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Owner** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select the user you want to add to the Owner's role
 

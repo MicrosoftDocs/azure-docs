@@ -1,12 +1,12 @@
 ---
 title: Security overview - Azure Cosmos DB for PostgreSQL
 description: Information protection and network security for Azure Cosmos DB for PostgreSQL.
-ms.author: jonels
-author: jonels-msft
-ms.service: cosmos-db
+ms.author: nlarin
+author: niklarin
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 01/14/2022
+ms.date: 07/04/2024
 ---
 
 # Security in Azure Cosmos DB for PostgreSQL
@@ -19,7 +19,9 @@ This page outlines the multiple layers of security available to protect the data
 
 ### In transit
 
-Whenever data is ingested into a node, Azure Cosmos DB for PostgreSQL secures your data by encrypting it in-transit with Transport Layer Security 1.2. Encryption (SSL/TLS) is always enforced, and can’t be disabled.
+Whenever data is ingested into a node, Azure Cosmos DB for PostgreSQL secures your data by encrypting it in-transit with Transport Layer Security (TLS) 1.2 or higher. Encryption (SSL/TLS) is always enforced, and can’t be disabled.
+
+The minimum TLS version required to connect to the cluster might be enforced by setting **ssl_min_protocol_version** coordinator and worker node parameter to *TLSV1.2* or *TLSV1.3* for TLS 1.2 or TLS 1.3 respectively.  
 
 ### At rest
 

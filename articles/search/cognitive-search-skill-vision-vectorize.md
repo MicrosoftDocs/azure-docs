@@ -9,13 +9,13 @@ ms.custom:
   - build-2024
   - references_regions
 ms.topic: reference
-ms.date: 06/14/2024
+ms.date: 08/05/2024
 ---
 
-#	Azure AI Vision multimodal embeddings skill
+# Azure AI Vision multimodal embeddings skill
 
 > [!IMPORTANT] 
-> This feature is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
+> This skill is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [2024-05-01-Preview REST API](/rest/api/searchservice/skillsets/create-or-update?view=rest-searchservice-2024-05-01-Preview&preserve-view=true) supports this feature.
 
 The **Azure AI Vision multimodal embeddings** skill uses Azure AI Vision's [multimodal embeddings API](../ai-services/computer-vision/concept-image-retrieval.md) to generate embeddings for image or text input.
 
@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 
 | Inputs | Description |
 |---------------------|-------------|
-| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It is important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model refer to [multimodal embeddings](../ai-services/computer-vision/concept-image-retrieval.md#what-are-vector-embeddings).|
+| `modelVersion` | (Required) The model version to be passed to the Azure AI Vision multimodal embeddings API for generating embeddings. It's important that all embeddings stored in a given index field are generated using the same `modelVersion`. For information about version support for this model, refer to [multimodal embeddings](../ai-services/computer-vision/concept-image-retrieval.md#what-are-vector-embeddings).|
 
 ## Skill inputs
 
@@ -164,7 +164,7 @@ The output resides in memory. To send this output to a field in the search index
   ]
 ```
 
-For mapping image embeddings to the index, you will need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` might look something like this:
+For mapping image embeddings to the index, you'll need to use the [Index Projections](index-projections-concept-intro.md) feature. The payload for `indexProjections` might look something like this:
 
 ```json
 "indexProjections": {

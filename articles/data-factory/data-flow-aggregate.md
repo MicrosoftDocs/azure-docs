@@ -5,7 +5,6 @@ description: Learn how to aggregate data at scale in Azure Data Factory and Syna
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

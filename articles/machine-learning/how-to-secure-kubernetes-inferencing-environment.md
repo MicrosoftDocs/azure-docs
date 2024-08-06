@@ -2,10 +2,10 @@
 title: Secure Azure Kubernetes Service inferencing environment
 description: Learn about securing an Azure Kubernetes Service inferencing environment and how to configure it.
 titleSuffix: Azure Machine Learning
-author: bozhong68
-ms.author: bozhlin
-ms.reviewer: larryfr ssalgado
-ms.service: machine-learning
+author: Blackmist
+ms.author: larryfr
+ms.reviewer: bozhlin
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.date: 08/31/2022
 ms.topic: how-to
@@ -23,7 +23,7 @@ If you have an Azure Kubernetes (AKS) cluster behind of VNet, you would need to 
 
 * If your AKS cluster is behind of a VNet, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same or peered VNet as AKS cluster's VNet. For more information on securing the workspace and associated resources, see [create a secure workspace](tutorial-create-secure-workspace.md).
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine Learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](/azure/aks/private-clusters) is __not supported__ with Azure Machine Learning.
 
 ## What is a secure AKS inferencing environment
 
@@ -65,7 +65,7 @@ Special notes for configuring a secure AKS inferencing environment:
 >[!Note]
 >
 > If your AKS that is behind a VNet has been stopped and **restarted**, you need to:
-> 1. First, follow the steps in [Stop and start an Azure Kubernetes Service (AKS) cluster](../aks/start-stop-cluster.md) to delete and recreate a private endpoint linked to this cluster. 
+> 1. First, follow the steps in [Stop and start an Azure Kubernetes Service (AKS) cluster](/azure/aks/start-stop-cluster) to delete and recreate a private endpoint linked to this cluster. 
 > 1. Then, reattach the Kubernetes computes attached from this AKS in your workspace. 
 >
 > Otherwise, the creation, update, and deletion of endpoints/deployments to this AKS cluster will fail.

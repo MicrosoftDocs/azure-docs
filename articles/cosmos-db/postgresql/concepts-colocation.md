@@ -3,7 +3,7 @@ title: Table colocation - Azure Cosmos DB for PostgreSQL
 description: How to store related information together for faster queries
 ms.author: jonels
 author: jonels-msft
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
 ms.date: 10/01/2023

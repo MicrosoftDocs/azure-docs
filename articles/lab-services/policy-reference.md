@@ -5,10 +5,12 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: ntrogh
 ms.author: nicktrog
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Lab Services. For additional Azure Policy built-ins for other services, see

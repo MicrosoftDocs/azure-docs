@@ -2,9 +2,9 @@
 title: Back up a SharePoint farm to Azure with MABS
 description: Use Azure Backup Server to back up and restore your SharePoint data. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 ms.topic: how-to
-ms.date: 11/29/2022
-ms.service: backup
-ms.custom: engagement-fy23
+ms.date: 07/22/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -14,18 +14,6 @@ ms.author: v-abhmallick
 This article describes how to back up SharePoint farm using Microsoft Azure Backup Server (MABS).
 
 Microsoft Azure Backup Server (MABS) enables you to back up a SharePoint farm to Microsoft Azure, which gives an experience similar to back up of other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points, and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
-
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - SharePoint supported scenarios
-> - Prerequisites
-> - Configure the backup
-> - Monitor the operations
-> - Restore a SharePoint item from disk using MABS
-> - Restore a SharePoint database from Azure using MABS
-> - Switch the front-end Web server
-> - Remove a database from a SharePoint farm
 
 >[!Note]
 >The backup process for SharePoint to Azure using MABS is similar to back up of SharePoint to Data Protection Manager (DPM) locally. Particular considerations for Azure are noted in this article.
@@ -43,6 +31,14 @@ For information on the supported SharePoint versions and the MABS versions requi
 * MABS that protects a SharePoint farm doesn't protect search indexes or application service databases. You need to configure the protection of these databases separately.
 * MABS doesn't provide backup of SharePoint SQL Server databases that are hosted on scale-out file server (SOFS) shares.
 
+### Limitations
+
+* You can't protect SharePoint databases as a SQL Server data source. You can recover individual databases from a farm backup.
+
+* Protecting application store items isn't supported with SharePoint 2013.
+
+* MABS doesn't support protecting remote FILESTREAM. The FILESTREAM should be part of the database.
+
 ## Prerequisites
 
 Before you continue, ensure that you've met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) to protect workloads. The tasks for prerequisites also include: create a backup vault, download vault credentials, install Azure Backup Agent, and register the Azure Backup Server with the vault.
@@ -53,17 +49,9 @@ Additional prerequisites:
 
 * Remember that MABS runs as **Local System**, and it needs *sysadmin* privileges on that account for the SQL server to back up SQL Server databases. On the SQL Server you want to back up, set *NT AUTHORITY\SYSTEM* to **sysadmin**.
 
-* For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the MABS folder is located. This space is required for catalog generation. To enable you to use MABS to perform a specific recovery of items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs contained within each content database. You can view the list of URLs in the recoverable item pane in the Recovery task area of the MABS Administrator Console.
+* For every 10 million items in the farm, there must be at least 2 GB of space on the volume where the MABS folder is located. This space is required for catalog generation. To enable you to use MABS to perform a specific recovery of items (site collections, sites, lists, document libraries, folders, individual documents, and list items), catalog generation creates a list of the URLs contained within each content database. You can view the list of URLs in the recoverable item blade in the Recovery task area of the MABS Administrator Console.
 
 * In the SharePoint farm, if you've SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
-
-### Limitations
-
-* You can't protect SharePoint databases as a SQL Server data source. You can recover individual databases from a farm backup.
-
-* Protecting application store items isn't supported with SharePoint 2013.
-
-* MABS doesn't support protecting remote FILESTREAM. The FILESTREAM should be part of the database.
 
 ## Configure the backup
 
@@ -105,7 +93,7 @@ Follow these steps:
 
    When you expand the computer running SharePoint, MABS queries VSS to see what data MABS can protect. If the SharePoint database is remote, MABS connects to it. If SharePoint data sources don't appear, check that the VSS writer is running on the computer that's running SharePoint and on any remote instance of SQL Server. Then, ensure that the MABS agent is installed both on the computer running SharePoint and on the remote instance of SQL Server. Also, ensure that SharePoint databases aren't being protected elsewhere as SQL Server databases.
 
-1. On **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term back up is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
+1. On **Select data protection method**,  specify how you want to handle short and long\-term backup. Short\-term backup is always to disk first, with the option of backing up from the disk to the Azure cloud with Azure Backup \(for short or long\-term\).
 
 1. On **Select short\-term goals**, specify how you want to back up to short\-term storage on disk.   In **Retention range** you specify how long you want to keep the data on disk. In **Synchronization frequency**, you specify how often you want to run an incremental backup to disk. 
 
@@ -113,7 +101,7 @@ Follow these steps:
 
 1. On the **Review disk allocation** page, review the storage pool disk space allocated for the protection group.
 
-   **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** pane. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
+   **Total Data size** is the size of the data you want to back up, and **Disk space to be provisioned on MABS** is the space that MABS recommends for the protection group. MABS chooses the ideal backup volume, based on the settings. However, you can edit the backup volume choices in the **Disk allocation details**. For the workloads, select the preferred storage in the dropdown menu. Your edits change the values for **Total Storage** and **Free Storage** in the **Available Disk Storage** blade. Underprovisioned space is the amount of storage MABS suggests you add to the volume, to continue with backups smoothly in the future.
 
 1. On **Choose replica creation method**, select how you want to handle the initial full data replication.
 
@@ -323,20 +311,20 @@ When a database is removed from a SharePoint farm, MABS will skip the backup of 
 
 ### MABS Alert - Farm Configuration Changed
 
-This is a warning alert that is generated in Microsoft Azure Backup Server (MABS) when automatic protection of a SharePoint database fails. See the alert **Details** pane for more information about the cause of this alert.
+This is a warning alert that is generated in Microsoft Azure Backup Server (MABS) when automatic protection of a SharePoint database fails. See the alert **Details** blade for more information about the cause of this alert.
 
 To resolve this alert, follow these steps:
 
 1. Verify with the SharePoint administrator if the database has actually been removed from the farm. If the database has been removed from the farm, then it must be removed from active protection in MABS.
 1. To remove the database from active protection:
    1. In **MABS Administrator Console**, click **Protection** on the navigation bar.
-   1. In the **Display** pane, right-click the protection group for the SharePoint farm, and then click **Stop Protection of member**.
+   1. In the **Display** blade, right-click the protection group for the SharePoint farm, and then click **Stop Protection of member**.
    1. In the **Stop Protection** dialog box, click **Retain Protected Data**.
    1. Select **Stop Protection**.
 
 You can add the SharePoint farm back for protection by using the **Modify Protection Group** wizard. During re-protection, select the SharePoint front-end server and click **Refresh** to update the SharePoint database cache, then select the SharePoint farm and proceed.
 
-## Next steps
+## Next step
 
 - [Back up Exchange server](backup-azure-exchange-mabs.md)
 - [Back up SQL Server](backup-azure-sql-mabs.md)

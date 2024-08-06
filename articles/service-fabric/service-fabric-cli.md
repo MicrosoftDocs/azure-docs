@@ -4,7 +4,7 @@ description: Learn how to use the Azure Service Fabric CLI. Learn how to connect
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 ms.custom: devx-track-python
 services: service-fabric
 ms.date: 07/14/2022

@@ -4,9 +4,9 @@ description: Learn how to log events to Azure Event Hubs in Azure API Management
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 03/31/2023
+ms.date: 07/12/2024
 ms.author: danlep
 
 ---
@@ -17,6 +17,8 @@ ms.author: danlep
 This article describes how to log API Management events using Azure Event Hubs.
 
 Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## Prerequisites
 

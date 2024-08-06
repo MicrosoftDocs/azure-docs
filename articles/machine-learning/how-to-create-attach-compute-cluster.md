@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: compute
 ms.topic: how-to
 ms.custom: devx-track-azurecli, cliv2, sdkv2, build-2023
-ms.author: vijetaj
-author: vijetajo
-ms.reviewer: sgilley
+ms.author: sgilley
+author: sdgilley
+ms.reviewer: vijetaj
 ms.date: 05/03/2024
 ---
 

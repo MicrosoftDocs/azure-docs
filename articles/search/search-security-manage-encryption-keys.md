@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 08/05/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -37,7 +37,9 @@ Encryption is performed over the following content:
 
 + All content within indexes and synonym lists, including descriptions.
 
-+ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted.
++ For indexers, data sources, and skillsets, only those fields that store connection strings, descriptions, identities, keys, and user inputs are encrypted. For example, skillsets have Azure AI services keys, and some skills accept user inputs, such as custom entities. In both cases, keys and user inputs into skills are encrypted. Any references to external resources (such as Azure data sources or Azure OpenAI models) are also encrypted.
+
++ For vectorizer definitions used by queries, fields that store connection details or credential are encrypted.
 
 ## Full double encryption
 

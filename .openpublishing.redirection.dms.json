@@ -1,0 +1,159 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/dms/howto-sql-server-to-azure-sql-mi-powershell.md",
+            "redirect_url": "/azure/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/dms/known-issues-azure-mysql-online.md",
+            "redirect_url": "/azure/dms/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/known-issues-azure-sql-online.md",
+            "redirect_url": "/azure/dms/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-database-ads.md",
+            "redirect_url": "/data-migration/sql-server/database/custom-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-db-managed-instance-ads.md",
+            "redirect_url": "/data-migration/sql-server/managed-instance/custom-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-db-virtual-machine-ads.md",
+            "redirect_url": "/data-migration/sql-server/virtual-machines/custom-roles",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-mysql-azure-mysql-online.md",
+            "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-rds-mysql-server-azure-db-for-mysql-online.md",
+            "redirect_url": "/azure/dms/tutorial-mysql-azure-mysql-offline-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md",
+            "redirect_url": "/azure/dms/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline.md",
+            "redirect_url": "/data-migration/sql-server/database/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-database-offline-ads.md",
+            "redirect_url": "/data-migration/sql-server/database/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-azure-sql-online.md",
+            "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-managed-instance-offline-ads.md",
+            "redirect_url": "/data-migration/sql-server/managed-instance/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-managed-instance-online-ads.md",
+            "redirect_url": "/data-migration/sql-server/managed-instance/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-virtual-machine-offline-ads.md",
+            "redirect_url": "/data-migration/sql-server/virtual-machines/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-virtual-machine-online-ads.md",
+            "redirect_url": "/data-migration/sql-server/virtual-machines/database-migration-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md",
+            "redirect_url": "/azure/postgresql/migrate/migration-service/tutorial-migration-service-single-to-flexible",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/create-dms-bicep.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/create-dms-resource-manager-template.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/how-to-monitor-migration-activity.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/howto-sql-server-to-azure-sql-managed-instance-powershell-online.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/howto-sql-server-to-azure-sql-powershell.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/pre-reqs.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/resource-custom-roles-sql-db-managed-instance.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/quickstart-create-data-migration-service-hybrid-portal.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/quickstart-create-data-migration-service-portal.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/resource-network-topologies.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-managed-instance-online.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-azure-sql.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/dms/tutorial-sql-server-to-managed-instance.md",
+            "redirect_url": "/azure/dms/dms-overview",
+            "redirect_document_id": false
+        }
+    ]
+}

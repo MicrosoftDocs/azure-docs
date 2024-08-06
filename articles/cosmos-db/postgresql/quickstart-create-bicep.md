@@ -3,7 +3,7 @@ title: 'Quickstart: create a cluster using Bicep'
 description: Using Bicep template for provisioning a cluster of Azure Cosmos DB for PostgreSQL
 ms.author: avijitgupta
 author: AvijitkGupta
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: postgresql
 ms.custom: devx-track-bicep
 ms.topic: reference

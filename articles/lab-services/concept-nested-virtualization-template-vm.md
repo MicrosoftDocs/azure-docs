@@ -2,7 +2,7 @@
 title: Nested virtualization in Azure Lab Services
 description: Learn about considerations and recommendations for configuring nested virtualization in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: conceptual
@@ -11,6 +11,8 @@ ms.date: 03/07/2024
 ---
 
 # Nested virtualization in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Nested virtualization enables you to create a lab in Azure Lab Services that contains multiple virtual machines (VMs). You can create and run a virtual machine (*guest VM*) within a virtual machine (*host VM*). You can use nested virtualization to provide lab users with multiple, related virtual machines as part of the lab.
 

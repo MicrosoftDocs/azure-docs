@@ -3,15 +3,15 @@ title: 'CLI (v2) Automated ML Image Object Detection job YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) Automated ML Image Object Detection job YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: cliv2
 
-ms.author: rasavage
-author: rsavage2
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 10/11/2022
-ms.reviewer: ssalgado
+ms.reviewer: rasavage
 ---
 
 # CLI (v2) Automated ML image object detection job YAML schema

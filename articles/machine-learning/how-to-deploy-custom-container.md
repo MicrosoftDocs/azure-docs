@@ -3,11 +3,11 @@ title: Deploy a model in a custom container to an online endpoint
 titleSuffix: Azure Machine Learning
 description: Learn how to use a custom container with an open-source server to deploy a model in Azure Machine Learning.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
 ms.date: 03/26/2024
 ms.topic: how-to
 ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, sdkv2

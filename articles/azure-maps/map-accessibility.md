@@ -4,7 +4,7 @@ description: Learn about accessibility considerations in Azure Maps. See what fe
 author: sinnypan
 ms.author: sipa
 ms.date: 05/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 ---
 

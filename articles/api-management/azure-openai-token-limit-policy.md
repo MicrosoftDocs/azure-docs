@@ -4,11 +4,12 @@ description: Reference for the azure-openai-token-limit policy available for use
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
+ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 05/10/2024
+ms.date: 06/25/2024
 ms.author: danlep
 ---
 
@@ -22,18 +23,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
-## Supported Azure OpenAI Service models
-
-The policy is used with APIs [added to API Management from the Azure OpenAI Service](azure-openai-api-from-specification.md) of the following types:
-
-| API type | Supported models |
-|-------|-------------|
-| Chat completion     |  gpt-3.5<br/><br/>gpt-4 |
-| Completion | gpt-3.5-turbo-instruct |
-| Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
-
-
-For more information, see [Azure OpenAI Service models](../ai-services/openai/concepts/models.md).
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
 
 ## Policy statement
 
@@ -66,12 +56,13 @@ For more information, see [Azure OpenAI Service models](../ai-services/openai/co
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) classic, v2
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 
 ### Usage notes
 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
+* Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI Service API are used to determine token usage.
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 

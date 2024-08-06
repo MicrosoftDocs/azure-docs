@@ -71,7 +71,7 @@ For pricing information on App Service domains, visit the [App Service Pricing p
    | Setting  | Description |
    | -------- | ----------- |
    | **Auto renewal** | Your App Service domain is registered to you at one-year increments. Enable auto renewal so that your domain registration doesn't expire and that you retain ownership of the domain. Your Azure subscription is automatically charged the yearly domain registration fee at the time of renewal. If you leave it disabled, you must [renew it manually](#renew-the-domain). |
-   | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database. Privacy protection is already included in the yearly domain registration fee. To opt out, select **Disable**. |
+   | **Privacy protection** | Enabled by default. Privacy protection hides your domain registration contact information from the WHOIS database and is already included in the yearly domain registration fee. To opt out, select **Disable**. Privacy protection is not supported in following top-level domains (TLDs): co.uk, in, org.uk, co.in, and nl. |
 
 1. Select **Next: Tags** and set the tags you want for your App Service domain. Tagging isn't required for using App Service domains, but is a [feature in Azure that helps you manage your resources](../azure-resource-manager/management/tag-resources.md).
 

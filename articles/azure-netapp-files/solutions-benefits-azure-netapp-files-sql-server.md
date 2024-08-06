@@ -75,7 +75,7 @@ The SSB tool generates a SELECT and UPDATE driven workload issuing the said stat
 
 The tests themselves were configured as 80% SELECT and 20% UPDATE statement, thus 90% random read.  The database itself, which SSB created, was 1000 GB in size. It's comprised of 15 user tables and 9,000,000 rows per user table and 8192 bytes per row. 
 
-The SSB benchmark is an open-source tool.  It's freely available at the [SQL Storage Benchmark GitHub page](https://github.com/NetApp/SQL_Storage_Benchmark.git).  
+The SSB benchmark is an open-source tool.  It's freely available at the SQL Storage Benchmark GitHub page.
 
 
 ## In summary  

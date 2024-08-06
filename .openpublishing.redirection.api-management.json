@@ -1,5 +1,10 @@
 {
   "redirections": [
+    {
+        "source_path": "articles/api-management/api-management-in-workspace.md",
+        "redirect_url": "/azure/api-management/how-to-create-workspace",
+        "redirect_document_id": false
+      },     
       {
         "source_path": "articles/api-management/set-graphql-resolver-policy.md",
         "redirect_url": "/previous-versions/azure/api-management/set-graphql-resolver-policy",

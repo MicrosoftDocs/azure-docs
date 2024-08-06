@@ -2,7 +2,7 @@
 title: "Tutorial: Authentication with Azure Functions - Azure SignalR Service"
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding.
 author: Y-Sindo
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: tutorial
 ms.date: 03/18/2024
 ms.author: zityang
@@ -542,7 +542,7 @@ The `--publish-local-settings` option publishes your local settings from the _lo
 
 ### Enable App Service authentication
 
-Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitter, Microsoft account, and Google. You'll use Microsoft as the identity provider for this tutorial.
+Azure Functions supports authentication with Microsoft Entra ID, Facebook, X, Microsoft account, and Google. You'll use Microsoft as the identity provider for this tutorial.
 
 1. In the Azure portal, go to the resource page of your function app.
 1. Select **Settings** > **Authentication**.
@@ -560,7 +560,7 @@ For more information about the supported identity providers, see the following a
 
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 - [Microsoft account](../app-service/configure-authentication-provider-microsoft.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
 

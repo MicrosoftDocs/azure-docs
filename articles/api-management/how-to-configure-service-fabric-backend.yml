@@ -7,7 +7,7 @@ metadata:
   ms.custom:
     - ge-structured-content-pilot
 
-  ms.service: api-management
+  ms.service: azure-api-management
   ms.topic: article
   ms.date: 01/29/2021
   ms.author: danlep 

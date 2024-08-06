@@ -3,14 +3,14 @@ title: 'CLI (v2) pipeline job YAML schema'
 titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) pipeline job YAML schema.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: update-code3, cliv2
-author: cloga
-ms.author: lochen
+ms.custom: update-code4, cliv2
+author: fbsolo-ms1
+ms.author: franksolomon
 ms.date: 03/06/2024
-ms.reviewer: franksolomon
+ms.reviewer: lochen
 ---
 
 # CLI (v2) pipeline job YAML schema

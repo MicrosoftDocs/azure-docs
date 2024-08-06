@@ -3,15 +3,15 @@ title: Evaluate your Semantic Kernel with prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn how to evaluate Semantic Kernel in prompt flow with Azure Machine Learning studio.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
   - build-2024
 ms.topic: how-to
-author: jiaochenlu
-ms.author: chenlujiao
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: chenlujiao
 ms.date: 09/15/2023
 ---
 
@@ -179,11 +179,8 @@ This will present you with a detailed table, line-by-line comparison of the resu
 > Follow along with our documentations to get started!
 > And keep an eye out for more integrations.
 
-If you’re interested in learning more about how you can use prompt flow to test and evaluate Semantic Kernel, we recommend following along to the articles we created. At each step, we provide sample code and explanations so you can use prompt flow successfully with Semantic Kernel.
+If you're interested in learning more about how you can use Planners in Semantic Kernel, we recommend that you read the following article:
 
-* [Using prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
-* [Create a prompt flow with Semantic Kernel](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/create-a-prompt-flow-with-semantic-kernel)
-* [Running batches with prompt flow](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/running-batches-with-prompt-flow)
-* [Evaluate your plugins and planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
+* [Learn more about planners](/semantic-kernel/ai-orchestration/planners/evaluate-and-deploy-planners/)
 
 When your planner is fully prepared, it can be deployed as an online endpoint in Azure Machine Learning. This allows it to be easily integrated into your application for consumption. Learn more about how to [deploy a flow as a managed online endpoint for real-time inference](./how-to-deploy-for-real-time-inference.md).

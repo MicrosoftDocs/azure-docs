@@ -1,101 +1,103 @@
 ---
-title: "Deploy models using online endpoints with REST APIs"
+title: Deploy models by using online endpoints with REST APIs
 titleSuffix: Azure Machine Learning
-description: Learn how to deploy models using online endpoints with REST APIs.
+description: Learn how to deploy models by using online endpoints with REST APIs, including creation of assets, training jobs, and hyperparameter tuning sweep jobs.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: inferencing
 ms.topic: how-to
-author: dem108
-ms.author: sehan
-ms.reviewer: mopeakande
-ms.date: 06/15/2022
+author: msakande
+ms.author: mopeakande
+ms.reviewer: sehan
+ms.date: 07/29/2024
 ms.custom: devplatv2
+
+#customer intent: As a developer, I want to use the Azure Machine Learning REST APIs so that I can deploy models by using online endpoints.
 ---
 
 # Deploy models with REST
 
-Learn how to use the Azure Machine Learning REST API to deploy models.
+This article describes how to use the Azure Machine Learning REST API to deploy models by using online endpoints. Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure and Kubernetes clusters. The following procedures demonstrate how to create an online endpoint and deployment and validate the endpoint by invoking it.
 
-The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
-
-In this article, you learn how to use the new REST APIs to:
-
-> [!div class="checklist"]
-> * Create machine learning assets
-> * Create a basic training job 
-> * Create a hyperparameter tuning sweep job
+There are many ways to create an Azure Machine Learning online endpoint. You can use [the Azure CLI](how-to-deploy-online-endpoints.md), the [Azure Machine Learning studio](how-to-deploy-online-endpoints.md), or the REST API. The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. It works with any language or tool that can make HTTP requests. The straightforward structure of the REST API makes it a good choice in scripting environments and for machine learning operations automation.
 
 ## Prerequisites
 
 - An **Azure subscription** for which you have administrative rights. If you don't have such a subscription, try the [free or paid personal subscription](https://azure.microsoft.com/free/).
+
 - An [Azure Machine Learning workspace](quickstart-create-resources.md).
+
 - A service principal in your workspace. Administrative REST requests use [service principal authentication](how-to-setup-authentication.md#use-service-principal-authentication).
-- A service principal authentication token. Follow the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token) to retrieve this token. 
-- The **curl** utility. The **curl** program is available in the [Windows Subsystem for Linux](/windows/wsl/install-win10) or any UNIX distribution. In PowerShell, **curl** is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+
+- A service principal authentication token. You can get the token by following the steps in [Retrieve a service principal authentication token](./how-to-manage-rest.md#retrieve-a-service-principal-authentication-token).
+
+- The **curl** utility.
+
+   - All installations of Microsoft Windows 10 and Windows 11 have curl installed by default. In PowerShell, curl is an alias for **Invoke-WebRequest** and `curl -d "key=val" -X POST uri` becomes `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`. 
+
+   - For UNIX platforms, the curl program is available in the [Windows Subsystem for Linux](/windows/wsl/install) or any UNIX distribution.
 
 ## Set endpoint name
 
-> [!NOTE]
-> Endpoint names need to be unique at the Azure region level. For example, there can be only one endpoint with the name my-endpoint in westus2.
+Endpoint names must be unique at the Azure region level. An endpoint name such as _my-endpoint_ must be the only endpoint with that name within a specified region.
+
+Create a unique endpoint name by calling the `RANDOM` utility, which adds a random number as a suffix to the value `endpt-rest`:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="set_endpoint_name":::
 
-## Azure Machine Learning online endpoints
-
-Online endpoints allow you to deploy your model without having to create and manage the underlying infrastructure as well as Kubernetes clusters. In this article, you'll create an online endpoint and deployment, and validate it by invoking it. But first you'll have to register the assets needed for deployment, including model, code, and environment.
-
-There are many ways to create an Azure Machine Learning online endpoint [including the Azure CLI](how-to-deploy-online-endpoints.md), and visually with [the studio](how-to-use-managed-online-endpoint-studio.md). The following example an online endpoint with the REST API.
-
 ## Create machine learning assets
 
-First, set up your Azure Machine Learning assets to configure your job.
+To prepare for the deployment, set up your Azure Machine Learning assets and configure your job. You register the assets required for deployment, including the model, code, and environment.
 
-In the following REST API calls, we use `SUBSCRIPTION_ID`, `RESOURCE_GROUP`, `LOCATION`, and `WORKSPACE` as placeholders. Replace the placeholders with your own values. 
-
-Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `TOKEN` with your own value. You can retrieve this token with the following command:
+> [!TIP]
+> The REST API calls in the following procedures use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `$LOCATION` (region), and Azure Machine Learning `$WORKSPACE` as placeholders for some arguments. When you implement the code for your deployment, replace the argument placeholders with your specific deployment values. 
+ 
+Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). When you implement the code for your deployment, replace instances of the `$TOKEN` placeholder with the service principal token for your deployment. You can retrieve this token with the following command:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
 
-The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. Set the API version as a variable to accommodate future versions:
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service.
+
+Set the `API_version` variable to accommodate future versions:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="api_version":::
 
 ### Get storage account details
 
-To register the model and code, first they need to be uploaded to a storage account. The details of the storage account are available in the data store. In this example, you get the default datastore and Azure Storage account for your workspace. Query your workspace with a GET request to get a JSON file with the information.
+To register the model and code, you need to first upload these items to an Azure Storage account. The details of the Azure Storage account are available in the data store. In this example, you get the default data store and Azure Storage account for your workspace. Query your workspace with a GET request to get a JSON file with the information.
 
-You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
+You can use the [jq](https://jqlang.github.io/jq/) tool to parse the JSON result and get the required values. You can also use the Azure portal to find the same information:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_storage_details":::
 
-### Upload & register code
+### Upload and register code
 
-Now that you have the datastore, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container:
+Now that you have the data store, you can upload the scoring script. Use the Azure Storage CLI to upload a blob into your default container:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_code":::
 
 > [!TIP]
-> You can also use other methods to upload, such as the Azure portal or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> You can use other methods to complete the upload, such as the Azure portal or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`:
+After you upload your code, you can specify your code with a PUT request and refer to the data store with the `datastoreId` identifier:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_code":::
 
 ### Upload and register model
 
-Similar to the code, Upload the model files:
+Upload the model files with a similar REST API call:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="upload_model":::
 
-Now, register the model:
+After the upload completes, register the model:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_model":::
 
 ### Create environment
-The deployment needs to run in an environment that has the required dependencies. Create the environment with a PUT request. Use a docker image from Microsoft Container Registry. You can configure the docker image with `Docker` and add conda dependencies with `condaFile`.
 
-In the following snippet, the contents of a Conda environment (YAML file) has been read into an environment variable:
+The deployment needs to run in an environment that has the required dependencies. Create the environment with a PUT request. Use a Docker image from Microsoft Container Registry. You can configure the Docker image with the `docker` command and add conda dependencies with the `condaFile` command.
+
+The following code reads the contents of a Conda environment (YAML file) into an environment variable:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_environment":::
 
@@ -111,40 +113,38 @@ Create a deployment under the endpoint:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="create_deployment":::
 
-### Invoke the endpoint to score data with your model
+### Invoke endpoint to score data with model
 
-We need the scoring uri and access token to invoke the endpoint. First get the scoring uri:
+You need the scoring URI and access token to invoke the deployment endpoint. 
+
+First, get the scoring URI:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_endpoint":::
 
-Get the endpoint access token:
+Next, get the endpoint access token:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_access_token":::
 
-Now, invoke the endpoint using curl:
+Finally, invoke the endpoint by using the curl utility:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="score_endpoint":::
 
-### Check the logs
+### Check deployment logs
 
 Check the deployment logs:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="get_deployment_logs":::
 
-### Delete the endpoint
+### Delete endpoint
 
-If you aren't going use the deployment, you should delete it with the below command (it deletes the endpoint and all the underlying deployments):
+If you aren't going to use the deployment further, delete the resources.
+
+Run the following command, which deletes the endpoint and all underlying deployments:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/deploy-rest.sh" id="delete_endpoint":::
 
-## Next steps
+## Related content
 
-* Learn how to deploy your model [using the Azure CLI](how-to-deploy-online-endpoints.md).
-* Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
-* Learn to [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-managed-online-endpoints.md)
-* Learn how to [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
-* Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
-* Learn [safe rollout for online endpoints](how-to-safely-rollout-online-endpoints.md).
-* [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md).
-* [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
-* Learn about [limits for online endpoints](how-to-manage-quotas.md#azure-machine-learning-online-endpoints-and-batch-endpoints).
+- [Deploy and score a model by using an online endpoint](how-to-deploy-online-endpoints.md)
+- [Troubleshoot online endpoints deployment and scoring](how-to-troubleshoot-online-endpoints.md)
+- [Monitor online endpoints](how-to-monitor-online-endpoints.md)

@@ -190,24 +190,24 @@ The following example illustrates a custom analyzer that provides the keyword to
 {
 "fields": [
   {
-  "name": "accountNumber",
-  "analyzer":"myCustomAnalyzer",
-  "type": "Edm.String",
-  "searchable": true,
-  "filterable": true,
-  "retrievable": true,
-  "sortable": false,
-  "facetable": false
+    "name": "accountNumber",
+    "analyzer":"myCustomAnalyzer",
+    "type": "Edm.String",
+    "searchable": true,
+    "filterable": true,
+    "retrievable": true,
+    "sortable": false,
+    "facetable": false
   }
 ],
 
 "analyzers": [
   {
-  "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
-  "name":"myCustomAnalyzer",
-  "charFilters":[],
-  "tokenizer":"keyword_v2",
-  "tokenFilters":["lowercase"]
+    "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+    "name":"myCustomAnalyzer",
+    "charFilters":[],
+    "tokenizer":"keyword_v2",
+    "tokenFilters":["lowercase"]
   }
 ],
 "tokenizers":[],
@@ -241,11 +241,11 @@ The previous sections explained the logic. This section steps through each API y
 
   For infix and suffix queries, such as querying "num" or "numeric to find a match on "alphanumeric", use the full Lucene syntax and a regular expression: `search=/.*num.*/&queryType=full`
 
-## Tune query performance
+## Optimizing prefix and suffix queries
 
-If you implement the recommended configuration that includes the keyword_v2 tokenizer and lower-case token filter, you might notice a decrease in query performance due to the extra token filter processing over existing tokens in your index. 
+Matching prefixes and suffixes using the default analyzer requires additional query features. Prefixes require [wildcard search](query-lucene-syntax.md#bkmk_wildcard) and suffixes require [regular expression search](query-lucene-syntax.md#bkmk_regex). Both of these features can reduce query performance.
 
-The following example adds an [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix matches faster. Tokens are generated in 2-25 character combinations that include characters. Here's an example progression from two to seven tokens: MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL. 
+The following example adds an [`EdgeNGramTokenFilter`](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) to make prefix or suffix matches faster. Tokens are generated in 2-25 character combinations that include characters. Here's an example progression from two to seven tokens: MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/SQ, MSFT/SQL. `EdgeNGramTokenFilter` requires a `side` parameter which determines which side of the string character combinations are generated from. Use `front` for prefix queries and `back` for suffix queries.
 
 Extra tokenization results in a larger index. If you have sufficient capacity to accommodate the larger index, this approach with its faster response time might be the best solution.
 
@@ -253,37 +253,80 @@ Extra tokenization results in a larger index. If you have sufficient capacity to
 {
 "fields": [
   {
-  "name": "accountNumber",
-  "analyzer":"myCustomAnalyzer",
-  "type": "Edm.String",
-  "searchable": true,
-  "filterable": true,
-  "retrievable": true,
-  "sortable": false,
-  "facetable": false
+    "name": "accountNumber_prefix",
+    "indexAnalyzer": "ngram_front_analyzer",
+    "searchAnalyzer": "keyword",
+    "type": "Edm.String",
+    "searchable": true,
+    "filterable": false,
+    "retrievable": true,
+    "sortable": false,
+    "facetable": false
+  },
+  {
+    "name": "accountNumber_suffix",
+    "indexAnalyzer": "ngram_back_analyzer",
+    "searchAnalyzer": "keyword",
+    "type": "Edm.String",
+    "searchable": true,
+    "filterable": false,
+    "retrievable": true,
+    "sortable": false,
+    "facetable": false
   }
 ],
 
 "analyzers": [
   {
-  "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
-  "name":"myCustomAnalyzer",
-  "charFilters":[],
-  "tokenizer":"keyword_v2",
-  "tokenFilters":["lowercase", "my_edgeNGram"]
+    "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+    "name":"ngram_front_analyzer",
+    "charFilters":[],
+    "tokenizer":"keyword_v2",
+    "tokenFilters":["lowercase", "front_edgeNGram"]
+  },
+  {
+    "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
+    "name":"ngram_back_analyzer",
+    "charFilters":[],
+    "tokenizer":"keyword_v2",
+    "tokenFilters":["lowercase", "back_edgeNGram"]
   }
 ],
 "tokenizers":[],
 "charFilters": [],
 "tokenFilters": [
   {
-  "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
-  "name":"my_edgeNGram",
-  "minGram": 2,
-  "maxGram": 25,
-  "side": "front"
+    "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
+    "name":"front_edgeNGram",
+    "minGram": 2,
+    "maxGram": 25,
+    "side": "front"
+  },
+  {
+    "@odata.type":"#Microsoft.Azure.Search.EdgeNGramTokenFilterV2",
+    "name":"back_edgeNGram",
+    "minGram": 2,
+    "maxGram": 25,
+    "side": "back"
   }
 ]
+}
+```
+
+To search for account numbers that start with `123`, we can use the following query:
+```
+{
+  "search": "123",
+  "searchFields": "accountNumber_prefix"
+}
+```
+
+
+To search for account numbers that end with `456`, we can use the following query:
+```
+{
+  "search": "456",
+  "searchFields": "accountNumber_suffix"
 }
 ```
 

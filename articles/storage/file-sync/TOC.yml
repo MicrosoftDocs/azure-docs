@@ -187,6 +187,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
 - name: Reference
   items:
+  - name: Azure File Sync agent silent installation
+    href: file-sync-agent-silent-installation.md
   - name: Azure Files reference
     href: ../files/storage-files-introduction.md
   - name: Azure Files FAQ

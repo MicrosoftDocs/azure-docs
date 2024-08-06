@@ -1,10 +1,9 @@
 ---
-title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
 description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
 author: ankitaduttaMSFT
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: article
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
 ms.author: ankitadutta
 ms.date: 05/27/2021
 

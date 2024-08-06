@@ -3,7 +3,7 @@ title: Azure Private Endpoint DNS integration
 description: Learn about Azure Private Endpoint DNS configuration scenarios.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 05/02/2024
 ms.author: abell

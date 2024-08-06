@@ -3,12 +3,12 @@ title: Use accessibility features in the designer
 titleSuffix: Azure Machine Learning
 description: Learn about the keyboard shortcuts and screen reader accessibility features available in the designer.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 01/09/2020
 ms.custom: designer
 ---

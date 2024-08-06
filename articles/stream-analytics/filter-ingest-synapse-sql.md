@@ -3,7 +3,7 @@ title: Filter and ingest to Azure Synapse SQL using the Stream Analytics no code
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from your Event Hubs, filters the incoming data, and then writes the results continuously to a Synapse SQL table.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 10/12/2022

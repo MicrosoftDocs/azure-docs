@@ -3,7 +3,7 @@ title: Get Azure Key Vault keys with JavaScript
 description: Get lastest version or any version of key with JavaScript. 
 services: key-vault
 author: msmbaldwin
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.topic: how-to
 ms.custom: devx-track-js

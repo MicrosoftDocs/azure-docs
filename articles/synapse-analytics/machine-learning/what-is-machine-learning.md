@@ -1,10 +1,10 @@
 ---
 title:  Machine Learning in Azure Synapse Analytics 
 description: An Overview of machine learning capabilities in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: overview 
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 08/31/2022
 author: nelgson
 ms.author: negust

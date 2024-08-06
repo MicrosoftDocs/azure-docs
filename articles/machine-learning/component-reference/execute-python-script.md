@@ -3,7 +3,7 @@ title:  "Execute Python Script: Component reference"
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute Python Script component in Azure Machine Learning designer to run Python code.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.custom: devx-track-python, has-adal-ref

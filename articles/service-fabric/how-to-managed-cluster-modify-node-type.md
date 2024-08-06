@@ -4,9 +4,9 @@ description: This article walks through how to modify a managed cluster node typ
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: service-fabric
+ms.service: azure-service-fabric
 services: service-fabric
-ms.date: 05/24/2024
+ms.date: 07/17/2024
 ---
 
 # Service Fabric managed cluster node types
@@ -223,6 +223,9 @@ The cluster begins upgrading automatically. You see the additional nodes when co
 
 You can choose to enable automatic OS image upgrades to the virtual machines running your managed cluster nodes. Although the virtual machine scale set resources are managed on your behalf with Service Fabric managed clusters, it's your choice to enable automatic OS image upgrades for your cluster nodes. As with [classic Service Fabric](service-fabric-best-practices-infrastructure-as-code.md#virtual-machine-os-automatic-upgrade-configuration) clusters, managed cluster nodes aren't upgraded by default, in order to prevent unintended disruptions to your cluster.
 
+> [!NOTE]
+> Automatic OS image upgrade is supported for both marketplace and custom images.
+
 To enable automatic OS upgrades:
 
 * Use apiVersion `2021-05-01` or later version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
@@ -334,7 +337,7 @@ In this walkthrough, you learn how to modify a placement property for a node typ
 
 ### Configure placement properties with a template
 
-To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with one or more new values and do a cluster deployment for the setting to take effect. The below sample shows three values being set for a node type.
+To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with one or more new values and do a cluster deployment for the setting to take effect. The following sample shows three values being set for a node type.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -441,7 +444,7 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 Customers who require longer names for their node type for more verbose description benefits from computer name prefix. 
 
 > [!NOTE]
-> Comptuer name prefix only works for Service Fabric API version `2024-04-01 or later`.
+> Computer name prefix only works for Service Fabric API version `2024-04-01 or later`.
 
 Implement the following ARM template changes to set the computer name prefix: 
 

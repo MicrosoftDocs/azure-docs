@@ -255,6 +255,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "function-flex-consumption",
+      "url": "https://github.com/Azure-Samples/azure-functions-flex-consumption-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "functions-azure-product",
       "url": "https://github.com/Azure/Azure-Functions",
       "branch": "main",
@@ -504,6 +510,12 @@
       "path_to_root": "aml-sdk-samples",
       "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "sdk-codetest",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "rag-data-openai-python-promptflow-main",
+      "url": "https://github.com/Azure-Samples/rag-data-openai-python-promptflow",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -885,6 +897,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "storage-mgmt-devguide-dotnet",
+      "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-sdk-for-net",
       "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "main",
@@ -971,6 +989,12 @@
     {
       "path_to_root": "msdocs-flask-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-flask-postgresql-sample-app",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-fastapi-postgresql-sample-app",
+      "url": "https://github.com/Azure-Samples/msdocs-fastapi-postgresql-sample-app",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -1225,6 +1249,12 @@
       "url": "https://github.com/MicrosoftDocs/SupportArticles-docs",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-python-fastapi-webapp-quickstart",
+      "url": "https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -1259,7 +1289,6 @@
   ".openpublishing.redirection.azure-databricks.json",
   ".openpublishing.redirection.azure-datalake-storage-gen1.json",
   ".openpublishing.redirection.azure-hpc.json",
-  ".openpublishing.redirection.azure-kubernetes-service.json",
   ".openpublishing.redirection.azure-monitor.json",
   ".openpublishing.redirection.azure-percept.json",
   ".openpublishing.redirection.azure-productivity.json",
@@ -1276,6 +1305,7 @@
   ".openpublishing.redirection.defender-for-iot.json",
   ".openpublishing.redirection.dev-spaces.json",
   ".openpublishing.redirection.devops-project.json",
+  ".openpublishing.redirection.dms.json",
   ".openpublishing.redirection.document-db.json",
   ".openpublishing.redirection.germany.json",
   ".openpublishing.redirection.government.json",
@@ -1306,7 +1336,6 @@
   "articles/active-directory-b2c/.openpublishing.redirection.active-directory-b2c.json",
   "articles/ai-services.openpublishing.redirection.ai-services.json",
   "articles/ai-studio/.openpublishing.redirection.ai-studio.json",
-  "articles/aks/.openpublishing.redirection.aks.json",
   "articles/analysis-services/.openpublishing.redirection.analysis-services.json",
   "articles/application-gateway/.openpublishing.redirection.application-gateway.json",
   "articles/automation/.openpublishing.redirection.automation.json",

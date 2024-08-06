@@ -121,6 +121,12 @@
       href: how-to-define-network-group-membership-azure-policy.md
     - name: Verify resource reachability
       href: how-to-verify-reachability-with-virtual-network-verifier.md
+  - name: User-defined routes (UDRs) management
+    items:
+      - name: Create user-defined routes (UDRs)
+        href: how-to-create-user-defined-route.md
+      - name: deploy hub and spoke topology with Azure Firewall
+        href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
   - name: Common issues
     href: common-issues.md
 - name: Reference

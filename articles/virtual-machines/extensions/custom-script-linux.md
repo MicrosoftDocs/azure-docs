@@ -2,7 +2,7 @@
 title: Run Custom Script Extension on Linux VMs in Azure
 description: Learn how to automate Linux virtual machine configuration tasks in Azure by using the Custom Script Extension Version 2.
 ms.topic: article
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: extensions
 ms.author: gabsta
 ms.custom: GGAL-freshness822, devx-track-azurecli, linux-related-content
@@ -545,7 +545,7 @@ The output looks like the following text:
 
 ### Azure CLI syntax issues
 
-[!INCLUDE [azure-cli-troubleshooting.md](../../../includes/azure-cli-troubleshooting.md)]
+[!INCLUDE [azure-cli-troubleshooting.md](~/reusable-content/ce-skilling/azure/includes/azure-cli-troubleshooting.md)]
 
 ## Next steps
 

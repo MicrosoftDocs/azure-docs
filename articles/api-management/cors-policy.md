@@ -4,9 +4,9 @@ description: Reference for the cors policy available for use in Azure API Manage
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -92,7 +92,7 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
  * You may configure the `cors` policy at more than one scope (for example, at the product scope and the global scope). Ensure that the `base` element is configured at the operation, API, and product scopes to inherit needed policies at the parent scopes. 

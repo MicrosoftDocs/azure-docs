@@ -3,11 +3,11 @@ title: Progressive rollout of MLflow models to Online Endpoints
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model progressively using MLflow SDK.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
-author: santiagxf
-ms.author: fasantia
-ms.reviewer: mopeakande
+author: msakande
+ms.author: mopeakande
+ms.reviewer: fasantia
 ms.date: 03/31/2022
 ms.topic: how-to
 ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2

@@ -3,7 +3,7 @@ title: Monitor Azure Managed Instance for Apache Cassandra by using Azure Monito
 description: Learn how to use Azure Monitor to view metrics and diagnostic logs from Azure Managed Instance for Apache Cassandra.
 author: TheovanKraay
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
+ms.service: azure-managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli

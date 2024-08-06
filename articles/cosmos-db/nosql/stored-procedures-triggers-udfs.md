@@ -2,7 +2,7 @@
 title: Work with stored procedures, triggers, and UDFs in Azure Cosmos DB
 description: This article introduces the concepts such as stored procedures, triggers, and user-defined functions in Azure Cosmos DB.
 author: seesharprun
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.custom: devx-track-js
 ms.topic: conceptual

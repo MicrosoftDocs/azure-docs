@@ -24,11 +24,11 @@ VoIP calling using Azure Communication Services is an efficient and reliable way
 
 ## Pre call check-up 
 
-When using the internet at various locations, you experience different internet speeds. At home, internet speed and reliability can differ due to factors such as the type of internet connection, the quality of the router, and the number of devices connected to the network. In the office, internet speed and reliability are impacted by the number of users on the network, the quality of the network infrastructure, and the type of internet connection. When you are using cellular data, internet speed and reliability are affected by factors such as the strength of the cellular signal, the distance from the cell tower, and the number of users on the network. Additionally, some cellular plans have data caps or throttling, which can affect internet speed and reliability.  
+When using the internet at various locations, you experience different internet speeds. At home, internet speed and reliability can differ due to factors such as the type of internet connection, the quality of the router, and the number of devices connected to the network. In the office, internet speed and reliability can be impacted by the number of users on the network, the quality of the network infrastructure, and the type of internet connection. When you're using cellular data, internet speed and reliability can be affected by factors such as the strength of the cellular signal, the distance from the cell tower, and the number of users on the network. Additionally, some cellular plans have data caps or throttling, which can affect internet speed and reliability.  
 
 Overall, internet connections can vary depending on the location and the factors that affect the quality of the connection. It's important to test network ability. 
 
-Run a network diagnostic check at [Azure Communication Services Network Diagnostic Tool](https://azurecommdiagnostics.net/) to learn more about the network connection and settings of your machine. This tool checks all the essential parameters to help you determine if the network connection at your local machine is compatible with Azure Communication Services. You can also run this test this on mobile devices. For more information about network quality, bandwidth, configuration, and optimization, see [Network recommendations](network-requirements.md).
+To learn more about the network connection and settings of your machine, run a network diagnostic check at [Azure Communication Services Network Diagnostic Tool](https://azurecommdiagnostics.net/). The network diagnostic tool checks all the essential parameters to help you determine if the network connection at your local machine is compatible with Azure Communication Services. You can also run this test on mobile devices. For more information about network quality, bandwidth, configuration, and optimization, see [Network recommendations](network-requirements.md).
 
 Enable logging via diagnostic settings in Azure monitor. For more information, see [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md).
 
@@ -50,15 +50,15 @@ When a caller can hear the other party, but the other party can't hear the calle
 
 ### Delayed call audio 
 
-When caller or callee reports excessive delays in the call audio. It can be caused by excessive latency on the line. Call audio latency can be caused by several factors including delayed packet transmission or delivery somewhere along the line, or the technologies used in the call. 
+When caller or callee reports excessive delays in the call audio, it can be caused by excessive latency on the line. Call audio latency can be caused by several factors including delayed packet transmission or delivery somewhere along the line, or the technologies used in the call. 
 
 ### Call audio echoing 
 
-When a caller or callee reports that they hear their own delayed audio being transmitted back to them, we refer to this as call audio echo. Echo can be caused by positioning and volume levels of the speaker and microphone at one end of the line, or by crosstalk on copper wire (landline) networks. 
+When a caller or callee reports that they hear their own delayed audio being transmitted back to them, we refer to this as *call audio echo*. Echo can be caused by positioning and volume levels of the speaker and microphone at one end of the line, or by crosstalk on copper wire (landline) networks. 
 
 ### Volume indicator API
 
-When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this as a call audio volume issue. These call volume issues are often caused by the hardware used, including the positioning and levels of the speaker and/or microphone at one end of the line. If the input and output indicator show that the user’s volume is low, you can prompt the user to speak louder. 
+When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this as a call audio volume issue. These call volume issues are often caused by the hardware, including the positioning and levels of the speaker and/or microphone at one end of the line. If the input and output indicator show that the user’s volume is low, you can prompt the user to speak louder.
 
 For more information, see [Accessing call volume level](../../quickstarts/voice-video-calling/get-started-volume-indicator.md). 
 
@@ -92,7 +92,7 @@ For more information, see [End of Call Survey overview](end-of-call-survey-conce
 
 For more information about using Call Quality Dashboard (CQD) to view interop call logs, see [Use CQD to manage call and meeting quality in Microsoft Teams](/microsoftteams/quality-of-experience-review-guide).
 
-For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../troubleshooting-info.md#calling-sdk-error-codes). You can use these codes to help determine why a call ended with disruptions.
+For more information about Calling SDK error codes, see [Troubleshooting in Azure Communication Services](../troubleshooting-codes.md). You can use these codes to help determine why a call ended with disruptions.
 
 To ensure smooth functioning of the application and provide better user experience, app developers should follow a checklist. For more information, see the [Checklist for advanced calling experiences in web browsers - Microsoft Community Hub](https://techcommunity.microsoft.com/t5/azure-communication-services/checklist-for-advanced-calling-experiences-in-web-browsers/ba-p/3266312). 
 

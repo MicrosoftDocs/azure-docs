@@ -208,4 +208,4 @@ The `"exportStatus"` field may be either `"ExportCompleted"` or `"ExportFailed"`
 
 In this guide, you learned how to copy and back up a project between Custom Vision resources. Next, explore the API reference docs to see what else you can do with Custom Vision.
 * [REST API reference documentation (training)](/rest/api/customvision/training/operation-groups?view=rest-customvision-training-v3.3)
-* [REST API reference documentation (prediction)](/rest/api/customvision/prediction/operation-groups?view=rest-customvision-prediction-v3.1)
+* [REST API reference documentation (prediction)](/rest/api/customvision/predictions)

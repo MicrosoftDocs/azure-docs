@@ -10,7 +10,7 @@ ms.date: 07/01/2024
 
 # kNN vs ANN
 
-Two popular vector search algorithms are k-Nearest Neighbors (kNN) and Approximate Nearest Neighbors (ANN, not to be confused with Artificial Neural Network). kNN is precise but computationally intensive, making it less suitable for large datasets. ANN, on the other hand, offers a balance between accuracy and efficiency, making it better suited for large-scale applications.
+Two major categories of vector search algorithms are k-Nearest Neighbors (kNN) and Approximate Nearest Neighbors (ANN, not to be confused with Artificial Neural Network). kNN is precise but computationally intensive, making it less suitable for large datasets. ANN, on the other hand, offers a balance between accuracy and efficiency, making it better suited for large-scale applications.
 
 ## How kNN works
 
@@ -30,3 +30,13 @@ Two popular vector search algorithms are k-Nearest Neighbors (kNN) and Approxima
 4. Making Predictions:
   - Classification: For classification tasks, ANN assigns the class label to the query point that is most common among the identified neighbors, similar to kNN.
   - Regression: For regression tasks, ANN predicts the value for the query point as the average (or weighted average) of the values of the identified neighbors.
+
+## Related content
+- [What is a vector database?](../vector-database.md)
+- [Retrieval Augmented Generation (RAG)](rag.md)
+- [Vector database in Azure Cosmos DB NoSQL](../nosql/vector-search.md)
+- [Vector database in Azure Cosmos DB for MongoDB](../mongodb/vcore/vector-search.md)
+- [What is vector search?](vector-search-overview.md)
+- LLM [tokens](tokens.md)
+- Vector [embeddings](vector-embeddings.md)
+- [Distance functions](distance-functions.md)

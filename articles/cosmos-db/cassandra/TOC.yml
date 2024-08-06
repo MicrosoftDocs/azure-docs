@@ -43,8 +43,6 @@
         - name: Migrate data
           displayName: import
           href: migrate-data.md
-        - name: Create Jupyter notebooks
-          href: ../nosql/tutorial-create-notebook.md
         - name: Kusto Query Language (KQL) transformations
           displayName: KQL, workspace, data
           href: ../tutorial-log-transformation.md
@@ -76,6 +74,8 @@
               href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
             - name: Find existing free-tier accounts
               href: ../scripts/cli/common/free-tier.md
+            - name: Migrate all resources to autoscale
+              href: ../scripts/cli/common/convert-to-autoscale.md
         - name: Azure PowerShell
           items:
             - name: Overview
@@ -219,12 +219,6 @@
               href: ../compliance.md
             - name: Data residency
               href: ../data-residency.md
-        - name: Jupyter notebooks
-          items:
-            - name: Overview
-              href: ../notebooks-overview.md
-            - name: FAQ
-              href: ../notebooks-faq.yml
         - name: Network bandwidth
           href: ../network-bandwidth.md
     - name: How to

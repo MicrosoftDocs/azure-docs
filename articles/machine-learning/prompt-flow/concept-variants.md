@@ -3,14 +3,14 @@ title: Variants in Azure Machine Learning prompt flow
 titleSuffix: Azure Machine Learning
 description: Learn about how with Azure Machine Learning prompt flow, you can use variants to tune your prompt.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-author: likebupt
-ms.author: keli19
-ms.reviewer: lagayhar
+author: lgayhardt
+ms.author: lagayhar
+ms.reviewer: keli19
 ms.date: 06/28/2024
 ---
 
