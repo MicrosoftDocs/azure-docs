@@ -14,7 +14,7 @@ ms.custom: public_prview
 
 [!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
-Azure Communication Services provides developers with Audio Streaming capabilities to get real-time access to audio streams to capture, analyze, and process audio content during active calls. In today's world consumption of live audio and video is prevalent, this content could be in the forms of online meetings, online conferences, customer support, etc.  With audio streaming access, developers can now build server applications to capture and analyze audio streams for each of the participants on the call in real-time. Developers can also combine audio streaming with other call automation actions or use their own AI models to analyze audio streams for use cases such as NLP for conversation analysis or provide real-time insights and suggestions to their agents while they are in an active interaction with their end users. 
+Azure Communication Services provides developers with Audio Streaming capabilities to get real-time access to audio streams to capture, analyze, and process audio content during active calls. In today's world consumption of live audio and video is prevalent, this content could be in the forms of online meetings, online conferences, customer support, etc.  With audio streaming access, developers can now build server applications to capture and analyze audio streams for each of the participants on the call in real-time. Developers can also combine audio streaming with other call automation actions or use their own AI models to analyze audio streams. Use cases include NLP for conversation analysis or providing real-time insights and suggestions to agents while they are in an active interaction with end users. 
 
 This public preview supports the ability for developers to get access to real-time audio streams over a WebSocket to analyze the call's audio in mixed and unmixed formats.
 
@@ -36,7 +36,7 @@ Audio streams can be used in many ways. Some examples of how developers may wish
 ## Supported formats
 
 ### Mixed format
-Contains mixed audio of all participants on the call.  All audio will be flattened into one stream.
+Contains mixed audio of all participants on the call.  All audio is flattened into one stream.
 	
 ### Unmixed
 Contains audio per participant per channel, with support for up to four channels for the four most dominant speakers at any point in a call. You'll also get a participantRawID that you can use to determine the speaker. 
