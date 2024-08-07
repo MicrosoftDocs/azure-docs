@@ -4,6 +4,7 @@ description: Learn how to front your API Management instance with Azure Front Do
 services: api-management
 author: dlepow
 
+
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/06/2024
@@ -82,8 +83,7 @@ Test the Front Door profile configuration by calling an API hosted by API Manage
 
 ### Call an API directly through API Management
 
-To test, you can use a command line client such as `curl` for the calls, or another HTTP client. A successful response returns a `200 OK` HTTP 
-response and the expected data:
+To call an API directly through the API Management gateway, you can use a command line client such as `curl` or another HTTP client. A successful response returns a `200 OK` HTTP response and the expected data:
 
 :::image type="content" source="media/front-door-api-management/test-api-management-gateway.png" alt-text="Screenshot showing calling API Management endpoint directly using an HTTP client.":::
 

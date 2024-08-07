@@ -15,7 +15,7 @@ ms.author: danlep
 To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, monitor, and collaborate on APIs. 
 
 > [!NOTE]
-> Only the API definition is exported from API Management to Postman. You don't export other information from API Management such as policies or subscription keys.
+> Only the API definition can be exported directly from API Management to Postman. Other information such as policies or subscription keys isn't exported.
 
 ## Prerequisites
 
@@ -59,5 +59,5 @@ APIs developed in Postman can then be exported and imported back into API Manage
 ## Related content
 
 * [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/enhanced-api-developer-experience-with-the-microsoft-postman/ba-p/3650304)
-* Learn more about [importing APIs to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
+* Learn more about [importing API definitions to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
 * Learn more about [authorizing requests in Postman](https://learning.postman.com/docs/sending-requests/authorization/).
