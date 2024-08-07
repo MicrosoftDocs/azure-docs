@@ -8,7 +8,7 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 08/06/2024
 ---
 
 # Make outbound connections through a shared private link
@@ -93,9 +93,9 @@ You can create a shared private link for the following resources.
 | Microsoft.Sql/servers <sup>3</sup> | `sqlServer` |
 | Microsoft.KeyVault/vaults | `vault` |
 | Microsoft.DBforMySQL/servers (preview) | `mysqlServer`|
-| Microsoft.Web/sites (preview) <sup>4</sup> | `sites` |
+| Microsoft.Web/sites <sup>4</sup> | `sites` |
 | Microsoft.Sql/managedInstances (preview) <sup>5</sup>| `managedInstance` |
-| Microsoft.CognitiveServices/accounts (preview) <sup>6</sup>| `openai_account` |
+| Microsoft.CognitiveServices/accounts <sup>6</sup>| `openai_account` |
 
 <sup>1</sup> If Azure Storage and Azure AI Search are in the same region, the connection to storage is made over the Microsoft backbone network, which means a shared private link is redundant for this configuration. However, if you already set up a private endpoint for Azure Storage, you should also set up a shared private link or the connection is refused on the storage side. Also, if you're using multiple storage formats for various scenarios in search, make sure to create a separate shared private link for each subresource.
 

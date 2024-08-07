@@ -6,7 +6,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 08/06/2024
 ms.author: banders
 ---
 
@@ -109,10 +109,9 @@ Use the following steps to switch your Azure subscription to pay by wire transfe
 
 1. Go to the Azure portal to sign in as the Account Administrator. Search for and select **Cost Management + Billing**.  
     :::image type="content" source="./media/pay-by-invoice/search.png" alt-text="Screenshot showing search for Cost Management + Billing in the Azure portal." lightbox="./media/pay-by-invoice/search.png" :::
-1. Select the subscription you'd like to switch to pay by wire transfer.
-1. Select **Payment methods**.
-On the Payment methods page, select **Pay by wire transfer**.  
-<!--    :::image type="content" source="./media/pay-by-invoice/payment-methods.png" alt-text="Screenshot showing the Pay by wire transfer option." lightbox="./media/pay-by-invoice/payment-methods.png" :::-->
+1. Select the subscription or billing profile that you want to switch to pay by wire transfer.
+1. In the left navigation menu under **Billing**, select **Payment methods**.
+1. On the Payment methods page under **Other payment methods**, select the ellipsis (**...**) and then select **Make default** to change the default payment method to wire transfer.
 
 ### Switch billing profile to wire transfer
 

@@ -97,6 +97,21 @@ In Visual Studio Code, when you use the designer to develop or make changes to y
 
 When you use a built-in operation for a service such as Azure Service Bus or Azure Event Hubs in single-tenant Azure Logic Apps, you create a service provider connection that runs in the same process as your workflow. This connection infrastructure is hosted and managed as part of your logic app resource, and your app settings store the connection strings for any service provider-based built-in operation that your workflows use.
 
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, Microsoft recommends that 
+> you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when support is available, and assign a role that has the least required privilege.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
+
 In your logic app project, each workflow has a workflow.json file that contains the workflow's underlying JSON definition. This workflow definition then references the necessary connection strings in your project's connections.json file.
 
 The following example shows how the service provider connection for a built-in Service Bus operation appears in your project's connections.json file:
