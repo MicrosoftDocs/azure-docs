@@ -8,7 +8,7 @@ ms.service: azure-ai-document-intelligence
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 05/23/2024
+ms.date: 08/07/2024
 ms.author: lajanuar
 ---
 
@@ -44,11 +44,11 @@ Optical Character Recognition (OCR) for documents is optimized for large text-he
 
 ::: moniker range="doc-intel-4.0.0"
 
-Document Intelligence v4.0 (2024-02-29-preview, 2023-10-31-preview) supports the following tools, applications, and libraries:
+Document Intelligence v4.0 (2024-07-31-preview) supports the following tools, applications, and libraries:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
-|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
+|**Read OCR model**|&bullet; [**Document Intelligence Studio**](https://documentintelligence.ai.azure.com)</br>&bullet;  [**REST API**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)</br>&bullet;  [**C# SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Python SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**Java SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)</br>&bullet;  [**JavaScript SDK**](quickstarts/get-started-sdks-rest-api.md?view=doc-intel-4.0.0&preserve-view=true)|**prebuilt-read**|
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -90,7 +90,7 @@ Try extracting text from forms and documents using the Document Intelligence Stu
 
 :::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot of Read processing in Document Intelligence Studio.":::
 
-1. On the Document Intelligence Studio home page, select **Read**.
+1. On the [Document Intelligence Studio home page](https://documentintelligence.ai.azure.com/studio), select **Read**.
 
 1. You can analyze the sample document or upload your own files.
 
@@ -114,6 +114,43 @@ See our [Language Support—document analysis models](language-support-ocr.md) p
 > * For each object detected, there is no bounding polygon or bounding region.
 > * Page range (`pages`) is not supported as a parameter.
 > * No `lines` object.
+
+## Searchable PDF
+
+The searchable PDF capability enables you to convert an analog PDF, such as scanned-image PDF files, to a PDF with embedded text. The embedded text enables deep text search within the PDF's extracted content by overlaying the detected text entities on top of the image files. 
+
+  > [!IMPORTANT]
+  >
+  > * Currently, the searchable PDF capability is only supported by Read OCR model `prebuilt-read`. When using this feature, please specify the `modelId` as `prebuilt-read`, as other model types will return error for this preview version.
+  > * Searchable PDF is included with the 2024-07-31-preview `prebuilt-read` model with no usage cost for general PDF consumption.
+
+### Use searchable PDF
+
+To use searchable PDF, make a `POST` request using the `Analyze` operation and specify the output format as `pdf`:
+
+```bash
+
+POST /documentModels/prebuilt-read:analyze?output=pdf
+{...}
+202
+```
+
+Once the `Analyze` operation is complete, make a `GET` request to retrieve the `Analyze` operation results.
+
+Upon successful completion, the PDF can be retrieved and downloaded as `application/pdf`. This operation allows direct downloading of the embedded text form of PDF instead of Base64-encoded JSON.
+
+```bash
+
+// Monitor the operation until completion.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}
+200
+{...}
+
+// Upon successful completion, retrieve the PDF as application/pdf.
+GET /documentModels/prebuilt-read/analyzeResults/{resultId}/pdf
+200 OK
+Content-Type: application/pdf
+```
 
 ### Pages
 
@@ -145,6 +182,7 @@ The pages collection is a list of pages within the document. Each page is repres
     }
 ]
 ```
+
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
@@ -183,6 +221,7 @@ for page in result.pages:
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze pages.
 for page in result.pages:
@@ -193,6 +232,7 @@ for page in result.pages:
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
 
 #### [Output](#tab/output)
+
 ```json
 "pages": [
     {
@@ -235,7 +275,9 @@ The Read OCR model extracts print and handwritten style text as `lines` and `wor
 For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read model v3.1 and later versions extracts all embedded text as is. Texts are extrated as words and paragraphs. Embedded images aren't supported.
 
 ::: moniker range="doc-intel-2.1.0 || doc-intel-3.0.0"
+
 ```json
+
 "words": [
     {
         "content": "While",
@@ -252,10 +294,13 @@ For Microsoft Word, Excel, PowerPoint, and HTML, Document Intelligence Read mode
     }
 ]
 ```
+
 ::: moniker-end
 
 ::: moniker range="doc-intel-3.1.0"
+
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze lines.
 for line_idx, line in enumerate(page.lines):
@@ -270,10 +315,12 @@ for line_idx, line in enumerate(page.lines):
             f"......Word '{word.content}' has a confidence of {word.confidence}"
         )
 ```
+
 > [!div class="nextstepaction"]
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/v3.1(2023-07-31-GA)/Python(v3.1)/Read_model/sample_analyze_read.py)
 
 #### [Output](#tab/output)
+
 ```json
 "words": [
     {
@@ -291,12 +338,14 @@ for line_idx, line in enumerate(page.lines):
     }
 ]
 ```
+
 ---
 ::: moniker-end
 
 ::: moniker range="doc-intel-4.0.0"
 
 #### [Sample code](#tab/sample-code)
+
 ```Python
 # Analyze lines.
 if page.lines:
@@ -314,6 +363,7 @@ if page.lines:
 > [View samples on GitHub.](https://github.com/Azure-Samples/document-intelligence-code-samples/blob/main/Python(v4.0)/Read_model/sample_analyze_read.py)
 
 #### [Output](#tab/output)
+
 ```json
 "words": [
     {
@@ -369,7 +419,7 @@ Complete a Document Intelligence quickstart:
 Explore our REST API:
 
 > [!div class="nextstepaction"]
-> [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true)
+> [Document Intelligence API v4.0](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true)
 
 ::: moniker range="doc-intel-4.0.0"
 Find more samples on GitHub:

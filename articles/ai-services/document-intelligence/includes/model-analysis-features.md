@@ -22,9 +22,15 @@ ms.author: lajanuar
 |prebuilt-receipt|✓|✓| | | | | |O|O|✓|O|O|O|
 |prebuilt-marriageCertificate.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-creditCard | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-check.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-payStub.us | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-bankStatement | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1003 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1004 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-mortgage.us.1005 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.1008 | ✓|✓ | | | | | | O | O |✓ | O | O | O |
 |prebuilt-mortgage.us.closingDisclosure | ✓|✓ | | | | | | O | O |✓ | O | O | O |
+|prebuilt-tax.us|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.w2|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098|✓|✓| | |✓| | |O|O|✓|O|O|O|
 |prebuilt-tax.us.1098E|✓|✓| | |✓| | |O|O|✓|O|O|O|

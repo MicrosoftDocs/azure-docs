@@ -677,8 +677,6 @@
     - name: Direct management API retirement (March 2025)
       href: breaking-changes/direct-management-api-retirement-march-2025.md
     - name: ADAL-based identity provider retirement (September 2025)
-      href: breaking-changes/git-configuration-retirement-march-2025.md
-    - name: ADAL-based identity provider retirement (September 2025)
       href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
     - name: CAPTCHA endpoint update (September 2025)
       href: breaking-changes/captcha-endpoint-change-sep-2025.md
