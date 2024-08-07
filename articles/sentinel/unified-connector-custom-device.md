@@ -24,485 +24,587 @@ The instructions for installing and configuring these data connectors for your d
 
 1. Create the destination table in Log Analytics (or Advanced Hunting if you're in the Defender portal).
 
-1. Create the data collection rule (DCR) for your device, and install the Azure Monitor Agent on the machine that collects the logs.
+    The table's name must end with `_CL` and it must consist of only the following two fields:
+    - **TimeGenerated** (of type *DateTime*): the timestamp of the creation of the log message.
+    - **Message** (of type *String*): the log message in its entirety.
+
+1. Create the data collection rule (DCR) for your device, according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file)..
+
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
 1. Configure your device to send its logs to the machine where the Azure Monitor Agent is installed.
 
-These general steps are described in detail in [Ingest syslog, CEF, and custom-format messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-custom-ama.md).
+These general steps (except for the last one) are described in detail in [Ingest syslog, CEF, and custom-format messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-custom-ama.md).
 
-The per-device information you need to complete these steps is presented in the rest of this article. Some device types require extra steps, such as data transformations, which are also shown here.
+## Specific instructions per device type
 
-## Apache HTTP Server
+The per-device information you need to complete these steps is presented in the rest of this article. Some device types require more specific steps, or extra steps such as data transformations, which are also shown here.
+
+**The following devices' instructions are provided here:**
+
+- [Apache HTTP Server](#apache-http-server)
+- [Apache Tomcat](#apache-tomcat)
+- [Cisco Meraki](#cisco-meraki)
+- [Jboss Enterprise Application platform](#jboss-enterprise-application-platform)
+- [JuniperIDP](#juniperidp)
+- [MarkLogic Audit](#marklogic-audit)
+- [MongoDB Audit](#mongodb-audit)
+- [NGINX HTTP Server](#nginx-http-server)
+- [Oracle WebLogic Server](#oracle-weblogic-server)
+- [PostgreSQL Events](#postgresql-events)
+- [SecurityBridge Threat Detection for SAP](#securitybridge-threat-detection-for-sap)
+- [SquidProxy](#squidproxy)
+- [Ubiquiti UniFi](#ubiquiti-unifi)
+- [AI Vectra stream](#ai-vectra-stream)
+- [VMware vCenter](#vmware-vcenter)
+- [Zscaler Private Access (ZPA)](#zscaler-private-access-zpa)
+
+### Apache HTTP Server
 
 Follow these steps to ingest log messages from Apache HTTP Server:
 
 1. Table name: `ApacheHTTPServer_CL`
 
-1. Create a data collection rule (DCR)
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"ApacheHTTPServer_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Server\bin\log\Apache24\logs\*.log"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/httpd/*.log"`
+
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+
+### Apache Tomcat
+
+Follow these steps to ingest log messages from Apache Tomcat:
+
+1. Table name: `Tomcat_CL`
+
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
+
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"Tomcat_CL"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/tomcat/*.log"`
+
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
+
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
+
+### Cisco Meraki
+
+Follow these steps to ingest log messages from Cisco Meraki:
+
+1. Table name: `meraki_CL`
+
+1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
+
+1. Configure a temporary transformation of Meraki logs to text files so the AMA can collect them.
+
+    - **For rsyslog daemon:**
+        1. Create custom configuration file for the rsyslog daemon, with the following filtering conditions:
+
+            ```bash
+            if $rawmsg contains "flows" then {
+                action(type="omfile" file="<LOG_FILE_Name>")
+                stop
+            }
+            if $rawmsg contains "urls" then { 
+                action(type="omfile" file="<LOG_FILE_Name>") 
+                stop 
+            } 
+            if $rawmsg contains "ids-alerts" then { 
+                action(type="omfile" file="<LOG_FILE_Name>") 
+                stop 
+            } 
+            if $rawmsg contains "events" then { 
+                action(type="omfile" file="<LOG_FILE_Name>") 
+                stop 
+            } 
+            if $rawmsg contains "ip_flow_start" then { 
+                action(type="omfile" file="<LOG_FILE_Name>") 
+                stop 
+            } 
+            if $rawmsg contains "ip_flow_end" then { 
+                action(type="omfile" file="<LOG_FILE_Name>") 
+                stop 
+            }
+            ```
+            (Replace `<LOG_FILE_Name>` with the name of the log file you created.)
+
+        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
+
+    - **For syslog-ng daemon:**
+        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
+        
+            ```bash
+            filter f_meraki {
+                message("flows") or message("urls") or message("ids-alerts") or message("events") or message("ip_flow_start") or message("ip_flow_end"); 
+            }; 
+             
+            destination d_meraki { 
+                file("<LOG_FILE_NAME>"); 
+            }; 
 
-- Table name: `ApacheHTTPServer_CL`
-- Log files in ready-to-collect format: Yes
-- Default log paths:
-    - Windows: `C:\Server\bin\log\Apache24\logs\*.log`
-    - Linux: `/var/log/httpd/*.log`
+            log { 
+                source(s_src); 
+                filter(f_meraki); 
+                destination(d_meraki); 
+                flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
+            }; 
+            ```
+            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
+        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-## Apache Tomcat
+1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-Configure ______________ to send log messages to the `---------_CL` table in your Microsoft Sentinel workspace by way of the Azure Monitor Agent.
+    Update the following keys in the DCR with the values as shown in the sample JSON:
+    - streamDeclarations > columns
+    - transformKql
+    - outputStream
+    ```json
+    {
+       "resources": [
+          {
+             "properties": {
+                "streamDeclarations": {
+                   "Custom-Text-stream": {
+                      "columns": [
+                            {
+                               "name": "TimeGenerated",
+                               "type": "datetime"
+                            },
+                            {
+                               "name": "Message",
+                               "type": "string"
+                            },
+                      ]
+                   }
+                },
+                "dataFlows": [
+                   {
+                      "transformKql": "source | project-rename Message=RawData",
+                      "outputStream": "meraki_CL"
+                   }
+                ]
+             }
+          }
+       ]
+    }
+    ```
 
-If you're creating a data collection rule using the wizard on the **Custom Logs via AMA** connector page, enter the following values in the fields of the wizard:
+1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-| Field              | Value |
-| ------------------ | ----- |
-| Select device type |  |
-| Table name         |  |
-| File pattern       |  |
-| Transform          |  |
+1. Configure and connect the Cisco Meraki device(s): follow the [instructions provided by Cisco](https://documentation.meraki.com/General_Administration/Monitoring_and_Reporting/Meraki_Device_Reporting_-_Syslog%2C_SNMP%2C_and_API) for sending syslog messages. Use the IP address or hostname of the virtual machine where the Azure Monitor Agent is installed. 
 
-## Cisco Meraki
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Configure ______________ to send log messages to the `---------_CL` table in your Microsoft Sentinel workspace by way of the Azure Monitor Agent.
+### JBoss Enterprise Application platform
 
-If you're creating a data collection rule using the wizard on the **Custom Logs via AMA** connector page, enter the following values in the fields of the wizard:
+Follow these steps to ingest log messages from JBoss Enterprise Application platform:
 
-| Field              | Value |
-| ------------------ | ----- |
-| Select device type |  |
-| Table name         |  |
-| File pattern       |  |
-| Transform          |  |
+1. Table name: `JBossLogs_CL`
 
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"JBossLogs_CL"`
 
-===================================================================================
+1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-## AI Analyst Darktrace
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Configure Darktrace to forward syslog messages in CEF format to your Azure workspace via the syslog agent. 
+### JuniperIDP
 
-1. Within the Darktrace Threat Visualizer, navigate to the **System Config** page in the main menu under **Admin**. 
-1. From the left-hand menu, select **Modules** and choose Microsoft Sentinel from the available **Workflow Integrations**.
-1. Locate Microsoft Sentinel syslog CEF and select **New** to reveal the configuration settings, unless already exposed. 
-1. In the **Server** configuration field, enter the location of the log forwarder and optionally modify the communication port. Ensure that the port selected is set to 514 and is allowed by any intermediary firewalls.
-1. Configure any alert thresholds, time offsets or other settings as required. 
-1. Review any other configuration options you might wish to enable that alter the syslog syntax. 
-1. Enable **Send Alerts** and save your changes.
+Follow these steps to ingest log messages from JuniperIDP:
 
-## Akamai Security Events
+1. Table name: `JuniperIDP_CL`
 
-[Follow these steps](https://developer.akamai.com/tools/integrations/siem) to configure Akamai CEF connector to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-## AristaAwakeSecurity
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"JuniperIDP_CL"`
 
-Complete the following steps to forward Awake Adversarial Model match results to a CEF collector listening on TCP port 514 at IP **192.168.0.1**:
+1. Deploy Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-1. Navigate to the **Detection Management Skills** page in the Awake UI.
-1. Select **+ Add New Skill**.
-1. Set **Expression** to `integrations.cef.tcp { destination: "192.168.0.1", port: 514, secure: false, severity: Warning }`
-1. Set **Title** to a descriptive name like, *Forward Awake Adversarial Model match result to Microsoft Sentinel*.
-1. Set **Reference Identifier** to something easily discoverable like, *integrations.cef.sentinel-forwarder*.
-1. Select **Save**.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Within a few minutes of saving the definition and other fields, the system begins to send new model match results to the CEF events collector as they're detected.
+### MarkLogic Audit
 
-For more information, see the **Adding a Security Information and Event Management Push Integration** page from the **Help Documentation** in the Awake UI.
+Follow these steps to ingest log messages from MarkLogic Audit:
 
-## Aruba ClearPass
+1. Table name: `MarkLogicAudit_CL`
 
-Configure Aruba ClearPass to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-1. [Follow these instructions](https://www.arubanetworks.com/techdocs/ClearPass/6.7/PolicyManager/Content/CPPM_UserGuide/Admin/syslogExportFilters_add_syslog_filter_general.htm) to configure the Aruba ClearPass to forward syslog.
-2. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"MarkLogicAudit_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Program Files\MarkLogic\Data\Logs\AuditLog.txt"`
+    - **Log path - RedHat Linux**: resources > properties > dataSources > filePatterns: `"/var/opt/MarkLogic/Logs/AuditLog.txt"`
 
-## Barracuda WAF
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-The Barracuda Web Application Firewall can integrate with and export logs directly to Microsoft Sentinel via the Azure Monitoring Agent (AMA).​
+1. Configure MarkLogic Audit to enable it to write logs: (from MarkLogic documentation)
+    1. Using your browser, navigate to MarkLogic Admin interface.
+    1. Open the Audit Configuration screen under Groups > group_name > Auditing.
+    1. Mark the Audit Enabled radio button. Make sure it is enabled.
+    1. Configure audit event and/or restrictions desired.
+    1. Validate by selecting OK.
+    1. Refer to MarkLogic documentation for [more details and configuration options](https://docs.marklogic.com/guide/admin/auditing).
 
-1. Go to [Barracuda WAF configuration](https://aka.ms/asi-barracuda-connector), and follow the instructions, using the following parameters to set up the connection.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-1. Web Firewall logs facility: Go to the advanced settings for your workspace and on the **Data** > **Syslog** tabs. Make sure that the facility exists.​
+### MongoDB Audit
 
-Notice that the data from all regions are stored in the selected workspace.
+Follow these steps to ingest log messages from MongoDB Audit:
 
-## Broadcom SymantecDLP
+1. Table name: `MongoDBAudit_CL`
 
-Configure Symantec DLP to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+1. Data collection rule (DCR): Logs can be stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file). As a resource, choose the machine where MongoDB is installed.
 
-1. [Follow these instructions](https://knowledge.broadcom.com/external/article/159509/generating-syslog-messages-from-data-los.html) to configure the Symantec DLP to forward syslog
-1. Use the IP address or hostname for the Linux device with the Linux agent installed as the **Destination IP** address.
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"MongoDBAudit_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\data\db\auditlog.json"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/data/db/auditlog.json"`
 
-## Cisco Firepower EStreamer
+1. Deploy the Azure Monitor Agent to the machine where MongoDB is installed.
 
-Install and configure the Firepower eNcore eStreamer client. For more information, see the full install [guide](https://www.cisco.com/c/en/us/td/docs/security/firepower/670/api/eStreamer_enCore/eStreamereNcoreSentinelOperationsGuide_409.html).
+1. Configure MongoDB to write logs:
+    1. For Windows, edit the configuration file `mongod.cfg`. For Linux, `mongod.conf`.
+    1. Set the `dbpath` parameter to `data/db`.
+    1. Set the `path` parameter to `/data/db/auditlog.json`.
+    1. Refer to MongoDB documentation for [more parameters and details](https://www.mongodb.com/docs/manual/tutorial/configure-auditing/).
 
-## CiscoSEG
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Complete the following steps to configure Cisco Secure Email Gateway to forward logs via syslog:
+### NGINX HTTP Server
 
-1. Configure [Log Subscription](https://www.cisco.com/c/en/us/td/docs/security/esa/esa14-0/user_guide/b_ESA_Admin_Guide_14-0/b_ESA_Admin_Guide_12_1_chapter_0100111.html#con_1134718).
-1. Select **Consolidated Event Logs** in Log Type field.
+Follow these steps to ingest log messages from NGINX HTTP Server:
 
-## Citrix Web App Firewall
+1. Table name: `NGINX_CL`
 
-Configure Citrix WAF to send syslog messages in CEF format to the proxy machine. 
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-- Find guides to configure WAF and CEF logs from [Citrix Support](https://support.citrix.com/).
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"NGINX_CL"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/nginx.log"`
 
-- Follow [this guide](https://docs.citrix.com/en-us/citrix-adc/13/system/audit-logging/configuring-audit-logging.html) to forward the logs to proxy. Make sure you to send the logs to port 514 TCP on the Linux machine's IP address.
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-## Claroty
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Configure log forwarding using CEF.
+### Oracle WebLogic Server 
 
-1. Navigate to the **Syslog** section of the Configuration menu.
-1. Select **+Add**.
-1. In the **Add New Syslog Dialog** specify **Remote Server IP**, **Port**, **Protocol**.
-1. Select **Message Format** - **CEF**.
-1. Choose **Save** to exit the **Add Syslog dialog**.
+Follow these steps to ingest log messages from Oracle WebLogic Server:
 
-## Contrast Protect
+1. Table name: `OracleWebLogicServer_CL`
 
-Configure the Contrast Protect agent to forward events to syslog as described here: https://docs.contrastsecurity.com/en/output-to-syslog.html. Generate some attack events for your application.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-## CrowdStrike Falcon
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"OracleWebLogicServer_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"<DOMAIN_NAME>\Servers\<SERVER_NAME>\logs*.log"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"<DOMAIN_HOME>/servers/server_name/logs/*.log"`
 
-Deploy the CrowdStrike Falcon SIEM Collector to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-1. [Follow these instructions](https://www.crowdstrike.com/blog/tech-center/integrate-with-your-siem/) to deploy the **SIEM Collector** and forward syslog.
-1. Use the IP address or hostname for the Linux device with the Linux agent installed as the Destination IP address.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-## CyberArk Enterprise Password Vault (EPV) Events
+### PostgreSQL Events
 
-On the EPV, configure the dbparm.ini to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machines IP address.
+Follow these steps to ingest log messages from PostgreSQL Events:
 
-## Delinea Secret Server
+1. Table name: `PostgreSQL_CL`
 
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-## ExtraHop Reveal(x)
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"PostgreSQL_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\*.log"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/*.log"`
 
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine IP address.
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-1. Follow the directions to install the [ExtraHop Detection SIEM Connector bundle](https://learn.extrahop.com/extrahop-detection-siem-connector-bundle) on your Reveal(x) system. The **SIEM Connector** is required for this integration.
-1. Enable the trigger for **ExtraHop Detection SIEM Connector - CEF**.
-1. Update the trigger with the ODS syslog targets you created. 
+1. Edit the PostgreSQL Events configuration file `postgresql.conf` to output logs to files.
+    1. Set `log_destination='stderr'`
+    1. Set `logging_collector=on`
+    1. Refer to PostgreSQL documentation for [more parameters and details](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-The Reveal(x) system formats syslog messages in Common Event Format (CEF) and then sends data to Microsoft Sentinel.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-## F5 Networks
+### SecurityBridge Threat Detection for SAP
 
-Configure F5 to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+Follow these steps to ingest log messages from SecurityBridge Threat Detection for SAP:
 
-Go to [F5 Configuring Application Security Event Logging](https://aka.ms/asi-syslog-f5-forwarding), follow the instructions to set up remote logging, using the following guidelines:
+1. Table name: `SecurityBridgeLogs_CL`
 
-1. Set the  **Remote storage type**  to **CEF**.
-1. Set the  **Protocol setting**  to **UDP**.
-1. Set the  **IP address**  to the syslog server IP address.
-1. Set the  **port number**  to **514**, or the port your agent uses.
-1. Set the  **facility**  to the one that you configured in the syslog agent. By default, the agent sets this value to **local4**.
-1. You can set the  **Maximum Query String Size**  to be the same as you configured.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-## FireEye Network Security
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"SecurityBridgeLogs_CL"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/usr/sap/tmp/sb_events/*.cef"`
 
-Complete the following steps to send data using CEF:
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-1. Sign into the FireEye appliance with an administrator account.
-1. Select **Settings**.
-1. Select **Notifications**. Select **rsyslog**.
-1. Check the **Event type** check box.
-1. Make sure Rsyslog settings are:
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-   - Default format: **CEF**
-   - Default delivery: **Per event**
-   - Default send as: **Alert**
+### SquidProxy
 
-## Forcepoint CASB
+Follow these steps to ingest log messages from SquidProxy:
 
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+1. Table name: `SquidProxy_CL`
 
-## Forcepoint CSG
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-The integration is made available with two implementations options:
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"SquidProxy_CL"`
+    - **Log path - Windows**: resources > properties > dataSources > filePatterns: `"C:\Squid\var\log\squid\*.log"`
+    - **Log path - Linux**: resources > properties > dataSources > filePatterns: `"/var/log/squid/*.log"`
 
-1. Uses docker images where the integration component is already installed with all necessary dependencies.
-Follow the instructions provided in the [Integration Guide](https://frcpnt.com/csg-sentinel).
-1. Requires the manual deployment of the integration component inside a clean Linux machine. Follow the instructions provided in the [Integration Guide](https://frcpnt.com/csg-sentinel).
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-## Forcepoint NGFW
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+### Ubiquiti UniFi
 
-## ForgeRock Common Audit for CEF
+Follow these steps to ingest log messages from Ubiquiti UniFi:
 
-In ForgeRock, install and configure this Common Audit (CAUD) for Microsoft Sentinel per the documentation at https://github.com/javaservlets/SentinelAuditEventHandler. Next, in Azure, follow the steps to configure the CEF via AMA data connector.
+1. Table name: `Ubiquiti_CL`
 
-## iboss
+1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
 
-Set your Threat Console to send syslog messages in CEF format to your Azure workspace. Make note of your **Workspace ID** and **Primary Key** within your Log Analytics workspace. Select the workspace from the Log Analytics workspaces menu in the Azure portal. Then select **Agents management** in the **Settings** section. 
+1. Configure a temporary transformation of Ubiquiti logs to text files so the AMA can collect them.
 
-1. Navigate to **Reporting & Analytics** inside your iboss Console.
-1. Select **Log Forwarding** > **Forward From Reporter**.
-1. Select **Actions** > **Add Service**.
-1. Toggle to Microsoft Sentinel as a **Service Type** and input your **Workspace ID/Primary Key** along with other criteria. If a dedicated proxy Linux machine was configured, toggle to **Syslog** as a **Service Type** and configure the settings to point to your dedicated proxy Linux machine.
-1. Wait one to two minutes for the setup to complete.
-1. Select your Microsoft Sentinel service and verify the Microsoft Sentinel setup status is successful. If a dedicated proxy Linux machine is configured, you might validate your connection.
+    - **For rsyslog daemon:**
+        1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
 
-## Illumio Core
+            ```bash
+             # Define a new ruleset
+            ruleset(name="<RULESET_NAME>") { 
+                action(type="omfile" file="<LOG_FILE_NAME>") 
+            } 
+             
+             # Set the input on port and bind it to the new ruleset 
+            input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
+            ```
+            (Replace `<parameters>` with the actual names of the objects represented.)
 
-Configure event format.
+        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
 
-1. From the PCE web console menu, choose **Settings > Event Settings** to view your current settings.
-1. Select **Edit** to change the settings.
-1. Set **Event Format** to CEF.
-1. (Optional) Configure **Event Severity** and **Retention Period**.
+    - **For syslog-ng daemon:**
+        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
 
-Configure event forwarding to an external syslog server.
+            ```bash
+            sources_network {
+                network ( 
+                    ip(“0.0.0.0”) 
+                    port(<PORT>) 
+                ); 
+            }; 
+            destination d_file { 
+                file(“<LOG_FILE_NAME>”); 
+            }; 
+            log { 
+                source(s_network); 
+                destination(d_file); 
+            }; 
+            ```
+            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-1. From the PCE web console menu, choose **Settings** > **Event Settings**.
-1. Select **Add**.
-1. Select **Add Repository**.
-1. Complete the **Add Repository** dialog.
-1. Select **OK** to save the event forwarding configuration.
+        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-## Illusive Platform
+1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-1. Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"Ubiquiti_CL"`
+    - **Log path**: resources > properties > dataSources > filePatterns: Path where log files are stored.
+    - **Transformation**: resources > properties > dataFlows > transformKql: `"source | project-rename Message=RawData"`
 
-1. Sign into the Illusive Console, and navigate to **Settings** > **Reporting**.
-1. Find **Syslog Servers**.
-1. Supply the following information:
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-    - Host name: *Linux Syslog agent IP address or FQDN host name*
-    - Port: *514*
-    - Protocol: *TCP*
-    - Audit messages: *Send audit messages to server*
+1. Configure and connect the Ubiquiti controller.
+    1. Follow the [instructions provided by Ubiquiti](https://help.ui.com/hc/en-us/categories/6583256751383) to enable syslog and optionally debugging logs.
+    1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-1. To add the syslog server, select **Add**.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-For more information about how to add a new syslog server in the Illusive platform, find the Illusive Networks Admin Guide in here: https://support.illusivenetworks.com/hc/en-us/sections/360002292119-Documentation-by-Version
+### AI Vectra stream
 
-## Imperva WAF Gateway
+Follow these steps to ingest log messages from AI Vectra stream:
 
-This connector requires an **Action Interface** and **Action Set** to be created on the Imperva SecureSphere MX.  [Follow the steps](https://community.imperva.com/blogs/craig-burlingame1/2020/11/13/steps-for-enabling-imperva-waf-gateway-alert) to create the requirements.
+1. Table name: `VectraStream_CL`
 
-1. Create a new **Action Interface** that contains the required parameters to send WAF alerts to Microsoft Sentinel.
-1. Create a new **Action Set** that uses the **Action Interface** configured.
-1. Apply the Action Set to any security policies you wish to have alerts for sent to Microsoft Sentinel.
+1. Data collection rule (DCR): Logs are already stored as text files the AMA can collect. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-## Infoblox Cloud Data Connector
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"VectraStream_CL"`
 
-Complete the following steps to configure the Infoblox CDC to send BloxOne data to Microsoft Sentinel via the Linux syslog agent.
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-1. Navigate to **Manage** > **Data Connector**.
-1. Select the **Destination Configuration** tab at the top.
-1. Select **Create > Syslog**. 
-   - **Name**: Give the new Destination a meaningful name, such as *Microsoft-Sentinel-Destination*.
-   - **Description**: Optionally give it a meaningful description.
-   - **State**: Set the state to **Enabled**.
-   - **Format**: Set the format to **CEF**.
-   - **FQDN/IP**: Enter the IP address of the Linux device on which the Linux agent is installed.
-   - **Port**: Leave the port number at **514**.
-   - **Protocol**: Select desired protocol and CA certificate if applicable.
-   - Select **Save & Close**.
-1. Select the **Traffic Flow Configuration** tab at the top.
-1. Select **Create**.
-   - **Name**: Give the new Traffic Flow a meaningful name, such as *Microsoft-Sentinel-Flow*.
-   - **Description**: Optionally give it a meaningful description. 
-   - **State**: Set the state to **Enabled**. 
-   - Expand the **Service Instance** section. 
-      - **Service Instance**: Select your desired Service Instance for which the Data Connector service is enabled. 
-   - Expand the **Source Configuration** section.  
-      - **Source**: Select **BloxOne Cloud Source**. 
-      - Select all desired **log types** you wish to collect. Currently supported log types are:
-        - Threat Defense Query/Response Log
-        - Threat Defense Threat Feeds Hits Log
-        - DDI Query/Response Log
-        - DDI DHCP Lease Log
-   - Expand the **Destination Configuration** section.  
-      - Select the **Destination** you created. 
-   - Select **Save & Close**. 
-1. Allow the configuration some time to activate.
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-## Infoblox SOC Insights
+### VMware vCenter
 
-Complete the following steps to configure the Infoblox CDC to send BloxOne data to Microsoft Sentinel via the Linux syslog agent.
+Follow these steps to ingest log messages from VMware vCenter:
 
-1. Navigate to **Manage > Data Connector**.
-1. Select the **Destination Configuration** tab at the top.
-1. Select **Create > Syslog**. 
-   - **Name**: Give the new Destination a meaningful name, such as *Microsoft-Sentinel-Destination*.
-   - **Description**: Optionally give it a meaningful description.
-   - **State**: Set the state to **Enabled**.
-   - **Format**: Set the format to **CEF**.
-   - **FQDN/IP**: Enter the IP address of the Linux device on which the Linux agent is installed.
-   - **Port**: Leave the port number at **514**.
-   - **Protocol**: Select desired protocol and CA certificate if applicable.
-   - Select **Save & Close**.
-1. Select the **Traffic Flow Configuration** tab at the top.
-1. Select **Create**.
-   - **Name**: Give the new Traffic Flow a meaningful name, such as *Microsoft-Sentinel-Flow*.
-   - **Description**: Optionally give it a meaningful **description**. 
-   - **State**: Set the state to **Enabled**. 
-   - Expand the **Service Instance** section. 
-      - **Service Instance**: Select your desired service instance for which the data connector service is enabled. 
-   - Expand the **Source Configuration** section.  
-      - **Source**: Select **BloxOne Cloud Source**. 
-      - Select the **Internal Notifications** Log Type.
-   - Expand the **Destination Configuration** section.  
-      - Select the **Destination** you created. 
-   - Select **Save & Close**. 
-1. Allow the configuration some time to activate.
+1. Table name: `vcenter_CL`
 
-## KasperskySecurityCenter
+1. Configure a transformation of vCenter logs to text files so the AMA can collect them.
 
-[Follow the instructions](https://support.kaspersky.com/KSC/13/en-US/89277.htm) to configure event export from Kaspersky Security Center.
+    - **For rsyslog daemon:**
+        1. Edit the configuration file `/etc/rsyslog.conf` to add the following template line before the *directive* section:
 
-## Morphisec
+            `$template vcenter,"%timestamp% %hostname% %msg%\ n"`
 
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
+        1. Create custom configuration file for the rsyslog daemon, saved as `/etc/rsyslog.d/10-vcenter.conf` with the following filtering conditions:
 
-## Netwrix Auditor
+            ```bash
+            if $rawmsg contains "vpxd" then {
+                action(type="omfile" file="/<LOG_FILE_NAME>")
+                stop
+            }
+            if $rawmsg contains "vcenter-server" then { 
+                action(type="omfile" file="/<LOG_FILE_NAME>") 
+                stop 
+            } 
+            ```
+            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-[Follow the instructions](https://www.netwrix.com/download/QuickStart/Netwrix_Auditor_Add-on_for_HPE_ArcSight_Quick_Start_Guide.pdf) to configure event export from Netwrix Auditor.
+        1. Restart rsyslog. The typical command syntax is `sudo systemctl restart rsyslog`.
 
-## NozomiNetworks
+    - **For syslog-ng daemon:**
+        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following filtering conditions:
+        
+            ```bash
+            filter f_vcenter {
+                message("vpxd") or message("vcenter-server"); 
+            }; 
+             
+            destination d_vcenter { 
+                file("<LOG_FILE_NAME>"); 
+            }; 
 
-Complete the following steps to configure Nozomi Networks device to send alerts, audit, and health logs via syslog in CEF format:
+            log { 
+                source(s_src); 
+                filter(f_vcenter); 
+                destination(d_vcenter); 
+                flags(final); #Ensures that once a message matches the filter and is written to the specified destination, it will not be processed by subsequent log statements 
+            }; 
+            ```
+            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-1. Sign in to the Guardian console.
-1. Navigate to **Administration** > **Data Integration**.
-1. Select **+Add**.
-1. Select the **Common Event Format (CEF)** from the drop-down.
-1. Create **New Endpoint** using the appropriate host information.
-1. Enable **Alerts**, **Audit Logs**, and **Health Logs** for sending.
+        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-## Onapsis Platform
+1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file). Use the text log format.
 
-Refer to the Onapsis in-product help to set up log forwarding to the syslog agent.
+    Update the following keys in the DCR with the values as shown in the sample JSON:
+    - dataCollectionEndpointId should be populated with your DCE. If you don't have one, define a new one. See [Create a data collection endpoint](../azure-monitor/essentials/data-collection-endpoint-overview.md#create-a-data-collection-endpoint) for the instructions.
+    - streamDeclarations > columns
+    - transformKql
+    - outputStream
+    ```json
+    {
+       "resources": [
+          {
+             "properties": {
+                "streamDeclarations": {
+                   "Custom-Text-stream": {
+                      "columns": [
+                            {
+                               "name": "TimeGenerated",
+                               "type": "datetime"
+                            },
+                            {
+                               "name": "Message",
+                               "type": "string"
+                            },
+                      ]
+                   }
+                },
+                "dataFlows": [
+                   {
+                      "transformKql": "source | project-rename Message=RawData",
+                      "outputStream": "vcenter_CL"
+                   }
+                ]
+             }
+          }
+       ]
+    }
+    ```
 
-1. Go to **Setup** > **Third-party integrations** > **Defend Alarms** and follow the instructions for Microsoft Sentinel.
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-2. Make sure your Onapsis Console can reach the proxy machine where the agent is installed. The logs should be sent to port 514 using TCP.
+1. Configure and connect the vCenter devices. 
+    1. Follow the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-9633A961-A5C3-4658-B099-B81E0512DC21.html) for sending syslog messages.
+    1. Use the IP address or hostname of the machine where the Azure Monitor Agent is installed.
 
-## OSSEC
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
-[Follow these steps](https://www.ossec.net/docs/docs/manual/output/syslog-output.html) to configure OSSEC sending alerts via syslog.
+### Zscaler Private Access (ZPA)
 
-## Palo Alto - XDR (Cortex)
+Follow these steps to ingest log messages from Zscaler Private Access (ZPA):
 
-Configure Palo Alto XDR (Cortex) to forward messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+1. Table name: `ZPA_CL`
 
-1. Go to **Cortex Settings and Configurations**.
-1. Select to add **New Server** under **External Applications**.
-1. Then specify the name and give the public IP of your syslog server in **Destination**.
-1. Give **Port number** as 514.
-1. From **Facility** field, select **FAC_SYSLOG** from dropdown.
-1. Select **Protocol** as **UDP**.
-1. Select **Create**.
+1. Create a log file and grant it write permissions. ***(TO WHOM? -YL)***
 
-## PaloAlto-PAN-OS
+1. Configure a temporary transformation of ZPA logs to text files so the AMA can collect them.
 
-Configure Palo Alto Networks to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
+    - **For rsyslog daemon:**
+        1. Create custom configuration file for the rsyslog daemon, in the `/etc/rsyslog.d/` folder, with the following filtering conditions:
 
-1. Go to [configure Palo Alto Networks NGFW for sending CEF events](https://aka.ms/sentinel-paloaltonetworks-readme).
-1. Go to [Palo Alto CEF Configuration](https://aka.ms/asi-syslog-paloalto-forwarding)  and Palo Alto [Configure Syslog Monitoring](https://aka.ms/asi-syslog-paloalto-configure)  steps 2, 3, choose your version, and follow the instructions using the following guidelines:
+            ```bash
+             # Define a new ruleset
+            ruleset(name="<RULESET_NAME>") { 
+                action(type="omfile" file="<LOG_FILE_NAME>") 
+            } 
+             
+             # Set the input on port and bind it to the new ruleset 
+            input(type="imudp" port="<PORT>" ruleset="<RULESET_NAME>") 
+            ```
+            (Replace `<parameters>` with the actual names of the objects represented.)
 
-   1. Set the **Syslog server format** to  **BSD**.
-   1. Copy the text to an editor and remove any characters that might break the log format before pasting it. The copy/paste operations from the PDF might change the text and insert random characters.
+        1. Restart rsyslog. The typical command syntax is `systemctl restart rsyslog`.
 
-[Learn more](https://aka.ms/CEFPaloAlto)
+    - **For syslog-ng daemon:**
+        1. Edit the config file `/etc/syslog-ng/conf.d`, adding the following conditions:
 
-## PaloAltoCDL
+            ```bash
+            sources_network {
+                network ( 
+                    ip(“0.0.0.0”) 
+                    port(<PORT>) 
+                ); 
+            }; 
+            destination d_file { 
+                file(“<LOG_FILE_NAME>”); 
+            }; 
+            log { 
+                source(s_network); 
+                destination(d_file); 
+            }; 
+            ```
+            (Replace `<LOG_FILE_NAME>` with the name of the log file you created.)
 
-[Follow the instructions](https://docs.paloaltonetworks.com/cortex/cortex-data-lake/cortex-data-lake-getting-started/get-started-with-log-forwarding-app/forward-logs-from-logging-service-to-syslog-server.html) to configure logs forwarding from Cortex Data Lake to a syslog Server.
+        1. Restart syslog-ng. The typical command syntax is `systemctl restart syslog-ng`.
 
-## PingFederate
+1. Create the DCR according to the directions in [Create a data collection rule for a text file](../azure-monitor/agents/data-collection-log-text.md#create-a-data-collection-rule-for-a-text-file).
 
-[Follow these steps](https://docs.pingidentity.com/bundle/pingfederate-102/page/gsn1564002980953.html) to configure PingFederate sending audit log via syslog in CEF format.
+    Update the DCR with the following values:
+    - **Output table name**: resources > properties > dataFlows > outputStream: `"ZPA_CL"`
+    - **Log path**: resources > properties > dataSources > filePatterns: Path where log files are stored.
+    - **Transformation**: resources > properties > dataFlows > transformKql: `"source | project-rename Message=RawData"`
 
-## RidgeSecurity
+1. Deploy the Azure Monitor Agent to the machine that collects the logs, if that hasn't been done yet.
 
-Configure the RidgeBot to forward events to syslog server as described [here](https://portal.ridgesecurity.ai/downloadurl/89x72912). Generate some attack events for your application.
+1. Configure and connect the ZPA receiver.
+    1. Follow the [instructions provided by ZPA](link). Select JSON as the log template.
+    1. Select Settings > System Settings > Controller Configuration > Remote Logging and enable syslog. 
 
-## SonicWall Firewall
-
-Set your SonicWall Firewall to send syslog messages in CEF format to the proxy machine. Make sure you send the logs to port 514 TCP on the machine's IP address.
-
-Follow instructions. Then Make sure you select local use 4 as the facility. Then select ArcSight as the syslog format.
-
-## Trend Micro Apex One
-
-[Follow these steps](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/detections/logs_001/syslog-forwarding.aspx) to configure Apex Central sending alerts via syslog. While configuring, on step 6, select the log format **CEF**.
-
-## Trend Micro Deep Security
-
-Set your security solution to send syslog messages in CEF format to the proxy machine. Make sure to send the logs to port 514 TCP on the machine's IP address.
-
-1. Forward Trend Micro Deep Security events to the syslog agent.
-1. Define a new syslog Configuration that uses the CEF format by referencing [this knowledge article](https://aka.ms/Sentinel-trendmicro-kblink) for additional information.
-1. Configure the **Deep Security Manager** to use this new configuration to forward events to the syslog agent using [these instructions](https://aka.ms/Sentinel-trendMicro-connectorInstructions).
-1. Make sure to save the [TrendMicroDeepSecurity](https://aka.ms/TrendMicroDeepSecurityFunction) function so that it queries the Trend Micro Deep Security data properly.
-
-## Trend Micro TippingPoint
-
-Set your TippingPoint SMS to send syslog messages in ArcSight CEF Format v4.2 format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
-
-## vArmour Application Controller
-
-Send syslog messages in CEF format to the proxy machine. Make sure you to send the logs to port 514 TCP on the machine's IP address.
-
-Download the user guide from https://support.varmour.com/hc/en-us/articles/360057444831-vArmour-Application-Controller-6-0-User-Guide. In the user guide, refer to "Configuring Syslog for Monitoring and Violations" and follow steps 1 to 3.
-
-## Vectra AI Detect
-
-Configure Vectra (X Series) Agent to forward syslog messages in CEF format to your Microsoft Sentinel workspace via the syslog agent.
-
-From the Vectra UI, navigate to Settings > Notifications and Edit syslog configuration. Follow below instructions to set up the connection:
-
-1. Add a new Destination (which is the host where the Microsoft Sentinel syslog agent is running).
-1. Set the **Port** as *514*.
-1. Set the **Protocol** as *UDP*.
-1. Set the **format** to *CEF*.
-1. Set **Log types**. Select all log types available.
-1. Select on **Save**.
-1. Select the **Test** button to send some test events.
-
-For more information, see the Cognito Detect Syslog Guide, which can be downloaded from the resource page in Detect UI.
-
-## Votiro
-
-Set Votiro Endpoints to send syslog messages in CEF format to the Forwarder machine. Make sure you to send the logs to port 514 TCP on the Forwarder machine's IP address.
-
-## WireX Network Forensics Platform
-
-Contact WireX support (https://wirexsystems.com/contact-us/) in order to configure your NFP solution to send syslog messages in CEF format to the proxy machine. Make sure that they central manager can send the logs to port 514 TCP on the machine's IP address.
-
-## WithSecure Elements via Connector
-
-Connect your WithSecure Elements Connector appliance to Microsoft Sentinel. The WithSecure Elements Connector data connector allows you to easily connect your WithSecure Elements logs with Microsoft Sentinel, to view dashboards, create custom alerts, and improve investigation.
-
-> [!NOTE]
-> Data is stored in the geographic location of the workspace on which you are running Microsoft Sentinel.
-
-Configure With Secure Elements Connector to forward syslog messages in CEF format to your Log Analytics workspace via the syslog agent.
-
-1. Select or create a Linux machine for Microsoft Sentinel to use as the proxy between your WithSecurity solution and Microsoft Sentinel. The machine can be an on-premises environment, Microsoft Azure, or other cloud based environment. Linux needs to have `syslog-ng` and `python`/`python3` installed.
-1. Install the Azure Monitoring Agent (AMA) on your Linux machine and configure the machine to listen on the necessary port and forward messages to your Microsoft Sentinel workspace. The CEF collector collects CEF messages on port 514 TCP. You must have elevated permissions (sudo) on your machine.
-1. Go to **EPP** in WithSecure Elements Portal. Then navigate to **Downloads**. In **Elements Connector** section, select **Create subscription key**. You can check your subscription key in **Subscriptions**.
-1. In **Downloads** in WithSecure Elements **Connector** section, select the correct installer and download it.
-1. When in EPP, open account settings from the top right hand corner. Then select **Get management API key**. If the key was created earlier, it can be read there as well.
-1. To install Elements Connector, follow [Elements Connector Docs](https://help.f-secure.com/product.html#business/connector/latest/en/concept_BA55FDB13ABA44A8B16E9421713F4913-latest-en).
-1. If API access isn't configured during installation, follow [Configuring API access for Elements Connector](https://help.f-secure.com/product.html#business/connector/latest/en/task_F657F4D0F2144CD5913EE510E155E234-latest-en).
-1. Go to EPP, then **Profiles**, then use **For Connector** from where you can see the connector profiles. Create a new profile (or edit an existing not read-only profile). In **Event forwarding**, enable it. Set SIEM system address: **127.0.0.1:514**. Set format to **Common Event Format**. Protocol is **TCP**. Save profile and assign it to **Elements Connector** in **Devices** tab.
-1. To use the relevant schema in Log Analytics for the WithSecure Elements Connector, search for **CommonSecurityLog**.
-1. Continue with [validating your CEF connectivity](/azure/sentinel/troubleshooting-cef-syslog?tabs=rsyslog#validate-cef-connectivity).
-
-## Zscaler
-
-Set Zscaler product to send syslog messages in CEF format to your syslog agent. Make sure you to send the logs on port 514 TCP. 
-
-For more information, see [Zscaler Microsoft Sentinel integration guide](https://aka.ms/ZscalerCEFInstructions).
+[Back to list](#specific-instructions-per-device-type) | [Back to top](#custom-logs-via-ama-data-connector---configure-specific-appliance-or-device-for-microsoft-sentinel-data-ingestion)
 
 ## Related content
 
