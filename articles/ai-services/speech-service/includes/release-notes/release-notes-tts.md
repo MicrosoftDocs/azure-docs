@@ -7,6 +7,12 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
+### July 2024 release
+
+#### Text to speech avatar (GA)
+
+Text to speech avatar is now generally available. For more information, see [text to speech avatar](../../text-to-speech-avatar/what-is-text-to-speech-avatar.md).
+
 ### June 2024 release
 
 #### Prebuilt neural voice

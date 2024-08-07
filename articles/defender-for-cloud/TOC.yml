@@ -47,7 +47,7 @@
       href: plan-multicloud-security-get-started.md
     - name: Determine business needs
       displayName: needs, goals, business, requirements
-      ref: plan-multicloud-security-determine-business-needs.md
+      href: plan-multicloud-security-determine-business-needs.md
     - name: Define an adoption strategy
       displayName: strategy, adoption, ownership
       href: plan-multicloud-security-define-adoption-strategy.md

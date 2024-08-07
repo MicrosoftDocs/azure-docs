@@ -13,9 +13,6 @@ author: ju-shim
 
 # Enable InfiniBand
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 [RDMA capable](../sizes-hpc.md#rdma-capable-instances) [HB-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs communicate over the low latency and high bandwidth InfiniBand network. The RDMA capability over such an interconnect is critical to boost the scalability and performance of distributed-node HPC and AI workloads. The InfiniBand enabled HB-series and N-series VMs are connected in a non-blocking fat tree with a low-diameter design for optimized and consistent RDMA performance.
@@ -40,7 +37,7 @@ To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azur
 
 ### Linux
 
-The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL/CentOS, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 19.04, 20.04) and SLES (12 SP4+ and 15). More examples for other distros are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-20.x/ubuntu-20.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
+The [OFED drivers for Linux](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed) can be installed with the example below. Though the example here is for RHEL, but the steps are general and can be used for any compatible Linux operating system such as Ubuntu (18.04, 19.04, 20.04) and SLES (12 SP4+ and 15). More examples for other distros are on the [azhpc-images repo](https://github.com/Azure/azhpc-images/blob/master/ubuntu/ubuntu-20.x/ubuntu-20.04-hpc/install_mellanoxofed.sh). The inbox drivers also work as well, but the Mellanox OFED drivers provide more features.
 
 ```bash
 MLNX_OFED_DOWNLOAD_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-2.1.8.0/MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
@@ -51,8 +48,8 @@ tar zxvf MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64.tgz
 KERNEL=( $(rpm -q kernel | sed 's/kernel\-//g') )
 KERNEL=${KERNEL[-1]}
 # Uncomment the lines below if you are running this on a VM
-#RELEASE=( $(cat /etc/centos-release | awk '{print $4}') )
-#yum -y install http://olcentgbl.trafficmanager.net/centos/${RELEASE}/updates/x86_64/kernel-devel-${KERNEL}.rpm
+#RELEASE=( $(cat /etc/redhat-release | awk '{print $4}') )
+#yum -y install http://olcentgbl.trafficmanager.net/redhat/${RELEASE}/updates/x86_64/kernel-devel-${KERNEL}.rpm
 sudo yum install -y kernel-devel-${KERNEL}
 sudo ./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERNEL --kernel-sources /usr/src/kernels/${KERNEL} --add-kernel-support --skip-repo
 ```
@@ -62,7 +59,7 @@ sudo ./MLNX_OFED_LINUX-5.0-2.1.8.0-rhel7.7-x86_64/mlnxofedinstall --kernel $KERN
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/products/adapter-software/ethernet/windows/winof-2).
 
 ## Enable IP over InfiniBand (IB)
-If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL/CentOS) to enable IP over InfiniBand.
+If you plan to run MPI jobs, you typically don't need IPoIB. The MPI library will use the verbs interface for IB communication (unless you explicitly use the TCP/IP channel of MPI library). But if you have an app that uses TCP/IP for communication and you want to run over IB, you can use IPoIB over the IB interface. Use the following commands (for RHEL) to enable IP over InfiniBand.
 
 > [!IMPORTANT]
 > To avoid issues, ensure you aren't running older versions of Microsoft Azure Linux Agent (waagent). We recommend using at least [version 2.4.0.2](https://github.com/Azure/WALinuxAgent/releases/tag/v2.4.0.2) before enabling IP over IB.

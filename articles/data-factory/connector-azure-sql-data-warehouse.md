@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/17/2024
+ms.date: 07/23/2024
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -663,16 +663,16 @@ Using [COPY statement](/sql/t-sql/statements/copy-into-transact-sql) is a simple
 
 ### Direct copy by using COPY statement
 
-Azure Synapse Analytics COPY statement directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). The service checks the settings and fails the copy activity run if the criteria is not met.
+Azure Synapse Analytics COPY statement directly supports Azure Blob and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use COPY statement to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using COPY statement](#staged-copy-by-using-copy-statement). The service checks the settings and fails the copy activity run if the criteria is not met.
 
 1. The **source linked service and format** are with the following types and authentication methods:
 
     | Supported source data store type                             | Supported format           | Supported source authentication type                         |
     | :----------------------------------------------------------- | -------------------------- | :----------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication, system-assigned managed identity authentication |
+    | [Azure Blob](connector-azure-blob-storage.md)                | [Delimited text](format-delimited-text.md)             | Account key authentication, shared access signature authentication, service principal authentication (using ServicePrincipalKey), system-assigned managed identity authentication |
     | &nbsp;                                                       | [Parquet](format-parquet.md)                    | Account key authentication, shared access signature authentication |
     | &nbsp;                                                       | [ORC](format-orc.md)                        | Account key authentication, shared access signature authentication |
-    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication, shared access signature authentication, system-assigned managed identity authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Delimited text](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Account key authentication, service principal authentication (using ServicePrincipalKey), shared access signature authentication, system-assigned managed identity authentication |
 
     >[!IMPORTANT]
     >- When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.
@@ -801,7 +801,7 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 
 Using [PolyBase](/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure Synapse Analytics with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. 
 
-- If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure Synapse Analytics pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
+- If your source data is in **Azure Blob or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure Synapse Analytics pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 - If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format, stores the data in Azure Blob storage, then calls PolyBase to load data into Azure Synapse Analytics.
 
 > [!TIP]
@@ -818,7 +818,7 @@ The following PolyBase settings are supported under `polyBaseSettings` in copy a
 
 ### Direct copy by using PolyBase
 
-Azure Synapse Analytics PolyBase directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use PolyBase to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using PolyBase](#staged-copy-by-using-polybase).
+Azure Synapse Analytics PolyBase directly supports Azure Blob and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use PolyBase to copy directly from the source data store to Azure Synapse Analytics. Otherwise, use [Staged copy by using PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
 > To copy data efficiently to Azure Synapse Analytics, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with Azure Synapse Analytics](/archive/blogs/azuredatalake/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse).
@@ -829,8 +829,7 @@ If the requirements aren't met, the service checks the settings and automaticall
 
     | Supported source data store type                             | Supported source authentication type                        |
     | :----------------------------------------------------------- | :---------------------------------------------------------- |
-    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, system-assigned managed identity authentication |
-    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication                            |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, system-assigned managed identity authentication |                       
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, system-assigned managed identity authentication |
 
     >[!IMPORTANT]

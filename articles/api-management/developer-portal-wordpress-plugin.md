@@ -99,7 +99,9 @@ In this step, add the Microsoft Entra app registration as an identity provider f
         > Do not use the version 2.0 endpoint for the issuer URL (URL ending in `/v2.0`).
 1. In **Allowed token audiences**, enter the **Application ID URI** from the app registration. Example: `api://<app-id>`.
 1. Under **Additional checks**, select values appropriate for your environment, or use the default values.
-1. Accept the default values for the remaining settings and select **Add**.
+1. Configure your desired the values for the remaining settings, or use the default values. Select **Add**.
+    > [!NOTE]
+    > If you want to allow guest users as well as signed-in users to access the developer portal on WordPress, you can enable unauthenticated access. In **Restrict access**, select **Allow unauthenticated access**. [Learn more](../app-service/overview-authentication-authorization.md#authorization-behavior)
 
 The identity provider is added to the app service.
 
@@ -289,14 +291,13 @@ Add a custom stylesheet for the API Management developer portal.
 
 ## Step 9: Sign into the API Management developer portal deployed on WordPress 
 
-Sign into the WordPress site to see your new API Management developer portal deployed on WordPress and hosted on App Service.
+Access the WordPress site to see your new API Management developer portal deployed on WordPress and hosted on App Service.
+
+1. In a new browser window, navigate to your WordPress site, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net`.
+1. When prompted, sign in using Microsoft Entra ID credentials for a developer account. If unauthenticated access to the developer portal is enabled, select **Sign in** on the home page of the developer portal.
 
 > [!NOTE]
 > You can only sign in to the developer portal on WordPress using Microsoft Entra ID credentials. Basic authentication isn't supported. 
-
-1. In a new browser window, navigate to your WordPress site, substituting the name of your app service in the following URL: `https://<yourapp-service-name>.azurewebsites.net` 
-1. When prompted, sign in using Microsoft Entra ID credentials for a developer account.
-
 
 You can now use the following features of the API Management developer portal: 
 
