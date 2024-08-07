@@ -16,7 +16,7 @@ Spot Placement Score will assist you by evaluating the likelihood of success for
  
 Using Spot Placement Score, you can achieve the following: 
 
-- A clear evaluation of how likely your Spot deployments is to succeed based on specified parameters. 
+- A clear evaluation of how likely your Spot deployment is to succeed based on specified parameters. 
 
 - Identify the most suitable combination of regions and VM sizes to maximize Spot VM availability and survivability based on placement scores. 
 
@@ -83,4 +83,28 @@ POST https://management.azure.com/subscriptions/{subscription}/providers/Microso
 "desiredCount":  
 
 } 
+
+### [Azure CLI](#tab/cli)
+You can use Spot Placement Score using Azure CLI by using the following:
+
+az compute-recommender spot-placement-recommender [--availability-zones {0, 1, f, false, n, no, t, true, y, yes}]
+                                                  [--desired-count]
+                                                  [--desired-locations]
+                                                  [--desired-sizes]
+                                                  [--ids]
+                                                  [--location]
+                                                  [--subscription]
+
+### [Azure PowerShell](#tab/powershell)
+You can use Spot Placement Score using Azure PowerShell by utilizing the Invoke-AzSpotPlacementScore cmdlet to call the API endpoint. Replace <SubscriptionId>, <Location>, <DesiredCount>, <DesiredSize> and <AvailabilityZone> with your specific details:
+
+Invoke-AzSpotPlacementScore 
+      -Location <String> 
+      [-SubscriptionId <String>] 
+      [-AvailabilityZone] 
+      [-DesiredCount <Int32>] 
+      [-DesiredLocation <String[]>] 
+      [-DesiredSize <IResourceSize[]>]
+
+## Examples
 
