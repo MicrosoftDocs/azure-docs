@@ -12,7 +12,7 @@ ms.date: 08/07/2024
 
 # Migrate to Azure Monitor Agent
 
-[Azure Monitor Agent (AMA)](./agents-overview.md) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. This article describes the impact on agent-based dependency analysis in lieu of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. This article describes the impact on agent-based dependency analysis in lieu of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
@@ -32,7 +32,7 @@ To migrate from Log analytics agent to Azure Monitor agent, follow these steps:
 
 1. Review the [prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites) to install the Azure Monitor Agent. 
 
-1. Download and run the script on the host machine as detailed in [Installation options](azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#installation-options). To get the AMA and the Dependency Agent deployed on the guest machine, create the [Data collection rule (DCR)](/azure/azure-monitor/agents/azure-monitor-agent-data-collection) that maps to the Log analytics workspace ID. 
+1. Download and run the script on the host machine as detailed in [Installation options](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#installation-options). To get the AMA and the Dependency Agent deployed on the guest machine, create the [Data collection rule (DCR)](/azure/azure-monitor/agents/azure-monitor-agent-data-collection) that maps to the Log analytics workspace ID. 
 
 In the transition scenario, the Log analytics workspace would be the same as the one that was configured for Service Map agent. DCR allows you to enable the collection of Processes and Dependencies. By default, it is disabled. 
 
