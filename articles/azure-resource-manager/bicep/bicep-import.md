@@ -12,7 +12,7 @@ This article describes the syntax you use to export and import shared functional
 
 ## Exporting types, variables and functions
 
-The `@export()` decorator is used to indicate that a given statement can be imported by another file. This decorator is only valid on type, variable and function statements. Variable statements marked with `@export()` must be compile-time constants.
+The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on type, variable, and function statements. Variable statements marked with `@export()` must be compile-time constants.
 
 The syntax for exporting functionality for use in other Bicep files is:
 
@@ -21,7 +21,7 @@ The syntax for exporting functionality for use in other Bicep files is:
 <statement_to_export>
 ```
 
-## Import types, variables and functions
+## Import types, variables, and functions
 
 The syntax for importing functionality from another Bicep file is:
 
@@ -92,7 +92,7 @@ import 'az@1.0.0'
 import 'sys@1.0.0'
 ```
 
-Both `az` and `sys` are Bicep built-in namespaces. They are imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
+Both `az` and `sys` are Bicep built-in namespaces. They're imported by default. For more information about the data types and the functions defined in `az` and `sys`, see [Data types](./data-types.md) and  [Bicep functions](./bicep-functions.md).
 
 The syntax for importing Bicep extensions is:
 
@@ -100,7 +100,7 @@ The syntax for importing Bicep extensions is:
 import '<extension-name>@<extension-version>'
 ```
 
-The syntax for importing Bicep extensions which require configuration is:
+The syntax for importing Bicep extensions, which require configuration is:
 
 ```bicep
 import '<extension-name>@<extension-version>' with {
