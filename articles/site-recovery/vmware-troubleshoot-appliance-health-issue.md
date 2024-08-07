@@ -32,7 +32,7 @@ This document describes how to troubleshoot replication appliance health issues 
 | Replication service | 549005 |
 | Recovery services agent | 549011 |
 | Site Recovery provider | 305 |
-| Re-protection server | 549007 |
+| Reprotection server | 549007 |
 
 To troubleshoot these issues, follow these steps:
 
@@ -40,13 +40,13 @@ To troubleshoot these issues, follow these steps:
 2. Open the Microsoft Appliance configuration manager and ensure to upgrade all the appliance components to the latest version. Find the latest versions [here](./site-recovery-whats-new.md#supported-updates) and follow the upgrade steps [here](./upgrade-mobility-service-modernized.md#upgrade-appliance).
 3. Navigate to the **Certificate renewal** section and select **Renew certificate**. This triggers the certificate renewal operation. Wait for it to complete.
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error."lightbox="./media/vmware-troubleshoot-appliance-health-issue/certificate.png":::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/certificate.png" alt-text="Screenshot of aplliance health error.:::
    
 #### Error
 
 **If you see the following for your web app in replication appliance:**
 
-:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel."lightbox="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png":::
+:::image type="content" source="./media/vmware-troubleshoot-appliance-health-issue/appliance-health.png" alt-text="Screenshot of aplliance health error excel.:::
     
 Follow these steps:
 
@@ -56,4 +56,4 @@ Follow these steps:
 
 ## Next steps
 
-If you are still facing issues, contact Microsoft Support for further assistance.
+If you're still facing issues, contact Microsoft Support for further assistance.
