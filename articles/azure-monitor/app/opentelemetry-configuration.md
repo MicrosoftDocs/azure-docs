@@ -632,7 +632,7 @@ Azure Monitor OpenTelemetry Distro for Python support the credential classes pro
 - We recommend `DefaultAzureCredential` for local development.
 - We recommend `ManagedIdentityCredential` for system-assigned and user-assigned managed identities.
   - For system-assigned, use the default constructor without parameters.
-  - For user-assigned, provide the client ID to the constructor.
+  - For user-assigned, provide the `client_id` to the constructor.
 - We recommend `ClientSecretCredential` for service principals.
   - Provide the tenant ID, client ID, and client secret to the constructor.
 
@@ -646,8 +646,8 @@ from opentelemetry import trace
 
 credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
-  connection_string="your-connection-string",
-  credential=credential,
+    connection_string="your-connection-string",
+    credential=credential,
 )
 
 tracer = trace.get_tracer(__name__)
@@ -671,8 +671,8 @@ credential = ClientSecretCredential(
     client_secret="<client_secret>",
 )
 configure_azure_monitor(
-  connection_string="your-connection-string",
-  credential=credential,
+    connection_string="your-connection-string",
+    credential=credential,
 )
 
 with tracer.start_as_current_span("hello with aad client identity"):
