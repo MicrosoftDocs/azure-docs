@@ -37,10 +37,11 @@ This video provides examples for making REST calls to Azure Maps Weather service
 * An [Azure Maps account]
 * A [subscription key]
 
-    >[!IMPORTANT]
-    >The [Get Minute Forecast API] requires a Gen1 (S1) or Gen2 pricing tier.
+>[!IMPORTANT]
+>
+> - In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This tutorial uses the [Postman] application, but you may choose a different API development environment.
+This tutorial uses the [bruno] application, but you may choose a different API development environment.
 
 ## Request real-time weather data
 
@@ -48,15 +49,21 @@ The [Get Current Conditions API] returns detailed weather conditions such as pre
 
 In this example, you use the [Get Current Conditions API] to retrieve current weather conditions at coordinates located in Seattle, WA.
 
-1. Open the Postman app. Select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request. 
+1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/weather/currentConditions/json?api-version=1.0&query=47.60357,-122.32945&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Select the blue **Send** button. The response body contains current weather information.
+1. Select the blue **Create** button.
+
+1. Select the run button.
+
+   :::image type="content" source="./media/weather-service/bruno-run.png" alt-text="A screenshot showing the Request real-time weather data URL with the run button highlighted in the bruno app.":::
+
+   The response body contains current weather information.
 
     ```json
     {
@@ -238,15 +245,21 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 >[!NOTE]
 >This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=41.161079,-104.805450&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Select the blue **Send** button. If there are no severe weather alerts, the response body contains an empty `results[]` array. If there are severe weather alerts, the response body contains something like the following JSON response:
+1. Select the blue **Create** button.
+
+1. Select the run button.
+
+   :::image type="content" source="./media/weather-service/bruno-run-request-severe-weather-alerts.png" alt-text="A screenshot showing the Request severe weather alerts URL with the run button highlighted in the bruno app.":::
+
+    If there are no severe weather alerts, the response body contains an empty `results[]` array. If there are severe weather alerts, the response body contains something like the following JSON response:
 
     ```json
     {
@@ -294,15 +307,21 @@ The [Get Daily Forecast API] returns detailed daily weather forecast such as tem
 
 In this example, you use the [Get Daily Forecast API] to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Select the blue **Send** button. The response body contains the five-day weather forecast data. For the sake of brevity, the following JSON response shows the forecast for the first day.
+1. Select the blue **Create** button.
+
+1. Select the run button.
+
+   :::image type="content" source="./media/weather-service/bruno-run-request-daily-weather-forecast-data.png" alt-text="A screenshot showing the Request daily weather forecast data URL with the run button highlighted in the bruno app.":::
+
+    The response body contains the five-day weather forecast data. For the sake of brevity, the following JSON response shows the forecast for the first day.
 
     ```json
     {
@@ -543,15 +562,21 @@ The [Get Hourly Forecast API] returns detailed weather forecast by the hour for 
 
 In this example, you use the [Get Hourly Forecast API] to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Select the blue **Send** button. The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the following JSON response shows the forecast for the first hour.
+1. Select the blue **Create** button.
+
+1. Select the run button.
+
+   :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text=""A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the bruno app."":::
+
+    The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the following JSON response shows the forecast for the first hour.
 
     ```json
     {
@@ -651,15 +676,21 @@ In this example, you use the [Get Hourly Forecast API] to retrieve the hourly we
 
 In this example, you use the [Get Minute Forecast API] to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast is given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
 
-1. In the Postman app, select **New** to create the request. In the **Create New** window, select **HTTP Request**. Enter a **Request name** for the request.
+1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
+1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
     ```http
     https://atlas.microsoft.com/weather/forecast/minute/json?api-version=1.0&query=47.60357,-122.32945&interval=15&subscription-key={Your-Azure-Maps-Subscription-key}
     ```
 
-3. Select the blue **Send** button. The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
+1. Select the blue **Create** button.
+
+1. Select the run button.
+
+   :::image type="content" source="./media/weather-service/bruno-run-request-minute-by-minute-weather-forecast-data.png" alt-text=""A screenshot showing the Request minute-by-minute weather forecast data URL with the run button highlighted in the bruno app."":::
+
+    The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
 
     ```json
     {
@@ -765,7 +796,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 [Get Minute Forecast API]: /rest/api/maps/weather/getminuteforecast
 [Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[Postman]: https://www.postman.com/
+[bruno]: https://www.usebruno.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather service concepts]: weather-services-concepts.md
 [Weather services]: /rest/api/maps/weather
