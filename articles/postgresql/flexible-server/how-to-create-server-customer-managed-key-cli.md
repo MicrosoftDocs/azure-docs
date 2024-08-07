@@ -56,7 +56,7 @@ az postgres flexible-server create -g <resource_group> -n <postgres_server_name>
 
 Prerequisites:
 - You must have an Azure subscription and be an administrator on that subscription.
-- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
+- Key Vault with key in region where the Azure Database for PostgreSQL flexible server instance will be created. Follow this [tutorial](/azure/key-vault/general/quick-create-portal) to create Key Vault and generate key. 
 
 Follow the steps below to change\rotate key or identity after creation of server with data encryption. 
 1. Change key/identity  for data encryption for existing server. First the get new key identifier:
