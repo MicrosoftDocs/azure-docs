@@ -49,7 +49,7 @@ In single-tenant Standard logic app workflows, you can work with environment var
 > when possible, and assign a role that has the least privilege necessary.
 >
 > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
-> [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
 > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
 > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
 > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 

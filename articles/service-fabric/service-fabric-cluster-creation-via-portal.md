@@ -203,7 +203,7 @@ At this point, you have a secure cluster using certificates for management authe
 
 <!-- Links -->
 [azure-powershell]: /powershell/azure/
-[key-vault-get-started]: ../key-vault/general/overview.md
+[key-vault-get-started]: /azure/key-vault/general/overview
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-cluster-security-roles]: service-fabric-cluster-security-roles.md
