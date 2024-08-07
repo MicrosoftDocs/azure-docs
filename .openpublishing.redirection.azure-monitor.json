@@ -6859,6 +6859,11 @@
       "source_path_from_root": "/articles/azure-monitor/logs/powershell-workspace-configuration.md",
       "redirect_url": "/azure/azure-monitor/logs/quick-create-workspace",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/containers/prometheus-authorization-proxy.md",
+      "redirect_url": "/previous-versions/azure/azure-monitor/containers/prometheus-authorization-proxy",
+      "redirect_document_id": false
     }
   ]
 }
