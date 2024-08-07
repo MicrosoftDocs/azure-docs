@@ -52,7 +52,7 @@ When running in Config Server for Spring in Azure Container Apps, be aware of th
 
 Before you begin to work with the Config Server for Spring, you first need to create the required resources.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Execute the following commands to create your resource group and Container Apps environment.
 
@@ -98,7 +98,7 @@ Execute the following commands to create your resource group and Container Apps 
       --location $LOCATION
     ```
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 Follow the following steps to create the resource group, client container app and container apps environment.
 
@@ -150,7 +150,7 @@ This environment is used to host both the Config Server for Spring component and
 
 Now that you have a Container Apps environment, you can create your container app and bind it to a Config Server for Spring component. When you bind your container app, configuration values automatically synchronize from the Config Server component to your application.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 1. Create the Config Server for Spring Java component.
 
     ```azurecli
@@ -172,7 +172,7 @@ Now that you have a Container Apps environment, you can create your container ap
     ```
 
     Here, you're telling the component where to find the repository that holds your configuration information via the `uri` property. The `refresh-rate` property tells Container Apps how often to check for changes in your git repository.
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 Now that you have an existing environment and config server client container app, create a Java component instance of Config Server for Spring.
 
@@ -198,7 +198,7 @@ Now that you have an existing environment and config server client container app
 
 ## Bind your container app to the Config Server for Spring Java component
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 1. Create the container app that consumes configuration data.
 
     ```azurecli
@@ -231,7 +231,7 @@ Now that you have an existing environment and config server client container app
 
     The `--bind $JAVA_COMPONENT_NAME` parameter creates the link between your container app and the configuration component.
 
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 1.  Go to your container app environment page, select *Service* on the left panel
 2.  Select *configserver* in Service list
@@ -263,7 +263,7 @@ If you want to customize your own `SPRING_CONFIG_IMPORT`, you can refer to the e
 You can also remove a binding from your application.
 
 ## Unbind your container app from the Config Server for Spring Java component
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
   To remove a binding from a container app, use the `--unbind` option.
 
   ``` azurecli
@@ -272,7 +272,7 @@ You can also remove a binding from your application.
     --unbind $JAVA_COMPONENT_NAME \
     --resource-group $RESOURCE_GROUP
   ```
-# [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 1.  Go to your container app environment page, select *Service* on the left panel
 2.  Select *configserver* in Service list
 3.  Under bindings, select app *my-config-client*, Click *Next*
