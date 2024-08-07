@@ -1,79 +1,86 @@
 ---
-title: Use Azure Spot Virtual Machines
+title: Spot Placement Score
 description: Learn how to use Azure Spot Virtual Machines to save on costs.
 author: am4234m
 ms.author: aparnamishra
 ms.service: azure-virtual-machines
 ms.subservice: azure-spot-vm
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 08/07/2024
 ms.reviewer: ju-shim
 ---
 
 
-# Use Azure Spot Virtual Machines 
+# Spot Placement Score
+Spot Placement Score will assist you by evaluating the likelihood of success for individual Spot deployments by considering parameters like desired Spot VM count, VM size, and your deployment region or zone. This feature enables you to generate a placement score to deploy a desired number of Spot VMs across various combinations of regions, zones and VM sizes. By inputting lists of up to 8 regions and 5 VM sizes, you can obtain placement scores categorized as either High, Medium or Low. A score of High indicates that the deployment is highly likely to succeed while a score of Low indicates that the deployment has a low chance of success. These scores are based on analyses of Spot capacity allocation probability and the survivability of the specified number of Spot VMs within each region and VM size combination. This functionality will enhance deployment planning by providing predictive insights into deployment success and optimizing resource allocation for your Spot VMs. 
+ 
+Using Spot Placement Score, you can achieve the following: 
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+- A clear evaluation of how likely your Spot deployments is to succeed based on specified parameters. 
 
+- Identify the most suitable combination of regions and VM sizes to maximize Spot VM availability and survivability based on placement scores. 
 
-
-## Eviction policy
-
-Spot VMs can be stopped if Azure needs capacity for other pay-as-you-go workloads or when the price of the spot instance exceeds the maximum price that you have set. When creating an Azure Spot Virtual Machine, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
-
-The *Deallocate* policy moves your VM to the stopped-deallocated state, allowing you to redeploy it later. However, there's no guarantee that the allocation will succeed. The deallocated VMs will count against your quota and you'll be charged storage costs for the underlying disks. 
-
-If you would like your VM to be deleted when it's evicted, you can set the eviction policy to *delete*. The evicted VMs are deleted together with their underlying disks, so you'll not continue to be charged for the storage. 
-
-You can opt in to receive in-VM notifications through [Azure Scheduled Events](./linux/scheduled-events.md). These are delivered on a best effort basis up to 30 seconds prior to the eviction.
+- Improve the overall success rate of deploying Spot VMs by leveraging data-driven placement scores, reducing the risk of capacity issues or failures during deployment. 
 
 
-| Option | Outcome |
-|--------|---------|
-| Max price is set to >= the current price. | VM is deployed if capacity and quota are available. |
-| Max price is set to < the current price. | The VM isn't deployed. You'll get an error message that the max price needs to be >= current price. |
-| Restarting a stopped/deallocated VM if the max price is >= the current price | If there's capacity and quota, then the VM is deployed. |
-| Restarting a stopped/deallocated VM if the max price is < the current price | You'll get an error message that the max price needs to be >= current price. | 
-| Price for the VM has gone up and is now > the max price. | The VM gets evicted. Azure will attempt scheduled event delivery up to 30 seconds before actual eviction. | 
-| After eviction, the price for the VM goes back to being < the max price. | The VM won't be automatically restarted. You can restart the VM yourself, and it will be charged at the current price. |
-| If the max price is set to `-1` | The VM won't be evicted for pricing reasons. The max price will be the current price, up to the price for standard VMs. You'll never be charged above the standard price.| 
-| Changing the max price | You need to deallocate the VM to change the max price. Deallocate the VM, set a new max price, then update the VM. |
+## Considerations
 
-> [!TIP]
-> Check out our [Azure Virtual Machine Spot Eviction](/azure/architecture/guide/spot/spot-eviction) guide to learn how to create a reliable interruptible workload in Azure.
+- Spot placement scores serve purely as a recommendation based on certain data points like eviction rate, VM availability etc. A high placement score does not guarantee that the Spot request will be fully or partially fulfilled. 
 
-## Limitations
+- Placement Scores are only valid at the time when it is requested. The same Placement Score is not valid at a different time of the same day or another day. Any similarities are purely coincidental.  
 
-The following VM sizes aren't supported for Azure Spot Virtual Machines:
- - B-series
- - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
+- Spot Placement Score will only be relevant if Spot request has the same configuration as the Spot placement score configuration (desired count, VM size, location and zone). In all other circumstances, the likelihood of getting available Spot capacity will not align with the placement score generated by the tool. 
 
-Azure Spot Virtual Machines can be deployed to any region, except Microsoft Azure operated by 21Vianet.
+- Spot Placement Scores currently do not consider additional constraints like VMSS “SinglePlacementGroup”. 
 
-<a name="channel"></a>
+- Subscription’s available Spot VM quota will need to be checked and/or requested separately. 
 
-The following [offer types](https://azure.microsoft.com/support/legal/offer-details/) are currently supported:
+- Spot Placement Score currently supports both regionally and zonally scoped placement score. 
 
--	Enterprise Agreement 
--	Pay-as-you-go offer code (003P)
--	Sponsored (0036P and 0136P) - not available in Fairfax
-- For Cloud Service Provider (CSP), see the [Partner Center](/partner-center/azure-plan-get-started) or contact your partner directly.
+- Spot Placement Score API internally calls other GET APIs and will be part of your GET call quota. 
+
+- A score of High” or “Medium” does not guarantee allocation success or no evictions. 
 
 
-## Pricing
+## Configure your Spot Placement Score
+You can configure Spot Placement Score by specifying your Spot specific requirements such as the desired number of Spot VMs, the VM size (up to 5), regions (up to 8) and availability zones. We recommend that the placement scores for each combination of subscription, desired count, region, zone, and VM size are cached, to avoid calling the API with the same configuration frequently within a short period of time. The suggested cache TTL is a minimum of 15 mins and a maximum of 30 mins. 
 
-Pricing for Azure Spot Virtual Machines is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+### [Portal](#tab/portal)
 
-You can also query pricing information using the [Azure retail prices API](/rest/api/cost-management/retail-prices/azure-retail-prices) to query for information about Spot pricing. The `meterName` and `skuName` will both contain `Spot`.
+You can set your Spot Priority Mix in the Spot tab of the Virtual Machine Scale Sets creation process in the Azure portal. The following steps instruct you on how to access this feature during that process.
 
-With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for a standard VM, which ever is less, as long as there's capacity and quota available.
+1.Log in to the  [Azure portal](https://portal.azure.com). 
 
-## Pricing and eviction history
+1.In the search bar, search for and select **Virtual Machine Scale Sets**. 
 
-### Portal
+1.Select **Create** on the **Virtual Machine Scale Sets** page. 
 
-You can see historical pricing and eviction rates per size in a region in the portal while you are creating the VM. After selecting the checkbox to **Run with Azure Spot discount**, a link will appear under the size selection of the VM titled **View pricing history and compare prices in nearby regions**. By selecting that link you will be able to see a table or graph of spot pricing for the specified VM size.   The pricing and eviction rates in the following images are only examples. 
+1.In the **Spot** tab, turn on Spot option under the **Save money with Spot** section. 
 
-> [!TIP]
-> Eviction rates are quoted _per hour_. For example, an eviction rate of 10% means a VM has a 10% chance of being evicted within the next hour, based on historical eviction data of the last 7 days.
+1.Fill out the Size, Region, Availability Zones and Initial instance count fields in the **Your Placement Score** section. 
+
+1.Click on **Save + Apply** this configuration to receive your placement score. 
+
+### [REST API](#tab/rest-api-1)
+
+You can use the following REST API to get your Spot Placement Score. The Placement Score API supports the following versions: 2024-03-01-preview and 2024-06-01-preview. 
+
+```
+POST https://management.azure.com/subscriptions/{subscription}/providers/Microsoft.Compute/locations/{region}/placementScores/spot/generate?api-version={api-version} 
+```
+
+```json 
+{ 
+
+"desiredLocations": [" "], // Use ARM names 
+
+"desiredSizes": [{ 
+
+"sku": " " 
+
+}], 
+
+"desiredCount":  
+
+} 
 
