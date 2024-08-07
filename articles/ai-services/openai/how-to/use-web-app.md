@@ -21,7 +21,7 @@ Along with Azure AI Studio, Azure OpenAI Studio, APIs, and SDKs, you can use the
 * Customization of the user interface, data sources, and features using environment variables (no-code via Azure Portal).
 * Support for modifying underlying web application source code as an open-source repository. 
 
-You can deploy the app by using either [Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-chat-web-app) or [Azure OpenAI Studio](https://learn.microsoft.com/azure/ai-services/openai/use-your-data-quickstart), or through a manual deployment through the Azure Portal or the Azure Developer CLI via your local machine [(instructions available at the repository here)](https://github.com/microsoft/sample-app-aoai-chatGPT). Depending on your deployment channel, you can pre-load a data source to chat with via the web application, but this can be changed after deployment. 
+You can deploy the app by using either [Azure AI Studio](/azure/ai-studio/tutorials/deploy-chat-web-app) or [Azure OpenAI Studio](/azure/ai-services/openai/use-your-data-quickstart), or through a manual deployment through the Azure Portal or the Azure Developer CLI via your local machine [(instructions available at the repository here)](https://github.com/microsoft/sample-app-aoai-chatGPT). Depending on your deployment channel, you can pre-load a data source to chat with via the web application, but this can be changed after deployment. 
 
 For Azure OpenAI beginners aspiring to chat with their data through the web application, [Azure AI Studio](https://learn.microsoft.com/azure/ai-studio/tutorials/deploy-chat-web-app) is the recommended medium for initial deployment and data source configuration.
 
