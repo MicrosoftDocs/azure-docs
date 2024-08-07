@@ -38,7 +38,7 @@ togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
 });
 ```
 
-### Get Together Mode Stream
+### Get together mode stream
 You can access together mode streams through the property `togetherModeStream`.
 
 ```js
