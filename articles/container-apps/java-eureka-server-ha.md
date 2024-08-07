@@ -10,6 +10,8 @@ ms.date: 08/05/2024
 ms.author: wenhaozhang
 ---
 
+# Tutorial: Create a Highly Available Eureka Service in Azure Container Apps
+
 In this tutorial, we will walk you through the process of creating a highly available Eureka service using in Container Apps. By leveraging Azure Container Apps, you can ensure that your Eureka service is highly available.
 
 A Highly Available service is one designed to be operational and accessible without significant downtime. For Eureka, this means ensuring the service registry is always available to client services for both registering themselves and discovering other services. Achieving HA for Eureka involves running multiple instances of the Eureka server and configuring them to be aware of each other, forming a cluster. This setup ensures that if one Eureka server fails, the others continue to operate, preventing a single point of failure.
@@ -20,7 +22,7 @@ In this tutorial, you will learn to:
 2. Bind two Eureka Server for Spring components together to provide high available service.
 3. Bind applications to both two Eureka Server for high available service discovery.
 
-# Prerequisites
+## Prerequisites
 
 To complete this project, you need the following items:
 
