@@ -638,15 +638,15 @@ Azure Monitor OpenTelemetry Distro for Python support the credential classes pro
 
 If using `ManagedIdentityCredential`
 ```python
-import os
-# You will need to install azure-identity
+# Import the `ManagedIdentityCredential` class from the `azure.identity` package.
 from azure.identity import ManagedIdentityCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
 credential = ManagedIdentityCredential(client_id="<client_id>")
 configure_azure_monitor(
-  connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+  connection_string="your-connection-string",
   credential=credential,
 )
 
@@ -659,9 +659,9 @@ with tracer.start_as_current_span("hello with aad managed identity"):
 
 If using `ClientSecretCredential`
 ```python
-import os
-# You will need to install azure-identity
+# Import the `ClientSecretCredential` class from the `azure.identity` package.
 from azure.identity import ClientSecretCredential
+# Import the `configure_azure_monitor()` function from the `azure.monitor.opentelemetry` package.
 from azure.monitor.opentelemetry import configure_azure_monitor
 from opentelemetry import trace
 
@@ -671,7 +671,7 @@ credential = ClientSecretCredential(
     client_secret="<client_secret>",
 )
 configure_azure_monitor(
-  connection_string=os.environ["APPLICATIONINSIGHTS_CONNECTION_STRING"],
+  connection_string="your-connection-string",
   credential=credential,
 )
 
