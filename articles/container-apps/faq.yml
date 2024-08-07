@@ -41,7 +41,7 @@ sections:
       - question: |
           Do Consumption only environments support custom user-defined routes?
         answer:
-          For Consumption only environments, express routes are unsupported, and limited UDR when configured as follows is supported. The UDR configuration must have a route configured for `Azure.<REGION_NAME>` Service tag with Next Hop = "Internet". In addition, the rules in the [NSG documentation](./firewall-integration.mf?tabs=consumption-only) must be configured for the Consumption only environment to be operational. These limitations do not apply for workload profiles, and for full featured UDR and Express Route support, use workload profile environments.
+          For Consumption only environments, express routes are unsupported, and limited UDR when configured as follows is supported. The UDR configuration must have a route configured for `Azure.<REGION_NAME>` Service tag with Next Hop = "Internet". In addition, the rules in the [NSG documentation](./firewall-integration.md?tabs=consumption-only) must be configured for the Consumption only environment to be operational. These limitations do not apply for workload profiles, and for full featured UDR and Express Route support, use workload profile environments.
   - name: Data management
     questions:
       - question: |
