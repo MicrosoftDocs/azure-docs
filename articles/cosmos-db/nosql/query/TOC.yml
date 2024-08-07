@@ -126,7 +126,7 @@
           href: setunion.md
     - name: Conditional functions
       items:
-        - name: Ternary conditional operator
+        - name: Ternary conditional
           displayName: IIF, ternary, ternary conditional operator
           href: iif.md
     - name: Date and time functions

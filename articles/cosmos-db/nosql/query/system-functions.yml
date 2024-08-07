@@ -45,7 +45,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: IIF
+          - text: Ternary conditional
             url: iif.md
   - title: Date and time functions
     linkLists:
