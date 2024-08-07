@@ -3,7 +3,7 @@ title: Imports in Bicep
 description: Describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 06/03/2024
+ms.date: 08/07/2024
 ---
 
 # Imports in Bicep
