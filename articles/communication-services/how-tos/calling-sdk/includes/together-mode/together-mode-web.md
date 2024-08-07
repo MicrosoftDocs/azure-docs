@@ -90,7 +90,7 @@ togetherModeFeature.sceneSize = togetherModeContainerSize;
 console.log(`Current scene has the following size: ${JSON.stringify(togetherModeFeature.sceneSize )}`)
 ```
 
-### Together Mode Scene and Seat Updated Events
+### Receive events when scene or seatings is updated
 > [!NOTE]
 > Scene Change and Seat reassignment can only be done on Teams Client. 
 
