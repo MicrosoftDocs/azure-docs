@@ -5,13 +5,13 @@ Every application in Container Apps runs in an environment. Environments are ava
 
 - **Workload profiles environment**: The workload profiles environment allows you to run compute resources specifically tailored to the needs of your application. Within a workload profiles environment you have the option to run your container app with dedicated and specialized compute resources, or in a consumption context. These different contexts are known are *workload profiles*.
 
-- **Consumption-only environment**: The consumption-only environment, runs your application using compute resources allocated on-demand.
+- **Consumption-only environment**: The consumption-only environment, runs your application using compute resources exclusively allocated on-demand.
 
 Features and billing considerations are determined by the plan used by your environment:
 
-- **Consumption plan**: The consumption workload profile and Consumption-only environment work on the consumption plan.
+- **Consumption plan**: The consumption workload profile and Consumption-only environment both work on the consumption plan.
 
-- **Dedicated plan**: All workload profiles (except the consumption profile) with on the dedicated plan.
+- **Dedicated plan**: Dedicated workload profiles run on the dedicated plan.
 
 In summary:
 
