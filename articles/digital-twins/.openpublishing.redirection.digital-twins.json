@@ -198,7 +198,7 @@
     {
       "source_path": "how-to-use-postman.md",
       "redirect_url": "/azure/digital-twins/how-to-use-apis",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "about-digital-twins.md",

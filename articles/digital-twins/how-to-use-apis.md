@@ -22,7 +22,7 @@ This article contains information about the following steps:
 
 Azure Digital Twins has two sets of APIs that you can work with: data plane and control plane. For more about the difference between these API sets, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). This article contains information for both API sets.
 
-For more information about `.http` file support in Visual Studio, see [Use .http files in Visual Studio 2022](/aspnet/core/test/http-files?view=aspnetcore-8.0).
+For more information about `.http` file support in Visual Studio, see [Use .http files in Visual Studio 2022](/aspnet/core/test/http-files).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ Open Visual Studio on your machine, and create a new project. Use the **ASP.NET 
 
 :::image type="content" source="media/how-to-use-apis/new-project.png" alt-text="Screenshot of an ASP.NET Core Empty project template in Visual Studio." lightbox="media/how-to-use-apis/new-project.png":::
 
-Follow the instructions in [Create an .http file](/aspnet/core/test/http-files?view=aspnetcore-8.0#create-an-http-file) to create a new `.http` file in your project.
+Follow the instructions in [Create an .http file](/aspnet/core/test/http-files#create-an-http-file) to create a new `.http` file in your project.
 
 ### Add variables
 
