@@ -66,7 +66,7 @@ landingContent:
           - text: Monitor using Azure Monitor for containers
             url: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
           - text: Enforce threat protection using Microsoft Defender for Cloud
-            url: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+            url: /azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json
           - text: In-cluster policy enforcements using Azure Policy
             url: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
           - text: Deploy Azure Arc-enabled Open Service Mesh
