@@ -71,9 +71,9 @@ The Document Intelligence Studio adds support for Microsoft Entra (formerly Azur
 
 ## February 2024
 
-The Document Intelligence [**2024-02-29-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
+The Document Intelligence [**2024-07-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2024-02-29-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) is currently available only in the following Azure regions:
+* Public preview version [**2024-07-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) is currently available only in the following Azure regions:
 
   * **East US**
   * **West US2**
@@ -138,7 +138,7 @@ The [Document Intelligence client libraries](sdk-overview-v4-0.md) targeting RES
 
 The Document Intelligence [**2023-10-31-preview**](/rest/api/aiservices/document-models?view=rest-aiservices-v4.0%20(2024-02-29-preview)&preserve-view=true) REST API is now available. This preview API introduces new and updated capabilities:
 
-* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-2024-02-29-preview&preserve-view=true) is currently only available in the following Azure regions:
+* Public preview version [**2023-10-31-preview**](/rest/api/aiservices/operation-groups?view=rest-aiservices-v4.0%20(2024-07-31-preview)&preserve-view=true) is currently only available in the following Azure regions:
 
   * **East US**
   * **West US2**

@@ -66,7 +66,7 @@ With custom models, you need to maintain access to the training dataset to updat
 
 > [!IMPORTANT]
 >
-> Incremental training is only supported with models trained with the same API version. If you are trying to extend a model, use the API version the original model was trained with to extend the model. Incremental training is only supported with API version **2024-02-29-preview** or later.
+> Incremental training is only supported with models trained with the same API version. If you are trying to extend a model, use the API version the original model was trained with to extend the model. Incremental training is only supported with API version **2024-07-31-preview** or later.
 
 Incremental training requires that you provide the original model ID as the `baseClassifierId`. See [incremental training](concept-incremental-classifier.md) to learn more about how to use incremental training.
 
