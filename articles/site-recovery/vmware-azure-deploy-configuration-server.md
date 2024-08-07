@@ -4,7 +4,7 @@ description: This article describes how to deploy a configuration server for VMw
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 11/01/2023

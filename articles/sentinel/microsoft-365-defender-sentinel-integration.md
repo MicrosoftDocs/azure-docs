@@ -112,9 +112,7 @@ Alerts and incidents from Defender XDR, including items that populate the *Secur
 
 ### Data ingestion behavior
 
-When the Defender XDR connector is enabled, alerts created by Defender XDR-integrated products are sent to Defender XDR and grouped into incidents. Both the alerts and the incidents flow to Microsoft Sentinel through the Defender XDR connector. If you enabled any of the individual component connectors beforehand, they appear to remain connected, though no data flows through them.
-
-The exception to this process is Microsoft Defender for Cloud. Although its integration with Defender XDR means that you receive Defender for Cloud *incidents* through Defender XDR, you need to also have a Microsoft Defender for Cloud connector enabled in order to receive Defender for Cloud *alerts*. For the available options and more information, see the following articles:
+When the Defender XDR connector is enabled, alerts created by Defender XDR-integrated products are sent to Defender XDR and grouped into incidents. Both the alerts and the incidents flow to Microsoft Sentinel through the Defender XDR connector. The exception to this process is Defender for Cloud. You have the option to enable tenant-based Defender for Cloud alerts to receive all alerts and incidents through Defender XDR, or keep subscription-based alerts and promote them to incidents within Microsoft Sentinel in the Azure portal. For the available options and more information, see the following articles:
 
 - [Microsoft Defender for Cloud in the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-365-security-center-defender-cloud)
 - [Ingest Microsoft Defender for Cloud incidents with Microsoft Defender XDR integration](ingest-defender-for-cloud-incidents.md)
@@ -127,7 +125,7 @@ To avoid creating *duplicate incidents for the same alerts*, the **Microsoft inc
 
 - After you enable the Defender XDR connector, you can no longer predetermine the titles of incidents. The Defender XDR correlation engine presides over incident creation and automatically names the incidents it creates. This change is liable to affect any automation rules you created that use the incident name as a condition. To avoid this pitfall, use criteria other than the incident name as conditions for [triggering automation rules](automate-incident-handling-with-automation-rules.md#conditions). We recommend using *tags*.
 
-- If you use Microsoft Sentinel's incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytic rules](create-analytics-rule-from-template.md).
+- If you use Microsoft Sentinel's incident creation rules for other Microsoft security solutions or products not integrated into Defender XDR, such as Microsoft Purview Insider Risk Management, and you plan to onboard to the unified security operations platform in the Defender portal, replace your incident creation rules with [scheduled analytics rules](scheduled-rules-overview.md).
 
 ## Working with Microsoft Defender XDR incidents in Microsoft Sentinel and bi-directional sync
 

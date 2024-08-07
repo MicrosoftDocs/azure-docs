@@ -3,7 +3,7 @@ title: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) us
 description: Learn how to create an Azure Synapse Analytics SQL pool using Bicep.
 services: azure-resource-manager
 author: rayoef
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 tags: azure-resource-manager, bicep
 ms.topic: quickstart

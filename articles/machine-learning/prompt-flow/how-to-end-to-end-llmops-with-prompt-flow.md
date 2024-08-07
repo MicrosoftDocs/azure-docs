@@ -3,7 +3,7 @@ title: LLMOps with prompt flow and GitHub
 titleSuffix: Azure Machine Learning
 description: Learn about using Azure Machine Learning to set up an end-to-end LLMOps pipeline that runs a web classification flow that classifies a website based on a given URL.
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: prompt-flow
 ms.custom:
   - ignite-2023
@@ -17,7 +17,7 @@ ms.date: 01/02/2024
 
 # LLMOps with prompt flow and GitHub
 
-Large Language Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
+Large Language Models Operations, or **LLMOps**, has become the cornerstone of efficient prompt engineering and LLM-infused application development and deployment. As the demand for LLM-infused applications continues to soar, organizations find themselves in need of a cohesive and streamlined process to manage their end-to-end lifecycle.
 
 Azure Machine Learning allows you to integrate with GitHub to automate the LLM-infused application development lifecycle with prompt flow.
 
@@ -181,7 +181,6 @@ git clone https://github.com/microsoft/llmops-promptflow-template.git
 2. **Set up env file**: create .env file at top folder level and provide information for items mentioned. Add as many connection names as needed. All the flow examples in this repo use AzureOpenAI connection named `aoai`. Add a line `aoai={"api_key": "","api_base": "","api_type": "azure","api_version": "2024-02-01"}` with updated values for api_key and api_base. If extra connections with different names are used in your flows, they should be added accordingly. Currently, flow with AzureOpenAI as provider as supported. 
 
 ```bash
-
 experiment_name=
 connection_name_1={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
 connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_version": "2023-03-15-preview"}
@@ -189,9 +188,7 @@ connection_name_2={ "api_key": "","api_base": "","api_type": "azure","api_versio
 3. Prepare the local conda or virtual environment to install the dependencies.
 
 ```bash
-
 python -m pip install promptflow promptflow-tools promptflow-sdk jinja2 promptflow[azure] openai promptflow-sdk[builtins] python-dotenv
-
 ```
 
 4. Bring or write your flows into the template based on documentation [here](https://github.com/microsoft/llmops-promptflow-template/blob/main/docs/how_to_onboard_new_flows.md).

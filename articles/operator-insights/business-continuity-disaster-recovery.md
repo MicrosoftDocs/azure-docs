@@ -1,10 +1,10 @@
-﻿---
+---
 title: Business Continuity and Disaster recovery (BCDR) for Azure Operator Insights
 description: This article helps you understand BCDR concepts Azure Operator Insights.
 author: rcdun
 ms.author: rdunstan
 ms.reviewer: duncanarcher
-ms.service: operator-insights
+ms.service: azure-operator-insights
 ms.topic: concept-article
 ms.date: 11/27/2023
 ---

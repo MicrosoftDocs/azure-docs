@@ -2,7 +2,7 @@
 title: Create an encrypted image version with customer-managed keys
 description: Create an image version in an Azure Compute Gallery, by using customer-managed encryption keys.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: gallery
 ms.topic: how-to
 ms.date: 02/22/2023

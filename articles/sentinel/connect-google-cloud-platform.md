@@ -170,9 +170,9 @@ For more information about workload identity federation in Google Cloud Platform
 1. **Grant access** to the principal that represents the workload identity pool and provider that you created in the previous step.
    - Use the following format for the principal name:
      ```http
-     principal://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/subject/{WORKLOAD_IDENTITY_PROVIDER_ID}
+     principalSet://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/*
      ```
-
+     
    - Assign the **Workload Identity User** role and save the configuration.
 
 For more information about granting access in Google Cloud Platform, see [Manage access to projects, folders, and organizations](https://cloud.google.com/iam/docs/granting-changing-revoking-access) in the Google Cloud documentation.
@@ -362,7 +362,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 ## Next steps
    In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub connectors. To learn more about Microsoft Sentinel, see the following articles:
 
-   - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
    - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
    - [Use workbooks](monitor-your-data.md) to monitor your data.
    

@@ -4,7 +4,7 @@ description: Learn how to use Azure Container Instances to execute tasks that ru
 ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
-ms.service: container-instances
+ms.service: azure-container-instances
 ms.custom:
 services: container-instances
 ms.date: 06/17/2022

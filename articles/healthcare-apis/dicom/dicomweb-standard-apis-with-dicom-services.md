@@ -2,8 +2,8 @@
 title:  Access DICOMweb APIs to manage DICOM data in Azure Health Data Services
 description: Learn how to use DICOMweb APIs to store, review, search, and delete DICOM objects. Learn how to use custom APIs to track changes and assign unique tags to DICOM data.
 author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 05/29/2024
 ms.author: mmitrik

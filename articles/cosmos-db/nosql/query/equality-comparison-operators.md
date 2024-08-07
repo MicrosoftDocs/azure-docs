@@ -5,7 +5,7 @@ description: Equality and comparison operators in Azure Cosmos DB for NoSQL chec
 author: jcodella
 ms.author: jacodel
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: nosql
 ms.topic: reference
 ms.devlang: nosql

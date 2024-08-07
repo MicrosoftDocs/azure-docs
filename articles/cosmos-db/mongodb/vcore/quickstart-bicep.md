@@ -6,7 +6,7 @@ description: In this quickstart, create a new Azure Cosmos DB for MongoDB vCore 
 author: gahl-levy
 ms.author: gahllevy
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: quickstart
 ms.date: 08/28/2023

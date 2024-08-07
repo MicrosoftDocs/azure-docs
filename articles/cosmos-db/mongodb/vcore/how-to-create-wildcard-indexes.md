@@ -5,10 +5,10 @@ description: Sample to create wildcard indexes in Azure Cosmos DB for MongoDB vC
 author: abinav2307
 ms.author: abramees
 ms.reviewer: sidandrews
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.subservice: mongodb-vcore
 ms.topic: conceptual
-ms.date: 6/25/2024
+ms.date: 7/30/2024
 ---
 
 
@@ -16,15 +16,57 @@ ms.date: 6/25/2024
 
 [!INCLUDE[MongoDB vCore](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/appliesto-mongodb-vcore.md)]
 
-While most workloads have a predictable set of fields used in query filters and predicates, adhoc query patterns may use filters on any field in the json document structure. 
+Workloads which have an unpredictable set of fields in the schema can use wildcard indexes to support queries against arbitrary or unknown fields, for optimized performance.
 
 Wildcard indexing can be helpful in the following scenarios:
 - Queries filtering on any field in the document making indexing all fields through a single command easier than indexing each field individually.
 - Queries filtering on most fields in the document making indexing all but a few fields through a single easier than indexing most fields individually.
 
+## Indexing all fields
+
+Set up a wildcard index to facilitate queries on all possible document fields, including those with unknown or dynamic names.
+
+```javascript
+db.collection.createIndex( { "$**": 1 } )
+```
+
+> [!IMPORTANT]
+> For large collections, we recommend using alternate approach defined later in this doc.
+
+## Include or exclude specific fields
+
+Wildcard indexes can also be restricted to specific fields while excluding certain fields from being targeted for indexing. Let's review a sample for the following Json.
+
+```json
+{
+    "firstName": "Steve",
+    "lastName": "Smith",
+    "companyName": "Microsoft",
+    "division": "Azure",
+    "timeInOrgInYears": 7
+}
+```
+
+We can control the indexing behavior, the example restricts creating indexes on `firstName`,`lastName` & `timeInOrgInYears` field.
+
+```javascript
+db.collection.createIndex( { "$**": 1 },
+                           {"wildcardProjection" : {  "firstName": 0
+                                                    , "lastName": 0
+                                                    , "companyName": 1
+                                                    , "division": 1
+                                                    , "timeInOrgInYears": 0
+                                                   }
+                           }
+                         )
+```
+
+In the wildcardProjection document, the value 0 or 1 indicates whether the field is included (1) or excluded (0) from indexing.
+
+## Alternative for indexing all fields
+
 This sample describes a simple workaround to minimize the effort needed to create individual indexes until wildcard indexing is generally available in Azure Cosmos DB for MongoDB vCore.
 
-## Solution
 Consider the json document below:
 ```json
 {
@@ -70,9 +112,9 @@ While this sample document only requires a combination of 10 fields to be explic
 
 The jar file detailed in the rest of this document makes indexing fields in larger documents simpler. The jar takes a sample JSON document as input, parses the document and executes createIndex commands for each field without the need for user intervention.
 
-## Prerequisites
+### Prerequisites
 
-### Java 21
+#### Java 21
 After the virtual machine is deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
 
 ```bash
@@ -81,7 +123,7 @@ sudo apt update
 sudo apt install openjdk-21-jdk
 ```
 
-## Sample jar to create individual indexes for all fields
+### Sample jar to create individual indexes for all fields
 
 Clone the repository containing the Java sample to iterate through each field in the JSON document's structure and issue createIndex operations for each field in the document.
 
@@ -99,7 +141,7 @@ The cloned repository does not need to be built if there are no changes to be ma
 java -jar azure-cosmosdb-mongo-data-indexer-1.0-SNAPSHOT.jar mongodb+srv://<user>:<password>@abinav-test-benchmarking.global.mongocluster.cosmos.azure.com/?tls=true&authMechanism=SCRAM-SHA-256&retrywrites=false&maxIdleTimeMS=120000 cosmicworks employee sampleEmployee.json
 ```
 
-## Track the status of a createIndex operation
+### Track the status of a createIndex operation
 The jar file is designed to not wait on a response from each createIndex operation. The indexes are created asynchronously on the server and the progress of the index build operation on the cluster can be tracked.
 
 Consider this sample to track indexing progress on the 'cosmicworks' database.
@@ -143,8 +185,8 @@ When a createIndex operation is in progress, the response looks like:
 }
 ```
 
-## Related content
+## Next Steps
 
-Check out the full sample here - https://github.com/Azure-Samples/cosmosdb-mongodb-vcore-wildcard-indexing
-
-Check out [indexing best practices](how-to-create-indexes.md), which details best practices for indexing on Azure Cosmos DB for MongoDB vCore.
+- Refer for code sample - https://github.com/Azure-Samples/cosmosdb-mongodb-vcore-wildcard-indexing
+- Review here for [Indexing and Limitations](indexing.md)
+- Learn about [Indexing best practices](how-to-create-indexes.md)

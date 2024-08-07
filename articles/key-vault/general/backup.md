@@ -4,7 +4,7 @@ description: Use this document to help back up a secret, key, or certificate sto
 services: key-vault
 author: msmbaldwin
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

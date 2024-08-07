@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/25/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Create a standalone Azure Automation account
 

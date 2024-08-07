@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 07/12/2024
+ms.date: 07/31/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,16 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## July 2024 
+
+Here's what changed in July 2024: 
+
+### New Teams available on Windows Enterprise multi-session images with M365 apps pre-installed 
+
+Our Windows Enterprise multi-session images + Microsoft M365 apps are updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
+
+Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisession-faq.yml). 
 
 ## June 2024 
 
@@ -73,6 +83,10 @@ For more information and instructions, see [Add and manage app attach and MSIX
 ## May 2024 
 
 Here's what changed in May 2024: 
+
+### Windows multi-session 11 with Microsoft 365 Apps gallery images now pre-install new Microsoft Teams 
+
+Windows multi-session 11 with Microsoft 365 Apps images in the Azure Marketplace now come with the new Microsoft Teams pre-installed (not Teams (Classic)). This applies to Windows Enterprise multi-session 11 23H2 and 22H2.  
 
 ### Configuring client device redirection for Windows App and the Remote Desktop app using Microsoft Intune is now in preview
 

@@ -42,6 +42,6 @@ If an application explicitly abandons a message, the message might again be avai
 
 If you need a high degree of reliability for message processing, and processing takes significant work and time, we recommend that you use the Prefetch feature conservatively, or not at all. If you need high throughput and message processing is commonly cheap, prefetch yields significant throughput benefits.
 
-The maximum prefetch count and the lock duration configured on the queue or subscription need to be balanced such that the lock timeout at least exceeds the cumulative expected message processing time for the maximum size of the prefetch buffer, plus one message. At the same time, the lock timeout shouldn't be so long that messages can exceed their maximum time to live when they're accidentally dropped, and so requiring their lock to expire before being redelivered.
+The maximum prefetch count and the lock duration configured on the queue or subscription need to be balanced such that the lock timeout at least exceeds the cumulative expected message processing time for the maximum size of the prefetch buffer, plus one message. At the same time, the lock duration shouldn't be so long that messages can exceed their maximum time to live while being locked, as this would mean they get removed if they could not be completed when they were prefetched.
 
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

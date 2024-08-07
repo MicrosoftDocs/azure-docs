@@ -114,6 +114,8 @@
           href: ../scripts/cli/common/service-endpoints-ignore-missing-vnet.md
         - name: Find existing free-tier accounts
           href: ../scripts/cli/common/free-tier.md
+        - name: Migrate all resources to autoscale
+          href: ../scripts/cli/common/convert-to-autoscale.md
     - name: Azure PowerShell
       items:
         - name: Overview
@@ -935,13 +937,13 @@
           href: ../store-credentials-key-vault.md
     - name: Monitor
       items:
-        - name: Monitor
+        - name: Monitor Azure Cosmos DB
           href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Cosmos DB insights
               href: ../insights-overview.md
-            - name: Scenarios to monitor
+            - name: Monitor and debug using metrics
               href: ../use-metrics.md
             - name: Monitor server-side latency
               href: ../monitor-server-side-latency.md

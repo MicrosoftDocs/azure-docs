@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - ARM template'
 description: In this quickstart, you'll learn how to create a private endpoint using an Azure Resource Manager template (ARM template).
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/28/2024
 ms.author: abell

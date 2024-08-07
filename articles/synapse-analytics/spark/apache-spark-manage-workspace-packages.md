@@ -2,7 +2,7 @@
 title: Manage workspace libraries for Apache Spark
 description: Learn how to add and manage libraries to workspace in Azure Synapse Analytics.
 author: shuaijunye
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 11/03/2022
 ms.author: shuaijunye

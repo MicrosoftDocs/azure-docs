@@ -2,11 +2,11 @@
 title: Virtual machine sizes overview 
 description: Lists the different instance sizes available for virtual machines in Azure.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 06/06/2024
+ms.date: 08/02/2024
 ms.author: mattmcinnes
 ---
 
@@ -81,8 +81,8 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 | Family | Workloads | Series List |
 |----|---|---|
 | [A-family](./general-purpose/a-family.md)  | Entry-level economical |  [Av2-series](./general-purpose/a-family.md#av2-series) <br> [Previous-gen A-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
-| [B-family](./general-purpose/b-family.md)  | Burstable | [Bsv2-series](./general-purpose/b-family.md#bsv2-series) <br> [Basv2-series](./general-purpose/b-family.md#basv2-series) <br> [Bpsv2-series](./general-purpose/b-family.md#bpsv2-series) |
-| [D-family](./general-purpose/d-family.md) | Enterprise-grade applications <br> Relational databases <br> In-memory caching <br> Data analytics | [Dpsv6-series](./general-purpose/d-family.md#dpsv6-series) and [Dplsv6-series](./general-purpose/d-family.md#dplsv6-series ) <br> [Dpdsv6-series](./general-purpose/d-family.md#dpdsv6-series) and [Dpldsv6-series](./general-purpose/d-family.md#dpldsv6-series) <br> [Dalsv6 and Daldsv6-series](./general-purpose/d-family.md#dalsv6-and-daldsv6-series) <br> [Dpsv5 and Dpdsv5-series](./general-purpose/d-family.md#dpsv5-and-dpdsv5-series) <br> [Dpldsv5 and Dpldsv5-series](./general-purpose/d-family.md#dplsv5-and-dpldsv5-series) <br> [Dlsv5 and Dldsv5-series](./general-purpose/d-family.md#dlsv5-and-dldsv5-series) <br> [Dv5 and Dsv5-series](./general-purpose/d-family.md#dv5-and-dsv5-series) <br> [Ddv5 and Ddsv5-series](./general-purpose/d-family.md#ddv5-and-ddsv5-series) <br> [Dasv5 and Dadsv5-series](./general-purpose/d-family.md#dasv5-and-dadsv5-series) <br> [Previous-gen D-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
+| [B-family](./general-purpose/b-family.md)  | Burstable | [Bsv2-series](./general-purpose/b-family.md#bsv2-series) <br> [Basv2-series](./general-purpose/b-family.md#basv2-series) <br> [Bpsv2-series](./general-purpose/b-family.md#bpsv2-series) <br>[Previous-gen B-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
+| [D-family](./general-purpose/d-family.md) | Enterprise-grade applications <br> Relational databases <br> In-memory caching <br> Data analytics | [Dpsv6-series and Dplsv6-series](./general-purpose/d-family.md#dpsv6-and-dplsv6-series ) <br> [Dpdsv6-series and Dpldsv6-series](./general-purpose/d-family.md#dpdsv6-and-dpldsv6-series) <br> [Dalsv6 and Daldsv6-series](./general-purpose/d-family.md#dalsv6-and-daldsv6-series) <br> [Dpsv5 and Dpdsv5-series](./general-purpose/d-family.md#dpsv5-and-dpdsv5-series) <br> [Dpldsv5 and Dpldsv5-series](./general-purpose/d-family.md#dplsv5-and-dpldsv5-series) <br> [Dlsv5 and Dldsv5-series](./general-purpose/d-family.md#dlsv5-and-dldsv5-series) <br> [Dv5 and Dsv5-series](./general-purpose/d-family.md#dv5-and-dsv5-series) <br> [Ddv5 and Ddsv5-series](./general-purpose/d-family.md#ddv5-and-ddsv5-series) <br> [Dasv5 and Dadsv5-series](./general-purpose/d-family.md#dasv5-and-dadsv5-series) <br> [Previous-gen D-family series](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes) |
 | [DC-family](./general-purpose/dc-family.md) | D-family with confidential computing | [DCasv5 and DCadsv5-series](./general-purpose/dc-family.md#dcasv5-and-dcadsv5-series) <br> [DCas_cc_v5 and DCads_cc_v5-series](./general-purpose/dc-family.md#dcas_cc_v5-and-dcads_cc_v5-series) <br> [DCesv5 and DCedsv5-series](./general-purpose/dc-family.md#dcesv5-and-dcedsv5-series) <br> [DCsv3 and DCdsv3-series](./general-purpose/dc-family.md#dcsv3-and-dcdsv3-series) <br> [Previous-gen DC-family](./previous-gen-sizes-list.md#general-purpose-previous-gen-sizes)|
 
 
@@ -159,7 +159,7 @@ List of memory optimized VM sizes with links to each series' family page section
 
 | Family | Workloads | Series List |
 |----|---|---|
-| [E-family](./memory-optimized/e-family.md)  | Relational databases <br> Medium to large caches <br> In-memory analytics |[Easv6 and Eadsv6-series](./memory-optimized/e-family.md#easv6-and-eadsv6-series)<br> [Ev5 and Esv5-series](./memory-optimized/e-family.md#ev5-and-esv5-series)<br> [Edv5 and Edsv5-series](./memory-optimized/e-family.md#edv5-and-edsv5-series)<br> [Easv5 and Eadsv5-series](./memory-optimized/e-family.md#easv5-and-eadsv5-series)<br> [Epsv5 and Epdsv5-series](./memory-optimized/e-family.md#epsv5-and-epdsv5-series)<br> [Previous-gen families](./previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes) |
+| [E-family](./memory-optimized/e-family.md)  | Relational databases <br> Medium to large caches <br> In-memory analytics |[Epsv6 and Epdsv6-series](./memory-optimized/e-family.md#epsv6-and-epdsv6-series)<br> [Easv6 and Eadsv6-series](./memory-optimized/e-family.md#easv6-and-eadsv6-series)<br> [Ev5 and Esv5-series](./memory-optimized/e-family.md#ev5-and-esv5-series)<br> [Edv5 and Edsv5-series](./memory-optimized/e-family.md#edv5-and-edsv5-series)<br> [Easv5 and Eadsv5-series](./memory-optimized/e-family.md#easv5-and-eadsv5-series)<br> [Epsv5 and Epdsv5-series](./memory-optimized/e-family.md#epsv5-and-epdsv5-series)<br> [Previous-gen families](./previous-gen-sizes-list.md#memory-optimized-previous-gen-sizes) |
 | [Eb-family](./memory-optimized/e-family.md)  | E-family with High remote storage performance | [Ebdsv5 and Ebsv5-series](./memory-optimized/eb-family.md#ebdsv5-and-ebsv5-series) |
 | [EC-family](./memory-optimized/ec-family.md)  | E-family with confidential computing | [ECasv5 and ECadsv5-series](./memory-optimized/ec-family.md#ecasv5-and-ecadsv5-series)<br> [ECas_cc_v5 and ECads_cc_v5-series](./memory-optimized/ec-family.md#ecasccv5-and-ecadsccv5-series)<br> [ECesv5 and ECedsv5-series](./memory-optimized/ec-family.md#ecesv5-and-ecedsv5-series) |
 | [M-family](./memory-optimized/m-family.md)  | Extremely large databases <br> Large amounts of memory | [Msv3 and Mdsv3-series](./memory-optimized/m-family.md#msv3-and-mdsv3-series)<br> [Mv2-series](./memory-optimized/m-family.md#mv2-series)<br> [Msv2 and Mdsv2-series](./memory-optimized/m-family.md#msv2-and-mdsv2-series) |
@@ -224,7 +224,7 @@ To learn more about a specific size family or series, click the tab for that fam
 GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads.
 
 #### [Family list](#tab/gpusizelist)
-List of storage optimized VM size families:
+List of GPU optimized VM size families:
 
 | Family | Workloads | Series List |
 |----|---|---|

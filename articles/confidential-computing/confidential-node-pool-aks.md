@@ -6,14 +6,14 @@ author: ananyagarg
 ms.topic: article
 ms.date: 10/04/2022
 ms.author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.custom: inspire-fall-2022
 ---
 
 # Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs
 
-[Azure Kubernetes Service (AKS)](../aks/index.yml) makes it simple to deploy a managed Kubernetes cluster in Azure. In AKS, nodes of the same configuration are grouped together into node pools. These node pools contain the underlying VMs that run your applications. 
+[Azure Kubernetes Service (AKS)](/azure/aks/) makes it simple to deploy a managed Kubernetes cluster in Azure. In AKS, nodes of the same configuration are grouped together into node pools. These node pools contain the underlying VMs that run your applications. 
 
 AKS now supports confidential VM node pools with Azure confidential VMs. These confidential VMs are the [generally available DCasv5 and ECasv5 confidential VM-series](https://aka.ms/AMD-ACC-VMs-GA-Inspire-2022) utilizing 3rd Gen AMD EPYC<sup>TM</sup> processors with Secure Encrypted Virtualization-Secure Nested Paging ([SEV-SNP](https://www.amd.com/en/technologies/infinity-guard)) security features. To read more about this offering, [see the announcement](https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA).
 
@@ -29,7 +29,7 @@ In addition to the hardened security profile, confidential node pools on AKS als
 
 :::image type="content" source="media/confidential-vm-node-pools-on-aks/snp-on-aks-architecture-image.png" alt-text="Graphic of VM nodes in AKS with encrypted code and data in confidential VM node pools 1 and 2, on top of the hypervisor":::
 
-Get started and add confidential node pools to existing AKS cluster with [this quick start guide](../aks/use-cvm.md).
+Get started and add confidential node pools to existing AKS cluster with [this quick start guide](/azure/aks/use-cvm).
 
 ## Questions?
 
@@ -37,5 +37,5 @@ If you have questions about container offerings, please reach out to <acconaks@m
 
 ## Next steps
 
-- [Deploy a confidential node pool in your AKS cluster](../aks/use-cvm.md)
+- [Deploy a confidential node pool in your AKS cluster](/azure/aks/use-cvm)
 - Learn more about sizes and specs for [general purpose](../virtual-machines/dcasv5-dcadsv5-series.md) and [memory-optimized](../virtual-machines/ecasv5-ecadsv5-series.md) confidential VMs.

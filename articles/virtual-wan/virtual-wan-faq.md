@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: faq
 ms.date: 03/27/2024
@@ -334,6 +334,10 @@ Yes. Virtual WAN prefers ExpressRoute over VPN for traffic egressing Azure. Howe
 When an ExpressRoute circuit is connected to a virtual hub, the Microsoft Edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that, in turn, learn routes from the virtual hub router that controls all routes between any gateways in Virtual WAN. The Microsoft Edge routers process virtual hub ExpressRoute routes with higher preference over routes learned from on-premises.
 
 For any reason, if the VPN connection becomes the primary medium for the virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN), unless the VPN site has a longer AS Path length, the virtual hub will continue to share VPN learned routes with the ExpressRoute gateway. This causes the Microsoft Edge routers to prefer VPN routes over on-premises routes.
+
+### Does ExpressRoute support Equal-Cost Multi-Path (ECMP) routing in Virtual WAN?
+
+When multiple ExpressRoute circuits are connected to a Virtual WAN hub, ECMP enables traffic from spoke virtual networks to on-premises over ExpressRoute to be distributed across all ExpressRoute circuits advertising the same on-premises routes. To enable ECMP for your Virtual WAN hub, please reach out to virtual-wan-ecmp@microsoft.com with your Virtual WAN hub resource ID. 
 
 ### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there's an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 

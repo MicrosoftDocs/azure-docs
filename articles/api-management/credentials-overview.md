@@ -2,7 +2,7 @@
 title: About credential manager in Azure API Management
 description: Learn about using credential manager in Azure API Management to create and manage connections to backend SaaS APIs
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: danlep
@@ -18,6 +18,8 @@ To help you manage access to backend APIs, your API Management instance includes
 > [!NOTE]
 > * Currently, you can use credential manager to configure and manage connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. 
 > * No breaking changes are introduced with credential manager. OAuth 2.0 credential providers and connections use the existing API Management [authorization](/rest/api/apimanagement/authorization) APIs and resource provider.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## Managed connections for OAuth 2.0 APIs
 

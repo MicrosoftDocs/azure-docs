@@ -4,7 +4,7 @@ description: Learn to create a managed application that stores blob digests to A
 author: pallabpaul
 ms.author: pallabpaul
 ms.date: 10/26/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: overview
 ---
 

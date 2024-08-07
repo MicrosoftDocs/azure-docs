@@ -5,7 +5,7 @@ services: key-vault
 author: msmbaldwin
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: keys
 ms.author: mbaldwin
 ms.date: 10/3/2023

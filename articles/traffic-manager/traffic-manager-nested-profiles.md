@@ -5,7 +5,7 @@ description: This article explains the 'Nested Profiles' feature of Azure Traffi
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
 ms.date: 11/10/2022
 ms.author: greglin

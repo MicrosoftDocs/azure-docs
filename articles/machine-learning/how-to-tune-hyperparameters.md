@@ -6,7 +6,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.reviewer: amipatel
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: training
 ms.date: 06/25/2024
 ms.topic: how-to

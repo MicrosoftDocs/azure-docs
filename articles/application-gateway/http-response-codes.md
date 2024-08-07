@@ -3,7 +3,7 @@ title: HTTP response codes - Azure Application Gateway
 description: 'Learn how to troubleshoot Application Gateway HTTP response codes'
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: troubleshooting
 ms.date: 07/05/2023
 ms.author: greglin

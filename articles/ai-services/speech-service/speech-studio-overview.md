@@ -50,8 +50,6 @@ In Speech Studio, the following Speech service features are available as project
 
 * [Custom Keyword](https://aka.ms/speechstudio/customkeyword): A custom keyword is a word or short phrase that you can use to voice-activate a product. You create a custom keyword in Speech Studio, and then generate a binary file to [use with the Speech SDK](custom-keyword-basics.md) in your applications.
 
-* [Custom Commands](https://aka.ms/speechstudio/customcommands): Easily build rich, voice-command apps that are optimized for voice-first interaction experiences. Custom Commands provides a code-free authoring experience in Speech Studio, an automatic hosting model, and relatively lower complexity. The feature helps you focus on building the best solution for your voice-command scenarios. For more information, see the [Develop Custom Commands applications](how-to-develop-custom-commands-application.md) guide. Also see [Integrate with a client application by using the Speech SDK](how-to-custom-commands-setup-speech-sdk.md).
-
 ## Next steps
 
 * [Explore Speech Studio](https://speech.microsoft.com)

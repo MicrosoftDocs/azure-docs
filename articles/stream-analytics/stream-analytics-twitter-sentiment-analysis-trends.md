@@ -4,7 +4,7 @@ description: This article describes how to use Stream Analytics for social media
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.reviewer: jasonh
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/03/2022
 ---

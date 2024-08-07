@@ -404,6 +404,8 @@ items:
       href: upgrade-to-latest-generation.md
     - name: Manage Compute
       href: manage-compute-with-azure-functions.md
+    - name: Monitor Synapse Analytics
+      href: monitor-sql-pool-synapse-analytics.md
     - name: Monitor your workload - Portal 
       href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 

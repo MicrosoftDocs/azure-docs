@@ -3,7 +3,7 @@ title: Search for assets
 titleSuffix: Azure Machine Learning
 description: Find your Azure Machine Learning assets with search
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley

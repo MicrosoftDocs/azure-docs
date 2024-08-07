@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor Application Ga
 author: greg-lindsay
 ms.author: greglin
 ms.topic: conceptual
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: subject-monitoring
 ms.date: 05/17/2024
 ---

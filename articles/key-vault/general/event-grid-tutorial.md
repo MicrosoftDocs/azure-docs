@@ -4,7 +4,7 @@ description: Learn how to integrate Key Vault with Azure Event Grid.
 services: key-vault
 author: msmbaldwin
 
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 01/30/2024

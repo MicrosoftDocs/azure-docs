@@ -2,7 +2,7 @@
 title: ND family virtual machine size series
 description: List of sizes in the ND family.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.subservice: sizes
 ms.custom:
   - build-2024
@@ -26,7 +26,7 @@ ms.author: mattmcinnes
 ### ND-series V1
 [!INCLUDE [nd-series-summary](./includes/nd-series-summary.md)]
 
-[View the full ND-series page](../../nd-series.md).
+[View the full ND-series page](./nd-series.md).
 
 [!INCLUDE [nd-series-specs](./includes/nd-series-specs.md)]
 
@@ -34,40 +34,40 @@ ms.author: mattmcinnes
 ### NDv2-series
 [!INCLUDE [ndv2-series-summary](./includes/ndv2-series-summary.md)]
 
-[View the full NDv2-series page](../../ndv2-series.md)
+[View the full NDv2-series page](./ndv2-series.md)
 
 [!INCLUDE [ndv2-series-specs](./includes/ndv2-series-specs.md)]
 
 
 ###  ND_A100_v4-series
-[!INCLUDE [nd-a100-v4-series-summary](./includes/nd-a100-v4-series-summary.md)]
+[!INCLUDE [nd-a100-v4-series-summary](./includes/ndasra100v4-series-summary.md)]
 
-[View the full ND_A100_v4-series page](../../nda100-v4-series.md).
+[View the full ND_A100_v4-series page](./ndasra100v4-series.md).
 
-[!INCLUDE [nd-a100-v4-series-specs](./includes/nd-a100-v4-series-specs.md)]
+[!INCLUDE [nd-a100-v4-series-specs](./includes/ndasra100v4-series-specs.md)]
 
 
 ### NDm_A100_v4-series
-[!INCLUDE [ndm-a100-v4-series-summary](./includes/ndm-a100-v4-series-summary.md)]
+[!INCLUDE [ndm-a100-v4-series-summary](./includes/ndma100v4-series-summary.md)]
 
-[View the full NDm_A100_v4-series page](../../ndm-a100-v4-series.md).
+[View the full NDm_A100_v4-series page](./ndma100v4-series.md).
 
-[!INCLUDE [ndm-a100-v4-series-specs](./includes/ndm-a100-v4-series-specs.md)]
+[!INCLUDE [ndm-a100-v4-series-specs](./includes/ndma100v4-series-specs.md)]
 
 
 ### ND_H100_v5-series
-[!INCLUDE [nd-h100-v5-series-summary](./includes/nd-h100-v5-series-summary.md)]
+[!INCLUDE [nd-h100-v5-series-summary](./includes/ndh100v5-series-summary.md)]
 
-[View the full ND_H100_v5-series page](../../nd-h100-v5-series.md).
+[View the full ND_H100_v5-series page](./ndh100v5-series.md).
 
-[!INCLUDE [nd-h100-v5-series-specs](./includes/nd-h100-v5-series-specs.md)]
+[!INCLUDE [nd-h100-v5-series-specs](./includes/ndh100v5-series-specs.md)]
 
 ### ND_MI300X_v5-series
-[!INCLUDE [nd-mi300x-v5-series-summary](./includes/nd-mi300x-v5-series-summary.md)]
+[!INCLUDE [nd-mi300x-v5-series-summary](./includes/ndmi300xv5-series-summary.md)]
 
-[View the full ND_MI300X_v5-series page](./nd-mi300x-v5-series.md).
+[View the full ND_MI300X_v5-series page](./ndmi300xv5-series.md).
 
-[!INCLUDE [nd-mi300x-v5-series-specs](./includes/nd-mi300x-v5-series-specs.md)]
+[!INCLUDE [nd-mi300x-v5-series-specs](./includes/ndmi300xv5-series-specs.md)]
 
 
 ### Previous-generation ND family series

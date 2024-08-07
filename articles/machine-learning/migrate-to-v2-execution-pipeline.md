@@ -3,7 +3,7 @@ title: Upgrade pipelines to SDK v2
 titleSuffix: Azure Machine Learning
 description: Upgrade pipelines from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
-ms.service: machine-learning
+ms.service: azure-machine-learning
 ms.subservice: core
 ms.topic: reference
 author: sdgilley
@@ -221,6 +221,7 @@ This article gives a comparison of scenario(s) in SDK v1 and SDK v2. In the foll
 |[azureml.pipeline.core.Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline?view=azure-ml-py&preserve-view=true)|[azure.ai.ml.dsl.pipeline](/python/api/azure-ai-ml/azure.ai.ml.dsl#azure-ai-ml-dsl-pipeline)|
 |[OutputDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputdatasetconfig?view=azure-ml-py&preserve-view=true)|[Output](/python/api/azure-ai-ml/azure.ai.ml.output)|
 |[dataset as_mount](/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py#azureml-data-filedataset-as-mount&preserve-view=true)|[Input](/python/api/azure-ai-ml/azure.ai.ml.input)|
+|[StepSequence](/python/api/azureml-pipeline-core/azureml.pipeline.core.stepsequence)|[Data dependency](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data)|
 
 ## Step and job/component type mapping
 

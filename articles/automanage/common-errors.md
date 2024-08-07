@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common Azure Automanage onboarding errors
 description: Common Automanage onboarding errors and how to troubleshoot them
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: conceptual
 ms.date: 12/10/2021
 ---

@@ -6,7 +6,7 @@ description: Learn how to create your own customized model with Azure OpenAI Ser
 manager: nitinme
 ms.service: azure-ai-openai
 ms.topic: include
-ms.date: 05/16/2024
+ms.date: 08/02/2024
 author: mrbullwinkle
 ms.author: mbullwin
 ---
@@ -15,14 +15,11 @@ ms.author: mbullwin
 
 - Read the [When to use Azure OpenAI fine-tuning guide](../concepts/fine-tuning-considerations.md).
 - An Azure subscription. <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>.
-- Access granted to Azure OpenAI in the desired Azure subscription.
 - An Azure OpenAI resource. For more information, see [Create a resource and deploy a model with Azure OpenAI](../how-to/create-resource.md).
 - Fine-tuning access requires **Cognitive Services OpenAI Contributor**.
 - If you don't already have access to view quota, and deploy models in Azure OpenAI Studio you'll require [additional permissions](../how-to/role-based-access-control.md).  
 
 
-> [!NOTE]
-> Currently, you must submit an application to access Azure OpenAI Service. To apply for access, complete [this form](https://aka.ms/oai/access).
 
 ## Models
 
@@ -33,7 +30,10 @@ The following models support fine-tuning:
 - `gpt-35-turbo` (0613)
 - `gpt-35-turbo` (1106)
 - `gpt-35-turbo` (0125)
-- `gpt-4` (0613)
+- `gpt-4` (0613)**<sup>*</sup>**
+- `gpt-4o-mini` (2024-07-18)**<sup>*</sup>**
+
+**<sup>*</sup>** Fine-tuning for this model is currently in public preview.
 
 Consult the [models page](../concepts/models.md#fine-tuning-models) to check which regions currently support fine-tuning.
 

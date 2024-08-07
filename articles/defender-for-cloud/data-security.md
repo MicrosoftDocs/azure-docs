@@ -1,11 +1,13 @@
 ---
 title: Microsoft Defender for Cloud data security
-description: Learn how data is managed and safeguarded in Microsoft Defender for Cloud.
+description: Learn how data is managed and safeguarded in Microsoft Defender for Cloud to ensure the security of your data.
 ms.topic: overview
 ms.author: dacurwin
 author: dcurwin
-ms.date: 11/02/2023
+ms.date: 07/18/2024
+#customer intent: As a reader, I want to understand how data is managed and safeguarded in Microsoft Defender for Cloud so that I can ensure the security of my data.
 ---
+
 # Microsoft Defender for Cloud data security
 
 To help customers prevent, detect, and respond to threats, Microsoft Defender for Cloud collects and processes security-related data, including configuration information, metadata, event logs, and more. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service.
@@ -86,12 +88,18 @@ Customers can access Defender for Cloud related data from the following data str
 > [!NOTE]
 > If there are no Defender plans enabled on the subscription, data will be removed from Azure Resource Graph after 30 days of inactivity in the Microsoft Defender for Cloud portal. After interaction with artifacts in the portal related to the subscription, the data should be visible again within 24 hours.
 
+## Data retention
+
+When the cloud security graph collects data from Azure and multicloud environments and other data source, it retains the data for a 14 day period. After 14 days, the data is deleted. 
+
+Calculated data, such as attack paths, might be kept for an additional 14 days. Calculated data consist of data that is derived from the raw data collected from the environment. For example, the attack path is derived from the raw data collected from the environment.
+
+This information is collected in accordance with the privacy commitments described in our [Privacy Statement](https://privacy.microsoft.com/privacystatement).
+
 ## Defender for Cloud and Microsoft Defender 365 Defender integration
 
 When you enable any of Defender for Cloud's paid plans you automatically gain all of the benefits of Microsoft Defender XDR. Information from Defender for Cloud will be shared with Microsoft Defender XDR. This data might contain customer data and will be stored according to [Microsoft 365 data handling guidelines](/microsoft-365/security/defender/data-privacy).
 
-## Next steps
+## Related content
 
-In this document, you learned how data is managed and safeguarded in Microsoft Defender for Cloud.
-
-To learn more about Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md).
+- [What is Microsoft Defender for Cloud?](defender-for-cloud-introduction.md).

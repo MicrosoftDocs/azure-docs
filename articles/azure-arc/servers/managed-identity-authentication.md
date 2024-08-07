@@ -104,4 +104,4 @@ The response includes the access token you need to access any resource in Azure.
 
 - To learn more about Azure Key Vault, see [Key Vault overview](../../key-vault/general/overview.md).
 
-- Learn how to assign a managed identity access to a resource [using PowerShell](../../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) or using [the Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+- Learn how to assign a managed identity access to a resource [using PowerShell](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource?pivots=identity-mi-access-powershell) or using [the Azure CLI](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource?pivots=identity-mi-access-cli).

@@ -82,15 +82,6 @@ Manage encryption at rest of your Azure Machine Learning workspace data with cus
 **Severity**: Medium
 
 
-### [(Enable if required) Cognitive Services accounts should enable data encryption with a customer-managed key (CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/18bf29b3-a844-e170-2826-4e95d0ba4dc9)
-
-**Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
-To enable this recommendation, navigate to your Security Policy for the applicable scope, and update the *Effect* parameter for the corresponding policy to audit or enforce the use of customer-managed keys. Learn more in [Manage security policies](tutorial-security-policy.md).
-Customer-managed keys (CMK) are commonly required to meet regulatory compliance standards. CMKs enable the data stored in Cognitive Services to be encrypted with an Azure Key Vault key created and owned by you. You have full control and responsibility for the key lifecycle, including rotation and management. Learn more about CMK encryption at <https://aka.ms/cosmosdb-cmk>.
-(Related policy: [Cognitive Services accounts should enable data encryption with a customer-managed key?(CMK)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f67121cc7-ff39-4ab8-b7e3-95b84dab487d))
-
-**Severity**: Low
-
 ### [(Enable if required) MySQL servers should use customer-managed keys to encrypt data at rest](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/6b51b7f7-cbed-75bf-8a02-43384bf47562)
 
 **Description**: Recommendations to use customer-managed keys for encryption of data at rest are not assessed by default, but are available to enable for applicable scenarios. Data is encrypted automatically using platform-managed keys, so the use of customer-managed keys should only be applied when obligated by compliance or restrictive policy requirements.
@@ -298,34 +289,12 @@ Secure your storage account with greater flexibility using customer-managed keys
 
 **Severity**: Low
 
-### [Cognitive Services accounts should have local authentication methods disabled](recommendations-reference-data.md)
-
-
-**Description**: Disabling local authentication methods improves security by ensuring that Cognitive Services accounts require Azure Active Directory identities exclusively for authentication. Learn more at: https://aka.ms/cs/auth. (Related policy: Cognitive Services accounts should have local authentication methods disabled).
-
-**Severity**: Low
-
-
-### [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/f738efb8-005f-680d-3d43-b3db762d6243)
-
-**Description**: Network access to Cognitive Services accounts should be restricted. Configure network rules so only applications from allowed networks can access the Cognitive Services account. To allow connections from specific internet or on-premises clients, access can be granted to traffic from specific Azure virtual networks or to public internet IP address ranges.
-(Related policy: [Cognitive Services accounts should restrict network access](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f037eea7a-bd0a-46c5-9a66-03aea78705d3)).
-
-**Severity**: Medium
-
 ### [Cognitive Services accounts should use customer owned storage or enable data encryption](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/aa395469-1687-78a7-bf76-f4614ef72977)
 
 **Description**: This policy audits any Cognitive Services account not using customer owned storage nor data encryption. For each Cognitive Services account with storage, use either customer owned storage or enable data encryption. Aligns with Microsoft Cloud Security Benchmark.
 (Related policy: [Cognitive Services accounts should use customer owned storage or enable data encryption.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f11566b39-f7f7-4b82-ab06-68d8700eb0a4))
 
 **Severity**: Low
-
-### [Cognitive Services should use private link](recommendations-reference-data.md#cognitive-services-should-use-private-link)
-
-**Description**: Azure Private Link lets you connect your virtual networks to Azure services without a public IP address at the source or destination. The Azure Private Link platform handles the connectivity between the consumer and services over the Azure backbone network. By mapping private endpoints to Cognitive Services, you'll reduce the potential for data leakage. Learn more about [private links](../private-link/private-link-overview.md). (Related policy: Cognitive Services should use private link).
-
-**Severity**: Medium
-
 
 ### [Diagnostic logs in Azure Data Lake Store should be enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/ad5bbaeb-7632-5edf-f1c2-752075831ce8)
 

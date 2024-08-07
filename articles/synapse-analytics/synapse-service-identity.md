@@ -3,7 +3,7 @@ title: Managed identity
 titleSuffix: Azure Synapse
 description: Learn about using managed identities in Azure Synapse. 
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/27/2022
@@ -198,7 +198,7 @@ To grant permissions, follow these steps. For detailed steps, see [Assign Azure 
 
 1. Select **Add** > **Add role assignment**.
 
-    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 

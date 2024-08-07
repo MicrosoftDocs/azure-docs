@@ -3,7 +3,7 @@ title: RAN Insights Concepts
 description: Learn about the key components of a RAN Insights deployed through Azure Private 5G Core. 
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: concept-article 
 ms.date: 5/28/2024
 ---

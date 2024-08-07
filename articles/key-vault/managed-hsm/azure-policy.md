@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Managed HSM with Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 02/20/2024
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: managed-hsm
 ms.custom: devx-track-azurecli
 ms.topic: how-to

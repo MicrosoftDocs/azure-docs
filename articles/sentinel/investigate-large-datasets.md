@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 One of the primary activities of a security team is to search logs for specific events. For example, you might search logs for the activities of a specific user within a given time-frame.
 
-In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and deeper analysis.
+In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search logs in a long-term retention (formerly known as archive) state. If you need to do a full investigation on such data, you can restore that data into an interactive retention state&mdash;like your regular Log Analytics tables&mdash; to run high performing queries and deeper analysis.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -25,7 +25,7 @@ Use a search job when you start an investigation to find specific events in logs
 
 Search in Microsoft Sentinel is built on top of search jobs. Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
 
-Search results are stored in a table that has a *_SRCH suffix.
+Search results are stored in a table named with a `_SRCH` suffix.
 
 The following image shows example search criteria for a search job.
 
@@ -36,9 +36,10 @@ The following image shows example search criteria for a search job.
 Use search to find events in any of the following log types:
 
 - [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs](../azure-monitor/logs/basic-logs-configure.md)
+- [Basic logs](../azure-monitor/logs/data-platform-logs.md)
+- [Auxiliary logs](../azure-monitor/logs/data-platform-logs.md)
 
-You can also search analytics or basic log data stored in [archived logs](../azure-monitor/logs/data-retention-archive.md).
+You can also search analytics or basic log data stored in [long-term retention](../azure-monitor/logs/data-retention-configure.md#interactive-long-term-and-total-retention).
 
 ### Limitations of a search job
 

@@ -3,7 +3,7 @@ title: Test live data with Azure Stream Analytics for Visual Studio
 description: Learn how to test your Azure Stream Analytics job locally using live streaming data.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ---

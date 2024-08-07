@@ -14,9 +14,6 @@ ms.date: 01/03/2024
 ## Prerequisites
 
 - An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-- Access granted to Azure OpenAI in the desired Azure subscription
-
-    Currently, access to this service is granted only by application. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
 - <a href="https://www.python.org/" target="_blank">Python 3.8 or later version</a>
 - The following Python libraries: os, requests, json
 - An Azure OpenAI Service resource with a `gpt-35-turbo-instruct` model deployed. For more information about model deployment, see the [resource deployment guide](../how-to/create-resource.md).
@@ -49,7 +46,7 @@ pip install openai==0.28.1
 
 ## Retrieve key and endpoint
 
-To successfully make a call against the Azure OpenAI service, you'll need the following:
+To successfully make a call against the Azure OpenAI Service, you'll need the following:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -152,7 +149,7 @@ Azure OpenAI also performs content moderation on the prompt inputs and generated
 
 If you want to clean up and remove an Azure OpenAI resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-- [Portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
+- [Azure portal](../../multi-service-resource.md?pivots=azportal#clean-up-resources)
 - [Azure CLI](../../multi-service-resource.md?pivots=azcli#clean-up-resources)
 
 ## Next steps
