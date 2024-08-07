@@ -221,7 +221,7 @@ ml_client.evaluators.download("answer_len_uploaded", version=1, download_path=".
 evaluator = load_flow(os.path.join("answer_len_uploaded", flex_flow_path))
 ```
 
-After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-ap.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
+After logging your custom evaluator to your AI project, you can view it in your [Evaluator library](../evaluate-generative-ai-app.md#view-and-manage-the-evaluators-in-the-evaluator-library) under Evaluation tab in AI studio.
 
 ### Prompt-based evaluators
 
