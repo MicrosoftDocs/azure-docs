@@ -75,7 +75,13 @@ In this article, you learn how to install and uninstall Network Watcher Agent fo
 
 ## Supported operating systems
 
-Network Watcher Agent extension for Windows can be installed on Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases. Currently, Nano Server isn't supported. Network Watcher Agent extension for Windows can also be installed on Windows 10 and 11 releases.
+Network Watcher Agent extension for Windows can be installed on:
+
+- Windows Server 2012, 2012 R2, 2016, 2019 and 2022 releases.
+- Windows 10 and 11 releases.
+
+> [!NOTE]
+> Currently, Nano Server isn't supported.
 
 ## Extension schema
 
