@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
   
    For a step-by-step guide to creating a storage account, see [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/queues/toc.json). This is a separate step you perform after creating a free Azure account in the prerequisites. 
 
-2. Make sure that your user account has been assigned the [Storage Queue Data Contributor](queues/storage-quickstart-queues-dotnet#authenticate-to-azure) role, scoped to the storage account, parent resource group, or subscription. See [Authenticate to Azure](storage-quickstart-blobs-dotnet.md#assign-roles-to-your-microsoft-entra-user-account).
+2. Make sure that your user account has been assigned the [Storage Queue Data Contributor](storage-quickstart-queues-dotnet.md#authenticate-to-azure) role, scoped to the storage account, parent resource group, or subscription. See [Authenticate to Azure](storage-quickstart-queues-dotnet.md#authenticate-to-azure).
 
 ## Create the app
 
@@ -131,7 +131,7 @@ Since the app uses cloud resources, the code runs asynchronously.
 
 ## Create a queue
 
-Before making any calls into Azure APIs, you must make sure you're authenticated with the same Microsoft Entra account you assigned the role to. Once authenticated,  you can create and authorize a `QueueClient` object by using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed into. To learn how to sign in and then create a `QueueClient` object, see [Authorize access and create a client object](storage-quickstart-queues-dotnet#authorize-access-and-create-a-client-object).
+Before making any calls into Azure APIs, you must make sure you're authenticated with the same Microsoft Entra account you assigned the role to. Once authenticated,  you can create and authorize a `QueueClient` object by using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed into. To learn how to sign in and then create a `QueueClient` object, see [Authorize access and create a client object](storage-quickstart-queues-dotnet.md#authorize-access-and-create-a-client-object).
 
 ## Insert messages into the queue
 
