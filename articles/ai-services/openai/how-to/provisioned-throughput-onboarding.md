@@ -55,7 +55,7 @@ The values in the output column are the estimated value of PTU units required fo
 :::image type="content" source="../media/how-to/provisioned-onboarding/capacity-calculator.png" alt-text="Screenshot of the Azure OpenAI Studio landing page." lightbox="../media/how-to/provisioned-onboarding/capacity-calculator.png":::
 
 > [!NOTE]
-> The capacity planner is an estimate based on simple input criteria. The most accurate way to determine your capacity is to benchmark a deployment with a representational workload for your use case.
+> The capacity calculator provides an estimate based on simple input criteria. The most accurate way to determine your capacity is to benchmark a deployment with a representational workload for your use case.
 
 ## Understanding the Provisioned Throughput Purchase Model 
 
@@ -64,7 +64,7 @@ Azure OpenAI Provisioned is purchased on-demand at an hourly basis based on the 
 The hourly model is useful for short-term deployment needs, such as validating new models or acquiring capacity for a hackathon.  However, the discounts provided by the Azure Reservation for Azure OpenAI Provisioned are considerable and most customers with consistent long-term usage will find a reserved model to be a better value proposition. 
 
 > [!NOTE]
-> Azure OpenAI Provisioned customers onboarded prior to August 12, 2024 use a purchase model called the Commitment model.  These customers may continue to use this older purchase model alongside the current Hourly/reservation purchase model.  For details on the older purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](../provisioned-migration.md).
+> Azure OpenAI Provisioned customers onboarded prior to the August self-service update use a purchase model called the Commitment model.  These customers may continue to use this older purchase model alongside the Hourly/reservation purchase model.  The Commitment model is not available for new customers.  For details on the Commitment purchase model and options for coexistence and migration, please see the [Azure OpenAI Provisioned August Update](../provisioned-migration.md).
 
 ## Hourly Usage  
 
