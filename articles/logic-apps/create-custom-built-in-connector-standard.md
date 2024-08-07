@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 01/04/2024
+ms.date: 08/06/2024
 ---
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
@@ -20,7 +20,6 @@ This article shows how to create an example custom built-in Azure Cosmos DB conn
 |-----------|-------------------|-------------|
 | Trigger | When a document is received | This trigger operation runs when an insert operation happens in the specified Azure Cosmos DB database and collection. |
 | Action | None | This connector doesn't define any action operations. |
-||||
 
 This sample connector uses the same functionality as the [Azure Cosmos DB trigger for Azure Functions](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), which is based on [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md). For the complete sample, review [Sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB).
 
@@ -109,6 +108,21 @@ You can add or expose an [Azure Functions trigger or action](../azure-functions/
 ### Methods to implement
 
 The following sections describe the methods that the example connector implements. For the complete sample, review [Sample CosmosDbServiceOperationProvider.cs](https://github.com/Azure/logicapps-connector-extensions/blob/CosmosDB/src/CosmosDB/Providers/CosmosDbServiceOperationProvider.cs).
+
+> [!IMPORTANT]
+>
+> When you have sensitive information, such as connection strings that include usernames and passwords, 
+> make sure to use the most secure authentication flow available. For example, Microsoft recommends that 
+> you authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+> when support is available, and assign a role that has the least required privilege.
+>
+> If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+> [Azure Key Vault](../key-vault/general/overview.md), which you can use with [app settings](edit-app-settings-host-settings.md). 
+> You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+> strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+> app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+> You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+> For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 #### GetService()
 
@@ -364,7 +378,6 @@ To add the NuGet reference from the previous section, in the extension bundle na
    |----------|----------|-------|-------------|
    | **Connection name** | Yes | <*Azure-Cosmos-DB-connection-name*> | The name for the Azure Cosmos DB connection to create |
    | **Connection String** | Yes | <*Azure Cosmos DB-DB-connection-string*> | The connection string for the Azure Cosmos DB database collection or lease collection where you want to add each new received document. |
-   |||||
 
    ![Screenshot showing the connection pane when using the connector for the first time.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-create-connection.png)
 
@@ -376,7 +389,6 @@ To add the NuGet reference from the previous section, in the extension bundle na
    |----------|----------|-------|-------------|
    | **Database name** | Yes | <*Azure-Cosmos-DB-database-name*> | The name for the Azure Cosmos DB database to use |
    | **Collection name** | Yes | <*Azure-Cosmos-DB-collection-name*> | The name for the Azure Cosmos DB collection where you want to add each new received document. |
-   |||||
 
    ![Screenshot showing the trigger properties pane.](./media/create-custom-built-in-connector-standard/visual-studio-code-built-in-connector-trigger-properties.png)
 
