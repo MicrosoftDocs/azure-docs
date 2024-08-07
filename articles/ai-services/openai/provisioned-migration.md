@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: azure-ai-openai
 ms.custom: 
 ms.topic: how-to
-ms.date: 07/21/2024
+ms.date: 08/07/2024
 author: mrbullwinkle
 ms.author: mbullwin
 recommendations: false
@@ -14,7 +14,7 @@ recommendations: false
 
 # Azure OpenAI Provisioned August 2024 Update 
 
-On August 12th, 2024, Microsoft launched improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
+On August 12, 2024, Microsoft launched improvements to its Provisioned Throughput offering that address customer feedback on usability and operational agility, and that open new payment options and deployment scenarios.
 
 This article is intended for existing users of the provisioned throughput offering. New customers should refer to the [Azure OpenAI provisioned onboarding guide](./how-to/provisioned-throughput-onboarding.md).
 
@@ -48,7 +48,7 @@ The capabilities below are rolling out for the Provisioned Managed offering.
 
 Provisioned quota granularity is changing from model-specific to model-independent. Rather than each model and version within subscription and region having its own quota limit, there will be a single quota item per subscription and region that limits the total number of PTUs that can be deployed across all supported models and versions.
 
-Starting August 12th, 2024, existing customers will have their current, model-specific quota converted to model-independent. This will happen automatically and be complete by August 14th, 2024. No quota will be lost in the transition. Existing quota limits will be summed and assigned to a new model-independent quota item.
+Starting August 12, 2024, existing customers will have their current, model-specific quota converted to model-independent. This will happen automatically and be complete by August 14, 2024. No quota will be lost in the transition. Existing quota limits will be summed and assigned to a new model-independent quota item.
 
 <!--:::image type="content" source="./media/provisioned/model-independent-quota.png" alt-text="Diagram of model independent quota with one pool of PTUs available to multiple Azure OpenAI models." lightbox="./media/provisioned/model-independent-quota.png":::-->
 
@@ -68,7 +68,7 @@ For existing customers, if the region already contains a quota assignment, the q
 
 Customers will no longer obtain quota by contacting their sales teams. Instead, they'll use the self-service quota request form and specify the PTU-Managed quota type. The form is accessible from a link to the right of the quota item. The target is to respond to all quota requests within two business days.  
 
-The Quota blade screenshot below shows model-independent quota being used by deployments of different types, as well as the link for requesting additional quota. 
+The Quota screenshot below shows model-independent quota being used by deployments of different types, as well as the link for requesting additional quota. 
 
 :::image type="content" source="./media/provisioned/quota-request-type.png" alt-text="Screenshot of new request type UI for Azure OpenAI provisioned for requesting more quota." lightbox="./media/provisioned/quota-request-type.png":::
 
@@ -114,7 +114,7 @@ Details on the hourly/reservation model can be found in the [Azure OpenAI Provis
 
 ### Commitment and hourly reservation coexistence
 
-Customers that have commitments today aren't required to use the hourly/reservation model. They may continue to use existing commitments, purchase new commitments, and manage commitments as they do today.
+Customers that have commitments today aren't required to use the hourly/reservation model. They can continue to use existing commitments, purchase new commitments, and manage commitments as they do today.
 
 A customer can also decide to use both payment models in the same subscription/region. In this case, **the payment model for a deployment depends on the resource to which it is attached.**
 
@@ -130,24 +130,24 @@ A customer can also decide to use both payment models in the same subscription/r
 
 - The **Manage Commitments** page in Studio will be used to purchase and manage commitments.
 
-Deployments on resources without without commitments (or only expired commitments) will follow the Hourly/Reservation payment model.
+Deployments on resources without commitments (or only expired commitments) will follow the Hourly/Reservation payment model.
 - Deployments will generate hourly charges under the new Hourly/Reservation SKU and meter.
-- Azure Reservations may be purchased to discount the PTUs for deployments.
-- Reservations are purchased and managed from the Reservation blade of the Azure Portal (not within Studio).
+- Azure Reservations can be purchased to discount the PTUs for deployments.
+- Reservations are purchased and managed from the Reservation blade of the Azure portal (not within Studio).
 
 If a deployment is on a resource that has a commitment, and that commitment expires. The deployment will automatically shift to be billed  
 
 ### Changes to the existing payment mode
 
-Customers that have commitments today may continue to use them at least through the end of 2024. This includes purchasing new PTUs on new or existing commitments and managing commitment renewal behaviors. However, the changes on July 29, 2024 will change these aspects of commitment operation.
+Customers that have commitments today can continue to use them at least through the end of 2024. This includes purchasing new PTUs on new or existing commitments and managing commitment renewal behaviors. However, the changes on July 29, 2024 will change these aspects of commitment operation.
 
-- Only models released as provisioned July 28, 2024 or before may be deployed on a resource with a commitment.
+- Only models released as provisioned July 28, 2024 or before can be deployed on a resource with a commitment.
 
 - Overage charges will be emitted against the hourly SKU used for the hourly/reservations model, allowing the overage charges to be discounted by an Azure Reservation if one exists.
 
 ## Migrating existing resources off commitments
 
-Existing customers may choose to migrate their existing resources from the Commitment to the Hourly/Reservation payment model to benefit from the ability to deploy the latest models, or to consolidate discounting for diverse deployments under a single reservation.
+Existing customers can choose to migrate their existing resources from the Commitment to the Hourly/Reservation payment model to benefit from the ability to deploy the latest models, or to consolidate discounting for diverse deployments under a single reservation.
 
 Two approaches are available for customers to migrate resources using the Commitment model to the Hourly/Reservation model.
 

@@ -3,7 +3,7 @@ title: Azure OpenAI Service Provisioned Throughput Units (PTU) onboarding
 description: Learn about provisioned throughput units onboarding and Azure OpenAI. 
 ms.service: azure-ai-openai
 ms.topic: conceptual 
-ms.date: 07/23/2024
+ms.date: 08/07/2024
 manager: nitinme
 author: mrbullwinkle 
 ms.author: mbullwin 
@@ -14,12 +14,9 @@ recommendations: false
 
 This article walks you through the process of onboarding to [Provisioned Throughput Units (PTU)](../concepts/provisioned-throughput.md). Once you complete the initial onboarding, we recommend referring to the PTU [getting started guide](./provisioned-get-started.md).
 
-> [!NOTE]
-> Provisioned Throughput Units (PTU) are different from standard quota in Azure OpenAI and are not available by default. To learn more about this offering contact your Microsoft Account Team.
-
 ## When to use provisioned throughput units (PTU)
 
-You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there's an understanding of the expected traffic. This will allow users to accurately forecast the required capacity and avoid unexpected billing. 
+You should consider switching from pay-as-you-go to provisioned throughput when you have well-defined, predictable throughput requirements. Typically, this occurs when the application is ready for production or has already been deployed in production and there's an understanding of the expected traffic. This allows users to accurately forecast the required capacity and avoid unexpected billing. 
 
 ### Typical PTU scenarios
 
@@ -45,8 +42,8 @@ The **Provisioned** option and the capacity planner are only available in certai
 |Model | OpenAI model you plan to use. For example: GPT-4 |
 | Version | Version of the model you plan to use, for example 0614 |
 | Peak calls per min | The number of calls per minute that are expected to be sent to the model |
-| Tokens in prompt call | The number of tokens in the prompt for each call to the model. Calls with larger prompts will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance, we recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
-| Tokens in model response | The number of tokens generated from each call to the model. Calls with larger generation sizes will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance, we recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
+| Tokens in prompt call | The number of tokens in the prompt for each call to the model. Calls with larger prompts utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance. We recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
+| Tokens in model response | The number of tokens generated from each call to the model. Calls with larger generation sizes will utilize more of the PTU deployment. Currently this calculator assumes a single prompt value so for workloads with wide variance. We recommend benchmarking your deployment on your traffic to determine the most accurate estimate of PTU needed for your deployment. |
 
 After you fill in the required details, select **Calculate** button in the output column.
 
@@ -78,7 +75,7 @@ If the deployment size is changed, the costs of the deployment will adjust to ma
 
 Paying for provisioned deployments on an hourly basis is ideal for short-term deployment scenarios.  For example: Quality and performance benchmarking of new models, or temporarily increasing PTU capacity to cover an event such as a hackathon.  
 
-Customers that require long-term usage of provisioned deployments, however, may pay significantly less per month by purchasing a term discount via an Azure Reservation as discussed in the next section. 
+Customers that require long-term usage of provisioned deployments, however, might pay significantly less per month by purchasing a term discount via an Azure Reservation as discussed in the next section. 
 
 > [!NOTE]
 > It is not recommended to scale production deployments according to incoming traffic and pay for them purely on an hourly basis. There are two reasons for this:
@@ -87,11 +84,11 @@ Customers that require long-term usage of provisioned deployments, however, may 
 
 ## Azure Reservations for Azure OpenAI Provisioned   
 
-Discounts on top of the hourly usage price may be obtained by purchasing an Azure Reservation for Azure OpenAI Provisioned.  An Azure Reservation is a term-discounting mechanism shared by many Azure products (e.g. Compute and Cosmos DB).  For Azure OpenAI Provisioned, it provides a discount for committing to payment for fixed number of PTUs for a one-month or one-year period.  
+Discounts on top of the hourly usage price might be obtained by purchasing an Azure Reservation for Azure OpenAI Provisioned. An Azure Reservation is a term-discounting mechanism shared by many Azure products. For example Compute and Cosmos DB. For Azure OpenAI Provisioned, it provides a discount for committing to payment for fixed number of PTUs for a one-month or one-year period.  
 
-* Azure Reservations are purchased via the Azure Portal, not Azure OpenAI Studio  Link to Azure reservation portal. 
+* Azure Reservations are purchased via the Azure portal, not Azure OpenAI Studio  Link to Azure reservation portal. 
 
-* Reservations are purchased regionally and may be flexibly scoped to cover usage from a group of deployments.  Reservation scopes include: 
+* Reservations are purchased regionally and can be flexibly scoped to cover usage from a group of deployments. Reservation scopes include: 
 
     * Individual resource groups or subscriptions 
 
@@ -99,11 +96,11 @@ Discounts on top of the hourly usage price may be obtained by purchasing an Azur
 
     * All subscriptions in a billing account 
 
-* New reservations may be purchased to cover the same scope as existing reservations, to allow for discounting of new provisioned deployments.  The scope of existing reservations may also be updated at any time without penalty, for example to cover a new subscription. 
+* New reservations can be purchased to cover the same scope as existing reservations, to allow for discounting of new provisioned deployments.  The scope of existing reservations can also be updated at any time without penalty, for example to cover a new subscription. 
 
-* Reservations may be cancelled after purchase, but credits are limited.   
+* Reservations may be canceled after purchase, but credits are limited.   
 
-* If the size of provisioned deployments within the scope of a reservation exceeds the amount of the reservation, the excess is charged at the hourly rate.  For example, if deployments amounting to 250 PTUs exist within the scope of a 200 PTU reservation, 50 PTUs will be charged on an hourly basis until the deployment sizes are reduced to 200 PTUs, or a new reservation is created to cover the remaining 50. 
+* If the size of provisioned deployments within the scope of a reservation exceeds the amount of the reservation, the excess is charged at the hourly rate. For example, if deployments amounting to 250 PTUs exist within the scope of a 200 PTU reservation, 50 PTUs will be charged on an hourly basis until the deployment sizes are reduced to 200 PTUs, or a new reservation is created to cover the remaining 50. 
 
 * Reservations guarantee a discounted price for the selected term.  They do not reserve capacity on the service or guarantee that it will be available when a deployment is created.  It is highly recommended that customers create deployments prior to purchasing a reservation to prevent from over-purchasing a reservation. 
  
@@ -112,11 +109,11 @@ Discounts on top of the hourly usage price may be obtained by purchasing an Azur
 
 ## Important: Sizing Azure OpenAI Provisioned Reservations 
 
-The PTU amounts in reservation purchases are independent of all quota allocations or deployments. It is possible to purchase a reservation for more PTUs than you have in quota, or can deploy for the desired region, model or version.   Credits for over-purchasing a reservation are limited, and customers must take steps to ensure they maintain their reservation sizes in line with their deployed PTUs.  
+The PTU amounts in reservation purchases are independent of all quota allocations or deployments. It is possible to purchase a reservation for more PTUs than you have in quota, or can deploy for the desired region, model, or version.   Credits for over-purchasing a reservation are limited, and customers must take steps to ensure they maintain their reservation sizes in line with their deployed PTUs.  
  
 The best practice is to always purchase a reservation after deployments have been created.  This prevents purchasing a reservation and then finding out that the required capacity is not available for the desired region or model. 
  
-To assist customers with purchasing the correct reservation amounts.  The total number of PTUs in a subscription and region that can be covered by a reservation are listed on the Quotas page of Azure OpenAI Studio.  See the message "PTUs Available for reservation". 
+To assist customers with purchasing the correct reservation amounts. The total number of PTUs in a subscription and region that can be covered by a reservation are listed on the Quotas page of Azure OpenAI Studio. See the message "PTUs Available for reservation." 
 
 :::image type="content" source="../media/provisioned/available-quota.png" alt-text="A screenshot showing avilable PTU quota." lightbox="../media/provisioned/available-quota.png":::
 
