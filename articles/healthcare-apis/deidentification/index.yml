@@ -8,7 +8,7 @@ metadata:
   description: Deidentification service documentation for Azure Health Data Services.
   ms.service: healthcare-apis
   ms.subservice: workspace
-  ms.topic: landing-page 
+  ms.topic: landing-page
 
   author: msjasteppe
   ms.author: jasteppe
@@ -17,21 +17,22 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-
   - title: About deidentification
     linkLists:
       - linkListType: overview
         links:
           - text: What is the Deidentification service?
             url: overview.md
-           
+
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
           - text: Deploy the Deidentification service
             url: quickstart.md
-      
+          - text: Azure Health De-identification client library for .NET
+            url: quickstart-sdk-net.md
+
   - title: How-tos
     linkLists:
       - linkListType: how-to-guide
