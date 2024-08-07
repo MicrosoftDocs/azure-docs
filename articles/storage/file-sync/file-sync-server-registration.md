@@ -27,7 +27,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators with the Server Manager UI.
     
-    ![Server Manager UI with the IE Enhanced Security Configuration highlighted](media/storage-sync-files-server-registration/server-manager-ie-config.png)
+    ![Server Manager UI with the IE Enhanced Security Configuration highlighted.](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
 * Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster will require the Az module. More details on how to install the Az module can be found on the [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
@@ -43,7 +43,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
         * Show the proxy:   netsh winhttp show proxy
         * Set the proxy:    netsh winhttp set proxy 127.0.0.1:8888
         * Reset the proxy:  netsh winhttp reset proxy
-        * if this is setup after the agent is installed, then restart our sync agent:
+        * If this is set up after the agent is installed, then restart our sync agent:
             net stop filesyncsvc
     
 ```xml
@@ -65,11 +65,11 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 
 2. Start the Azure File Sync agent installer.
     
-    ![The first pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-1.png)
+    ![The first pane of the Azure File Sync agent installer.](media/storage-sync-files-server-registration/install-afs-agent-1.png)
 
 3. Be sure to enable updates to the Azure File Sync agent using Microsoft Update. It's important because critical security fixes and feature enhancements to the server package are shipped via Microsoft Update.
 
-    ![Ensure Microsoft Update is enabled in the Microsoft Update pane of the Azure File Sync agent installer](media/storage-sync-files-server-registration/install-afs-agent-2.png)
+    ![Ensure Microsoft Update is enabled in the Microsoft Update pane of the Azure File Sync agent installer.](media/storage-sync-files-server-registration/install-afs-agent-2.png)
 
 4. If the server has not been previously registered, the server registration UI will pop up immediately after completing the installation.
 
@@ -82,11 +82,11 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 
 2. Select *Sign-in* to access your Azure subscription.
 
-    ![Opening dialog of the server registration UI](media/storage-sync-files-server-registration/server-registration-ui-1.png)
+    ![Opening dialog of the server registration UI.](media/storage-sync-files-server-registration/server-registration-ui-1.png)
 
 3. Pick the correct subscription, resource group, and Storage Sync Service from the dialog.
 
-    ![Storage Sync Service information](media/storage-sync-files-server-registration/server-registration-ui-2.png)
+    ![Storage Sync Service information.](media/storage-sync-files-server-registration/server-registration-ui-2.png)
 
 4. You might be prompted to sign into Azure again to complete the process.
 
