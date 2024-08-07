@@ -43,7 +43,7 @@ Both GitHub and Azure Repos allow approval pipelines to be configured that run w
 * API specification linters such as [Spectral][12] to ensure that the definition meets API standards required by the organization.  
 * Breaking change detection using tools such as [openapi-diff][13].
 * Security audit and assessment tools.  [OWASP maintains a list of tools][14] for security scanning.
-* Automated API test frameworks, such as those available in different development libraries.
+* Automated API test frameworks.
 
 > [!NOTE]
 > Azure APIs must conform to a [strict set of guidelines][26] that you can use as a starting point for your own API guidelines.  There is a [Spectral configuration][27] for enforcing the guidelines.

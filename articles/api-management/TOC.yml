@@ -660,14 +660,14 @@
       href: breaking-changes/metrics-retirement-aug-2023.md
     - name: Virtual network changes (September 2023)
       href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-    - name: API version retirements (June 2024)
-      href: breaking-changes/api-version-retirement-sep-2023.md
     - name: Self-hosted gateway v0/v1 retirements (October 2023)
       href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
     - name: Workspaces preview breaking changes (June 2024)
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
+    - name: API version retirements (June 2024)
+      href: breaking-changes/api-version-retirement-sep-2023.md
     - name: stv1 compute platform retirement (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
     - name: Workspaces preview breaking changes, part 2 (March 2025)

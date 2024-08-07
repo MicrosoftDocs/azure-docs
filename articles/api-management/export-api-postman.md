@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/06/2024
 ms.author: danlep
 ---
-# Export API definition to Postman for API testing and monitoring
+# Export API definition to Postman for API testing, monitoring, and development
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
