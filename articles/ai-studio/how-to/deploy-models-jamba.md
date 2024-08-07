@@ -34,6 +34,8 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 
 ### Prerequisites
 
+# [AI21 Jamba Instruct](#tab/jamba-instruct)
+
 - An Azure subscription with a valid payment method. Free or trial Azure subscriptions won't work. If you don't have an Azure subscription, create a [paid Azure account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go) to begin.
 - An [AI Studio hub](../how-to/create-azure-ai-resource.md). The serverless API model deployment offering for Jamba Instruct is only available with hubs created in these regions:
 
@@ -66,7 +68,15 @@ To get started with Jamba Instruct deployed as a serverless API, explore our int
 
     For more information on permissions, see [Role-based access control in Azure AI Studio](../concepts/rbac-ai-studio.md).
 
+
+# [AI21 Jamba](#tab/jamba-)
+
+
+---
+
 ### Create a new deployment
+
+# [AI21 Jamba Instruct](#tab/jamba-instruct)
 
 These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deployment:
 
@@ -90,6 +100,11 @@ These steps demonstrate the deployment of AI21-Jamba-Instruct. To create a deplo
 1. You can always find the endpoint's details, URL, and access keys by navigating to your **Project overview** page. Then, from the left sidebar of your project, select **Components** > **Deployments**.
 
 To learn about billing for the AI21-Jamba-Instruct model deployed as a serverless API with pay-as-you-go token-based billing, see [Cost and quota considerations for Jamba Instruct deployed as a serverless API](#cost-and-quota-considerations-for-jamba-instruct-deployed-as-a-serverless-api).
+
+# [AI21 Jamba](#tab/jamba-)
+
+
+---
 
 ### Consume Jamba Instruct as a serverless API
 
